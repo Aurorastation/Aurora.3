@@ -38,7 +38,7 @@
 	for(var/maneuver in available_maneuvers)
 		maneuvers += GET_SINGLETON(maneuver)
 
-	var/next_maneuver = input(src, "Select a maneuver.") as null|anything in maneuvers
+	var/next_maneuver = tgui_input_list(src, "Select a maneuver.", "Maneuvers", maneuvers)
 	if(next_maneuver)
 		prepared_maneuver = next_maneuver
 		to_chat(src, SPAN_NOTICE("You prepare to [prepared_maneuver.name]."))

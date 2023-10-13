@@ -325,7 +325,7 @@ BLIND     // can't see anything
 	set src in usr
 
 	var/list/options = list("Under Hair" = GLASSES_LAYER, "Over Hair" = GLASSES_LAYER_ALT, "Over Headwear" = GLASSES_LAYER_OVER)
-	var/new_layer = input(usr, "Position Goggles", "Goggle style") as null|anything in options
+	var/new_layer = tgui_input_list(usr, "Position Goggles", "Goggles Style", options)
 	if(new_layer)
 		normal_layer = options[new_layer]
 		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))

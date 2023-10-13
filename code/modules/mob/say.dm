@@ -5,7 +5,6 @@
 	set name = "Say"
 	set category = "IC"
 
-	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
@@ -21,7 +20,6 @@
 	set name = "Me"
 	set category = "IC"
 
-	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return

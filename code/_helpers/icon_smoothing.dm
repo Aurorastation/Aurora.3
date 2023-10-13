@@ -536,14 +536,26 @@
 
 	for(var/V in Z_ALL_TURFS(zlevel))
 		var/turf/T = V
+
+		//There's no use in smoothing turfs that have been deleted
+		if(QDELETED(T))
+			continue
+
 		if(T.smoothing_flags)
 			if(now)
 				smooth_icon(T)
 			else
 				SSicon_smooth.add_to_queue(T)
+
 		for(var/R in T)
 			var/atom/A = R
+
+			//There's no use in smoothing deleted things
+			if(QDELETED(A))
+				continue
+
 			if(A.smoothing_flags)
+
 				if(now)
 					smooth_icon(A)
 				else

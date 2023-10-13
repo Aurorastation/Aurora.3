@@ -103,7 +103,7 @@
 		return 1
 
 /obj/item/eightball/haunted/proc/get_ghost_answer(mob/user)
-	var/answer = input("Choose the answer.", "Magic eightball question") as null|anything in possible_answers
+	var/answer = tgui_input_list(user, "Choose the answer.", "Magic Eight-Ball", possible_answers)
 
 	if(answered)
 		return

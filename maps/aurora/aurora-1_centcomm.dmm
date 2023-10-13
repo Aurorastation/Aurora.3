@@ -8254,7 +8254,7 @@
 /obj/machinery/door/window/westleft{
 	name = "Auxillary Cryogenics"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "bvr" = (
 /obj/structure/closet/gimmick{
@@ -10884,7 +10884,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "ddo" = (
 /obj/structure/table/reinforced,
@@ -25861,7 +25861,7 @@
 	},
 /area/centcom/holding)
 "mDE" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "mDS" = (
 /obj/machinery/porta_turret/crescent,
@@ -25880,13 +25880,13 @@
 "mEz" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/secure/briefcase,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "mET" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "mFI" = (
 /obj/machinery/door/blast/regular/open{
@@ -27472,7 +27472,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	name = "pilot seat"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "nEc" = (
 /obj/random/vendor{
@@ -27907,7 +27907,7 @@
 	pixel_y = -25;
 	req_access = null
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "nQb" = (
 /obj/structure/table/rack,
@@ -29443,7 +29443,7 @@
 /area/centcom/evac)
 "oSD" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "oTX" = (
 /obj/structure/window/reinforced/crescent{
@@ -29534,7 +29534,7 @@
 "oWL" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/wallet/random,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "oXd" = (
 /obj/structure/shuttle_part/mercenary{
@@ -29544,7 +29544,7 @@
 /area/shuttle/mercenary)
 "oXr" = (
 /obj/structure/table/reinforced,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "oXE" = (
 /obj/structure/table/standard,
@@ -42117,7 +42117,7 @@
 	layer = 3.3;
 	pixel_y = 27
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "xsL" = (
 /obj/machinery/iv_drip,

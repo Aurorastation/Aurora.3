@@ -98,69 +98,55 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	return 0
 
 /*
-	NANO UI FOR UPLINK WOOP WOOP
+	TGUI FOR UPLINK WOOP WOOP
 */
-/obj/item/device/uplink/hidden/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/title = "Remote Uplink"
-	var/data[0]
+/obj/item/device/uplink/hidden/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Uplink", capitalize_first_letters(name))
+		ui.open()
 
+/obj/item/device/uplink/hidden/ui_data(mob/user)
+	var/list/data = list()
 	data["welcome"] = welcome
 	data["telecrystals"] = telecrystals
 	data["bluecrystals"] = bluecrystals
 	data["menu"] = nanoui_menu
+	update_nano_data()
 	data += nanoui_data
-
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)	// No auto-refresh
-		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = inventory_state)
-		ui.set_initial_data(data)
-		ui.open()
-
+	return data
 
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
 /obj/item/device/uplink/hidden/interact(mob/user)
-	ui_interact(user)
+	ui_interact(user, null)
 
-/obj/item/device/uplink/hidden/CanUseTopic()
-	if(!active)
-		return STATUS_CLOSE
-	return ..()
-
-// The purchasing code.
-/obj/item/device/uplink/hidden/Topic(href, href_list)
+/obj/item/device/uplink/hidden/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return 1
 
-	var/mob/user = usr
-	if(href_list["buy_item"])
-		var/datum/uplink_item/UI = (locate(href_list["buy_item"]) in uplink.items)
+	if(action == "buy_item")
+		var/datum/uplink_item/UI = (locate(params["buy_item"]) in uplink.items)
 		UI.buy(src, usr)
-	else if(href_list["lock"])
+	else if(action == "lock")
 		toggle()
-		var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-		ui.close()
-	else if(href_list["return"])
+		SStgui.close_uis(src)
+	else if(action == "return")
 		nanoui_menu = round(nanoui_menu/10)
-	else if(href_list["menu"])
-		nanoui_menu = text2num(href_list["menu"])
-		if(href_list["id"])
-			exploit_id = href_list["id"]
-		if(href_list["category"])
-			category = locate(href_list["category"]) in uplink.categories
-	// #TODO-MERGE: Check NanoUI on PDAs
-	if(href_list["contract_interact"])
-		var/list/params = list("location" = "contract_details", "contract" = href_list["contract_interact"])
-		usr.client.process_webint_link("interface/login/sso_server", list2params(params))
-	if(href_list["contract_page"])
-		nanoui_data["contracts_current_page"] = text2num(href_list["contract_page"])
-		update_nano_data()
-	if(href_list["contract_view"])
-		nanoui_data["contracts_view"] = text2num(href_list["contract_view"])
+	else if(action == "menu")
+		nanoui_menu = text2num(params["menu"])
+		if(params["id"])
+			exploit_id = params["id"]
+		if(params["category"])
+			category = locate(params["category"]) in uplink.categories
+	if(action == "contract_interact")
+		var/list/params_webint = list("location" = "contract_details", "contract" = params["contract_interact"])
+		usr.client.process_webint_link("interface/login/sso_server", list2params(params_webint))
+	if(action == "contract_page")
+		nanoui_data["contracts_current_page"] = text2num(params["contract_page"])
+	if(action == "contract_view")
+		nanoui_data["contracts_view"] = text2num(params["contract_view"])
 		nanoui_data["contracts_current_page"] = 1
-		update_nano_data()
 
-	update_nano_data()
 	return 1
 
 /obj/item/device/uplink/hidden/proc/update_nano_data()
@@ -189,8 +175,8 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
 		var/permanentData[0]
-		for(var/datum/record/general/locked/L in sortRecord(SSrecords.records_locked))
-			permanentData[++permanentData.len] = list(Name = L.name,"id" = L.id)
+		for(var/datum/record/general/locked/record in SSrecords.records_locked)
+			permanentData[++permanentData.len] = list("name" = record.name,"id" = record.id, "has_exploitables" = !!record.exploit_record)
 		nanoui_data["exploit_records"] = permanentData
 	else if(nanoui_menu == 21)
 		nanoui_data["exploit_exists"] = 0

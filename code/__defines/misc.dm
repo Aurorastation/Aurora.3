@@ -47,29 +47,29 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY     0x8
-#define CHAT_OOC        0x10
-#define CHAT_DEAD       0x20
-#define CHAT_GHOSTEARS  0x40
-#define CHAT_GHOSTSIGHT 0x80
-#define CHAT_PRAYER     0x100
-#define CHAT_RADIO      0x200
-#define CHAT_ATTACKLOGS 0x400
-#define CHAT_DEBUGLOGS  0x800
-#define CHAT_LOOC       0x1000
-#define CHAT_GHOSTRADIO 0x2000
-#define SHOW_TYPING     0x4000
-#define CHAT_NOICONS    0x8000
-#define CHAT_GHOSTLOOC	0x10000
+#define SOUND_LOBBY				0x8
+#define CHAT_OOC				0x10
+#define CHAT_DEAD				0x20
+#define CHAT_GHOSTEARS			0x40
+#define CHAT_GHOSTSIGHT			0x80
+#define CHAT_PRAYER				0x100
+#define CHAT_RADIO				0x200
+#define CHAT_ATTACKLOGS			0x400
+#define CHAT_DEBUGLOGS			0x800
+#define CHAT_LOOC				0x1000
+#define CHAT_GHOSTRADIO			0x2000
+#define HIDE_TYPING_INDICATOR	0x4000
+#define CHAT_NOICONS			0x8000
+#define CHAT_GHOSTLOOC			0x10000
 
 // 0x1 is free.
 // 0x2 is free.
-#define PROGRESS_BARS  0x4
-#define PARALLAX_IS_STATIC 0x8
-#define FLOATING_MESSAGES 0x10
-#define HOTKEY_DEFAULT 0x20
-#define FULLSCREEN_MODE 0x40
-#define ACCENT_TAG_TEXT 0x80
+#define PROGRESS_BARS				0x4
+#define PARALLAX_IS_STATIC			0x8
+#define FLOATING_MESSAGES			0x10
+#define HOTKEY_DEFAULT				0x20
+#define FULLSCREEN_MODE				0x40
+#define ACCENT_TAG_TEXT				0x80
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
@@ -168,6 +168,8 @@
 #define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
+#define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
+#define DEFAULT_TABLE_FLIP_WEIGHT 22
 #define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"
@@ -527,3 +529,6 @@ example:
 #define TRANSFER_EMERGENCY "emergency transfer"
 #define TRANSFER_JUMP "bluespace jump"
 #define TRANSFER_CREW "crew transfer"
+
+/// Gyrotron power usage modifier.
+#define GYRO_POWER 25000

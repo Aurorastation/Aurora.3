@@ -165,7 +165,7 @@
 	new painting_decal(F, painting_dir, painting_colour)
 
 /obj/item/device/paint_sprayer/attack_self(var/mob/user)
-	var/choice = input("Do you wish to change the decal type, paint direction, or paint colour?") as null|anything in list("Decal","Direction", "Colour")
+	var/choice = tgui_alert(user, "Do you wish to change the decal type, paint direction, or paint colour?", "Paint Sprayer", list("Decal","Direction", "Colour"))
 	if(choice == "Decal")
 		choose_decal()
 	else if(choice == "Direction")
@@ -220,7 +220,7 @@
 		available_colors |= isnull(I.color) ? COLOR_WHITE : I.color
 	var/picked_color = available_colors[1]
 	if (available_colors.len > 1)
-		picked_color = input(user, "Which color do you wish to pick from?") as null|anything in available_colors
+		picked_color = tgui_input_list(user, "Which color do you wish to pick from?", "Paint Sprayer", available_colors)
 		if (user.incapacitated() || !user.Adjacent(F))
 			return FALSE
 	return picked_color
@@ -263,7 +263,7 @@
 		choices |= AIRLOCK_REGION_STRIPE
 	if (D.paintable & AIRLOCK_PAINTABLE_WINDOW)
 		choices |= AIRLOCK_REGION_WINDOW
-	choice = input(user, input_text) as null|anything in sortList(choices)
+	choice = tgui_input_list(user, input_text, "Paint Sprayer", sortList(choices))
 	if (!user.use_check_and_message() || !D || !user.Adjacent(D))
 		return FALSE
 	return choice
@@ -301,7 +301,7 @@
 
 	if(usr.incapacitated())
 		return
-	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as color|null
+	var/new_colour = input(usr, "Choose a colour.", "Paint Sprayer", paint_colour) as color|null
 	change_colour(new_colour, usr)
 
 /obj/item/device/paint_sprayer/verb/choose_preset_colour()
@@ -326,7 +326,7 @@
 	if(usr.incapacitated())
 		return
 
-	var/new_decal = input("Select a decal.") as null|anything in decals
+	var/new_decal = tgui_input_list(usr, "Select a decal.", "Paint Sprayer", decals)
 	if(new_decal && !isnull(decals[new_decal]))
 		decal = new_decal
 		to_chat(usr, "<span class='notice'>You set \the [src] decal to '[decal]'.</span>")
@@ -340,7 +340,7 @@
 	if(usr.incapacitated())
 		return
 
-	var/new_dir = input("Select a direction.") as null|anything in paint_dirs
+	var/new_dir = tgui_input_list(usr, "Select a direction.", "Paint Sprayer", paint_dirs)
 	if(new_dir && !isnull(paint_dirs[new_dir]))
 		paint_dir = new_dir
 		to_chat(usr, "<span class='notice'>You set \the [src] direction to '[paint_dir]'.</span>")

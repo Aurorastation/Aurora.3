@@ -638,4 +638,17 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/away_site
 	access = list(access_generic_away_site, access_external_airlocks)
 
+/obj/item/card/id/mecha
+	name = "exosuit access card"
+
+/obj/item/card/id/mecha/GetAccess()
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(loc) || !length(exosuit.pilots))
+		return list()
+	var/list/pilot_access = list()
+	for(var/mob/pilot as anything in exosuit.pilots)
+		var/obj/item/ID = pilot.GetIdCard()
+		pilot_access |= ID.GetAccess()
+	return pilot_access
+
 #undef ID_CARD_UNSET

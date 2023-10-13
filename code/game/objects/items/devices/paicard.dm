@@ -355,7 +355,7 @@
 		src.looking_for_personality = 1
 		SSpai.findPAI(src, usr)
 	if(href_list["wipe"])
-		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
+		var/confirm = tgui_alert(usr, "Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
 		if(confirm == "Yes")
 			for(var/mob/M in src)
 				to_chat(M, "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>")

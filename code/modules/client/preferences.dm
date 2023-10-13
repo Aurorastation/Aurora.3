@@ -28,6 +28,9 @@ var/list/preferences_datums = list()
 	var/UI_style_alpha = 255
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
+	var/tgui_inputs = TRUE
+	var/tgui_buttons_large = FALSE
+	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -158,7 +161,7 @@ var/list/preferences_datums = list()
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 40
 	var/floating_chat_color
-	var/speech_bubble_type = "normal"
+	var/speech_bubble_type = "default"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 

@@ -404,9 +404,10 @@
 
 	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
 	affecting_turfs += L
-	for (thing in L)
-		T = thing
-		LAZYADD(T.affecting_lights, src)
+	for (var/turf/affected_turf as anything in L)
+		if(!QDELETED(affected_turf))
+			T = affected_turf
+			LAZYADD(T.affecting_lights, src)
 
 	L = affecting_turfs - turfs // Now-gone turfs, remove us from the affecting lights.
 	affecting_turfs -= L

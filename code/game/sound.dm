@@ -964,3 +964,9 @@
 		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
 		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
 	)
+
+/singleton/sound_category/print_sound
+	sounds = list(
+		'sound/items/polaroid1.ogg',
+		'sound/items/polaroid2.ogg'
+	)

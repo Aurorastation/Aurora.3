@@ -279,7 +279,7 @@
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
-	..()
+	new /obj/item/stack/rods(src.loc, 2)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
 // Used for !fun! things such as embedding shards in the faces of tableslammed people.
@@ -307,45 +307,53 @@
 	if(carpeted && (full_return || prob(50))) // Higher chance to get the carpet back intact, since there's no non-intact option
 		new /obj/item/stack/tile/carpet(src.loc)
 	if(full_return || prob(20))
-		new /obj/item/stack/material/steel(src.loc)
+		new /obj/item/stack/rods(src.loc, 2)
 	else
-		var/material/M = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
-		S = M.place_shard(loc)
-		if(S) shards += S
+		new /obj/item/stack/rods(src.loc)
 	qdel(src)
 	return shards
 
 /obj/structure/table/update_icon()
+	cut_overlays()
+	icon_state = "blank"
+	var/image/I
 	if(flipped != 1)
-		icon_state = "blank"
-		cut_overlays()
-
-		var/image/I
-
-		// Standard table image.
-		if(material)
+		if(material) // Standard table image.
 			for(var/i = 1 to 4)
-				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
-				if(material_alteration & MATERIAL_ALTERATION_COLOR) I.color = material.icon_colour
+				if(material.table_icon)
+					if(reinforced && ("reinf_[material.name]_[connections[i]]" in icon_states(material.table_icon)))
+						I = image(material.table_icon, "reinf_[material.name]_[connections[i]]", dir = 1<<(i-1))
+					else
+						I = image(material.table_icon, "[material.name]_[connections[i]]", dir = 1<<(i-1))
+				else
+					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(icon)))
+						I = image(icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+					else
+						I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+					if(material.icon_colour)
+						I.color = material.icon_colour
 				add_overlay(I)
-		else
+		else // Table frame
 			for(var/i = 1 to 4)
-				I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
+				I = image(icon, "[connections[i]]", dir = 1<<(i-1))
 				add_overlay(I)
 
-		// Reinforcements.
-		if(reinforced)
+		if(reinforced)	// Reinforcements.
 			for(var/i = 1 to 4)
-				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
-				I.color = reinforced.icon_colour
+				if("reinf_[reinforced.name]_[connections[i]]" in icon_states('icons/obj/structure/tables/table_reinf.dmi')) // if it's got an existing purpose-made reinforced icon, and it isn't already a generic one, use it
+					I = image('icons/obj/structure/tables/table_reinf.dmi', "reinf_[reinforced.name]_[connections[i]]", dir = 1<<(i-1))
+				else
+					I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_[connections[i]]", dir = 1<<(i-1)) // else use the generic recolorable one
+				if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
+					I.color = reinforced.icon_colour
 				add_overlay(I)
 
 		if(carpeted)
 			for(var/i = 1 to 4)
 				I = image(icon, "carpet_[connections[i]]", dir = 1<<(i-1))
 				add_overlay(I)
-	else
-		cut_overlays()
+
+	else	// Flipped table
 		var/type = 0
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
@@ -361,19 +369,37 @@
 			if (tabledirs & turn(dir,-90))
 				type += "+"
 
-		icon_state = "flip[type]"
 		if(material)
-			var/image/I = image(icon, "[material.icon_base]_flip[type]")
-			I.color = material.icon_colour
+			if(material.table_icon)
+				if(reinforced && ("reinf_[material.name]_flip[type]" in icon_states(material.table_icon)))
+					I = image(material.table_icon, "reinf_[material.name]_flip[type]")
+				else
+					I = image(material.table_icon, "[material.name]_flip[type]")
+			else
+				if(reinforced && ("reinf_[material.icon_base]_flip[type]" in icon_states(icon)))
+					I = image(icon, "reinf_[material.icon_base]_flip[type]")
+				else
+					I = image(icon, "[material.icon_base]_flip[type]")
+				if(material.icon_colour)
+					I.color = material.icon_colour
 			add_overlay(I)
-			if(material_alteration & MATERIAL_ALTERATION_NAME)
-				name = "[material.display_name] table"
+			if(material.display_name)
+				if(material.display_name == "comfy")
+					name = "fancy table"
+				else
+					name = "[material.display_name] table"
 		else
+			I = image(icon, "flip[type]")
 			name = "table frame"
+			add_overlay(I)
 
 		if(reinforced)
-			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
-			I.color = reinforced.icon_colour
+			if("reinf_[reinforced.name]_flip[type]" in icon_states('icons/obj/structure/tables/table_reinf.dmi')) // if it's got an existing purpose-made reinforced icon, and it isn't already a generic one, use it
+				I = image('icons/obj/structure/tables/table_reinf.dmi', "reinf_[reinforced.name]_flip[type]")
+			else
+				I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_flip[type]") // else use the generic recolorable one
+			if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
+				I.color = reinforced.icon_colour
 			add_overlay(I)
 
 		if(carpeted)

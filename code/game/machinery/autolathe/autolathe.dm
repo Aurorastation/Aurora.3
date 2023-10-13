@@ -191,8 +191,10 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
+	var/list/categories = SSmaterials.autolathe_categories + "All"
+
 	if(href_list["change_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in SSmaterials.autolathe_categories+"All"
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Autolathe", categories)
 		if(!choice)
 			return
 		show_category = choice

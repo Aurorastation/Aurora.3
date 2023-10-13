@@ -181,43 +181,43 @@
 
 /datum/category_item/player_setup_item/general/equipment/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["change_backpack"])
-		var/new_backbag = input(user, "Choose your character's bag type:", "Character Preference", backbaglist[pref.backbag]) as null|anything in backbaglist
+		var/new_backbag = tgui_input_list(user, "Choose your character's bag type.", "Character Preference", backbaglist, backbaglist[pref.backbag])
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag = backbaglist.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backpack_style"])
-		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbagstyles[pref.backbag_style]) as null|anything in backbagstyles
+		var/new_backbag = tgui_input_list(user, "Choose your character's style of bag.", "Character Preference", backbagstyles, backbagstyles[pref.backbag_style])
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag_style = backbagstyles.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backpack_color"])
-		var/new_backbag = input(user, "Choose your character's color of bag:", "Character Preference", backbagcolors[pref.backbag_color]) as null|anything in backbagcolors
+		var/new_backbag = tgui_input_list(user, "Choose your character's color of bag.", "Character Preference", backbagcolors, backbagcolors[pref.backbag_color])
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag_color = backbagcolors.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backbag_strap"])
-		var/new_backbag = input(user, "Choose your character's style of bag strap:", "Character Preference", backbagstrap[pref.backbag_strap]) as null|anything in backbagstrap
+		var/new_backbag = tgui_input_list(user, "Choose your character's style of bag strap.", "Character Preference", backbagstrap, backbagstrap[pref.backbag_strap])
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag_strap = backbagstrap.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_pda"])
-		var/new_pda = input(user, "Choose your character's PDA type:", "Character Preference", pdalist[pref.pda_choice]) as null|anything in pdalist
+		var/new_pda = tgui_input_list(user, "Choose your character's PDA type.", "Character Preference", pdalist, pdalist[pref.pda_choice])
 		if(!isnull(new_pda) && CanUseTopic(user))
 			pref.pda_choice = pdalist.Find(new_pda)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_headset"])
-		var/new_headset = input(user, "Choose your character's headset type:", "Character Preference", headsetlist[pref.headset_choice]) as null|anything in headsetlist
+		var/new_headset = tgui_input_list(user, "Choose your character's headset type.", "Character Preference", headsetlist, headsetlist[pref.headset_choice])
 		if(!isnull(new_headset) && CanUseTopic(user))
 			pref.headset_choice = headsetlist.Find(new_headset)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_radio_slot"])
-		var/new_slot = input(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Charcter Preference", pref.primary_radio_slot) as null|anything in primary_radio_slot_choice
+		var/new_slot = tgui_input_list(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Charcter Preference", primary_radio_slot_choice, pref.primary_radio_slot)
 		if(!isnull(new_slot) && CanUseTopic(user))
 			pref.primary_radio_slot = new_slot
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -226,7 +226,7 @@
 		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return TOPIC_NOACTION
-		var/datum/category_item/underwear/selected_underwear = input(user, "Choose underwear:", "Character Preference", pref.all_underwear[UWC.name]) as null|anything in UWC.items
+		var/datum/category_item/underwear/selected_underwear = tgui_input_list(user, "Choose underwear:", "Character Preference", UWC.items, pref.all_underwear[UWC.name])
 		if(selected_underwear && CanUseTopic(user))
 			pref.all_underwear[UWC.name] = selected_underwear.name
 		return TOPIC_REFRESH_UPDATE_PREVIEW
