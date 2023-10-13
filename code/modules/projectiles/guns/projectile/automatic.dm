@@ -705,6 +705,7 @@
 	handle_casings = EJECT_CASINGS
 	caliber = "30-06 govt"
 	is_wieldable = TRUE
+	max_shells = 8
 
 	// Magazine fed shotguns start here.
 /obj/item/gun/projectile/automatic/rifle/shotgun

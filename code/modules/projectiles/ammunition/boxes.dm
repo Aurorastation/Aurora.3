@@ -366,7 +366,7 @@
 
 /obj/item/ammo_magazines/a556/carbine/konyang47
 	name = "konyang carbine magazine"
-	icon_state = "k-47_mag"
+	icon_state = "k47_mag"
 
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"
