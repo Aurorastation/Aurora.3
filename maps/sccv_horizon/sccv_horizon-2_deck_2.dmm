@@ -330,12 +330,11 @@
 /area/rnd/xenobiology)
 "aib" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/bedsheet/mime,
-/obj/structure/bed/padded,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet,
+/mob/living/simple_animal/capybara/bongo,
+/turf/simulated/floor/grass,
 /area/horizon/bar/backroom)
 "aic" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1249,10 +1248,10 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southright{
-	name = "Pun Pun's Cage";
+	name = "Bongo's Cage";
 	req_access = list(25)
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/grass,
 /area/horizon/bar/backroom)
 "ayY" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -16056,8 +16055,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/mob/living/carbon/human/monkey/punpun,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/grass,
 /area/horizon/bar/backroom)
 "hCF" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -31730,8 +31728,8 @@
 "pdF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/air_sensor{
-	id_tag = "fusion_sensor";
-	frequency = 1441
+	frequency = 1441;
+	id_tag = "fusion_sensor"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
@@ -45411,16 +45409,7 @@
 	layer = 5;
 	name = "adjusted reinforced window"
 	},
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/obj/item/bananapeel{
-	pixel_x = -7;
-	pixel_y = 1
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/grass,
 /area/horizon/bar/backroom)
 "vNQ" = (
 /turf/simulated/wall,

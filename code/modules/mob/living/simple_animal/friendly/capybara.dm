@@ -3,10 +3,10 @@
 	real_name = "capybara"
 	desc = "A brown capybara, or a \"coconut dog\", relaxing as usual."
 	icon = 'icons/mob/npc/capybara.dmi'
-	icon_state = "coconut"
-	icon_living = "coconut"
-	icon_dead = "coconut_dead"
-	icon_rest = "coconut_rest"
+	icon_state = "capybara"
+	icon_living = "capybara"
+	icon_dead = "capybara_dead"
+	icon_rest = "capybara_rest"
 	can_nap = TRUE
 	speak = list("Squeek.", "Squeeeeeeeeek!")
 	speak_emote = list("squeeks", "grunts")
@@ -47,3 +47,7 @@
 			"\The [src] has accepted its fate to receive pets."
 			)
 		to_chat(M, pick(responses))
+
+/mob/living/simple_animal/capybara/bongo
+	name = "Bongo"
+	desc = "It's the bar's capybara, a capyBARa, you could say."
