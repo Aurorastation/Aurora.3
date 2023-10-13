@@ -150,6 +150,7 @@
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
+	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
 	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
@@ -222,6 +223,7 @@
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
 	flags["flag, Free Tajaran Council"] = /obj/item/flag/ftc/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
+	flags["flag, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
 	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l

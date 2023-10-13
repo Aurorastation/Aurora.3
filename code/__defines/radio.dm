@@ -5,7 +5,9 @@
 // Reminder: frequencies should only be odd numbers
 
 // Public frequencies (no encryption key required), see range above
+#define EXP_FREQ	1445
 #define BOT_FREQ	1447
+#define INT_FREQ	1449
 #define PEN_FREQ	1451
 #define PUB_FREQ	1459
 #define ENT_FREQ	1461
@@ -56,7 +58,9 @@ var/list/radiochannels = list(
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
-	"Security (I)"	= SEC_I_FREQ
+	"Security (I)"	= SEC_I_FREQ,
+	"Interrogation" = INT_FREQ,
+	"Expeditionary" = EXP_FREQ
 )
 
 var/list/reverseradiochannels = list(

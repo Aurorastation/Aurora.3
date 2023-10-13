@@ -2,7 +2,7 @@
 	name = "mining satchel"
 	desc = "This little bugger can be used to store and transport ores."
 	desc_info = "You can attach a warp extraction pack to it, then click on an ore box that has a warp extraction beacon signaller attached to it to link them. Then ore put into this will be bluespace teleported into the ore box."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/storage/bags.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	max_storage_space = 100

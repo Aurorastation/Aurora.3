@@ -876,10 +876,30 @@
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
-	canremove = 0
+	canremove = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
-	var/wings
+	var/wings_extended = FALSE
+
+/obj/item/storage/backpack/typec/verb/toggle_wings()
+	set name = "Spread Wings"
+	set desc = "Spread your wings."
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr) || !ishuman(usr))
+		return FALSE
+
+	var/mob/living/carbon/human/user = usr
+
+	wings_extended = !wings_extended
+	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
+	user.visible_message("<b>[user]</b> [wings_extended ? "extend" : "collapse"]s their wings.", SPAN_NOTICE("You [wings_extended ? "extend" : "collapse"] your wings."))
+	icon_state = "[initial(icon_state)][wings_extended ? "_open" : ""]"
+	item_state = "icon_state"
+
+	user.update_icon()
+	user.update_inv_back()
 
 /obj/item/storage/backpack/typec/klax
 	icon = 'icons/mob/species/breeder/inventory.dmi'
@@ -894,22 +914,6 @@
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings_cthur"
 	item_state = "wings_cthur"
-
-/obj/item/storage/backpack/typec/verb/toggle_wings()
-	set name = "Spread Wings"
-	set desc = "Spread your wings."
-	set category = "Object"
-	set src in usr
-	if(use_check_and_message(usr))
-		return 0
-	wings = !wings
-	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
-	to_chat(usr, "You [wings ? "extend" : "collapse"] your [src].")
-	icon_state = "[initial(icon_state)][wings ? "_open" : ""]"
-	item_state = "icon_state"
-	var/mob/living/carbon/human/H = src.loc
-	H.update_icon()
-	H.update_inv_back()
 
 
 //**Vaurca cloaks**//

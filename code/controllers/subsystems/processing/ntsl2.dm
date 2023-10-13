@@ -1,9 +1,7 @@
-var/datum/controller/subsystem/processing/ntsl2/SSntsl2
-
 /*
 NTSL2 deamon management subsystem, responsible for handling events from deamon and it's connection state.
 */
-/datum/controller/subsystem/processing/ntsl2
+PROCESSING_SUBSYSTEM_DEF(ntsl2)
 	name = "NTSL2"
 	flags = 0
 	init_order = SS_INIT_MISC
@@ -12,9 +10,6 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	var/list/programs = list()
 	var/list/tasks = list()
 	var/current_task_id = 1
-
-/datum/controller/subsystem/processing/ntsl2/New()
-	NEW_SS_GLOBAL(SSntsl2)
 
 /datum/controller/subsystem/processing/ntsl2/Initialize(timeofday)
 	attempt_connect()

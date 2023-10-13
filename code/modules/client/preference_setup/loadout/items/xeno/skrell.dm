@@ -199,7 +199,7 @@
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	flags = GEAR_NO_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/skrell_residency
 	display_name = "starlight residency card"
@@ -207,7 +207,7 @@
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	flags = GEAR_NO_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/skrell_passport/New()
 	. = ..()
@@ -234,6 +234,13 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain")
+
+/datum/gear/head/skrell_helmet/hos
+	display_name = "Head of Security Skrellmet"
+	path = /obj/item/clothing/head/helmet/hos/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	allowed_roles = list("Head of Security")
 
 /*
 	Skrellian Social Score
@@ -408,7 +415,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/ears/skrell/tailband/New()
 	..()

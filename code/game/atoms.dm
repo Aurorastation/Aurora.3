@@ -247,7 +247,7 @@
 // Returns TRUE, the caller always expects TRUE
 // This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
 /atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src][infix]."
+	var/f_name = "\a [src]. [infix]"
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = "some "
@@ -350,6 +350,7 @@
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
+	var/old_dir = dir
 	dir = new_dir
 
 	// Lighting.
@@ -359,6 +360,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
+		dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
@@ -715,6 +717,12 @@
 
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
+
+/atom/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/atom/proc/get_standard_pixel_y()
+	return initial(pixel_y)
 
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return

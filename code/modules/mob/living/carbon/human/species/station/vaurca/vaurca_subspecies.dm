@@ -61,6 +61,10 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
+	floating_chat_x_offset = 8
+	floating_chat_y_offset = 16
+	typing_indicator_x_offset = 16
+	typing_indicator_y_offset = 12
 	healths_x = 22
 	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
@@ -78,9 +82,9 @@
 	The Type C caste is not suitable for physical work and will often delegate any duties to the rest of the Vaurcae, which are below them in the hierarchy.<br>
 	<b>Vaurca Breeders can only be played as Hive Representatives of Queens affiliated to the Court of Queens.</b>"}
 
-	age_max = 1000
+	age_max = 30000
 	default_genders = list(FEMALE)
-	economic_modifier = 3
+	economic_modifier = 12
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
@@ -106,10 +110,35 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite
+		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/hivenet_neuralshock,
+		/mob/living/carbon/human/proc/hivenet_lattice,
+		/mob/living/carbon/human/proc/hivenet_encrypt,
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_decrypt,
+		/mob/living/carbon/human/proc/hivenet_camera,
+		/mob/living/carbon/human/proc/hivemute,
+		/mob/living/carbon/human/proc/hiveban,
+		/mob/living/carbon/human/proc/hivevoid,
+		/mob/living/carbon/human/proc/hivenet_transmit
 	)
 
 	default_h_style = "Bald"
+
+	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
+		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket/admin,
+		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
+		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
+		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
+		BP_PHORON_RESERVE  = /obj/item/organ/internal/vaurca/preserve,
+		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
+		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
+		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
+		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield
+	)
 
 /datum/species/bug/type_c/New()
 	..()
@@ -179,10 +208,13 @@
 		/mob/living/carbon/human/proc/rebel_yell,
 		/mob/living/carbon/human/proc/devour_head,
 		/mob/living/carbon/human/proc/formic_spray,
-		/mob/living/carbon/human/proc/trample
+		/mob/living/carbon/human/proc/trample,
+		/mob/living/carbon/human/proc/hivenet_recieve
 		)
 
 	has_organ = list(
+		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET       = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
@@ -190,9 +222,8 @@
 		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
-		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
-		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit
+		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit,
+		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield/advanced
 	)
 
 	default_h_style = "Bald"

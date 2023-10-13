@@ -36,8 +36,10 @@
 	var/is_organ_damaged = FALSE
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.is_damaged())
+			if(BP_IS_ROBOTIC(I))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected.name] is a mechanical organ, and is also damaged."))
+				continue
 			is_organ_damaged = TRUE
-			break
 	return is_organ_damaged
 
 /singleton/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -56,7 +58,6 @@
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
-
 	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -123,9 +124,11 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I.is_damaged() && I.robotic >= 2)
+		if(I.is_damaged())
+			if(!BP_IS_ROBOTIC(I))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected.name] is a biological organ, and is also damaged."))
+				continue
 			is_organ_damaged = TRUE
-			break
 	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
 
 /singleton/surgery_step/internal/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -173,7 +176,6 @@
 		if(I)
 			I.take_damage(rand(3,5),0)
 
-
 /singleton/surgery_step/internal/detach_organ
 	name = "Separate Organ"
 	priority = 1
@@ -203,7 +205,7 @@
 		if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			attached_organs |= organ
 
-	var/organ_to_remove = input(user, "Which organ do you want to prepare for removal?") as null|anything in attached_organs
+	var/organ_to_remove = tgui_input_list(user, "Which organ do you want to prepare for removal?", "Surgery", attached_organs)
 	if(!organ_to_remove)
 		return FALSE
 
@@ -261,7 +263,7 @@
 		if((I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			removable_organs |= organ
 
-	var/organ_to_remove = input(user, "Which organ do you want to remove?") as null|anything in removable_organs
+	var/organ_to_remove = tgui_input_list(user, "Which organ do you want to remove?", "Surgery", removable_organs)
 	if(!organ_to_remove)
 		return FALSE
 
@@ -425,7 +427,7 @@
 		if(I && (I.status & ORGAN_CUT_AWAY) && !BP_IS_ROBOTIC(I) && I.parent_organ == target_zone)
 			removable_organs |= organ
 
-	var/organ_to_replace = input(user, "Which organ do you want to reattach?") as null|anything in removable_organs
+	var/organ_to_replace = tgui_input_list(user, "Which organ do you want to reattach?", "Surgery", removable_organs)
 	if(!organ_to_replace)
 		return FALSE
 

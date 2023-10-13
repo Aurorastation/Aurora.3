@@ -9,8 +9,12 @@
 	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag_boxed"
 	var/flag_path
-	var/flag_size = FALSE // true if big flag
+
+	///Boolean, set to `TRUE` if a flag is large (2x1)
+	var/flag_size = FALSE
+
 	var/obj/structure/sign/flag/flag_structure
+	var/stand_icon = "banner_stand"
 
 // Flag on Wall
 /obj/structure/sign/flag
@@ -18,9 +22,15 @@
 	desc = "Nothing to see here."
 	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag"
-	var/obj/structure/sign/flag/linked_flag //For double flags
+
+	///If a big flag, the other half of the flag is referenced here
+	var/obj/structure/sign/flag/linked_flag
+
 	var/obj/item/flag/flag_item //For returning your flag
-	var/ripped = FALSE //If we've been torn down
+
+	///Boolean, if we've been torn down
+	var/ripped = FALSE
+
 	var/ripped_outline_state = "flag_ripped"
 	var/flag_path
 	var/flag_size
@@ -29,15 +39,18 @@
 	var/icon/banner_icon
 	var/icon/rolled_outline
 	var/unmovable = FALSE
+	var/stand_icon = "banner_stand"
 
-/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
+/obj/structure/sign/flag/Initialize(mapload, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
 	dir = newdir
+
 	if(!flag_path)
 		if(item_flag_path) // redundancy
 			flag_path = item_flag_path
 		else
 			flag_path = icon_state
+
 	if(deploy)
 		switch(dir)
 			if(NORTH)
@@ -48,6 +61,7 @@
 				pixel_x = 32
 			if(WEST)
 				pixel_x = -32
+
 	if(linked_flag_path)
 		icon_state = "[linked_flag_path]_r"
 		ripped_outline_state = "flag_ripped_r"
@@ -56,34 +70,10 @@
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 		icon = flag_icon
 		return
+
+	//Handles the creation of the large flags and single flags
 	if(flag_size)
-		icon_state = "[flag_path]_l" // Just adding to the flag spaghetti.
-		ripped_outline_state = "flag_ripped_l"
-		flag_icon = new(icon, icon_state, dir)
-		shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
-		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-		var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
-		icon = flag_icon
-		linked_flag = F2
-		switch(F2.dir)
-			if(NORTH)
-				F2.pixel_x = 32
-				F2.pixel_y = 32
-			if(SOUTH)
-				F2.pixel_x = 32
-				F2.pixel_y = -32
-			if(EAST)
-				F2.pixel_y = -32
-				F2.pixel_x = 32
-			if(WEST)
-				F2.pixel_y = 32
-				F2.pixel_x = -32
-		F2.linked_flag = src
-		F2.name = name
-		F2.desc = desc
-		F2.desc_info = desc_info
-		F2.desc_extended = desc_extended
-		F2.flag_item = flag_item
+		create_other_half(loc, dir, flag_path, icon, pixel_x, pixel_y)
 	else
 		icon_state = "[flag_path]"
 		flag_icon = new(icon, icon_state)
@@ -97,10 +87,62 @@
 			if(istype(A, /obj/structure/window))
 				icon = flag_icon
 				return
-		banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
 		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 		verbs += /obj/structure/sign/flag/proc/toggle
 		icon = flag_icon
+
+/**
+ * If the flag is a big flag, handles the creation and alignment of the other half of it
+ *
+ * * loc - The location where to create the flag (before transformation)
+ * * dir - The direction of the flag
+ * * flag_path - The `icon_state` that the other half will have (flag_path + "_l")
+ * * icon - The icon
+ * * offset_x - Pixel shift that was applied to the first half of the flag, if any
+ * * offset_y - Pixel shift that was applied to the first half of the flag, if any
+ */
+/obj/structure/sign/flag/proc/create_other_half(loc, dir, flag_path, icon, offset_x, offset_y)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	icon_state = "[flag_path]_l" // Just adding to the flag spaghetti.
+	ripped_outline_state = "flag_ripped_l"
+	flag_icon = new(icon, icon_state, dir)
+	shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
+	flag_icon.Blend(shading_icon, ICON_MULTIPLY)
+	var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
+	src.icon = flag_icon
+	linked_flag = F2
+
+	//Apply the pixel shifting based on the direction to the new other half of the flag
+	switch(F2.dir)
+		if(NORTH)
+			F2.pixel_x = 32
+		if(SOUTH)
+			F2.pixel_x = 32
+		if(EAST)
+			F2.pixel_y = -32
+		if(WEST)
+			F2.pixel_y = 32
+
+	//Apply the offsets we received
+	F2.pixel_x += offset_x
+	F2.pixel_y += offset_y
+
+	//Finish configuring the second half of the instance
+	F2.linked_flag = src
+	F2.name = name
+	F2.desc = desc
+	F2.desc_info = desc_info
+	F2.desc_extended = desc_extended
+	F2.flag_item = flag_item
+
+	//Requeue the area for smoothing, just in case
+	SSicon_smooth.add_to_queue(src)
+	SSicon_smooth.add_to_queue_neighbors(src)
+
+/obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
+	. = ..()
 
 /obj/item/flag/attack_self(mob/user)
 	if(flag_size)
@@ -196,7 +238,7 @@
 				if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
-				if(!do_after(user, 5 SECONDS, act_target = src))
+				if(!do_after(user, 5 SECONDS, src))
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You \the [src] in a single, decisive motion!"))
 				playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
@@ -224,7 +266,7 @@
 	..()
 	if(W.isFlameSource())
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
-		if(!do_after(user, 2 SECONDS, act_target = src))
+		if(!do_after(user, 2 SECONDS, src))
 			return FALSE
 		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
@@ -254,7 +296,7 @@
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 
 	flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-	banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+	banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
 	flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 	icon = flag_icon
 
@@ -309,17 +351,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/sol/l
 
-/obj/structure/sign/flag/sol/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/sol/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/sol/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/sol/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/sol/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/sol/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/sol/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/sol/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 /obj/item/flag/sol/old/l
 	name = "large old Sol Alliance flag"
@@ -332,17 +374,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/sol/old/l
 
-/obj/structure/sign/flag/sol/old/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/sol/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/sol/old/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/sol/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/sol/old/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/sol/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/sol/old/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/sol/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Dominia
 
@@ -370,17 +412,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/dominia/l
 
-/obj/structure/sign/flag/dominia/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/dominia/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/dominia/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/dominia/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/dominia/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/dominia/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/dominia/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/dominia/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Elyra
 
@@ -408,17 +450,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/elyra/l
 
-/obj/structure/sign/flag/elyra/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/elyra/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/elyra/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/elyra/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/elyra/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/elyra/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/elyra/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/elyra/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Hegemony
 
@@ -446,17 +488,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/hegemony/l
 
-/obj/structure/sign/flag/hegemony/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/hegemony/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/hegemony/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/hegemony/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/hegemony/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/hegemony/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/hegemony/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/hegemony/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 /obj/item/flag/ouerea
 	name = "\improper Ouerea flag"
@@ -482,17 +524,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/ouerea/l
 
-/obj/structure/sign/flag/ouerea/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/ouerea/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/ouerea/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/ouerea/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/ouerea/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/ouerea/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/ouerea/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/ouerea/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 /obj/item/flag/ouerea/old
 	name = "old Ouerea flag"
@@ -518,17 +560,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/ouerea/old/l
 
-/obj/structure/sign/flag/ouerea/old/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/ouerea/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/ouerea/old/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/ouerea/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/ouerea/old/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/ouerea/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/ouerea/old/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/ouerea/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Nralakk
 
@@ -556,17 +598,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/nralakk/l
 
-/obj/structure/sign/flag/nralakk/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/nralakk/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/nralakk/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/nralakk/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/nralakk/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/nralakk/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/nralakk/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/nralakk/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Traverse
 
@@ -594,17 +636,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/traverse/l
 
-/obj/structure/sign/flag/traverse/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/traverse/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/traverse/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/traverse/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/traverse/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/traverse/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/traverse/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/traverse/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // CT-EUM
 
@@ -650,17 +692,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/nanotrasen/l
 
-/obj/structure/sign/flag/nanotrasen/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/nanotrasen/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/nanotrasen/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/nanotrasen/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/nanotrasen/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/nanotrasen/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/nanotrasen/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/nanotrasen/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Eridani
 
@@ -691,17 +733,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/eridani/l
 
-/obj/structure/sign/flag/eridani/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/eridani/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/eridani/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/eridani/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/eridani/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/eridani/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/eridani/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/eridani/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Coalition
 
@@ -732,17 +774,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/coalition/l
 
-/obj/structure/sign/flag/coalition/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/coalition/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/coalition/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/coalition/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/coalition/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/coalition/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/coalition/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/coalition/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Varuca/Sedantis
 
@@ -773,17 +815,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/sedantis/l
 
-/obj/structure/sign/flag/sedantis/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/sedantis/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/sedantis/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/sedantis/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/sedantis/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/sedantis/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/sedantis/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/sedantis/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Red Coalition
 
@@ -817,17 +859,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/red_coalition/l
 
-/obj/structure/sign/flag/red_coalition/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/red_coalition/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/red_coalition/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/red_coalition/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/red_coalition/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/red_coalition/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/red_coalition/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/red_coalition/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // DPRA
 
@@ -866,17 +908,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/dpra/l
 
-/obj/structure/sign/flag/dpra/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/dpra/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/dpra/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/dpra/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/dpra/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/dpra/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/dpra/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/dpra/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // PRA
 
@@ -917,17 +959,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/pra/l
 
-/obj/structure/sign/flag/pra/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/pra/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/pra/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/pra/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/pra/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/pra/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/pra/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/pra/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // NKA
 
@@ -968,17 +1010,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/nka/l
 
-/obj/structure/sign/flag/nka/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/nka/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/nka/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/nka/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/nka/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/nka/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/nka/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/nka/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // FTC
 
@@ -1023,17 +1065,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/ftc/l
 
-/obj/structure/sign/flag/ftc/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/ftc/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/ftc/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/ftc/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/ftc/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/ftc/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/ftc/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/ftc/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Hephaestus
 
@@ -1064,17 +1106,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/heph/l
 
-/obj/structure/sign/flag/heph/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/heph/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/heph/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/heph/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/heph/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/heph/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/heph/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/heph/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Zeng-Hu
 
@@ -1105,17 +1147,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/zenghu/l
 
-/obj/structure/sign/flag/zenghu/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/zenghu/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/zenghu/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/zenghu/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/zenghu/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/zenghu/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/zenghu/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/zenghu/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Zavodskoi
 
@@ -1146,17 +1188,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/zavodskoi/l
 
-/obj/structure/sign/flag/zavodskoi/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/zavodskoi/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/zavodskoi/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/zavodskoi/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/zavodskoi/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/zavodskoi/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/zavodskoi/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/zavodskoi/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Idris
 
@@ -1187,17 +1229,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/idris/l
 
-/obj/structure/sign/flag/idris/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/idris/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/idris/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/idris/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/idris/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/idris/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/idris/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/idris/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Trinary
 
@@ -1230,17 +1272,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/trinaryperfection/l
 
-/obj/structure/sign/flag/trinaryperfection/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/trinaryperfection/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/trinaryperfection/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/trinaryperfection/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/trinaryperfection/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/trinaryperfection/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/trinaryperfection/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Dominian Standards
 
@@ -1376,17 +1418,95 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/biesel/l
 
-/obj/structure/sign/flag/biesel/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/biesel/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/biesel/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/biesel/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/biesel/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/biesel/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/biesel/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/biesel/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/biesel/old
+	name = "old Autonomous Solarian Republic of Biesel flag"
+	desc = "The flag used by Biesel and Valkyrie while they were semi-autonomous colonies of the Solarian Alliance, re-instated briefly during the 33rd Fleet's invasion and occupation in 2459. Due to this and the general hatred of the Sol Alliance across Tau Ceti, displaying this flag anywhere in Tau Ceti space would be a bold move, and is illegal as it often carries anti-corporatist and/or treasonous sentiments."
+	flag_path = "biesel_old"
+	flag_structure = /obj/structure/sign/flag/biesel/old
+
+/obj/structure/sign/flag/biesel/old
+	name = "old Autonomous Solarian Republic of Biesel flag"
+	desc = "The flag used by Biesel and Valkyrie while they were semi-autonomous colonies of the Solarian Alliance, re-instated briefly during the 33rd Fleet's invasion and occupation in 2459. Due to this and the general hatred of the Sol Alliance across Tau Ceti, displaying this flag anywhere in Tau Ceti space would be a bold move, and is illegal as it often carries anti-corporatist and/or treasonous sentiments."
+	flag_path = "biesel_old"
+	icon_state = "biesel_old"
+	flag_item = /obj/item/flag/biesel/old
+
+/obj/structure/sign/flag/biesel/old/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/biesel/old/l
+	name = "large old Autonomous Solarian Republic of Biesel flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/biesel/old/large
+
+/obj/structure/sign/flag/biesel/old/large
+	icon_state = "biesel_old_l"
+	flag_path = "biesel_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/biesel/old/l
+
+/obj/structure/sign/flag/biesel/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/biesel/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/biesel/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/biesel/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/biesel/antique
+	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
+	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
+	flag_path = "biesel_antique"
+	flag_structure = /obj/structure/sign/flag/biesel/antique
+
+/obj/structure/sign/flag/biesel/antique
+	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
+	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
+	flag_path = "biesel_antique"
+	icon_state = "biesel_antique"
+	flag_item = /obj/item/flag/biesel/antique
+
+/obj/structure/sign/flag/biesel/antique/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/biesel/antique/l
+	name = "large antique Solarian Colonial Mandate of Tau Ceti flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/biesel/antique/large
+
+/obj/structure/sign/flag/biesel/antique/large
+	icon_state = "biesel_antique_l"
+	flag_path = "biesel_antique"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/biesel/antique/l
+
+/obj/structure/sign/flag/biesel/antique/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/biesel/antique/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/biesel/antique/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/biesel/antique/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // SCC
 
@@ -1419,17 +1539,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/scc/l
 
-/obj/structure/sign/flag/scc/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/scc/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/scc/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/scc/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/scc/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/scc/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/scc/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/scc/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Fisanduh
 
@@ -1464,17 +1584,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/fisanduh/l
 
-/obj/structure/sign/flag/fisanduh/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/fisanduh/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/fisanduh/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/fisanduh/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/fisanduh/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/fisanduh/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/fisanduh/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/fisanduh/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Gadpathur
 
@@ -1513,17 +1633,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/gadpathur/l
 
-/obj/structure/sign/flag/gadpathur/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/gadpathur/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/gadpathur/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/gadpathur/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/gadpathur/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/gadpathur/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/gadpathur/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/gadpathur/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Vysoka
 
@@ -1558,17 +1678,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/vysoka/l
 
-/obj/structure/sign/flag/vysoka/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/vysoka/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/vysoka/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/vysoka/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/vysoka/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/vysoka/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/vysoka/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/vysoka/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Konyang
 
@@ -1603,17 +1723,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/konyang/l
 
-/obj/structure/sign/flag/konyang/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/konyang/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/konyang/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/konyang/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/konyang/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/konyang/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/konyang/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/konyang/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Izharshan
 
@@ -1719,17 +1839,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/pmcg/l
 
-/obj/structure/sign/flag/pmcg/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/pmcg/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/pmcg/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/pmcg/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/pmcg/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/pmcg/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/pmcg/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/pmcg/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Himeo
 
@@ -1760,17 +1880,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/himeo/l
 
-/obj/structure/sign/flag/himeo/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/himeo/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/himeo/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/himeo/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/himeo/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/himeo/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/himeo/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/himeo/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Assunzione
 
@@ -1801,17 +1921,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/assunzione/l
 
-/obj/structure/sign/flag/assunzione/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/assunzione/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/assunzione/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/assunzione/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/assunzione/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/assunzione/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/himeo/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/himeo/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // New Gibson
 
@@ -1856,17 +1976,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/portantillia/l
 
-/obj/structure/sign/flag/portantillia/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/portantillia/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/portantillia/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/portantillia/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/portantillia/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/portantillia/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/portantillia/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/portantillia/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // San Colette
 
@@ -1897,17 +2017,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/sancolette/l
 
-/obj/structure/sign/flag/sancolette/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/sancolette/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/sancolette/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/sancolette/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/sancolette/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/sancolette/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/sancolette/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/sancolette/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 /obj/item/flag/sancolette/old
 	name = "old Sovereign Solarian Republic of San Colette flag"
@@ -1936,17 +2056,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/sancolette/old/l
 
-/obj/structure/sign/flag/sancolette/old/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/sancolette/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/sancolette/old/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/sancolette/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/sancolette/old/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/sancolette/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/sancolette/old/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/sancolette/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Mictlan
 
@@ -1977,17 +2097,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/mictlan/l
 
-/obj/structure/sign/flag/mictlan/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/mictlan/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/mictlan/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/mictlan/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/mictlan/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/mictlan/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/mictlan/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/mictlan/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 
 // New Hai Phong
@@ -2019,17 +2139,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/nhp/l
 
-/obj/structure/sign/flag/nhp/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/nhp/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/nhp/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/nhp/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/nhp/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/nhp/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/nhp/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/nhp/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Silversun
 
@@ -2060,17 +2180,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/silversun/l
 
-/obj/structure/sign/flag/silversun/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/silversun/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/silversun/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/silversun/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/silversun/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/silversun/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/silversun/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/silversun/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Hive Zo'ra
 
@@ -2101,17 +2221,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/zora/l
 
-/obj/structure/sign/flag/zora/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/zora/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/zora/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/zora/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/zora/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/zora/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/zora/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/zora/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Hive K'lax
 
@@ -2142,17 +2262,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/klax/l
 
-/obj/structure/sign/flag/klax/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/klax/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/klax/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/klax/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/klax/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/klax/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/klax/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/klax/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Hive C'thur
 
@@ -2183,17 +2303,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/cthur/l
 
-/obj/structure/sign/flag/cthur/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/cthur/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/cthur/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/cthur/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/cthur/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/cthur/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/cthur/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/cthur/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Orion Express
 
@@ -2224,17 +2344,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/orion_express/l
 
-/obj/structure/sign/flag/orion_express/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/orion_express/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/orion_express/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/orion_express/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/orion_express/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/orion_express/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/orion_express/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/orion_express/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Imperial Frontier
 
@@ -2267,14 +2387,167 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/imperial_frontier/l
 
-/obj/structure/sign/flag/imperial_frontier/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/imperial_frontier/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/imperial_frontier/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/imperial_frontier/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/imperial_frontier/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/imperial_frontier/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/imperial_frontier/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/imperial_frontier/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+
+//tajaran gods
+
+/obj/item/flag/srendarr
+	name = "\improper S'rendarr Banner"
+	desc = "A banner with the symbol of S'rendarr, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	flag_path = "srendarr"
+	flag_structure = /obj/structure/sign/flag/srendarr
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/srendarr
+	name = "\improper S'rendarr Banner"
+	desc = "A banner with the symbol of S'rendarr, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	icon_state = "srendarr"
+	flag_path = "srendarr"
+	flag_item = /obj/item/flag/srendarr
+	stand_icon = "wood_stand"
+
+/obj/item/flag/messa
+	name = "\improper Messa Banner"
+	desc = "A banner with the symbol of Messa, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	flag_path = "messa"
+	flag_structure = /obj/structure/sign/flag/messa
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/messa
+	name = "\improper Messa Banner"
+	desc = "A banner with the symbol of Messa, the Adhomian goddess of inevitability, old age, and winter, but also of guidance, wisdom, protection, and patience."
+	icon_state = "messa"
+	flag_path = "messa"
+	flag_item = /obj/item/flag/messa
+	stand_icon = "wood_stand"
+
+/obj/item/flag/matake
+	name = "\improper Mata'ke Banner"
+	desc = "A banner with the symbol of Mata'ke, the spearhead. Mata'ke is the Ma'ta'ke deity of snow, judgment, practicality, order, and strength."
+	flag_path = "matake"
+	flag_structure = /obj/structure/sign/flag/matake
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/matake
+	name = "\improper Mata'ke Banner"
+	desc = "A banner with the symbol of Mata'ke, the spearhead. Mata'ke is the Ma'ta'ke deity of snow, judgment, practicality, order, and strength."
+	icon_state = "matake"
+	flag_path = "matake"
+	flag_item = /obj/item/flag/matake
+	stand_icon = "wood_stand"
+
+/obj/item/flag/marryam
+	name = "\improper Marryam Banner"
+	desc = "A banner with the symbol of Marryam, the poppy. Marryam is the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	flag_path = "marryam"
+	flag_structure = /obj/structure/sign/flag/marryam
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/marryam
+	name = "\improper Marryam Banner"
+	desc = "A banner with the symbol of Marryam, the poppy. Marryam is the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	icon_state = "marryam"
+	flag_path = "marryam"
+	flag_item = /obj/item/flag/marryam
+	stand_icon = "wood_stand"
+
+/obj/item/flag/rredouane
+	name = "\improper Rredouane Banner"
+	desc = "A banner with the symbol of Rredouane, the dice and blade. Rredouane is the Ma'ta'ke deity of valor, triumph, and victory."
+	flag_path = "rredouane"
+	flag_structure = /obj/structure/sign/flag/rredouane
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/rredouane
+	name = "\improper Rredouane Banner"
+	desc = "A banner with the symbol of Rredouane, the dice and blade. Rredouane is the Ma'ta'ke deity of valor, triumph, and victory."
+	icon_state = "rredouane"
+	flag_path = "rredouane"
+	flag_item = /obj/item/flag/rredouane
+	stand_icon = "wood_stand"
+
+/obj/item/flag/shumaila
+	name = "\improper Shumaila Banner"
+	desc = "A banner with the symbol of Shumaila, the bulwark. Shumaila is the Ma'ta'ke deity of fortification, chastity, and architecture."
+	flag_path = "shumaila"
+	flag_structure = /obj/structure/sign/flag/shumaila
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/shumaila
+	name = "\improper Shumaila Banner"
+	desc = "A banner with the symbol of Shumaila, the bulwark. Shumaila is the Ma'ta'ke deity of fortification, chastity, and architecture."
+	icon_state = "shumaila"
+	flag_path = "shumaila"
+	flag_item = /obj/item/flag/shumaila
+	stand_icon = "wood_stand"
+
+/obj/item/flag/kraszar
+	name = "\improper Kraszar Banner"
+	desc = "A banner with the symbol of Hraszar, the scroll of ages. Kraszar is the Ma'ta'ke deity of joy, stories, and language."
+	flag_path = "kraszar"
+	flag_structure = /obj/structure/sign/flag/kraszar
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/kraszar
+	name = "\improper Kraszar Banner"
+	desc = "A banner with the symbol of Hraszar, the scroll of ages. Kraszar is the Ma'ta'ke deity of joy, stories, and language."
+	icon_state = "kraszar"
+	flag_path = "kraszar"
+	flag_item = /obj/item/flag/kraszar
+	stand_icon = "wood_stand"
+
+/obj/item/flag/dhrarmela
+	name = "\improper Dhrarmela Banner"
+	desc = "A banner with the symbol of Dhrarmela, the divinity anvil. Dhrarmela is the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	flag_path = "dhrarmela"
+	flag_structure = /obj/structure/sign/flag/dhrarmela
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/dhrarmela
+	name = "\improper Dhrarmela Banner"
+	desc = "A banner with the symbol of Dhrarmela, the divinity anvil. Dhrarmela is the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	icon_state = "dhrarmela"
+	flag_path = "dhrarmela"
+	flag_item = /obj/item/flag/dhrarmela
+	stand_icon = "wood_stand"
+
+/obj/item/flag/azubarre
+	name = "\improper Azubarre Banner"
+	desc = "A banner with the symbol of Azubarre, the torch of passion. Kraszar is the Ma'ta'ke deity of love, fertility, and marriage."
+	flag_path = "azubarre"
+	flag_structure = /obj/structure/sign/flag/azubarre
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/azubarre
+	name = "\improper Azubarre Banner"
+	desc = "A banner with the symbol of Azubarre, the torch of passion. Kraszar is the Ma'ta'ke deity of love, fertility, and marriage."
+	icon_state = "azubarre"
+	flag_path = "azubarre"
+	flag_item = /obj/item/flag/azubarre
+	stand_icon = "wood_stand"
+
+/obj/item/flag/raskara
+	name = "\improper Raskara Banner"
+	desc = "A banner with the symbol of Raskara, the Moon."
+	flag_path = "raskara"
+	flag_structure = /obj/structure/sign/flag/raskara
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/raskara
+	name = "\improper Raskara Banner"
+	desc = "A banner with the symbol of Raskara, the Moon."
+	icon_state = "raskara"
+	flag_path = "raskara"
+	flag_item = /obj/item/flag/raskara
+	stand_icon = "wood_stand"

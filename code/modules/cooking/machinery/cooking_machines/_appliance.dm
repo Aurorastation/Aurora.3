@@ -9,7 +9,7 @@
 	name = "cooker"
 	desc = DESC_PARENT
 	desc_info = "Control-click this to change its temperature."
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
 	anchored = 1
@@ -46,6 +46,7 @@
 	var/selected_option
 	var/list/output_options = list()
 	var/finish_verb = "pings!"
+	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
 /obj/machinery/appliance/Initialize()
@@ -131,14 +132,14 @@
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
-	set name = "Choose output"
+	set name = "Choose Output"
 	set category = "Object"
 
 	if (use_check_and_message(usr, issilicon(usr) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 	if(isemptylist(output_options))
 		return
-	var/choice = input("What specific food do you wish to make with [src]?", "Choose Output") as null|anything in output_options+"Default"
+	var/choice = tgui_input_list(usr, "What specific food do you wish to make with [src]?", "Choose Output", output_options + "Default")
 	if(!choice)
 		return
 	selected_option = (choice == "Default") ? null : choice
@@ -232,7 +233,8 @@
 		I.forceMove(src)
 		cooking_objs.Add(CI)
 		if (CC.check_contents() == CONTAINER_EMPTY)//If we're just putting an empty container in, then dont start any processing.
-			user.visible_message("<b>[user]</b> puts [I] into [src].")
+			user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
+			playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
 			return
 	else
 		if (CI && istype(CI))
@@ -245,7 +247,8 @@
 		CI.combine_target = selected_option
 
 	// We can actually start cooking now.
-	user.visible_message("<b>[user]</b> puts [I] into [src].")
+	user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
+	playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
 	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
 		// this is to stop reagents from burning when you're heating stuff
 		get_cooking_work(CI)

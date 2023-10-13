@@ -24,7 +24,7 @@
 	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
-	buckle_dir = EAST
+	buckle_dir = SOUTH
 	buckle_lying = 1
 	build_amt = 2
 	var/material/padding_material
@@ -109,7 +109,7 @@
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
@@ -203,7 +203,7 @@
 		var/obj/item/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
 				if(buckle(affecting))

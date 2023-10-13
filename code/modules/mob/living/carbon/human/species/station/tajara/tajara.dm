@@ -44,7 +44,7 @@
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 	economic_modifier = 7
-	selectable_pronouns = null
+	selectable_pronouns = list(MALE, FEMALE)
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
@@ -109,14 +109,14 @@
 	zombie_type = SPECIES_ZOMBIE_TAJARA
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
+		BP_EYES =     /obj/item/organ/internal/eyes/night,
 		BP_HEART =    /obj/item/organ/internal/heart/tajara,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/tajara,
 		BP_LIVER =    /obj/item/organ/internal/liver/tajara,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/tajara,
 		BP_STOMACH =  /obj/item/organ/internal/stomach/tajara,
-		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
-		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara,
-		BP_EYES =     /obj/item/organ/internal/eyes/night
+		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara
 		)
 
 	stomach_capacity = 6
@@ -136,3 +136,6 @@
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
+
+/datum/species/get_species_record_sex(var/mob/living/carbon/human/H)
+	return H.pronouns

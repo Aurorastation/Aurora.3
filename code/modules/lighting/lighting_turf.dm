@@ -185,7 +185,7 @@
 /turf/proc/generate_missing_corners()
 	if (!dynamic_lighting && !light_sources)
 		return
-		
+
 	lighting_corners_initialised = TRUE
 	if (!corners)
 		corners = list(null, null, null, null)

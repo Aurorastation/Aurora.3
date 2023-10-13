@@ -8,7 +8,7 @@
 
 /obj/machinery/door/firedoor
 	name = "emergency shutter"
-	desc = "An airtight emergency shutter. Capable of sealing off breached areas."
+	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
@@ -154,7 +154,7 @@
 		return
 
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		to_chat(user, "<span class='warning'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>")
+		to_chat(user, SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury."))
 
 	to_chat(user, "<b>Sensor readings:</b>")
 	for(var/index = 1; index <= tile_info.len; index++)
@@ -174,7 +174,7 @@
 			continue
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
-		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "warning" : "color:blue"]'>"
+		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
 		o += "[celsius]&deg;C</span> "
 		o += "<span style='color:blue'>"
 		o += "[pressure]kPa</span></li>"
@@ -467,7 +467,7 @@
 		if(blocked)
 			add_overlay("welded")
 		if(pdiff_alert)
-			add_overlay("palert")
+			add_overlay(overlay_image(icon, icon_state = "palert", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -475,13 +475,12 @@
 				//2 = SOUTH
 				//3 = EAST
 				//4 = WEST
-				var/cdir = cardinal[d]
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					add_overlay("alert_cold_[cdir]")
+					add_overlay(overlay_image(icon, icon_state = "alert_cold", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					add_overlay("alert_hot_[cdir]")
+					add_overlay(overlay_image(icon, icon_state = "alert_hot", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 				do_set_light = TRUE
 	else
@@ -507,7 +506,7 @@
 
 	icon = 'icons/obj/doors/edge_Doorfire.dmi'
 	glass = 1 //There is a glass window so you can see through the door
-			  //This is needed due to BYOND limitations in controlling visibility
+				//This is needed due to BYOND limitations in controlling visibility
 	heat_proof = 1
 	air_properties_vary_with_direction = 1
 

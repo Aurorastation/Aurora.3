@@ -382,6 +382,7 @@ var/list/localhost_addresses = list(
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
+	tgui_say = new(src, "tgui_say")
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -411,6 +412,7 @@ var/list/localhost_addresses = list(
 
 	// Initialize tgui panel
 	tgui_panel.initialize()
+	tgui_say.initialize()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)

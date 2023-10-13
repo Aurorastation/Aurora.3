@@ -1,9 +1,7 @@
 // Minimap generation system adapted from vorestation, adapted from /vg/.
 // Seems to be much simpler/saner than /vg/'s implementation.
 
-/var/datum/controller/subsystem/holomap/SSholomap
-
-/datum/controller/subsystem/holomap
+SUBSYSTEM_DEF(holomap)
 	name = "Holomap"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
@@ -11,9 +9,6 @@
 	var/list/holo_minimaps = list()
 	var/list/extra_minimaps = list()
 	var/list/station_holomaps = list()
-
-/datum/controller/subsystem/holomap/New()
-	NEW_SS_GLOBAL(SSholomap)
 
 /datum/controller/subsystem/holomap/Initialize()
 	holo_minimaps.len = world.maxz

@@ -312,14 +312,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 
 	else if(href_list["protolathe_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in designs_protolathe_categories+"All"
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Protolathe Categories", designs_protolathe_categories+"All")
 		if(!choice)
 			return
 		protolathe_category = choice
 		updateUsrDialog()
 
 	else if(href_list["imprinter_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in designs_imprinter_categories+"All"
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Printer Categories", designs_imprinter_categories+"All")
 		if(!choice)
 			return
 		imprinter_category = choice
@@ -427,7 +427,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				info += GetResearchLevelsInfo()
 
 			PR.set_content_unsafe(pname, info)
-			print(PR)
+			print(PR, user = usr)
 			spawn(10)
 				screen = ((text2num(href_list["print"]) == 2) ? 5.0 : 1.1)
 				updateUsrDialog()

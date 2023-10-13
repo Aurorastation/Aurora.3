@@ -34,6 +34,8 @@
 #define MATERIAL_RUST                       "rust"
 #define MATERIAL_CARDBOARD                  "cardboard"
 #define MATERIAL_GRAPHITE                   "graphite"
+#define MATERIAL_DEUTERIUM					"deuterium"
+#define MATERIAL_SUPERMATTER				"supermatter"
 
 // Leathers and related.
 #define MATERIAL_RESIN                   "resin"
@@ -66,6 +68,13 @@
 #define MATERIAL_CLOTH                   "cloth"
 #define MATERIAL_COTTON                  "cotton"
 #define MATERIAL_CARPET                  "carpet"
+#define MATERIAL_CARPET_BLACK            "carpet_black"
+#define MATERIAL_CARPET_BLUE             "carpet_blue"
+#define MATERIAL_CARPET_CYAN             "carpet_cyan"
+#define MATERIAL_CARPET_GREEN            "carpet_green"
+#define MATERIAL_CARPET_ORANGE           "carpet_orange"
+#define MATERIAL_CARPET_PURPLE           "carpet_purple"
+#define MATERIAL_CARPET_RED              "carpet_red"
 
 #define MATERIAL_ALTERATION_NONE 0
 #define MATERIAL_ALTERATION_NAME 1

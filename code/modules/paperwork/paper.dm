@@ -225,10 +225,10 @@
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-								 	 SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
-				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
+										SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
+				if(do_after(user, 1 SECOND, H, do_flags = (DO_DEFAULT | DO_USER_UNIQUE_ACT) & ~DO_BOTH_CAN_TURN))
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
-										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
+											SPAN_NOTICE("You wipe off [H]'s lipstick."))
 					H.lipstick_color = null
 					H.update_body()
 
