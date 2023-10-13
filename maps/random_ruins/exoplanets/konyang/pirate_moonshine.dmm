@@ -51,6 +51,10 @@
 /obj/item/storage/box/fancy/cigarettes/rugged,
 /obj/item/flame/lighter/random,
 /obj/item/clothing/accessory/holster/armpit/brown,
+/obj/item/clothing/under/konyang/pirate/tanktop,
+/obj/item/clothing/under/konyang/pirate/tanktop,
+/obj/item/clothing/under/konyang/pirate,
+/obj/item/clothing/under/konyang/pirate,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "p" = (

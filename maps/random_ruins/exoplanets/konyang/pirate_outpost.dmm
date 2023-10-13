@@ -40,6 +40,10 @@
 /obj/item/clothing/under/tactical,
 /obj/item/clothing/under/pants/jeans,
 /obj/item/clothing/head/bandana/pirate,
+/obj/item/clothing/under/konyang/pirate,
+/obj/item/clothing/under/konyang/pirate,
+/obj/item/clothing/under/konyang/pirate/tanktop,
+/obj/item/clothing/under/konyang/pirate/tanktop,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "dh" = (
@@ -222,6 +226,8 @@
 /obj/item/clothing/head/bandana/pirate,
 /obj/random/spacecash,
 /obj/random/spacecash,
+/obj/item/clothing/under/konyang/pirate/tanktop,
+/obj/item/clothing/under/konyang/pirate,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "mu" = (
