@@ -7,7 +7,7 @@
 	ui_template = "FusionGyrotronControl"
 
 /obj/machinery/computer/fusion/gyrotron/terminal
-	name = "gyrotron control console"
+	name = "gyrotron control terminal"
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "rust_screen"
 	icon_keyboard = "generic_key"
