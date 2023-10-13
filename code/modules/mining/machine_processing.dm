@@ -143,7 +143,7 @@
 	if(action == "toggle_smelting")
 		var/ore_name = params["toggle_smelting"]
 
-		var/choice = input("What setting do you wish to use for processing [ore_name]?") as null|anything in list("Smelting", "Compressing", "Alloying", "Nothing")
+		var/choice = tgui_input_list(usr, "What setting do you wish to use for processing [ore_name]?", "Processing", list("Smelting", "Compressing", "Alloying", "Nothing"))
 		if(!choice)
 			return TRUE
 

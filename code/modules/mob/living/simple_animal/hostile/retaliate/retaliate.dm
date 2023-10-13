@@ -37,7 +37,7 @@
 
 	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in SSshuttle.initialized_sectors)
 		if(src in E.animals)
-			var/newname = input("What do you want to name this species?", "Species naming", E.get_random_species_name()) as text|null
+			var/newname = tgui_input_text(usr, "What do you want to name this species?", "Species naming", E.get_random_species_name(), MAX_NAME_LEN)
 			newname = sanitizeName(newname, allow_numbers = TRUE)
 			if(newname && !use_check_and_message(usr))
 				if(E.rename_species(type, newname))

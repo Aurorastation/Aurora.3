@@ -20,15 +20,17 @@ $ai: #d65d95;
 $admin: #ffbbff;
 $binary: #1e90ff;
 $centcom: #2681a5;
-$command: #fcdf03;
-$engi: #f37746;
+$command: #5b8deb;
+$engi: #cc7b01;
 $hive: #855d85;
 $medical: #57b8f0;
 $science: #c68cfa;
-$security: #dd3535;
-$syndicate: #8f4a4b;
-$service: #6ca729;
-$supply: #b88646;
+$security: #e21111;
+$syndicate: #ac6667;
+$service: #7fc732;
+$supply: #c09141;
+$hail: #8b4cd8;
+$ent: #cfcfcf;
 
 $_channel_map: (
   'say': $say,
@@ -48,6 +50,8 @@ $_channel_map: (
   'syndicate': $syndicate,
   'service': $service,
   'supply': $supply,
+  'hail': $hail,
+  'ent': $ent,
 );
 
 $channel_keys: map.keys($_channel_map) !default;
