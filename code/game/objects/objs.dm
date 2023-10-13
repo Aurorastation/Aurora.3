@@ -30,6 +30,8 @@
 	var/usesound
 	var/toolspeed = 1
 
+	var/surgerysound
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
