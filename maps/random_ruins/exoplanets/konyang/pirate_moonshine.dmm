@@ -6,11 +6,14 @@
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_pirate_moonshine)
+"d" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
 "e" = (
-/obj/item/storage/toolbox/mechanical,
-/obj/structure/table/standard,
-/obj/item/weldingtool,
-/obj/item/weldingtool,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "f" = (
@@ -22,26 +25,24 @@
 /area/konyang_pirate_moonshine)
 "i" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "j" = (
-/obj/structure/table/standard,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/head/hazmat,
-/obj/item/clothing/suit/hazmat,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"k" = (
 /obj/structure/chemkit,
 /obj/item/reagent_containers/glass/beaker/vial/random,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
+"k" = (
+/obj/structure/table/standard,
+/obj/structure/reagent_dispensers/keg/beerkeg/rice,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
 "l" = (
-/obj/structure/distillery,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/vial/random,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "n" = (
@@ -53,6 +54,65 @@
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "p" = (
+/obj/structure/flora/tree/konyang/spring,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_pirate_moonshine)
+"q" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"r" = (
+/obj/structure/distillery,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"t" = (
+/obj/structure/closet/crate/secure/weapon/alt,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun/rifle,
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"v" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"w" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"x" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_pirate_moonshine)
+"A" = (
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/table/standard,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"B" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"C" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/konyang_pirate_moonshine)
+"D" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"E" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/small/packet/salt,
 /obj/item/reagent_containers/food/condiment/small/packet/salt,
@@ -61,9 +121,47 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
-"q" = (
+"F" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/obj/item/reagent_containers/chem_disp_cartridge/phosphorus,
+/obj/item/reagent_containers/chem_disp_cartridge/sulfur,
+/obj/item/stack/material/iron/full,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"G" = (
+/obj/structure/table/standard,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/head/hazmat,
+/obj/item/clothing/suit/hazmat,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"K" = (
+/obj/structure/table/standard,
+/obj/random/booze,
+/obj/random/booze,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"P" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_pirate_moonshine)
+"Q" = (
+/turf/simulated/wall/wood,
+/area/konyang_pirate_moonshine)
+"S" = (
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/storage/box/syringes,
+/obj/structure/table/standard,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
+"T" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle,
 /obj/item/reagent_containers/food/drinks/bottle,
@@ -76,110 +174,24 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
-"r" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"t" = (
-/obj/structure/closet/crate/secure/weapon/alt,
-/obj/random/civgun,
-/obj/random/civgun,
-/obj/random/civgun/rifle,
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"w" = (
-/obj/structure/table/standard,
-/obj/structure/reagent_dispensers/keg/beerkeg/rice,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"x" = (
-/obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/exoplanet/konyang,
-/area/konyang_pirate_moonshine)
-"A" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/item/reagent_containers/glass/beaker/vial/random,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"B" = (
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"C" = (
-/obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/konyang_pirate_moonshine)
-"D" = (
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"F" = (
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/storage/box/syringes,
-/obj/structure/table/standard,
-/obj/item/storage/box/gloves,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"G" = (
-/obj/structure/table/standard,
-/obj/item/flame/lighter/random,
-/obj/item/flame/lighter/random,
-/obj/item/reagent_containers/glass/beaker/vial/random,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"H" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"K" = (
-/obj/structure/table/standard,
-/obj/random/booze,
-/obj/random/booze,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"M" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"P" = (
-/turf/simulated/wall/wood,
-/area/konyang_pirate_moonshine)
-"Q" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/item/reagent_containers/glass/beaker/large,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
-"S" = (
-/obj/structure/closet/crate,
-/obj/item/stack/material/steel/full,
-/obj/item/reagent_containers/chem_disp_cartridge/phosphorus,
-/obj/item/reagent_containers/chem_disp_cartridge/sulfur,
-/obj/item/stack/material/iron/full,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_moonshine)
 "U" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_pirate_moonshine)
+"V" = (
+/obj/structure/table/standard,
+/obj/item/flame/lighter/random,
+/obj/item/flame/lighter/random,
+/obj/item/reagent_containers/glass/beaker/vial/random,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_pirate_moonshine)
 "W" = (
-/obj/structure/closet/crate/secure/weapon/alt,
-/obj/random/contraband,
-/obj/random/contraband,
-/obj/random/contraband,
 /obj/machinery/light,
+/obj/structure/reagent_dispensers/acid_barrel,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "X" = (
@@ -221,14 +233,14 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
+P
+x
+x
+x
+x
+x
+x
+x
 a
 a
 a
@@ -256,16 +268,16 @@ U
 a
 a
 a
+a
 P
+x
+x
 P
+a
 P
-P
-P
-P
-P
-P
-P
-P
+a
+a
+x
 a
 a
 Z
@@ -282,27 +294,27 @@ a
 a
 a
 a
-P
-P
-P
-P
-P
+Q
+Q
+Q
+Q
+Q
 a
 a
 x
 a
 a
 a
-P
-e
-i
-M
-l
-l
-w
-q
 Q
-P
+Q
+Q
+Q
+Q
+Q
+Q
+Q
+Q
+Q
 a
 a
 a
@@ -319,27 +331,27 @@ x
 a
 Z
 a
-P
+Q
 Y
-B
+e
 Y
-P
+Q
 a
 a
 x
 x
 a
 a
-P
-B
-B
-B
-B
-B
-B
-B
-B
-P
+Q
+A
+d
+i
+r
+r
+k
+T
+q
+Q
 a
 Z
 a
@@ -356,27 +368,27 @@ x
 x
 a
 a
-P
+Q
+e
 B
 B
-B
-P
+Q
 a
 x
 a
 x
 a
 a
-P
+Q
+e
+e
+e
+e
 B
 B
-B
-B
-B
-B
-B
-B
-P
+e
+e
+Q
 a
 a
 a
@@ -393,8 +405,8 @@ x
 x
 x
 a
-P
-H
+Q
+v
 B
 B
 D
@@ -407,13 +419,13 @@ a
 D
 B
 B
+e
 B
 B
-B
-B
-B
+e
+e
 t
-P
+Q
 a
 a
 a
@@ -430,11 +442,11 @@ x
 x
 x
 a
-P
+Q
 B
 B
-B
-P
+e
+Q
 a
 x
 a
@@ -442,15 +454,15 @@ x
 a
 a
 D
+e
 B
 B
 B
 B
-B
-B
-B
+e
+e
 W
-P
+Q
 a
 Z
 a
@@ -467,27 +479,27 @@ x
 x
 a
 a
-P
+Q
 f
 n
 K
-P
+Q
 a
 x
 a
 x
 a
 a
-P
+Q
+e
+e
+e
+e
+e
 B
 B
 B
-B
-B
-B
-B
-B
-P
+Q
 a
 a
 a
@@ -504,27 +516,27 @@ a
 x
 x
 a
-P
-P
-P
-P
-P
+Q
+Q
+Q
+Q
+Q
 a
 x
 a
 x
 a
 a
-P
-B
-B
-B
-B
-B
-B
-B
-B
-P
+Q
+G
+w
+S
+F
+j
+l
+V
+E
+Q
 a
 a
 a
@@ -542,8 +554,8 @@ a
 x
 a
 a
-a
-a
+P
+P
 a
 a
 a
@@ -552,16 +564,16 @@ x
 a
 a
 a
-P
-j
-r
-F
-S
-k
-A
-G
-p
-P
+Q
+Q
+Q
+Q
+Q
+Q
+Q
+Q
+Q
+Q
 a
 a
 Z
@@ -578,7 +590,19 @@ Z
 a
 a
 a
+P
 a
+a
+P
+P
+a
+a
+x
+a
+a
+a
+a
+P
 a
 a
 a
@@ -587,18 +611,6 @@ a
 a
 x
 a
-a
-a
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
 a
 a
 a
@@ -631,14 +643,14 @@ a
 a
 a
 a
+P
 a
 a
+x
 a
-a
-a
-a
-a
-a
+x
+x
+x
 a
 x
 a
@@ -675,8 +687,8 @@ a
 a
 a
 a
-a
-a
+x
+x
 x
 x
 a
@@ -711,9 +723,9 @@ h
 a
 a
 a
+P
 a
-a
-a
+x
 x
 x
 x
@@ -750,7 +762,7 @@ h
 a
 a
 a
-a
+x
 x
 x
 x
@@ -1045,7 +1057,7 @@ a
 a
 a
 a
-a
+P
 a
 a
 a
@@ -1056,7 +1068,7 @@ a
 a
 a
 a
-a
+P
 a
 a
 a
@@ -1096,7 +1108,7 @@ a
 a
 a
 a
-a
+P
 a
 a
 a
@@ -1144,7 +1156,7 @@ a
 Z
 a
 a
-a
+P
 a
 a
 a
@@ -1210,7 +1222,7 @@ a
 a
 Z
 a
-a
+P
 a
 a
 x
@@ -1260,7 +1272,7 @@ a
 a
 a
 Z
-a
+P
 a
 a
 a
@@ -1316,7 +1328,7 @@ a
 a
 a
 a
-Z
+p
 a
 a
 a
