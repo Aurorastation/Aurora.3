@@ -54,12 +54,6 @@
 /obj/item/trash/ramen,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
-"bb" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/konyang_village)
 "be" = (
 /obj/structure/flora/pottedplant/smelly,
 /turf/simulated/floor/wood,
@@ -378,6 +372,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_village)
+"iu" = (
+/obj/structure/table/wood,
+/obj/machinery/light,
+/turf/simulated/floor/lino/diamond,
+/area/konyang_village)
 "iG" = (
 /obj/structure/light_pole/r,
 /turf/simulated/floor/exoplanet/konyang,
@@ -415,10 +414,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/konyang,
-/area/konyang_village)
-"jN" = (
-/obj/machinery/light,
-/turf/simulated/floor/wood,
 /area/konyang_village)
 "kB" = (
 /obj/machinery/shower{
@@ -541,6 +536,18 @@
 "nf" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/lino,
+/area/konyang_village)
+"np" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/item/clothing/under/konyang/male/sleeveless,
+/obj/item/clothing/under/konyangdress,
+/obj/item/clothing/under/konyangdresstraditional/national,
+/obj/item/clothing/accessory/konyang,
+/obj/item/clothing/head/winterhood/konyang,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/head/konyang,
+/turf/simulated/floor/wood,
 /area/konyang_village)
 "nu" = (
 /obj/structure/chainlink_fence{
@@ -665,12 +672,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk,
 /area/konyang_village)
-"po" = (
-/obj/structure/lattice/catwalk/indoor/tatami{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/konyang_village)
 "pD" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -680,6 +681,10 @@
 "pE" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/konyang,
+/area/konyang_village)
+"pT" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
 /area/konyang_village)
 "pU" = (
 /obj/effect/decal/road_marking/no_pass,
@@ -705,6 +710,11 @@
 	pixel_x = 3;
 	pixel_y = 4
 	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/item/clothing/under/konyangdress,
+/obj/item/clothing/accessory/konyang,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/head/konyang,
 /turf/simulated/floor/wood/bamboo,
 /area/konyang_village)
 "qP" = (
@@ -902,9 +912,6 @@
 /obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
-"wb" = (
-/turf/simulated/floor/lino/diamond,
-/area/konyang_village)
 "wc" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -949,6 +956,12 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_village)
+"xo" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/konyang_village)
 "xR" = (
 /obj/structure/table/wood,
@@ -1098,6 +1111,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/konyang_village)
+"Ca" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_village)
 "Cg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1137,6 +1156,14 @@
 /area/konyang_village)
 "Dp" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/item/clothing/under/konyang,
+/obj/item/clothing/under/konyang/male,
+/obj/item/clothing/under/konyangdress,
+/obj/item/clothing/accessory/konyang,
+/obj/item/clothing/head/winterhood/konyang,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/head/konyang,
 /turf/simulated/floor/wood,
 /area/konyang_village)
 "DA" = (
@@ -1304,10 +1331,27 @@
 	dir = 8
 	},
 /obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/item/clothing/under/konyangdress,
+/obj/item/clothing/under/konyang/blue,
+/obj/item/clothing/under/konyang/male/sleeveless,
+/obj/item/clothing/under/konyang/male/shortsleeve,
+/obj/item/clothing/under/konyangdresstraditional/blue,
+/obj/item/clothing/accessory/konyang,
+/obj/item/clothing/head/winterhood/konyang,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/head/konyang,
 /turf/simulated/floor/wood,
 /area/konyang_village)
 "Kv" = (
 /turf/simulated/floor/sidewalk/blocks,
+/area/konyang_village)
+"KB" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/wood,
 /area/konyang_village)
 "KF" = (
 /obj/structure/bed/stool/padded/purple{
@@ -1345,9 +1389,6 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_village)
 "Lg" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/lino/diamond,
 /area/konyang_village)
 "Li" = (
@@ -1409,7 +1450,9 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/konyang_village)
 "Mx" = (
@@ -1451,6 +1494,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/sign/flag/konyang/large/east,
 /turf/simulated/floor/tiled/white,
 /area/konyang_village)
 "Oj" = (
@@ -1606,6 +1650,12 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/lino/diamond,
 /area/konyang_village)
+"Sq" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_village)
 "Ss" = (
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/konyang,
@@ -1615,6 +1665,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang,
+/obj/item/clothing/under/konyang/blue,
+/obj/item/clothing/under/konyang/blue,
+/obj/item/clothing/under/konyang/male/shortsleeve,
+/obj/item/clothing/accessory/konyang,
+/obj/item/clothing/head/winterhood/konyang,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/head/konyang,
 /turf/simulated/floor/wood/bamboo,
 /area/konyang_village)
 "SA" = (
@@ -1629,7 +1687,6 @@
 /area/konyang_village)
 "SY" = (
 /obj/structure/table/wood,
-/obj/machinery/light,
 /turf/simulated/floor/lino/diamond,
 /area/konyang_village)
 "Tf" = (
@@ -1797,15 +1854,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_village)
-"XX" = (
-/obj/structure/lattice/catwalk/indoor/tatami{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/konyang_village)
 "YH" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -1816,10 +1864,6 @@
 "YI" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
-/area/konyang_village)
-"YP" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/lino/diamond,
 /area/konyang_village)
 "ZJ" = (
 /obj/structure/flora/rock/konyang,
@@ -2390,7 +2434,7 @@ Bb
 de
 OB
 Gx
-wb
+Lg
 eN
 Bb
 pn
@@ -2403,7 +2447,7 @@ Bb
 ux
 Nc
 Th
-Lg
+Sq
 NJ
 Bb
 SD
@@ -2430,7 +2474,7 @@ SD
 SD
 KO
 Sb
-wb
+Lg
 BZ
 VR
 VR
@@ -2445,7 +2489,7 @@ VR
 VR
 VR
 Mb
-wb
+Lg
 kW
 KO
 NF
@@ -2482,12 +2526,12 @@ WB
 YI
 aH
 Ql
-wb
+Lg
 VR
 VR
-bb
+Ca
 VR
-wb
+Lg
 KF
 KO
 SD
@@ -2524,8 +2568,8 @@ mD
 YI
 aH
 KO
-wb
-wb
+Lg
+Lg
 LN
 Bb
 Bb
@@ -3022,7 +3066,7 @@ NZ
 Le
 QD
 VR
-bb
+Ca
 bE
 fN
 Bb
@@ -3099,9 +3143,9 @@ ys
 Kv
 Kv
 Sn
-wb
-wb
-SY
+Lg
+Lg
+iu
 Bb
 Kt
 VR
@@ -3141,14 +3185,14 @@ SD
 SD
 SD
 KO
-YP
-wb
+SY
+Lg
 bn
 Bb
-XX
+Mw
 VR
 hT
-Mw
+KB
 KO
 EP
 NF
@@ -3157,7 +3201,7 @@ mD
 YI
 RW
 Bb
-Dp
+np
 VR
 VR
 Bb
@@ -3189,7 +3233,7 @@ VR
 Bb
 CO
 mT
-po
+xo
 DG
 KO
 NF
@@ -3201,7 +3245,7 @@ Cg
 KO
 VR
 VR
-jN
+pT
 Bb
 SD
 NF
