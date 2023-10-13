@@ -24,7 +24,7 @@
 	welcome_message = "You are a villager in rural Konyang"
 
 	spawnpoints = list("konyang_village")
-	max_count = 4
+	max_count = 5
 
 	extra_languages = list(LANGUAGE_SOL_COMMON)
 	outfit = /datum/outfit/admin/konyang_village
