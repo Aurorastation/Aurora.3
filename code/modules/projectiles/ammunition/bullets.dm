@@ -93,6 +93,9 @@
 	desc = "A .45 flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
+/obj/item/ammo_casing/c45/revolver
+	desc = "A .45 revolver bullet casing."
+	max_stack = 6
 /obj/item/ammo_casing/a12mm
 	desc = "A 12mm bullet casing."
 	caliber = "12mm"

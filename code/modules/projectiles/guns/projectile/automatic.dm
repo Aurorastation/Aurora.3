@@ -667,16 +667,16 @@
 	item_state = "k556rifle"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
 	w_class = ITEMSIZE_NORMAL
-	ammo_type =
+	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
-	caliber =
-	magazine_type =
-	allowed_magazines =
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/k556
+	allowed_magazines = list(/obj/item/ammo_magazine/k556)
 	is_wieldable = TRUE
 
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47
 	name = "konyang assault carbine"
-	desc = "The Konyang-47 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
+	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
 	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
 	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
@@ -684,27 +684,26 @@
 	item_state = "konyang-47"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
 	w_class = ITEMSIZE_LARGE
-	ammo_type =
+	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
-	caliber =
-	magazine_type =
-	allowed_magazines =
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazines/konyang47
+	allowed_magazines = list(/obj/item/ammo_magazines/konyang47)
 	is_wieldable = TRUE
 
 /obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle
 	name = "re-bored rifle"
 	desc = "A wooden rifle, repaired and re-bored to actually work again. Fires eight rounds of .308 in semi-auto."
-	desc_extended =
+	desc_extended = "placeholder"
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "garand"
 	item_state = "garand"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	load_method = SINGLE_CASINGS
 	w_class = ITEMSIZE_LARGE
-	ammo_type =
+	ammo_type = /obj/item/ammo_casing/vintage
 	handle_casings = EJECT_CASINGS
-	caliber =
-	magazine_type =
-	allowed_magazines =
+	caliber = "30-06 govt"
 	is_wieldable = TRUE
 
 	// Magazine fed shotguns start here.
@@ -744,7 +743,7 @@
 /obj/item/gun/projectile/automatic/shotgun/konyang
 	name = "magazine-fed shotgun"
 	desc = "A compact semi-automatic shotgun, fed by a magazine. Unsuspectic, but powerful and not to be underestimated. Takes standard 12g shotgun ammo."
-	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Pacifier\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
+	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Showstopper\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
 	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by the Commandos of Konyang's Special Forces."
 	icon = 'icons/obj/guns/mag_shotgun.dmi'
 	icon_state = "mshotgun"

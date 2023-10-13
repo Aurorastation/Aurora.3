@@ -38,6 +38,13 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
+/obj/item/ammo_magazine/a45
+	name = "speed loader (.45)"
+	icon_state = "a454"
+	caliber = "45"
+	insert_sound = /singleton/sound_category/revolver_reload
+	matter = list(DEFAULT_WALL_MATERIAL = 400)
+	ammo_type = /obj/item/ammo_casing/a45
 // End of Revolvos //
 
 // Pistols and handguns //
@@ -290,6 +297,7 @@
 	ammo_type = /obj/item/ammo_casing/smg10mm
 	max_ammo = 20
 	multiple_sprites = 1
+
 // End of SMGs and PDWs //
 
 // Rifles and bigger calibers //
@@ -587,3 +595,17 @@
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 9
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/k556
+	name = "konyang rifle magazine"
+	icon_state = "k556rifle_mag"
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+	max_ammo = 30
+
+/obj/item/ammo_magazines/konyang47
+	name = "konyang carbine magazine"
+	icon_state = "k-47_mag"
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+	max_ammo = 30
