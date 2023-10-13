@@ -1305,32 +1305,7 @@
 "aAk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine charging port.";
-	dir = 1;
-	id = "SupermatterPort";
-	name = "Supermatter Reactor Crystal Viewing Blast Doors";
-	pixel_x = -6;
-	pixel_y = 7;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/button/remote/emitter{
-	desc = "A remote control-switch for the supermatter reactor's emitter.";
-	dir = 1;
-	id = "ReactorEmitter";
-	name = "Supermatter Reactor Emitter";
-	pixel_x = 6;
-	pixel_y = 7;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	dir = 1;
-	id = "EngineBlast";
-	name = "Supermatter Reactor Monitoring Room Blast Doors";
-	pixel_y = -3;
-	req_one_access = list(11,24)
-	},
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "aAp" = (
@@ -16960,7 +16935,9 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/bar)
 "iaQ" = (
-/obj/machinery/computer/fusion/core_control/terminal,
+/obj/machinery/computer/fusion/core_control/terminal{
+	initial_id_tag = "horizon_fusion"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "iaW" = (
@@ -17419,8 +17396,7 @@
 	id_tag = "cooling_out";
 	initialize_directions = 1;
 	pump_direction = 0;
-	use_power = 1;
-	id = "cooling_out"
+	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -32678,7 +32654,9 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "pEA" = (
-/obj/machinery/computer/fusion/gyrotron/terminal,
+/obj/machinery/computer/fusion/gyrotron/terminal{
+	initial_id_tag = "horizon_fusion"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "pEQ" = (
@@ -38556,7 +38534,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "swe" = (
-/obj/machinery/computer/fusion/fuel_control/terminal,
+/obj/machinery/computer/fusion/fuel_control/terminal{
+	initial_id_tag = "horizon_fusion"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "swi" = (
@@ -47733,6 +47713,33 @@
 "wKK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 1;
+	id = "EngineBlast";
+	name = "Supermatter Reactor Monitoring Room Blast Doors";
+	pixel_y = -3;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/button/remote/emitter{
+	desc = "A remote control-switch for the supermatter reactor's emitter.";
+	dir = 1;
+	id = "ReactorEmitter";
+	name = "Supermatter Reactor Emitter";
+	pixel_x = 6;
+	pixel_y = 7;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine charging port.";
+	dir = 1;
+	id = "SupermatterPort";
+	name = "Supermatter Reactor Crystal Viewing Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7;
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
