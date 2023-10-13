@@ -890,12 +890,10 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
-#define DOGTAGS_UNSET "\[UNSET\]"
-
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	desc_info = "To yank apart and recover one of the tags, use this in your hands with Harm intent selected."
+	desc_info = "To attempt to yank apart and recover one of the tags, use this in your hands with Harm intent selected."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
@@ -909,10 +907,10 @@
 	var/separated = FALSE
 	var/tag_type = /obj/item/dogtag
 
-	var/dogtags_name = DOGTAGS_UNSET
-	var/dogtags_faction = DOGTAGS_UNSET
-	var/dogtags_religion = DOGTAGS_UNSET
-	var/dogtags_btype = DOGTAGS_UNSET
+	var/dogtags_name
+	var/dogtags_faction
+	var/dogtags_religion
+	var/dogtags_btype
 
 /obj/item/dogtag
 	name = "dogtag"
@@ -921,10 +919,10 @@
 	icon_state = "tag"
 	w_class = ITEMSIZE_TINY
 
-	var/tag_name = DOGTAGS_UNSET
-	var/tag_faction = DOGTAGS_UNSET
-	var/tag_religion = DOGTAGS_UNSET
-	var/tag_btype = DOGTAGS_UNSET
+	var/tag_name
+	var/tag_faction
+	var/tag_religion
+	var/tag_btype
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -934,31 +932,35 @@
 		return
 
 /obj/item/clothing/accessory/dogtags/attack_self(var/mob/living/carbon/human/user = user)
-	if(dogtags_name == DOGTAGS_UNSET && ishuman(user))
-		var/imprintID = alert(user,"Do you wish to imprint your details on \the [src.name]?","Imprint dogtags","Yes", "No")
-		if(imprintID == "Yes")
-			to_chat(user, "You inspect your [src.name]. Everything seems to be in order and they shimmer in the light as you look them over.")
-			dogtags_name = user.real_name
-			dogtags_faction = user.employer_faction
-			dogtags_religion = user.religion
-			dogtags_btype = user.b_type
-			update_name()
-		return
-	if(can_be_broken && dogtags_name != DOGTAGS_UNSET)
-		if(!separated)
-			if(user.a_intent == I_HURT)
-				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
-				separated = TRUE
-				desc_info = null
-				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
-				user.put_in_hands(tag)
-				separated = TRUE
-				update_icon()
-				tag.tag_name = dogtags_name
-				tag.tag_faction = dogtags_faction
-				tag.tag_religion = dogtags_religion
-				tag.tag_btype = dogtags_btype
-				tag.update_name()
+	if(dogtags_name == null && ishuman(user))
+		if(user.a_intent != I_HURT)
+			var/imprintID = tgui_alert(user, "Do you wish to imprint your details on \the [src.name]?", "Imprint Dogtags", list("Yes", "No"))
+			if(imprintID == "Yes")
+				to_chat(user, "You inspect your [src.name]. Everything seems to be in order and they shimmer in the light as you look them over.")
+				dogtags_name = user.real_name
+				dogtags_faction = user.employer_faction
+				dogtags_religion = user.religion
+				dogtags_btype = user.b_type
+				update_name()
+			return
+	if(can_be_broken)
+		if(user.a_intent == I_HURT)
+			if(dogtags_name != null)
+				if(!separated)
+					user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
+					separated = TRUE
+					desc_info = null
+					var/obj/item/dogtag/tag = new tag_type(get_turf(user))
+					user.put_in_hands(tag)
+					separated = TRUE
+					update_icon()
+					tag.tag_name = dogtags_name
+					tag.tag_faction = dogtags_faction
+					tag.tag_religion = dogtags_religion
+					tag.tag_btype = dogtags_btype
+					tag.update_name()
+				else to_chat(user, SPAN_WARNING("\The [src] have been already yanked apart!"))
+			else to_chat(user, SPAN_WARNING("Yanking apart \the [src] with no details seems pointless."))
 
 /obj/item/dogtag/proc/update_name()
 	name = "[src.name] - [src.tag_name]"
@@ -989,10 +991,10 @@
 
 /obj/item/clothing/accessory/dogtags/proc/show_tag(user)
 	var/list/dat = ("<table><tr><td>")
-	dat += text("Name: []<br>", dogtags_name)
-	dat += text("Employer: []<br>\n", dogtags_faction)
-	dat += text("Religious Preference: []<br>\n", dogtags_religion)
-	dat += text("Blood Type: []<br>\n", dogtags_btype)
+	dat += ("Name: [dogtags_name]<br>\n")
+	dat += text("Employer: [dogtags_faction]<br>\n")
+	dat += text("Religious Preference: [dogtags_religion]<br>\n")
+	dat += text("Blood Type: [dogtags_btype]<br>\n")
 
 	var/datum/browser/popup = new(user, "dogtags", "[src.name]", 400, 175)
 	popup.set_content(JOINTEXT(dat))
@@ -1007,10 +1009,10 @@
 
 /obj/item/dogtag/proc/show_tag(user)
 	var/list/dat = ("<table><tr><td>")
-	dat += text("Name: []<br>", tag_name)
-	dat += text("Employer: []<br>\n", tag_faction)
-	dat += text("Religious Preference: []<br>\n", tag_religion)
-	dat += text("Blood Type: []<br>\n", tag_btype)
+	dat += text("Name: [tag_name]<br>\n")
+	dat += text("Employer: [tag_faction]<br>\n")
+	dat += text("Religious Preference: [tag_religion]<br>\n")
+	dat += text("Blood Type: [tag_btype]<br>\n")
 
 	var/datum/browser/popup = new(user, "dogtag", "[src.name]", 400, 175)
 	popup.set_content(JOINTEXT(dat))
