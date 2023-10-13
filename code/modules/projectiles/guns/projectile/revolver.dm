@@ -324,6 +324,6 @@
 	handle_casings = HOLD_CASINGS
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/a45
-	magazine_type = /obj/item/ammo_magazine/a45
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+	magazine_type = /obj/item/ammo_magazine/c45/revolver
 	max_shells = 6

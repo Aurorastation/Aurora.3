@@ -661,7 +661,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	name = "konyang assault rifle"
 	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
-	desc_extemded = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	desc_extended = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k556rifle"
 	item_state = "k556rifle"

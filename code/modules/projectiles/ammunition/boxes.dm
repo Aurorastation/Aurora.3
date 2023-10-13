@@ -38,13 +38,13 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
-/obj/item/ammo_magazine/a45
+/obj/item/ammo_magazine/c45/revolver
 	name = "speed loader (.45)"
 	icon_state = "a454"
-	caliber = "45"
+	caliber = ".45"
 	insert_sound = /singleton/sound_category/revolver_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 400)
-	ammo_type = /obj/item/ammo_casing/a45
+	ammo_type = /obj/item/ammo_casing/c45/revolver
 // End of Revolvos //
 
 // Pistols and handguns //
