@@ -668,7 +668,7 @@ var/list/diona_banned_languages = list(
 		to_chat(user, SPAN_WARNING("Something went wrong while trying to sample [H], both you and the target must remain still."))
 
 /datum/dionastats/proc/memory_transfer(var/mob/user, var/mob/donor)
-	var/memory_drain = input(donor, "[user] just drained some of your blood, including some of your memory. Tell us something about yourself...", "Diona Memory Transfer") as null|text
+	var/memory_drain = tgui_input_text(donor, "[user] just drained some of your blood, including some of your memory. Tell us something about yourself...", "Diona Memory Transfer")
 	if(!memory_drain || memory_drain == "")
 		to_chat(user, SPAN_WARNING("\The [donor] had nothing swimming around in their brain."))
 	else

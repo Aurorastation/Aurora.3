@@ -8099,7 +8099,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/fancy,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
 "zF" = (
@@ -13850,7 +13850,7 @@
 /obj/machinery/light/colored/dying,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/fancy,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
 "RN" = (

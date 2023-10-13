@@ -239,7 +239,7 @@ Frequency:
 				else
 					teleport_options["[A.name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
-		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
+		var/teleport_choice = tgui_input_list(user, "Please select a teleporter to lock in on.", "Hand Teleporter", teleport_options)
 		if(!teleport_choice)
 			return
 		var/old_pad = linked_pad

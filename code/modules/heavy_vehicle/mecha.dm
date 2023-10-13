@@ -25,9 +25,7 @@
 	var/wreckage_path = /obj/structure/mech_wreckage
 
 	// Access updating/container.
-	var/obj/item/card/id/access_card
-	var/list/saved_access = list()
-	var/sync_access = TRUE
+	var/obj/item/card/id/mecha/access_card
 
 	// Mob we're currently paired with or following | the names are saved to prevent metagaming when returning diagnostics
 	var/datum/weakref/leader

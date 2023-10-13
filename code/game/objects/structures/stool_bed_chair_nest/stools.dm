@@ -171,11 +171,8 @@
 // Stool Items
 
 /obj/item/material/stool
+	name = "stool"
 	icon = 'icons/obj/structure/chairs.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
-		)
 	icon_state = "stool_item_preview"
 	item_state = "stool"
 	base_icon = "stool"
@@ -187,7 +184,7 @@
 	throw_range = 5
 	force_divisor = 0.4
 	w_class = ITEMSIZE_HUGE
-	use_material_name = FALSE
+	contained_sprite = TRUE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
 	var/deploy_verb = "right"
@@ -311,17 +308,32 @@
 	base_icon = "bar_stool"
 	origin_type = /obj/structure/bed/stool/bar
 
+/obj/item/material/stool/bar/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_STEEL
+	..(newloc, new_material)
+
 /obj/item/material/stool/hover
 	icon_state = "hover_stool_item"
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
 
+/obj/item/material/stool/hover/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_SHUTTLE_SKRELL
+	..(newloc, new_material)
+
 /obj/item/material/stool/bamboo
 	icon_state = "bamboo_stool_item"
 	item_state = "bamboo_stool"
 	base_icon = "bamboo_stool"
 	origin_type = /obj/structure/bed/stool/bamboo
+
+/obj/item/material/stool/bamboo/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_BAMBOO
+	..(newloc, new_material)
 
 /obj/structure/flora/log_bench
 	name = "log bench"
