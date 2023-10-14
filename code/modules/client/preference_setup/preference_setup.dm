@@ -196,7 +196,7 @@
 /datum/category_group/player_setup_category/proc/content(var/mob/user)
 	. = "<table style='width:100%'><tr style='vertical-align:top'><td style='width:50%'>"
 	var/current = 0
-	var/halfway = items.len / 2
+	var/halfway = items.len / 2.5
 	for(var/datum/category_item/player_setup_item/PI in items)
 		if(halfway && current++ >= halfway)
 			halfway = 0
