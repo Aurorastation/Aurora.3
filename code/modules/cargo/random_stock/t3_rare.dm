@@ -34,6 +34,9 @@ STOCK_ITEM_RARE(bsbeaker, 3)
 STOCK_ITEM_RARE(energyshield, 2)
 	new /obj/item/shield/energy(L)
 
+STOCK_ITEM_RARE(suit_sensors, 2)
+	new /obj/item/computer_hardware/hard_drive/portable/backup/suit_sensors(L)
+
 // A random RIG/hardsuit.
 // It'll come with some screwy electronics, possibly needing reprogramming.
 STOCK_ITEM_RARE(hardsuit, 0.75)

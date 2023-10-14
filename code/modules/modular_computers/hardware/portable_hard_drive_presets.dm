@@ -16,9 +16,10 @@
 	var/_program			//Change that far to the file name of the backup program you would like to spawn
 	origin_tech = list()	//Nope, no research levels from backup disks
 
-/obj/item/computer_hardware/hard_drive/portable/backup/New(loc, var/prog_name)
+/obj/item/computer_hardware/hard_drive/portable/backup/Initialize(mapload, prog_name)
 	. = ..()
-	_program = prog_name
+	if(prog_name)
+		_program = prog_name
 	add_program()
 
 /obj/item/computer_hardware/hard_drive/portable/backup/proc/add_program()
@@ -34,6 +35,9 @@
 	read_only = TRUE
 	desc = "A read-only backup storage crystal containing a backup of the following software: [PRG.filedesc]"
 	name = "[PRG.filedesc] backup crystal"
+
+/obj/item/computer_hardware/hard_drive/portable/backup/suit_sensors
+	_program = "sensormonitor"
 
 /obj/structure/closet/crate/software_backup
 	desc = "A crate containing a backup of all the NT Software available."

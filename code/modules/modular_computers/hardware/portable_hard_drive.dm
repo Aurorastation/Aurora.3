@@ -26,7 +26,7 @@
 	max_capacity = 256
 	origin_tech = list(TECH_DATA = 4)
 
-/obj/item/computer_hardware/hard_drive/portable/New()
-	..()
+/obj/item/computer_hardware/hard_drive/portable/Initialize(mapload)
+	. = ..()
 	stored_files = list()
 	recalculate_size()

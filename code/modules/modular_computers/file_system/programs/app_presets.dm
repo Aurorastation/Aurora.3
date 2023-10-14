@@ -107,7 +107,6 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/chemistry_codex(comp),
 		new /datum/computer_file/program/scanner/medical(comp)
@@ -129,7 +128,6 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
-		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/chemistry_codex(comp),
@@ -605,7 +603,6 @@
 		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/camera_monitor/hacked(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
-		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/aidiag(comp),

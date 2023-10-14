@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed suit sensors from all medical computers."
+  - rscadd: "Added a suit sensors backup data crystal that rarely spawns in cargo."

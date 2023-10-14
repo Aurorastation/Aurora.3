@@ -9,6 +9,8 @@
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
+	available_on_ntnet = FALSE
+	available_on_syndinet = TRUE
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 	color = LIGHT_COLOR_CYAN
 	tgui_id = "SuitSensors"

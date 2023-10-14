@@ -9,7 +9,6 @@
 	. = ..()
 	hard_drive.store_file(new /datum/computer_file/program/records(src))
 	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
-	hard_drive.store_file(new /datum/computer_file/program/suit_sensors(src))
 	hard_drive.store_file(new /datum/computer_file/program/power_monitor(src))
 
 /obj/item/modular_computer/silicon/robot
