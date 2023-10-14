@@ -111,7 +111,7 @@
 	shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
 	flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 	var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
-	icon = flag_icon
+	src.icon = flag_icon
 	linked_flag = F2
 
 	//Apply the pixel shifting based on the direction to the new other half of the flag

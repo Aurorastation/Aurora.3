@@ -95,6 +95,7 @@
 	desc = "It's a fork. Sure is pointy."
 	icon_state = "fork"
 	sharp = TRUE
+	surgerysound = 'sound/items/surgery/hemostat.ogg'
 
 /obj/item/material/kitchen/utensil/fork/plastic
 	icon_state = "plastic_fork"

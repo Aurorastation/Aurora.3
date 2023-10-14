@@ -58,6 +58,7 @@
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
+	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"

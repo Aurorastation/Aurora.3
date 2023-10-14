@@ -1319,6 +1319,17 @@
 		M.heal_organ_damage(0.1 * removed, 0)
 		holder.remove_reagent(/singleton/reagent/capsaicin, 10 * removed)
 
+/singleton/reagent/drink/milk/steamed_milk
+	name = "Steamed Milk"
+	description = "A frothy opaque white liquid made by adding steam to milk."
+	color = "#bebebb"
+	taste_description =  "hot creamy milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of steamed milk"
+	glass_desc = "Hot and creamy milk. Would go great with coffee!"
+	default_temperature = T0C + 66
+
 /singleton/reagent/drink/milk/cream
 	name = "Cream"
 	description = "The fatty, still liquid part of milk. Why don't you mix this with sum scotch, eh?"
@@ -1783,18 +1794,18 @@
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
 
-/singleton/reagent/drink/coffee/cafe_latte
-	name = "Cafe Latte"
+/singleton/reagent/drink/coffee/caffe_misto
+	name = "Caffe Misto"
 	description = "A nice, strong and tasty beverage to enjoy while reading."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter cream"
+	taste_description = "slightly bitter cream"
 
-	glass_icon_state = "cafe_latte"
-	glass_name = "glass of cafe latte"
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of caffe misto"
 	glass_desc = "A nice, strong and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
-/singleton/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/coffee/caffe_misto/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
 
@@ -1831,6 +1842,17 @@
 	glass_desc = "Espresso with ice cubes poured over ice."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/singleton/reagent/drink/coffee/flat_white
+	name = "Flat White"
+	description = "A nice, strong, and refreshing beverage to enjoy while reading."
+	color = "#664300" // rgb: 102, 67, 0
+	taste_description = "slightly bitter cream"
+
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of flat white"
+	glass_desc = "A nice, strong, and refreshing beverage to enjoy while reading."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
 /singleton/reagent/drink/coffee/caffe_americano
 	name = "Caffe Americano"
 	description = "Espresso diluted with hot water."
@@ -1844,23 +1866,23 @@
 
 /singleton/reagent/drink/coffee/flat_white
 	name = "Flat White Espresso"
-	description = "Espresso with a bit of steamy hot milk."
+	description = "Short espresso with steamy hot milk."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter coffee and milk"
+	taste_description = "hot creamy coffee"
 
-	glass_icon_state = "cafe_latte"
+	glass_icon_state = "caffe_latte"
 	glass_name = "glass of flat white"
-	glass_desc = "Espresso with a bit of steamy hot milk."
+	glass_desc = "Short espresso with steamy hot milk."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/latte
-	name = "Latte"
+	name = "Caffe Latte"
 	description = "A nice, strong, and refreshing beverage to enjoy while reading."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter cream"
+	taste_description = "bitter foamy cream"
 
-	glass_icon_state = "cafe_latte"
-	glass_name = "glass of cafe latte"
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of caffe latte"
 	glass_desc = "A nice, strong, and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
@@ -1919,22 +1941,11 @@
 	name = "Macchiato"
 	description = "Espresso with milk foam."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter milk foam"
+	taste_description = "very bitter milk foam"
 
 	glass_icon_state = "hot_coffee"
 	glass_name = "glass of macchiato"
 	glass_desc = "Espresso with milk foam."
-	glass_center_of_mass = list("x"=15, "y"=9)
-
-/singleton/reagent/drink/coffee/mocacchino
-	name = "Mocacchino"
-	description = "Espresso with hot milk and chocolate."
-	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "sweet milk and bitter coffee"
-
-	glass_icon_state = "cafe_latte"
-	glass_name = "glass of mocacchino"
-	glass_desc = "Espresso with hot milk and chocolate."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/icecoffee/psfrappe
