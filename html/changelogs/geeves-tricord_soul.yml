@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Tricordrazine is now made by combining dylovene and inaprovaline, no water."
+  - rscadd: "Tricordrazine now counters the blurry vision chemical side-effect."

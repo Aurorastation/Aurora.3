@@ -193,7 +193,7 @@
 
 /singleton/reagent/tricordrazine
 	name = "Tricordrazine"
-	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane's development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
+	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane's development. The drug increases the rate at which tissues regenerate, though far slower than modern medications. The slow healing effect has the side-effect of temporarily clearing up vision."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	overdose = 30
@@ -208,6 +208,12 @@
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
+
+/singleton/reagent/tricordrazine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		if(check_min_dose(M))
+			M.add_chemical_effect(CE_CLEARSIGHT)
 
 /singleton/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])

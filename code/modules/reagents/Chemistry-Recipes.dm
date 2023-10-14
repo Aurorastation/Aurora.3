@@ -298,8 +298,8 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = /singleton/reagent/tricordrazine
-	required_reagents = list(/singleton/reagent/water = 1, /singleton/reagent/inaprovaline = 1, /singleton/reagent/dylovene = 1)
-	result_amount = 3
+	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/dylovene = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/alkysine
 	name = "Alkysine"
