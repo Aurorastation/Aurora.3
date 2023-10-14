@@ -16,6 +16,8 @@
 	S["pda_choice"] >> pref.pda_choice
 	S["headset_choice"] >> pref.headset_choice
 	S["primary_radio_slot"] >> pref.primary_radio_slot
+	S["sensor_setting"] >> pref.sensor_setting
+	S["sensors_locked"] >> pref.sensors_locked
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
 	S["all_underwear"] << pref.all_underwear
@@ -27,6 +29,8 @@
 	S["pda_choice"] << pref.pda_choice
 	S["headset_choice"] << pref.headset_choice
 	S["primary_radio_slot"] << pref.primary_radio_slot
+	S["sensor_setting"] << pref.sensor_setting
+	S["sensors_locked"] << pref.sensors_locked
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
@@ -40,7 +44,9 @@
 				"backbag_strap",
 				"pda_choice",
 				"headset_choice",
-				"primary_radio_slot"
+				"primary_radio_slot",
+				"sensor_setting",
+				"sensors_locked"
 			),
 			"args" = list("id")
 		)
@@ -61,6 +67,8 @@
 			"pda_choice",
 			"headset_choice",
 			"primary_radio_slot",
+			"sensor_setting",
+			"sensors_locked",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -77,6 +85,8 @@
 		"pda_choice" = pref.pda_choice,
 		"headset_choice" = pref.headset_choice,
 		"primary_radio_slot" = pref.primary_radio_slot,
+		"sensor_setting" = pref.sensor_setting,
+		"sensors_locked" = pref.sensors_locked,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -137,6 +147,8 @@
 	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, headsetlist.len, initial(pref.headset_choice))
 	if(!(pref.primary_radio_slot in primary_radio_slot_choice))
 		pref.primary_radio_slot = primary_radio_slot_choice[1]
+	pref.sensor_setting = sanitize_inlist(pref.sensor_setting, SUIT_SENSOR_MODES, get_key_by_index(SUIT_SENSOR_MODES, 0))
+	pref.sensors_locked = sanitize_bool(pref.sensors_locked, FALSE)
 
 /datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
@@ -160,6 +172,8 @@
 	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdalist[pref.pda_choice]]</b></a><br>"
 	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[headsetlist[pref.headset_choice]]</b></a><br>"
 	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
+	. += "Default Suit Sensor Setting: <a href='?src=\ref[src];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
+	. += "Suit Sensors Locked: <a href='?src=\ref[src];toggle_sensors_locked=1'><b>[pref.sensors_locked ? "Locked" : "Unlocked"]</b></a><br/>"
 
 	return jointext(., null)
 
@@ -217,10 +231,21 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_radio_slot"])
-		var/new_slot = tgui_input_list(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Charcter Preference", primary_radio_slot_choice, pref.primary_radio_slot)
+		var/new_slot = tgui_input_list(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Character Preference", primary_radio_slot_choice, pref.primary_radio_slot)
 		if(!isnull(new_slot) && CanUseTopic(user))
 			pref.primary_radio_slot = new_slot
 			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["change_sensor_setting"])
+		var/new_sensor = tgui_input_list(user, "Select a sensor mode.", "Character Preference", SUIT_SENSOR_MODES, pref.sensor_setting)
+		if(!isnull(new_sensor) && CanUseTopic(user))
+			pref.sensor_setting = new_sensor
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["toggle_sensors_locked"])
+		pref.sensors_locked = !pref.sensors_locked
+		return TOPIC_REFRESH
+
 
 	else if(href_list["change_underwear"])
 		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]

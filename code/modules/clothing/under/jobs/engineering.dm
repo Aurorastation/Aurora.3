@@ -5,7 +5,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "chief_engineer"
 	item_state = "chief_engineer"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	armor = list(
 		rad = ARMOR_RAD_MINOR
@@ -18,7 +18,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/engineering.dmi'
 	icon_state = "nt_atmos"
 	item_state = "nt_atmos"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	siemens_coefficient = 0.75
 
@@ -36,7 +36,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/engineering.dmi'
 	icon_state = "nt_engineer"
 	item_state = "nt_engineer"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	armor = list(
 		rad = ARMOR_RAD_MINOR

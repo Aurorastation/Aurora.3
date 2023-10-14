@@ -58,16 +58,28 @@ export const SuitSensors = (props, context) => {
                   </Table.Cell>
                 )}
 
-                <Table.Cell color={getPressureClass(crewmember.tpressure)}>
+                <Table.Cell
+                  color={
+                    crewmember.stype > 1 && data.security_level > 2
+                      ? getPressureClass(crewmember.tpressure)
+                      : ''
+                  }>
                   {crewmember.stype > 1 && data.security_level > 2
                     ? crewmember.pressure
                     : 'N/A'}
                 </Table.Cell>
-                <Table.Cell color={getOxyClass(crewmember.oxyg)}>
-                  {toOxyLabel(crewmember.oxyg)}
+                <Table.Cell
+                  color={
+                    crewmember.stype > 1 && data.security_level > 2
+                      ? getOxyClass(crewmember.oxyg)
+                      : ''
+                  }>
+                  {crewmember.stype > 1 && data.security_level > 2
+                    ? toOxyLabel(crewmember.oxyg)
+                    : 'N/A'}
                 </Table.Cell>
                 <Table.Cell>
-                  {crewmember.stype > 1
+                  {crewmember.stype > 1 && data.security_level > 2
                     ? Math.round(crewmember.bodytemp * 10) / 10 + 'C'
                     : 'N/A'}
                 </Table.Cell>

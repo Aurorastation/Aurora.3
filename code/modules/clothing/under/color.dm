@@ -20,8 +20,8 @@
 	desc = "It's standardised prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position."
 	icon_state = "orange"
 	item_state = "orange"
-	has_sensor = 2
-	sensor_mode = 3
+	has_sensor = SUIT_LOCKED_SENSORS
+	sensor_mode = SUIT_SENSOR_TRACKING
 	var/id
 
 /obj/item/clothing/under/color/orange/cell1

@@ -7,7 +7,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "research_director"
 	item_state = "research_director"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	armor = list(
 		bio = ARMOR_BIO_MINOR
@@ -24,7 +24,7 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/scientist/zeng
@@ -109,7 +109,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "chief_medical_officer"
 	item_state = "chief_medical_officer"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -122,7 +122,7 @@
 	icon = 'icons/clothing/under/uniforms/iac_uniform.dmi'
 	icon_state = "iac"
 	item_state = "iac"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -137,7 +137,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	icon_state = "nt_phys"
 	item_state = "nt_phys"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -210,7 +210,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. Specially fitted to ensure surgical precision."
 	icon_state = "nt_surgeon"
 	item_state = "nt_surgeon"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/medical/surgeon/zeng

@@ -36,7 +36,7 @@
 	icon_state = "uniform"
 	item_state = "uniform"
 	worn_state = "uniform"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	var/is_open = FALSE
 
@@ -70,7 +70,7 @@
 	icon_state = "uniform_fem"
 	item_state = "uniform_fem"
 	worn_state = "uniform_fem"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	var/is_open = FALSE
@@ -196,7 +196,7 @@
 	icon_state = "uniform"
 	item_state = "uniform"
 	worn_state = "uniform"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/captunic
@@ -231,5 +231,5 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "captain"
 	item_state = "captain"
-	has_sensor = 1
+	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE

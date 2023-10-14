@@ -140,6 +140,9 @@
 #define isitem(D) istype(D, /obj/item)
 #define islist(D) istype(D, /list)
 
+/// Semantic define for a 0 int intended for use as a bitfield
+#define EMPTY_BITFIELD 0
+
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
 #define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
 

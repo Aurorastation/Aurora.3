@@ -41,3 +41,4 @@ changes:
   - balance: "Suit sensors are now tiered based on alert level."
   - balance: "Suit sensors are now only installed on job uniforms."
   - balance: "Suit sensors are no longer able to be installed on PDAs and Tablets."
+  - rscadd: "You are now able to set your suit sensors on the character creation menu."
