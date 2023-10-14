@@ -173,7 +173,7 @@
 		return
 
 	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
-	if(do_after(user, 20, TRUE, src))
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -233,7 +233,7 @@
 			return
 
 		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
-		if(do_after(user, 20, TRUE, src))
+		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting)
 				return
 			var/mob/M = G.affecting

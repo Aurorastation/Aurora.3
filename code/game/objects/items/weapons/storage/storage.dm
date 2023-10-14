@@ -637,7 +637,7 @@
 	if(empty_delay)
 		usr.visible_message("\The [usr] starts to empty the contents of \the [src]...", SPAN_NOTICE("You start emptying the contents of \the [src]..."))
 
-	if(!do_after(usr, contents.len * empty_delay, act_target=usr))
+	if(!do_after(usr, contents.len * empty_delay))
 		return
 
 	var/turf/T = get_turf(src)

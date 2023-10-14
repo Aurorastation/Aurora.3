@@ -166,11 +166,9 @@ var/global/list/ticket_panels = list()
 		return
 
 	var/DBQuery/Q = dbcon.NewQuery({"INSERT INTO ss13_tickets
-		(game_id, message_count, admin_count, admin_list, opened_by, taken_by,
-		 closed_by, response_delay, opened_at, closed_at)
+		(game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at)
 	VALUES
-		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:,
-		 :closed_by:, :delay:, :opened_at:, :closed_at:)"})
+		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:, :closed_by:, :delay:, :opened_at:, :closed_at:)"})
 	Q.Execute(list(
 		"g_id" = game_id,
 		"m_count" = length(msgs),

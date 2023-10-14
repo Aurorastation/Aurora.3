@@ -38,7 +38,8 @@
 		"Hangar Technician" = /datum/outfit/job/hangar_tech/orion,
 		"Shaft Miner" = /datum/outfit/job/mining/orion,
 		"Machinist" = /datum/outfit/job/machinist/orion,
-		"Corporate Liaison" = /datum/outfit/job/representative/orion
+		"Corporate Liaison" = /datum/outfit/job/representative/orion,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/orion
 	)
 
 /datum/outfit/job/hangar_tech/orion
@@ -83,6 +84,16 @@
 	id = /obj/item/card/id/orion
 	accessory = /obj/item/clothing/accessory/tie/corporate/orion
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/orion
+
+	backpack_faction = /obj/item/storage/backpack/orion
+	satchel_faction = /obj/item/storage/backpack/satchel/orion
+	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
+	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
+
+/datum/outfit/job/visitor/orion
+	name = "Off-Duty Crew Member - Orion Express"
+
+	id = /obj/item/card/id/orion
 
 	backpack_faction = /obj/item/storage/backpack/orion
 	satchel_faction = /obj/item/storage/backpack/satchel/orion

@@ -18,6 +18,7 @@
 	unbreakable = 1 //It's already broken.
 	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
+	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)

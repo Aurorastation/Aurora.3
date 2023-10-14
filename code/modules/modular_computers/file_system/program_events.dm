@@ -36,7 +36,7 @@
 /datum/computer_file/program/proc/service_enable()
 	return service_activate()
 
-// Is called when program service is being deactivated without 
+// Is called when program service is being deactivated without
 /datum/computer_file/program/proc/service_disable()
 	return service_deactivate()
 

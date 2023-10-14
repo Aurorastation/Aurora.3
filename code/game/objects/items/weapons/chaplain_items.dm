@@ -147,7 +147,7 @@
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 
-	var/picked = input("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic") as null|anything in nullchoices
+	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", nullchoices)
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
@@ -187,7 +187,7 @@
 	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(75))
-			if(do_after(user, 15))
+			if(do_after(user, 1.5 SECONDS))
 				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)

@@ -4,6 +4,7 @@
 	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
+	armor_penetration = 10
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	check_armor = "laser"
@@ -20,6 +21,7 @@
 /obj/item/projectile/beam/practice
 	name = "laser"
 	damage = 5
+	armor_penetration = 0
 	damage_type = DAMAGE_PAIN
 	eyeblur = 0
 

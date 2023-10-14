@@ -1,7 +1,7 @@
 /obj/random/mre
 	name = "random MRE"
 	desc = "This is a random single MRE."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/mre.dmi'
 	icon_state = "mre"
 	spawnlist = list(
 		/obj/item/storage/box/fancy/mre,
@@ -194,14 +194,16 @@
 	icon_state = "beertankTEMP"
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
+		/obj/structure/reagent_dispensers/keg/beerkeg/rice = 0.5,
 		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
-		/obj/structure/reagent_dispensers/keg/mead = 0.5
+		/obj/structure/reagent_dispensers/keg/mead = 0.5,
+		/obj/structure/reagent_dispensers/keg/sake = 0.5
 	)
 
 /obj/random/pizzabox
 	name = "random pizzabox"
 	desc = "Contains a random pizzabox."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/pizzabox.dmi'
 	icon_state = "pizzabox1"
 	spawnlist = list(
 		/obj/item/pizzabox/margherita,

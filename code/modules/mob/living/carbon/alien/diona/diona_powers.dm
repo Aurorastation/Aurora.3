@@ -16,7 +16,7 @@
 		if(is_diona(H) == DIONA_WORKER)
 			choices += H
 
-	var/mob/living/M = input(src, "Who do you wish to merge with?") in null|choices
+	var/mob/living/M = tgui_input_list(src, "Who do you wish to merge with?", "Merge With Gestalt", choices)
 
 	if(!M)
 		to_chat(src, SPAN_WARNING("There are no active gestalts nearby to merge with."))
@@ -78,7 +78,7 @@
 			continue
 		choices += C
 
-	var/mob/living/carbon/alien/diona/M = input(src, "Which nymph do you wish to absorb?") in null|choices
+	var/mob/living/carbon/alien/diona/M = tgui_input_list(src, "Which nymph do you wish to absorb?", "Absorb Nymph", choices)
 
 	if(!M)
 		to_chat(src, SPAN_WARNING("There are no nymphs in your vicinity."))
@@ -187,7 +187,7 @@
 		to_chat(src, SPAN_WARNING("There are no life forms nearby to sample!"))
 		return
 
-	var/mob/living/donor = input(src, "Who do you wish to sample?", "Blood Sampling") as null|anything in choices
+	var/mob/living/donor = tgui_input_list(src, "Who do you wish to sample?", "Blood Sampling", choices)
 	if(!donor || !Adjacent(donor))
 		return
 
@@ -318,7 +318,7 @@
 			)
 
 	var/chosen_structure
-	chosen_structure = input("Choose a structure to grow.") in diona_structures
+	chosen_structure = tgui_input_list(src, "Choose a structure to grow.", "Structure Selection", diona_structures)
 	if(!chosen_structure || chosen_structure == "Cancel")
 		to_chat(src, SPAN_WARNING("We have elected to not grow anything right now."))
 		return

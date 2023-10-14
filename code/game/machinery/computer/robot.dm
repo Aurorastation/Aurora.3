@@ -56,7 +56,7 @@
 		if(isrobot(user) && user != target)
 			to_chat(user, "Access denied.")
 			return
-		var/choice = input("Really detonate [target.name]?") in list ("Yes", "No")
+		var/choice = tgui_alert(usr, "Really detonate [target.name]?", "Robotics Control", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 		if(!target || !istype(target))
@@ -98,7 +98,7 @@
 		if(target.emagged)
 			return
 
-		var/choice = input("Really [target.lock_charge ? "unlock" : "lockdown"] [target.name] ?") in list ("Yes", "No")
+		var/choice = tgui_alert(usr, "Really [target.lock_charge ? "unlock" : "lockdown"] [target.name] ?", "Robotics Control", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 
@@ -154,7 +154,7 @@
 			to_chat(user, "Robot is already hacked.")
 			return
 
-		var/choice = input("Really hack [target.name]? This cannot be undone.") in list("Yes", "No")
+		var/choice = tgui_alert(usr, "Really hack [target.name]? This cannot be undone.", list("Yes", "No"))
 		if(choice != "Yes")
 			return
 

@@ -17,7 +17,7 @@
 		spread = spread_dirs
 	else
 		spread = list()
-		
+
 	..(start_immediately)
 
 /datum/effect_system/sparks/process()
@@ -40,6 +40,6 @@
 				direction = 0
 
 			S = new /obj/effect/visual/sparks(location, src)
-			S.start(direction)	
+			S.start(direction)
 			QUEUE_VISUAL(S)
 			total_sparks++

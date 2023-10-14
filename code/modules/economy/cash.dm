@@ -76,7 +76,7 @@
 	src.desc = "A bundle of Biesel Standard Credit chips. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
-	var/amount = input(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
+	var/amount = tgui_input_number(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20, worth, 0)
 
 	if(QDELETED(src))
 		return 0

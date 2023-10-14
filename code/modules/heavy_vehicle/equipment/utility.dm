@@ -18,7 +18,7 @@
 /obj/item/mecha_equipment/clamp/attack_hand(mob/user)
 	if(owner && LAZYISIN(owner.pilots, user))
 		if(!owner.hatch_closed && length(carrying))
-			var/obj/chosen_obj = input(user, "Choose an object to grab.", "Clamp Claw") as null|anything in carrying
+			var/obj/chosen_obj = tgui_input_list(user, "Choose an object to grab.", "Clamp Claw", carrying)
 			if(!chosen_obj)
 				return
 			if(user.put_in_active_hand(chosen_obj))
@@ -33,7 +33,7 @@
 			var/obj/machinery/door/firedoor/FD = target
 			if(FD.blocked)
 				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
-				if(do_after(user, 10 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && FD.blocked)
+				if(do_after(user, 10 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && FD.blocked)
 					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
 					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 					FD.blocked = FALSE
@@ -41,7 +41,7 @@
 					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
 			else
 				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
-				if(do_after(user, 4 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && !FD.blocked)
+				if(do_after(user, 4 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && !FD.blocked)
 					if(FD.density)
 						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
 						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
@@ -62,7 +62,7 @@
 					var/time_to_open = 15 SECONDS
 					if(AD.welded && AD.locked)
 						time_to_open = 30 SECONDS
-					if(do_after(user, time_to_open, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)))
+					if(do_after(user, time_to_open, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)))
 						AD.welded = FALSE
 						AD.locked = FALSE
 						AD.update_icon()
@@ -72,7 +72,7 @@
 						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
 				else
 					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
-					if(do_after(user, 5 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
+					if(do_after(user, 5 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
 						if(AD.density)
 							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
 							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
@@ -100,7 +100,7 @@
 
 
 			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND)
-			if(do_after(user, 2 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), O, O.loc)))
+			if(do_after(user, 2 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), O, O.loc)))
 				O.forceMove(src)
 				carrying += O
 				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
@@ -111,10 +111,10 @@
 			if(user.a_intent == I_HURT)
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
-				if(prob(33))
+				if(prob(15))
 					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
 					return
-				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage * 1.5 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
+				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage / 2 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 				M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
 				to_chat(user, SPAN_WARNING("You slam [target] with [src.name]."))
 				owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."))
@@ -140,7 +140,7 @@
 		return
 	var/obj/chosen_obj = carrying[1]
 	if(choose_object)
-		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+		chosen_obj = tgui_input_list(user, "Choose an object to set down.", "Clamp Claw", carrying)
 	if(!chosen_obj)
 		return
 	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
@@ -376,7 +376,7 @@
 		//Better materials = faster drill!
 		var/delay = max(5, 20 - drill_head.material.protectiveness)
 		owner.setClickCooldown(delay) //Don't spamclick!
-		if(do_after(user, delay, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), target, target.loc)) && drill_head)
+		if(do_after(user, delay, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), target, target.loc)) && drill_head)
 			if(src == owner.selected_system)
 				if(drill_head.durability <= 0)
 					drill_head.shatter()

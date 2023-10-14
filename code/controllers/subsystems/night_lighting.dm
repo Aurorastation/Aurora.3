@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/nightlight/SSnightlight
-
-/datum/controller/subsystem/nightlight
+SUBSYSTEM_DEF(nightlight)
 	name = "Night Lighting"
 	wait = 5 MINUTES
 	init_order = SS_INIT_NIGHT
@@ -9,9 +7,6 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 
 	var/isactive = FALSE
 	var/disable_type = NL_NOT_DISABLED
-
-/datum/controller/subsystem/nightlight/New()
-	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/controller/subsystem/nightlight/stat_entry(msg)
 	msg = "A:[isactive] T:[worldtime2hours()] D:[disable_type]"

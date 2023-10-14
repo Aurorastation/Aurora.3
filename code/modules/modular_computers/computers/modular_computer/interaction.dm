@@ -290,7 +290,7 @@
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
 		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
-		if(WT.use(round(damage / 75)) && do_after(user, damage / 10))
+		if(WT.use(round(damage / 75)) && do_after(user, damage / 10, src, DO_REPAIR_CONSTRUCT))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
 		update_icon()
@@ -302,7 +302,7 @@
 			to_chat(user, SPAN_WARNING("This device doesn't have any components installed."))
 			return TRUE
 
-		var/obj/item/computer_hardware/choice = input(user, "Which component do you want to uninstall?", "Hardware Removal") as null|anything in all_components
+		var/obj/item/computer_hardware/choice = tgui_input_list(user, "Which component do you want to uninstall?", "Hardware Removal", all_components)
 		if(!choice)
 			return TRUE
 		if(!Adjacent(usr))

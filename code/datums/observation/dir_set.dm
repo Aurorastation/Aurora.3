@@ -25,12 +25,6 @@ var/singleton/observ/dir_set/dir_set_event = new()
 * Direction Handling *
 *********************/
 
-/atom/set_dir()
-	var/old_dir = dir
-	UNLINT(. = ..())
-	if(old_dir != dir)
-		dir_set_event.raise_event(src, old_dir, dir)
-
 /atom/movable/Entered(var/atom/movable/am, atom/old_loc)
 	. = ..()
 	if(dir_set_event.has_listeners(am))

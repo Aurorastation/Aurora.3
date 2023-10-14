@@ -10,7 +10,7 @@
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/lattice,
 		/turf/simulated/wall,
@@ -74,7 +74,7 @@
 	desc = "A catwalk for easier EVA maneuvering."
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/obj/structure/lattice/catwalk,
 		/obj/structure/lattice/catwalk/indoor
@@ -105,8 +105,8 @@
 		if(C.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
-			queue_smooth(src)
-			queue_smooth_neighbors(src)
+			SSicon_smooth.add_to_queue(src)
+			SSicon_smooth.add_to_queue_neighbors(src)
 	else
 		..()
 
@@ -122,7 +122,7 @@
 	icon = 'icons/obj/grate.dmi'
 	icon_state = "grate"
 	return_amount = 1
-	smooth = null
+	smoothing_flags = null
 	color = COLOR_TILED
 	var/base_icon_state = "grate"
 	var/damaged = FALSE
@@ -185,3 +185,38 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/urban
+	name = "grate"
+	desc = "A metal grate."
+	icon = 'icons/obj/structure/over_turf.dmi'
+	icon_state = "city_grate"
+	return_amount = 1
+	smoothing_flags = null
+
+/obj/structure/lattice/catwalk/indoor/tatami
+	name = "tatami spread"
+	desc = "A straw mat rug of some sort, frequently referred to as a tatami."
+	icon = 'icons/obj/structure/over_turf.dmi'
+	icon_state = "tatami"
+	return_amount = null
+	smoothing_flags = null
+	footstep_sound = /singleton/sound_category/carpet_footstep
+
+/obj/structure/lattice/catwalk/indoor/planks
+	name = "flooring plank"
+	desc = "A ricket assortment of planks meant to be stood upon."
+	icon = 'icons/obj/structure/urban/wood.dmi'
+	icon_state = "plank"
+	return_amount = null
+	smoothing_flags = null
+	footstep_sound = /singleton/sound_category/wood_footstep
+
+/obj/structure/lattice/catwalk/indoor/planks/opaque
+	icon_state = "plank_dark"
+
+/obj/structure/lattice/catwalk/indoor/planks/stairs
+	icon_state = "plank_stairs"
+
+/obj/structure/lattice/catwalk/indoor/planks/deep
+	icon_state = "plank_deep"

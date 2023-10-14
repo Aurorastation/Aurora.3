@@ -1,39 +1,43 @@
 /obj/machinery/computer/shuttle_control/multi
-	ui_template = "shuttle_control_console_multi.tmpl"
+	ui_template = "ShuttleControlConsoleMulti"
 
-/obj/machinery/computer/shuttle_control/multi/get_ui_data(var/datum/shuttle/autodock/multi/shuttle)
+/obj/machinery/computer/shuttle_control/multi/ui_data(mob/user)
 	. = ..()
+
+	var/datum/shuttle/autodock/multi/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(istype(shuttle))
 		. += list(
 			"destination_name" = shuttle.next_location? shuttle.next_location.name : "No destination set.",
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
-	..()
-
-	if(href_list["pick"])
-		var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
+/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/shuttle, var/action, var/list/params)
+	if(action == "pick")
+		var/dest_key = tgui_input_list(user, "Choose shuttle destination.", "Shuttle Destination", shuttle.get_destinations())
 		if(dest_key && (!use_check(usr) || (isobserver(usr) && check_rights(R_ADMIN, FALSE))))
 			shuttle.set_destination(dest_key, usr)
-		return TOPIC_REFRESH
+		return TRUE
+
+	return ..()
 
 /obj/machinery/computer/shuttle_control/multi/antag
-	ui_template = "shuttle_control_console_antag.tmpl"
+	ui_template = "ShuttleControlConsoleMultiAntag"
 
-/obj/machinery/computer/shuttle_control/multi/antag/get_ui_data(var/datum/shuttle/autodock/multi/antag/shuttle)
+/obj/machinery/computer/shuttle_control/multi/antag/ui_data(mob/user)
 	. = ..()
+
+	var/datum/shuttle/autodock/multi/antag/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(istype(shuttle))
 		. += list(
 			"cloaked" = shuttle.cloaked,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/datum/shuttle/autodock/multi/antag/shuttle, var/list/href_list)
-	..()
-
-	if(href_list["toggle_cloaked"])
+/obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/antag/shuttle, var/action, var/list/params)
+	if(action == "toggle_cloaked")
 		shuttle.cloaked = !shuttle.cloaked
-		return TOPIC_REFRESH
+		return TRUE
+
+	return ..()
 
 /obj/machinery/computer/shuttle_control/multi/can_move(var/datum/shuttle/autodock/shuttle, var/user)
 	if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
@@ -44,6 +48,6 @@
 		else if(our_shuttle.next_location == our_shuttle.home_waypoint)
 			if(our_shuttle.return_warning_cooldown < world.time)
 				our_shuttle.return_warning_cooldown = world.time + 60 SECONDS
-				alert(user, "If you return to base, you won't be able to return to [current_map.station_short]. Launch again if you're sure about this.","Shuttle Control","Acknowledged.")
+				tgui_alert(user, "If you return to base, you won't be able to return to [current_map.station_short]. Launch again if you're sure about this.", "Shuttle Control", list("Acknowledged."))
 				return FALSE
 	return ..()

@@ -62,7 +62,6 @@
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
 	target.custom_pain("The pain in your chest is living hell!",1)
 	affected.cavity = CAVITY_OPEN
-	playsound(target.loc, 'sound/effects/squelch1.ogg', 25, 1)
 	..()
 
 /singleton/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -192,7 +191,7 @@
 
 		if(istype(obj,/obj/item/implant))
 			var/obj/item/implant/imp = obj
-			if(imp.islegal())
+			if(imp.isLegal())
 				find_prob += 60
 			else
 				find_prob += 40

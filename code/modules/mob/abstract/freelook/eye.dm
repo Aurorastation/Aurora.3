@@ -28,15 +28,15 @@
 
 /mob/abstract/eye/New()
 	ghostimage = image(src.icon,src,src.icon_state)
-	SSmob.ghost_darkness_images |= ghostimage //so ghosts can see the eye when they disable darkness
-	SSmob.ghost_sightless_images |= ghostimage //so ghosts can see the eye when they disable ghost sight
+	SSmobs.ghost_darkness_images |= ghostimage //so ghosts can see the eye when they disable darkness
+	SSmobs.ghost_sightless_images |= ghostimage //so ghosts can see the eye when they disable ghost sight
 	updateallghostimages()
 	..()
 
 /mob/abstract/eye/Destroy()
 	if (ghostimage)
-		SSmob.ghost_darkness_images -= ghostimage
-		SSmob.ghost_sightless_images -= ghostimage
+		SSmobs.ghost_darkness_images -= ghostimage
+		SSmobs.ghost_sightless_images -= ghostimage
 		qdel(ghostimage)
 		ghostimage = null
 		updateallghostimages()
@@ -66,7 +66,7 @@
 	return 0
 
 /mob/abstract/eye/examine(mob/user)
-	return
+	return TRUE
 
 /mob/abstract/eye/proc/possess(var/mob/user)
 	if(owner && owner != user)

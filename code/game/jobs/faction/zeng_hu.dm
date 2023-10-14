@@ -52,7 +52,8 @@
 		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zeng_hu,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
 		"Xenoarchaeologist"= /datum/outfit/job/scientist/xenoarchaeologist/zeng_hu,
-		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
+		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zeng_hu
 	)
 
 /datum/outfit/job/doctor/zeng_hu
@@ -220,3 +221,13 @@
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)
+
+/datum/outfit/job/visitor/zeng_hu
+	name = "Off-Duty Crew Member - Zeng-Hu"
+
+	id = /obj/item/card/id/zeng_hu
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng

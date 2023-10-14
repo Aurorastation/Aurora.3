@@ -387,8 +387,8 @@
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-									 "You hear welding.")
+										SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+										"You hear welding.")
 			else
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
