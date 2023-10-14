@@ -29467,6 +29467,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/mob/living/simple_animal/reaver/baby/jerry,
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "oad" = (

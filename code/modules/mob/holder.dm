@@ -382,6 +382,29 @@ var/list/holder_mob_icon_cache = list()
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
 
+/obj/item/holder/reaver/baby
+	name = "baby reaver"
+	desc = "The result of SCC experimentation in exploitation of space fauna. While it looks like a dangerous whirl of talons, this one has been successfully tamed."
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "babyreaver2"
+	icon_state_dead = "babyreaver_dead"
+	item_state = "babyreaver"
+	slot_flags = SLOT_HEAD
+	flags_inv = HIDEEARS
+	w_class = ITEMSIZE_TINY
+
+/obj/item/holder/reaver/baby/verb/toggle_block_hair()
+	set name = "Toggle Hair Coverage"
+	set category = "Object"
+	set src in usr
+
+	flags_inv ^= BLOCKHEADHAIR
+	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+
+/obj/item/holder/reaver/baby/jerry
+	name = "Jerry"
+	desc = "The winner of a poll conducted on the SCCV Horizon. While it looks like a dangerous whirl of talons, this one has been successfully tamed."
+
 /obj/item/holder/borer
 	name = "cortical borer"
 	desc = "It's a slimy brain slug. Gross."
