@@ -1054,7 +1054,7 @@
 	armor = null
 	w_class = ITEMSIZE_NORMAL
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
-	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
+	var/has_sensor = 0 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0
 		/*
 		1 = Report living/dead
@@ -1073,7 +1073,6 @@
 	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR)
 
-
 /obj/item/clothing/under/attack_hand(var/mob/user)
 	if(LAZYLEN(accessories))
 		..()
@@ -1083,6 +1082,8 @@
 
 /obj/item/clothing/under/Initialize()
 	. = ..()
+	if(!has_sensor)
+		src.verbs |= /obj/item/clothing/under/proc/toggle
 	if(worn_state)
 		LAZYINITLIST(item_state_slots)
 		item_state_slots[slot_w_uniform_str] = worn_state
@@ -1197,15 +1198,16 @@
 
 /obj/item/clothing/under/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	switch(src.sensor_mode)
-		if(0)
-			to_chat(user, "Its sensors appear to be disabled.")
-		if(1)
-			to_chat(user, "Its binary life sensors appear to be enabled.")
-		if(2)
-			to_chat(user, "Its vital tracker appears to be enabled.")
-		if(3)
-			to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")
+	if(has_sensor)
+		switch(src.sensor_mode)
+			if(0)
+				to_chat(user, "Its sensors appear to be disabled.")
+			if(1)
+				to_chat(user, "Its binary life sensors appear to be enabled.")
+			if(2)
+				to_chat(user, "Its vital tracker appears to be enabled.")
+			if(3)
+				to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")
 
 /obj/item/clothing/under/proc/set_sensors(mob/usr as mob)
 	var/mob/M = usr
@@ -1251,7 +1253,7 @@
 				for(var/mob/V in viewers(usr, 1))
 					V.show_message("[usr] sets [src.loc]'s sensors to maximum.", 1)
 
-/obj/item/clothing/under/verb/toggle()
+/obj/item/clothing/under/proc/toggle()
 	set name = "Toggle Suit Sensors"
 	set category = "Object"
 	set src in usr
@@ -1347,9 +1349,6 @@
 
 /obj/item/clothing/under/clothing_class()
 	return "uniform"
-
-/obj/item/clothing/under/AltClick(var/mob/user)
-	set_sensors(user)
 
 //Rings
 

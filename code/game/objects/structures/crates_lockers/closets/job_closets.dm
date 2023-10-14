@@ -49,7 +49,7 @@
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/storage/box/gloves(src)
 	new /obj/item/storage/box/mousetraps(src)
-	new /obj/item/clothing/under/rank/chef/nt(src)
+	new /obj/item/clothing/under/rank/chef(src)
 	new /obj/item/clothing/under/rank/chef/idris(src)
 	new /obj/item/clothing/head/chefhat/nt(src)
 	new /obj/item/clothing/head/chefhat/idris(src)

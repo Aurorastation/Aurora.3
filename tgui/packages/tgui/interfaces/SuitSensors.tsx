@@ -6,6 +6,7 @@ import { NtosWindow } from '../layouts';
 export type SensorsData = {
   crewmembers: CrewMember[];
   isAI: BooleanLike;
+  security_level: number;
 };
 
 type CrewMember = {
@@ -37,7 +38,7 @@ export const SuitSensors = (props, context) => {
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
-              <Table.Cell>Pulse or Charge</Table.Cell>
+              <Table.Cell>Pulse/Charge</Table.Cell>
               <Table.Cell>Blood Pressure</Table.Cell>
               <Table.Cell>Blood Oxygenation</Table.Cell>
               <Table.Cell>Temperature</Table.Cell>
@@ -56,8 +57,11 @@ export const SuitSensors = (props, context) => {
                     {Math.round(crewmember.cellCharge)}%
                   </Table.Cell>
                 )}
+
                 <Table.Cell color={getPressureClass(crewmember.tpressure)}>
-                  {crewmember.stype > 1 ? crewmember.pressure : 'N/A'}
+                  {crewmember.stype > 1 && data.security_level > 2
+                    ? crewmember.pressure
+                    : 'N/A'}
                 </Table.Cell>
                 <Table.Cell color={getOxyClass(crewmember.oxyg)}>
                   {toOxyLabel(crewmember.oxyg)}
@@ -67,8 +71,9 @@ export const SuitSensors = (props, context) => {
                     ? Math.round(crewmember.bodytemp * 10) / 10 + 'C'
                     : 'N/A'}
                 </Table.Cell>
+
                 <Table.Cell>
-                  {crewmember.stype > 2
+                  {crewmember.stype > 2 && data.security_level > 3
                     ? crewmember.area +
                     ' (' +
                     crewmember.x +

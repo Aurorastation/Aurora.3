@@ -3,48 +3,48 @@
 /obj/item/clothing/under/rank/bartender
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."
-	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	has_sensor = 1
 	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+
 	icon_state = "nt_bartender"
 	item_state = "nt_bartender"
 
 /obj/item/clothing/under/rank/bartender/idris
 	icon_state = "idris_bartender"
 	item_state = "idris_bartender"
+
 /obj/item/clothing/under/rank/chaplain
-	desc = "It's a black jumpsuit, often worn by religious folk."
 	name = "chaplain's jumpsuit"
+	desc = "It's a black jumpsuit, often worn by religious folk."
+	has_sensor = 1
 	icon_state = "chaplain"
 	item_state = "bl_suit"
 	worn_state = "chapblack"
 
 /obj/item/clothing/under/rank/chef
-	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
 	name = "chef's uniform"
-	icon_state = "chef"
-	item_state = "w_suit"
-	worn_state = "chef"
-
-/obj/item/clothing/under/rank/chef/nt
-	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
+	has_sensor = 1
 	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_chef"
 	item_state = "nt_chef"
 
 /obj/item/clothing/under/rank/chef/idris
-	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
-	contained_sprite = TRUE
 	icon_state = "idris_chef"
 	item_state = "idris_chef"
 
 /obj/item/clothing/under/rank/hydroponics
-	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
 	name = "botanist's jumpsuit"
+	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
+	has_sensor = 1
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_gardener"
 	item_state = "nt_gardener"
 	permeability_coefficient = 0.50
 	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/hydroponics/idris
 	icon_state = "idris_gardener"
 	item_state = "idris_gardener"
@@ -54,10 +54,11 @@
 /obj/item/clothing/under/rank/liaison
 	name = "corporate liaison uniform"
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
+	has_sensor = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison"
 	item_state = "nt_liaison"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/liaison/zeng
 	icon_state = "zeng_liaison"
@@ -85,12 +86,13 @@
 
 // Janitor
 /obj/item/clothing/under/rank/janitor
-	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
 	name = "janitor's jumpsuit"
+	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
+	has_sensor = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_janitor"
 	item_state = "nt_janitor"
-	contained_sprite = TRUE
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
@@ -130,6 +132,7 @@
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
 	desc = "It's very... sensible."
+	has_sensor = 1
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_librarian"
@@ -142,10 +145,11 @@
 // Miner
 
 /obj/item/clothing/under/rank/miner
-	desc = "It's a snappy miner's jumpsuit, complete with overalls and caked-on dirt."
 	name = "miner's jumpsuit"
-	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
+	desc = "It's a snappy miner's jumpsuit, complete with overalls and caked-on dirt."
+	has_sensor = 1
 	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_miner"
 	item_state = "nt_miner"
 
@@ -160,18 +164,20 @@
 /obj/item/clothing/under/rank/operations_manager
 	name = "operations manager's jumpsuit"
 	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
+	has_sensor = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "operations_manager"
 	item_state = "operations_manager"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/hangar_technician
 	name = "hangar technician's jumpsuit"
 	desc = "The future of hangar tech apparel: long, stuffy slacks. We never said it was a bright future."
+	has_sensor = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_tech"
 	item_state = "nt_tech"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/hangar_technician/heph
 	icon_state = "heph_tech"
@@ -184,6 +190,8 @@
 /obj/item/clothing/under/rank/bridge_crew
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
+	has_sensor = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
 	item_state = "bridge_crew"
@@ -194,6 +202,7 @@
 	desc = "The uniform worn by the SCC's bridge crew, featuring a skirt."
 	icon_state = "bridge_crew_alt"
 	item_state = "bridge_crew_alt"
+
 /obj/item/clothing/under/rank/bridge_crew/alt/white
 	icon_state = "bridge_crew_alt_white"
 	item_state = "bridge_crew_alt_white"
@@ -217,16 +226,18 @@
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
+	has_sensor = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "executive_officer"
 	item_state = "executive_officer"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/machinist
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
-	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
+	has_sensor = 1
 	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_machinist"
 	item_state = "nt_machinist"
 
@@ -241,8 +252,7 @@
 /obj/item/clothing/under/rank/captain/hephaestus
 	name = "hephaestus captain's jumpsuit"
 	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
+	has_sensor = 0
 	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
 	icon_state = "heph_captain"
 	item_state = "heph_captain"
-	worn_state = "heph_captain"
-	contained_sprite = TRUE

@@ -71,7 +71,7 @@
 	name = "Chef"
 	jobtype = /datum/job/chef
 
-	uniform = /obj/item/clothing/under/rank/chef/nt
+	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef_jacket/nt
 	head = /obj/item/clothing/head/chefhat/nt
 	shoes = /obj/item/clothing/shoes/sneakers/black
