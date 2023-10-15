@@ -749,7 +749,7 @@
 /obj/item/bedsheet/dorms,
 /obj/effect/ghostspawpoint{
 	name = "igs - konyang_villager";
-	identifier = "konyang_village"
+	identifier = "konyang_villager"
 	},
 /turf/simulated/floor/wood,
 /area/konyang_village)
@@ -835,7 +835,7 @@
 /obj/machinery/light,
 /obj/effect/ghostspawpoint{
 	name = "igs - konyang_villager";
-	identifier = "konyang_village"
+	identifier = "konyang_villager"
 	},
 /turf/simulated/floor/wood,
 /area/konyang_village)
@@ -1147,7 +1147,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "igs - konyang_villager";
-	identifier = "konyang_village"
+	identifier = "konyang_villager"
 	},
 /turf/simulated/floor/wood,
 /area/konyang_village)
@@ -1509,7 +1509,7 @@
 	},
 /obj/effect/ghostspawpoint{
 	name = "igs - konyang_villager";
-	identifier = "konyang_village"
+	identifier = "konyang_villager"
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/konyang_village)
@@ -1764,7 +1764,7 @@
 /obj/item/bedsheet/brown,
 /obj/effect/ghostspawpoint{
 	name = "igs - konyang_villager";
-	identifier = "konyang_village"
+	identifier = "konyang_villager"
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/konyang_village)
