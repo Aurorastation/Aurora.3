@@ -3,7 +3,7 @@
 	description = "Gadpathur navy patrol ship."
 	suffixes = list("ships/coc/gadpathur_patrol/gadpathur_patrol.dmm")
 	sectors = list(ALL_COALITION_SECTORS)
-	spawn_weight = 1000
+	spawn_weight = 1
 	ship_cost = 1
 	id = "gadpathur_patroller"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/gadpathur_shuttle)
@@ -27,7 +27,7 @@
 	shiptype = "Military patrol and combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 5000
+	vessel_mass = 6000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	invisible_until_ghostrole_spawn = TRUE

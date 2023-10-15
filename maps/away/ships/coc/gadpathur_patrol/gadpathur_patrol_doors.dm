@@ -22,6 +22,9 @@
 	door_frame_color = COLOR_GADPATHUR_BLACK
 	door_color = COLOR_GADPATHUR_GOLD
 
+/obj/machinery/door/airlock/hatch/gadpathur
+	door_frame_color = COLOR_GADPATHUR_BLACK
+
 //Special doors
 
 /obj/machinery/door/airlock/gadpathur/quarters
@@ -71,6 +74,53 @@
 	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy, access_coalition_navy)
 	door_color = "#2b4b68"
 	stripe_color = "#ff4343"
+
+/obj/machinery/door/airlock/gadpathur/atmos
+	name = "atmospherics"
+	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy)
+	door_color = "#caa638"
+	stripe_color = "#62ff43"
+
+/obj/machinery/door/airlock/gadpathur/engi
+	name = "engineering"
+	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy)
+	door_color = "#caa638"
+	stripe_color = "#ff7f43"
+
+/obj/machinery/door/airlock/hatch/gadpathur/thrusters
+	door_color = "#caa638"
+	stripe_color = "#62ff43"
+
+/obj/machinery/door/airlock/hatch/gadpathur/thrusters/port
+	name = "port thrusters"
+
+/obj/machinery/door/airlock/hatch/gadpathur/thrusters/starboard
+	name = "starboard thrusters"
+
+/obj/machinery/door/airlock/hatch/gadpathur/engine
+	name = "fusion engine"
+	door_color = "#caa638"
+	stripe_color = "#ff7f43"
+
+/obj/machinery/door/airlock/hatch/gadpathur/armanent
+	door_color = COLOR_GADPATHUR_BLACK
+	stripe_color = COLOR_GADPATHUR_RED
+
+/obj/machinery/door/airlock/hatch/gadpathur/armanent/light
+	name = "light armanent"
+
+/obj/machinery/door/airlock/hatch/gadpathur/armanent/heavy
+	name = "main armanent"
+
+/obj/machinery/door/airlock/glass/gadpathur/engi
+	name = "engineering"
+	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy)
+	door_color = "#caa638"
+	stripe_color = "#ff7f43"
+
+/obj/machinery/door/airlock/gadpathur/atmos/fuel
+	name = "fuel bunker"
+	door_color = COLOR_GADPATHUR_BLACK
 
 /obj/machinery/door/airlock/gadpathur/interrogation
 	name = "interrogation"
