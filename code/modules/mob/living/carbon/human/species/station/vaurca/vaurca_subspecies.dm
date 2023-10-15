@@ -52,7 +52,8 @@
 	name_plural = "Type BB"
 	bodytype = BODYTYPE_VAURCA_ATTENDANT
 	species_height = HEIGHT_CLASS_HUGE
-	//height_min and height_max needed
+	height_min = 150
+	height_max = 250
 	preview_icon = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
