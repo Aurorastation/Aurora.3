@@ -889,7 +889,7 @@
 /obj/effect/floor_decal/carpet/blue
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
-	icon_state = "bcarpet_edges"
+	icon_state = "carpet_cyan_edges"
 
 /obj/effect/floor_decal/carpet/corners
 	name = "carpet"

@@ -20,9 +20,9 @@
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	desc_info = "Click it in your hand to open it.\
-				 If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
-				 If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
-				 You can also crush cans on other people's foreheads as well."
+					If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
+					If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
+					You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
 	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)

@@ -88,7 +88,7 @@
 	// Are we placing or stripping?
 	var/stripping = target_slot
 	var/obj/item/held = user.get_active_hand()
-	
+
 	if(stripping)
 		if(!target_slot.canremove)
 			to_chat(user, "<span class='warning'>You cannot remove \the [src]'s [target_slot.name].</span>")

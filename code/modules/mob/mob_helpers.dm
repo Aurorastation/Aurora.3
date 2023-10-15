@@ -1071,20 +1071,20 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()
 	. = ..()
-	if (is_type_in_typecache(src, SSmob.mtl_synthetic))
+	if (is_type_in_typecache(src, SSmobs.mtl_synthetic))
 		. |= TYPE_SYNTHETIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_weird))
+	if (is_type_in_typecache(src, SSmobs.mtl_weird))
 		. |= TYPE_WEIRD
 
-	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
+	if (is_type_in_typecache(src, SSmobs.mtl_incorporeal))
 		. |= TYPE_INCORPOREAL
 
 	// If it's not TYPE_SYNTHETIC, TYPE_WEIRD or TYPE_INCORPOREAL, we can assume it's TYPE_ORGANIC.
 	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
+	if (is_type_in_typecache(src, SSmobs.mtl_humanoid))
 		. |= TYPE_HUMANOID
 
 #undef SAFE_PERP

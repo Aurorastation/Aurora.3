@@ -42,7 +42,7 @@
 	addtimer(CALLBACK(src, PROC_REF(end)), duration)
 
 //You emoting to others involuntarily. This happens mostly in end()
-/datum/hallucination/proc/hallucination_emote()	
+/datum/hallucination/proc/hallucination_emote()
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
 		var/chosen_emote = pick(SShallucinations.hal_emote)
 		if(prob(10))										//You are aware of it in this instance

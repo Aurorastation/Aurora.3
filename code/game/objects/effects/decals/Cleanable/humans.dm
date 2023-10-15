@@ -155,8 +155,8 @@
 		add_verb(user,  /mob/living/carbon/human/proc/bloody_doodle)
 
 /obj/effect/decal/cleanable/blood/splatter
-    random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-    amount = 2
+	random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
+	amount = 2
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"

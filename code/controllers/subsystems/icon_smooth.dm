@@ -15,9 +15,7 @@
 		can_fire = TRUE; \
 	}
 
-var/datum/controller/subsystem/icon_smooth/SSicon_smooth
-
-/datum/controller/subsystem/icon_smooth
+SUBSYSTEM_DEF(icon_smooth)
 	name = "Icon Smoothing"
 	init_order = SS_INIT_SMOOTHING
 	wait = 1
@@ -26,15 +24,17 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/list/smooth_queue = list()
+
+	///Like `smooth_queue`, but contains atoms that didn't initialize yet, to be reran
+	var/list/deferred = list()
+
 	var/list/typecachecache = list()
 
 	var/explosion_in_progress = FALSE
 
-/datum/controller/subsystem/icon_smooth/New()
-	NEW_SS_GLOBAL(SSicon_smooth)
-
 /datum/controller/subsystem/icon_smooth/Recover()
 	smooth_queue = SSicon_smooth.smooth_queue
+	deferred = SSicon_smooth.deferred
 
 /datum/controller/subsystem/icon_smooth/stat_entry(msg)
 	msg = "Q:[smooth_queue.len]"
@@ -55,13 +55,20 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 		if(QDELETED(smoothing_atom) || !(smoothing_atom.smoothing_flags & SMOOTH_QUEUED))
 			continue
 
-		smooth_icon(smoothing_atom)
+		if(smoothing_atom.initialized && !(smoothing_atom.icon_update_queued))
+			smooth_icon(smoothing_atom)
+		else
+			deferred += smoothing_atom
 
 		if (MC_TICK_CHECK)
 			return
 
 	if (!length(smooth_queue_cache))
-		can_fire = FALSE
+		if(deferred.len)
+			smooth_queue = deferred
+			deferred = smooth_queue_cache
+		else
+			can_fire = FALSE
 
 /datum/controller/subsystem/icon_smooth/ExplosionStart()
 	explosion_in_progress = TRUE
@@ -96,8 +103,9 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/proc/add_to_queue(atom/thing)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	if(thing.smoothing_flags & SMOOTH_QUEUED)
+	if(QDELETED(thing) || thing.smoothing_flags & SMOOTH_QUEUED)
 		return
+
 	thing.smoothing_flags |= SMOOTH_QUEUED
 	smooth_queue += thing
 
@@ -108,7 +116,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	SHOULD_NOT_SLEEP(TRUE)
 
 	for(var/atom/neighbor as anything in orange(1,thing))
-		if(neighbor.smoothing_flags)
+		if(!QDELETED(neighbor) && neighbor.smoothing_flags)
 			SSICONSMOOTH_ADD_TO_QUEUE(neighbor)
 
 /datum/controller/subsystem/icon_smooth/proc/remove_from_queues(atom/thing)
@@ -116,5 +124,6 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 
 	thing.smoothing_flags &= ~SMOOTH_QUEUED
 	smooth_queue -= thing
+	deferred -= thing
 
 #undef SSICONSMOOTH_ADD_TO_QUEUE

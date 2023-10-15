@@ -12,4 +12,4 @@
 							"/obj/item/stock_parts/manipulator" = 2,
 							"/obj/item/stock_parts/subspace/filter" = 1,
 							"/obj/item/stock_parts/subspace/crystal" = 1
-						  )
+						)

@@ -121,6 +121,6 @@
 				body += "Tourists are flocking to [affected_dest.name] after the surprise announcement of [pick("major shopping bargains by a wily retailer",\
 				"a huge new ARG by a popular entertainment company","a secret tour by popular artiste [random_name(pick(MALE,FEMALE))]")]. \
 				Tau Ceti Daily is offering discount tickets for two to see [random_name(pick(MALE,FEMALE))] live in return for eyewitness reports and up to the minute coverage."
-	
+
 	var/datum/feed_channel/ch =  SSnews.GetFeedChannel(channel)
 	SSnews.SubmitArticle(body, author, ch, null, 1)

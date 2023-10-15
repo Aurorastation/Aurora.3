@@ -18,7 +18,7 @@
 	/obj/item/pickaxe/diamond = /obj/item/rig_module/device/drill,
 	/obj/item/gun/energy/vaurca/thermaldrill = /obj/item/rig_module/mounted/thermalldrill
 	)
-		
+
 /obj/machinery/mineral/rigpress/Initialize()
 	. = ..()
 	for(var/press_type in press_types)

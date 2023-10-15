@@ -806,12 +806,12 @@
 	update_clothing_icon()
 
 /obj/item/clothing/mask/proc/adjust_sprites()
-    if(hanging)
-        icon_state = "[icon_state]down"
-        item_state = "[item_state]down"
-    else
-        icon_state = initial(icon_state)
-        item_state = initial(item_state)
+	if(hanging)
+		icon_state = "[icon_state]down"
+		item_state = "[item_state]down"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 /obj/item/clothing/mask/proc/lower_message(mob/user)
 	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
@@ -1220,7 +1220,7 @@
 		return 0
 
 	var/list/modes = list("Off", "Binary sensors", "Vitals tracker", "Tracking beacon")
-	var/switchMode = input("Select a sensor mode:", "Suit Sensor Mode", modes[sensor_mode + 1]) in modes
+	var/switchMode = tgui_input_list(usr, "Select a sensor mode.", "Suit Sensor Mode", modes)
 	if(get_dist(usr, src) > 1)
 		to_chat(usr, "You have moved too far away.")
 		return

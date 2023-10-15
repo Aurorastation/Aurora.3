@@ -179,9 +179,9 @@
 		BP_STOMACH =         /obj/item/organ/internal/stomach
 	)
 	has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/zombie),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/zombie),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/zombie),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/zombie),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/zombie),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/zombie),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/zombie),

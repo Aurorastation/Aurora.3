@@ -362,7 +362,7 @@ This function restores the subjects blood to max.
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
 		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
-		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
+		vessel.add_reagent(/singleton/reagent/blood, species.blood_volume - total_blood, temperature = species.body_temperature)
 
 
 /*
@@ -421,8 +421,10 @@ This function restores all organs.
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
 		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
-				emote("scream")
+			if((damage > 25) || (damage > 50))
+				force_say()
+				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
+					emote("scream")
 		return ..()
 
 	if(!organ)
@@ -437,9 +439,11 @@ This function restores all organs.
 	if(!damage)
 		return FALSE
 
-	if(damage > 15 && prob(damage*4) && ORGAN_CAN_FEEL_PAIN(organ))
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
-			make_adrenaline(round(damage/10))
+	if(damage > 15 && ORGAN_CAN_FEEL_PAIN(organ))
+		force_say()
+		if(prob(damage*4))
+			if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
+				make_adrenaline(round(damage/10))
 
 	switch(damagetype)
 		if(DAMAGE_BRUTE)

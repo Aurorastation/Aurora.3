@@ -48,6 +48,9 @@ STOCK_ITEM_UNCOMMON(implants, 1)
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
 	new /obj/item/storage/box/flashbangs(L)
 
+STOCK_ITEM_UNCOMMON(stinger, 0.75)
+	new /obj/item/storage/box/stingers(L)
+
 STOCK_ITEM_UNCOMMON(arrest, 1)
 	if(prob(60))
 		new /obj/item/storage/box/handcuffs(L)
@@ -89,7 +92,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/exclusion = list(/singleton/reagent/drink, /singleton/reagent, /singleton/reagent/adminordrazine, /singleton/reagent/polysomnine/beer2, /singleton/reagent/azoth, /singleton/reagent/elixir,\
 		/singleton/reagent/liquid_fire, /singleton/reagent/philosopher_stone, /singleton/reagent/toxin/undead, /singleton/reagent/love_potion, /singleton/reagent/shapesand, /singleton/reagent/usolve,\
 		/singleton/reagent/sglue, /singleton/reagent/black_matter, /singleton/reagent/bottle_lightning, /singleton/reagent/toxin/trioxin, /singleton/reagent/toxin/nanites, /singleton/reagent/nitroglycerin, \
-		/singleton/reagent/aslimetoxin, /singleton/reagent/sanasomnum, /singleton/reagent/rezadone)
+		/singleton/reagent/aslimetoxin, /singleton/reagent/sanasomnum, /singleton/reagent/rezadone, /singleton/reagent/toxin/carpotoxin)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)

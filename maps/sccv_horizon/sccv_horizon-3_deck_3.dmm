@@ -9234,7 +9234,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "hll" = (
-/obj/effect/shuttle_landmark/skipjack_ship/third_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/third_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "hlt" = (
@@ -16929,6 +16931,9 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
+	},
+/obj/effect/shuttle_landmark/merc_ship/dock{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -26386,10 +26391,6 @@
 /obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
-"uwh" = (
-/obj/effect/shuttle_landmark/merc_ship/third_deck,
-/turf/template_noop,
-/area/template_noop)
 "uwr" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -27253,7 +27254,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "vbi" = (
-/obj/effect/shuttle_landmark/burglar_ship/third_deck,
+/obj/effect/shuttle_landmark/merc_ship/third_deck{
+	dir = 4
+	},
 /turf/template_noop,
 /area/template_noop)
 "vbE" = (
@@ -31301,8 +31304,10 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "yja" = (
-/obj/effect/shuttle_landmark/merc_ship/dock,
-/turf/simulated/floor/reinforced/airless,
+/obj/effect/shuttle_landmark/burglar_ship/third_deck{
+	dir = 4
+	},
+/turf/template_noop,
 /area/template_noop)
 "yjx" = (
 /obj/machinery/light{
@@ -34097,7 +34102,7 @@ dSF
 dSF
 dSF
 dSF
-vbi
+dSF
 dSF
 dSF
 dSF
@@ -35303,7 +35308,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+yja
 dSF
 dSF
 dSF
@@ -38757,7 +38762,7 @@ wGH
 wGH
 wGH
 wGH
-yja
+wGH
 vBY
 opC
 dSF
@@ -40525,7 +40530,7 @@ dSF
 dSF
 dSF
 dSF
-uwh
+dSF
 dSF
 dSF
 dSF
@@ -41733,7 +41738,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+vbi
 dSF
 dSF
 dSF
@@ -64958,7 +64963,7 @@ dSF
 dSF
 dSF
 dSF
-hll
+dSF
 dSF
 dSF
 dSF
@@ -65358,7 +65363,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+hll
 dSF
 dSF
 dSF

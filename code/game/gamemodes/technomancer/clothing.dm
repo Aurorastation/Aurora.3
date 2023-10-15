@@ -8,7 +8,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|FEET|HANDS
 	allowed = list(/obj/item/tank)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -78,7 +78,7 @@
 
 /obj/item/clothing/under/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -88,7 +88,7 @@
 
 /obj/item/clothing/head/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -98,7 +98,7 @@
 
 /obj/item/clothing/shoes/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
@@ -108,7 +108,7 @@
 
 /obj/item/clothing/suit/chameleon/technomancer
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR, 
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,

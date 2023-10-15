@@ -44,6 +44,7 @@
 	applies_material_colour = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
+	surgerysound = 'sound/items/surgery/hatchet.ogg'
 
 /obj/item/material/hatchet/can_woodcut()
 	return TRUE

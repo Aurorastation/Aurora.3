@@ -41,8 +41,3 @@
 /proc/log_telecomms(text)
 	if (config.logsettings["log_telecomms"])
 		WRITE_LOG(config.logfiles["world_telecomms_log"], "TCOMMS: [text]")
-
-/// Logging for speech indicators.
-/proc/log_speech_indicators(text)
-	if (config.logsettings["log_speech_indicators"])
-		WRITE_LOG(config.logfiles["world_speech_indicators_log"], "SPEECH INDICATOR: [text]")

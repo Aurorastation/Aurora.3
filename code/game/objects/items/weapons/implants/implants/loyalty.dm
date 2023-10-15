@@ -25,7 +25,7 @@ This is the entity that the implantee will align their thoughts to benefit.<BR>
 /obj/item/implant/mindshield/loyalty/Topic(href, href_list)
 	..()
 	if(href_list["loyal"])
-		var/entity = input("Set loyalty target.", "Loyalty", loyal_entity) as text|null
+		var/entity = tgui_input_text(usr, "Set loyalty target.", "Loyalty", loyal_entity)
 		if(entity)
 			loyal_entity = entity
 		interact(usr)

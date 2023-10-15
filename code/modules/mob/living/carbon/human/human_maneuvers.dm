@@ -9,11 +9,11 @@
 
 /mob/living/carbon/human/get_jump_distance()
 	. = species.standing_jump_range
-	
+
 	var/obj/item/organ/internal/augment/suspension/suspension = internal_organs_by_name[BP_AUG_SUSPENSION]
 
 	if(suspension && . < 3)
-		. = max(. + suspension.jump_bonus, 3) 
+		. = max(. + suspension.jump_bonus, 3)
 
 /mob/living/carbon/human/can_do_maneuver(var/singleton/maneuver/maneuver, var/silent = FALSE)
 	. = ..()

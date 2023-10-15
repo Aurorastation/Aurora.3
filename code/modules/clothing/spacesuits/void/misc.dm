@@ -41,6 +41,7 @@
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
 	desc = "A helmet resembling an avian, built for the All-Xanu Grand Army and the Frontier Rangers. Heavy and plated with plasteel across its faces."
+	desc_extended = "The dNAXS-02 \"Vulture\" suit (formerly designated the dNXS-2) was designed by de Namur Defense Systems on Xanu in 2291, to provide the All-Xanu Grand Army with a modern voidsuit using the lessons learned from the then-recently ended Interstellar War. This model of voidsuit, designed to look like an avian, has been extremely successful and has been exported across the Coalition of Colonies and beyond. These wildly successful voidsuits are still produced to this day by de Namur's successor company, d.N.A Defense & Aerospace."
 	icon_state = "vulture"
 	item_state = "vulture"
 	armor = list(
@@ -60,6 +61,7 @@
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
 	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. It sees use to this day all throughout the Coalition of Colonies."
+	desc_extended = "The dNAXS-02 \"Vulture\" suit (formerly designated the dNXS-2) was designed by de Namur Defense Systems on Xanu in 2291, to provide the All-Xanu Grand Army with a modern voidsuit using the lessons learned from the then-recently ended Interstellar War. This model of voidsuit, designed to look like an avian, has been extremely successful and has been exported across the Coalition of Colonies and beyond. These wildly successful voidsuits are still produced to this day by de Namur's successor company, d.N.A Defense & Aerospace."
 	icon_state = "vulture"
 	item_state = "vulture"
 	slowdown = 1
@@ -888,3 +890,23 @@
 	icon_state = "sfa_suit"
 	item_state = "sfa_suit"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/coalition/gadpathur
+	name = "coalition vulture-GP voidsuit helmet"
+	desc = "A helmet resembling an avian. This one has been modified for usage with Gadpathur's navy."
+	icon = 'icons/clothing/rig/gadpathurian_suit.dmi'
+	icon_state = "gadpathur_vulture_helm"
+	item_state = "gadpathur_vulture_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+
+	brightness_on = 6
+
+/obj/item/clothing/suit/space/void/coalition/gadpathur
+	name = "coalition vulture-GP voidsuit"
+	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. This one has been modified for usage with Gadpathur's navy."
+	icon = 'icons/clothing/rig/gadpathurian_suit.dmi'
+	icon_state = "gadpathur_vulture"
+	item_state = "gadpathur_vulture"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)

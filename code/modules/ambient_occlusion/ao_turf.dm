@@ -57,7 +57,7 @@
 	if (config.fastboot)
 		return
 	if (!ao_queued)
-		SSocclusion.queue += src
+		SSao.queue += src
 
 	var/new_level = rebuild ? AO_UPDATE_REBUILD : AO_UPDATE_OVERLAY
 	if (ao_queued < new_level)

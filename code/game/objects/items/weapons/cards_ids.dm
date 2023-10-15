@@ -459,9 +459,9 @@ var/const/NO_EMAG_ACT = -50
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
-    var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
-    var/blind_add_text = "Done with prejudice and professionalism, you mean business."
-    return ..(user, add_text, blind_add_text)
+	var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+	var/blind_add_text = "Done with prejudice and professionalism, you mean business."
+	return ..(user, add_text, blind_add_text)
 
 /obj/item/card/id/ccia/bssb
 	name = "\improper Biesel Security Services Bureau identification card"
@@ -636,5 +636,18 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/away_site
 	access = list(access_generic_away_site, access_external_airlocks)
+
+/obj/item/card/id/mecha
+	name = "exosuit access card"
+
+/obj/item/card/id/mecha/GetAccess()
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(loc) || !length(exosuit.pilots))
+		return list()
+	var/list/pilot_access = list()
+	for(var/mob/pilot as anything in exosuit.pilots)
+		var/obj/item/ID = pilot.GetIdCard()
+		pilot_access |= ID.GetAccess()
+	return pilot_access
 
 #undef ID_CARD_UNSET

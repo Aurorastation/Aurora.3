@@ -42,12 +42,14 @@
 
 /area/point_verdant/interior/hotel
 	name = "Point Verdant - Hotel"
+	icon_state = "crew_quarters"
 
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
 
 /area/point_verdant/interior/police
 	name = "Point Verdant - Police Department"
+	icon_state = "security"
 
 /area/point_verdant/interior/bar
 	name = "Point Verdant - Bar"
@@ -72,6 +74,10 @@
 
 /area/point_verdant/interior/offices
 	name = "Point Verdant - Corporate Offices"
+
+/area/point_verdant/interior/maint_janitorial
+	name = "Point Verdant - Maint/Janitorial"
+	icon_state = "maintenance"
 
 /area/point_verdant/interior/tunnels
 	name = "Point Verdant - Tunnels"
