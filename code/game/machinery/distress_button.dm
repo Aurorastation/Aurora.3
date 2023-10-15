@@ -31,7 +31,7 @@
 	if(choice == "No" || !choice)
 		active = FALSE
 		return
-	var/distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+	var/distress_message = tgui_input_text(user, "Enter a distress message that other vessels will receive.", "Distress Beacon", multiline = TRUE)
 	if(distress_message)
 		become_hearing_sensitive()
 		user.say(distress_message)

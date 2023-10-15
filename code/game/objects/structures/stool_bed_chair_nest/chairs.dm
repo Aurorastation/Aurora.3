@@ -59,11 +59,8 @@
 	name = "fancy chair"
 	desc = "The armrests give you a signature feeling of superiority."
 	icon_state = "chair_fancy"
+	base_icon = "chair_fancy"
 	held_item = /obj/item/material/stool/chair/fancy
-
-/obj/structure/bed/stool/chair/padded
-	name = "comfy chair"
-	desc = "It looks comfy, and the cushions sound just like old man pants!"
 
 /obj/structure/bed/stool/chair/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
@@ -286,13 +283,14 @@
 	icon_state = "chair_item"
 	item_state = "chair"
 	base_icon = "chair"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
-		)
 	w_class = ITEMSIZE_HUGE
 	force_divisor = 0.5
 	origin_type = /obj/structure/bed/stool/chair
+
+/obj/item/material/stool/chair/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_STEEL
+	..(newloc, new_material)
 
 /obj/item/material/stool/chair/fancy
 	name = "fancy chair"
@@ -302,15 +300,20 @@
 	base_icon = "chair_fancy"
 	origin_type = /obj/structure/bed/stool/chair/fancy
 
-// Because wood chairs are snowflake sprites.
 /obj/item/material/stool/chair/wood
+	name = "classic chair"
 	icon_state = "wooden_chair_item"
 	item_state = "woodenchair"
 	base_icon = "wooden_chair"
 	origin_type = /obj/structure/bed/stool/chair/wood
-	applies_material_colour = FALSE
+
+/obj/item/material/stool/chair/wood/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_WOOD
+	..(newloc, new_material)
 
 /obj/item/material/stool/chair/wood/wings
+	name = "winged chair"
 	icon_state = "wooden_chair_wings_item"
 	item_state = "woodenchair"
 	base_icon = "wooden_chair_wings"
@@ -328,12 +331,10 @@
 	base_icon = "plastic_chair"
 	origin_type = /obj/structure/bed/stool/chair/plastic
 
-/obj/item/material/stool/chair/wood/wings
-	icon_state = "wooden_chair_wings_item"
-	item_state = "woodenchair"
-	base_icon = "wooden_chair_wings"
-	origin_type = /obj/structure/bed/stool/chair/wood/wings
-
+/obj/item/material/stool/chair/plastic/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_PLASTIC
+	..(newloc, new_material)
 
 //Maybe if you tried hard, you could sit on these too.
 /obj/structure/bed/handrail

@@ -111,7 +111,7 @@
 	shading_icon = new('icons/obj/structure/flags.dmi', "flag_l", dir)
 	flag_icon.Blend(shading_icon, ICON_MULTIPLY)
 	var/obj/structure/sign/flag/F2 = new(loc, dir, linked_flag_path = flag_path, icon_file = icon)
-	icon = flag_icon
+	src.icon = flag_icon
 	linked_flag = F2
 
 	//Apply the pixel shifting based on the direction to the new other half of the flag
@@ -1457,17 +1457,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/biesel/old/l
 
-/obj/structure/sign/flag/biesel/old/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/biesel/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/biesel/old/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/biesel/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/biesel/old/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/biesel/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/biesel/old/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/biesel/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 /obj/item/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
@@ -1496,17 +1496,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/biesel/antique/l
 
-/obj/structure/sign/flag/biesel/antique/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/biesel/antique/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/biesel/antique/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/biesel/antique/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/biesel/antique/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/biesel/antique/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/biesel/antique/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/biesel/antique/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // SCC
 

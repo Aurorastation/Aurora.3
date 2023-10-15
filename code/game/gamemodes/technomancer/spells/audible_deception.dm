@@ -69,7 +69,7 @@
 	var/list/sound_options = available_sounds
 	if(check_for_scepter())
 		sound_options["!!AIR HORN!!"] = 'sound/items/AirHorn.ogg'
-	var/new_sound = input("Select the sound you want to make.","Sounds") as null|anything in sound_options
+	var/new_sound = tgui_input_list(user, "Select the sound you want to make.", "Sounds", sound_options)
 	if(new_sound)
 		selected_sound = sound_options[new_sound]
 

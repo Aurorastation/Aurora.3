@@ -35,6 +35,157 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">15 October 2023</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Industrial IPC frames are no longer allowed to take Security jobs.</li>
+			</ul>
+
+			<h2 class="date">14 October 2023</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Carpotoxin can no longer spawn in the warehouse.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the Konyang Jeweler Cockatoo and associated away site.</li>
+			</ul>
+			<h3 class="author">William Murdoch updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed and condensed coffee recipes for more clarity.</li>
+			</ul>
+
+			<h2 class="date">13 October 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Vaurca shoes color fix.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the shading not being applied correctly on large flags.</li>
+				<li class="bugfix">Resolved an harddel when a vaurca internal phoron tank is destroyed.</li>
+				<li class="bugfix">Resolved an harddel with cameras that had an alarm active and were destroyed, remaining referenced in the list of active alarms.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Medkits can now only hold small sized items.</li>
+			</ul>
+			<h3 class="author">Pirouette updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="soundadd">Added sounds for using tools in surgery, ported from /vg/station.</li>
+			</ul>
+			<h3 class="author">Tag114 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Added a missing full stop to a description copied across several trench coats.</li>
+				<li class="spellcheck">Added a missing full stop to the description of the black and red cardboard box.</li>
+				<li class="spellcheck">Added a missing space inbetween words to the description of the Romanovich Cloud sector.</li>
+			</ul>
+
+			<h2 class="date">12 October 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Zo&#x27;ra soda cans added to the list of lunchbox drinks.</li>
+				<li class="rscadd">K&#x27;ois bars added to the list of vaurca lunchbox snacks.</li>
+				<li class="rscadd">Point Verdant: hotel.</li>
+				<li class="maptweak">Rearranges Intrepid layout a bit.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Set the python version so that there is a release for windows, for mapmerge2.</li>
+				<li class="backend">Lighting overlays are now initialized in Initialize instead of New.</li>
+				<li class="backend">Corner updating for lighting now checks that the turfs are not being deleted when adding lights to the affected lights of them.</li>
+				<li class="backend">Turned the INVOKE_ASYNC into a define, copied from TG.</li>
+				<li class="backend">Adjusted signal sending to use the new format via direct call invocation (TG backport).</li>
+				<li class="backend">Adjusted atmos control tank to use the new format.</li>
+				<li class="refactor">Refactored SSicon_update, now supports deferred queue and insertion/removal from said queue(s).</li>
+				<li class="refactor">Refactored SSicon_smoothing, now supports deferred queue and insertion/removal from said queue(s).</li>
+				<li class="bugfix">SSicon_smoothing now waits for the atom to be initialized before trying to smooth it.</li>
+				<li class="bugfix">Atoms now dequeue themselves from icon smoothing and update upon deletion.</li>
+				<li class="bugfix">Atoms now delete their overlays upon deletion.</li>
+				<li class="bugfix">Atoms now delete their light and light sources upon deletion.</li>
+				<li class="bugfix">Structures now delete themselves from the smoothing and enqueue the neighbors upon deletion.</li>
+				<li class="bugfix">Structures now drop the reference to climbers upon deletion.</li>
+				<li class="bugfix">Z_LEVEL smoothing now ignores deleted turfs.</li>
+				<li class="bugfix">Syndie C4s now delete correctly.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed exosuits not getting access from guest pass cards.</li>
+			</ul>
+			<h3 class="author">GeneralCamo, Lexorion updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Replaced cabinet telecomms sprites, with equivalent 3/4ths sprites ported from /tg/station.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes wall sprites on Golden Deep ship.</li>
+				<li class="bugfix">Floor decals will now show up correctly on plating.</li>
+				<li class="rscadd">Adds an Einstein Engines transport shuttle away site.</li>
+			</ul>
+			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Appnedicitis now shows up on body scanners.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaks the mindshield implant&#x27;s message to be in line with the loyalty implant.</li>
+				<li class="bugfix">Fixes floor decals around the body scanners and sleepers in the Medbay.</li>
+				<li class="bugfix">Fixes constructed tables being invisible.</li>
+				<li class="imageadd">Updates table reinforcement overlays.</li>
+				<li class="tweak">Table frames are now made using two rods.</li>
+				<li class="tweak">Fancy tables are now constructable - use carpet on a table frame.</li>
+				<li class="tweak">Blue carpet renamed and repathed to Cyan carpet for accuracy.</li>
+				<li class="bugfix">Fixes Cyan carpet not having corner sprites.</li>
+				<li class="bugfix">Fixes mapload chair items not setting materials.</li>
+				<li class="bugfix">Fixes fancy chair sprites.</li>
+				<li class="bugfix">Fixes comfy chair name and description.</li>
+				<li class="imageadd">Updates Skrell and Diona tables.</li>
+				<li class="backend">Chairs now use contained sprites.</li>
+			</ul>
+
+			<h2 class="date">11 October 2023</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Added TGUI Say and TGUI Input, along with some preferences (TGUI Input can be disabled, and the buttons customized a little).</li>
+				<li class="rscadd">Receiving a good amount of damage (25 pain or 15 normal) will cause you to forcefully say whatever&#x27;s in your chat window. Better type that help message quickly!</li>
+				<li class="rscadd">Typing indicators now show when your chat box is open without typing, and when you&#x27;re actively typing.</li>
+			</ul>
+
+			<h2 class="date">10 October 2023</h2>
+			<h3 class="author">AlaunusLux updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Teleport talismans now work consistently, taking on the network of their infused rune.</li>
+				<li class="bugfix">The proper proc is now called for the teleport talisman.</li>
+				<li class="bugfix">Added a null parent check, no more teleporting to nowhere.</li>
+				<li class="bugfix">Teleportation rune and talisman will only sizzle if they can&#x27;t teleport.</li>
+				<li class="tweak">Examining a teleportation talisman will now tell you what network it is keyed to.</li>
+			</ul>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Tajara have access to pronouns now.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Point Verdant: maint/janitorial.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an overlooked addition of new flags that were not using Initialize.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed various oversights and made improvements from the Atmos N2O tank change.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds uniforms for various branches of the Konyang Armed Forces.</li>
+				<li class="maptweak">Point Verdant will now spawn on the same tile as Konyang.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Flagpatches can now be toggled to be worn on your sleeve. Simply use the flip verb!</li>
+			</ul>
+
 			<h2 class="date">09 October 2023</h2>
 			<h3 class="author">Furrycactus updated:</h3>
 			<ul class="changes bgimages16">
@@ -43,6 +194,14 @@
 			<h3 class="author">Pirouette, intercepti0n updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="imageadd">Ported intercepti0n&#x27;s geiger counter sprite from tgstation.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a PACHROM water barge.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a blood locker and nitrile gloves to the Tarwa Conglomerate medbay.</li>
 			</ul>
 
 			<h2 class="date">08 October 2023</h2>

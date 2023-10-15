@@ -588,6 +588,11 @@
 			if(L.rescued)
 				wounds += "punctured"
 
+		if(istype(O, /obj/item/organ/internal/appendix))
+			var/obj/item/organ/internal/appendix/A = O
+			if(A.inflamed)
+				wounds += "inflamed"
+
 		if(O.status & ORGAN_DEAD)
 			if(O.can_recover())
 				wounds += "necrotic; debridable"

@@ -18987,7 +18987,7 @@
 "aHH" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "aHI" = (
 /obj/structure/cable/green{
@@ -20492,7 +20492,7 @@
 	pixel_y = -4
 	},
 /obj/item/paper_scanner,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "aKa" = (
 /obj/machinery/door/firedoor,
@@ -28474,7 +28474,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "aXX" = (
 /obj/structure/cable{
@@ -28719,7 +28719,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "aYm" = (
 /obj/structure/cable{
@@ -30329,7 +30329,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbl" = (
 /obj/structure/disposalpipe/segment{
@@ -30339,18 +30339,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbm" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbn" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bbo" = (
 /obj/structure/trash_pile,
@@ -31029,20 +31029,20 @@
 /area/bridge)
 "bcG" = (
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcH" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcI" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcJ" = (
 /obj/item/device/radio/intercom/east,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bcK" = (
 /obj/structure/janitorialcart,
@@ -31528,7 +31528,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "bdI" = (
 /obj/structure/table/standard,
@@ -31541,7 +31541,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "bdJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -31869,7 +31869,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "ben" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -33390,7 +33390,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bgY" = (
 /obj/machinery/disposal,
@@ -33404,7 +33404,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "bgZ" = (
 /obj/structure/grille,
@@ -34669,13 +34669,13 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bje" = (
 /obj/item/folder/white,
 /obj/item/pen,
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjf" = (
 /obj/item/paper_bin{
@@ -34683,7 +34683,7 @@
 	pixel_y = 7
 	},
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -34845,7 +34845,7 @@
 "bjt" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room2)
 "bju" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -34864,7 +34864,7 @@
 	pixel_y = 36;
 	req_access = list(5)
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjv" = (
 /obj/structure/disposalpipe/segment{
@@ -35014,7 +35014,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bjK" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/medical/exam_room)
 "bjL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -42239,14 +42239,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "byu" = (
 /obj/machinery/door/window{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "byv" = (
 /obj/structure/window/reinforced{
@@ -42260,7 +42260,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "byw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -42790,7 +42790,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bzC" = (
 /obj/structure/table/standard,
@@ -42802,7 +42802,7 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bzD" = (
 /obj/structure/window/reinforced{
@@ -42814,7 +42814,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bzE" = (
 /obj/effect/floor_decal/corner/purple{
@@ -43297,7 +43297,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bAC" = (
 /obj/structure/table/standard,
@@ -43305,7 +43305,7 @@
 	dir = 1
 	},
 /obj/item/folder/purple,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bAD" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -43319,7 +43319,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bAF" = (
 /obj/effect/floor_decal/corner/purple{
@@ -43621,7 +43621,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/west,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bBz" = (
 /obj/structure/table/standard,
@@ -43629,7 +43629,7 @@
 /obj/item/storage/slide_projector{
 	pixel_y = 12
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bBB" = (
 /obj/effect/floor_decal/corner/purple{
@@ -44022,7 +44022,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bCq" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "bCr" = (
 /obj/structure/table/rack,
@@ -47229,7 +47229,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bKp" = (
 /obj/structure/table/standard,
@@ -47239,7 +47239,7 @@
 /obj/item/folder/white,
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bKr" = (
 /obj/machinery/door/firedoor,
@@ -47509,7 +47509,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bLd" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -47835,7 +47835,7 @@
 "bLR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/filingcabinet,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "bLS" = (
 /obj/structure/toilet{
@@ -58422,7 +58422,7 @@
 "dqs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/computerframe,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "drh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -59767,7 +59767,7 @@
 /area/maintenance/cargo)
 "fQV" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "fRQ" = (
 /obj/machinery/light{
@@ -60276,7 +60276,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/random/medical,
 /obj/random/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "gIw" = (
 /obj/structure/bed/stool/padded/red,
@@ -60819,7 +60819,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/folder/white,
 /obj/item/pen,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "hBb" = (
 /obj/machinery/door/firedoor,
@@ -61493,7 +61493,7 @@
 "iOU" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "iPv" = (
 /turf/simulated/wall/r_wall,
@@ -62399,7 +62399,7 @@
 /obj/structure/table/standard,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "lcc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -63132,7 +63132,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "mCf" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -63254,7 +63254,7 @@
 /obj/effect/landmark{
 	name = "borerstart"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "mIZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -63849,7 +63849,7 @@
 	pixel_x = -32
 	},
 /obj/structure/bed/stool/chair/office/light,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "nLD" = (
 /obj/structure/cable/green{
@@ -65422,7 +65422,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/rnd/rdoffice)
 "qwE" = (
 /obj/machinery/door/firedoor,
@@ -65487,7 +65487,7 @@
 	name = "Nurse's Station"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "qHy" = (
 /obj/structure/coatrack,
@@ -66202,7 +66202,7 @@
 /area/hydroponics)
 "rOC" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/crew_quarters/heads/cryo)
 "rOK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -67990,7 +67990,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "uLs" = (
 /obj/structure/cable{
@@ -69637,7 +69637,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/maintenance/medbay)
 "xoJ" = (
 /obj/structure/sign/securearea{
