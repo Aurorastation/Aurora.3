@@ -117,7 +117,9 @@
 /turf/simulated/floor/plating,
 /area/goonbase)
 "bQ" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/goonbase)
 "bR" = (
@@ -562,10 +564,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "hu" = (
-/obj/machinery/door/airlock{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1684,6 +1686,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
+"vR" = (
+/obj/machinery/door/airlock{
+	dir = 8;
+	req_access = list(202)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase)
 "wh" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -1774,7 +1783,7 @@
 /area/goonbase)
 "xH" = (
 /obj/machinery/door/airlock{
-	dir = 1;
+	dir = 8;
 	req_access = list(202)
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2602,7 +2611,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "Hf" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "Hr" = (
@@ -3890,10 +3901,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "Yp" = (
-/obj/machinery/door/airlock{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	dir = 8;
+	req_access = list(202)
+	},
 /turf/simulated/floor/plating,
 /area/goonbase)
 "Yt" = (
@@ -67478,7 +67490,7 @@ mI
 mI
 ms
 ms
-WR
+vR
 ms
 ms
 iY
@@ -70998,12 +71010,12 @@ mI
 ms
 ms
 ms
-WR
+vR
 ms
 ms
 ms
 ms
-WR
+vR
 ms
 ms
 ms
@@ -71363,7 +71375,7 @@ ms
 ms
 ms
 ms
-WR
+vR
 ms
 ms
 ms
