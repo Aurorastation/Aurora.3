@@ -454,9 +454,6 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "fG" = (
@@ -3663,6 +3660,9 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/wood,
 /area/goonbase)
 "Vs" = (
