@@ -46,6 +46,12 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "idris_chef_jacket"
 	item_state = "idris_chef_jacket"
+
+//Orion Chef Jacket
+/obj/item/clothing/suit/chef_jacket
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	icon_state = "idris_chef_jacket"
+	item_state = "idris_chef_jacket"
 /********** Chef/Cook End **********/
 
 //Security
@@ -289,6 +295,10 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/bartender/idris
+	icon_state = "idris_bartender_jacket"
+	item_state = "idris_bartender_jacket"
+
+/obj/item/clothing/suit/storage/bartender/orion
 	icon_state = "idris_bartender_jacket"
 	item_state = "idris_bartender_jacket"
 

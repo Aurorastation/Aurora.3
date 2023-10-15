@@ -17,6 +17,12 @@
 	icon_state = "idris_chef_hat"
 	item_state = "idris_chef_hat"
 
+/obj/item/clothing/head/chefhat/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef_hat"
+	item_state = "idris_chef_hat"
+
 
 /obj/item/clothing/head/hairnet
 	name = "hairnet"
@@ -169,6 +175,8 @@
 /obj/item/clothing/head/flatcap/bartender/idris
 	icon_state = "idris_bartender_flatcap"
 	item_state = "idris_bartender_flatcap"
+
+/obj/item/clothing/head/flatcap/bartender/orion
 
 /obj/item/clothing/head/sidecap
 	name = "side cap"

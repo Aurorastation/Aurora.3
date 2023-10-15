@@ -173,6 +173,11 @@
 	icon_state = "nt"
 	item_state = "nt"
 
+/obj/item/clothing/head/softcap/orion
+	desc = "A company-issue Orion Express cap. Looks cheap and uncomfortable."
+	icon_state = "nt"
+	item_state = "nt"
+
 // Departmental Corporate Softcaps
 /obj/item/clothing/head/softcap/nt/custodian
 	name = "nt custodial softcap"
@@ -183,5 +188,11 @@
 /obj/item/clothing/head/softcap/idris/custodian
 	name = "idris custodial softcap"
 	desc = "A peaked cap in a teal colour with a purple brim."
+	icon_state = "custodian_idris"
+	item_state = "custodian_idris"
+
+/obj/item/clothing/head/softcap/orion/custodian
+	name = "orion custodial softcap"
+	desc = "A peaked cap in a brown colour with a purple brim."
 	icon_state = "custodian_idris"
 	item_state = "custodian_idris"
