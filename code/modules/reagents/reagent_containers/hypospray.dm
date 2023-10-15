@@ -173,16 +173,18 @@
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
+	var/base_icon_state = initial(icon_state)
+
 	cut_overlays()
 	if(!is_open_container())
-		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinjector_secured")
+		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "[base_icon_state]_secured")
 		add_overlay(backing_overlay)
 
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
 
 	if(reagents.total_volume)
-		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
+		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "[base_icon_state]_reagents")
 		reagent_overlay.color = reagents.get_color()
 		add_overlay(reagent_overlay)
 	update_held_icon()
@@ -194,6 +196,13 @@
 	else
 		to_chat(user, SPAN_NOTICE("It is empty."))
 
+/obj/item/reagent_containers/hypospray/autoinjector/large
+	name = "macro autoinjector"
+	icon_state = "autoinjector_large"
+	item_state = "autoinjector_large"
+	matter = list(MATERIAL_GLASS = 800, MATERIAL_STEEL = 400)
+	amount_per_transfer_from_this = 10
+	volume = 10
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name_label = "inaprovaline"

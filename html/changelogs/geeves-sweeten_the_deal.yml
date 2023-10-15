@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added 10u Macro Autoinjectors. The pharmacy starts with a box of seven, and more can be printed at an autolathe."

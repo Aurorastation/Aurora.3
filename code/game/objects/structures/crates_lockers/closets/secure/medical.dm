@@ -188,6 +188,7 @@
 	new /obj/item/storage/box/inhalers(src)
 	new /obj/item/storage/box/inhalers_auto(src)
 	new /obj/item/storage/box/autoinjectors(src)
+	new /obj/item/storage/box/autoinjectors/large(src)
 	new /obj/item/storage/box/syringes(src)
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/box/beakers(src)

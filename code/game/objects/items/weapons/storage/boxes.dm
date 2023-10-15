@@ -684,6 +684,11 @@
 	illustration = "epipen"
 	starts_with = list(/obj/item/reagent_containers/hypospray/autoinjector = 7)
 
+/obj/item/storage/box/autoinjectors/large
+	name = "box of empty macro injectors"
+	desc = "Contains empty macro autoinjectors."
+	starts_with = list(/obj/item/reagent_containers/hypospray/autoinjector/large = 7)
+
 /obj/item/storage/box/lights
 	name = "box of replacement bulbs"
 	illustration = "light"

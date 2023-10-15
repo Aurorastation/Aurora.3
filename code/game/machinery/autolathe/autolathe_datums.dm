@@ -284,6 +284,10 @@
 	path = /obj/item/reagent_containers/hypospray/autoinjector
 	category = "Medical"
 
+/datum/autolathe/recipe/autoinjector/large
+	name = "macro autoinjector"
+	path = /obj/item/reagent_containers/hypospray/autoinjector/large
+
 /datum/autolathe/recipe/autoinhaler
 	name = "autoinhaler"
 	path = /obj/item/reagent_containers/inhaler
