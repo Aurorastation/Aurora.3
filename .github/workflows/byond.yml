@@ -178,7 +178,7 @@ jobs:
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game -validateMigrationNaming="true""
       - name: Build
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
