@@ -58,6 +58,9 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	accessory_offset_y = 1
+	tail = "Tail"
+	tail_animation = 'icons/mob/species/attendant/tail.dmi'
+	selectable_tails = list("Tail")
 
 	slowdown = -0.8
 	brute_mod = 1.3
@@ -89,6 +92,7 @@
 /datum/species/bug/type_bb/New()
 	..()
 	equip_adjust = list(
+		slot_w_uniform_str = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 1),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 1)),
 		slot_head_str      = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 1),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 1)),
 		slot_glasses_str   = list("[NORTH]" = list("x" = 0, "y" = 4), "[EAST]" = list("x" = 0, "y" = 4),  "[SOUTH]" = list("x" = 0, "y" = 4), "[WEST]" = list("x" = 0, "y" = 4)),
 		slot_l_hand_str    = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 0)),
@@ -98,7 +102,7 @@
 		slot_belt_str      = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wear_id_str   = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wrists_str    = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_back_str      = list("[NORTH]" = list("x" = 0, "y" = 3),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 3),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_back_str      = list("[NORTH]" = list("x" = 0, "y" = 2),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 2),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wear_suit_str = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 1),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 1))
 	)
 

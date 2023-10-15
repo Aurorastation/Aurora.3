@@ -12,14 +12,15 @@
 		)
 
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi', //depreceated, only used for bulwarks due to their size
-		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/shoes.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
 	)
 
 
 	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK, BODYTYPE_VAURCA_ATTENDANT)
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("vaa")
 
 /obj/item/clothing/shoes/vaurca/breeder
 	name = "zo'ra representative shoes"

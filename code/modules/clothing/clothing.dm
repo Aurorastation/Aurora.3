@@ -836,9 +836,6 @@
 	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/shoes.dmi'
-	)
 
 	var/can_hold_knife
 	var/footstep = 1
@@ -1048,8 +1045,7 @@
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
 		)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi',
-		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/uniform.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 	)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
