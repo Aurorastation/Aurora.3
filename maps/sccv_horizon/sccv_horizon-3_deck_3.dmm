@@ -21751,7 +21751,6 @@
 /area/horizon/security/investigators_office)
 "qUP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/mob/living/simple_animal/cat/crusher,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
@@ -28069,10 +28068,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
-"vED" = (
-/mob/living/simple_animal/corgi/Ian,
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/hop/xo)
 "vEP" = (
 /obj/effect/floor_decal/sign/c{
 	pixel_x = -10;
@@ -51490,7 +51485,7 @@ jYJ
 vIv
 tFa
 idI
-vED
+idI
 gnf
 oKE
 llH
