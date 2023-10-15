@@ -15930,7 +15930,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar 1";
+	c_tag = "First Deck - Hangar Access";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -24745,9 +24745,6 @@
 /area/shuttle/intrepid/engine_compartment)
 "rqf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining - Locker Room"
-	},
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -31536,7 +31533,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar Fuel Bay";
+	c_tag = "First Deck - Pilot Room Hallway";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -34297,6 +34294,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"xOm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Hangar Fore";
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/operations)
 "xOs" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -49477,7 +49489,7 @@ mwO
 mwO
 mwO
 mwO
-nhi
+xOm
 tNp
 eSV
 eSV

@@ -28905,7 +28905,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Port 2";
+	c_tag = "Bridge - Port 1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
