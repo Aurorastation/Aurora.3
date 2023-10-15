@@ -266,7 +266,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/effect/ghostspawpoint{
-	identifier = goon
+	identifier = "goon"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
@@ -1683,7 +1683,7 @@
 	},
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
-	identifier = goon
+	identifier = "goon"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
@@ -1771,7 +1771,7 @@
 /obj/item/bedsheet/black,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ghostspawpoint{
-	identifier = goon_prisoner
+	identifier = "goon_prisoner"
 	},
 /turf/simulated/floor/plating,
 /area/goonbase)
@@ -2307,7 +2307,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/effect/ghostspawpoint{
-	identifier = goon
+	identifier = "goon"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
@@ -3757,7 +3757,7 @@
 	},
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
-	identifier = goon_boss
+	identifier = "goon_boss"
 	},
 /turf/simulated/floor/wood,
 /area/goonbase)
