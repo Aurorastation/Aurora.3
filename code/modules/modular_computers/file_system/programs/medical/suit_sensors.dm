@@ -29,7 +29,7 @@
 		for(var/z_level in current_map.map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
 
-	data["security_level"] = get_security_level()
+	data["security_level"] = seclevel2num(get_security_level())
 
 	return data
 
