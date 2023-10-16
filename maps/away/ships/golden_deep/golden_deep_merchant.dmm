@@ -177,6 +177,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
+"cc" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/closet/crate/rad{
+	name = "fuel crate"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "cd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/autolathe,
@@ -4063,6 +4076,11 @@
 "Ru" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -10;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
@@ -19287,7 +19305,7 @@ aH
 aH
 aH
 vB
-Rm
+cc
 fA
 fA
 fA
