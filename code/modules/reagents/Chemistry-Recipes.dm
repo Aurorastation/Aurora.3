@@ -2028,7 +2028,7 @@
 	result_amount = 5
 
 /datum/chemical_reaction/drink/coca_cola
-	name = "Coca Soda"
+	name = "Coca Cola"
 	id = "coca_cola"
 	result = /singleton/reagent/drink/coca_cola
 	required_reagents = list(/singleton/reagent/nutriment/cocagrounds = 1, /singleton/reagent/drink/space_cola = 5)

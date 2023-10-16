@@ -304,9 +304,6 @@
 	if(prob(25))
 		M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
-///singleton/reagent/drugs/night_juice/ultra //TODO: Need lore input on recipe
-//	name = "Ultra"
-//	description = "A derivative of nightlife developed on Vysoka, ultra trades off some of the awakefulness in favor of being a potent hallucinogen."
 
 /singleton/reagent/drugs/guwan_painkillers
 	name = "Tremble"
@@ -560,7 +557,7 @@
 	taste_description = "numbing powder"
 	color = "#FFFFFF"
 
-	initial_effect_message_list = list("You feel.. happy...", "A numbing sensation comes over you...", "Reality feels... distant now...")
+	initial_effect_message_list = list("You feel... happy...", "A numbing sensation comes over you...", "Reality feels... distant now...")
 	sober_message_list = list("You feel like garbage now...", "Your head aches.")
 
 	overdose = 10

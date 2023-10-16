@@ -258,31 +258,31 @@
 	reagents_to_add = list(/singleton/reagent/drugs/joy = 5)
 
 /obj/item/reagent_containers/pill/heroin
-	name = "Heroin Pill"
+	name = "heroin pill"
 	desc = "The pain will pass..."
 	icon_state = "pill7"
 	reagents_to_add = list(/singleton/reagent/drugs/heroin = 5)
 
 /obj/item/reagent_containers/pill/cocaine
-	name = "Cocaine Tablet"
+	name = "cocaine tablet"
 	desc = "For those long nights out."
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/drugs/cocaine = 10)
 
 /obj/item/reagent_containers/pill/contemplus
-	name = "Contemplus Tablet"
+	name = "\improper Contemplus tablet"
 	desc = "For that essay that is due tomorrow."
 	icon_state = "pill19"
 	reagents_to_add = list(/singleton/reagent/drugs/cocaine/contemplus = 10)
 
 /obj/item/reagent_containers/pill/spotlight
-	name = "Spotlight Tablet"
+	name = "\improper Spotlight tablet"
 	desc = "For that acting audition today."
 	icon_state = "pill2"
 	reagents_to_add = list(/singleton/reagent/drugs/cocaine/spotlight = 10)
 
 /obj/item/reagent_containers/pill/sparkle
-	name = "Sparkle Tablet"
+	name = "\improper Sparkle tablet"
 	desc = "For those long nights out at the club."
 	icon_state = "pill20"
 	reagents_to_add = list(/singleton/reagent/drugs/cocaine/sparkle = 10)

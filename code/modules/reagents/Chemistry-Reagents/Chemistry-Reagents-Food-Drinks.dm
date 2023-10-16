@@ -2193,7 +2193,7 @@
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /singleton/reagent/drink/coca_cola
-	name = "Coca Soda"
+	name = "Coca Cola"
 	description = "A very refreshing beverage, not for children."
 	reagent_state = LIQUID
 	color = "#080400"
@@ -2204,8 +2204,8 @@
 	carbonated = TRUE
 
 	glass_icon_state  = "spacecola"
-	glass_name = "glass of Coca Soda"
-	glass_desc = "A glass of very refreshing Coca Soda"
+	glass_name = "glass of coca cola"
+	glass_desc = "A glass of very refreshing coca cola."
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /singleton/reagent/drink/spacemountainwind

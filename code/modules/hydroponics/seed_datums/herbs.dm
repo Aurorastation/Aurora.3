@@ -52,13 +52,13 @@
 
 /datum/seed/coca/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"herb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#056608")
-	set_trait(TRAIT_PLANT_ICON,"herb")
+	set_trait(TRAIT_MATURATION, 3)
+	set_trait(TRAIT_PRODUCTION, 3)
+	set_trait(TRAIT_YIELD, 3)
+	set_trait(TRAIT_POTENCY, 2)
+	set_trait(TRAIT_PRODUCT_ICON, "herb")
+	set_trait(TRAIT_PRODUCT_COLOUR, "#056608")
+	set_trait(TRAIT_PLANT_ICON, "herb")
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 
 /obj/item/seeds/cocaseed

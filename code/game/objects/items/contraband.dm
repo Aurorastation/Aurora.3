@@ -17,12 +17,12 @@
 	starts_with = list(/obj/item/reagent_containers/pill/joy = 3)
 
 /obj/item/storage/pill_bottle/heroin
-	name = "bottle of Heroin pills"
+	name = "bottle of heroin pills"
 	desc = "Highly illegal drug. For quick pain removal."
 	starts_with = list(/obj/item/reagent_containers/pill/heroin = 3)
 
 /obj/item/storage/pill_bottle/cocaine
-	name = "bottle of Cocaine tablets"
+	name = "bottle of cocaine tablets"
 	desc = "Supposedly a highly illegal drug... yet the labeling on the bottle is suspiciously perfect..."
 	starts_with = list(/obj/item/reagent_containers/pill/cocaine = 5)
 
