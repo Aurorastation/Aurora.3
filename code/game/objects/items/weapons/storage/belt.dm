@@ -121,6 +121,30 @@
 	)
 	content_overlays = TRUE
 
+/obj/item/storage/belt/utility/hephaestus
+	name = "hephaestus tool belt"
+	desc = "A sturdy belt for holding various tools and equipment. Comes in Hephaestus colours."
+	icon_state = "hephbelt"
+	item_state = "hephbelt"
+
+/obj/item/storage/belt/utility/zavodskoi
+	name = "zavodskoi tool belt"
+	desc = "A sturdy belt for holding various tools and equipment. Comes in Zavodskoi colours."
+	icon_state = "zavodbelt"
+	item_state = "zavodbelt"
+
+/obj/item/storage/belt/utility/orion
+	name = "orion tool belt"
+	desc = "A sturdy belt for holding various tools and equipment. Comes in Orion colours."
+	icon_state = "orionbelt"
+	item_state = "orionbelt"
+
+/obj/item/storage/belt/utility/scc
+	name = "SCC tool belt"
+	desc = "A sturdy belt for holding various tools and equipment. Comes in SCC colours."
+	icon_state = "sccbelt"
+	item_state = "sccbelt"
+
 /obj/item/storage/belt/utility/ce
 	icon_state = "utilitybelt_ce"
 	item_state = "utility_ce"
@@ -205,6 +229,30 @@
 		/obj/item/taperoll/medical,
 		/obj/item/storage/box/fancy/med_pouch
 		)
+
+/obj/item/storage/belt/medical/nanotrasen
+	name = "nanotrasen medical belt"
+	desc = "Can hold various medical equipment. Comes in NanoTrasen colours."
+	icon_state = "ntbelt"
+	item_state = "ntbelt"
+
+/obj/item/storage/belt/medical/zenghu
+	name = "zeng-hu medical belt"
+	desc = "Can hold various medical equipment. Comes in Zeng-Hu colours."
+	icon_state = "zengbelt"
+	item_state = "zengbelt"
+
+/obj/item/storage/belt/medical/pmcg
+	name = "PMCG medical belt"
+	desc = "Can hold various medical equipment. Comes in PMCG colours."
+	icon_state = "pmcgbelt"
+	item_state = "pmcgbelt"
+
+/obj/item/storage/belt/medical/scc
+	name = "SCC medical belt"
+	desc = "Can hold various medical equipment. Comes in SCC colours."
+	icon_state = "sccbelt"
+	item_state = "sccbelt"
 
 /obj/item/storage/belt/medical/first_responder
 	name = "first responder utility belt"
@@ -305,6 +353,30 @@
 		/obj/item/device/radio
 		)
 	content_overlays = TRUE
+
+/obj/item/storage/belt/security/idris
+	name = "idris security belt"
+	desc = "Can hold security gear like handcuffs and flashes. Comes in Idris colours."
+	icon_state = "idrisbelt"
+	item_state = "idrisbelt"
+
+/obj/item/storage/belt/security/zavod
+	name = "zavodskoi security belt"
+	desc = "Can hold security gear like handcuffs and flashes. Comes in Zavodskoi colours."
+	icon_state = "zavodbelt"
+	item_state = "zavodbelt"
+
+/obj/item/storage/belt/security/pmcg
+	name = "PMCG security belt"
+	desc = "Can hold security gear like handcuffs and flashes. Comes in PMCG colours."
+	icon_state = "pmcgbelt"
+	item_state = "pmcgbelt"
+
+/obj/item/storage/belt/security/scc
+	name = "SCC security belt"
+	desc = "Can hold security gear like handcuffs and flashes. Comes in SCC colours."
+	icon_state = "sccbelt"
+	item_state = "sccbelt"
 
 /obj/item/storage/belt/security/full
 	starts_with = list(
@@ -419,6 +491,30 @@
 		/obj/item/taperoll/custodial
 	)
 
+/obj/item/storage/belt/custodial/idris
+	name = "idris custodial belt"
+	desc = "A utility belt designed for custodial use. Comes in Idris colours."
+	icon_state = "idrisbelt"
+	item_state = "idrisbelt"
+
+/obj/item/storage/belt/custodial/nanotrasen
+	name = "nanotrasen custodial belt"
+	desc = "A utility belt designed for custodial use. Comes in NanoTrasen colours."
+	icon_state = "ntbelt"
+	item_state = "ntbelt"
+
+/obj/item/storage/belt/custodial/orion
+	name = "orion custodial belt"
+	desc = "A utility belt designed for custodial use. Comes in Orion colours."
+	icon_state = "orionbelt"
+	item_state = "orionbelt"
+
+/obj/item/storage/belt/custodial/scc
+	name = "SCC custodial belt"
+	desc = "A utility belt designed for custodial use. Comes in SCC colours."
+	icon_state = "sccbelt"
+	item_state = "sccbelt"
+
 /obj/item/storage/belt/mining
 	name = "explorer's belt"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
@@ -471,6 +567,24 @@
 		/obj/item/ore_detector
 		)
 
+/obj/item/storage/belt/mining/hephaestus
+	name = "hephaestus mining belt"
+	desc = "A versatile and compact mining belt, cherished by miners and hunters alike. Comes in Hephaestus colours."
+	icon_state = "hephbelt"
+	item_state = "hephbelt"
+
+/obj/item/storage/belt/mining/orion
+	name = "orion mining belt"
+	desc = "A versatile and compact mining belt, cherished by miners and hunters alike. Comes in Orion colours."
+	icon_state = "orionbelt"
+	item_state = "orionbelt"
+
+/obj/item/storage/belt/mining/scc
+	name = "SCC mining belt"
+	desc = "A versatile and compact mining belt, cherished by miners and hunters alike. Comes in SCC colours."
+	icon_state = "sccbelt"
+	item_state = "sccbelt"
+
 /obj/item/storage/belt/hydro
 	name = "hydrobelt"
 	desc = "A utility belt to store and provide easy access to your floral utilities."
@@ -496,6 +610,30 @@
 		/obj/item/clothing/gloves/botanic_leather,
 		/obj/item/device/radio
 	)
+
+/obj/item/storage/belt/hydro/idris
+	name = "idris hydrobelt"
+	desc = "A utility belt to store and provide easy access to your floral utilities. Comes in Idris colours."
+	icon_state = "idrisbelt"
+	item_state = "idrisbelt"
+
+/obj/item/storage/belt/hydro/nt
+	name = "nanotrasen hydrobelt"
+	desc = "A utility belt to store and provide easy access to your floral utilities. Comes in NanoTrasen colours."
+	icon_state = "ntbelt"
+	item_state = "ntbelt"
+
+/obj/item/storage/belt/hydro/orion
+	name = "orion hydrobelt"
+	desc = "A utility belt to store and provide easy access to your floral utilities. Comes in Orion colours."
+	icon_state = "orionbelt"
+	item_state = "orionbelt"
+
+/obj/item/storage/belt/hydro/scc
+	name = "SCC hydrobelt"
+	desc = "A utility belt to store and provide easy access to your floral utilities. Comes in SCC colours."
+	icon_state = "sccbelt"
+	item_state = "sccbelt"
 
 /obj/item/storage/belt/ninja //credits to BurgerBB
 	name = "advanced combat belt"

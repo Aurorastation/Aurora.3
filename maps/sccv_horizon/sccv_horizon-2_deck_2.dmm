@@ -232,6 +232,9 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/item/clothing/gloves/yellow,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "aeC" = (
@@ -2662,6 +2665,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "bib" = (
@@ -3431,6 +3437,10 @@
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/machinery/light,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "bzH" = (
@@ -4753,6 +4763,9 @@
 /obj/structure/fireaxecabinet/east,
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/item/clothing/gloves/yellow,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "cdv" = (
@@ -5746,6 +5759,10 @@
 /obj/structure/closet/secure_closet/custodial,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/newscaster/south,
+/obj/item/storage/belt/custodial/idris,
+/obj/item/storage/belt/custodial/nanotrasen,
+/obj/item/storage/belt/custodial/orion,
+/obj/item/storage/belt/custodial/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "cJU" = (
@@ -6609,6 +6626,10 @@
 	eftpos_name = "Brig EFTPOS scanner"
 	},
 /obj/item/stamp/warden,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "dht" = (
@@ -9450,6 +9471,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
 "eDf" = (
@@ -18862,6 +18887,9 @@
 	departmentType = 6;
 	name = "Chief Engineer RC"
 	},
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "iVp" = (
@@ -19567,6 +19595,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlP" = (
@@ -28263,6 +28294,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/light,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "nry" = (
@@ -28291,6 +28326,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/orion,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "ntn" = (
@@ -31299,6 +31337,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "oTK" = (
@@ -35868,6 +35909,10 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "reo" = (
@@ -43978,6 +44023,10 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "vbc" = (
@@ -47000,6 +47049,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrB" = (
@@ -49629,6 +49681,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/belt/utility/hephaestus,
+/obj/item/storage/belt/utility/zavodskoi,
+/obj/item/storage/belt/utility/scc,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "xCr" = (

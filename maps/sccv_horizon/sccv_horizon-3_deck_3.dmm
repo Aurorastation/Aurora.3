@@ -2441,6 +2441,10 @@
 	},
 /obj/item/storage/belt/medical,
 /obj/item/clothing/glasses/hud/health,
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/scc,
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
@@ -19114,6 +19118,14 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/scc,
+/obj/item/storage/belt/medical/scc,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "oCi" = (
@@ -22388,6 +22400,14 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/scc,
+/obj/item/storage/belt/medical/scc,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "rwV" = (
@@ -24176,6 +24196,10 @@
 	c_tag = "Security - Investigations Office";
 	dir = 8
 	},
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
 "sHU" = (
@@ -25164,6 +25188,10 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/storage/belt/security/zavod,
+/obj/item/storage/belt/security/idris,
+/obj/item/storage/belt/security/pmcg,
+/obj/item/storage/belt/security/scc,
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
 "txh" = (
@@ -28541,6 +28569,14 @@
 /obj/item/storage/box/gloves,
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/machinery/light,
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/nanotrasen,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/pmcg,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/zenghu,
+/obj/item/storage/belt/medical/scc,
+/obj/item/storage/belt/medical/scc,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "vWS" = (

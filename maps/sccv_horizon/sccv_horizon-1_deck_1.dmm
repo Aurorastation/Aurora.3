@@ -7846,6 +7846,10 @@
 /obj/item/watertank,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
+/obj/item/storage/belt/hydro/idris,
+/obj/item/storage/belt/hydro/nt,
+/obj/item/storage/belt/hydro/orion,
+/obj/item/storage/belt/hydro/scc,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "fzA" = (
@@ -13070,6 +13074,10 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/item/storage/belt/custodial/idris,
+/obj/item/storage/belt/custodial/nanotrasen,
+/obj/item/storage/belt/custodial/orion,
+/obj/item/storage/belt/custodial/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "jjZ" = (
@@ -24091,6 +24099,9 @@
 "qUu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/miner,
+/obj/item/storage/belt/mining/hephaestus,
+/obj/item/storage/belt/mining/orion,
+/obj/item/storage/belt/mining/scc,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "qUK" = (
@@ -31470,6 +31481,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/item/storage/belt/custodial/idris,
+/obj/item/storage/belt/custodial/nanotrasen,
+/obj/item/storage/belt/custodial/orion,
+/obj/item/storage/belt/custodial/scc,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "wbO" = (
@@ -33808,6 +33823,10 @@
 	c_tag = "Service- Hydroponics Lower";
 	dir = 1
 	},
+/obj/item/storage/belt/hydro/idris,
+/obj/item/storage/belt/hydro/nt,
+/obj/item/storage/belt/hydro/orion,
+/obj/item/storage/belt/hydro/scc,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "xzd" = (
