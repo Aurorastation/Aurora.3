@@ -25,6 +25,14 @@
 /obj/machinery/door/airlock/hatch/gadpathur
 	door_frame_color = COLOR_GADPATHUR_BLACK
 
+/obj/machinery/door/airlock/multi_tile/glass/gadpathur
+	door_frame_color = COLOR_GADPATHUR_BLACK
+	door_color = COLOR_GADPATHUR_BLACK
+
+/obj/machinery/door/airlock/multi_tile/flipped/glass/gadpathur
+	door_frame_color = COLOR_GADPATHUR_BLACK
+	door_color = COLOR_GADPATHUR_BLACK
+
 //Special doors
 
 /obj/machinery/door/airlock/gadpathur/quarters
