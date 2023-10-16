@@ -81,7 +81,7 @@
 
 /obj/item/custom_ka_upgrade/barrels/illegal
 	name = "laser KA power converter"
-	build_name = "'Syndicate''"
+	build_name = "'Laser'"
 	desc = "A laser crystal ripped from a laser rifle and repurposed for kinetic accelerator assemblies."
 	icon_state = "barrel_laser"
 	damage_increase = 15
