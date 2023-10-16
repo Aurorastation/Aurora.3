@@ -1,4 +1,4 @@
-b/********************
+/********************
 * Devices and Tools *
 ********************/
 /datum/uplink_item/item/tools
