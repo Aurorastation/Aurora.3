@@ -140,7 +140,7 @@
 	name = "Janitor - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/janitor/orion
-	head = /obj/item/clothing/head/softcap/orion/custodian
+	head = /obj/item/clothing/head/softcap/orion_custodian
 	id = /obj/item/card/id/orion
 
 	backpack_faction = /obj/item/storage/backpack/orion

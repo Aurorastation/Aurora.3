@@ -177,6 +177,8 @@
 	item_state = "idris_bartender_flatcap"
 
 /obj/item/clothing/head/flatcap/bartender/orion
+	icon_state = "orion_bartender_flatcap"
+	item_state = "orion_bartender_flatcap"
 
 /obj/item/clothing/head/sidecap
 	name = "side cap"

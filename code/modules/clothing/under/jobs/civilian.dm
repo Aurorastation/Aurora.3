@@ -13,8 +13,8 @@
 	item_state = "idris_bartender"
 
 /obj/item/clothing/under/rank/bartender/orion
-	icon_state = "nt_bartender"
-	item_state = "nt_bartender"
+	icon_state = "orion_bartender"
+	item_state = "orion_bartender"
 
 /obj/item/clothing/under/rank/chaplain
 	desc = "It's a black jumpsuit, often worn by religious folk."
@@ -45,8 +45,8 @@
 /obj/item/clothing/under/rank/chef/orion
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
-	icon_state = "idris_chef"
-	item_state = "idris_chef"
+	icon_state = "orion_chef"
+	item_state = "orion_chef"
 
 /obj/item/clothing/under/rank/hydroponics
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
@@ -62,6 +62,8 @@
 	item_state = "idris_gardener"
 
 /obj/item/clothing/under/rank/hydroponics/orion
+	icon_state = "orion_gardener"
+	item_state = "orion_gardener"
 
 // Liaison, a.k.a. Internal Affairs
 
@@ -122,8 +124,8 @@
 	item_state = "idris_janitor_alt"
 
 /obj/item/clothing/under/rank/janitor/orion
-	icon_state = "nt_janitor_alt"
-	item_state = "nt_janitor_alt"
+	icon_state = "orion_janitor"
+	item_state = "orion_janitor"
 
 // Lawyer (to be replaced by modularization)
 
@@ -158,8 +160,8 @@
 	item_state = "idris_librarian"
 
 /obj/item/clothing/under/librarian/orion
-	icon_state = "nt_librarian"
-	item_state = "nt_librarian"
+	icon_state = "orion_librarian"
+	item_state = "orion_librarian"
 
 // Miner
 
