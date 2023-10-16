@@ -115,8 +115,8 @@
 
 /obj/machinery/portable_atmospherics/canister/boron
 	name = "\improper Boron \[Bo\]"
-	icon_state = "green"
-	canister_color = "green"
+	icon_state = "yellow"
+	canister_color = "yellow"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/boron/Initialize()
