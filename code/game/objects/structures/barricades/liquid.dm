@@ -74,7 +74,7 @@
 		user.visible_message(SPAN_NOTICE("[user] starts adding more [SB] to [src]."), \
 			SPAN_NOTICE("You start adding liquid bags to [src]."))
 		for(var/i = build_stage to BARRICADE_LIQUIDBAG_5)
-			if(build_stage >= BARRICADE_LIQUIDBAG_5 || !do_after(user, 5, act_target = src) || build_stage >= BARRICADE_LIQUIDBAG_5)
+			if(build_stage >= BARRICADE_LIQUIDBAG_5 || !do_after(user, 5, src, DO_REPAIR_CONSTRUCT) || build_stage >= BARRICADE_LIQUIDBAG_5)
 				break
 			SB.use(1)
 			increment_build_stage()

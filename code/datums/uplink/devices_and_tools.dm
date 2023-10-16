@@ -78,7 +78,7 @@
 /datum/uplink_item/item/tools/personal_shield
 	name = "Personal Shield"
 	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots. \
-	        This can only be bought once."
+			This can only be bought once."
 	telecrystal_cost = 1
 	item_limit = 1
 	path = /obj/item/device/personal_shield

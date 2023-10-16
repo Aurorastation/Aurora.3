@@ -1,6 +1,4 @@
-/var/global/datum/controller/subsystem/virtualreality/SSvirtualreality
-
-/datum/controller/subsystem/virtualreality
+SUBSYSTEM_DEF(virtualreality)
 	name = "Virtual Reality"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -16,9 +14,6 @@
 	// STATIONBOUND BODIES
 	var/list/boundnetworks = list(REMOTE_AI_ROBOT)
 	var/list/list/bounded = list()
-
-/datum/controller/subsystem/virtualreality/New()
-	NEW_SS_GLOBAL(SSvirtualreality)
 
 /datum/controller/subsystem/virtualreality/Initialize()
 	for(var/network in mechnetworks)
@@ -94,9 +89,6 @@
 		ckey_transfer(old_mob)
 		languages = list(all_languages[LANGUAGE_TCB])
 		internal_id.access = list()
-		if(ismech(loc))
-			var/mob/living/heavy_vehicle/HV = loc
-			HV.access_card.access = list()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -199,14 +191,13 @@
 		to_chat(user, SPAN_WARNING("No active remote mechs are available."))
 		return
 
-	var/choice = input("Please select a remote control compatible mech to take over.", "Remote Mech Selection") as null|anything in mech
+	var/choice = tgui_input_list(usr, "Please select a remote control compatible mech to take over.", "Remote Mech Selection", mech)
 	if(!choice)
 		return
 
 	var/mob/living/heavy_vehicle/chosen_mech = mech[choice]
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
 	mind_transfer(user, remote_pilot)
-	chosen_mech.sync_access()
 
 /datum/controller/subsystem/virtualreality/proc/robot_selection(var/user, var/network)
 	var/list/robot = list()
@@ -227,7 +218,7 @@
 		to_chat(user, SPAN_WARNING("No active remote robots are available."))
 		return
 
-	var/choice = input("Please select a remote control robot to take over.", "Remote Robot Selection") as null|anything in robot
+	var/choice = tgui_input_list(usr, "Please select a remote control robot to take over.", "Remote Robot Selection", robot)
 	if(!choice)
 		return
 
@@ -252,7 +243,7 @@
 		to_chat(user, SPAN_WARNING("No active remote units are available."))
 		return
 
-	var/choice = input("Please select a remote control unit to take over.", "Remote Unit Selection") as null|anything in bound
+	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", bound)
 	if(!choice)
 		return
 

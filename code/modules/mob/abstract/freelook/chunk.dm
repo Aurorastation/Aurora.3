@@ -176,7 +176,7 @@
 				var/mob/abstract/eye/m = eye
 				if (m && m.owner && m.owner.client)
 					m.owner.client.images += obfuscation_image
-	
+
 	dirty = FALSE
 	updating = FALSE
 

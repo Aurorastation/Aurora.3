@@ -23,5 +23,5 @@
 	available_controllers["Evacuation Main Controller"] = evacuation_controller
 	var/css = input("What controller would you like to debug?", "Controllers") as null|anything in available_controllers
 	debug_variables(available_controllers[css])
-	
+
 	message_admins("Admin [key_name_admin(usr)] is debugging the [css] controller.")

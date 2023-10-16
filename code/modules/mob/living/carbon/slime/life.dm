@@ -579,3 +579,6 @@
 
 /mob/living/carbon/slime/slip() //Can't slip something without legs.
 	return FALSE
+
+/mob/living/carbon/slime/get_speech_bubble_state_modifier()
+	return "slime"

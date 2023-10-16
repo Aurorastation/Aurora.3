@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/evac/SSevac
-
-/datum/controller/subsystem/evac
+SUBSYSTEM_DEF(evac)
 	name = "Evacuation"
 	priority = SS_PRIORITY_EVAC
 	//Initializes at default time
@@ -15,4 +13,3 @@ var/datum/controller/subsystem/evac/SSevac
 
 /datum/controller/subsystem/evac/fire()
 	evacuation_controller.process()
-	

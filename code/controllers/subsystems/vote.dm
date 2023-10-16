@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/vote/SSvote
-
-/datum/controller/subsystem/vote
+SUBSYSTEM_DEF(vote)
 	name = "Voting"
 	wait = 1 SECOND
 	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
@@ -21,9 +19,6 @@ var/datum/controller/subsystem/vote/SSvote
 	var/last_transfer_vote = null
 
 	var/list/round_voters = list()
-
-/datum/controller/subsystem/vote/New()
-	NEW_SS_GLOBAL(SSvote)
 
 /datum/controller/subsystem/vote/Initialize(timeofday)
 	next_transfer_time = config.vote_autotransfer_initial
@@ -159,7 +154,7 @@ var/datum/controller/subsystem/vote/SSvote
 					restart = 1
 			if("gamemode")
 				if(master_mode != .)
-					SSpersist_config.last_gamemode = .
+					SSpersistent_configuration.last_gamemode = .
 					if(SSticker.mode)
 						restart = 1
 					else
@@ -281,8 +276,10 @@ var/datum/controller/subsystem/vote/SSvote
 						AddChoice(antag.role_text)
 				AddChoice("None")
 			if("custom")
-				question = input(usr,"What is the vote for?") as text|null
-				if(!question)	return 0
+				question = tgui_input_text(usr, "What is the vote for?")
+				if(!question)
+					return FALSE
+
 				for(var/i=1,i<=10,i++)
 					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
 					if(!option || mode || !usr.client)	break
@@ -326,10 +323,10 @@ var/datum/controller/subsystem/vote/SSvote
 	)
 
 /datum/controller/subsystem/vote/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

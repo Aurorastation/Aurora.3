@@ -77,7 +77,7 @@
 	last_comms = "PAD NOT CONNECTED"
 
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
-	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
+	var/BulkAmount = tgui_input_number(usr, "How many items? (Buy 1-50 items. 0 to cancel.)", "Merchant", 1, 50, 0)
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
 		return
@@ -251,3 +251,7 @@
 /datum/computer_file/program/merchant/guild
 	required_access_run = list(access_merchants_guild)
 	required_access_download = list(access_merchants_guild)
+
+/datum/computer_file/program/merchant/golden_deep
+	required_access_run = list(access_golden_deep)
+	required_access_download = list(access_golden_deep)

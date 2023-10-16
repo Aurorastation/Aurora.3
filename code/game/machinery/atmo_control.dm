@@ -248,7 +248,7 @@
 				. = TRUE
 
 	signal.data["sigtype"] = "command"
-	INVOKE_ASYNC(radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA))
+	INVOKE_ASYNC(radio_connection, TYPE_PROC_REF(/datum/radio_frequency, post_signal), src, signal, filter = RADIO_ATMOSIA)
 
 /obj/machinery/computer/general_air_control/supermatter_core
 	icon = 'icons/obj/machinery/modular_console.dmi'
