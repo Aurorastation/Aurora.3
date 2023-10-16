@@ -180,8 +180,8 @@
 	item_state = "emtpack"
 
 /obj/item/storage/backpack/syndie
-	name = "syndicate rucksack"
-	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
+	name = "combat rucksack"
+	desc = "The latest in carbon fiber and red satin tactical rucksack technology. Comfortable and tough!"
 	icon_state = "syndiepack"
 	item_state = "syndiepack"
 	empty_delay = 0.8 SECOND
@@ -404,8 +404,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel/syndie
-	name = "syndicate satchel"
-	desc = "A satchel in the new age style of a multi-corporate terrorist organisation."
+	name = "combat satchel"
+	desc = "A stylish satchel in the same hip and trendy color scheme as many pieces of combat equipment."
 	icon_state = "satchel-syndie"
 	item_state = "satchel-syndie"
 	empty_delay = 0.8 SECOND
@@ -601,7 +601,7 @@
 	item_state = "duffel-emt"
 
 /obj/item/storage/backpack/duffel/syndie
-	name = "syndicate duffel bag"
+	name = "combat duffel bag"
 	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state = "duffel-syndie"
@@ -747,7 +747,7 @@
 	item_state = "courierbagsec"
 
 /obj/item/storage/backpack/messenger/syndie
-	name = "syndicate messenger bag"
+	name = "combat messenger bag"
 	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
 	icon_state = "courierbagsyndie"
 	item_state = "courierbagsyndie"
