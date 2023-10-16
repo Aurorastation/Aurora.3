@@ -22737,8 +22737,7 @@
 	power_rating = 30000;
 	use_power = 1;
 	volume_rate = 700;
-	id = "cooling_in";
-	id_tag = "cooling_in"
+	id = "cooling_in"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{

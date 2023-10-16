@@ -15296,7 +15296,8 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	id = "air_in";
-	frequency = 1441
+	frequency = 1441;
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
