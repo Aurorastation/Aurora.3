@@ -190,8 +190,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "cN" = (
-/obj/structure/table/wood/gamblingtable,
 /obj/item/material/ashtray/bronze,
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "cP" = (
@@ -309,7 +309,7 @@
 /turf/simulated/floor/tiled/white,
 /area/goonbase)
 "eB" = (
-/obj/structure/table/wood/gamblingtable,
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "eE" = (
@@ -401,11 +401,6 @@
 "fe" = (
 /obj/item/broken_bottle,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"fi" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/storage/pill_bottle/dice/gaming,
-/turf/simulated/floor/carpet/red,
 /area/goonbase)
 "fj" = (
 /obj/structure/dispenser/oxygen,
@@ -611,7 +606,6 @@
 /turf/simulated/floor/plating,
 /area/goonbase)
 "ia" = (
-/obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
 	pixel_y = 21;
@@ -630,6 +624,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "id" = (
@@ -642,9 +637,8 @@
 /turf/simulated/floor/plating,
 /area/goonbase)
 "ip" = (
-/obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
-/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "it" = (
@@ -788,9 +782,8 @@
 /turf/simulated/floor/tiled/white,
 /area/goonbase)
 "kB" = (
-/obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/gaming,
-/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "kH" = (
@@ -1305,7 +1298,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/living)
 "pT" = (
-/obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/gaming,
 /obj/item/trash/cigbutt{
 	pixel_y = -13;
@@ -1316,6 +1308,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "pU" = (
@@ -1626,9 +1619,8 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "vt" = (
-/obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/drinks/bottle/rum,
-/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/table/rack/fancy_table,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "vx" = (
@@ -69616,7 +69608,7 @@ dr
 sO
 cN
 eB
-fi
+kB
 sO
 kW
 Cf
