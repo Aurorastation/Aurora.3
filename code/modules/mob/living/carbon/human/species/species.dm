@@ -253,9 +253,9 @@
 	var/breathing_organ           // If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 
 	var/list/has_limbs = list(
-		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -293,7 +293,7 @@
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 	/// These are the prefixes of the icon states in talk.dmi.
-	var/list/possible_speech_bubble_types = list("normal")
+	var/list/possible_speech_bubble_types = list("default")
 
 	var/use_alt_hair_layer = FALSE
 
@@ -869,3 +869,6 @@
 
 /datum/species/proc/can_use_guns()
 	return TRUE
+
+/datum/species/proc/get_species_record_sex(var/mob/living/carbon/human/H)
+	return H.gender

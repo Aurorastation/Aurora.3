@@ -11,7 +11,7 @@
 	name = "room five";
 	initial_lock_value = "room_five"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "aK" = (
 /obj/structure/closet/crate/hydroponics,
@@ -105,7 +105,7 @@
 	name = "room one";
 	initial_lock_value = "room_one"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "ev" = (
 /obj/structure/bed/stool/chair/wood{
@@ -322,7 +322,7 @@
 	name = "room four";
 	initial_lock_value = "room_four"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "nR" = (
 /turf/simulated/floor/exoplanet/snow{
@@ -678,7 +678,7 @@
 	name = "room six";
 	initial_lock_value = "room_six"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "Ez" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -769,7 +769,7 @@
 	name = "room two";
 	initial_lock_value = "room_two"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "In" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -918,7 +918,7 @@
 	name = "room three";
 	initial_lock_value = "room_three"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "Rh" = (
 /turf/simulated/floor/exoplanet/barren{

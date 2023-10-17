@@ -1,4 +1,5 @@
 /atom
+	///Whether /atom/Initialize() has already run for the object
 	var/initialized = FALSE
 	var/update_icon_on_init	// Default to 'no'.
 
@@ -48,7 +49,7 @@
 	#endif
 
 	if (update_icon_on_init)
-		queue_icon_update()
+		SSicon_update.add_to_queue(src)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -79,6 +80,9 @@
 	if (reagents)
 		QDEL_NULL(reagents)
 
+	//We're being destroyed, no need to update the icon
+	SSicon_update.remove_from_queue(src)
+
 	LAZYCLEARLIST(our_overlays)
 	LAZYCLEARLIST(priority_overlays)
 
@@ -89,5 +93,17 @@
 			var/datum/orbit/O = thing
 			if (O.orbiter)
 				O.orbiter.stop_orbit()
+
+	if(length(overlays))
+		overlays.Cut()
+
+	if(light)
+		QDEL_NULL(light)
+
+	if (length(light_sources))
+		light_sources.Cut()
+
+	if(smoothing_flags & SMOOTH_QUEUED)
+		SSicon_smooth.remove_from_queues(src)
 
 	return ..()

@@ -674,7 +674,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "aDj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -755,8 +755,8 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "aFx" = (
-/obj/structure/bed/stool/chair/sofa/left/red,
-/obj/item/device/radio/intercom/north,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/item/device/radio/intercom/expedition/north,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "aFA" = (
@@ -862,7 +862,7 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/device/radio/intercom/north,
+/obj/item/device/radio/intercom/expedition/north,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "aJA" = (
@@ -1264,7 +1264,7 @@
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "aWB" = (
 /obj/random/loot,
@@ -2403,7 +2403,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/obj/item/device/radio/intercom/expedition/hailing/east,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "bID" = (
 /obj/structure/tank_wall/hydrogen{
@@ -3163,6 +3164,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "coB" = (
@@ -3192,7 +3194,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/device/radio/intercom/south,
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "cpt" = (
@@ -3547,7 +3549,7 @@
 	pixel_x = -23;
 	req_access = null
 	},
-/obj/item/device/radio/intercom/west{
+/obj/item/device/radio/intercom/expedition/west{
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4623,28 +4625,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "dnX" = (
-/obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -8;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 26;
-	pixel_y = 11
-	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 26;
-	pixel_y = 5
-	},
 /obj/machinery/alarm/north,
-/obj/item/storage/box/snack{
-	pixel_x = 6;
-	pixel_y = 5
-	},
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "dob" = (
@@ -5508,7 +5490,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "dVz" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -6019,7 +6001,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/extinguisher_cabinet/east,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "epB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6774,7 +6756,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "eNT" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -7041,14 +7023,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/padded/bunk,
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black,
-/obj/item/bedsheet/blue{
-	pixel_y = 16
-	},
-/obj/structure/curtain/open/bed,
 /obj/machinery/firealarm/north,
+/obj/structure/bed/stool/chair/sofa/right/red,
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "eWN" = (
@@ -7253,7 +7229,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "fbJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -7286,6 +7262,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/device/radio/intercom/expedition/hailing/north{
+	pixel_x = -8;
+	pixel_y = 18
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fdA" = (
@@ -7878,10 +7858,8 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/machinery/cryopod{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "fzU" = (
@@ -9508,8 +9486,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "gBo" = (
-/obj/machinery/alarm/east,
-/obj/machinery/atmospherics/valve{
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
 	name = "Nitrous Oxide to Thrusters"
 	},
 /turf/simulated/floor/plating,
@@ -9528,7 +9509,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "gBw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10198,9 +10179,6 @@
 /area/hangar/auxiliary)
 "hcq" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/obj/item/device/radio/intercom/west{
-	pixel_y = 2
-	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "intrepid_outer";
@@ -10217,6 +10195,7 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/item/device/radio/intercom/expedition/hailing/west,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "hcC" = (
@@ -10288,7 +10267,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
 	frequency = 1441;
-	id_tag = "h_out"
+	id_tag = "o2_out"
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
@@ -10500,7 +10479,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/crew_compartment)
 "hkW" = (
 /obj/machinery/door/airlock/external{
@@ -12917,7 +12896,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "jcT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -13728,7 +13707,7 @@
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "jFa" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -13816,7 +13795,7 @@
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
 /obj/item/device/multitool,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "jHu" = (
 /obj/structure/tank_wall{
@@ -14008,14 +13987,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14149,24 +14122,18 @@
 	layer = 2.6;
 	outside_part = 0
 	},
-/obj/structure/table/reinforced,
-/obj/item/material/kitchen/utensil/knife/plastic{
-	pixel_x = 9
-	},
-/obj/item/material/kitchen/utensil/knife/plastic{
-	pixel_x = 7
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = 6
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = 6
-	},
-/obj/item/storage/box/kitchen,
-/obj/item/storage/box/kitchen,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/table/reinforced,
+/obj/item/device/binoculars{
+	pixel_x = 3
+	},
+/obj/item/tank/emergency_oxygen{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "jWJ" = (
@@ -14882,7 +14849,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/device/radio/intercom/expedition/east,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kyq" = (
@@ -15084,7 +15051,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "kDx" = (
 /obj/structure/shuttle_part/scc/scout{
@@ -15125,10 +15092,10 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = -12;
+	pixel_x = -10;
 	pixel_y = 24
 	},
-/obj/structure/bed/stool/chair/sofa/right/red,
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "kEk" = (
@@ -15179,7 +15146,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "kEW" = (
 /obj/structure/cable/green{
@@ -15329,7 +15296,8 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	id = "air_in";
-	frequency = 1441
+	frequency = 1441;
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
@@ -15693,13 +15661,6 @@
 /obj/structure/window/shuttle/unique/scc/scout/over{
 	icon_state = "3,5"
 	},
-/obj/structure/table/rack{
-	density = 0;
-	icon_state = "rack_small";
-	name = "storage rack";
-	pixel_x = 22;
-	pixel_y = -2
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "lbc" = (
@@ -15962,7 +15923,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar 1";
+	c_tag = "First Deck - Hangar Access";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -16189,9 +16150,9 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/regular,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -16269,7 +16230,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/east{
+/obj/item/device/radio/intercom/expedition/east{
 	pixel_y = 21
 	},
 /obj/structure/cable/green{
@@ -16374,16 +16335,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "lDs" = (
-/obj/machinery/cryopod{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Living Quarters Lift";
 	dir = 1
+	},
+/obj/effect/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
@@ -16851,7 +16811,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "lRH" = (
 /obj/structure/cable/green{
@@ -17474,7 +17434,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/item/device/radio/intercom/south,
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "mmh" = (
@@ -18104,7 +18064,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "mLw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -18339,15 +18299,16 @@
 	outside_part = 0
 	},
 /obj/structure/table/wood,
-/obj/item/device/binoculars{
-	pixel_x = 12
-	},
 /obj/machinery/recharger{
-	pixel_x = 1;
+	pixel_x = -8;
 	pixel_y = 6
 	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/item/folder/blue{
+	pixel_x = 8;
+	pixel_y = 1
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
@@ -18910,11 +18871,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "njH" = (
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Atmospherics Tanks 3";
-	dir = 4
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/atmospherics/valve{
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
 	name = "Oxygen to Thrusters"
 	},
 /turf/simulated/floor/plating,
@@ -20383,6 +20344,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "oiS" = (
@@ -21191,6 +21153,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 6
 	},
+/obj/machinery/alarm/west,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Atmospherics Tanks 3"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "oVl" = (
@@ -21424,7 +21390,9 @@
 /obj/machinery/camera/network/intrepid{
 	c_tag = "Intrepid - Medbay"
 	},
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin{
+	pixel_y = 7
+	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
@@ -21835,7 +21803,7 @@
 /area/storage/eva)
 "ppH" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "ppR" = (
 /obj/machinery/light{
@@ -21928,6 +21896,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "psB" = (
@@ -22481,7 +22450,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "pMA" = (
 /obj/structure/cable/green{
@@ -23201,6 +23170,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "qmn" = (
@@ -23848,7 +23822,7 @@
 /obj/structure/closet/crate{
 	name = "power generation supplies"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "qIT" = (
 /obj/machinery/vending/coffee,
@@ -24763,9 +24737,6 @@
 /area/shuttle/intrepid/engine_compartment)
 "rqf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining - Locker Room"
-	},
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -24955,7 +24926,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "rwh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -26318,12 +26289,6 @@
 	},
 /area/shuttle/mining)
 "sxT" = (
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -27251,13 +27216,20 @@
 /obj/structure/coatrack{
 	pixel_x = -14
 	},
-/obj/item/tank/emergency_oxygen{
-	pixel_x = 5
-	},
-/obj/item/tank/emergency_oxygen,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
 /obj/machinery/power/apc/intrepid/north,
+/obj/item/storage/box/snack{
+	pixel_y = -3;
+	pixel_x = 1
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/obj/item/tank/emergency_oxygen{
+	pixel_x = -3
+	},
+/obj/item/tank/emergency_oxygen{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -28421,7 +28393,7 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "tVI" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
@@ -29699,14 +29671,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
-"uQO" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "uQU" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
@@ -29880,7 +29844,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/quarters)
 "uVL" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -29909,7 +29873,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "uWn" = (
 /obj/machinery/door/blast/regular/open{
@@ -30621,14 +30585,8 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "vrz" = (
-/obj/structure/bed/padded,
-/obj/structure/bed/padded/bunk,
-/obj/item/bedsheet/yellow,
-/obj/item/bedsheet/brown{
-	pixel_y = 16
-	},
-/obj/structure/curtain/open/bed,
-/obj/item/device/radio/intercom/east,
+/obj/structure/bed/stool/chair/sofa/left/red,
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "vrO" = (
@@ -30650,7 +30608,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "vrQ" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -31561,7 +31519,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar Fuel Bay";
+	c_tag = "First Deck - Pilot Room Hallway";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -31725,10 +31683,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/sink/kitchen{
-	dir = 8;
-	name = "sink";
-	pixel_x = 21
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
@@ -31908,7 +31864,7 @@
 	child_tags_txt = "intrepid_shuttle_cargo";
 	frequency = 1385;
 	id_tag = "intrepid_shuttle";
-	pixel_x = -9;
+	pixel_x = 13;
 	pixel_y = 23
 	},
 /obj/machinery/camera/network/intrepid{
@@ -33586,7 +33542,7 @@
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom/east,
+/obj/item/device/radio/intercom/expedition/east,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
@@ -34324,6 +34280,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"xOm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Hangar Fore";
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/operations)
 "xOs" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -34426,16 +34397,9 @@
 	pixel_x = -27
 	},
 /obj/random/soap,
-/obj/random/soap,
-/obj/item/towel,
-/obj/item/towel,
-/obj/item/towel,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste,
-/obj/item/reagent_containers/toothbrush,
-/obj/item/reagent_containers/toothbrush,
-/obj/item/reagent_containers/toothbrush/green,
-/obj/item/reagent_containers/toothbrush/red,
+/obj/item/towel,
+/obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/intrepid/crew_compartment)
 "xRN" = (
@@ -49511,7 +49475,7 @@ mwO
 mwO
 mwO
 mwO
-nhi
+xOm
 tNp
 eSV
 eSV
@@ -58391,7 +58355,7 @@ twQ
 fnL
 lBp
 bxw
-uQO
+bxw
 psv
 coo
 bxw

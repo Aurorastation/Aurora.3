@@ -142,7 +142,7 @@
 		return TRUE
 
 	if(action == "rename")
-		var/new_name = input(user, "Select new name for this ship.", "Rename this ship", shuttle.name)
+		var/new_name = tgui_input_text(user, "Select new name for this ship.", "Rename this ship", shuttle.name, MAX_NAME_LEN)
 		if(new_name)
 			shuttle.name = new_name
 		return TRUE
