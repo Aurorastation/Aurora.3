@@ -379,25 +379,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
-"fc" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
-	start_pressure = 5066.26;
-	dir = 4
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "fe" = (
 /obj/item/broken_bottle,
 /turf/simulated/floor/tiled/dark,
@@ -557,15 +538,6 @@
 /obj/item/clothing/suit/storage/toggle/track/red,
 /obj/item/clothing/suit/storage/vest,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"hu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/goonbase)
 "hC" = (
 /obj/structure/sign/greencross{
@@ -980,13 +952,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase)
-"mP" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "mQ" = (
 /obj/structure/sink/kitchen{
 	name = "sink";
@@ -1124,13 +1089,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
-"nY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "oc" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -1208,17 +1166,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "oM" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
-	start_pressure = 5066.26;
-	dir = 8
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 8
@@ -1232,11 +1179,6 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
-/area/goonbase)
-"oV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
 /area/goonbase)
 "oX" = (
 /obj/structure/closet/walllocker/medical{
@@ -1392,13 +1334,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/goonbase)
-"rv" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "rw" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
@@ -1507,22 +1442,6 @@
 /obj/item/clothing/suit/armor/cuirass,
 /turf/simulated/floor/plating,
 /area/goonbase)
-"ta" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
-	start_pressure = 5066.26;
-	dir = 4
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "te" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -1560,11 +1479,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "tR" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark,
 /area/goonbase)
 "uy" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -1594,16 +1510,6 @@
 "vc" = (
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"ve" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/goonbase)
 "vh" = (
 /obj/structure/sign/emergency/meetingpoint{
@@ -1813,13 +1719,6 @@
 /obj/item/tank/air,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase)
-"xT" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "xX" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 29
@@ -1904,9 +1803,6 @@
 "yS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/goonbase)
 "yW" = (
@@ -1958,11 +1854,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
-"zu" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "zz" = (
 /obj/machinery/giga_drill{
 	name = "himean drill";
@@ -2065,26 +1956,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
-"Bg" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
-	start_pressure = 5066.26;
-	dir = 8
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/light{
-	dir = 8;
-	pixel_y = 0;
-	icon_state = "tube_empty"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Bn" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/spline/plain/black{
@@ -2142,7 +2013,6 @@
 "BE" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/goonbase)
 "BK" = (
@@ -2156,24 +2026,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase)
-"BP" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "BW" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/wood,
 /area/goonbase)
 "Cf" = (
 /turf/simulated/floor/wood,
-/area/goonbase)
-"Cq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/goonbase)
 "Cr" = (
 /obj/machinery/door/airlock/maintenance,
@@ -2342,12 +2200,6 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
-"Dk" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/cigbutt,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Dl" = (
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, substation"
@@ -2472,34 +2324,6 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
-"Fv" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"FB" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
-	start_pressure = 5066.26;
-	dir = 4
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "FE" = (
 /obj/item/wrench,
 /obj/effect/decal/cleanable/dirt,
@@ -2602,12 +2426,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
-"Hf" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
 "Hr" = (
 /obj/machinery/computer/operating,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -2791,13 +2609,6 @@
 /obj/item/trash/cheesie,
 /turf/simulated/floor/wood,
 /area/goonbase)
-"JJ" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "JW" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
@@ -2838,9 +2649,6 @@
 "KE" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/item/broken_bottle,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/goonbase)
 "KG" = (
@@ -2860,11 +2668,8 @@
 /turf/simulated/floor/plating,
 /area/goonbase)
 "KW" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/goonbase)
 "La" = (
@@ -2979,14 +2784,6 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
-"Ng" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Nk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -3009,7 +2806,6 @@
 /area/shuttle/goon_ship/living)
 "NH" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/goonbase)
@@ -3059,14 +2855,8 @@
 /turf/simulated/floor/plating,
 /area/goonbase)
 "Ow" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/goonbase)
 "OA" = (
@@ -3280,21 +3070,6 @@
 "Rc" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/med)
-"Re" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
-	start_pressure = 5066.26;
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Rg" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -3321,13 +3096,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
-"Rn" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Rv" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -3336,16 +3104,6 @@
 	pixel_x = -2
 	},
 /obj/item/clothing/head/hardhat/dblue,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Rw" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/goonbase)
 "RE" = (
@@ -3736,13 +3494,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
-"Wg" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Wq" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -3921,13 +3672,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
-"YC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "YD" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
@@ -4038,17 +3782,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/plating,
 /area/goonbase)
-"ZD" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/goonbase)
 "ZJ" = (
 /obj/structure/table/steel{
 	pixel_x = -2
@@ -4063,14 +3796,6 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"ZO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/cigbutt,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
 /area/goonbase)
 "ZW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -66459,12 +66184,12 @@ mW
 To
 ms
 ms
-mW
+KW
 oM
 Nk
 lz
 mW
-Re
+mW
 To
 ms
 ms
@@ -66800,23 +66525,23 @@ ms
 ms
 px
 mW
-mP
-oV
-oV
+mW
+mW
+mW
 BE
-oV
-oV
-oV
-oV
-oV
+mW
+mW
+mW
+mW
+mW
 BE
-oV
-ZO
-Fv
+mW
+qW
 mW
 mW
 mW
-Fv
+mW
+mW
 mW
 ie
 ms
@@ -67152,7 +66877,7 @@ ms
 ms
 Sj
 mW
-Cq
+mW
 mW
 Fc
 ms
@@ -67163,12 +66888,12 @@ To
 Fc
 ms
 To
-nY
-Ng
-KW
-xT
-KW
-Rw
+mW
+mW
+mW
+mW
+mW
+Fc
 mW
 mW
 ms
@@ -67504,7 +67229,7 @@ ms
 ms
 ms
 ms
-hu
+bQ
 ms
 ms
 ms
@@ -67521,7 +67246,7 @@ ms
 Ow
 ms
 ms
-Hf
+bQ
 ms
 ms
 mI
@@ -67856,7 +67581,7 @@ ms
 ms
 ZL
 iY
-JJ
+eJ
 iY
 ZL
 ms
@@ -68208,7 +67933,7 @@ ms
 iY
 tz
 fG
-JJ
+eJ
 eJ
 tz
 ms
@@ -68222,7 +67947,7 @@ iY
 eJ
 tz
 Fk
-Bg
+ms
 PK
 iY
 eJ
@@ -68230,9 +67955,9 @@ iY
 iY
 ms
 VD
-rv
-BP
-BP
+eJ
+eJ
+eJ
 Zc
 lU
 mJ
@@ -68560,7 +68285,7 @@ ms
 eJ
 eJ
 eJ
-JJ
+eJ
 eJ
 eJ
 cH
@@ -68574,7 +68299,7 @@ eJ
 eJ
 eJ
 iY
-JJ
+cH
 iY
 eJ
 KR
@@ -68582,7 +68307,7 @@ eJ
 tz
 ms
 eJ
-JJ
+eJ
 eJ
 eJ
 eJ
@@ -68912,7 +68637,7 @@ ms
 eJ
 eJ
 eJ
-JJ
+eJ
 eJ
 eJ
 eJ
@@ -68926,7 +68651,7 @@ eJ
 eJ
 pJ
 eJ
-JJ
+eJ
 eJ
 eJ
 eJ
@@ -68934,7 +68659,7 @@ eJ
 eJ
 ms
 eJ
-JJ
+eJ
 El
 eJ
 eJ
@@ -69258,35 +68983,35 @@ kB
 ip
 vt
 id
-sO
+kW
 Cf
 WR
-BP
-BP
-BP
-zu
-BP
-BP
-BP
-BP
-BP
-BP
-Dk
-BP
-BP
-BP
-BP
-BP
-BP
-zu
-BP
-BP
-BP
-BP
-BP
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+KR
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
 NH
-BP
-tR
+eJ
+eJ
 eE
 eJ
 eJ
@@ -69630,7 +69355,7 @@ eJ
 eJ
 eJ
 eJ
-JJ
+eJ
 eJ
 dh
 eJ
@@ -69968,7 +69693,7 @@ ms
 eJ
 eJ
 eJ
-JJ
+eJ
 eJ
 eJ
 SG
@@ -69982,7 +69707,7 @@ eJ
 eJ
 eJ
 iY
-JJ
+SG
 DT
 eJ
 eJ
@@ -70320,7 +70045,7 @@ ms
 iY
 DT
 eJ
-JJ
+eJ
 eJ
 iY
 ms
@@ -70334,7 +70059,7 @@ tz
 eJ
 iY
 nQ
-FB
+ms
 iY
 tz
 eJ
@@ -70672,7 +70397,7 @@ ms
 ms
 Ie
 iY
-JJ
+eJ
 iY
 xM
 ms
@@ -70682,7 +70407,7 @@ of
 Rv
 ms
 ms
-iY
+tR
 eJ
 Ie
 ms
@@ -71024,7 +70749,7 @@ ms
 ms
 ms
 ms
-hu
+bQ
 ms
 ms
 ms
@@ -71038,10 +70763,10 @@ ms
 bQ
 ms
 ms
-ve
+Tu
 ms
 ms
-Hf
+bQ
 ms
 ms
 mI
@@ -71387,12 +71112,12 @@ mW
 mW
 ms
 mW
-mP
-ZD
-KW
-Wg
-KW
-Rn
+mW
+oM
+mW
+mW
+mW
+mW
 mW
 mW
 ms
@@ -71728,23 +71453,23 @@ mI
 mI
 ms
 Fo
-nY
-oV
-oV
+mW
+mW
+mW
 BE
-oV
-oV
-oV
-oV
-oV
+mW
+mW
+mW
+mW
+mW
 BE
-oV
-YC
-Fv
 mW
 mW
 mW
-Fv
+mW
+mW
+mW
+mW
 mW
 px
 ms
@@ -72092,12 +71817,12 @@ wD
 ms
 ms
 To
-ta
+mW
 To
 Gi
 dK
-fc
-mW
+Fc
+KW
 ms
 ms
 mI
