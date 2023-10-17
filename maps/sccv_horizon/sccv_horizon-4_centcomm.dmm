@@ -3974,7 +3974,7 @@
 /area/centcom/control)
 "aiL" = (
 /obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
+	c_tag = "Crescent Departures 2";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green{
@@ -8016,7 +8016,7 @@
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "atB" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
@@ -8065,7 +8065,7 @@
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/merchant_station/warehouse)
 "atM" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "atN" = (
 /obj/structure/bed/stool/padded/brown,
@@ -8135,14 +8135,14 @@
 /obj/machinery/computer/shuttle_control/merchant{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "atY" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8;
 	name = "pilot seat"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "atZ" = (
 /turf/simulated/floor/tiled/dark,
@@ -15314,11 +15314,11 @@
 	layer = 3.3;
 	pixel_y = 27
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "aMA" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "aMB" = (
 /obj/structure/cryofeed,
@@ -15438,7 +15438,7 @@
 /obj/machinery/door/window/westleft{
 	name = "Auxillary Cryogenics"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "aMW" = (
 /obj/structure/cryofeed,
@@ -15576,7 +15576,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
 "aNw" = (
 /obj/structure/cryofeed,
@@ -41151,7 +41151,7 @@
 	pixel_x = -6;
 	pixel_y = 0
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/shuttle/merchant)
 "uFh" = (
 /obj/effect/floor_decal/corner/red{

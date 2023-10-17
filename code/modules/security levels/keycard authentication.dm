@@ -127,7 +127,7 @@
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
 	var/distress_message
 	if(event == "Distress Beacon" && user)
-		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+		distress_message = tgui_input_text(user, "Enter a distress message that other vessels will receive.", "Distress Beacon", "", MAX_MESSAGE_LEN)
 		if(distress_message)
 			become_hearing_sensitive()
 			user.say(distress_message)

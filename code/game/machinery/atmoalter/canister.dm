@@ -115,8 +115,8 @@
 
 /obj/machinery/portable_atmospherics/canister/boron
 	name = "\improper Boron \[Bo\]"
-	icon_state = "green"
-	canister_color = "green"
+	icon_state = "yellow"
+	canister_color = "yellow"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/boron/Initialize()
@@ -462,7 +462,7 @@ update_flag
 					"\[Hydrogen\]" = "purple",
 					"\[CAUTION\]" = "yellow"
 				)
-				var/label = input("Choose canister label", "Gas canister") as null|anything in colors
+				var/label = tgui_input_list(usr, "Choose canister label.", "Gas Canister", colors)
 				if (label)
 					src.canister_color = colors[label]
 					src.icon_state = colors[label]

@@ -90,51 +90,26 @@
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","say (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		say_verb(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
 
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		me_verb(message)
-
-/mob/verb/whisper_wrapper()
-	set name = ".Whisper"
-	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		whisper(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
 	set category = "Preferences"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
-	prefs.toggles ^= SHOW_TYPING
+	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
-
-	// Clear out any existing typing indicator.
-	if(prefs.toggles & SHOW_TYPING)
-		if(istype(mob))
-			SStyping.set_indicator_state(mob.client, FALSE)
-
+	to_chat(src, "You will [(prefs.toggles & HIDE_TYPING_INDICATOR) ? "no longer" : "now"] display a typing indicator.")
 	feedback_add_details("admin_verb","TID") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
-		if(SStyping)
-			SStyping.set_indicator_state(client, FALSE)
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -1399,7 +1374,7 @@
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
 
 /mob/proc/get_speech_bubble_state_modifier()
-	return "normal"
+	return "default"
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
