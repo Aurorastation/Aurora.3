@@ -3685,6 +3685,7 @@
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
 #include "maps\random_ruins\exoplanets\konyang\jeweler_nest.dm"
 #include "maps\random_ruins\exoplanets\konyang\landing_zone.dm"
+#include "maps\random_ruins\exoplanets\konyang\village.dm"
 #include "maps\random_ruins\exoplanets\lava\lava.dm"
 #include "maps\random_ruins\exoplanets\raskara\pra_exploration_drone.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_okon.dm"
