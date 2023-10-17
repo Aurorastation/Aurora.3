@@ -191,7 +191,7 @@
 /area/goonbase)
 "cN" = (
 /obj/item/material/ashtray/bronze,
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "cP" = (
@@ -309,7 +309,7 @@
 /turf/simulated/floor/tiled/white,
 /area/goonbase)
 "eB" = (
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "eE" = (
@@ -624,7 +624,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "id" = (
@@ -638,7 +638,7 @@
 /area/goonbase)
 "ip" = (
 /obj/item/deck/cards,
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "it" = (
@@ -783,7 +783,7 @@
 /area/goonbase)
 "kB" = (
 /obj/item/storage/pill_bottle/dice/gaming,
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "kH" = (
@@ -1308,7 +1308,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "pU" = (
@@ -1620,7 +1620,7 @@
 /area/shuttle/goon_ship/living)
 "vt" = (
 /obj/item/reagent_containers/food/drinks/bottle/rum,
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
 /area/goonbase)
 "vx" = (
