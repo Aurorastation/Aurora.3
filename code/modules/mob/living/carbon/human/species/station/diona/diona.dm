@@ -71,9 +71,9 @@
 	has_organ = list(BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/diona),

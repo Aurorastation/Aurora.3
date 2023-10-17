@@ -3974,7 +3974,7 @@
 /area/centcom/control)
 "aiL" = (
 /obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
+	c_tag = "Crescent Departures 2";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green{

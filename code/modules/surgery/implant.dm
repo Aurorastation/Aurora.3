@@ -181,46 +181,38 @@
 /singleton/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 
-	var/find_prob = 0
-	var/list/implants = list()
+	if(length(affected.implants))
+		var/list/implants = list()
+		var/shrapnel_present = FALSE
+		for(var/obj/item/I in affected.implants)
+			implants += I
+			if(!istype(I, /obj/item/implant))
+				shrapnel_present = TRUE
 
-	if(affected.implants.len)
-		implants = affected.implants
+		for(var/obj/item/I in implants)
+			/// Prioritize shrapnel instead of stuff like loyalty implants.
+			if(shrapnel_present && istype(I, /obj/item/implant))
+				continue
+			if(do_mob(user, target, 0.5 SECONDS))
+				user.visible_message("<b>[user]</b> takes [I] out of incision on [target]'s [affected.name] with \the [tool].", \
+					SPAN_NOTICE("You take [I] out of incision on [target]'s [affected.name]s with \the [tool].") )
+				target.remove_implant(I, TRUE, affected)
 
-		var/obj/item/obj = pick(implants)
+				BITSET(target.hud_updateflag, IMPLOYAL_HUD)
 
-		if(istype(obj,/obj/item/implant))
-			var/obj/item/implant/imp = obj
-			if(imp.isLegal())
-				find_prob += 60
-			else
-				find_prob += 40
-		else
-			find_prob += 75
+				//Handle possessive brain borers.
+				if(istype(I, /mob/living/simple_animal/borer))
+					var/mob/living/simple_animal/borer/worm = I
+					if(worm.controlling)
+						target.release_control()
+					worm.detach()
+					worm.leave_host()
 
-		if(prob(find_prob))
-			user.visible_message("<b>[user]</b> takes something out of incision on [target]'s [affected.name] with \the [tool].", \
-				SPAN_NOTICE("You take [obj] out of incision on [target]'s [affected.name]s with \the [tool].") )
-			target.remove_implant(obj, TRUE, affected)
-
-			BITSET(target.hud_updateflag, IMPLOYAL_HUD)
-
-			//Handle possessive brain borers.
-			if(istype(obj,/mob/living/simple_animal/borer))
-				var/mob/living/simple_animal/borer/worm = obj
-				if(worm.controlling)
-					target.release_control()
-				worm.detach()
-				worm.leave_host()
-
-			else if(istype(obj, /obj/item/device/gps))
-				var/obj/item/device/gps/gps = obj
-				moved_event.unregister(target, gps)
-				gps.implanted_into = null
-			playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
-		else
-			user.visible_message("<b>[user]</b> removes \the [tool] from [target]'s [affected.name].", \
-				SPAN_NOTICE("There's something inside [target]'s [affected.name], but you just missed it this time.") )
+				else if(istype(I, /obj/item/device/gps))
+					var/obj/item/device/gps/gps = I
+					moved_event.unregister(target, gps)
+					gps.implanted_into = null
+				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 	else
 		user.visible_message("<b>[user]</b> could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
 			SPAN_NOTICE("You could not find anything inside [target]'s [affected.name].") )
