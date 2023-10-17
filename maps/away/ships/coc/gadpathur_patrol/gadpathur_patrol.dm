@@ -15,11 +15,11 @@
 /obj/effect/overmap/visitable/ship/gadpathur_patrol
 	name = "Gadpathurian Patrol Corvette"
 	class = "GNV"
-	desc = "The Gadpathurian Skanda-class patrol corvette is very much designed with function over form in mind. These vessels are built by Gadpathur's industrial cadre, to serve as patrol and reconnaissance craft for Gadpathur's navy. While not built as a dedicated combat vessel, it has the armanent to fend off minor hostile incursions and pirates alone."
+	desc = "The Gadpathurian Skanda-class patrol corvette is very much designed with function over form in mind. These vessels are built by Gadpathur's industrial cadres, to serve as patrol and reconnaissance craft for Gadpathur's navy. While not built as a dedicated combat vessel, it has the armanent to fend off minor hostile incursions and pirates alone."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#474800", "#7f6300")
-	designer = "Coalition of Colonies, Gadpathur"
+	designer = "Gadpathur"
 	volume = "80 meters length, 58 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Starboard fore-mounted light caliber armament, starboard midship-mounted large caliber armanent, aft flight craft bay"
@@ -74,7 +74,6 @@
 /obj/effect/overmap/visitable/ship/landable/gadpathur_shuttle
 	name = "Gadpathurian Corvette Shuttle"
 	class = "GNS"
-	designation = "1124"
 	desc = "The Gadpathurian Tigra-class combat shuttle is a lightly armed transport, designed to serve multiple roles including fire support, and transportation."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -85,6 +84,10 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+/obj/effect/overmap/visitable/ship/gadpathur_shuttle/New()
+	designation = rand(1000, 1500)
+	..()
 
 /obj/machinery/computer/shuttle_control/explore/gadpathur_shuttle
 	name = "shuttle control console"

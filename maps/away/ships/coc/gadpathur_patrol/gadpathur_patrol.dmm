@@ -1050,7 +1050,6 @@
 	pixel_y = -7;
 	pixel_x = 10
 	},
-/obj/machinery/power/apc/east,
 /obj/structure/cable,
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/ward)
@@ -1461,10 +1460,6 @@
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/item/device/versebook/gadpathur,
 /obj/item/clothing/glasses/regular/jamjar,
-/obj/machinery/power/apc/north,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
@@ -1804,7 +1799,6 @@
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "py" = (
-/obj/machinery/door/airlock/glass_engineering,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3032,6 +3026,7 @@
 	name = "gpv - gadpathur surgeon";
 	identifier = "gadpathur_surgeon"
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "zI" = (
@@ -4338,9 +4333,6 @@
 /area/ship/gadpathur_patrol/interrogation)
 "Kb" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -5647,7 +5639,7 @@
 "Vf" = (
 /obj/machinery/door/airlock/gadpathur/atmos,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/atmos)
 "Vq" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -6006,6 +5998,22 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
+"XS" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/officer)
 "XV" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/structure/cable{
@@ -6236,12 +6244,11 @@
 /turf/simulated/floor/reinforced,
 /area/ship/gadpathur_patrol/reactor)
 "ZW" = (
-/obj/machinery/door/airlock/glass_engineering,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass/gadpathur/engi,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/engineering)
 "ZY" = (
 /obj/machinery/door/airlock/gadpathur/quarters/officer{
@@ -40060,7 +40067,7 @@ fc
 KW
 pk
 dX
-VD
+XS
 zG
 sg
 Du
