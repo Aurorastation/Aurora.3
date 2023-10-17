@@ -295,7 +295,8 @@
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "pG" = (
-/obj/effect/shuttle_landmark/konyang_pirate/start{
+/obj/random/dirt_75,
+/obj/effect/shuttle_landmark/konyang_pirate/transit{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1497,7 +1498,7 @@ xe
 wK
 wK
 xI
-xI
+pG
 dL
 hC
 dL
@@ -1549,7 +1550,7 @@ gX
 xe
 xI
 xI
-pG
+wK
 oL
 oL
 oL

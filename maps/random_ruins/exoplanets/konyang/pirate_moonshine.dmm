@@ -17,7 +17,15 @@
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "f" = (
-/obj/structure/undies_wardrobe,
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/storage/box/donkpockets/gwok/takoyaki{
+	icon_state = "redbox"
+	},
+/obj/item/storage/box/donkpockets/gwok/takoyaki{
+	icon_state = "redbox"
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "h" = (
@@ -102,6 +110,9 @@
 /obj/structure/table/standard,
 /obj/item/weldingtool,
 /obj/item/weldingtool,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/wood/full,
+/obj/item/storage/belt/utility/full,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "B" = (
@@ -113,7 +124,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_pirate_moonshine)
 "D" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "E" = (
