@@ -1,7 +1,0 @@
-author: Geeves, Connorjg1
-
-delete-after: True
-
-changes:
-  - tweak: "Buffed the vaurcaesian hand-held thermal drill to fire more shots in auto mode, deal more damage, destroy mineral walls in one blast, but it can only be used on non-ship Z-levels."
-  - tweak: "Gave the vaurcaesian hand-held thermal drill a new description."
