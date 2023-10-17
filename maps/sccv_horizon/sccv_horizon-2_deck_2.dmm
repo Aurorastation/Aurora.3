@@ -1302,6 +1302,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"aAk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_monitoring)
 "aAp" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -1868,8 +1874,7 @@
 /area/rnd/xenobiology)
 "aPe" = (
 /obj/machinery/air_sensor{
-	frequency = 1438;
-	id_tag = "engine_sensor";
+	id_tag = "supermatter_sensor";
 	output = 63
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5522,7 +5527,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Dinner Entrance 2";
+	c_tag = "Second Deck - Service Entrance";
 	dir = 1
 	},
 /obj/structure/sign/double/barsign/kitchensign/mirrored{
@@ -13294,9 +13299,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - Upload"
-	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "gqd" = (
@@ -16930,7 +16932,7 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/bar)
 "iaQ" = (
-/obj/machinery/computer/fusion/core_control{
+/obj/machinery/computer/fusion/core_control/terminal{
 	initial_id_tag = "horizon_fusion"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -17387,7 +17389,6 @@
 	dir = 8;
 	external_pressure_bound = 100;
 	external_pressure_bound_default = 0;
-	frequency = 1438;
 	icon_state = "map_vent_in";
 	id_tag = "cooling_out";
 	initialize_directions = 1;
@@ -17626,8 +17627,8 @@
 /turf/space/dynamic,
 /area/template_noop)
 "ioF" = (
-/obj/machinery/computer/security/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "ioS" = (
@@ -18196,7 +18197,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Dinner Entrance 2";
+	c_tag = "Second Deck - Service Hallway";
 	dir = 8
 	},
 /turf/simulated/floor/grass,
@@ -20515,7 +20516,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/firealarm/east,
 /obj/machinery/camera/network/service{
-	c_tag = "Service - Deck 2 - Dining Hall 2";
+	c_tag = "Service - Deck 2 - Dining Hall 3";
 	dir = 8
 	},
 /obj/random/pottedplant,
@@ -22730,13 +22731,13 @@
 "kQY" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
-	frequency = 1438;
-	id = "cooling_in";
+	frequency = 1439;
 	name = "Reactor Coolant Injector";
 	pixel_y = 1;
 	power_rating = 30000;
 	use_power = 1;
-	volume_rate = 700
+	volume_rate = 700;
+	id = "cooling_in"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -29125,6 +29126,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"nPu" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/general_air_control/supermatter_core{
+	frequency = 1439;
+	output_tag = "cooling_out";
+	input_tag = "cooling_in";
+	name = "Supermatter Monitoring Terminal";
+	sensors = list("supermatter_sensor"="Supermatter Core")
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_monitoring)
 "nPA" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -32638,7 +32650,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "pEA" = (
-/obj/machinery/computer/fusion/gyrotron{
+/obj/machinery/computer/fusion/gyrotron/terminal{
 	initial_id_tag = "horizon_fusion"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -33467,7 +33479,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "pYW" = (
-/obj/item/modular_computer/console/preset/engineering,
+/obj/machinery/computer/security/engineering/terminal,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "pZs" = (
@@ -37836,7 +37848,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "sbT" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	input_tag = "fusion_injector_air";
 	name = "INDRA Chamber Monitor";
 	sensors = list("fusion_sensor"="INDRA  Chamber")
@@ -38518,7 +38530,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "swe" = (
-/obj/machinery/computer/fusion/fuel_control{
+/obj/machinery/computer/fusion/fuel_control/terminal{
 	initial_id_tag = "horizon_fusion"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -45720,17 +45732,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
 "vSJ" = (
-/obj/machinery/computer/general_air_control/supermatter_core{
-	input_tag = "cooling_in";
-	name = "Engine Cooling Control";
-	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine                                                                                                                                Core")
-	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/security/engineering/terminal,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "vTd" = (
@@ -47700,6 +47707,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "wKK" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 1;
+	id = "EngineBlast";
+	name = "Supermatter Reactor Monitoring Room Blast Doors";
+	pixel_y = -3;
+	req_one_access = list(11,24)
+	},
 /obj/machinery/button/remote/emitter{
 	desc = "A remote control-switch for the supermatter reactor's emitter.";
 	dir = 1;
@@ -47717,18 +47736,6 @@
 	pixel_x = -6;
 	pixel_y = 7;
 	req_one_access = list(11,24)
-	},
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	dir = 1;
-	id = "EngineBlast";
-	name = "Supermatter Reactor Monitoring Room Blast Doors";
-	pixel_y = -3;
-	req_one_access = list(11,24)
-	},
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
@@ -67171,7 +67178,7 @@ exn
 fLv
 tzw
 ggd
-qmy
+aAk
 wKK
 sNV
 aFE
@@ -67373,7 +67380,7 @@ dPM
 dZY
 mrx
 ggd
-qmy
+nPu
 jaR
 oca
 gWf

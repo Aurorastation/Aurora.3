@@ -1,9 +1,20 @@
 /obj/machinery/computer/fusion/gyrotron
 	name = "gyrotron control console"
+	desc = "A terminal for controlling an INDRA Mk.II Tokamak Fusion core using Hephaestus software."
 	icon_keyboard = "yellow_key"
 	icon_screen = "power_monitor"
 	light_color = COLOR_ORANGE
 	ui_template = "FusionGyrotronControl"
+
+/obj/machinery/computer/fusion/gyrotron/terminal
+	name = "gyrotron control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "rust_screen"
+	icon_keyboard = "generic_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/fusion/gyrotron/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
