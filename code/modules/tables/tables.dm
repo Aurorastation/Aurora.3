@@ -82,7 +82,8 @@
 			break_to_parts(full_return = 1)
 			return
 
-	// reset color/alpha, since they're set for nice map previews
+	// reset color/alpha and icon, since they're set for nice map previews
+	icon = 'icons/obj/structure/tables/table.dmi'
 	color = "#ffffff"
 	alpha = 255
 	update_connections(1)
@@ -280,6 +281,7 @@
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
 	new /obj/item/stack/rods(src.loc, 2)
+	qdel(src)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
 // Used for !fun! things such as embedding shards in the faces of tableslammed people.
