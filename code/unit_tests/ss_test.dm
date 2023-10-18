@@ -40,7 +40,12 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		src.config = json_decode(rustg_file_read("config/unit_test/ut_pods_configuration.json"))
 
 		src.config = src.config[identifier]
-		if(!config.len)
+
+		if(isnull(src.config))
+			UT.fail("**** This UT is being run without a config, it's null! Aborting... ****")
+			del world
+
+		if(!src.config.len)
 			UT.fail("**** This UT is being run without a config! Aborting... ****")
 			del world
 
