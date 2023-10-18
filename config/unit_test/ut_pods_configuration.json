@@ -10,7 +10,7 @@
 	},
 
 	"maptest":{
-		"unit_test_groups":["generic", "map"],
+		"unit_test_groups":["map"],
 		"map_template_unit_test_groups":["*"]
 	}
 }
