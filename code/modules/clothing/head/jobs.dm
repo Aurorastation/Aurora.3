@@ -20,8 +20,8 @@
 /obj/item/clothing/head/chefhat/orion
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
-	icon_state = "idris_chef_hat"
-	item_state = "idris_chef_hat"
+	icon_state = "orion_chef_hat"
+	item_state = "orion_chef_hat"
 
 
 /obj/item/clothing/head/hairnet
