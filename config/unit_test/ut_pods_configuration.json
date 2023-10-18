@@ -5,7 +5,7 @@
 	},
 
 	"create_and_destroy":{
-		"unit_test_groups":["create_and_destroy"],
+		"unit_test_groups":["create and destroy"],
 		"map_template_unit_test_groups":[false]
 	},
 
