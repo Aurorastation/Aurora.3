@@ -242,6 +242,128 @@ jobs:
         run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
 
+###########################################
+############## GENERIC TESTS ##############
+###########################################
+  generic-tests:
+    name: Generic Tests
+    runs-on: ubuntu-22.04
+
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
+
+    services:
+      mariadb:
+        image: mariadb:10.4
+        ports:
+          - 3306
+        env:
+          MYSQL_USER: build
+          MYSQL_PASSWORD: build
+          MYSQL_DATABASE: game
+          MYSQL_ROOT_PASSWORD: root
+
+    concurrency:
+      group: unit-tests-generic-tests-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    strategy:
+      matrix:
+        map: [away_sites_testing]
+        pod: [generic]
+      fail-fast: false
+
+    steps:
+
+      #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
+      - name: Setup TMATE session (Debug only)
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ env.RUNNER_DEBUG == true }}
+        with:
+          detached: true
+        timeout-minutes: 5
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restores BYOND cache
+      - name: Restore BYOND cache
+        uses: actions/cache@v3
+        with:
+          path: ~/BYOND/*
+          key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
+
+      - name: Restore FlyWay cache
+        uses: actions/cache@v3
+        with:
+          path: ~/flyway
+          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+
+      #Add the x86 architecture and update apt-get's local indexes
+      - name: Prepare OS Environtment
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+
+      #Installs the packages we need, from a cache
+      - name: Install OS Packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
+
+      #And natively, the packages that break from a cache
+      - name: Install OS Packages (Native)
+        run: |
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
+      #Apply the database migration
+      - name: Migrate database
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
+
+      - name: Install BYOND & build
+        run: |
+          source dependencies.sh
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          bash tools/ci/install_rust_g.sh
+
+      - name: Configure pod, build and run
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+          POD: ${{ matrix.pod }}
+        run: |
+          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+          scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
+          grep "0 warnings" build_log.txt
+          echo -n "$POD" > config/unit_test/identifier.txt
+          cat config/unit_test/identifier.txt
+
+          cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
+          echo "PORT $PORT" >> config/dbconfig.txt
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          grep "All Unit Tests Passed" log.txt
+          (! grep "runtime error:" log.txt)
+
+      - name: Upload Condensed UT Log
+        uses: actions/upload-artifact@v3
+        with:
+          name: condensed-${{ matrix.map }}.log
+          path: ./data/logs/**/condensed.log
+          retention-days: 5
 
 ###########################################
 ########### CREATE AND DESTROY ############
@@ -270,7 +392,7 @@ jobs:
 
     strategy:
       matrix:
-        map: [runtime]
+        map: [away_sites_testing]
         pod: [create_and_destroy]
       fail-fast: false
 
@@ -395,7 +517,7 @@ jobs:
 
     strategy:
       matrix:
-        map: [runtime, aurora, sccv_horizon, away_sites_testing, exoplanet_testing]
+        map: [runtime, aurora, sccv_horizon, exoplanet_testing]
         pod: [maptest]
       fail-fast: false
 

@@ -84,20 +84,18 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
 	UT.notice("Initializing Unit Testing", __FILE__, __LINE__)
 
-
-
 	//
 	//Start the Round.
 	//
 
-	for (var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
+	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
 
 		if(findtext(D.name, "template"))
 			qdel(D)
 			continue
 
-		if(isnull(D.groups))
+		if(!length(D.groups))
 			UT.fail("**** Unit Test has no group assigned! [D.name] ****")
 			del world
 
