@@ -338,6 +338,7 @@ jobs:
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
           echo "$POD" > config/unit_test/identifier.txt
+          cat config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
