@@ -39,7 +39,11 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 	try
 		src.config = json_decode(rustg_file_read("config/unit_test/ut_pods_configuration.json"))
 
+		UT.notice("Pods configuration file read as: [json_encode(src.config)]")
+
 		src.config = src.config[identifier]
+
+		UT.notice("Pods configuration extrapolated as: [json_encode(src.config)]")
 
 		if(isnull(src.config))
 			UT.fail("**** This UT is being run without a config, it's null! Aborting... ****")
