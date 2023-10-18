@@ -20,7 +20,7 @@
 
 /obj/machinery/door/airlock/external/gadpathur
 	door_frame_color = COLOR_GADPATHUR_BLACK
-	door_color = COLOR_GADPATHUR_GOLD
+	door_color = COLOR_GADPATHUR_RED
 
 /obj/machinery/door/airlock/hatch/gadpathur
 	door_frame_color = COLOR_GADPATHUR_BLACK
