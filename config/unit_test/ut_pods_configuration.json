@@ -12,5 +12,20 @@
 	"maptest":{
 		"unit_test_groups":["map"],
 		"map_template_unit_test_groups":["*"]
-	}
+	},
+
+	"awaysites-1":{
+		"unit_test_groups":["map"],
+		"map_template_unit_test_groups":[1]
+	},
+
+	"awaysites-2":{
+		"unit_test_groups":["map"],
+		"map_template_unit_test_groups":[2]
+	},
+
+	"awaysites-3":{
+		"unit_test_groups":["map"],
+		"map_template_unit_test_groups":[3]
+	},
 }
