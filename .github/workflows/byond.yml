@@ -54,8 +54,7 @@ jobs:
           bash tools/ci/check_filedirs.sh aurorastation.dme
           bash tools/ci/check_changelogs.sh
           bash tools/ci/check_grep.sh $PWD
-          bash tools/ci/check_misc.sh
-#         awk -f tools/indentation.awk **/*.dm
+          awk -f tools/indentation.awk **/*.dm
 
 
 ###########################################
