@@ -334,7 +334,7 @@
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "BodyScanner", tgui_name, 450, 500)
+		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
 		ui.open()
 
 /obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
