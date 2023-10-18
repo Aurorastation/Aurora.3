@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "abandoned_bunker"
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/abandoned_bunker
 	map = "lone asteroid"
 	descriptor = "A lone asteroid. Strange signals are coming from this one."

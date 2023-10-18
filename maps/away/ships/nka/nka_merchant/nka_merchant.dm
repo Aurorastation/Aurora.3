@@ -8,6 +8,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/nka_merchant
 	map = "Her Majesty's Mercantile Flotilla Ship"
 	descriptor = "The Hma'trra class is a modified version of the corporate freighter sold by the SCC to the New Kingdom. It is simple model adapted to the long journey between Adhomai and Tau Ceti."

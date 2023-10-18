@@ -8,6 +8,8 @@
 	id = "coc_surveyor"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/coc_surveyor
 	map = "COC Survey Ship"
 	descriptor = "Coalition science ship."

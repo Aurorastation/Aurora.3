@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "hivebot_hub"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/hivebot_hub
 	map = "derelict supply hub"
 	descriptor = "A derelict supply hub."

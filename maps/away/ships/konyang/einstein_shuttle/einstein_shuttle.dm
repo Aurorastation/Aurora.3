@@ -8,6 +8,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/einstein_shuttle)
 	sectors = list(SECTOR_HANEUNIM)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/einstein_shuttle
 	map = "clear sector"
 	descriptor = "An empty sector."

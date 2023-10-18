@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "pra_satellite"
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/pra_satellite
 	map = "hadiist satellite"
 	descriptor = "A People's Republic of Adhomai satellite used to survey the system."

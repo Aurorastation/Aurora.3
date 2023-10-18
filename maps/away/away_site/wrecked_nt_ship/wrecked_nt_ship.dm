@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "wrecked_nt_ship"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/wrecked_nt_ship
 	map = "wrecked_nt_ship"
 	descriptor = "A wrecked ship once owned by NanoTrasen."

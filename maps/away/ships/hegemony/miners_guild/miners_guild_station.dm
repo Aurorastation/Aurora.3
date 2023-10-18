@@ -8,6 +8,8 @@
 	id = "miners_guild_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/miners_guild)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/miners_guild_station
 	map = "Miners' Guild Outpost"
 	descriptor = "A station constructed by the Unathi Miners' Guild"

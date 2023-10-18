@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "cursed"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/cursed
 	map = "lone asteroid"
 	descriptor = "A lone asteroid with a hangar. Latest data from this sector shows it was a Hephaestus mining station, two years ago."

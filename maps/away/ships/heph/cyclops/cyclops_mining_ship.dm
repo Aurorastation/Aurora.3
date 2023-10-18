@@ -8,6 +8,8 @@
 	id = "Cyclops Mining Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/cyclops_mining
 	map = "Cyclops Mining Vessel"
 	descriptor = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "

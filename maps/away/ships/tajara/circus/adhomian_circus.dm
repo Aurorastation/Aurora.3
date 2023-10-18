@@ -8,6 +8,8 @@
 	id = "adhomian_circus_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/adhomian_circus
 	map = "Adhomian Traveling Circus"
 	descriptor = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."

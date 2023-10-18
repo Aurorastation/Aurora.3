@@ -8,6 +8,8 @@
 	id = "tajara_scrapper"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_scrapper)
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/tajara_scrapper
 	map = "adhomian scrapper outpost"
 	descriptor = "An outpost used by Tajaran scrapper. It offers repair and scrapping services."

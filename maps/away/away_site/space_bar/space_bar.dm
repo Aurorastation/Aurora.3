@@ -7,6 +7,8 @@
 	ship_cost = 2
 	id = "space_bar"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/space_bar
 	map = "space bar"
 	descriptor = "A space bar."

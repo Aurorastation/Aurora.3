@@ -34,6 +34,9 @@
 	for (var/map in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/A = SSmapping.away_sites_templates[map]
 
+		if(!length(A.unit_test_groups))
+			SSunit_tests_config.UT.fail("**** The away site --> [A.name] - [A.type] <-- does not have any unit test group set! ****", __FILE__, __LINE__)
+
 		//Check if the group is in the configuration of this pod, if so, add it to the list of away sites to spawn
 		for(var/unit_test_group in A.unit_test_groups)
 			if((unit_test_group in SSunit_tests_config.config["map_template_unit_test_groups"]) || (SSunit_tests_config.config["map_template_unit_test_groups"][1] == "*"))

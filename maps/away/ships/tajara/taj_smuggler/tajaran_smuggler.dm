@@ -8,6 +8,8 @@
 	id = "tajaran_smuggler"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle, /datum/shuttle/autodock/overmap/tajaran_smuggler_cargo)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/tajaran_smuggler
 	map = "Adhomian Freighter"
 	descriptor = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo hold. It is commonly used by Tajaran traders and smugglers."

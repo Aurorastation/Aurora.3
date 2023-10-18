@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "racers"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/racers
 	map = "unregistered station"
 	descriptor = "A unregistered station."

@@ -8,6 +8,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/hailstorm_ship
 	map = "Hailstorm Ship"
 	descriptor = "A skipjack armed with multiple mass-driver weapons designed for patrolling and brief engagements. When used for patrols, the Hailstorm is loaded with supplies to last weeks on its own; its crew is specifically trained to be as frugal as possible while aboard."

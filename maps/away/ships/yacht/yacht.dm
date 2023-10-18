@@ -7,6 +7,8 @@
 	spawn_weight = 0.5
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
+	unit_test_groups = list(3)
+
 /obj/effect/overmap/visitable/ship/yacht
 	name = "private yacht"
 	desc = "Sensor array is detecting a private pleasure yacht with unknown lifeforms dectected within. The design appears to be from the Idris Incorporated 'Starfarer' line."

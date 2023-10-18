@@ -12,7 +12,8 @@
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
-	///A list of groups, as strings, that this template belongs to
+	///A list of groups, as strings, that this template belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
 	var/list/unit_test_groups = list()
 
 /datum/map_template/New(var/list/paths = null, rename = null)

@@ -8,6 +8,8 @@
 	id = "water_barge"
 	shuttles_to_initialise = list()
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/water_barge
 	map = "Water Barge"
 	descriptor = "A PACHROM transport barge, exporting water."
