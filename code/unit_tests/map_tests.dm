@@ -11,6 +11,7 @@
 
 /datum/unit_test/map_test
 	name = "MAP TEST template"
+	groups = list("map")
 
 /datum/unit_test/map_test/apc_area_test
 	name = "MAP: Area Test APC / Scrubbers / Vents / Alarms (Station)"

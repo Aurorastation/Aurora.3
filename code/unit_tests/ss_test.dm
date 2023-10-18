@@ -8,6 +8,46 @@
  */
 #ifdef UNIT_TEST
 
+var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
+/datum/controller/subsystem/unit_tests_config
+	name = "Unit Test Config"
+	var/datum/unit_test/UT = new
+	init_order = SS_INIT_PERSISTENT_CONFIG
+
+	///What is our identifier, what pod are we, and hence what are we supposed to run
+	var/identifier = null
+
+	///The configuration, decoded from `config/unit_test/ut_pods_configuration.json`, specific for our identifier
+	var/list/config = list()
+
+/datum/controller/subsystem/unit_tests_config/New()
+	. = ..()
+
+	//Acquire our identifier, or enter Hopper mode if failing to do so
+	try
+		src.identifier = rustg_file_read("config/unit_test/identifier.txt")
+
+		if(isnull(src.identifier))
+			UT.fail("**** This UT is being run without an identifier! Aborting... ****")
+			del world
+	catch()
+		UT.fail("**** Exception encountered while trying to acquire an identifier for this UT! ***")
+		del world
+
+
+	//Try to acquire our configuration
+	try
+		src.config = json_decode(rustg_file_read("config/unit_test/ut_pods_configuration.json"))
+
+		src.config = src.config[identifier]
+		if(!config.len)
+			UT.fail("**** This UT is being run without a config! Aborting... ****")
+			del world
+
+	catch()
+		UT.fail("**** Exception encountered while trying to acquire the config for this UT! ***")
+		del world
+
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
 	var/datum/unit_test/UT = new // Use this to log things from outside where a specific unit_test is defined
@@ -19,8 +59,11 @@
 	wait = 2 SECONDS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
 
+
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
 	UT.notice("Initializing Unit Testing", __FILE__, __LINE__)
+
+
 
 	//
 	//Start the Round.
@@ -28,11 +71,19 @@
 
 	for (var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
+
 		if(findtext(D.name, "template"))
 			qdel(D)
 			continue
 
-		queue += D
+		if(isnull(D.groups))
+			UT.fail("**** Unit Test has no group assigned! [D.name] ****")
+			del world
+
+		for(var/group in D.groups)
+			if((group in SSunit_tests_config.config["unit_test_groups"]) || (SSunit_tests_config.config["unit_test_groups"][1] == "*"))
+				queue += D
+				break
 
 	UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
 	..()

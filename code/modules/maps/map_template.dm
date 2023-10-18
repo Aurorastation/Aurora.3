@@ -12,6 +12,9 @@
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
+	///A list of groups, as strings, that this template belongs to
+	var/list/unit_test_groups = list()
+
 /datum/map_template/New(var/list/paths = null, rename = null)
 	if(paths && !islist(paths))
 		crash_with("Non-list paths passed into map template constructor.")

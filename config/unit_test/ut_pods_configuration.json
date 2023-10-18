@@ -1,0 +1,16 @@
+{
+	"generic":{
+		"unit_test_groups":["generic", "mob"],
+		"map_template_unit_test_groups":["*"]
+	},
+
+	"create_and_destroy":{
+		"unit_test_groups":["create_and_destroy"],
+		"map_template_unit_test_groups":["*"]
+	},
+
+	"maptest":{
+		"unit_test_groups":["generic", "map"],
+		"map_template_unit_test_groups":["*"]
+	}
+}

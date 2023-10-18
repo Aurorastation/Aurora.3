@@ -25,27 +25,148 @@ env:
   PYTHON_VERSION: ""
 
 jobs:
-  lint:
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+
+###########################################
+################# BASH/AWK ################
+###########################################
+  validate-structure:
+    name: Validate Structure
     runs-on: ubuntu-22.04
-    name: Run Linters
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+
     concurrency:
-      group: run_linters-${{ github.head_ref || github.run_id }}
+      group: validate-structure-${{ github.head_ref || github.run_id }}
       cancel-in-progress: true
+
     steps:
-      # Clone Repo
-      - uses: actions/checkout@v3
-      # Restore Caches
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Validate that we have everything to run, structure-wise: files, changelog, grep and indentation
+      - name: "Validate repository structure"
+        run: |
+          bash tools/ci/check_filedirs.sh aurorastation.dme
+          bash tools/ci/check_changelogs.sh
+          bash tools/ci/check_grep.sh $PWD
+          bash tools/ci/check_misc.sh
+          awk -f tools/indentation.awk **/*.dm
+
+
+###########################################
+############### SPACEMANDMM ###############
+###########################################
+  lint-spacemandmm:
+    name: Lint SpacemanDMM
+    runs-on: ubuntu-22.04
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    needs: validate-structure
+
+    concurrency:
+      group: lint-spacemandmm-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    steps:
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restores SpacemanDMM from the cache repository
       - name: Restore SpacemanDMM cache
         uses: actions/cache@v3
         with:
           path: ~/SpacemanDMM
           key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
+
+      - name: Install SpacemanDMM
+        run: |
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+
+      #Run SpacemanDMM
+      - name: Run Dreamchecker
+        run: |
+          ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+
+      #Annotate findings in the PR
+      - name: Annotate Lints
+        uses: yogstation13/DreamAnnotate@v2
+        if: success() || failure()
+        with:
+          outputFile: output-annotations.txt
+
+
+###########################################
+################ OPENDREAM ################
+###########################################
+  lint-opendream:
+    name: Lint OpenDream
+    runs-on: ubuntu-22.04
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    needs: validate-structure
+
+    concurrency:
+      group: lint-opendream-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    steps:
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restores SpacemanDMM from the cache repository
       - name: Restore OpenDream cache
         uses: actions/cache@v3
         with:
           path: ~/OpenDream/*
           key: ${{ runner.os }}-opendream
+
+      - name: Install OpenDream
+        run: |
+          bash tools/ci/install_od.sh
+
+      - name: Run OpenDream
+        run: |
+          tools/ci/run_od.sh
+
+###########################################
+############### TGUI LINTING ##############
+###########################################
+  lint-tgui:
+    name: Lint TGUI
+    runs-on: ubuntu-22.04
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    needs: validate-structure
+
+    concurrency:
+      group: lint-tgui-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    steps:
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restore YARN (Node packages) cache
       - name: Restore Yarn cache
         uses: actions/cache@v3
         with:
@@ -54,80 +175,84 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      # Install Dependencies
-      - name: "Set ENV variables"
-        run: bash dependencies.sh
-      - name: Restore Python Cache
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: 'pip'
+
+      #Setup NodeJS using YARN as cache
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache-dependency-path: tgui/yarn.lock
           node-version: ${{ env.NODE_VERSION_PRECISE }}
           cache: 'yarn'
-      - name: Install Python Packages
-        run: |
-          pip install -r tools/requirements.txt
-      - name: Install Tools
-        run: |
-          pip3 install setuptools
-          bash tools/ci/install_spaceman_dmm.sh dreamchecker
-          bash tools/ci/install_od.sh
-      - name: Check Filedirs
-        run: |
-          bash tools/ci/check_filedirs.sh aurorastation.dme
-      - name: Check ChangeLogs
-        run: |
-          bash tools/ci/check_changelogs.sh
-      - name: Check Greps
-        run: |
-          bash tools/ci/check_grep.sh $PWD
-      - name: Check Validate DME
-        run: |
-          tools/bootstrap/python tools/validate_dme.py <aurorastation.dme
+
+      #Lint TGUI
       - name: Check Tgui
         run: |
           tools/build/build --ci lint tgui-test
+
+
+###########################################
+############### MISC LINTING ##############
+###########################################
+  lint-misc:
+    name: Lint TGUI
+    runs-on: ubuntu-22.04
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    needs: validate-structure
+
+    concurrency:
+      group: lint-tgui-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    steps:
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restores python cache
+      - name: Restore Python Cache
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      #Install python packages and tools
+      - name: Install Python Packages
+        run: |
+          pip install -r tools/requirements.txt
+          pip3 install setuptools
+
+      - name: Check Validate DME
+        run: |
+          tools/bootstrap/python tools/validate_dme.py <aurorastation.dme
+
       - name: Check Defines
         run: |
           tools/bootstrap/python -m define_sanity.check
+
       - name: Check Icons
         run: |
           tools/bootstrap/python -m dmi.test
+
       - name: Check DMM-Test
         run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
-      - name: Check Indentation
-        run: |
-          awk -f tools/indentation.awk **/*.dm
-      - name: Run OpenDream
-        run: |
-          tools/ci/run_od.sh
-      - name: Run Dreamchecker
-        run: |
-          ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
-#  bash tools/ci/check_misc.sh
-#  tools/bootstrap/python -m tools.maplint.source --github
-      - name: Annotate Lints
-        uses: yogstation13/DreamAnnotate@v2
-        if: success() || failure()
-        with:
-          outputFile: output-annotations.txt
 
-  unit-test-linux:
-    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
-    strategy:
-      matrix:
-        map: [runtime, aurora, sccv_horizon, away_sites_testing, exoplanet_testing]
-      fail-fast: false
+
+###########################################
+################ TEST MAPS ################
+###########################################
+  unit-tests:
+    name: Run Map Tests
     runs-on: ubuntu-22.04
-    concurrency:
-      group: unit-test-linux-${{ github.head_ref || github.run_id }}-${{ matrix.map }}
-      cancel-in-progress: true
-    needs: lint
+
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
+    needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
+
     services:
       mariadb:
         image: mariadb:10.4
@@ -138,10 +263,24 @@ jobs:
           MYSQL_PASSWORD: build
           MYSQL_DATABASE: game
           MYSQL_ROOT_PASSWORD: root
+
+    strategy:
+      matrix:
+        map: [runtime, aurora, sccv_horizon, away_sites_testing, exoplanet_testing]
+        pod: [maptest]
+      fail-fast: false
+
     steps:
-      - uses: actions/checkout@v3
-      - name: "Set ENV variables"
-        run: source dependencies.sh
+
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restores BYOND cache
       - name: Restore BYOND cache
         uses: actions/cache@v3
         with:
@@ -153,47 +292,59 @@ jobs:
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+
+      #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environtment
         run: |
           sudo dpkg --add-architecture i386
           sudo apt-get update
+
+      #Installs the packages we need, from a cache
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
+
+      #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
-      - name: Install BYOND
-        run: |
-          source dependencies.sh
-          bash tools/ci/install_byond.sh
-          source $HOME/BYOND/byond/bin/byondsetup
-          bash tools/ci/install_rust_g.sh
+
+      #Install flyway
       - name: Install Flyway
         run: |
           tools/ci/install_flyway.sh
+
+      #Apply the database migration
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
-      - name: Build
+
+      - name: Install BYOND & build
+        run: |
+          source dependencies.sh
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          bash tools/ci/install_rust_g.sh
+
+      - name: Configure pod, build and run
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}ù
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
-      - name: Run tests
-        env:
-          PORT: ${{ job.services.mariadb.ports[3306] }}
-        run: |
-          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+          echo ${{ matrix.pod }} >> config/unit_test/identifier.txt
+
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
+
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v3
         with:

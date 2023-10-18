@@ -7,6 +7,7 @@
 
 /datum/unit_test/specific_heat
 	name = "Chemistry Test - Specific Heat"
+	groups = list("generic", "chemistry")
 
 /datum/unit_test/specific_heat/start_test()
 

@@ -3,10 +3,13 @@
 
 /datum/unit_test/observation
 	name = "OBSERVATION template"
+	groups = list("generic")
+
 	async = 0
 
 /datum/unit_test/observation/moved_observer_shall_register_on_follow
 	name = "OBSERVATION: Moved - Observer Shall Register on Follow"
+	groups = list("generic")
 
 /datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
@@ -25,6 +28,7 @@
 
 /datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow
 	name = "OBSERVATION: Moved - Observer Shall Unregister on NoFollow"
+	groups = list("generic")
 
 /datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_test()
 	var/turf/T = locate(20,20,1)
@@ -44,6 +48,7 @@
 
 /datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
 	name = "OBSERVATION: Moved - Shall Register Recursively on New Listener"
+	groups = list("generic")
 
 /datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/start_test()
 	var/turf/T = locate(20,20,1)
@@ -67,6 +72,7 @@
 
 /datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener
 	name = "OBSERVATION: Moved - Shall Register Recursively with Existing Listener"
+	groups = list("generic")
 
 /datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener/start_test()
 	var/turf/T = locate(20,20,1)

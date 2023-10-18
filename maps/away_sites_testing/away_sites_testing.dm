@@ -27,7 +27,28 @@
 	base = TRUE
 
 /datum/map/away_sites_testing/build_away_sites()
+#ifdef UNIT_TEST
+	//Build a list of away sites to spawn, based on the group
+	var/list/away_sites_to_spawn = list()
+
+	for (var/map in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/A = SSmapping.away_sites_templates[map]
+
+		//Check if the group is in the configuration of this pod, if so, add it to the list of away sites to spawn
+		for(var/unit_test_group in A.unit_test_groups)
+			if((unit_test_group in SSunit_tests_config.config["map_template_unit_test_groups"]) || (SSunit_tests_config.config["map_template_unit_test_groups"][1] == "*"))
+				away_sites_to_spawn += A
+				break
+
+	//Spawn the away sites selected in the previous step
+	for(var/datum/map_template/ruin/away_site/away_site in away_sites_to_spawn)
+		away_site.load_new_z()
+		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+
+#else
+
 	for (var/map in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/A = SSmapping.away_sites_templates[map]
 		A.load_new_z()
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [A] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+#endif

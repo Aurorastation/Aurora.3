@@ -26,6 +26,8 @@
 
 /datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
+	groups = list("mob")
+
 	var/mob_type = /mob/living/test
 
 
@@ -83,6 +85,8 @@
 
 /datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
+	groups = list("mob")
+
 	var/starting_oxyloss = null
 	var/ending_oxyloss = null
 	var/mob/living/carbon/human/H
@@ -189,6 +193,8 @@
 
 /datum/unit_test/mob_damage
 	name = "MOB: Template for mob damage"
+	groups = list("mob")
+
 	var/mob/living/carbon/human/testmob = null
 	var/damagetype = DAMAGE_BRUTE
 	var/mob_type = /mob/living/carbon/human
@@ -517,6 +523,8 @@
 
 /datum/unit_test/robot_module_icons
 	name = "MOB: Robot module icon check"
+	groups = list("mob")
+
 	var/icon_file = 'icons/mob/screen/robot.dmi'
 
 /datum/unit_test/robot_module_icons/start_test()

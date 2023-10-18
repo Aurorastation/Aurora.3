@@ -6,6 +6,8 @@
 
 /datum/unit_test/smart_token_bucket
 	name = "Smart Token Bucket Unit Test"
+	groups = list("generic")
+
 	var/datum/smart_token_bucket/stb
 	var/datum/smart_token_bucket/stb2
 	var/expiration_count = 0

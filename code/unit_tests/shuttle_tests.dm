@@ -1,5 +1,6 @@
 /datum/unit_test/shuttle_landmarks_shall_exist
 	name = "SHUTTLE: Defined shuttle landmarks shall exist."
+	groups = list("map")
 
 /datum/unit_test/shuttle_landmarks_shall_exist/start_test()
 	var/failed = 0
