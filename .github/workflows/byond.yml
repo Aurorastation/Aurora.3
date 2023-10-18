@@ -199,7 +199,7 @@ jobs:
     needs: validate-structure
 
     concurrency:
-      group: lint-tgui-${{ github.head_ref || github.run_id }}
+      group: lint-misc-${{ github.head_ref || github.run_id }}
       cancel-in-progress: true
 
     steps:
