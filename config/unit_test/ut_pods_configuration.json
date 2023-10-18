@@ -27,5 +27,5 @@
 	"awaysites-3":{
 		"unit_test_groups":["map"],
 		"map_template_unit_test_groups":[3]
-	},
+	}
 }
