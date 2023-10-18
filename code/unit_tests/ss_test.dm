@@ -44,8 +44,10 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 			UT.fail("**** This UT is being run without a config! Aborting... ****")
 			del world
 
-	catch()
+	catch(var/exception/e)
 		UT.fail("**** Exception encountered while trying to acquire the config for this UT! Identifier: [identifier] ***")
+		UT.fail("**** Exception encountered: [e] ***")
+		. = ..(e)
 		del world
 
 /datum/controller/subsystem/unit_tests
