@@ -333,3 +333,9 @@
 	desc = "A prophylactic antibiotic that kills infections before they start."
 	icon_state = "pill8"
 	reagents_to_add = list(/singleton/reagent/steramycin = 5)
+
+/obj/item/reagent_containers/pill/steramycin
+	name = "Dissolvable Cleaner Tablet"
+	desc = "A highly advanced dissolvable tablet laden with the cutting edge of Idris chemical science. Smells like dried bleach. It's probably just bleach."
+	icon_state = "ENTER SPRITE HERE"
+	reagents_to_add = list(singleton/reagent/spacecleaner = 15)
