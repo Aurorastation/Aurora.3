@@ -1230,3 +1230,11 @@
 	. = ..()
 	make_exact_fit()
 
+/obj/item/storage/box/spacecleaner
+	name = "Idris advamced dissolvable cleaner tablets"
+	desc = "A box of advanced chemical tablets designed by Idris Incorporated. A new generation of cleaning chemicals."
+	icon_state = "SPRITE, HERE"
+	max_storage_space = 16
+	starts_with = list(
+		/obj/item/reagent_containers/pill/spacecleaner = 16,
+	)
