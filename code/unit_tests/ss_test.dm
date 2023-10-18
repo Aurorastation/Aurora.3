@@ -46,6 +46,9 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		UT.notice("Pods configuration file read as: [json_encode(src.config)]")
 		UT.notice("Will extract the pod configuration for pod with identifier: [src.identifier]")
 
+		for(var/k in src.config)
+			UT.notice("The following pod configuration is defined: [k]")
+
 		src.config = src.config[src.identifier]
 
 		UT.notice("Pods configuration extrapolated as: [json_encode(src.config)]")

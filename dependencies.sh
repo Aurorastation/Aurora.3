@@ -2,9 +2,9 @@
 
 if [ -z ${GITHUB_ENV+x} ]; then GITHUB_ENV=/dev/null; fi
 
-export BYOND_MAJOR=514
+export BYOND_MAJOR=515
 echo "BYOND_MAJOR=$BYOND_MAJOR" >> "$GITHUB_ENV"
-export BYOND_MINOR=1589
+export BYOND_MINOR=1616
 echo "BYOND_MINOR=$BYOND_MINOR" >> "$GITHUB_ENV"
 
 export RUST_G_VERSION=v1.2.0+a5
