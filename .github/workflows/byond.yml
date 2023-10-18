@@ -193,7 +193,7 @@ jobs:
 ############### MISC LINTING ##############
 ###########################################
   lint-misc:
-    name: Lint TGUI
+    name: Lint Misc
     runs-on: ubuntu-22.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
@@ -331,12 +331,12 @@ jobs:
 
       - name: Configure pod, build and run
         env:
-          PORT: ${{ job.services.mariadb.ports[3306] }}ù
+          PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
-          echo ${{ matrix.pod }} >> config/unit_test/identifier.txt
+          echo "${{ matrix.pod }}" >> config/unit_test/identifier.txt
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt

@@ -45,7 +45,7 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 			del world
 
 	catch()
-		UT.fail("**** Exception encountered while trying to acquire the config for this UT! ***")
+		UT.fail("**** Exception encountered while trying to acquire the config for this UT! Identifier: [identifier] ***")
 		del world
 
 /datum/controller/subsystem/unit_tests
