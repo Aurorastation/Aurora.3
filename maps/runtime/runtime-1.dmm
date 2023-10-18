@@ -1408,6 +1408,20 @@
 /obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/plating,
 /area/construction)
+"dB" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/effect/map_effect/airlock_marker{
+	id_tag = "runtime_1_airlock_1";
+	frequency = 2137
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "dC" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1445,6 +1459,17 @@
 /obj/machinery/computer/shuttle_control/explore/runtime,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"fH" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/gravity_gen)
+"fV" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "fX" = (
 /turf/template_noop,
 /area/space)
@@ -1572,6 +1597,18 @@
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"sU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"sY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "tr" = (
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
@@ -1600,6 +1637,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
+"vl" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "vm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -1609,6 +1653,16 @@
 	},
 /turf/template_noop,
 /area/engineering)
+"wi" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	pixel_x = 27;
+	pixel_y = -11
+	},
+/obj/effect/map_effect/airlock_marker/interior,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "wk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1616,6 +1670,12 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"wI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "wL" = (
 /obj/effect/shuttle_landmark/runtime/hangar,
 /obj/machinery/computer/ship/engines,
@@ -1661,6 +1721,16 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"AB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/effect/map_effect/airlock_marker{
+	id_tag = "runtime_1_airlock_1";
+	frequency = 2137
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1687,6 +1757,10 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
+"Ft" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Fw" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
@@ -1740,6 +1814,13 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"IQ" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
+	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
+	radio_frequency = 2001
+	},
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
 "IY" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
@@ -1782,6 +1863,30 @@
 /obj/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"Nn" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/effect/map_effect/airlock_marker{
+	id_tag = "runtime_1_airlock_1";
+	frequency = 2137
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Ot" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/airlock_marker{
+	id_tag = "runtime_1_airlock_1";
+	frequency = 2137
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -1832,10 +1937,28 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"Tj" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/effect/map_effect/airlock_marker{
+	id_tag = "runtime_1_airlock_1";
+	frequency = 2137
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Tq" = (
 /obj/effect/overmap/visitable/ship/landable/runtime,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"Tz" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 27;
+	pixel_y = 11;
+	dir = 1
+	},
+/obj/effect/map_effect/airlock_marker/exterior,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "TD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -9856,9 +9979,9 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
+ac
+ac
+ac
 ac
 ae
 ai
@@ -10113,9 +10236,9 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
+ac
+Nn
+dB
 ac
 ae
 ai
@@ -10370,11 +10493,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
-ac
-ae
+Tz
+AB
+Tj
+wi
+sY
 ai
 ar
 aG
@@ -10627,11 +10750,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
-ae
+Ot
+Ot
+ac
+wI
 ai
 as
 aH
@@ -10884,11 +11007,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
-Eu
-ae
+ac
+vl
+bU
+IQ
+wI
 ai
 at
 at
@@ -11141,11 +11264,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
 ae
+ae
+ac
+wI
 ai
 at
 at
@@ -11398,12 +11521,12 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
-ac
 ae
-ai
+ae
+ae
+ae
+Ft
+fH
 at
 at
 at
@@ -11655,11 +11778,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
 ae
+ae
+ac
+wI
 ai
 at
 at
@@ -11912,11 +12035,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
-ae
+ac
+ac
+ac
+wI
 ai
 at
 at
@@ -12169,11 +12292,11 @@ aa
 aa
 aa
 aa
-aa
 ab
 aa
-ac
-ae
+Eu
+fV
+Ft
 ai
 ai
 ai
@@ -12426,11 +12549,11 @@ aa
 aa
 aa
 aa
-aa
 ab
 aa
 ac
-ae
+fV
+sU
 ae
 ae
 ae
@@ -12683,9 +12806,9 @@ aa
 aa
 aa
 aa
-aa
 ab
 aa
+ac
 ac
 ac
 ac
@@ -12940,8 +13063,8 @@ aa
 aa
 aa
 aa
-aa
 ab
+aa
 aa
 aa
 aa
@@ -13197,7 +13320,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 ab
 ab
 ab
