@@ -11,8 +11,10 @@
 var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 /datum/controller/subsystem/unit_tests_config
 	name = "Unit Test Config"
-	var/datum/unit_test/UT = new
 	init_order = SS_INIT_PERSISTENT_CONFIG
+	flags = SS_NO_FIRE
+
+	var/datum/unit_test/UT = new // Logging/output
 
 	///What is our identifier, what pod are we, and hence what are we supposed to run
 	var/identifier = null
@@ -43,15 +45,15 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 		src.config = json_decode(rustg_file_read("config/unit_test/ut_pods_configuration.json"))
 
-		UT.notice("Pods configuration file read as: [json_encode(src.config)]")
-		UT.notice("Will extract the pod configuration for pod with identifier: [src.identifier]")
+		UT.debug("Pods configuration file read as: [json_encode(src.config)]")
+		UT.debug("Will extract the pod configuration for pod with identifier: [src.identifier]")
 
 		for(var/k in src.config)
-			UT.notice("The following pod configuration is defined: [k]")
+			UT.debug("The following pod configuration is defined: [k]")
 
 		src.config = src.config[src.identifier]
 
-		UT.notice("Pods configuration extrapolated as: [json_encode(src.config)]")
+		UT.debug("Pods configuration extrapolated as: [json_encode(src.config)]")
 
 		if(isnull(src.config))
 			UT.fail("**** This UT is being run without a config, it's null! Aborting... ****")
