@@ -350,10 +350,10 @@
 /area/medical/ors)
 "ais" = (
 /obj/structure/closet/hazmat/research,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "aiP" = (
@@ -17447,14 +17447,10 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "ikJ" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Xenobotanical Greenhouse 2";
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
@@ -17466,6 +17462,13 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -18765,8 +18768,12 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/kitchen/freezer)
 "iRl" = (
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "iRm" = (
@@ -27872,9 +27879,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/research)
 "nir" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -27886,6 +27890,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -29188,9 +29198,6 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
@@ -29200,6 +29207,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -32994,9 +33004,6 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/security/armoury)
 "pMq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
@@ -33008,6 +33015,12 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -38865,12 +38878,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "sGR" = (
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
@@ -38882,6 +38889,12 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -48887,8 +48900,8 @@
 	dir = 1;
 	icon_state = "freezer"
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
