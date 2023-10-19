@@ -1018,6 +1018,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "kt" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "kA" = (
@@ -1171,6 +1172,7 @@
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "lS" = (
@@ -1458,6 +1460,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
+"ov" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "ow" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2722,6 +2731,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "BF" = (
@@ -3108,6 +3118,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "FV" = (
@@ -4389,13 +4400,6 @@
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
-"Vm" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/gold,
-/area/golden_deep)
 "VA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -17575,19 +17579,19 @@ WZ
 BW
 zb
 zb
-Vm
+ov
 vz
 zb
-Vm
+ov
 zb
 zb
-Vm
+ov
 zb
 zb
-Vm
+ov
 Hj
 zb
-Vm
+ov
 zb
 zb
 Mr
