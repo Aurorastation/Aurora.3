@@ -6,13 +6,15 @@ var/global/list/airlock_markers = list()
 /// actually sets the airlock up to make it functional.
 /obj/effect/map_effect/airlock_marker
 	name = "airlock marker (inside the airlock)"
-	desc = "Places this on top of airlock components (doors, pumps, sensors, etc)."
+	desc = "MASTER_TAG VAR MUST BE UNIQUE FOR THE AIRLOCK! Place this on top of airlock components (doors, pumps, sensors, etc)."
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "airlock_marker"
 	layer = LIGHTING_LAYER
 	/// Radio frequency of this airlock.
 	var/frequency = 2137
 	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
+	/// THIS MUST BE UNIQUE FOR THE AIRLOCK. Every marker in one airlock should have the same `master_tag`.
+	/// But different airlocks, even on different maps, cannot share the same `master_tag`.
 	var/master_tag = null
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
 	var/required_access = list(access_external_airlocks)
