@@ -1233,7 +1233,8 @@
 /obj/item/storage/box/spacecleaner
 	name = "Idris advamced dissolvable cleaner tablets"
 	desc = "A box of advanced chemical tablets designed by Idris Incorporated. A new generation of cleaning chemicals. Instructions on the box read; dissolve tablet fully in bucket of water, do not consume tablet, do not consume cleaner water from concentration."
-	icon_state = "SPRITE, HERE"
+	icon = 'icons/obj/tabletcase.dmi'
+	icon_state = "tabletcase"
 	max_storage_space = 16
 	starts_with = list(
 		/obj/item/reagent_containers/pill/spacecleaner = 16,
