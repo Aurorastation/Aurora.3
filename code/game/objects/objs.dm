@@ -30,6 +30,8 @@
 	var/usesound
 	var/toolspeed = 1
 
+	var/surgerysound
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -200,7 +202,7 @@
 /obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (loc == wearer && icon_supported_species_tags.len)
+		if (wearer && icon_supported_species_tags.len)
 			if (wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
 				return 1

@@ -30,7 +30,7 @@
 /obj/effect/map_effect/interval/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	
+
 /obj/effect/map_effect/interval/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -44,7 +44,7 @@
 	//Not yet!
 	if(world.time < next_attempt)
 		return
-	
+
 	// Check to see if we're useful first.
 	if(!always_run && !check_for_player_proximity(src, proximity_needed, ignore_ghosts, ignore_afk))
 		next_attempt = world.time + retry_delay

@@ -1,7 +1,7 @@
 /obj/item/cell
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
@@ -165,6 +165,28 @@
 	if(next_recharge < world.time)
 		charge = min(charge + (maxcharge / 10), maxcharge)
 		next_recharge = world.time + 1 MINUTE
+
+/obj/item/cell/nuclear
+	name = "miniaturized nuclear power core"
+	desc = "A small self-charging thorium core that can store an immense amount of charge."
+	origin_tech = list(TECH_POWER = 8, TECH_ILLEGAL = 4)
+	icon_state = "icell"
+	maxcharge = 50000
+	matter = null
+	var/next_recharge
+
+/obj/item/cell/nuclear/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/cell/nuclear/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/nuclear/process()
+	if(next_recharge < world.time)
+		charge = min(charge + (maxcharge / 10), maxcharge)
+		next_recharge = world.time + 30 SECONDS
 
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"

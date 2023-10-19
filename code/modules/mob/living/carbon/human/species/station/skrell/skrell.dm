@@ -60,13 +60,13 @@
 		)
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell,
 		BP_HEART =    /obj/item/organ/internal/heart/skrell,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
 		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")
@@ -128,7 +128,7 @@
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
 			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
-			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+			if(do_after(user, HUMAN_STRIP_DELAY, do_flags = DO_EQUIP))
 				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
 				var/obj/item/I = locate() in S
 				if(!I)

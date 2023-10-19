@@ -2,9 +2,7 @@
 
 var/datum/map/current_map	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
 
-var/datum/controller/subsystem/atlas/SSatlas
-
-/datum/controller/subsystem/atlas
+SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MAPLOAD
@@ -140,9 +138,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 /datum/controller/subsystem/atlas/stat_entry(msg)
 	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]"
 	return ..()
-
-/datum/controller/subsystem/atlas/New()
-	NEW_SS_GLOBAL(SSatlas)
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.

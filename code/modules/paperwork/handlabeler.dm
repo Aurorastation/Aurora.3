@@ -81,7 +81,7 @@
 			tray.update_icon()
 
 	user.visible_message("<b>[user]</b> labels [A] as <i>[label]</i>.", \
-						 SPAN_NOTICE("You label [A] as <i>[label]</i>."))
+							SPAN_NOTICE("You label [A] as <i>[label]</i>."))
 
 	// Prevent label stacking from making name unrecoverable.
 	if (!A.name_unlabel)

@@ -626,3 +626,78 @@
 	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
 	icon_state = "elyran_commander"
 	item_state = "elyran_commander"
+
+/obj/item/clothing/under/rank/konyang
+	name = "konyang army uniform"
+	desc = "A set of dark green fatigues issued to the soldiers of the Konyang Army. Its design is similar to the uniforms of the Solarian Army."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_army"
+	item_state = "konyang_army"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/rank/konyang/officer
+	name = "konyang army officer's uniform"
+	desc = "A green service uniform worn by the officers of the Konyang Army. Its design is similar to the uniforms of the Solarian Army"
+	icon_state = "konyang_army_officer"
+	item_state = "konyang_army_officer"
+
+/obj/item/clothing/under/rank/konyang/navy
+	name = "konyang navy uniform"
+	desc = "A blue utility uniform worn by the enlisted personnel of the Konyang Navy - often derided as more of a coast guard than a true armed force."
+	icon_state = "konyang_navy"
+	item_state = "konyang_navy"
+
+/obj/item/clothing/under/rank/konyang/navy/officer
+	name = "konyang navy officer's uniform"
+	desc = "A white service uniform worn by the officers of the Konyang Navy - often derided as more of a coast guard than a true armed force."
+	icon_state = "konyang_navy_officer"
+	item_state = "konyang_navy_officer"
+
+/obj/item/clothing/under/rank/konyang/space
+	name = "konyang aerospace force uniform"
+	desc = "A set of black coveralls worn by the soldiers of the Konyang Aerospace Forces, whether on-ship or in the field."
+	icon_state = "konyang_space"
+	item_state = "konyang_space"
+
+/obj/item/clothing/under/rank/konyang/space/officer
+	name = "konyang aerospace force officer's uniform"
+	desc = "A military service uniform issued to officers of the Konyang Aerospace Forces."
+	icon_state = "konyang_space_officer"
+	item_state = "konyang_space_officer"
+
+/obj/item/clothing/under/rank/konyang/mech_pilot
+	name = "konyang mechatronic corps jumpsuit"
+	desc = "A sky-blue jumpsuit worn by the exosuit pilots of the Konyang Army Mechatronic Corps - an elite exosuit unit that is often deployed abroad."
+	icon_state = "mech_pilot"
+	item_state = "mech_pilot"
+
+/obj/item/clothing/under/rank/konyang/police
+	name = "konyang national police uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders."
+	icon_state = "police"
+	item_state = "police"
+
+/obj/item/clothing/under/rank/konyang/police/lieutenant
+	name = "konyang national police lieutenant's uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders. This one is emblazoned with red, marking the wearer as a lieutenant."
+	icon_state = "konyang_police_lieutenant"
+	item_state = "konyang_police_lieutenant"
+
+/obj/item/clothing/under/rank/konyang/krc
+	name = "konyang robotics company uniform"
+	desc = "A blue button-up shirt and brown trousers, with a red and white-striped tie. On the shirt, the logo of the Konyang Robotics Company is clearly displayed."
+	icon_state = "krc"
+	item_state = "krc"
+	armor = null
+
+/obj/item/clothing/under/rank/konyang/pachrom
+	name = "PACHROM uniform"
+	desc = "A well-worn and practical dark yellow jumpsuit, with the logo of PACHROM - a prominent Konyang corporation - emblazoned on the left arm."
+	icon_state = "pachrom"
+	item_state = "pachrom"
+	armor = null

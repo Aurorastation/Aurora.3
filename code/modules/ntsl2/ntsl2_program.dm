@@ -1,5 +1,5 @@
 /*
-Datum representing program state on deamon and exposing apropriate procs to DM. 
+Datum representing program state on deamon and exposing apropriate procs to DM.
 */
 /datum/ntsl2_program/
 	var/id = 0
@@ -18,7 +18,7 @@ Datum representing program state on deamon and exposing apropriate procs to DM.
 		SSntsl2.send_task("remove", list(id = id))
 	SSntsl2.handle_termination(src)
 	qdel(src)
-	
+
 /datum/ntsl2_program/proc/execute(var/script, var/mob/user)
 	if(!is_ready())
 		ready_tasks += CALLBACK(src, PROC_REF(execute), script, user)

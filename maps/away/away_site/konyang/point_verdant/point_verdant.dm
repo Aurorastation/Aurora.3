@@ -6,7 +6,6 @@
 	suffixes = list("away_site/konyang/point_verdant/point_verdant-1.dmm","away_site/konyang/point_verdant/point_verdant-2.dmm","away_site/konyang/point_verdant/point_verdant-3.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/point_verdant
 	map = "point_verdant"
@@ -15,7 +14,7 @@
 /obj/effect/overmap/visitable/sector/point_verdant
 	name = "Konyang - Point Verdant Spaceport"
 	desc = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
-	icon_state = "object"
+	icon_state = "poi"
 	scanimage = "konyang_point_verdant.png"
 	place_near_main = list(0,0)
 	landing_site = TRUE

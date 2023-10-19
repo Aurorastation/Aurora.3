@@ -1607,7 +1607,7 @@
 /singleton/reagent/kilosemine
 	name = "Kilosemine"
 	description = "An illegal stimulant, known by specialists for its properties that somehow mix the effects of Synaptizine and Hyperzine without the immediate side \
-				   effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
+					effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
 	reagent_state = SOLID
 	scannable = TRUE
 	color = "#EE4B2B"
@@ -1640,7 +1640,7 @@
 	var/mob/living/carbon/human/H = M
 	if(prob(H.chem_doses[type] / 2))
 		to_chat(H, SPAN_WARNING(pick("You feel like you're on limited time...", "Something in the left side of your chest feels like it's bursting!",
-									 "You feel like today is your last day, and you should make it count...")))
+										"You feel like today is your last day, and you should make it count...")))
 	if(prob(H.chem_doses[type] / 3))
 		if(prob(75))
 			H.emote(pick("twitch", "shiver"))

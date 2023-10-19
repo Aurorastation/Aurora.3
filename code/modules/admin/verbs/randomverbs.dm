@@ -249,7 +249,7 @@ Ccomp's first proc.
 
 	for(var/mob/M in mobs)
 		var/name = M.name
-		ghosts[name] = M                                        //get the name of the mob for the popup list
+		ghosts[name] = M	//get the name of the mob for the popup list
 	if(what==1)
 		return ghosts
 	else
@@ -264,19 +264,19 @@ Ccomp's first proc.
 		to_chat(src, "Only administrators may use this command.")
 	var/list/ghosts = get_ghosts(1,1,src)
 
-	var/target = input("Please, select a ghost!", "COME BACK TO LIFE!", null, null) as null|anything in ghosts
+	var/target = tgui_input_list(src, "Please, select a ghost!", "COME BACK TO LIFE!", ghosts)
 	if(!target)
-		to_chat(src, "Hrm, appears you didn't select a ghost")		// Sanity check, if no ghosts in the list we don't want to edit a null variable and cause a runtime error.)
+		to_chat(src, SPAN_WARNING("You didn't select a ghost!"))		// Sanity check, if no ghosts in the list we don't want to edit a null variable and cause a runtime error.)
 		return
 
 	var/mob/abstract/observer/G = ghosts[target]
 	if(G.has_enabled_antagHUD && config.antag_hud_restricted)
 		var/response = alert(src, "Are you sure you wish to allow this individual to play?","Ghost has used AntagHUD","Yes","No")
 		if(response == "No") return
-	G.timeofdeath=-19999						/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-									   there won't be an autopsy.
-									*/
+
+	/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+	timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure there won't be an autopsy.*/
+	G.timeofdeath=-19999
 	var/datum/preferences/P
 
 	if (G.client)
@@ -578,27 +578,27 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") as null|anything in template_names
+			reporttitle = tgui_input_list(usr, "Please select a command report template.", "Create Command Report", template_names)
 			if(!reporttitle)
 				return
 			reportbody = templates[reporttitle]
 
 		if("Custom")
-			reporttitle = sanitizeSafe(input(usr, "Pick a title for the report.", "Title") as text|null)
+			reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the report.", "Title"))
 			if(!reporttitle)
 				reporttitle = "NanoTrasen Update"
-			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
+			reportbody = sanitize(tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "Body", multiline = TRUE))
 			if(!reportbody)
 				return
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
+		reporter = sanitizeSafe(tgui_input_text(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name"))
 		if (reporter)
 			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
 		else
 			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
 
-	switch(alert("Should this be announced to the general population?",,"Yes","No"))
+	switch(tgui_alert("Should this be announced to the general population?", "Announcement", list("Yes","No")))
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")

@@ -74,7 +74,7 @@
 		/singleton/reagent/alcohol/demonsblood,
 		/singleton/reagent/alcohol/cinnamonapplewhiskey,
 		/singleton/reagent/drink/coffee/soy_latte,
-		/singleton/reagent/drink/coffee/cafe_latte,
+		/singleton/reagent/drink/coffee/latte,
 		/singleton/reagent/drink/tea/coco_chaitea,
 		/singleton/reagent/drink/tea/chaitealatte,
 		/singleton/reagent/drink/tea/bureacratea,

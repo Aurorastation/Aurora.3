@@ -142,7 +142,7 @@ There are several things that need to be remembered:
 			var/matrix/M = matrix()
 
 			switch(src.dir)
-				if(NORTH,EAST)
+				if(SOUTH,EAST)
 					M.Turn(90)
 				else
 					M.Turn(-90)
@@ -1476,6 +1476,8 @@ There are several things that need to be remembered:
 //Drawcheck functions
 //These functions check if an item should be drawn, or if its covered up by something else
 /mob/living/carbon/human/proc/check_draw_gloves()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!gloves)
 		return FALSE
 	else if (gloves.flags_inv & ALWAYSDRAW)
@@ -1486,6 +1488,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_right_ear()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!r_ear)
 		return FALSE
 	else if (r_ear.flags_inv & ALWAYSDRAW)
@@ -1496,6 +1500,8 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/proc/check_draw_left_ear()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!l_ear)
 		return FALSE
 	else if (l_ear.flags_inv & ALWAYSDRAW)
@@ -1505,6 +1511,8 @@ There are several things that need to be remembered:
 	return TRUE
 
 /mob/living/carbon/human/proc/check_draw_glasses()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!glasses)
 		return FALSE
 	else if (glasses.flags_inv & ALWAYSDRAW)
@@ -1516,6 +1524,8 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/proc/check_draw_mask()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!wear_mask)
 		return FALSE
 	else if (wear_mask.flags_inv & ALWAYSDRAW)
@@ -1526,6 +1536,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_shoes()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!shoes)
 		return FALSE
 	else if (shoes.flags_inv & ALWAYSDRAW)
@@ -1536,6 +1548,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_underclothing()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!w_uniform)
 		return FALSE
 	else if (w_uniform.flags_inv & ALWAYSDRAW)
@@ -1546,6 +1560,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_wrists()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!wrists)
 		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)

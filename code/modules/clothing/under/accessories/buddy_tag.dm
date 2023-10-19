@@ -48,17 +48,17 @@ var/list/active_buddy_tags = list()
 			active_buddy_tags -= src
 		update_icon()
 	if(href_list["setcode"])
-		var/newcode = input("Set new buddy ID number.", "Buddy Tag ID", id) as num|null
+		var/newcode = tgui_input_number(usr, "Set new buddy ID number.", "Buddy Tag ID", id)
 		if(isnull(newcode) || !CanInteract(usr, state))
 			return
 		id = newcode
 	if(href_list["set_distance"])
-		var/newdist = input("Set new maximum range.", "Buddy Tag Range", distance) as num|null
+		var/newdist = tgui_input_number(usr, "Set new maximum range.", "Buddy Tag Range", distance)
 		if(isnull(newdist) || !CanInteract(usr, state))
 			return
 		distance = newdist
 	if(href_list["set_interval"])
-		var/newtime = input("Set new search interval in seconds (minimum 30s).", "Buddy Tag Time Interval", search_interval / 10) as num|null
+		var/newtime = tgui_input_number(usr, "Set new search interval in seconds (minimum 30s).", "Buddy Tag Time Interval", search_interval / 10)
 		if(isnull(newtime) || !CanInteract(usr, state))
 			return
 		newtime = max(30, newtime)

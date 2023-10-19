@@ -15,10 +15,28 @@
 			/obj/item/stock_parts/scanning_module = 1
 		)
 
-	var/mob/living/carbon/human/victim = null
+	var/mob/living/carbon/human/occupant = null
 	var/suppressing = FALSE
 
 	var/obj/machinery/computer/operating/computer = null
+
+	var/list/allowed_species = list(
+		SPECIES_HUMAN,
+		SPECIES_HUMAN_OFFWORLD,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_UNATHI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_BREEDER,
+		SPECIES_VAURCA_BULWARK,
+		SPECIES_DIONA,
+		SPECIES_DIONA_COEUS,
+		SPECIES_MONKEY
+	)
 
 /obj/machinery/optable/Initialize()
 	. = ..()
@@ -55,18 +73,18 @@
 		qdel(src)
 		return
 
-	if(!victim)
+	if(!occupant)
 		to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
 
 	if((user.a_intent != I_HELP) && buckled)
 		user_unbuckle(user)
 		return
-	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
+	if(user != occupant && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
-		if(!do_after(user, 30, src))
+		if(!do_after(user, 3 SECONDS, src, DO_UNIQUE))
 			return
-		if(!victim)
+		if(!occupant)
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 
 		suppressing = !suppressing
@@ -84,32 +102,32 @@
 		user.drop_from_inventory(O,get_turf(src))
 	..()
 
-/obj/machinery/optable/proc/check_victim()
-	if(!victim || !victim.lying || victim.loc != loc)
+/obj/machinery/optable/proc/check_occupant()
+	if(!occupant || !occupant.lying || occupant.loc != loc)
 		suppressing = FALSE
-		victim = null
+		occupant = null
 		var/mob/living/carbon/human/H = locate() in loc
 		if(istype(H))
 			if(H.lying)
 				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
-				victim = H
-	if(victim && !victim.isSynthetic())
-		if(suppressing && victim.sleeping < 7)
-			victim.Sleeping(7 - victim.sleeping)
-			victim.willfully_sleeping = FALSE
-			if(victim.eye_blurry < 7)
-				victim.eye_blurry = (7 - victim.eye_blurry)
-		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
-		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
+				occupant = H
+	if(occupant && !occupant.isSynthetic())
+		if(suppressing && occupant.sleeping < 7)
+			occupant.Sleeping(7 - occupant.sleeping)
+			occupant.willfully_sleeping = FALSE
+			if(occupant.eye_blurry < 7)
+				occupant.eye_blurry = (7 - occupant.eye_blurry)
+		icon_state = occupant.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(occupant.stat == DEAD || occupant.is_asystole() || occupant.status_flags & FAKEDEATH)
 			icon_state = "[modify_state]-critical"
 		return TRUE
 	icon_state = "[modify_state]-idle"
 	return FALSE
 
 /obj/machinery/optable/process()
-	check_victim()
+	check_occupant()
 
-/obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user)
+/obj/machinery/optable/proc/take_occupant(mob/living/carbon/C, mob/living/carbon/user)
 	if(C == user)
 		user.visible_message("\The [user] climbs on \the [src].", "You climb on \the [src].")
 	else
@@ -122,7 +140,7 @@
 	add_fingerprint(user)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		victim = H
+		occupant = H
 		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 		if(H.stat == DEAD || H.is_asystole() || H.status_flags & FAKEDEATH)
 			icon_state = "[modify_state]-critical"
@@ -147,7 +165,7 @@
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled_to
 				LB.user_unbuckle(user)
-			take_victim(target,user)
+			take_occupant(target,user)
 	else
 		return ..()
 
@@ -159,12 +177,12 @@
 	if(usr.stat || !ishuman(usr) || usr.restrained() )
 		return
 
-	take_victim(usr,usr)
+	take_occupant(usr,usr)
 
 /obj/machinery/optable/attackby(obj/item/W, mob/living/carbon/user)
 	if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W
-		if(victim)
+		if(occupant)
 			to_chat(usr, SPAN_NOTICE(SPAN_BOLD("\The [src] is already occupied!")))
 			return TRUE
 
@@ -178,7 +196,7 @@
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
-			take_victim(G.affecting,usr)
+			take_occupant(G.affecting,usr)
 			qdel(W)
 		return TRUE
 	if(default_deconstruction_screwdriver(user, W))
@@ -189,11 +207,19 @@
 		return TRUE
 
 /obj/machinery/optable/proc/check_table(mob/living/carbon/patient)
-	check_victim()
-	if(victim?.lying && get_turf(victim) == get_turf(src))
+	check_occupant()
+	if(occupant?.lying && get_turf(occupant) == get_turf(src))
 		to_chat(usr, SPAN_WARNING("\The [src] is already occupied!"))
 		return FALSE
 	if(patient.buckled_to)
 		to_chat(usr, SPAN_NOTICE("Unbuckle \the [patient] first!"))
 		return FALSE
 	return TRUE
+
+/obj/machinery/optable/proc/check_species()
+	if (!occupant || !ishuman(occupant))
+		return TRUE
+	var/mob/living/carbon/human/O = occupant
+	if (!O)
+		return TRUE
+	return !(O.get_species() in allowed_species)

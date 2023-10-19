@@ -80,7 +80,7 @@
 				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5, 1))
+			while (do_after(user, 25, 5))
 				var/blood_taken = 0
 				blood_taken = min(5, REAGENT_VOLUME(reagents, /singleton/reagent/blood)/4)
 
@@ -167,7 +167,7 @@
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = input(user, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel")
+		var/blood_name = tgui_input_list(user, "What blood type would you like to label it as?", "Blood Types",  list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel"))
 		if(blood_name == "Cancel")
 			return
 		var/obj/item/i = user.get_active_hand()

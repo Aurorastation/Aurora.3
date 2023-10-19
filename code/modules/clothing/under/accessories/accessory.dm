@@ -47,26 +47,29 @@
 		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/I
 	if(icon_override)
 		I = icon_override
-	else if(istype(M) && (M.species.bodytype in sprite_sheets))
-		I = sprite_sheets[M.species.bodytype]
+	else if(istype(H) && (H.species.bodytype in sprite_sheets))
+		I = sprite_sheets[H.species.bodytype]
 		accessory_mob_overlay = null // reset the overlay
 	else if(contained_sprite)
 		I = icon
+		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
 	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if(contained_sprite)
-				tmp_icon_state = "[src.item_state][WORN_UNDER]"
+				auto_adapt_species(H)
+				tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
 			else if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
-			tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			auto_adapt_species(H)
+			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 		if(build_from_parts)
 			accessory_mob_overlay.cut_overlays()
@@ -127,12 +130,15 @@
 			else
 				overlay_state = initial(overlay_state)
 				flipped = 0
-		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/proc/flip_message(mob/user)
+	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 
 /obj/item/clothing/accessory/red
 	name = "red tie"
@@ -250,7 +256,7 @@
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
 				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
-									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
+										"You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
 
@@ -758,8 +764,8 @@
 	name = "Nralakk Division Zeng-Hu cloak"
 	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Nralakk Federation."
 	desc_extended = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
-	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
-	 as a show of goodwill between the corporation and federation."
+	in the past been given the privilege of working within or in collaboration with the Nralakk Federation \
+	as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_state = "ZH_cape"
@@ -1132,6 +1138,8 @@
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
 
 /obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")

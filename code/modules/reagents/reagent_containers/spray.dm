@@ -36,6 +36,8 @@
 
 
 /obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+	if(A.loc == user) // don't spray yourself
+		return
 
 	if(istype(A, /obj/item/reagent_containers))
 		. = ..()
@@ -111,9 +113,9 @@
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
 /obj/item/reagent_containers/spray/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(is_adjacent)
 		to_chat(user, "[round(reagents.total_volume)] units left.")
-	return
 
 /obj/item/reagent_containers/spray/verb/empty()
 
@@ -170,7 +172,7 @@
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 1)
+	if(is_adjacent)
 		to_chat(user, "The safety is [safety ? "on" : "off"].")
 
 /obj/item/reagent_containers/spray/pepper/AltClick()

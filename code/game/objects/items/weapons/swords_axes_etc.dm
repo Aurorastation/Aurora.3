@@ -1,4 +1,4 @@
- /* Weapons
+/* Weapons
  * Contains:
  *		Sword
  *		Classic Baton

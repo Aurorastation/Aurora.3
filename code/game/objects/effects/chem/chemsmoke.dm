@@ -48,13 +48,19 @@
 /obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
 	..()
 	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		reagents.splash(AM, splash_amount, copy = 1)
+		if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+			return
+		else
+			reagents.splash(AM, splash_amount, copy = 1)
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/effect/smoke/chem))
-				reagents.splash(AM, splash_amount, copy = 1)
+				if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+					return
+				else
+					reagents.splash(AM, splash_amount, copy = 1)
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System

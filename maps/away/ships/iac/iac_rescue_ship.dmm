@@ -663,7 +663,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "cQh" = (
 /obj/structure/table/steel,
@@ -1549,7 +1549,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "hIu" = (
 /obj/structure/cable{
@@ -1572,7 +1572,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "hNT" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -1582,7 +1582,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "hQL" = (
 /obj/machinery/computer/shuttle_control/explore/iac_shuttle{
@@ -2091,7 +2091,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "maI" = (
 /obj/structure/cable{
@@ -2436,7 +2436,7 @@
 /area/shuttle/iac_shuttle)
 "oyE" = (
 /obj/machinery/photocopier,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "oyN" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -2544,7 +2544,7 @@
 	pixel_x = 32;
 	req_one_access = null
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "pfz" = (
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -2734,7 +2734,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "qEu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3198,7 +3198,7 @@
 /area/ship/iac_rescue_ship/portengine)
 "tvU" = (
 /obj/machinery/papershredder,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/ship/iac_rescue_ship/coord)
 "tyf" = (
 /obj/machinery/door/airlock/glass_medical{

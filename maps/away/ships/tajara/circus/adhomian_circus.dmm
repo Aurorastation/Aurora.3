@@ -712,7 +712,7 @@
 	},
 /area/adhomian_circus/starboard)
 "dyw" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
 "dzv" = (

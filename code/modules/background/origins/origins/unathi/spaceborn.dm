@@ -12,7 +12,7 @@
 	name = "Pirates of the Spur"
 	desc = "Pirates have no common group holding them all together to work as one. They tend towards ambition and passion, acting impulsively towards what they desire. With Not'zar Izweski's call to pirates to forsake their lifestyles and join his space navy, any pirate that has served four or more years under the Hegemony has their crimes pardoned by him (but not necessarily other states). With this, a good handful of pirates that knew no normalcy are now finding it abroad. Unathi pirates don't have citizenship in their respective countries, typically having a work or visitation visa instead."
 	important_information = "Outside of the Hegemony, records should say they have some kind of visa instead of citizenship."
-	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_HEARTLAND_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE, ACCENT_WASTELAND, ACCENT_UNATHI_SPACER, ACCENT_HAZANA)
+	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_HEARTLAND_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE, ACCENT_WASTELAND, ACCENT_UNATHI_SPACER, ACCENT_HAZANA, ACCENT_OUEREA)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
 
@@ -45,6 +45,8 @@
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH)
 	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_MOROZ, RELIGION_THAKH)
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
 /singleton/origin_item/origin/mictlan_unathi
 	name = "Mictlan Unathi"
@@ -52,5 +54,7 @@
 	Unathi refugees on the planet of Mictlan, where they began to rebuild - and eventually established the Free City of Vezdukh. The Unathi of Mictlan have restructured their society, creating one which is far more meritocratic than the feudal states of Moghes, \
 	and have integrated into the population smoothly. Following the Republic of Biesel's annexation of Mictlan, the Unathi of the planet have largely refused to involve themselves in the ongoing struggle between the Samaritan movement and Biesel, simply wishing not to see another home consumed in war."
 	possible_accents = list(ACCENT_MICTLAN)
-	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
+	possible_citizenships = list(CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
+	origin_traits_descriptions = list("are not affected by spicy foods")

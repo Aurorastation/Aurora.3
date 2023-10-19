@@ -227,7 +227,7 @@
 
 	// Its vital that if you make new power tools or new recipies that you include this
 
-/obj/item/Initialize()
+/obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
 		for(var/type in armor)
@@ -333,8 +333,18 @@
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
+	. = ..(user, distance, "", "It is a [size] item.")
+	if(length(armor))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
 
-	return ..(user, distance, "", "It is a [size] item.")
+/obj/item/Topic(href, href_list)
+	if(href_list["examine_armor"])
+		var/list/armor_details = list()
+		for(var/armor_type in armor)
+			armor_details[armor_type] = armor[armor_type]
+		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
+		AV.ui_interact(usr)
+	return ..()
 
 /obj/item/attack_hand(mob/user)
 	if(!user)

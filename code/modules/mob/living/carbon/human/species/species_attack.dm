@@ -98,7 +98,7 @@
 	attack_verb = list("jumped on")
 	attack_name = "weak stomp"
 
-/datum/unarmed_attack/stomp/weak/get_unarmed_damage()
+/datum/unarmed_attack/stomp/weak/get_unarmed_damage(var/mob/attacker, var/mob/living/carbon/human/target)
 	return damage
 
 /datum/unarmed_attack/stomp/weak/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
@@ -211,6 +211,12 @@
 		if(target.reagents)
 			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
 			target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
+
+/datum/unarmed_attack/bite/infectious/get_unarmed_damage(var/mob/attacker, var/target)
+	if(istype(target, /mob/living/heavy_vehicle))
+		return damage * 4
+
+	. = ..()
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")

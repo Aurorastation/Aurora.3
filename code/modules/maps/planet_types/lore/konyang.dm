@@ -18,11 +18,16 @@
 	plant_colors = null//pre colored
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = null
-	possible_themes = null
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village)
+	possible_themes = list(/datum/exoplanet_theme/konyang)
 	place_near_main = list(1,0)
-	var/landing_theme
-	var/landing_details
+
+/obj/effect/overmap/visitable/sector/exoplanet/konyang/Initialize()
+	. = ..()
+	var/area/overmap/map = global.map_overmap
+	for(var/obj/effect/overmap/visitable/sector/point_verdant/P in map)
+		P.x = x
+		P.y = y
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_habitability()
 	return HABITABILITY_IDEAL
@@ -47,33 +52,3 @@
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
 		atmosphere.temperature = T20C
 		atmosphere.update_values()
-
-/obj/effect/overmap/visitable/sector/exoplanet/konyang/pre_ruin_preparation()
-	landing_theme = pick("settled jungles", "uncharted jungles", "subterranean cavities", "open sea", "abandoned infrastructure")
-	switch(landing_theme)
-		if("settled jungles")
-			possible_themes = list(/datum/exoplanet_theme/konyang)
-			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone)
-			landing_details = " Charts indicate potential native habitats in proximity. Permissable landing zones include a Conglomerate-operated shuttle outpost."
-
-		if("uncharted jungles")
-			possible_themes = list(/datum/exoplanet_theme/konyang/uncharted)
-			ruin_type_whitelist = list (null)
-			landing_details = " No existing infrastructure is in place to support landing. Permissable landing zone is expected to be a natural clearing."
-
-		if("subterranean cavities")
-			possible_themes = list(/datum/exoplanet_theme/konyang/underground)
-			ruin_type_whitelist = list (null)
-			landing_details = " Existing Conglomerate-operated infrastructure allows for unassisted landing. Permissable landing zone is within subterranean Conglomerate-operated shuttle pad."
-
-		if("open sea")
-			possible_themes = list(/datum/exoplanet_theme/konyang/ocean)
-			ruin_type_whitelist = list (null)
-			landing_details = " Existing Conglomerate-operated infrastructure allows for unassisted landing. Permissable landing zone is expected to be a surface-bouyant naval shuttle pad."
-
-		if("abandoned infrastructure")
-			possible_themes = list(/datum/exoplanet_theme/konyang/abandoned)
-			ruin_type_whitelist = list (null)
-			landing_details = " Existing derelict infrastructure allows for unassisted landing. Permissable landing zone is expected to be a paved untagged pad."
-
-	desc += " Designated landing zones provide generic survey descriptor of [landing_theme]. [landing_details]"
