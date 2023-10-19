@@ -18,6 +18,7 @@
 	desc = "The Gadpathurian Skanda-class patrol corvette is very much designed with function over form in mind. These vessels are built by Gadpathur's industrial cadres, to serve as patrol and reconnaissance craft for Gadpathur's navy. While not built as a dedicated combat vessel, it has the armanent to fend off minor hostile incursions and pirates alone."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
+	designation = "264"
 	colors = list("#474800", "#7f6300")
 	designer = "Gadpathur"
 	volume = "80 meters length, 58 meters beam/width, 12 meters vertical height"
@@ -77,6 +78,7 @@
 	desc = "The Gadpathurian Tigra-class combat shuttle is a lightly armed transport, designed to serve multiple roles including fire support, and transportation."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	designation = "1364"
 	colors = list("#474800")
 	shuttle = "Gadpathurian Corvette Shuttle"
 	max_speed = 1/(3 SECONDS)

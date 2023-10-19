@@ -361,6 +361,9 @@
 /area/ship/gadpathur_patrol/cic)
 "cM" = (
 /obj/machinery/power/apc/west,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/corridor/port)
 "cR" = (
@@ -653,6 +656,13 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/sit_room)
+"fq" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/corridor/starboard)
 "fr" = (
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
@@ -1657,6 +1667,18 @@
 /obj/effect/shuttle_landmark/gadpathur_patrol/nav2,
 /turf/template_noop,
 /area/space)
+"nE" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/gadpathur_patrol/corridor/port)
 "nL" = (
 /obj/structure/morgue{
 	dir = 8
@@ -1713,6 +1735,9 @@
 /area/shuttle/gadpathur_shuttle)
 "oy" = (
 /obj/machinery/power/apc/west,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/brig)
 "oJ" = (
@@ -2143,6 +2168,27 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/cic)
+"rJ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northleft,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/coalition/gadpathur{
+	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
+	},
+/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/eva)
 "rL" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, engine compartment"
@@ -2154,6 +2200,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/light/small/floor,
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/quarters_bath)
 "rO" = (
@@ -2694,6 +2741,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/brig)
 "wN" = (
@@ -3322,6 +3370,18 @@
 	},
 /turf/template_noop,
 /area/space)
+"BK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/ship/gadpathur_patrol/corridor/starboard)
 "BL" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -3552,6 +3612,13 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
+"Dh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/corridor/port)
 "Dk" = (
 /obj/machinery/power/apc/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -4216,6 +4283,9 @@
 /area/ship/gadpathur_patrol/corridor/port)
 "Iz" = (
 /obj/machinery/power/apc/west,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/corridor/starboard)
 "IE" = (
@@ -4562,12 +4632,17 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Lj" = (
-/obj/machinery/shower{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/gadpathur_patrol/quarters_bath)
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/gadpathur_patrol/brig)
 "Ll" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable,
@@ -4749,9 +4824,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 6
@@ -4765,6 +4837,9 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 6
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -5207,27 +5282,6 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
-"QH" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/coalition/gadpathur{
-	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
-	},
-/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/structure/sign/vacuum{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/gadpathur_patrol/eva)
 "QL" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -5547,7 +5601,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/light/small/floor,
+/obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/quarters_bath)
 "SQ" = (
@@ -36362,7 +36416,7 @@ CE
 eA
 Iz
 Mn
-yF
+fq
 Qc
 jy
 Mn
@@ -36617,7 +36671,7 @@ Os
 sr
 dg
 mo
-jH
+BK
 jH
 dH
 jH
@@ -36634,7 +36688,7 @@ vx
 So
 PC
 So
-QH
+rJ
 Nm
 Nm
 Nm
@@ -39190,7 +39244,7 @@ NZ
 Hy
 Ce
 hL
-cB
+Dh
 cM
 Ce
 Hy
@@ -39448,7 +39502,7 @@ Ku
 su
 zD
 Iy
-su
+nE
 su
 Ax
 Jx
@@ -39456,7 +39510,7 @@ xn
 bj
 Rq
 rm
-SE
+Lj
 SE
 EH
 SE
@@ -41748,9 +41802,9 @@ uE
 uE
 Lb
 uV
-Lj
 SP
-Lj
+SP
+SP
 uV
 Gu
 Zt
