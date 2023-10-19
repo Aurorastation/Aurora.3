@@ -57,6 +57,7 @@
 
 /obj/item/device/orbital_dropper/armory/syndicate
 	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
+	announcer_name = "Tactical Autodrone"
 	announcer_frequency = SYND_FREQ
 
 /obj/item/device/orbital_dropper/icarus_drones
