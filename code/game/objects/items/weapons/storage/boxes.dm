@@ -1230,12 +1230,13 @@
 	. = ..()
 	make_exact_fit()
 
-/obj/item/storage/box/spacecleaner
-	name = "Idris advamced dissolvable cleaner tablets"
-	desc = "A box of advanced chemical tablets designed by Idris Incorporated. A new generation of cleaning chemicals. Instructions on the box read; dissolve tablet fully in bucket of water, do not consume tablet, do not consume cleaner water from concentration."
+/obj/item/storage/box/cleaner_tablets
+	name = "\improper Idris cleaner tablets case"
+	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
+	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
 	icon = 'icons/obj/tabletcase.dmi'
 	icon_state = "tabletcase"
 	max_storage_space = 16
 	starts_with = list(
-		/obj/item/reagent_containers/pill/spacecleaner = 16,
+		/obj/item/reagent_containers/pill/cleaner_tablet = 16
 	)
