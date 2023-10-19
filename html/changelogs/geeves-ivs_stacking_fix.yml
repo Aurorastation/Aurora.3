@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "You can no longer stack multiple IVs on one tile."
