@@ -334,9 +334,9 @@
 	icon_state = "pill8"
 	reagents_to_add = list(/singleton/reagent/steramycin = 5)
 
-/obj/item/reagent_containers/pill/spacecleaner
+/obj/item/reagent_containers/pill/cleaner_tablet
 	name = "dissolvable cleaner tablet"
-	desc = "A highly advanced dissolvable tablet laden with the cutting edge of Idris chemical science. Smells like dried bleach. It's probably just bleach."
+	desc = "An advanced formula dissolvable tablet laden with the cutting edge of Idris chemical science. Smells like dried bleach. It's probably just bleach."
 	icon = 'icons/obj/cleanertablet.dmi'
 	icon_state = "cleanertablet"
 	reagents_to_add = list(singleton/reagent/spacecleaner = 15)
