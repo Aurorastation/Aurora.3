@@ -42,7 +42,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/gadpathur_patrol/New()
-	designation = rand(100, 500)
+	designation = "[rand(100, 500)]"
 	..()
 
 /obj/effect/shuttle_landmark/gadpathur_patrol
@@ -86,7 +86,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/gadpathur_shuttle/New()
-	designation = rand(1000, 1500)
+	designation = "[rand(1000, 1500)]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/gadpathur_shuttle

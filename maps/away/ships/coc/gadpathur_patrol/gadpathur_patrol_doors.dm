@@ -41,7 +41,7 @@
 /obj/machinery/door/airlock/gadpathur/quarters/crew
 	name = "general quarters"
 	stripe_color = COLOR_GADPATHUR_RED
-	req_one_access = list(access_gadpathur_navy, access_coalition_navy)
+	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy, access_coalition_navy)
 
 /obj/machinery/door/airlock/gadpathur/quarters/officer
 	name = "officer quarters"
@@ -66,6 +66,7 @@
 /obj/machinery/door/airlock/freezer/gadpathur/morgue
 	door_frame_color = COLOR_GADPATHUR_BLACK
 	name = "morgue"
+	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy, access_coalition_navy)
 
 /obj/machinery/door/airlock/gadpathur/medical
 	name = "medical bay"
@@ -113,6 +114,7 @@
 /obj/machinery/door/airlock/hatch/gadpathur/armanent
 	door_color = COLOR_GADPATHUR_BLACK
 	stripe_color = COLOR_GADPATHUR_RED
+	req_one_access = list(access_gadpathur_navy_officer, access_gadpathur_navy, access_coalition_navy)
 
 /obj/machinery/door/airlock/hatch/gadpathur/armanent/light
 	name = "light armanent"

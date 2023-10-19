@@ -75,12 +75,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/corridor/starboard)
-"aS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/eva)
 "aX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -468,7 +462,6 @@
 	frequency = 1379;
 	locked = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
 "dX" = (
@@ -716,11 +709,6 @@
 	pixel_x = -28;
 	pixel_y = -8;
 	id_tag = "gadpathur_corvette_dock_sensor_exterior"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "gadpathur_corvette_dock_pump_out_external";
-	frequency = 1379
 	},
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
@@ -1030,7 +1018,7 @@
 "iT" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1;
-	id_tag = "gadpathur_corvette_dock_pump_in";
+	id_tag = "gadpathur_corvette_dock_pump";
 	frequency = 1379
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -1044,8 +1032,7 @@
 	tag_exterior_sensor = "gadpathur_corvette_dock_sensor_exterior";
 	tag_interior_sensor = "gadpathur_corvette_dock_sensor_interior";
 	req_access = list(13);
-	id_tag = "gadpathur_corvette_dock";
-	cycle_to_external_air = 1
+	id_tag = "gadpathur_corvette_dock"
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -1176,7 +1163,7 @@
 "jV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1;
-	id_tag = "gadpathur_corvette_dock_pump_in";
+	id_tag = "gadpathur_corvette_dock_pump";
 	frequency = 1379
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
@@ -1731,10 +1718,6 @@
 "oJ" = (
 /obj/machinery/light/small{
 	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "gadpathur_corvette_dock_pump_out_internal";
-	frequency = 1379
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -2826,13 +2809,19 @@
 /area/ship/gadpathur_patrol/corridor/port)
 "xp" = (
 /obj/structure/table/steel,
+/obj/item/storage/firstaid/large{
+	pixel_y = 16
+	},
 /obj/item/storage/firstaid/large/adv{
+	pixel_y = 12
+	},
+/obj/item/storage/firstaid/large/stab{
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/large/combat,
-/obj/machinery/light{
-	dir = 1
+/obj/item/storage/firstaid/large/o2{
+	pixel_y = 4
 	},
+/obj/item/storage/firstaid/large/combat,
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
 "xr" = (
@@ -3098,6 +3087,7 @@
 	identifier = "gadpathur_surgeon"
 	},
 /obj/structure/cable,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "zI" = (
@@ -3225,10 +3215,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "gadpathur_corvette_dock_pump_out_internal";
-	frequency = 1379
-	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
 "AM" = (
@@ -3315,27 +3301,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
-"Bv" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/coalition/gadpathur{
-	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
-	},
-/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/structure/sign/vacuum{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/gadpathur_patrol/eva)
 "Bw" = (
 /obj/machinery/vending/engivend{
 	req_access = null
@@ -3633,6 +3598,9 @@
 /obj/machinery/alarm/north,
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
@@ -3943,7 +3911,6 @@
 	pixel_y = -7;
 	master_tag = "gadpathur_corvette_dock"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
 "FO" = (
@@ -5240,6 +5207,27 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
+"QH" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northleft,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/coalition/gadpathur{
+	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
+	},
+/obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/eva)
 "QL" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -6103,11 +6091,6 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southright,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "gadpathur_corvette_dock_pump_out_external";
-	frequency = 1379
-	},
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "Xv" = (
@@ -35884,7 +35867,7 @@ Nm
 Nm
 Nm
 Nm
-aS
+Nm
 uE
 uE
 uE
@@ -36651,11 +36634,11 @@ vx
 So
 PC
 So
-Bv
+QH
 Nm
 Nm
 Nm
-aS
+Nm
 uE
 uE
 uE
