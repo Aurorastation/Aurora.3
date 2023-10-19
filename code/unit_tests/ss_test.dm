@@ -8,6 +8,10 @@
  */
 #ifdef UNIT_TEST
 
+/*
+	The Unit Tests Configuration subsystem
+*/
+
 var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 /datum/controller/subsystem/unit_tests_config
 	name = "Unit Test Config"
@@ -21,6 +25,12 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 	///The configuration, decoded from `config/unit_test/ut_pods_configuration.json`, specific for our identifier
 	var/list/config = list()
+
+	///Boolean, if the tests should fast fail (Anything fails = the pod shuts down)
+	var/fail_fast = FALSE
+
+	///How many times can the pod retries before the unit test is considered failed
+	var/retries = 0
 
 /datum/controller/subsystem/unit_tests_config/New()
 	. = ..()
@@ -69,6 +79,34 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		. = ..(e)
 		del world
 
+	refresh_retries(FALSE)
+	refresh_fail_fast()
+
+
+/**
+ * Refresh the `retries` variable from the environment variables
+ *
+ * * decrement - A boolean, if `TRUE` it decrements the environment variable that holds the retries left
+ */
+/datum/controller/subsystem/unit_tests_config/proc/refresh_retries(decrement = FALSE)
+	src.retries = world.GetConfig("env", "CI_MAX_RETRIES")
+
+	if(decrement && src.retries)
+		world.SetConfig("env", "CI_MAX_RETRIES", (src.retries - 1))
+
+/**
+ * Refresh the `fail_fast` variable depending on the CI trigger reason
+ */
+/datum/controller/subsystem/unit_tests_config/proc/refresh_fail_fast()
+
+	//Off by default, so only need to flip it on when we wish it to
+	if(world.GetConfig("env", "CI_TRIGGER_REASON") == "merge_group")
+		src.fail_fast = TRUE
+
+
+/*
+	The Unit Tests subsystem
+*/
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
 	var/datum/unit_test/UT = new // Use this to log things from outside where a specific unit_test is defined
@@ -148,6 +186,11 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		if (MC_TICK_CHECK)
 			return
 
+		if(unit_tests_failures && SSunit_tests_config.fail_fast)
+			UT.fail("**** Fail fast is enabled and an unit test failed! Aborting... ****", __FILE__, __LINE__)
+			handle_tests_ending(TRUE)
+			break
+
 	if (!curr.len)
 		stage++
 
@@ -189,8 +232,16 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		if (4)	// Finalization.
 			if(all_unit_tests_passed)
 				UT.pass("**** All Unit Tests Passed \[[total_unit_tests]\] ****", __FILE__, __LINE__)
+				handle_tests_ending(FALSE)
 			else
 				UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
-			del world
+				handle_tests_ending(TRUE)
+
+/datum/controller/subsystem/unit_tests/proc/handle_tests_ending(is_failure = FALSE)
+	if(is_failure && SSunit_tests_config.retries)
+		SSunit_tests_config.refresh_retries(TRUE)
+		world.Reboot("Restarting for another UT try, remaining tries: [SSunit_tests_config.retries]", TRUE)
+	else
+		del world
 
 #endif

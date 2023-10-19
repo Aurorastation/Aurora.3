@@ -15,6 +15,8 @@ env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
   TO_WORLD_COUNT: 186
+
+  #These variables are filled from dependencies.sh inside the steps, DO NOT SET THEM HERE
   BYOND_MAJOR: ""
   BYOND_MINOR: ""
   RUST_G_VERSION: ""
@@ -23,7 +25,14 @@ env:
   NODE_VERSION: ""
   NODE_VERSION_PRECISE: ""
   PYTHON_VERSION: ""
-  RUNNER_DEBUG: false
+
+  #If we want the runner to open an SSH shell for us to inspect it, fairly nieche, don't touch if you don't know what you're doing
+  RUNNER_DEBUG_SHELL: false
+
+  #This is used to know what triggered the jobs for running
+  CI_TRIGGER_REASON: ${{ github.event_name }}
+  #The maximum number of retries the unit tests (excluding linters) can make, if appropriate for them to
+  CI_MAX_RETRIES: 3
 
 jobs:
 
@@ -278,7 +287,7 @@ jobs:
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG == true }}
+        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
@@ -401,7 +410,7 @@ jobs:
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG == true }}
+        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
@@ -526,7 +535,7 @@ jobs:
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG == true }}
+        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
@@ -650,7 +659,7 @@ jobs:
       #This allows us to SSH into the pod, and it's only enabled if we're running in debug mode
       - name: Setup TMATE session (Debug only)
         uses: mxschmitt/action-tmate@v3
-        if: ${{ env.RUNNER_DEBUG == true }}
+        if: ${{ env.RUNNER_DEBUG_SHELL == true }}
         with:
           detached: true
         timeout-minutes: 5
