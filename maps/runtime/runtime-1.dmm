@@ -1416,10 +1416,6 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/airlock_marker{
-	id_tag = "runtime_1_airlock_1";
-	frequency = 2137
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "dC" = (
@@ -1589,6 +1585,17 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"qk" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "qx" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
@@ -1606,6 +1613,9 @@
 "sY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -1638,9 +1648,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "vl" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/landmark{
-	name = "Observer-Start"
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -1654,16 +1663,13 @@
 /turf/template_noop,
 /area/engineering)
 "wi" = (
-/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
 	pixel_x = 27;
 	pixel_y = -11
 	},
-/obj/effect/map_effect/airlock_marker/interior{
-	frequency = 2137;
-	id_tag = "runtime_1_airlock_1"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external/blue,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "wk" = (
@@ -1725,12 +1731,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "AB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
-/obj/effect/map_effect/airlock_marker{
-	id_tag = "runtime_1_airlock_1";
-	frequency = 2137
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -1822,6 +1827,9 @@
 	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
 	radio_frequency = 2001
 	},
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/maintcentral)
 "IY" = (
@@ -1832,6 +1840,15 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"JE" = (
+/obj/machinery/access_button{
+	pixel_x = 27;
+	pixel_y = 11;
+	dir = 1
+	},
+/obj/machinery/door/airlock/external/red,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -1866,28 +1883,22 @@
 /obj/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"Nn" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+"ME" = (
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/airlock_marker{
-	id_tag = "runtime_1_airlock_1";
-	frequency = 2137
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = -20
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Nn" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "Ot" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
-	},
-/obj/effect/map_effect/airlock_marker{
-	id_tag = "runtime_1_airlock_1";
-	frequency = 2137
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -1943,10 +1954,7 @@
 /area/storage/primary)
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/airlock_marker{
-	id_tag = "runtime_1_airlock_1";
-	frequency = 2137
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "Tq" = (
@@ -1954,15 +1962,8 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "Tz" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = 27;
-	pixel_y = 11;
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
-	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	frequency = 2137;
-	id_tag = "runtime_1_airlock_1"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -2043,6 +2044,17 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"YI" = (
+/obj/machinery/door/airlock/external/khaki{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -11;
+	pixel_y = -27;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "YP" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -7932,7 +7944,7 @@ aa
 aa
 aa
 ab
-aa
+ab
 ad
 ab
 ab
@@ -9219,7 +9231,7 @@ aa
 ab
 aa
 ac
-ae
+ME
 ah
 an
 aC
@@ -9476,7 +9488,7 @@ aa
 ab
 aa
 ac
-ae
+vl
 ah
 ao
 aD
@@ -9733,7 +9745,7 @@ aa
 ab
 aa
 Eu
-ae
+vl
 ah
 ap
 kc
@@ -9985,12 +9997,12 @@ aa
 aa
 aa
 aa
-aa
 ac
 ac
+YI
 ac
 ac
-ae
+vl
 ai
 ai
 jf
@@ -10242,12 +10254,12 @@ aa
 aa
 aa
 aa
-aa
 ac
+Nn
 Nn
 dB
 ac
-ae
+vl
 ai
 aq
 aF
@@ -10499,7 +10511,7 @@ aa
 aa
 aa
 aa
-aa
+JE
 Tz
 AB
 Tj
@@ -10756,8 +10768,8 @@ aa
 aa
 aa
 aa
-aa
 ac
+qk
 Ot
 Ot
 ac
@@ -11013,9 +11025,9 @@ aa
 aa
 aa
 aa
-aa
 ac
-vl
+ac
+bU
 bU
 IQ
 wI

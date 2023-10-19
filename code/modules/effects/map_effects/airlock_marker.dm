@@ -66,7 +66,7 @@ var/global/list/airlock_markers = list()
 		for(var/thing in marker.loc)
 			var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
 			if(istype(airlock_controller))
-				airlock_controller.frequency = frequency
+				airlock_controller.set_frequency(frequency)
 				airlock_controller.id_tag = MASTER_TAG
 				airlock_controller.tag_airpump = AIRPUMP_TAG
 				airlock_controller.tag_chamber_sensor = SENSOR_TAG
@@ -76,30 +76,36 @@ var/global/list/airlock_markers = list()
 
 			var/obj/machinery/door/airlock/door = thing
 			if(istype(door) && is_interior)
-				door.frequency = frequency
+				door.set_frequency(frequency)
 				door.id_tag = INTERIOR_DOOR_TAG
 			if(istype(door) && is_exterior)
-				door.frequency = frequency
+				door.set_frequency(frequency)
 				door.id_tag = EXTERIOR_DOOR_TAG
 
 			var/obj/machinery/airlock_sensor/sensor = thing
 			if(istype(sensor))
-				sensor.frequency = frequency
+				sensor.set_frequency(frequency)
 				sensor.id_tag = SENSOR_TAG
 				sensor.master_tag = MASTER_TAG
 
 			var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
 			if(istype(pump))
+				//pump.set_frequency(frequency)
+				// created_pump.frequency = radio_frequency
+				// unregister_radio(created_pump, radio_frequency)
+				// created_pump.setup_radio()
 				pump.frequency = frequency
+				unregister_radio(pump, frequency)
+				pump.setup_radio()
 				pump.id_tag = AIRPUMP_TAG
 
 			var/obj/machinery/access_button/button = thing
 			if(istype(button) && is_interior)
-				button.frequency = frequency
+				button.set_frequency(frequency)
 				button.master_tag = MASTER_TAG
 				button.command = "cycle_interior"
 			if(istype(button) && is_exterior)
-				button.frequency = frequency
+				button.set_frequency(frequency)
 				button.master_tag = MASTER_TAG
 				button.command = "cycle_exterior"
 
