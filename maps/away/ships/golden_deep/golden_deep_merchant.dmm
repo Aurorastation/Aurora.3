@@ -155,7 +155,9 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock/aux)
 "bZ" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/random/civgun,
 /obj/random/civgun,
 /obj/random/civgun,
@@ -958,7 +960,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/portprop)
 "kg" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/storage/box/frags,
 /obj/item/storage/box/flashbangs,
 /obj/item/storage/box/handcuffs,
@@ -2062,7 +2066,9 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/custodial)
 "vk" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/rifle/laser/noctiluca,
@@ -2527,7 +2533,9 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "zA" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
@@ -3151,7 +3159,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "Gx" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -4379,6 +4389,13 @@
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
+"Vm" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "VA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -17396,19 +17413,19 @@ qw
 jm
 Tx
 Tx
-tO
+Tx
 gr
 Tx
-tO
 Tx
 Tx
-tO
 Tx
 Tx
-tO
+Tx
+Tx
+Tx
 KZ
 Tx
-tO
+Tx
 Tx
 Tx
 tJ
@@ -17558,19 +17575,19 @@ WZ
 BW
 zb
 zb
-zb
+Vm
 vz
 zb
+Vm
 zb
 zb
+Vm
 zb
 zb
-zb
-zb
-zb
+Vm
 Hj
 zb
-zb
+Vm
 zb
 zb
 Mr
