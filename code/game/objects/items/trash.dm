@@ -60,7 +60,7 @@
 	icon_state = "sosjerky"
 
 /obj/item/trash/syndi_cakes
-	name = "Nutri-Cakes"
+	name = "\improper Nutri-Cakes"
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
