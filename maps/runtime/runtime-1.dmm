@@ -1416,6 +1416,10 @@
 	pixel_x = -20;
 	dir = 4
 	},
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "dC" = (
@@ -1594,6 +1598,10 @@
 	pixel_y = 0;
 	pixel_x = 20
 	},
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "qx" = (
@@ -1670,6 +1678,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/airlock/external/blue,
+/obj/effect/map_effect/airlock_marker/interior{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "wk" = (
@@ -1736,6 +1748,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
+	},
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -1847,6 +1863,10 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external/red,
+/obj/effect/map_effect/airlock_marker/exterior{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "Kz" = (
@@ -1894,11 +1914,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "Ot" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
+	},
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -1955,6 +1983,10 @@
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "Tq" = (
@@ -1964,6 +1996,10 @@
 "Tz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
+	},
+/obj/effect/map_effect/airlock_marker{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -2052,6 +2088,10 @@
 	pixel_x = -11;
 	pixel_y = -27;
 	dir = 8
+	},
+/obj/effect/map_effect/airlock_marker/exterior{
+	master_tag = "runtime-1-airlock-test-showcase-1";
+	frequency = 2137
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
