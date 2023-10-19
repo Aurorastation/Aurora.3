@@ -73,7 +73,7 @@
 	bluecrystal_cost = 1
 	path = /obj/item/storage/firstaid/regular
 
-/datum/uplink_item/item/medical/firstaid
+/datum/uplink_item/item/medical/firstaid/free
 	name = "Standard First-Aid Kit (Free)"
 	telecrystal_cost = 0
 	bluecrystal_cost = 0

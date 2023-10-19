@@ -155,7 +155,9 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock/aux)
 "bZ" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/random/civgun,
 /obj/random/civgun,
 /obj/random/civgun,
@@ -177,6 +179,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
+"cc" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/closet/crate/rad{
+	name = "fuel crate"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "cd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/autolathe,
@@ -945,7 +960,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/portprop)
 "kg" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/storage/box/frags,
 /obj/item/storage/box/flashbangs,
 /obj/item/storage/box/handcuffs,
@@ -1001,6 +1018,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "kt" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "kA" = (
@@ -1154,6 +1172,7 @@
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "lS" = (
@@ -1441,6 +1460,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
+"ov" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "ow" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2049,7 +2075,9 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/custodial)
 "vk" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/rifle/laser/noctiluca,
@@ -2514,7 +2542,9 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "zA" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
@@ -2701,6 +2731,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "BF" = (
@@ -3087,6 +3118,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "FV" = (
@@ -3138,7 +3170,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "Gx" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -4063,6 +4097,11 @@
 "Ru" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -10;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
@@ -17378,19 +17417,19 @@ qw
 jm
 Tx
 Tx
-tO
+Tx
 gr
 Tx
-tO
 Tx
 Tx
-tO
 Tx
 Tx
-tO
+Tx
+Tx
+Tx
 KZ
 Tx
-tO
+Tx
 Tx
 Tx
 tJ
@@ -17540,19 +17579,19 @@ WZ
 BW
 zb
 zb
-zb
+ov
 vz
 zb
+ov
 zb
 zb
+ov
 zb
 zb
-zb
-zb
-zb
+ov
 Hj
 zb
-zb
+ov
 zb
 zb
 Mr
@@ -19287,7 +19326,7 @@ aH
 aH
 aH
 vB
-Rm
+cc
 fA
 fA
 fA
