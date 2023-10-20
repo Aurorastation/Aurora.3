@@ -510,11 +510,14 @@
 		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
 		/obj/item/storage/chewables/rollable/nico = 3,
+		/obj/item/storage/chewables/rollable/oracle = 5,
+		/obj/item/storage/chewables/rollable/vedamor = 3,
 		/obj/item/storage/chewables/tobacco/bad = 6,
 		/obj/item/storage/chewables/tobacco = 8,
 		/obj/item/storage/chewables/tobacco/fine = 5,
 		/obj/item/storage/chewables/tobacco/federation = 2,
 		/obj/item/storage/chewables/tobacco/dyn = 2,
+		/obj/item/storage/chewables/oracle = 4,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 6,
@@ -858,6 +861,7 @@
 		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
+		/obj/item/seeds/oracleseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
 		/obj/item/seeds/peppercornseed = 3,
@@ -896,6 +900,7 @@
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,
+		/obj/item/seeds/cocaseed = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3
@@ -937,6 +942,7 @@
 		/obj/item/seeds/mintseed = 70,
 		/obj/item/seeds/nifberries = 70,
 		/obj/item/seeds/onionseed = 30,
+		/obj/item/seeds/oracleseed = 50,
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
 		/obj/item/seeds/peppercornseed = 30,
