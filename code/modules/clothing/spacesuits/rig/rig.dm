@@ -37,6 +37,7 @@
 	slowdown = 1 // All rigs by default should have slowdown.
 
 	var/has_sealed_state = FALSE
+	var/has_hidden_jumpsuit = FALSE
 
 	var/interface_path = "hardsuit.tmpl"
 	var/ai_interface_path = "hardsuit.tmpl"
@@ -124,7 +125,7 @@
 
 	spark_system = bind_spark(src, 5)
 
-	START_PROCESSING(SSmob, src)
+	START_PROCESSING(SSmobs, src)
 
 	last_remote_message = world.time
 
@@ -180,13 +181,17 @@
 				armor_component.RemoveComponent()
 			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
+	if(chest.flags_inv & HIDEJUMPSUIT)
+		has_hidden_jumpsuit = TRUE
+		chest.flags_inv &= ~HIDEJUMPSUIT
+
 	set_vision(!offline)
 	update_icon(1)
 
 /obj/item/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
 		qdel(piece)
-	STOP_PROCESSING(SSmob, src)
+	STOP_PROCESSING(SSmobs, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)
@@ -255,7 +260,7 @@
 	seal_delay = is_in_cycler ? 1 : initial(seal_delay)
 
 	var/jumpsuit_was_hidden = FALSE
-	if(suit_is_deployed() && (wearer.wear_suit.flags_inv & HIDEJUMPSUIT) && !instant)
+	if(suit_is_deployed() && (wearer.wear_suit.flags_inv & HIDEJUMPSUIT) && !instant && has_hidden_jumpsuit)
 		/// Don't hide the jumpsuit while removing the rig.
 		wearer.wear_suit.flags_inv &= ~HIDEJUMPSUIT
 		wearer.update_inv_wear_suit()
@@ -308,10 +313,11 @@
 							wearer.update_inv_gloves()
 						if("chest")
 							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "cinches your chest tightly" : "releases your chest"].</span>")
-							if(!seal_target)
-								piece.flags_inv |= HIDEJUMPSUIT
-							else
-								piece.flags_inv &= ~HIDEJUMPSUIT
+							if(has_hidden_jumpsuit)
+								if(!seal_target)
+									piece.flags_inv |= HIDEJUMPSUIT
+								else
+									piece.flags_inv &= ~HIDEJUMPSUIT
 							wearer.update_inv_wear_suit()
 						if("helmet")
 							to_chat(wearer, "<span class='notice'>\The [piece] hisses [!seal_target ? "closed" : "open"].</span>")
@@ -341,7 +347,7 @@
 		canremove = !seal_target
 		if(airtight)
 			update_component_sealed()
-		if(jumpsuit_was_hidden && wearer.wear_suit == chest)
+		if(jumpsuit_was_hidden && wearer.wear_suit == chest && has_hidden_jumpsuit)
 			wearer.wear_suit.flags_inv |= HIDEJUMPSUIT
 		update_icon(1)
 		return 0

@@ -183,6 +183,9 @@
 /obj/item/modular_computer/console/preset/merchant/guild
 	_app_preset_type = /datum/modular_computer_app_presets/merchant/guild
 
+/obj/item/modular_computer/console/preset/merchant/golden_deep
+	_app_preset_type = /datum/modular_computer_app_presets/merchant/golden_deep
+
 // AI
 /obj/item/modular_computer/console/preset/ai
 	_app_preset_type = /datum/modular_computer_app_presets/ai

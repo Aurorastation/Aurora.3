@@ -72,8 +72,8 @@ var/global/datum/getrev/revdata = new()
 /datum/getrev/proc/generate_greeting_info()
 	if (!test_merges.len)
 		greeting_info = {"<div class="alert alert-info">
-		                  There are currently no test merges loaded onto the server.
-		                  </div>"}
+						There are currently no test merges loaded onto the server.
+						</div>"}
 		return
 
 	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",

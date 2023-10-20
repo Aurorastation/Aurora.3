@@ -108,29 +108,29 @@
 //more snowflake gloves for the custom loadout
 
 /obj/item/clothing/gloves/red/unathi
- 	name = "red gloves"
- 	desc = "Red gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "red gloves"
+	desc = "Red gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/blue/unathi
- 	name = "blue gloves"
- 	desc = "Blue gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "blue gloves"
+	desc = "Blue gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/orange/unathi
- 	name = "orange gloves"
- 	desc = "Orange gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "orange gloves"
+	desc = "Orange gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/purple/unathi
- 	name = "purple gloves"
- 	desc = "Purple gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "purple gloves"
+	desc = "Purple gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/brown/unathi
- 	name = "brown gloves"
- 	desc = "Brown gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "brown gloves"
+	desc = "Brown gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/light_brown/unathi
 	name = "light brown gloves"
@@ -138,9 +138,9 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/green/unathi
- 	name = "green gloves"
- 	desc = "Green gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "green gloves"
+	desc = "Green gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/grey/unathi
 	name = "grey gloves"

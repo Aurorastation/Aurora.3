@@ -363,25 +363,25 @@
 
 /obj/item/clothing/suit/storage/toggle/trench/alt
 	name = "brown trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_brown"
 	item_state = "trenchcoat_brown"
 
 /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	name = "grey trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 
 /obj/item/clothing/suit/storage/toggle/trench/green
 	name = "green trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_green"
 	item_state = "trenchcoat_green"
 
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trench_colorable"
 	item_state = "trench_colorable"
 

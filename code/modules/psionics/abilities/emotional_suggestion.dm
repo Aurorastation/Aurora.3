@@ -41,7 +41,7 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
-	var/text = input("Which emotion would you like to suggest?", "Emotional Suggestion") as null|anything in list("Calm", "Happiness", "Sadness", "Fear", "Anger", "Stress", "Confusion")
+	var/text = tgui_input_list(user, "Which emotion would you like to suggest?", "Emotional Suggestion", list("Calm", "Happiness", "Sadness", "Fear", "Anger", "Stress", "Confusion"))
 	if(!text)
 		return
 

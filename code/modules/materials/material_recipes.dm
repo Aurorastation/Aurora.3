@@ -53,7 +53,6 @@
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
 			new /datum/stack_recipe("steel barricade", /obj/structure/barricade/metal, BUILD_AMT, time = 10 SECONDS, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 2, 20),
-			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("steel window frame", /obj/structure/window_frame/unanchored, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),

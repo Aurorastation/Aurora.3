@@ -127,6 +127,8 @@
 	default_h_style = "Bald"
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket/admin,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -136,8 +138,6 @@
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
 		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield
 	)
 
@@ -215,6 +215,8 @@
 		)
 
 	has_organ = list(
+		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET       = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
@@ -222,8 +224,6 @@
 		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
-		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit,
 		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield/advanced
 	)

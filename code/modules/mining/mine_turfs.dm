@@ -844,25 +844,25 @@ var/list/asteroid_floor_smooth = list(
 		var/list/ore = list()
 		for(var/metal in resources)
 			switch(metal)
-				if("silicates")
+				if(ORE_SAND)
 					ore += /obj/item/ore/glass
-				if("carbonaceous rock")
+				if(ORE_COAL)
 					ore += /obj/item/ore/coal
-				if("iron")
+				if(ORE_IRON)
 					ore += /obj/item/ore/iron
-				if("gold")
+				if(ORE_GOLD)
 					ore += /obj/item/ore/gold
-				if("silver")
+				if(ORE_SILVER)
 					ore += /obj/item/ore/silver
-				if("diamond")
+				if(ORE_DIAMOND)
 					ore += /obj/item/ore/diamond
-				if("uranium")
+				if(ORE_URANIUM)
 					ore += /obj/item/ore/uranium
-				if("phoron")
+				if(ORE_PHORON)
 					ore += /obj/item/ore/phoron
-				if("osmium")
+				if(ORE_PLATINUM)
 					ore += /obj/item/ore/osmium
-				if("hydrogen")
+				if(ORE_HYDROGEN)
 					ore += /obj/item/ore/hydrogen
 				else
 					if(prob(25))

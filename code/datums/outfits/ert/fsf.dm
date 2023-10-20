@@ -16,14 +16,14 @@
 
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1
-    )
+	)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/c762/sol = 1,
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/grenade/frag = 1
-    )
+	)
 
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)

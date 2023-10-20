@@ -35,9 +35,21 @@
 	icon_state = "cheesie_honkers"
 
 /obj/item/trash/chips
-	name = "chips"
+	name = "empty chip packet"
 	icon_state = "chips"
 	item_state = "chips"
+
+/obj/item/trash/chips/cucumber
+	icon_state = "cucumberchips"
+
+/obj/item/trash/chips/chicken
+	icon_state = "chickenchips"
+
+/obj/item/trash/chips/dirtberry
+	icon_state = "dirtberrychips"
+
+/obj/item/trash/chips/phoron
+	icon_state = "phoronchips"
 
 /obj/item/trash/popcorn
 	name = "popcorn"

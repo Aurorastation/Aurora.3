@@ -127,12 +127,15 @@
 			else
 				overlay_state = initial(overlay_state)
 				flipped = 0
-		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/proc/flip_message(mob/user)
+	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 
 /obj/item/clothing/accessory/red
 	name = "red tie"
@@ -250,7 +253,7 @@
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
 				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
-									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
+										"You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
 
@@ -758,8 +761,8 @@
 	name = "Nralakk Division Zeng-Hu cloak"
 	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Nralakk Federation."
 	desc_extended = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
-	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
-	 as a show of goodwill between the corporation and federation."
+	in the past been given the privilege of working within or in collaboration with the Nralakk Federation \
+	as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_state = "ZH_cape"

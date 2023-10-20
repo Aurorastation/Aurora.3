@@ -779,11 +779,11 @@ pixel_x = 10;
 		var/list/selected = TLV["temperature"]
 		var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
 		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-		var/input_temperature = input("What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+		var/input_temperature = tgui_input_number(usr, "What temperature would you like the system to mantain?", "Thermostat Controls", target_temperature - T0C, max_temperature - T0C, min_temperature - T0C)
 		if(isnum(input_temperature))
-			var/temp = Clamp(input_temperature, min_temperature,  max_temperature)
+			var/temp = Clamp(input_temperature, min_temperature, max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C")
+				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C.")
 			target_temperature = Clamp(input_temperature + T0C, selected[2],  selected[3])
 		else
 			to_chat(usr, "Error, input not recognised. Temperature unchanged.")
@@ -797,7 +797,7 @@ pixel_x = 10;
 			var/device_id = href_list["id_tag"]
 			switch(href_list["command"])
 				if("set_external_pressure")
-					var/input_pressure = input("What pressure you like the system to mantain?", "Pressure Controls") as num|null
+					var/input_pressure = tgui_input_number(usr, "What pressure you like the system to mantain?", "Pressure Controls")
 					if(isnum(input_pressure))
 						send_signal(device_id, list(href_list["command"] = input_pressure))
 					return 1
@@ -826,7 +826,7 @@ pixel_x = 10;
 					var/threshold = text2num(href_list["var"])
 					var/list/selected = TLV[env]
 					var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
-					var/newval = input("Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
+					var/newval = tgui_input_number(usr, "Enter [thresholds[threshold]] for [env].", "Alarm Triggers", selected[threshold])
 					if (isnull(newval))
 						return 1
 					if (newval<0)

@@ -41,7 +41,7 @@
 
 /obj/item/sign/attackby(obj/item/tool, mob/user) // Construction.
 	if(tool.isscrewdriver() && isturf(user.loc))
-		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
+		var/direction = tgui_input_list(user, "In which direction?", "Select Direction", list("North", "East", "South", "West", "Cancel"))
 		if(direction == "Cancel") return
 		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues
 			return

@@ -15,7 +15,7 @@
 	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
 		names += "[DNA.name]"
 
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		return
 
@@ -128,7 +128,7 @@
 	for(var/datum/dna/DNA in changeling.absorbed_dna)
 		names += "[DNA.real_name]"
 
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		return
 
@@ -339,7 +339,7 @@
 	if(!changeling)
 		return
 
-	var/chosen_accent = input(src, "Choose an accent to mimic.", "Accent Mimicry") as null|anything in SSrecords.accents
+	var/chosen_accent = tgui_input_list(src, "Choose an accent to mimic.", "Accent Mimicry", SSrecords.accents)
 	if(!chosen_accent)
 		return
 
