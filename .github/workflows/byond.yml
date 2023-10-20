@@ -337,13 +337,13 @@ jobs:
           tools/ci/install_flyway.sh
 
       #Apply the database migration
-      - name: Migrate database
+      - name: Apply Database Migrations (FlyWay)
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
-      - name: Install BYOND & build
+      - name: Install BYOND & rust_g
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -369,8 +369,9 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v3
+        if: failure() || ${{ runner.debug }}
         with:
-          name: condensed-${{ matrix.map }}.log
+          name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
           retention-days: 5
 
@@ -460,13 +461,13 @@ jobs:
           tools/ci/install_flyway.sh
 
       #Apply the database migration
-      - name: Migrate database
+      - name: Apply Database Migrations (FlyWay)
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
-      - name: Install BYOND & build
+      - name: Install BYOND & rust_g
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -492,8 +493,9 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v3
+        if: failure() || ${{ runner.debug }}
         with:
-          name: condensed-${{ matrix.map }}.log
+          name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
           retention-days: 5
 
@@ -585,13 +587,13 @@ jobs:
           tools/ci/install_flyway.sh
 
       #Apply the database migration
-      - name: Migrate database
+      - name: Apply Database Migrations (FlyWay)
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
-      - name: Install BYOND & build
+      - name: Install BYOND & rust_g
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -617,8 +619,9 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v3
+        if: failure() || ${{ runner.debug }}
         with:
-          name: condensed-${{ matrix.map }}.log
+          name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
           retention-days: 5
 
@@ -709,13 +712,13 @@ jobs:
           tools/ci/install_flyway.sh
 
       #Apply the database migration
-      - name: Migrate database
+      - name: Apply Database Migrations (FlyWay)
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
-      - name: Install BYOND & build
+      - name: Install BYOND & rust_g
         run: |
           source dependencies.sh
           bash tools/ci/install_byond.sh
@@ -741,7 +744,8 @@ jobs:
 
       - name: Upload Condensed UT Log
         uses: actions/upload-artifact@v3
+        if: failure() || ${{ runner.debug }}
         with:
-          name: condensed-${{ matrix.map }}.log
+          name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
           path: ./data/logs/**/condensed.log
           retention-days: 5
