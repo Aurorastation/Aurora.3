@@ -841,7 +841,6 @@
 		/obj/item/seeds/chantermycelium = 3,
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
-		/obj/item/seeds/cocaseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
@@ -901,6 +900,7 @@
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,
+		/obj/item/seeds/cocaseed = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3
@@ -923,7 +923,6 @@
 		/obj/item/seeds/chantermycelium = 20,
 		/obj/item/seeds/cherryseed = 40,
 		/obj/item/seeds/chiliseed = 50,
-		/obj/item/seeds/cocaseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
 		/obj/item/seeds/coffeeseed = 70,
 		/obj/item/seeds/cornseed = 30,

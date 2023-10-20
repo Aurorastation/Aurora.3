@@ -59,7 +59,6 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/chickpeas = 3,
 		/obj/item/seeds/clam = 15,
-		/obj/item/seeds/cocaseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
