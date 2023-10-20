@@ -203,7 +203,7 @@
 	icon_state = "vannameat"
 	item_state = "vannameat"
 	contained_sprite = TRUE
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/mindbreaker = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
