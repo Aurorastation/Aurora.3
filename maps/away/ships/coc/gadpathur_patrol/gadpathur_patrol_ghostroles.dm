@@ -104,6 +104,7 @@
 	name = "Gadpathurian Section Leader"
 
 	accessory = /obj/item/clothing/accessory/gadpathurian_leader
+	suit = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 
 /datum/outfit/admin/gadpathur_patrol/section_leader/get_id_access()
 	return list(access_external_airlocks, access_generic_away_site, access_coalition, access_coalition_navy, access_gadpathur_navy, access_gadpathur_navy_officer)
