@@ -1,6 +1,11 @@
-name: "Pull Request Labeler"
+name: Pull Request Labeler
 on:
-- pull_request_target
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
 
 jobs:
   triage:
@@ -9,7 +14,6 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
     - uses: actions/labeler@v4
       with:
         sync-labels: true
