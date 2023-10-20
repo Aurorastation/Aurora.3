@@ -115,7 +115,7 @@ export const ScannerWindow = (props, context) => {
           title="Patient Status"
           width="46vw"
           minWidth="300px"
-          fill="true"
+          fill
           buttons={
             data.has_print_and_eject ? (
               <>
@@ -158,7 +158,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section title="Blood Status" width="50vw" minWidth="300px" fill="true">
+        <Section title="Blood Status" width="50vw" minWidth="300px" fill>
           <LabeledList>
             <LabeledList.Item
               label="Blood Pressure"
@@ -231,11 +231,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section
-          title="Symptom Status"
-          width="46vw"
-          minWidth="300px"
-          fill="true">
+        <Section title="Symptom Status" width="46vw" minWidth="300px" fill>
           <LabeledList>
             <LabeledList.Item label="Radiation Level">
               {Math.round(data.rads)} Gy
@@ -252,11 +248,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section
-          title="Damage Status"
-          width="50vw"
-          minWidth="300px"
-          fill="true">
+        <Section title="Damage Status" width="50vw" minWidth="300px" fill>
           <LabeledList>
             <LabeledList.Item
               label="Brute Trauma"
@@ -282,7 +274,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section title="Body Status" width="100vw" fill="true">
+        <Section title="Body Status" width="100vw" fill>
           {data.has_external_injuries ? (
             <ExternalOrganWindow />
           ) : (
@@ -293,7 +285,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section title="Missing Extremities" width="100vw" fill="true">
+        <Section title="Missing Extremities" width="100vw" fill>
           {data.missing_limbs === 'Nothing' ? (
             <BlockQuote color="green">
               No missing extremities detected.
@@ -304,7 +296,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section title="Internal Organ Status" width="100vw" fill="true">
+        <Section title="Internal Organ Status" width="100vw" fill>
           {data.has_internal_injuries ? (
             <OrganWindow />
           ) : (
@@ -315,7 +307,7 @@ export const ScannerWindow = (props, context) => {
         </Section>
       </Flex.Item>
       <Flex.Item>
-        <Section title="Missing Organs" width="100vw" fill="true">
+        <Section title="Missing Organs" width="100vw" fill>
           {data.missing_organs === 'Nothing' ? (
             <BlockQuote color="green">
               No missing internal organs detected.
