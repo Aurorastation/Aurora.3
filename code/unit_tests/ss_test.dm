@@ -89,10 +89,10 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
  * * decrement - A boolean, if `TRUE` it decrements the environment variable that holds the retries left
  */
 /datum/controller/subsystem/unit_tests_config/proc/refresh_retries(decrement = FALSE)
-	src.retries = world.GetConfig("env", "CI_MAX_RETRIES")
+	src.retries = text2num(world.GetConfig("env", "CI_MAX_RETRIES"))
 
 	if(decrement && src.retries)
-		world.SetConfig("env", "CI_MAX_RETRIES", (src.retries - 1))
+		world.SetConfig("env", "CI_MAX_RETRIES", num2text((src.retries - 1)))
 
 /**
  * Refresh the `fail_fast` variable depending on the CI trigger reason
