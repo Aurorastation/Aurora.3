@@ -272,6 +272,11 @@
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored, with extra nicotine."
 	reagents_to_add = list(/singleton/reagent/toxin/tobacco/liquid = 10, /singleton/reagent/water = 10)
 
+/obj/item/reagent_containers/ecig_cartridge/menthol
+	name = "menthol flavour cartridge"
+	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says it's menthol flavored."
+	reagents_to_add = list(/singleton/reagent/toxin/tobacco/liquid = 5, /singleton/reagent/water = 10, /singleton/reagent/menthol = 5)
+
 /obj/item/reagent_containers/ecig_cartridge/orange
 	name = "orange flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its orange flavored."
@@ -296,3 +301,8 @@
 	name = "coffee flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its coffee flavored."
 	reagents_to_add = list(/singleton/reagent/toxin/tobacco/liquid = 10, /singleton/reagent/water = 10, /singleton/reagent/drink/coffee = 5)
+
+/obj/item/reagent_containers/ecig_cartridge/caromeg
+	name = "flavorless caromeg cartridge"
+	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says you can add whatever flavoring agents you want."
+	reagents_to_add = list(/singleton/reagent/toxin/oracle/liquid = 5, /singleton/reagent/water = 10)
