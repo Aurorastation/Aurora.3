@@ -1,6 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Divider, NoticeBox, ProgressBar, Section, Table } from '../components';
-import { capitalize } from '../../common/string';
+import { Box, Section, Table } from '../components';
 import { Window } from '../layouts';
 import { TableCell, TableRow } from '../components/Table';
 
