@@ -409,8 +409,6 @@ jobs:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
         run: |
-          sudo echo "* hard nice -19" > /etc/security/limits.conf
-          sudo echo "* hard priority -19" > /etc/security/limits.conf
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
@@ -418,7 +416,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
@@ -534,8 +532,6 @@ jobs:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
         run: |
-          sudo echo "* hard nice -19" > /etc/security/limits.conf
-          sudo echo "* hard priority -19" > /etc/security/limits.conf
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
@@ -543,7 +539,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
@@ -661,8 +657,6 @@ jobs:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
         run: |
-          sudo echo "* hard nice -19" > /etc/security/limits.conf
-          sudo echo "* hard priority -19" > /etc/security/limits.conf
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
@@ -670,7 +664,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
@@ -787,8 +781,6 @@ jobs:
           PORT: ${{ job.services.mariadb.ports[3306] }}
           POD: ${{ matrix.pod }}
         run: |
-          sudo echo "* hard nice -19" > /etc/security/limits.conf
-          sudo echo "* hard priority -19" > /etc/security/limits.conf
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
@@ -796,7 +788,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
