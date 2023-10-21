@@ -231,7 +231,6 @@
 "aem" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "aeC" = (
@@ -4757,7 +4756,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/fireaxecabinet/east,
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "cdv" = (
@@ -49632,7 +49630,6 @@
 "xBU" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/clothing/gloves/yellow,
 /obj/machinery/light{
 	dir = 4
 	},
