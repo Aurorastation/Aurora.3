@@ -416,7 +416,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
@@ -539,7 +539,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
@@ -664,7 +664,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
@@ -788,7 +788,7 @@ jobs:
 
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          nice -n -19 $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 

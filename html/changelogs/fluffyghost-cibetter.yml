@@ -38,4 +38,14 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - experiment: "Trying to make the  CI better and faster, probably fall in the pit of despair soon."
+  - backend: "The CI now uses multiple pods to load-balance the tests in parallel."
+  - backend: "Pods configuration is loaded from config/unit_test/ut_pods_configuration.json with a personalized ID (set by the CI) that instructs SSunit_test on what to do."
+  - backend: "Labeler now downloads the PR, which I hope would help with the changelog required label."
+  - backend: "Away sites now have a tag that indicates in what CI pod they should be tested, for load balancing. The tag is mandatory."
+  - backend: "Unit tests now have tags, which are used to select which pods run which unit tests, using the 'has any tag in' logic."
+  - backend: "The CI now supports fail fast when running inside a merge queue."
+  - backend: "The CI now supports retrying a pod run up to N times, when running inside a merge queue."
+  - backend: "After the fixing of all the bad formatting of the code in a previous PR, megalinter is reintroduced, now it's only your code that's wrongly formatted."
+  - backend: "The CI now only uploads artifacts with the logs on test failure, saving space."
+  - backend: "The CI now sets the environment variables before any other step is done, so they are set correctly across the steps."
+  - backend: "The linters now run in parallel."
