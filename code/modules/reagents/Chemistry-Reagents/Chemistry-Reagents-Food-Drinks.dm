@@ -514,6 +514,18 @@
 		M.adjustToxLoss(1.5 * removed)
 		//Copied from tea. though i feel it should be stronger as its not diluted with water
 
+/singleton/reagent/nutriment/cocagrounds
+	name = "Coca Grounds"
+	description = "Enjoy the great taste of tea."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#056608"
+	taste_description = "potent gritty tea"
+	taste_mult = 0.4
+	condiment_name = "ground tea"
+	condiment_icon_state = "tea"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /singleton/reagent/nutriment/soysauce
 	name = "Soy Sauce"
 	description = "A salty sauce made from the soy plant."
@@ -1732,6 +1744,18 @@
 	glass_name = "glass of tropical iced tea"
 	glass_desc = "For maximum enjoyment, drink while at the beach on a warm summer day."
 
+/singleton/reagent/drink/tea/cocatea
+	name = "Mate de Coca"
+	description = "An herbal tea made of coca leaves, this tea originated in South America in the Andean countries, and is still consumed there and in Mictlan to this day."
+	color = "#adff2f"
+	taste_description = "mildly bitter, but sweet"
+
+	glass_icon_state = "bigteacup"
+	glass_name = "cup of mate de coca"
+	glass_desc = "An herbal tea made of coca leaves, this tea originated in South America in the Andean countries, and is still consumed there and in Mictlan to this day."
+	adj_dizzy = -1
+	adj_drowsy = -3
+	adj_sleepy = -3
 
 //Coffee
 //==========
@@ -2166,6 +2190,22 @@
 	glass_icon_state  = "spacecola"
 	glass_name = "glass of Comet Cola"
 	glass_desc = "A glass of refreshing Comet Cola"
+	glass_center_of_mass = list("x"=17, "y"=6)
+
+/singleton/reagent/drink/coca_cola
+	name = "Coca Cola"
+	description = "A very refreshing beverage, not for children."
+	reagent_state = LIQUID
+	color = "#080400"
+	adj_dizzy = -1
+	adj_drowsy = -5
+	adj_sleepy = -3
+	taste_description = "a very strong cola"
+	carbonated = TRUE
+
+	glass_icon_state  = "spacecola"
+	glass_name = "glass of coca cola"
+	glass_desc = "A glass of very refreshing coca cola."
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /singleton/reagent/drink/spacemountainwind

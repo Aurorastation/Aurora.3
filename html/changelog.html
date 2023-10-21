@@ -35,10 +35,156 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">20 October 2023</h2>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added morphine, which replaces bicaridine in poppies. Morphine is an effective but potentially dangerous painkiller.</li>
+				<li class="tweak">Oxycomorphine is now created from one unit of mortaphenyl and one unit of morphine, and produces two units.</li>
+				<li class="rscadd">Added tramarine, an artificial replacement of morphine. It can be used in the creation of oxycomorphine, but only produces one unit.</li>
+				<li class="tweak">Oxycomorphine is now effective when inhaled.</li>
+				<li class="rscadd">Added heroin, an extremely potent but dangerous drug.</li>
+				<li class="rscadd">Added cocaine, a potent drug that can be refined from coca leaves.</li>
+				<li class="rscadd">Added oracle, a plant originating from Vysoka that contains caromeg, and can be used as a tobacco alternative. Sprites by Wezzy.</li>
+				<li class="rscadd">Added caromeg, a nicotine alternative that promotes sociability and pleasure.</li>
+				<li class="tweak">Joy now causes genetic damage, and requires heroin in its recipe instead of oxycomorphine.</li>
+				<li class="tweak">Adhomian cigarettes from the NKA now contain menthol, a minty additive.</li>
+				<li class="refactor">Refactored drugs to be more consistent in their effects.</li>
+				<li class="tweak">Serotrotium now has unique effects for overdosing.</li>
+			</ul>
+
+			<h2 class="date">19 October 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">CI Flyway hardfail on skipped migrations for naming conventions not matching.</li>
+				<li class="rscadd">Updated CI to use byond 515.1619.</li>
+				<li class="bugfix">Fixed a runtime error on solar panels powernets.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You can no longer stack multiple IVs on one tile.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a flag and banner for the All-Xanu Republic.</li>
+				<li class="tweak">Gadpathur and Xanu&#x27;s origins now use their government&#x27;s title.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds fuel and coolant to the Golden Deep ship.</li>
+				<li class="rscadd">Adds Orion Express to the Service department.</li>
+			</ul>
+
+			<h2 class="date">18 October 2023</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new gamemode, Jockeys, featuring a new antag, Jockey. A mecha-antag focused gamemode. Minimum two antags, minimum ten players on the server for it to roll.</li>
+			</ul>
+			<h3 class="author">Pirouette updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Engineering and atmospherics interns now have a minimum age of 24.</li>
+			</ul>
+
+			<h2 class="date">17 October 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds verb: Jump To Z-Level.</li>
+				<li class="rscadd">Adds verb: Jump To Ship.</li>
+				<li class="rscadd">Adds verb: Jump To Shuttle.</li>
+				<li class="rscadd">Adds verb: Jump To Sector.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Assets now respect the load_immediately variable if not compiled with DO_NOT_DEFER_ASSETS.</li>
+				<li class="rscadd">Added 3 subtypes of zombie.</li>
+				<li class="rscadd">Subtype of zombie: bull, very tanky, slow moving, short sprint and low stamina.</li>
+				<li class="rscadd">Subtype of zombie: hunter, very fast and sensitive to sounds, can see through walls other mobs, can leap far and often, natural climber, relatively squishy, cannot infect, attacks have a chance to electric shock, good against IPCs.</li>
+				<li class="rscadd">Subtype of zombie: rhino, relatively slow, can leap after a small delay and land sending people in a radius of 1 to fly except one, that gets red grabbed, punches relatively hard.</li>
+				<li class="rscadd">Zombie producing chemical grenade added.</li>
+				<li class="tweak">Turning into zombie is now ~40% faster than before.</li>
+				<li class="tweak">Zombies now have a limited stamina.</li>
+				<li class="balance">Normal zombies no longer see through walls; only the hunter does.</li>
+				<li class="backend">Some dmdoc and spacemandmm constrains added.</li>
+				<li class="bugfix">Fixed some issues with mechs on destruction, that were runtiming</li>
+				<li class="refactor">Small refactor of unarmed attacks, now zombies can attack and destroy mechs</li>
+				<li class="balance">Normal zombies are now weaker and die a little more easily.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Replaced the non-modular computers in the Supermatter and INDRA control rooms with the bay-style terminals to give each more of a reactor-control-panel look.</li>
+				<li class="maptweak">Fixed the air injector in the mixed Air tank in Atmospherics so it should no longer start turned off at roundstart.</li>
+			</ul>
+			<h3 class="author">Geeves, Connorjg1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Buffed the vaurcaesian hand-held thermal drill to fire more shots in auto mode, deal more damage, destroy mineral walls in one blast, but it can only be used on non-ship Z-levels.</li>
+				<li class="tweak">Gave the vaurcaesian hand-held thermal drill a new description.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Implant removal surgery now queues up all the implants for removal at once, with a delay of 0.5 seconds between each removal, meaning you only need to click once. It priorizes shrapnel over implants, so in case you need to remove everything, you&#x27;ll need to do the surgery once for shrapnel, and a second time to remove implants.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds voidsuits for the Konyang Aerospace Forces.</li>
+				<li class="rscadd">Adds PACHROM and Konyang Robotics Company uniforms.</li>
+				<li class="rscadd">Adds a Konyang village map.</li>
+			</ul>
+			<h3 class="author">Tag114 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the option in the uplink to claim a single medkit for free and the one to buy a medkit normally both having the same path, preventing the option to buy a medkit normally from appearing.</li>
+			</ul>
+			<h3 class="author">WickedCybs, Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Tactical coifs didn&#x27;t have icon states for Unathi or Tajara, so their sidesprites would look off. That&#x27;s been rectified. Now they can LARP too.</li>
+				<li class="backend">Accessories now support icon_supported_species_tags.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes tables not deconstructing properly.</li>
+			</ul>
+
+			<h2 class="date">16 October 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Cryo removed from bottom deck, added to top deck.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the layering for heads and bodymarkings.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The first responder hardsuit now has one point of slowdown, making it no longer superior to every single hardsuit in the game.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">In my endless magnanimity, the RUST (sorry im not calling it the INDRA) now has boron available in the canister room.</li>
+				<li class="tweak">The boron canisters use the yellow canister icon.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes odd interactions with webbing and integrated circuit clothing.</li>
+				<li class="bugfix">Fixes spray containers playing a sound when being stored in webbing.</li>
+				<li class="bugfix">Fixes scrubber backblasts filling closed reagent containers.</li>
+			</ul>
+
+			<h2 class="date">15 October 2023</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Industrial IPC frames are no longer allowed to take Security jobs.</li>
+			</ul>
+			<h3 class="author">Tag114 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed the PCRC (Proxima Centurai Risk Control) armor vests and the sprites associated with them.</li>
+			</ul>
+
 			<h2 class="date">14 October 2023</h2>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Carpotoxin can no longer spawn in the warehouse.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the Konyang Jeweler Cockatoo and associated away site.</li>
 			</ul>
 			<h3 class="author">William Murdoch updated:</h3>
 			<ul class="changes bgimages16">

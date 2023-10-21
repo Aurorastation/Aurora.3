@@ -638,7 +638,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_HEAD]"
+		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_HEAD]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -1001,7 +1001,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_SUIT]"
+		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_SUIT]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -1179,7 +1179,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_UNDER]"
+		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_UNDER]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)

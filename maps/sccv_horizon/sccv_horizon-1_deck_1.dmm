@@ -7858,10 +7858,8 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/machinery/cryopod{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "fzU" = (
@@ -13989,14 +13987,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15304,7 +15296,8 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	id = "air_in";
-	frequency = 1441
+	frequency = 1441;
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
@@ -15930,7 +15923,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar 1";
+	c_tag = "First Deck - Hangar Access";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -16342,16 +16335,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "lDs" = (
-/obj/machinery/cryopod{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Living Quarters Lift";
 	dir = 1
+	},
+/obj/effect/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
@@ -24745,9 +24737,6 @@
 /area/shuttle/intrepid/engine_compartment)
 "rqf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining - Locker Room"
-	},
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -26300,12 +26289,6 @@
 	},
 /area/shuttle/mining)
 "sxT" = (
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -31536,7 +31519,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar Fuel Bay";
+	c_tag = "First Deck - Pilot Room Hallway";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -34297,6 +34280,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"xOm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Hangar Fore";
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/operations)
 "xOs" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -49477,7 +49475,7 @@ mwO
 mwO
 mwO
 mwO
-nhi
+xOm
 tNp
 eSV
 eSV
