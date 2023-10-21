@@ -35,6 +35,8 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 /datum/controller/subsystem/unit_tests_config/New()
 	. = ..()
 
+	world.fps = 10
+
 	//Acquire our identifier, or enter Hopper mode if failing to do so
 	try
 		src.identifier = rustg_file_read("config/unit_test/identifier.txt")
@@ -183,13 +185,14 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 		total_unit_tests++
 
-		if (MC_TICK_CHECK)
-			return
-
 		if(unit_tests_failures && SSunit_tests_config.fail_fast)
 			UT.fail("**** Fail fast is enabled and an unit test failed! Aborting... ****", __FILE__, __LINE__)
 			handle_tests_ending(TRUE)
 			break
+
+		if (MC_TICK_CHECK)
+			return
+
 
 	if (!curr.len)
 		stage++

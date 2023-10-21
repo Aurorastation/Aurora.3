@@ -49,3 +49,6 @@ changes:
   - backend: "The CI now only uploads artifacts with the logs on test failure, saving space."
   - backend: "The CI now sets the environment variables before any other step is done, so they are set correctly across the steps."
   - backend: "The linters now run in parallel."
+  - backend: "Added the ability (off by default) to SSH into the unit test pods to diagnose issues."
+  - backend: "BYOND is now ran with an high priority set, in the CI, shaving some time from the tests (thanks to linux scheduling)."
+  - backend: "Introduced SSunit_tests_config, to store and manage the unit tests config."
