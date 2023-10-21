@@ -410,8 +410,6 @@ SUBSYSTEM_DEF(jobs)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	if(istype(uniform) && uniform.has_sensor)
 		uniform.sensor_mode = SUIT_SENSOR_MODES[H.client.prefs.sensor_setting]
-		if(H.client.prefs.sensors_locked)
-			uniform.has_sensor = SUIT_LOCKED_SENSORS
 
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
 

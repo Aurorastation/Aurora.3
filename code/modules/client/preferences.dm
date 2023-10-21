@@ -54,7 +54,6 @@ var/list/preferences_datums = list()
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
 	var/sensor_setting
-	var/sensors_locked
 	var/h_style = "Bedhead 2"				//Hair type
 	var/tail_style = null
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
