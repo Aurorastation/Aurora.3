@@ -8,7 +8,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 /obj/item/device/uplink
 	/// Welcoming menu message.
-	var/welcome = "Welcome, Operative"
+	var/welcome = "Welcome, Valued Customer"
 	/// Number of telecrystals.
 	var/telecrystals
 	/// Number of bluecrystals.
