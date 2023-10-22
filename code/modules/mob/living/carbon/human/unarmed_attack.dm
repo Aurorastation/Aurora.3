@@ -44,7 +44,16 @@ var/global/list/sparring_attack_cache = list()
 
 	return FALSE
 
-/datum/unarmed_attack/proc/get_unarmed_damage()
+/**
+ * Returns the unarmed damage of an attack, aka what damage the attack does if there's no objects involved
+ *
+ * * attacker - The `/mob` that is performing the attack
+ * * target - The target of the attack, aka who is being attacked/damaged
+ */
+/datum/unarmed_attack/proc/get_unarmed_damage(var/mob/attacker, var/target)
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	return damage
 
 /datum/unarmed_attack/proc/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/attack_damage,var/zone)
@@ -104,13 +113,26 @@ var/global/list/sparring_attack_cache = list()
 			target.visible_message("<span class='danger'>[target] has been weakened!</span>")
 		target.apply_effect(3, WEAKEN, armor*100)
 
-/datum/unarmed_attack/proc/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
-	var/obj/item/organ/external/affecting = target.get_organ(zone)
+/datum/unarmed_attack/proc/show_attack(var/mob/living/carbon/human/user, var/mob/living/target, var/zone, var/attack_damage)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/affecting = null
+
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human = target
+		var/obj/item/organ/organ = human.get_organ(zone)
+		affecting = organ?.name
+
+	else if(istype(target, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = target
+		var/obj/item/mech_component/component = mech.zoneToComponent(zone)
+		affecting = component?.name
+
 
 	if(!affecting)
 		return
 
-	user.visible_message(SPAN_WARNING("[user] [pick(attack_verb)] [target] in the [affecting.name]!"))
+	user.visible_message(SPAN_WARNING("[user] [pick(attack_verb)] [target] in the [affecting]!"))
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/proc/show_attack_simple(var/mob/living/carbon/human/user, var/mob/living/target, var/zone)
@@ -246,8 +268,8 @@ var/global/list/sparring_attack_cache = list()
 
 	return FALSE
 
-/datum/unarmed_attack/kick/get_unarmed_damage(var/mob/living/carbon/human/user)
-	var/obj/item/clothing/shoes = user.shoes
+/datum/unarmed_attack/kick/get_unarmed_damage(var/mob/attacker, var/mob/living/carbon/human/target)
+	var/obj/item/clothing/shoes = target.shoes
 	if(!istype(shoes))
 		return damage
 	return damage + (shoes ? shoes.force : 0)
@@ -294,8 +316,8 @@ var/global/list/sparring_attack_cache = list()
 
 		return FALSE
 
-/datum/unarmed_attack/stomp/get_unarmed_damage(var/mob/living/carbon/human/user)
-	var/obj/item/clothing/shoes = user.shoes
+/datum/unarmed_attack/stomp/get_unarmed_damage(var/mob/attacker, var/mob/living/carbon/human/target)
+	var/obj/item/clothing/shoes = target.shoes
 	return damage + (shoes ? shoes.force : 0)
 
 /datum/unarmed_attack/stomp/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)

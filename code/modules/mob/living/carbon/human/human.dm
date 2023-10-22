@@ -95,8 +95,6 @@
 		sync_organ_dna()
 	make_blood()
 
-	available_maneuvers = species.maneuvers.Copy()
-
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
@@ -1450,6 +1448,11 @@
 
 	if(species.holder_type)
 		holder_type = species.holder_type
+
+	//Clear out the manouvers of the previous specie and add the one of the current specie
+	available_maneuvers = null
+	if(species?.maneuvers)
+		available_maneuvers = species.maneuvers.Copy()
 
 	icon_state = lowertext(species.name)
 
