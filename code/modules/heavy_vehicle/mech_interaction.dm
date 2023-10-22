@@ -82,9 +82,9 @@
 	if(user != src)
 		set_intent(user.a_intent)
 		if(user.zone_sel)
-			zone_sel.set_selected_zone(user.zone_sel.selecting)
+			zone_sel.set_selected_zone(user.zone_sel.selecting, user)
 		else
-			zone_sel.set_selected_zone("chest")
+			zone_sel.set_selected_zone("chest", user)
 
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
