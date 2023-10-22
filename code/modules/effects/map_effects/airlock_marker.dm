@@ -55,7 +55,6 @@ var/global/list/airlock_markers = list()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/map_effect/marker/airlock/LateInitialize()
-	..()
 	if(master_tag && frequency)
 		airlock_marker_init_airlock(master_tag)
 		airlock_markers[master_tag] = null // init only once
