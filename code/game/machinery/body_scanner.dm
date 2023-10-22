@@ -262,6 +262,7 @@
 	var/list/data = list()
 	var/scan_data
 
+	var/has_detailed_view = TRUE
 	var/has_print_and_eject = TRUE
 	var/no_scan_message = "No diagnostics profile installed for this species."
 
@@ -394,6 +395,7 @@
 		"organs" = list(),
 		"missingparts" = list(),
 		"hasmissing" = null,
+		"has_detailed_view" = has_detailed_view,
 		"has_print_and_eject" = has_print_and_eject,
 		"no_scan_message" = no_scan_message
 	)
@@ -860,6 +862,7 @@
 /obj/machinery/body_scanconsole/embedded
 	name = "embedded bodyscanner"
 	tgui_name = "Zeng-Hu Pharmaceuticals Surgical Theater"
+	has_detailed_view = FALSE
 	has_print_and_eject = FALSE
 	no_scan_message = "No matching body scanner primer has been added to the monitoring console."
 

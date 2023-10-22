@@ -47,6 +47,7 @@ export type ScannerData = {
   missing_limbs: string;
   missing_organs: string;
 
+  has_detailed_view: BooleanLike;
   has_print_and_eject: BooleanLike;
   no_scan_message: string;
 };
@@ -113,7 +114,7 @@ export const ScannerWindow = (props, context) => {
       <Flex.Item>
         <Section
           title="Patient Status"
-          width="46vw"
+          width={data.has_detailed_view ? '46vw' : '100vw'}
           minWidth="300px"
           fill
           buttons={
@@ -135,12 +136,18 @@ export const ScannerWindow = (props, context) => {
           }>
           <LabeledList>
             <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
-            <LabeledList.Item label="Species">{data.species}</LabeledList.Item>
-            <LabeledList.Item
-              label="Status"
-              color={consciousnessLabel(data.stat)}>
-              {consciousnessText(data.stat)}
-            </LabeledList.Item>
+            {data.has_detailed_view ? (
+              <LabeledList.Item label="Species">
+                {data.species}
+              </LabeledList.Item>
+            ) : null}
+            {data.has_detailed_view ? (
+              <LabeledList.Item
+                label="Status"
+                color={consciousnessLabel(data.stat)}>
+                {consciousnessText(data.stat)}
+              </LabeledList.Item>
+            ) : null}
             <LabeledList.Item
               label="Brain Activity"
               color={progressClass(data.brain_activity)}>
@@ -151,128 +158,150 @@ export const ScannerWindow = (props, context) => {
               color={progressClass(data.brain_activity)}>
               {data.pulse} BPM
             </LabeledList.Item>
-            <LabeledList.Item label="Body Temperature">
-              {data.bodytemp}°C
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      </Flex.Item>
-      <Flex.Item>
-        <Section title="Blood Status" width="50vw" minWidth="300px" fill>
-          <LabeledList>
-            <LabeledList.Item
-              label="Blood Pressure"
-              color={getPressureClass(data.blood_pressure_level)}>
-              {data.blood_pressure}
-            </LabeledList.Item>
-            <LabeledList.Item
-              label="Blood Oxygenation"
-              color={progressClass(data.blood_o2)}>
-              {Math.round(data.blood_o2)}%
-            </LabeledList.Item>
-            <LabeledList.Item
-              label="Blood Volume"
-              color={progressClass(data.brain_activity)}>
-              {Math.round(data.blood_volume)}%
-            </LabeledList.Item>
-            <LabeledList.Item label="Blood Type">
-              {data.blood_type}
-            </LabeledList.Item>
-            {data.inaprovaline_amount ? (
-              <LabeledList.Item label="Inaprovaline">
-                {Math.round(data.inaprovaline_amount)}u
+            {data.has_detailed_view ? (
+              <LabeledList.Item label="Body Temperature">
+                {data.bodytemp}°C
               </LabeledList.Item>
-            ) : (
-              ''
+            ) : null}
+            {data.has_detailed_view ? null : (
+              <LabeledList.Item
+                label="Blood Oxygenation"
+                color={progressClass(data.blood_o2)}>
+                {Math.round(data.blood_o2)}%
+              </LabeledList.Item>
             )}
-            {data.soporific_amount ? (
-              <LabeledList.Item label="Soporific">
-                {Math.round(data.soporific_amount)}u
+            {data.has_detailed_view ? null : (
+              <LabeledList.Item
+                label="Blood Volume"
+                color={progressClass(data.brain_activity)}>
+                {Math.round(data.blood_volume)}%
               </LabeledList.Item>
-            ) : (
-              ''
-            )}
-            {data.bicaridine_amount ? (
-              <LabeledList.Item label="Bicaridine">
-                {Math.round(data.bicaridine_amount)}u
-              </LabeledList.Item>
-            ) : (
-              ''
-            )}
-            {data.dermaline_amount ? (
-              <LabeledList.Item label="Dermaline">
-                {Math.round(data.dermaline_amount)}u
-              </LabeledList.Item>
-            ) : (
-              ''
-            )}
-            {data.dexalin_amount ? (
-              <LabeledList.Item label="Dexalin">
-                {Math.round(data.dexalin_amount)}u
-              </LabeledList.Item>
-            ) : (
-              ''
-            )}
-            {data.thetamycin_amount ? (
-              <LabeledList.Item label="Thetamycin">
-                {Math.round(data.thetamycin_amount)}u
-              </LabeledList.Item>
-            ) : (
-              ''
-            )}
-            {data.other_amount ? (
-              <LabeledList.Item label="Other">
-                {Math.round(data.other_amount)}u
-              </LabeledList.Item>
-            ) : (
-              ''
             )}
           </LabeledList>
         </Section>
       </Flex.Item>
-      <Flex.Item>
-        <Section title="Symptom Status" width="46vw" minWidth="300px" fill>
-          <LabeledList>
-            <LabeledList.Item label="Radiation Level">
-              {Math.round(data.rads)} Gy
-            </LabeledList.Item>
-            <LabeledList.Item label="Genetic Damage">
-              {data.cloneLoss}
-            </LabeledList.Item>
-            <LabeledList.Item label="Est. Paralysis Level">
-              {data.paralysis
-                ? Math.round(data.paralysis / 4) + ' Seconds Left'
-                : 'None'}
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      </Flex.Item>
-      <Flex.Item>
-        <Section title="Damage Status" width="50vw" minWidth="300px" fill>
-          <LabeledList>
-            <LabeledList.Item
-              label="Brute Trauma"
-              color={damageLabel(data.bruteLoss)}>
-              {data.bruteLoss}
-            </LabeledList.Item>
-            <LabeledList.Item
-              label="Burn Severity"
-              color={damageLabel(data.fireLoss)}>
-              {data.fireLoss}
-            </LabeledList.Item>
-            <LabeledList.Item
-              label="Oxygen Deprivation"
-              color={damageLabel(data.oxyLoss)}>
-              {data.oxyLoss}
-            </LabeledList.Item>
-            <LabeledList.Item
-              label="Toxin Exposure"
-              color={damageLabel(data.toxLoss)}>
-              {data.toxLoss}
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      </Flex.Item>
+      {data.has_detailed_view ? (
+        <Flex.Item>
+          <Section title="Blood Status" width="50vw" minWidth="300px" fill>
+            <LabeledList>
+              <LabeledList.Item
+                label="Blood Pressure"
+                color={getPressureClass(data.blood_pressure_level)}>
+                {data.blood_pressure}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Blood Oxygenation"
+                color={progressClass(data.blood_o2)}>
+                {Math.round(data.blood_o2)}%
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Blood Volume"
+                color={progressClass(data.brain_activity)}>
+                {Math.round(data.blood_volume)}%
+              </LabeledList.Item>
+              <LabeledList.Item label="Blood Type">
+                {data.blood_type}
+              </LabeledList.Item>
+              {data.inaprovaline_amount ? (
+                <LabeledList.Item label="Inaprovaline">
+                  {Math.round(data.inaprovaline_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+              {data.soporific_amount ? (
+                <LabeledList.Item label="Soporific">
+                  {Math.round(data.soporific_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+              {data.bicaridine_amount ? (
+                <LabeledList.Item label="Bicaridine">
+                  {Math.round(data.bicaridine_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+              {data.dermaline_amount ? (
+                <LabeledList.Item label="Dermaline">
+                  {Math.round(data.dermaline_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+              {data.dexalin_amount ? (
+                <LabeledList.Item label="Dexalin">
+                  {Math.round(data.dexalin_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+              {data.thetamycin_amount ? (
+                <LabeledList.Item label="Thetamycin">
+                  {Math.round(data.thetamycin_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+              {data.other_amount ? (
+                <LabeledList.Item label="Other">
+                  {Math.round(data.other_amount)}u
+                </LabeledList.Item>
+              ) : (
+                ''
+              )}
+            </LabeledList>
+          </Section>
+        </Flex.Item>
+      ) : null}
+      {data.has_detailed_view ? (
+        <Flex.Item>
+          <Section title="Symptom Status" width="46vw" minWidth="300px" fill>
+            <LabeledList>
+              <LabeledList.Item label="Radiation Level">
+                {Math.round(data.rads)} Gy
+              </LabeledList.Item>
+              <LabeledList.Item label="Genetic Damage">
+                {data.cloneLoss}
+              </LabeledList.Item>
+              <LabeledList.Item label="Est. Paralysis Level">
+                {data.paralysis
+                  ? Math.round(data.paralysis / 4) + ' Seconds Left'
+                  : 'None'}
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+        </Flex.Item>
+      ) : null}
+      {data.has_detailed_view ? (
+        <Flex.Item>
+          <Section title="Damage Status" width="50vw" minWidth="300px" fill>
+            <LabeledList>
+              <LabeledList.Item
+                label="Brute Trauma"
+                color={damageLabel(data.bruteLoss)}>
+                {data.bruteLoss}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Burn Severity"
+                color={damageLabel(data.fireLoss)}>
+                {data.fireLoss}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Oxygen Deprivation"
+                color={damageLabel(data.oxyLoss)}>
+                {data.oxyLoss}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Toxin Exposure"
+                color={damageLabel(data.toxLoss)}>
+                {data.toxLoss}
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+        </Flex.Item>
+      ) : null}
       <Flex.Item>
         <Section title="Body Status" width="100vw" fill>
           {data.has_external_injuries ? (
