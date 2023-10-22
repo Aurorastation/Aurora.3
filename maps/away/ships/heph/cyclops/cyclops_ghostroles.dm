@@ -23,7 +23,7 @@
 
 	uniform = /obj/item/clothing/under/rank/miner/heph
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/heph
 
 	id = /obj/item/card/id/hephaestus
 
@@ -78,8 +78,6 @@
 	name = "Hephaestus Security Officer"
 
 	uniform = /obj/item/clothing/under/rank/security/heph
-	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel
 
 /datum/ghostspawner/human/cyclops_crew/captain
 	short_name = "cyclops_captain"
@@ -102,7 +100,6 @@
 	name = "Cyclops Crew Captain"
 
 	uniform = /obj/item/clothing/under/rank/captain/hephaestus
-	shoes = /obj/item/clothing/shoes/workboots/dark
 	back = /obj/item/storage/backpack/satchel/leather
 
 /datum/ghostspawner/human/cyclops_crew/engineer
@@ -126,7 +123,15 @@
 	name = "Hephaestus Engineer"
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
-	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel
+	gloves = /obj/item/clothing/gloves/yellow
+	species_gloves = list(
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_TAJARA = /obj/item/clothing/gloves/yellow/specialt,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,
+		SPECIES_VAURCA_WARRIOR = null,
+		SPECIES_VAURCA_WORKER = null,
+		SPECIES_VAURCA_BULWARK = null
+	)
 
 
