@@ -199,7 +199,7 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
 
 		var/blood_volume_string = "<span class='scan_green'>\>[BLOOD_VOLUME_SAFE]%</span>"
-		switch(H.get_blood_oxygenation())
+		switch(H.get_blood_volume())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				blood_volume_string = "<span class='scan_notice'>\<[BLOOD_VOLUME_SAFE]%</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)

@@ -262,6 +262,15 @@
 	desc = "A 5.56mm blank casing."
 	projectile_type = /obj/item/projectile/bullet/blank
 
+/obj/item/ammo_casing/a65
+	desc = "A 6.5mm bullet casing."
+	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy of NATO rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
+	caliber = "a65"
+	projectile_type = /obj/item/projectile/bullet/rifle/a65
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 7
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."

@@ -128,6 +128,6 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#42B873"
 	center_of_mass = list("x"=16, "y"=8)
-	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/psilocybin = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/drugs/psilocybin = 6)
 	reagent_data = list(/singleton/reagent/nutriment = list("mushroom" = 6))
 	bitesize = 3

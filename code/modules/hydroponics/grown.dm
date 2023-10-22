@@ -92,7 +92,7 @@
 			descriptors |= "radioactive"
 		if(reagents.has_reagent(/singleton/reagent/toxin/amatoxin) || reagents.has_reagent(/singleton/reagent/toxin))
 			descriptors |= "poisonous"
-		if(reagents.has_reagent(/singleton/reagent/psilocybin) || reagents.has_reagent(/singleton/reagent/ambrosia_extract) || reagents.has_reagent(/singleton/reagent/space_drugs) || reagents.has_reagent(/singleton/reagent/mindbreaker))
+		if(reagents.has_reagent(/singleton/reagent/drugs/psilocybin) || reagents.has_reagent(/singleton/reagent/drugs/ambrosia_extract) || reagents.has_reagent(/singleton/reagent/drugs/mms) || reagents.has_reagent(/singleton/reagent/drugs/mindbreaker))
 			descriptors |= "hallucinogenic"
 		if(reagents.has_reagent(/singleton/reagent/bicaridine) || reagents.has_reagent(/singleton/reagent/dylovene))
 			descriptors |= "medicinal"

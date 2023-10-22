@@ -29,6 +29,8 @@
 	var/self_recharge = 0	//if set, the weapon will recharge itself
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
+	/// Multiplies by charge cost to determine how much charge should be returned
+	var/recharge_multiplier = 1
 	var/charge_tick = 0
 
 	//vars passed to turrets
@@ -92,7 +94,7 @@
 		if(!external || !external.use(charge_cost)) //Take power from the borg...
 			return 0
 
-	power_supply.give(charge_cost) //... to recharge the shot
+	power_supply.give(charge_cost * recharge_multiplier) //... to recharge the shot
 	update_maptext()
 	update_icon()
 
