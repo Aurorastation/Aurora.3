@@ -1,4 +1,4 @@
-var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psionically Harmonious", "Psionic Apex", "Limitless")
+var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psionically Harmonious", "Psionic Apex")
 
 PROCESSING_SUBSYSTEM_DEF(psi)
 	name = "Psionics"

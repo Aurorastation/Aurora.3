@@ -35,8 +35,6 @@
 				psi_points = PSI_POINTS_HARMONIOUS
 			if(PSI_RANK_APEX)
 				psi_points = PSI_POINTS_APEX
-			if(PSI_RANK_LIMITLESS)
-				psi_points = PSI_POINTS_LIMITLESS
 			else
 				psi_points = 0
 		/// We had special abilities unique to our level, so get rid of 'em.
@@ -58,15 +56,13 @@
 
 	if(get_rank() >= PSI_RANK_SENSITIVE)
 		for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
-			if((P.ability_flags & PSI_FLAG_FOUNDATIONAL) || (P.ability_flags & PSI_FLAG_APEX && get_rank() >= PSI_RANK_APEX) || (P.ability_flags & PSI_FLAG_LIMITLESS && get_rank() >= PSI_RANK_LIMITLESS))
+			if((P.ability_flags & PSI_FLAG_FOUNDATIONAL) || (P.ability_flags & PSI_FLAG_APEX && get_rank() >= PSI_RANK_APEX))
 				if(!(P.type in psionic_powers))
 					P.apply(owner)
 
 /datum/psi_complexus/proc/wipe_user_abilities()
 	for(var/obj/screen/ability/obj_based/psionic/P in owner.ability_master.ability_objects)
 		if((P.connected_power.ability_flags & PSI_FLAG_APEX) && get_rank() < PSI_RANK_APEX)
-			owner.ability_master.remove_ability(P)
-		if((P.connected_power.ability_flags & PSI_FLAG_LIMITLESS) && get_rank() < PSI_RANK_LIMITLESS)
 			owner.ability_master.remove_ability(P)
 
 /datum/psi_complexus/process()

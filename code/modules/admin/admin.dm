@@ -107,15 +107,13 @@ var/global/enabled_spooking = 0
 		if(psyker.psi)
 			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
 		body += "<table width = '100%'>"
-		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX, PSI_RANK_LIMITLESS))
+		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX))
 			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
 			var/psi_title = psychic_ranks_to_strings[psi_rank]
 			if(psi_rank == owner_rank)
 				psi_title = "<b>[psi_title]</b>"
-			if(psi_rank != PSI_RANK_LIMITLESS)
-				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
 			else
-				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
 		body += "</table>"
 
 	if (M.client)

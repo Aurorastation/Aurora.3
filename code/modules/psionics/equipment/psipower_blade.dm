@@ -20,10 +20,6 @@
 			force = 30
 			armor_penetration = 30
 			icon_state = "psiblade_long"
-		if(PSI_RANK_LIMITLESS)
-			force = 40
-			armor_penetration = 40
-			icon_state = "psiblade_long"
 
 /obj/item/psychic_power/psiblade/dropped(var/mob/living/user)
 	. = ..()
