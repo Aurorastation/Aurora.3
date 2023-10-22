@@ -5,7 +5,7 @@
 	icon_state = "map_marker"
 
 /obj/effect/map_effect/marker_helper
-	name = "map marker parent abstract object"
+	name = "map marker helper parent abstract object"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "map_marker"
 

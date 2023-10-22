@@ -1,4 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aw" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bx" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -6,18 +22,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"cq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
+"cH" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"dk" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = 20
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "du" = (
@@ -28,18 +48,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "gk" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = 20
-	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"hi" = (
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "jx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -47,108 +67,65 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"jy" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"ku" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "kx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "kZ" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"mu" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "nd" = (
 /turf/simulated/wall,
 /area/template_noop)
-"nZ" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
+"oq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4
 	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
-	},
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"os" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
-	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"oP" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"oG" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "pV" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
-	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"qg" = (
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "qS" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -157,32 +134,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"rK" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/access_button{
-	pixel_x = 8;
-	pixel_y = 28;
-	dir = 4
-	},
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "sa" = (
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"sN" = (
+/obj/machinery/access_button{
+	pixel_x = 24;
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "tu" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/map_helper/mark_bad,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -190,23 +157,59 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"wa" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"wP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "xW" = (
 /obj/machinery/access_button{
-	dir = 4;
-	pixel_x = -24
+	pixel_x = 24;
+	pixel_y = 0;
+	dir = 8
 	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
-"zn" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+"ya" = (
+/obj/structure/lattice,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
 	},
+/turf/space,
+/area/template_noop)
+"zn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Bl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Bt" = (
@@ -214,14 +217,9 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Ck" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -231,36 +229,28 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"DH" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
-	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "DW" = (
 /turf/template_noop,
 /area/template_noop)
-"Fj" = (
+"EH" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
-	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
 	},
 /obj/machinery/access_button{
 	pixel_x = 8;
 	pixel_y = 28;
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Fj" = (
+/obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "FS" = (
 /obj/machinery/door/airlock/external{
@@ -271,6 +261,31 @@
 	pixel_y = -8;
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"GH" = (
+/obj/effect/map_effect/map_helper/mark_good,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ht" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "HE" = (
@@ -279,34 +294,42 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"IJ" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Jy" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
+"Ij" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
 	pixel_y = 0;
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Jx" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Jy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "KX" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -314,25 +337,39 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Ll" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lp" = (
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Lt" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
+"LJ" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"NH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -342,83 +379,111 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Lt" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
-"Nv" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"NH" = (
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "OG" = (
 /obj/structure/lattice,
 /turf/space,
 /area/template_noop)
-"Qq" = (
-/obj/machinery/door/airlock/external{
+"Pe" = (
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/machinery/access_button{
+	pixel_y = 28;
 	dir = 2
 	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ql" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qw" = (
 /turf/simulated/floor/airless,
 /area/template_noop)
-"Rh" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
+"QL" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = 0;
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"Rh" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"RN" = (
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "SH" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Tu" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
+"UO" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Vo" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -431,32 +496,81 @@
 	pixel_y = 0;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "VJ" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"WP" = (
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"XF" = (
+"Wc" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/airlock_marker/interior{
-	master_tag = "unique_airlock_tag_1"
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Wz" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"WC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"WP" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Yf" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Yr" = (
@@ -464,8 +578,9 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -473,22 +588,24 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/airlock_marker{
-	master_tag = "unique_airlock_tag_1"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "YW" = (
 /obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/airlock_marker/exterior{
-	master_tag = "unique_airlock_tag_1"
+	dir = 2
 	},
 /obj/machinery/access_button{
-	pixel_x = -8;
-	pixel_y = 28;
-	dir = 8
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -505,11 +622,15 @@
 	pixel_y = 12;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "some_unique_maste_tag";
+	name = "some_unique_maste_tag"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 
 (1,1,1) = {"
-DW
 DW
 DW
 DW
@@ -618,7 +739,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 nd
 nd
@@ -673,7 +793,6 @@ nd
 DW
 "}
 (3,1,1) = {"
-DW
 DW
 DW
 DW
@@ -782,7 +901,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -837,7 +955,6 @@ nd
 DW
 "}
 (5,1,1) = {"
-DW
 DW
 DW
 DW
@@ -946,7 +1063,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -963,15 +1079,15 @@ du
 DW
 DW
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -1028,7 +1144,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -1045,15 +1160,15 @@ du
 DW
 DW
 DW
-Lt
-kZ
-kZ
-Lt
-WP
-Yr
-Lt
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -1110,7 +1225,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -1118,7 +1232,7 @@ DW
 sa
 kZ
 kZ
-ZK
+YW
 WP
 WP
 KX
@@ -1127,15 +1241,15 @@ du
 DW
 DW
 DW
-sa
-kZ
-kZ
-oP
-WP
-WP
-ku
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -1152,10 +1266,10 @@ DW
 dA
 kZ
 kZ
-mu
+ZK
 WP
 WP
-Qq
+pV
 du
 du
 DW
@@ -1165,7 +1279,6 @@ nd
 DW
 "}
 (9,1,1) = {"
-DW
 DW
 DW
 DW
@@ -1203,41 +1316,41 @@ jx
 Bt
 kx
 Li
+Ht
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+kZ
+HE
+jx
+Lp
+kx
+Li
 FS
-du
-du
-DW
-DW
-DW
-kZ
-HE
-jx
-Ll
-kx
-Li
-DH
-du
-du
-DW
-DW
-DW
-nd
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-kZ
-HE
-jx
-XF
-kx
-Li
-os
 du
 du
 DW
@@ -1274,7 +1387,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -1291,15 +1403,15 @@ du
 DW
 DW
 DW
-Lt
-qS
-qS
-Lt
-Vv
-YK
-Lt
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -1356,7 +1468,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -1373,15 +1484,15 @@ du
 DW
 DW
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -1411,7 +1522,6 @@ nd
 DW
 "}
 (12,1,1) = {"
-DW
 DW
 DW
 DW
@@ -1520,7 +1630,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -1575,7 +1684,6 @@ nd
 DW
 "}
 (14,1,1) = {"
-DW
 DW
 DW
 DW
@@ -1684,20 +1792,7 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -1713,16 +1808,28 @@ du
 DW
 DW
 DW
-nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 nd
 DW
+nd
 DW
 DW
 DW
-DW
-DW
-DW
+kZ
+RN
+Lt
+Lt
 Lt
 Lt
 Lt
@@ -1766,20 +1873,7 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -1795,16 +1889,28 @@ du
 DW
 DW
 DW
-nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 nd
 DW
+nd
 DW
 DW
 DW
-DW
-DW
-DW
+kZ
+RN
+kZ
+kZ
 Lt
 kZ
 kZ
@@ -1848,32 +1954,31 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
 sa
 kZ
 kZ
-IJ
+Yf
 WP
 WP
-Ck
+dk
 du
 du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -1883,14 +1988,14 @@ nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-dA
 kZ
-kZ
-mu
+oq
+hi
+wP
+GH
+Fj
+Jy
+ZK
 WP
 WP
 pV
@@ -1930,52 +2035,51 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
 kZ
 HE
 jx
-Tu
+oG
 kx
 Li
-nZ
+Rh
 du
 du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
 nd
 DW
 nd
-DW
-DW
-DW
-DW
 DW
 DW
 DW
 kZ
-vW
-Cu
+RN
+kZ
+kZ
+kZ
+HE
+UO
 Lp
-zn
-Vo
-os
+kx
+Li
+FS
 du
 du
 DW
@@ -2012,20 +2116,7 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -2041,22 +2132,34 @@ du
 DW
 DW
 DW
-nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 nd
 DW
+nd
 DW
 DW
 DW
-DW
-DW
-DW
+kZ
+RN
+kZ
+kZ
 Lt
-bx
-bx
+qS
+qS
 Lt
-gk
-SH
+Vv
+YK
 Lt
 du
 du
@@ -2094,20 +2197,7 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -2123,16 +2213,28 @@ du
 DW
 DW
 DW
-nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 nd
 DW
+nd
 DW
 DW
 DW
-DW
-DW
-DW
+kZ
+RN
+Lt
+Lt
 Lt
 Lt
 Lt
@@ -2149,7 +2251,6 @@ nd
 DW
 "}
 (21,1,1) = {"
-DW
 DW
 DW
 DW
@@ -2258,7 +2359,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -2313,7 +2413,6 @@ nd
 DW
 "}
 (23,1,1) = {"
-DW
 DW
 DW
 DW
@@ -2422,20 +2521,19 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
 DW
 DW
 DW
@@ -2504,20 +2602,19 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
+kZ
+kZ
+Lt
+WP
+Yr
+Lt
+du
+du
 DW
 DW
 DW
@@ -2547,7 +2644,7 @@ Lt
 kZ
 kZ
 Lt
-Jy
+WP
 Yr
 Lt
 du
@@ -2586,30 +2683,29 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
 sa
 kZ
 kZ
-mu
+Wz
 WP
 WP
-Qq
+cH
+du
+du
+DW
+DW
+DW
+sa
+kZ
+kZ
+YW
+WP
+WP
+KX
 du
 du
 DW
@@ -2628,10 +2724,10 @@ DW
 dA
 kZ
 kZ
-mu
+ZK
 WP
 WP
-Qq
+aw
 du
 du
 DW
@@ -2668,30 +2764,29 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
 kZ
 HE
 jx
-XF
+wa
 kx
 Li
-os
+Wc
+du
+du
+DW
+DW
+DW
+kZ
+HE
+jx
+Bt
+kx
+Li
+Ht
 du
 du
 DW
@@ -2713,7 +2808,7 @@ Cu
 NH
 zn
 Vo
-os
+FS
 du
 du
 DW
@@ -2750,20 +2845,7 @@ DW
 DW
 DW
 DW
-DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -2772,7 +2854,19 @@ qS
 qS
 Lt
 Vv
-cq
+YK
+Lt
+du
+du
+DW
+DW
+DW
+Lt
+qS
+qS
+Lt
+Vv
+Vv
 Lt
 du
 du
@@ -2794,7 +2888,7 @@ bx
 bx
 Lt
 SH
-SH
+gk
 Lt
 du
 du
@@ -2832,20 +2926,19 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
 DW
 DW
 DW
@@ -2875,8 +2968,8 @@ Lt
 Lt
 Lt
 Lt
-Fj
-jy
+Lt
+Lt
 Lt
 du
 du
@@ -2914,7 +3007,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -2953,15 +3045,15 @@ DW
 DW
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -2996,7 +3088,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -3035,15 +3126,15 @@ DW
 DW
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -3051,7 +3142,6 @@ nd
 DW
 "}
 (32,1,1) = {"
-DW
 DW
 DW
 DW
@@ -3160,7 +3250,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -3199,15 +3288,15 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
 DW
 DW
 DW
@@ -3242,7 +3331,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -3263,7 +3351,7 @@ Lt
 kZ
 kZ
 Lt
-Nv
+Yr
 Yr
 Lt
 du
@@ -3281,15 +3369,15 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
+kZ
+kZ
+Lt
+Ij
+Yr
+Lt
+du
+du
 DW
 DW
 DW
@@ -3297,7 +3385,6 @@ nd
 DW
 "}
 (35,1,1) = {"
-DW
 DW
 DW
 DW
@@ -3344,10 +3431,10 @@ DW
 sa
 kZ
 kZ
-mu
+YW
 WP
 WP
-Qq
+KX
 du
 du
 DW
@@ -3359,17 +3446,17 @@ nd
 DW
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
+DW
+DW
+DW
+DW
+dA
+kZ
+kZ
+ZK
+WP
+WP
+pV
 du
 du
 DW
@@ -3379,7 +3466,6 @@ nd
 DW
 "}
 (36,1,1) = {"
-DW
 DW
 DW
 DW
@@ -3426,10 +3512,10 @@ DW
 kZ
 HE
 jx
-XF
+Bt
 kx
 Li
-os
+Ht
 du
 du
 DW
@@ -3441,17 +3527,17 @@ nd
 DW
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
+DW
+DW
+DW
+DW
+kZ
+vW
+Cu
+Bl
+zn
+Vo
+FS
 du
 du
 DW
@@ -3461,7 +3547,6 @@ nd
 DW
 "}
 (37,1,1) = {"
-DW
 DW
 DW
 DW
@@ -3523,16 +3608,16 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
 Lt
+bx
+bx
 Lt
-Lt
-Lt
-Lt
-YW
-jy
-Lt
-Lt
-Lt
+gk
+gk
 Lt
 du
 du
@@ -3570,7 +3655,6 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
@@ -3605,16 +3689,16 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
 Lt
-kZ
-kZ
 Lt
-WP
-WP
-WP
-WP
-Nv
-WP
+Lt
+Lt
+VJ
+Jx
 Lt
 du
 du
@@ -3626,6 +3710,734 @@ DW
 "}
 (39,1,1) = {"
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+du
+du
+du
+du
+du
+du
+du
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(40,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+du
+du
+du
+du
+du
+du
+du
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(41,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+"}
+(42,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+du
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+"}
+(43,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+Lt
+kZ
+kZ
+Lt
+WP
+Yr
+Lt
+OG
+OG
+OG
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+"}
+(44,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+tu
+Fj
+Jy
+ZK
+WP
+WP
+pV
+Qw
+Qw
+Qw
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(45,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+kZ
+HE
+UO
+Lp
+kx
+Li
+pV
+Qw
+Qw
+Qw
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(46,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+Lt
+qS
+qS
+Lt
+Vv
+YK
+Lt
+Qw
+xW
+Qw
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Ql
+Jx
+Lt
+Lt
+Lt
+Lt
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(47,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+Lt
+kZ
+kZ
+Lt
+WP
+WP
+WP
+WP
+Yr
+WP
+Lt
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(48,1,1) = {"
 DW
 DW
 DW
@@ -3690,14 +4502,14 @@ DW
 dA
 kZ
 kZ
-mu
+ZK
 WP
 WP
 WP
 WP
 WP
 WP
-Qq
+pV
 du
 du
 DW
@@ -3706,8 +4518,7 @@ DW
 nd
 DW
 "}
-(40,1,1) = {"
-DW
+(49,1,1) = {"
 DW
 DW
 DW
@@ -3772,752 +4583,14 @@ DW
 kZ
 vW
 Cu
-NH
+Bl
 zn
-VJ
+WC
 zn
-VJ
-VJ
+WC
+WC
 Vo
-os
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(41,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-nd
-DW
-DW
-DW
-Lt
-bx
-bx
-Lt
-SH
-Rh
-SH
-WP
-WP
-SH
-Lt
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(42,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-DW
-nd
-DW
-DW
-DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-rK
-tu
-Lt
-Lt
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(43,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-Lt
-kZ
-kZ
-kZ
-kZ
-Lt
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(44,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-Lt
-kZ
-kZ
-kZ
-kZ
-Lt
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(45,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-Lt
-Lt
-kZ
-kZ
-Lt
-Lt
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(46,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-"}
-(47,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-"}
-(48,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-"}
-(49,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-OG
-OG
-OG
-OG
+FS
 du
 du
 DW
@@ -4554,10 +4627,141 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+Lt
+bx
+bx
+Lt
+gk
+QL
+gk
+WP
+WP
+gk
+Lt
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(51,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+du
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+EH
+LJ
+Lt
+Lt
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(52,1,1) = {"
 DW
 DW
 DW
@@ -4596,65 +4800,11 @@ Lt
 WP
 Yr
 Lt
-du
+OG
+OG
 OG
 du
 du
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(51,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4669,101 +4819,21 @@ DW
 DW
 nd
 DW
+nd
 DW
 DW
-dA
+DW
+DW
+DW
+DW
+DW
+DW
+Lt
 kZ
 kZ
-mu
-WP
-WP
-Qq
-Qw
-Qw
-Ze
-Ze
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(52,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
 kZ
-HE
-jx
-XF
-kx
-Li
-os
-Qw
-Qw
-Ze
-Ze
+kZ
+Lt
 du
 du
 DW
@@ -4800,10 +4870,141 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+tu
+Fj
+Jy
+ZK
+WP
+WP
+pV
+Qw
+Qw
+Qw
+du
+du
 DW
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+Lt
+kZ
+kZ
+kZ
+kZ
+Lt
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(54,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+kZ
+HE
+UO
+Lp
+kx
+Li
+pV
+Qw
+Qw
+Qw
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+Lt
+Lt
+kZ
+kZ
+Lt
+Lt
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(55,1,1) = {"
 DW
 DW
 DW
@@ -4842,65 +5043,11 @@ Lt
 Vv
 YK
 Lt
+Qw
+sN
+Qw
 du
-OG
 du
-du
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(54,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4914,86 +5061,6 @@ DW
 DW
 DW
 nd
-DW
-DW
-DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-OG
-OG
-OG
-OG
-OG
-OG
-DW
-DW
-DW
-nd
-DW
-"}
-(55,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -5046,6 +5113,22 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
 DW
 DW
 DW
@@ -5058,24 +5141,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -5128,6 +5194,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -5155,9 +5222,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -5210,10 +5275,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -5243,19 +5305,21 @@ DW
 DW
 nd
 DW
+nd
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+OG
+OG
+OG
+OG
 du
 du
 DW
@@ -5292,10 +5356,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -5325,17 +5386,19 @@ DW
 DW
 nd
 DW
+nd
 DW
 DW
+DW
+Lt
+kZ
+kZ
+Lt
+WP
+Yr
+Lt
 du
-du
-du
-du
-du
-du
-du
-du
-du
+OG
 du
 du
 du
@@ -5374,50 +5437,49 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 nd
 DW
 DW
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
+dA
+kZ
+kZ
+ZK
+WP
+WP
+pV
+Qw
+Qw
 Ze
 Ze
 du
@@ -5486,21 +5548,20 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-Lt
 kZ
-kZ
-Lt
-WP
-Yr
-Lt
+HE
+jx
+Lp
+kx
+Li
+FS
 Qw
-xW
 Qw
+Ze
 Ze
 du
 du
@@ -5511,171 +5572,6 @@ nd
 DW
 "}
 (62,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-dA
-kZ
-kZ
-mu
-WP
-WP
-Qq
-Qw
-Qw
-Qw
-Ze
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(63,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-nd
-DW
-DW
-DW
-kZ
-HE
-jx
-XF
-kx
-Li
-Qq
-Qw
-Qw
-Qw
-Ze
-du
-du
-DW
-DW
-DW
-nd
-DW
-"}
-(64,1,1) = {"
-DW
 DW
 DW
 DW
@@ -5744,12 +5640,174 @@ Lt
 Vv
 YK
 Lt
-Ze
-Ze
-Ze
-Ze
+du
+OG
 du
 du
+du
+du
+DW
+DW
+DW
+nd
+DW
+"}
+(63,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+OG
+ya
+OG
+OG
+OG
+OG
+DW
+DW
+DW
+nd
+DW
+"}
+(64,1,1) = {"
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -5814,24 +5872,23 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-du
-du
-du
-du
-du
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -5839,7 +5896,6 @@ nd
 DW
 "}
 (66,1,1) = {"
-DW
 DW
 DW
 DW
@@ -5978,24 +6034,23 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
 DW
 DW
 DW
@@ -6060,24 +6115,23 @@ DW
 DW
 DW
 DW
-DW
 nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
 DW
 DW
 DW
@@ -6142,27 +6196,26 @@ DW
 DW
 DW
 DW
+nd
 DW
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Ze
+Ze
+du
+du
+DW
+DW
+DW
 nd
 DW
 "}
@@ -6224,28 +6277,27 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
+Lt
+Pe
+kZ
+Lt
+WP
+Yr
+Lt
+Qw
+qg
+Qw
+Ze
+du
+du
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 "}
 (71,1,1) = {"
@@ -6306,28 +6358,27 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
+dA
+kZ
+kZ
+KX
+WP
+WP
+pV
+Qw
+Qw
+Qw
+Ze
+du
+du
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 "}
 (72,1,1) = {"
@@ -6388,28 +6439,27 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
+kZ
+HE
+jx
+Bt
+kx
+Li
+pV
+Qw
+Qw
+Qw
+Ze
+du
+du
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 "}
 (73,1,1) = {"
@@ -6470,28 +6520,27 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
+Lt
+qS
+qS
+Lt
+Vv
+YK
+Lt
+Ze
+Ze
+Ze
+Ze
+du
+du
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 "}
 (74,1,1) = {"
@@ -6552,28 +6601,27 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+du
+du
+du
+du
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 "}
 (75,1,1) = {"
@@ -6634,6 +6682,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6653,9 +6702,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
+nd
 DW
 "}
 (76,1,1) = {"
@@ -6716,6 +6763,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6735,9 +6783,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
+nd
 DW
 "}
 (77,1,1) = {"
@@ -6798,6 +6844,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6817,9 +6864,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
+nd
 DW
 "}
 (78,1,1) = {"
@@ -6880,114 +6925,30 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 "}
 (79,1,1) = {"
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-"}
-(80,1,1) = {"
-DW
 DW
 DW
 DW
