@@ -910,3 +910,27 @@
 	item_state = "gadpathur_vulture"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/sol/konyang
+	name = "konyang aerospace forces voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been painted in the colors of the Konyang Armed Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_helmet"
+	item_state = "konyang_helmet"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = "ipc"
+
+
+/obj/item/clothing/suit/space/void/sol/konyang
+	name = "konyang aerospace forces voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military.This one has been painted in the colors of the Konyang Armed Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_suit"
+	item_state = "konyang_suit"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = "ipc"
+

@@ -62,6 +62,7 @@
 #define MODE_THRALL "thrall"
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
+#define MODE_JOCKEY "jockey"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 20
 #define DEFAULT_BLUECRYSTAL_AMOUNT 15

@@ -316,7 +316,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
-	slowdown = 0
+	slowdown = 1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 

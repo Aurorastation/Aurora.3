@@ -143,6 +143,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //FINE SMOKABLES//
 //////////////////
 /obj/item/clothing/mask/smokable
+	abstract_type = /obj/item/clothing/mask/smokable
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/obj/smokables.dmi'
@@ -382,7 +383,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/toxin/tobacco = 5,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/lexorin = 2,
-		/singleton/reagent/serotrotium = 3
+		/singleton/reagent/drugs/serotrotium = 3
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
@@ -416,6 +417,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/mental/nicotine = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/adhomai/menthol
+	name = "adhomian menthol cigarette"
+	desc = "An adhomian cigarette made from processed S'rendarr's Hand, with menthol added."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/menthol = 5
+	)
+
 /obj/item/clothing/mask/smokable/cigarette/sweet
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco/sweet = 10,
@@ -435,6 +445,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "wulumunusha cigarette"
 	desc = "A wulumunusha cigarette commonly smoked by Skrell for religious purposes."
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
+
+/obj/item/clothing/mask/smokable/cigarette/oracle
+	name = "oracle cigarette"
+	desc = "A roll of oracle and caromeg."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/oracle = 10,
+		/singleton/reagent/mental/caromeg = 5
+	)
 
 ////////////
 // CIGARS //
@@ -497,6 +515,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/toxin/tobacco/rich = 20,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/fuel = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/oracle
+	name = "\improper Vedamor cigar"
+	desc = "A premium oracle cigar, originating from Vedamor."
+	icon_state = "vedamor_cigaroff"
+	icon_on = "vedamor_cigaron"
+	icon_off = "vedamor_cigaroff"
+	item_state = "vedamor_cigaroff"
+	reagents_to_add = list(
+		/singleton/reagent/toxin/oracle/rich = 25,
+		/singleton/reagent/mental/caromeg = 5
 	)
 
 /obj/item/trash/cigbutt
@@ -1063,6 +1093,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure
 	plantname = "puretobacco"
+
+//oracle sold seperately if you're too snobby to grow it yourself.
+/obj/item/reagent_containers/food/snacks/grown/dried_oracle
+	plantname = "oracle"
+	w_class = ITEMSIZE_TINY
+
+/obj/item/reagent_containers/food/snacks/grown/dried_oracle/Initialize()
+	. = ..()
+	dry = TRUE
+	name = "dried [name]"
+	color = "#ff6f6f"
+
+/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine
+	plantname = "vedamororacle"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/cigarette_filter))

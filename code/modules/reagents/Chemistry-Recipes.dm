@@ -175,8 +175,30 @@
 	name = "Oxycomorphine"
 	id = "oxycomorphine"
 	result = /singleton/reagent/oxycomorphine
-	required_reagents = list(/singleton/reagent/alcohol = 1, /singleton/reagent/mortaphenyl = 1)
+	required_reagents = list(/singleton/reagent/morphine = 1, /singleton/reagent/mortaphenyl = 1)
 	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	result_amount = 2
+
+/datum/chemical_reaction/tramarineoxycomorphine
+	name = "Oxycomorphine (Artificial)"
+	id = "oxycomorphineartificial"
+	result = /singleton/reagent/oxycomorphine
+	required_reagents = list(/singleton/reagent/tramarine = 1, /singleton/reagent/mortaphenyl = 1)
+	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	result_amount = 1
+
+/datum/chemical_reaction/heroin
+	name = "Heroin"
+	id = "heroin"
+	result = /singleton/reagent/drugs/heroin
+	required_reagents = list(/singleton/reagent/morphine = 2, /singleton/reagent/acetone = 2)
+	result_amount = 1
+
+/datum/chemical_reaction/tramarineheroin
+	name = "Heroin (Artificial)"
+	id = "heroinartificial"
+	result = /singleton/reagent/drugs/heroin
+	required_reagents = list(/singleton/reagent/tramarine = 3, /singleton/reagent/acetone = 2)
 	result_amount = 1
 
 /datum/chemical_reaction/sterilizine
@@ -207,12 +229,40 @@
 	required_reagents = list(/singleton/reagent/aluminum = 1, /singleton/reagent/iron = 1, /singleton/reagent/acetone = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/space_drugs
+/datum/chemical_reaction/mms
 	name = "Mercury Monolithium Sucrose"
 	id = "space_drugs"
-	result = /singleton/reagent/space_drugs
+	result = /singleton/reagent/drugs/mms
 	required_reagents = list(/singleton/reagent/mercury = 1, /singleton/reagent/sugar = 1, /singleton/reagent/lithium = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/cocaine
+	name = "Cocaine"
+	id = "cocaine"
+	result = /singleton/reagent/drugs/cocaine
+	required_reagents = list(/singleton/reagent/nutriment/cocagrounds = 1, /singleton/reagent/acid/hydrochloric = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/contemplus
+	name = "Contemplus"
+	id = "contemplus"
+	result = /singleton/reagent/drugs/cocaine/contemplus
+	required_reagents = list(/singleton/reagent/drugs/cocaine = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/mental/emoxanyl = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/spotlight
+	name = "Spotlight"
+	id = "spotlight"
+	result = /singleton/reagent/drugs/cocaine/spotlight
+	required_reagents = list(/singleton/reagent/drugs/cocaine = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/mental/parvosil = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/sparkle
+	name = "Sparkle"
+	id = "sparkle"
+	result = /singleton/reagent/drugs/cocaine/sparkle
+	required_reagents = list(/singleton/reagent/drugs/cocaine = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/mental/minaphobin = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/lube
 	name = "Space Lube"
@@ -252,7 +302,7 @@
 /datum/chemical_reaction/impedrezene
 	name = "Impedrezene"
 	id = "impedrezene"
-	result = /singleton/reagent/impedrezene
+	result = /singleton/reagent/drugs/impedrezene
 	required_reagents = list(/singleton/reagent/mercury = 1, /singleton/reagent/acetone = 1, /singleton/reagent/sugar = 1)
 	result_amount = 2
 
@@ -290,7 +340,7 @@
 /datum/chemical_reaction/cryptobiolin
 	name = "Cryptobiolin"
 	id = "cryptobiolin"
-	result = /singleton/reagent/cryptobiolin
+	result = /singleton/reagent/drugs/cryptobiolin
 	required_reagents = list(/singleton/reagent/potassium = 1, /singleton/reagent/acetone = 1, /singleton/reagent/sugar = 1)
 	result_amount = 3
 
@@ -379,7 +429,7 @@
 	name = "Thetamycin"
 	id = "thetamycin"
 	result = /singleton/reagent/thetamycin
-	required_reagents = list(/singleton/reagent/cryptobiolin = 1, /singleton/reagent/dylovene = 1)
+	required_reagents = list(/singleton/reagent/drugs/cryptobiolin = 1, /singleton/reagent/dylovene = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/steramycin
@@ -407,7 +457,7 @@
 	name = "Cetahydramine"
 	id = "cetahydramine"
 	result = /singleton/reagent/cetahydramine
-	required_reagents = list(/singleton/reagent/cryptobiolin = 1, /singleton/reagent/inaprovaline = 1)
+	required_reagents = list(/singleton/reagent/drugs/cryptobiolin = 1, /singleton/reagent/inaprovaline = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/asinodryl
@@ -492,7 +542,7 @@
 /datum/chemical_reaction/mindbreaker
 	name = "Mindbreaker Toxin"
 	id = "mindbreaker"
-	result = /singleton/reagent/mindbreaker
+	result = /singleton/reagent/drugs/mindbreaker
 	required_reagents = list(/singleton/reagent/silicon = 1, /singleton/reagent/hydrazine = 1, /singleton/reagent/dylovene = 1)
 	result_amount = 3
 
@@ -603,7 +653,7 @@
 	name = "Rezadone"
 	id = "rezadone"
 	result = /singleton/reagent/rezadone
-	required_reagents = list(/singleton/reagent/toxin/carpotoxin = 1, /singleton/reagent/cryptobiolin = 1, /singleton/reagent/copper = 1)
+	required_reagents = list(/singleton/reagent/toxin/carpotoxin = 1, /singleton/reagent/drugs/cryptobiolin = 1, /singleton/reagent/copper = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/lexorin
@@ -693,20 +743,28 @@
 	required_reagents = list(/singleton/reagent/dylovene = 1, /singleton/reagent/carbon = 1, /singleton/reagent/sulfur = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/tramarine
+	name = "Tramarine"
+	id = "tramarine"
+	result = /singleton/reagent/tramarine
+	required_reagents = list(/singleton/reagent/toxin/potassium_chloride = 1, /singleton/reagent/polysomnine = 1)
+	catalysts = list(/singleton/reagent/sodium = 5)
+	result_amount = 1
+
 //Mental Medication
 
 /datum/chemical_reaction/corophenidate
 	name = "Corophenidate"
 	id = "corophenidate"
 	result = /singleton/reagent/mental/corophenidate
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/hydrazine = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/hydrazine = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/minaphobin
 	name = "Minaphobin"
 	id = "minaphobin"
 	result = /singleton/reagent/mental/minaphobin
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/carbon = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/carbon = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/adrenaline
@@ -719,49 +777,49 @@
 	name = "Neurostabin"
 	id = "neurostabin"
 	result = /singleton/reagent/mental/neurostabin
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/iron = 1, /singleton/reagent/potassium = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/iron = 1, /singleton/reagent/potassium = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/parvosil
 	name = "Parvosil"
 	id = "parvosil"
 	result = /singleton/reagent/mental/parvosil
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/aluminum = 1, /singleton/reagent/potassium = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/aluminum = 1, /singleton/reagent/potassium = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/emoxanyl
 	name = "Emoxanyl"
 	id = "emoxanyl"
 	result = /singleton/reagent/mental/emoxanyl
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/silicon = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/silicon = 1, /singleton/reagent/alcohol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/orastabin
 	name = "Orastabin"
 	id = "orastabin"
 	result = /singleton/reagent/mental/orastabin
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/sodium = 1, /singleton/reagent/tungsten = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/sodium = 1, /singleton/reagent/tungsten = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/neurapan
 	name = "Neurapan"
 	id = "neurapan"
 	result = /singleton/reagent/mental/neurapan
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/space_drugs = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/mms = 1, /singleton/reagent/alcohol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/nerospectan
 	name = "Nerospectan"
 	id = "nerospectan"
 	result = /singleton/reagent/mental/nerospectan
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/space_drugs = 1, /singleton/reagent/silicon = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/mms = 1, /singleton/reagent/silicon = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/truthserum
 	name = "Truthserum"
 	id = "truthserum"
 	result = /singleton/reagent/mental/truthserum
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron = 0.1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron = 0.1)
 	result_amount = 2
 
 /datum/chemical_reaction/pacifier
@@ -781,22 +839,22 @@
 /datum/chemical_reaction/joy
 	name = "Joy"
 	id = "joy"
-	result = /singleton/reagent/joy
-	required_reagents = list(/singleton/reagent/mental/neurapan = 1, /singleton/reagent/oxycomorphine = 2)
+	result = /singleton/reagent/drugs/joy
+	required_reagents = list(/singleton/reagent/mental/neurapan = 1, /singleton/reagent/drugs/heroin = 2)
 	result_amount = 1
 
 /datum/chemical_reaction/xuxigas
 	name = "Xu'Xi Gas"
 	id = "xuxigas"
-	result = /singleton/reagent/xuxigas
-	required_reagents = list(/singleton/reagent/dexalin = 2, /singleton/reagent/space_drugs = 2, /singleton/reagent/mental/truthserum = 1)
+	result = /singleton/reagent/drugs/xuxigas
+	required_reagents = list(/singleton/reagent/dexalin = 2, /singleton/reagent/drugs/mms = 2, /singleton/reagent/mental/truthserum = 1)
 	required_temperature_min = T0C + 134
 	result_amount = 5
 
 /datum/chemical_reaction/skrell_nootropic
 	name = "Co'qnixq Wuxi"
 	id = "skrell_nootropic"
-	result = /singleton/reagent/skrell_nootropic
+	result = /singleton/reagent/drugs/skrell_nootropic
 	required_reagents = list(/singleton/reagent/wulumunusha = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/mental/emoxanyl = 1)
 	result_amount = 3
 
@@ -819,7 +877,7 @@
 /datum/chemical_reaction/raskara_dust
 	name = "Raskara Dust"
 	id = "raskara_dust"
-	result = /singleton/reagent/raskara_dust
+	result = /singleton/reagent/drugs/raskara_dust
 	required_reagents = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1, /singleton/reagent/spacecleaner = 1, /singleton/reagent/sodiumchloride = 2) // extinguisher, cleaner, salt
 	required_temperature_min = T0C + 127 // barely over boiling point of water, 400C
 	result_amount = 2
@@ -827,7 +885,7 @@
 /datum/chemical_reaction/nightjuice
 	name = "Nightlife"
 	id = "night_juice"
-	result = /singleton/reagent/night_juice
+	result = /singleton/reagent/drugs/night_juice
 	required_reagents = list(/singleton/reagent/mental/corophenidate = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/nitroglycerin = 1)
 	required_temperature_min = T0C + 200
 	result_amount = 3
@@ -1934,6 +1992,13 @@
 	required_reagents = list(/singleton/reagent/nutriment/teagrounds = 1, /singleton/reagent/water = 5)
 	result_amount = 5
 
+/datum/chemical_reaction/drink/cocatea
+	name = "Mate de Coca"
+	id = "cocatea"
+	result = /singleton/reagent/drink/tea/cocatea
+	required_reagents = list(/singleton/reagent/nutriment/cocagrounds = 1, /singleton/reagent/water = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/drink/greentea
 	name = "Green Tea"
 	id = "greentea"
@@ -1960,6 +2025,13 @@
 	id = "nuka_cola"
 	result = /singleton/reagent/drink/nuka_cola
 	required_reagents = list(/singleton/reagent/uranium = 1, /singleton/reagent/drink/space_cola = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/coca_cola
+	name = "Coca Cola"
+	id = "coca_cola"
+	result = /singleton/reagent/drink/coca_cola
+	required_reagents = list(/singleton/reagent/nutriment/cocagrounds = 1, /singleton/reagent/drink/space_cola = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/moonshine
@@ -2604,7 +2676,7 @@
 	name = "Hippies Delight"
 	id = "hippiesdelight"
 	result = /singleton/reagent/alcohol/hippiesdelight
-	required_reagents = list(/singleton/reagent/psilocybin = 1, /singleton/reagent/alcohol/gargleblaster = 1)
+	required_reagents = list(/singleton/reagent/drugs/psilocybin = 1, /singleton/reagent/alcohol/gargleblaster = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/bananahonk

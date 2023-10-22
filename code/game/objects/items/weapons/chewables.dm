@@ -159,6 +159,19 @@
 		/singleton/reagent/drink/dynjuice = 1
 	)
 
+/obj/item/clothing/mask/chewable/oracle
+	name = "chewing oracle"
+	desc = "A chewy wad of oracle. Cut in long strands."
+	throw_speed = 0.5
+	icon_state = "chew"
+	type_butt = /obj/item/trash/spitwad
+	w_class = ITEMSIZE_TINY
+	slot_flags = SLOT_EARS | SLOT_MASK
+	chem_volume = 50
+	chewtime = 300
+	brand = "oracle"
+	reagents_to_add = list(/singleton/reagent/toxin/oracle = 2)
+
 /obj/item/clothing/mask/chewable/candy
 	name = "wad"
 	desc = "A chewy wad of wadding material."
