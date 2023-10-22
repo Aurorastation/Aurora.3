@@ -1,10 +1,20 @@
 
+/obj/effect/map_effect/marker
+	name = "map marker parent abstract object"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "map_marker"
+
+/obj/effect/map_effect/marker_helper
+	name = "map marker parent abstract object"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "map_marker"
+
 /// map of airlock marker `id_tag` to a list of map_effect/airlock_markers
 var/global/list/airlock_markers = list()
 
 /// Airlock marker that, when placed above airlock components (doors, pumps, sensors, etc),
 /// actually sets the airlock up to make it functional.
-/obj/effect/map_effect/airlock_marker
+/obj/effect/map_effect/marker/airlock
 	name = "airlock marker (inside the airlock)"
 	desc = "MASTER_TAG VAR MUST BE UNIQUE FOR THE AIRLOCK! Place this on top of airlock components (doors, pumps, sensors, etc)."
 	icon = 'icons/effects/map_effects.dmi'
@@ -19,18 +29,24 @@ var/global/list/airlock_markers = list()
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
 	var/required_access = list(access_external_airlocks)
 
-/// Specialization of the airlock marker, to be put above "exterior" parts of the airlock.
-/obj/effect/map_effect/airlock_marker/exterior
+/// Specialization helper for the airlock marker, to be put above "exterior" parts of the airlock,
+/// and on top of the actual airlock marker. By itself does nothing.
+/obj/effect/map_effect/marker_helper/airlock/exterior
 	name = "airlock marker (exterior/outside/vacuum)"
+	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "airlock_marker_exterior"
+	layer = LIGHTING_LAYER
 
-/// Specialization of the airlock marker, to be put above "interior" parts of the airlock.
-/obj/effect/map_effect/airlock_marker/interior
+/// Specialization helper for the airlock marker, to be put above "interior" parts of the airlock,
+/// and on top of the actual airlock marker. By itself does nothing.
+/obj/effect/map_effect/marker_helper/airlock/interior
 	name = "airlock marker (interior/inside/pressurized)"
+	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "airlock_marker_interior"
+	layer = LIGHTING_LAYER
 
 /// add the airlock market to `airlock_markers`
-/obj/effect/map_effect/airlock_marker/Initialize(mapload, ...)
+/obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()
 	if(master_tag && frequency)
 		if(!airlock_markers[master_tag])
@@ -38,7 +54,7 @@ var/global/list/airlock_markers = list()
 		airlock_markers[master_tag] += src
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/effect/map_effect/airlock_marker/LateInitialize()
+/obj/effect/map_effect/marker/airlock/LateInitialize()
 	..()
 	if(master_tag && frequency)
 		airlock_marker_init_airlock(master_tag)
@@ -57,9 +73,9 @@ var/global/list/airlock_markers = list()
 		return
 
 	// iterate through every marker of this airlock and set up the component parts
-	for(var/obj/effect/map_effect/airlock_marker/marker in airlock_markers[master_tag])
-		var/is_interior = istype(marker, /obj/effect/map_effect/airlock_marker/interior)
-		var/is_exterior = istype(marker, /obj/effect/map_effect/airlock_marker/exterior)
+	for(var/obj/effect/map_effect/marker/airlock/marker in airlock_markers[master_tag])
+		var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in marker.loc
+		var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in marker.loc
 
 		var/frequency = marker.frequency
 		var/required_access = marker.required_access
