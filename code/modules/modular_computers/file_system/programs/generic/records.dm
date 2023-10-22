@@ -92,6 +92,12 @@
 	. = ..()
 	listener = new(src)
 
+/datum/computer_file/program/records/Destroy()
+	active = null
+	QDEL_NULL(listener)
+	active_virus = null
+	. = ..()
+
 /datum/computer_file/program/records/ui_data(mob/user)
 	var/list/data = list(
 		"activeview" = "list",
