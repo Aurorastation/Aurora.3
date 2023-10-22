@@ -35,7 +35,9 @@
 	initial_generic_waypoints = list(
 		"nav_cyclops_1",
 		"nav_cyclops_2",
-		"nav_hangar_cyclops"
+		"nav_cyclops_3",
+		"nav_cyclops_4",
+		"nav_cyclops_5",
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -57,6 +59,24 @@
 /obj/effect/shuttle_landmark/cyclops/nav2
 	name = "Cyclops Mining Vessel - Port Airlock"
 	landmark_tag = "nav_cyclops_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav3
+	name = "Cyclops Mining Vessel - Starboard Side"
+	landmark_tag = "nav_cyclops_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav4
+	name = "Cyclops Mining Vessel - Aft"
+	landmark_tag = "nav_cyclops_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/cyclops/nav5
+	name = "Cyclops Mining Vessel - Fore"
+	landmark_tag = "nav_cyclops_5"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
