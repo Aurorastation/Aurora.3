@@ -20,6 +20,7 @@ var/global/list/airlock_markers = list()
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "airlock_marker"
 	layer = LIGHTING_LAYER
+
 	/// Radio frequency of this airlock.
 	var/frequency = 2137
 	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
