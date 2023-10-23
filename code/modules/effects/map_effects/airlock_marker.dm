@@ -28,6 +28,7 @@ var/global/list/airlock_markers = list()
 	/// THIS MUST BE UNIQUE FOR THE AIRLOCK. Every marker in one airlock should have the same `master_tag`.
 	/// But different airlocks, even on different maps, cannot share the same `master_tag`.
 	var/master_tag = null
+
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
 	var/required_access = list(access_external_airlocks)
 
