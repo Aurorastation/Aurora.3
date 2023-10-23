@@ -68,7 +68,7 @@ var/global/list/airlock_markers = list()
 #define EXTERIOR_DOOR_TAG	"[master_tag]_outer"
 #define INTERIOR_DOOR_TAG	"[master_tag]_inner"
 
-/// actually set the airlock up
+/// Actually set the airlock up
 /proc/airlock_marker_init_airlock(var/master_tag)
 	// if airlock of this master_tag was already initialized, return
 	if(!airlock_markers || !airlock_markers[master_tag] || airlock_markers[master_tag]==null)
