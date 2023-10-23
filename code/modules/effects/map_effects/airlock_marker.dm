@@ -23,6 +23,7 @@ var/global/list/airlock_markers = list()
 
 	/// Radio frequency of this airlock.
 	var/frequency = 2137
+
 	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
 	/// THIS MUST BE UNIQUE FOR THE AIRLOCK. Every marker in one airlock should have the same `master_tag`.
 	/// But different airlocks, even on different maps, cannot share the same `master_tag`.
