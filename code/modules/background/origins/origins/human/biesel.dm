@@ -14,6 +14,7 @@
 	possible_accents = list(ACCENT_CETI)
 	possible_citizenships = list(CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_BIESEL
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard
 
 /singleton/origin_item/origin/new_gibson
 	name = "New Gibson"
@@ -22,6 +23,8 @@
 	possible_accents = list(ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR)
 	possible_citizenships = list(CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_BIESEL
+
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard
 
 /singleton/origin_item/origin/reade
 	name = "Reade"

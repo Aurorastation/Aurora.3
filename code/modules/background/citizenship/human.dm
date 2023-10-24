@@ -5,7 +5,7 @@
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /datum/outfit/job/representative/consular/ceti
-
+	citizenship_item = /obj/item/clothing/accessory/badge/passport
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
@@ -83,6 +83,7 @@
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /datum/outfit/job/representative/consular/sol
+	citizenship_item = /obj/item/clothing/accessory/badge/passport/sol
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -157,6 +158,7 @@
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
 	consular_outfit = /datum/outfit/job/representative/consular/coalition
+	citizenship_item = /obj/item/clothing/accessory/badge/passport/coc
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -187,6 +189,7 @@
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyran"
 	consular_outfit = /datum/outfit/job/representative/consular/elyra
+	citizenship_item = /obj/item/clothing/accessory/badge/passport/elyra
 
 /datum/outfit/job/representative/consular/elyra
 	name = "Elyra Consular Officer"
@@ -237,8 +240,8 @@
 	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Moroz in the Mira Sancta system. This autocratic state is ruled by \
 	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2385 by then-Emperor Godwin Keeser, unifying a colony which had been isolated for hundreds of years. \
 	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor'iz'al."
-
 	consular_outfit = /datum/outfit/job/representative/consular/dominia
+	citizenship_item = /obj/item/clothing/accessory/badge/passport/dominia
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(

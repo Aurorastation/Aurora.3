@@ -21,6 +21,7 @@
 	possible_accents = list(ACCENT_XANU)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_STOLITISM, RELIGION_MOROZ, RELIGION_LUCEISM)
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/coalition
 
 /singleton/origin_item/origin/himeo
 	name = "United Syndicates of Himeo"
@@ -30,6 +31,7 @@
 	possible_religions = RELIGIONS_COALITION
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE, TRAIT_ORIGIN_LIGHT_SENSITIVE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/himeo
 
 /singleton/origin_item/origin/vysoka
 	name = "Free System of Vysoka"
@@ -38,6 +40,7 @@
 	possible_accents = list(ACCENT_VYSOKA)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_STOLITISM, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/vysoka
 
 /singleton/origin_item/origin/galatea
 	name = "Federal Technocracy of Galatea"
@@ -53,6 +56,7 @@
 	possible_accents = list(ACCENT_NCF, ACCENT_SCARAB, ACCENT_COC, ACCENT_BURZSIA)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB)
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/coalition
 
 /singleton/origin_item/origin/gadpathur
 	name = "United Planetary Defense Council of Gadpathur"
@@ -63,6 +67,7 @@
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER)
 	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/gad
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
 	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
@@ -88,6 +93,7 @@
 	possible_religions = list(RELIGION_LUCEISM)
 	origin_traits = list(TRAIT_ORIGIN_DARK_AFRAID)
 	origin_traits_descriptions = list("tend to feel nervous in the dark")
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/assu
 
 /singleton/origin_item/origin/ncf
 	name = "Non-Coalition Frontier"

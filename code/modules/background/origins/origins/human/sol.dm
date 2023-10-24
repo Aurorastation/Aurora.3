@@ -45,6 +45,7 @@
 	possible_accents = list(ACCENT_LUNA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/sol/luna
 
 /singleton/origin_item/origin/venus_c
 	name = "Venus, Cytherea"
@@ -54,6 +55,7 @@
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_ALCOHOL_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
 	origin_traits_descriptions = list("have a higher alcoholic tolerance", "have a higher tolerance to recreative drugs")
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
 
 /singleton/origin_item/origin/venus_j
 	name = "Venus, Jintaria"
@@ -61,6 +63,7 @@
 	possible_accents = list(ACCENT_VENUSJIN)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
 
 /singleton/origin_item/origin/mars
 	name = "Mars"
@@ -83,6 +86,7 @@
 	possible_accents = list(ACCENT_PLUTO)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/sol/pluto
 
 /singleton/origin_item/origin/eridani
 	name = "Eridani Corporate Federation"
@@ -144,6 +148,7 @@
 	possible_accents = list(ACCENT_KONYAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/konyang
 
 /singleton/origin_item/origin/visegrad
 	name = "Visegrad"
@@ -154,6 +159,7 @@
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN, TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are not affected by spicy foods", "are more acclimatised to the cold")
+	extra_citizenship_item = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 
 /singleton/origin_item/origin/mictlan
 	name = "Mictlan"

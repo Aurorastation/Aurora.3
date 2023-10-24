@@ -27,4 +27,12 @@
 	if(citizenship_item)
 		var/obj/item/newitem = new citizenship_item
 		H.equip_to_storage(newitem)
+		if(istype(newitem, /obj/item/clothing/accessory/badge))
+			var/obj/item/clothing/accessory/badge/B = newitem
+			B.set_name(H.real_name)
+	if(H.origin)
+		var/singleton/origin_item/OG = GET_SINGLETON(H.origin)
+		if(OG.extra_citizenship_item)
+			var/obj/item/O = new OG.extra_citizenship_item
+			H.equip_to_storage(O)
 	return
