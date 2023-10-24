@@ -142,7 +142,7 @@
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
 		if(HAS_FLAG(M.mutations, HULK))
-			to_chat(user, "<span class='warning'>This is too complicated for your frenzied mind to handle.</span>")
+			to_chat(user, SPAN_WARNING("This is too complicated for your frenzied mind to handle."))
 			return
 		wield()
 		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
