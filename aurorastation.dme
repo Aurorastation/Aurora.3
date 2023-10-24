@@ -3636,7 +3636,6 @@
 #include "maps\event\generic_dock\code\generic_dock_areas.dm"
 #include "maps\event\halloween\halloween.dm"
 #include "maps\event\halloween\halloweenareas.dm"
-#include "maps\event\halloween\halloween.dmm"
 #include "maps\event\idris_cruise\code\idris_cruise.dm"
 #include "maps\event\idris_cruise\code\idris_cruise_areas.dm"
 #include "maps\event\rooftop\code\rooftop.dm"
