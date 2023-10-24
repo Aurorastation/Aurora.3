@@ -370,24 +370,6 @@
 	card["the new kingdom"] = /obj/item/book/manual/nka_manifesto
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
-/datum/gear/tajaran_passports
-	display_name = "adhomian passports selection"
-	description = "A selection of Adhomian passports."
-	path = /obj/item/clothing/accessory/badge/pra_passport
-	sort_category = "Xenowear - Tajara"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	flags = GEAR_HAS_DESC_SELECTION
-	cost = 1
-
-/datum/gear/tajaran_passports/New()
-	..()
-	var/list/passports = list()
-	passports["people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/pra_passport
-	passports["democratic people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/dpra_passport
-	passports["new kingdom of adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
-	passports["free tajaran council passport"] =/obj/item/clothing/accessory/badge/ftc_passport
-	gear_tweaks += new /datum/gear_tweak/path(passports)
-
 /datum/gear/adhomai_zippo
 	display_name = "adhomian lighter"
 	path = /obj/item/flame/lighter/adhomai

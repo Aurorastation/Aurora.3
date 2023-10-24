@@ -4,6 +4,7 @@
 	var/datum/outfit/consular_outfit = /datum/outfit/job/representative/consular
 	var/demonym
 	var/list/job_species_blacklist = list()
+	var/citizenship_item = null
 
 /datum/citizenship/proc/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
@@ -21,3 +22,9 @@
 
 
 	return rep_objectives
+
+/datum/citizenship/proc/on_apply(var/mob/living/carbon/human/H)
+	if(citizenship_item)
+		var/obj/item/newitem = new citizenship_item
+		H.equip_to_storage(newitem)
+	return

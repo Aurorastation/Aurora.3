@@ -6,6 +6,7 @@
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	consular_outfit = /datum/outfit/job/representative/consular/pra
+	citizenship_item = /obj/item/clothing/accessory/badge/pra_passport
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -62,6 +63,7 @@
 	insurgency movement, then an organized military, into a modern, democratic nation. With the help of Nated as a government minister going out to negotiate with ruling Juntas to \
 	voluntarily turn over power to civilian governments, the DPRA's future faces many fundamental changes."
 	consular_outfit = /datum/outfit/job/representative/consular/dpra
+	citizenship_item = /obj/item/clothing/accessory/badge/dpra_passport
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -119,6 +121,7 @@
 	The lofty titles of the nobles disguise the fact that most of the nobility of this new kingdom remain in squalor only marginally better than the peasants. Life is difficult, and \
 	the Azunja dynasty finds itself struggling to function with their limited constitutional powers and factional in-fighting between the military and the civilian government."
 	consular_outfit = /datum/outfit/job/representative/consular/nka
+	citizenship_item = /obj/item/clothing/accessory/badge/nka_passport
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -172,6 +175,7 @@
 	radical principles of equality and communal democracy, the Free Tajaran Council remained relatively isolated from the rest of the Tajaran community until the start of the Adhomian Cold War. \
 	Its population was granted a temporary citizenship status as part of an agreement between the Tajaran nations. While the council struggles to decide its future, some of its members travel \
 	the galaxy in search of aid and new allies for their ultimate masterplan."
+	citizenship_item = /obj/item/clothing/accessory/badge/ftc_passport
 
 	job_species_blacklist = list(
 		"Consular Officer" = ALL_SPECIES

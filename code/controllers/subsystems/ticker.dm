@@ -743,6 +743,9 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
+				var/datum/citizenship/citizenship = SSrecords.citizenships[player.citizenship]
+				if(citizenship)
+					citizenship.on_apply(player)
 				equip_custom_items(player)
 
 		CHECK_TICK

@@ -246,7 +246,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	SSjobs.AssignRole(src, rank, 1)
 
-	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
+	var/mob/living/carbon/human/character = create_character()	//creates the human and transfers vars and mind
 
 	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
@@ -274,6 +274,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/join_message = SSjobs.LateSpawn(character, rank)
 
 	equip_custom_items(character)
+
+	var/datum/citizenship/citizenship = SSrecords.citizenships[character.citizenship]
+	if(citizenship)
+		citizenship.on_apply(character)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one

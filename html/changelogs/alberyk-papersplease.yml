@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a system that allows a character's citizenship to grant items when joining."
+  - rscadd: "Tajara will now spawn with passports of their respective citizenships."
