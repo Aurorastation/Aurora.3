@@ -134,11 +134,15 @@
 			O.unwield()
 
 	else //Trying to wield it
+		var/mob/living/M = user
 		var/obj/item/offhand_item = user.get_inactive_hand()
 		if(offhand_item)
 			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
+			return
+		if(HAS_FLAG(M.mutations, HULK))
+			to_chat(user, "<span class='warning'>This is too complicated for your frenzied mind to handle.</span>")
 			return
 		wield()
 		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
