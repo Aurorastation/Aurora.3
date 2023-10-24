@@ -83,7 +83,7 @@
 			door.lock()
 			if(is_interior)
 				door.id_tag = INTERIOR_DOOR_TAG
-			if(is_exterior)
+			else if(is_exterior)
 				door.id_tag = EXTERIOR_DOOR_TAG
 			continue
 
@@ -109,7 +109,7 @@
 			button.req_access = required_access
 			if(is_interior)
 				button.command = "cycle_interior"
-			if(is_exterior)
+			else if(is_exterior)
 				button.command = "cycle_exterior"
 			continue
 
