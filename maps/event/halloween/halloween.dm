@@ -4,8 +4,8 @@
 	path = "event/halloween"
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi')
 	lobby_transitions = FALSE
+	allowed_jobs = list(/datum/job/visitor)
 	force_spawnpoint = TRUE
-	allowed_jobs = list(/datum/job/assistant, /datum/job/visitor)
 
 	station_levels = list(1)
 	admin_levels = list()
@@ -23,3 +23,7 @@
 	company_short = "SCC"
 
 	use_overmap = FALSE
+
+	allowed_spawns = list("Living Quarters Lift")
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift)
+	default_spawn = "Living Quarters Lift"

@@ -1779,8 +1779,11 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "jo" = (
-/obj/effect/map_effect/perma_light/brighter,
-/turf/simulated/floor/wood,
+/obj/effect/landmark{
+	name = "JoinLate";
+	tag = "visitor"
+	},
+/turf/simulated/floor/tiled/steel,
 /area/city/port)
 "jp" = (
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -2249,7 +2252,9 @@
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
 "mP" = (
-/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "visitor"
+	},
 /turf/simulated/floor/wood,
 /area/city/port)
 "mR" = (
@@ -3036,12 +3041,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/city/hallway)
-"sL" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/city/port)
 "sO" = (
 /turf/simulated/floor/carpet/rubber,
 /area/city/hallway)
@@ -3170,7 +3169,8 @@
 	layer = 1.1
 	},
 /obj/effect/landmark{
-	name = "JoinLate"
+	name = "JoinLate";
+	tag = "visitor"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/city/port)
@@ -4243,6 +4243,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/city/bar)
+"Dc" = (
+/obj/effect/map_effect/perma_light/brighter,
+/turf/simulated/floor/wood,
+/area/city/port)
 "De" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -4881,6 +4885,12 @@
 /obj/item/trash/sosjerky,
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
+"HW" = (
+/obj/machinery/cryopod/living_quarters{
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/city/port)
 "HX" = (
 /obj/structure/table,
 /obj/item/material/shard,
@@ -6366,6 +6376,14 @@
 "RE" = (
 /turf/simulated/floor/tiled/ramp,
 /area/city/pool)
+"RG" = (
+/obj/effect/map_effect/perma_light/brighter,
+/obj/effect/landmark{
+	name = "JoinLate";
+	tag = "visitor"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/city/port)
 "RK" = (
 /obj/effect/floor_decal/plaque,
 /turf/simulated/floor/tiled/dark/full,
@@ -6376,7 +6394,9 @@
 /area/city/hallway)
 "RM" = (
 /obj/effect/map_effect/perma_light/brighter,
-/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "visitor"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/city/port)
 "RN" = (
@@ -7092,7 +7112,9 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "UQ" = (
-/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "visitor"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/city/port)
 "UR" = (
@@ -8115,7 +8137,9 @@
 /area/city/outside)
 "Zl" = (
 /obj/effect/map_effect/perma_light/brighter,
-/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "visitor"
+	},
 /turf/simulated/floor/wood,
 /area/city/port)
 "Zr" = (
@@ -20534,8 +20558,8 @@ Fo
 Fo
 Fo
 cB
-oX
-oX
+HW
+jo
 oX
 oX
 oX
@@ -20615,11 +20639,11 @@ Fo
 Fo
 Fo
 cB
-oX
-ot
+HW
+RG
 oX
 bB
-jo
+Dc
 bB
 oX
 ot
@@ -20695,16 +20719,16 @@ Fo
 Fo
 Fo
 Fo
-pp
-sL
-oX
+cB
+HW
+jo
 bB
 bB
 bB
 bB
 bB
 oX
-sL
+jo
 pp
 Fo
 Fo
@@ -20776,9 +20800,9 @@ Fo
 Fo
 Fo
 Fo
-pp
-sL
-oX
+cB
+HW
+jo
 bB
 bB
 bB
@@ -20857,8 +20881,8 @@ Fo
 Fo
 Fo
 Fo
-pp
-sL
+cB
+HW
 oX
 bB
 bB
@@ -20866,7 +20890,7 @@ bB
 bB
 bB
 oX
-sL
+jo
 pp
 Fo
 Fo
@@ -20938,8 +20962,8 @@ Fo
 Fo
 Fo
 Fo
-pp
-sL
+cB
+HW
 ot
 bB
 bB
@@ -20947,7 +20971,7 @@ gU
 bB
 bB
 ot
-sL
+jo
 pp
 Fo
 Fo
@@ -21019,8 +21043,8 @@ Fo
 Fo
 Fo
 Fo
-pp
-sL
+cB
+HW
 oX
 bB
 bB
@@ -21028,7 +21052,7 @@ bB
 bB
 bB
 oX
-sL
+jo
 pp
 Fo
 Fo
@@ -21100,9 +21124,9 @@ Fo
 Fo
 Fo
 Fo
-pp
-oX
-oX
+cB
+HW
+jo
 bB
 bB
 bB
@@ -21181,7 +21205,7 @@ Fo
 Fo
 Fo
 Fo
-pp
+cB
 UQ
 UQ
 mP
