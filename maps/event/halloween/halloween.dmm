@@ -317,8 +317,6 @@
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "bB" = (
-/obj/effect/landmark/force_spawnpoint,
-/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/wood,
 /area/city/port)
 "bC" = (
@@ -1509,8 +1507,6 @@
 /area/city/hallway)
 "gU" = (
 /obj/effect/floor_decal/plaque,
-/obj/effect/landmark/force_spawnpoint,
-/obj/effect/landmark/force_spawnpoint,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/wood,
 /area/city/port)
@@ -1783,9 +1779,8 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "jo" = (
-/obj/effect/landmark/force_spawnpoint,
-/obj/effect/landmark/force_spawnpoint,
-/turf/simulated/floor/tiled/steel,
+/obj/effect/map_effect/perma_light/brighter,
+/turf/simulated/floor/wood,
 /area/city/port)
 "jp" = (
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -2448,8 +2443,6 @@
 	},
 /area/city/pool)
 "ot" = (
-/obj/effect/landmark/force_spawnpoint,
-/obj/effect/landmark/force_spawnpoint,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/steel,
 /area/city/port)
@@ -3043,6 +3036,12 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/city/hallway)
+"sL" = (
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/city/port)
 "sO" = (
 /turf/simulated/floor/carpet/rubber,
 /area/city/hallway)
@@ -3169,6 +3168,9 @@
 	icon = 'icons/effects/1152x544.dmi';
 	icon_state = "cityscape";
 	layer = 1.1
+	},
+/obj/effect/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/city/port)
@@ -6373,8 +6375,8 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "RM" = (
-/obj/effect/landmark/force_spawnpoint,
 /obj/effect/map_effect/perma_light/brighter,
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled/steel,
 /area/city/port)
 "RN" = (
@@ -8112,8 +8114,8 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "Zl" = (
-/obj/effect/landmark/force_spawnpoint,
 /obj/effect/map_effect/perma_light/brighter,
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/wood,
 /area/city/port)
 "Zr" = (
@@ -20615,12 +20617,12 @@ Fo
 cB
 oX
 ot
-UQ
-mP
-Zl
-mP
-UQ
-RM
+oX
+bB
+jo
+bB
+oX
+ot
 oX
 cB
 Fo
@@ -20694,15 +20696,15 @@ Fo
 Fo
 Fo
 pp
+sL
 oX
-jo
 bB
-mP
-mP
-mP
-mP
-UQ
+bB
+bB
+bB
+bB
 oX
+sL
 pp
 Fo
 Fo
@@ -20775,14 +20777,14 @@ Fo
 Fo
 Fo
 pp
+sL
 oX
-jo
 bB
 bB
-mP
-mP
-mP
-UQ
+bB
+bB
+bB
+oX
 tY
 pp
 Fo
@@ -20856,15 +20858,15 @@ Fo
 Fo
 Fo
 pp
+sL
 oX
-jo
-mP
 bB
-mP
-mP
-mP
-UQ
+bB
+bB
+bB
+bB
 oX
+sL
 pp
 Fo
 Fo
@@ -20937,15 +20939,15 @@ Fo
 Fo
 Fo
 pp
-oX
+sL
 ot
-mP
-mP
+bB
+bB
 gU
-mP
-mP
-RM
-oX
+bB
+bB
+ot
+sL
 pp
 Fo
 Fo
@@ -21018,15 +21020,15 @@ Fo
 Fo
 Fo
 pp
+sL
 oX
-jo
-bB
-mP
 bB
 bB
-mP
-UQ
+bB
+bB
+bB
 oX
+sL
 pp
 Fo
 Fo
@@ -21100,13 +21102,13 @@ Fo
 Fo
 pp
 oX
-UQ
+oX
 bB
 bB
 bB
-mP
-mP
-UQ
+bB
+bB
+oX
 oX
 pp
 Fo
@@ -21180,7 +21182,7 @@ Fo
 Fo
 Fo
 pp
-oX
+UQ
 UQ
 mP
 mP
@@ -21188,7 +21190,7 @@ mP
 mP
 mP
 UQ
-oX
+UQ
 pp
 Fo
 Fo
@@ -21261,7 +21263,7 @@ Fo
 Fo
 Fo
 cB
-oX
+UQ
 RM
 UQ
 mP
@@ -21269,7 +21271,7 @@ Zl
 mP
 UQ
 RM
-oX
+UQ
 cB
 Fo
 Fo
@@ -21342,15 +21344,15 @@ Fo
 Fo
 Fo
 cB
-oX
-oX
-oX
-oX
-oX
-oX
-oX
-oX
-oX
+UQ
+UQ
+UQ
+UQ
+UQ
+UQ
+UQ
+UQ
+UQ
 cB
 Fo
 Fo

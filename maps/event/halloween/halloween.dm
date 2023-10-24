@@ -4,8 +4,8 @@
 	path = "event/halloween"
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi')
 	lobby_transitions = FALSE
-
-	allowed_jobs = list(/datum/job/visitor)
+	force_spawnpoint = TRUE
+	allowed_jobs = list(/datum/job/assistant, /datum/job/visitor)
 
 	station_levels = list(1)
 	admin_levels = list()
@@ -13,12 +13,13 @@
 	player_levels = list(1)
 	accessible_z_levels = list(1)
 
-	station_name = ""
-	station_short = "Montparnasse"
-	dock_name = ""
-	boss_name = "Idris Incorporated"
-	boss_short = "Idris"
-	company_name = "Idris Incorporated"
-	company_short = "Idris"
+	station_name = "The Infinity Reach Towers Top Floor"
+	station_short = "Infinity Reach"
+	dock_name = "Top Floor"
+	dock_short = "Rooftop"
+	boss_name = "Central Command"
+	boss_short = "CentCom"
+	company_name = "Stellar Corporate Conglomerate"
+	company_short = "SCC"
 
 	use_overmap = FALSE
