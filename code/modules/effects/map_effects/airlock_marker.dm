@@ -44,7 +44,6 @@
 	icon_state = "airlock_marker_interior"
 	layer = LIGHTING_LAYER
 
-/// add the airlock market to `airlock_markers`
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -62,6 +61,8 @@
 	var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in loc
 	var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in loc
 
+	// iterate over airlock components under this marker
+	// and actually set them up
 	for(var/thing in loc)
 		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
 		if(istype(airlock_controller))
