@@ -1,4 +1,3 @@
-
 /obj/effect/map_effect/marker
 	name = "map marker parent abstract object"
 	icon = 'icons/effects/map_effects.dmi'
@@ -8,9 +7,6 @@
 	name = "map marker helper parent abstract object"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "map_marker"
-
-/// map of airlock marker `id_tag` to a list of map_effect/airlock_markers
-var/global/list/airlock_markers = list()
 
 /// Airlock marker that, when placed above airlock components (doors, pumps, sensors, etc),
 /// actually sets the airlock up to make it functional.
@@ -51,16 +47,7 @@ var/global/list/airlock_markers = list()
 /// add the airlock market to `airlock_markers`
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()
-	if(master_tag && frequency)
-		if(!airlock_markers[master_tag])
-			airlock_markers[master_tag] = list()
-		airlock_markers[master_tag] += src
 	return INITIALIZE_HINT_LATELOAD
-
-/obj/effect/map_effect/marker/airlock/LateInitialize()
-	if(master_tag && frequency)
-		airlock_marker_init_airlock(master_tag)
-		airlock_markers[master_tag] = null // init only once
 
 #define MASTER_TAG		"[master_tag]_controller"
 #define AIRPUMP_TAG		"[master_tag]_pump"
@@ -68,67 +55,62 @@ var/global/list/airlock_markers = list()
 #define EXTERIOR_DOOR_TAG	"[master_tag]_outer"
 #define INTERIOR_DOOR_TAG	"[master_tag]_inner"
 
-/// Actually set the airlock up
-/proc/airlock_marker_init_airlock(var/master_tag)
-	// if airlock of this master_tag was already initialized, return
-	if(!airlock_markers || !airlock_markers[master_tag] || airlock_markers[master_tag]==null)
+/obj/effect/map_effect/marker/airlock/LateInitialize()
+	if(!master_tag || !frequency)
 		return
 
-	// iterate through every marker of this airlock and set up the component parts
-	for(var/obj/effect/map_effect/marker/airlock/marker in airlock_markers[master_tag])
-		var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in marker.loc
-		var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in marker.loc
+	var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in loc
+	var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in loc
 
-		var/frequency = marker.frequency
-		var/required_access = marker.required_access
+	for(var/thing in loc)
+		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
+		if(istype(airlock_controller))
+			airlock_controller.set_frequency(frequency)
+			airlock_controller.id_tag = MASTER_TAG
+			airlock_controller.tag_airpump = AIRPUMP_TAG
+			airlock_controller.tag_chamber_sensor = SENSOR_TAG
+			airlock_controller.tag_exterior_door = EXTERIOR_DOOR_TAG
+			airlock_controller.tag_interior_door = INTERIOR_DOOR_TAG
+			airlock_controller.req_access = required_access
+			airlock_controller.program = new /datum/computer/file/embedded_program/airlock(airlock_controller)
+			continue
 
-		if(frequency==null || master_tag==null)
-			return
+		var/obj/machinery/door/airlock/door = thing
+		if(istype(door))
+			door.set_frequency(frequency)
+			door.req_access = required_access
+			door.lock()
+			if(is_interior)
+				door.id_tag = INTERIOR_DOOR_TAG
+			if(is_exterior)
+				door.id_tag = EXTERIOR_DOOR_TAG
+			continue
 
-		for(var/thing in marker.loc)
-			var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
-			if(istype(airlock_controller))
-				airlock_controller.set_frequency(frequency)
-				airlock_controller.id_tag = MASTER_TAG
-				airlock_controller.tag_airpump = AIRPUMP_TAG
-				airlock_controller.tag_chamber_sensor = SENSOR_TAG
-				airlock_controller.tag_exterior_door = EXTERIOR_DOOR_TAG
-				airlock_controller.tag_interior_door = INTERIOR_DOOR_TAG
-				airlock_controller.program = new /datum/computer/file/embedded_program/airlock(airlock_controller)
-				airlock_controller.req_access = required_access
+		var/obj/machinery/airlock_sensor/sensor = thing
+		if(istype(sensor))
+			sensor.set_frequency(frequency)
+			sensor.id_tag = SENSOR_TAG
+			sensor.master_tag = MASTER_TAG
+			continue
 
-			var/obj/machinery/door/airlock/door = thing
-			if(istype(door))
-				door.set_frequency(frequency)
-				door.req_access = required_access
-				door.lock()
-				if(is_interior)
-					door.id_tag = INTERIOR_DOOR_TAG
-				if(is_exterior)
-					door.id_tag = EXTERIOR_DOOR_TAG
+		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
+		if(istype(pump))
+			pump.frequency = frequency
+			unregister_radio(pump, frequency)
+			pump.setup_radio()
+			pump.id_tag = AIRPUMP_TAG
+			continue
 
-			var/obj/machinery/airlock_sensor/sensor = thing
-			if(istype(sensor))
-				sensor.set_frequency(frequency)
-				sensor.id_tag = SENSOR_TAG
-				sensor.master_tag = MASTER_TAG
-
-			var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
-			if(istype(pump))
-				pump.frequency = frequency
-				unregister_radio(pump, frequency)
-				pump.setup_radio()
-				pump.id_tag = AIRPUMP_TAG
-
-			var/obj/machinery/access_button/button = thing
-			if(istype(button))
-				button.set_frequency(frequency)
-				button.master_tag = MASTER_TAG
-				button.req_access = required_access
-				if(is_interior)
-					button.command = "cycle_interior"
-				if(is_exterior)
-					button.command = "cycle_exterior"
+		var/obj/machinery/access_button/button = thing
+		if(istype(button))
+			button.set_frequency(frequency)
+			button.master_tag = MASTER_TAG
+			button.req_access = required_access
+			if(is_interior)
+				button.command = "cycle_interior"
+			if(is_exterior)
+				button.command = "cycle_exterior"
+			continue
 
 #undef MASTER_TAG
 #undef AIRPUMP_TAG
