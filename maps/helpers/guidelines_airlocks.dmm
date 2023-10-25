@@ -59,7 +59,8 @@
 /area/template_noop)
 "hi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "jx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -90,7 +91,11 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "oG" = (
 /obj/machinery/door/airlock/external{
@@ -146,11 +151,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
-"tu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/map_helper/mark_bad,
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -167,7 +167,8 @@
 /area/template_noop)
 "wP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "xW" = (
 /obj/machinery/access_button{
@@ -180,15 +181,6 @@
 	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/airless,
-/area/template_noop)
-"ya" = (
-/obj/structure/lattice,
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
-	},
-/turf/space,
 /area/template_noop)
 "zn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -271,7 +263,8 @@
 "GH" = (
 /obj/effect/map_effect/map_helper/mark_good,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Ht" = (
 /obj/machinery/door/airlock/external{
@@ -456,7 +449,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "SH" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -1826,10 +1823,10 @@ nd
 DW
 DW
 DW
-kZ
+Lt
 RN
-Lt
-Lt
+kZ
+kZ
 Lt
 Lt
 Lt
@@ -1907,7 +1904,7 @@ nd
 DW
 DW
 DW
-kZ
+Lt
 RN
 kZ
 kZ
@@ -1988,7 +1985,7 @@ nd
 DW
 DW
 DW
-kZ
+Lt
 oq
 hi
 wP
@@ -2069,7 +2066,7 @@ nd
 DW
 DW
 DW
-kZ
+Lt
 RN
 kZ
 kZ
@@ -2150,7 +2147,7 @@ nd
 DW
 DW
 DW
-kZ
+Lt
 RN
 kZ
 kZ
@@ -2231,10 +2228,10 @@ nd
 DW
 DW
 DW
-kZ
+Lt
 RN
-Lt
-Lt
+kZ
+kZ
 Lt
 Lt
 Lt
@@ -4145,9 +4142,9 @@ nd
 DW
 DW
 DW
-tu
-Fj
-Jy
+sa
+kZ
+kZ
 ZK
 WP
 WP
@@ -4228,7 +4225,7 @@ DW
 DW
 kZ
 HE
-UO
+jx
 Lp
 kx
 Li
@@ -4823,11 +4820,11 @@ nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
+Lt
+Lt
+Lt
+Lt
+Lt
 Lt
 kZ
 kZ
@@ -4874,9 +4871,9 @@ nd
 DW
 DW
 DW
-tu
-Fj
-Jy
+sa
+kZ
+kZ
 ZK
 WP
 WP
@@ -4904,11 +4901,11 @@ nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
+Lt
+Lt
+Lt
+Lt
+Lt
 Lt
 kZ
 kZ
@@ -4957,7 +4954,7 @@ DW
 DW
 kZ
 HE
-UO
+jx
 Lp
 kx
 Li
@@ -4985,11 +4982,11 @@ nd
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
+Lt
+Lt
+Lt
+Lt
+Lt
 Lt
 Lt
 kZ
@@ -5722,7 +5719,7 @@ Lt
 Lt
 Lt
 OG
-ya
+OG
 OG
 OG
 OG
@@ -6365,7 +6362,7 @@ DW
 dA
 kZ
 kZ
-KX
+dk
 WP
 WP
 pV
@@ -6446,7 +6443,7 @@ DW
 kZ
 HE
 jx
-Bt
+Lp
 kx
 Li
 pV
