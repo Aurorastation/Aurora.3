@@ -1831,6 +1831,18 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
+"fP" = (
+/obj/machinery/floor_light/dance/alternate{
+	color = "#8B0000";
+	light_color = "#8B0000"
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/city/bar)
 "fT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
@@ -2728,13 +2740,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/garden)
-"iS" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6;
-	color = "#400000"
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "iU" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/mob.dmi';
@@ -2902,7 +2907,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/city/outside)
 "jM" = (
 /obj/structure/table/wood/gamblingtable,
@@ -3164,18 +3169,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
-"lo" = (
-/obj/machinery/floor_light/dance/alternate{
-	color = "#8B0000";
-	light_color = "#8B0000"
-	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/city/bar)
 "lr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -3526,18 +3519,6 @@
 	light_color = "#d400ff"
 	},
 /turf/simulated/floor/carpet/red,
-/area/city/bar)
-"oy" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/platform{
-	density = 0
-	},
-/obj/structure/platform{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/city/bar)
 "oA" = (
 /turf/simulated/floor/tiled,
@@ -6433,6 +6414,12 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
+"Ap" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/city/outside)
 "Ar" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -8042,17 +8029,11 @@
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
 "Fj" = (
-/obj/machinery/floor_light/dance/alternate{
-	default_light_colour = "#300056";
-	color = "#300056";
-	light_color = "#300056"
+/obj/effect/floor_decal/corner/red{
+	dir = 6;
+	color = "#400000"
 	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint3"
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Fk" = (
 /obj/item/material/shard/wood,
@@ -9890,11 +9871,18 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "Nm" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/machinery/floor_light/dance/alternate{
+	default_light_colour = "#300056";
+	color = "#300056";
+	light_color = "#300056"
 	},
-/turf/simulated/floor/tiled,
-/area/city/outside)
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint3"
+	},
+/turf/simulated/floor/tiled/full,
+/area/city/bar)
 "Nq" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17111,7 +17099,7 @@ fV
 Vl
 Bx
 bq
-iS
+Fj
 Ge
 Fo
 Fo
@@ -17264,14 +17252,14 @@ KO
 vh
 Jh
 LO
-lo
+fP
 Pl
 hq
 pe
 iL
 XS
 LO
-Fj
+Nm
 hq
 Tv
 Yp
@@ -17431,7 +17419,7 @@ Fr
 SY
 Fr
 LO
-oy
+LO
 LO
 hA
 cr
@@ -19192,7 +19180,7 @@ Fo
 Fo
 Fo
 Fo
-Nm
+jL
 Vv
 Dt
 gZ
@@ -19678,7 +19666,7 @@ Fo
 Fo
 Fo
 Fo
-Nm
+jL
 Dt
 Dt
 XU
@@ -22741,7 +22729,7 @@ Fo
 Zv
 Lw
 wo
-jL
+Ap
 aR
 aR
 aR
