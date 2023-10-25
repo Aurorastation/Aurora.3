@@ -10,8 +10,8 @@
 /area/city/nouvelle
 	name = "Cityscape"
 	icon_state = "red"
-	luminosity = 1
-	dynamic_lighting = 0
+	luminosity = 0
+	dynamic_lighting = 1
 	requires_power = 0
 	no_light_control = 1
 
@@ -35,6 +35,14 @@
 /area/city/kitchen
 	name = "City Kitchen"
 	icon_state = "cafeteria"
+	luminosity = 0
+	dynamic_lighting = 1
+	requires_power = 0
+	no_light_control = 1
+
+/area/city/dining
+	name = "Hotel Dining Room"
+	icon_state = "lounge"
 	luminosity = 0
 	dynamic_lighting = 1
 	requires_power = 0
