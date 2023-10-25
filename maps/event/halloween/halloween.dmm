@@ -121,7 +121,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "aG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/city/outside)
 "aH" = (
@@ -137,7 +137,7 @@
 /turf/simulated/floor/tiled,
 /area/city/hallway)
 "aK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/kitchen)
 "aL" = (
@@ -1543,7 +1543,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "tint1"
 	},
 /turf/simulated/floor/marble/dark,
@@ -1832,7 +1832,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "fT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/hallway)
 "fU" = (
@@ -1901,7 +1901,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "gj" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/costumeroom)
 "gk" = (
@@ -2270,11 +2270,6 @@
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
-	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint3"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/bar)
@@ -2703,7 +2698,7 @@
 /turf/simulated/floor/tiled,
 /area/city/outside)
 "iL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "tint2"
 	},
 /turf/simulated/floor/marble/dark,
@@ -2733,6 +2728,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/garden)
+"iS" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6;
+	color = "#400000"
+	},
+/turf/simulated/floor/marble/dark,
+/area/city/bar)
 "iU" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/mob.dmi';
@@ -2896,6 +2898,12 @@
 /obj/item/reagent_containers/food/snacks/candy_corn,
 /turf/simulated/floor/grass,
 /area/city/hallway)
+"jL" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/city/outside)
 "jM" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
@@ -3258,8 +3266,8 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
 "lR" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "tint3""\t},/turf/simulated/floor/tiled/dark,/area/city/bar)"lT" = (/obj/machinery/computer/operating,/turf/simulated/floor/tiled/white,/area/city/medical)"lU" = (/obj/structure/railing/mapped{\tdir = 1\t},/obj/effect/floor_decal/industrial/warning{\tdir = 1;\tpixel_y = -16\t},/obj/structure/table/stone/marble{\tcolor = "#ccc3b8"\t},/obj/item/material/ashtray/glass{\tpixel_y = -3\t},/turf/simulated/floor/tiled/full,/area/city/outside)"lY" = (/obj/effect/map_effect/perma_light/brighter,/obj/effect/floor_decal/spline/fancy/wood{\tdir = 5\t},/turf/simulated/floor/carpet,/area/city/hallway)"lZ" = (/obj/effect/floor_decal/spline/plain/corner/black{\tdir = 4\t},/obj/effect/floor_decal/corner/grey/diagonal,/obj/effect/floor_decal/spline/plain/black,/obj/effect/floor_decal/spline/plain/corner/black{\tdir = 4\t},/turf/simulated/floor/tiled/white,/area/city/pool)"mh" = (/obj/effect/decal/fake_object{\ticon = 'icons/effects/256x672.dmi';\ticon_state = "cityscape"\t},/turf/simulated/abyss{\tname = "distantcityscape";\tlayer = 1\t},/area/city/nouvelle)"mm" = (/obj/structure/flora/tree/jungle,/obj/effect/decal/cleanable/cobweb,/turf/simulated/floor/grass,/area/city/outside)"mn" = (/obj/effect/map_effect/perma_light{\tcolor = "#6350c5";\tlight_color = "#6350c5"\t},/obj/structure/platform{\tdir = 1\t},/turf/simulated/floor/marble/dark,/area/city/bar)"mq" = (/turf/simulated/floor/lino,/area/city/kitchen)"ms" = (/turf/simulated/floor/wood,/area/city/costumeroom)"my" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/obj/effect/map_effect/perma_light/brighter,/turf/simulated/floor/tiled/white,/area/city/medical)"mz" = (/turf/simulated/floor/tiled/full,/area/city/outside)"mA" = (/obj/machinery/door/airlock/multi_tile/glass,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled/full,/area/city/costumeroom)"mH" = (/obj/structure/railing/mapped{\tlayer = 3.1\t},/obj/structure/table/stone/marble{\tcolor = "#ccc3b8"\t},/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/turf/simulated/floor/marble/dark,/area/city/bar)"mI" = (/obj/structure/platform_deco{\tdir = 4\t},/turf/simulated/floor/beach/water/pool{\tcolor = "#8B0000";\tname = "PoolofBlood";\tbase_color = "#8B0000"\t},/area/city/horrorhouse)"mL" = (/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled/full,/area/city/costumeroom)"mM" = (/obj/effect/floor_decal/spline/fancy/wood,/obj/structure/bed/stool/chair/wood{\tdir = 1\t},/turf/simulated/floor/wood,/area/city/bar)"mP" = (/obj/structure/table/rack,/obj/item/storage/firstaid/o2{\tlayer = 3.01;\tpixel_x = -13\t},/obj/item/storage/firstaid/o2{\tlayer = 3.01;\tpixel_x = -13\t},/obj/item/storage/firstaid/o2{\tlayer = 3.01;\tpixel_x = -13\t},/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/turf/simulated/floor/wood/mahogany,/area/city/pool)"mR" = (/obj/effect/floor_decal/spline/fancy/wood{\tdir = 4\t},/turf/simulated/floor/wood,/area/city/dining)"mW" = (/obj/structure/railing/mapped{\tlayer = 3.1\t},/turf/simulated/wall,/area/city/bar)"mX" = (/obj/item/inflatable_duck,/turf/simulated/floor/beach/water/pool,/area/city/pool)"na" = (/obj/effect/decal/fake_object{\ticon = 'icons/effects/1152x544.dmi';\ticon_state = "cityscape";\tlayer = 1.1\t},/turf/simulated/wall,/area/city/nouvelle)"nb" = (/obj/structure/railing/fence{\tdir = 1\t},/obj/structure/railing/fence{\tdir = 8\t},/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/grass,/area/city/hallway)"ne" = (/obj/structure/railing/mapped{\tdensity = 0;\ticon_state = "railing0-0"\t},/obj/effect/map_effect/perma_light{\tcolor = "#d400ff";\tlight_color = "#d400ff"\t},/turf/simulated/floor/tiled/dark,/area/city/bar)"nf" = (/obj/structure/closet/secure_closet/freezer,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/flour,/obj/effect/floor_decal/industrial/outline/grey,/turf/simulated/floor/tiled/dark/full,/area/city/kitchen)"ni" = (/obj/structure/sign/flag/halloween/right{\tpixel_y = 29\t},/obj/effect/decal/fake_object{\ticon = 'icons/mob/npc/human.dmi';\ticon_state = "piratemelee";\tname = "PirateDecoration";\tdesc = "Yarrr!";\tdesc_extended = "It'sapirateslifeforye'!";\tpixel_y = 5;\tpixel_x = -4\t},/turf/simulated/floor/tiled/full,/area/city/hallway)"nj" = (/obj/structure/railing/mapped{\tdir = 8\t},/obj/structure/bed/stool/chair/wood,/obj/effect/floor_decal/spline/fancy/wood{\tdir = 8\t},/turf/simulated/floor/wood,/area/city/bar)"nk" = (/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/purple,/obj/structure/railing/mapped{\tdir = 4\t},/obj/structure/table/rack,/turf/simulated/floor/wood/mahogany,/area/city/pool)"nl" = (/obj/machinery/vending/cigarette/hacked{\tpixel_y = 15;\tlayer = 3.2;\tpixel_x = -5;\tdensity = 0\t},/obj/effect/floor_decal/spline/plain/blue{\tdir = 5\t},/turf/simulated/floor/carpet/rubber,/area/city/kitchen)"no" = (/obj/structure/bed/stool/chair/wood,/obj/effect/floor_decal/spline/fancy/wood{\tdir = 4\t},/turf/simulated/floor/wood,/area/city/bar)"nr" = (/obj/structure/table/stone/marble,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/turf/simulated/floor/tiled/full,/area/city/kitchen)"nt" = (/obj/structure/platform{\tdensity = 0\t},/obj/machinery/vending/dinnerware{\tdensity = 0\t},/obj/effect/floor_decal/spline/plain/cee/blue,/turf/simulated/floor/carpet/rubber,/area/city/kitchen)"nu" = (/obj/machinery/computer/arcade/battle,/obj/structure/railing/mapped{\tdir = 1\t},/turf/simulated/floor/wood,/area/city/outside)"nv" = (/obj/item/toy/balloon/ghost,/turf/simulated/floor/grass,/area/city/outside)"nw" = (/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{\tid = "tint3""
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
+	id = "tint3"
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
@@ -3271,7 +3279,7 @@
 /turf/simulated/floor/wood,
 /area/city/bar)
 "nx" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
 "ny" = (
@@ -3674,7 +3682,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "pp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/port)
 "pt" = (
@@ -3909,6 +3917,11 @@
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/bar)
@@ -4598,11 +4611,6 @@
 /turf/simulated/floor/tiled,
 /area/city/port)
 "td" = (
-/obj/structure/sign/double/barsign{
-	pixel_x = -1;
-	pixel_y = -32;
-	icon_state = "Mead Bay"
-	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -4763,7 +4771,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/hallway)
 "tQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/marble/dark,
 /area/city/security)
 "tS" = (
@@ -4965,11 +4973,11 @@
 /turf/simulated/floor/carpet,
 /area/city/hallway)
 "uI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "uJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/medical)
 "uP" = (
@@ -5074,12 +5082,6 @@
 "vb" = (
 /turf/simulated/floor/marble/dark,
 /area/city/security)
-"vc" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/city/outside)
 "ve" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
@@ -5758,7 +5760,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/bar)
 "wA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/garden)
 "wC" = (
@@ -6241,7 +6243,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/kitchen)
 "zl" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
@@ -6329,7 +6331,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "zW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/city/kitchen)
 "zY" = (
@@ -6694,7 +6696,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Bo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/city/hallway)
 "Bp" = (
@@ -7364,7 +7366,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "Es" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "Ew" = (
@@ -7425,7 +7427,7 @@
 	},
 /area/city/pool)
 "EH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/marble/dark,
 /area/city/costumeroom)
 "EI" = (
@@ -8039,6 +8041,19 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
+"Fj" = (
+/obj/machinery/floor_light/dance/alternate{
+	default_light_colour = "#300056";
+	color = "#300056";
+	light_color = "#300056"
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint3"
+	},
+/turf/simulated/floor/tiled/full,
+/area/city/bar)
 "Fk" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood,
@@ -8099,7 +8114,7 @@
 /turf/simulated/floor/tiled/red,
 /area/city/hallway)
 "FH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/carpet/rubber,
 /area/city/pool)
 "FI" = (
@@ -8177,11 +8192,6 @@
 /obj/effect/map_effect/perma_light{
 	color = "#6350c5";
 	light_color = "#6350c5"
-	},
-/obj/structure/platform{
-	dir = 8;
-	layer = 3;
-	density = 0
 	},
 /obj/effect/floor_decal/corner/red/full{
 	color = "#400000";
@@ -8320,7 +8330,7 @@
 /turf/simulated/floor/plating,
 /area/city/pool)
 "GI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "GJ" = (
@@ -8501,12 +8511,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
-"Hs" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/city/outside)
 "Hw" = (
 /obj/structure/statue{
 	name = "Generic Statue";
@@ -8981,7 +8985,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Jm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
@@ -9290,11 +9294,6 @@
 	color = "#6350c5";
 	light_color = "#6350c5"
 	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint1"
-	},
 /obj/item/toy/balloon/ghost{
 	color = "#d400ff"
 	},
@@ -9332,7 +9331,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/dining)
 "KO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "tint1"
 	},
 /turf/simulated/floor/marble/dark,
@@ -9866,7 +9865,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Nf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/dining)
 "Nj" = (
@@ -9890,6 +9889,12 @@
 	},
 /turf/simulated/floor/grass,
 /area/city/hallway)
+"Nm" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/city/outside)
 "Nq" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -9903,7 +9908,7 @@
 /turf/simulated/floor/tiled,
 /area/city/hallway)
 "Ny" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/concrete,
 /area/city/dining)
 "ND" = (
@@ -9923,7 +9928,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "NE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "NF" = (
@@ -10086,7 +10091,7 @@
 	},
 /area/city/kitchen)
 "Om" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/medical)
 "On" = (
@@ -10201,7 +10206,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "OL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "OM" = (
@@ -10931,7 +10936,6 @@
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/plump_pie,
 /obj/item/reagent_containers/food/snacks/plump_pie,
-/obj/item/reagent_containers/food/snacks/plump_pie,
 /turf/simulated/floor/tiled/full,
 /area/city/kitchen)
 "Rq" = (
@@ -11213,7 +11217,7 @@
 /turf/simulated/floor/wood,
 /area/city/bar)
 "RK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/full,
 /area/city/bar)
 "RL" = (
@@ -12359,15 +12363,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
 	color = "#400000"
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
-"Vm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "tint2"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "tint3""\t},/turf/simulated/floor/tiled/dark,/area/city/bar)"lT" = (/obj/machinery/computer/operating,/turf/simulated/floor/tiled/white,/area/city/medical)"lU" = (/obj/structure/railing/mapped{\tdir = 1\t},/obj/effect/floor_decal/industrial/warning{\tdir = 1;\tpixel_y = -16\t},/obj/structure/table/stone/marble{\tcolor = "#ccc3b8"\t},/obj/item/material/ashtray/glass{\tpixel_y = -3\t},/turf/simulated/floor/tiled/full,/area/city/outside)"lY" = (/obj/effect/map_effect/perma_light/brighter,/obj/effect/floor_decal/spline/fancy/wood{\tdir = 5\t},/turf/simulated/floor/carpet,/area/city/hallway)"lZ" = (/obj/effect/floor_decal/spline/plain/corner/black{\tdir = 4\t},/obj/effect/floor_decal/corner/grey/diagonal,/obj/effect/floor_decal/spline/plain/black,/obj/effect/floor_decal/spline/plain/corner/black{\tdir = 4\t},/turf/simulated/floor/tiled/white,/area/city/pool)"mh" = (/obj/effect/decal/fake_object{\ticon = 'icons/effects/256x672.dmi';\ticon_state = "cityscape"\t},/turf/simulated/abyss{\tname = "distantcityscape";\tlayer = 1\t},/area/city/nouvelle)"mm" = (/obj/structure/flora/tree/jungle,/obj/effect/decal/cleanable/cobweb,/turf/simulated/floor/grass,/area/city/outside)"mn" = (/obj/effect/map_effect/perma_light{\tcolor = "#6350c5";\tlight_color = "#6350c5"\t},/obj/structure/platform{\tdir = 1\t},/turf/simulated/floor/marble/dark,/area/city/bar)"mq" = (/turf/simulated/floor/lino,/area/city/kitchen)"ms" = (/turf/simulated/floor/wood,/area/city/costumeroom)"my" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/obj/effect/map_effect/perma_light/brighter,/turf/simulated/floor/tiled/white,/area/city/medical)"mz" = (/turf/simulated/floor/tiled/full,/area/city/outside)"mA" = (/obj/machinery/door/airlock/multi_tile/glass,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled/full,/area/city/costumeroom)"mH" = (/obj/structure/railing/mapped{\tlayer = 3.1\t},/obj/structure/table/stone/marble{\tcolor = "#ccc3b8"\t},/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/obj/random/glowstick,/turf/simulated/floor/marble/dark,/area/city/bar)"mI" = (/obj/structure/platform_deco{\tdir = 4\t},/turf/simulated/floor/beach/water/pool{\tcolor = "#8B0000";\tname = "PoolofBlood";\tbase_color = "#8B0000"\t},/area/city/horrorhouse)"mL" = (/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled/full,/area/city/costumeroom)"mM" = (/obj/effect/floor_decal/spline/fancy/wood,/obj/structure/bed/stool/chair/wood{\tdir = 1\t},/turf/simulated/floor/wood,/area/city/bar)"mP" = (/obj/structure/table/rack,/obj/item/storage/firstaid/o2{\tlayer = 3.01;\tpixel_x = -13\t},/obj/item/storage/firstaid/o2{\tlayer = 3.01;\tpixel_x = -13\t},/obj/item/storage/firstaid/o2{\tlayer = 3.01;\tpixel_x = -13\t},/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/obj/item/clothing/mask/snorkel,/turf/simulated/floor/wood/mahogany,/area/city/pool)"mR" = (/obj/effect/floor_decal/spline/fancy/wood{\tdir = 4\t},/turf/simulated/floor/wood,/area/city/dining)"mW" = (/obj/structure/railing/mapped{\tlayer = 3.1\t},/turf/simulated/wall,/area/city/bar)"mX" = (/obj/item/inflatable_duck,/turf/simulated/floor/beach/water/pool,/area/city/pool)"na" = (/obj/effect/decal/fake_object{\ticon = 'icons/effects/1152x544.dmi';\ticon_state = "cityscape";\tlayer = 1.1\t},/turf/simulated/wall,/area/city/nouvelle)"nb" = (/obj/structure/railing/fence{\tdir = 1\t},/obj/structure/railing/fence{\tdir = 8\t},/obj/structure/flora/tree/jungle/small,/turf/simulated/floor/grass,/area/city/hallway)"ne" = (/obj/structure/railing/mapped{\tdensity = 0;\ticon_state = "railing0-0"\t},/obj/effect/map_effect/perma_light{\tcolor = "#d400ff";\tlight_color = "#d400ff"\t},/turf/simulated/floor/tiled/dark,/area/city/bar)"nf" = (/obj/structure/closet/secure_closet/freezer,/obj/item/reagent_containers/food/condiment/flour,/obj/item/reagent_containers/food/condiment/flour,/obj/effect/floor_decal/industrial/outline/grey,/turf/simulated/floor/tiled/dark/full,/area/city/kitchen)"ni" = (/obj/structure/sign/flag/halloween/right{\tpixel_y = 29\t},/obj/effect/decal/fake_object{\ticon = 'icons/mob/npc/human.dmi';\ticon_state = "piratemelee";\tname = "PirateDecoration";\tdesc = "Yarrr!";\tdesc_extended = "It'sapirateslifeforye'!";\tpixel_y = 5;\tpixel_x = -4\t},/turf/simulated/floor/tiled/full,/area/city/hallway)"nj" = (/obj/structure/railing/mapped{\tdir = 8\t},/obj/structure/bed/stool/chair/wood,/obj/effect/floor_decal/spline/fancy/wood{\tdir = 8\t},/turf/simulated/floor/wood,/area/city/bar)"nk" = (/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/red,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/purple,/obj/structure/railing/mapped{\tdir = 4\t},/obj/structure/table/rack,/turf/simulated/floor/wood/mahogany,/area/city/pool)"nl" = (/obj/machinery/vending/cigarette/hacked{\tpixel_y = 15;\tlayer = 3.2;\tpixel_x = -5;\tdensity = 0\t},/obj/effect/floor_decal/spline/plain/blue{\tdir = 5\t},/turf/simulated/floor/carpet/rubber,/area/city/kitchen)"no" = (/obj/structure/bed/stool/chair/wood,/obj/effect/floor_decal/spline/fancy/wood{\tdir = 4\t},/turf/simulated/floor/wood,/area/city/bar)"nr" = (/obj/structure/table/stone/marble,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/applepie,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/obj/item/reagent_containers/food/snacks/aghrasshcake,/turf/simulated/floor/tiled/full,/area/city/kitchen)"nt" = (/obj/structure/platform{\tdensity = 0\t},/obj/machinery/vending/dinnerware{\tdensity = 0\t},/obj/effect/floor_decal/spline/plain/cee/blue,/turf/simulated/floor/carpet/rubber,/area/city/kitchen)"nu" = (/obj/machinery/computer/arcade/battle,/obj/structure/railing/mapped{\tdir = 1\t},/turf/simulated/floor/wood,/area/city/outside)"nv" = (/obj/item/toy/balloon/ghost,/turf/simulated/floor/grass,/area/city/outside)"nw" = (/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{\tid = "tint3""
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
@@ -13732,7 +13727,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "ZE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/city/port)
 "ZF" = (
@@ -17116,7 +17111,7 @@ fV
 Vl
 Bx
 bq
-lg
+iS
 Ge
 Fo
 Fo
@@ -17194,7 +17189,7 @@ QT
 iL
 iL
 XS
-Vm
+LO
 lR
 DG
 QT
@@ -17275,8 +17270,8 @@ hq
 pe
 iL
 XS
-Vm
-Tv
+LO
+Fj
 hq
 Tv
 Yp
@@ -19197,7 +19192,7 @@ Fo
 Fo
 Fo
 Fo
-vc
+Nm
 Vv
 Dt
 gZ
@@ -19683,7 +19678,7 @@ Fo
 Fo
 Fo
 Fo
-vc
+Nm
 Dt
 Dt
 XU
@@ -22746,7 +22741,7 @@ Fo
 Zv
 Lw
 wo
-Hs
+jL
 aR
 aR
 aR
