@@ -1100,9 +1100,6 @@
 /turf/simulated/floor/wood,
 /area/city/bar)
 "dn" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
@@ -1834,19 +1831,6 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
-"fP" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	pixel_y = -16
-	},
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
-/area/city/outside)
 "fT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -2477,12 +2461,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
-"ic" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/wall,
-/area/city/bar)
 "id" = (
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
@@ -2755,20 +2733,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/garden)
-"iS" = (
-/obj/structure/railing/mapped{
-	layer = 3.1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/table/stone/marble{
-	color = "#ccc3b8"
-	},
-/obj/item/clothing/head/pumpkin/lantern,
-/obj/item/material/ashtray/glass{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/full,
-/area/city/outside)
 "iU" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/mob.dmi';
@@ -2932,21 +2896,6 @@
 /obj/item/reagent_containers/food/snacks/candy_corn,
 /turf/simulated/floor/grass,
 /area/city/hallway)
-"jL" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/floor_light/dance/alternate{
-	color = "#8B0000";
-	light_color = "#8B0000"
-	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/city/bar)
 "jM" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
@@ -3208,11 +3157,17 @@
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "lo" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/floor_light/dance/alternate{
+	color = "#8B0000";
+	light_color = "#8B0000"
 	},
-/turf/simulated/floor/wood/mahogany,
-/area/city/pool)
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/city/bar)
 "lr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -3300,9 +3255,6 @@
 /obj/item/clothing/under/swimsuit/purple,
 /obj/item/clothing/under/swimsuit/purple,
 /obj/structure/table/rack,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
 "lR" = (
@@ -4460,19 +4412,6 @@
 	dir = 8
 	},
 /area/city/hallway)
-"rX" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	pixel_y = -16
-	},
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/city/outside)
 "rY" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/structure/railing/fence{
@@ -5139,20 +5078,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	pixel_y = -16
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/mob/npc/human.dmi';
-	icon_state = "piratemelee";
-	name = "Pirate Decoration";
-	desc = "Yarrr!";
-	desc_extended = "It's a pirates life for ye'!";
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/city/outside)
 "ve" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -6505,19 +6431,6 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
-"Ap" = (
-/obj/structure/railing/mapped{
-	layer = 3.1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/table/stone/marble{
-	color = "#ccc3b8"
-	},
-/obj/item/material/ashtray/glass{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/full,
-/area/city/outside)
 "Ar" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -6553,9 +6466,6 @@
 /obj/item/clothing/under/swimsuit/purple,
 /obj/item/clothing/under/swimsuit/purple,
 /obj/structure/table/rack,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	layer = 3.1
 	},
@@ -7359,9 +7269,6 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
 "DP" = (
@@ -8132,16 +8039,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
-"Fj" = (
-/obj/structure/railing/mapped{
-	layer = 3.1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
-/area/city/outside)
 "Fk" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood,
@@ -8277,20 +8174,21 @@
 /turf/simulated/floor/wood,
 /area/city/dining)
 "Ge" = (
-/obj/structure/railing/mapped{
-	layer = 3.1
-	},
 /obj/effect/map_effect/perma_light{
 	color = "#6350c5";
 	light_color = "#6350c5"
 	},
 /obj/structure/platform{
 	dir = 8;
-	layer = 3
+	layer = 3;
+	density = 0
 	},
 /obj/effect/floor_decal/corner/red/full{
 	color = "#400000";
 	dir = 4
+	},
+/obj/structure/railing/mapped{
+	layer = 3.1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
@@ -8607,14 +8505,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	pixel_y = -16
-	},
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/city/outside)
 "Hw" = (
 /obj/structure/statue{
@@ -9230,7 +9121,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/computer/arcade/battle,
+/obj/machinery/computer/arcade/battle{
+	layer = 3.5
+	},
 /turf/simulated/floor/wood,
 /area/city/outside)
 "Ka" = (
@@ -9997,16 +9890,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/city/hallway)
-"Nm" = (
-/obj/structure/railing/mapped{
-	layer = 3.1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
-/area/city/outside)
 "Nq" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -11925,7 +11808,8 @@
 "SK" = (
 /obj/machinery/vending/snack{
 	name = "Free Chocolate Corp";
-	prices = list()
+	prices = list();
+	layer = 3.5
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -13644,12 +13528,6 @@
 /obj/structure/railing/mapped{
 	dir = 1;
 	pixel_y = 6
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17390,8 +17268,8 @@ KD
 KO
 vh
 Jh
-iL
-kv
+LO
+lo
 Pl
 hq
 pe
@@ -17552,14 +17430,14 @@ CX
 ev
 DJ
 KT
-ic
-jL
+LO
+SY
 Fr
 SY
 Fr
-ic
+LO
 oy
-ic
+LO
 hA
 cr
 oP
@@ -18509,7 +18387,7 @@ tu
 Fo
 Fo
 Fo
-vc
+SG
 Vv
 Dt
 XU
@@ -18752,10 +18630,10 @@ Fo
 Fo
 Fo
 Fo
-rX
+jF
 Dt
 Dt
-Nm
+XU
 Fo
 Fo
 Fo
@@ -18833,10 +18711,10 @@ tu
 Fo
 Fo
 Fo
-Dt
+jF
 Dt
 Gs
-Ap
+XU
 Fo
 Fo
 Fo
@@ -18914,10 +18792,10 @@ Fo
 Fo
 Fo
 Fo
-Hs
+jF
 Dt
 Dt
-Fj
+XU
 Fo
 Fo
 Fo
@@ -19238,10 +19116,10 @@ Fo
 Fo
 Fo
 Fo
-rX
+jF
 Dt
 Dt
-Nm
+XU
 Fo
 Fo
 Fo
@@ -19319,10 +19197,10 @@ Fo
 Fo
 Fo
 Fo
-Dt
+vc
 Vv
 Dt
-iS
+gZ
 Fo
 Fo
 Fo
@@ -19400,10 +19278,10 @@ Fo
 Fo
 Fo
 Fo
-Hs
+jF
 Dt
 Dt
-Fj
+XU
 Fo
 Fo
 Fo
@@ -19724,10 +19602,10 @@ Fo
 Fo
 Fo
 Fo
-rX
+jF
 Dt
 Dt
-Nm
+XU
 Fo
 Fo
 Fo
@@ -19805,10 +19683,10 @@ Fo
 Fo
 Fo
 Fo
+vc
 Dt
 Dt
-Dt
-Ap
+XU
 Fo
 Fo
 Fo
@@ -19886,10 +19764,10 @@ Fo
 Fo
 Fo
 Fo
-fP
+SG
 Dt
 Dt
-Fj
+XU
 Fo
 Fo
 Fo
@@ -21742,12 +21620,12 @@ rr
 xw
 cU
 dn
-lo
+Ip
 Au
 Jt
 Yv
 DM
-lo
+Ip
 lP
 FH
 ZF
@@ -22868,7 +22746,7 @@ Fo
 Zv
 Lw
 wo
-aR
+Hs
 aR
 aR
 aR
