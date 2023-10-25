@@ -44,6 +44,8 @@
 	var/typing_indicator_y_offset = 0
 	var/floating_chat_x_offset = null
 	var/floating_chat_y_offset = null
+	var/accessory_x_offset = 0
+	var/accessory_y_offset = 0
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -207,8 +209,6 @@
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
 	var/taste_sensitivity = TASTE_NORMAL // How sensitive the species is to minute tastes. Higher values means less sensitive. Lower values means more sensitive.
-	var/accessory_offset_x        // Whether or not the species' uniform accessories offset on the X axis
-	var/accessory_offset_y        // Whether or not the species' uniform accessories offset on the Y axis
 
 	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
