@@ -1833,6 +1833,9 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
+"fP" = (
+/turf/simulated/floor/tiled,
+/area/city/nouvelle)
 "fT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
@@ -2459,6 +2462,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
+"ic" = (
+/obj/machinery/floor_light/dance/alternate{
+	color = "#8B0000";
+	light_color = "#8B0000";
+	default_light_colour = "#8B0000"
+	},
+/turf/simulated/floor/tiled/full,
+/area/city/bar)
 "id" = (
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
@@ -2731,6 +2742,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/garden)
+"iS" = (
+/obj/effect/landmark/start,
+/obj/effect/map_effect/perma_light/brighter,
+/turf/simulated/floor/tiled,
+/area/city/nouvelle)
 "iU" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/mob.dmi';
@@ -2895,11 +2911,12 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "jL" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/corner/red{
+	dir = 6;
+	color = "#400000"
 	},
-/turf/simulated/floor/wood,
-/area/city/outside)
+/turf/simulated/floor/marble/dark,
+/area/city/bar)
 "jM" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
@@ -3514,10 +3531,14 @@
 "oy" = (
 /obj/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
-	light_color = "#8B0000";
-	default_light_colour = "#8B0000"
+	light_color = "#8B0000"
 	},
-/turf/simulated/floor/tiled/full,
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint2"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/city/bar)
 "oA" = (
 /turf/simulated/floor/tiled,
@@ -4406,17 +4427,11 @@
 	},
 /area/city/hallway)
 "rX" = (
-/obj/machinery/floor_light/dance/alternate{
-	color = "#8B0000";
-	light_color = "#8B0000"
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/city/bar)
+/turf/simulated/floor/wood,
+/area/city/outside)
 "rY" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/structure/railing/fence{
@@ -5074,19 +5089,6 @@
 "vb" = (
 /turf/simulated/floor/marble/dark,
 /area/city/security)
-"vc" = (
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_y = 24;
-	id = "tint3"
-	},
-/obj/machinery/floor_light/dance/alternate{
-	default_light_colour = "#300056";
-	color = "#300056";
-	light_color = "#300056"
-	},
-/turf/simulated/floor/tiled/full,
-/area/city/bar)
 "ve" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
@@ -6438,13 +6440,6 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
-"Ap" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6;
-	color = "#400000"
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "Ar" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -8053,6 +8048,14 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
+"Fj" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/1152x544.dmi';
+	icon_state = "cityscape";
+	layer = 1.1
+	},
+/turf/simulated/wall,
+/area/city/nouvelle)
 "Fk" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood,
@@ -10380,6 +10383,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/city/outside)
+"Py" = (
+/obj/effect/map_effect/perma_light/brighter,
+/turf/simulated/floor/tiled,
+/area/city/nouvelle)
 "PD" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -12354,6 +12361,19 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
+"Vm" = (
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_y = 24;
+	id = "tint3"
+	},
+/obj/machinery/floor_light/dance/alternate{
+	default_light_colour = "#300056";
+	color = "#300056";
+	light_color = "#300056"
+	},
+/turf/simulated/floor/tiled/full,
+/area/city/bar)
 "Vn" = (
 /obj/effect/floor_decal/spline/plain/brown{
 	dir = 8;
@@ -13897,10 +13917,10 @@ Bb
 Bb
 Bb
 Bb
+Fj
 Bb
 Bb
 Bb
-oK
 Bb
 Bb
 Bb
@@ -13996,7 +14016,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -14157,7 +14177,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -17100,7 +17120,7 @@ fV
 Vl
 Bx
 bq
-Ap
+jL
 Ge
 Fo
 Fo
@@ -17253,15 +17273,15 @@ KO
 vh
 Jh
 LO
-rX
+oy
 Pl
 hq
 pe
 iL
 XS
 LO
-vc
-oy
+Vm
+ic
 Tv
 Yp
 Fo
@@ -17343,7 +17363,7 @@ XS
 LO
 bU
 fI
-oy
+ic
 NV
 Fo
 Fo
@@ -17504,10 +17524,10 @@ Fo
 Fo
 Fo
 Fo
+qd
 Fo
 Fo
-Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -17785,6 +17805,7 @@ Fo
 Fo
 tu
 Fo
+PM
 Fo
 Fo
 Fo
@@ -17802,8 +17823,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
-Fo
+qd
 Zj
 kP
 kP
@@ -18152,10 +18172,10 @@ Fo
 Fo
 Fo
 Fo
+qd
 Fo
 Fo
-Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -18451,7 +18471,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+qd
 SG
 Dt
 bM
@@ -18800,10 +18820,10 @@ Fo
 Fo
 Fo
 Fo
+qd
 Fo
 Fo
-Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -19099,7 +19119,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+qd
 jF
 Dt
 Dt
@@ -19448,10 +19468,10 @@ Fo
 Fo
 Fo
 Fo
+qd
 Fo
 Fo
-Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -19747,7 +19767,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+qd
 SG
 Dt
 Dt
@@ -19772,6 +19792,7 @@ Fo
 Fo
 Fo
 Fo
+qd
 Fo
 Fo
 Fo
@@ -19789,8 +19810,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
-Fo
+Ig
 Bb
 "}
 (74,1,1) = {"
@@ -20438,7 +20458,7 @@ Fo
 Fo
 Fo
 Fo
-Ig
+qd
 Bb
 "}
 (82,1,1) = {"
@@ -22730,7 +22750,7 @@ Fo
 Zv
 Lw
 wo
-jL
+rX
 aR
 aR
 aR
@@ -24367,7 +24387,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+qd
 tH
 ii
 RR
@@ -24393,7 +24413,7 @@ Fo
 Fo
 tu
 Fo
-Fo
+qd
 Fo
 Fo
 Fo
@@ -25012,7 +25032,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+PM
 cB
 cB
 cB
@@ -26076,7 +26096,7 @@ Fo
 Fo
 Fo
 Fo
-Fo
+PM
 Fo
 Fo
 Fo
@@ -28543,15 +28563,15 @@ Bb
 "}
 (182,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+Bb
+Bb
+Bb
+Bb
+Bb
+Bb
+Bb
+Bb
+Bb
 Fo
 Fo
 Fo
@@ -28624,15 +28644,15 @@ Bb
 "}
 (183,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+Bb
 Fo
 Fo
 Fo
@@ -28705,15 +28725,15 @@ Bb
 "}
 (184,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+Bb
 Fo
 Fo
 Fo
@@ -28786,15 +28806,15 @@ Bb
 "}
 (185,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+Bb
 Fo
 Fo
 Fo
@@ -28867,15 +28887,15 @@ Bb
 "}
 (186,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+Py
+Py
+iS
+Py
+Py
+fP
+Bb
 Fo
 Fo
 Fo
@@ -28948,15 +28968,15 @@ Bb
 "}
 (187,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+Bb
 Fo
 Fo
 Fo
@@ -29029,15 +29049,15 @@ Bb
 "}
 (188,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+Bb
 Fo
 Fo
 Fo
@@ -29110,15 +29130,15 @@ Bb
 "}
 (189,1,1) = {"
 Bb
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
-Fo
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+fP
+Bb
 Fo
 Fo
 Fo
