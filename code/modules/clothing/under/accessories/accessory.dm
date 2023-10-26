@@ -77,9 +77,9 @@
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
-	if(M.species)
-		accessory_mob_overlay.pixel_x = M.species.accessory_x_offset
-		accessory_mob_overlay.pixel_y = M.species.accessory_y_offset
+	if(H.species)
+		accessory_mob_overlay.pixel_x = H.species.accessory_x_offset
+		accessory_mob_overlay.pixel_y = H.species.accessory_y_offset
 	return accessory_mob_overlay
 
 //when user attached an accessory to S
