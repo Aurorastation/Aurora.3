@@ -1,0 +1,7 @@
+author: Pirouette, StevIII
+
+delete-after: True
+
+changes:
+  - imageadd: "Added a Lunan banner, flag, and flagpatch to loadout."
+  - imageadd: "Replaced the Lunan accent sprite with one inspired by the flag."

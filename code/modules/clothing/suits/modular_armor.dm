@@ -531,6 +531,12 @@
 	icon_state = "flagpatch_venus"
 	item_state = "flagpatch_venus"
 
+/obj/item/clothing/accessory/flagpatch/luna
+	name = "luna flagpatch"
+	desc = "A flagpatch representing Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	icon_state = "flagpatch_luna"
+	item_state = "flagpatch_luna"
+
 /obj/item/clothing/accessory/flagpatch/coalition
 	name = "coalition flagpatch"
 	desc = "A flagpatch representing the Coalition of Colonies. Although used on many Coalition worlds, this flag has also come \

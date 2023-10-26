@@ -2236,6 +2236,45 @@
 /obj/structure/sign/flag/silversun/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Luna
+
+/obj/item/flag/luna
+	name = "\improper Lunan flag"
+	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	flag_path = "luna"
+	flag_structure = /obj/structure/sign/flag/luna
+
+/obj/structure/sign/flag/luna
+	name = "\improper Lunan flag"
+	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	flag_path = "luna"
+	icon_state = "luna"
+	flag_item = /obj/item/flag/luna
+
+/obj/item/flag/luna/l
+	name = "large Lunan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/luna/large
+
+/obj/structure/sign/flag/luna/large
+	icon_state = "luna_l"
+	flag_path = "luna"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/luna/l
+
+/obj/structure/sign/flag/luna/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/luna/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/luna/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/luna/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+
 // Hive Zo'ra
 
 /obj/item/flag/zora
