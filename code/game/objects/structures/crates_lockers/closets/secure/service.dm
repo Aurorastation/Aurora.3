@@ -31,6 +31,7 @@
 	new /obj/item/taperoll/custodial(src)
 	new /obj/item/storage/box/lights/mixed(src)
 	new /obj/item/storage/box/mousetraps(src)
+	new /obj/item/storage/box/cleaner_tablets(src)
 
 // Away Ship/Site Custodial Locker
 /obj/structure/closet/secure_closet/custodial/offship
