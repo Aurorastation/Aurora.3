@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added an embedded bodyscanner to the patient monitoring console, the caveat being that this scanner needs a printed scan from a real bodyscanner to prime the data before it can work."
