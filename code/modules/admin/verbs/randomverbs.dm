@@ -555,7 +555,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/reporttitle
 	var/reportbody
 	var/reporter = null
-	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom")
+	var/reporttype = tgui_alert(usr, "Choose whether to use a template or custom report.", "Create Command Report", list("Custom", "Template"))
 	if(!reporttype)
 		return
 	switch(reporttype)
@@ -587,7 +587,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the report.", "Title"))
 			if(!reporttitle)
 				reporttitle = "NanoTrasen Update"
-			reportbody = sanitize(tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "Body", multiline = TRUE))
+			reportbody = sanitize(tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "Body", multiline = TRUE), extra = FALSE)
 			if(!reportbody)
 				return
 
@@ -598,7 +598,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		else
 			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
 
-	switch(tgui_alert("Should this be announced to the general population?", "Announcement", list("Yes","No")))
+	var/announce = tgui_alert(usr, "Should this be announced to the general population?", "Announcement", list("Yes","No"))
+	switch(announce)
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
