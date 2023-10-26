@@ -49,86 +49,86 @@
 
 // ================================ exterior deck 1
 
-/obj/effect/shuttle_landmark/horizon/deck_1
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1
 	base_turf = /turf/space
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/horizon/deck_1/fore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/fore
 	name = "Deck One, Fore of Horizon"
 	landmark_tag = "deck_one_fore_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_1/port
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/port
 	name = "Deck One, Port of Horizon"
 	landmark_tag = "deck_one_port_side"
 
-/obj/effect/shuttle_landmark/horizon/deck_1/starboard
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/starboard
 	name = "Deck One, Starboard of Horizon"
 	landmark_tag = "deck_one_starboard_side"
 
-/obj/effect/shuttle_landmark/horizon/deck_1/aft
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/aft
 	name = "Deck One, Aft of Horizon"
 	landmark_tag = "deck_one_aft_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_1/port_propulsion
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/port_propulsion
 	name = "Deck One, Near Port Propulsion"
 	landmark_tag = "deck_one_near_port_propulsion"
 
-/obj/effect/shuttle_landmark/horizon/deck_1/starboard_propulsion
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/starboard_propulsion
 	name = "Deck One, Near Starboard Propulsion"
 	landmark_tag = "deck_one_near_starboard_propulsion"
 
 // ================================ exterior deck 2
 
-/obj/effect/shuttle_landmark/horizon/deck_2
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2
 	base_turf = /turf/space
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/horizon/deck_2/fore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/fore
 	name = "Deck Two, Fore of Horizon"
 	landmark_tag = "deck_two_fore_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_2/starboard_fore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/starboard_fore
 	name = "Deck Two, Starboard Fore of Horizon"
 	landmark_tag = "deck_two_starboard_fore"
 
-/obj/effect/shuttle_landmark/horizon/deck_2/port_fore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/port_fore
 	name = "Deck Two, Port Fore of Horizon"
 	landmark_tag = "deck_two_port_fore"
 
-/obj/effect/shuttle_landmark/horizon/deck_2/aft
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/aft
 	name = "Deck Two, Aft of Horizon"
 	landmark_tag = "deck_two_aft_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_2/starboard_aft
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/starboard_aft
 	name = "Deck One, Starboard Aft of horizon"
 	landmark_tag = "deck_two_starboard_aft"
 
-/obj/effect/shuttle_landmark/horizon/deck_2/port_aft
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/port_aft
 	name = "Deck One, Port Aft of Horizon"
 	landmark_tag = "deck_two_port_aft"
 
 // ================================ exterior deck 3
 
-/obj/effect/shuttle_landmark/horizon/deck_3
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3
 	base_turf = /turf/space
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/horizon/deck_3/fore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/fore
 	name = "Deck Three, Fore of Horizon"
 	landmark_tag = "deck_three_fore_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_3/starboardfore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/starboardfore
 	name = "Deck Three, Starboard Fore of Horizon"
 	landmark_tag = "deck_three_fore_starboard_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_3/portfore
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/portfore
 	name = "Deck Three, Fore Port of Horizon"
 	landmark_tag = "deck_three_port_fore_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_3/portaft
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/portaft
 	name = "Deck Three, Aft Port of Horizon"
 	landmark_tag = "deck_three_port_aft_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deck_3/aft
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/aft
 	name = "Deck Three, Aft of Horizon"
 	landmark_tag = "deck_three_aft_of_horizon"

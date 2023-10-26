@@ -4547,7 +4547,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "dOV" = (
-/obj/effect/shuttle_landmark/horizon/deck_3/aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/aft,
 /turf/template_noop,
 /area/template_noop)
 "dQq" = (
@@ -6886,7 +6886,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "fxV" = (
-/obj/effect/shuttle_landmark/horizon/deck_3/portfore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/portfore,
 /turf/template_noop,
 /area/template_noop)
 "fyw" = (
@@ -24968,7 +24968,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "tmK" = (
-/obj/effect/shuttle_landmark/horizon/deck_3/starboardfore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/starboardfore,
 /turf/template_noop,
 /area/template_noop)
 "tmU" = (
@@ -26069,7 +26069,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/lounge)
 "ubP" = (
-/obj/effect/shuttle_landmark/horizon/deck_3/fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/fore,
 /turf/template_noop,
 /area/template_noop)
 "ubX" = (
@@ -30641,7 +30641,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "xsC" = (
-/obj/effect/shuttle_landmark/horizon/deck_3/portaft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/portaft,
 /turf/template_noop,
 /area/template_noop)
 "xuf" = (

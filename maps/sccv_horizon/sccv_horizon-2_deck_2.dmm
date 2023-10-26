@@ -513,7 +513,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ang" = (
-/obj/effect/shuttle_landmark/horizon/deck_2/port_fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/port_fore,
 /turf/template_noop,
 /area/template_noop)
 "anJ" = (
@@ -7386,7 +7386,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "dAy" = (
-/obj/effect/shuttle_landmark/horizon/deck_2/starboard_fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/starboard_fore,
 /turf/template_noop,
 /area/template_noop)
 "dAF" = (
@@ -8266,7 +8266,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/hallway)
 "dXD" = (
-/obj/effect/shuttle_landmark/horizon/deck_2/port_aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/port_aft,
 /turf/template_noop,
 /area/template_noop)
 "dYe" = (
@@ -9255,7 +9255,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "exF" = (
-/obj/effect/shuttle_landmark/horizon/deck_2/fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/fore,
 /turf/template_noop,
 /area/template_noop)
 "exU" = (
@@ -19416,7 +19416,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jib" = (
-/obj/effect/shuttle_landmark/horizon/deck_2/aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/aft,
 /turf/template_noop,
 /area/template_noop)
 "jih" = (
@@ -38306,7 +38306,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "sph" = (
-/obj/effect/shuttle_landmark/horizon/deck_2/starboard_aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/starboard_aft,
 /turf/template_noop,
 /area/template_noop)
 "spn" = (
