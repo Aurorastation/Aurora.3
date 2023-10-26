@@ -108,11 +108,11 @@
 	move_time = 75
 	shuttle_area = /area/shuttle/mercenary
 	destination_tags = list(
-		"nav_merc_dock",
 		"nav_merc_start",
 		"nav_third_deck",
 		"nav_second_deck",
-		"nav_first_deck"
+		"nav_first_deck",
+		// "nav_horizon_dock_deck_3_starboard_1",
 		)
 
 	landmark_transition = "nav_merc_interim"
@@ -132,13 +132,6 @@
 	landmark_tag = "nav_merc_interim"
 	base_turf = /turf/space/transit/north
 	base_area = /area/template_noop
-
-/obj/effect/shuttle_landmark/merc_ship/dock
-	name = "Third Deck Starboard Dock 1"
-	landmark_tag = "nav_merc_dock"
-	docking_controller = "nuke_shuttle_dock_airlock"
-	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc_ship/third_deck
 	name = "Third Deck Outside"

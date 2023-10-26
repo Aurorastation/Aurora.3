@@ -21,8 +21,16 @@
 // ================================ exterior docks
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1
-	name = "Third Deck Starboard Dock 2"
+	name = "Third Deck Starboard Dock 1"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	docking_controller = "nuke_shuttle_dock_airlock"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
+
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2
+	name = "Third Deck Starboard Dock 2"
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
 	docking_controller = "dock_horizon_1_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space

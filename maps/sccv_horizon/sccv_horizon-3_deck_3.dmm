@@ -13631,7 +13631,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "kyo" = (
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1,
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2,
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
@@ -17023,7 +17023,7 @@
 	name = "Docking Port Airlock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/merc_ship/dock{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
