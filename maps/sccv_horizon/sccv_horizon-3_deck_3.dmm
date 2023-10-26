@@ -2907,7 +2907,7 @@
 	pixel_y = -12;
 	req_one_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock3{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -12374,7 +12374,7 @@
 	name = "Docking Port Airlock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock4{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_2{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -13628,7 +13628,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "kyo" = (
-/obj/effect/shuttle_landmark/horizon/dock1,
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1,
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
@@ -19797,7 +19797,7 @@
 	name = "Emergency Services Dock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock2{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
