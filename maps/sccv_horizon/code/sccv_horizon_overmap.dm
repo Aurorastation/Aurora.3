@@ -32,6 +32,7 @@
 		"nav_dock_horizon_2",
 		"nav_dock_horizon_3",
 		"nav_dock_horizon_4",
+		"nav_dock_horizon_5",
 		"deck_one_fore_of_horizon",
 		"deck_one_starboard_side",
 		"deck_one_port_side",
@@ -67,6 +68,7 @@
 		"nav_dock_horizon_2",
 		"nav_dock_horizon_3",
 		"nav_dock_horizon_4",
+		"nav_dock_horizon_5",
 		"nav_ert_dock"
 	)
 

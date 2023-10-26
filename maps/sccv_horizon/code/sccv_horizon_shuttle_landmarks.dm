@@ -37,6 +37,7 @@
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1
 	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_dock_horizon_2"
+	docking_controller = "green_dock_aft_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
@@ -44,6 +45,13 @@
 	name = "Third Deck Port Dock 2"
 	landmark_tag = "nav_dock_horizon_4"
 	docking_controller = "dock_horizon_4_airlock"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_3
+	name = "Third Deck Port Dock 3"
+	landmark_tag = "nav_dock_horizon_5"
+	docking_controller = "specops_dock_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 

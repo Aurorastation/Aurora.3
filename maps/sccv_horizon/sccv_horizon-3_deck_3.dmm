@@ -45,6 +45,9 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, deck 3 port docks"
 	},
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_3{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "abD" = (
