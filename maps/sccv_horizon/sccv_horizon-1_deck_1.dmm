@@ -5458,7 +5458,7 @@
 	},
 /area/maintenance/wing/starboard/deck1)
 "dTk" = (
-/obj/effect/shuttle_landmark/horizon/nav2,
+/obj/effect/shuttle_landmark/horizon/hangar2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUP" = (
@@ -27370,7 +27370,7 @@
 	},
 /area/shuttle/mining)
 "tjN" = (
-/obj/effect/shuttle_landmark/horizon/nav1,
+/obj/effect/shuttle_landmark/horizon/hangar1,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "tkS" = (

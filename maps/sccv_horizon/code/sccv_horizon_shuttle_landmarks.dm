@@ -6,13 +6,13 @@
 
 // ================================ hangars
 
-/obj/effect/shuttle_landmark/horizon/nav1
+/obj/effect/shuttle_landmark/horizon/hangar1
 	name = "First Deck Port Hangar Bay 1a"
 	landmark_tag = "nav_hangar_horizon_1"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
 
-/obj/effect/shuttle_landmark/horizon/nav2
+/obj/effect/shuttle_landmark/horizon/hangar2
 	name = "First Deck Port Hangar Bay 2a"
 	landmark_tag = "nav_hangar_horizon_2"
 	base_turf = /turf/simulated/floor/plating
