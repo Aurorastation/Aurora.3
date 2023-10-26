@@ -109,6 +109,7 @@
 #include "code\__defines\subsystem-priority.dm"
 #include "code\__defines\targeting.dm"
 #include "code\__defines\technomancer.dm"
+#include "code\__defines\text.dm"
 #include "code\__defines\tgs.dm"
 #include "code\__defines\tgui.dm"
 #include "code\__defines\time.dm"
