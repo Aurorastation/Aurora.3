@@ -59,9 +59,9 @@
 #define RELIGION_PREIMMINENNCE "Preimminennce"
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
-#define RELIGION_ETERNAL "The Eternal"
-#define RELIGION_KSSHR "Ksshr"
-#define RELIGION_SHRKH "Shrkh"
+#define RELIGION_ETERNAL "Orthodox Eternal"
+#define RELIGION_ETERNAL_ICHOR "Ichor Eternal"
+#define RELIGION_ETERNAL_IRON "Iron Eternal"
 #define RELIGION_MADA "Maraka"
 #define RELIGION_GLEANERS "Lights Accord"
 
@@ -182,6 +182,9 @@
 #define ACCENT_SUNKENSONG "Sunkensong"
 #define ACCENT_STARSONG "Starsong"
 #define ACCENT_XRIMSONG "Xrimsong"
+#define ACCENT_PESTSONG "Pestsong"
+#define ACCENT_MEADOWSONG "Meadowsong"
+
 
 
 #define ACCENT_TTS "Text-to-Speech"
