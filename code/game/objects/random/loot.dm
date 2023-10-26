@@ -119,6 +119,7 @@
 		/obj/item/storage/box/lights/colored/yellow = 0.1,
 		/obj/item/storage/box/lights/coloredmixed = 0.2,
 		/obj/item/storage/box/masks = 0.5,
+		/obj/item/storage/box/cleaner_tablets = 0.4
 		/obj/item/storage/box/mousetraps = 0.3,
 		/obj/item/storage/box/pineapple = 0.1,
 		/obj/item/storage/box/smokebombs = 0.1,
@@ -160,7 +161,8 @@
 		/obj/random/wizard_dressup = 0.25,
 		/obj/item/device/synthesized_instrument/violin = 0.1,
 		/obj/item/device/synthesized_instrument/guitar = 1,
-		/obj/item/device/synthesized_instrument/trumpet = 0.25
+		/obj/item/device/synthesized_instrument/trumpet = 0.25,
+		/obj/item/reagent_containers/pill/cleaner_tablet = 0.6
 	)
 
 /obj/random/highvalue
