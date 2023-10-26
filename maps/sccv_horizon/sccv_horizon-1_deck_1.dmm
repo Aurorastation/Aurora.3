@@ -3983,7 +3983,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "cPq" = (
-/obj/effect/shuttle_landmark/horizon/deckone/starboard_propulsion,
+/obj/effect/shuttle_landmark/horizon/deck_1/starboard_propulsion,
 /turf/template_noop,
 /area/template_noop)
 "cPt" = (
@@ -12866,7 +12866,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "jbS" = (
-/obj/effect/shuttle_landmark/horizon/deckone/starboard,
+/obj/effect/shuttle_landmark/horizon/deck_1/starboard,
 /turf/template_noop,
 /area/template_noop)
 "jcd" = (
@@ -18824,7 +18824,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "nhU" = (
-/obj/effect/shuttle_landmark/horizon/deckone/fore,
+/obj/effect/shuttle_landmark/horizon/deck_1/fore,
 /turf/template_noop,
 /area/template_noop)
 "nie" = (
@@ -19747,7 +19747,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
 "nOU" = (
-/obj/effect/shuttle_landmark/horizon/deckone/port,
+/obj/effect/shuttle_landmark/horizon/deck_1/port,
 /turf/template_noop,
 /area/template_noop)
 "nPq" = (
@@ -25109,7 +25109,7 @@
 	},
 /area/shuttle/intrepid/atmos_compartment)
 "rDi" = (
-/obj/effect/shuttle_landmark/horizon/deckone/aft,
+/obj/effect/shuttle_landmark/horizon/deck_1/aft,
 /turf/template_noop,
 /area/template_noop)
 "rDE" = (
@@ -32874,7 +32874,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/quarters)
 "xaf" = (
-/obj/effect/shuttle_landmark/horizon/deckone/port_propulsion,
+/obj/effect/shuttle_landmark/horizon/deck_1/port_propulsion,
 /turf/template_noop,
 /area/template_noop)
 "xaE" = (

@@ -3706,6 +3706,7 @@
 #include "maps\sccv_horizon\code\sccv_horizon_holodeck.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_lifts.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_overmap.dm"
+#include "maps\sccv_horizon\code\sccv_horizon_shuttle_landmarks.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_shuttles.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_structures.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_unittest.dm"
