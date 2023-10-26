@@ -185,8 +185,6 @@
 #define ACCENT_PESTSONG "Pestsong"
 #define ACCENT_MEADOWSONG "Meadowsong"
 
-
-
 #define ACCENT_TTS "Text-to-Speech"
 
 #define ACCENT_BLUESPACE "Bluespace"
