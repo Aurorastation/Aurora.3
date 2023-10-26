@@ -22,7 +22,10 @@
 	if(parent_computer?.card_slot == src)
 		parent_computer.card_slot = null
 	if(stored_card)
-		stored_card.forceMove(get_turf(parent_computer))
+		stored_card.forceMove(get_turf(parent_computer)) //Why the hell are we not QDEL'ing the stored card if we're being destroyed? I don't know, but something might rely on it, hence...
+		stored_card = null								//the conservative approach is to just null the reference and hope for the best
+
+	QDEL_NULL(stored_item)
 	parent_computer = null
 	return ..()
 
