@@ -1,7 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - bugfix: "Heart parasites can no longer eat metal hearts."
-  - tweak: "Reduces speed of parasite hunger drain."
