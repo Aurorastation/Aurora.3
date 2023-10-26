@@ -1234,8 +1234,7 @@
 	name = "\improper Idris cleaner tablets case"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
 	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
-	icon = 'icons/obj/tabletcase.dmi'
-	icon_state = "tabletcase"
+	illustration = "soapbucket"
 	max_storage_space = 16
 	starts_with = list(
 		/obj/item/reagent_containers/pill/cleaner_tablet = 16
