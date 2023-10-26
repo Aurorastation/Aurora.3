@@ -42,3 +42,4 @@ changes:
   - refactor: "Moved around some macros in the appropriate files."
   - bugfix: "Antag uplink announcements now shows apostrophes correctly, and can have newlines in them."
   - refactor: "Antag uplink announcements now uses tgui inputs."
+  - bugfix: "PDA STT now respects the apostrophes and other characters too."
