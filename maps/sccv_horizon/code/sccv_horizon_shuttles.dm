@@ -75,7 +75,6 @@
 	landmark_tag = "nav_skipjack_start"
 	docking_controller = "pirate_hideout"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/skipjack_ship/interim
 	name = "In Transit"
@@ -131,7 +130,6 @@
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
 	base_turf = /turf/space/transit/north
-	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/merc_ship/third_deck
 	name = "Third Deck Outside"
