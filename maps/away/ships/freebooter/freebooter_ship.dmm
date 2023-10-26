@@ -698,6 +698,17 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
+"aVi" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	layer = 2.71
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "aVH" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1108,6 +1119,7 @@
 	dir = 1;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
 "bFv" = (
@@ -1136,6 +1148,10 @@
 /obj/machinery/door/window/northright,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
+"bPp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "bPw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3099,6 +3115,11 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/bridge)
+"hGb" = (
+/obj/machinery/alarm/east,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "hHq" = (
 /obj/effect/floor_decal/corner{
 	dir = 6
@@ -4362,6 +4383,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "kPY" = (
@@ -5512,6 +5536,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "nyh" = (
@@ -7432,8 +7457,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "rAU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
 	},
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -7519,8 +7544,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "rHI" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -7530,8 +7554,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
 /obj/machinery/door/window/northleft,
+/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "rJT" = (
@@ -9101,6 +9125,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
 "vAb" = (
@@ -44937,7 +44962,7 @@ rQJ
 aEB
 tuB
 fNL
-nRY
+bPp
 rAU
 mkb
 syX
@@ -45193,7 +45218,7 @@ atI
 wdp
 dBR
 pob
-nRY
+hGb
 nxF
 kPW
 rDZ
@@ -45452,7 +45477,7 @@ aSb
 aSb
 aSb
 rzA
-aSb
+aVi
 aSb
 kTf
 ugG
