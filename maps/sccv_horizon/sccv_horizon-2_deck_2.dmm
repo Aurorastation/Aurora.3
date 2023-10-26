@@ -231,7 +231,6 @@
 "aem" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "aeC" = (
@@ -2578,7 +2577,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "bfB" = (
-/obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -2589,6 +2587,9 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1;
 	icon_state = "pipe-j2"
+	},
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 1
 	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
@@ -4757,7 +4758,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/fireaxecabinet/east,
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "cdv" = (
@@ -5508,7 +5508,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "cAt" = (
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
 "cAx" = (
@@ -8840,7 +8842,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 1
+	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
 "enV" = (
@@ -11226,7 +11230,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/bed/stool/bar/padded/black,
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "ftS" = (
@@ -12082,7 +12088,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "fOX" = (
-/obj/structure/bed/stool/padded/red,
+/obj/structure/bed/stool/padded/red{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
 "fPb" = (
@@ -22732,12 +22740,12 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1439;
+	id = "cooling_in";
 	name = "Reactor Coolant Injector";
 	pixel_y = 1;
 	power_rating = 30000;
 	use_power = 1;
-	volume_rate = 700;
-	id = "cooling_in"
+	volume_rate = 700
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -26709,7 +26717,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "mLM" = (
@@ -29130,9 +29140,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/general_air_control/supermatter_core{
 	frequency = 1439;
-	output_tag = "cooling_out";
 	input_tag = "cooling_in";
 	name = "Supermatter Monitoring Terminal";
+	output_tag = "cooling_out";
 	sensors = list("supermatter_sensor"="Supermatter Core")
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -30442,7 +30452,9 @@
 	dir = 1;
 	pixel_y = 28
 	},
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
 "owR" = (
@@ -31742,8 +31754,8 @@
 "pdF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/air_sensor{
-	id_tag = "fusion_sensor";
-	frequency = 1441
+	frequency = 1441;
+	id_tag = "fusion_sensor"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
@@ -32223,7 +32235,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "pqc" = (
@@ -39555,7 +39569,9 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "tag" = (
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 8
+	},
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -46602,6 +46618,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"wiG" = (
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/horizon/bar)
 "wiH" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/plating,
@@ -47358,7 +47380,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/bed/stool/bar/padded/red,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "wAm" = (
@@ -49632,7 +49656,6 @@
 "xBU" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/clothing/gloves/yellow,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -69261,7 +69284,7 @@ dim
 lvM
 gKC
 tfl
-cAt
+wiG
 pZs
 qzH
 nxI
@@ -69463,7 +69486,7 @@ kgS
 otr
 odD
 wMr
-cAt
+wiG
 pZs
 qEL
 bOI
@@ -69665,7 +69688,7 @@ gwy
 rIZ
 gBK
 fkr
-cAt
+wiG
 pZs
 gMn
 bOI
