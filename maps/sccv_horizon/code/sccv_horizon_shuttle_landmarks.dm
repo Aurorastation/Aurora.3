@@ -47,11 +47,11 @@
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
+// ================================ exterior deck 1
+
 /obj/effect/shuttle_landmark/horizon/deck_1
 	base_turf = /turf/space
 	base_area = /area/space
-
-// ================================ exterior deck 1
 
 /obj/effect/shuttle_landmark/horizon/deck_1/fore
 	name = "Deck One, Fore of Horizon"
