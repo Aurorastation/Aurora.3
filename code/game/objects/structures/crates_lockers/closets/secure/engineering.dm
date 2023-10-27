@@ -73,6 +73,7 @@
 	new /obj/item/device/radio/eng/off(src)
 	new /obj/item/storage/belt/utility(src)
 	new /obj/item/device/gps/engineering(src)
+	new /obj/item/pipewrench(src)
 	new /obj/item/device/flashlight/heavy(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 
