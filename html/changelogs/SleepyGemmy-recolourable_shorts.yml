@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a pair of colourable shorts and short shorts."
+  - rscdel: "Removed the young folks jeans and jeans shorts, as they had the same sprite as the classic jeans and jeans shorts."

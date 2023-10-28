@@ -12,6 +12,16 @@
 
 /********** Shorts Start **********/
 // Shorts
+/obj/item/clothing/under/shorts/recolourable
+	name = "shorts"
+	desc = "A pair of cotton shorts."
+	icon_state = "shorts_recolourable"
+	item_state = "shorts_recolourable"
+
+/obj/item/clothing/under/shorts/recolourable/short
+	name = "short shorts"
+	desc = "A pair of cotton short shorts."
+
 /obj/item/clothing/under/shorts/black
 	name = "black shorts"
 	desc = "For that island getaway. It's five o'clock somewhere, right?"
@@ -67,16 +77,6 @@
 	name = "mustang jeans short shorts"
 	icon_state = "shorts_s_jeans_mustang"
 	item_state = "shorts_s_jeans_mustang"
-
-/obj/item/clothing/under/shorts/jeans/youngfolks
-	name = "young folks jeans shorts"
-	icon_state = "shorts_jeans_youngfolk"
-	item_state = "shorts_jeans_youngfolk"
-
-/obj/item/clothing/under/shorts/jeans/youngfolks/short
-	name = "young folks jeans short shorts"
-	icon_state = "shorts_s_jeans_youngfolk"
-	item_state = "shorts_s_jeans_youngfolk"
 
 /obj/item/clothing/under/shorts/jeans/black
 	name = "black jeans shorts"
