@@ -15909,12 +15909,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"lnk" = (
-/obj/effect/shuttle_landmark/merc_ship/first_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "lnt" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -66262,7 +66256,7 @@ eSV
 eSV
 eSV
 eSV
-lnk
+eSV
 eSV
 eSV
 eSV

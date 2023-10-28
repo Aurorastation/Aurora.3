@@ -108,10 +108,8 @@
 	shuttle_area = /area/shuttle/mercenary
 	destination_tags = list(
 		"nav_merc_start",
-		"nav_third_deck",
-		"nav_second_deck",
-		"nav_first_deck",
-		// "nav_horizon_dock_deck_3_starboard_1",
+		"nav_horizon_dock_deck_3_starboard_1", // only dock compatible
+		NAV_HORIZON_EXTERIOR_ALL_DECKS,
 		)
 
 	landmark_transition = "nav_merc_interim"
@@ -130,21 +128,6 @@
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
 	base_turf = /turf/space/transit/north
-
-/obj/effect/shuttle_landmark/merc_ship/third_deck
-	name = "Third Deck Outside"
-	landmark_tag = "nav_third_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/merc_ship/second_deck
-	name = "Second Deck Outside"
-	landmark_tag = "nav_second_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/merc_ship/first_deck
-	name = "First Deck Outside"
-	landmark_tag = "nav_first_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Intrepid
 /datum/shuttle/autodock/overmap/intrepid

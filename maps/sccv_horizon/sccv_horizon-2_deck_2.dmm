@@ -26685,12 +26685,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
-"mLd" = (
-/obj/effect/shuttle_landmark/merc_ship/second_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "mLn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -76059,7 +76053,7 @@ qgN
 qgN
 qgN
 qgN
-mLd
+qgN
 qgN
 qgN
 qgN

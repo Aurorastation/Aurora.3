@@ -63,7 +63,20 @@
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
+// ================================ exterior
+
+#define NAV_HORIZON_EXTERIOR_ALL_DECKS list(NAV_HORIZON_EXTERIOR_ALL_DECK_1, NAV_HORIZON_EXTERIOR_ALL_DECK_2, NAV_HORIZON_EXTERIOR_ALL_DECK_3)
+
 // ================================ exterior deck 1
+
+#define NAV_HORIZON_EXTERIOR_ALL_DECK_1 list(\
+	"nav_horizon_exterior_deck_1_fore",\
+	"nav_horizon_exterior_deck_1_port",\
+	"nav_horizon_exterior_deck_1_starboard",\
+	"nav_horizon_exterior_deck_1_aft",\
+	"nav_horizon_exterior_deck_1_port_propulsion",\
+	"nav_horizon_exterior_deck_1_starboard_propulsion",\
+)
 
 /obj/effect/shuttle_landmark/horizon/exterior/deck_1
 	base_turf = /turf/space
@@ -95,6 +108,15 @@
 
 // ================================ exterior deck 2
 
+#define NAV_HORIZON_EXTERIOR_ALL_DECK_2 list(\
+	"nav_horizon_exterior_deck_2_fore",\
+	"nav_horizon_exterior_deck_2_starboard_fore",\
+	"nav_horizon_exterior_deck_2_port_fore",\
+	"nav_horizon_exterior_deck_2_aft",\
+	"nav_horizon_exterior_deck_2_starboard_aft",\
+	"nav_horizon_exterior_deck_2_port_aft",\
+)
+
 /obj/effect/shuttle_landmark/horizon/exterior/deck_2
 	base_turf = /turf/space
 	base_area = /area/space
@@ -124,6 +146,14 @@
 	landmark_tag = "nav_horizon_exterior_deck_2_port_aft"
 
 // ================================ exterior deck 3
+
+#define NAV_HORIZON_EXTERIOR_ALL_DECK_3 list(\
+	"nav_horizon_exterior_deck_3_fore",\
+	"nav_horizon_exterior_deck_3_starboard_fore",\
+	"nav_horizon_exterior_deck_3_port_fore",\
+	"nav_horizon_exterior_deck_3_port_aft",\
+	"nav_horizon_exterior_deck_3_aft",\
+)
 
 /obj/effect/shuttle_landmark/horizon/exterior/deck_3
 	base_turf = /turf/space

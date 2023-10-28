@@ -27365,12 +27365,6 @@
 /obj/structure/displaycase/captain_revolver,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"vbi" = (
-/obj/effect/shuttle_landmark/merc_ship/third_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "vbE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -41849,7 +41843,7 @@ dSF
 dSF
 dSF
 dSF
-vbi
+dSF
 dSF
 dSF
 dSF
