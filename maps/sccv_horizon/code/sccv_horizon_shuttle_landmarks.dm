@@ -1,9 +1,4 @@
 
-//
-// This file is intended for "generic" shuttle landmarks.
-// Generic, meaning visible to and selectable by any shuttle.
-//
-
 // ================================ hangars
 
 /obj/effect/shuttle_landmark/horizon/hangar1
@@ -19,6 +14,15 @@
 	base_area = /area/hangar/auxiliary
 
 // ================================ exterior docks
+
+#define NAV_HORIZON_DOCK_ALL list(\
+	"nav_horizon_dock_deck_3_starboard_1",\
+	"nav_horizon_dock_deck_3_starboard_2",\
+	"nav_horizon_dock_deck_3_starboard_3",\
+	"nav_horizon_dock_deck_3_port_2",\
+	"nav_horizon_dock_deck_3_port_4",\
+	"nav_horizon_dock_deck_3_port_5",\
+)
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1
 	name = "Third Deck Starboard Dock 1"

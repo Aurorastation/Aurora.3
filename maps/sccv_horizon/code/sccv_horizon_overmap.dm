@@ -28,29 +28,8 @@
 	initial_generic_waypoints = list(
 		"nav_horizon_hangar_1",
 		"nav_horizon_hangar_2",
-		"nav_horizon_dock_deck_3_starboard_1",
-		"nav_horizon_dock_deck_3_starboard_2",
-		"nav_horizon_dock_deck_3_starboard_3",
-		"nav_horizon_dock_deck_3_port_2",
-		"nav_horizon_dock_deck_3_port_4",
-		"nav_horizon_dock_deck_3_port_5",
-		"nav_horizon_exterior_deck_1_fore",
-		"nav_horizon_exterior_deck_1_starboard",
-		"nav_horizon_exterior_deck_1_port",
-		"nav_horizon_exterior_deck_1_aft",
-		"nav_horizon_exterior_deck_1_starboard_propulsion",
-		"nav_horizon_exterior_deck_1_port_propulsion",
-		"nav_horizon_exterior_deck_2_fore",
-		"nav_horizon_exterior_deck_2_starboard_fore",
-		"nav_horizon_exterior_deck_2_port_fore",
-		"nav_horizon_exterior_deck_2_aft",
-		"nav_horizon_exterior_deck_2_port_aft",
-		"nav_horizon_exterior_deck_2_starboard_aft",
-		"nav_horizon_exterior_deck_3_fore",
-		"nav_horizon_exterior_deck_3_starboard_fore",
-		"nav_horizon_exterior_deck_3_port_fore",
-		"nav_horizon_exterior_deck_3_aft",
-		"nav_horizon_exterior_deck_3_port_aft"
+		NAV_HORIZON_DOCK_ALL,
+		NAV_HORIZON_EXTERIOR_ALL_DECKS,
 	)
 
 	tracked_dock_tags = list(
@@ -64,13 +43,8 @@
 		"nav_distress_blue",
 		"nav_merchant_dock",
 		"nav_ccia_dock",
-		"nav_horizon_dock_deck_3_starboard_1",
-		"nav_horizon_dock_deck_3_starboard_2",
-		"nav_horizon_dock_deck_3_starboard_3",
-		"nav_horizon_dock_deck_3_port_2",
-		"nav_horizon_dock_deck_3_port_4",
-		"nav_horizon_dock_deck_3_port_5",
-		"nav_ert_dock"
+		"nav_ert_dock",
+		NAV_HORIZON_DOCK_ALL,
 	)
 
 /obj/effect/overmap/visitable/ship/sccv_horizon/get_skybox_representation()
