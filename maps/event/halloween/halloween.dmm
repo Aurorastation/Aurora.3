@@ -5688,9 +5688,11 @@
 /turf/simulated/floor/tiled/full,
 /area/city/security)
 "we" = (
-/obj/structure/rod_railing{
-	dir = 6;
-	layer = 2
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	layer = 3.1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/costumeroom)
@@ -5876,13 +5878,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
-"xe" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/256x672.dmi';
-	icon_state = "cityscape"
-	},
-/turf/space,
-/area/city/nouvelle)
 "xh" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -8342,13 +8337,13 @@
 /turf/simulated/floor/carpet,
 /area/city/hallway)
 "GL" = (
-/obj/machinery/media/jukebox/audioconsole{
-	layer = 3;
-	pixel_x = -1;
-	anchored = 1;
-	pixel_y = 7
+/obj/structure/platform{
+	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
 /area/city/bar)
 "GM" = (
 /obj/effect/map_effect/perma_light/brighter,
@@ -8441,7 +8436,7 @@
 /obj/item/reagent_containers/food/snacks/cherrypie,
 /obj/item/reagent_containers/food/snacks/cherrypie,
 /obj/item/reagent_containers/food/snacks/cherrypie,
-/turf/space,
+/turf/simulated/floor/tiled/full,
 /area/city/kitchen)
 "Ha" = (
 /obj/effect/map_effect/perma_light{
@@ -10660,11 +10655,15 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "Qo" = (
-/obj/structure/rod_railing{
-	dir = 5;
-	layer = 2
+/obj/structure/table/wood{
+	layer = 3.4
 	},
-/obj/structure/table/wood,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/city/outside)
 "Qp" = (
@@ -12399,7 +12398,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/city/bar)
@@ -12508,11 +12507,15 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "VY" = (
-/obj/structure/rod_railing{
-	dir = 9;
-	layer = 2
+/obj/machinery/computer/arcade/orion_trail{
+	layer = 3.4
 	},
-/obj/machinery/computer/arcade/orion_trail,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/city/outside)
 "VZ" = (
@@ -13587,11 +13590,14 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "Zw" = (
-/obj/structure/rod_railing{
-	dir = 10
-	},
 /obj/structure/table/wood,
 /obj/item/flame/candle,
+/obj/structure/railing/mapped{
+	layer = 3.1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "Zx" = (
@@ -14184,7 +14190,7 @@ Fo
 Fo
 Fo
 Fo
-xe
+qd
 Fo
 Fo
 Fo
@@ -15731,7 +15737,7 @@ kR
 CI
 WE
 zg
-GL
+kO
 EP
 vC
 TD
@@ -15813,7 +15819,7 @@ pJ
 nT
 tV
 Cp
-EP
+GY
 nT
 PI
 kR
@@ -17433,7 +17439,7 @@ Iq
 CX
 ev
 DJ
-KT
+GL
 LO
 SY
 Fr
