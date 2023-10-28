@@ -12,13 +12,13 @@
 
 /********** Shorts Start **********/
 // Shorts
-/obj/item/clothing/under/shorts/recolourable
+/obj/item/clothing/under/shorts/colourable
 	name = "shorts"
 	desc = "A pair of cotton shorts."
 	icon_state = "shorts_recolourable"
 	item_state = "shorts_recolourable"
 
-/obj/item/clothing/under/shorts/recolourable/short
+/obj/item/clothing/under/shorts/colourable/short
 	name = "short shorts"
 	desc = "A pair of cotton short shorts."
 

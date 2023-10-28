@@ -201,8 +201,6 @@
 	pants["classic jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/classic/short
 	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
 	pants["mustang jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/short
-	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
-	pants["young folks jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks/short
 	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
 	pants["black jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/black/short
 	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
