@@ -41,3 +41,4 @@ changes:
   - refactor: "All of Horizon's generic shuttle landmarks are in one file."
   - refactor: "Antag shuttles use Horizon's generic shuttle landmarks instead of their special ones."
   - refactor: "Horizon's generic shuttle landmark types and tags consistency."
+  - bugfix: "Fixes merc shuttle not being able to leave their base."
