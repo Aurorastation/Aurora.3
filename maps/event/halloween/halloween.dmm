@@ -531,16 +531,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/city/outside)
-"bN" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5;
-	color = "#400000"
-	},
-/obj/machinery/disposal/small{
-	pixel_y = 18
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "bO" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1
@@ -1843,6 +1833,12 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
+"fM" = (
+/obj/machinery/disposal/small{
+	pixel_y = 18
+	},
+/turf/simulated/floor/marble/dark,
+/area/city/bar)
 "fP" = (
 /turf/simulated/floor/tiled,
 /area/city/nouvelle)
@@ -4237,6 +4233,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/city/dining)
+"rB" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/256x672.dmi';
+	icon_state = "cityscape";
+	layer = 2;
+	pixel_y = -96
+	},
+/turf/simulated/abyss{
+	name = "distant cityscape";
+	layer = 1
+	},
+/area/city/nouvelle)
 "rD" = (
 /obj/item/toy/balloon/ghost,
 /obj/structure/table/stone/marble{
@@ -4543,6 +4551,17 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
+"sI" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9;
+	color = "#400000"
+	},
+/obj/machinery/disposal/small{
+	dir = 4;
+	pixel_x = -17
+	},
+/turf/simulated/floor/marble/dark,
+/area/city/bar)
 "sK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -4556,14 +4575,13 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "sM" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
 /obj/machinery/disposal/small{
-	pixel_y = 18
+	dir = 4;
+	pixel_x = -15;
+	pixel_y = -9
 	},
-/turf/simulated/floor/tiled,
-/area/city/hallway)
+/turf/simulated/floor/wood,
+/area/city/costumeroom)
 "sO" = (
 /turf/simulated/floor/carpet/rubber,
 /area/city/hallway)
@@ -4803,17 +4821,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
-"tT" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9;
-	color = "#400000"
-	},
-/obj/machinery/disposal/small{
-	dir = 4;
-	pixel_x = -17
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "tU" = (
 /turf/simulated/wall,
 /area/city/garden)
@@ -5199,12 +5206,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
-"vt" = (
-/obj/machinery/disposal/small{
-	pixel_y = 18
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "vu" = (
 /turf/simulated/floor/grass,
 /area/city/hallway)
@@ -8563,14 +8564,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
-"Hy" = (
-/obj/machinery/disposal/small{
-	dir = 4;
-	pixel_x = -15;
-	pixel_y = -9
-	},
-/turf/simulated/floor/wood,
-/area/city/costumeroom)
 "HB" = (
 /obj/structure/punching_bag,
 /obj/structure/rod_railing{
@@ -8960,6 +8953,15 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
+"IM" = (
+/obj/structure/platform,
+/obj/machinery/disposal/small{
+	dir = 4;
+	pixel_x = -15;
+	pixel_y = -9
+	},
+/turf/simulated/floor/concrete,
+/area/city/horrorhouse)
 "IR" = (
 /obj/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
@@ -9054,15 +9056,7 @@
 	base_color = "#FF0000"
 	},
 /area/city/horrorhouse)
-"JD" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/floor_decal/spline/plain/brown{
-	dir = 6;
-	layer = 3
-	},
-/turf/simulated/floor/grass,
-/area/city/outside)
-"JH" = (
+"Jy" = (
 /obj/structure/platform,
 /obj/machinery/disposal/small{
 	dir = 4;
@@ -9071,6 +9065,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/city/kitchen)
+"JD" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 6;
+	layer = 3
+	},
+/turf/simulated/floor/grass,
+/area/city/outside)
 "JI" = (
 /obj/item/melee/baton/loaded{
 	pixel_x = -5;
@@ -9346,6 +9348,16 @@
 	},
 /obj/item/toy/balloon/ghost{
 	color = "#d400ff"
+	},
+/turf/simulated/floor/marble/dark,
+/area/city/bar)
+"KC" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5;
+	color = "#400000"
+	},
+/obj/machinery/disposal/small{
+	pixel_y = 18
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
@@ -10307,6 +10319,15 @@
 	},
 /turf/simulated/wall,
 /area/city/outside)
+"OY" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/obj/machinery/disposal/small{
+	pixel_y = 18
+	},
+/turf/simulated/floor/tiled,
+/area/city/hallway)
 "OZ" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -11927,15 +11948,6 @@
 /obj/structure/bed/stool/chair/padded/red,
 /turf/simulated/floor/wood/mahogany,
 /area/city/bar)
-"Tc" = (
-/obj/structure/platform,
-/obj/machinery/disposal/small{
-	dir = 4;
-	pixel_x = -15;
-	pixel_y = -9
-	},
-/turf/simulated/floor/concrete,
-/area/city/horrorhouse)
 "Td" = (
 /obj/structure/platform_deco{
 	dir = 1
@@ -12730,6 +12742,12 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
+"WU" = (
+/obj/machinery/disposal/small{
+	pixel_y = 18
+	},
+/turf/simulated/floor/tiled/full,
+/area/city/hallway)
 "WX" = (
 /turf/simulated/floor/wood/mahogany,
 /area/city/bar)
@@ -13212,12 +13230,6 @@
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/city/hallway)
-"Yd" = (
-/obj/machinery/disposal/small{
-	pixel_y = 18
-	},
-/turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "Ye" = (
 /obj/structure/closet/crate/hydroponics,
@@ -15898,7 +15910,7 @@ PI
 kR
 HJ
 LO
-vt
+fM
 Kh
 Mg
 AP
@@ -16456,7 +16468,7 @@ GI
 Ne
 Gb
 Gb
-tT
+sI
 Gb
 Gb
 ot
@@ -16464,7 +16476,7 @@ il
 Gb
 Gb
 Gb
-tT
+sI
 MM
 Gb
 il
@@ -16930,7 +16942,7 @@ rn
 cD
 Gq
 xN
-Tc
+IM
 GD
 RW
 Ai
@@ -17020,7 +17032,7 @@ RW
 rr
 xw
 LO
-bN
+KC
 pA
 JY
 JY
@@ -20537,7 +20549,7 @@ Fo
 Fo
 Fo
 Fo
-qd
+rB
 Bb
 "}
 (82,1,1) = {"
@@ -21792,7 +21804,7 @@ nx
 nx
 nx
 gq
-Yd
+WU
 rr
 xw
 Sz
@@ -22211,7 +22223,7 @@ Nc
 aK
 yH
 ZK
-JH
+Jy
 Vf
 QE
 Vf
@@ -22604,7 +22616,7 @@ Lw
 RY
 RY
 RY
-sM
+OY
 Hb
 zY
 zY
@@ -23425,7 +23437,7 @@ wK
 Qh
 Jq
 gY
-Hy
+sM
 Jq
 Jq
 Jq
