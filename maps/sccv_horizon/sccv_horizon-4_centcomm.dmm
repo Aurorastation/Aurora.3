@@ -38020,7 +38020,7 @@
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
-/obj/item/nullrod/dominia,
+/obj/item/nullrod/dominia/holodeck,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_tribunal)
 "lGe" = (
