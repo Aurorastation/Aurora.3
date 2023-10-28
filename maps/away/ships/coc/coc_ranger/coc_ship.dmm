@@ -3568,12 +3568,9 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/energy/pistol/hegemony,
-/obj/item/gun/projectile/colt/super{
-	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example sports a short slide, wood-paneled grips, and various other modifications. While it seems to have originally been a very expensive pistol, this one has seen constant and heavy use, and is now thoroughly worn - though it still functions well.";
-	name = "worn-out ornamental .45 combat pistol"
-	},
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
 /obj/item/gun/energy/blaster,
 /obj/item/gun/projectile/revolver/lemat,
 /obj/item/ammo_magazine/c38,
