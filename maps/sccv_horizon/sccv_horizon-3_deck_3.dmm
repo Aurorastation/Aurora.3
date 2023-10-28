@@ -9283,12 +9283,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
-"hll" = (
-/obj/effect/shuttle_landmark/skipjack_ship/third_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "hlt" = (
 /obj/machinery/newscaster/east{
 	pixel_y = 10
@@ -31408,12 +31402,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
-"yja" = (
-/obj/effect/shuttle_landmark/burglar_ship/third_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "yjx" = (
 /obj/machinery/light{
 	dir = 4
@@ -35413,7 +35401,7 @@ dSF
 dSF
 dSF
 dSF
-yja
+dSF
 dSF
 dSF
 dSF
@@ -65468,7 +65456,7 @@ dSF
 dSF
 dSF
 dSF
-hll
+dSF
 dSF
 dSF
 dSF

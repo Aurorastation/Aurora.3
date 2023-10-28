@@ -11970,12 +11970,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
-"itT" = (
-/obj/effect/shuttle_landmark/skipjack_ship/first_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "iuk" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "7,5"
@@ -52544,7 +52538,7 @@ eSV
 eSV
 eSV
 eSV
-itT
+eSV
 eSV
 eSV
 eSV

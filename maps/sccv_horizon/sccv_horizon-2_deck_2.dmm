@@ -33877,6 +33877,9 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, ballast"
 	},
+/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle_2{
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard/far)
 "qhf" = (
@@ -42558,7 +42561,7 @@
 /turf/simulated/wall,
 /area/horizon/kitchen)
 "upQ" = (
-/obj/effect/shuttle_landmark/burglar_ship/second_deck{
+/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle_1{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -50538,12 +50541,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
-"xWc" = (
-/obj/effect/shuttle_landmark/skipjack_ship/second_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "xWr" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -56884,7 +56881,7 @@ qgN
 qgN
 qgN
 qgN
-xWc
+qgN
 qgN
 qgN
 qgN
