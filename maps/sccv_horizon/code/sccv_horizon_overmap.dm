@@ -43,7 +43,6 @@
 		"nav_distress_blue",
 		"nav_merchant_dock",
 		"nav_ccia_dock",
-		"nav_ert_dock",
 		NAV_HORIZON_DOCK_ALL,
 	)
 
