@@ -836,10 +836,10 @@
 	required_reagents = list(/singleton/reagent/toxin/stimm = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron = 0.1)
 	result_amount = 1
 
-/datum/chemical_reaction/joy
-	name = "Joy"
-	id = "joy"
-	result = /singleton/reagent/drugs/joy
+/datum/chemical_reaction/solace
+	name = "Solace"
+	id = "solace"
+	result = /singleton/reagent/drugs/solace
 	required_reagents = list(/singleton/reagent/mental/neurapan = 1, /singleton/reagent/drugs/heroin = 2)
 	result_amount = 1
 

@@ -11,10 +11,10 @@
 	desc = "Highly illegal drug. Trade brain for speed."
 	starts_with = list(/obj/item/reagent_containers/pill/zoom = 7)
 
-/obj/item/storage/pill_bottle/joy
-	name = "bottle of Joy pills"
+/obj/item/storage/pill_bottle/solace
+	name = "bottle of Solace pills"
 	desc = "Highly illegal drug. Bang - and your stress is gone."
-	starts_with = list(/obj/item/reagent_containers/pill/joy = 3)
+	starts_with = list(/obj/item/reagent_containers/pill/solace = 3)
 
 /obj/item/storage/pill_bottle/heroin
 	name = "bottle of heroin pills"
@@ -58,7 +58,7 @@
 		list(/singleton/reagent/drugs/impedrezene = 15)									= 2,
 		list(/singleton/reagent/toxin/dextrotoxin = 10)								= 1,
 		list(/singleton/reagent/toxin/spectrocybin = 15)								= 1,
-		list(/singleton/reagent/drugs/joy = 10, /singleton/reagent/water = 20)					= 1,
+		list(/singleton/reagent/drugs/solace = 10, /singleton/reagent/water = 20)					= 1,
 		list(/singleton/reagent/toxin/berserk = 10)                                  = 1,
 		list(/singleton/reagent/ammonia = 15)										= 3)
 

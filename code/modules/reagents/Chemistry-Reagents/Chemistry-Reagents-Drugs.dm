@@ -454,9 +454,9 @@
 	..()
 	M.hallucination = max(M.hallucination, 30 * scale)
 
-/singleton/reagent/drugs/joy
-	name = "Joy"
-	description = "An expensive and illegal drug often abused by those who find no other means to numb their physical and mental pains. A Joy addict is a truly sad sight."
+/singleton/reagent/drugs/solace
+	name = "Solace"
+	description = "An expensive and illegal drug often abused by those who find no other means to numb their physical and mental pains. A Solace addict is a truly sad sight."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
 	metabolism = REM*0.1
@@ -467,10 +467,9 @@
 	initial_effect_message_list = list("You feel a numbing sensation spread from within you.", "A numbing sensation builds within you.", "Everything will be okay... just relax.")
 	sober_message_list = list("You feel grounded in the real world again... for better or worse.")
 
-/singleton/reagent/drugs/joy/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/drugs/solace/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 100)
 	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed)
-	M.adjustCloneLoss(6*removed)
 	M.add_chemical_effect(CE_PACIFIED, 1)
 	M.eye_blurry = max(M.eye_blurry, 30)
 	M.drowsiness = max(M.drowsiness, 10)
@@ -482,7 +481,7 @@
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel totaly detached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.", "You keep falling... and falling... and falling - never stopping.", "Is this what it feels like to be dead?", "Your memories are hazy... all you have ever known is this feeling.", "You're watching yourself from afar - detached from your physical body.")))
 
-/singleton/reagent/drugs/joy/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
+/singleton/reagent/drugs/solace/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
 	M.ear_deaf = 20
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
 	M.adjustOxyLoss(2 * removed)

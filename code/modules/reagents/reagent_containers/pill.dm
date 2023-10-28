@@ -251,11 +251,11 @@
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 5, /singleton/reagent/synaptizine = 5, /singleton/reagent/hyperzine = 5)
 
-/obj/item/reagent_containers/pill/joy
-	name = "Joy Pill"
+/obj/item/reagent_containers/pill/solace
+	name = "Solace Pill"
 	desc = "Peace, at last."
 	icon_state = "pill8"
-	reagents_to_add = list(/singleton/reagent/drugs/joy = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/solace = 5)
 
 /obj/item/reagent_containers/pill/heroin
 	name = "heroin pill"
