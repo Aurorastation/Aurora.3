@@ -7218,7 +7218,7 @@
 "eZM" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)
 "eZW" = (
 /obj/structure/shuttle_part/scc/research{
@@ -9887,7 +9887,7 @@
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "gNo" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)
 "gNs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -26202,7 +26202,7 @@
 /area/medical/morgue/lower)
 "skE" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)
 "skS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
