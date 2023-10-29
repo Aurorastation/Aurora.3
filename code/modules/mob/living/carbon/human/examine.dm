@@ -404,11 +404,11 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\n[get_pronoun("He")] [pose]"
 
-	to_chat(user, msg.Join())
+	to_chat(user, EXAMINE_BLOCK(msg.Join()))
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, msg)
+
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
-
-	return TRUE
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

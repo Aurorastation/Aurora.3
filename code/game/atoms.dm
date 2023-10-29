@@ -263,7 +263,8 @@
  * Returns a signal, COMSIG_PARENT_EXAMINE
  */
 /atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "", show_extended = FALSE)
-	var/list/examine_strings = get_examine_text(user, distance, infix, suffix)
+	var/list/examine_strings = get_examine_text(user, distance, is_adjacent, infix, suffix)
+	examine_strings += get_health_examine_text(user)
 	if(desc_extended || desc_info || (desc_antag && (player_is_antag(user.mind) || isobserver(user))))
 		examine_strings += get_extra_examine_text(user, show_extended)
 	if(!examine_strings)
@@ -326,6 +327,14 @@
 		else
 			. += FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists."))
 
+/**
+ * For future use with standardized health handling. For now, standardizes placement of health examine text.
+ *
+ * Arguments:
+ * * `user` - The user performing the examine
+ */
+/atom/proc/get_health_examine_text(user)
+	. = list()
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
 /atom/Topic(href, href_list)

@@ -517,7 +517,6 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/get_examine_text(mob/user, distance, is_adjacent)
 	. = ..()
-	if(show_modify_on_examine && (in_range(src, user) || loc == user))
 	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
 			. += SPAN_NOTICE("\The [src] can be attached and modified!")

@@ -51,10 +51,10 @@
 	QDEL_NULL(access_scanner)
 	return ..()
 
-/mob/living/bot/examine(mob/user, distance, infix, suffix)
+/mob/living/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(pAI)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a pAI piloting it.")))
+		. += SPAN_NOTICE("It has a pAI piloting it.")
 
 /mob/living/bot/Life()
 	..()
