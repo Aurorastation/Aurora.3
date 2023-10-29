@@ -48,12 +48,6 @@
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-#define MASTER_TAG		"[master_tag]_controller"
-#define AIRPUMP_TAG		"[master_tag]_pump"
-#define SENSOR_TAG		"[master_tag]_sensor"
-#define EXTERIOR_DOOR_TAG	"[master_tag]_outer"
-#define INTERIOR_DOOR_TAG	"[master_tag]_inner"
-
 /obj/effect/map_effect/marker/airlock/LateInitialize()
 	if(!master_tag || !frequency)
 		return
@@ -67,11 +61,11 @@
 		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
 		if(istype(airlock_controller))
 			airlock_controller.set_frequency(frequency)
-			airlock_controller.id_tag = MASTER_TAG
-			airlock_controller.tag_airpump = AIRPUMP_TAG
-			airlock_controller.tag_chamber_sensor = SENSOR_TAG
-			airlock_controller.tag_exterior_door = EXTERIOR_DOOR_TAG
-			airlock_controller.tag_interior_door = INTERIOR_DOOR_TAG
+			airlock_controller.id_tag = AIRLOCK_MARKER_MASTER_TAG
+			airlock_controller.tag_airpump = AIRLOCK_MARKER_AIRPUMP_TAG
+			airlock_controller.tag_chamber_sensor = AIRLOCK_MARKER_SENSOR_TAG
+			airlock_controller.tag_exterior_door = AIRLOCK_MARKER_EXTERIOR_DOOR_TAG
+			airlock_controller.tag_interior_door = AIRLOCK_MARKER_INTERIOR_DOOR_TAG
 			airlock_controller.req_access = required_access
 			airlock_controller.program = new /datum/computer/file/embedded_program/airlock(airlock_controller)
 			continue
@@ -82,16 +76,16 @@
 			door.req_access = required_access
 			door.lock()
 			if(is_interior)
-				door.id_tag = INTERIOR_DOOR_TAG
+				door.id_tag = AIRLOCK_MARKER_INTERIOR_DOOR_TAG
 			else if(is_exterior)
-				door.id_tag = EXTERIOR_DOOR_TAG
+				door.id_tag = AIRLOCK_MARKER_EXTERIOR_DOOR_TAG
 			continue
 
 		var/obj/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.set_frequency(frequency)
-			sensor.id_tag = SENSOR_TAG
-			sensor.master_tag = MASTER_TAG
+			sensor.id_tag = AIRLOCK_MARKER_SENSOR_TAG
+			sensor.master_tag = AIRLOCK_MARKER_MASTER_TAG
 			continue
 
 		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
@@ -99,23 +93,16 @@
 			pump.frequency = frequency
 			unregister_radio(pump, frequency)
 			pump.setup_radio()
-			pump.id_tag = AIRPUMP_TAG
+			pump.id_tag = AIRLOCK_MARKER_AIRPUMP_TAG
 			continue
 
 		var/obj/machinery/access_button/button = thing
 		if(istype(button))
 			button.set_frequency(frequency)
-			button.master_tag = MASTER_TAG
+			button.master_tag = AIRLOCK_MARKER_MASTER_TAG
 			button.req_access = required_access
 			if(is_interior)
 				button.command = "cycle_interior"
 			else if(is_exterior)
 				button.command = "cycle_exterior"
 			continue
-
-#undef MASTER_TAG
-#undef AIRPUMP_TAG
-#undef SENSOR_TAG
-#undef EXTERIOR_DOOR_TAG
-#undef INTERIOR_DOOR_TAG
-
