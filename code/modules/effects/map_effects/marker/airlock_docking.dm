@@ -31,13 +31,13 @@
 			docking_controller.program = docking_controller.docking_program
 			continue
 
-		// var/obj/effect/shuttle_landmark/landmark = thing
-		// if(istype(landmark))
-		// 	//if(SSshuttle.docking_registry[AIRLOCK_MARKER_MASTER_TAG])
-		// 	var/foobar = AIRLOCK_MARKER_MASTER_TAG
-		// 	spawn(10)
-		// 		landmark.docking_controller = SSshuttle.docking_registry[foobar]
-		// 	continue
+		var/obj/effect/shuttle_landmark/landmark = thing
+		if(istype(landmark))
+			//if(SSshuttle.docking_registry[AIRLOCK_MARKER_MASTER_TAG])
+			var/foobar = AIRLOCK_MARKER_MASTER_TAG
+			spawn(100)
+				landmark.docking_controller = SSshuttle.docking_registry[foobar]
+			continue
 
 		var/obj/machinery/door/airlock/door = thing
 		if(istype(door))

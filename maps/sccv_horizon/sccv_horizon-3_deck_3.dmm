@@ -1002,7 +1002,7 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/horizon/hallway/deck_three/primary/port/docks)
 "aGG" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -1127,7 +1127,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -2919,7 +2920,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -11668,7 +11670,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -12433,7 +12436,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/horizon/hallway/deck_three/primary/port/docks)
 "jEG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -17449,6 +17452,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"nlI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "nmh" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -19250,7 +19264,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -22089,7 +22104,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -28953,7 +28969,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -29060,7 +29077,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
+	name = "dock_horizon_3_airlock";
+	frequency = 1399
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -30383,16 +30401,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
-"xdr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "xeV" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -42281,7 +42289,7 @@ ebZ
 epz
 oRv
 wev
-xdr
+nlI
 wiJ
 oAl
 wGH
@@ -61271,7 +61279,7 @@ oLM
 tcM
 nFG
 tcM
-rRe
+tcM
 wGH
 wGH
 wGH
@@ -61877,7 +61885,7 @@ oLM
 tcM
 tcM
 nFG
-rRe
+tcM
 wGH
 wGH
 bEW
