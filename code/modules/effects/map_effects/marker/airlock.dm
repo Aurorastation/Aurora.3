@@ -18,11 +18,12 @@
 	layer = LIGHTING_LAYER
 
 	/// Radio frequency of this airlock.
+	/// For simple external/service access airlocks it does not affect anything.
 	var/frequency = 2137
 
 	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
 	/// THIS MUST BE UNIQUE FOR THE AIRLOCK. Every marker in one airlock should have the same `master_tag`.
-	/// But different airlocks, even on different maps, cannot share the same `master_tag`.
+	/// Different airlocks, even on different maps, cannot share the same `master_tag`.
 	var/master_tag = null
 
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.

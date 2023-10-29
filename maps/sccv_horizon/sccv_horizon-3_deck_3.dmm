@@ -1127,8 +1127,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
-	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	name = "dock_horizon_3_airlock"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -2921,7 +2920,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -11671,7 +11670,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -17459,7 +17458,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -19265,7 +19264,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -22105,7 +22104,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -28970,7 +28969,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -29078,7 +29077,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "dock_horizon_3_airlock";
 	name = "dock_horizon_3_airlock";
-	frequency = 1399
+	frequency = 1380
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)

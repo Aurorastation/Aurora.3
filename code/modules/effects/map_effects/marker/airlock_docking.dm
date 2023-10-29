@@ -7,6 +7,20 @@
 	icon_state = "marker_airlock_docking"
 	layer = LIGHTING_LAYER
 
+	/// Radio frequency of this airlock.
+	/// --
+	/// For docking airlocks, the frequency of docking port airlock and the shuttle airlock needs to match,
+	/// otherwise they can't "talk", and the docking will never actually happen (meaning the automatic opening/closing of doors).
+	frequency = 1380
+
+	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
+	/// THIS MUST BE UNIQUE FOR THE AIRLOCK. Every marker in one airlock should have the same `master_tag`.
+	/// Different airlocks, even on different maps, cannot share the same `master_tag`.
+	/// --
+	/// This must be the same as the `docking_controller` tag in the shuttle landmark.
+	/// So that the landmark is aware of this dock.
+	master_tag = null
+
 /obj/effect/map_effect/marker/airlock/docking/LateInitialize()
 	if(!master_tag || !frequency)
 		return
@@ -33,7 +47,6 @@
 
 		var/obj/effect/shuttle_landmark/landmark = thing
 		if(istype(landmark))
-			//if(SSshuttle.docking_registry[AIRLOCK_MARKER_MASTER_TAG])
 			var/foobar = AIRLOCK_MARKER_MASTER_TAG
 			spawn(100)
 				landmark.docking_controller = SSshuttle.docking_registry[foobar]
