@@ -1,12 +1,12 @@
 /obj/effect/map_effect/marker
 	name = "map marker parent abstract object"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "map_marker"
+	icon_state = "marker_base"
 
 /obj/effect/map_effect/marker_helper
 	name = "map marker helper parent abstract object"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "map_marker"
+	icon_state = "marker_base"
 
 /// Airlock marker that, when placed above airlock components (doors, pumps, sensors, etc),
 /// actually sets the airlock up to make it functional.
@@ -14,7 +14,7 @@
 	name = "airlock marker (inside the airlock)"
 	desc = "MASTER_TAG VAR MUST BE UNIQUE FOR THE AIRLOCK! Place this on top of airlock components (doors, pumps, sensors, etc)."
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "airlock_marker"
+	icon_state = "marker_airlock"
 	layer = LIGHTING_LAYER
 
 	/// Radio frequency of this airlock.
@@ -33,7 +33,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior
 	name = "airlock marker (exterior/outside/vacuum)"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "airlock_marker_exterior"
+	icon_state = "marker_helper_airlock_exterior"
 	layer = LIGHTING_LAYER
 
 /// Specialization helper for the airlock marker, to be put above "interior" parts of the airlock,
@@ -41,7 +41,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior
 	name = "airlock marker (interior/inside/pressurized)"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "airlock_marker_interior"
+	icon_state = "marker_helper_airlock_interior"
 	layer = LIGHTING_LAYER
 
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
