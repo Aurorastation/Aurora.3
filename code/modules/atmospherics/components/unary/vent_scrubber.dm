@@ -146,7 +146,13 @@
 		"filter_co2" = (GAS_CO2 in scrubbing_gas),
 		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
 		"filter_n2o" = (GAS_N2O in scrubbing_gas),
-		"filter_h2" = (GAS_HYDROGEN in scrubbing_gas),
+		"filter_h" = (GAS_HYDROGEN in scrubbing_gas),
+		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
+		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
+		"filter_3h" = (GAS_HELIUM in scrubbing_gas),
+		"filter_b" = (GAS_BORON in scrubbing_gas),
+		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
+		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -271,10 +277,40 @@
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += GAS_N2O
 
-	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
+	if(!isnull(signal.data["h_scrub"]) && text2num(signal.data["h_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
 		toggle += GAS_HYDROGEN
-	else if(signal.data["toggle_h2_scrub"])
+	else if(signal.data["toggle_h_scrub"])
 		toggle += GAS_HYDROGEN
+
+	if(!isnull(signal.data["2h_scrub"]) && text2num(signal.data["2h_scrub"]) != (GAS_DEUTERIUM in scrubbing_gas))
+		toggle += GAS_DEUTERIUM
+	else if(signal.data["toggle_2h_scrub"])
+		toggle += GAS_DEUTERIUM
+
+	if(!isnull(signal.data["3h_scrub"]) && text2num(signal.data["3h_scrub"]) != (GAS_TRITIUM in scrubbing_gas))
+		toggle += GAS_TRITIUM
+	else if(signal.data["toggle_3h_scrub"])
+		toggle += GAS_TRITIUM
+
+	if(!isnull(signal.data["he_scrub"]) && text2num(signal.data["he_scrub"]) != (GAS_HELIUM in scrubbing_gas))
+		toggle += GAS_HELIUM
+	else if(signal.data["toggle_he_scrub"])
+		toggle += GAS_HELIUM
+
+	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_BORON in scrubbing_gas))
+		toggle += GAS_BORON
+	else if(signal.data["toggle_b_scrub"])
+		toggle += GAS_BORON
+
+	if(!isnull(signal.data["so2_scrub"]) && text2num(signal.data["so2_scrub"]) != (GAS_SULFUR in scrubbing_gas))
+		toggle += GAS_SULFUR
+	else if(signal.data["toggle_so2_scrub"])
+		toggle += GAS_SULFUR
+
+	if(!isnull(signal.data["cl_scrub"]) && text2num(signal.data["cl_scrub"]) != (GAS_CHLORINE in scrubbing_gas))
+		toggle += GAS_CHLORINE
+	else if(signal.data["toggle_cl_scrub"])
+		toggle += GAS_CHLORINE
 
 	scrubbing_gas ^= toggle
 

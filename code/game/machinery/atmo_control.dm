@@ -3,6 +3,11 @@
 #define SIGNAL_NITROGEN 4
 #define SIGNAL_CARBON_DIOXIDE 8
 #define SIGNAL_HYDROGEN 16
+#define SIGNAL_N2O 32
+#define SIGNAL_HELIUM 64
+#define SIGNAL_DEUTERIUM 128
+#define SIGNAL_TRITIUM 256
+#define SIGNAL_BORON 512
 
 /obj/machinery/air_sensor
 	name = "gas sensor"
@@ -26,6 +31,11 @@
 	// 4 for nitrogen concentration
 	// 8 for carbon dioxide concentration
 	// 16 for hydrogen concentration
+	// 32 for nitrous oxide concentration
+	// 64 for helium concentration
+	// 128 for deuterium concentration
+	// 256 for tritium concentration
+	// 512 for boron concentration
 
 	var/datum/radio_frequency/radio_connection
 
@@ -59,12 +69,27 @@
 					signal.data[GAS_CO2] = round(100*air_sample.gas[GAS_CO2]/total_moles,0.1)
 				if(output&SIGNAL_HYDROGEN)
 					signal.data[GAS_HYDROGEN] = round(100*air_sample.gas[GAS_HYDROGEN]/total_moles,0.1)
+				if(output&SIGNAL_N2O)
+					signal.data[GAS_N2O] = round(100*air_sample.gas[GAS_N2O]/total_moles,0.1)
+				if(output&SIGNAL_HELIUM)
+					signal.data[GAS_HELIUM] = round(100*air_sample.gas[GAS_HELIUM]/total_moles,0.1)
+				if(output&SIGNAL_DEUTERIUM)
+					signal.data[GAS_DEUTERIUM] = round(100*air_sample.gas[GAS_DEUTERIUM]/total_moles,0.1)
+				if(output&SIGNAL_TRITIUM)
+					signal.data[GAS_TRITIUM] = round(100*air_sample.gas[GAS_TRITIUM]/total_moles,0.1)
+				if(output&SIGNAL_BORON)
+					signal.data[GAS_BORON] = round(100*air_sample.gas[GAS_BORON]/total_moles,0.1)
 			else
 				signal.data[GAS_OXYGEN] = 0
 				signal.data[GAS_PHORON] = 0
 				signal.data[GAS_NITROGEN] = 0
 				signal.data[GAS_CO2] = 0
 				signal.data[GAS_HYDROGEN] = 0
+				signal.data[GAS_N2O] = 0
+				signal.data[GAS_HELIUM] = 0
+				signal.data[GAS_DEUTERIUM] = 0
+				signal.data[GAS_TRITIUM] = 0
+				signal.data[GAS_BORON] = 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -111,7 +136,7 @@
 		var/list/sdata = sensor_information[id_tag]
 		var/list/sensor_data = list("id_tag" = id_tag, "name" = long_name)
 		sensor_data["datapoints"] = list()
-		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
+		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN, GAS_N2O, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON))
 			var/unit
 			if(datapoint == "pressure")
 				unit = "kPa"
@@ -488,3 +513,8 @@
 #undef SIGNAL_NITROGEN
 #undef SIGNAL_CARBON_DIOXIDE
 #undef SIGNAL_HYDROGEN
+#undef SIGNAL_N2O
+#undef SIGNAL_HELIUM
+#undef SIGNAL_DEUTERIUM
+#undef SIGNAL_TRITIUM
+#undef SIGNAL_BORON

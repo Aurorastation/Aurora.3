@@ -21,7 +21,7 @@
 	var/minrate = 0
 	var/maxrate = PRESSURE_ONE_THOUSAND
 
-	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN)
+	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_CHLORINE)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
 	. = ..()
