@@ -3453,6 +3453,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
+"cPU" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 0;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/turf/simulated/floor,
+/area/horizon/maintenance/deck_three/aft/starboard)
 "cQg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -4240,12 +4258,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"dCv" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
-	radio_frequency = 2001
+"dCj" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/horizon/maintenance/deck_three/aft/starboard)
+"dCv" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "dCR" = (
 /obj/structure/table/steel,
@@ -9362,7 +9402,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation)
 "hmL" = (
-/turf/simulated/floor/reinforced/airless,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "hmP" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -11881,7 +11934,12 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced/airless,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "jlN" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -18404,6 +18462,22 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"nYk" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/horizon/maintenance/deck_three/aft/starboard)
 "nYE" = (
 /obj/machinery/vending/zora,
 /obj/machinery/alarm/east,
@@ -20255,6 +20329,18 @@
 /area/maintenance/engineering_ladder)
 "pAw" = (
 /turf/simulated/wall,
+/area/horizon/maintenance/deck_three/aft/starboard)
+"pBi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "pBt" = (
 /obj/structure/closet/walllocker/emerglocker{
@@ -30748,6 +30834,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"xyv" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_access_deck_3_aft_1";
+	name = "airlock_horizon_access_deck_3_aft_1";
+	frequency = 1001
+	},
+/turf/simulated/floor,
+/area/horizon/maintenance/deck_three/aft/starboard)
 "xyA" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -47691,7 +47786,7 @@ wGH
 oXs
 oXs
 oXs
-dCv
+oXs
 uJY
 dED
 pAw
@@ -48092,10 +48187,10 @@ wGH
 wGH
 muk
 vcD
-hmL
-hmL
-hmL
-hmL
+dCv
+pBi
+xyv
+cPU
 qDU
 nHY
 pAw
@@ -48295,8 +48390,8 @@ wGH
 wGH
 wGH
 oXs
-hmL
-hmL
+nYk
+dCj
 oXs
 mxO
 hxX
