@@ -22,6 +22,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"cp" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/template_noop,
+/area/template_noop)
 "cH" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -29,9 +33,9 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"cP" = (
+"cO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
+	dir = 1
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -53,6 +57,19 @@
 /obj/effect/map_effect/map_helper/mark_good,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"fC" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = -6
+	},
+/turf/template_noop,
+/area/template_noop)
 "gk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -62,6 +79,12 @@
 	name = "some_unique_maste_tag"
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"gv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/template_noop,
 /area/template_noop)
 "hi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
@@ -87,15 +110,53 @@
 "kZ" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"lw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+"lh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"mk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/template_noop,
+/area/template_noop)
+"mo" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/template_noop,
 /area/template_noop)
 "nd" = (
 /turf/simulated/wall,
 /area/template_noop)
-"nf" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+"nz" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 1;
+	pixel_y = -20
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = -20
+	},
 /turf/template_noop,
 /area/template_noop)
 "oq" = (
@@ -146,6 +207,19 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/template_noop)
+"qk" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = -6;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = 6
+	},
+/turf/template_noop,
+/area/template_noop)
 "qS" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -153,34 +227,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"ro" = (
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4
-	},
-/obj/machinery/airlock_sensor{
-	dir = 1;
-	pixel_y = -20
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
-	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28
-	},
-/turf/template_noop,
-/area/template_noop)
-"ru" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/template_noop,
-/area/template_noop)
 "sa" = (
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"sx" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/turf/template_noop,
 /area/template_noop)
 "sN" = (
 /obj/machinery/access_button{
@@ -189,12 +251,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/template_noop)
-"sZ" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/template_noop,
 /area/template_noop)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -215,10 +271,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"xR" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
+"wT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/template_noop,
 /area/template_noop)
 "xW" = (
@@ -243,10 +297,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Af" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/template_noop,
-/area/template_noop)
 "Bl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/airlock/external{
@@ -270,9 +320,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"BN" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
+"BE" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -283,6 +333,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "DW" = (
+/turf/template_noop,
+/area/template_noop)
+"EC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /turf/template_noop,
 /area/template_noop)
 "EH" = (
@@ -360,24 +416,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"IF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/template_noop,
-/area/template_noop)
-"IU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/template_noop,
-/area/template_noop)
-"IW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "Jx" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -395,10 +433,8 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"JW" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
+"Km" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/template_noop,
 /area/template_noop)
 "KX" = (
@@ -436,6 +472,12 @@
 "Lt" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
+"LF" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/turf/template_noop,
+/area/template_noop)
 "LJ" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -447,7 +489,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"MH" = (
+"Nr" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2
 	},
@@ -470,12 +512,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"NR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "OG" = (
 /obj/structure/lattice,
 /turf/space,
@@ -491,6 +527,12 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"PU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/template_noop,
 /area/template_noop)
 "Ql" = (
 /obj/machinery/door/airlock/external{
@@ -552,12 +594,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Sd" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/turf/template_noop,
-/area/template_noop)
 "SH" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
@@ -573,36 +609,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Tw" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = 20
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 1;
-	pixel_y = -20
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
-	pixel_y = 28
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = -20
-	},
-/turf/template_noop,
-/area/template_noop)
-"Up" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+"TP" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
 /turf/template_noop,
 /area/template_noop)
 "UO" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"US" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/template_noop,
 /area/template_noop)
 "Vo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -657,6 +678,87 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"Wn" = (
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 20;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -19;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 20;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 32;
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 32;
+	dir = 2
+	},
+/turf/template_noop,
+/area/template_noop)
 "Wz" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -684,6 +786,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"WW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"Xw" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"XT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "Yf" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -699,6 +819,25 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Yo" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28
+	},
+/turf/template_noop,
 /area/template_noop)
 "Yr" = (
 /obj/machinery/airlock_sensor{
@@ -721,47 +860,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"YN" = (
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = 28;
-	dir = 4
-	},
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = -28;
-	dir = 4
-	},
-/obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
-	},
-/obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = 28;
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
-	},
-/turf/template_noop,
-/area/template_noop)
 "YW" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -780,12 +878,6 @@
 "Ze" = (
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/template_noop)
-"Zh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/template_noop,
 /area/template_noop)
 "ZK" = (
 /obj/machinery/door/airlock/external{
@@ -1099,9 +1191,9 @@ DW
 Lt
 DW
 DW
-DW
-DW
-DW
+Km
+EC
+lh
 DW
 nd
 DW
@@ -1177,12 +1269,12 @@ DW
 nd
 DW
 Lt
-YN
+Wn
 Lt
 DW
-DW
-DW
-DW
+WW
+mk
+BE
 DW
 nd
 DW
@@ -1261,9 +1353,9 @@ DW
 Lt
 DW
 DW
-lw
-IF
-Sd
+Km
+gv
+Nr
 DW
 nd
 DW
@@ -1342,9 +1434,9 @@ DW
 DW
 DW
 DW
-Zh
-Up
-JW
+WW
+PU
+Xw
 DW
 nd
 DW
@@ -1423,9 +1515,9 @@ DW
 DW
 DW
 DW
-lw
-ru
-MH
+DW
+DW
+DW
 DW
 nd
 DW
@@ -1504,9 +1596,9 @@ DW
 Lt
 DW
 DW
-Zh
-IU
-xR
+XT
+DW
+TP
 DW
 nd
 DW
@@ -1582,12 +1674,12 @@ DW
 nd
 DW
 Lt
-Tw
+nz
 Lt
 DW
-DW
-DW
-DW
+US
+cp
+LF
 DW
 nd
 DW
@@ -1666,9 +1758,9 @@ DW
 Lt
 DW
 DW
-cP
-DW
-sZ
+cO
+cp
+TP
 DW
 nd
 DW
@@ -1747,9 +1839,9 @@ DW
 DW
 DW
 DW
-IW
-nf
-BN
+wT
+DW
+LF
 DW
 nd
 DW
@@ -1828,9 +1920,9 @@ DW
 DW
 DW
 DW
-NR
 DW
-sZ
+DW
+DW
 DW
 nd
 DW
@@ -1909,9 +2001,9 @@ DW
 Lt
 DW
 DW
-Af
+sx
 DW
-BN
+DW
 DW
 nd
 DW
@@ -1987,13 +2079,13 @@ DW
 nd
 DW
 Lt
-ro
+Yo
 Lt
 DW
-DW
-DW
-DW
-DW
+Lt
+fC
+Lt
+mo
 nd
 DW
 nd
@@ -2071,7 +2163,7 @@ DW
 Lt
 DW
 DW
-DW
+qk
 DW
 DW
 DW
