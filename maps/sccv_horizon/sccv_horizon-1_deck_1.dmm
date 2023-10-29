@@ -1727,8 +1727,8 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -4776,8 +4776,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -5170,8 +5170,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_1";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_1";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -5197,8 +5197,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /turf/simulated/floor/plating,
@@ -5457,8 +5457,8 @@
 	pixel_y = 6
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_starboard_1";
-	name = "airlock_horizon_access_deck_1_starboard_1";
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -6433,8 +6433,8 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -7387,8 +7387,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -10775,8 +10775,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_1";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_1";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -13159,8 +13159,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_1";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_1";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -13442,8 +13442,8 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_starboard_1";
-	name = "airlock_horizon_access_deck_1_starboard_1";
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -15499,8 +15499,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_2";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_2";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -16106,8 +16106,8 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_starboard_1";
-	name = "airlock_horizon_access_deck_1_starboard_1";
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -16975,8 +16975,8 @@
 "lRC" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -17490,8 +17490,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_2";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_2";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -17897,8 +17897,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -19111,8 +19111,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -19441,8 +19441,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -20031,8 +20031,8 @@
 	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -21257,8 +21257,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -21367,8 +21367,8 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -22204,8 +22204,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_2";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_2";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -23151,8 +23151,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -23547,8 +23547,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_port_1";
-	name = "airlock_horizon_access_deck_1_aft_port_1";
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -24999,8 +24999,8 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_starboard_1";
-	name = "airlock_horizon_access_deck_1_starboard_1";
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
 	frequency = 1003
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -25144,8 +25144,8 @@
 /area/engineering/atmos/propulsion)
 "rsS" = (
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /turf/simulated/floor/plating,
@@ -26997,8 +26997,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_1";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_1";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -29298,8 +29298,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_2";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_2";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -30951,8 +30951,8 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /turf/simulated/floor/plating,
@@ -31461,8 +31461,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -34753,8 +34753,8 @@
 	},
 /obj/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -34908,8 +34908,8 @@
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_aft_propulsion_1";
-	name = "airlock_horizon_access_deck_1_aft_propulsion_1";
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
@@ -34919,8 +34919,8 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_fore_1";
-	name = "airlock_horizon_access_deck_1_fore_1";
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -34955,8 +34955,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_access_deck_1_starboard_1";
-	name = "airlock_horizon_access_deck_1_starboard_1";
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
 	frequency = 1003
 	},
 /turf/simulated/floor/plating,
