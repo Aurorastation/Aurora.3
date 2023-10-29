@@ -3706,6 +3706,7 @@
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_lifts.dm"
 #include "maps\runtime\code\runtime_unittest.dm"
+#include "maps\sccv_horizon\code\_sccv_horizon_shuttle_landmarks.dm"
 #include "maps\sccv_horizon\code\sccv_horizon.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_areas.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_holodeck.dm"
