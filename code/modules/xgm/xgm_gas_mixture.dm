@@ -1,18 +1,18 @@
 /datum/gas_mixture
-	//Associative list of gas moles.
-	//Gases with 0 moles are not tracked and are pruned by update_values()
+	///Associative list of gas moles.
+	///Gases with 0 moles are not tracked and are pruned by update_values()
 	var/list/gas
-	//Temperature in Kelvin of this gas mix.
+	///Temperature in Kelvin of this gas mix.
 	var/temperature = 0
 
-	//Sum of all the gas moles in this mix.  Updated by update_values()
+	///Sum of all the gas moles in this mix.  Updated by update_values()
 	var/total_moles = 0
-	//Volume of this mix.
+	///Volume of this mix.
 	var/volume = CELL_VOLUME
-	//Size of the group this gas_mixture is representing.  1 for singletons.
+	///Size of the group this gas_mixture is representing.  1 for singletons.
 	var/group_multiplier = 1
 
-	//List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
+	///List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
 	var/list/graphic
 
 /datum/gas_mixture/New(_volume = CELL_VOLUME, _temperature = 0, _group_multiplier = 1)
