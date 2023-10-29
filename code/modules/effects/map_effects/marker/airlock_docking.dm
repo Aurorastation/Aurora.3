@@ -11,6 +11,7 @@
 	/// --
 	/// For docking airlocks, the frequency of docking port airlock and the shuttle airlock needs to match,
 	/// otherwise they can't "talk", and the docking will never actually happen (meaning the automatic opening/closing of doors).
+	/// Keep 1380 as default frequency, to maximize compatibility between various shuttles and docks.
 	frequency = 1380
 
 	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
