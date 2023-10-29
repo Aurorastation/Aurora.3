@@ -32492,6 +32492,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "wzA" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "intrepid_shuttle";
+	name = "intrepid_shuttle"
+	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "7,24"
 	},
