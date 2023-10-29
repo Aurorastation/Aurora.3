@@ -1112,29 +1112,24 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "aOx" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "dock_horizon_3_sensor";
-	master_tag = "dock_horizon_3_airlock";
-	pixel_x = 25;
-	pixel_y = -32
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "dock_horizon_3_airlock";
-	pixel_x = 26;
-	req_one_access = list(13);
-	tag_airpump = "dock_horizon_3_pump";
-	tag_chamber_sensor = "dock_horizon_3_sensor";
-	tag_exterior_door = "dock_horizon_3_outer";
-	tag_interior_door = "dock_horizon_3_inner"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	pixel_x = 20;
 	dir = 8;
-	frequency = 1380;
-	id_tag = "dock_horizon_3_pump"
+	pixel_y = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "aOA" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -2912,27 +2907,21 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/interrogation)
 "csI" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "dock_horizon_3_airlock";
-	name = "exterior access button";
-	pixel_x = 21;
-	pixel_y = -12;
-	req_one_access = list(13)
-	},
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3{
 	dir = 1
 	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "csY" = (
@@ -11677,7 +11666,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jaj" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -19249,14 +19242,17 @@
 /area/crew_quarters/heads/hop/xo)
 "oAl" = (
 /obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
+	dir = 2
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "oAx" = (
@@ -19731,15 +19727,6 @@
 "oRv" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "dock_horizon_3_airlock";
-	name = "interior access button";
-	pixel_x = -24;
-	pixel_y = -20;
-	req_one_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -22098,14 +22085,13 @@
 /area/template_noop)
 "rcX" = (
 /obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
+	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "rdm" = (
@@ -28956,16 +28942,20 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "wev" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "weN" = (
@@ -29066,11 +29056,13 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "wiJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "dock_horizon_3_pump"
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "wjl" = (
 /obj/structure/morgue{
@@ -30391,6 +30383,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
+"xdr" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	master_tag = "dock_horizon_3_airlock";
+	name = "dock_horizon_3_airlock"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "xeV" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -42279,7 +42281,7 @@ ebZ
 epz
 oRv
 wev
-iPk
+xdr
 wiJ
 oAl
 wGH
