@@ -71,6 +71,8 @@
 	name = "Nralakk Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
+	backpack_contents = list(/obj/item/device/camera = 1)
+	belt = /obj/item/gun/energy/psipistol
 
 /datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -81,11 +83,6 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-		else if(isskrell(H))
-			backpack_contents = list(
-				/obj/item/device/camera = 1,
-				/obj/item/gun/energy/psipistol = 1
-			)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
