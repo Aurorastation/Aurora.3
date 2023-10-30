@@ -94,7 +94,7 @@
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/hydrogen
-	name = "Canister \[H2\]"
+	name = "Canister \[H\]"
 	icon_state = "purple"
 	canister_color = "purple"
 	can_label = 0
@@ -102,6 +102,26 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium
+	name = "Canister \[2H\]"
+	icon_state = "teal"
+	canister_color = "teal"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/tritium
+	name = "Canister \[3H\]"
+	icon_state = "pink"
+	canister_color = "pink"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/tritium/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_TRITIUM, MolesForPressure())
 
 /obj/machinery/portable_atmospherics/canister/helium
 	name = "\improper Canister \[He\]"
@@ -115,13 +135,50 @@
 
 /obj/machinery/portable_atmospherics/canister/boron
 	name = "\improper Boron \[Bo\]"
-	icon_state = "yellow"
-	canister_color = "yellow"
+	icon_state = "lightblue"
+	canister_color = "lightblue"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/boron/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/chlorine
+	name = "\improper Chlorine \[Cl2\]"
+	icon_state = "darkyellow"
+	canister_color = "darkyellow"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/chlorine/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())
+/obj/machinery/portable_atmospherics/canister/sulfur_dioxide
+	name = "\improper Sulfur Dioxide \[SO2\]"
+	icon_state = "lightyellow"
+	canister_color = "lightyellow"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/sulfur_dioxide/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_SULFUR, MolesForPressure())
+/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide
+	name = "\improper Nitrogen Dioxide \[NO2\]"
+	icon_state = "brown"
+	canister_color = "brown"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_NO2, MolesForPressure())
+/obj/machinery/portable_atmospherics/canister/steam
+	name = "\improper Steam \[H2O\]"
+	icon_state = "darkblue"
+	canister_color = "darkblue"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/steam/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_STEAM, MolesForPressure())
 
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
@@ -162,9 +219,41 @@
 	icon_state = "redws"
 	canister_color = "redws"
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen
-	name = "Canister \[H2\]"
+	name = "Canister \[H\]"
 	icon_state = "purple"
 	canister_color = "purple"
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen/deuterium
+	name = "Canister \[2H\]"
+	icon_state = "teal"
+	canister_color = "teal"
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium
+	name = "Canister \[3H\]"
+	icon_state = "pink"
+	canister_color = "pink"
+/obj/machinery/portable_atmospherics/canister/empty/helium
+	name = "Canister \[He\]"
+	icon_state = "green"
+	canister_color = "green"
+/obj/machinery/portable_atmospherics/canister/empty/boron
+	name = "Canister \[Bo\]"
+	icon_state = "lightblue"
+	canister_color = "lightblue"
+/obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide
+	name = "Canister \[SO2\]"
+	icon_state = "lightyellow"
+	canister_color = "lightyellow"
+/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide
+	name = "Canister \[NO2\]"
+	icon_state = "brown"
+	canister_color = "brown"
+/obj/machinery/portable_atmospherics/canister/empty/chlorine
+	name = "Canister \[Cl2\]"
+	icon_state = "darkyellow"
+	canister_color = "darkyellow"
+/obj/machinery/portable_atmospherics/canister/empty/steam
+	name = "Canister \[H2O\]"
+	icon_state = "darkblue"
+	canister_color = "darkblue"
 
 
 
@@ -460,6 +549,14 @@ update_flag
 					"\[CO2\]" = "black",
 					"\[Air\]" = "grey",
 					"\[Hydrogen\]" = "purple",
+					"\[Deuterium\]" = "teal",
+					"\[Tritium\]" = "pink",
+					"\[Helium\]" = "green",
+					"\[Boron\]" = "lightblue",
+					"\[Sulfur Dioxide\]" = "lightyellow",
+					"\[Nitrogen Dioxide\]" = "brown",
+					"\[Chlorine\]" = "darkyellow",
+					"\[Steam\]" = "darkblue",
 					"\[CAUTION\]" = "yellow"
 				)
 				var/label = tgui_input_list(usr, "Choose canister label.", "Gas Canister", colors)
@@ -510,7 +607,7 @@ update_flag
 	. = ..()
 	src.air_contents.temperature = 283
 
-/obj/machinery/portable_atmospherics/canister/chlorine
+/obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
 	name = "Canister: \[Cl2\]"
 	icon_state = "poisonous"
 	canister_color = "poisonous"

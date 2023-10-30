@@ -153,6 +153,7 @@
 		"filter_b" = (GAS_BORON in scrubbing_gas),
 		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
+		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -311,6 +312,11 @@
 		toggle += GAS_CHLORINE
 	else if(signal.data["toggle_cl_scrub"])
 		toggle += GAS_CHLORINE
+
+	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_STEAM in scrubbing_gas))
+		toggle += GAS_STEAM
+	else if(signal.data["toggle_h2o_scrub"])
+		toggle += GAS_STEAM
 
 	scrubbing_gas ^= toggle
 

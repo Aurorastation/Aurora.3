@@ -5,18 +5,20 @@
 #define ATM_INPUT	1
 #define ATM_OUTPUT	2
 
-#define ATM_O2		3
-#define ATM_N2		4
-#define ATM_CO2		5
+#define ATM_O2		3	//Oxygen
+#define ATM_N2		4	//Nitrogen
+#define ATM_CO2		5	//Carbon Dioxide
 #define ATM_P		6	//Phoron
-#define ATM_N2O		7
+#define ATM_N2O		7	//Nitrous Oxide
 #define ATM_H		8	//Hydrogen
 #define ATM_2H		9	//Deuterium
 #define ATM_3H		10	//Tritium
 #define ATM_HE		11	//Helium
 #define ATM_B		12	//Boron
 #define ATM_SO2		13	//Sulfur Dioxide
-#define ATM_CL		14	//Chlorine
+#define ATM_NO2		13	//Nitrogen Dioxide
+#define ATM_CL2		14	//Chlorine
+#define ATM_H2O 	15	//Steam
 
 //--------------------------------------------
 // Omni port datum
@@ -123,7 +125,11 @@
 			return GAS_BORON
 		if(ATM_SO2)
 			return GAS_SULFUR
-		if(ATM_CL)
+		if(ATM_NO2)
+			return GAS_NO2
+		if(ATM_CL2)
 			return GAS_CHLORINE
+		if(ATM_H2O)
+			return GAS_STEAM
 		else
 			return null
