@@ -58,15 +58,46 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "fC" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 1;
 	pixel_y = -20;
 	pixel_x = 6
 	},
-/obj/machinery/airlock_sensor{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_y = -6;
+	pixel_x = -20
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 1;
 	pixel_y = -20;
 	pixel_x = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -124,14 +155,45 @@
 /area/template_noop)
 "mo" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = -6;
+	pixel_x = -20
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = -6
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -209,15 +271,45 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qk" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 4;
-	pixel_y = -6;
-	pixel_x = -20
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4;
 	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 6
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -233,16 +325,25 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "sx" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 6;
+	pixel_y = 0;
 	pixel_x = 20
 	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 1;
+	pixel_y = -20
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock/docking,
 /turf/template_noop,
 /area/template_noop)
 "sN" = (
@@ -1675,7 +1776,7 @@ DW
 nd
 DW
 Lt
-nz
+Yo
 Lt
 DW
 US
@@ -1918,7 +2019,7 @@ DW
 nd
 DW
 DW
-DW
+Lt
 DW
 DW
 DW
@@ -1998,11 +2099,11 @@ nd
 DW
 nd
 DW
-DW
+Lt
+qk
 Lt
 DW
 DW
-sx
 DW
 DW
 DW
@@ -2079,14 +2180,14 @@ nd
 DW
 nd
 DW
-Lt
-Yo
-Lt
 DW
 Lt
-fC
-Lt
-mo
+DW
+DW
+DW
+DW
+DW
+DW
 nd
 DW
 nd
@@ -2161,10 +2262,10 @@ DW
 nd
 DW
 DW
-Lt
 DW
 DW
-qk
+DW
+DW
 DW
 DW
 DW
@@ -2321,15 +2422,15 @@ DW
 nd
 DW
 nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
 DW
 nd
@@ -2401,17 +2502,17 @@ DW
 DW
 nd
 DW
+nd
+DW
+DW
+Lt
 DW
 DW
 DW
+Lt
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -2481,17 +2582,17 @@ DW
 DW
 DW
 nd
+DW
 nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
+DW
+Lt
+mo
+Lt
+DW
+Lt
+fC
+Lt
+DW
 nd
 DW
 nd
@@ -2561,16 +2662,16 @@ DW
 DW
 DW
 DW
+nd
+DW
+nd
+DW
+DW
+Lt
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
 DW
 DW
 nd
@@ -2642,9 +2743,9 @@ DW
 DW
 DW
 DW
+nd
 DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -2723,16 +2824,16 @@ DW
 DW
 DW
 DW
+nd
+DW
+nd
+DW
+DW
+Lt
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+Lt
 DW
 DW
 nd
@@ -2804,17 +2905,17 @@ du
 DW
 DW
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-du
-du
+nd
 DW
+nd
 DW
+Lt
+nz
+Lt
+DW
+Lt
+sx
+Lt
 DW
 nd
 DW
@@ -2885,16 +2986,16 @@ du
 DW
 DW
 DW
-Lt
-kZ
-kZ
-Lt
-WP
-Yr
-Lt
-du
-du
+nd
 DW
+nd
+DW
+DW
+Lt
+DW
+DW
+DW
+Lt
 DW
 DW
 nd
@@ -2966,15 +3067,15 @@ du
 DW
 DW
 DW
-sa
-kZ
-kZ
-YW
-WP
-WP
-KX
-du
-du
+nd
+DW
+nd
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -3047,18 +3148,18 @@ du
 DW
 DW
 DW
-kZ
-HE
-jx
-Bt
-kx
-Li
-Ht
-du
-du
+nd
 DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 nd
 DW
 nd
@@ -3128,19 +3229,19 @@ du
 DW
 DW
 DW
-Lt
-qS
-qS
-Lt
-Vv
-Vv
-Lt
-du
-du
-DW
-DW
-DW
 nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 nd
 DW
@@ -3209,18 +3310,18 @@ du
 DW
 DW
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-du
-du
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 nd
 DW
 nd
@@ -3618,7 +3719,7 @@ Lt
 kZ
 kZ
 Lt
-Yr
+WP
 Yr
 Lt
 du
@@ -3862,7 +3963,7 @@ qS
 qS
 Lt
 Vv
-YK
+Vv
 Lt
 du
 du
@@ -4250,6 +4351,18 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 Lt
 Lt
 Lt
@@ -4259,18 +4372,6 @@ Lt
 Lt
 du
 du
-du
-du
-du
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4331,27 +4432,27 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 Lt
 kZ
 kZ
 Lt
-WP
+Yr
 Yr
 Lt
-OG
-OG
-OG
 du
 du
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4412,27 +4513,27 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 sa
 kZ
 kZ
-ZK
+YW
 WP
 WP
-pV
-Qw
-Qw
-Qw
+KX
 du
 du
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4493,27 +4594,27 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 kZ
 HE
 jx
-Lp
+Bt
 kx
 Li
-pV
-Qw
-Qw
-Qw
+Ht
 du
 du
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4574,6 +4675,18 @@ nd
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 Lt
 qS
 qS
@@ -4581,20 +4694,8 @@ Lt
 Vv
 YK
 Lt
-Qw
-xW
-Qw
 du
 du
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -4655,9 +4756,18 @@ nd
 DW
 DW
 DW
-Lt
-Lt
-Lt
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 Lt
 Lt
 Lt
@@ -4667,15 +4777,6 @@ Lt
 Lt
 du
 du
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 DW
 DW
@@ -5311,7 +5412,7 @@ Vv
 YK
 Lt
 Qw
-sN
+xW
 Qw
 du
 du
@@ -5705,33 +5806,33 @@ DW
 DW
 DW
 nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+du
+du
+du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
 DW
 nd
@@ -5785,6 +5886,22 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+Lt
+kZ
+kZ
+Lt
+WP
+Yr
+Lt
+OG
+OG
+OG
+du
+du
 DW
 DW
 DW
@@ -5797,23 +5914,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -5866,6 +5967,22 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+sa
+kZ
+kZ
+ZK
+WP
+WP
+pV
+Qw
+Qw
+Qw
+du
+du
 DW
 DW
 DW
@@ -5878,23 +5995,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -5947,6 +6048,22 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+kZ
+HE
+jx
+Lp
+kx
+Li
+pV
+Qw
+Qw
+Qw
+du
+du
 DW
 DW
 DW
@@ -5959,23 +6076,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -6028,6 +6129,22 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+Lt
+qS
+qS
+Lt
+Vv
+YK
+Lt
+Qw
+sN
+Qw
+du
+du
 DW
 DW
 DW
@@ -6040,23 +6157,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -6109,6 +6210,22 @@ DW
 DW
 DW
 DW
+nd
+DW
+DW
+DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
 DW
 DW
 DW
@@ -6121,23 +6238,7 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -6190,6 +6291,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6217,8 +6319,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -6271,6 +6372,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6298,8 +6400,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -6352,6 +6453,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6379,8 +6481,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -6433,35 +6534,35 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 nd
 DW

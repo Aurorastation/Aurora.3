@@ -1120,15 +1120,15 @@
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = 6
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
 	name = "airlock_horizon_dock_deck_3_starboard_3";
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -5793,6 +5793,11 @@
 	name = "airlock_horizon_dock_deck_3_port_4";
 	landmark_tag = "nav_horizon_dock_deck_3_port_4"
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "eGq" = (
@@ -7519,6 +7524,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"fTz" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/lounge)
 "fTH" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -11940,6 +11954,11 @@
 	name = "airlock_horizon_dock_deck_3_starboard_2";
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jlB" = (
@@ -12078,6 +12097,11 @@
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
 	name = "airlock_horizon_dock_deck_3_port_5";
 	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -17132,6 +17156,10 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
+"mYK" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/template_noop)
 "mZd" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/landmark/start{
@@ -19731,6 +19759,11 @@
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
 	name = "airlock_horizon_dock_deck_3_port_2";
 	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -25978,6 +26011,13 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"tQZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "tRr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -26413,6 +26453,23 @@
 	},
 /turf/simulated/open,
 /area/hallway/medical/upper)
+"ugi" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "shutters_deck3_longbow";
+	name = "Safety Blast Door"
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/longbow)
 "ugJ" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/light{
@@ -31258,6 +31315,11 @@
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
 	name = "airlock_horizon_dock_deck_3_starboard_1";
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -39648,7 +39710,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+gGV
 wGH
 wGH
 wGH
@@ -40250,6 +40312,7 @@ wGH
 wGH
 wGH
 wGH
+qCN
 wGH
 wGH
 wGH
@@ -40266,11 +40329,10 @@ wGH
 wGH
 wGH
 wGH
-wGH
-wGH
+gGV
 wGH
 vkb
-dSF
+mYK
 dSF
 dSF
 dSF
@@ -43890,7 +43952,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+gGV
 otI
 tJH
 wGH
@@ -44509,7 +44571,7 @@ uba
 uba
 uba
 wMr
-wMr
+fTz
 wMr
 aDE
 bIm
@@ -59445,7 +59507,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+gGV
 leE
 oCi
 wGH
@@ -59457,7 +59519,7 @@ oIT
 noc
 nsP
 nsP
-kJB
+ugi
 hcx
 nbm
 nsP
@@ -63278,7 +63340,7 @@ wGH
 wGH
 wGH
 vBY
-otI
+tQZ
 wGH
 wGH
 wGH
@@ -63299,7 +63361,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+mYK
 dSF
 dSF
 dSF
@@ -63687,7 +63749,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+gGV
 wGH
 wGH
 wGH
@@ -63699,7 +63761,7 @@ wGH
 vkb
 dSF
 dSF
-dSF
+nZi
 dSF
 dSF
 dSF
