@@ -161,7 +161,7 @@
 			if(ATM_OUTPUT)
 				ic_on += "_out_glow"
 				ic_off += "_out"
-			if(ATM_O2 to ATM_STEAM)
+			if(ATM_O2 to ATM_H2O)
 				ic_on += "_filter"
 				ic_off += "_out"
 

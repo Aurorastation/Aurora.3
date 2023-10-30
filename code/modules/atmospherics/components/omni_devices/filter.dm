@@ -48,7 +48,7 @@
 					input = P
 				if(ATM_OUTPUT)
 					output = P
-				if(ATM_O2 to ATM_STEAM)
+				if(ATM_O2 to ATM_H2O)
 					active_filters += P
 
 /obj/machinery/atmospherics/omni/filter/error_check()
@@ -126,7 +126,7 @@
 			if(ATM_OUTPUT)
 				output = 1
 				filter = 0
-			if(ATM_O2 to ATM_STEAM)
+			if(ATM_O2 to ATM_H2O)
 				f_type = mode_send_switch(P.mode)
 
 		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
@@ -234,7 +234,7 @@
 		if("Chlorine")
 			return ATM_CL2
 		if("Steam")
-			return ATM_STEAM
+			return ATM_H2O
 		if("in")
 			return ATM_INPUT
 		if("out")
