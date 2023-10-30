@@ -154,8 +154,8 @@
 	air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())
 /obj/machinery/portable_atmospherics/canister/sulfur_dioxide
 	name = "\improper Sulfur Dioxide \[SO2\]"
-	icon_state = "lightyellow"
-	canister_color = "lightyellow"
+	icon_state = "lightgreen"
+	canister_color = "lightgreen"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/sulfur_dioxide/Initialize()
@@ -240,8 +240,8 @@
 	canister_color = "lightblue"
 /obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide
 	name = "Canister \[SO2\]"
-	icon_state = "lightyellow"
-	canister_color = "lightyellow"
+	icon_state = "lightgreen"
+	canister_color = "lightgreen"
 /obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide
 	name = "Canister \[NO2\]"
 	icon_state = "brown"
@@ -553,7 +553,7 @@ update_flag
 					"\[Tritium\]" = "pink",
 					"\[Helium\]" = "green",
 					"\[Boron\]" = "lightblue",
-					"\[Sulfur Dioxide\]" = "lightyellow",
+					"\[Sulfur Dioxide\]" = "lightgreen",
 					"\[Nitrogen Dioxide\]" = "brown",
 					"\[Chlorine\]" = "darkyellow",
 					"\[Steam\]" = "whitebrs",
