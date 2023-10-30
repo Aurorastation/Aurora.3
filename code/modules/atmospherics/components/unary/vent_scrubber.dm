@@ -149,9 +149,10 @@
 		"filter_h" = (GAS_HYDROGEN in scrubbing_gas),
 		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
 		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
-		"filter_3h" = (GAS_HELIUM in scrubbing_gas),
+		"filter_he" = (GAS_HELIUM in scrubbing_gas),
 		"filter_b" = (GAS_BORON in scrubbing_gas),
 		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
+		"filter_no2" = (GAS_NO2 in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
 		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
 		"sigtype" = "status"
@@ -307,6 +308,11 @@
 		toggle += GAS_SULFUR
 	else if(signal.data["toggle_so2_scrub"])
 		toggle += GAS_SULFUR
+
+	if(!isnull(signal.data["no2_scrub"]) && text2num(signal.data["no2_scrub"]) != (GAS_NO2 in scrubbing_gas))
+		toggle += GAS_NO2
+	else if(signal.data["toggle_no2_scrub"])
+		toggle += GAS_NO2
 
 	if(!isnull(signal.data["cl_scrub"]) && text2num(signal.data["cl_scrub"]) != (GAS_CHLORINE in scrubbing_gas))
 		toggle += GAS_CHLORINE

@@ -41,8 +41,9 @@
 	// 256 for tritium concentration
 	// 512 for boron concentration
 	// 1024 for sulfur dioxide concentration
-	// 2048 for chlorine concentration
-	// 4096 for steam concentration
+	// 2048 for nitrogen dioxide concentration
+	// 4096 for chlorine concentration
+	// 8192 for steam concentration
 
 	var/datum/radio_frequency/radio_connection
 

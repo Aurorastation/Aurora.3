@@ -2622,6 +2622,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
+"bRg" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "bRr" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3645,14 +3649,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"cDa" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/empty,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "cEf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
@@ -4093,12 +4089,12 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "cTm" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/engineering/atmos/air)
 "cTs" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -6015,13 +6011,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "eqs" = (
-/obj/structure/ladder/up{
-	pixel_y = 13
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "eqw" = (
@@ -8139,14 +8129,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
-"fKt" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/alarm/west,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "fKB" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/window/reinforced{
@@ -8817,6 +8799,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
+"gdJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/power/apc/west,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "gdP" = (
 /obj/structure/grille/diagonal{
 	dir = 1
@@ -8875,15 +8864,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "ggH" = (
-/obj/machinery/atmospherics/omni/filter{
-	name = "helium/boron filter";
-	tag_north = 1;
-	tag_south = 2;
-	tag_east = 12;
-	tag_west = 11
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/engineering/atmos/air)
+/area/maintenance/research_port)
 "ggQ" = (
 /obj/machinery/door/blast/regular/open{
 	id = "iso_b";
@@ -9940,14 +9926,13 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "gUl" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
-"gVe" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
+/obj/machinery/atmospherics/omni/filter{
+	name = "sulfur dioxide/nitrogen dioxide filter";
+	tag_north = 1;
+	tag_south = 2;
+	tag_east = 14;
+	tag_west = 13
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "gVu" = (
@@ -10073,10 +10058,6 @@
 	temperature = 278.15
 	},
 /area/medical/morgue/lower)
-"haj" = (
-/obj/machinery/alarm/east,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "haI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -11276,6 +11257,16 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
+"hTd" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "hTk" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard/deck1)
@@ -12227,6 +12218,10 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
+"iGO" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "iHE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12719,12 +12714,14 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
 "iYS" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/engineering/atmos/air)
 "iYT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21661,8 +21658,8 @@
 /obj/machinery/atmospherics/omni/filter{
 	name = "nitrous oxide filter";
 	tag_south = 1;
-	tag_east = 2;
-	tag_west = 7
+	tag_west = 7;
+	tag_north = 2
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -21685,11 +21682,15 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "pom" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/ladder/up{
+	pixel_y = 13
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/engineering/atmos/air)
 "pos" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc,
@@ -23527,6 +23528,12 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"qBk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "qBC" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/lime{
@@ -25427,7 +25434,13 @@
 	},
 /area/medical/morgue/lower)
 "rSw" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/atmospherics/omni/filter{
+	name = "helium/boron filter";
+	tag_north = 1;
+	tag_south = 2;
+	tag_east = 12;
+	tag_west = 11
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "rSU" = (
@@ -27031,11 +27044,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "tdL" = (
-/obj/machinery/light{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/alarm/west,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -29253,6 +29265,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
+"uCq" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "uCr" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/machinery/meter,
@@ -29790,16 +29810,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/isolation_c)
-"uWy" = (
-/obj/machinery/atmospherics/omni/filter{
-	name = "sulfur dioxide/nitrogen dioxide filter";
-	tag_north = 1;
-	tag_south = 2;
-	tag_east = 14;
-	tag_west = 13
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "uWS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -32496,13 +32506,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
 "wRa" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "wRE" = (
@@ -33511,13 +33518,6 @@
 	dir = 4
 	},
 /area/hangar/intrepid)
-"xsN" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "xsS" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 10
@@ -59681,7 +59681,7 @@ jMq
 sYf
 riL
 riL
-tdL
+iYS
 png
 rNv
 viX
@@ -59697,7 +59697,7 @@ riL
 exw
 lvP
 idq
-cTm
+gdJ
 baq
 fIg
 lKV
@@ -59882,17 +59882,17 @@ mKb
 lMv
 uVL
 jAM
-fKt
+tdL
 riL
-wRa
+hTd
 riL
-rSw
+eqs
 riL
 aUi
 riL
-rSw
+eqs
 riL
-rSw
+eqs
 riL
 riL
 riL
@@ -60087,12 +60087,12 @@ uVL
 oTX
 xdF
 riL
-gVe
+wRa
 qeO
 lUr
 uDi
-gUl
-xsN
+iGO
+cTm
 lUr
 eZY
 lUr
@@ -60101,7 +60101,7 @@ atA
 baq
 baq
 fIg
-iYS
+ggH
 jNq
 pCs
 pCs
@@ -60290,15 +60290,15 @@ uVL
 gyD
 eKc
 riL
-eqs
+pom
 wXZ
 rNv
-ggH
+rSw
 lrg
-uWy
+gUl
 rNv
 aAk
-cDa
+uCq
 riL
 hXX
 mhf
@@ -60495,7 +60495,7 @@ eKc
 sdW
 grP
 wJK
-haj
+bRg
 xgm
 hgR
 eGG
@@ -60506,8 +60506,8 @@ riL
 exw
 mhf
 jNq
-pom
-iYS
+qBk
+ggH
 aNR
 xtK
 tPx
