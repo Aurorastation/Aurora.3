@@ -1727,6 +1727,14 @@
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"fR" = (
+/obj/structure/table/wood,
+/obj/item/paper_scanner{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/spaceport)
 "fS" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west"
@@ -4012,6 +4020,10 @@
 "mR" = (
 /turf/simulated/open,
 /area/point_verdant/interior/bar)
+"mS" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/spaceport)
 "mT" = (
 /obj/structure/konyang_cliff{
 	icon_state = "corner_east"
@@ -4380,6 +4392,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/water)
+"og" = (
+/obj/structure/table/wood,
+/obj/item/newspaper{
+	pixel_y = 5;
+	pixel_x = -1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/spaceport)
 "oh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -5153,6 +5173,12 @@
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"qm" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/spaceport)
 "qo" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -9203,6 +9229,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Cz" = (
+/obj/structure/rod_railing,
 /turf/simulated/open,
 /area/point_verdant/interior/spaceport)
 "CA" = (
@@ -14530,6 +14557,10 @@
 "Tc" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 3;
+	pixel_y = 11
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "Td" = (
@@ -14707,6 +14738,10 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_y = 10;
+	pixel_x = -5
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "TC" = (
@@ -46952,8 +46987,8 @@ su
 su
 jN
 Cz
-XF
-XF
+fR
+og
 cc
 Yw
 wy
@@ -47210,7 +47245,7 @@ su
 Aq
 Cz
 XF
-Yw
+qm
 Yw
 Yw
 Tc
@@ -48500,7 +48535,7 @@ yy
 Yw
 Yw
 Yw
-uR
+mS
 uR
 uR
 YJ
