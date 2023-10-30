@@ -596,6 +596,10 @@
 /obj/structure/disposalpipe/down,
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
+"api" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/aft)
 "aqg" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12377,13 +12381,6 @@
 	},
 /turf/simulated/open,
 /area/horizon/hydroponics)
-"fWp" = (
-/obj/machinery/light,
-/obj/structure/sign/radiation{
-	pixel_y = -32
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/engineering/engine_monitoring/rust)
 "fWw" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/power/breakerbox/activated{
@@ -37791,10 +37788,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "sbk" = (
-/obj/structure/ladder{
-	pixel_y = 16
+/obj/machinery/light,
+/obj/structure/sign/radiation{
+	pixel_y = -32
 	},
-/turf/simulated/open,
+/turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
 "sbu" = (
 /obj/structure/cable/yellow{
@@ -45120,8 +45118,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "vHl" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/turf/simulated/open,
 /area/maintenance/aft)
 "vHp" = (
 /obj/structure/table/standard,
@@ -76259,7 +76259,7 @@ gVl
 pYW
 tBI
 xGF
-fWp
+sbk
 uEq
 xap
 mQe
@@ -76463,7 +76463,7 @@ ikT
 xGF
 uEq
 uEq
-vHl
+api
 cyZ
 cpi
 jZT
@@ -76664,8 +76664,8 @@ uEq
 uEq
 mRl
 uEq
-sbk
 vHl
+api
 hst
 cRs
 osY
