@@ -8,6 +8,9 @@
 #define SIGNAL_DEUTERIUM 128
 #define SIGNAL_TRITIUM 256
 #define SIGNAL_BORON 512
+#define SIGNAL_SULFUR_DIOXIDE 1024
+#define SIGNAL_CHLORINE 2048
+#define SIGNAL_STEAM 4096
 
 /obj/machinery/air_sensor
 	name = "gas sensor"
@@ -36,6 +39,9 @@
 	// 128 for deuterium concentration
 	// 256 for tritium concentration
 	// 512 for boron concentration
+	// 1024 for sulfur dioxide concentration
+	// 2048 for chlorine concentration
+	// 4096 for steam concentration
 
 	var/datum/radio_frequency/radio_connection
 
@@ -79,6 +85,12 @@
 					signal.data[GAS_TRITIUM] = round(100*air_sample.gas[GAS_TRITIUM]/total_moles,0.1)
 				if(output&SIGNAL_BORON)
 					signal.data[GAS_BORON] = round(100*air_sample.gas[GAS_BORON]/total_moles,0.1)
+				if(output&SIGNAL_SULFUR_DIOXIDE)
+					signal.data[GAS_SULFUR] = round(100*air_sample.gas[GAS_SULFUR]/total_moles,0.1)
+				if(output&SIGNAL_CHLORINE)
+					signal.data[GAS_CHLORINE] = round(100*air_sample.gas[GAS_CHLORINE]/total_moles,0.1)
+				if(output&SIGNAL_STEAM)
+					signal.data[GAS_STEAM] = round(100*air_sample.gas[GAS_STEAM]/total_moles,0.1)
 			else
 				signal.data[GAS_OXYGEN] = 0
 				signal.data[GAS_PHORON] = 0
@@ -90,6 +102,9 @@
 				signal.data[GAS_DEUTERIUM] = 0
 				signal.data[GAS_TRITIUM] = 0
 				signal.data[GAS_BORON] = 0
+				signal.data[GAS_SULFUR] = 0
+				signal.data[GAS_CHLORINE] = 0
+				signal.data[GAS_STEAM]= 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -136,7 +151,7 @@
 		var/list/sdata = sensor_information[id_tag]
 		var/list/sensor_data = list("id_tag" = id_tag, "name" = long_name)
 		sensor_data["datapoints"] = list()
-		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN, GAS_N2O, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON))
+		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN, GAS_N2O, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_CHLORINE, GAS_STEAM))
 			var/unit
 			if(datapoint == "pressure")
 				unit = "kPa"
@@ -518,3 +533,6 @@
 #undef SIGNAL_DEUTERIUM
 #undef SIGNAL_TRITIUM
 #undef SIGNAL_BORON
+#undef SIGNAL_SULFUR_DIOXIDE
+#undef SIGNAL_CHLORINE
+#undef SIGNAL_STEAM
