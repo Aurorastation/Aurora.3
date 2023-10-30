@@ -36,6 +36,8 @@
 
 
 /obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+	if(A.loc == user) // don't spray yourself
+		return
 
 	if(istype(A, /obj/item/reagent_containers))
 		. = ..()

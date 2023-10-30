@@ -287,7 +287,7 @@
 		var/missing_gas = 0
 		for(var/gas in consume_gasses)
 			if(environment && environment.gas && environment.gas[gas] && \
-			 environment.gas[gas] >= consume_gasses[gas])
+				environment.gas[gas] >= consume_gasses[gas])
 				if(!check_only)
 					environment.adjust_gas(gas,-consume_gasses[gas],1)
 			else
@@ -426,7 +426,7 @@
 			/singleton/reagent/butazoline,
 			/singleton/reagent/blood,
 			/singleton/reagent/cryoxadone,
-			/singleton/reagent/cryptobiolin,
+			/singleton/reagent/drugs/cryptobiolin,
 			/singleton/reagent/toxin/cyanide,
 			/singleton/reagent/dermaline,
 			/singleton/reagent/dexalin,
@@ -434,9 +434,9 @@
 			/singleton/reagent/hydrazine,
 			/singleton/reagent/hyperzine,
 			/singleton/reagent/hyronalin,
-			/singleton/reagent/impedrezene,
+			/singleton/reagent/drugs/impedrezene,
 			/singleton/reagent/mercury,
-			/singleton/reagent/mindbreaker,
+			/singleton/reagent/drugs/mindbreaker,
 			/singleton/reagent/inaprovaline,
 			/singleton/reagent/peridaxon,
 			/singleton/reagent/toxin/phoron,
@@ -446,7 +446,7 @@
 			/singleton/reagent/rezadone,
 			/singleton/reagent/ryetalyn,
 			/singleton/reagent/slimejelly,
-			/singleton/reagent/space_drugs,
+			/singleton/reagent/drugs/mms,
 			/singleton/reagent/soporific,
 			/singleton/reagent/sugar,
 			/singleton/reagent/synaptizine,
@@ -455,8 +455,8 @@
 			/singleton/reagent/mortaphenyl,
 			/singleton/reagent/water,
 			/singleton/reagent/woodpulp,
-			/singleton/reagent/ambrosia_extract,
-			/singleton/reagent/skrell_nootropic,
+			/singleton/reagent/drugs/ambrosia_extract,
+			/singleton/reagent/drugs/skrell_nootropic,
 			/singleton/reagent/toxin/berserk
 			)
 

@@ -25,13 +25,15 @@
 
 
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
-			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
+					access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
+					access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
+					access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
+
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
-			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
+							access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
+							access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
+							access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
+
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
@@ -228,9 +230,9 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18,
-		SPECIES_SKRELL = 50,
-		SPECIES_SKRELL_AXIORI = 50
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 
 /datum/outfit/job/intern_eng

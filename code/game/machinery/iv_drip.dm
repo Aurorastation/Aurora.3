@@ -71,8 +71,10 @@
 	return ..()
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover, /obj/machinery/iv_drip))
+		return FALSE
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/iv_drip/Crossed(var/mob/H)
@@ -669,7 +671,9 @@
 	if(use_check_and_message(usr))
 		return
 	set_rate:
-		var/amount = input("Set transfer rate as u/sec (between [transfer_limit] and 0.001)") as num
+		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", transfer_amount, transfer_limit, 0.001, round_value = FALSE)
+		if(!amount)
+			return
 		if ((0.001 > amount || amount > transfer_limit) && amount != 0)
 			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and [transfer_limit]."))
 			goto set_rate
@@ -677,7 +681,7 @@
 			transfer_amount = REM
 			return
 		transfer_amount = amount
-		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec"))
+		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
 /obj/machinery/iv_drip/examine(mob/user, distance, is_adjacent)
 	. = ..()

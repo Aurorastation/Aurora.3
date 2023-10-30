@@ -104,7 +104,7 @@
 
 	operating = 1
 	while(selected_camera && Adjacent(user))
-		selected_camera = input("Select camera bug to view.") as null|anything in cameras
+		selected_camera = tgui_input_list(user, "Select camera bug to view.", "Spy Monitor", cameras)
 	selected_camera = null
 	operating = 0
 

@@ -46,12 +46,12 @@
 			if("Cancel")
 				return
 			if("Speak")
-				var/what_to_say = input(user, "What do you want \the [illusion] to say?","Illusion Speak") as null|text
+				var/what_to_say = tgui_input_text(user, "What do you want \the [illusion] to say?", "Illusion Speak")
 				//what_to_say = sanitize(what_to_say) //Sanitize occurs inside say() already.
 				if(what_to_say)
 					illusion.say(what_to_say)
 			if("Emote")
-				var/what_to_emote = input(user, "What do you want \the [illusion] to do?","Illusion Emote") as null|text
+				var/what_to_emote = tgui_input_text(user, "What do you want \the [illusion] to do?", "Illusion Emote")
 				if(what_to_emote)
 					illusion.emote(what_to_emote)
 

@@ -240,21 +240,12 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
-	sync_access()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	walk(src, 0) // stop it from auto moving when the pilot gets in
 	return 1
-
-/mob/living/heavy_vehicle/proc/sync_access()
-	access_card.access = saved_access.Copy()
-	if(sync_access)
-		for(var/mob/pilot in pilots)
-			var/obj/item/card/id/pilot_id = pilot.GetIdCard()
-			if(pilot_id && pilot_id.access) access_card.access |= pilot_id.access
-			to_chat(pilot, "<span class='notice'>Security access permissions synchronized.</span>")
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
@@ -348,7 +339,7 @@
 		for(var/hardpoint in hardpoints)
 			if(hardpoints[hardpoint] == null)
 				free_hardpoints += hardpoint
-		var/to_place = input("Where would you like to install it?") as null|anything in (realThing.restricted_hardpoints & free_hardpoints)
+		var/to_place = tgui_input_list(user, "Where would you like to install it?", "Install Hardpoint", (realThing.restricted_hardpoints & free_hardpoints))
 		if(install_system(thing, to_place, user))
 			return
 		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
@@ -389,7 +380,7 @@
 					if(hardpoints[hardpoint])
 						parts += hardpoint
 
-				var/to_remove = input("Which component would you like to remove") as null|anything in parts
+				var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", parts)
 
 				if(remove_system(to_remove, user))
 					return
@@ -429,7 +420,7 @@
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
 					if(MC && MC.brute_damage)
 						damaged_parts += MC
-				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
+				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
 					to_fix.repair_brute_generic(thing, user)
 				return
@@ -440,7 +431,7 @@
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
 					if(MC && MC.burn_damage)
 						damaged_parts += MC
-				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
+				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
 					to_fix.repair_burn_generic(thing, user)
 				return
@@ -489,7 +480,7 @@
 
 /mob/living/heavy_vehicle/attack_hand(var/mob/user)
 	// Drag the pilot out if possible.
-	if(user.a_intent == I_HURT || user.a_intent == I_GRAB)
+	if(user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))
 			to_chat(user, "<span class='warning'>There is nobody inside \the [src].</span>")
 		else if(!hatch_closed)
@@ -498,6 +489,11 @@
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
 				user.visible_message("<span class='danger'>\The [user] drags \the [pilot] out of \the [src]!</span>")
 				eject(pilot, silent=1)
+
+		return
+
+	if(user.a_intent == I_HURT)
+		attack_generic(user)
 		return
 
 	// Otherwise toggle the hatch.
@@ -509,6 +505,20 @@
 	hud_open.update_icon()
 	update_icon()
 	return
+
+/mob/living/heavy_vehicle/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+	if(!(user in pilots))
+		. = ..()
+
+		var/mob/living/carbon/human/H = user
+
+		if(!istype(H))
+			return
+
+		var/datum/martial_art/attacker_style = H.primary_martial_art
+		if(attacker_style && attacker_style.harm_act(H, src))
+			return TRUE
+
 
 
 /mob/living/heavy_vehicle/proc/attack_self(var/mob/user)

@@ -6,6 +6,7 @@
 #define IFF_RAIDER "raider"
 #define IFF_LONER "loner"
 #define IFF_BURGLAR "burglar"
+#define IFF_JOCKEY "jockey"
 #define IFF_CULTIST "cultist"
 #define IFF_BLUESPACE "bluespace"
 #define IFF_DEATHSQUAD "deathsquad"
@@ -31,6 +32,6 @@
 #define ROF_INTERMEDIATE 4
 #define ROF_RIFLE 5
 #define ROF_HEAVY 8
-#define ROF_SUPERHEAVY 12	
+#define ROF_SUPERHEAVY 12
 #define ROF_UNWIELDY 16
 #define ROF_SPECIAL 40

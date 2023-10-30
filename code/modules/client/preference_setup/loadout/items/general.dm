@@ -150,6 +150,7 @@
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
+	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
 	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
@@ -157,6 +158,7 @@
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
 	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
+	banners["banner, All-Xanu Republic"] = /obj/item/flag/xanu
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
@@ -222,12 +224,14 @@
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
 	flags["flag, Free Tajaran Council"] = /obj/item/flag/ftc/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
+	flags["flag, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
 	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
 	flags["flag, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi/l
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
+	flags["flag, All-Xanu Republic"] = /obj/item/flag/xanu/l
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l

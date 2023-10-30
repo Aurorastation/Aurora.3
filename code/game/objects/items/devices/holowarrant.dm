@@ -37,7 +37,7 @@
 		to_chat(user, SPAN_NOTICE("There are no warrants available at this time."))
 		return
 	var/temp
-	temp = input(usr, "Which warrant would you like to load?") as null|anything in storedwarrant
+	temp = tgui_input_list(usr, "Which warrant would you like to load?", storedwarrant)
 	for(var/datum/record/warrant/W in SSrecords.warrants)
 		if(W.name == temp)
 			activename = W.name

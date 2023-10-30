@@ -207,7 +207,7 @@
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_VOLATILE)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/singleton/reagent/toxin, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/singleton/reagent/cryptobiolin, 1) || W.reagents.has_reagent(/singleton/reagent/impedrezene, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/singleton/reagent/alcohol/neurotoxin, 1))
+		else if(W.reagents.has_reagent(/singleton/reagent/toxin, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/singleton/reagent/drugs/cryptobiolin, 1) || W.reagents.has_reagent(/singleton/reagent/drugs/impedrezene, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/singleton/reagent/alcohol/neurotoxin, 1))
 			if(my_effect.trigger == TRIGGER_TOXIN)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_TOXIN)
@@ -305,7 +305,7 @@
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
 
-/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely. 
+/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely.
 	if(!isrobot(user) || !Adjacent(user))
 		return
 	return ..()

@@ -18,7 +18,7 @@
 /obj/item/mecha_equipment/clamp/attack_hand(mob/user)
 	if(owner && LAZYISIN(owner.pilots, user))
 		if(!owner.hatch_closed && length(carrying))
-			var/obj/chosen_obj = input(user, "Choose an object to grab.", "Clamp Claw") as null|anything in carrying
+			var/obj/chosen_obj = tgui_input_list(user, "Choose an object to grab.", "Clamp Claw", carrying)
 			if(!chosen_obj)
 				return
 			if(user.put_in_active_hand(chosen_obj))
@@ -111,10 +111,10 @@
 			if(user.a_intent == I_HURT)
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
-				if(prob(33))
+				if(prob(15))
 					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
 					return
-				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage * 1.5 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
+				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage / 2 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 				M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
 				to_chat(user, SPAN_WARNING("You slam [target] with [src.name]."))
 				owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."))
@@ -140,7 +140,7 @@
 		return
 	var/obj/chosen_obj = carrying[1]
 	if(choose_object)
-		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+		chosen_obj = tgui_input_list(user, "Choose an object to set down.", "Clamp Claw", carrying)
 	if(!chosen_obj)
 		return
 	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))

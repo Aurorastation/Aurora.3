@@ -82,7 +82,7 @@
 	drop_sound = /singleton/sound_category/tray_hit_sound
 	filling_color = "#FF00F7"
 	center_of_mass = list("x"=15, "y"=11)
-	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/psilocybin = 8)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/drugs/psilocybin = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("waffle" = 7, "sweetness" = 1))
 	bitesize = 4
 
@@ -149,7 +149,7 @@
 	trash = /obj/item/trash/brownies
 	filling_color = "#301301"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/browniemix = 4, /singleton/reagent/ambrosia_extract = 4, /singleton/reagent/bicaridine = 2, /singleton/reagent/kelotane = 2, /singleton/reagent/toxin = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/browniemix = 4, /singleton/reagent/drugs/ambrosia_extract = 4, /singleton/reagent/bicaridine = 2, /singleton/reagent/kelotane = 2, /singleton/reagent/toxin = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("brownies" = 5))
 	bitesize = 3
 
@@ -164,7 +164,7 @@
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/reagent_containers/food/snacks/cosmicbrowniesslice/filled
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/browniemix = 1, /singleton/reagent/ambrosia_extract = 1, /singleton/reagent/bicaridine = 1, /singleton/reagent/kelotane = 1, /singleton/reagent/toxin = 1)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/browniemix = 1, /singleton/reagent/drugs/ambrosia_extract = 1, /singleton/reagent/bicaridine = 1, /singleton/reagent/kelotane = 1, /singleton/reagent/toxin = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("brownies" = 2))
 
 // Cakes.
@@ -518,7 +518,7 @@
 	icon_state = "amanita_pie"
 	filling_color = "#FFCCCC"
 	center_of_mass = list("x"=17, "y"=9)
-	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/toxin/amatoxin = 3, /singleton/reagent/psilocybin = 1)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/toxin/amatoxin = 3, /singleton/reagent/drugs/psilocybin = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 3, "mushroom" = 3, "pie" = 2))
 	bitesize = 3
 

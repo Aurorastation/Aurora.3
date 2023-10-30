@@ -32,7 +32,7 @@
 
 /obj/item/gun/launcher/harpoon/update_icon()
 	icon_state = "[initial(icon_state)]-[harpoons.len]"
-	item_state = "[initial(item_state)]-[harpoons.len]"	
+	item_state = "[initial(item_state)]-[harpoons.len]"
 	..()
 
 /obj/item/gun/launcher/harpoon/special_check(mob/user)

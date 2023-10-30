@@ -102,7 +102,7 @@
 
 /obj/item/gamehelm/attack_self(mob/user)
 	if(open)
-		var/choice = input("What do you want to play?") as null|anything in game_type_to_state
+		var/choice = tgui_input_list(user, "What do you want to play?", "Game Helm", game_type_to_state)
 		if(choice == "turn off the system")
 			user.visible_message("<b>[user]</b> hits the power button on \the [src] and it quickly shuts down.", SPAN_NOTICE("You hit the power button on \the [src] and it quickly shuts down."), range = 3)
 			if(!muted)

@@ -46,27 +46,27 @@
 
 /obj/random_produce/box // produce for spawning in chef produce boxes. better suited for the job
 	produce_list = list(
-			"chili" = 1,
-			"berries" = 0.25,
-			"tomato" = 2,
-			"eggplant" = 0.5,
-			"apple" = 0.25,
-			"mushrooms" = 0.25,
-			"cabbage" = 2,
-			"banana" = 0.5,
-			"corn" = 2,
-			"potato" = 2,
-			"soybean" = 0.5,
-			"rice" = 2,
-			"carrot" = 1,
-			"whitebeet" = 1,
-			"pumpkin" = 0.1,
-			"lime" = 0.25,
-			"lemon" = 0.25,
-			"cacao" = 0.5,
-			"cherry" = 0.25,
-			"onion" = 0.5
-					   )
+						"chili" = 1,
+						"berries" = 0.25,
+						"tomato" = 2,
+						"eggplant" = 0.5,
+						"apple" = 0.25,
+						"mushrooms" = 0.25,
+						"cabbage" = 2,
+						"banana" = 0.5,
+						"corn" = 2,
+						"potato" = 2,
+						"soybean" = 0.5,
+						"rice" = 2,
+						"carrot" = 1,
+						"whitebeet" = 1,
+						"pumpkin" = 0.1,
+						"lime" = 0.25,
+						"lemon" = 0.25,
+						"cacao" = 0.5,
+						"cherry" = 0.25,
+						"onion" = 0.5
+					)
 
 /obj/random/seed
 	name = "random seed"

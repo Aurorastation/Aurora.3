@@ -155,7 +155,8 @@ pixel_x = 8;
 
 /obj/item/device/radio/intercom/interrogation/Initialize()
 	. = ..()
-	set_frequency(1449)
+	set_frequency(INT_FREQ)
+	internal_channels = default_interrogation_channels
 
 /obj/item/device/radio/intercom/interrogation/broadcasting/north
 	PRESET_NORTH
@@ -173,6 +174,43 @@ pixel_x = 8;
 	. = ..()
 	set_broadcasting(TRUE)
 	set_listening(FALSE)
+
+/obj/item/device/radio/intercom/expedition
+	name = "intercom (expeditionary)"
+
+/obj/item/device/radio/intercom/expedition/north
+	PRESET_NORTH
+
+/obj/item/device/radio/intercom/expedition/south
+	PRESET_SOUTH
+
+/obj/item/device/radio/intercom/expedition/west
+	PRESET_WEST
+
+/obj/item/device/radio/intercom/expedition/east
+	PRESET_EAST
+
+/obj/item/device/radio/intercom/expedition/Initialize()
+	. = ..()
+	set_frequency(EXP_FREQ)
+	internal_channels = default_expedition_channels
+
+/obj/item/device/radio/intercom/expedition/hailing/north
+	PRESET_NORTH
+
+/obj/item/device/radio/intercom/expedition/hailing/south
+	PRESET_SOUTH
+
+/obj/item/device/radio/intercom/expedition/hailing/west
+	PRESET_WEST
+
+/obj/item/device/radio/intercom/expedition/hailing/east
+	PRESET_EAST
+
+/obj/item/device/radio/intercom/expedition/hailing/Initialize()
+	. = ..()
+	set_frequency(HAIL_FREQ)
+	internal_channels = default_expedition_channels
 
 /obj/item/device/radio/intercom/private
 	name = "intercom (private)"
@@ -420,7 +458,7 @@ pixel_x = 8;
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/radio/intercom/locked
-    var/locked_frequency
+	var/locked_frequency
 
 /obj/item/device/radio/intercom/locked/north
 	PRESET_NORTH

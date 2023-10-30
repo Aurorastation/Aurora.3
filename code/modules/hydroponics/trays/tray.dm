@@ -62,7 +62,7 @@
 		/singleton/reagent/toxin/plantbgone =	  3,
 		/singleton/reagent/cryoxadone =			 -3,
 		/singleton/reagent/radium =				  2,
-		/singleton/reagent/raskara_dust =		2.5
+		/singleton/reagent/drugs/raskara_dust =		2.5
 		)
 	var/global/list/nutrient_reagents = list(
 		/singleton/reagent/drink/milk =				 0.1,
@@ -411,7 +411,7 @@
 	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
+		var/new_light = tgui_input_list(usr, "Specify a light level.", "Set Light", list(0,1,2,3,4,5,6,7,8,9,10))
 		if(new_light)
 			tray_light = new_light
 			to_chat(usr, "You set the tray to a light level of [tray_light] lumens.")

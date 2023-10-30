@@ -25,9 +25,7 @@
 	var/wreckage_path = /obj/structure/mech_wreckage
 
 	// Access updating/container.
-	var/obj/item/card/id/access_card
-	var/list/saved_access = list()
-	var/sync_access = TRUE
+	var/obj/item/card/id/mecha/access_card
 
 	// Mob we're currently paired with or following | the names are saved to prevent metagaming when returning diagnostics
 	var/datum/weakref/leader
@@ -138,7 +136,8 @@
 	if(!user || !user.client)
 		return TRUE
 	to_chat(user, "That's \a <b>[src]</b>.")
-	to_chat(user, desc)
+	if(desc)
+		to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
 		if(length(pilots) == 0)
 			to_chat(user, "It has <b>no pilot</b>.")

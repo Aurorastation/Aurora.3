@@ -8,18 +8,20 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 	// NanoUI stuff.
 	var/list/open_uis = list()
 
- /**
-  * Get an open /nanoui ui for the current user, src_object and ui_key and try to update it with data
-  *
-  * @param user /mob The mob who opened/owns the ui
-  * @param src_object /obj|/mob The obj or mob which the ui belongs to
-  * @param ui_key string A string key used for the ui
-  * @param ui /datum/nanoui An existing instance of the ui (can be null)
-  * @param data list The data to be passed to the ui, if it exists
-  * @param force_open boolean The ui is being forced to (re)open, so close ui if it exists (instead of updating)
-  *
-  * @return /nanoui Returns the found ui, for null if none exists
-  */
+/datum/controller/subsystem/processing/nanoui/New()
+	NEW_SS_GLOBAL(SSnanoui)
+
+/**
+ * Get an open /nanoui ui for the current user, src_object and ui_key and try to update it with data
+ *
+ * * user - /mob The mob who opened/owns the ui
+ * * src_object - /obj|/mob The obj or mob which the ui belongs to
+ * * ui_key - A string key used for the ui
+ * * data - List, the data to be passed to the ui, if it exists
+ * * force_open - Boolean, the ui is being forced to (re)open, so close ui if it exists (instead of updating)
+ *
+ * Returns the `/nanoui` found ui, for null if none exists
+ */
 /datum/controller/subsystem/processing/nanoui/proc/try_update_ui(mob/user, src_object, ui_key, datum/nanoui/ui, data, force_open = FALSE)
 	if (!ui) // no ui has been passed, so we'll search for one
 		ui = get_open_ui(user, src_object, ui_key)
@@ -35,15 +37,13 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 
 	return null
 
- /**
-  * Get an open /nanoui ui for the current user, src_object and ui_key
-  *
-  * @param user /mob The mob who opened/owns the ui
-  * @param src_object /obj|/mob The obj or mob which the ui belongs to
-  * @param ui_key string A string key used for the ui
-  *
-  * @return /nanoui Returns the found ui, or null if none exists
-  */
+/**
+ * Get an open /nanoui ui for the current user, src_object and ui_key
+ *
+ * * user - The `/mob` who opened/owns the ui
+ * * src_object - The `/obj` or `/mob` which the ui belongs to
+ * * ui_key - A string key used for the ui
+ */
 /datum/controller/subsystem/processing/nanoui/proc/get_open_ui(mob/user, src_object, ui_key)
 	var/src_object_key = SOFTREF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]) || !LAZYLEN(open_uis[src_object_key][ui_key]))
@@ -56,13 +56,13 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 	//testing("nanomanager/get_open_ui mob [user.name] [src_object:name] [ui_key] - ui not found")
 	return null
 
- /**
-  * Update all /nanoui uis attached to src_object
-  *
-  * @param src_object /obj|/mob The obj or mob which the uis are attached to
-  *
-  * @return int The number of uis updated
-  */
+/**
+ * Update all `/nanoui` uis attached to src_object
+ *
+ * * src_object - The `/obj` or `/mob` which the uis are attached to
+ *
+ * Returns the number of UIs updated
+ */
 /datum/controller/subsystem/processing/nanoui/proc/update_uis(src_object)
 	var/src_object_key = SOFTREF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]))
@@ -77,13 +77,13 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 				ui.process(1)
 				.++
 
- /**
-  * Close all /nanoui uis attached to src_object
-  *
-  * @param src_object /obj|/mob The obj or mob which the uis are attached to
-  *
-  * @return int The number of uis close
-  */
+/**
+ * Close all `/nanoui` uis attached to src_object
+ *
+ * * src_object - The `/obj` or `/mob` which the uis are attached to
+ *
+ * Returns the number of UIs closed
+ */
 /datum/controller/subsystem/processing/nanoui/proc/close_uis(src_object)
 	var/src_object_key = SOFTREF(src_object)
 	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
@@ -98,15 +98,15 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 				ui.close()
 				.++
 
- /**
-  * Update /nanoui uis belonging to user
-  *
-  * @param user /mob The mob who owns the uis
-  * @param src_object /obj|/mob If src_object is provided, only update uis which are attached to src_object (optional)
-  * @param ui_key string If ui_key is provided, only update uis with a matching ui_key (optional)
-  *
-  * @return int The number of uis updated
-  */
+/**
+ * Update /nanoui uis belonging to user
+ *
+ * * user - The `/mob` who owns the uis
+ * * src_object - An `/obj` or `/mob` that, if is provided, only update uis which are attached to it (optional)
+ * * ui_key - A string, if ui_key is provided, only update uis with a matching ui_key (optional)
+ *
+ * Returns the number of UIs updated
+ */
 /datum/controller/subsystem/processing/nanoui/proc/update_user_uis(mob/user, src_object, ui_key)
 	if (!LAZYLEN(user.open_uis))
 		return 0 // has no open uis
@@ -130,14 +130,12 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 
 	//testing("nanomanager/close_user_uis mob [user.name] closed [open_uis.len] of [.] uis")
 
- /**
-  * Add a /nanoui ui to the list of open uis
-  * This is called by the /nanoui open() proc
-  *
-  * @param ui /nanoui The ui to add
-  *
-  * @return nothing
-  */
+/**
+ * Add a /nanoui ui to the list of open uis
+ * This is called by the /nanoui open() proc
+ *
+ * * ui - The `/nanoui` ui to add
+ */
 /datum/controller/subsystem/processing/nanoui/proc/ui_opened(datum/nanoui/ui)
 	var/src_object_key = SOFTREF(ui.src_object)
 	LAZYINITLIST(open_uis[src_object_key])
@@ -147,14 +145,14 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 	START_PROCESSING(SSnanoui, ui)
 	//testing("nanomanager/ui_opened mob [ui.user.name] [ui.src_object:name] [ui.ui_key] - user.open_uis [ui.user.open_uis.len] | uis [uis.len] | processing_uis [processing_uis.len]")
 
- /**
-  * Remove a /nanoui ui from the list of open uis
-  * This is called by the /nanoui close() proc
-  *
-  * @param ui /nanoui The ui to remove
-  *
-  * @return int 0 if no ui was removed, 1 if removed successfully
-  */
+/**
+ * Remove a /nanoui ui from the list of open uis
+ * This is called by the /nanoui close() proc
+ *
+ * * ui - A `/nanoui` to remove
+ *
+ * Returns FALSE if no ui was removed, TRUE if removed successfully
+ */
 /datum/controller/subsystem/processing/nanoui/proc/ui_closed(datum/nanoui/ui)
 	var/src_object_key = SOFTREF(ui.src_object)
 	var/ui_key = ui.ui_key
@@ -179,26 +177,22 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 
 	return 1
 
- /**
-  * This is called on user logout
-  * Closes/clears all uis attached to the user's /mob
-  *
-  * @param user /mob The user's mob
-  *
-  * @return nothing
-  */
+/**
+ * This is called on user logout
+ * Closes/clears all uis attached to the user's `/mob`
+ *
+ * * user - The user's `/mob`
+ */
 /datum/controller/subsystem/processing/nanoui/proc/user_logout(mob/user)
 	return close_user_uis(user)
 
- /**
-  * This is called when a player transfers from one mob to another
-  * Transfers all open UIs to the new mob
-  *
-  * @param oldMob /mob The user's old mob
-  * @param newMob /mob The user's new mob
-  *
-  * @return nothing
-  */
+/**
+ * This is called when a player transfers from one mob to another
+ * Transfers all open UIs to the new mob
+ *
+ * * oldMob - The user's old `/mob`
+ * * newMob - The user's new `/mob`
+ */
 /datum/controller/subsystem/processing/nanoui/proc/user_transferred(mob/oldMob, mob/newMob)
 	//testing("nanomanager/user_transferred from mob [oldMob.name] to mob [newMob.name]")
 	if (!oldMob || !LAZYLEN(oldMob.open_uis) || !LAZYLEN(open_uis))

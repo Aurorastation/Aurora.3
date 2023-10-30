@@ -240,7 +240,7 @@
 				if(org.status & ORGAN_BROKEN)
 					status += "hurts when touched"
 				if(org.status & ORGAN_DEAD)
-					status += "is bruised and necrotic"
+					status += "is necrotic"
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
