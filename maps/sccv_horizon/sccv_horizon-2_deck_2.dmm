@@ -596,18 +596,6 @@
 /obj/structure/disposalpipe/down,
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
-"api" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/engineering/engine_monitoring/rust)
 "aqg" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9844,8 +9832,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
@@ -10737,7 +10726,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
 "fht" = (
@@ -12390,12 +12378,9 @@
 /turf/simulated/open,
 /area/horizon/hydroponics)
 "fWp" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
-/obj/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
+/obj/machinery/light,
+/obj/structure/sign/radiation{
+	pixel_y = -32
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
@@ -13792,7 +13777,6 @@
 	c_tag = "Engineering - INDRA Monitoring Room";
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -24
 	},
@@ -20594,7 +20578,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
 "jIW" = (
@@ -33144,9 +33127,12 @@
 /area/storage/primary)
 "pOV" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/spline/plain,
 /obj/structure/sign/radiation{
 	pixel_y = -32
+	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
@@ -37805,11 +37791,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "sbk" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
+/obj/structure/ladder{
+	pixel_y = 16
 	},
-/obj/structure/reagent_dispensers/water_cooler,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/open,
 /area/engineering/engine_monitoring/rust)
 "sbu" = (
 /obj/structure/cable/yellow{
@@ -39976,18 +39961,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
-"tiJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/engineering/engine_monitoring/rust)
 "tiV" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -45147,10 +45120,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "vHl" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
-/turf/simulated/open,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/maintenance/aft)
 "vHp" = (
 /obj/structure/table/standard,
@@ -48098,12 +48069,8 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
@@ -75282,7 +75249,7 @@ uEq
 eGf
 tPU
 wQS
-fWp
+uEq
 uEq
 kvZ
 bGh
@@ -76291,8 +76258,8 @@ aCU
 gVl
 pYW
 tBI
-api
-pOV
+xGF
+fWp
 uEq
 xap
 mQe
@@ -76493,8 +76460,8 @@ gkh
 uEq
 rVE
 ikT
-tiJ
-sbk
+xGF
+uEq
 uEq
 vHl
 cyZ
@@ -76697,8 +76664,8 @@ uEq
 uEq
 mRl
 uEq
-uEq
-kpC
+sbk
+vHl
 hst
 cRs
 osY

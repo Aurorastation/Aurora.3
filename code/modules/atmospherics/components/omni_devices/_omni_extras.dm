@@ -16,9 +16,9 @@
 #define ATM_HE		11	//Helium
 #define ATM_B		12	//Boron
 #define ATM_SO2		13	//Sulfur Dioxide
-#define ATM_NO2		13	//Nitrogen Dioxide
-#define ATM_CL2		14	//Chlorine
-#define ATM_H2O 	15	//Steam
+#define ATM_NO2		14	//Nitrogen Dioxide
+#define ATM_CL2		15	//Chlorine
+#define ATM_H2O 	16	//Steam
 
 //--------------------------------------------
 // Omni port datum
