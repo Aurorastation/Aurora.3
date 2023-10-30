@@ -157,6 +157,7 @@
 	pixel_y = 0;
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/airlock,
 /turf/template_noop,
 /area/template_noop)
 "oq" = (

@@ -22,8 +22,11 @@
 	/// So that the landmark is aware of this dock.
 	master_tag = null
 
+	///
+	var/landmark_tag = null
+
 /obj/effect/map_effect/marker/airlock/docking/LateInitialize()
-	if(!master_tag || !frequency)
+	if(!master_tag || !frequency || !landmark_tag)
 		return
 
 	var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in loc
@@ -44,13 +47,15 @@
 			docking_controller.airlock_program = new /datum/computer/file/embedded_program/airlock/docking(docking_controller)
 			docking_controller.docking_program = new /datum/computer/file/embedded_program/docking/airlock(docking_controller, docking_controller.airlock_program)
 			docking_controller.program = docking_controller.docking_program
+			if(SSshuttle.registered_shuttle_landmarks[landmark_tag])
+				var/obj/effect/shuttle_landmark/landmark = SSshuttle.registered_shuttle_landmarks[landmark_tag]
+				landmark.docking_controller = SSshuttle.docking_registry[AIRLOCK_MARKER_MASTER_TAG]
 			continue
 
 		var/obj/effect/shuttle_landmark/landmark = thing
 		if(istype(landmark))
-			var/foobar = AIRLOCK_MARKER_MASTER_TAG
-			spawn(100)
-				landmark.docking_controller = SSshuttle.docking_registry[foobar]
+			if(SSshuttle.docking_registry[AIRLOCK_MARKER_MASTER_TAG])
+				landmark.docking_controller = SSshuttle.docking_registry[AIRLOCK_MARKER_MASTER_TAG]
 			continue
 
 		var/obj/machinery/door/airlock/door = thing
