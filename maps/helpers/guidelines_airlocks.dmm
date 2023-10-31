@@ -122,6 +122,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"js" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/template_noop,
+/area/template_noop)
 "jx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -324,6 +328,12 @@
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"so" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "sx" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
@@ -353,6 +363,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
+/area/template_noop)
+"ue" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/turf/template_noop,
 /area/template_noop)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -506,6 +522,12 @@
 "Fj" = (
 /obj/machinery/atmospherics/binary/pump/on,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"FP" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/template_noop,
 /area/template_noop)
 "FS" = (
 /obj/machinery/door/airlock/external{
@@ -1362,7 +1384,7 @@ DW
 Km
 EC
 lh
-DW
+FP
 nd
 DW
 nd
@@ -1443,7 +1465,7 @@ DW
 WW
 mk
 BE
-DW
+so
 nd
 DW
 nd
@@ -1524,7 +1546,7 @@ DW
 Km
 gv
 Nr
-DW
+js
 nd
 DW
 nd
@@ -1605,7 +1627,7 @@ DW
 WW
 PU
 Xw
-DW
+ue
 nd
 DW
 nd
