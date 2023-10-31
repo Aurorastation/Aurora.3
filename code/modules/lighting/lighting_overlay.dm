@@ -59,18 +59,21 @@
 
 	// See LIGHTING_CORNER_DIAGONAL in lighting_corner.dm for why these values are what they are.
 	var/list/corners = T.corners
-	var/datum/lighting_corner/cr = dummy_lighting_corner
-	var/datum/lighting_corner/cg = dummy_lighting_corner
-	var/datum/lighting_corner/cb = dummy_lighting_corner
-	var/datum/lighting_corner/ca = dummy_lighting_corner
-	if (corners)
-		cr = corners[3] || dummy_lighting_corner
-		cg = corners[2] || dummy_lighting_corner
-		cb = corners[4] || dummy_lighting_corner
-		ca = corners[1] || dummy_lighting_corner
 
-	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
-	luminosity = max > LIGHTING_SOFT_THRESHOLD
+	//Local cache, because otherwise it accesses the global variable repeatedly, which is slower
+	var/dummy_lighting_corner_cache = dummy_lighting_corner
+
+	var/datum/lighting_corner/cr = dummy_lighting_corner_cache
+	var/datum/lighting_corner/cg = dummy_lighting_corner_cache
+	var/datum/lighting_corner/cb = dummy_lighting_corner_cache
+	var/datum/lighting_corner/ca = dummy_lighting_corner_cache
+	if (corners)
+		cr = corners[3] || dummy_lighting_corner_cache
+		cg = corners[2] || dummy_lighting_corner_cache
+		cb = corners[4] || dummy_lighting_corner_cache
+		ca = corners[1] || dummy_lighting_corner_cache
+
+	luminosity = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx) > LIGHTING_SOFT_THRESHOLD
 
 	var/rr = cr.cache_r
 	var/rg = cr.cache_g
