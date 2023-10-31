@@ -123,21 +123,15 @@
 		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
 			if(params["choice"] == "claim")
-				if(access_mining_station in ID.access)
-					if(points >= 0)
-						ID.mining_points += points
-						if(points != 0)
-							ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
-						points = 0
-					else
-						to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
+				if(points >= 0)
+					ID.mining_points += points
+					if(points != 0)
+						ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
+					points = 0
 				else
-					to_chat(usr, SPAN_WARNING("Required access not found."))
+					to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
 			if(params["choice"] == "print_report")
-				if(access_mining_station in ID.access)
-					print_report(usr)
-				else
-					to_chat(usr, SPAN_WARNING("Required access not found."))
+				print_report(usr)
 		return TRUE
 
 	if(action == "toggle_smelting")
