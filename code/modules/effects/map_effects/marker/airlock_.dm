@@ -41,6 +41,7 @@
 	// iterate over airlock components under this marker
 	// and actually set them up
 	for(var/thing in loc)
+		// set up the controller
 		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
 		if(istype(airlock_controller))
 			airlock_controller.set_frequency(frequency)
@@ -52,6 +53,8 @@
 			airlock_controller.req_access = required_access
 			airlock_controller.program = new /datum/computer/file/embedded_program/airlock(airlock_controller)
 			continue
+
+		// and all the other airlock components
 
 		var/obj/machinery/door/airlock/door = thing
 		if(istype(door))

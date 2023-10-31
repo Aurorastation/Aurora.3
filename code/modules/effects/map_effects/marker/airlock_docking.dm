@@ -36,6 +36,7 @@
 	// iterate over airlock components under this marker
 	// and actually set them up
 	for(var/thing in loc)
+		// set up the controller
 		var/obj/machinery/embedded_controller/radio/airlock/docking_port/docking_controller = thing
 		if(istype(docking_controller))
 			docking_controller.set_frequency(frequency)
@@ -58,6 +59,8 @@
 			if(SSshuttle.docking_registry[AIRLOCK_MARKER_TAG_MASTER])
 				landmark.docking_controller = SSshuttle.docking_registry[AIRLOCK_MARKER_TAG_MASTER]
 			continue
+
+		// and all the other airlock components
 
 		var/obj/machinery/door/airlock/door = thing
 		if(istype(door))
