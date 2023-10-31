@@ -1182,6 +1182,16 @@
 		return
 	M.adjustOxyLoss(-2 * removed)
 
+/singleton/reagent/drink/cranberryjuice
+	name = "Cranberry Juice"
+	description = "Rich cranberry juice. Bright and tart."
+	color = "#a0274b"
+	taste_description = "tart cranberries"
+
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of cranberry juice"
+	glass_desc = "Fresh, tart, and sweet cranberry juice."
+
 /singleton/reagent/drink/potatojuice
 	name = "Potato Juice"
 	description = "Juice of the potato. Bleh."
@@ -2503,6 +2513,17 @@
 	glass_desc = "A freezing pint of delicious ale."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/alcohol/applejack
+	name = "Applejack"
+	description = "Hard apple cider that has been distilled. The result is much more flavorful and alcoholic."
+	color = "#d4661b"
+	strength = 14
+	taste_description = "strong cider"
+
+	glass_icon_state = "applejack"
+	glass_name = "glass of applejack"
+	glass_desc = "Hard apple cider that has been distilled. The result is much more flavorful and alcoholic."
+
 /singleton/reagent/alcohol/beer
 	name = "Beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water."
@@ -2562,17 +2583,6 @@
 	glass_desc = "A pungent glass of bitters."
 	glass_center_of_mass = list ("x"=17, "y"=8)
 
-/singleton/reagent/alcohol/fernet
-	name = "Fernet"
-	description = "A bitter, herbal spirit with strong ties to the Earth continent of South America. Commonly mixed with cola."
-	color = "#4e1e12"
-	strength = 30
-	taste_description = "bitter herbs"
-
-	glass_icon_state = "fernet_glass"
-	glass_name = "glass of fernet"
-	glass_desc = "A glass of raw, bitter fernet. Should probably mix this with something."
-
 /singleton/reagent/alcohol/bluecuracao
 	name = "Blue Curacao"
 	description = "Exotically blue, fruity drink, distilled from oranges."
@@ -2626,6 +2636,17 @@
 	..()
 	if(alien != IS_DIONA)
 		M.dizziness +=5
+
+/singleton/reagent/alcohol/fernet
+	name = "Fernet"
+	description = "A bitter, herbal spirit with strong ties to the Earth continent of South America. Commonly mixed with cola."
+	color = "#4e1e12"
+	strength = 30
+	taste_description = "bitter herbs"
+
+	glass_icon_state = "fernet_glass"
+	glass_name = "glass of fernet"
+	glass_desc = "A glass of raw, bitter fernet. Should probably mix this with something."
 
 /singleton/reagent/alcohol/gin
 	name = "Gin"
@@ -2942,6 +2963,16 @@
 	glass_icon_state = "tarasunglass"
 	glass_name = "glass of tarasun"
 	glass_desc = "An incredibly potent alcoholic beverage, distilled and fermented from tenelote milk."
+
+/singleton/reagent/alcohol/triplesec
+	name = "Triple Sec"
+	description = "An orangey liqueur made from bitter, dried orange peels. Usually mixed with cocktails."
+	taste_description = "orange peel"
+	strength = 12
+
+	glass_icon_state = "glass_orange"
+	glass_name = "glass of triple sec"
+	glass_desc = "An orangey liqueur made from bitter, dried orange peels. Usually mixed with cocktails."
 
 // Cocktails
 
@@ -3295,6 +3326,18 @@
 	glass_name = "glass of Devil's Kiss"
 	glass_desc = "Creepy time!"
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/alcohol/fernet_con_coca
+	name = "Fernet Con Coca"
+	description = "Cola spiked with bitter fernet. A sweet and bitter punch, not for the faint of heart."
+	color = "#382b20"
+	strength = 20
+	taste_description = "deeply bittersweet cola"
+	carbonated = TRUE
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of fernet con cola"
+	glass_desc = "Cola spiked with bitter fernet. A sweet and bitter punch, not for the faint of heart."
 
 /singleton/reagent/alcohol/driestmartini
 	name = "Driest Martini"
@@ -5654,16 +5697,14 @@
 
 /singleton/reagent/alcohol/forbidden_apple
 	name = "Forbidden Apple"
-	description = "A champagne cocktail spiked with brandy and orange liqueur."
+	description = "A champagne cocktail spiked with applejack and orange liqueur."
 	strength = 25
 	color = "#bd6717"
 	taste_description = "champagne, a hint of apples, and orange sweetness"
 
 	glass_icon_state = "forbiddenapple"
 	glass_name = "glass of forbidden apple"
-	glass_desc = "A champagne cocktail spiked with brandy and orange liqueur."
-
-
+	glass_desc = "A champagne cocktail spiked with applejack and orange liqueur."
 
 /singleton/reagent/drink/gibbfloats
 	name = "Root-Cola Floats"

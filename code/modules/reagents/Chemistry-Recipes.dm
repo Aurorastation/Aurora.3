@@ -2309,7 +2309,7 @@
 	name = "Margarita"
 	id = "margarita"
 	result = /singleton/reagent/alcohol/margarita
-	required_reagents = list(/singleton/reagent/alcohol/tequila = 2, /singleton/reagent/drink/limejuice = 1)
+	required_reagents = list(/singleton/reagent/alcohol/tequila = 1, /singleton/reagent/alcohol/triplesec = 1, /singleton/reagent/drink/limejuice = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/longislandicedtea
@@ -2878,11 +2878,39 @@
 	required_reagents = list(/singleton/reagent/drink/milk/cream = 1, /singleton/reagent/alcohol/cremeyvette = 1, /singleton/reagent/drink/grenadine = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drink/cosmopolitan
+	name = "Cosmopolitan"
+	id = "cosmopolitan"
+	result = /singleton/reagent/alcohol/cosmopolitan
+	required_reagents = list(/singleton/reagent/alcohol/triplesec = 1, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/drink/cranberryjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/mendellian
+	name = "Mendellian"
+	id = "mendellian"
+	result = /singleton/reagent/alcohol/mendellian
+	required_reagents = list(/singleton/reagent/alcohol/bluecuracao = 1, /singleton/reagent/alcohol/triplesec = 1, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/drink/metropolitan
 	name = "Metropolitan"
 	id = "metropolitan"
 	result = /singleton/reagent/alcohol/metropolitan
 	required_reagents = list(/singleton/reagent/alcohol/brandy = 1, /singleton/reagent/alcohol/vermouth = 1, /singleton/reagent/drink/grenadine = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/red_dwarf_sangria
+	name = "Red Dwarf Sangria"
+	id = "reddwarfsangria"
+	result = /singleton/reagent/alcohol/red_dwarf_sangria
+	required_reagents = list(/singleton/reagent/alcohol/assunzionewine = 1, /singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/orangejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/forbidden_apple
+	name = "Forbidden Apple"
+	id = "forbiddenapple"
+	result = /singleton/reagent/alcohol/forbidden_apple
+	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/alcohol/triplesec = 1, /singleton/reagent/drink/applejack = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/caruso
@@ -3884,6 +3912,13 @@
 	result = /singleton/reagent/alcohol/cubalibre
 	required_reagents = list(/singleton/reagent/alcohol/rumandcola = 2, /singleton/reagent/drink/limejuice = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/fernet_con_coca
+	name = "Fernet con Coca"
+	id = "fernetconcoca"
+	result = /singleton/reagent/alcohol/fernet_con_coca
+	required_reagents = list(/singleton/reagent/drink/space_cola = 2, /singleton/reagent/alcohol/fernet = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/drink/solarian_white
 	name = "Solarian White"

@@ -275,7 +275,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/victorygin = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whiskey
-	name = "Mu Cephei Special Reserve"
+	name = "Mu Cephei Special Reserve Whiskey"
 	desc = "An okayish single-malt whiskey. This one is produced mainly in New Valletta on Callisto and is fairly famous among Cythereans, too. It's great to get you \
 	in the right mindset for your tenth night out clubbing in a row!"
 	desc_extended = DRINK_FLUFF_GETMORE
@@ -293,7 +293,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/fireball = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka
-	name = "Martian 50% Premium"
+	name = "Martian 50% Premium Vodka"
 	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka (imports of Martian soil may have stopped). Made by Silverport, drunk by Zavodskoi."
 	desc_extended = DRINK_FLUFF_SILVERPORT
 	icon_state = "vodkabottle"
@@ -535,6 +535,14 @@
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/rose_wine
+	name = "Coral Twilight Rose"
+	desc = "A blended fragrant rose wine with a coral hue from the shores of Silversun. High-quality and fruity."
+	desc_extended = DRINK_FLUFF_SILVERPORT
+	icon_state = "rosewine"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/singleton/reagent/alcohol/wine/rose = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "\improper Chip Getmore's Velvet"
 	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
@@ -574,6 +582,24 @@
 	icon_state = "grenadinebottle"
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/applejack
+	name = "Arvani Special Reserve Applejack"
+	desc = "Smooth distilled applejack liquor From Biesel. Stronger and more flavorful than traditional hard cider."
+	desc_extended = DRINK_FLUFF_ZENGHU
+	icon_state = "applejackbottle"
+	center_of_mass = list("x"=16, "y"=7)
+	reagents_to_add = list(/singleton/reagent/alcohol/applejack = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/triplesec
+	name = "La Cerise d'Eclat Triple Sec"
+	desc = "A fruity Xanu liqueur made from orange peels. Best mixed as part of cocktails."
+	desc_extended = DRINK_FLUFF_ZENGHU
+	icon_state = "triplesecbottle"
+	center_of_mass = list("x"=16, "y"=7)
+	reagents_to_add = list(/singleton/reagent/alcohol/triplesec = 100)
+
+
 
 // Soda
 
@@ -878,6 +904,18 @@
 	icon_state = "algaewinebottle"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/algae = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
+	name = "Assunzioni Sera Stellata di Dalyan wine"
+	desc = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione. The standard liturgical wine of choice for upper-echelon priests and clergy of Luceism, although drinking it outside of holy celebrations is hardly sacrilegious."
+	desc_extended = "Rather than rely on technology alone, Assunzioni winemakers sought to incorporate millennia-old traditions into making a wine suitable for the clergy. With the blessing of the church, \
+	and with aid from Zeng-Hu, artisans crafted a technique of 'soleato', drying grapes under the light of electrically-amplified warding spheres, engineered to produce immense heat. The dried grapes are then \
+	pressed, fermented, and aged in Malagan oak barrels for several years. The resulting wine is exceptionally full-bodied and complex, with notes of dried fruit and tobacco. The drying technique has given it the \
+	preemptive blessing of the Luceian Church, and as such wines made using this technique, even of other varietals, are certified for usage in religious communions. Wine such as this is exported to other worlds \
+	at great cost, rivalling other wines in the Spur in their rarity and prestige."
+	icon_state = "assunzionewine"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/wine/assunzione = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/kvass
 	name = "Neubach Original kvass"
