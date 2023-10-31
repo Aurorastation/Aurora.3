@@ -3,7 +3,7 @@
 /// This is a docking airlock, meaning it is connected to a shuttle landmark object.
 /// When some shuttle arrives at that landmark, the actual docking may commence, with the doors of the airlock automatically opening, etc.
 /// This is the station/ship side of that docking (the other being the shuttle).
-/obj/effet/map_effect/marker/airlock/docking
+/obj/effect/map_effect/marker/airlock/docking
 	name = "docking airlock marker"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_airlock_docking"
