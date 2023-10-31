@@ -11,7 +11,7 @@
 /// Airlock marker that, when placed above airlock components (doors, pumps, sensors, etc),
 /// actually sets the airlock up to make it functional.
 /obj/effect/map_effect/marker/airlock
-	name = "airlock marker (inside the airlock)"
+	name = "airlock marker"
 	desc = "MASTER_TAG VAR MUST BE UNIQUE FOR THE AIRLOCK! Place this on top of airlock components (doors, pumps, sensors, etc)."
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_airlock"
@@ -32,7 +32,7 @@
 /// Specialization helper for the airlock marker, to be put above "exterior" parts of the airlock,
 /// and on top of the actual airlock marker. By itself does nothing.
 /obj/effect/map_effect/marker_helper/airlock/exterior
-	name = "airlock marker (exterior/outside/vacuum)"
+	name = "airlock marker helper (exterior/outside/vacuum)"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_helper_airlock_exterior"
 	layer = LIGHTING_LAYER
@@ -40,7 +40,7 @@
 /// Specialization helper for the airlock marker, to be put above "interior" parts of the airlock,
 /// and on top of the actual airlock marker. By itself does nothing.
 /obj/effect/map_effect/marker_helper/airlock/interior
-	name = "airlock marker (interior/inside/pressurized)"
+	name = "airlock marker helper (interior/inside/pressurized)"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_helper_airlock_interior"
 	layer = LIGHTING_LAYER
