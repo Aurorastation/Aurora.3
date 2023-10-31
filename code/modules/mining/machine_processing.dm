@@ -129,7 +129,7 @@
 						ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
 					points = 0
 				else
-					to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
+					ping("<b>\The [src]</b> pings, \"Transaction failed due to a negative point value. No transaction can be done until this value has returned to a positive one.\"")
 			if(params["choice"] == "print_report")
 				print_report(usr)
 		return TRUE
