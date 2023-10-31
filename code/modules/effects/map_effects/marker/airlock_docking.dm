@@ -32,23 +32,28 @@
 
 	var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in loc
 	var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in loc
+	var/is_out = locate(/obj/effect/map_effect/marker_helper/airlock/out) in loc
 
 	// iterate over airlock components under this marker
 	// and actually set them up
 	for(var/thing in loc)
 		// set up the controller
-		var/obj/machinery/embedded_controller/radio/airlock/docking_port/docking_controller = thing
-		if(istype(docking_controller))
-			docking_controller.set_frequency(frequency)
-			docking_controller.id_tag = AIRLOCK_MARKER_TAG_MASTER
-			docking_controller.tag_airpump = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
-			docking_controller.tag_chamber_sensor = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
-			docking_controller.tag_exterior_door = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
-			docking_controller.tag_interior_door = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
-			docking_controller.req_access = required_access
-			docking_controller.airlock_program = new /datum/computer/file/embedded_program/airlock/docking(docking_controller)
-			docking_controller.docking_program = new /datum/computer/file/embedded_program/docking/airlock(docking_controller, docking_controller.airlock_program)
-			docking_controller.program = docking_controller.docking_program
+		var/obj/machinery/embedded_controller/radio/airlock/docking_port/controller = thing
+		if(istype(controller))
+			// common controller vars
+			controller.set_frequency(frequency)
+			controller.id_tag = AIRLOCK_MARKER_TAG_MASTER
+			controller.tag_airpump = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
+			controller.tag_chamber_sensor = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
+			controller.tag_exterior_sensor = AIRLOCK_MARKER_TAG_SENSOR_EXTERIOR
+			controller.tag_exterior_door = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
+			controller.tag_interior_door = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
+			controller.cycle_to_external_air = cycle_to_external_air
+			controller.req_access = required_access
+			// controller subtype specific vars
+			controller.airlock_program = new /datum/computer/file/embedded_program/airlock/docking(controller)
+			controller.docking_program = new /datum/computer/file/embedded_program/docking/airlock(controller, controller.airlock_program)
+			controller.program = controller.docking_program
 			if(SSshuttle.registered_shuttle_landmarks[landmark_tag])
 				var/obj/effect/shuttle_landmark/landmark = SSshuttle.registered_shuttle_landmarks[landmark_tag]
 				landmark.docking_controller = SSshuttle.docking_registry[AIRLOCK_MARKER_TAG_MASTER]
@@ -76,8 +81,13 @@
 		var/obj/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.set_frequency(frequency)
-			sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
 			sensor.master_tag = AIRLOCK_MARKER_TAG_MASTER
+			if(is_interior)
+				sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_INTERIOR
+			else if(is_exterior)
+				sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_EXTERIOR
+			else
+				sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
 			continue
 
 		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
@@ -85,7 +95,12 @@
 			pump.frequency = frequency
 			unregister_radio(pump, frequency)
 			pump.setup_radio()
-			pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
+			if(is_exterior)
+				pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_OUT_EXTERNAL
+			else if(is_out)
+				pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_OUT_INTERNAL
+			else
+				pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
 			continue
 
 		var/obj/machinery/access_button/button = thing
