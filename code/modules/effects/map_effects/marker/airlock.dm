@@ -8,11 +8,11 @@
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_base"
 
-/// Airlock marker that, when placed above airlock components (doors, pumps, sensors, etc),
-/// actually sets the airlock up to make it functional.
+/// Airlock marker that, when placed above airlock components, actually sets them up to make it functional.
+/// This is a simple exterior access airlock, not used for docking.
 /obj/effect/map_effect/marker/airlock
 	name = "airlock marker"
-	desc = "MASTER_TAG VAR MUST BE UNIQUE FOR THE AIRLOCK! Place this on top of airlock components (doors, pumps, sensors, etc)."
+	desc = "See comments/documentation in code."
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_airlock"
 	layer = LIGHTING_LAYER
@@ -28,6 +28,9 @@
 
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
 	var/required_access = list(access_external_airlocks)
+
+	///
+	var/cycle_to_external_air = FALSE
 
 /// Specialization helper for the airlock marker, to be put above "exterior" parts of the airlock,
 /// and on top of the actual airlock marker. By itself does nothing.
@@ -62,11 +65,11 @@
 		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/airlock_controller = thing
 		if(istype(airlock_controller))
 			airlock_controller.set_frequency(frequency)
-			airlock_controller.id_tag = AIRLOCK_MARKER_MASTER_TAG
-			airlock_controller.tag_airpump = AIRLOCK_MARKER_AIRPUMP_TAG
-			airlock_controller.tag_chamber_sensor = AIRLOCK_MARKER_SENSOR_TAG
-			airlock_controller.tag_exterior_door = AIRLOCK_MARKER_EXTERIOR_DOOR_TAG
-			airlock_controller.tag_interior_door = AIRLOCK_MARKER_INTERIOR_DOOR_TAG
+			airlock_controller.id_tag = AIRLOCK_MARKER_TAG_MASTER
+			airlock_controller.tag_airpump = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
+			airlock_controller.tag_chamber_sensor = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
+			airlock_controller.tag_exterior_door = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
+			airlock_controller.tag_interior_door = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
 			airlock_controller.req_access = required_access
 			airlock_controller.program = new /datum/computer/file/embedded_program/airlock(airlock_controller)
 			continue
@@ -77,16 +80,16 @@
 			door.req_access = required_access
 			door.lock()
 			if(is_interior)
-				door.id_tag = AIRLOCK_MARKER_INTERIOR_DOOR_TAG
+				door.id_tag = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
 			else if(is_exterior)
-				door.id_tag = AIRLOCK_MARKER_EXTERIOR_DOOR_TAG
+				door.id_tag = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
 			continue
 
 		var/obj/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.set_frequency(frequency)
-			sensor.id_tag = AIRLOCK_MARKER_SENSOR_TAG
-			sensor.master_tag = AIRLOCK_MARKER_MASTER_TAG
+			sensor.id_tag = AIRLOCK_MARKER_TAG_SENSOR_CHAMBER
+			sensor.master_tag = AIRLOCK_MARKER_TAG_MASTER
 			continue
 
 		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
@@ -94,13 +97,13 @@
 			pump.frequency = frequency
 			unregister_radio(pump, frequency)
 			pump.setup_radio()
-			pump.id_tag = AIRLOCK_MARKER_AIRPUMP_TAG
+			pump.id_tag = AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER
 			continue
 
 		var/obj/machinery/access_button/button = thing
 		if(istype(button))
 			button.set_frequency(frequency)
-			button.master_tag = AIRLOCK_MARKER_MASTER_TAG
+			button.master_tag = AIRLOCK_MARKER_TAG_MASTER
 			button.req_access = required_access
 			if(is_interior)
 				button.command = "cycle_interior"

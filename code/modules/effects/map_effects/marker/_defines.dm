@@ -1,6 +1,8 @@
 
-#define AIRLOCK_MARKER_MASTER_TAG		"[master_tag]"
-#define AIRLOCK_MARKER_AIRPUMP_TAG		"[master_tag]_pump"
-#define AIRLOCK_MARKER_SENSOR_TAG		"[master_tag]_sensor"
-#define AIRLOCK_MARKER_EXTERIOR_DOOR_TAG	"[master_tag]_outer"
-#define AIRLOCK_MARKER_INTERIOR_DOOR_TAG	"[master_tag]_inner"
+#define AIRLOCK_MARKER_TAG_MASTER				"[master_tag]"
+#define AIRLOCK_MARKER_TAG_AIRPUMP_CHAMBER		"[master_tag]_airpump_chamber"
+#define AIRLOCK_MARKER_TAG_SENSOR_CHAMBER		"[master_tag]_sensor_chamber"
+#define AIRLOCK_MARKER_TAG_SENSOR_INTERIOR		"[master_tag]_sensor_interior"
+#define AIRLOCK_MARKER_TAG_SENSOR_EXTERIOR		"[master_tag]_sensor_exterior"
+#define AIRLOCK_MARKER_TAG_DOOR_EXTERIOR		"[master_tag]_door_exterior"
+#define AIRLOCK_MARKER_TAG_DOOR_INTERIOR		"[master_tag]_door_interior"
