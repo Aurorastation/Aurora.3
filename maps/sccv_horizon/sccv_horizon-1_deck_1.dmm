@@ -2812,20 +2812,20 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
 	name = "interior access button";
 	pixel_x = -25;
-	pixel_y = 20;
-	req_one_access = list(31,48,67)
+	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	frequency = 1380;
-	id_tag = "mining_shuttle_interior_sensor";
 	pixel_x = -25;
 	pixel_y = 27
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "bZR" = (
@@ -6992,10 +6992,7 @@
 "eTV" = (
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_external";
-	req_access = list(13)
+	icon_state = "door_locked"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7004,15 +7001,17 @@
 	name = "aft, airlock"
 	},
 /obj/machinery/access_button{
-	command = "cycle_exterior";
 	dir = 1;
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
 	name = "exterior access button";
 	pixel_x = -21;
-	pixel_y = 11;
-	req_one_access = list(31,48,67)
+	pixel_y = 11
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "eVk" = (
@@ -7312,6 +7311,9 @@
 "fbJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,17"
@@ -8080,9 +8082,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -15715,8 +15714,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "kVu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -19650,9 +19654,6 @@
 	},
 /area/shuttle/intrepid/engine_compartment)
 "nBA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	name = "Spark scrubber vent"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -25597,19 +25598,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "rMm" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_internal";
-	req_access = list(13)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -26006,9 +26012,10 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "mining_shuttle_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -27341,28 +27348,23 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	frequency = 1380;
-	id_tag = "mining_shuttle_controller";
 	pixel_x = 25;
-	pixel_y = 5;
-	req_one_access = list(31,48,67);
-	tag_airpump = "mining_shuttle_pump";
-	tag_chamber_sensor = "mining_shuttle_sensor";
-	tag_exterior_door = "mining_shuttle_external";
-	tag_interior_door = "mining_shuttle_internal";
-	tag_interior_sensor = "mining_shuttle_interior_sensor"
+	pixel_y = 5
 	},
 /obj/machinery/airlock_sensor{
 	dir = 8;
-	frequency = 1380;
-	id_tag = "mining_shuttle_sensor";
 	pixel_x = 25;
 	pixel_y = -7
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -30142,7 +30144,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
@@ -31260,10 +31264,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "mining_shuttle_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "vFL" = (
@@ -32536,10 +32542,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "wzA" = (
-/obj/effect/map_effect/marker/airlock/docking{
-	master_tag = "intrepid_shuttle";
-	name = "intrepid_shuttle"
-	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "7,24"
 	},

@@ -157,7 +157,7 @@
 	name = "Spark"
 	move_time = 20
 	shuttle_area = /area/shuttle/mining
-	dock_target = "mining_shuttle_controller"
+	dock_target = "airlock_shuttle_spark"
 	current_location = "nav_hangar_mining"
 	landmark_transition = "nav_transit_mining"
 	range = 1
