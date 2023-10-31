@@ -126,7 +126,7 @@
 				if(points >= 0)
 					ID.mining_points += points
 					if(points != 0)
-						ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
+						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
 					points = 0
 				else
 					ping("<b>\The [src]</b> pings, \"Transaction failed due to a negative point value. No transaction can be done until this value has returned to a positive one.\"")
