@@ -4520,13 +4520,18 @@
 	},
 /area/engineering/atmos/propulsion)
 "dir" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "diJ" = (
@@ -8796,24 +8801,16 @@
 /area/shuttle/mining)
 "fZQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/machinery/access_button{
-	command = "cycle_exterior";
 	dir = 4;
-	frequency = 1385;
 	layer = 3.1;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "exterior access button";
 	pixel_x = -22;
 	pixel_y = 2
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -21;
 	pixel_y = 10
 	},
@@ -8826,6 +8823,13 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "fZX" = (
@@ -12251,16 +12255,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "interior access button";
 	pixel_x = -5;
 	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_interior_sensor";
 	pixel_x = -5;
 	pixel_y = 25
 	},
@@ -12271,6 +12269,13 @@
 	pixel_x = 7;
 	pixel_y = 25
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "iDk" = (
@@ -14270,10 +14275,15 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "jYy" = (
@@ -14572,13 +14582,18 @@
 	c_tag = "Intrepid - Airlock Aft";
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kkS" = (
@@ -14960,8 +14975,6 @@
 /area/horizon/custodial/disposals)
 "kxk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -14974,6 +14987,13 @@
 	name = "Intrepid Shutter"
 	},
 /obj/item/device/radio/intercom/expedition/east,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kyq" = (
@@ -17921,10 +17941,15 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "mxq" = (
@@ -19397,8 +19422,6 @@
 /area/hangar/control)
 "nvn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -19407,6 +19430,13 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nvV" = (
@@ -19494,10 +19524,15 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
@@ -22876,12 +22911,16 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "pTp" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "pTw" = (
@@ -25496,10 +25535,15 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "rKM" = (
@@ -33489,20 +33533,22 @@
 "xjL" = (
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_sensor";
 	pixel_x = -24;
 	pixel_y = -6
 	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xjQ" = (
@@ -33853,12 +33899,16 @@
 /area/operations/storage)
 "xqo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/device/radio/intercom/expedition/east,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
@@ -35174,31 +35224,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "yib" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	cycle_to_external_air = 1;
-	dir = 8;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_x = 24;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in";
-	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
-	},
 /obj/machinery/light/small/red{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "yiT" = (
