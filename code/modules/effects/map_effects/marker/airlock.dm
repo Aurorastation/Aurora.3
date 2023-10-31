@@ -3,11 +3,6 @@
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_base"
 
-/obj/effect/map_effect/marker_helper
-	name = "map marker helper parent abstract object"
-	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "marker_base"
-
 /// Airlock marker that, when placed above airlock components, actually sets them up to make it functional.
 /// This is a simple exterior access airlock, not used for docking.
 /obj/effect/map_effect/marker/airlock
@@ -31,22 +26,6 @@
 
 	///
 	var/cycle_to_external_air = FALSE
-
-/// Specialization helper for the airlock marker, to be put above "exterior" parts of the airlock,
-/// and on top of the actual airlock marker. By itself does nothing.
-/obj/effect/map_effect/marker_helper/airlock/exterior
-	name = "airlock marker helper (exterior/outside/vacuum)"
-	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "marker_helper_airlock_exterior"
-	layer = LIGHTING_LAYER
-
-/// Specialization helper for the airlock marker, to be put above "interior" parts of the airlock,
-/// and on top of the actual airlock marker. By itself does nothing.
-/obj/effect/map_effect/marker_helper/airlock/interior
-	name = "airlock marker helper (interior/inside/pressurized)"
-	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "marker_helper_airlock_interior"
-	layer = LIGHTING_LAYER
 
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()
