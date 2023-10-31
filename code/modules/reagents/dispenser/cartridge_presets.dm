@@ -81,6 +81,9 @@
 /obj/item/reagent_containers/chem_disp_cartridge/ale
 	spawn_reagent = /singleton/reagent/alcohol/ale
 
+/obj/item/reagent_containers/chem_disp_cartridge/applejack
+	spawn_reagent = /singleton/reagent/alcohol/applejack
+
 /obj/item/reagent_containers/chem_disp_cartridge/beer
 	spawn_reagent = /singleton/reagent/alcohol/beer
 
@@ -105,6 +108,9 @@
 /obj/item/reagent_containers/chem_disp_cartridge/tequila
 	spawn_reagent = /singleton/reagent/alcohol/tequila
 
+/obj/item/reagent_containers/chem_disp_cartridge/triplesec
+	spawn_reagent = /singleton/reagent/alcohol/triplesec
+
 /obj/item/reagent_containers/chem_disp_cartridge/vermouth
 	spawn_reagent = /singleton/reagent/alcohol/vermouth
 
@@ -124,6 +130,9 @@
 
 /obj/item/reagent_containers/chem_disp_cartridge/banana
 	spawn_reagent = /singleton/reagent/drink/banana
+
+/obj/item/reagent_containers/chem_disp_cartridge/cranberry
+	spawn_reagent = /singleton/reagent/drink/cranberryjuice
 
 /obj/item/reagent_containers/chem_disp_cartridge/berryjuice
 	spawn_reagent = /singleton/reagent/drink/berryjuice
@@ -154,6 +163,9 @@
 
 /obj/item/reagent_containers/chem_disp_cartridge/lime
 	spawn_reagent = /singleton/reagent/drink/limejuice
+
+/obj/item/reagent_containers/chem_disp_cartridge/lemon
+	spawn_reagent = /singleton/reagent/drink/lemonjuice
 
 /obj/item/reagent_containers/chem_disp_cartridge/orange
 	spawn_reagent = /singleton/reagent/drink/orangejuice

@@ -96,6 +96,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/reagent_containers/chem_disp_cartridge/lime,
 			/obj/item/reagent_containers/chem_disp_cartridge/apple,
+			/obj/item/reagent_containers/chem_disp_cartridge/lemon,
+			/obj/item/reagent_containers/chem_disp_cartridge/cranberry,
 			/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
 			/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
 			/obj/item/reagent_containers/chem_disp_cartridge/banana,
@@ -130,6 +132,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/champagne,
 			/obj/item/reagent_containers/chem_disp_cartridge/rum,
 			/obj/item/reagent_containers/chem_disp_cartridge/tequila,
+			/obj/item/reagent_containers/chem_disp_cartridge/triplesec,
 			/obj/item/reagent_containers/chem_disp_cartridge/vermouth,
 			/obj/item/reagent_containers/chem_disp_cartridge/cognac,
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,
@@ -140,7 +143,9 @@
 
 /obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
 	spawn_cartridges = list(
+			/obj/item/reagent_containers/chem_disp_cartridge/applejack,
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
+			/obj/item/reagent_containers/chem_disp_cartridge/cranberry,
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/reagent_containers/chem_disp_cartridge/lime,
@@ -155,6 +160,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/champagne,
 			/obj/item/reagent_containers/chem_disp_cartridge/rum,
 			/obj/item/reagent_containers/chem_disp_cartridge/tequila,
+			/obj/item/reagent_containers/chem_disp_cartridge/triplesec,
 			/obj/item/reagent_containers/chem_disp_cartridge/vermouth,
 			/obj/item/reagent_containers/chem_disp_cartridge/cognac,
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,

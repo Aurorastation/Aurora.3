@@ -2968,7 +2968,9 @@
 	name = "Triple Sec"
 	description = "An orangey liqueur made from bitter, dried orange peels. Usually mixed with cocktails."
 	taste_description = "orange peel"
+	color = "#fc782b"
 	strength = 12
+	taste_description = "orange peel"
 
 	glass_icon_state = "glass_orange"
 	glass_name = "glass of triple sec"
@@ -3336,7 +3338,7 @@
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of fernet con cola"
+	glass_name = "glass of fernet con coca"
 	glass_desc = "Cola spiked with bitter fernet. A sweet and bitter punch, not for the faint of heart."
 
 /singleton/reagent/alcohol/driestmartini
@@ -4179,7 +4181,7 @@
 	glass_name = "glass of Stars and Stripes"
 	glass_desc = "Someone, somewhere, is saluting."
 
-/singleton/reagent/alcohol/metropolitan
+/singleton/reagent/alcohol/cosmopolitan
 	name = "Cosmopolitan"
 	description = "Sweet, sour, and chic. The Cosmopolitan is a legendary, upscale classic."
 	color = "#f3174e"
@@ -4206,7 +4208,7 @@
 	description = "A blue citrusy spin on the Cosmopolitan, named after the most cosmopolitan city in the Spur."
 	color = "#4f66e7"
 	strength = 27
-	taste_description = "fruity sweetness"
+	taste_description = "citrusy urbanism"
 
 	glass_icon_state = "mendellian"
 	glass_name = "glass of Mendellian"

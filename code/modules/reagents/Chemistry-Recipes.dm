@@ -2903,14 +2903,14 @@
 	name = "Red Dwarf Sangria"
 	id = "reddwarfsangria"
 	result = /singleton/reagent/alcohol/red_dwarf_sangria
-	required_reagents = list(/singleton/reagent/alcohol/assunzionewine = 1, /singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/orangejuice = 1)
+	required_reagents = list(/singleton/reagent/alcohol/wine/assunzione = 1, /singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/orangejuice = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/forbidden_apple
 	name = "Forbidden Apple"
 	id = "forbiddenapple"
 	result = /singleton/reagent/alcohol/forbidden_apple
-	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/alcohol/triplesec = 1, /singleton/reagent/drink/applejack = 1)
+	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/alcohol/triplesec = 1, /singleton/reagent/alcohol/applejack = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/caruso

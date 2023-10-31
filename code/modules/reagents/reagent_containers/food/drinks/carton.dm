@@ -45,6 +45,12 @@
 	icon_state = "limejuice"
 	reagents_to_add = list(/singleton/reagent/drink/limejuice = 100)
 
+/obj/item/reagent_containers/food/drinks/carton/cranberryjuice
+	name = "cranberry juice"
+	desc = "Tart and sweet. A unique flavor for a unique berry."
+	icon_state = "cranberryjuice"
+	reagents_to_add = list(/singleton/reagent/drink/cranberryjuice = 100)
+
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	name = "lemon juice"
 	desc = "This juice is VERY sour."

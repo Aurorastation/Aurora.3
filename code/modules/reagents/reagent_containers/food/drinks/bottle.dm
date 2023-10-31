@@ -460,6 +460,12 @@
 /obj/item/trash/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
 
+/obj/item/reagent_containers/food/drinks/bottle/fernet
+	name = "Mictlan Armago Fernet"
+	desc = "An herbal, bitter liqueur, created using a heavily-guarded family recipe from the Armago family that includes a unique medley of herbs, roots, and spices."
+	icon_state = "fernetbottle"
+	reagents_to_add = list(/singleton/reagent/alcohol/fernet = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
 	name = "Getmore's Bold Peppermint"
 	desc = "Minty fresh. Contains dyn (and just a little peppermint)."
