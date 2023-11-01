@@ -3992,7 +3992,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "cPq" = (
-/obj/effect/shuttle_landmark/horizon/deckone/starboard_propulsion,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/starboard_propulsion,
 /turf/template_noop,
 /area/template_noop)
 "cPt" = (
@@ -5516,7 +5516,7 @@
 	},
 /area/maintenance/wing/starboard/deck1)
 "dTk" = (
-/obj/effect/shuttle_landmark/horizon/nav2,
+/obj/effect/shuttle_landmark/horizon/hangar2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUP" = (
@@ -12068,12 +12068,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
-"itT" = (
-/obj/effect/shuttle_landmark/skipjack_ship/first_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "iuk" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "7,5"
@@ -12963,7 +12957,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "jbS" = (
-/obj/effect/shuttle_landmark/horizon/deckone/starboard,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/starboard,
 /turf/template_noop,
 /area/template_noop)
 "jcd" = (
@@ -16056,12 +16050,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"lnk" = (
-/obj/effect/shuttle_landmark/merc_ship/first_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "lnt" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -19009,7 +18997,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "nhU" = (
-/obj/effect/shuttle_landmark/horizon/deckone/fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/fore,
 /turf/template_noop,
 /area/template_noop)
 "nie" = (
@@ -19947,7 +19935,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
 "nOU" = (
-/obj/effect/shuttle_landmark/horizon/deckone/port,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/port,
 /turf/template_noop,
 /area/template_noop)
 "nPq" = (
@@ -25390,7 +25378,7 @@
 	},
 /area/shuttle/intrepid/atmos_compartment)
 "rDi" = (
-/obj/effect/shuttle_landmark/horizon/deckone/aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/aft,
 /turf/template_noop,
 /area/template_noop)
 "rDE" = (
@@ -27669,7 +27657,7 @@
 	},
 /area/shuttle/mining)
 "tjN" = (
-/obj/effect/shuttle_landmark/horizon/nav1,
+/obj/effect/shuttle_landmark/horizon/hangar1,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "tkS" = (
@@ -33198,7 +33186,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/quarters)
 "xaf" = (
-/obj/effect/shuttle_landmark/horizon/deckone/port_propulsion,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/port_propulsion,
 /turf/template_noop,
 /area/template_noop)
 "xaE" = (
@@ -52907,7 +52895,7 @@ eSV
 eSV
 eSV
 eSV
-itT
+eSV
 eSV
 eSV
 eSV
@@ -66619,7 +66607,7 @@ eSV
 eSV
 eSV
 eSV
-lnk
+eSV
 eSV
 eSV
 eSV

@@ -200,6 +200,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
+"acL" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "adv" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -513,7 +517,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ang" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/port_fore,
 /turf/template_noop,
 /area/template_noop)
 "anJ" = (
@@ -3514,8 +3518,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "bAF" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
 "bAU" = (
 /obj/structure/table/wood,
@@ -7486,7 +7492,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "dAy" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/starboard_fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/starboard_fore,
 /turf/template_noop,
 /area/template_noop)
 "dAF" = (
@@ -8366,7 +8372,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/hallway)
 "dXD" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/port_aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/port_aft,
 /turf/template_noop,
 /area/template_noop)
 "dYe" = (
@@ -9360,7 +9366,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "exF" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/fore,
 /turf/template_noop,
 /area/template_noop)
 "exU" = (
@@ -19562,7 +19568,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jib" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/aft,
 /turf/template_noop,
 /area/template_noop)
 "jih" = (
@@ -22092,6 +22098,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/equipment)
+"ktw" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "ktC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -26873,12 +26885,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
-"mLd" = (
-/obj/effect/shuttle_landmark/merc_ship/second_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "mLn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -27559,6 +27565,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/port)
+"mYa" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "mYp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -34113,6 +34125,9 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, ballast"
 	},
+/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle_2{
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard/far)
 "qhf" = (
@@ -38601,7 +38616,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "sph" = (
-/obj/effect/shuttle_landmark/horizon/decktwo/starboard_aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_2/starboard_aft,
 /turf/template_noop,
 /area/template_noop)
 "spn" = (
@@ -42933,7 +42948,7 @@
 /turf/simulated/wall,
 /area/horizon/kitchen)
 "upQ" = (
-/obj/effect/shuttle_landmark/burglar_ship/second_deck{
+/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle_1{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -50968,12 +50983,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
-"xWc" = (
-/obj/effect/shuttle_landmark/skipjack_ship/second_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "xWr" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -56359,7 +56368,7 @@ nox
 nox
 nox
 dEz
-bAF
+nox
 bAF
 kDC
 kDC
@@ -56561,9 +56570,9 @@ dMK
 dMK
 mQi
 dEz
-bAF
-bAF
-bAF
+nox
+acL
+nsx
 kDC
 qgN
 qgN
@@ -56762,10 +56771,10 @@ vaL
 vaL
 vaL
 czJ
-dEz
-bAF
-bAF
-bAF
+ktw
+nox
+acL
+nsx
 qgO
 qgN
 qgN
@@ -56965,9 +56974,9 @@ vuI
 vuI
 vPt
 dEz
-bAF
-bAF
-bAF
+nox
+acL
+nsx
 kDC
 qgN
 qgN
@@ -57167,8 +57176,8 @@ nox
 nox
 nox
 dEz
-bAF
-bAF
+nox
+mYa
 kDC
 kDC
 qgN
@@ -57314,7 +57323,7 @@ qgN
 qgN
 qgN
 qgN
-xWc
+qgN
 qgN
 qgN
 qgN
@@ -76483,7 +76492,7 @@ qgN
 qgN
 qgN
 qgN
-mLd
+qgN
 qgN
 qgN
 qgN

@@ -45,6 +45,9 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, deck 3 port docks"
 	},
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_3{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "abD" = (
@@ -1691,6 +1694,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
+"bgl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "bgx" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2920,7 +2930,7 @@
 	pixel_y = -12;
 	req_one_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock3{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4564,7 +4574,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "dOV" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/aft,
 /turf/template_noop,
 /area/template_noop)
 "dQq" = (
@@ -6915,7 +6925,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "fxV" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/portfore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/portfore,
 /turf/template_noop,
 /area/template_noop)
 "fyw" = (
@@ -8503,6 +8513,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
+"gGV" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "gHo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -9318,12 +9334,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
-"hll" = (
-/obj/effect/shuttle_landmark/skipjack_ship/third_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "hlt" = (
 /obj/machinery/newscaster/east{
 	pixel_y = 10
@@ -11261,6 +11271,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
+"iLW" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "iMd" = (
 /obj/structure/bed/stool/chair/sofa/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -12329,6 +12346,10 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"jBQ" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "jCl" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -12415,7 +12436,7 @@
 	name = "Docking Port Airlock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock4{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_2{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -13669,7 +13690,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "kyo" = (
-/obj/effect/shuttle_landmark/horizon/dock1,
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2,
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
@@ -16943,7 +16964,8 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "mUu" = (
-/obj/effect/shuttle_landmark/ert/dock,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "mUv" = (
@@ -17077,7 +17099,7 @@
 	name = "Docking Port Airlock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/merc_ship/dock{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -18522,6 +18544,12 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"nZi" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "nZt" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -19866,7 +19894,7 @@
 	name = "Emergency Services Dock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock2{
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
@@ -21518,9 +21546,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "qCN" = (
-/obj/effect/shuttle_landmark/legion/green{
-	dir = 2
-	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "qDc" = (
@@ -25097,7 +25123,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "tmK" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/starboardfore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/starboardfore,
 /turf/template_noop,
 /area/template_noop)
 "tmU" = (
@@ -26198,7 +26224,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/lounge)
 "ubP" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/fore,
 /turf/template_noop,
 /area/template_noop)
 "ubX" = (
@@ -27495,12 +27521,6 @@
 /obj/structure/displaycase/captain_revolver,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"vbi" = (
-/obj/effect/shuttle_landmark/merc_ship/third_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "vbE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -30774,7 +30794,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "xsC" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/portaft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_3/portaft,
 /turf/template_noop,
 /area/template_noop)
 "xtq" = (
@@ -31571,12 +31591,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
-"yja" = (
-/obj/effect/shuttle_landmark/burglar_ship/third_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "yjx" = (
 /obj/machinery/light{
 	dir = 4
@@ -35576,7 +35590,7 @@ dSF
 dSF
 dSF
 dSF
-yja
+dSF
 dSF
 dSF
 dSF
@@ -40036,7 +40050,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 wGH
@@ -40638,24 +40652,24 @@ wGH
 wGH
 wGH
 wGH
+gGV
 wGH
 wGH
+gGV
+qCN
 wGH
-wGH
-wGH
-wGH
-wGH
+gGV
 ebZ
 lPM
 mWT
 ebZ
+gGV
+wGH
+qCN
+gGV
 wGH
 wGH
-wGH
-wGH
-wGH
-wGH
-vkb
+iLW
 dSF
 dSF
 dSF
@@ -41248,7 +41262,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 ebZ
@@ -41257,7 +41271,7 @@ joS
 ebZ
 wGH
 wGH
-wGH
+qCN
 wGH
 vkb
 dSF
@@ -41863,7 +41877,7 @@ xPy
 ebZ
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 vBY
@@ -42006,7 +42020,7 @@ dSF
 dSF
 dSF
 dSF
-vbi
+dSF
 dSF
 dSF
 dSF
@@ -42258,7 +42272,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 ebZ
@@ -42864,7 +42878,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 ebZ
@@ -42873,7 +42887,7 @@ sEe
 ebZ
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 wGH
@@ -43470,7 +43484,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 dce
@@ -43479,7 +43493,7 @@ ccL
 ebZ
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 wGH
@@ -44085,7 +44099,7 @@ sgv
 rdE
 pfL
 lbB
-ebZ
+jBQ
 wGH
 wGH
 wGH
@@ -59833,7 +59847,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 mIx
 fGN
@@ -59841,7 +59855,7 @@ rPg
 mIx
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 wGH
@@ -60439,7 +60453,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 tcM
 fgF
@@ -60447,7 +60461,7 @@ rFk
 tcM
 wGH
 wGH
-wGH
+qCN
 wGH
 wGH
 wGH
@@ -61045,7 +61059,7 @@ wGH
 wGH
 wGH
 wGH
-dHX
+bgl
 wGH
 tcM
 cMi
@@ -61053,7 +61067,7 @@ nKD
 tcM
 wGH
 wGH
-vkb
+mUu
 wGH
 wGH
 wGH
@@ -61448,7 +61462,7 @@ wGH
 wGH
 wGH
 wGH
-qCN
+wGH
 oWq
 fYD
 nDk
@@ -62055,7 +62069,7 @@ wGH
 wGH
 wGH
 wGH
-dHX
+bgl
 wGH
 njG
 wSJ
@@ -62063,7 +62077,7 @@ xXh
 mIx
 wGH
 wGH
-vkb
+mUu
 wGH
 wGH
 vkb
@@ -62661,7 +62675,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+qCN
 wGH
 tcM
 jqz
@@ -62669,7 +62683,7 @@ anT
 mIx
 wGH
 wGH
-wGH
+qCN
 bEW
 kMe
 dSF
@@ -62858,24 +62872,24 @@ wGH
 wGH
 wGH
 wGH
+gGV
 wGH
 wGH
-wGH
-wGH
+gGV
 wGH
 uLF
-wGH
+gGV
 tcM
 abx
 krF
 tcM
+gGV
 wGH
 wGH
-wGH
-vkb
+iLW
 dSF
 dSF
-dSF
+nZi
 dSF
 dSF
 dSF
@@ -63068,7 +63082,7 @@ wGH
 wGH
 wGH
 wGH
-mUu
+wGH
 wGH
 dHX
 wGH
@@ -63267,6 +63281,7 @@ wGH
 wGH
 wGH
 opC
+qCN
 wGH
 wGH
 wGH
@@ -63274,8 +63289,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
-vkb
+mUu
 dSF
 dSF
 dSF
@@ -65631,7 +65645,7 @@ dSF
 dSF
 dSF
 dSF
-hll
+dSF
 dSF
 dSF
 dSF

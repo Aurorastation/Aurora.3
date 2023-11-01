@@ -14,9 +14,16 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
 
-	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
-	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
-	var/list/tracked_dock_tags //landmark_tag of landmarks of docks that will be tracked in the docks computer program
+	/// Landmark tags of landmarks that should be added to the actual lists below on init.
+	/// Generic, meaning usable by any shuttle.
+	/// Can contain nested lists, as it is flattened on init.
+	var/list/initial_generic_waypoints
+	/// Restricted, meaning that only specific shuttles can use them.
+	/// Should be an assoc list like `list("Shuttle" = list("nav_landmark_tag"), ...)`
+	var/list/initial_restricted_waypoints
+	/// Landmark tags of landmarks of docks that will be tracked in the docks computer program.
+	/// Can contain nested lists, as it is flattened on init.
+	var/list/tracked_dock_tags
 
 	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
 	var/list/restricted_waypoints = list() //waypoints for specific shuttles
@@ -65,6 +72,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
+
+	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
+	tracked_dock_tags = flatten_list(tracked_dock_tags)
 
 	var/map_low = OVERMAP_EDGE
 	var/map_high = current_map.overmap_size - OVERMAP_EDGE
