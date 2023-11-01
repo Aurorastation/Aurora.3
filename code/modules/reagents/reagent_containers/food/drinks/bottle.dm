@@ -461,8 +461,12 @@
 	icon_state = "champagne_cork_sabrage"
 
 /obj/item/reagent_containers/food/drinks/bottle/fernet
-	name = "Mictlan Armago Fernet"
+	name = "\improper Mictlan Armago Fernet"
 	desc = "An herbal, bitter liqueur, created using a heavily-guarded family recipe from the Armago family that includes a unique medley of herbs, roots, and spices."
+	desc_extended = "While the exact ingredients remain confidential, rumors speak of saffron, aged myrrh, and a mysterious herb known only to the elders of the family. Whatever the composition, each bottle \
+	is an homage to the multi-generational lineage of the Armago family, with roots back to Chile on Earth. The fernet undergoes a traditional pot-still distillation method, using several goes to evolve the flavor and \
+	ensure purity and potency. The liqueur is then aged in charred oak barrels, lending a smoky flavor. Despite its handcrafted nature, it is a ubiquitous spirit on Mictlan, often being consumed as part of an ever-evolving \
+	range of cocktails and drinks, to add that touch of spice to a drink."
 	icon_state = "fernetbottle"
 	reagents_to_add = list(/singleton/reagent/alcohol/fernet = 100)
 
@@ -542,7 +546,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/rose_wine
-	name = "Coral Twilight Rose"
+	name = "\improper Coral Twilight Rose"
 	desc = "A blended fragrant rose wine with a coral hue from the shores of Silversun. High-quality and fruity."
 	desc_extended = DRINK_FLUFF_SILVERPORT
 	icon_state = "rosewine"
@@ -590,7 +594,7 @@
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/applejack
-	name = "Arvani Special Reserve Applejack"
+	name = "\improper Arvani Special Reserve Applejack"
 	desc = "Smooth distilled applejack liquor From Biesel. Stronger and more flavorful than traditional hard cider."
 	desc_extended = DRINK_FLUFF_ZENGHU
 	icon_state = "applejackbottle"
@@ -598,14 +602,12 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/applejack = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/triplesec
-	name = "La Cerise d'Eclat Triple Sec"
+	name = "\improper Fleur de Majestueux Triple Sec"
 	desc = "A fruity Xanu liqueur made from orange peels. Best mixed as part of cocktails."
 	desc_extended = DRINK_FLUFF_ZENGHU
 	icon_state = "triplesecbottle"
 	center_of_mass = list("x"=16, "y"=7)
 	reagents_to_add = list(/singleton/reagent/alcohol/triplesec = 100)
-
-
 
 // Soda
 
@@ -912,7 +914,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/algae = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
-	name = "Assunzioni Sera Stellata di Dalyan wine"
+	name = "\improper Assunzioni Sera Stellata di Dalyan wine"
 	desc = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione. The standard liturgical wine of choice for upper-echelon priests and clergy of Luceism, although drinking it outside of holy celebrations is hardly sacrilegious."
 	desc_extended = "Rather than rely on technology alone, Assunzioni winemakers sought to incorporate millennia-old traditions into making a wine suitable for the clergy. With the blessing of the church, \
 	and with aid from Zeng-Hu, artisans crafted a technique of 'soleato', drying grapes under the light of electrically-amplified warding spheres, engineered to produce immense heat. The dried grapes are then \
