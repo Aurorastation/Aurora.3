@@ -922,6 +922,10 @@
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
+"btW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "buA" = (
 /obj/structure/flora/pottedplant{
 	dead = 1;
@@ -2627,6 +2631,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
+"ghi" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "gji" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/blaster,
@@ -4362,6 +4370,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "kPY" = (
@@ -5512,6 +5523,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "nyh" = (
@@ -7432,8 +7444,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "rAU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
 	},
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -7519,10 +7531,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "rHI" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -7532,6 +7540,9 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/northleft,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "rJT" = (
@@ -10088,6 +10099,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
+"yeH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	layer = 2.71
+	},
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8;
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freebooter_shuttle)
 "ygA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -44937,7 +44960,7 @@ rQJ
 aEB
 tuB
 fNL
-nRY
+btW
 rAU
 mkb
 syX
@@ -45193,7 +45216,7 @@ atI
 wdp
 dBR
 pob
-nRY
+ghi
 nxF
 kPW
 rDZ
@@ -45452,7 +45475,7 @@ aSb
 aSb
 aSb
 rzA
-aSb
+yeH
 aSb
 kTf
 ugG

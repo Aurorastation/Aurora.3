@@ -1245,7 +1245,7 @@
 /area/maintenance/engineering)
 "aWx" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod1)
 "aWz" = (
@@ -11804,7 +11804,7 @@
 /area/hangar/canary)
 "ifU" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod4)
 "ifX" = (
@@ -22044,7 +22044,7 @@
 /area/maintenance/research_port)
 "pos" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod3)
 "poM" = (
@@ -29944,7 +29944,7 @@
 /area/engineering/atmos)
 "uKW" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod2)
 "uLM" = (
@@ -45836,9 +45836,9 @@ dqy
 vJT
 noz
 eSV
-xDY
+oYQ
 ifU
-xDY
+oYQ
 eSV
 eSV
 eSV
@@ -66339,15 +66339,15 @@ iUg
 jKT
 xst
 eSV
-xDY
+mUk
 uKW
-xDY
+mUk
 eSV
 eSV
 eSV
-xDY
+jzw
 aWx
-xDY
+jzw
 eSV
 eSV
 eSV
