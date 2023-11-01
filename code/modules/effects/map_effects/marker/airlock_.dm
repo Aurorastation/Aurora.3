@@ -21,11 +21,14 @@
 	/// Different airlocks, even on different maps, cannot share the same `master_tag`.
 	var/master_tag = null
 
-	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
-	var/required_access = list(access_external_airlocks)
-
 	///
 	var/cycle_to_external_air = FALSE
+
+	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
+	var/req_access = null
+
+	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
+	var/req_one_access = list(access_external_airlocks)
 
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()
@@ -54,7 +57,8 @@
 			controller.tag_exterior_door = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
 			controller.tag_interior_door = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
 			controller.cycle_to_external_air = cycle_to_external_air
-			controller.req_access = required_access
+			controller.req_access = req_access
+			controller.req_one_access = req_one_access
 			// controller subtype specific vars
 			controller.program = new /datum/computer/file/embedded_program/airlock(controller)
 			continue
@@ -64,7 +68,8 @@
 		var/obj/machinery/door/airlock/door = thing
 		if(istype(door))
 			door.set_frequency(frequency)
-			door.req_access = required_access
+			door.req_access = req_access
+			door.req_one_access = req_one_access
 			door.lock()
 			if(is_interior)
 				door.id_tag = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
@@ -101,7 +106,8 @@
 		if(istype(button))
 			button.set_frequency(frequency)
 			button.master_tag = AIRLOCK_MARKER_TAG_MASTER
-			button.req_access = required_access
+			button.req_access = req_access
+			button.req_one_access = req_one_access
 			if(is_interior)
 				button.command = "cycle_interior"
 			else if(is_exterior)

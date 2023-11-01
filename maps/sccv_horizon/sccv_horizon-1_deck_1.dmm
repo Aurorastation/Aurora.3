@@ -2823,7 +2823,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
@@ -4529,7 +4530,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
@@ -7009,7 +7011,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -8826,7 +8829,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -12272,7 +12276,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -14280,7 +14285,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -14590,7 +14596,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
@@ -14990,7 +14997,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -15717,7 +15725,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -17951,7 +17960,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -19438,7 +19448,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -19534,7 +19545,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -22920,7 +22932,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -25542,7 +25555,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -25607,7 +25621,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -26015,7 +26030,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -27361,7 +27377,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -31267,7 +31284,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
@@ -33549,7 +33567,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -33909,7 +33928,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -35238,7 +35258,8 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_intrepid";
 	name = "airlock_shuttle_intrepid";
-	shuttle_tag = "Intrepid"
+	shuttle_tag = "Intrepid";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
