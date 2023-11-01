@@ -46,6 +46,30 @@
 				<li class="rscdel">Removes the space bar away site.</li>
 				<li class="rscdel">Removes the civilian station away site.</li>
 			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored the old set tick lag verb to the modern set fps one.</li>
+				<li class="backend">Added two functions to set the fps/ticklag, and reset the SStimer bucket to account for the rate change.</li>
+				<li class="backend">The world now starts at 20fps, should slightly speed up the lobby init until the configuration is loaded.</li>
+				<li class="backend">At lobby runlevel, the FPS from the config are loaded resetting the bucket, in theory this should make them consistent with the configured tickrate/time ratio.</li>
+				<li class="rscadd">Clients are now defaulted at 100fps refresh rate, disconnected from the server (world) refresh rate.</li>
+				<li class="rscadd">Some additional insight in the comment above the ticklag configuration.</li>
+				<li class="bugfix">Bags with auto-pickup now respect the tick time limit across all the loop paths.</li>
+				<li class="refactor">Minor refactor to dmdoc /obj/item/storage variables from comments.</li>
+			</ul>
+			<h3 class="author">GeneralCamo, NobleRow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the Xanan service pistol, and its associated ammo and magazine.</li>
+				<li class="tweak">Replaced the San Colette pistol given to the Coalition Consular with a Xanan service pistol.</li>
+				<li class="maptweak">Replaced the San Colette pistol given to the Frontier Rangers with a Xanan service pistol.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Added atmospheric systems to the SSMD shuttle, the Hailstorm shuttle, and the Freebooter shuttle.</li>
+				<li class="refactor">Added an APC, SMES, and wiring to the SSMD shuttle.</li>
+				<li class="bugfix">Fixes windows on the yacht and the Hailstorm ship/shuttle.</li>
+				<li class="bugfix">Fixes wonky air alarm offsets on the SSMD shuttle and the yacht.</li>
+			</ul>
 			<h3 class="author">RustingWithYou updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Skrell Nralakk Federation Consular officers will now spawn correctly with the psi pistol.</li>
@@ -53,6 +77,9 @@
 			<h3 class="author">SleepyGemmy updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixed the pretzel recipe result containing morphine.</li>
+				<li class="bugfix">Fixes some shuttles having old windows.</li>
+				<li class="bugfix">Fixed one of the holodeck templates having a real nullrod.</li>
+				<li class="bugfix">Fixed the chapel office&#x27;s disposal being unpiped.</li>
 			</ul>
 
 			<h2 class="date">27 October 2023</h2>
