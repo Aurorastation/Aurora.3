@@ -225,7 +225,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 #endif
 
 	world.TgsInitializationComplete()
-	world.tick_lag = config.Ticklag
+	world.change_tick_lag(config.Ticklag)
 
 	var/initialized_tod = REALTIMEOFDAY
 
