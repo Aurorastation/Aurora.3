@@ -95,7 +95,7 @@
 	switch(action)
 		if("toggle")
 			if(!active && !anchored)
-				to_chat(usr, SPAN_WARNING("The [src] needs to be firmly secured to the floor first."))
+				to_chat(usr, SPAN_WARNING("\The [src] needs to be firmly secured to the floor first."))
 				return
 			active = !active
 			. = TRUE
