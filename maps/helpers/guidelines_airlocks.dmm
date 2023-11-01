@@ -1,4 +1,15 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ap" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "aw" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -8,11 +19,33 @@
 	pixel_y = -8;
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bl" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bs" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "bx" = (
@@ -21,6 +54,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"bH" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "cp" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
@@ -43,10 +87,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -55,6 +95,38 @@
 /area/template_noop)
 "dA" = (
 /obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"ej" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fd" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "fC" = (
@@ -101,13 +173,23 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"fN" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "gk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -122,6 +204,48 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"hn" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"hA" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"hH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ip" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "js" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/template_noop,
@@ -132,24 +256,74 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"kg" = (
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "kx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "kZ" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"lc" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ld" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lh" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/template_noop,
+/area/template_noop)
+"lF" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ma" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "mk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -204,6 +378,17 @@
 "nd" = (
 /turf/simulated/wall,
 /area/template_noop)
+"np" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "nz" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
@@ -226,6 +411,48 @@
 /obj/effect/map_effect/marker/airlock,
 /turf/template_noop,
 /area/template_noop)
+"nF" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"oa" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ok" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"on" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 4
@@ -244,22 +471,53 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"oS" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"pc" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"pu" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "pV" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "qg" = (
@@ -267,11 +525,11 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qk" = (
@@ -324,6 +582,61 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"rn" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"rq" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"rC" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"rK" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"rL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "sa" = (
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/dark/full,
@@ -370,6 +683,27 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"up" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"uF" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -393,25 +727,84 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/template_noop,
 /area/template_noop)
+"xw" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "xW" = (
-/obj/machinery/access_button{
-	pixel_x = 24;
-	pixel_y = 0;
-	dir = 8
-	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"yk" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "zn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"zt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"zN" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Aa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"AA" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -459,16 +852,32 @@
 /obj/effect/map_effect/marker/airlock/shuttle,
 /turf/template_noop,
 /area/template_noop)
+"AS" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Bl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Bt" = (
@@ -476,10 +885,6 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "BE" = (
@@ -493,6 +898,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"DU" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "DW" = (
 /turf/template_noop,
@@ -512,11 +928,11 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Fj" = (
@@ -538,11 +954,11 @@
 	pixel_y = -8;
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "GH" = (
@@ -560,10 +976,6 @@
 	pixel_y = -8;
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "HE" = (
@@ -579,8 +991,19 @@
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Ix" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -588,11 +1011,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Jy" = (
@@ -600,6 +1023,17 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"JI" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Km" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -609,19 +1043,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Li" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -630,15 +1056,22 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lt" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
+"Lx" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "LF" = (
 /obj/machinery/door/airlock/external{
@@ -650,11 +1083,36 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"LW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Mg" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Nr" = (
@@ -673,11 +1131,11 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "OG" = (
@@ -686,15 +1144,25 @@
 /area/template_noop)
 "Pe" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/machinery/access_button{
 	pixel_y = 28;
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"PB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "PU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -711,15 +1179,26 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qw" = (
 /turf/simulated/floor/airless,
+/area/template_noop)
+"QG" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "QL" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -728,8 +1207,18 @@
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Rf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -741,10 +1230,6 @@
 	pixel_x = 28;
 	pixel_y = -8;
 	dir = 2
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -762,6 +1247,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"Sd" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "SH" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
@@ -772,8 +1272,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_03";
+	name = "airlock_guidelines_unique_tag_03"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -798,8 +1298,8 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -813,8 +1313,36 @@
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"VB" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"VG" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_02";
+	name = "airlock_guidelines_unique_tag_02"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -827,11 +1355,11 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_04";
+	name = "airlock_guidelines_unique_tag_04"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "VO" = (
@@ -949,6 +1477,22 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"Ws" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Wz" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -964,16 +1508,12 @@
 "WC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "WP" = (
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "WW" = (
@@ -981,6 +1521,22 @@
 	dir = 4
 	},
 /turf/template_noop,
+/area/template_noop)
+"Xn" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_01";
+	name = "airlock_guidelines_unique_tag_01"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Xw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1003,11 +1559,33 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Yi" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Yl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_06";
+	name = "airlock_guidelines_unique_tag_06"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Yo" = (
@@ -1034,19 +1612,11 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "YK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -1059,15 +1629,28 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
+/turf/simulated/floor/plating,
+/area/template_noop)
+"YX" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Ze" = (
 /obj/structure/lattice/catwalk,
 /turf/space,
+/area/template_noop)
+"Zx" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_07";
+	name = "airlock_guidelines_unique_tag_07"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "ZK" = (
 /obj/machinery/door/airlock/external{
@@ -1078,11 +1661,11 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "some_unique_master_tag";
-	name = "some_unique_master_tag"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_guidelines_unique_tag_05";
+	name = "airlock_guidelines_unique_tag_05"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 
@@ -1561,9 +2144,9 @@ Lt
 Lt
 Lt
 Lt
-Lt
-Lt
-Lt
+du
+du
+du
 du
 du
 DW
@@ -1639,11 +2222,11 @@ DW
 DW
 DW
 Lt
-kZ
-kZ
+xw
+xw
 Lt
-WP
-Yr
+Lt
+Lt
 Lt
 du
 du
@@ -1720,12 +2303,12 @@ DW
 DW
 DW
 dA
-kZ
-kZ
-ZK
-WP
-WP
-pV
+zt
+fw
+bl
+pc
+LW
+np
 du
 du
 DW
@@ -1801,12 +2384,12 @@ DW
 DW
 DW
 kZ
-HE
-jx
-Lp
-kx
-Li
-FS
+kZ
+kZ
+kg
+oa
+fd
+Xn
 du
 du
 DW
@@ -1882,11 +2465,11 @@ DW
 DW
 DW
 Lt
-qS
-qS
+kZ
+kZ
 Lt
-Vv
-YK
+Lt
+Lt
 Lt
 du
 du
@@ -1966,9 +2549,9 @@ Lt
 Lt
 Lt
 Lt
-Lt
-Lt
-Lt
+du
+du
+du
 du
 du
 DW
@@ -2371,8 +2954,8 @@ Lt
 kZ
 kZ
 Lt
-WP
-Yr
+xW
+rq
 Lt
 du
 du
@@ -2451,10 +3034,10 @@ wP
 GH
 Fj
 Jy
-ZK
-WP
-WP
-pV
+ej
+xW
+xW
+JI
 du
 du
 DW
@@ -2532,10 +3115,10 @@ kZ
 kZ
 HE
 UO
-Lp
-kx
-Li
-FS
+VG
+uF
+on
+AA
 du
 du
 DW
@@ -2614,8 +3197,8 @@ Lt
 qS
 qS
 Lt
-Vv
-YK
+pu
+hA
 Lt
 du
 du
@@ -3100,8 +3683,8 @@ Lt
 kZ
 kZ
 Lt
-WP
-Yr
+ld
+Ix
 Lt
 du
 du
@@ -3180,9 +3763,9 @@ DW
 dA
 kZ
 kZ
-ZK
-WP
-WP
+zN
+ld
+ld
 aw
 du
 du
@@ -3262,8 +3845,8 @@ kZ
 vW
 Cu
 NH
-zn
-Vo
+oS
+ma
 FS
 du
 du
@@ -3344,7 +3927,7 @@ bx
 bx
 Lt
 SH
-gk
+bs
 Lt
 du
 du
@@ -3399,18 +3982,18 @@ nd
 nd
 nd
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 nd
 DW
@@ -3479,19 +4062,19 @@ DW
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3560,19 +4143,19 @@ DW
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3641,19 +4224,19 @@ DW
 DW
 DW
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3722,19 +4305,19 @@ du
 DW
 DW
 DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3803,19 +4386,19 @@ du
 DW
 DW
 DW
+Lt
+kZ
+kZ
+Lt
+WP
+Yr
+Lt
+du
+du
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3830,7 +4413,7 @@ kZ
 kZ
 Lt
 Ij
-Yr
+ap
 Lt
 du
 du
@@ -3884,19 +4467,19 @@ du
 DW
 DW
 DW
+sa
+kZ
+kZ
+YW
+WP
+WP
+KX
+du
+du
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3909,10 +4492,10 @@ DW
 dA
 kZ
 kZ
-ZK
-WP
-WP
-pV
+VB
+yk
+yk
+QG
 du
 du
 DW
@@ -3957,7 +4540,19 @@ kZ
 HE
 jx
 Bt
-kx
+YX
+Li
+Ht
+du
+du
+DW
+DW
+DW
+kZ
+HE
+jx
+Bt
+YX
 Li
 Ht
 du
@@ -3966,18 +4561,6 @@ DW
 DW
 DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -3991,9 +4574,9 @@ kZ
 vW
 Cu
 Bl
-zn
-Vo
-FS
+hH
+PB
+AS
 du
 du
 DW
@@ -4038,7 +4621,7 @@ Lt
 qS
 qS
 Lt
-Vv
+Mg
 YK
 Lt
 du
@@ -4046,19 +4629,19 @@ du
 DW
 DW
 DW
+Lt
+qS
+qS
+Lt
+Mg
+Mg
+Lt
+du
+du
+DW
+DW
+DW
 nd
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 DW
 nd
 DW
@@ -4072,8 +4655,8 @@ Lt
 bx
 bx
 Lt
-gk
-gk
+lF
+lF
 Lt
 du
 du
@@ -4127,18 +4710,18 @@ du
 DW
 DW
 DW
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
-nd
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+du
+du
+DW
+DW
+DW
 nd
 DW
 nd
@@ -4536,7 +5119,7 @@ Lt
 kZ
 kZ
 Lt
-WP
+Yr
 Yr
 Lt
 du
@@ -4686,7 +5269,7 @@ kZ
 HE
 jx
 oG
-kx
+YX
 Li
 Rh
 du
@@ -4698,7 +5281,7 @@ kZ
 HE
 jx
 Bt
-kx
+YX
 Li
 Ht
 du
@@ -4767,7 +5350,7 @@ Lt
 qS
 qS
 Lt
-Vv
+Mg
 YK
 Lt
 du
@@ -4779,8 +5362,8 @@ Lt
 qS
 qS
 Lt
-Vv
-Vv
+Mg
+YK
 Lt
 du
 du
@@ -4799,7 +5382,7 @@ Lt
 Lt
 Lt
 Ql
-Jx
+DU
 Lt
 Lt
 Lt
@@ -4878,12 +5461,12 @@ Lt
 kZ
 kZ
 Lt
-WP
-WP
-WP
-WP
-Yr
-WP
+Lx
+Lx
+Lx
+Lx
+hn
+Lx
 Lt
 du
 du
@@ -4959,13 +5542,13 @@ dA
 kZ
 kZ
 ZK
-WP
-WP
-WP
-WP
-WP
-WP
-pV
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+bH
 du
 du
 DW
@@ -5039,14 +5622,14 @@ DW
 kZ
 vW
 Cu
-Bl
+Aa
 zn
 WC
 zn
 WC
 WC
 Vo
-FS
+Ws
 du
 du
 DW
@@ -5124,8 +5707,8 @@ Lt
 gk
 QL
 gk
-WP
-WP
+Lx
+Lx
 gk
 Lt
 du
@@ -5265,7 +5848,7 @@ Lt
 kZ
 kZ
 Lt
-Yr
+WP
 Yr
 Lt
 du
@@ -5345,7 +5928,7 @@ DW
 sa
 kZ
 kZ
-YW
+KX
 WP
 WP
 KX
@@ -5415,7 +5998,7 @@ kZ
 HE
 jx
 wa
-kx
+YX
 Li
 Wc
 du
@@ -5427,9 +6010,9 @@ kZ
 HE
 jx
 Bt
-kx
+YX
 Li
-Ht
+KX
 du
 du
 DW
@@ -5496,7 +6079,7 @@ Lt
 qS
 qS
 Lt
-Vv
+Mg
 YK
 Lt
 du
@@ -5508,7 +6091,7 @@ Lt
 qS
 qS
 Lt
-Vv
+Mg
 YK
 Lt
 du
@@ -5850,8 +6433,8 @@ Lt
 kZ
 kZ
 Lt
-WP
-Yr
+nF
+rn
 Lt
 du
 OG
@@ -5930,9 +6513,9 @@ DW
 dA
 kZ
 kZ
-ZK
-WP
-WP
+rK
+nF
+nF
 pV
 Qw
 Qw
@@ -6011,10 +6594,10 @@ DW
 kZ
 HE
 jx
-Lp
+lc
 kx
-Li
-FS
+Yl
+Yi
 Qw
 Qw
 Ze
@@ -6062,10 +6645,10 @@ DW
 sa
 kZ
 kZ
-ZK
+Wz
 WP
 WP
-pV
+cH
 Qw
 Qw
 Qw
@@ -6093,8 +6676,8 @@ Lt
 qS
 qS
 Lt
-Vv
-YK
+Sd
+rL
 Lt
 du
 OG
@@ -6143,10 +6726,10 @@ DW
 kZ
 HE
 jx
-Lp
-kx
+wa
+YX
 Li
-pV
+cH
 Qw
 Qw
 Qw
@@ -6225,11 +6808,11 @@ Lt
 qS
 qS
 Lt
-Vv
+Mg
 YK
 Lt
 Qw
-xW
+sN
 Qw
 du
 du
@@ -6741,8 +7324,8 @@ Lt
 Pe
 kZ
 Lt
-WP
-Yr
+rC
+ip
 Lt
 Qw
 qg
@@ -6791,10 +7374,10 @@ DW
 sa
 kZ
 kZ
-ZK
+Wz
 WP
 WP
-pV
+cH
 Qw
 Qw
 Qw
@@ -6821,10 +7404,10 @@ DW
 dA
 kZ
 kZ
-dk
-WP
-WP
-pV
+up
+rC
+rC
+Zx
 Qw
 Qw
 Qw
@@ -6872,10 +7455,10 @@ DW
 kZ
 HE
 jx
-Lp
-kx
+wa
+YX
 Li
-pV
+cH
 Qw
 Qw
 Qw
@@ -6903,9 +7486,9 @@ kZ
 HE
 jx
 Lp
-kx
-Li
-pV
+ok
+Rf
+Zx
 Qw
 Qw
 Qw
@@ -6954,7 +7537,7 @@ Lt
 qS
 qS
 Lt
-Vv
+Mg
 YK
 Lt
 Qw
@@ -6985,7 +7568,7 @@ qS
 qS
 Lt
 Vv
-YK
+fN
 Lt
 Ze
 Ze
