@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - wip: "Optimizations."
+  - refactor: "DMdoced some ZAS variables from comments."
+  - backend: "Optimized air alarms not to reprocess gasses if the atmosphere has not changed, saving more than half of the median execution time."
+  - backend: "Optimized lights overlay updating, which is now around 10 percent more performant in median execution time."
