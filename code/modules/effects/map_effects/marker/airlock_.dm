@@ -5,6 +5,7 @@
 
 /// Airlock marker that, when placed above airlock components, actually sets them up to make it functional.
 /// This is a simple exterior access airlock, not used for docking.
+/// See `maps/helpers/guidelines_airlocks.dmm` for examples of good and bad airlocks.
 /obj/effect/map_effect/marker/airlock
 	name = "airlock marker"
 	desc = "See comments/documentation in code."
@@ -21,14 +22,16 @@
 	/// Different airlocks, even on different maps, cannot share the same `master_tag`.
 	var/master_tag = null
 
-	///
+	/// If true, the airlock will be set up to fill with air from the outside when cycling to exterior,
+	/// and will empty air to outside before filling with interior air. This makes it so exterior and interior atmospheres do not mix.
+	/// Should be used for airlocks that may be used on planets with atmosphere and air (as opposed to ships or space stations that stay in vacuum).
 	var/cycle_to_external_air = FALSE
 
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
-	var/req_access = null
+	req_access = null
 
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
-	var/req_one_access = list(access_external_airlocks)
+	req_one_access = list(access_external_airlocks)
 
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()

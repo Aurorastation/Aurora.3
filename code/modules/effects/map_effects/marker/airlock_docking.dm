@@ -18,12 +18,11 @@
 	/// Unique tag for this airlock. Not visible in game and to the player. Do not leave this as null.
 	/// THIS MUST BE UNIQUE FOR THE AIRLOCK. Every marker in one airlock should have the same `master_tag`.
 	/// Different airlocks, even on different maps, cannot share the same `master_tag`.
-	/// This must be the same as the `docking_controller` tag in the shuttle landmark.
-	/// So that the landmark is aware of this dock.
+	/// This must be the same as the `docking_controller` tag in the shuttle landmark object.
 	master_tag = null
 
-	/// Landmark tag of the shuttle landmark, that this docking port is supposed to be connected to.
-	/// Same as `landmark_tag` of the shuttle landmark, and same as the key for `registered_shuttle_landmarks` in shuttle subsystem.
+	/// Tag of the shuttle landmark, that this docking port is supposed to be connected to.
+	/// Same as `landmark_tag` var of the shuttle landmark object, and same as the key for `registered_shuttle_landmarks` in shuttle subsystem.
 	var/landmark_tag = null
 
 /obj/effect/map_effect/marker/airlock/docking/LateInitialize()
@@ -49,7 +48,8 @@
 			controller.tag_exterior_door = AIRLOCK_MARKER_TAG_DOOR_EXTERIOR
 			controller.tag_interior_door = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
 			controller.cycle_to_external_air = cycle_to_external_air
-			controller.req_access = required_access
+			controller.req_access = req_access
+			controller.req_one_access = req_one_access
 			// controller subtype specific vars
 			controller.airlock_program = new /datum/computer/file/embedded_program/airlock/docking(controller)
 			controller.docking_program = new /datum/computer/file/embedded_program/docking/airlock(controller, controller.airlock_program)
@@ -70,7 +70,8 @@
 		var/obj/machinery/door/airlock/door = thing
 		if(istype(door))
 			door.set_frequency(frequency)
-			door.req_access = required_access
+			door.req_access = req_access
+			door.req_one_access = req_one_access
 			door.lock()
 			if(is_interior)
 				door.id_tag = AIRLOCK_MARKER_TAG_DOOR_INTERIOR
@@ -107,7 +108,8 @@
 		if(istype(button))
 			button.set_frequency(frequency)
 			button.master_tag = AIRLOCK_MARKER_TAG_MASTER
-			button.req_access = required_access
+			button.req_access = req_access
+			button.req_one_access = req_one_access
 			if(is_interior)
 				button.command = "cycle_interior"
 			else if(is_exterior)

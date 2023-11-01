@@ -21424,7 +21424,7 @@
 	req_access = list(150)
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "burglar_shuttle";
 	name = "airlock controller";
 	pixel_x = 23;
@@ -24375,17 +24375,17 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "burglar_shuttle_hatch";
 	locked = 1;
 	req_access = list(150)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
+	dir = 2;
 	id = "burglar_blast";
 	layer = 3;
 	name = "blast door";
-	pixel_y = -21;
+	pixel_y = -19;
 	req_access = list(150)
 	},
 /turf/simulated/floor/shuttle/black,
@@ -25032,15 +25032,15 @@
 /area/antag/burglar)
 "bjs" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/burglar)
 "bjt" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/burglar)
 "bju" = (
 /obj/structure/shuttle/engine/propulsion/burst/right,
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/burglar)
 "bjw" = (
 /obj/machinery/light/small/emergency,
@@ -26653,7 +26653,7 @@
 /area/template_noop)
 "boa" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_base";
 	pixel_x = -25;
 	pixel_y = -5
@@ -27251,7 +27251,7 @@
 "boT" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_inner";
 	name = "Ship External Access";
 	req_access = list(0)
@@ -27260,8 +27260,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "smindicate2";
 	name = "internal blast door";
-	pixel_y = 23;
-	req_access = list(150)
+	pixel_y = 26;
+	req_access = list(150);
+	dir = 1
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -27275,7 +27276,7 @@
 "boU" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_pump"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -27288,7 +27289,7 @@
 	dir = 1
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_sensor";
 	pixel_x = 8;
 	pixel_y = 25
@@ -27299,11 +27300,11 @@
 "boW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle";
 	pixel_x = -8;
 	pixel_y = 25;
@@ -27317,7 +27318,7 @@
 "boX" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_outer";
 	name = "Ship External Access";
 	req_access = list(150)
@@ -27333,15 +27334,16 @@
 /obj/machinery/button/remote/blast_door{
 	id = "smindicate";
 	name = "external blast door";
-	pixel_y = 23;
-	req_access = list(150)
+	pixel_y = 26;
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "boY" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_base_hatch";
 	req_access = list(150)
 	},
@@ -27597,7 +27599,7 @@
 "bpE" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_inner";
 	name = "Ship External Access";
 	req_access = list(0)
@@ -27605,7 +27607,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1380;
 	master_tag = "merc_shuttle";
 	name = "interior access button";
 	pixel_x = -1;
@@ -27629,7 +27631,7 @@
 "bpG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_pump"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -27640,7 +27642,7 @@
 "bpH" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_shuttle_outer";
 	name = "Ship External Access";
 	req_access = list(150)
@@ -27655,7 +27657,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1337;
+	frequency = 1380;
 	master_tag = "merc_shuttle";
 	name = "exterior access button";
 	pixel_x = 1;
@@ -27667,7 +27669,7 @@
 "bpI" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merc_base_hatch";
 	req_access = list(150)
 	},
@@ -30357,11 +30359,12 @@
 	name = "blast door"
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 2;
 	id = "raiderblastdoor";
 	name = "blast door";
 	pixel_x = 25;
-	req_access = list(150)
+	req_access = list(150);
+	pixel_y = 13
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
