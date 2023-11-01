@@ -592,7 +592,6 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/distress/blue
 	name = "First Deck Port Hangar Bay 2b"
 	landmark_tag = "nav_distress_blue"
-	docking_controller = "distress_shuttle_dock"
 	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_turf = /turf/simulated/floor/plating

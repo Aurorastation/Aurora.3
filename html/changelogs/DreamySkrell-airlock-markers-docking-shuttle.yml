@@ -44,3 +44,4 @@ changes:
   - maptweak: "Remaps third deck docks to use docking airlock markers."
   - maptweak: "Remaps Intrepid and Spark to use docking airlock markers."
   - maptweak: "Changes frequencies of airlocks of antag shuttles to work with new docks."
+  - bugfix: "Fixes bad canary and ert shuttle docking controller tags."

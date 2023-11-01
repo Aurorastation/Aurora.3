@@ -2352,7 +2352,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	dir = 8;
 	frequency = 1386;
-	id_tag = "canary";
+	id_tag = "canary_dock";
 	name = "\improper Canary docking port controller";
 	pixel_x = 22;
 	pixel_y = -19;
