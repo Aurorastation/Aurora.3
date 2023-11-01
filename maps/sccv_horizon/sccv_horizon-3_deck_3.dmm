@@ -5908,31 +5908,6 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA";
-	pixel_y = 32
-	},
-/obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "specops_dock_airlock_outer";
-	locked = 1;
-	name = "Port Docking Hatch";
-	req_access = list(13)
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, deck 3 port docks"
-	},
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_3{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "eJU" = (
@@ -10837,23 +10812,6 @@
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
 	name = "airlock_horizon_dock_deck_3_starboard_1";
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "nuke_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1{
-	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -16395,32 +16353,6 @@
 	pixel_x = 28;
 	dir = 2
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "dock_horizon_4_airlock";
-	name = "exterior access button";
-	pixel_x = 21;
-	pixel_y = -12;
-	req_one_access = list(13)
-	},
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_4_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_2{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "mrb" = (
@@ -18738,21 +18670,6 @@
 	name = "airlock_horizon_dock_deck_3_starboard_2";
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2,
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_1_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "ocK" = (
@@ -19839,32 +19756,6 @@
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
 	name = "airlock_horizon_dock_deck_3_starboard_3";
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "dock_horizon_3_airlock";
-	name = "exterior access button";
-	pixel_x = 21;
-	pixel_y = -12;
-	req_one_access = list(13)
-	},
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3{
-	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -30610,23 +30501,6 @@
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_aft_exterior";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1{
-	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
