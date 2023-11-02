@@ -1,4 +1,6 @@
 /datum/shuttle/autodock/multi
+	/// Tags of all the landmarks that this should can go to.
+	/// Can contain nested lists, as it is flattened before use.
 	var/list/destination_tags
 	var/list/destinations_cache = list()
 	var/last_cache_rebuild_time = 0
@@ -17,6 +19,7 @@
 /datum/shuttle/autodock/multi/proc/build_destinations_cache()
 	last_cache_rebuild_time = world.time
 	destinations_cache.Cut()
+	destination_tags = flatten_list(destination_tags)
 	for(var/destination_tag in destination_tags)
 		var/obj/effect/shuttle_landmark/landmark = SSshuttle.get_landmark(destination_tag)
 		if(istype(landmark))

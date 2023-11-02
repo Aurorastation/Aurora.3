@@ -176,7 +176,7 @@
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
-		/obj/item/gun/projectile/colt/super = 1
+		/obj/item/gun/projectile/xanupistol = 1
 	)
 
 /datum/citizenship/elyra
