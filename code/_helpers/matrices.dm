@@ -6,14 +6,6 @@
 /atom/proc/SpinAnimation(speed = 10, loops = -1, clockwise = 1, segments = 3)
 	if(!segments)
 		return
-	if(loops > 100)
-		crash_with("Spin animation with over 100 loops called!")
-	if(loops < 0)
-		crash_with("Spin animation with negative loops called!")
-	if(speed > 100)
-		crash_with("Spin animation with over 100 speed called!")
-	if(speed < 0)
-		crash_with("Spin animation with negative speed called!")
 	var/segment = 360/segments
 	if(!clockwise)
 		segment = -segment

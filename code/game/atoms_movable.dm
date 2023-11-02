@@ -214,10 +214,18 @@
 			dist_since_sleep = 0
 			sleep(1)
 		a = get_area(src.loc)
-		// and yet it moves
+		/// Objects thrown in space should not infinitely spin. It lags the server to hell.
+		var/spin_safety_check = 0
 		if(do_throw_animation)
 			if(src.does_spin)
-				src.SpinAnimation(speed = 4, loops = 1)
+				if(spin_safety_check < 100)
+					src.SpinAnimation(speed = 4, loops = 1)
+					spin_safety_check++
+				else
+					message_admins("[src] has exceeded the spin safety check of 100! Deleting.")
+					stack_trace("[src] has exceeded the spin safety check of 100! Deleting.")
+					qdel(src)
+					break
 
 	//done throwing, either because it hit something or it finished moving
 	if(isturf(loc) && isobj(src))
