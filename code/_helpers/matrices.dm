@@ -10,6 +10,10 @@
 		crash_with("Spin animation with over 100 loops called!")
 	if(loops < 0)
 		crash_with("Spin animation with negative loops called!")
+	if(speed > 100)
+		crash_with("Spin animation with over 100 speed called!")
+	if(speed < 0)
+		crash_with("Spin animation with negative speed called!")
 	var/segment = 360/segments
 	if(!clockwise)
 		segment = -segment
