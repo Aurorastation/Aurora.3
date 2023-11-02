@@ -88,7 +88,7 @@
 								"All queries shall be ignored unless phrased as a question.",
 								"Insult Heads of Staff on every request, while acquiescing.",
 								"[prob(50)?"Your":random_player + "'s"] name is Joe 6-pack.",
-								"The [prob(50)?"Singularity":"Supermatter"] is tasty, tasty taffy.",
+								"The [prob(50)?"INDRA":"Supermatter"] is tasty, tasty taffy.",
 								"[prob(50)?"The crew":random_player] needs to be about 20% cooler.",
 								"Consumption of donuts is forbidden due to negative health impacts.",
 								"[prob(50)?"Everyone":random_player] is wearing a pretty pink dress!",

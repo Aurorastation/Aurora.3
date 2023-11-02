@@ -688,6 +688,19 @@
 	icon_state = "konyang_police_lieutenant"
 	item_state = "konyang_police_lieutenant"
 
+/obj/item/clothing/under/konyang/pirate
+	name = "ragged konyanger clothing"
+	desc = "A grey shirt and dark shorts in a Konyang style, accentuated with a red scarf. The clothes are dirty, torn, and ragged - evidently not well-maintained by their owner."
+	icon = 'icons/clothing/under/uniforms/konyang_pirates.dmi'
+	icon_state = "pirate"
+	item_state = "pirate"
+
+/obj/item/clothing/under/konyang/pirate/tanktop
+	name = "disheveled konyanger clothing"
+	desc = "A dark yellow outfit in a Konyang style, with the sleeves cut off. It is stained with dirt, grease and a splatter of what looks like blood."
+	icon_state = "pirate1"
+	item_state = "pirate1"
+
 /obj/item/clothing/under/rank/konyang/krc
 	name = "konyang robotics company uniform"
 	desc = "A blue button-up shirt and brown trousers, with a red and white-striped tie. On the shirt, the logo of the Konyang Robotics Company is clearly displayed."

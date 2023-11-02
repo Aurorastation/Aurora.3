@@ -5876,9 +5876,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ang" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "An automatic shuttle's mainframe.";
@@ -5904,9 +5901,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "anl" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "An automatic shuttle's mainframe.";
@@ -15517,12 +15511,6 @@
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
-"aOh" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/suppy)
 "aOi" = (
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -16660,7 +16648,9 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "aQY" = (
-/obj/structure/window/shuttle/scc,
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/supply/dock)
 "aRa" = (
@@ -16783,9 +16773,6 @@
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "aRx" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "An automatic shuttle's mainframe.";
@@ -38020,7 +38007,7 @@
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
-/obj/item/nullrod/dominia,
+/obj/item/nullrod/dominia/holodeck,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_tribunal)
 "lGe" = (
@@ -40678,10 +40665,6 @@
 /obj/item/mecha_equipment/mounted_system/combat/smg,
 /obj/item/mecha_equipment/mounted_system/combat/smg,
 /obj/item/mecha_equipment/mounted_system/combat/smg,
-/obj/item/mecha_equipment/mounted_system/combat/pulse,
-/obj/item/mecha_equipment/mounted_system/combat/pulse,
-/obj/item/mecha_equipment/mounted_system/combat/pulse,
-/obj/item/mecha_equipment/mounted_system/combat/pulse,
 /obj/item/mecha_equipment/mounted_system/combat/laser,
 /obj/item/mecha_equipment/mounted_system/combat/laser,
 /obj/item/mecha_equipment/mounted_system/combat/laser,
@@ -41194,12 +41177,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
-"xND" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/turf/simulated/wall/shuttle/scc,
-/area/supply/dock)
 "xNG" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -50101,19 +50078,19 @@ tnF
 aJs
 aJs
 aNR
-aOh
 aOU
 aOi
 aOi
 aOi
 aOi
+aOi
+aOi
+aOi
+aOi
+aOi
+aOi
+aOi
 aOU
-aOi
-aOi
-aOi
-aOi
-aOU
-aSm
 aNR
 aaa
 aaa
@@ -50625,7 +50602,7 @@ aQJ
 anh
 aQJ
 aPv
-xND
+aMt
 aMt
 aOi
 aNR
@@ -51653,7 +51630,7 @@ aQJ
 aQK
 aQJ
 ani
-xND
+aMt
 aMt
 aOi
 aNR
@@ -52157,19 +52134,19 @@ tDg
 aJx
 aJs
 aNR
-aOh
 aPc
 aOi
 aOi
 aOi
 aOi
-aPc
-aOi
-aOi
-aOi
 aOi
 aPc
-aSm
+aOi
+aOi
+aOi
+aOi
+aOi
+aPc
 aNR
 aaa
 aaa

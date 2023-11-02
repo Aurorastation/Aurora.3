@@ -55,7 +55,7 @@
 
 /singleton/recipe/rofflewaffles
 	appliance = OVEN
-	reagents = list(/singleton/reagent/psilocybin = 5, /singleton/reagent/sugar = 10)
+	reagents = list(/singleton/reagent/drugs/psilocybin = 5, /singleton/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough

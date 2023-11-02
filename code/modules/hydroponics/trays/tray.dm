@@ -62,7 +62,7 @@
 		/singleton/reagent/toxin/plantbgone =	  3,
 		/singleton/reagent/cryoxadone =			 -3,
 		/singleton/reagent/radium =				  2,
-		/singleton/reagent/raskara_dust =		2.5
+		/singleton/reagent/drugs/raskara_dust =		2.5
 		)
 	var/global/list/nutrient_reagents = list(
 		/singleton/reagent/drink/milk =				 0.1,
