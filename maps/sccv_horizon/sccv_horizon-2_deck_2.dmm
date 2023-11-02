@@ -7119,11 +7119,6 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_x = 9;
-	pixel_y = -24
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
 "drw" = (
@@ -11603,11 +11598,18 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/firealarm/east,
+/obj/machinery/firealarm/east{
+	pixel_y = 5
+	},
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
