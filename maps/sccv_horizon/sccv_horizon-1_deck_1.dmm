@@ -12979,7 +12979,7 @@
 /turf/simulated/wall,
 /area/engineering/drone_fabrication)
 "jeq" = (
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /obj/structure/window/reinforced{
 	dir = 8
 	},

@@ -470,7 +470,7 @@
 /area/golden_deep/captain)
 "fj" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/empty/nitrous_oxide,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "fr" = (

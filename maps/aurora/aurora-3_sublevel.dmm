@@ -3997,7 +3997,7 @@
 /area/engineering/atmos)
 "ajh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "aji" = (
@@ -4738,7 +4738,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "akV" = (
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "akW" = (
@@ -17842,7 +17842,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},

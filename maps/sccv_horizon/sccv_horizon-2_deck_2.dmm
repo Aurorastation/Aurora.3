@@ -21737,7 +21737,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/eastleft,
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "khK" = (
