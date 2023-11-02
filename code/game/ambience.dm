@@ -155,6 +155,13 @@
 	'sound/ambience/expoutpost/expoutpost4.ogg'\
 	)
 
+//Defines Tension Ambience
+#define AMBIENCE_TENSION list(\
+    'sound/ambience/tension/tension.ogg',\
+    'sound/ambience/tension/argitoth.ogg',\
+    'sound/ambience/tension/horror.ogg',\
+    'sound/ambience/tension/burning_terror.ogg'\
+    )
 //CHOMP Edit Sounds for Substation rooms. Just electrical sounds, really.
 #define AMBIENCE_SUBSTATION list(\
 	'sound/ambience/substation/substation1.ogg',\
