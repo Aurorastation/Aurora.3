@@ -28,6 +28,22 @@
 	tag_icon = "dionae_ironsong"
 	text_tag = "INS"
 
+//Human Influenced Accents
+
+/datum/accent/meadowsong
+	name = ACCENT_MEADOWSONG
+	description = "Influenced by the people of Mictlan, Meadowsong is found only among the Primitive Sirens. It's often considered an even more musical accent than most, with a near-constant sing-song inflection."
+	tag_icon = "dionae_meadow"
+	text_tag = "MWS"
+
+//Vaurca Influenced Accents
+
+/datum/accent/pestsong
+	name = ACCENT_PESTSONG
+	description = "Unique to those known as the Pests of Titan Prime, this accent is influenced by the buzzing and clacking noises of Vaurca, and as such tends to sound much harsher to the ears than many other Dionae accents."
+	tag_icon = "dionae_pest"
+	text_tag = "PTS"
+
 //Unathi Influenced Accents
 /datum/accent/sandsong
 	name = ACCENT_SANDSONG

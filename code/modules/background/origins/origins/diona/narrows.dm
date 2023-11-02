@@ -13,7 +13,7 @@
 	important_information = "Most Dionae that come from A-Block can be expected to be fully trained in whatever position they held on the ship, as such seeing a member of the A-Block in a training position off of the ship is exceedingly rare. While most Dionae who leave the ship will oftentimes be employed by Hephaestus due to agreements between the megacorp and the ship, some do find employment elsewhere in the other megacorps."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/b_block
 	name = "B-block"
@@ -21,7 +21,7 @@
 	important_information = "Most Dionae that come from B-Block can be expected to be fully trained in whatever position they held on the ship, as such seeing a member of the B-Block in a training position off of the ship is exceedingly rare. While most Dionae who leave the ship will oftentimes be employed by Hephaestus due to agreements between the megacorp and the ship, some do find employment elsewhere in the other megacorps."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/c_block
 	name = "C-block"
@@ -29,4 +29,4 @@
 	important_information = "The level of training members of the C-Block have in their positions can vary from Dionae to Dionae, with some being only partially trained while others have had plenty of training and experience from their time aboard the ship. While most Dionae who leave the ship will oftentimes be employed by Hephaestus due to agreements between the megacorp and the ship, some do find employment elsewhere in the other megacorps."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)

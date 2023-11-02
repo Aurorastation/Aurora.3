@@ -1,0 +1,10 @@
+
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - imageadd: "Added two new Dionae accents, for the Pests of Titan Prime and the Primitive Sirens of Mictlan."
+  - tweak: "Added the Iron Eternal and Ichor Eternal as religion options for Dionae."
+  - tweak: "Updated Xrim origin to modern standards, with the Enlightened and Scorned."
+  - tweak: "Restricted some Dionae accents and religions for certain origins."
