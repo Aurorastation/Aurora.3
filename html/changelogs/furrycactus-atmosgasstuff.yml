@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Updated some atmos equipment to properly recognise the majority of the new gasses. They can now be individually filtered."
+  - rscadd: "Updated some atmos equipment to properly recognise the majority of the new gasses. They can now be individually filtered, most importantly."
   - imageadd: "Added new canister sprites for the majority of the new gasses."
+  - tweak: "Replaced the few remaining references to sleeping_agent with nitrous_oxide."
