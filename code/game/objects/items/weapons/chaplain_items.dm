@@ -16,7 +16,8 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
-	var/cooldown = 0 // floor tap cooldown
+	var/can_change_form = TRUE // For holodeck check.
+	var/cooldown = 0 // Floor tap cooldown.
 	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm,
 									"Mata'ke Sword" = /obj/item/nullrod/matake, "Rredouane Sword" = /obj/item/nullrod/rredouane, "Shumaila Hammer" = /obj/item/nullrod/shumaila, "Zhukamir Ladle" = /obj/item/nullrod/zhukamir, "Azubarre Torch" = /obj/item/nullrod/azubarre)
 
@@ -35,6 +36,10 @@
 	core in the shaft, and is heavier than it seems."
 	icon_state = "tribunalrod"
 	item_state = "tribunalrod"
+
+// Unreassembleable Variant for the Holodeck
+/obj/item/nullrod/dominia/holodeck
+	can_change_form = FALSE
 
 /obj/item/nullrod/staff
 	name = "null staff"
@@ -143,6 +148,11 @@
 	set name = "Reassemble Null Item"
 	set category = "Object"
 	set src in usr
+
+	// Holodeck Check
+	if(!can_change_form)
+		to_chat(user, SPAN_NOTICE("You can't change a holographic item's form..."))
+		return
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return

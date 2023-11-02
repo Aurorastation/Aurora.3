@@ -11,7 +11,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/cyclops_crew
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Cyclops Crew"
@@ -23,18 +23,37 @@
 
 	uniform = /obj/item/clothing/under/rank/miner/heph
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/heph
 
 	id = /obj/item/card/id/hephaestus
 
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_BULWARK = /obj/item/clothing/shoes/vaurca
+	)
 
 /datum/outfit/admin/cyclops_crew/miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+	if(isvaurca(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		H.internal = preserve
+		H.internals.icon_state = "internal1"
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
+		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+		A.replaced(H, affected)
+		H.update_body()
 
 /datum/outfit/admin/cyclops_crew/get_id_access()
 	return list(access_hephaestus,access_external_airlocks)
@@ -49,7 +68,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/cyclops_crew/security
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Security Officer"
@@ -59,8 +78,6 @@
 	name = "Hephaestus Security Officer"
 
 	uniform = /obj/item/clothing/under/rank/security/heph
-	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel
 
 /datum/ghostspawner/human/cyclops_crew/captain
 	short_name = "cyclops_captain"
@@ -83,7 +100,6 @@
 	name = "Cyclops Crew Captain"
 
 	uniform = /obj/item/clothing/under/rank/captain/hephaestus
-	shoes = /obj/item/clothing/shoes/workboots/dark
 	back = /obj/item/storage/backpack/satchel/leather
 
 /datum/ghostspawner/human/cyclops_crew/engineer
@@ -107,7 +123,15 @@
 	name = "Hephaestus Engineer"
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
-	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel
+	gloves = /obj/item/clothing/gloves/yellow
+	species_gloves = list(
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_TAJARA = /obj/item/clothing/gloves/yellow/specialt,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,
+		SPECIES_VAURCA_WARRIOR = null,
+		SPECIES_VAURCA_WORKER = null,
+		SPECIES_VAURCA_BULWARK = null
+	)
 
 

@@ -10,7 +10,7 @@
 	total_health = 240
 	age_min = 30
 	age_max = 1000
-	default_genders = list(NEUTER)
+	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
