@@ -15,33 +15,74 @@
 /obj/item/storage
 	name = "storage"
 	w_class = ITEMSIZE_NORMAL
-	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
-	var/can_hold_strict = FALSE // if strict, the exact path has to be matched
-	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
-	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
-	var/max_w_class = ITEMSIZE_NORMAL //Max size of objects that this object can store (in effect only if can_hold isn't set)
-	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
-	var/storage_slots //The number of storage slots in this container.
-	var/force_column_number // the number of columns the storage item will appear to have
+
+	///List of objects which this item can store (if set, it can't store anything else)
+	var/list/can_hold
+
+	///Boolean, if strict, the exact path has to be matched
+	var/can_hold_strict = FALSE
+
+	///List of objects which this item can't store (in effect only if can_hold isn't set)
+	var/list/cant_hold
+
+	///List of mobs which are currently seeing the contents of this item's storage
+	var/list/is_seeing
+
+	///Max size of objects that this object can store (in effect only if can_hold isn't set)
+	var/max_w_class = ITEMSIZE_NORMAL
+
+	///The sum of the storage costs of all the items in this storage item
+	var/max_storage_space = 8
+
+	///The number of storage slots in this container
+	var/storage_slots
+
+	///The number of columns the storage item will appear to have
+	var/force_column_number
+
 	var/obj/screen/storage/boxes
-	var/obj/screen/storage/storage_start //storage UI
+
+	///storage UI
+	var/obj/screen/storage/storage_start
+
 	var/obj/screen/storage/storage_continue
 	var/obj/screen/storage/storage_end
 	var/list/storage_screens = list()
 	var/obj/screen/close/closer
 	var/care_about_storage_depth = TRUE
-	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
-	var/list/pickup_blacklist = list() // If you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
-	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
+
+	///Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
+	var/use_to_pickup
+
+	///A list of blacklisted items; if you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
+	var/list/pickup_blacklist = list()
+
+	///Set this to make the storage item group contents of the same type and display them as a number.
+	var/display_contents_with_number
+
 	/// Set if you want the item's initials to be displayed on the bottom left of the item. only works when display_contents_with_number is true
 	var/display_contents_initials
-	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
-	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
-	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
-	var/use_sound = /singleton/sound_category/rustle_sound	//sound played when used. null for no sound.
-	var/list/starts_with // for pre-filled items
-	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
-	var/animated = TRUE 	///Boolean, whether or not we should have the squish animation when inserting and removing objects
+
+	///Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
+	var/allow_quick_empty
+
+	///Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
+	var/allow_quick_gather
+
+	///Boolean, `FALSE` = pick one at a time, `TRUE` = pick all on tile
+	var/collection_mode = TRUE
+
+	///Sound played when used. null for no sound.
+	var/use_sound = /singleton/sound_category/rustle_sound
+
+	/// List of pre-filled items
+	var/list/starts_with
+
+	///Time it takes to empty bag, this is multiplies by number of objects stored
+	var/empty_delay = 0 SECOND
+
+	///Boolean, whether or not we should have the squish animation when inserting and removing objects
+	var/animated = TRUE
 
 /obj/item/storage/Destroy()
 	close_all()
