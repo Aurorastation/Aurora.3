@@ -1469,7 +1469,6 @@
 /area/maintenance/research_port)
 "ben" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/silicon/robot/shell,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "beu" = (
@@ -6839,9 +6838,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "eNY" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -18603,16 +18599,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mVo" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - First Deck Chamber";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/cooled,
-/area/turret_protected/ai)
 "mVJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -34427,7 +34413,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "xKI" = (
-/obj/item/modular_computer/console/preset/ai,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -61343,7 +61328,7 @@ qco
 rUd
 xKI
 xre
-mVo
+xre
 xre
 fVh
 rUd

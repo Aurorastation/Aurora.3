@@ -5257,9 +5257,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Foyer"
 	},
@@ -6184,8 +6181,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/cooled,
-/area/turret_protected/ai)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload_foyer)
 "cRu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -7269,8 +7267,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -9422,14 +9420,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "eyY" = (
-/obj/machinery/door/blast/regular/open{
-	id = "AICore";
-	name = "AI Maintenance Blast Door"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/cooled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/turret_protected/ai)
 "eAl" = (
 /obj/machinery/camera/network/service{
@@ -11064,9 +11059,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "fnd" = (
@@ -16558,14 +16551,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "hHM" = (
-/obj/structure/ladder{
-	pixel_y = 4
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Aft";
 	dir = 1
 	},
-/turf/simulated/open,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/fancy,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "hHV" = (
 /obj/structure/cable/green{
@@ -16815,13 +16809,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "hRY" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - Second Deck Airlock"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/cooled,
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "AI SMES";
+	req_access = list(16)
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "AICore";
+	name = "AI Maintenance Blast Door"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/turret_protected/ai)
 "hSp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -21442,7 +21443,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "kat" = (
@@ -23178,12 +23178,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "kXO" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
+/obj/item/modular_computer/console/preset/ai{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "kXS" = (
 /obj/structure/disposalpipe/segment{
@@ -25791,13 +25789,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "mjW" = (
-/obj/structure/extinguisher_cabinet/south,
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/warning{
+/obj/item/modular_computer/console/preset/ai{
 	dir = 8
 	},
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled,
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "mke" = (
 /obj/structure/cable/green{
@@ -28539,9 +28535,6 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nue" = (
@@ -28948,12 +28941,10 @@
 /turf/simulated/open,
 /area/operations/office)
 "nFm" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 8
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nFs" = (
@@ -30507,13 +30498,6 @@
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
-"osY" = (
-/obj/effect/map_effect/airlock/w_to_e{
-	name = "Deck 2 AI Internal Airlock (2101)";
-	radio_frequency = 2101
-	},
-/turf/simulated/wall/r_wall,
-/area/turret_protected/ai)
 "otf" = (
 /obj/machinery/turretid/stun{
 	check_synth = 1;
@@ -33879,9 +33863,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "qcs" = (
@@ -36740,13 +36721,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "rtH" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/mauve/full,
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Maintenance Stairwell";
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rtI" = (
@@ -39198,11 +39178,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/machinery/power/apc/critical/north,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -49391,7 +49367,10 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "xkH" = (
-/turf/simulated/open,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/silicon/robot/shell,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "xkQ" = (
 /obj/structure/cable/green{
@@ -77119,9 +77098,9 @@ mRl
 uEq
 uEq
 kpC
-hst
+cyZ
 cRs
-osY
+cyZ
 sHR
 xcp
 ahm
@@ -79146,7 +79125,7 @@ fDA
 gxa
 azO
 rtH
-xkH
+kXO
 mBB
 jwY
 hqi
@@ -79347,7 +79326,7 @@ dvf
 fmV
 bgN
 dpE
-kXO
+nPA
 xkH
 mBB
 bHL
