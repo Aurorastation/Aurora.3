@@ -694,6 +694,12 @@
 /obj/item/clothing/accessory/storage/overalls,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"gf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "gi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -2952,6 +2958,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"Fq" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/shuttle_landmark{
+	dir = 1
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "Fu" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2982,9 +2996,7 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "FN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3611,6 +3623,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/structure/closet/crate/tool,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "NZ" = (
@@ -4117,8 +4130,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "TG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 9
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -4717,6 +4730,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
+"YZ" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "Zd" = (
 /obj/machinery/door/firedoor,
@@ -35490,11 +35508,11 @@ HF
 HF
 HF
 HF
+RB
 HF
 HF
-HF
-HF
-HF
+RB
+RB
 HF
 HF
 Jd
@@ -38046,7 +38064,7 @@ Xp
 vD
 aI
 nk
-IB
+gV
 aI
 ZJ
 eI
@@ -38296,8 +38314,8 @@ uf
 xM
 Vn
 jT
+FN
 OJ
-px
 px
 uK
 st
@@ -38553,8 +38571,8 @@ KT
 KT
 cP
 oL
+gf
 ke
-FN
 Ky
 gb
 Fg
@@ -39350,13 +39368,13 @@ lc
 QV
 Xj
 Xj
+Ys
 Xj
 Xj
+Ys
 Xj
 Xj
-Xj
-Xj
-Xj
+Ys
 Xj
 Xj
 Xj
@@ -39862,7 +39880,7 @@ aI
 aI
 QV
 QV
-Xj
+rT
 Xj
 Xj
 Xj
@@ -40633,7 +40651,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -41144,10 +41162,10 @@ HF
 bB
 bB
 bB
-Xj
-Xj
-Xj
-Xj
+bB
+bB
+bB
+bB
 Xj
 Xj
 Xj
@@ -41399,12 +41417,12 @@ HF
 HF
 HF
 HF
+pU
 HF
-Wi
-Xj
-Xj
-Xj
-Xj
+pU
+pU
+HF
+YZ
 Xj
 Xj
 Xj
@@ -41656,12 +41674,12 @@ RB
 RB
 RB
 HF
+PJ
 HF
-dG
-Xj
-Xj
-Xj
-Xj
+RB
+RB
+HF
+iT
 Xj
 Xj
 Xj
@@ -41907,18 +41925,18 @@ EE
 Fp
 IS
 iT
+bB
+bB
 Xj
 Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+bB
+bB
+bB
+HF
+iT
 Xj
 Xj
 Xj
@@ -42174,8 +42192,8 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
+HF
+Fq
 Xj
 Xj
 Xj
@@ -42689,7 +42707,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -43460,7 +43478,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -44231,7 +44249,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -44747,13 +44765,13 @@ Xj
 Xj
 Xj
 Xj
+Ys
 Xj
 Xj
+Ys
 Xj
 Xj
-Xj
-Xj
-Xj
+Ys
 Xj
 Xj
 Xj
