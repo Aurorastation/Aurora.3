@@ -6,7 +6,7 @@
 // Variables not to expand the lists of. Vars is pointless to expand, and overlays/underlays cannot be expanded.
 /var/list/view_variables_dont_expand = list("overlays", "underlays", "vars", "screen", "our_overlays", "priority_overlays", "queued_overlays")
 // Variables that runtime if you try to test associativity of the lists they contain by indexing
-/var/list/view_variables_no_assoc = list("verbs", "contents")
+/var/list/view_variables_no_assoc = list("verbs", "contents", "vis_contents")
 
 // Acceptable 'in world', as VV would be incredibly hampered otherwise
 /client/proc/debug_variables(datum/D in world)
@@ -64,11 +64,11 @@
 							<a id='refresh' data-initial-href='?_src_=vars;datumrefresh=\ref[D];search=' href='?_src_=vars;datumrefresh=\ref[D];search=[search]'>Refresh</a>
 							<form>
 								<select name='file'
-								        size='1'
-								        onchange='loadPage(this.form.elements\[0\])'
-								        target='_parent._top'
-								        onmouseclick='this.focus()'
-								        style='background-color:#ffffff'>
+										size='1'
+										onchange='loadPage(this.form.elements\[0\])'
+										target='_parent._top'
+										onmouseclick='this.focus()'
+										style='background-color:#ffffff'>
 									<option>Select option</option>
 									<option />
 									<option value='?_src_=vars;mark_object=\ref[D]'>Mark Object</option>
@@ -95,12 +95,12 @@
 				</td>
 				<td width='80%'>
 					<input type='text'
-					       id='filter'
-					       name='filter_text'
-					       value='[search]'
-					       onkeyup='updateSearch()'
-					       onchange='updateSearch()'
-					       style='width:100%;' />
+						id='filter'
+						name='filter_text'
+						value='[search]'
+						onkeyup='updateSearch()'
+						onchange='updateSearch()'
+						style='width:100%;' />
 				</td>
 			</tr></table>
 			<hr/>
@@ -131,9 +131,7 @@
 	var/vtext = ""
 	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
-	if(isnull(value))
-		// get_debug_type displays this
-	else if(istext(value))
+	if(istext(value))
 		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
 		vtext = "\"[html_encode(value)]\""
 	else if(isicon(value))

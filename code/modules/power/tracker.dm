@@ -54,7 +54,7 @@
 	//set icon dir to show sun illumination
 	set_dir(turn(NORTH, -angle - 22.5))	// 22.5 deg bias ensures, e.g. 67.5-112.5 is EAST
 
-	if(powernet && (powernet == control.powernet)) //update if we're still in the same powernet
+	if(powernet && (powernet == control?.powernet)) //update if we're still in the same powernet
 		control.cdir = angle
 
 /obj/machinery/power/tracker/attackby(var/obj/item/W, var/mob/user)
@@ -76,8 +76,7 @@
 // Tracker Electronic
 
 /obj/item/tracker_electronics
-
 	name = "tracker electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
 	w_class = ITEMSIZE_SMALL

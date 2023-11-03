@@ -2,7 +2,7 @@
 	name = "Hephaestus Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
@@ -45,7 +45,7 @@
 	name = "Zeng Hu Pharmaceuticals Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
@@ -83,7 +83,7 @@
 	name = "Zavodskoi Interstellar Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/security/zavod
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots
 	belt = /obj/item/storage/belt/military
@@ -133,7 +133,7 @@
 /datum/outfit/admin/megacorp/einstein_trooper/heavy
 	name = "Einstein Engines Asset Protection"
 
-	uniform = /obj/item/clothing/under/rank/engineer/heph
+	uniform = /obj/item/clothing/under/rank/einstein
 	back = /obj/item/rig/ert/assetprotection/einstein
 	belt = /obj/item/storage/belt/security/tactical
 	shoes = null

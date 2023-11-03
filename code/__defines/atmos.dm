@@ -79,6 +79,7 @@
 #define XGM_GAS_FUEL        1
 #define XGM_GAS_OXIDIZER    2
 #define XGM_GAS_CONTAMINANT 4
+#define XGM_GAS_FUSION_FUEL 8
 
 #define TANK_LEAK_PRESSURE     (30.*ONE_ATMOSPHERE) // Tank starts leaking.
 #define TANK_RUPTURE_PRESSURE  (40.*ONE_ATMOSPHERE) // Tank spills all contents into atmosphere.
@@ -93,6 +94,10 @@
 #define ZONE_ACTIVE   1
 #define ZONE_SLEEPING 0
 
+#define MAX_VENT_PRESSURE 15000 // 15000 kPa of pressure.
+#define PRESSURE_ONE_THOUSAND 1000 // 1000 kPa of pressure. Allows for easier searchability.
+#define PRESSURE_EXERTED 200 // 200 kPa of pressure.
+
 // Defines how much of certain gas do the Atmospherics tanks start with. Values are in kpa per tile (assuming 20C)
 #define ATMOSTANK_NITROGEN      90000 // A lot of N2 is needed to produce air mix, that's why we keep 90MPa of it
 #define ATMOSTANK_OXYGEN        40000 // O2 is also important for airmix, but not as much as N2 as it's only 21% of it.
@@ -100,7 +105,7 @@
 #define ATMOSTANK_PHORON        25000
 #define ATMOSTANK_PHORON_SCARCE 2500  // we're also in the middle of a phoron shortage - the old ATMOSTANK_PHORON define is staying in case someone wants to map in a phoron tank or something
 #define ATMOSTANK_HYDROGEN      25000
-#define ATMOSTANK_NITROUSOXIDE  10000 // N2O doesn't have a real useful use, i guess it's on station just to allow refilling of sec's riot control canisters?
+#define ATMOSTANK_NITROUSOXIDE  40000 // N2O does have a real use now! It can be used instead of oxygen to do burns for the thrusters. This means we need more of it though, otherwise there isn't really enough.
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
 
@@ -113,6 +118,12 @@
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
 #define GAS_STEAM				"water"
+#define GAS_SULFUR				"sulfurdioxide"
+#define GAS_CHLORINE			"chlorine"
+#define GAS_HELIUM				"helium"
+#define GAS_DEUTERIUM			"deuterium"
+#define GAS_TRITIUM				"tritium"
+#define GAS_BORON				"boron"
 
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"
@@ -127,5 +138,7 @@
 #define CONNECT_TYPE_SUPPLY		2
 #define CONNECT_TYPE_SCRUBBER	4
 #define CONNECT_TYPE_HE			8
+#define CONNECT_TYPE_FUEL		16
+#define CONNECT_TYPE_AUX		32
 
 var/global/list/pipe_colors = list("grey" = PIPE_COLOR_GREY, "red" = PIPE_COLOR_RED, "blue" = PIPE_COLOR_BLUE, "cyan" = PIPE_COLOR_CYAN, "green" = PIPE_COLOR_GREEN, "yellow" = PIPE_COLOR_YELLOW, "black" = PIPE_COLOR_BLACK, "purple" = PIPE_COLOR_PURPLE)

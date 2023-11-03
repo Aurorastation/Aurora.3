@@ -14,7 +14,7 @@
 
 /datum/autolathe/recipe/flashlight
 	name = "flashlight"
-	path = /obj/item/device/flashlight
+	path = /obj/item/device/flashlight/empty
 	category = "General"
 
 /datum/autolathe/recipe/floor_light
@@ -46,7 +46,7 @@
 
 /datum/autolathe/recipe/bowl
 	name = "bowl"
-	path = /obj/item/reagent_containers/cooking_container/plate/bowl
+	path = /obj/item/reagent_containers/cooking_container/board/bowl
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
@@ -100,7 +100,7 @@
 	category = "General"
 
 /datum/autolathe/recipe/radio_bounced
-	name = "station bounced radio"
+	name = "shortwave radio"
 	path = /obj/item/device/radio/off
 	category = "General"
 
@@ -599,3 +599,13 @@
 	path = /obj/item/clothing/gloves/brassknuckles
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/grenade
+	name = "grenade casing"
+	path = /obj/item/grenade/chem_grenade
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/grenade/large
+	name = "large grenade casing"
+	path = /obj/item/grenade/chem_grenade/large
+	hidden = TRUE

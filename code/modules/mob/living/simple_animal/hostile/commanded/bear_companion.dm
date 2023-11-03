@@ -56,8 +56,8 @@
 //WE DANCE!
 /mob/living/simple_animal/hostile/commanded/bear/misc_command(var/mob/speaker,var/text)
 	stay_command()
-	stance = COMMANDED_MISC //nothing can stop this ride
-	INVOKE_ASYNC(src, .proc/command_dance)
+	change_stance(COMMANDED_MISC) //nothing can stop this ride
+	INVOKE_ASYNC(src, PROC_REF(command_dance))
 
 /mob/living/simple_animal/hostile/commanded/bear/proc/command_dance()
 	visible_message("\The [src] starts to dance!.")
@@ -78,6 +78,6 @@
 			set_dir(EAST)
 		visible_message("\The [src] [message]")
 		sleep(30)
-	stance = COMMANDED_STOP
+	change_stance(COMMANDED_STOP)
 	set_dir(SOUTH)
 	visible_message("\The [src] bows, finished with [get_pronoun("his")] dance.")

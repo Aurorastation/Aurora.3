@@ -3,10 +3,11 @@
 /obj/effect/accelerated_particle
 	name = "Accelerated Particles"
 	desc = "Small things moving very fast."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator.dmi'
 	icon_state = "particle"//Need a new icon for this
 	anchored = TRUE
 	density = FALSE
+	var/active = FALSE
 	var/movement_range = 10
 	var/energy = 10		//energy in eV
 	var/mega_energy = 0	//energy in MeV
@@ -31,60 +32,76 @@
 	movement_range = 20
 	energy = 50
 
-/obj/effect/accelerated_particle/New(loc, dir = 2)
-	src.forceMove(loc)
-	src.set_dir(dir)
+/obj/effect/accelerated_particle/Initialize(maploading, dir = 2)
+	. = ..()
+	set_dir(dir)
 	if(movement_range > 20)
 		movement_range = 20
-	spawn(0)
-		move(1)
-	return
-
+	active = TRUE
+	move(1)
 
 /obj/effect/accelerated_particle/Collide(atom/A)
-	. = ..()
+	if (!active)
+		return
 	if (A)
 		if(ismob(A))
 			toxmob(A)
 		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity/)))
 			A:energy += energy
-	return
+		else if(istype(A, /obj/machinery/power/fusion_core))
+			var/obj/machinery/power/fusion_core/collided_core = A
+			if(particle_type && particle_type != "neutron")
+				if(collided_core.AddParticles(particle_type, 1 + additional_particles))
+					collided_core.owned_field.plasma_temperature += mega_energy
+					collided_core.owned_field.energy += energy
+					qdel(src)
+		else if(istype(A, /obj/effect/fusion_particle_catcher))
+			var/obj/effect/fusion_particle_catcher/PC = A
+			if(particle_type && particle_type != "neutron")
+				if(PC.parent.owned_core.AddParticles(particle_type, 1 + additional_particles))
+					PC.parent.plasma_temperature += mega_energy
+					PC.parent.energy += energy
+					qdel(src)
 
 /obj/effect/accelerated_particle/CollidedWith(atom/A)
 	. = ..()
+	if (!active)
+		return
 	if(ismob(A))
 		toxmob(A)
 
-
 /obj/effect/accelerated_particle/ex_act(severity)
+	if (!active)
+		return
 	qdel(src)
-	return
 
-
-
-/obj/effect/accelerated_particle/proc/toxmob(var/mob/living/M)
+/obj/effect/accelerated_particle/proc/toxmob(mob/living/M)
+	if (!active)
+		return
 	var/radiation = (energy*2)
-	M.apply_damage((radiation*3), IRRADIATE, damage_flags = DAM_DISPERSED)
+	M.apply_damage((radiation*3), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	M.updatehealth()
-	return
 
-
-/obj/effect/accelerated_particle/proc/move(var/lag)
+/obj/effect/accelerated_particle/proc/move(lag)
+	set waitfor = FALSE
+	if(QDELETED(src))
+		return
+	if (!active)
+		return
+	var/destination
 	if(target)
-		if(movetotarget)
-			if(!step_towards(src,target))
-				src.forceMove(get_step(src, get_dir(src,target)))
-			if(get_dist(src,target) < 1)
-				movetotarget = 0
-		else
-			if(!step(src, get_step_away(src,source)))
-				src.forceMove(get_step(src, get_step_away(src,source)))
+		destination = movetotarget ? get_step_towards(src, target) : get_step_away(src, source)
 	else
-		if(!step(src,dir))
-			src.forceMove(get_step(src,dir))
+		destination = get_step(src, dir)
+	if(!step_towards(src, destination))
+		if(QDELETED(src))
+			return
+		forceMove(destination)
+	if(target && movetotarget && (get_dist(src,target) < 1))
+		movetotarget = FALSE
 	movement_range--
 	if(movement_range <= 0)
 		qdel(src)
-	else
-		sleep(lag)
-		move(lag)
+		return
+	sleep(lag)
+	move(lag)

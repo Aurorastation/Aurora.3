@@ -11,3 +11,7 @@
 #define OVERMAP_WEAKNESS_EMP 2
 #define OVERMAP_WEAKNESS_MINING 4
 #define OVERMAP_WEAKNESS_EXPLOSIVE 8
+
+#define SENSOR_COEFFICENT 1000
+
+#define waypoint_sector(waypoint) map_sectors["[waypoint.z]"]

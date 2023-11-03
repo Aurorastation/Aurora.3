@@ -53,8 +53,8 @@
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
-			bad_turfs += circlerangeturfs(get_turf(AB),8)
-			good_turfs += circlerangeturfs(get_turf(AB),9)
+			bad_turfs += circle_range_turfs(get_turf(AB),8)
+			good_turfs += circle_range_turfs(get_turf(AB),9)
 		if(length(good_turfs) && length(bad_turfs))
 			good_turfs -= bad_turfs
 			if(length(good_turfs))
@@ -138,7 +138,7 @@
 	var/turf/curturf = get_turf(teleatom)
 	var/area/destarea = get_area(destination)
 	if(precision)
-		var/list/posturfs = circlerangeturfs(destination,precision)
+		var/list/posturfs = circle_range_turfs(destination,precision)
 		destturf = LAZYPICK(posturfs, null)
 	else
 		destturf = get_turf(destination)
@@ -219,7 +219,7 @@
 							if(organs_to_gib.len)
 								var/obj/item/organ/external/E = pick(organs_to_gib)
 								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
-								H.apply_damage(35, BRUTE, E, 0)
+								H.apply_damage(35, DAMAGE_BRUTE, E, 0)
 
 					else
 						if(newdest)

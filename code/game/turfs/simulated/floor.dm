@@ -1,16 +1,19 @@
 /turf/simulated/floor
 	name = "plating"
+	desc = "The naked hull."
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 
 	// Damage to flooring.
 	var/broken
 	var/burnt
+	var/broken_overlay
+	var/burned_overlay
 
 	// Flooring data.
 	var/flooring_override
 	var/initial_flooring
-	var/decl/flooring/flooring
+	var/singleton/flooring/flooring
 	var/mineral = DEFAULT_WALL_MATERIAL
 
 	thermal_conductivity = 0.040
@@ -44,16 +47,12 @@
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
-		set_flooring(decls_repository.get_decl(floortype), mapload)
+		set_flooring(GET_SINGLETON(floortype), mapload)
 
-/turf/simulated/floor/proc/set_flooring(decl/flooring/newflooring, mapload)
+/turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)
 		make_plating(defer_icon_update = 1)
 	flooring = newflooring
-	//Set the initial strings
-	name = flooring.name
-	desc = flooring.desc
-	footstep_sound = flooring.footstep_sound
 	if (mapload)
 		queue_icon_update()
 	else
@@ -65,6 +64,7 @@
 /turf/simulated/floor/proc/make_plating(var/place_product, var/defer_icon_update)
 
 	cut_overlays()
+
 	if(islist(decals))
 		decals.Cut()
 		decals = null
@@ -73,8 +73,10 @@
 	desc = base_desc
 	icon = base_icon
 	icon_state = base_icon_state
+	color = base_color
 
 	if(flooring)
+		flooring.on_remove()
 		if(flooring.build_type && place_product)
 			new flooring.build_type(src)
 		flooring = null

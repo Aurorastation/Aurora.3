@@ -1,5 +1,5 @@
 #ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it! 
+#error T_BOARD macro is not defined but we need it!
 #endif
 
 //Stuff that doesn't fit into any category goes here
@@ -167,30 +167,10 @@
 	desc = "The circuitboard for a holopad."
 	build_path = /obj/machinery/hologram/holopad
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 2)
-	board_type = "machine" 
+	board_type = "machine"
 	req_components = list(
 							"/obj/item/stock_parts/capacitor" = 2,
 							"/obj/item/stock_parts/scanning_module" = 1)
-
-/obj/item/circuitboard/crystelpodconsole
-	name = T_BOARD("Crystal Therapy Pod Console")
-	desc = "The circuitboard for a crystal therapy pod console."
-	build_path = /obj/machinery/chakraconsole
-	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/stock_parts/scanning_module" = 2,
-							"/obj/item/stock_parts/capacitor" = 1)
-
-/obj/item/circuitboard/crystelpod
-	name = T_BOARD("Crystal Therapy Pod")
-	desc = "The circuitboard for a crystal therapy pod."
-	build_path = /obj/machinery/chakrapod
-	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/stock_parts/scanning_module" = 2,
-							"/obj/item/stock_parts/capacitor" = 2)
 
 /obj/item/circuitboard/weapons_analyzer
 	name = T_BOARD("Weapons Analyzer")
@@ -214,3 +194,12 @@
 							"/obj/item/stock_parts/matter_bin" = 1,
 							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/stock_parts/scanning_module" = 1)
+/obj/item/circuitboard/oxyregenerator
+	name = "circuit board (oxygen regenerator)"
+	build_path = /obj/machinery/atmospherics/binary/oxyregenerator
+	board_type = "machine"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+		"/obj/item/stock_parts/micro_laser" = 1,
+		"/obj/item/stock_parts/manipulator" = 1,
+		"/obj/item/stock_parts/matter_bin" = 1)

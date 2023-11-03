@@ -27,7 +27,7 @@
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/holder/cat
-	mob_size = 2.5
+	mob_size = 3.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
 	max_nutrition = 60
@@ -59,7 +59,7 @@
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
-				addtimer(CALLBACK(src, .proc/attack_mice), 2)
+				addtimer(CALLBACK(src, PROC_REF(attack_mice)), 2)
 				break
 
 
@@ -103,7 +103,7 @@
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
 	handle_movement_target()
-	addtimer(CALLBACK(src, .proc/attack_mice), 3)
+	addtimer(CALLBACK(src, PROC_REF(attack_mice)), 3)
 	..()
 
 /mob/living/simple_animal/cat/proc/handle_radiation_light()
@@ -150,16 +150,11 @@
 
 /mob/living/simple_animal/cat/death()
 	.=..()
-	stat = DEAD
+	set_stat(DEAD)
 
 /mob/living/simple_animal/cat/Life()
 	. = ..()
 	handle_radiation_light()
-
-/mob/living/simple_animal/cat/apply_radiation_effects()
-	. = ..()
-	if(.)
-		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
@@ -251,10 +246,15 @@
 				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
 		else
 			if (prob(5))
-				visible_emote(pick("nuzzles [friend].",
-								   "brushes against [friend].",
-								   "rubs against [friend].",
-								   "purrs."),0)
+				var/emote = pick(
+								"nuzzles [friend].",
+								"brushes against [friend].",
+								"rubs against [friend].",
+								"purrs.",
+								)
+
+				visible_emote(emote, 0)
+
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
@@ -295,7 +295,7 @@
 	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
 
@@ -311,7 +311,7 @@
 	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
 
@@ -358,6 +358,6 @@
 	holder_type = /obj/item/holder/cat/crusher
 
 /mob/living/simple_animal/cat/crusher/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

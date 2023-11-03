@@ -32,13 +32,13 @@
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
 	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."))
-	if(do_after(user, 3 SECONDS))
+	if(do_after(user, 3 SECONDS, src, DO_UNIQUE))
 		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
 		hider = user
 		if(ishuman(user) && prob(5))
 			var/mob/living/carbon/human/H = user
-			H.take_overall_damage(5, 0, DAM_SHARP, src)
+			H.take_overall_damage(5, 0, DAMAGE_FLAG_SHARP, src)
 			to_chat(user, SPAN_WARNING("You cut yourself while climbing into \the [src]!"))
 
 /obj/structure/trash_pile/relaymove(mob/user)
@@ -54,7 +54,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.a_intent == I_HURT)
 			H.visible_message("<b>[user]</b> starts taking \the [src] apart...", SPAN_NOTICE("You start taking \the [src] apart..."))
-			if(do_after(user, 2 MINUTES))
+			if(do_after(user, 2 MINUTES, src, DO_UNIQUE))
 				H.visible_message("<b>[user]</b> takes \the [src] apart.", SPAN_NOTICE("You takes \the [src] apart."))
 				for(var/i = 1 to 5)
 					var/obj/item/I = give_item()
@@ -66,7 +66,7 @@
 		if(hider)
 			to_chat(hider, SPAN_WARNING("[user] is searching the trash pile you're in!"))
 		//Do the searching
-		if(do_after(user, rand(4 SECONDS, 6 SECONDS)))
+		if(do_after(user, rand(4 SECONDS, 6 SECONDS), src, DO_UNIQUE))
 			var/unique_string = "[user.ckey]-[user.real_name]"
 			//If there was a hider, chance to reveal them
 			if(eject_hider(50, user))
@@ -117,7 +117,7 @@
 		/obj/item/storage/box = 5,
 		/obj/item/clothing/head/hardhat = 4,
 		/obj/item/clothing/mask/breath = 4,
-		/obj/item/clothing/shoes/black = 4,
+		/obj/item/clothing/shoes/sneakers/black = 4,
 		/obj/item/clothing/shoes/laceup = 4,
 		/obj/item/clothing/shoes/laceup/brown = 4,
 		/obj/item/clothing/suit/storage/hazardvest = 4,
@@ -126,13 +126,13 @@
 		/obj/item/cell/device = 4,
 		/obj/item/reagent_containers/food/snacks/liquidfood = 4,
 		/obj/item/spacecash/c1 = 4,
-		/obj/item/storage/backpack/satchel = 4,
+		/obj/item/storage/backpack/satchel/leather = 4,
 		/obj/item/storage/briefcase = 4,
 		/obj/item/clothing/accessory/storage/webbing = 3,
 		/obj/item/clothing/gloves/botanic_leather = 3,
 		/obj/item/clothing/head/hardhat/red = 3,
 		/obj/item/clothing/mask/gas = 3,
-		/obj/item/clothing/suit/apron = 3,
+		/obj/item/clothing/accessory/apron/random = 3,
 		/obj/item/clothing/suit/storage/toggle/bomber = 3,
 		/obj/item/clothing/suit/storage/toggle/brown_jacket = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie = 3,
@@ -170,10 +170,10 @@
 		/obj/item/clothing/glasses/sunglasses = 1,
 		/obj/item/clothing/glasses/welding = 1,
 		/obj/item/clothing/gloves/yellow = 1,
-		/obj/item/clothing/head/bio_hood/general = 1,
+		/obj/item/clothing/head/hazmat/general = 1,
 		/obj/item/clothing/head/ushanka = 1,
-		/obj/item/clothing/shoes/syndigaloshes = 1,
-		/obj/item/clothing/suit/bio_suit/general = 1,
+		/obj/item/clothing/shoes/galoshes/syndie = 1,
+		/obj/item/clothing/suit/hazmat/general = 1,
 		/obj/item/clothing/suit/space/emergency = 1,
 		/obj/item/clothing/under/gearharness = 1,
 		/obj/item/clothing/under/tactical = 1,
@@ -206,7 +206,7 @@
 		/obj/item/trap = 1,
 		/obj/item/cell/hyper/empty = 1,
 		/obj/item/material/knife/tacknife = 1,
-		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/trauma = 1,
 		/obj/item/reagent_containers/pill/dexalin_plus = 1
 		)
 

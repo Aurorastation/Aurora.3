@@ -5,27 +5,33 @@
 	program_key_icon_state = "green_key"
 	extended_desc = "This program allows communication over the NTRC network."
 	size = 2
-	requires_ntnet = FALSE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	program_type = PROGRAM_TYPE_ALL
 	network_destination = "NTRC server"
-	available_on_ntnet = TRUE
 	color = LIGHT_COLOR_GREEN
-	silent = FALSE
+	tgui_id = "ChatClient"
 
 	var/datum/ntnet_user/my_user
 	var/datum/ntnet_conversation/focused_conv
+	var/datum/ntnet_conversation/active
 
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	var/set_offline = FALSE			// appear "invisible"
-
 	var/ringtone = "beep"
 	var/message_mute = FALSE
-
 	var/syndi_auth = FALSE
 
+/datum/computer_file/program/chat_client/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	if(ui)
+		ui.autoupdate = FALSE
 
 /datum/computer_file/program/chat_client/Destroy()
+	service_deactivate()
+	my_user = null
+	focused_conv = null
+	active = null
+
 	return ..()
 
 /datum/computer_file/program/chat_client/proc/can_receive_notification(var/datum/computer_file/program/chat_client/from)
@@ -35,115 +41,6 @@
 	if(!silent && src != from && (program_state == PROGRAM_STATE_BACKGROUND || (program_state == PROGRAM_STATE_KILLED && service_state == PROGRAM_STATE_ACTIVE)))
 		playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
 		computer.output_message("[icon2html(computer, world)] *[ringtone]*", 2)
-
-/datum/computer_file/program/chat_client/Topic(href, href_list)
-	if(..())
-		return TRUE
-
-	if(href_list["ringtone"])
-		var/newRingtone = href_list["ringtone"]
-		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
-		if(istype(H) && H.check_trigger(usr, lowertext(newRingtone), lowertext(H.pda_code)))
-			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
-			syndi_auth = TRUE
-			SSvueui.close_uis(src)
-		else
-			newRingtone = sanitize(newRingtone, 20)
-			ringtone = newRingtone
-			SSvueui.check_uis_for_change(src)
-
-	if(href_list["mute_message"])
-		message_mute = !message_mute
-		SSvueui.check_uis_for_change(src)
-
-	// User only commands
-	if(!istype(my_user))
-		return
-	// Following actions require signal
-	if(!get_signal(NTNET_COMMUNICATION))
-		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
-		return
-
-	if(href_list["send"])
-		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
-		var/message = href_list["send"]["message"]
-		if(istype(conv) && message)
-			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
-			conv.cl_send(src, message, user)
-	if(href_list["focus"])
-		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(href_list["focus"])
-		if(istype(conv))
-			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
-			if(focused_conv == conv)
-				focused_conv = null
-				listening_objects -= computer
-			else
-				focused_conv = conv
-				listening_objects |= computer
-		SSvueui.check_uis_for_change(src)
-	if(href_list["join"])
-		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
-		var/password = href_list["join"]["password"]
-		if(istype(conv))
-			if(conv.password)
-				if(conv.password == password)
-					conv.cl_join(src)
-				else
-					// How do I alert of password invalid?
-			else
-				conv.cl_join(src)
-	if(href_list["leave"])
-		var/datum/ntnet_conversation/conv = locate(href_list["leave"])
-		if(istype(conv))
-			conv.cl_leave(src)
-		SSvueui.check_uis_for_change(src)
-	if(href_list["kick"])
-		var/datum/ntnet_conversation/conv = locate(href_list["kick"]["target"])
-		var/datum/ntnet_user/tUser = locate(href_list["kick"]["user"])
-		if(istype(conv) && istype(tUser))
-			conv.cl_kick(src, tUser)
-	if(href_list["set_password"])
-		var/datum/ntnet_conversation/conv = locate(href_list["set_password"]["target"])
-		var/password = href_list["set_password"]["password"]
-		if(istype(conv))
-			conv.cl_set_password(src, password)
-	if(href_list["change_title"])
-		var/datum/ntnet_conversation/conv = locate(href_list["change_title"]["target"])
-		var/newTitle = href_list["change_title"]["title"]
-		if(istype(conv))
-			conv.cl_change_title(src, newTitle)
-	if(href_list["new_channel"])
-		ntnet_global.begin_conversation(src, sanitize(href_list["new_channel"]))
-	if(href_list["delete"])
-		var/datum/ntnet_conversation/conv = locate(href_list["delete"])
-		if(istype(conv) && conv.can_manage(src))
-			ntnet_global.chat_channels.Remove(conv)
-			qdel(conv)
-		SSvueui.check_uis_for_change(src)
-	if(href_list["direct"])
-		var/datum/ntnet_user/tUser = locate(href_list["direct"])
-		ntnet_global.begin_direct(src, tUser)
-
-	if(href_list["toggleadmin"])
-		if(netadmin_mode)
-			netadmin_mode = FALSE
-		else
-			var/mob/living/user = usr
-			if(can_run(user, TRUE, access_network))
-				netadmin_mode = TRUE
-		SSvueui.check_uis_for_change(src)
-	if(href_list["Reply"])
-		var/mob/living/user = usr
-		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
-		var/message = input(user, "Enter message or leave blank to cancel: ")
-		if(istype(conv) && message)
-			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
-			conv.cl_send(src, message, user)
 
 /datum/computer_file/program/chat_client/service_activate()
 	. = ..()
@@ -157,12 +54,6 @@
 	. = ..()
 	deactivate_chat_client()
 
-/datum/computer_file/program/chat_client/process_tick()
-	. = ..()
-
-/datum/computer_file/program/chat_client/kill_program(var/forced = FALSE)
-	return ..(forced)
-
 /datum/computer_file/program/chat_client/run_program(var/mob/user)
 	if(!istype(my_user))
 		if(istype(computer, /obj/item/modular_computer/silicon))
@@ -175,6 +66,12 @@
 				return
 	if(service_state == PROGRAM_STATE_DISABLED)
 		computer.enable_service(null, user, src)
+	if(computer.hidden_uplink && syndi_auth)
+		if(alert(user, "Resume or close and secure?", filedesc, "Resume", "Close") == "Resume")
+			computer.hidden_uplink.trigger(user)
+			return
+		else
+			syndi_auth = FALSE
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()
@@ -183,81 +80,23 @@
 	my_user = computer.registered_id.chat_user
 	if(service_state > PROGRAM_STATE_KILLED)
 		activate_chat_client()
-
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/chat_client/event_unregistered()
 	. = ..()
 	if(service_state > PROGRAM_STATE_KILLED)
 		deactivate_chat_client()
 	my_user = null
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/chat_client/event_silentmode()
 	. = ..()
 	silent = computer.silent
+	computer.update_static_data_for_all_viewers()
 
-/datum/computer_file/program/chat_client/ui_interact(var/mob/user)
-	if(computer.hidden_uplink && syndi_auth)
-		if(alert(user, "Resume or close and secure?", filedesc, "Resume", "Close") == "Resume")
-			computer.hidden_uplink.trigger(user)
-			return
-		else
-			syndi_auth = FALSE
-
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-chat-index", 600, 500, capitalize(filedesc))
-	ui.open()
-
-/datum/computer_file/program/chat_client/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-chat-index", 600, 500, capitalize(filedesc))
-	return TRUE
-
-/datum/computer_file/program/chat_client/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
-	// Gather data for computer header
-	var/headerdata = get_header_data(data["_PC"])
-	if(headerdata)
-		data["_PC"] = headerdata
-		. = data
-
-	data["service"] = service_state > PROGRAM_STATE_KILLED
-	data["registered"] = istype(my_user)
-	data["signal"] = get_signal(NTNET_COMMUNICATION)
-	data["ringtone"] = ringtone
-	data["netadmin_mode"] = netadmin_mode
-	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
-	data["message_mute"] = message_mute
-
-	if(data["registered"] && data["service"] && data["signal"])
-		data["channels"] = list()
-		for(var/c in ntnet_global.chat_channels)
-			var/datum/ntnet_conversation/Channel = c
-			if(istype(Channel) && Channel.can_see(src))
-				var/ref = ref(Channel)
-				var/can_interact = Channel.can_interact(src)
-				var/can_manage = Channel.can_manage(src)
-				data["channels"][ref] = list(
-					"title" = Channel.get_title(src),
-					"direct" = Channel.direct,
-					"password" = !!Channel.password,
-					"can_interact" = can_interact,
-					"can_manage" = can_manage,
-					"focused" = focused_conv == Channel ? TRUE : FALSE
-				)
-				if(can_interact)
-					data["channels"][ref]["msg"] = Channel.messages
-					data["channels"][ref]["users"] = list()
-					for(var/datum/ntnet_user/U in Channel.users)
-						var/uref = ref(U)
-						data["channels"][ref]["users"][uref] = U.username
-		data["users"] = list()
-		for(var/u in ntnet_global.chat_users)
-			var/datum/ntnet_user/nUser = u
-			if(nUser != my_user)
-				var/ref = ref(nUser)
-				data["users"][ref] = nUser.username
-	return data
+/datum/computer_file/program/chat_client/event_networkfailure(background)
+	computer.update_static_data_for_all_viewers()
+	return ..()
 
 /datum/computer_file/program/chat_client/proc/activate_chat_client()
 	if(!istype(my_user))
@@ -266,6 +105,7 @@
 		my_user.clients.Add(src)
 	if(!(src in ntnet_global.chat_clients))
 		ntnet_global.chat_clients.Add(src)
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/chat_client/proc/deactivate_chat_client()
 	if(!istype(my_user))
@@ -274,3 +114,228 @@
 		my_user.clients.Remove(src)
 	if(src in ntnet_global.chat_clients)
 		ntnet_global.chat_clients.Remove(src)
+	computer.update_static_data_for_all_viewers()
+
+/datum/computer_file/program/chat_client/proc/handle_ntnet_user_deletion(var/datum/ntnet_user)
+	if(ntnet_user == src.my_user)
+		service_deactivate()
+		my_user = null
+
+/datum/computer_file/program/chat_client/ui_data(mob/user)
+	. = ..()
+	var/list/data = list()
+	data["service"] = service_state > PROGRAM_STATE_KILLED
+	data["registered"] = istype(my_user)
+	data["signal"] = get_signal(NTNET_COMMUNICATION)
+	data["ringtone"] = ringtone
+	data["netadmin_mode"] = netadmin_mode
+	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
+	data["message_mute"] = message_mute
+	if(active && active.can_interact(src))
+		var/ref = text_ref(active)
+		var/can_interact = active.can_interact(src)
+		var/can_manage = active.can_manage(src)
+		var/list/our_channel = list(
+			"ref" = ref,
+			"title" = active.get_title(src),
+			"direct" = active.direct,
+			"password" = !!active.password,
+			"can_interact" = can_interact,
+			"can_manage" = can_manage,
+			"focused" = (focused_conv == active)
+		)
+		if(can_interact)
+			our_channel["users"] = list()
+			for(var/datum/ntnet_user/U in active.users)
+				var/uref = text_ref(U)
+				our_channel["users"] += list(list("ref" = uref, "username" = U.username))
+		data["active"] = our_channel
+		data["msg"] = active.messages
+	else
+		data["active"] = null
+		data["msg"] = null
+
+	return data
+
+/datum/computer_file/program/chat_client/ui_static_data(mob/user)
+	var/list/data = list()
+	if(istype(my_user) && get_signal(NTNET_COMMUNICATION) && (service_state > PROGRAM_STATE_KILLED))
+		data["channels"] = list()
+		for(var/c in ntnet_global.chat_channels)
+			var/datum/ntnet_conversation/channel = c
+			if(istype(channel) && (channel.can_see(src)))
+				var/ref = text_ref(channel)
+				var/can_interact = channel.can_interact(src)
+				var/can_manage = channel.can_manage(src)
+				var/list/our_channel = list(
+					"ref" = ref,
+					"title" = channel.get_title(src),
+					"direct" = channel.direct,
+					"password" = !!channel.password,
+					"can_interact" = can_interact,
+					"can_manage" = can_manage,
+					"focused" = (focused_conv == channel)
+				)
+				if(can_interact)
+					our_channel["users"] = list()
+					for(var/datum/ntnet_user/U in channel.users)
+						var/uref = text_ref(U)
+						our_channel["users"] += list(list("ref" = uref, "username" = U.username))
+				data["channels"] += list(our_channel)
+
+		data["users"] = list()
+		for(var/u in ntnet_global.chat_users)
+			var/datum/ntnet_user/ntnet_user = u
+			if(ntnet_user != my_user)
+				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
+	return data
+
+/datum/computer_file/program/chat_client/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	if(..())
+		return
+
+	if(action == "ringtone")
+		var/new_ringtone = params["ringtone"]
+		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		if(istype(H) && H.check_trigger(usr, lowertext(new_ringtone), lowertext(H.pda_code)))
+			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
+			syndi_auth = TRUE
+			SStgui.close_uis(src)
+		else
+			new_ringtone = sanitize(new_ringtone, 20)
+			ringtone = new_ringtone
+			. = TRUE
+
+	if(action == "mute_message")
+		message_mute = !message_mute
+		. = TRUE
+
+	// User only commands
+	if(!istype(my_user))
+		return
+
+	// Following actions require signal
+	if(!get_signal(NTNET_COMMUNICATION))
+		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
+		return
+
+	if(action == "send")
+		var/mob/living/user = usr
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/message = params["message"]
+		if(istype(conv) && message)
+			if(ishuman(user))
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
+			conv.cl_send(src, message, user)
+		. = TRUE
+
+	if(action == "focus")
+		var/mob/living/user = usr
+		var/datum/ntnet_conversation/conv = locate(params["focus"])
+		if(istype(conv))
+			if(ishuman(user))
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
+			if(focused_conv == conv)
+				focused_conv = null
+			else
+				focused_conv = conv
+				computer.become_hearing_sensitive()
+		. = TRUE
+
+	if(action == "join")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/password = params["password"]
+		if(istype(conv))
+			if(conv.password)
+				if(conv.password == password)
+					conv.cl_join(src)
+				else
+					to_chat(usr, SPAN_WARNING("Invalid password!"))
+			else
+				conv.cl_join(src)
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+	if(action == "set_active")
+		if(isnull(params["set_active"]))
+			active = null
+			. = TRUE
+		else
+			var/datum/ntnet_conversation/conv = locate(params["set_active"])
+			if(istype(conv))
+				active = conv
+				. = TRUE
+
+	if(action == "leave")
+		var/datum/ntnet_conversation/conv = locate(params["leave"])
+		if(istype(conv))
+			conv.cl_leave(src)
+		if(active)
+			active = null
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+	if(action == "kick")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/datum/ntnet_user/tUser = locate(params["user"])
+		if(istype(conv) && istype(tUser))
+			conv.cl_kick(src, tUser)
+			. = TRUE
+
+	if(action == "set_password")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/password = params["password"]
+		if(istype(conv))
+			conv.cl_set_password(src, password)
+			. = TRUE
+
+	if(action == "change_title")
+		var/datum/ntnet_conversation/conv = locate(params["target"])
+		var/newTitle = params["title"]
+		if(istype(conv))
+			conv.cl_change_title(src, newTitle)
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+	if(action == "new_channel")
+		ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+	if(action == "delete")
+		var/datum/ntnet_conversation/conv = locate(params["delete"])
+		if(istype(conv) && conv.can_manage(src))
+			ntnet_global.chat_channels.Remove(conv)
+			qdel(conv)
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+	if(action == "direct")
+		var/datum/ntnet_user/tUser = locate(params["direct"])
+		ntnet_global.begin_direct(src, tUser)
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+	if(action == "toggleadmin")
+		if(netadmin_mode)
+			netadmin_mode = FALSE
+		else
+			var/mob/living/user = usr
+			if(can_run(user, TRUE, access_network))
+				netadmin_mode = TRUE
+		computer.update_static_data_for_all_viewers()
+		. = TRUE
+
+/datum/computer_file/program/chat_client/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return TRUE
+
+	if(href_list["Reply"])
+		var/mob/living/user = usr
+		if(ishuman(user))
+			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
+		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
+		var/message = tgui_input_text(user, "Enter a message or leave blank to cancel.", "Chat Client")
+		if(istype(conv) && message)
+			conv.cl_send(src, message, user)

@@ -2,8 +2,12 @@
 #define MEGAWATTS *1000000
 #define GIGAWATTS *1000000000
 
-#define CELLRATE 0.002 // Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
-                       // It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
+/**
+ * Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
+ *
+ * It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
+ */
+#define CELLRATE 0.002
 
 // Doors!
 #define DOOR_CRUSH_DAMAGE 20
@@ -26,6 +30,9 @@
 #define POWEROFF 0x4  // TBD.
 #define MAINT    0x8  // Under maintenance.
 #define EMPED    0x10 // Temporary broken by EMP pulse.
+
+#define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
+#define OPERABLE(machine)    !INOPERABLE(machine)
 
 // Used by firelocks
 #define FIREDOOR_OPEN 1
@@ -74,6 +81,7 @@
 #define NETWORK_SECOND_DECK "Second Deck"
 #define NETWORK_THIRD_DECK "Third Deck"
 #define NETWORK_INTREPID "Intrepid"
+#define NETWORK_CANARY "Canary"
 
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
@@ -115,15 +123,15 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 // The flow rate/effectiveness of various atmos devices is limited by their internal volume,
 // so for many atmos devices these will control maximum flow rates in L/s.
 #define ATMOS_DEFAULT_VOLUME_PUMP   200 // Liters.
-#define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
-#define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
+#define ATMOS_DEFAULT_VOLUME_FILTER 500 // L.
+#define ATMOS_DEFAULT_VOLUME_MIXER  500 // L.
 #define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
 #define ATMOS_DEFAULT_VOLUME_HE_PIPE 70 // L.
 
 // Default maximum pressure for simple pipes
-#define ATMOS_DEFAULT_MAX_PRESSURE     70*ONE_ATMOSPHERE
-#define ATMOS_DEFAULT_FATIGUE_PRESSURE 55*ONE_ATMOSPHERE
-#define ATMOS_DEFAULT_ALERT_PRESSURE   ATMOS_DEFAULT_FATIGUE_PRESSURE
+#define ATMOS_DEFAULT_MAX_PRESSURE     PRESSURE_ONE_THOUSAND * 20 // 20000 kPa.
+#define ATMOS_DEFAULT_FATIGUE_PRESSURE PRESSURE_ONE_THOUSAND * 15 // 15000 kPa.
+#define ATMOS_DEFAULT_ALERT_PRESSURE   ATMOS_DEFAULT_FATIGUE_PRESSURE // See above.
 
 // Misc process flags.
 #define M_PROCESSES 0x1

@@ -21,8 +21,9 @@
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 		desc_info = ""
 
-/obj/structure/reagent_dispensers/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
 
@@ -30,7 +31,7 @@
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in view(1)
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	var/N = tgui_input_list(usr, "Select the amount to transfer from this. ", "[src]", possible_transfer_amounts, amount_per_transfer_from_this)
 	if (N)
 		amount_per_transfer_from_this = N
 
@@ -99,7 +100,7 @@
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 30
-	reagents_to_add = list(/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
@@ -107,14 +108,14 @@
 	desc = "A tank filled with water."
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 300
-	reagents_to_add = list(/decl/reagent/water = 1000)
+	reagents_to_add = list(/singleton/reagent/water = 1000)
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
 	desc = "A tank filled with a silly amount of lube."
 	icon_state = "lubetank"
 	amount_per_transfer_from_this = 30
-	reagents_to_add = list(/decl/reagent/lube = 1000)
+	reagents_to_add = list(/singleton/reagent/lube = 1000)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -125,10 +126,11 @@
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
-	reagents_to_add = list(/decl/reagent/fuel = 1000)
+	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/fueltank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if (is_leaking)
 		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
@@ -233,7 +235,7 @@
 	density = 0
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
-	reagents_to_add = list(/decl/reagent/capsaicin/condensed = 1000)
+	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 1000)
 
 /obj/structure/reagent_dispensers/virusfood
 	name = "virus food dispenser"
@@ -243,7 +245,7 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-	reagents_to_add = list(/decl/reagent/nutriment/virusfood = 1000)
+	reagents_to_add = list(/singleton/reagent/nutriment/virusfood = 1000)
 
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
@@ -253,21 +255,21 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-	reagents_to_add = list(/decl/reagent/acid = 1000)
+	reagents_to_add = list(/singleton/reagent/acid = 1000)
 
 /obj/structure/reagent_dispensers/peppertank/luminol
 	name = "luminol dispenser"
 	desc = "A dispenser to refill luminol bottles."
 	icon_state = "luminoltank"
 	amount_per_transfer_from_this = 50
-	reagents_to_add = list(/decl/reagent/luminol = 1000)
+	reagents_to_add = list(/singleton/reagent/luminol = 1000)
 
 /obj/structure/reagent_dispensers/peppertank/spacecleaner
 	name = "cleaner dispenser"
 	desc = "A wall-mounted dispenser filled with cleaner. Used to refill cleaner bottles and cleaner tanks."
 	icon_state = "cleanertank"
 	amount_per_transfer_from_this = 250
-	reagents_to_add = list(/decl/reagent/spacecleaner = 1000)
+	reagents_to_add = list(/singleton/reagent/spacecleaner = 1000)
 
 //Water Cooler
 
@@ -281,7 +283,7 @@
 	anchored = 1
 	capacity = 500
 	can_tamper = FALSE
-	reagents_to_add = list(/decl/reagent/water = 500)
+	reagents_to_add = list(/singleton/reagent/water = 500)
 	var/cups = 12
 	var/cup_type = /obj/item/reagent_containers/food/drinks/sillycup
 
@@ -349,19 +351,28 @@
 /obj/structure/reagent_dispensers/keg/beerkeg
 	name = "beer keg"
 	desc = "A beer keg"
-	reagents_to_add = list(/decl/reagent/alcohol/beer = 1000)
+	reagents_to_add = list(/singleton/reagent/alcohol/beer = 1000)
+
+/obj/structure/reagent_dispensers/keg/beerkeg/rice
+	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
-	reagents_to_add = list(/decl/reagent/alcohol/butanol/xuizijuice = 1000)
+	reagents_to_add = list(/singleton/reagent/alcohol/butanol/xuizijuice = 1000)
 
 /obj/structure/reagent_dispensers/keg/mead
 	name = "mead barrel"
 	desc = "A wooden mead barrel."
 	icon_state = "woodkeg"
-	reagents_to_add = list(/decl/reagent/alcohol/messa_mead = 1000)
+	reagents_to_add = list(/singleton/reagent/alcohol/messa_mead = 1000)
+
+/obj/structure/reagent_dispensers/keg/sake
+	name = "sake barrel"
+	desc = "A wooden sake barrel."
+	icon_state = "woodkeg"
+	reagents_to_add = list(/singleton/reagent/alcohol/sake = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
@@ -370,7 +381,7 @@
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
-	reagents_to_add = list(/decl/reagent/nutriment/triglyceride/oil/corn = 5000)
+	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 5000)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
@@ -383,11 +394,11 @@
 	desc = "A tank of industrial coolant"
 	icon_state = "coolanttank"
 	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/decl/reagent/coolant = 1000)
+	reagents_to_add = list(/singleton/reagent/coolant = 1000)
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		if (Proj.damage_type != PAIN)
+		if (Proj.damage_type != DAMAGE_PAIN)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)
@@ -399,12 +410,29 @@
 	S.set_up(5, 0, src.loc)
 
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/.proc/start)
+	INVOKE_ASYNC(S, TYPE_PROC_REF(/datum/effect/effect/system/smoke_spread, start))
 
-	var/datum/gas_mixture/env = src.loc.return_air()
-	if(env)
-		if (reagents.total_volume > 750)
-			env.temperature = 0
-		else if (reagents.total_volume > 500)
-			env.temperature -= 100
-		QDEL_IN(src, 10)
+	if(src.loc)
+		var/datum/gas_mixture/env = src.loc.return_air()
+		if(env)
+			if (reagents.total_volume > 750)
+				env.temperature = 0
+			else if (reagents.total_volume > 500)
+				env.temperature -= 100
+
+	QDEL_IN(src, 10)
+
+//acid barrel
+
+/obj/structure/reagent_dispensers/acid_barrel
+	name = "chemical barrel"
+	desc = "A metal barrel containing some unknown chemical."
+	icon_state = "acid_barrel"
+	amount_per_transfer_from_this = 300
+
+/obj/structure/reagent_dispensers/radioactive_waste
+	name = "radioactive waste barrel"
+	desc = "A metal barrel containing radioactive waste."
+	icon_state = "chemical_barrel"
+	amount_per_transfer_from_this = 300
+	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)

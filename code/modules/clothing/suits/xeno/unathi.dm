@@ -25,6 +25,18 @@
 	icon_state = "robe_coat"
 	item_state = "robe_coat"
 
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange
+	icon_state = "robe_coat2"
+	item_state = "robe_coat2"
+
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue
+	icon_state = "robe_coat3"
+	item_state = "robe_coat3"
+
+/obj/item/clothing/suit/unathi/robe/robe_coat/red
+	icon_state = "robe_coat4"
+	item_state = "robe_coat4"
+
 /obj/item/clothing/suit/unathi/jokfar
 	name = "jokfar vest"
 	desc = "The nobility favor this vest for its glamor, but although it isn't a garment to get in the way, it is \
@@ -37,7 +49,7 @@
 /obj/item/clothing/suit/unathi/wrapping
 	name = "Th'akhist body wrappings"
 	desc = "A bunch of stitched together clothing with bandages covering them. Looks tailored for a Unathi."
-	desc_fluff = "This is considered humble Sinta wear for Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
+	desc_extended = "This is considered humble Sinta wear for Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_wrappings" //special thanks to Araskael
 	item_state = "thakh_wrappings"

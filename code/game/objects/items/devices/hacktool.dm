@@ -5,7 +5,7 @@
 	var/list/current_hacks
 	var/list/known_targets
 	var/list/supported_types
-	var/datum/topic_state/default/must_hack/hack_state
+	var/datum/ui_state/default/must_hack/hack_state
 
 	var/hack_time = 10 SECONDS
 	var/max_known_targets = 7
@@ -32,7 +32,7 @@
 /obj/item/device/multitool/hacktool/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		in_hack_mode = !in_hack_mode
-		playsound(src.loc, 'sound/items/screwdriver.ogg', 50, TRUE)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, TRUE)
 		return TRUE
 	else
 		return ..()
@@ -62,7 +62,7 @@
 		return FALSE
 	if(istype(target, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/door = target
-		if(door.hackProof)
+		if(door.hack_proof)
 			to_chat(user, SPAN_WARNING("Hacking [target] is beyond the capabilities of this device!"))
 			return FALSE
 	var/found = known_targets.Find(target)
@@ -75,20 +75,20 @@
 	current_hacks += target
 
 	// On average hackin takes ~10 seconds. Fairly small random span to avoid people simply aborting and trying again
-	var/hack_result = do_after(user, hack_time + rand(-3 SECONDS, 3 SECONDS), use_user_turf = (allow_movement ? -1 : FALSE))
+	var/hack_result = do_after(user, hack_time + rand(-3 SECONDS, 3 SECONDS), do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS)
 	is_hacking = FALSE
 	current_hacks -= target
 
 	if(hack_result && in_hack_mode)
 		to_chat(user, SPAN_NOTICE("Your hacking attempt was successful!"))
 		if(!silent)
-			playsound(src.loc, 'sound/piano/A#6.ogg', 75)
+			playsound(src.loc, 'sound/effects/piano_ding.ogg', 75)
 	else
 		to_chat(user, SPAN_WARNING("Your hacking attempt failed!"))
 		return FALSE
 
 	known_targets.Insert(1, target)	// Insert the newly hacked target first,
-	destroyed_event.register(target, src, /obj/item/device/multitool/hacktool/proc/on_target_destroy)
+	destroyed_event.register(target, src, PROC_REF(on_target_destroy))
 	return TRUE
 
 /obj/item/device/multitool/hacktool/proc/sanity_check()
@@ -137,18 +137,18 @@
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
-/datum/topic_state/default/must_hack
+/datum/ui_state/default/must_hack
 	var/obj/item/device/multitool/hacktool/hacktool
 
-/datum/topic_state/default/must_hack/New(var/hacktool)
+/datum/ui_state/default/must_hack/New(var/hacktool)
 	src.hacktool = hacktool
 	..()
 
-/datum/topic_state/default/must_hack/Destroy()
+/datum/ui_state/default/must_hack/Destroy()
 	hacktool = null
 	return ..()
 
-/datum/topic_state/default/must_hack/can_use_topic(var/src_object, var/mob/user)
+/datum/ui_state/default/must_hack/can_use_topic(var/src_object, var/mob/user)
 	if(!hacktool || !hacktool.in_hack_mode || !(src_object in hacktool.known_targets))
 		return STATUS_CLOSE
 	return ..()

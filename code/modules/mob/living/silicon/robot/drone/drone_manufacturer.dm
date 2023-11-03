@@ -9,7 +9,7 @@
 	name = "drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
 
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machinery/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 
 	density = TRUE
@@ -64,7 +64,7 @@
 		visible_message(SPAN_NOTICE("\The [src] voices a strident beep, indicating a drone chassis is prepared."))
 
 /obj/machinery/drone_fabricator/examine(mob/user)
-	..(user)
+	. = ..()
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
 		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
 

@@ -26,8 +26,12 @@
 	. = ..()
 	var/mob/living/heavy_vehicle/newowner = loc
 	if(!istype(newowner))
-		return qdel(src)
+		return INITIALIZE_HINT_QDEL
 	owner = newowner
+
+/obj/screen/mecha/Destroy(force)
+	owner = null
+	. = ..()
 
 /obj/screen/mecha/Click()
 	return (!owner || !usr.incapacitated() && (usr == owner || usr.loc == owner))
@@ -42,8 +46,8 @@
 	maptext_width = 120
 
 /obj/screen/mecha/hardpoint/Destroy()
-	owner = null
 	holding = null
+	hardpoint_tag = null
 	. = ..()
 
 /obj/screen/mecha/hardpoint/MouseDrop()

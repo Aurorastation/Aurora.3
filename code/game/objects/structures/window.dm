@@ -1,16 +1,22 @@
 //
 // Glass
 //
+#define FULL_REINFORCED_WINDOW_DAMAGE_FORCE 8
+#define REINFORCED_WINDOW_DAMAGE_FORCE 8
+
 /obj/structure/window
 	name = "glass pane"
 	desc = "A glass pane."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
+	icon_state = "pane"
+	alpha = 196
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = 3.2 // Just above doors.
+	layer = WINDOW_PANE_LAYER
 	anchored = TRUE
 	flags = ON_BORDER
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
+	var/hitsound = 'sound/effects/glass_hit.ogg'
 	var/maxhealth = 14
 	var/maximal_heat = T0C + 100 // Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2 // Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
@@ -23,11 +29,12 @@
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 	var/base_frame = null
+	var/full = FALSE
 
 	atmos_canpass = CANPASS_PROC
 
 /obj/structure/window/examine(mob/user)
-	. = ..(user)
+	. = ..()
 
 	if(health == maxhealth)
 		to_chat(user, SPAN_NOTICE("It looks fully intact."))
@@ -50,10 +57,15 @@
 			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
 
 /obj/structure/window/proc/update_nearby_icons()
-	queue_smooth_neighbors(src)
+	SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/window/update_icon()
-	queue_smooth(src)
+	if(!full)
+		if(dir == SOUTH)
+			layer = ABOVE_MOB_LAYER
+		else
+			layer = WINDOW_PANE_LAYER
+	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
@@ -71,15 +83,15 @@
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			if(message)
 				visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			if(message)
 				visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			if(message)
 				visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -100,7 +112,7 @@
 	add_overlay(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)
@@ -171,16 +183,23 @@
 		return 0
 	return 1
 
-/obj/structure/window/hitby(AM as mob|obj)
+/obj/structure/window/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-	visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
+		if(isliving(AM))
+			var/mob/living/M = AM
+			M.turf_collision(src, speed, /singleton/sound_category/glasscrack_sound)
+			return
+		else
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 		tforce = 40
 	else if(isobj(AM))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 		var/obj/item/I = AM
 		tforce = I.throwforce
-	if(reinf) tforce *= 0.25
+	if(reinf)
+		tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()
@@ -189,7 +208,7 @@
 
 /obj/structure/window/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
 		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
 		user.do_attack_animation(src)
@@ -236,12 +255,13 @@
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, BRUTE)
+			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
-	if(W.flags & NOBLUDGEON) return
+	if(W.flags & NOBLUDGEON)
+		return
 
-	if(W.isscrewdriver())
+	if(W.isscrewdriver() && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
@@ -260,11 +280,11 @@
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
-	else if(W.iscrowbar() && reinf && state <= 1)
+	else if(W.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
 		playsound(loc, W.usesound, 75, 1)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
-	else if(W.iswrench() && !anchored && (!state || !reinf))
+	else if(W.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
@@ -272,19 +292,28 @@
 			dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == BRUTE || W.damtype == BURN)
-			user.do_attack_animation(src)
-			hit(W.force)
+		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+			if(reinf)
+				user.do_attack_animation(src)
+				if(W.force >= REINFORCED_WINDOW_DAMAGE_FORCE)
+					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
+					playsound(src, hitsound, W.get_clamped_volume(), 1)
+					hit(W.force)
+				else
+					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [W], but it glances off, doing no damage."))
+					playsound(src, hitsound, W.get_clamped_volume(), 1)
+			else
+				user.do_attack_animation(src)
+				hit(W.force)
 			if(health <= 7)
 				anchored = 0
 				update_nearby_icons()
 				step(src, get_dir(user, src))
 		else
-			playsound(loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		..()
+			playsound(src, hitsound, 10, 1)
 	return
 
-/obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = BRUTE)
+/obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = DAMAGE_BRUTE)
 	var/mob/living/M = G.affecting
 	var/mob/living/user = G.assailant
 
@@ -310,7 +339,8 @@
 			hit(50)
 
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
-	if(reinf) damage *= 0.5
+	if(reinf)
+		damage *= 0.5
 	take_damage(damage)
 	return
 
@@ -324,9 +354,8 @@
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed = 0)
 	. = ..()
-
-	if (constructed)
-		anchored = 0
+	if(!full && constructed)
+		anchored = FALSE
 
 	if (!mapload && constructed)
 		state = 0
@@ -340,6 +369,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 	update_nearby_icons()
+	update_icon()
 
 /obj/structure/window/Destroy()
 	density = 0
@@ -350,7 +380,6 @@
 		W.update_icon()
 	loc = location
 	return ..()
-
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
@@ -480,8 +509,7 @@
 /obj/structure/window/borosilicate
 	name = "borosilicate glass pane"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
+	color = GLASS_COLOR_PHORON
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
@@ -491,8 +519,7 @@
 /obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate glass pane"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	basestate = "phoronrwindow"
-	icon_state = "phoronrwindow"
+	color = GLASS_COLOR_PHORON_R
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
@@ -501,8 +528,7 @@
 /obj/structure/window/borosilicate/reinforced/skrell
 	name = "advanced borosilicate alloy window"
 	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
+	color = GLASS_COLOR_PHORON
 	maxhealth = 250
 
 /********** Shuttle Windows **********/
@@ -512,11 +538,13 @@
 	icon = 'icons/obj/smooth/shuttle_window.dmi'
 	icon_state = "shuttle_window"
 	basestate = "window"
+	flags = 0
+	obj_flags = null
 	maxhealth = 40
 	reinf = TRUE
 	basestate = "w"
 	dir = 5
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 	layer = 2.99
 
@@ -535,7 +563,7 @@
 	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
 	health = 500
 	maxhealth = 500
-	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	smoothing_flags = SMOOTH_MORE | SMOOTH_DIAGONAL
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle/skrell
@@ -544,18 +572,30 @@
 /obj/structure/window/shuttle/scc_space_ship
 	name = "advanced borosilicate alloy window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/obj/smooth/scc_space_ship.dmi'
-	icon_state = "scc_space_ship"
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_windows.dmi'
+	icon_state = "map_window"
 	health = 500
 	maxhealth = 500
-	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	alpha = 255
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship
 	)
+	blend_overlay = "-wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
+
+/obj/structure/window/shuttle/scc_space_ship/cardinal_smooth(adjacencies, var/list/dir_mods)
+	dir_mods = handle_blending(adjacencies, dir_mods)
+	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/shuttle/scc
 	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
@@ -574,74 +614,46 @@
 /obj/structure/window/full
 	name = "window"
 	desc = "You aren't supposed to see this."
+	flags = 0
 	obj_flags = null
 	dir = 5
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
+	full = TRUE
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/steel,
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
 		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/indestructible,
 		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/phoron/reinforced
+		/obj/structure/window/full/reinforced/polarized/indestructible,
+		/obj/structure/window/full/phoron/reinforced,
+		/obj/structure/window/shuttle/scc_space_ship,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/machinery/door
 	)
-
-/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
-	LAZYINITLIST(dir_mods)
-	var/north_wall = FALSE
-	var/east_wall = FALSE
-	var/south_wall = FALSE
-	var/west_wall = FALSE
-	if(adjacencies & N_NORTH)
-		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
-			dir_mods["[N_NORTH]"] = "-wall"
-			north_wall = TRUE
-	if(adjacencies & N_EAST)
-		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
-			dir_mods["[N_EAST]"] = "-wall"
-			east_wall = TRUE
-	if(adjacencies & N_SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
-			dir_mods["[N_SOUTH]"] = "-wall"
-			south_wall = TRUE
-	if(adjacencies & N_WEST)
-		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
-			dir_mods["[N_WEST]"] = "-wall"
-			west_wall = TRUE
-	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
-		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
-		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
-		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
-		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	return ..(adjacencies, dir_mods)
-
-/obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
-	if (!mapload && constructed)
-		state = 0
-
-	if (start_dir)
-		set_dir(start_dir)
-
-	health = maxhealth
-
-	ini_dir = dir
-
-	update_nearby_tiles(need_rebuild=1)
-	update_icon()
-	update_nearby_icons()
+	blend_overlay = "wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/machinery/door,
+		/obj/structure/window_frame
+	)
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)
-	WF.has_glass_installed = FALSE
+	if(WF)
+		WF.has_glass_installed = FALSE
 	return ..()
 
 /obj/structure/window/full/attackby(obj/item/W, mob/user)
@@ -650,13 +662,13 @@
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, BRUTE)
+			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
 	if(W.flags & NOBLUDGEON)
 		return
 
-	if(W.isscrewdriver())
+	if(W.isscrewdriver() && user.a_intent != I_HURT)
 		if(state == 2)
 			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
@@ -667,7 +679,7 @@
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
-	else if(W.iscrowbar())
+	else if(W.iscrowbar() && user.a_intent != I_HURT)
 		if(state == 1)
 			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
@@ -678,37 +690,39 @@
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
-	else if(W.iswrench())
+	else if(W.iswrench() && user.a_intent != I_HURT)
 		if(state == 0)
-			visible_message(SPAN_WARNING("\The [user] is dismantling \the [src]!"))
+			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"))
 			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
 				dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == BRUTE || W.damtype == BURN)
-			user.do_attack_animation(src)
-			hit(W.force)
+		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+			if(reinf)
+				user.do_attack_animation(src)
+				if(W.force >= FULL_REINFORCED_WINDOW_DAMAGE_FORCE)
+					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
+					playsound(src, hitsound, W.get_clamped_volume(), 1)
+					hit(W.force)
+				else
+					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [W], but it glances off, doing no damage."))
+					playsound(src, hitsound, W.get_clamped_volume(), 1)
+			else
+				user.do_attack_animation(src)
+				hit(W.force)
 		else
-			playsound(loc, 'sound/effects/glass_hit.ogg', 75, 1)
+			playsound(src, hitsound, 10, 1)
 	return
 
 /obj/structure/window/full/shatter(var/display_message = 1)
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
-	if(dir == SOUTHWEST)
-		var/index = null
-		index = 0
-		while(index < 2)
-			new shardtype(loc)
-			if(reinf)
-				new /obj/item/stack/rods(loc)
-			index++
-	else
+	if(reinf)
+		new /obj/item/stack/rods(loc, 4)
+	for(var/i = 1 to 4)
 		new shardtype(loc)
-		if(reinf)
-			new /obj/item/stack/rods(loc)
 
 	qdel(src)
 	return
@@ -728,13 +742,13 @@
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
 	return
 
 /obj/structure/window/full/dismantle_window()
@@ -752,7 +766,7 @@
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/full_window.dmi'
+	icon = 'icons/obj/smooth/window/full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	maxhealth = 80 // Two reinforced panes worth of health, since that's the minimum you need to break through to get to the other side.
@@ -761,14 +775,17 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/indestructible,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/reinforced/polarized/indestructible,
-		/obj/structure/window/full/phoron/reinforced
-	)
+	smoothing_flags = SMOOTH_MORE
+
+/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
+	dir_mods = handle_blending(adjacencies, dir_mods)
+	return ..(adjacencies, dir_mods)
+
+/obj/structure/window_frame/proc/update_nearby_icons()
+	SSicon_smooth.add_to_queue_neighbors(src)
+
+/obj/structure/window_frame/update_icon()
+	SSicon_smooth.add_to_queue(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
@@ -822,11 +839,27 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/shatter()
 	return
 
+//Shuttle exterior window
+/obj/structure/window/full/reinforced/shuttle
+	icon = 'icons/obj/smooth/window/shuttle_window_dark.dmi'
+	color = "#006eff"
+	icon_state = "window_glass"
+	basestate = "window_glass"
+
+/obj/structure/window/full/reinforced/shuttle/red
+	color = "#ff0000"
+
+/obj/structure/window/full/reinforced/shuttle/green
+	color = "#00ff40"
+
+/obj/structure/window/full/reinforced/shuttle/black
+	color = "#150b41"
+
 // Borosilicate Window (I.e. Phoron Window)
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
-	icon = 'icons/obj/smooth/full_window_phoron.dmi'
+	icon = 'icons/obj/smooth/window/full_window_phoron.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronglass
@@ -843,3 +876,6 @@
 	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
+
+#undef FULL_REINFORCED_WINDOW_DAMAGE_FORCE
+#undef REINFORCED_WINDOW_DAMAGE_FORCE

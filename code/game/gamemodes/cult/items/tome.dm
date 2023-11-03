@@ -1,6 +1,6 @@
 /obj/item/book/tome
 	name = "arcane tome"
-	desc_cult = null
+	desc_antag = null // It's already been forged once.
 	icon_state = "tome"
 	item_state = "tome"
 	throw_speed = 1
@@ -56,7 +56,7 @@
 			to_chat(scribe, SPAN_WARNING("You are unable to write a rune here."))
 			return
 
-		switch(alert("What shall you do with the tome?", "Tome of Nar'sie", "Read it", "Scribe a rune", "Cancel"))
+		switch(tgui_input_list(scribe, "What shall you do with the tome?", "Tome of Nar'sie", list("Read it", "Scribe a rune", "Cancel"), "Cancel"))
 			if("Cancel")
 				return
 			if("Read it")
@@ -78,7 +78,7 @@
 
 				var/chosen_rune
 				//var/network
-				chosen_rune = input("Choose a rune to scribe.") as null|anything in SScult.runes_by_name
+				chosen_rune = tgui_input_list(scribe, "Choose a rune to scribe.", "Cultist Tome", SScult.runes_by_name)
 				if(!chosen_rune)
 					return
 
@@ -94,13 +94,13 @@
 				playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
 				scribe.drip(4)
 
-				if(do_after(scribe, 50))
+				if(do_after(scribe, 5 SECONDS))
 					create_rune(scribe, chosen_rune)
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 
 /obj/item/book/tome/examine(mob/user)
-	..(user)
+	. = ..()
 	if(!iscultist(user) || !isobserver(user))
 		to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
 	else

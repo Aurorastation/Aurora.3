@@ -2,7 +2,7 @@
 /obj/machinery/light_construct
 	name = "light fixture frame"
 	desc = "A light fixture under construction."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -17,30 +17,35 @@
 	. = ..()
 	if (fixture_type == "bulb")
 		icon_state = "bulb-construct-stage1"
+	if (fixture_type == "spotlight")
+		icon_state = "slight-construct-stage1"
+	if (fixture_type == "floorbulb")
+		icon_state = "floor-construct-stage1"
+	if (fixture_type == "floorlight")
+		icon_state = "floortube-construct-stage1"
 
 /obj/machinery/light_construct/Destroy()
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/light_construct/examine(mob/user)
-	if(!..(user, 2))
-		return
+/obj/machinery/light_construct/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
+		switch(stage)
+			if(1)
+				to_chat(user, SPAN_NOTICE("It's an empty frame."))
+			if(2)
+				to_chat(user, SPAN_NOTICE("It's wired."))
+			if(3)
+				to_chat(user, SPAN_NOTICE("The casing is closed."))
 
-	switch(stage)
-		if(1)
-			to_chat(user, SPAN_NOTICE("It's an empty frame."))
-		if(2)
-			to_chat(user, SPAN_NOTICE("It's wired."))
-		if(3)
-			to_chat(user, SPAN_NOTICE("The casing is closed."))
-
-	if (cell_connectors)
-		if (cell)
-			to_chat(user, SPAN_NOTICE("You see [cell] inside the casing."))
+		if (cell_connectors)
+			if (cell)
+				to_chat(user, SPAN_NOTICE("You see [cell] inside the casing."))
+			else
+				to_chat(user, SPAN_NOTICE("The casing has no power cell installed."))
 		else
-			to_chat(user, SPAN_NOTICE("The casing has no power cell installed."))
-	else
-		to_chat(user, SPAN_WARNING("This casing doesn't support a backup power cell."))
+			to_chat(user, SPAN_WARNING("This casing doesn't support a backup power cell."))
 
 /obj/machinery/light_construct/attackby(obj/item/W, mob/living/user)
 	add_fingerprint(user)
@@ -72,9 +77,15 @@
 				icon_state = "tube-construct-stage1"
 			if("bulb")
 				icon_state = "bulb-construct-stage1"
+			if("spotlight")
+				icon_state = "slight-construct-stage1"
+			if ("floorbulb")
+				icon_state = "floor-construct-stage1"
+			if ("floorlight")
+				icon_state = "floortube-construct-stage1"
 		new /obj/item/stack/cable_coil(get_turf(src), 1, "red")
 		user.visible_message(SPAN_NOTICE("\The [user] removes the wiring from \the [src]."), SPAN_NOTICE("You remove the wiring from [src]."), SPAN_WARNING("You hear something being cut."))
-		playsound(get_turf(src), 'sound/items/wirecutter.ogg', 100, TRUE)
+		playsound(get_turf(src), 'sound/items/Wirecutter.ogg', 100, TRUE)
 		return
 
 	if(W.iscoil())
@@ -87,6 +98,12 @@
 					icon_state = "tube-construct-stage2"
 				if("bulb")
 					icon_state = "bulb-construct-stage2"
+				if("spotlight")
+					icon_state = "slight-construct-stage2"
+				if ("floorbulb")
+					icon_state = "floor-construct-stage2"
+				if ("floorlight")
+					icon_state = "floortube-construct-stage2"
 			stage = 2
 			user.visible_message(SPAN_NOTICE("\The [user] adds wires to \the [src]."), SPAN_NOTICE("You add wires to \the [src]."))
 		return
@@ -98,6 +115,12 @@
 					icon_state = "tube_empty"
 				if("bulb")
 					icon_state = "bulb_empty"
+				if("slight")
+					icon_state = "slight_empty"
+				if ("floorbulb")
+					icon_state = "floor_empty"
+				if ("floorlight")
+					icon_state = "floortube_empty"
 			stage = 3
 			user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s casing."), SPAN_NOTICE("You close \the [src]'s casing."), SPAN_WARNING("You hear something being screwed in."))
 			playsound(get_turf(src), W.usesound, 75, TRUE)
@@ -107,6 +130,12 @@
 					newlight = new /obj/machinery/light/built(get_turf(src))
 				if("bulb")
 					newlight = new /obj/machinery/light/small/built(get_turf(src))
+				if("slight")
+					newlight = new /obj/machinery/light/spot/built(get_turf(src))
+				if("floorbulb")
+					newlight = new /obj/machinery/light/small/floor/built(get_turf(src))
+				if("floorlight")
+					newlight = new /obj/machinery/light/floor/built(get_turf(src))
 
 			newlight.dir = src.dir
 			if(cell)
@@ -155,10 +184,42 @@
 /obj/machinery/light_construct/small
 	name = "small light fixture frame"
 	desc = "A small light fixture under construction."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "bulb-construct-stage1"
 	anchored = TRUE
 	layer = 5
 	stage = 1
 	fixture_type = "bulb"
 	sheets_refunded = 1
+
+/obj/machinery/light_construct/spot
+	name = "spotlight fixture frame"
+	desc = "A spotlight fixture under construction."
+	icon = 'icons/obj/machinery/light.dmi'
+	icon_state = "slight-construct-stage1"
+	anchored = TRUE
+	layer = 5
+	stage = 1
+	fixture_type = "spotlight"
+	sheets_refunded = 3
+
+/obj/machinery/light_construct/small/floor
+	name = "small floor light fixture frame"
+	desc = "A small floor light fixture under construction."
+	icon = 'icons/obj/machinery/light.dmi'
+	icon_state = "floor-construct-stage1"
+	anchored = TRUE
+	layer = 2.5
+	stage = 1
+	fixture_type = "floorbulb"
+	sheets_refunded = 1
+
+/obj/machinery/light_construct/floor
+	name = "floor light fixture frame"
+	desc = "A floor light fixture under construction."
+	icon = 'icons/obj/machinery/light.dmi'
+	icon_state = "floortube-construct-stage1"
+	anchored = TRUE
+	layer = 2.5
+	stage = 1
+	fixture_type = "floorlight"

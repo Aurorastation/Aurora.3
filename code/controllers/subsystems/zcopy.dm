@@ -1,17 +1,9 @@
-#define OPENTURF_MAX_PLANE -71
-#define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
-#define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
-#define SHADOWER_DARKENING_FACTOR 0.85	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
-#define SHADOWER_DARKENING_COLOR "#999999"	// The above, but as an RGB string for lighting-less turfs.
-
-/var/datum/controller/subsystem/zcopy/SSzcopy
-
-/datum/controller/subsystem/zcopy
+SUBSYSTEM_DEF(zcopy)
 	name = "Z-Copy"
 	wait = 1
 	init_order = SS_INIT_ZCOPY
 	priority = SS_PRIORITY_ZCOPY
-	flags = SS_FIRE_IN_LOBBY
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/list/queued_turfs = list()
 	var/qt_idex = 1
@@ -34,7 +26,7 @@
 // for admin proc-call
 /datum/controller/subsystem/zcopy/proc/update_all()
 	disable()
-	log_debug("SSzcopy: update_all() invoked.")
+	LOG_DEBUG("SSzcopy: update_all() invoked.")
 
 	var/turf/T 	// putting the declaration up here totally speeds it up, right?
 	var/num_upd = 0
@@ -58,14 +50,14 @@
 
 		CHECK_TICK
 
-	log_debug("SSzcopy: [num_upd + num_amupd] turf updates queued ([num_upd] direct, [num_amupd] indirect), [num_del] orphans destroyed.")
+	LOG_DEBUG("SSzcopy: [num_upd + num_amupd] turf updates queued ([num_upd] direct, [num_amupd] indirect), [num_del] orphans destroyed.")
 
 	enable()
 
 // for admin proc-call
 /datum/controller/subsystem/zcopy/proc/hard_reset()
 	disable()
-	log_debug("SSzcopy: hard_reset() invoked.")
+	LOG_DEBUG("SSzcopy: hard_reset() invoked.")
 	var/num_deleted = 0
 	var/num_turfs = 0
 
@@ -83,24 +75,23 @@
 
 		CHECK_TICK
 
-	log_debug("SSzcopy: deleted [num_deleted] overlays, and queued [num_turfs] turfs for update.")
+	LOG_DEBUG("SSzcopy: deleted [num_deleted] overlays, and queued [num_turfs] turfs for update.")
 
 	enable()
 
-/datum/controller/subsystem/zcopy/stat_entry(text, force)
-		..("\
-			[text]\n\
-			Mx: [json_encode(zlev_maximums)]\n\
+/datum/controller/subsystem/zcopy/stat_entry(msg)
+	msg = "Mx: [json_encode(zlev_maximums)] | \
 			Queues: \
 			Turfs [queued_turfs.len - (qt_idex - 1)] \
-			Overlays [queued_overlays.len - (qo_idex - 1)]\n\
+			Overlays [queued_overlays.len - (qo_idex - 1)] | \
 			Open Turfs: \
 			Turfs [openspace_turfs] \
-			Overlays [openspace_overlays]\n\
+			Overlays [openspace_overlays] | \
 			Skips: \
 			Turfs [multiqueue_skips_turf] \
 			Objects [multiqueue_skips_object]\
-		")
+		"
+	return ..()
 
 /datum/controller/subsystem/zcopy/Initialize(timeofday)
 	calculate_zstack_limits()
@@ -116,12 +107,12 @@
 			for (var/member_zlev in start_zlev to z)
 				zlev_maximums[member_zlev] = z
 			if (z - start_zlev > OPENTURF_MAX_DEPTH)
-				log_ss("zcopy", "WARNING: Z-levels [start_zlev] through [z] exceed maximum depth of [OPENTURF_MAX_DEPTH]; layering may behave strangely in this Z-stack.")
+				log_subsystem("zcopy", "WARNING: Z-levels [start_zlev] through [z] exceed maximum depth of [OPENTURF_MAX_DEPTH]; layering may behave strangely in this Z-stack.")
 			else if (z - start_zlev > 1)
-				log_ss("zcopy", "Found Z-Stack: [start_zlev] -> [z] = [z - start_zlev + 1] zl")
+				log_subsystem("zcopy", "Found Z-Stack: [start_zlev] -> [z] = [z - start_zlev + 1] zl")
 			start_zlev = z + 1
 
-	log_ss("zcopy", "Z-Level maximums: [json_encode(zlev_maximums)]")
+	log_subsystem("zcopy", "Z-Level maximums: [json_encode(zlev_maximums)]")
 
 /datum/controller/subsystem/zcopy/StartLoadingMap()
 	suspend()
@@ -417,7 +408,7 @@
 				D.plane = T.shadower.plane
 			found_oo += D
 
-	sortTim(found_oo, /proc/cmp_planelayer)
+	sortTim(found_oo, GLOBAL_PROC_REF(cmp_planelayer))
 
 	var/list/atoms_list_list = list()
 	for (var/thing in found_oo)

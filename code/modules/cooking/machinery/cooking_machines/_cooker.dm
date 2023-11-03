@@ -11,16 +11,16 @@
 
 	var/light_x = 0
 	var/light_y = 0
-	mobdamagetype = BURN
+	mobdamagetype = DAMAGE_BURN
 	cooking_coeff = 0
 	cooking_power = 0
 	flags = null
 	var/temperature = T20C
 	var/starts_with = list()
 
-/obj/machinery/appliance/cooker/examine(var/mob/user)
+/obj/machinery/appliance/cooker/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if (.)	//no need to duplicate adjacency check
+	if (is_adjacent)
 		if (!stat)
 			if (temperature < min_temp)
 				to_chat(user, SPAN_WARNING("[src] is still heating up and is too cold to cook anything yet."))
@@ -113,6 +113,7 @@
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
+	cooking = use_power
 	update_icon()
 
 /obj/machinery/appliance/cooker/proc/activation_message(var/mob/user)
@@ -130,6 +131,7 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/process()
+	if (!loc) return FALSE
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)

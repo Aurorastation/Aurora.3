@@ -1,10 +1,15 @@
 #define MINOR_ARTIFACTS "Minor Artifacts" // defined solely so someone doesn't typo it
 #define MAJOR_ARTIFACTS "Major Artifacts"
 
+#define SURFACE_MINERALS "Surface Minerals"
+#define PRECIOUS_METALS "Precious Metals"
+#define NUCLEAR_FUEL "Nuclear Fuel"
+#define EXOTIC_MATTER "Exotic Matter"
+
 /obj/item/ore_detector
 	name = "ore detector"
 	desc = "A device capable of locating and displaying ores to the average untrained hole explorer."
-	icon = 'icons/obj/contained_items/tools/ore_scanner.dmi'
+	icon = 'icons/obj/item/tools/ore_scanner.dmi'
 	icon_state = "ore_scanner"
 	item_state = "ore_scanner"
 	w_class = ITEMSIZE_SMALL
@@ -12,6 +17,7 @@
 	force = 1
 	var/active = FALSE
 	var/datum/weakref/our_user
+	var/list/ore_pings = list()
 	var/list/search_ores = list()
 	var/ping_rate = 4 SECONDS
 	var/last_ping = 0
@@ -19,7 +25,8 @@
 	var/list/ore_names
 
 /obj/item/ore_detector/examine(mob/user, distance)
-	if(..(user, 1))
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for.")))
 
 /obj/item/ore_detector/Destroy()
@@ -30,51 +37,53 @@
 	icon_state = "ore_scanner[active ? "-active" : ""]"
 
 /obj/item/ore_detector/attack_self(mob/user)
-	if(!length(search_ores))
-		to_chat(user, SPAN_WARNING("You haven't set an ore to search for yet!"))
-		return
-	active = !active
-	var/msg = "You [active ? "activate" : "deactivate"] \the [src]."
-	to_chat(user, SPAN_NOTICE(msg))
-	if(active)
-		activate(user)
-	else
-		deactivate()
+	ui_interact(user)
 
-/obj/item/ore_detector/AltClick(mob/user)
+/obj/item/ore_detector/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OreDetector", ui_x=400, ui_y=420)
+		ui.open()
+
+/obj/item/ore_detector/ui_data(mob/user)
 	if(!length(ore_names))
 		ore_names = list()
 		for(var/ore_n in ore_data)
 			var/ore/O = ore_data[ore_n]
 			var/ore_name = O.display_name
 			ore_names += ore_name
+		ore_names += SURFACE_MINERALS
+		ore_names += PRECIOUS_METALS
+		ore_names += NUCLEAR_FUEL
+		ore_names += EXOTIC_MATTER
 		ore_names += MINOR_ARTIFACTS
 		ore_names += MAJOR_ARTIFACTS
-	if(loc == user)
-		var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-		if(!ui)
-			ui = new(user, src, "devices-oredetector", 320, 220, capitalize_first_letters(name))
-		ui.open()
-	else
-		return ..()
 
-/obj/item/ore_detector/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+	var/list/data = list()
+	data["ore_names"] = ore_names
+	data["search_ores"] = search_ores
+	data["enabled"] = active
+	return data
 
-	VUEUI_SET_CHECK_LIST(data["ore_names"], ore_names, ., data)
-	VUEUI_SET_CHECK_LIST(data["selected_ores"], search_ores, ., data)
-
-/obj/item/ore_detector/Topic(href, href_list)
-	..()
-
-	if(href_list["chosen_ore"])
-		if(href_list["chosen_ore"] in search_ores)
-			search_ores -= href_list["chosen_ore"]
+/obj/item/ore_detector/ui_act(action,params)
+	. = ..()
+	if(.)
+		return
+	if(action=="toggle")
+		if(active)
+			deactivate()
 		else
-			search_ores += href_list["chosen_ore"]
-
-	SSvueui.check_uis_for_change(src)
+			activate(usr)
+		. = TRUE
+		update_icon()
+	if(action=="select_ore")
+		if(params["ore_name"] in search_ores)
+			search_ores -= params["ore_name"]
+		else
+			search_ores += params["ore_name"]
+		if(!length(search_ores))
+			deactivate()
+		. = TRUE
 
 /obj/item/ore_detector/process()
 	if(last_ping + ping_rate > world.time)
@@ -82,20 +91,44 @@
 	if(isnull(our_user))
 		deactivate()
 		return
+	clear_images()
 	var/mob/M = our_user.resolve()
 	if(loc != M && loc.loc != M)
 		deactivate()
 		return
 	last_ping = world.time
 	var/turf/our_turf = get_turf(src)
-	for(var/turf/simulated/mineral/mine_turf in RANGE_TURFS(7, our_turf))
+	for(var/turf/turf as anything in RANGE_TURFS(7, our_turf))
 		if(isnull(our_user)) // in the event it's dropped midsweep
 			return
-		if((length(mine_turf.finds) && (MINOR_ARTIFACTS in search_ores)) || (mine_turf.artifact_find && (MAJOR_ARTIFACTS in search_ores)) || (mine_turf.mineral && (mine_turf.mineral.display_name in search_ores)))
-			var/image/ore_ping = image(icon = 'icons/obj/contained_items/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
-			pixel_shift_to_turf(ore_ping, our_turf, mine_turf)
-			M << ore_ping
-			QDEL_IN(ore_ping, 4 SECONDS)
+
+		var/found_ores = FALSE
+		if(
+			length(turf.resources) && \
+			( \
+				((SURFACE_MINERALS in search_ores) && (ORE_IRON in turf.resources)) || \
+				((PRECIOUS_METALS in search_ores) && ((ORE_GOLD in turf.resources) || (ORE_SILVER in turf.resources) || (ORE_DIAMOND in turf.resources))) || \
+				((NUCLEAR_FUEL in search_ores) && (ORE_URANIUM in turf.resources)) || \
+				((EXOTIC_MATTER in search_ores) && ((ORE_PHORON in turf.resources) || (ORE_PLATINUM in turf.resources) || (ORE_HYDROGEN in turf.resources))) \
+			) \
+		)
+			found_ores = TRUE
+
+		if(!found_ores)
+			var/turf/simulated/mineral/mine_turf = turf
+			if(istype(mine_turf, /turf/simulated/mineral))
+				if((length(mine_turf.finds) && (MINOR_ARTIFACTS in search_ores)) || (mine_turf.artifact_find && (MAJOR_ARTIFACTS in search_ores)) || (mine_turf.mineral && (mine_turf.mineral.display_name in search_ores)))
+					found_ores = TRUE
+
+		if(found_ores)
+			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
+			ore_ping.pixel_x = rand(-6, 6)
+			ore_ping.pixel_y = rand(-6, 6)
+			ore_ping.alpha = rand(180, 255)
+			pixel_shift_to_turf(ore_ping, our_turf, turf)
+			if(M.client)
+				M.client.images += ore_ping
+			ore_pings += ore_ping
 
 /obj/item/ore_detector/emp_act()
 	deactivate()
@@ -105,12 +138,21 @@
 		return
 	START_PROCESSING(SSprocessing, src)
 	our_user = WEAKREF(user)
+	active = TRUE
 	update_icon()
 
 /obj/item/ore_detector/proc/deactivate()
+	active = FALSE
 	STOP_PROCESSING(SSprocessing, src)
+	clear_images()
 	our_user = null
 	update_icon()
+
+/obj/item/ore_detector/proc/clear_images()
+	var/mob/M = our_user?.resolve()
+	if(M?.client)
+		M.client.images -= ore_pings
+	ore_pings.Cut()
 
 /obj/item/ore_detector/throw_at()
 	..()
@@ -125,3 +167,8 @@
 
 #undef MINOR_ARTIFACTS
 #undef MAJOR_ARTIFACTS
+
+#undef SURFACE_MINERALS
+#undef PRECIOUS_METALS
+#undef NUCLEAR_FUEL
+#undef EXOTIC_MATTER

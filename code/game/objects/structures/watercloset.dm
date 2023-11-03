@@ -68,11 +68,11 @@
 				if(open && !swirlie)
 					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
 					swirlie = GM
-					if(do_after(user, 30, 5, 0))
+					if(do_after(user, 30, GM, do_flags = DO_UNIQUE))
 						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), SPAN_NOTICE("You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
-						SSfeedback.IncrementSimpleStat("swirlies")
+						SSstatistics.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
 					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
@@ -142,12 +142,15 @@
 	var/mobpresent = 0		//true if there is a mob on the shower's loc, this is to ease process()
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
+	var/datum/looping_sound/showering/soundloop
 
 /obj/machinery/shower/Initialize()
 	. = ..()
 	create_reagents(2)
+	soundloop = new(list(src), FALSE)
 
 /obj/machinery/shower/Destroy()
+	QDEL_NULL(soundloop)
 	return ..()
 
 //add heat controls? when emagged, you can freeze to death in it?
@@ -158,7 +161,7 @@
 	icon_state = "mist"
 	layer = MOB_LAYER + 1
 	anchored = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/machinery/shower/attack_hand(mob/M as mob)
 	on = !on
@@ -187,6 +190,7 @@
 		qdel(mymist)
 
 	if(on)
+		soundloop.start(src)
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
@@ -199,10 +203,11 @@
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
 	else
+		soundloop.stop(src)
 		if(ismist)
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
-			addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(clear_mist)), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /obj/machinery/shower/proc/clear_mist()
 	if (!on)
@@ -228,7 +233,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
-	W.reagents.add_reagent(/decl/reagent/water, spray_amount)
+	W.reagents.add_reagent(/singleton/reagent/water, spray_amount)
 	W.set_up(O, spray_amount)
 
 	if(iscarbon(O))
@@ -363,7 +368,7 @@
 		return
 	is_washing = 1
 	var/turf/T = get_turf(src)
-	reagents.add_reagent(/decl/reagent/water, 2)
+	reagents.add_reagent(/singleton/reagent/water, 2)
 	T.clean(src)
 	spawn(100)
 		is_washing = 0
@@ -405,7 +410,7 @@
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in view(1)
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	var/N = tgui_input_list(usr, "Set the amount to transfer from this.", "[src]", possible_transfer_amounts)
 	if (N)
 		amount_per_transfer_from_this = N
 
@@ -469,9 +474,9 @@
 					to_chat(usr, SPAN_WARNING("\The [RG] is already full."))
 					return
 
-				RG.reagents.add_reagent(/decl/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
+				RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
-									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
+										SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -481,7 +486,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				var/max_reagents = RG.reagents.maximum_volume
 				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-				playsound(src.loc, /decl/sound_category/generic_pour_sound, 10, 1)
+				playsound(src.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
 		return
 
 	// Filling/empying Syringes
@@ -494,9 +499,9 @@
 					return
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
-				S.reagents.add_reagent(/decl/reagent/water, trans)
+				S.reagents.add_reagent(/singleton/reagent/water, trans)
 				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."),
-									 SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+										SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
 					to_chat(usr, SPAN_WARNING("\The [S] is already empty."))
@@ -505,7 +510,7 @@
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
 				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."),
-									 SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+										SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
 	else if (istype(O, /obj/item/melee/baton))
@@ -527,10 +532,16 @@
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
 	else if(istype(O, /obj/item/mop))
-		O.reagents.add_reagent(/decl/reagent/water, 5)
+		O.reagents.add_reagent(/singleton/reagent/water, 5)
 		to_chat(user, SPAN_NOTICE("You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
+
+	else if(istype(O, /obj/item/reagent_containers/bowl))
+		var/obj/item/reagent_containers/bowl/B = O
+		if(B.grease)
+			B.grease = FALSE
+			B.update_icon()
 
 	var/turf/location = user.loc
 	if(!isturf(location)) return

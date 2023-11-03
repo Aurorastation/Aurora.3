@@ -18,6 +18,7 @@
 	dir = EAST
 	density = TRUE
 	anchored = TRUE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/locked = FALSE
 	var/obj/structure/m_tray/connected = null
 	var/tray = /obj/structure/m_tray
@@ -32,7 +33,7 @@
 		icon_state = "morgue0"
 	else
 		icon_state = "morgue1"
-		var/list/searching = GetAllContents(searchDepth = 3, checkClient = 0) // Search inside bodybags as well.
+		var/list/searching = get_all_contents_of_type(/mob/living) // Search inside bodybags as well.
 		for(var/mob/living/M in searching)
 			if(iscarbon(M))
 				var/mob/living/carbon/C = M
@@ -93,12 +94,11 @@
 
 /obj/structure/morgue/attackby(obj/P, mob/user)
 	if(P.ispen())
-		var/t = input(user, "What would you like the label to be?", name) as text
+		var/t = tgui_input_text(user, "What would you like the label to be?", "Morgue", "", MAX_NAME_LEN)
 		if(user.get_active_hand() != P)
 			return
 		if((!in_range(src, usr) > 1 && src.loc != user))
 			return
-		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if(t)
 			name = "[initial(name)] - '[t]'"
 		else
@@ -143,6 +143,7 @@
 	anchored = TRUE
 	throwpass = TRUE
 	layer = TURF_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 
 /obj/structure/m_tray/Destroy()
@@ -252,7 +253,7 @@
 		update_icon()
 		var/desperation = 0
 
-		var/list/searching = GetAllContents(searchDepth = 3, checkClient = 0)
+		var/list/searching = get_all_contents_of_type(/mob/living)
 		for(var/mob/living/M in searching)
 			admin_attack_log(A, M, "Began cremating their victim.", "Has begun being cremated.", "began cremating")
 			if(iscarbon(M))
@@ -273,9 +274,9 @@
 						desperation = rand(1,5)
 						switch(desperation) //This is messy. A better solution would probably be to make more sounds, but...
 							if(1)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'sound/weapons/Genhit.ogg', 45, 1)
 								shake_animation(2)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'sound/weapons/Genhit.ogg', 45, 1)
 							if(2)
 								playsound(src.loc, 'sound/effects/grillehit.ogg', 45, 1)
 								shake_animation(3)

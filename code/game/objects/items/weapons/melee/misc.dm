@@ -37,6 +37,7 @@
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	surgerysound = 'sound/weapons/saw/chainsword.ogg'
 	var/active = 0
 	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
@@ -131,7 +132,7 @@
 			H.apply_effect(2, WEAKEN)
 		on = FALSE
 		update_icon()
-		addtimer(CALLBACK(src, .proc/rearm), reset_time SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(rearm)), reset_time SECONDS)
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			if(R.cell)

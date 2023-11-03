@@ -21,8 +21,25 @@
 	var/special_role = null
 	var/faction = null
 
+	/// Culture restrictions for this spawner. Use types. Make sure that there is at least one culture per allowed species!
+	var/list/culture_restriction = list()
+	/// Origin restrictions for this spawner. Use types. Not required if culture restriction is set. Make sure that there is at least one origin per allowed species!
+	var/list/origin_restriction = list()
+
 	mob_name = null
 
+//Return a error message if the user CANT spawn. Otherwise FALSE
+/datum/ghostspawner/human/cant_spawn(mob/user)
+	//If whitelist is required, check if user can spawn in ANY of the possible species
+	if(uses_species_whitelist)
+		var/can_spawn_as_any = FALSE
+		for (var/S in possible_species)
+			if(is_alien_whitelisted(user, S))
+				can_spawn_as_any = TRUE
+				break
+		if(!can_spawn_as_any)
+			return "This spawner requires whitelists for its spawnable species, and you do not have any such."
+	. = ..()
 
 //Proc executed before someone is spawned in
 /datum/ghostspawner/human/pre_spawn(mob/user)
@@ -57,7 +74,7 @@
 	//Select a spawnpoint (if available)
 	var/turf/T = select_spawnlocation()
 	if(!T)
-		log_debug("GhostSpawner: Unable to select spawnpoint for [short_name]")
+		LOG_DEBUG("GhostSpawner: Unable to select spawnpoint for [short_name]")
 		return FALSE
 
 	//Pick a species
@@ -68,7 +85,7 @@
 		else if(is_alien_whitelisted(user, S))
 			species_selection += S
 
-	var/picked_species = input(user,"Select your species") in species_selection
+	var/picked_species = tgui_input_list(user, "Select your species.", "Species Selection", species_selection)
 	if(!picked_species)
 		picked_species = possible_species[1]
 
@@ -77,7 +94,7 @@
 
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species, assigned_gender)
-	var/age = input(user, "Enter your characters age:","Num") as num
+	var/age = tgui_input_number(user, "Enter your character's age.", "Age", 25, 1000, 0)
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
@@ -131,9 +148,24 @@
 
 	//Setup the appearance
 	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M, update_id = TRUE)
+		M.change_appearance(allow_appearance_change, M, culture_restriction = src.culture_restriction, origin_restriction = src.origin_restriction, update_id = TRUE)
 	else //otherwise randomize
-		M.client.prefs.randomize_appearance_for(M, FALSE)
+		M.client.prefs.randomize_appearance_for(M, FALSE, culture_restriction, origin_restriction)
+
+	if(length(culture_restriction))
+		for(var/culture in culture_restriction)
+			var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
+			if(CL.type in M.species.possible_cultures)
+				M.culture = CL
+				break
+		for(var/origin in M.culture.possible_origins)
+			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
+			if(length(origin_restriction))
+				if(!(OI.type in origin_restriction))
+					continue
+			M.origin = OI
+			M.accent = pick(OI.possible_accents)
+			break
 
 	for(var/language in extra_languages)
 		M.add_language(language)
@@ -141,9 +173,14 @@
 	M.force_update_limbs()
 	M.update_eyes()
 	M.regenerate_icons()
+	M.ghost_spawner = WEAKREF(src)
 
 	return M
 
-//Proc executed after someone is spawned in
-/datum/ghostspawner/human/post_spawn(mob/user)
-	. = ..()
+/// Used for cryo to free up a slot when a ghost cryos.
+/mob/living/carbon/human
+	var/datum/weakref/ghost_spawner
+
+/mob/living/carbon/human/Destroy()
+	ghost_spawner = null
+	return ..()

@@ -29,7 +29,7 @@
 
 /obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-	reagents.add_reagent(/decl/reagent/spacecleaner, capacity)
+	reagents.add_reagent(/singleton/reagent/spacecleaner, capacity)
 
 /obj/item/soap/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/key))
@@ -78,7 +78,7 @@
 		else
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-		if (do_after(user, 25, needhand = 0))
+		if (do_after(user, 2.5 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			target.clean_blood()
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))

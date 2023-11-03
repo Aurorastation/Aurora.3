@@ -3,7 +3,7 @@
 //which can be checked against recipe requirements in order to cook recipes that require several things
 
 /obj/item/reagent_containers/cooking_container
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'icons/obj/item/reagent_containers/cooking_container.dmi'
 	var/shortname
 	var/place_verb = "into"
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
@@ -17,8 +17,26 @@
 		/obj/item/stack/rods,
 		/obj/item/organ/internal/brain
 		)
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/pickup/metal_pot.ogg'
 	var/appliancetype // Bitfield, uses the same as appliances
 	w_class = ITEMSIZE_NORMAL
+
+/obj/item/reagent_containers/cooking_container/on_reagent_change()
+	. = ..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/pickup(mob/user)
+	. = ..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/dropped(mob/user)
+	. = ..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/attack_hand()
+	. = ..()
+	update_icon()
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
@@ -63,6 +81,7 @@
 			return
 		I.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
+		update_icon()
 		return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
@@ -86,6 +105,7 @@
 		AM.forceMove(get_turf(src))
 
 	to_chat(user, SPAN_NOTICE("You remove all the solid items from [src]."))
+	update_icon()
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
 	if (isemptylist(contents))
@@ -119,7 +139,7 @@
 		var/obj/O = locate() in contents
 		return . + O.name //Just append the name of the first object
 	else if (reagents.total_volume > 0)
-		var/decl/reagent/R = reagents.get_primary_reagent_decl()
+		var/singleton/reagent/R = reagents.get_primary_reagent_decl()
 		return . + R.name//Append name of most voluminous reagent
 	return . + "empty"
 
@@ -151,6 +171,12 @@
 			if (weights[I])
 				holder.trans_to(I, weights[I] / total)
 
+/obj/item/reagent_containers/cooking_container/update_icon()
+	cut_overlays()
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]_filling_overlay")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
 
 /obj/item/reagent_containers/cooking_container/oven
 	name = "oven dish"
@@ -160,6 +186,15 @@
 	max_space = 30
 	volume = 120
 	appliancetype = OVEN
+
+/obj/item/reagent_containers/cooking_container/oven/update_icon()
+	cut_overlays()
+	for(var/obj/item/I in contents)
+		var/image/food = overlay_image(I.icon, I.icon_state, I.color)
+		var/matrix/M = matrix()
+		M.Scale(0.5)
+		food.transform = M
+		add_overlay(food)
 
 /obj/item/reagent_containers/cooking_container/skillet
 	name = "skillet"
@@ -248,27 +283,30 @@
 		return FALSE
 	return TRUE
 
-/obj/item/reagent_containers/cooking_container/plate
-	name = "serving plate"
-	shortname = "plate"
-	desc = "A plate. You plate foods on this plate."
-	icon_state = "plate"
+/obj/item/reagent_containers/cooking_container/board
+	name = "chopping board"
+	shortname = "board"
+	place_verb = "onto"
+	desc = "A board for preparing food. Not chopping. I'm sorry."
+	icon_state = "board"
+	drop_sound = /singleton/sound_category/generic_drop_sound
+	pickup_sound = /singleton/sound_category/generic_pickup_sound
 	appliancetype = MIX
 	flags = OPENCONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
-/obj/item/reagent_containers/cooking_container/plate/examine(mob/user)
+/obj/item/reagent_containers/cooking_container/board/examine(mob/user)
 	. = ..()
 	if(length(contents) || reagents?.total_volume)
 		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
 
-/obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
+/obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
-	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
+	var/singleton/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
 	var/list/obj/results = recipe.make_food(src)
@@ -301,11 +339,19 @@
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
-/obj/item/reagent_containers/cooking_container/plate/bowl
-	name = "serving bowl"
+/obj/item/reagent_containers/cooking_container/board/update_icon()
+	cut_overlays()
+	for(var/obj/item/I in contents)
+		var/image/food = overlay_image(I.icon, I.icon_state, I.color)
+		var/matrix/M = matrix()
+		M.Scale(0.5)
+		food.transform = M
+		add_overlay(food)
+
+/obj/item/reagent_containers/cooking_container/board/bowl
+	name = "mixing bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
-	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	filling_states = "-10;10;25;50;75;80;100"
 	center_of_mass = list("x" = 17,"y" = 7)
@@ -315,30 +361,9 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/on_reagent_change()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/pickup(mob/user)
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/dropped(mob/user)
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/attack_hand()
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/update_icon()
+/obj/item/reagent_containers/cooking_container/board/bowl/update_icon()
 	cut_overlays()
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state][get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state][get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
-

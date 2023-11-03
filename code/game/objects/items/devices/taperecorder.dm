@@ -23,7 +23,7 @@
 
 /obj/item/device/taperecorder/Initialize()
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 	portable_drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 
 /obj/item/device/taperecorder/Destroy()
@@ -88,6 +88,7 @@
 /obj/item/device/taperecorder/verb/record()
 	set name = "Start Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -114,6 +115,7 @@
 /obj/item/device/taperecorder/verb/stop()
 	set name = "Stop Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -137,6 +139,7 @@
 /obj/item/device/taperecorder/verb/clear_memory()
 	set name = "Clear Memory"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -158,6 +161,7 @@
 /obj/item/device/taperecorder/verb/playback_memory()
 	set name = "Playback Memory"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -208,6 +212,7 @@
 /obj/item/device/taperecorder/verb/print_transcript()
 	set name = "Print Transcript"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -232,7 +237,7 @@
 	P.name = "Transcript"
 	usr.put_in_hands(P)
 	can_print = FALSE
-	addtimer(CALLBACK(src, .proc/set_can_print, 1), 150)
+	addtimer(CALLBACK(src, PROC_REF(set_can_print), 1), 150)
 
 /obj/item/device/taperecorder/proc/set_can_print(var/set_state = TRUE)
 	can_print = set_state
@@ -240,6 +245,7 @@
 /obj/item/device/taperecorder/verb/eject_usb()
 	set name = "Eject Portable Storage"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return

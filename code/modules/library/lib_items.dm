@@ -51,9 +51,9 @@
 	else
 		..()
 
-/obj/structure/bookcase/attack_hand(var/mob/user as mob)
+/obj/structure/bookcase/attack_hand(var/mob/user)
 	if(contents.len)
-		var/obj/item/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
+		var/obj/item/book/choice = tgui_input_list(user, "Which book would you like to remove from the shelf?", "Bookcase", contents)
 		if(choice)
 			if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 				return
@@ -83,7 +83,7 @@
 					b.forceMove(get_turf(src))
 				qdel(src)
 			return
-		else
+
 	return
 
 /obj/structure/bookcase/update_icon()
@@ -101,7 +101,7 @@
 	. = ..()
 	name = "[initial(name)] ([spawn_category])"
 
-	addtimer(CALLBACK(src, .proc/populate_shelves), 1)
+	addtimer(CALLBACK(src, PROC_REF(populate_shelves)), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
 	if (!establish_db_connection(dbcon))
@@ -148,36 +148,36 @@
 /obj/structure/bookcase/manuals/medical
 	name = "Medical Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/book/manual/medical_cloning(src)
-		new /obj/item/book/manual/medical_diagnostics_manual(src)
-		new /obj/item/book/manual/medical_diagnostics_manual(src)
-		new /obj/item/book/manual/medical_diagnostics_manual(src)
-		update_icon()
+/obj/structure/bookcase/manuals/medical/New()
+	..()
+	new /obj/item/book/manual/medical_diagnostics_manual(src)
+	new /obj/item/book/manual/medical_diagnostics_manual(src)
+	new /obj/item/book/manual/medical_diagnostics_manual(src)
+	new /obj/item/book/manual/medical_diagnostics_manual(src)
+	update_icon()
 
 
 /obj/structure/bookcase/manuals/engineering
 	name = "Engineering Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/book/manual/wiki/engineering_construction(src)
-		new /obj/item/book/manual/engineering_particle_accelerator(src)
-		new /obj/item/book/manual/wiki/engineering_hacking(src)
-		new /obj/item/book/manual/wiki/engineering_guide(src)
-		new /obj/item/book/manual/atmospipes(src)
-		new /obj/item/book/manual/engineering_singularity_safety(src)
-		new /obj/item/book/manual/evaguide(src)
-		update_icon()
+/obj/structure/bookcase/manuals/engineering/New()
+	..()
+	new /obj/item/book/manual/wiki/engineering_construction(src)
+	new /obj/item/book/manual/engineering_particle_accelerator(src)
+	new /obj/item/book/manual/wiki/engineering_hacking(src)
+	new /obj/item/book/manual/wiki/engineering_guide(src)
+	new /obj/item/book/manual/atmospipes(src)
+	new /obj/item/book/manual/engineering_singularity_safety(src)
+	new /obj/item/book/manual/evaguide(src)
+	update_icon()
 
 /obj/structure/bookcase/manuals/research_and_development
 	name = "R&D Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/book/manual/research_and_development(src)
-		update_icon()
+/obj/structure/bookcase/manuals/research_and_development/New()
+	..()
+	new /obj/item/book/manual/research_and_development(src)
+	update_icon()
 
 
 /*
@@ -191,7 +191,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
 		)
 	icon_state = "book"
-	desc_cult = "This can be reforged to become a cult tome."
+	desc_antag = "As a Cultist, this item can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -243,7 +243,7 @@
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return
-		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
+		var/choice = tgui_alert(user, "What would you like to change?", "Book", list("Title", "Contents", "Author", "Cancel"))
 		switch(choice)
 			if("Title")
 				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))
@@ -322,36 +322,36 @@
  * Barcode Scanner
  */
 /obj/item/barcodescanner
-	name = "barcode scanner"
+	name = "book scanner"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="scanner"
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
 	var/obj/machinery/librarycomp/computer // Associated computer - Modes 1 to 3 use this
-	var/obj/item/book/book	 //  Currently scanned book
-	var/mode = 0 					// 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
+	var/obj/item/book/book //  Currently scanned book
+	var/mode = 0 // 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
 
-	attack_self(mob/user as mob)
-		mode += 1
-		if(mode > 3)
-			mode = 0
-		to_chat(user, "[src] Status Display:")
-		var/modedesc
-		switch(mode)
-			if(0)
-				modedesc = "Scan book to local buffer."
-			if(1)
-				modedesc = "Scan book to local buffer and set associated computer buffer to match."
-			if(2)
-				modedesc = "Scan book to local buffer, attempt to check in scanned book."
-			if(3)
-				modedesc = "Scan book to local buffer, attempt to add book to general inventory."
-			else
-				modedesc = "ERROR"
-		to_chat(user, " - Mode [mode] : [modedesc]")
-		if(src.computer)
-			to_chat(user, "<font color=green>Computer has been associated with this unit.</font>")
+/obj/item/barcodescanner/attack_self(mob/user as mob)
+	mode += 1
+	if(mode > 3)
+		mode = 0
+	to_chat(user, "[src] Status Display:")
+	var/modedesc
+	switch(mode)
+		if(0)
+			modedesc = "Scan book to local buffer."
+		if(1)
+			modedesc = "Scan book to local buffer and set associated computer buffer to match."
+		if(2)
+			modedesc = "Scan book to local buffer, attempt to check in scanned book."
+		if(3)
+			modedesc = "Scan book to local buffer, attempt to add book to general inventory."
 		else
-			to_chat(user, "<span class='attack'>No associated computer found. Only local scans will function properly.</span>")
-		to_chat(user, "\n")
+			modedesc = "ERROR"
+	to_chat(user, " - Mode [mode] : [modedesc]")
+	if(src.computer)
+		to_chat(user, SPAN_NOTICE("Computer has been associated with this unit."))
+	else
+		to_chat(user, SPAN_WARNING("No associated computer found. Only local scans will function properly."))
+	to_chat(user, "\n")

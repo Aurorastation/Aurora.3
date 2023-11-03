@@ -1,38 +1,36 @@
 /* How it works:
- The shuttle arrives at CentCom dock and calls sell(), which recursively loops through all the shuttle contents that are unanchored.
- The loop only checks contents of storage types, see supply.dm shuttle code.
+The shuttle arrives at CentCom dock and calls sell(), which recursively loops through all the shuttle contents that are unanchored.
+The loop only checks contents of storage types, see supply.dm shuttle code.
 
- Each object in the loop is checked for applies_to() of various export datums, except the invalid ones.
- Objects on shutlle floor are checked only against shuttle_floor = TRUE exports.
+Each object in the loop is checked for applies_to() of various export datums, except the invalid ones.
+Objects on shutlle floor are checked only against shuttle_floor = TRUE exports.
 
- If applies_to() returns TRUE, sell_object() is called on object and checks against exports are stopped for this object.
- sell_object() must add object amount and cost to export's total_cost and total_amount.
+If applies_to() returns TRUE, sell_object() is called on object and checks against exports are stopped for this object.
+sell_object() must add object amount and cost to export's total_cost and total_amount.
 
- When all the shuttle objects are looped, export cycle is over. The shuttle calls total_printout() for each valid export.
- If total_printout() returns something, the export datum's total_cost is added to cargo credits, then export_end() is called to reset total_cost and total_amount.
+When all the shuttle objects are looped, export cycle is over. The shuttle calls total_printout() for each valid export.
+If total_printout() returns something, the export datum's total_cost is added to cargo credits, then export_end() is called to reset total_cost and total_amount.
 */
 
 /* The rule in figuring out item export cost:
- Export cost of goods in the shipping crate must be always equal or lower than:
-  packcage cost - crate cost - manifest cost
- Crate cost is 500cr for a regular plasteel crate and 100cr for a large wooden one. Manifest cost is always 200cr.
- This is to avoid easy cargo points dupes.
+Export cost of goods in the shipping crate must be always equal or lower than:
+	packcage cost - crate cost - manifest cost
+Crate cost is 500cr for a regular plasteel crate and 100cr for a large wooden one. Manifest cost is always 200cr.
+This is to avoid easy cargo points dupes.
 
 Credit dupes that require a lot of manual work shouldn't be removed, unless they yield too much profit for too little work.
- For example, if some player buys metal and glass sheets and uses them to make and sell reinforced glass:
+For example, if some player buys metal and glass sheets and uses them to make and sell reinforced glass:
 
- 100 glass + 50 metal -> 100 reinforced glass
- (1500cr -> 1600cr)
+100 glass + 50 metal -> 100 reinforced glass
+(1500cr -> 1600cr)
 
- then the player gets the profit from selling his own wasted time.
+then the player gets the profit from selling his own wasted time.
 */
 /datum/controller/subsystem/cargo/proc/export_item_and_contents(atom/movable/AM, contraband, emagged, dry_run=FALSE)
 	var/sold_str = ""
 	var/cost = 0
 
-	var/list/contents = list()
-	contents += AM //Also add the container object
-	contents += AM.GetAllContents()
+	var/list/contents = AM.GetAllContents()
 
 	// We go backwards, so it'll be innermost objects sold first
 	for(var/i in reverseRange(contents))

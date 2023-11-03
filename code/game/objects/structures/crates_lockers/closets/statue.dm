@@ -53,11 +53,11 @@
 		imprisoned = temporarymob
 
 	if(health == 0) //meaning if the statue didn't find a valid target
-		qdel(src)
-		return
+		initialized = TRUE
+		return INITIALIZE_HINT_QDEL
 
 	START_PROCESSING(SSprocessing, src)
-	..()
+	. = ..()
 
 /obj/structure/closet/statue/process()
 	timer -= 2
@@ -78,9 +78,9 @@
 	appearance_flags |= KEEP_TOGETHER
 	dir = L.dir
 	color = list(
-				    0.30, 0.3, 0.25,
-				    0.30, 0.3, 0.25,
-				    0.30, 0.3, 0.25
+					0.30, 0.3, 0.25,
+					0.30, 0.3, 0.25,
+					0.30, 0.3, 0.25
 				)
 	name = "statue of [L.name]"
 	desc = "An incredibly lifelike stone carving."

@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -90,7 +90,7 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	var/success = L.apply_damage(30, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 	if(!success)
 		return FALSE
 
@@ -179,7 +179,7 @@
 	icon_state = "[icon_base][deployed]"
 
 /obj/item/trap/animal/examine(mob/user)
-	..()
+	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)
@@ -249,7 +249,7 @@
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, src))
 		breakout = FALSE
 		return
 
@@ -382,7 +382,7 @@
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
-							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
+								"<span class='notice'>You are trying to slice \the [src] open!</span>")
 
 		if(WT.use_tool(src, user, 60, volume = 50))
 			if(WT.use(2, user))
@@ -401,14 +401,14 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-							 "<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
+								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
-								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
+									"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
 	else
 		..()
 
@@ -446,7 +446,7 @@
 		user.visible_message("<span class='notice'>[user] attempts to pass through \the [src] without triggering it.</span>",
 							"<span class='notice'>You attempt to pass through \the [src] without triggering it. </span>"
 		)
-		if(do_after(user, 2 SECONDS, act_target = src))
+		if(do_after(user, 2 SECONDS, src))
 			if(prob(pct))
 				user.forceMove(loc)
 				user.visible_message("<span class='notice'>[user] passes through \the [src] without triggering it.</span>",
@@ -546,7 +546,7 @@
 	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
-						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
+						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/giant_spider,
 						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human,
 						/mob/living/simple_animal/pig)
 
@@ -572,7 +572,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
-							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
+								"<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
@@ -613,7 +613,7 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 5
@@ -626,7 +626,7 @@
 
 			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
 
-			if (!do_after(user, 2 SECONDS, act_target = src))
+			if (!do_after(user, 2 SECONDS, src))
 				return
 
 			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")

@@ -37,7 +37,7 @@
 			"<span class='danger'>You begin deploying \the [src]!</span>"
 			)
 
-		if (do_after(user, 60))
+		if (do_after(user, 6 SECONDS, DO_REPAIR_CONSTRUCT))
 			user.visible_message(
 				"<span class='danger'>[user] has deployed \the [src].</span>",
 				"<span class='danger'>You have deployed \the [src]!</span>"
@@ -55,8 +55,8 @@
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
-/obj/item/landmine/Crossed(AM as mob|obj)
-	if(deployed)
+/obj/item/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
+	if(deployed || ignore_deployment)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
 			if(H.shoes?.item_flags & LIGHTSTEP)
@@ -90,7 +90,7 @@
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(1))
 			to_chat(user, SPAN_NOTICE("You start carefully start rewiring \the [src]."))
-			if(do_after(user, 100, TRUE, src))
+			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user, SPAN_NOTICE("You successfully rewire \the [src], priming it for use."))
 				deactivated = FALSE
 			return

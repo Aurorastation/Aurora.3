@@ -1,7 +1,8 @@
 /obj/item/reagent_containers/food/snacks/fish
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "fishfillet"
 	filling_color = "#FFDEFE"
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 	bitesize = 6
 	var/fish_type = "fish"
 
@@ -16,7 +17,7 @@
 /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	name = "carp fillet"
 	desc = "A fillet of space carp meat."
-	reagents_to_add = list(/decl/reagent/toxin/carpotoxin = 3, /decl/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/singleton/reagent/toxin/carpotoxin = 3, /singleton/reagent/nutriment/protein/seafood = 3)
 	fish_type = "space carp"
 
 /obj/item/reagent_containers/food/snacks/fish/fishfillet
@@ -28,13 +29,13 @@
 	desc = "A fleshy organ filled with fish eggs."
 	icon_state = "roesack"
 	fish_type = "fish"
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc
 	name = "slimy meat"
 	desc = "Some slimy meat from clams or molluscs."
 	fish_type = "mollusc"
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/mollusc = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 3)
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc/clam
 	fish_type = "clam"
@@ -47,12 +48,12 @@
 	desc = "A piece of slimy meat that could only come from a space jellyfish, a cosmozoan."
 	icon_state = "cozmofillet"
 	fish_type = "cosmozoan"
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/cosmozoan = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/cosmozoan = 3)
 
 // Molluscs!
 /obj/item/trash/mollusc_shell
 	name = "mollusc shell"
-	icon = 'icons/obj/molluscs.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "mollusc_shell"
 	desc = "The cracked shell of an unfortunate mollusc."
 
@@ -69,7 +70,7 @@
 	w_class = ITEMSIZE_TINY
 	desc = "A small slimy mollusc. Fresh!"
 	desc_info = "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
-	icon = 'icons/obj/molluscs.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "mollusc"
 	var/meat_type = /obj/item/reagent_containers/food/snacks/fish/mollusc
 	var/shell_type = /obj/item/trash/mollusc_shell
@@ -89,7 +90,7 @@
 	shell_type = /obj/item/trash/mollusc_shell/clam
 
 /obj/item/mollusc/proc/crack_shell(var/mob/user)
-	playsound(loc, /decl/sound_category/pickaxe_sound, 40, TRUE)
+	playsound(loc, /singleton/sound_category/pickaxe_sound, 40, TRUE)
 	if(user && loc == user)
 		user.drop_from_inventory(src)
 	if(meat_type)
@@ -116,13 +117,12 @@
 		return
 	return ..()
 
-/obj/item/mollusc/clam/rasval
-	name = "ras'val clam"
-	desc = "An adhomian clam, native to the sea of Ras'val."
-	icon_state = "ras'val_clams"
-	meat_type = /obj/item/reagent_containers/food/snacks/clam
-	shell_type = /obj/item/trash/mollusc_shell/clam/rasval
-
-/obj/item/trash/mollusc_shell/clam/rasval
-	name = "ras'val clam shell"
-	icon_state = "ras'val_clams_shell"
+// fish?
+/obj/item/reagent_containers/food/snacks/dwellermeat
+	name = "worm fillet"
+	desc = "A fillet of electrifying cavern meat."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "fishfillet"
+	filling_color = "#FFDEFE"
+	bitesize = 6
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/hyperzine = 15, /singleton/reagent/acid/polyacid = 6)

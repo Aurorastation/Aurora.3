@@ -1,12 +1,15 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "energynet"
+	icon = 'icons/effects/map_effects_96x96.dmi'
+	icon_state = "shuttle_landmark"
 	anchored = TRUE
 	unacidable = TRUE
 	simulated = 0
 	invisibility = 101
+	layer = ABOVE_ALL_MOB_LAYER
+	pixel_x = -32
+	pixel_y = -32
 
 	var/landmark_tag
 	//ID of the controller on the dock side
@@ -23,11 +26,16 @@
 	var/shuttle_restricted
 	var/landmark_flags = 0
 
+	/// Effects that show where the shuttle will land, to prevent unfair squishing
+	var/list/landing_indicators
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
-	if(docking_controller)
-		. = INITIALIZE_HINT_LATELOAD
+	name = name + " ([x],[y])"
+	SSshuttle.register_landmark(landmark_tag, src)
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/effect/shuttle_landmark/LateInitialize()
 	if(landmark_flags & SLANDMARK_FLAG_AUTOSET)
 		base_area = get_area(src)
 		var/turf/T = get_turf(src)
@@ -36,16 +44,12 @@
 	else
 		base_area = locate(base_area || world.area)
 
-	name = name + " ([x],[y])"
-	SSshuttle.register_landmark(landmark_tag, src)
-
-/obj/effect/shuttle_landmark/LateInitialize()
 	if(!docking_controller)
 		return
 	var/docking_tag = docking_controller
 	docking_controller = SSshuttle.docking_registry[docking_tag]
 	if(!istype(docking_controller))
-		log_debug("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+		LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/forceMove()
 	var/obj/effect/overmap/visitable/map_origin = map_sectors["[z]"]
@@ -74,11 +78,21 @@
 			return FALSE
 	return TRUE
 
+/obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
+	LAZYINITLIST(landing_indicators)
+	for(var/area/A in shuttle.shuttle_area)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		for(var/target_turf in list_values(translation))
+			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
+
+/obj/effect/shuttle_landmark/proc/clear_landing_indicators()
+	QDEL_NULL_LIST(landing_indicators) // lazyclear but we delete the effects as well
+
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE
 
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
-	return
+	clear_landing_indicators()
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)
@@ -101,23 +115,40 @@
 	landmark_tag += "-[x]-[y]-[z]"
 	return ..()
 
-//Subtype that calls explosion on init to clear space for shuttles
-/obj/effect/shuttle_landmark/automatic/clearing
-	var/radius = LANDING_ZONE_RADIUS
-
-/obj/effect/shuttle_landmark/automatic/clearing/Initialize()
-	..()
-	return INITIALIZE_HINT_LATELOAD
-
 /obj/effect/shuttle_landmark/automatic/sector_set(var/obj/effect/overmap/visitable/O)
 	..()
 	name = "[initial(name)] ([x],[y])"
 
-/obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
+//Subtypes for exclusively Horizon shuttles
+/obj/effect/shuttle_landmark/automatic/intrepid/sector_set(var/obj/effect/overmap/visitable/O)
 	..()
-	for(var/turf/T in range(radius, src))
+	name = "SCCV Intrepid Landing Beacon ([x],[y])"
+
+/obj/effect/shuttle_landmark/automatic/spark/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Spark Landing Beacon ([x],[y])"
+
+/obj/effect/shuttle_landmark/automatic/canary/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Canary Landing Beacon ([x],[y])"
+
+//Subtype that calls explosion on init to clear space for shuttles
+/obj/effect/shuttle_landmark/automatic/clearing
+	dir = NORTH // compatible with Horizon's shuttles
+	var/radius = LANDING_ZONE_RADIUS
+
+/obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
+	// with directional shuttle landmarks, the landmark is at the airlock of the shuttle,
+	// so the shuttle extends south from this automatic landmark,
+	// and and so we explode around not this landmark,
+	// but instead around where the center of shuttle could be
+	var/turf/C = locate(src.x, src.y - LANDING_ZONE_RADIUS, src.z)
+	for(var/turf/T in RANGE_TURFS(LANDING_ZONE_RADIUS, C))
 		if(T.density)
 			T.ChangeTurf(get_base_turf_by_area(T))
+		for(var/obj/structure/S in T)
+			qdel(S)
+	..()
 
 /obj/item/device/spaceflare
 	name = "bluespace flare"

@@ -46,6 +46,8 @@
 #define HOSTILE_STANCE_ATTACKING 4
 #define HOSTILE_STANCE_TIRED     5
 
+#define ON_ATTACK_COOLDOWN(hostile_mob) world.time < hostile_mob.hostile_time_between_attacks + hostile_mob.hostile_last_attack
+
 #define LEFT  1
 #define RIGHT 2
 
@@ -89,6 +91,7 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
+#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -127,6 +130,7 @@
 #define BP_PHORON_RESERVOIR "phoron reservoir"
 #define BP_VAURCA_LIVER "mechanical liver"
 #define BP_VAURCA_KIDNEYS "mechanical kidneys"
+#define BP_HIVENET_SHIELD "hivenet electronic defense suite"
 
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
@@ -138,8 +142,10 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
-// Zombie organ
+// Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
+#define BP_WORM_HEART "heart fluke"
+#define BP_WORM_NERVE "nerve fluke"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
@@ -162,6 +168,7 @@
 #define BP_AUG_FUEL_CELL       "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER    "integrated air analyzer"
 #define BP_AUG_LANGUAGE        "integrated language processor"
+#define BP_AUG_ETHANOL_BURNER  "integrated ethanol burner"
 #define BP_AUG_PSI             "psionic receiver"
 #define BP_AUG_CALF_OVERRIDE   "calf overdrive"
 #define BP_AUG_MEMORY          "memory inhibitor"
@@ -171,6 +178,7 @@
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
 #define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
+#define BP_AUG_MAGBOOT		   "integrated mag-claws"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -227,7 +235,7 @@
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
 #define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
 #define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
 #define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
 #define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
@@ -246,12 +254,19 @@
 #define ECONOMICALLY_UNDERPAID	"Underpaid"
 #define ECONOMICALLY_POOR		"Poor"
 #define ECONOMICALLY_DESTITUTE  "Impoverished"
+#define ECONOMICALLY_RUINED		"Ruined"
 
-#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE, ECONOMICALLY_RUINED)
 
 // Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
+
+// Handle speech problems defines
+#define HSP_MSG 		"message"
+#define HSP_VERB 		"verb"
+#define HSP_MSGMODE 	"message mode"
+#define HSP_MSGRANGE 	"message range"
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
 #define MOB_LARGE  		16
@@ -297,6 +312,11 @@
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
+
+#define EAR_PROTECTION_REDUCED -1
+#define EAR_PROTECTION_NONE		0
+#define EAR_PROTECTION_MODERATE 1
+#define EAR_PROTECTION_MAJOR	2
 
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
@@ -397,6 +417,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines
@@ -449,8 +470,65 @@
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
+#define ROBOT_ICON		"iconpath"
 #define ROBOT_CHASSIS	"chassistype"
 #define ROBOT_PANEL		"paneltype"
 #define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1
+
+// Height Defines
+#define HEIGHT_NOT_USED 0
+#define HEIGHT_CLASS_TINY 130
+#define HEIGHT_CLASS_SHORT 150
+#define HEIGHT_CLASS_AVERAGE 170
+#define HEIGHT_CLASS_TALL 190
+#define HEIGHT_CLASS_HUGE 240
+#define HEIGHT_CLASS_GIGANTIC 300
+
+#define MOB_IS_INCAPACITATED(incapacitation_flags)\
+(\
+	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
+	((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting)) ||\
+	((incapacitation_flags & INCAPACITATION_KNOCKOUT) && (stat || paralysis || sleeping || (status_flags & FAKEDEATH))) ||\
+	((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())\
+	? TRUE :\
+	(\
+		((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY))) ?\
+		(\
+			(buckled_to() >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY)) ||	(buckled_to() == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY)) ?\
+			TRUE : FALSE\
+		) : FALSE\
+	)\
+)
+
+//used by /proc/do_after
+#define DO_USER_CAN_MOVE FLAG(0)
+#define DO_USER_CAN_TURN FLAG(1)
+#define DO_USER_UNIQUE_ACT FLAG(2)
+#define DO_USER_SAME_HAND FLAG(3)
+#define DO_USER_SAME_ZONE FLAG(4)
+#define DO_TARGET_CAN_MOVE FLAG(5)
+#define DO_TARGET_CAN_TURN FLAG(6)
+#define DO_TARGET_UNIQUE_ACT FLAG(7)
+#define DO_SHOW_PROGRESS FLAG(8)
+#define DO_MOVE_CHECKS_TURFS FLAG(9)
+#define DO_FAIL_FEEDBACK FLAG(10)
+
+// Preset macros
+#define DO_BOTH_CAN_MOVE (DO_USER_CAN_MOVE | DO_TARGET_CAN_MOVE)
+#define DO_BOTH_CAN_TURN (DO_USER_CAN_TURN | DO_TARGET_CAN_TURN)
+#define DO_BOTH_UNIQUE_ACT (DO_USER_UNIQUE_ACT | DO_TARGET_UNIQUE_ACT)
+#define DO_DEFAULT (DO_SHOW_PROGRESS | DO_USER_SAME_HAND | DO_BOTH_CAN_TURN | DO_FAIL_FEEDBACK)
+
+// Preset do_after flags
+#define DO_UNIQUE (DO_DEFAULT | DO_BOTH_UNIQUE_ACT) // Common flags for actions that should be unique
+#define DO_EXERCISE (DO_USER_UNIQUE_ACT | DO_USER_SAME_HAND) // Flags for exercises. Doesn't show progress, or give any failure feedback.
+#define DO_REPAIR_CONSTRUCT (DO_DEFAULT | DO_TARGET_UNIQUE_ACT) // Flags for repair and construction steps
+#define DO_EQUIP (DO_DEFAULT | DO_USER_UNIQUE_ACT) // Flags for equipping/unequipping mobs. Set to allow a mob to be targeted by multiple sources, but for a source to only be able to perform one action at a time.
+
+// Extra errors
+#define DO_MISSING_USER (-1)
+#define DO_MISSING_TARGET (-2)
+#define DO_INCAPACITATED (-3)
+#define DO_EXTRA_CHECKS (-4)

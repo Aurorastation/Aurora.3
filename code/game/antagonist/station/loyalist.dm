@@ -27,7 +27,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE
 
-	restricted_jobs = list("AI", "Cyborg")
+	restricted_jobs = list("AI", "Cyborg", "Merchant")
 	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet")
 	required_age = 31
 
@@ -53,12 +53,12 @@ var/datum/antagonist/loyalists/loyalists
 		return FALSE
 
 	if(!player.back)
-		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_loyalist_status, player)
+	INVOKE_ASYNC(src, PROC_REF(alert_loyalist_status), player)
 	return TRUE
 
 /datum/antagonist/loyalists/proc/alert_loyalist_status(var/mob/living/carbon/human/player) //This is still dumb but it works

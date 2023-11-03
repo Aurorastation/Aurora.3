@@ -71,7 +71,7 @@ var/datum/discord_bot/discord_bot = null
 		return 1
 
 	if (!establish_db_connection(dbcon))
-		log_debug("BOREALIS: Failed to update channels due to missing database.")
+		LOG_DEBUG("BOREALIS: Failed to update channels due to missing database.")
 		return 2
 
 	// Reset the channel lists.
@@ -93,7 +93,7 @@ var/datum/discord_bot/discord_bot = null
 			B = new(channel_query.item[2], channel_query.item[4], text2num(channel_query.item[3]))
 
 			if (!B)
-				log_debug("BOREALIS: Bad channel data during update channels. [jointext(channel_query.item, ", ")].")
+				LOG_DEBUG("BOREALIS: Bad channel data during update channels. [jointext(channel_query.item, ", ")].")
 				continue
 
 			channels[channel_query.item[2]] = B
@@ -107,9 +107,9 @@ var/datum/discord_bot/discord_bot = null
 	if (!isnull(channels_to_group[CHAN_INVITE]))
 		invite = channels_to_group[CHAN_INVITE][1]
 	else if (robust_debug)
-		log_debug("BOREALIS: No invite channel designated.")
+		LOG_DEBUG("BOREALIS: No invite channel designated.")
 
-	log_debug("BOREALIS: Channels updated successfully.")
+	LOG_DEBUG("BOREALIS: Channels updated successfully.")
 	return 0
 
 /*
@@ -145,7 +145,7 @@ var/datum/discord_bot/discord_bot = null
 			queue.Add(list(list(message, A - sent)))
 
 			// Schedule a push.
-			addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(push_queue)), 10 SECONDS, TIMER_UNIQUE)
 
 			// And exit.
 			return
@@ -153,7 +153,7 @@ var/datum/discord_bot/discord_bot = null
 			sent += channel
 
 	if (robust_debug)
-		log_debug("BOREALIS: Message sent to [channel_group]. JSON body: '[message]'")
+		LOG_DEBUG("BOREALIS: Message sent to [channel_group]. JSON body: '[message]'")
 
 /*
  * Proc retreive_pins
@@ -169,13 +169,13 @@ var/datum/discord_bot/discord_bot = null
 
 	if (!channels.len || isnull(channels_to_group["channel_pins"]))
 		if (robust_debug)
-			log_debug("BOREALIS: No pins channel group.")
+			LOG_DEBUG("BOREALIS: No pins channel group.")
 		return list()
 
 	var/list/output = list()
 
 	if (robust_debug)
-		log_debug("BOREALIS: Acquiring pins.")
+		LOG_DEBUG("BOREALIS: Acquiring pins.")
 
 	for (var/A in channels_to_group["channel_pins"])
 		var/datum/discord_channel/channel = A
@@ -187,7 +187,7 @@ var/datum/discord_bot/discord_bot = null
 			output["[channel.pin_flag]"] += ch_pins
 
 	if (robust_debug)
-		log_debug("BOREALIS: Finished acquiring pins.")
+		LOG_DEBUG("BOREALIS: Finished acquiring pins.")
 
 	return output
 
@@ -244,7 +244,7 @@ var/datum/discord_bot/discord_bot = null
 	// What facking queue.
 	if (!queue || !queue.len)
 		if (robust_debug)
-			log_debug("BOREALIS: Attempted to push a null length queue.")
+			LOG_DEBUG("BOREALIS: Attempted to push a null length queue.")
 		return
 
 	// A[1] - message body.
@@ -258,7 +258,7 @@ var/datum/discord_bot/discord_bot = null
 		for (var/B in destinations)
 			var/datum/discord_channel/channel = B
 			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-				addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
+				addtimer(CALLBACK(src, PROC_REF(push_queue)), 10 SECONDS, TIMER_UNIQUE)
 
 				return
 			else
@@ -317,7 +317,7 @@ var/datum/discord_bot/discord_bot = null
 	var/datum/http_response/res = req.into_response()
 
 	if (res.errored)
-		log_debug("BOREALIS: library error during HTTP query. [res.error]")
+		LOG_DEBUG("BOREALIS: library error during HTTP query. [res.error]")
 		return ERROR_PROC
 
 	switch (res.status_code)
@@ -328,7 +328,7 @@ var/datum/discord_bot/discord_bot = null
 			return SEND_TIMEOUT
 
 		else
-			log_debug("BOREALIS: HTTP error while forwarding message to Discord API: [res]. Channel: [id]. Message body: [message].")
+			LOG_DEBUG("BOREALIS: HTTP error while forwarding message to Discord API: [res]. Channel: [id]. Message body: [message].")
 			return ERROR_HTTP
 
 /*
@@ -348,10 +348,10 @@ var/datum/discord_bot/discord_bot = null
 	var/datum/http_response/res = req.into_response()
 
 	if (res.errored)
-		log_debug("BOREALIS: Proc error while fetching pins: [res.error]")
+		LOG_DEBUG("BOREALIS: Proc error while fetching pins: [res.error]")
 		return
 	else if (res.status_code != 200)
-		log_debug("BOREALIS: HTTP error while fetching pins: [res.status_code].")
+		LOG_DEBUG("BOREALIS: HTTP error while fetching pins: [res.status_code].")
 		return
 	else
 		var/list/A = json_decode(res.body)
@@ -398,10 +398,10 @@ var/datum/discord_bot/discord_bot = null
 	var/datum/http_response/res = req.into_response()
 
 	if (res.errored)
-		log_debug("BOREALIS: Proc error while fetching invite: [res.error]")
+		LOG_DEBUG("BOREALIS: Proc error while fetching invite: [res.error]")
 		return
 	else if (res.status_code != 200)
-		log_debug("BOREALIS: HTTP error while fetching invite: [res.status_code].")
+		LOG_DEBUG("BOREALIS: HTTP error while fetching invite: [res.status_code].")
 		return
 	else
 		var/list/A = json_decode(res.body)
@@ -428,7 +428,7 @@ var/datum/discord_bot/discord_bot = null
 
 		// Sanity check for debug I guess.
 		if (!code)
-			log_debug("BOREALIS: Retreived an empty invite. This should not happen. Response object: [json_encode(A)]")
+			LOG_DEBUG("BOREALIS: Retreived an empty invite. This should not happen. Response object: [json_encode(A)]")
 			return
 
 		// Save the URL for later retreival.

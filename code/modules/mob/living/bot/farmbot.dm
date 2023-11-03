@@ -7,7 +7,7 @@
 /mob/living/bot/farmbot
 	name = "Farmbot"
 	desc = "The botanist's best friend. Various farming equipment seems haphazardly attached to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
@@ -139,7 +139,7 @@
 
 	if(target)
 		if(Adjacent(target))
-			INVOKE_ASYNC(src, .proc/UnarmedAttack, target)
+			INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), target)
 			path = list()
 			target = null
 		else
@@ -163,24 +163,36 @@
 				break
 		else
 			for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
-				if(process_tray(tray))
+				if(!tray.seed) //No seed? We don't care.
+					continue
+				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
+					continue
+				if(pathfind(tray)) //If we can get there, we can accept it as a target.
 					target = tray
 					frustration = 0
 					break
-			if(target) //We found a tray we can do something to. Set path to there.
-				pathfind(target)
-				return
+
 			if(check_tank())
 				for(var/obj/structure/sink/source in view(7, src))
 					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
 						target = source
 						frustration = 0
 						break
-				
+
 
 /mob/living/bot/farmbot/proc/pathfind(var/atom/A)
-	var/t = get_dir(A, src) // Turf with the tray is impassable, so a* can't navigate directly to it
-	path = AStar(loc, get_step(A, t), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+	var/turf/targetloc = get_turf(A)
+	if(!targetloc)
+		return FALSE
+
+	//Check if there is a free space around the tray. A* cannot navigate directly to the tray since it is impassable
+	var/list/freespaces = targetloc.CardinalTurfsWithAccess(botcard)
+	if(!length(freespaces))
+		return FALSE
+
+	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.
+	var/turf/location_goal = pick(freespaces)
+	path = AStar(loc, location_goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 	if(!path)
 		path = list()
 		return FALSE
@@ -233,7 +245,7 @@
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
 					T.pestlevel = 0
-					T.reagents.add_reagent(/decl/reagent/nutriment, 0.5)
+					T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
 					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
@@ -242,7 +254,7 @@
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					T.reagents.add_reagent(/decl/reagent/ammonia, 10)
+					T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
 		attacking = FALSE
 		action = ""
 		update_icon()
@@ -255,7 +267,7 @@
 		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
 		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
-			tank.reagents.add_reagent(/decl/reagent/water, 10)
+			tank.reagents.add_reagent(/singleton/reagent/water, 10)
 			if(prob(5))
 				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
 		attacking = FALSE
@@ -304,7 +316,7 @@
 		return FALSE
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
-	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/decl/reagent/water))
+	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/singleton/reagent/water))
 		return FARMBOT_WATER
 	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT
@@ -324,7 +336,7 @@
 /obj/item/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
 	desc = "A water tank with a robot arm permanently grafted to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "water_arm"
 	var/build_step = 0
 	var/created_name = "Farmbot"
@@ -385,3 +397,10 @@
 
 /obj/item/farmbot_arm_assembly/attack_hand(mob/user)
 	return //it's a converted watertank, no you cannot pick it up and put it in your backpack
+
+
+#undef FARMBOT_COLLECT
+#undef FARMBOT_WATER
+#undef FARMBOT_UPROOT
+#undef FARMBOT_NUTRIMENT
+#undef FARMBOT_PESTKILL

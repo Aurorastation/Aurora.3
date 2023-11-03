@@ -1,5 +1,5 @@
 //like orange but only checks north/south/east/west for one step
-proc/cardinalrange(var/center)
+/proc/cardinalrange(var/center)
 	var/list/things = list()
 	for(var/direction in cardinal)
 		var/turf/T = get_step(center, direction)
@@ -13,7 +13,7 @@ proc/cardinalrange(var/center)
 	desc = "A shielding component for an antimatter reactor. Looks delicate."
 	desc_info = "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
 	desc_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
-	icon = 'icons/obj/machines/new_ame.dmi'
+	icon = 'icons/obj/machinery/new_ame.dmi'
 	icon_state = "shield"
 	anchored = TRUE
 	density = TRUE
@@ -35,7 +35,7 @@ proc/cardinalrange(var/center)
 	mapped = TRUE
 
 /obj/machinery/am_shielding/Initialize(mapload, var/obj/machinery/power/am_control_unit/AMC)
-	..()
+	. = ..()
 	if(!AMC)
 		if (!mapped)
 			WARNING("AME sector somehow created without a parent control unit!")
@@ -84,8 +84,7 @@ proc/cardinalrange(var/center)
 				break
 		if(!mapped) // Prevent rescanning and suicide if it's part of the map
 			if(!priorscan)
-				sleep(20)
-				controllerscan(TRUE)//Last chance
+				addtimer(CALLBACK(src, PROC_REF(controllerscan), TRUE), 20)
 				return
 			qdel(src)
 
@@ -215,7 +214,7 @@ proc/cardinalrange(var/center)
 	name = "packaged antimatter reactor section"
 	desc = "A section of antimatter reactor shielding. Do not eat."
 	desc_info = "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
-	icon = 'icons/obj/machines/antimatter.dmi'
+	icon = 'icons/obj/machinery/antimatter.dmi'
 	icon_state = "box"
 	item_state = "electronic"
 	throwforce = 5

@@ -73,7 +73,10 @@
 /obj/item/modular_computer/handheld/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
-/obj/item/modular_computer/handheld/pda/supply/qm
+/obj/item/modular_computer/handheld/pda/supply/machinist
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
+
+/obj/item/modular_computer/handheld/pda/supply/om
 	icon_add = "q"
 
 /obj/item/modular_computer/handheld/pda/supply/qm/Initialize()
@@ -107,9 +110,6 @@
 /obj/item/modular_computer/handheld/pda/research/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
-
-/obj/item/modular_computer/handheld/pda/research/robotics
-	_app_preset_type = /datum/modular_computer_app_presets/research/robotics
 
 /obj/item/modular_computer/handheld/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd

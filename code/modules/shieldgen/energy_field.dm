@@ -4,10 +4,10 @@
 /obj/effect/energy_field
 	name = "energy shield"
 	desc = "A strong field of energy, capable of blocking anything as long as it's active."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "shield_normal"
 	alpha = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
 	layer = 4.1		//just above mobs
 	density = 0
@@ -74,12 +74,12 @@
 	if(turn_on && !diffused)
 		alpha = 0
 		density = TRUE
-		mouse_opacity = 1
+		mouse_opacity = MOUSE_OPACITY_ICON
 		animate(src, 2 SECONDS, alpha = 255)
 	else if(!turn_on)
 		alpha = 255
 		density = FALSE
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		animate(src, 2 SECONDS, alpha = 0)
 
 /obj/effect/energy_field/proc/diffuse_check()

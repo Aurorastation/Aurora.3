@@ -6,7 +6,7 @@ var/datum/antagonist/vampire/vamp = null
 	role_text_plural = "Vampires"
 	bantype = "vampires"
 	feedback_tag = "vampire_objective"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager")
+	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "Merchant")
 
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	restricted_species = list(
@@ -66,16 +66,21 @@ var/datum/antagonist/vampire/vamp = null
 	player.current.make_vampire()
 
 /datum/antagonist/vampire/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
+	var/datum/vampire/vampire = player.antag_datums[MODE_VAMPIRE]
+	if(player.current.client)
+		player.current.client.screen -= vampire.blood_hud
+		player.current.client.screen -= vampire.frenzy_hud
+		player.current.client.screen -= vampire.blood_suck_hud
 	. = ..()
 	if(.)
-		var/datum/vampire/vampire = player.antag_datums[MODE_VAMPIRE]
-		if(player.current.client)
-			player.current.client.screen -= vampire.blood_hud
-			player.current.client.screen -= vampire.frenzy_hud
-		player.current.verbs -= /datum/antagonist/vampire/proc/vampire_help
+		remove_verb(player.current, /datum/antagonist/vampire/proc/vampire_help)
 		for(var/datum/power/vampire/P in vampirepowers)
-			player.current.verbs -= P.verbpath
-		QDEL_NULL(vampire)
+			remove_verb(player.current, P.verbpath)
+	else
+		// something went wrong when removing the antag status, readd them
+		player.current.client.screen += vampire.blood_hud
+		player.current.client.screen += vampire.frenzy_hud
+		player.current.client.screen += vampire.blood_suck_hud
 
 /datum/antagonist/vampire/handle_latelogin(var/mob/user)
 	var/datum/mind/M = user.mind

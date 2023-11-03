@@ -13,8 +13,9 @@
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-	qdel(holding)
+	disconnect()
+	QDEL_NULL(air_contents)
+	QDEL_NULL(holding)
 	return ..()
 
 /obj/machinery/portable_atmospherics/Initialize()
@@ -41,12 +42,7 @@
 		air_contents.react()
 	else
 		update_icon()
-		SSvueui.check_uis_for_change(src)
-
-/obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-
-	return ..()
+		SStgui.update_uis(src)
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
@@ -71,7 +67,7 @@
 	//Perform the connection
 	connected_port = new_port
 	connected_port.connected_device = src
-	connected_port.on = 1 //Activate port updates
+	connected_port.toggle_process()
 
 	anchored = 1 //Prevent movement
 
@@ -92,8 +88,10 @@
 		network.gases -= air_contents
 
 	anchored = 0
+	if(connected_port)
+		connected_port.connected_device = null
+		connected_port.toggle_process()
 
-	connected_port.connected_device = null
 	connected_port = null
 
 	return 1
@@ -114,23 +112,25 @@
 		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return TRUE
 
 	else if (W.iswrench())
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
+			playsound(get_turf(src), W.usesound, 50, 1)
 			update_icon()
-			SSvueui.check_uis_for_change(src)
+			SStgui.update_uis(src)
 			return TRUE
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
+					playsound(get_turf(src), W.usesound, 50, 1)
 					update_icon()
-					SSvueui.check_uis_for_change(src)
+					SStgui.update_uis(src)
 					return TRUE
 				else
 					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
@@ -173,7 +173,7 @@
 		cell = C
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return TRUE
 
 	if(I.isscrewdriver())
@@ -186,7 +186,7 @@
 		cell.forceMove(src.loc)
 		cell = null
 		power_change()
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		return TRUE
 	return ..()
 

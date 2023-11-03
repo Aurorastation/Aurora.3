@@ -164,11 +164,6 @@
 	icon_state = "setup_drone_arms"
 	desc = "It's a case, for building mobile electronics with. This one is armed and dangerous."
 
-/obj/item/device/electronic_assembly/drone/secbot
-	name = "type-c electronic drone"
-	icon_state = "setup_drone_secbot"
-	desc = "It's a case, for building mobile electronics with. This one resembles a Securitron."
-
 /obj/item/device/electronic_assembly/drone/medbot
 	name = "type-d electronic drone"
 	icon_state = "setup_drone_medbot"
@@ -215,13 +210,16 @@
 	user.drop_item(T)
 	anchored = TRUE
 	on_anchored()
-	pixel_x = DIR2PIXEL_X(ndir)
-	pixel_y = DIR2PIXEL_Y(ndir)
+	set_pixel_offsets()
 
 /obj/item/device/electronic_assembly/wallmount/on_unanchored()
 	pixel_x = 0
 	pixel_y = 0
 	..()
+
+/obj/item/device/electronic_assembly/wallmount/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/item/device/electronic_assembly/wallmount/heavy
 	name = "heavy wall-mounted electronic assembly"

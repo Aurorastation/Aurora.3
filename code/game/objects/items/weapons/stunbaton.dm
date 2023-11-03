@@ -59,10 +59,10 @@
 	else
 		set_light(0)
 
-/obj/item/melee/baton/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/melee/baton/examine(mob/user, distance)
+	. = ..()
+	if(!distance <= 1)
 		return
-
 	if(bcell)
 		to_chat(user, "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>")
 	else
@@ -94,7 +94,7 @@
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		to_chat(user, "<span class='notice'>[src] is now [status ? "on" : "off"].</span>")
-		playsound(loc, /decl/sound_category/spark_sound, 75, 1, -1)
+		playsound(loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		update_icon()
 	else
 		status = 0

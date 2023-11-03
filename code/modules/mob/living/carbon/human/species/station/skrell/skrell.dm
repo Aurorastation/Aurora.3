@@ -4,6 +4,9 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 130
+	height_max = 170
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
@@ -12,6 +15,9 @@
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/skrell/tail.dmi'
+	selectable_tails = list("No Tail", "Short Tail", "Short Fish Tail", "Short Fringed Tail")
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
@@ -27,6 +33,7 @@
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
 	name_language = LANGUAGE_SKRELLIAN
+	secondary_langs = list(LANGUAGE_SOL_COMMON)
 	rarity_value = 3
 
 	grab_mod = 2
@@ -53,13 +60,13 @@
 		)
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell,
 		BP_HEART =    /obj/item/organ/internal/heart/skrell,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
 		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")
@@ -87,33 +94,32 @@
 	default_h_style = "Headtails"
 
 	possible_cultures = list(
-		/decl/origin_item/culture/federation,
-		/decl/origin_item/culture/non_federation
+		/singleton/origin_item/culture/federation,
+		/singleton/origin_item/culture/non_federation
 	)
-	
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/adjust_headtails
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
-	footsound = /decl/sound_category/footstep_skrell_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
+	footsound = /singleton/sound_category/footstep_skrell_sound
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
+
+	has_psionics = PSI_RANK_SENSITIVE
+	character_creation_psi_points = 2
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
-		var/list/blood_data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		var/list/blood_data = REAGENT_DATA(H.vessel, /singleton/reagent/blood)
 		trail_info["footprint_DNA"] = list(blood_data["blood_DNA"] = blood_data["blood_type"])
 		trail_info["footprint_color"] = rgb(H.r_skin, H.g_skin, H.b_skin, 25)
 		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry
 
 	return trail_info
-
-/datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
-	..()
-	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
 
 /datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	switch(action)
@@ -122,7 +128,7 @@
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
 			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
-			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+			if(do_after(user, HUMAN_STRIP_DELAY, do_flags = DO_EQUIP))
 				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
 				var/obj/item/I = locate() in S
 				if(!I)
@@ -135,7 +141,4 @@
 	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
-	return TRUE
-
-/datum/species/skrell/can_commune()
 	return TRUE

@@ -2,13 +2,13 @@
 	name = "ragged hood"
 	icon_state = "culthood"
 	desc = "A torn, dust-caked hood."
-	desc_cult = "This can be reforged to become an eldritch voidsuit helmet."
+	desc_antag = "As a Cultist, this can be reforged to become an eldritch voidsuit helmet."
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MEDIUM,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_RIFLE,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL
 		)
@@ -27,15 +27,15 @@
 /obj/item/clothing/suit/cultrobes
 	name = "ragged robe"
 	desc = "A ragged, dusty robe."
-	desc_cult = "This can be reforged to become an eldritch voidsuit."
+	desc_antag = "As a Cultist, this item can be reforged to become an eldritch voidsuit."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MEDIUM,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_RIFLE,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL
 		)
@@ -54,14 +54,16 @@
 /obj/item/clothing/shoes/cult
 	name = "ragged boots"
 	desc = "A ragged, dusty pair of boots."
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	icon_state = "cult"
 	item_state = "cult"
+	contained_sprite = TRUE
 	force = 5
 	silent = 1
 	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MEDIUM,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL

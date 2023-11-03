@@ -14,8 +14,9 @@
  */
 /obj/structure/closet/emcloset
 	name = "emergency closet"
-	desc = "It's a storage unit for emergency breathmasks and o2 tanks."
+	desc = "It's a storage unit for emergency breathmasks and oxygen tanks."
 	icon_state = "emergency"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/closet/emcloset/fill()
 	switch (pickweight(list("small" = 50, "aid" = 20, "tank" = 10, "seal" = 10, "all" = 10)))
@@ -92,6 +93,26 @@
 	new /obj/item/storage/pill_bottle/rmt
 	new /obj/item/storage/pill_bottle/rmt
 	new /obj/item/clothing/mask/offworlder
+
+/obj/structure/closet/emcloset/communal
+	name = "communal emergency closet"
+	anchored = TRUE
+	canbemoved = TRUE
+
+/obj/structure/closet/emcloset/communal/fill()
+	// 2 helmets, 2 masks, 2 suits, 2 oxygen tanks, and 4 oxygen candles.
+	new /obj/item/clothing/head/helmet/space/emergency(src)
+	new /obj/item/clothing/head/helmet/space/emergency(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/clothing/suit/space/emergency(src)
+	new /obj/item/clothing/suit/space/emergency(src)
+	new /obj/item/tank/emergency_oxygen(src)
+	new /obj/item/tank/emergency_oxygen(src)
+	new /obj/item/device/oxycandle(src)
+	new /obj/item/device/oxycandle(src)
+	new /obj/item/device/oxycandle(src)
+	new /obj/item/device/oxycandle(src)
 
 /*
  * Fire Closet
@@ -182,8 +203,8 @@
 		new /obj/item/clothing/head/radiation(src)
 		new /obj/item/clothing/suit/radiation(src)
 		new /obj/item/clothing/glasses/safety/goggles(src)
-	for(var/i = 1 to 2)
-		new /obj/item/reagent_containers/hypospray/autoinjector/hyronalin(src)
+		new /obj/item/storage/firstaid/radiation(src)
+		new /obj/item/device/geiger(src)
 
 /*
  * Bombsuit closet
@@ -196,7 +217,7 @@
 /obj/structure/closet/bombcloset/fill()
 	new /obj/item/clothing/suit/bomb_suit(src)
 	new /obj/item/clothing/under/color/black(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/head/bomb_hood(src)
 	new /obj/item/wirecutters/bomb(src)
 
@@ -208,6 +229,6 @@
 /obj/structure/closet/bombclosetsecurity/fill()
 	new /obj/item/clothing/suit/bomb_suit/security(src)
 	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/head/bomb_hood/security(src)
 	new /obj/item/wirecutters/bomb(src)

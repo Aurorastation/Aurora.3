@@ -1,10 +1,10 @@
-var/datum/controller/subsystem/garbage_collector/SSgarbage
-
-/datum/controller/subsystem/garbage_collector
+SUBSYSTEM_DEF(garbage)
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
 	wait = 2 SECONDS
-	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
+	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
@@ -30,15 +30,16 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	// of the immortality qdel hints
 	var/list/noforcerespect = list()
 
-#ifdef TESTING
+	#ifdef TESTING
 	var/list/qdel_list = list()	// list of all types that have been qdel()eted
-#endif
+	#endif
 
-/datum/controller/subsystem/garbage_collector/New()
-	NEW_SS_GLOBAL(SSgarbage)
+	#ifdef REFERENCE_TRACKING
+	var/list/reference_find_on_fail = list()
+	#endif
 
-/datum/controller/subsystem/garbage_collector/stat_entry(msg)
-	msg += "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
+/datum/controller/subsystem/garbage/stat_entry(msg)
+	msg = "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
 	msg += "GR:"
 	if (!(delslasttick+gcedlasttick))
 		msg += "n/a|"
@@ -50,9 +51,9 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		msg += "n/a|"
 	else
 		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	..(msg)
+	return ..()
 
-/datum/controller/subsystem/garbage_collector/fire()
+/datum/controller/subsystem/garbage/fire()
 	HandleToBeQueued()
 	if(state == SS_RUNNING)
 		HandleQueue()
@@ -62,7 +63,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 //If you see this proc high on the profile, what you are really seeing is the garbage collection/soft delete overhead in byond.
 //Don't attempt to optimize, not worth the effort.
-/datum/controller/subsystem/garbage_collector/proc/HandleToBeQueued()
+/datum/controller/subsystem/garbage/proc/HandleToBeQueued()
 	var/list/tobequeued = src.tobequeued
 	var/starttime = world.time
 	var/starttimeofday = world.timeofday
@@ -77,7 +78,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	if (idex > 1)
 		tobequeued.Cut(1, idex)
 
-/datum/controller/subsystem/garbage_collector/proc/HandleQueue()
+/datum/controller/subsystem/garbage/proc/HandleQueue()
 	delslasttick = 0
 	gcedlasttick = 0
 	var/time_to_kill = world.time - collection_timeout // Anything qdel() but not GC'd BEFORE this time needs to be manually del()
@@ -85,9 +86,16 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/starttime = world.time
 	var/starttimeofday = world.timeofday
 	var/idex = 1
+	#ifdef REFERENCE_TRACKING
+	var/ref_searching = FALSE
+	#endif
 	while((queue.len - (idex - 1)) && starttime == world.time && starttimeofday == world.timeofday)
 		if (MC_TICK_CHECK)
 			break
+		#ifdef REFERENCE_TRACKING
+		if (ref_searching)
+			break
+		#endif
 		var/refID = queue[idex]
 		if (!refID)
 			idex++
@@ -100,14 +108,27 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		var/datum/A
 		A = locate(refID)
 		if (A && A.gcDestroyed == GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
+			#ifdef REFERENCE_TRACKING
+			if(reference_find_on_fail[text_ref(A)])
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
+				ref_searching = TRUE
 			#ifdef GC_FAILURE_HARD_LOOKUP
-			A.find_references()
+			else
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
+				ref_searching = TRUE
+			#endif
+			reference_find_on_fail -= text_ref(A)
 			#endif
 
 			// Something's still referring to the qdel'd object.  Kill it.
 			var/type = A.type
-			log_gc("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
+			log_subsystem_garbage_harddel("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
 			didntgc["[type]"]++
+
+			#ifdef REFERENCE_TRACKING
+			if(ref_searching)
+				continue //ref searching intentionally cancels all further fires while running so things that hold references don't end up getting deleted, so we want to return here instead of continue
+			#endif
 
 			HardDelete(A)
 
@@ -116,16 +137,19 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		else
 			++gcedlasttick
 			++totalgcs
+			#ifdef REFERENCE_TRACKING
+			reference_find_on_fail -= text_ref(A)
+			#endif
 
 	if (idex > 1)
 		queue.Cut(1, idex)
 
-/datum/controller/subsystem/garbage_collector/proc/QueueForQueuing(datum/A)
+/datum/controller/subsystem/garbage/proc/QueueForQueuing(datum/A)
 	if (istype(A) && A.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		tobequeued += A
 		A.gcDestroyed = GC_QUEUED_FOR_QUEUING
 
-/datum/controller/subsystem/garbage_collector/proc/Queue(datum/A)
+/datum/controller/subsystem/garbage/proc/Queue(datum/A)
 	if (!istype(A) || (!isnull(A.gcDestroyed) && A.gcDestroyed >= 0))
 		return
 	if (A.gcDestroyed == GC_QUEUED_FOR_HARD_DEL)
@@ -142,7 +166,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	queue[refid] = gctime
 
 // For profiling.
-/datum/controller/subsystem/garbage_collector/proc/HardDelete(datum/A)
+/datum/controller/subsystem/garbage/proc/HardDelete(datum/A)
 	var/time = world.timeofday
 	var/tick = world.tick_usage
 	var/ticktime = world.time
@@ -161,16 +185,16 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	if (time > highest_del_time)
 		highest_del_time = time
 	if (time > 10)
-		log_gc("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete)", type, TRUE)
+		log_subsystem_garbage_error("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete)", type, TRUE)
 		message_admins("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete).")
 		postpone(time/5)
 
-/datum/controller/subsystem/garbage_collector/proc/HardQueue(datum/A)
+/datum/controller/subsystem/garbage/proc/HardQueue(datum/A)
 	if (istype(A) && A.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		tobequeued += A
 		A.gcDestroyed = GC_QUEUED_FOR_HARD_DEL
 
-/datum/controller/subsystem/garbage_collector/Recover()
+/datum/controller/subsystem/garbage/Recover()
 	if (istype(SSgarbage.queue))
 		queue |= SSgarbage.queue
 	if (istype(SSgarbage.tobequeued))
@@ -211,7 +235,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				// indicates the objects Destroy() does not respect force
 				if(!SSgarbage.noforcerespect["[D.type]"])
 					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] has been force deleted, but is \
+					log_subsystem_garbage_warning("WARNING: [D.type] has been force deleted, but is \
 						returning an immortal QDEL_HINT, indicating it does \
 						not respect the force flag for qdel(). It has been \
 						placed in the queue, further instances of this type \
@@ -221,15 +245,20 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				SSgarbage.HardQueue(D)
 			if (QDEL_HINT_HARDDEL_NOW)	//qdel should assume this object won't gc, and hard del it post haste.
 				SSgarbage.HardDelete(D)
-			if (QDEL_HINT_FINDREFERENCE)//qdel will, if TESTING is enabled, display all references to this object, then queue the object for deletion.
+			if (QDEL_HINT_FINDREFERENCE)//qdel will, if REFERENCE_TRACKING is enabled, display all references to this object, then queue the object for deletion.
 				SSgarbage.QueueForQueuing(D)
-				#ifdef TESTING
+				#ifdef REFERENCE_TRACKING
 				D.find_references()
+				#endif
+			if (QDEL_HINT_IFFAIL_FINDREFERENCE) // qdel will, if REFERENCE_TRACKING is enabled and the object fails to collect, display all references to this object
+				SSgarbage.QueueForQueuing(D)
+				#ifdef REFERENCE_TRACKING
+				SSgarbage.reference_find_on_fail[text_ref(D)] = TRUE
 				#endif
 			else
 				if(!SSgarbage.noqdelhint["[D.type]"])
 					SSgarbage.noqdelhint["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")
+					log_subsystem_garbage_warning("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")
 				SSgarbage.QueueForQueuing(D)
 	else if(D.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		CRASH("[D.type] destroy proc was called multiple times, likely due to a qdel loop in the Destroy logic")
@@ -237,7 +266,3 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /client/Destroy()
 	..()
 	return QDEL_HINT_HARDDEL_NOW
-
-/image/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL

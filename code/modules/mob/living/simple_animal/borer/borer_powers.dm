@@ -19,7 +19,7 @@
 	if(!host.stat)
 		to_chat(host, SPAN_WARNING("An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."))
 
-	addtimer(CALLBACK(src, .proc/exit_host), exit_time)
+	addtimer(CALLBACK(src, PROC_REF(exit_host)), exit_time)
 
 /mob/living/simple_animal/borer/proc/exit_host()
 	if(!host || !src)
@@ -60,7 +60,7 @@
 		to_chat(src, SPAN_NOTICE("There are no viable hosts within range."))
 		return
 
-	var/mob/living/carbon/M = input(src,"Who do you wish to infest?") in null|choices
+	var/mob/living/carbon/M = tgui_input_list(src,"Who do you wish to infest?", "Infest", choices)
 	if(M)
 		do_infest(M)
 
@@ -175,11 +175,11 @@
 	H.add_language(LANGUAGE_BORER_HIVEMIND)
 
 	if(host.stat == DEAD)
-		H.verbs |= /mob/living/carbon/human/proc/jumpstart
+		add_verb(H, /mob/living/carbon/human/proc/jumpstart)
 
-	H.verbs |= /mob/living/carbon/human/proc/psychic_whisper
-	H.verbs |= /mob/living/carbon/human/proc/tackle
-	H.verbs |= /mob/living/carbon/proc/spawn_larvae
+	add_verb(H, /mob/living/carbon/human/proc/psychic_whisper)
+	add_verb(H, /mob/living/carbon/human/proc/tackle)
+	add_verb(H, /mob/living/carbon/proc/spawn_larvae)
 
 	if(H.client)
 		H.ghostize(FALSE)
@@ -208,7 +208,7 @@
 
 	// Since the host is dead, we want to kick it back into action immediately, then redo it to ensure they're good to go
 	H.rejuvenate()
-	addtimer(CALLBACK(H, .proc/rejuvenate), 30)
+	addtimer(CALLBACK(H, PROC_REF(rejuvenate)), 30)
 
 /mob/living/simple_animal/borer/verb/secrete_chemicals()
 	set category = "Abilities"
@@ -225,8 +225,8 @@
 		to_chat(src, SPAN_WARNING("You don't have enough chemicals!"))
 		return
 
-	var/list/choices = list("Inaprovaline" = /decl/reagent/inaprovaline, "Bicaridine" = /decl/reagent/bicaridine, "Kelotane" = /decl/reagent/kelotane, "Dylovene" = /decl/reagent/dylovene, "Hyperzine" = /decl/reagent/hyperzine, "Peridaxon" = /decl/reagent/peridaxon, "Mortaphenyl" = /decl/reagent/mortaphenyl, "Neurapan" = /decl/reagent/mental/neurapan)
-	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in choices
+	var/list/choices = list("Inaprovaline" = /singleton/reagent/inaprovaline, "Bicaridine" = /singleton/reagent/bicaridine, "Kelotane" = /singleton/reagent/kelotane, "Dylovene" = /singleton/reagent/dylovene, "Hyperzine" = /singleton/reagent/hyperzine, "Peridaxon" = /singleton/reagent/peridaxon, "Mortaphenyl" = /singleton/reagent/mortaphenyl, "Neurapan" = /singleton/reagent/mental/neurapan)
+	var/chem = tgui_input_list(src, "Select a chemical to secrete.", "Chemicals", choices)
 
 	if(!chem || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
 		return
@@ -256,7 +256,7 @@
 		if(C.stat != 2)
 			choices += C
 
-	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
+	var/mob/living/carbon/M = tgui_input_list(src, "Who do you wish to dominate?", "Paralyze Victim", choices)
 	if(M)
 		do_paralyze(M)
 
@@ -309,7 +309,7 @@
 	to_chat(src, SPAN_WARNING("You begin delicately adjusting your connection to the host brain..."))
 	to_chat(host, SPAN_WARNING("You feel a tingling sensation at the back of your head."))
 
-	addtimer(CALLBACK(src, .proc/host_takeover), takeover_time)
+	addtimer(CALLBACK(src, PROC_REF(host_takeover)), takeover_time)
 
 /mob/living/simple_animal/borer/proc/host_takeover()
 	if(!host || !src || controlling)
@@ -355,9 +355,9 @@
 
 	controlling = TRUE
 
-	host.verbs += /mob/living/carbon/proc/release_control
-	host.verbs += /mob/living/carbon/proc/punish_host
-	host.verbs += /mob/living/carbon/proc/spawn_larvae
+	add_verb(host, /mob/living/carbon/proc/release_control)
+	add_verb(host, /mob/living/carbon/proc/punish_host)
+	add_verb(host, /mob/living/carbon/proc/spawn_larvae)
 
 /mob/living/carbon/human/proc/jumpstart()
 	set category = "Abilities"
@@ -368,7 +368,7 @@
 		to_chat(usr, SPAN_WARNING("Your host is already alive."))
 		return
 
-	verbs -= /mob/living/carbon/human/proc/jumpstart
+	remove_verb(src, /mob/living/carbon/human/proc/jumpstart)
 	visible_message(SPAN_WARNING("With a hideous, rattling moan, [src] shudders back to life!"))
 
 	rejuvenate()
@@ -388,12 +388,12 @@
 
 		B.detach()
 
-		verbs -= /mob/living/carbon/proc/release_control
-		verbs -= /mob/living/carbon/proc/punish_host
-		verbs -= /mob/living/carbon/proc/spawn_larvae
+		remove_verb(src, /mob/living/carbon/proc/release_control)
+		remove_verb(src, /mob/living/carbon/proc/punish_host)
+		remove_verb(src,  /mob/living/carbon/proc/spawn_larvae)
 
 	else
-		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a Github report and ahelp to get out."))
+		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a GitHub report and ahelp to get out."))
 
 //Brain slug proc for tormenting the host.
 /mob/living/carbon/proc/punish_host()
@@ -453,8 +453,8 @@
 	if(chemicals < 150)
 		to_chat(src, SPAN_WARNING("You don't have enough chemicals!"))
 		return
-	if(!host.species.has_psi_potential())
-		to_chat(src, SPAN_WARNING("\The [host] lacks a zona bovinidae to psionically enlighten! How disturbing..."))
+	if(host.species.psi_deaf)
+		to_chat(src, SPAN_WARNING("\The [host] lacks a zona bovinae to psionically enlighten! How disturbing..."))
 	if(host.psi)
 		to_chat(src, SPAN_WARNING("Your host is already psionically active!"))
 		return
@@ -474,20 +474,21 @@
 	to_chat(host, SPAN_DANGER("You feel some tendrils probe at the back of your head..."))
 	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
 
-	addtimer(CALLBACK(src, .proc/jumpstart_psi), jumpstart_time)
+	addtimer(CALLBACK(src, PROC_REF(jumpstart_psi)), jumpstart_time)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
 	if(!host)
 		return
 
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
-	host.awaken_psi_basic("something in your head", FALSE)
+	host.awaken_psi_basic("something in your head")
+	host.psi.psi_points = 3 /// You don't get a lot at the start.
 	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 
-/mob/living/simple_animal/borer/verb/advance_faculty()
+/mob/living/simple_animal/borer/verb/advance_psionics()
 	set category = "Abilities"
-	set name = "Advance Psionic Faculty (75)"
-	set desc = "Advance one of your host's psionic faculties by one step."
+	set name = "Advance Psionics (75)"
+	set desc = "Advance your host's psionic capability by one step."
 
 	if(!host)
 		to_chat(src, SPAN_NOTICE("You are not inside a host body."))
@@ -507,18 +508,8 @@
 			to_chat(src, SPAN_WARNING("\The [host]'s mind is shielded against your powers."))
 			return
 
-	var/list/faculties = list(capitalize(PSI_COERCION), capitalize(PSI_REDACTION), capitalize(PSI_ENERGISTICS), capitalize(PSI_PSYCHOKINESIS))
-	var/selected_faculty = input(src, "Choose a faculty to upgrade.") as null|anything in faculties
-	if(!selected_faculty)
-		return
-	selected_faculty = lowertext(selected_faculty)
-	var/max_rank = islesserform(host) ? PSI_RANK_OPERANT : PSI_RANK_MASTER
-	if(host.psi.get_rank(selected_faculty) >= max_rank)
-		to_chat(src, SPAN_NOTICE("This faculty has already been pushed to the max potential you can achieve!"))
-		return
-
-	var/faculty_time = 10 SECONDS
-	if(!start_ability(host, faculty_time))
+	var/upgrade_time = 10 SECONDS
+	if(!start_ability(host, upgrade_time))
 		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
 		return
 
@@ -526,19 +517,16 @@
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
 	to_chat(host, SPAN_WARNING("You feel a burning, tingling sensation at the back of your head..."))
 
-	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), faculty_time)
+	addtimer(CALLBACK(src, PROC_REF(upgrade_rank)), upgrade_time)
 
-/mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
+/mob/living/simple_animal/borer/proc/upgrade_rank()
 	if(!host)
 		return
 
-	var/host_psi_rank = host.psi.get_rank(selected_faculty)
-	var/next_rank = host_psi_rank > PSI_RANK_BLUNT ? host_psi_rank + 1 : PSI_RANK_OPERANT
-	host.psi.set_rank(selected_faculty, next_rank)
-	host.psi.update(TRUE)
-	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host to [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] [selected_faculty]."))
+	host.psi.psi_points++
+	to_chat(src, SPAN_NOTICE("You successfully manage to expand your living host's control over their Zona Bovinae. They know have an extra psionic point to spend."))
 	to_chat(host, SPAN_GOOD("A breeze of fresh air washes over your mind, you feel powerful!"))
-	to_chat(host, SPAN_NOTICE("You have been psionically enlightened. You are now a [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] in the [selected_faculty] faculty."))
+	to_chat(host, SPAN_NOTICE("Your control over the Nlom has expanded. You now have an extra psionic point to spend in the Point Shop."))
 
 /mob/living/simple_animal/borer/verb/host_health_scan()
 	set category = "Abilities"

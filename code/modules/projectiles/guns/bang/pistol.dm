@@ -6,28 +6,30 @@
 	item_state = "colt"
 	pixel_offset_x = 30
 	pixel_offset_y = 18
+	fakecaliber = ".45"
 
 /obj/item/gun/bang/sec
-	name = ".45 pistol"
+	name = "\improper .45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
+	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
 	pixel_offset_x = 28
 	pixel_offset_y = 14
-
+	fakecaliber = ".45"
 /obj/item/gun/bang/sec/flash
 	name = ".45 signal pistol"
+	fakecaliber = ".45 signal"
 
 /obj/item/gun/bang/sec/wood
+	name = "custom .45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a wooden grip. It uses .45 rounds."
-	name = "custom .45 Pistol"
+	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
-
+	fakecaliber = ".45"
 /obj/item/gun/bang/x9
 	name = "automatic .45 pistol"
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
@@ -36,17 +38,19 @@
 	item_state = "x9"
 	pixel_offset_x = 28
 	pixel_offset_y = 13
+	fakecaliber = ".45"
 
 /obj/item/gun/bang/tanto
 	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
-    Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
-    This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
+	Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
+	This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
 	name = "10mm pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
 	item_state = "c05r"
 	pixel_offset_x = 31
 	pixel_offset_y = 14
+	fakecaliber = "10mm"
 
 /obj/item/gun/bang/silenced
 	name = "silenced pistol"
@@ -56,8 +60,8 @@
 	item_state = "silenced_pistol"
 	pixel_offset_x = -4
 	pixel_offset_y = 15
-
-obj/item/gun/bang/deagle
+	fakecaliber = ".45"
+/obj/item/gun/bang/deagle
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon = 'icons/obj/guns/deagle.dmi'
@@ -65,6 +69,7 @@ obj/item/gun/bang/deagle
 	item_state = "deagle"
 	pixel_offset_x = -4
 	pixel_offset_y = 16
+	fakecaliber = ".50"
 
 /obj/item/gun/bang/pistol
 	name = "9mm pistol"
@@ -74,6 +79,7 @@ obj/item/gun/bang/deagle
 	item_state = "pistol"
 	pixel_offset_x = 26
 	pixel_offset_y = 14
+	fakecaliber = "9mm"
 
 /obj/item/gun/bang/pirate
 	name = "zip gun"
@@ -83,3 +89,4 @@ obj/item/gun/bang/deagle
 	item_state = "zipgun"
 	pixel_offset_x = 0
 	pixel_offset_y = 12
+	fakecaliber = "7.62mm"

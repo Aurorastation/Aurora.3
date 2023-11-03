@@ -49,6 +49,7 @@
 
 
 /obj/item/spell/energy_siphon/on_ranged_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(istype(hit_atom, /atom/movable) && within_range(hit_atom, 4))
 		var/atom/movable/AM = hit_atom
 		populate_siphon_list(AM)
@@ -61,10 +62,9 @@
 	else
 		stop_siphoning()
 
-/obj/item/spell/energy_siphon/proc/populate_siphon_list(atom/movable/target) 
+/obj/item/spell/energy_siphon/proc/populate_siphon_list(atom/movable/target)
 	things_to_siphon.Cut()
-	things_to_siphon |= target // The recursive check below does not add the object being checked to its list.
-	things_to_siphon |= recursive_content_check(target, things_to_siphon, recursion_limit = 3, client_check = 0, sight_check = 0, include_mobs = 1, include_objects = 1)
+	things_to_siphon |= target.GetAllContents()
 	for(var/atom/movable/AM in things_to_siphon)
 		if(ishuman(AM)) // We can drain FBPs, so we can skip the test below.
 			var/mob/living/carbon/human/H = AM
@@ -125,9 +125,9 @@
 				charge_to_give += nutrition_delta * SIPHON_FBP_TO_ENERGY
 				flow_remaining = flow_remaining - nutrition_to_steal / 0.025
 			// Let's steal some energy from another Technomancer.
-			if(istype(H.back, /obj/item/technomancer_core) && H != user)
-				var/obj/item/technomancer_core/their_core = H.back
-				if(their_core.pay_energy(flow_remaining / 2)) // Don't give energy from nothing.
+			if(H != user)
+				var/obj/item/technomancer_core/their_core = H.get_technomancer_core()
+				if(their_core && their_core.pay_energy(flow_remaining / 2)) // Don't give energy from nothing.
 					charge_to_give += flow_remaining * SIPHON_CORE_TO_ENERGY
 					flow_remaining = 0
 
@@ -185,7 +185,7 @@
 		on_impact(A)
 
 		density = 0
-		invisibility = 101
+		set_invisibility(101)
 
 		qdel(src)
 		return 1

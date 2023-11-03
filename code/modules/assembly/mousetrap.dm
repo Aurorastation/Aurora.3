@@ -8,13 +8,14 @@
 	icon_state = "mousetrap"
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
+	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	origin_tech = list(TECH_COMBAT = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
 /obj/item/device/assembly/mousetrap/examine(mob/user)
 	. = ..()
-	if(. && armed)
+	if(armed)
 		to_chat(user, "It looks like it's armed.")
 
 /obj/item/device/assembly/mousetrap/update_icon()
@@ -39,15 +40,15 @@
 				if("feet")
 					zone = pick(BP_L_FOOT, BP_R_FOOT)
 					if(!H.shoes)
-						H.apply_effect(400 / (target.mob_size * (target.mob_size * 0.25)), PAIN)//Halloss instead of instant knockdown
+						H.apply_effect(400 / (target.mob_size * (target.mob_size * 0.25)), DAMAGE_PAIN)//Halloss instead of instant knockdown
 						//Mainly for the benefit of giant monsters like vaurca breeders
 				if(BP_L_HAND, BP_R_HAND)
 					zone = type
 					if(!H.gloves)
-						H.apply_effect(250 / (target.mob_size * (target.mob_size * 0.25)), PAIN)
+						H.apply_effect(250 / (target.mob_size * (target.mob_size * 0.25)), DAMAGE_PAIN)
 		if(!(types & TYPE_SYNTHETIC))
-			target.apply_damage(rand(6 , 14), PAIN, def_zone = zone, used_weapon = src)
-			target.apply_damage(rand(1 , 3), BRUTE, def_zone = zone, used_weapon = src)
+			target.apply_damage(rand(6 , 14), DAMAGE_PAIN, def_zone = zone, used_weapon = src)
+			target.apply_damage(rand(1 , 3), DAMAGE_BRUTE, def_zone = zone, used_weapon = src)
 
 	playsound(target.loc, 'sound/effects/snap.ogg', 50, 1)
 	layer = MOB_LAYER - 0.2
@@ -72,7 +73,7 @@
 	return ..()
 
 /obj/item/device/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
-	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
+	if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
 		var/which_hand = BP_L_HAND
 		if(!user.hand)
 			which_hand = BP_R_HAND

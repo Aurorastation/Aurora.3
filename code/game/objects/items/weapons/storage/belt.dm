@@ -50,6 +50,7 @@
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
+	set src in usr
 
 	if(show_above_suit == -1)
 		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
@@ -201,7 +202,8 @@
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
-		/obj/item/taperoll/medical
+		/obj/item/taperoll/medical,
+		/obj/item/storage/box/fancy/med_pouch
 		)
 
 /obj/item/storage/belt/medical/first_responder
@@ -369,6 +371,7 @@
 		/obj/item/pinpointer,
 		/obj/item/plastique,
 		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/material/knife/trench,
 		/obj/item/ammo_casing/a145,
@@ -383,14 +386,14 @@
 		)
 
 /obj/item/storage/belt/military/syndicate
-	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
+	desc = "A red military belt designed to be used by boarding parties and SWAT teams."
 	icon_state = "militarybelt_syndie"
 	item_state = "militarybelt_syndie"
 
 /obj/item/storage/belt/custodial
 	name = "custodial belt"
 	desc = "A utility belt designed for custodial use."
-	desc_fluff = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
+	desc_extended = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
 	storage_slots = 12
@@ -464,7 +467,8 @@
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
-		/obj/item/device/orbital_dropper
+		/obj/item/device/orbital_dropper,
+		/obj/item/ore_detector
 		)
 
 /obj/item/storage/belt/hydro
@@ -567,7 +571,7 @@
 	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_SMALL
-	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	desc_extended = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."
@@ -575,7 +579,27 @@
 /obj/item/storage/belt/generic
 	name = "belt"
 	desc = "Only useful for holding up your pants." // Useless belt is useless.
+	icon = 'icons/obj/item/clothing/belts/generic_belts.dmi'
 	icon_state = "belt"
 	item_state = "belt"
+	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_TINY
+
+/obj/item/storage/belt/generic/thin
+	name = "thin elastic belt"
+	icon_state = "thin_belt"
+	item_state = "thin_belt"
+
+/obj/item/storage/belt/generic/thick
+	name = "wide waist belt"
+	icon_state = "thick_belt"
+	item_state = "thick_belt"
+
+/obj/item/storage/belt/generic/buckle
+	name = "buckle belt"
+	desc = "A belt secured by a large golden buckle."
+	icon_state = "belt_b"
+	item_state = "belt_b"
+	build_from_parts = TRUE
+	worn_overlay = "buckle"

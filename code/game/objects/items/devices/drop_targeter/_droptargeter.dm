@@ -17,10 +17,11 @@
 	var/does_explosion = TRUE
 	var/emagged = FALSE // If emagged, things can be dropped in on station areas
 
+	var/drop_message_language = LANGUAGE_TCB
 	var/drop_message = "Orbital package inbound, clear the targetted area immediately!"
 	var/drop_message_emagged = "O*b$ital p&ck@ge in#)und, c-c-c-!"
-	var/announcer_name = "Mining Requests Console"
-	var/announcer_channel = "Operations" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
+	var/announcer_name = "Operations Long Range Package Delivery System"
+	var/announcer_frequency = SUP_FREQ // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
 
 	var/datum/map_template/map
 
@@ -69,18 +70,25 @@
 
 	to_chat(user, SPAN_NOTICE("You paint the target at [target]."))
 
-	var/obj/item/device/radio/intercom/announcer = new /obj/item/device/radio/intercom(null)
-	announcer.config(list("Common" = FALSE, "Entertainment" = FALSE, "Response Team" = FALSE, "Science" = FALSE, "Command" = FALSE, "Medical" = FALSE, "Engineering" = FALSE, "Security" = FALSE, "Penal" = FALSE, "Operations" = FALSE, "Service" = FALSE, "Mercenary" = FALSE, "Raider" = FALSE, "Ninja" = FALSE, "AI Private" = FALSE))
-	if(announcer)
-		if(!emagged)
-			announcer.autosay(drop_message, announcer_name, announcer_channel)
-		else
-			announcer.autosay(drop_message_emagged, announcer_name, "Common")
+	var/datum/language/language = all_languages[drop_message_language]
+
+	if(!istype(global_announcer.announcer))
+		global_announcer.announcer = new()
+	global_announcer.announcer.PrepareBroadcast(announcer_name, language, announcer_name)
+
+	var/turf/current_turf = get_turf(src)
+	var/datum/signal/subspace/vocal/signal = new(src, emagged ? PUB_FREQ : announcer_frequency, WEAKREF(global_announcer.announcer), language, emagged ? drop_message_emagged : drop_message, "says")
+	signal.data["compression"] = 0
+	signal.transmission_method = TRANSMISSION_SUBSPACE
+	signal.levels = GetConnectedZlevels(current_turf.z)
+	signal.broadcast()
+
+	global_announcer.announcer.ResetAfterBroadcast()
 
 	has_dropped++
 	if(does_explosion)
 		addtimer(CALLBACK(GLOBAL_PROC, /proc/explosion, targloc, 1, 2, 4, 6), 100) //YEEHAW
-	addtimer(CALLBACK(src, .proc/orbital_drop, targloc, user), 105)
+	addtimer(CALLBACK(src, PROC_REF(orbital_drop), targloc, user), 105)
 
 	flick_overlay(I, showto, 20) //2 seconds of the red dot appearing
 	icon_state = "drillpointer"

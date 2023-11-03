@@ -20,9 +20,9 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/card/id/syndicate/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(user == registered_user)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
 
@@ -66,7 +66,6 @@
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
 	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
-	entries[++entries.len] = list("name" = "Religion",			"value" = religion)
 	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
@@ -84,7 +83,7 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, /obj/item/card/id/syndicate/proc/unset_registered_user)
+	destroyed_event.register(user, src, PROC_REF(unset_registered_user))
 	return TRUE
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
@@ -134,7 +133,7 @@
 		QDEL_NULL(obfuscation_image)
 	update_icon()
 
-/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
+/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
 	if(..())
 		return 1
 
@@ -146,7 +145,7 @@
 	else if(href_list["set"])
 		switch(href_list["set"])
 			if("Age")
-				var/new_age = input(user,"What age would you like to put on this card?","Agent Card Age", age) as null|num
+				var/new_age = tgui_input_number(user, "What age would you like to put on this card?", "Agent Card Age", age, 1000, 0)
 				if(!isnull(new_age) && CanUseTopic(user, state))
 					if(new_age < 0)
 						age = initial(age)
@@ -155,14 +154,14 @@
 					to_chat(user, "<span class='notice'>Age has been set to '[age]'.</span>")
 					. = 1
 			if("Appearance")
-				var/datum/card_state/choice = input(user, "Select the appearance for this card.", "Agent Card Appearance") as null|anything in id_card_states()
+				var/datum/card_state/choice = tgui_input_list(user, "Select the appearance for this card.", "Agent Card Appearance", id_card_states(), icon_state)
 				if(choice && CanUseTopic(user, state))
 					src.icon_state = choice.icon_state
 					src.item_state = choice.item_state
 					to_chat(usr, "<span class='notice'>Appearance changed to [choice].</span>")
 					. = 1
 			if("Assignment")
-				var/new_job = sanitize(input(user,"What assignment would you like to put on this card?\nChanging assignment will not grant or remove any access levels.","Agent Card Assignment", assignment) as null|text)
+				var/new_job = tgui_input_text(user, "What assignment would you like to put on this card? Changing assignment will not grant or remove any access levels.", "Agent Card Assignment", assignment)
 				if(!isnull(new_job) && CanUseTopic(user, state))
 					src.assignment = new_job
 					to_chat(user, "<span class='notice'>Occupation changed to '[new_job]'.</span>")
@@ -224,12 +223,6 @@
 					src.citizenship = new_citizenship
 					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
 					. = 1
-			if("Religion")
-				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
-				if(!isnull(new_religion) && CanUseTopic(user,state))
-					src.religion = new_religion
-					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
-					. = 1
 			if("Faction")
 				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
 				if(!isnull(new_faction) && CanUseTopic(user,state))
@@ -250,7 +243,6 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
-					religion = initial(religion)
 					sex = initial(sex)
 					employer_faction = initial(employer_faction)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
@@ -270,7 +262,7 @@
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
 			id_card_states += CS
-		sortTim(id_card_states, /proc/cmp_cardstate, FALSE)
+		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
 	return id_card_states
 

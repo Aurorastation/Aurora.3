@@ -13,7 +13,7 @@
 
 /obj/effect/shuttle_landmark/escape_pod/transit
 	name = "In transit"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/east
 
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
@@ -68,7 +68,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/emergency/interim
 	name = "In Transit"
 	landmark_tag = "nav_emergency_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/bluespace/south
 
 /obj/effect/shuttle_landmark/emergency/dock
 	name = "Escape Shuttle Dock"
@@ -99,7 +99,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/arrival/interim
 	name = "In Transit"
 	landmark_tag = "nav_arrival_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/arrival/dock
 	name = "Arrival Shuttle Dock"
@@ -132,7 +132,7 @@ AURORA_ESCAPE_POD(4)
 //-// Merchant Shuttle //-//
 
 /datum/shuttle/autodock/ferry/merchant_aurora
-	name = "Merchant Shuttle"
+	name = "ICV Enterprise"
 	location = 1
 	warmup_time = 10
 	shuttle_area = /area/shuttle/merchant
@@ -152,13 +152,14 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/merchant/interim
 	name = "In Transit"
 	landmark_tag = "nav_merchant_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/merchant/dock
-	name = "Merchant Shuttle Dock"
+	name = "Second Deck Starboard Dock 1"
 	landmark_tag = "nav_merchant_dock"
 	docking_controller = "merchant_shuttle_dock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/space
+	base_area = /area/space
 
 //-// Admin Corvette //-//
 
@@ -196,7 +197,7 @@ AURORA_ESCAPE_POD(4)
 //-// CCIA Shuttle //-//
 
 /datum/shuttle/autodock/ferry/autoreturn/ccia
-	name = "Agent Shuttle"
+	name = "SCC Shuttle"
 	location = 1
 	warmup_time = 10
 	shuttle_area = /area/shuttle/transport1
@@ -213,7 +214,7 @@ AURORA_ESCAPE_POD(4)
 	base_area = /area/centcom/ferry
 
 /obj/effect/shuttle_landmark/ccia/dock
-	name = "Agent Shuttle Dock"
+	name = "Second Deck Starboard Dock 2"
 	landmark_tag = "nav_ccia_dock"
 	docking_controller = "centcom_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
@@ -237,7 +238,7 @@ AURORA_ESCAPE_POD(4)
 	base_area = /area/centcom/specops
 
 /obj/effect/shuttle_landmark/ert/dock
-	name = "ERT Dock"
+	name = "Third Deck Port Dock 3"
 	landmark_tag = "nav_ert_dock"
 	docking_controller = "specops_dock_airlock"
 	special_dock_targets = list("Phoenix Shuttle" = "specops_shuttle_fore")
@@ -246,7 +247,7 @@ AURORA_ESCAPE_POD(4)
 //-// Burglar Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/burglar_aurora
-	name = "Burglar Pod"
+	name = "Water Bear"
 	current_location = "nav_burglar_start"
 	landmark_transition = "nav_burglar_interim"
 	dock_target = "burglar_shuttle"
@@ -275,7 +276,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/burglar/interim
 	name = "In Transit"
 	landmark_tag = "nav_burglar_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/burglar/surface
 	name = "Exposed Hull, Surface Aft of Cargo"
@@ -333,7 +334,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/skipjack/interim
 	name = "In Transit"
 	landmark_tag = "nav_skipjack_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/skipjack/surface
 	name = "Surface, Aft of Cargo"
@@ -364,7 +365,7 @@ AURORA_ESCAPE_POD(4)
 //-// Mercenary Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/merc_aurora
-	name = "Mercenary Shuttle"
+	name = "ICV Raskolnikov"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
 	dock_target = "merc_shuttle"
@@ -394,7 +395,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/merc/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/merc/dock
 	name = "Yellow Dock"
@@ -494,10 +495,10 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/legion/interim
 	name = "In Transit"
 	landmark_tag = "nav_legion_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/legion/green
-	name = "Emergency Services Dock (Main Entrypoint)"
+	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_legion_green"
 	docking_controller = "legion_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
@@ -546,7 +547,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"
 	landmark_tag = "nav_research_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/research/dock
 	name = "Away Site"
@@ -579,7 +580,7 @@ AURORA_ESCAPE_POD(4)
 /obj/effect/shuttle_landmark/distress/interim
 	name = "In Transit"
 	landmark_tag = "nav_distress_interim"
-	base_turf = /turf/space/transit/west
+	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/distress/green
 	name = "Emergency Services Dock"
@@ -589,8 +590,9 @@ AURORA_ESCAPE_POD(4)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/distress/blue
-	name = "Blue Dock"
+	name = "First Deck Port Hangar Bay 2b"
 	landmark_tag = "nav_distress_blue"
 	docking_controller = "distress_shuttle_dock"
 	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/plating

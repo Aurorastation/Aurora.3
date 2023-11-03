@@ -194,8 +194,8 @@
 		occupant.adjustCloneLoss(-2 * heal_rate)
 
 		//So clones don't die of oxyloss in a running pod.
-		if(REAGENT_VOLUME(occupant.reagents, /decl/reagent/inaprovaline) < 30)
-			occupant.reagents.add_reagent(/decl/reagent/inaprovaline, 60)
+		if(REAGENT_VOLUME(occupant.reagents, /singleton/reagent/inaprovaline) < 30)
+			occupant.reagents.add_reagent(/singleton/reagent/inaprovaline, 60)
 		occupant.Sleeping(30)
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
@@ -366,7 +366,6 @@
 					ex_act(severity)
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/clonepod/update_icon()
@@ -376,23 +375,6 @@
 		icon_state = "pod_1"
 	else if (mess)
 		icon_state = "pod_g"
-
-//Health Tracker Implant
-
-/obj/item/implant/health
-	name = "health implant"
-	var/healthstring = ""
-
-/obj/item/implant/health/proc/sensehealth()
-	if(!implanted)
-		return "ERROR"
-	else
-		if(isliving(implanted))
-			var/mob/living/L = implanted
-			healthstring = "[round(L.getOxyLoss())] - [round(L.getFireLoss())] - [round(L.getToxLoss())] - [round(L.getBruteLoss())]"
-		if(!healthstring)
-			healthstring = "ERROR"
-		return healthstring
 
 //Disk stuff.
 //The return of data disks?? Just for transferring between genetics machine/cloning machine.
@@ -450,9 +432,8 @@
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
 /obj/item/disk/data/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
-	return
 
 /*
  *	Diskette Box

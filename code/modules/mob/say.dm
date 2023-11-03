@@ -11,8 +11,6 @@
 
 	message = sanitize(message)
 
-	set_typing_indicator(0)
-
 	if (src.client.handle_spam_prevention(message, MUTE_IC))
 		return
 
@@ -28,13 +26,11 @@
 
 	message = sanitize(message)
 
-	set_typing_indicator(0)
-
 	if (src.client.handle_spam_prevention(message, MUTE_IC))
 		return
 
 	if(use_me)
-		usr.emote("me",usr.emote_type,message)
+		usr.client_emote("me",usr.emote_type,message)
 	else
 		usr.emote(message)
 
@@ -88,12 +84,12 @@
 	return FALSE
 
 /*
-   ***Deprecated***
-   let this be handled at the hear_say or hear_radio proc
-   This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
-   robot_talk() proc.
-   There is no language handling build into it however there is at the /mob level so we accept the call
-   for it but just ignore it.
+	***Deprecated***
+	let this be handled at the hear_say or hear_radio proc
+	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
+	robot_talk() proc.
+	There is no language handling build into it however there is at the /mob level so we accept the call
+	for it but just ignore it.
 */
 
 /mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
@@ -111,6 +107,12 @@
 			. = "exclaims"
 	else if(ending == "?")
 		. ="asks"
+
+
+/mob/proc/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
+	set name = "Whisper"
+	set category = "IC"
+	return
 
 /mob/proc/get_ear()
 	// returns an atom representing a location on the map from which this
@@ -146,7 +148,7 @@
 /mob/proc/parse_language(var/message)
 	var/prefix = copytext(message,1,2)
 	if(length(message) >= 1 && prefix == "!")
-		return all_languages["Noise"]
+		return all_languages[LANGUAGE_NOISE]
 
 	if(length(message) >= 2 && is_language_prefix(prefix))
 		var/language_prefix = lowertext(copytext(message, 2, 4))

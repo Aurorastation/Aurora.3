@@ -2,10 +2,10 @@
 	name = "Free Solarian Fleets Marine"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel/leather
 	head = /obj/item/clothing/head/helmet/space/void/sol/fsf
 	suit = /obj/item/clothing/suit/space/void/sol/fsf
 	suit_store = /obj/item/gun/projectile/automatic/rifle/sol
@@ -16,14 +16,14 @@
 
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1
-    )
+	)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/c762/sol = 1,
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/grenade/frag = 1
-    )
+	)
 
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)

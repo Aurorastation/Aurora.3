@@ -41,7 +41,7 @@
 
 
 
-			if(!T)
+			if(!isturf(T))
 				colour = rgb(0,0,0)
 
 			else
@@ -119,7 +119,7 @@
 
 					colour = rgb(red, green, blue)
 
-			if(!colour2 && !T.density)
+			if(!colour2 && isturf(T) && !T.density)
 				var/datum/gas_mixture/environment = T.return_air()
 				var/turf_total = environment.total_moles()
 				//var/turf_total = T.co2 + T.oxygen + T.poison + T.sl_gas + T.n2
@@ -325,13 +325,13 @@
 
 		return
 
-proc/getr(col)
+/proc/getr(col)
 	return hex2num( copytext(col, 2,4))
 
-proc/getg(col)
+/proc/getg(col)
 	return hex2num( copytext(col, 4,6))
 
-proc/getb(col)
+/proc/getb(col)
 	return hex2num( copytext(col, 6))
 
 
@@ -342,4 +342,3 @@ proc/getb(col)
 
 	mapobjs = null
 	src.unset_machine()
-

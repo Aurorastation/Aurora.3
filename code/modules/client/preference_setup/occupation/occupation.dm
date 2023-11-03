@@ -104,7 +104,7 @@
 				try
 					pref.vars[preference] = text2num(jobs[preference])
 				catch(var/exception/e)
-					log_debug("LOADING: Bad job preference key: [preference].")
+					LOG_DEBUG("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
 	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
@@ -123,7 +123,7 @@
 
 	if (!SSjobs.safe_to_sanitize)
 		if (!SSjobs.deferred_preference_sanitizations[src])
-			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, .proc/late_sanitize, sql_load)
+			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, PROC_REF(late_sanitize), sql_load)
 	else
 		late_sanitize(sql_load)
 
@@ -262,7 +262,7 @@
 		var/list/choices = pref.GetValidTitles(job)
 		if(!LAZYLEN(choices))
 			return ..()// should never happen
-		var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
+		var/choice = input("Choose a title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 		if(choice && CanUseTopic(user))
 			SetPlayerAltTitle(job, choice)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -417,6 +417,9 @@
 
 	var/list/factions = list()
 	for (var/datum/faction/faction in SSjobs.factions)
+		if(!faction.is_visible(user))
+			continue
+
 		if (faction.name == selected_faction)
 			factions += "[faction.name]"
 		else
@@ -429,6 +432,7 @@
 		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
 		selected_faction = SSjobs.default_faction.name
 		faction = SSjobs.name_factions[selected_faction]
+		return
 
 	dat += "</h2></center><hr/>"
 	dat += "<table padding='8px'>"
@@ -443,17 +447,17 @@
 	dat += "</tr>"
 	dat += "</table><center><hr/>"
 
-	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
+	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
 
 	if (selected_faction == pref.faction)
-		dat += "<br>\[selected\]"
-	else if (faction.can_select(pref))
-		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>select</a>\]"
+		dat += "<br>\[Faction selected\]"
+	else if (faction.can_select(pref,user))
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
 	else
-		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
+		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
+	dat += "</center>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=750x450")
+	user << browse(dat.Join(), "window=factionpreview;size=750x450")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
@@ -478,7 +482,7 @@
 	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
-		if (src.age >= (job.get_alt_character_age(t) || job.get_minimum_character_age(species)))
+		if (src.age >= (job.get_alt_character_age(species, t) || job.get_minimum_character_age(species)))
 			continue
 		choices -= t
 	return choices

@@ -23,6 +23,7 @@
 	var/open_sound = null // if you want to play a special sound if you open it for the first time
 	var/open_message = null // same as above, but a message
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
+	contained_sprite = TRUE
 
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
@@ -60,9 +61,11 @@
 			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
 		else
 			icon_state = "[initial(icon_state)][src.opened]"
+			..()
 	else
 		cut_overlays()
 		icon_state = "[initial(icon_state)]" // closed
+	..()
 
 /obj/item/storage/box/fancy/handle_item_insertion()
 	if(!opened) // makes sure boxes are opened before inserting anything
@@ -71,7 +74,7 @@
 	. = ..()
 
 /obj/item/storage/box/fancy/examine(mob/user)
-	..()
+	. = ..()
 	if(!icon_type || !storage_type)
 		return
 	if(contents.len <= 0)
@@ -86,7 +89,7 @@
 /obj/item/storage/box/fancy/donut
 	name = "donut box"
 	desc = "A box of half-a-dozen donuts sponsored by GetMore Chocolate Corporation. Allegedly contentious with the psychiatrist unions for some reason."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/donutbox.dmi'
 	icon_state = "donutbox"
 	icon_type = "donut"
 	center_of_mass = list("x" = 16,"y" = 9)
@@ -116,17 +119,30 @@
 /obj/item/storage/box/fancy/egg_box
 	name = "egg carton"
 	desc = "A carton of eggs."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/eggcarton.dmi'
 	icon_state = "eggcarton"
+	item_state = "eggbox"
 	icon_type = "egg"
 	storage_type = "carton"
 	center_of_mass = list("x" = 16,"y" = 7)
 	storage_slots = 12
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/egg,
-		/obj/item/reagent_containers/food/snacks/boiledegg
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 		)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/egg = 12)
+	foldable = /obj/item/stack/material/cardboard
+
+/obj/item/storage/box/fancy/egg_box/tunneler
+	name = "ice tunneler egg carton"
+	desc = "A carton of ice tunneler eggs."
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers,
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/egg
+		)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers = 12)
 	foldable = /obj/item/stack/material/cardboard
 
 /*
@@ -136,7 +152,7 @@
 /obj/item/storage/box/fancy/crackers
 	name = "\improper Getmore Crackers"
 	desc = "Salted crackers, not much for conversation; they're awfully dry."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/crackerbag.dmi'
 	icon_state = "crackerbag"
 	icon_type = "cracker"
 	storage_type = "bag"
@@ -156,7 +172,7 @@
 /obj/item/storage/box/fancy/candle_box
 	name = "candle pack"
 	desc = "A pack of red candles."
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/obj/storage/fancy/candle.dmi'
 	icon_state = "candlepack0"
 	item_state = "candlepack"
 	icon_type = "candle"
@@ -181,7 +197,7 @@
 /obj/item/storage/box/fancy/crayons
 	name = "box of crayons"
 	desc = "A box of crayons for all your rune drawing needs."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
 	w_class = ITEMSIZE_SMALL
@@ -308,17 +324,32 @@
 		..()
 
 /obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
-	if(!istype(M, /mob))
+	if(!ismob(M))
 		return
 	if(!opened)
-		to_chat(user, SPAN_NOTICE("The [src] is closed."))
+		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
 		return
-
-	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
-		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
-		if(!istype(W))
-			to_chat(user, SPAN_NOTICE("The [W] is in the way."))
+	if(target_zone == BP_MOUTH && contents.len > 0)
+		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(M)
+		if(!istype(W) || M.wear_mask)
+			to_chat(user, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
+			if(M != user)
+				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
 			return
+		if(M != user)
+			if(use_check(M))
+				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
+				return
+			var/response = ""
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
+			response = alert(M, "\The [user] offers you \a [W.name]. Do you accept?", "Smokable offer", "Accept", "Decline")
+			if(response != "Accept")
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				return
+			if(!M.Adjacent(user))
+				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
+				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
 			W = contents[i]
@@ -329,12 +360,13 @@
 		if (!W)
 			return
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
-		user.equip_to_slot_if_possible(W, slot_wear_mask)
+		M.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> casually pulls out a [icon_type] from \the [src] with their mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
+		return
 	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
 
@@ -390,13 +422,23 @@
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
 
+/obj/item/storage/box/fancy/cigarettes/cigar/prank
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar/prank
+
+/obj/item/storage/box/fancy/cigarettes/oracle
+	name = "\improper Natural Vysokan Soothsayer oracle cigarette packet"
+	desc = "Featuring an illustration of a soothsayer from Vysoka on its packaging, these cigarettes are advertised as containing oracle instead of the normal tobacco. A warning box stating \"These oracle cigarettes are not healthier than tobacco alternatives\" appears to have been haphazardly placed on the packet."
+	icon_state = "Opacket"
+	item_state = "Fpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/oracle
+
 /*
  * Vial Box
  */
 /obj/item/storage/box/fancy/vials
 	name = "vial storage box"
 	desc = "A box of vials."
-	icon = 'icons/obj/vialbox.dmi'
+	icon = 'icons/obj/storage/fancy/vialbox.dmi'
 	icon_state = "vialbox6"
 	icon_type = "vial"
 	use_sound = 'sound/items/drop/glass.ogg'
@@ -412,7 +454,7 @@
 /obj/item/storage/lockbox/vials
 	name = "secure vial storage box"
 	desc = "A locked box for keeping things away from children."
-	icon = 'icons/obj/vialbox.dmi'
+	icon = 'icons/obj/storage/fancy/vialbox.dmi'
 	icon_state = "vialbox0"
 	item_state = "box"
 	use_sound = 'sound/items/drop/glass.ogg'
@@ -453,7 +495,7 @@
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"
 	desc = "A lot like life, you never know what you're going to get."
-	icon = 'icons/obj/chocolate.dmi'
+	icon = 'icons/obj/storage/fancy/chocolate.dmi'
 	icon_state = "chocolatebox"
 	icon_type = "chocolate"
 	storage_slots = 8
@@ -466,3 +508,246 @@
 /obj/item/storage/box/fancy/chocolate_box/fill()
 	for(var/i=1; i <= storage_slots; i++)
 		new /obj/item/reagent_containers/food/snacks/truffle/random(src)
+
+/obj/item/pizzabox
+	name = "pizza box"
+	desc = "A box suited for pizzas."
+	icon = 'icons/obj/storage/fancy/pizzabox.dmi'
+	icon_state = "pizzabox1"
+	item_state = "pizzabox" // don't touch this shit unless you know what you're doing
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	contained_sprite = TRUE
+	center_of_mass = list("x" = 16,"y" = 6)
+
+	var/open = 0 // Is the box open?
+	var/ismessy = 0 // Fancy mess on the lid
+	var/obj/item/reagent_containers/food/snacks/sliceable/pizza/pizza // Content pizza
+	var/pizza_type
+	var/list/boxes = list() // If the boxes are stacked, they come here
+	var/boxtag = ""
+
+/obj/item/pizzabox/Initialize()
+	. = ..()
+	if(pizza_type)
+		pizza = new pizza_type(src)
+	update_icon()
+
+/obj/item/pizzabox/update_icon()
+	cut_overlays()
+
+	// Set appropriate description
+	if( open && pizza )
+		desc = "A box suited for pizzas. It appears to have a [pizza.name] inside."
+	else if( boxes.len > 0 )
+		desc = "A pile of boxes suited for pizzas. There appears to be [boxes.len + 1] boxes in the pile."
+
+		var/obj/item/pizzabox/topbox = boxes[boxes.len]
+		var/toptag = topbox.boxtag
+		if( toptag != "" )
+			desc = "[desc] The box on top has a tag, it reads: '[toptag]'."
+	else
+		desc = "A box suited for pizzas."
+
+		if( boxtag != "" )
+			desc = "[desc] The box has a tag, it reads: '[boxtag]'."
+
+	// Icon states and overlays
+	if( open )
+		if( ismessy )
+			icon_state = "pizzabox_messy"
+		else
+			icon_state = "pizzabox_open"
+
+		if( pizza )
+			var/image/pizzaimg = image(pizza.icon, pizza.icon_state)
+			pizzaimg.pixel_y = -2
+			add_overlay(pizzaimg)
+
+		return
+	else
+		// Stupid code because byondcode sucks
+		var/doimgtag = 0
+		if( boxes.len > 0 )
+			var/obj/item/pizzabox/topbox = boxes[boxes.len]
+			if( topbox.boxtag != "" )
+				doimgtag = 1
+		else
+			if( boxtag != "" )
+				doimgtag = 1
+
+		if( doimgtag )
+			var/image/tagimg = image(icon, icon_state = "pizzabox_tag")
+			tagimg.pixel_y = boxes.len * 3
+			add_overlay(tagimg)
+
+	icon_state = "pizzabox[boxes.len+1]"
+
+/obj/item/pizzabox/attack_hand( mob/user as mob )
+
+	if( open && pizza )
+		user.put_in_hands( pizza )
+
+		to_chat(user, SPAN_WARNING("You take \the [src.pizza] out of \the [src]."))
+		src.pizza = null
+		update_icon()
+		return
+
+	if( boxes.len > 0 )
+		if( user.get_inactive_hand() != src )
+			..()
+			return
+
+		var/obj/item/pizzabox/box = boxes[boxes.len]
+		boxes -= box
+
+		user.put_in_hands( box )
+		to_chat(user, SPAN_WARNING("You remove the topmost [src] from your hand."))
+		box.update_icon()
+		update_icon()
+		return
+	..()
+
+/obj/item/pizzabox/attack_self( mob/user as mob )
+
+	if( boxes.len > 0 )
+		return
+
+	open = !open
+
+	if( open && pizza )
+		ismessy = 1
+
+	update_icon()
+
+/obj/item/pizzabox/attackby( obj/item/I as obj, mob/user as mob )
+	if( istype(I, /obj/item/pizzabox/) )
+		var/obj/item/pizzabox/box = I
+
+		if( !box.open && !src.open )
+			// Make a list of all boxes to be added
+			var/list/boxestoadd = list()
+			boxestoadd += box
+			for(var/obj/item/pizzabox/i in box.boxes)
+				boxestoadd += i
+
+			if( (boxes.len+1) + boxestoadd.len <= 5 )
+				user.drop_from_inventory(box,src)
+				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
+				src.boxes.Add( boxestoadd )
+
+				box.update_icon()
+				update_icon()
+
+				to_chat(user, SPAN_WARNING("You put \the [box] ontop of \the [src]!"))
+			else
+				to_chat(user, SPAN_WARNING("The stack is too high!"))
+		else
+			to_chat(user, SPAN_WARNING("Close \the [box] first!"))
+
+		return
+
+	if( istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza/) ) // Long ass fucking object name
+
+		if( src.open )
+			user.drop_from_inventory(I,src)
+			src.pizza = I
+
+			update_icon()
+
+			to_chat(user, SPAN_WARNING("You put \the [I] in \the [src]!"))
+		else
+			to_chat(user, SPAN_WARNING("You try to push \the [I] through the lid but it doesn't work!"))
+		return
+
+	if( I.ispen() )
+
+		if( src.open )
+			return
+
+		var/t = sanitize(input("Enter what you want to add to the tag:", "Write", null, null) as text, 30)
+
+		var/obj/item/pizzabox/boxtotagto = src
+		if( boxes.len > 0 )
+			boxtotagto = boxes[boxes.len]
+
+		boxtotagto.boxtag = copytext("[boxtotagto.boxtag][t]", 1, 30)
+
+		update_icon()
+		return
+	..()
+
+/obj/item/pizzabox/margherita
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita
+	boxtag = "Margherita Deluxe"
+
+/obj/item/pizzabox/vegetable
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
+	boxtag = "Gourmet Vegatable"
+
+/obj/item/pizzabox/mushroom
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
+	boxtag = "Mushroom Special"
+
+/obj/item/pizzabox/meat
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
+	boxtag = "Meatlover's Supreme"
+
+/obj/item/pizzabox/pineapple
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pineapple
+	boxtag = "Silversun Sunrise"
+
+/obj/item/pizzabox/pepperoni
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	boxtag = "Pepperoni Power"
+
+/obj/item/storage/box/fancy/chips
+	name = "\improper Getmore salted chip multipack"
+	desc = "A six-pack bag of Getmore salted potato chips!"
+	icon = 'icons/obj/storage/fancy/multichips.dmi'
+	icon_state = "multichips"
+	icon_type = "chip packet"
+	storage_type = "bag"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	closable = FALSE
+	icon_overlays = FALSE
+	storage_slots = 6
+	w_class = ITEMSIZE_NORMAL
+	can_hold = list(/obj/item/reagent_containers/food/snacks/chips)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips = 6)
+
+/obj/item/storage/box/fancy/chips/cucumber
+	name = "\improper Getmore cucumber chip multipack"
+	desc = "A six-pack bag of Getmore cucumber potato chips!"
+	icon_state = "multichipscucumber"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/cucumber = 6)
+
+/obj/item/storage/box/fancy/chips/chicken
+	name = "\improper Getmore chicken chip multipack"
+	desc = "A six-pack bag of Getmore chicken potato chips!"
+	icon_state = "multichipschicken"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/chicken = 6)
+
+/obj/item/storage/box/fancy/chips/dirtberry
+	name = "\improper Getmore dirtberry chip multipack"
+	desc = "A six-pack bag of Getmore dirtberry potato chips!"
+	icon_state = "multichipsdirtberry"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/dirtberry = 6)
+
+/obj/item/storage/box/fancy/chips/phoron
+	name = "\improper Getmore phoron chip multipack"
+	desc = "A six-pack bag of Getmore 'phoron' potato chips!"
+	icon_state = "multichipsphoron"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/phoron = 6)
+
+/obj/item/storage/box/fancy/chips/variety
+	name = "\improper Getmore chips variety pack"
+	desc = "A Getmore variety pack, containing bags of salted, cucumber, and chicken chips!"
+	icon_state = "multichipsvariety"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/chips = 2,
+		/obj/item/reagent_containers/food/snacks/chips/cucumber = 2,
+		/obj/item/reagent_containers/food/snacks/chips/chicken = 2
+	)

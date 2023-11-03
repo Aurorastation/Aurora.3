@@ -1,19 +1,17 @@
-//The bee smoker, a device that burns welder fuel to make lots of smoke that obscures vision
-//Useful for dealing with angry bees, or for antagonist gardeners to confuse and flee from armed security.
 /obj/item/bee_smoker
 	name = "bee smoker"
 	desc = "An archaic contraption that slowly burns welding fuel to create thick clouds of smoke, and directs it with attached bellows, used to control angry bees and calm them before harvesting honey."
 	desc_antag = "This device can be used to blind people in short range."
 	icon = 'icons/obj/beekeeping.dmi'
-	icon_state ="beesmoker"
-	item_state = "beesmoker"
+	icon_state = "bee_smoker"
+	item_state = "bee_smoker"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE //Big clunky thing
+	w_class = ITEMSIZE_LARGE
 	var/max_fuel = 60
 
-/obj/item/bee_smoker/examine(mob/user)
-	..()
-	if(user.Adjacent(src))
+/obj/item/bee_smoker/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		to_chat(user, SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left."))
 
 /obj/item/bee_smoker/Initialize()
@@ -23,7 +21,6 @@
 	R.my_atom = src
 	//Bee smoker intentionally spawns empty. Fill it at a weldertank before use
 
-//I would prefer to rename this to attack(), but that would involve touching hundreds of files.
 /obj/item/bee_smoker/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(istype(A, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to_obj(src, max_fuel)
@@ -51,11 +48,11 @@
 	smoke_at(A)
 
 /obj/item/bee_smoker/proc/get_fuel()
-	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 
 /obj/item/bee_smoker/use(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent(/decl/reagent/fuel, amount)
+		reagents.remove_reagent(/singleton/reagent/fuel, amount)
 		return TRUE
 	else
 		if(M)

@@ -73,19 +73,19 @@
 	var/armorpercent = 0
 	var/wasblocked = 0
 	var/shoulddisarm = 0
-	var/damagetype = PAIN
+	var/damagetype = DAMAGE_PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
 	if(targetIsHuman && targetashuman == user)
 		wasselfattack = 1
 
-	if (user.intent == I_HURT)
+	if (user.a_intent == I_HURT)
 		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
-		damagetype = BRUTE
+		damagetype = DAMAGE_BRUTE
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
+		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
 		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force
@@ -309,7 +309,7 @@
 /obj/item/cane/telecane
 	name = "telescopic cane"
 	desc = "A compact cane which can be collapsed for storage."
-	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
+	icon = 'icons/obj/item/telecane.dmi'
 	icon_state = "telecane"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
@@ -361,7 +361,7 @@
 /obj/item/gift
 	name = "gift"
 	desc = "A wrapped item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift3"
 	var/size = 3.0
 	var/obj/item/gift = null
@@ -369,12 +369,13 @@
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/gift/random_pixel/Initialize()
+	. = ..()
 	pixel_x = rand(-16,16)
 	pixel_y = rand(-16,16)
 
 /obj/item/SWF_uplink
 	name = "station-bounced radio"
-	desc = "used to comunicate it appears."
+	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	var/temp = null
@@ -495,7 +496,7 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = input("Select the camera to observe", null) as null|anything in friendly_cameras
+	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
@@ -534,10 +535,7 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi'
-		)
+	icon = 'icons/obj/storage/misc.dmi'
 	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50

@@ -13,7 +13,7 @@
 	desc = "Hop in, the gastrointestinal juices are just fine."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = null
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	throwforce = 0
 	anchored = 1
 	deployed = 1
@@ -38,7 +38,7 @@
 			attack_mob(L)
 			originator.eating = 1
 			to_chat(L, "<span class='danger'>\The [src] begins digesting your upper body!</span>")
-			addtimer(CALLBACK(src, .proc/devour, L), 50 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(devour), L), 50 SECONDS)
 	..()
 
 /obj/item/trap/sarlacc/proc/devour(var/mob/living/C)
@@ -60,8 +60,8 @@
 			)
 		var/obj/item/organ/external/G = H.get_organ(BP_GROIN)
 		G.droplimb(0,DROPLIMB_EDGE)
-		if(SSmob.greatasses.len)
-			var/obj/structure/greatworm/S = pick(SSmob.greatasses)
+		if(SSmobs.greatasses.len)
+			var/obj/structure/greatworm/S = pick(SSmobs.greatasses)
 			H.forceMove(S.loc)
 		else
 			H.gib()
@@ -73,7 +73,7 @@
 			"<span class='danger'>\The [src] scrapes and gnashes against your exoskeleton before spitting you out!</span>",
 			"<b>You hear several metallic scrapes!</b>"
 			)
-		R.apply_damage(60,BRUTE)
+		R.apply_damage(60,DAMAGE_BRUTE)
 	else
 		L.visible_message(
 			"<span class='danger'>\The [src] eviscerates [L] with its teeth, swallowing what little remains whole!</span>",
@@ -126,14 +126,14 @@
 
 /mob/living/simple_animal/hostile/greatworm/Initialize()
 	. = ..()
-	SSmob.greatworms += src
+	SSmobs.greatworms += src
 	loot_count = 4+(rand(0,4))
 	var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
 	L.originator = src
 	sarlacc = L
 
 /mob/living/simple_animal/hostile/greatworm/Destroy()
-	SSmob.greatworms -= src
+	SSmobs.greatworms -= src
 	if(sarlacc)
 		qdel(sarlacc)
 		sarlacc = null
@@ -184,7 +184,7 @@
 				if(prob(50))
 					var/mob/living/L = sarlacc.captive
 					if(L)
-						L.apply_damage(rand(3,10),BRUTE)
+						L.apply_damage(rand(3,10),DAMAGE_BRUTE)
 						L.visible_message(
 							"<span class='danger'>\The [src] tears at [L]'s flesh with its gruesome jaws.</span>",
 							"<span class='danger'>You feel a searing pain as \the [src] tears at your flesh!</span>",
@@ -280,7 +280,7 @@
 
 /mob/living/simple_animal/hostile/lesserworm/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/Penetrate), 6)
+	addtimer(CALLBACK(src, PROC_REF(Penetrate)), 6)
 	QDEL_IN(src, 15)
 
 /mob/living/simple_animal/hostile/lesserworm/Destroy()
@@ -293,9 +293,9 @@
 	var/list/possible_targets = list()
 	for(var/mob/living/L in src.loc)
 		if(L != src)
-			L.apply_damage(15,BRUTE)
+			L.apply_damage(15,DAMAGE_BRUTE)
 			possible_targets += L
-			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth+!</span>")
+			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth!</span>")
 	if(Adjacent(originator) && possible_targets.len)
 		var/mob/living/L = pick(possible_targets)
 		to_chat(L, "<span class='danger'>\The [src] flings you into \the [originator]'s maw!</span>")
@@ -349,9 +349,9 @@
 
 /mob/living/simple_animal/hostile/greatwormking/Destroy()
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
-	for(var/mob/living/L in SSmob.greatworms)
+	for(var/mob/living/L in SSmobs.greatworms)
 		L.death()
-	for(var/obj/structure/S in SSmob.greatasses)
+	for(var/obj/structure/S in SSmobs.greatasses)
 		qdel(S)
 	return ..()
 
@@ -396,9 +396,9 @@
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		if(L.reagents)
-			var/madhouse = pick(/decl/reagent/psilocybin,/decl/reagent/mindbreaker,/decl/reagent/impedrezene,/decl/reagent/cryptobiolin,/decl/reagent/soporific,/decl/reagent/mutagen)
+			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
-			L.reagents.add_reagent("[madhouse]", 3)
+			L.reagents.add_reagent(madhouse, 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")
 
 /obj/structure/greatworm
@@ -412,9 +412,9 @@
 
 /obj/structure/greatworm/Initialize()
 	. = ..()
-	SSmob.greatasses += src
+	SSmobs.greatasses += src
 
 /obj/structure/greatworm/Destroy()
-	SSmob.greatasses -= src
+	SSmobs.greatasses -= src
 	return ..()
 

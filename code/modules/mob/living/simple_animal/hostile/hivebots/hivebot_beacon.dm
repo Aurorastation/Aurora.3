@@ -63,16 +63,16 @@
 		S.start()
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-		addtimer(CALLBACK(src, .proc/activate_beacon), 450)
+		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
-	generate_warp_destinations()
+	addtimer(CALLBACK(src, PROC_REF(generate_warp_destinations)), 10) //So we don't sleep during init
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
 
 	destinations.Cut()
-	for(var/turf/simulated/floor/T in circlerange(src,10))
+	for(var/turf/simulated/floor/T in circle_range(src,10))
 		if(turf_clear(T))
 			destinations += T
 	var/area/A = get_area(src)
@@ -157,10 +157,10 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
 	if(activated != -1)
 		LoseTarget()
-		stance = HOSTILE_STANCE_TIRED
+		change_stance(HOSTILE_STANCE_TIRED)
 		icon_state = "hivebotbeacon_off"
 		activated = -1
-		addtimer(CALLBACK(src, .proc/wakeup), 900)
+		addtimer(CALLBACK(src, PROC_REF(wakeup)), 900)
 
 	var/area/random_area = random_station_area(TRUE)
 	var/turf/random_turf = random_area.random_space()
@@ -174,7 +174,7 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
 
@@ -248,7 +248,7 @@
 
 	if(bot_amt>0 && linked_bots.len < max_bots)
 		calc_spawn_delay()
-		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
 	else
 		max_bots_reached = 1
 
@@ -264,7 +264,7 @@
 	if(max_bots_reached && activated == 1 && linked_bots.len < max_bots)
 		max_bots_reached = 0
 		calc_spawn_delay()
-		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
 
 #undef NORMAL
 #undef RANGED

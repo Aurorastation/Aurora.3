@@ -148,10 +148,10 @@
 		nymph_out(E, limb_nymph, forced = TRUE)
 		return FALSE
 
-	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /decl/reagent/blood))
+	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /singleton/reagent/blood))
 	if(blood_volume)
-		if(REAGENT_DATA(E.owner.vessel, /decl/reagent/blood))
-			E.owner.vessel.remove_reagent(/decl/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
+		if(REAGENT_DATA(E.owner.vessel, /singleton/reagent/blood))
+			E.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
 	if(blood_volume <= 0)
 		nymph_out(E, limb_nymph, forced = TRUE)
 
@@ -183,10 +183,10 @@
 	var/obj/item/organ/external/E = input(src, "Select a limb to detach:", "Nymph Limb Detach") as null|anything in my_nymph_limbs
 	if(!istype(E))
 		return
-	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
+	if(!do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 	if(E.detach_nymph_limb() && my_nymph_limbs.len == 1)
-		verbs -= /mob/living/carbon/human/proc/detach_nymph_limb
+		remove_verb(src, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 	regenerate_icons()
 
@@ -199,7 +199,7 @@
 	if(istype(E))
 		to_chat(src, "You start to detach from your host.")
 		to_chat(E.owner, "The nymph acting as your [E.name] starts to unattach itself.")
-		if(do_after(src, delay = 3 SECONDS, needhand = FALSE))
+		if(do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			E.detach_nymph_limb()
 
 // Organ detach
@@ -261,7 +261,7 @@
 		if(!limb_choice)
 			return
 
-	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
+	if(!do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 
 	// Make new limb and put it on the host
@@ -321,7 +321,7 @@
 		if(!limb_choice)
 			return
 
-	if(!do_after(target, delay = 3 SECONDS, needhand = TRUE))
+	if(!do_after(target, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 
 	// Make new limb and put it on the host
@@ -361,7 +361,7 @@
 
 	if(forced)
 		nymph.can_attach = FALSE
-		addtimer(CALLBACK(nymph, /datum/component/nymph_limb/.proc/can_attach, nymph), 5 MINUTES, TIMER_UNIQUE)
+		addtimer(CALLBACK(nymph, TYPE_PROC_REF(/datum/component/nymph_limb, can_attach), nymph), 5 MINUTES, TIMER_UNIQUE)
 
 	E.removed(E.owner)
 	qdel(E)
@@ -388,7 +388,7 @@
 	E.replaced(H)
 	for(var/obj/item/organ/external/child in E.children)
 		nymphize(H, child.organ_tag, TRUE)
-	H.verbs |= /mob/living/carbon/human/proc/detach_nymph_limb
+	add_verb(H, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 /datum/species/diona/nymph_limb // For use on nymph-limb organs only
 	name = "Nymph Limb"

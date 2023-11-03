@@ -63,7 +63,7 @@
 		if("Supreme Commander")
 			return get_all_centcom_access()
 
-	log_debug("Invalid job [job] passed to get_centcom_access")
+	LOG_DEBUG("Invalid job [job] passed to get_centcom_access")
 	return list()
 
 /proc/get_syndicate_access(job)
@@ -76,7 +76,7 @@
 			return list(access_syndicate, access_maint_tunnels)
 		if("Syndicate Commando")
 			return list(access_syndicate, access_syndicate_leader)
-	log_debug("Invalid job [job] passed to get_syndicate_access")
+	LOG_DEBUG("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
 /proc/get_distress_access()
@@ -89,7 +89,7 @@
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
 		priv_all_access_datums = init_subtypes(/datum/access)
-		sortTim(priv_all_access_datums, /proc/cmp_access, FALSE)
+		sortTim(priv_all_access_datums, GLOBAL_PROC_REF(cmp_access), FALSE)
 
 	return priv_all_access_datums
 
@@ -258,13 +258,13 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/silicon/GetIdCard()
 	return id_card
 
-proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
+/proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	var/obj/item/card/id/C = M.GetIdCard()
 	if(C)
 		return C.registered_name
 	return missing_id_name
 
-proc/get_all_job_icons() //For all existing HUD icons
+/proc/get_all_job_icons() //For all existing HUD icons
 	return joblist + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation

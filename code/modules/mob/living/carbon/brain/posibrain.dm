@@ -49,7 +49,7 @@
 	searching = FALSE
 	update_icon()
 
-	INVOKE_ASYNC(src, .proc/update_name)
+	INVOKE_ASYNC(src, PROC_REF(update_name))
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
@@ -59,10 +59,12 @@
 	if(istype(A, /area/assembly/robotics))
 		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
 
+	brainmob.client.init_verbs()
+
 	return src
 
 /obj/item/device/mmi/digital/posibrain/update_name()
-	var/new_name = input(brainmob, "Choose your name.", "Name Selection", brainmob.real_name) as text
+	var/new_name = tgui_input_text(brainmob, "Choose your name.", "Name Selection", brainmob.real_name, MAX_NAME_LEN)
 	if(new_name)
 		brainmob.real_name = new_name
 		brainmob.name = new_name
@@ -90,7 +92,7 @@
 		msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	msg += "</span><span class='info'>*---------*</span>"
 	to_chat(user, msg)
-	return
+	return TRUE
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)

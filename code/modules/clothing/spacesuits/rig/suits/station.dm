@@ -4,6 +4,12 @@
 	light_color = "#ffcf2f"
 	brightness_on = 6
 
+/obj/item/clothing/head/helmet/space/rig/industrial/himeo
+	light_overlay = "helmet_light_himeo"
+
+/obj/item/clothing/suit/space/rig/industrial/himeo
+	flags_inv = HIDEEARS|BLOCKHEADHAIR|HIDETAIL
+
 /obj/item/clothing/head/helmet/space/rig/ce
 	camera = /obj/machinery/camera/network/engineering
 
@@ -71,11 +77,11 @@
 	icon_state = "industrial_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MINOR,
+		laser = ARMOR_LASER_SMALL,
 		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
+		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
@@ -113,6 +119,20 @@
 /obj/item/rig/industrial/syndicate
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig
+
+/obj/item/rig/industrial/himeo
+	name = "himean industrial suit control module"
+	suit_type = "himean industrial hardsuit"
+	desc = "A variant of the industrial suit used by the United Syndicates of Himeo."
+	desc_extended = "A little too clunky, a little too slow; the Type-86 \"Cicada\" industrial hardsuit was released about a decade too late to be competitive. \
+	Still, it enjoys modest popularity among those dissatisfied with the limits of the Type-76 'Fish Fur', such as Guard sappers or asteroid miners."
+	icon_supported_species_tags = list("taj")
+	icon = 'icons/clothing/rig/himeo_industrial.dmi'
+	icon_state = "himeo_rig"
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA)
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial/himeo
+	chest_type = /obj/item/clothing/suit/space/rig/industrial/himeo
 
 /obj/item/rig/eva
 	name = "EVA suit control module"
@@ -164,6 +184,32 @@
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
 	camera = /obj/machinery/camera/network/mercenary
 
+/obj/item/rig/eva/pilot
+	name = "pilot suit control module"
+	suit_type = "Pilot hardsuit"
+	desc = "A light hardsuit issued to SCC pilots, known as the wyvern hardsuit. It features light armor designed to protect the wearer from flak and shrapnel."
+	icon = 'icons/clothing/rig/pilotsuit.dmi'
+	icon_state = "pilot_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+/obj/item/rig/eva/pilot/equipped
+
+	req_access = list(access_bridge_crew)
+
+	initial_modules = list(
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/cooling_unit
+		)
+
 /obj/item/rig/ce
 	name = "advanced voidsuit control module"
 	suit_type = "advanced voidsuit"
@@ -189,6 +235,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
+	boot_type = /obj/item/clothing/shoes/magboots/advance
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell,/obj/item/storage/toolbox,/obj/item/storage/bag/inflatable)
 
@@ -206,6 +253,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
+		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/actuators
 		)
 
@@ -268,13 +316,13 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
-	slowdown = 0
+	slowdown = 1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer,/obj/item/reagent_containers/blood)
 
 	req_access = list()
 	req_one_access = list()
@@ -304,9 +352,9 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)

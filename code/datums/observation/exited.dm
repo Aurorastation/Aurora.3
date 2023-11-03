@@ -9,9 +9,9 @@
 //			/atom/new_loc: The atom the exitee is now residing in
 //
 
-var/datum/observ/exited/exited_event = new()
+var/singleton/observ/exited/exited_event = new()
 
-/datum/observ/exited
+/singleton/observ/exited
 	name = "Exited"
 	expected_type = /atom
 

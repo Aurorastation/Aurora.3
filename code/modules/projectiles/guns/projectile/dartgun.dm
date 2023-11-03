@@ -52,7 +52,8 @@
 	fire_sound_text = "a metallic click"
 	accuracy = 1
 	recoil = 0
-	silenced = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0
@@ -97,12 +98,12 @@
 		fill_dart(dart)
 
 /obj/item/gun/projectile/dartgun/examine(mob/user)
-	..()
+	. = ..()
 	if (beakers.len)
 		to_chat(user, "<span class='notice'>[src] contains:</span>")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
 				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
@@ -138,7 +139,7 @@
 			dat += "Beaker [i] contains: "
 			if(LAZYLEN(B.reagents.reagent_volumes))
 				for(var/_R in B.reagents.reagent_volumes)
-					var/decl/reagent/R = decls_repository.get_decl(_R)
+					var/singleton/reagent/R = GET_SINGLETON(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
 					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")

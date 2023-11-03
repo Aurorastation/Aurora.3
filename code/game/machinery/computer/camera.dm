@@ -35,6 +35,16 @@
 		reset_current()
 	return viewflag
 
+/obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
+	if(user.stat || user.blinded || inoperable())
+		return FALSE
+	if(!current_camera)
+		return FALSE
+	var/viewflag = current_camera.check_eye(user)
+	if (viewflag < 0) //camera doesn't work
+		return FALSE
+	return TRUE
+
 /obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(..())
 		return
@@ -57,9 +67,6 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Console", 900, 800)
-
-		ui.add_template("mapContent", "sec_camera_map_content.tmpl")
-		ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
 
 		ui.set_initial_data(data)
 		ui.open()
@@ -282,6 +289,16 @@
 	icon_keyboard = "yellow_key"
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
+
+/obj/machinery/computer/security/engineering/terminal
+	name = "engineering camera monitor"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "engines"
+	icon_keyboard = "power_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)

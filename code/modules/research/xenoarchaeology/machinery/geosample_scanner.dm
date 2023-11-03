@@ -5,8 +5,8 @@
 	anchored = 1
 	density = 1
 	flags = OPENCONTAINER
-	icon = 'icons/obj/virology.dmi'
-	icon_state = "analyser"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "spectrometer"
 
 	idle_power_usage = 20
 	active_power_usage = 300
@@ -47,18 +47,18 @@
 /obj/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
 	create_reagents(500)
-	coolant_reagents_purity[/decl/reagent/water] = 0.5
-	coolant_reagents_purity[/decl/reagent/drink/coffee/icecoffee] = 0.6
-	coolant_reagents_purity[/decl/reagent/drink/icetea] = 0.6
-	coolant_reagents_purity[/decl/reagent/drink/milkshake] = 0.6
-	coolant_reagents_purity[/decl/reagent/leporazine] = 0.7
-	coolant_reagents_purity[/decl/reagent/kelotane] = 0.7
-	coolant_reagents_purity[/decl/reagent/sterilizine] = 0.7
-	coolant_reagents_purity[/decl/reagent/dermaline] = 0.7
-	coolant_reagents_purity[/decl/reagent/hyperzine] = 0.8
-	coolant_reagents_purity[/decl/reagent/cryoxadone] = 0.9
-	coolant_reagents_purity[/decl/reagent/coolant] = 1
-	coolant_reagents_purity[/decl/reagent/adminordrazine] = 2
+	coolant_reagents_purity[/singleton/reagent/water] = 0.5
+	coolant_reagents_purity[/singleton/reagent/drink/coffee/icecoffee] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/icetea] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/milkshake] = 0.6
+	coolant_reagents_purity[/singleton/reagent/leporazine] = 0.7
+	coolant_reagents_purity[/singleton/reagent/kelotane] = 0.7
+	coolant_reagents_purity[/singleton/reagent/sterilizine] = 0.7
+	coolant_reagents_purity[/singleton/reagent/dermaline] = 0.7
+	coolant_reagents_purity[/singleton/reagent/hyperzine] = 0.8
+	coolant_reagents_purity[/singleton/reagent/cryoxadone] = 0.9
+	coolant_reagents_purity[/singleton/reagent/coolant] = 1
+	coolant_reagents_purity[/singleton/reagent/adminordrazine] = 2
 
 /obj/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
 	ui_interact(user)
@@ -104,7 +104,7 @@
 	coolant_purity = 0
 	var/num_reagent_types = 0
 	for (var/_current_reagent in reagents.reagent_volumes)
-		var/decl/reagent/current_reagent = decls_repository.get_decl(_current_reagent)
+		var/singleton/reagent/current_reagent = GET_SINGLETON(_current_reagent)
 		if (!current_reagent)
 			continue
 		var/cur_purity = coolant_reagents_purity[_current_reagent]
@@ -153,7 +153,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "geoscanner.tmpl", "High Res Radiocarbon Spectrometer", 900, 825)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
@@ -199,7 +199,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_damage(radiation / 25, IRRADIATE, damage_flags = DAM_DISPERSED)
+							M.apply_damage(radiation / 25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 				else
 					t_left_radspike = pick(10,15,25)
 

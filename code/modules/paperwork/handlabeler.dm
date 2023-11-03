@@ -12,14 +12,14 @@
 
 	if (!name_unlabel)
 		to_chat(usr, SPAN_NOTICE("You look again, unable to find the label! Perhaps your eyes need checking?"))
-		src.verbs -= .proc/remove_label
+		src.verbs -= PROC_REF(remove_label)
 		return FALSE
 
 	var/mob/living/carbon/human/H = usr
 
 	name = name_unlabel
 	name_unlabel = ""
-	src.verbs -= .proc/remove_label
+	src.verbs -= PROC_REF(remove_label)
 
 	H.visible_message(SPAN_NOTICE("\The [H] removes the label from \the [src]."),
 		SPAN_NOTICE("You remove the label from \the [src]."))
@@ -81,7 +81,7 @@
 			tray.update_icon()
 
 	user.visible_message("<b>[user]</b> labels [A] as <i>[label]</i>.", \
-						 SPAN_NOTICE("You label [A] as <i>[label]</i>."))
+							SPAN_NOTICE("You label [A] as <i>[label]</i>."))
 
 	// Prevent label stacking from making name unrecoverable.
 	if (!A.name_unlabel)

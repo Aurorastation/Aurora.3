@@ -18,7 +18,7 @@
 	var/tmp/atom/BeamSource
 
 /obj/effect/overlay/palmtree_r
-	name = "Palm tree"
+	name = "palm tree"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = 1
@@ -27,7 +27,7 @@
 
 
 /obj/effect/overlay/palmtree_l
-	name = "Palm tree"
+	name = "palm tree"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = 1
@@ -36,7 +36,7 @@
 
 
 /obj/effect/overlay/coconut
-	name = "Coconuts"
+	name = "coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
 
@@ -59,7 +59,7 @@
 	icon_state = "nothing"
 	anchored = 1
 	layer = 5
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/duration = 10 //in deciseconds
 	var/randomdir = TRUE
 	var/timerid
@@ -109,3 +109,13 @@
 	layer = FLOAT_LAYER
 	vis_flags = VIS_INHERIT_ID
 	appearance_flags = KEEP_TOGETHER | LONG_GLIDE | PIXEL_SCALE
+
+/obj/effect/overlay/teleport_pulse
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "emppulse"
+	mouse_opacity = FALSE
+	anchored = TRUE
+
+/obj/effect/overlay/teleport_pulse/Initialize(mapload, ...)
+	. = ..()
+	QDEL_IN(src, 8)

@@ -14,33 +14,75 @@
 
 /obj/item/storage
 	name = "storage"
-	icon = 'icons/obj/storage.dmi'
 	w_class = ITEMSIZE_NORMAL
-	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
-	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
-	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
-	var/max_w_class = ITEMSIZE_NORMAL //Max size of objects that this object can store (in effect only if can_hold isn't set)
-	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
-	var/storage_slots //The number of storage slots in this container.
-	var/force_column_number // the number of columns the storage item will appear to have
+
+	///List of objects which this item can store (if set, it can't store anything else)
+	var/list/can_hold
+
+	///Boolean, if strict, the exact path has to be matched
+	var/can_hold_strict = FALSE
+
+	///List of objects which this item can't store (in effect only if can_hold isn't set)
+	var/list/cant_hold
+
+	///List of mobs which are currently seeing the contents of this item's storage
+	var/list/is_seeing
+
+	///Max size of objects that this object can store (in effect only if can_hold isn't set)
+	var/max_w_class = ITEMSIZE_NORMAL
+
+	///The sum of the storage costs of all the items in this storage item
+	var/max_storage_space = 8
+
+	///The number of storage slots in this container
+	var/storage_slots
+
+	///The number of columns the storage item will appear to have
+	var/force_column_number
+
 	var/obj/screen/storage/boxes
-	var/obj/screen/storage/storage_start //storage UI
+
+	///storage UI
+	var/obj/screen/storage/storage_start
+
 	var/obj/screen/storage/storage_continue
 	var/obj/screen/storage/storage_end
-	var/obj/screen/storage/stored_start
-	var/obj/screen/storage/stored_continue
-	var/obj/screen/storage/stored_end
+	var/list/storage_screens = list()
 	var/obj/screen/close/closer
 	var/care_about_storage_depth = TRUE
-	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
-	var/list/pickup_blacklist = list() // If you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
-	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
-	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
-	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
-	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
-	var/use_sound = /decl/sound_category/rustle_sound	//sound played when used. null for no sound.
-	var/list/starts_with // for pre-filled items
-	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
+
+	///Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
+	var/use_to_pickup
+
+	///A list of blacklisted items; if you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
+	var/list/pickup_blacklist = list()
+
+	///Set this to make the storage item group contents of the same type and display them as a number.
+	var/display_contents_with_number
+
+	/// Set if you want the item's initials to be displayed on the bottom left of the item. only works when display_contents_with_number is true
+	var/display_contents_initials
+
+	///Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
+	var/allow_quick_empty
+
+	///Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
+	var/allow_quick_gather
+
+	///Boolean, `FALSE` = pick one at a time, `TRUE` = pick all on tile
+	var/collection_mode = TRUE
+
+	///Sound played when used. null for no sound.
+	var/use_sound = /singleton/sound_category/rustle_sound
+
+	/// List of pre-filled items
+	var/list/starts_with
+
+	///Time it takes to empty bag, this is multiplies by number of objects stored
+	var/empty_delay = 0 SECOND
+
+	///Boolean, whether or not we should have the squish animation when inserting and removing objects
+	var/animated = TRUE
 
 /obj/item/storage/Destroy()
 	close_all()
@@ -48,9 +90,7 @@
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
 	QDEL_NULL(storage_end)
-	QDEL_NULL(stored_start)
-	QDEL_NULL(stored_continue)
-	QDEL_NULL(stored_end)
+	QDEL_NULL_LIST(storage_screens)
 	QDEL_NULL(closer)
 	return ..()
 
@@ -155,6 +195,8 @@
 /obj/item/storage/proc/open(mob/user as mob)
 	if (use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(animated)
+		animate_parent()
 
 	orient2hud(user)
 	if (user.s_active)
@@ -164,7 +206,10 @@
 /obj/item/storage/proc/close(mob/user as mob)
 	hide_from(user)
 	user.s_active = null
-	return
+	if(!length(can_see_contents()))
+		storage_start.vis_contents = list()
+		QDEL_NULL_LIST(storage_screens)
+		storage_screens = list()
 
 /obj/item/storage/proc/close_all()
 	for(var/mob/M in can_see_contents())
@@ -179,6 +224,13 @@
 		else
 			LAZYREMOVE(is_seeing, M)
 	return cansee
+
+
+/obj/item/storage/proc/update_storage_ui()
+	for(var/mob/seer as anything in is_seeing)
+		orient2hud(seer)
+		if(seer.s_active)
+			seer.s_active.show_to(seer)
 
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
 //The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
@@ -207,6 +259,13 @@
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.layer = SCREEN_LAYER+0.01
+			if(display_contents_initials)
+				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
+				var/object_initials = handle_name_initials(ND.sample_object.name)
+				var/image/name_overlay = image(null)
+				name_overlay.maptext = SMALL_FONTS(7, object_initials)
+				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
+				ND.sample_object.add_overlay(name_overlay)
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -221,7 +280,13 @@
 				cx = 4
 				cy--
 	closer.screen_loc = "[4+cols+1]:16,2:16"
-	return
+
+/obj/item/storage/proc/handle_name_initials(var/sample_name)
+	var/name_initials = ""
+	var/list/split_name = splittext(sample_name, " ")
+	for(var/name_section in split_name)
+		name_initials += uppertext(name_section[1])
+	return name_initials
 
 /obj/item/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
 
@@ -243,9 +308,17 @@
 	var/startpoint = 0
 	var/endpoint = 1
 
+	storage_start.vis_contents = list()
+	QDEL_NULL_LIST(storage_screens)
+	storage_screens = list()
+
 	for(var/obj/item/O in contents)
 		startpoint = endpoint + 1
 		endpoint += storage_width * O.get_storage_cost()/max_storage_space
+
+		var/obj/screen/storage/background/stored_start = new /obj/screen/storage/background(null, O, "stored_start")
+		var/obj/screen/storage/background/stored_continue = new /obj/screen/storage/background(null, O, "stored_continue")
+		var/obj/screen/storage/background/stored_end = new /obj/screen/storage/background(null, O, "stored_end")
 
 		var/matrix/M_start = matrix()
 		var/matrix/M_continue = matrix()
@@ -257,11 +330,13 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.add_overlay(list(stored_start, stored_continue, stored_end))
+
+		storage_screens += list(stored_start, stored_continue, stored_end)
+		storage_start.vis_contents += list(stored_start, stored_continue, stored_end)
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
-		O.layer = SCREEN_LAYER+0.01
+		O.layer = SCREEN_LAYER+0.02
 
 	if (!defer_overlays)
 		storage_start.compile_overlays()
@@ -332,7 +407,8 @@
 		return 0
 
 	if(LAZYLEN(can_hold))
-		if(!is_type_in_list(W, can_hold))
+		var/can_hold_item = can_hold_strict ? (W.type in can_hold) : is_type_in_list(W, can_hold)
+		if(!can_hold_item)
 			if(!stop_messages && ! istype(W, /obj/item/device/hand_labeler))
 				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
 			return 0
@@ -379,6 +455,8 @@
 	W.on_enter_storage(src)
 	if(use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(animated)
+		animate_parent()
 	if(user)
 		W.dropped(user)
 		if(!istype(W, /obj/item/forensics))
@@ -386,13 +464,12 @@
 
 		if(!prevent_warning)
 			for(var/mob/M in viewers(user, null))
-				if (M == usr)
-					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
+				if(M == usr)
+					continue
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
@@ -425,6 +502,9 @@
 	if(!istype(W))
 		return FALSE
 
+	if(animated)
+		animate_parent()
+
 	if(istype(src, /obj/item/storage/box/fancy))
 		var/obj/item/storage/box/fancy/F = src
 		F.update_icon(TRUE)
@@ -451,6 +531,8 @@
 			usr.s_active.show_to(usr)
 	if(W.maptext)
 		W.maptext = ""
+	if(display_contents_initials)
+		W.cut_overlays()
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE
@@ -539,10 +621,10 @@
 			return
 
 	W.add_fingerprint(user)
-	return handle_item_insertion(W)
+	return handle_item_insertion(W, null, user)
 
 /obj/item/storage/dropped(mob/user as mob)
-	return
+	return ..()
 
 /obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
@@ -575,6 +657,7 @@
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "Object"
+	set src in usr
 
 	collection_mode = !collection_mode
 	switch (collection_mode)
@@ -587,6 +670,7 @@
 /obj/item/storage/verb/quick_empty()
 	set name = "Empty Contents"
 	set category = "Object"
+	set src in usr
 
 	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
@@ -594,7 +678,7 @@
 	if(empty_delay)
 		usr.visible_message("\The [usr] starts to empty the contents of \the [src]...", SPAN_NOTICE("You start emptying the contents of \the [src]..."))
 
-	if(!do_after(usr, contents.len * empty_delay, act_target=usr))
+	if(!do_after(usr, contents.len * empty_delay))
 		return
 
 	var/turf/T = get_turf(src)
@@ -622,7 +706,7 @@
 	. = ..()
 
 	if (max_storage_space > STORAGE_SPACE_CAP)
-		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
+		LOG_DEBUG("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
 		max_storage_space = STORAGE_SPACE_CAP
 
 	fill()
@@ -645,12 +729,6 @@
 	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
 
-	stored_start = new /obj/storage_bullshit{icon_state = "stored_start"} //we just need these to hold the icon
-
-	stored_continue = new /obj/storage_bullshit{icon_state = "stored_continue"}
-
-	stored_end = new /obj/storage_bullshit{icon_state = "stored_end"}
-
 	closer = new /obj/screen/close{
 		icon_state = "x";
 		layer = SCREEN_LAYER
@@ -659,7 +737,7 @@
 	orient2hud(null, mapload)
 
 	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.
-		INVOKE_ASYNC(src, .proc/shrinkwrap)
+		INVOKE_ASYNC(src, PROC_REF(shrinkwrap))
 	else
 		shrinkwrap()
 
@@ -713,6 +791,11 @@
 // putting a sticker on something puts it in its contents, storage items use their contents to store their items
 /obj/item/storage/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return FALSE
+
+/obj/item/storage/proc/animate_parent()
+	var/matrix/M = src.transform
+	animate(src, time = 1.5, loop = 0, transform = src.transform.Scale(1.07, 0.9))
+	animate(time = 2, transform = M)
 
 //Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area).
 //Returns -1 if the atom was not found on container.

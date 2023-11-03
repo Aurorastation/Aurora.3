@@ -23,7 +23,7 @@
 	if(islesserform(T))
 		to_chat(src, "<span class='warning'>This creature's DNA is not compatible with our form!</span>")
 		return
-	if(HUSK in T.mutations)
+	if(HAS_FLAG(T.mutations, HUSK))
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
 		return
 	if(G.state != GRAB_KILL)
@@ -53,7 +53,7 @@
 				to_chat(T, "<span class='danger'>You feel a sharp stabbing pain!</span>")
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
-				if(affecting.take_damage(40, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "massive puncture wound"))
+				if(affecting.take_damage(40, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, used_weapon = "massive puncture wound"))
 					T.UpdateDamageIcon()
 
 		feedback_add_details("changeling_powers","A[stage]")
@@ -68,7 +68,7 @@
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 50
-	changeling.geneticpoints += 3
+	changeling.can_respec = TRUE
 
 	//Steal all of their languages!
 	for(var/language in T.languages)
@@ -77,7 +77,7 @@
 
 	changeling_update_languages(changeling.absorbed_languages)
 
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages, T.height)
 	absorbDNA(newDNA)
 
 	var/datum/changeling/changeling_check = T.get_antag_datum(MODE_CHANGELING)

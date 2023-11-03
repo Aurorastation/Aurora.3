@@ -145,90 +145,90 @@
 			<head>
 				<style>
 					body {
-					    margin-top:5px;
-					    font-family:Verdana;
-					    color:white;
-					    font-size:13px;
-					    background-image:url('uiBackground.png');
-					    background-repeat:repeat-x;
-					    background-color:#272727;
+						margin-top:5px;
+						font-family:Verdana;
+						color:white;
+						font-size:13px;
+						background-image:url('uiBackground.png');
+						background-repeat:repeat-x;
+						background-color:#272727;
 						background-position:center top;
 					}
 					table {
-					    font-size:13px;
-					    margin-left:-2px;
+						font-size:13px;
+						margin-left:-2px;
 					}
 					table.request {
-					    border-collapse:collapse;
+						border-collapse:collapse;
 					}
 					table.desc {
-					    border-collapse:collapse;
-					    font-size:13px;
-					    border: 1px solid #161616;
-					    width:100%;
+						border-collapse:collapse;
+						font-size:13px;
+						border: 1px solid #161616;
+						width:100%;
 					}
 					table.download {
-					    border-collapse:collapse;
-					    font-size:13px;
-					    border: 1px solid #161616;
-					    width:100%;
+						border-collapse:collapse;
+						font-size:13px;
+						border: 1px solid #161616;
+						width:100%;
 					}
 					tr.d0 td, tr.d0 th {
-					    background-color: #506070;
-					    color: white;
+						background-color: #506070;
+						color: white;
 					}
 					tr.d1 td, tr.d1 th {
-					    background-color: #708090;
-					    color: white;
+						background-color: #708090;
+						color: white;
 					}
 					tr.d2 td {
-					    background-color: #00FF00;
-					    color: white;
-					    text-align:center;
+						background-color: #00FF00;
+						color: white;
+						text-align:center;
 					}
 					td.button {
-					    border: 1px solid #161616;
-					    background-color: #40628a;
+						border: 1px solid #161616;
+						background-color: #40628a;
 					}
 					td.button {
-					    border: 1px solid #161616;
-					    background-color: #40628a;
-					    text-align: center;
+						border: 1px solid #161616;
+						background-color: #40628a;
+						text-align: center;
 					}
 					td.button_red {
-					    border: 1px solid #161616;
-					    background-color: #B04040;
-					    text-align: center;
+						border: 1px solid #161616;
+						background-color: #B04040;
+						text-align: center;
 					}
 					td.download {
-					    border: 1px solid #161616;
-					    background-color: #40628a;
-					    text-align: center;
+						border: 1px solid #161616;
+						background-color: #40628a;
+						text-align: center;
 					}
 					th {
-					    text-align:left;
-					    width:125px;
+						text-align:left;
+						width:125px;
 					}
 					td.request {
-					    width:140px;
-					    vertical-align:top;
+						width:140px;
+						vertical-align:top;
 					}
 					td.radio {
-					    width:90px;
-					    vertical-align:top;
+						width:90px;
+						vertical-align:top;
 					}
 					td.request {
-					    vertical-align:top;
+						vertical-align:top;
 					}
 					a {
-					    color:#4477E0;
+						color:#4477E0;
 					}
 					a.button {
-					    color:white;
-					    text-decoration: none;
+						color:white;
+						text-decoration: none;
 					}
 					h2 {
-					    font-size:15px;
+						font-size:15px;
 					}
 				</style>
 			</head>
@@ -280,13 +280,13 @@
 				<table class="request">
 					<tr>
 						<td class="radio">Transmit:</td>
-						<td><a href='byond://?src=\ref[src];wires=4'>[radio.broadcasting ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=4'>[radio.get_broadcasting() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
 					<tr>
 						<td class="radio">Receive:</td>
-						<td><a href='byond://?src=\ref[src];wires=2'>[radio.listening ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=2'>[radio.get_listening() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
@@ -321,7 +321,7 @@
 		else
 			dat += {"
 				<b><font size='3px'>pAI Request Module</font></b><br><br>
-			    <p>No personality is installed.</p>
+				<p>No personality is installed.</p>
 				<table>
 					<tr>
 						<td class="button"><a href='byond://?src=\ref[src];request=1' class="button">Request personality</a>
@@ -355,7 +355,7 @@
 		src.looking_for_personality = 1
 		SSpai.findPAI(src, usr)
 	if(href_list["wipe"])
-		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
+		var/confirm = tgui_alert(usr, "Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
 		if(confirm == "Yes")
 			for(var/mob/M in src)
 				to_chat(M, "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>")
@@ -371,9 +371,9 @@
 		var/t1 = text2num(href_list["wires"])
 		switch(t1)
 			if(4)
-				radio.ToggleBroadcast()
+				radio.set_broadcasting(!radio.get_broadcasting())
 			if(2)
-				radio.ToggleReception()
+				radio.set_listening(!radio.get_listening())
 	if(href_list["setlaws"])
 		var/newlaws = sanitize(input("Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.pai_laws) as message)
 		if(newlaws)
@@ -445,7 +445,7 @@
 	..()
 
 /obj/item/device/paicard/dropped(mob/user)
-
+	. = ..()
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
 	//We only care about the second one

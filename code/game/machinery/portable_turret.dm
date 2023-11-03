@@ -74,13 +74,13 @@
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
 	var/list/targets = list()			//list of primary targets
 	var/list/secondarytargets = list()	//targets that are least important
-	var/resetting = FALSE
+	var/resetting
 	var/fast_processing = FALSE
 
 	var/old_angle = 0
 
 /obj/machinery/porta_turret/examine(mob/user)
-	..()
+	. = ..()
 	var/msg = ""
 	if(!health)
 		msg += SPAN_DANGER("\The [src] is destroyed!")
@@ -151,6 +151,8 @@
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
 
+	add_to_target_grid()
+
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -161,6 +163,8 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
+
+	clear_from_target_grid()
 
 	. = ..()
 
@@ -212,16 +216,18 @@
 /obj/machinery/porta_turret/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/porta_turret/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data
-	if(!data)
-		data = list()
-	VUEUI_SET_CHECK(data["locked"], locked, ., data)
-	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
-	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
-	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
-	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
+/obj/machinery/porta_turret/ui_data(mob/user)
+	var/list/data = list()
+	data["locked"] = locked
+	data["enabled"] = enabled
+	data["is_lethal"] = TRUE
+	data["lethal"] = lethal
+	data["can_switch"] = egun
+	data["settings"] = get_settings()
+	return data
+
+/obj/machinery/porta_turret/proc/get_settings()
+	. = list()
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
@@ -232,42 +238,44 @@
 		"check_arrest" = "Check Arrest Status",
 		"check_access" = "Check Access Authorization"
 	)
-	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+
 	for(var/v in usedSettings)
 		var/name = usedSettings[v]
-		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
-		data["settings"][v]["category"] = name
-		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
+		. += list(list("category" = name, "value" = vars[v], "variable_name" = v))
 
-
-/obj/machinery/porta_turret/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
-	ui.open()
+/obj/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
+		ui.open()
 
 /obj/machinery/porta_turret/proc/HasController()
 	var/area/A = get_area(src)
 	return A && A.turret_controls.len > 0
 
-/obj/machinery/porta_turret/CanUseTopic(var/mob/user)
+/obj/machinery/porta_turret/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
 	if(HasController())
 		to_chat(user, "<span class='notice'>Turrets can only be controlled using the assigned turret controller.</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	if(isLocked(user))
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	if(!anchored)
 		to_chat(usr, "<span class='notice'>\The [src] has to be secured first!</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	return ..()
 
-/obj/machinery/porta_turret/Topic(href, href_list)
-	if(href_list["command"] && !isnull(href_list["value"]))
-		var/value = text2num(href_list["value"])
-		if(href_list["command"] == "enable")
+/obj/machinery/porta_turret/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "command" && !isnull(params["value"]))
+		var/value = text2num(params["value"])
+		if(params["command"] == "enable")
 			enabled = value
 			if (enabled)
 				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -279,32 +287,31 @@
 			else
 				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				popDown()
-		else if(href_list["command"] == "lethal")
+		else if(params["command"] == "lethal")
 			lethal = value
 			lethal_icon = value
-		else if(href_list["command"] == "check_synth")
+		else if(params["command"] == "check_synth")
 			check_synth = value
-		else if(href_list["command"] == "target_borgs")
+		else if(params["command"] == "target_borgs")
 			target_borgs = value
-		else if(href_list["command"] == "check_weapons")
+		else if(params["command"] == "check_weapons")
 			check_weapons = value
-		else if(href_list["command"] == "check_records")
+		else if(params["command"] == "check_records")
 			check_records = value
-		else if(href_list["command"] == "check_arrest")
+		else if(params["command"] == "check_arrest")
 			check_arrest = value
-		else if(href_list["command"] == "check_access")
+		else if(params["command"] == "check_access")
 			check_access = value
-		else if(href_list["command"] == "check_wildlife")
+		else if(params["command"] == "check_wildlife")
 			check_wildlife = value
-		SSvueui.check_uis_for_change(src)
-		return 1
+		. = TRUE
 
 /obj/machinery/porta_turret/power_change()
 	..()
 	if(powered())
 		queue_icon_update()
 	else
-		addtimer(CALLBACK(src, .proc/lose_power), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(lose_power)), rand(1, 15))
 
 /obj/machinery/porta_turret/proc/lose_power()
 	stat |= NOPOWER
@@ -404,7 +411,7 @@
 		if(I.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
-				addtimer(CALLBACK(src, .proc/reset_attacked), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		return ..()
 
 /obj/machinery/porta_turret/proc/reset_attacked()
@@ -446,7 +453,7 @@
 	if(enabled)
 		if(!attacked && !emagged)
 			attacked = 1
-			addtimer(CALLBACK(src, .proc/reset_attacked), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
+			addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
 	..()
 
 	take_damage(damage)
@@ -464,7 +471,7 @@
 			emagged = TRUE
 
 		enabled = FALSE
-		addtimer(CALLBACK(src, .proc/post_emp_act), rand(60, 600))
+		addtimer(CALLBACK(src, PROC_REF(post_emp_act)), rand(60, 600))
 
 	..()
 
@@ -501,41 +508,51 @@
 		popDown()
 		return
 
-	targets = list()
-	secondarytargets = list()
-
-	for(var/v in view(world.view, src))
-		if(isliving(v))
-			assess_and_assign_living(v, targets, secondarytargets)
-		if(istype(v,/obj/structure/closet))
-			assess_and_assign_closet(v, targets, secondarytargets)
-
-
-	if(!tryToShootAt(targets))
-		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			if(raised || raising) // we've already reset
-				resetting = TRUE
-				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
-
-	if(targets.len || secondarytargets.len)
-		if(!fast_processing)
-			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-			START_PROCESSING(SSfast_process, src)
-			fast_processing = TRUE
-	else
-		if(fast_processing)
-			STOP_PROCESSING(SSfast_process, src)
-			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-			fast_processing = FALSE
-
 	if(auto_repair && (health < maxhealth))
 		use_power_oneoff(20000)
 		health = min(health+1, maxhealth) // 1HP for 20kJ
 
+	if(raising)
+		return // Don't try to do target acquisition while we're resetting
+
+	targets = list()
+	secondarytargets = list()
+
+	var/list/potentials = get_targets_in_LOS(world.view, src)
+
+	if(potentials.len)
+		for(var/mob/living/L in potentials)
+			assess_and_assign_living(L, targets, secondarytargets)
+
+		if(targets.len || secondarytargets.len)
+			fastscan(TRUE)
+
+			if(!tryToShootAt(targets))
+				tryToShootAt(secondarytargets)
+
+	if(!targets.len && !secondarytargets.len)
+		resetting = addtimer(CALLBACK(src, PROC_REF(reset)), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
+	else if(resetting)
+		deltimer(resetting)
+		resetting = null
+
+/obj/machinery/porta_turret/proc/fastscan(on)
+	if(on == fast_processing)
+		return
+
+	if(on && !fast_processing)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		START_PROCESSING(SSfast_process, src)
+	else if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
+	fast_processing = on
+
 /obj/machinery/porta_turret/proc/reset()
 	if(!targets.len && !secondarytargets.len)
+		fastscan(FALSE)
 		popDown()
-	resetting = FALSE
 
 /obj/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
@@ -576,6 +593,9 @@
 		return TURRET_NOT_TARGET
 
 	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
+		return TURRET_NOT_TARGET
+
+	if(isbrain(L) && !isturf(L.loc)) // Don't target cyborg brains / MMIs
 		return TURRET_NOT_TARGET
 
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
@@ -752,7 +772,7 @@
 	//Shooting Code:
 	A.launch_projectile(target, def_zone)
 	last_fired = TRUE
-	addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(reset_last_fired)), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/turret_checks
 	var/enabled
@@ -870,7 +890,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 					return TRUE
 
-				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(I.use_tool(src, user, 20, volume = 50))
 					if(!src || !WT.use(5, user)) return TRUE
 					build_step = 1
@@ -959,7 +979,7 @@
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
-				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(I.use_tool(src, user, 30, volume = 50))
 					if(!src || !WT.use(5, user))
 						return
@@ -1076,7 +1096,7 @@
 	sprite_set = "crossbow"
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
-	eshot_sound	= 'sound/weapons/genhit.ogg'
+	eshot_sound	= 'sound/weapons/Genhit.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon

@@ -21,12 +21,15 @@
 				UNSETEMPTY(pilots)
 
 	if(radio)
-		radio.on = (head?.radio && head.radio.is_functional() && get_cell())
+		var/radio_check = head?.radio && head.radio.is_functional() && get_cell()
+		if(radio.is_on() != radio_check)
+			radio.set_on(radio_check)
 
 	if(camera)
 		camera.status = (head?.camera && head.camera.is_functional())
 
-	body.update_air(hatch_closed && use_air)
+	if(body)
+		body.update_air(hatch_closed && use_air)
 
 	var/powered = FALSE
 	if(get_cell())
@@ -99,7 +102,7 @@
 		bodytemperature += ((environment.temperature - bodytemperature) / 3)
 
 	if(environment.temperature >= T0C+1400) //A bit higher because I like to assume there's a difference between a mech and a wall
-		apply_damage(damage = environment.temperature /5 , damagetype = BURN)
+		apply_damage(damage = environment.temperature /5 , damagetype = DAMAGE_BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
 			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")
@@ -109,13 +112,13 @@
 	var/obj/wreck = new wreckage_path(get_turf(src), src, gibbed)
 	wreck.name = "wreckage of \the [name]"
 	if(!gibbed)
-		if(arms.loc != src)
+		if(arms && (arms.loc != src))
 			arms = null
-		if(legs.loc != src)
+		if(legs && (legs.loc != src))
 			legs = null
-		if(head.loc != src)
+		if(head && (head.loc != src))
 			head = null
-		if(body.loc != src)
+		if(body && (body.loc != src))
 			body = null
 
 	explosion(get_turf(loc), 0, 0, 1, 3)

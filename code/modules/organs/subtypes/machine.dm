@@ -230,7 +230,7 @@
 	. = ..()
 
 /obj/item/organ/internal/ipc_tag/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]"))
 	to_chat(user, SPAN_NOTICE("Serial Number: [serial_number]"))
 	to_chat(user, SPAN_NOTICE("Ownership Info: [ownership_info]"))
@@ -246,10 +246,10 @@
 			to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 			return
 		if(!S.hacked)
-			user.examinate(src)
+			examinate(user, src)
 		else
 			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
-			if(do_after(user, 30, TRUE, src))
+			if(do_after(user, 30, src))
 				if(src.loc != user)
 					to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))
 					return
@@ -317,7 +317,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 30)
+	addtimer(CALLBACK(src, PROC_REF(setup_brain)), 30)
 
 /obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
@@ -334,7 +334,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/robot(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, PROC_REF(setup_brain)), 1)
 
 /obj/item/organ/internal/mmi_holder/circuit/proc/setup_brain()
 	if(owner)

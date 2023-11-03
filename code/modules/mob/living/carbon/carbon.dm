@@ -37,8 +37,9 @@
 
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
-	bloodstr = null
+	QDEL_NULL(bloodstr)
 	QDEL_NULL(dna)
+	QDEL_NULL(breathing)
 	for(var/guts in internal_organs)
 		qdel(guts)
 	return ..()
@@ -50,6 +51,7 @@
 	if(istype(R))
 		R.clear_reagents()
 	breathing.clear_reagents()
+	intoxication = 0
 	..()
 
 /mob/living/carbon/Move(NewLoc, direct)
@@ -62,7 +64,7 @@
 			if(src.hydration)
 				adjustHydrationLoss(hydration_loss*0.1)
 
-		if((FAT in src.mutations) && src.m_intent == M_RUN && src.bodytemperature <= 360)
+		if(HAS_FLAG(mutations, FAT) && src.m_intent == M_RUN && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
 		// Moving around increases germ_level faster
@@ -114,11 +116,6 @@
 				action = "pushed"
 			if(I_HURT)
 				action = "punched"
-		var/t_him = "it"
-		if (src.gender == MALE)
-			t_him = "him"
-		else if (src.gender == FEMALE)
-			t_him = "her"
 		var/show_ssd
 		var/mob/living/carbon/human/H
 		if(ishuman(src))
@@ -130,7 +127,7 @@
 			else if(!vr_mob)
 				visible_message(SPAN_NOTICE("[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
-			visible_message(SPAN_NOTICE("[M] [action] [src] waking [t_him] up!"))
+			visible_message(SPAN_NOTICE("[M] [action] [src] waking [get_pronoun("him")] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
 
@@ -142,8 +139,8 @@
 	if(shock_damage<1)
 		return 0
 
-	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
+	src.apply_damage(shock_damage, DAMAGE_BURN, def_zone, used_weapon="Electrocution")
+	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \
@@ -243,7 +240,7 @@
 				if(org.status & ORGAN_BROKEN)
 					status += "hurts when touched"
 				if(org.status & ORGAN_DEAD)
-					status += "is bruised and necrotic"
+					status += "is necrotic"
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
@@ -260,11 +257,6 @@
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
 		else
-			var/t_him = "it"
-			if (src.gender == MALE)
-				t_him = "him"
-			else if (src.gender == FEMALE)
-				t_him = "her"
 			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
 				var/mob/living/carbon/human/H = src
 				H.w_uniform.add_fingerprint(M)
@@ -278,13 +270,13 @@
 				if(H.bg)
 					to_chat(H, SPAN_WARNING("You sense some disturbance to your physical body, like someone is trying to wake you up."))
 				else if(!vr_mob)
-					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
+					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [get_pronoun("him")] up!"), \
 										SPAN_NOTICE("You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
 				if(src.sleeping)
 					src.sleeping = max(0,src.sleeping-5)
-					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
-										SPAN_NOTICE("You shake [src] trying to wake [t_him] up!"))
+					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [get_pronoun("him")] up!"), \
+										SPAN_NOTICE("You shake [src] trying to wake [get_pronoun("him")] up!"))
 				else
 					M.help_up_offer = !M.help_up_offer
 					if(M.help_up_offer)
@@ -304,7 +296,7 @@
 							src.help_up_offer = 0
 					else
 						M.visible_message(SPAN_WARNING("[M] grabs onto [src], trying to pull themselves up."), \
-										  SPAN_WARNING("You grab onto [src], trying to pull yourself up."))
+										SPAN_WARNING("You grab onto [src], trying to pull yourself up."))
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
@@ -325,9 +317,6 @@
 				AdjustWeakened(-3)
 
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-
-/mob/living/carbon/proc/eyecheck()
-	return 0
 
 // ++++ROCKDTBEN++++ MOB PROCS -- Ask me before touching.
 // Stop! ... Hammertime! ~Carn
@@ -370,7 +359,7 @@
 		legcuffed = null
 		update_inv_legcuffed()
 	else
-	 ..()
+		..()
 
 	return
 
@@ -443,12 +432,18 @@
 		return FALSE
 	if (is_berserk())
 		return FALSE
-	if (HULK in mutations)
+	if (HAS_FLAG(mutations, HULK))
 		return FALSE
 	if (analgesic > 100)
 		return FALSE
+	if(pain_immune)
+		return FALSE
 
 	return TRUE
+
+/mob/living/carbon/get_shock()
+	if(can_feel_pain())
+		return ..()
 
 /mob/living/carbon/proc/need_breathe()
 	return
@@ -483,10 +478,6 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
-
-/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(eyecheck() < intensity || override_blindness_check)
-		return ..()
 
 /mob/living/carbon/get_contained_external_atoms()
 	. = contents - internal_organs

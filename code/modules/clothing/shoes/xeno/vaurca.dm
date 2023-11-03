@@ -12,8 +12,9 @@
 		)
 
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
 	)
+
 
 	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
@@ -43,8 +44,8 @@
 	item_state = "hive_rep_shoes_cthur"
 	icon_state = "hive_rep_shoes_cthur"
 
-/obj/item/clothing/shoes/vaurca/breeder/jargon
-	name = "jargon representative shoes"
-	desc = "Large shoes used by Jargon representatives."
-	item_state = "hive_rep_shoes_jargon"
-	icon_state = "hive_rep_shoes_jargon"
+/obj/item/clothing/shoes/vaurca/breeder/nralakk
+	name = "nralakk representative shoes"
+	desc = "Large shoes used by Nralakk representatives."
+	item_state = "hive_rep_shoes_nralakk"
+	icon_state = "hive_rep_shoes_nralakk"

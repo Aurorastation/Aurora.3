@@ -6,8 +6,8 @@
 /obj/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
-	icon = 'icons/obj/suit_storage.dmi'
-	icon_state = "base"
+	icon = 'icons/obj/machinery/suit_storage.dmi'
+	icon_state = "classic"
 	anchored = TRUE
 	density = TRUE
 	var/mob/living/carbon/human/OCCUPANT
@@ -49,29 +49,35 @@
 	cut_overlays()
 
 	if(panelopen)
-		add_overlay("panel")
-	if(isUV)
-		if(issuperUV)
-			add_overlay("super")
-		else if(OCCUPANT)
-			add_overlay("uvhuman")
+		add_overlay("[initial(icon_state)]_panel")
+	if(isopen)
+		add_overlay("[initial(icon_state)]_open")
+		if(SUIT)
+			add_overlay("[initial(icon_state)]_suit")
+		if(HELMET)
+			add_overlay("[initial(icon_state)]_helm")
+		if(MASK)
+			add_overlay("[initial(icon_state)]_storage")
+	if(!isbroken && ispowered)
+		if(isopen)
+			add_overlay("[initial(icon_state)]_lights_open")
 		else
-			add_overlay("uv")
-	if(!isopen)
-		add_overlay("closed")
-	else if(isopen)
-		if(isbroken)
-			add_overlay("broken")
+			if(isUV)
+				if(issuperUV)
+					add_overlay("[initial(icon_state)]_super")
+				add_overlay("[initial(icon_state)]_lights_red")
+			else
+				add_overlay("[initial(icon_state)]_lights_closed")
+		//top lights
+		if(isUV)
+			if(issuperUV)
+				add_overlay("[initial(icon_state)]_uvstrong")
+			else
+				add_overlay("[initial(icon_state)]_uv")
+		else if(islocked)
+			add_overlay("[initial(icon_state)]_locked")
 		else
-			add_overlay("open")
-			if(SUIT)
-				add_overlay("suit")
-			if(HELMET)
-				add_overlay("helm")
-			if(MASK)
-				add_overlay("storage")
-	else if(OCCUPANT)
-		add_overlay("human")
+			add_overlay("[initial(icon_state)]_ready")
 
 /obj/machinery/suit_storage_unit/power_change()
 	..()
@@ -160,8 +166,8 @@
 			//user << browse(dat, "window=suit_storage_unit;size=400x500")
 			//onclose(user, "suit_storage_unit")
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=suit_storage_unit;size=400x500")
+
+	user << browse(dat, "window=suit_storage_unit;size=400x500")
 	onclose(user, "suit_storage_unit")
 	return
 
@@ -226,7 +232,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else  //welp, the guy is protected, we can continue
@@ -252,7 +258,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else
@@ -441,7 +447,7 @@
 		to_chat(usr, "<span class='warning'>It's too cluttered inside for you to fit in!</span>")
 		return
 	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
-	if(do_after(usr, 10))
+	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
 		usr.client.eye = src
@@ -482,7 +488,7 @@
 			to_chat(user, "<span class='warning'>The unit's storage area is too cluttered.</span>")
 			return TRUE
 		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting) return TRUE //derpcheck
 			var/mob/M = G.affecting
 			if (M.client)

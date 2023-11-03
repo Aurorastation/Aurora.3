@@ -41,11 +41,11 @@ var/global/ntnrc_uid = 0
 	if(chat_log)
 		messages.Add(chat_log)
 		trim_message_list()
-	
+
 	if(update_ui)
 		for(var/datum/ntnet_user/U in users)
 			for(var/datum/computer_file/program/chat_client/Cl in U.clients)
-				SSvueui.check_uis_for_change(Cl)
+				SStgui.update_uis(Cl)
 
 /datum/ntnet_conversation/proc/trim_message_list()
 	if(messages.len <= 50)
@@ -111,6 +111,8 @@ var/global/ntnrc_uid = 0
 
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
 	if(!istype(Cl) || !can_see(Cl) || direct)
+		return
+	if(Cl.my_user in users)
 		return
 	var/datum/ntnet_message/join/msg = new(Cl)
 	Cl.my_user.channels.Add(src)

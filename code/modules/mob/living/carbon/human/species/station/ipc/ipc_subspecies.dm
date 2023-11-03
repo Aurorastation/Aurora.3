@@ -4,6 +4,9 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
+	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 140
+	height_max = 230
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
@@ -13,8 +16,8 @@
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2450, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
 	to create an uncannily close approximation of the organic form. Early models of Shell had the advantage of being able to compose themselves of a wide \
-	 variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
-	 the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
+	variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
+	the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
 
 	num_alternate_languages = 3
 
@@ -71,7 +74,8 @@
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
-	bodyfall_sound = /decl/sound_category/bodyfall_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	use_alt_hair_layer = FALSE
 
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
@@ -110,7 +114,6 @@
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
@@ -123,6 +126,7 @@
 	name_plural = "Industrials"
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	species_height = HEIGHT_CLASS_HUGE
 	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
@@ -161,6 +165,10 @@
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
+	maneuvers = list(
+		/singleton/maneuver/leap/industrial
+	)
+
 	heat_level_1 = 800
 	heat_level_2 = 1600
 	heat_level_3 = 3200
@@ -188,6 +196,7 @@
 	name_plural = "HKs"
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	species_height = HEIGHT_CLASS_TALL
 
 	blurb = "\[REDACTED\]"
 
@@ -246,10 +255,10 @@
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
-		"shielded cell" = /obj/item/organ/internal/cell/terminator,
+		BP_CELL = /obj/item/organ/internal/cell/terminator,
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
-		"surge"   = /obj/item/organ/internal/surge/advanced
+		"surge" = /obj/item/organ/internal/surge/advanced
 	)
 
 	has_limbs = list(
@@ -322,7 +331,7 @@
 
 	examine_color = "#688359"
 
-	blurb = "An extremely durable and heavy Industrial model branded by Hephaestus Industries. It is their improved Industrial model, with thicker plating and improved power cell. Its actuators struggle to carry the immense weight, however, making the unit quite slow. This chassis would be seen in roles where it would be dangerous or inefficient to use a less durable unit, such as engineering, security, and mining. While this unit still possesses built-in cooling conduits, the increased plating and thickness of said plating proved a difficult challenge for the engineers to develop good cooling, so the unit suffers somewhat from increased heat loads. Overtaxing its hardware will quickly lead to overheating."
+	blurb = "An extremely durable and heavy Industrial model branded by Hephaestus Industries. It is their improved Industrial model, with thicker plating and improved power cell. Its actuators struggle to carry the immense weight, however, making the unit quite slow. This chassis would be seen in roles where it would be dangerous or inefficient to use a less durable unit, such as engineering and mining. While this unit still possesses built-in cooling conduits, the increased plating and thickness of said plating proved a difficult challenge for the engineers to develop good cooling, so the unit suffers somewhat from increased heat loads. Overtaxing its hardware will quickly lead to overheating."
 
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/hephaestus),
@@ -347,6 +356,7 @@
 	name = SPECIES_IPC_XION
 	short_name = "xmf"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	species_height = HEIGHT_CLASS_TALL
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
@@ -361,9 +371,13 @@
 	grab_mod = 0.9
 	resist_mod = 8
 
-	heat_level_1 = 700
-	heat_level_2 = 1400
-	heat_level_3 = 2800
+	cold_level_1 = -1 //RaceDefault 50 Default -1
+	cold_level_2 = -1 //RaceDefault -1 Default -1
+	cold_level_3 = -1  //RaceDefault -1 Default -1
+
+	heat_level_1 = 700  //RaceDefault 600 Default 700
+	heat_level_2 = 1400  //RaceDefault 1200 Default 1400
+	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
 
 	heat_discomfort_level = 600
 	slowdown = 3
@@ -423,6 +437,7 @@
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 2
 	move_charge_factor = 2
+	standing_jump_range = 3
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
@@ -451,6 +466,9 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+	maneuvers = list(
+		/singleton/maneuver/leap/zenghu
+	)
 
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
@@ -461,6 +479,7 @@
 	name = SPECIES_IPC_BISHOP
 	short_name = "bcf"
 	bodytype = BODYTYPE_IPC_BISHOP
+	species_height = HEIGHT_CLASS_AVERAGE
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'

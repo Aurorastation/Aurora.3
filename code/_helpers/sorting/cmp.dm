@@ -49,7 +49,9 @@
 	return sorttext(b.last_name, a.last_name)
 
 /proc/cmp_uplink_item(datum/uplink_item/a, datum/uplink_item/b)
-	return b.cost(INFINITY) - a.cost(INFINITY)
+	var/total_crystal_cost_a = a.telecrystal_cost(INFINITY) + a.bluecrystal_cost(INFINITY)
+	var/total_crystal_cost_b = b.telecrystal_cost(INFINITY) + b.bluecrystal_cost(INFINITY)
+	return total_crystal_cost_b - total_crystal_cost_a
 
 /proc/cmp_access(datum/access/a, datum/access/b)
 	return sorttext("[b.access_type][b.desc]", "[a.access_type][a.desc]")
@@ -75,7 +77,7 @@
 /proc/cmp_rcon_bbox(obj/machinery/power/breakerbox/BR1, obj/machinery/power/breakerbox/BR2)
 	return sorttext(BR2.RCon_tag, BR1.RCon_tag)
 
-/proc/cmp_recipe_complexity_dsc(decl/recipe/A, decl/recipe/B)
+/proc/cmp_recipe_complexity_dsc(singleton/recipe/A, singleton/recipe/B)
 	var/a_score = LAZYLEN(A.items) + LAZYLEN(A.reagents) + LAZYLEN(A.fruit)
 	var/b_score = LAZYLEN(B.items) + LAZYLEN(B.reagents) + LAZYLEN(B.fruit)
 	return b_score - a_score
@@ -88,3 +90,9 @@
 
 /proc/cmp_ruincost_priority(datum/map_template/ruin/A, datum/map_template/ruin/B)
 	return initial(A.spawn_cost) - initial(B.spawn_cost)
+
+/proc/cmp_fusion_reaction_asc(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
+	return A.priority - B.priority
+
+/proc/cmp_fusion_reaction_des(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
+	return B.priority - A.priority

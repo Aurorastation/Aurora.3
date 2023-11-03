@@ -99,6 +99,12 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	max_stack = 7
 
+/obj/item/ammo_casing/c46mm
+	desc = "A 4.6mm bullet casing."
+	caliber = "4.6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 15
+
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A 12-gauge slug."
@@ -107,8 +113,14 @@
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = /decl/sound_category/shotgun_reload
-	drop_sound = /decl/sound_category/casing_drop_sound_shotgun
+	reload_sound = /singleton/sound_category/shotgun_reload
+	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+
+/obj/item/ammo_casing/shotgun/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
@@ -117,6 +129,12 @@
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+
+/obj/item/ammo_casing/shotgun/pellet/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
@@ -246,6 +264,19 @@
 	desc = "A 5.56mm polymer bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/polymer
 
+/obj/item/ammo_casing/a556/blank
+	desc = "A 5.56mm blank casing."
+	projectile_type = /obj/item/projectile/bullet/blank
+
+/obj/item/ammo_casing/a65
+	desc = "A 6.5mm bullet casing."
+	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
+	caliber = "a65"
+	projectile_type = /obj/item/projectile/bullet/rifle/a65
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 7
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."
@@ -281,11 +312,19 @@
 
 /obj/item/ammo_casing/vintage
 	projectile_type = /obj/item/projectile/bullet/rifle/vintage
-	desc = "Some vintage shell casing. It looks old, and you can't understand the writing stamped on it."
-	caliber = "vintage"
+	desc = "A .30-06 Government bullet casing. It looks old, and you can barely understand the writing stamped on it."
+	caliber = "30-06 govt"
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	max_stack = 6
+
+/obj/item/ammo_casing/govt
+	projectile_type = /obj/item/projectile/bullet/rifle/govt
+	desc = "A .45-70 Government bullet casing."
+	caliber = "45-70 govt"
+	icon_state = "gcasing"
+	spent_icon = "gcasing-spent"
+	max_stack = 4
 
 /obj/item/ammo_casing/slugger
 	projectile_type = /obj/item/projectile/bullet/rifle/slugger
@@ -342,7 +381,7 @@
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
-	drop_sound = /decl/sound_category/generic_drop_sound
+	drop_sound = /singleton/sound_category/generic_drop_sound
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -363,7 +402,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
-	drop_sound = /decl/sound_category/generic_drop_sound
+	drop_sound = /singleton/sound_category/generic_drop_sound
 	max_stack = 2
 
 /obj/item/ammo_casing/musket
@@ -385,15 +424,25 @@
 	max_stack = 1
 
 /obj/item/ammo_casing/peac
-	name = "anti-materiel cannon cartridge"
+	name = "anti-materiel AP cannon cartridge"
 	icon_state = "peac"
 	spent_icon = "peac-spent"
 	caliber = "peac"
 	w_class = ITEMSIZE_NORMAL
 	slot_flags = null
-	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
+	projectile_type = /obj/item/projectile/bullet/peac
+	drop_sound = 'sound/items/drop/shell_drop.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	max_stack = 1
+
+/obj/item/ammo_casing/peac/he
+	name = "anti-materiel HE cannon cartridge"
+	projectile_type = /obj/item/projectile/bullet/peac/he
+
+/obj/item/ammo_casing/peac/shrapnel
+	name = "anti-materiel FRAG cannon cartridge"
+	projectile_type = /obj/item/projectile/bullet/peac/shrapnel
 
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"

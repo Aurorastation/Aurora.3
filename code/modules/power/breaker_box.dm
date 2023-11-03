@@ -41,7 +41,7 @@
 	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
-	..()
+	. = ..()
 	if(on)
 		to_chat(user, SPAN_GOOD("It seems to be online."))
 	else
@@ -64,7 +64,7 @@
 		set_state(!on)
 		to_chat(user, SPAN_GOOD("Update Completed. New setting:[on ? "on": "off"]"))
 		update_locked = 1
-		addtimer(CALLBACK(src, .proc/reset_locked), 600)
+		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
 /obj/machinery/power/breakerbox/proc/reset_locked()
@@ -87,9 +87,9 @@
 	if(do_after(user, 50))
 		set_state(!on)
 		user.visible_message(SPAN_NOTICE("[user.name] [on ? "enabled" : "disabled"] the breaker box!"), \
-							 SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!"))
+								SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!"))
 		update_locked = 1
-		addtimer(CALLBACK(src, .proc/reset_locked), 600)
+		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
 /obj/machinery/power/breakerbox/attackby(var/obj/item/W as obj, var/mob/user as mob)
@@ -135,7 +135,7 @@
 	if(!update_locked)
 		set_state(!on)
 		update_locked = 1
-		addtimer(CALLBACK(src, .proc/reset_locked), 600)
+		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 
 /obj/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"

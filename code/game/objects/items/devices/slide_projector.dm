@@ -68,10 +68,10 @@
 /obj/item/storage/slide_projector/proc/stop_projecting()
 	if(projection)
 		QDEL_NULL(projection)
-	moved_event.unregister(src, src, .proc/check_projections)
+	moved_event.unregister(src, src, PROC_REF(check_projections))
 	set_light(0)
 	update_icon()
-	
+
 /obj/item/storage/slide_projector/proc/project_at(turf/target)
 	stop_projecting()
 	if(!current_slide)
@@ -83,7 +83,7 @@
 			break
 	projection = new projection_type(target)
 	projection.set_source(current_slide)
-	moved_event.register(src, src, .proc/check_projections)
+	moved_event.register(src, src, PROC_REF(check_projections))
 	set_light(1.4, 0.1, COLOR_WHITE) //Bit of light
 	update_icon()
 
@@ -96,7 +96,7 @@
 		data += "<a href='?src=\ref[src];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
-	
+
 	var/table = list("<table><tr><th>#</th><th>SLIDE</th><th>SHOW</th></tr>")
 	var/i = 1
 	for(var/obj/item/I in contents)
@@ -131,7 +131,7 @@
 			return TRUE
 		set_slide(contents[index])
 		. = FALSE
-	
+
 	interact(usr)
 
 /obj/effect/projection
@@ -171,13 +171,13 @@
 	desc = "It's currently showing \the [I]."
 	update_icon()
 
-/obj/effect/projection/examine(mob/user, distance)
+/obj/effect/projection/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	var/obj/item/slide = source.resolve()
 	if(!istype(slide))
 		qdel(src)
 		return
-	return slide.examine(user, 1)
+	return slide.examine(user, max(distance, 1), FALSE)
 
 /obj/effect/projection/photo
 	alpha = 170

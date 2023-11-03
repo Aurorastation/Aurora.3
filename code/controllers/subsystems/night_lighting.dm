@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/nightlight/SSnightlight
-
-/datum/controller/subsystem/nightlight
+SUBSYSTEM_DEF(nightlight)
 	name = "Night Lighting"
 	wait = 5 MINUTES
 	init_order = SS_INIT_NIGHT
@@ -10,11 +8,9 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	var/isactive = FALSE
 	var/disable_type = NL_NOT_DISABLED
 
-/datum/controller/subsystem/nightlight/New()
-	NEW_SS_GLOBAL(SSnightlight)
-
-/datum/controller/subsystem/nightlight/stat_entry()
-	..("A:[isactive] T:[worldtime2hours()] D:[disable_type]")
+/datum/controller/subsystem/nightlight/stat_entry(msg)
+	msg = "A:[isactive] T:[worldtime2hours()] D:[disable_type]"
+	return ..()
 
 /datum/controller/subsystem/nightlight/Recover()
 	src.isactive = SSnightlight.isactive
@@ -26,7 +22,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		suspend()
 		deactivate(FALSE)
 		if (time > 0)
-			addtimer(CALLBACK(src, .proc/end_temp_disable), time, TIMER_UNIQUE | TIMER_OVERRIDE)
+			addtimer(CALLBACK(src, PROC_REF(end_temp_disable)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/controller/subsystem/nightlight/proc/end_temp_disable()
 	if (disable_type == NL_TEMPORARY_DISABLE)

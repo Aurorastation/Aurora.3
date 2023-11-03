@@ -1,9 +1,8 @@
-/var/datum/controller/subsystem/mobs/SSmob
-
-/datum/controller/subsystem/mobs
+SUBSYSTEM_DEF(mobs)
 	name = "Mobs - Life"
 	init_order = SS_INIT_MISC	// doesn't really matter when we init
 	priority = SS_PRIORITY_MOB
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/slept = list()
 
@@ -42,9 +41,6 @@
 		/mob/living/simple_animal/penguin/holodeck
 	)
 
-/datum/controller/subsystem/mobs/New()
-	NEW_SS_GLOBAL(SSmob)
-
 /datum/controller/subsystem/mobs/Initialize()
 	// Some setup work for the eat-types lists.
 	mtl_synthetic = typecacheof(mtl_synthetic) + list(
@@ -61,15 +57,20 @@
 
 	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
-/datum/controller/subsystem/mobs/stat_entry()
-	..("P:[mob_list.len]")
+/datum/controller/subsystem/mobs/stat_entry(msg)
+	msg = "P:[mob_list.len]"
+	return ..()
 
 /datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)
 		src.currentrun = mob_list.Copy()
 		src.currentrun += processing.Copy()
 
-	var/list/currentrun = src.currentrun
+	//Mobs might have been removed between the previous and a resumed fire, yet we want to maintain the priority to process
+	//the mobs that we didn't in the previous run, hence we have to pay the price of a list subtraction
+	//with &= we say to remove any item in the first list that is not in the second one
+	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
+	var/list/currentrun = resumed ? (src.currentrun &= mob_list) : src.currentrun
 
 	while (currentrun.len)
 		var/datum/thing = currentrun[currentrun.len]
@@ -87,7 +88,7 @@
 		var/mob/M = thing
 
 		if (QDELETED(M))
-			log_debug("SSmob: QDELETED mob [DEBUG_REF(M)] left in processing list!")
+			LOG_DEBUG("SSmobs: QDELETED mob [DEBUG_REF(M)] left in processing list!")
 			// We can just go ahead and remove them from all the mob lists.
 			mob_list -= M
 			dead_mob_list -= M
@@ -105,7 +106,7 @@
 		if (time != world.time && !slept[M.type])
 			slept[M.type] = TRUE
 			var/diff = world.time - time
-			log_debug("SSmob: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
+			LOG_DEBUG("SSmobs: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
 
 		if (MC_TICK_CHECK)
 			return
@@ -116,7 +117,7 @@
 		. = new /mob/living/carbon/human/dummy/mannequin
 		mannequins[ckey] = .
 
-	addtimer(CALLBACK(src, .proc/del_mannequin, ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
 	var/mannequin = mannequins[ckey]

@@ -2,7 +2,7 @@
 
 var/list/preferences_datums = list()
 
-datum/preferences
+/datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
@@ -23,10 +23,14 @@ datum/preferences
 	var/list/be_special_role = list()		//Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
-	var/asfx_togs = ASFX_DEFAULT
+	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/html_UI_style = "Nano"
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
+	var/tgui_inputs = TRUE
+	var/tgui_buttons_large = FALSE
+	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -39,14 +43,18 @@ datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
+	var/height						//character's height
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
-	var/backbag_style = 1
+	var/backbag_style = OUTFIT_FACTIONSPECIFIC
+	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = OUTFIT_NORMAL
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
-	var/h_style = "Bald"				//Hair type
+	var/h_style = "Bedhead 2"				//Hair type
+	var/tail_style = null
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
@@ -61,7 +69,7 @@ datum/preferences
 	var/r_facial = 0					//Face hair color
 	var/g_facial = 0					//Face hair color
 	var/b_facial = 0					//Face hair color
-	var/s_tone = 0						//Skin tone
+	var/s_tone = -90						//Skin tone
 	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
 	var/r_skin = 37						//Skin color
 	var/g_skin = 3						//Skin color
@@ -94,13 +102,14 @@ datum/preferences
 	var/culture
 	var/origin
 
+	var/list/psionics = list()
+
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
-		"1" = "character_preview_map:1,5:-12",
-		"2" = "character_preview_map:1,3:15",
-		"4"  = "character_preview_map:1:0,2:10",
-		"8"  = "character_preview_map:1:0,1:5",
-		"BG" = "character_preview_map:1,1 to 1,5"
+		"1" = list(1, 0, 5, -12),
+		"2" = list(1, 0, 3, 15),
+		"4" = list(1, 0, 2, 10),
+		"8" = list(1, 0, 1, 5)
 	)
 
 		//Jobs, uses bitflags
@@ -121,10 +130,6 @@ datum/preferences
 
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = RETURN_TO_LOBBY
-
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list() // skills can range from 0 to 3
 
 	// maps each organ to either null(intact), "cyborg" or "amputated"
 	// will probably not be able to do this for head and torso ;)
@@ -154,8 +159,9 @@ datum/preferences
 
 	// SPAAAACE
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
-	var/clientfps = 0
+	var/clientfps = 100
 	var/floating_chat_color
+	var/speech_bubble_type = "default"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -169,20 +175,26 @@ datum/preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/bgstate = "000"
+	var/bgstate = "000000"
 	var/list/bgstate_options = list(
-		"fffff",
-		"000",
-		"new_steel",
-		"dark2",
+		"FFFFFF",
+		"000000",
+		"tiled_preview",
+		"monotile_preview",
+		"dark_preview",
 		"wood",
-		"wood_light",
-		"grass_alt",
-		"new_reinforced",
-		"new_white"
+		"grass",
+		"reinforced",
+		"white_preview",
+		"freezer",
+		"carpet",
+		"reinforced"
 		)
 
 	var/fov_cone_alpha = 255
+
+	var/scale_x = 1
+	var/scale_y = 1
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -212,57 +224,17 @@ datum/preferences
 	var/datum/species/mob_species = all_species[species]
 	return mob_species.age_max
 
-/datum/preferences/proc/ZeroSkills(var/forced = 0)
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		if(!skills.Find(S.ID) || forced)
-			skills[S.ID] = SKILL_NONE
+/datum/preferences/proc/getMinHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_min
 
-/datum/preferences/proc/CalculateSkillPoints()
-	used_skillpoints = 0
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		var/multiplier = 1
-		switch(skills[S.ID])
-			if(SKILL_NONE)
-				used_skillpoints += 0 * multiplier
-			if(SKILL_BASIC)
-				used_skillpoints += 1 * multiplier
-			if(SKILL_ADEPT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 1 * multiplier
-				else
-					used_skillpoints += 3 * multiplier
-			if(SKILL_EXPERT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 3 * multiplier
-				else
-					used_skillpoints += 6 * multiplier
+/datum/preferences/proc/getMaxHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_max
 
-/datum/preferences/proc/GetSkillClass(points)
-	return CalculateSkillClass(points, age)
-
-/proc/CalculateSkillClass(points, age)
-	if(points <= 0) return "Unconfigured"
-	// skill classes describe how your character compares in total points
-	points -= min(round((age - 20) / 2.5), 4) // every 2.5 years after 20, one extra skillpoint
-	if(age > 30)
-		points -= round((age - 30) / 5) // every 5 years after 30, one extra skillpoint
-	switch(points)
-		if(-1000 to 3)
-			return "Terrifying"
-		if(4 to 6)
-			return "Below Average"
-		if(7 to 10)
-			return "Average"
-		if(11 to 14)
-			return "Above Average"
-		if(15 to 18)
-			return "Exceptional"
-		if(19 to 24)
-			return "Genius"
-		if(24 to 1000)
-			return "God"
+/datum/preferences/proc/getAvgHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.species_height
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
@@ -286,14 +258,14 @@ datum/preferences
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-	send_theme_resources(user)
+
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
 	popup.open(FALSE) // Skip registering onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
 
-/datum/preferences/proc/update_character_previews(mutable_appearance/MA)
+/datum/preferences/proc/update_character_previews(mutable_appearance/MA, var/big_mob = FALSE)
 	if(!client)
 		return
 
@@ -306,12 +278,13 @@ datum/preferences
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/total_floors.dmi'
+		BG.icon = 'icons/turf/flooring/tiles.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
-	BG.screen_loc = preview_screen_locs["BG"]
+	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
+	var/index = 0
 	for(var/D in global.cardinal)
 		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
@@ -320,7 +293,17 @@ datum/preferences
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
-		O.screen_loc = preview_screen_locs["[D]"]
+		var/list/screen_locs = preview_screen_locs["[D]"]
+		var/screen_x = screen_locs[1]
+		var/screen_x_minor = screen_locs[2]
+		screen_x_minor -= MA.pixel_x
+		var/screen_y = screen_locs[3]
+		var/screen_y_minor = screen_locs[4]
+		if(big_mob)
+			screen_y_minor += round(30 - (index * 15))
+		screen_y_minor -= MA.pixel_y
+		O.screen_loc = "character_preview_map:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
+		index++
 
 /datum/preferences/proc/show_character_previews()
 	if(!client || !char_render_holders)
@@ -377,6 +360,7 @@ datum/preferences
 	else if(href_list["new_character_sql"])
 		new_setup(1)
 		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
@@ -433,10 +417,14 @@ datum/preferences
 	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
+	character.height = height
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
+
+	character.set_tail_style(tail_style)
+	character.speech_bubble_type = speech_bubble_type
 
 	character.h_style = h_style
 	character.r_hair = r_hair
@@ -459,15 +447,16 @@ datum/preferences
 
 	character.s_tone = s_tone
 
+	character.lipstick_color = null
+
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
-	character.origin = decls_repository.get_decl(text2path(origin))
-	character.culture = decls_repository.get_decl(text2path(culture))
-
-	character.skills = skills
-	character.used_skillpoints = used_skillpoints
+	character.origin = GET_SINGLETON(text2path(origin))
+	character.culture = GET_SINGLETON(text2path(culture))
+	character.origin.on_apply(character)
+	character.culture.on_apply(character)
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
@@ -486,20 +475,28 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_CLASSICSATCHEL || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+	character.backbag_color = backbag_color
+	character.backbag_strap = backbag_strap
 
 	if(pda_choice > OUTFIT_WRISTBOUND || pda_choice < OUTFIT_NOTHING)
 		pda_choice = OUTFIT_TAB_PDA
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_WRISTRAD || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_THIN_WRISTRAD || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
+
+	if(length(psionics))
+		for(var/power in psionics)
+			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
+			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
+				P.apply(character)
 
 	if(icon_updates)
 		character.force_update_limbs()
@@ -543,9 +540,12 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.width = 300
+	load_diag.height = 390
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<tt><center>"
@@ -564,11 +564,13 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
+
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=saves")
+	user << browse(null, "window=load_diag")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
@@ -576,7 +578,7 @@ datum/preferences
 		return
 
 	if(!H.mind.assigned_role)
-		log_debug("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
+		LOG_DEBUG("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
 	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
 	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
@@ -609,7 +611,7 @@ datum/preferences
 	exploit_record = ""
 	ccia_record = ""
 
-	ZeroSkills(1)
+	gear_list = list() //Dont copy the loadout
 
 	// Do we need to reinitialize a whole bunch more vars?
 	if (re_initialize)
@@ -663,6 +665,7 @@ datum/preferences
 
 		ccia_actions = list()
 		disabilities = list()
+		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
 

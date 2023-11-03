@@ -2,7 +2,7 @@
 	name = "ion bolt"
 	icon_state = "ion"
 	damage = 0
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_ION_ANY, BULLET_IMPACT_METAL = SOUNDS_ION_ANY)
 	check_armor = "energy"
 	var/pulse_range = 1
@@ -90,7 +90,7 @@
 	name = "freeze beam"
 	icon_state = "ice_2"
 	damage = 0
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	nodamage = 1
 	check_armor = "energy"
 	//var/temperature = 300
@@ -107,7 +107,7 @@
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "small1"
 	damage = 0
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	nodamage = 1
 	check_armor = "bullet"
 
@@ -136,9 +136,17 @@
 	name = "alpha somatoray"
 	icon_state = "energy"
 	damage = 0
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	nodamage = 1
 	check_armor = "energy"
+
+/obj/item/projectile/energy/floramut/gene
+	name = "gamma somatoray"
+	icon_state = "energy2"
+	damage = 0
+	damage_type = DAMAGE_TOXIN
+	nodamage = TRUE
+	var/singleton/plantgene/gene = null
 
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
@@ -146,7 +154,7 @@
 		var/mob/living/carbon/human/H = M
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			if(prob(15))
-				H.apply_damage(rand(30,80), IRRADIATE, damage_flags = DAM_DISPERSED)
+				H.apply_damage(rand(30,80), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 				M.Weaken(5)
 				for (var/mob/V in viewers(src))
 					V.show_message("<span class='warning'>[M] writhes in pain as [M.get_pronoun("his")] vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
@@ -169,7 +177,7 @@
 	name = "beta somatoray"
 	icon_state = "energy2"
 	damage = 0
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	nodamage = 1
 	check_armor = "energy"
 
@@ -212,7 +220,7 @@
 	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
 	embed = 0 // nope
 	nodamage = 1
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/cannon
@@ -236,13 +244,13 @@
 	damage = 0
 	check_armor = "energy"
 	embed = 0
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 
 /obj/item/projectile/magic/fireball
 	name = "fireball"
 	icon_state = "fireball"
 	damage = 20
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 /obj/item/projectile/magic/fireball/on_impact(var/atom/A)
 	explosion(A, 0, 0, 4)
@@ -257,7 +265,7 @@
 /obj/item/projectile/magic/teleport/on_hit(var/atom/hit_atom)
 	var/turf/T = get_turf(hit_atom)
 	single_spark(T)
-	playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 	if(isliving(hit_atom))
 		blink_mob(hit_atom)
 	return ..()
@@ -268,17 +276,18 @@
 /obj/item/projectile/plasma
 	name = "plasma slug"
 	icon_state = "plasma_bolt"
-	damage = 25
-	damage_type = BRUTE
+	damage = 20
+	damage_type = DAMAGE_BRUTE
+	damage_flags = DAMAGE_FLAG_LASER
 	check_armor = "energy"
 	incinerate = 10
-	armor_penetration = 20
+	armor_penetration = 60
 	penetrating = 1
 
 /obj/item/projectile/plasma/light
 	name = "plasma bolt"
-	damage = 20
-	armor_penetration = 10
+	damage = 15
+	armor_penetration = 60
 	incinerate = 8
 
 /obj/item/missile
@@ -299,17 +308,23 @@
 	name ="ice bolt"
 	icon_state= "icer_bolt"
 	damage = 15
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	check_armor = "energy"
 
 /obj/item/projectile/bonedart
 	name = "bone dart"
 	icon_state = "bonedart"
 	damage = 35
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
 	check_armor = "melee"
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/bone_dart/vannatusk
+
+/obj/item/projectile/bonedart/ling
+	name = "bone dart"
+	damage = 10
+	armor_penetration = 10
+	check_armor = "bullet"

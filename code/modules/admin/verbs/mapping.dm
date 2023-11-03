@@ -26,9 +26,9 @@ var/intercom_range_display_status = 0
 	icon = 'icons/480x480.dmi'
 	icon_state = "25percent"
 
-	New()
-		src.pixel_x = -224
-		src.pixel_y = -224
+/obj/effect/debugging/camera_range/New()
+	src.pixel_x = -224
+	src.pixel_y = -224
 
 /obj/effect/debugging/marker
 	icon = 'icons/turf/areas.dmi'
@@ -136,8 +136,7 @@ var/list/debug_verbs = list (
 	,/client/proc/count_objects_all
 	,/client/proc/cmd_assume_direct_control
 	,/client/proc/jump_to_dead_group
-	,/client/proc/startSinglo
-	,/client/proc/ticklag
+	,/client/proc/set_server_fps
 	,/client/proc/cmd_admin_grantfullaccess
 	,/client/proc/kaboom
 	,/client/proc/splash
@@ -171,11 +170,11 @@ var/list/debug_verbs = list (
 
 /client/proc/enable_debug_verbs()
 	set category = "Debug"
-	set name = "Debug verbs"
+	set name = "Debug Verbs"
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	verbs += debug_verbs
+	add_verb(src, debug_verbs)
 
 	feedback_add_details("admin_verb","mDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -185,8 +184,9 @@ var/list/debug_verbs = list (
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	verbs -= debug_verbs
+	remove_verb(src, debug_verbs)
 
+	init_verbs()
 	feedback_add_details("admin_verb","hDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

@@ -1,4 +1,5 @@
 /atom
+	///Whether /atom/Initialize() has already run for the object
 	var/initialized = FALSE
 	var/update_icon_on_init	// Default to 'no'.
 
@@ -21,6 +22,9 @@
 		created += src
 
 /atom/proc/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
@@ -39,19 +43,33 @@
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-#ifdef AO_USE_LIGHTING_OPACITY
+	#ifdef AO_USE_LIGHTING_OPACITY
 		if (!mapload)
 			T.regenerate_ao()
-#endif
+	#endif
 
 	if (update_icon_on_init)
-		queue_icon_update()
+		SSicon_update.add_to_queue(src)
 
 	return INITIALIZE_HINT_NORMAL
 
-//called if Initialize returns INITIALIZE_HINT_LATELOAD
-//This version shouldn't be called
+/**
+ * Late Intialization, for code that should run after all atoms have run Intialization
+ *
+ * To have your LateIntialize proc be called, your atoms [Initalization][/atom/proc/Initialize]
+ *  proc must return the hint
+ * [INITIALIZE_HINT_LATELOAD] otherwise it will never be called.
+ *
+ * useful for doing things like finding other machines because you can guarantee
+ * that all atoms will actually exist in the "WORLD" at this time and that all their Intialization
+ * code has been run
+ */
 /atom/proc/LateInitialize()
+	set waitfor = FALSE
+
+	//You can override this in your inheritance if you *really* need to, but probably shouldn't
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/static/list/warned_types = list()
 	if(!warned_types[type])
 		WARNING("Old style LateInitialize behaviour detected in [type]!")
@@ -61,6 +79,9 @@
 /atom/Destroy(force = FALSE)
 	if (reagents)
 		QDEL_NULL(reagents)
+
+	//We're being destroyed, no need to update the icon
+	SSicon_update.remove_from_queue(src)
 
 	LAZYCLEARLIST(our_overlays)
 	LAZYCLEARLIST(priority_overlays)
@@ -72,5 +93,17 @@
 			var/datum/orbit/O = thing
 			if (O.orbiter)
 				O.orbiter.stop_orbit()
+
+	if(length(overlays))
+		overlays.Cut()
+
+	if(light)
+		QDEL_NULL(light)
+
+	if (length(light_sources))
+		light_sources.Cut()
+
+	if(smoothing_flags & SMOOTH_QUEUED)
+		SSicon_smooth.remove_from_queues(src)
 
 	return ..()

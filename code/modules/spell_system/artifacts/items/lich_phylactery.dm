@@ -8,7 +8,7 @@
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4
-	reagents_to_add = list(/decl/reagent/toxin/undead = 120)
+	reagents_to_add = list(/singleton/reagent/toxin/undead = 120)
 
 	var/lich = null
 
@@ -23,7 +23,7 @@
 	return ..()
 
 /obj/item/phylactery/examine(mob/user)
-	..(user)
+	. = ..()
 	if(!lich)
 		to_chat(user, "The heart is inert.")
 	else

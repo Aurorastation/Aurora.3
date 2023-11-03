@@ -50,7 +50,7 @@
 		to_chat(B.host, SPAN_DANGER("You feel the captive mind of [src] begin to resist your control."))
 
 		var/resist_time = rand(40 SECONDS, 1 MINUTE)
-		addtimer(CALLBACK(src, .proc/eject_borer, B, H), resist_time)
+		addtimer(CALLBACK(src, PROC_REF(eject_borer), B, H), resist_time)
 		resist_bar = new /datum/progressbar/autocomplete(src, resist_time, B.host)
 		resist_start_time = world.time
 		resist_bar.update(0)
@@ -65,6 +65,6 @@
 	to_chat(host, SPAN_DANGER("With an immense exertion of will, you regain control of your body!"))
 	to_chat(borer.host, SPAN_DANGER("You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you."))
 	borer.detach()
-	verbs -= /mob/living/carbon/proc/release_control
-	verbs -= /mob/living/carbon/proc/punish_host
-	verbs -= /mob/living/carbon/proc/spawn_larvae
+	remove_verb(src, /mob/living/carbon/proc/release_control)
+	remove_verb(src, /mob/living/carbon/proc/punish_host)
+	remove_verb(src, /mob/living/carbon/proc/spawn_larvae)

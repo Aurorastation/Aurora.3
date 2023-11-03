@@ -34,9 +34,9 @@
 
 /datum/changeling_sting/proc/do_sting(var/mob/living/target)
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
-	changeling.chem_charges -= required_chems
+	changeling.use_charges(required_chems)
 	changeling.sting_range = 1
-	owner.verbs -= verb_path
+	remove_verb(owner, verb_path)
 	ADD_VERB_IN(owner, 10, verb_path)
 
 	if(stealthy)
@@ -69,6 +69,7 @@
 
 	changeling.prepared_sting = new datum_path(src, verb_path, required_chems, stealthy)
 	to_chat(src, SPAN_NOTICE("You prepare to fire the <b>[changeling.prepared_sting.name]</b>."))
+	to_chat(src, SPAN_NOTICE("In order to use a sting, click a mob with an empty hand on harm intent."))
 	return TRUE
 
 /mob/proc/changeling_hallucinate_sting()
@@ -85,7 +86,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/decl/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/drugs/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"
@@ -119,7 +120,7 @@
 	target.disabilities |= NEARSIGHTED
 	target.eye_blind = 10
 	target.eye_blurry = 20
-	addtimer(CALLBACK(target, /mob.proc/remove_nearsighted), 30 SECONDS)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, remove_nearsighted)), 30 SECONDS)
 
 /mob/proc/changeling_deaf_sting()
 	set category = "Changeling"
@@ -136,7 +137,7 @@
 	..()
 	to_chat(target, SPAN_DANGER("Your ears pop and begin ringing loudly!"))
 	target.sdisabilities |= DEAF
-	addtimer(CALLBACK(target, /mob.proc/remove_deaf), 30 SECONDS)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, remove_deaf)), 30 SECONDS)
 
 /mob/proc/changeling_paralysis_sting()
 	set category = "Changeling"
@@ -173,7 +174,7 @@
 		var/datum/absorbed_dna/DNA = thing
 		names += "[DNA.name]"
 
-	var/S = input(src, "Select the target DNA:", "Target DNA") as null|anything in names
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		QDEL_NULL(changeling.prepared_sting)
 		to_chat(src, SPAN_NOTICE("With no DNA chosen, you unprepare the sting."))
@@ -196,7 +197,7 @@
 /datum/changeling_sting/transformation/can_sting(mob/living/target)
 	. = ..()
 	if(.)
-		if((HUSK in target.mutations) || (!ishuman(target) && !issmall(target)))
+		if(HAS_FLAG(target.mutations, HUSK) || (!ishuman(target) && !issmall(target)))
 			to_chat(owner, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 			return FALSE
 		if(islesserform(target))
@@ -228,7 +229,7 @@
 	target.Paralyse(10)
 	target.make_jittery(1000)
 	if(target.reagents)
-		target.reagents.add_reagent(/decl/reagent/toxin/cyanide, 5)
+		target.reagents.add_reagent(/singleton/reagent/toxin/cyanide, 5)
 
 /mob/proc/changeling_extract_dna_sting()
 	set category = "Changeling"
@@ -267,10 +268,10 @@
 	changeling = changeling_power(10, 0, 100)
 	if(!changeling)
 		return FALSE
-	changeling.chem_charges -= 10
+	changeling.use_charges(10)
 	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
-	src.verbs -= /mob/proc/changeling_boost_range
+	remove_verb(src, /mob/proc/changeling_boost_range)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_boost_range)
 	feedback_add_details("changeling_powers", "RS")
 	return TRUE

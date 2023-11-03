@@ -69,7 +69,7 @@
 		var/obj/item/stack/material/P = A
 		if(P.material.name == MATERIAL_PHORON)
 			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
-			if(!do_after(src, 1 SECOND, act_target = P))
+			if(!do_after(src, 1 SECOND, P))
 				return
 			var/self_msg = "You consume \the [P][health < maxHealth ? ", healing yourself" : ""]."
 			adjustBruteLoss(-5 * P.amount)
@@ -137,7 +137,7 @@
 	if(mob_size > 15)
 		for(var/mob/living/M in orange(1,src))
 			if(M != src)
-				M.apply_damage(50, BRUTE)
+				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN, blocked)
 				M.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 

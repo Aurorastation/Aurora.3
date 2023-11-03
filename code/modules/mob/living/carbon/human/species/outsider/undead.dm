@@ -80,7 +80,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
-	exhaust_threshold = 0 //No oxyloss, so zero threshold
+	exhaust_threshold = 10
 
 	max_nutrition_factor = -1
 
@@ -135,8 +135,6 @@
 	hud_type = /datum/hud_data/construct
 
 /datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
-	set waitfor = 0
-	sleep(1)
 	new /obj/effect/decal/cleanable/ash(H.loc)
 	qdel(H)
 
@@ -166,8 +164,6 @@
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
 	darksight = 8
 
-	slowdown = 0.5
-
 	has_fine_manipulation = FALSE
 
 	speech_sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg')
@@ -196,11 +192,11 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/zombie)
 	)
 
-	total_health = 100
+	total_health = 80
 
 	slowdown = 2
 
-	vision_flags = DEFAULT_SIGHT | SEE_MOBS
+	vision_flags = DEFAULT_SIGHT
 
 	reagent_tag = IS_UNDEAD
 
@@ -221,7 +217,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.1
-	exhaust_threshold = 0 //No oxyloss, so zero threshold
+	exhaust_threshold = 10
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
 
@@ -230,12 +226,23 @@
 	gluttonous = 1
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.mutations.Add(CLUMSY)
+	H.mutations |= CLUMSY
 	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()
 	Z.teach(H)
 	to_chat(H, "<font size=4><span class='notice'>Use the Check Attacks verb in your IC tab for information on your attacks! They are important! Your bite infects, but is worse at getting through armour than your claws, which have great damage and are armor piercing!</font></span>")
 	H.accent = ACCENT_BLUESPACE
 	return ..()
+
+//Zombies do not have oxygen, so we have to handle the sprint this way
+/datum/species/zombie/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+	. = ..()
+
+	if(exhaust_threshold && (H.stamina) < (exhaust_threshold * 0.8))
+		H.m_intent = M_WALK
+		H.hud_used.move_intent.update_move_icon(H)
+		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
+		H.flash_pain(H.get_shock())
+		return 0
 
 /datum/species/zombie/tajara
 	name = SPECIES_ZOMBIE_TAJARA
@@ -313,3 +320,99 @@
 	dust_remains_type = /obj/effect/decal/remains/xeno/burned
 
 	default_h_style = "Skrell Short Tentacles"
+
+
+///A zombie tuned for tankness
+/datum/species/zombie/bull
+	name = SPECIES_ZOMBIE_BULL
+	name_plural = SPECIES_ZOMBIE_BULL+"s"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
+
+	total_health = 300
+
+	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID | TYPE_SYNTHETIC | TYPE_WEIRD
+	gluttonous = GLUT_ANYTHING
+	stomach_capacity = 10
+
+	stamina = 50
+	sprint_speed_factor = 0.9
+	slowdown = 2
+	exhaust_threshold = 20
+
+	bump_flag = HEAVY
+	species_height = HEIGHT_CLASS_TALL
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
+		melee = ARMOR_MELEE_MAJOR,
+		bomb = null,
+		energy = ARMOR_ENERGY_RESISTANT
+	)
+
+	unarmed_types = list(/datum/unarmed_attack/bite/infectious)
+
+
+///A zombie tuned to hunt preys
+/datum/species/zombie/hunter
+	name = SPECIES_ZOMBIE_HUNTER
+	name_plural = SPECIES_ZOMBIE_HUNTER+"s"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
+	slowdown = 2
+
+	total_health = 90
+
+	stamina = 40
+	sprint_speed_factor = 0.9
+	slowdown = -2
+	standing_jump_range = 5
+	natural_climbing = TRUE
+
+	vision_flags = SEE_SELF | SEE_MOBS
+	hearing_sensitivity = HEARING_VERY_SENSITIVE
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		melee = ARMOR_MELEE_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		energy = ARMOR_ENERGY_SMALL
+	)
+
+	unarmed_types = list(/datum/unarmed_attack/shocking) //This zombie cannot infect, it's an harrass type of zombie
+
+///A zombie tuned for charge attacks
+/datum/species/zombie/rhino
+	name = SPECIES_ZOMBIE_RHINO
+	name_plural = SPECIES_ZOMBIE_RHINO+"s"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
+	slowdown = 2
+
+	total_health = 120
+
+	stamina = 50
+	sprint_speed_factor = 0.7
+	standing_jump_range = 5
+
+	vision_flags = SEE_SELF
+
+	bump_flag = HEAVY
+	push_flags = HEAVY
+
+	mob_size = MOB_LARGE
+	grab_mod = 5
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		melee = ARMOR_MELEE_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		energy = ARMOR_ENERGY_SMALL
+	)
+
+	maneuvers = list(/singleton/maneuver/leap/areagrab)
+
+	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/golem)

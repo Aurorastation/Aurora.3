@@ -72,11 +72,11 @@
 	updatehealth()
 	if(stat != DEAD)
 		if(paralysis)
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else if (status_flags & FAKEDEATH)
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 		return 1
 
 /mob/living/proc/handle_status_effects()
@@ -107,8 +107,8 @@
 	//Ears
 	handle_hearing()
 
-	if((is_pacified()) && a_intent == I_HURT)
-		to_chat(src, "<span class='notice'>You don't feel like harming anybody.</span>")
+	if((is_pacified()) && a_intent == I_HURT && !is_berserk())
+		to_chat(src, SPAN_NOTICE("You don't feel like harming anybody."))
 		a_intent_change(I_HELP)
 
 //this handles hud updates. Calls update_vision() and handle_hud_icons()
@@ -146,7 +146,7 @@
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
-			sight |= viewflags
+			set_sight(viewflags)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)

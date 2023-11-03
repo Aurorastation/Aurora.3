@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic
 	name = "prototype SMG"
-	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
+	desc = "A prototype version of a lightweight, fast-firing gun."
 	icon = 'icons/obj/guns/saber.dmi'
 	icon_state = "saber"	//ugly //yup
 	item_state = "saber"
@@ -15,19 +15,22 @@
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
+	fire_delay = ROF_SMG
+	can_suppress = TRUE
+	suppressor_x_offset = 8
 
 	firemodes = list(
-		list(mode_name="semiauto",       can_autofire=0, burst=1),
+		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 //Submachine guns and personal defence weapons, go.
 
 /obj/item/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
-	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
+	desc = "A lightweight, fast-firing gun. For when you want someone dead."
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
@@ -39,6 +42,9 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/mini_uzi/update_icon()
 	..()
@@ -46,7 +52,10 @@
 
 /obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
-	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses 10mm rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
+	desc = "A conventional bullpup submachine gun with an extendable stock."
+	desc_extended = "The Colettish Armaments Model 25 SMG is a typical product of the San Colette Interstellar Armaments Company (CAISC). Rejected by the Solarian military due to competition with the Zavodskoi M470-L, the CA-M25 was repurposed \
+	into the Colettish Armaments Model 25 Export (CA-25E) and has found reasonable success in mercenary groups across the Orion Spur. Recently many have found their ways into the hands of violent non-state actors in the Corporate Reconstruction Zone, where \
+	they contribute to the further destabilization of the region. Curiously, these models typically have a filed-off serial number or no serial number at all."
 	icon = 'icons/obj/guns/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
@@ -61,6 +70,9 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 11
 
 /obj/item/gun/projectile/automatic/c20r/update_icon()
 	..()
@@ -72,10 +84,11 @@
 
 /obj/item/gun/projectile/automatic/c20r/sol
 	name = "solarian submachine gun"
-	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen. Chambered in 10mm."
+	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen."
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/c20r/sol/update_icon()
 	..()
@@ -83,7 +96,7 @@
 
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
-	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use. Uses 9mm rounds."
+	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
 	icon = 'icons/obj/guns/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
@@ -96,6 +109,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
 
 /obj/item/gun/projectile/automatic/wt550/lethal
 	magazine_type = /obj/item/ammo_magazine/mc9mmt
@@ -123,17 +139,19 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	empty_sound = /decl/sound_category/out_of_ammo_rifle
+	empty_sound = /singleton/sound_category/out_of_ammo_rifle
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
+	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
+	can_suppress = FALSE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=10),
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
 		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 
 	//slower to regain aim, more inaccurate if not wielding
@@ -146,8 +164,8 @@
 
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
-	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
-	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
+	desc = "A durable, rugged-looking automatic weapon of a make popular on the frontier worlds. It is unmarked."
+	desc_extended = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -162,8 +180,8 @@
 	desc = "A durable, rugged-looking automatic weapon that has been heavily modified. \
 	Key changes include significant shortening of the barrel and the addition of an improvised vertical foregrip, \
 	condensing heavy firepower into a relatively small and maneuverable package intended for close-in \
-	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles. Uses 7.62mm rounds."
-	desc_fluff = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
+	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles."
+	desc_extended = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in many different versions and calibres; this one uses 7.62mm rounds. This example has been heavily modified and is illegal in some jurisdictions. \
 	Much of the barrel has been lopped off to decrease overall length, while a pistol grip from another STS35 has been clamped on below what remains of the handguard \
 	to improve handling. The fire control group has been altered as well, sacrificing the burst-fire function in favor of a smoother trigger pull. Born from \
@@ -177,11 +195,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=8),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_HEAVY),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
 		)
 
-	fire_delay = 8
 	accuracy = 2
 
 /obj/item/gun/projectile/automatic/rifle/shorty/update_icon()
@@ -190,9 +207,8 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine
 	name = "ballistic carbine"
-	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \
-	capacity magazines. It is unmarked."
-	desc_fluff = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
+	desc = "A durable, rugged-looking semi-automatic weapon of a make popular on the frontier worlds. Doesn't accept large-capacity magazines. It is unmarked."
+	desc_extended = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
 	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
 	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
 	icon = 'icons/obj/guns/bcarbine.dmi'
@@ -206,7 +222,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12, fire_delay_wielded=12)
+	firemodes = list(mode_name="semiauto", burst=1, fire_delay=ROF_HEAVY, fire_delay_wielded=ROF_INTERMEDIATE)
 
 /obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
 	..()
@@ -214,9 +230,12 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
 	name = "bullpup carbine"
-	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
-	desc_fluff = "It makes you feel like a corporate goon when you hold it."
-	icon = 'icons/obj/guns/civcarbine.dmi'
+	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, only capable of accepting smaller magazines. \
+	It also lacks the integrated grenade launcher and burst fire of the Bulldog."
+	desc_extended = "It makes you feel like a corporate goon when you hold it."
+	icon = 'icons/obj/guns/crew_rifle.dmi'
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
 	icon_state = "civcarbine"
 	item_state = "civcarbine"
 	can_bayonet = FALSE
@@ -228,7 +247,7 @@
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "solarian assault rifle"
 	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. \
-	Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm."
+	Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come."
 	icon = 'icons/obj/guns/sol_rifle.dmi'
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
@@ -248,10 +267,24 @@
 /datum/firemode/z8
 	var/use_launcher = 0
 
+/obj/item/gun/projectile/automatic/rifle/dom
+	name = "dominian assault rifle"
+	desc = "The standard issue rifle of the Empire of Dominia’s Imperial Army. With its sleek lines and ruggedized faux wood furniture, the MPR-24/5 \
+	is as elegant as it is deadly, proving itself in service during Dominia's numerous colonial conflicts."
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. \
+	The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s."
+	icon = 'icons/obj/guns/dom_rifle.dmi'
+	icon_state = "acr"
+	item_state = "acr"
+
+/obj/item/gun/projectile/automatic/rifle/dom/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
-	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle. Uses 5.56mm rounds."
-	desc_fluff = "It makes you feel like a corporate commando when you hold it."
+	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
+	desc_extended = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
@@ -274,7 +307,7 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=10),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_INTERMEDIATE),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
 		list(mode_name="fire grenades", use_launcher=1)
 		)
@@ -314,7 +347,7 @@
 		icon_state = "carbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
-	..()
+	. = ..()
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
@@ -322,11 +355,11 @@
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
-	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
-	desc_fluff = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
-	icon = 'icons/obj/guns/crew_rifle.dmi'
-	icon_state = "arifle"
-	item_state = "arifle"
+	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. Primarily made of high strength polymers, the rifle is designed to be cheap to mass produce while remaining reliable."
+	desc_extended = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
+	icon = 'icons/obj/guns/burst_rifle.dmi'
+	icon_state = "arx"
+	item_state = "arx"
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a556"
@@ -340,20 +373,22 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=12),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
 	)
 
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "arifle"
+		icon_state = "arx"
 	else
-		icon_state = "arifle-empty"
+		icon_state = "arx-empty"
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
-	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armory- 2431' engraved on the receiver"
+	desc = "A squad machine gun with a clunky, outdated loading mechanism. Loads from 7.62mm ammunition boxes. Gentlemen, lock and load."
+	desc_extended = "Created by the San Colette Interstellar Armaments Company (CAISC) explicitly for export, the Colettish Armaments Model 75 Export machine gun is a cheap yet outdated method of providing large amounts of firepower to a squad. \
+	The CA-75E is not used by San Colette’s Civil Guard and is typically sold to mercenary groups or other Solarian systems. Since the Solarian Collapse more and more CA-75Es have found themselves in the hands of pirates and rebels in the Corporate Reconstruction Zone, and captured models curiously often have no serial number."
 	icon = 'icons/obj/guns/l6.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
@@ -373,7 +408,7 @@
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 	var/cover_open = 0
@@ -426,15 +461,15 @@
 
 /obj/item/gun/projectile/automatic/rifle/adhomian
 	name = "adhomian automatic rifle"
-	desc = "The Tsarrayut'yan rifle is a select-fire, crew-served automatic rifle producted by the People's Republic of Adhomai."
+	desc = "The Tsarrayut'yan rifle is a select-fire automatic rifle producted by the People's Republic of Adhomai."
 	icon = 'icons/obj/guns/tsarrayut.dmi'
 	icon_state = "tsarrayut"
 	item_state = "tsarrayut"
 	contained_sprite = TRUE
 
-	desc_fluff = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
-	special operatives. The majority of military is still equipped with simple bolt action rifles, that are being slowly replaced by the Tsarrayut'yan rifle; a select-fire, crew-served \
-	automatic rifle. Regardless of advances in the small arms field, artillery is the Republican army's main weapon and pride."
+	desc_extended = "Unlike the other Adhomian factions, the Hadiist military has fully adopted automatic weapons. Their service rifle is the Tsarrayut'yan rifle, a select-fire, \
+	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
+	main weapon and pride."
 
 	load_method = SINGLE_CASING|SPEEDLOADER
 
@@ -452,9 +487,47 @@
 	knife_x_offset = 23
 	knife_y_offset = 14
 
+/obj/item/gun/projectile/automatic/rifle/dpra
+	name = "adhomian assault rifle"
+	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
+	need of a specialized industry or a highly trained workforce."
+	icon = 'icons/obj/guns/mrrazhak.dmi'
+	icon_state = "mrrazhak"
+	item_state = "mrrazhak"
+
+	can_bayonet = TRUE
+	knife_x_offset = 22
+	knife_y_offset = 13
+
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+
+	is_wieldable = TRUE
+
+	can_bayonet = TRUE
+
+
+	magazine_type = /obj/item/ammo_magazine/c762/dpra
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
+
+/obj/item/gun/projectile/automatic/rifle/dpra/update_icon()
+	if(ammo_magazine)
+		icon_state = "mrrazhak"
+		item_state = "mrrazhak"
+	else
+		icon_state = "mrrazhak_nomag"
+		item_state = "mrrazhak_nomag"
+	..()
+
+/obj/item/gun/projectile/automatic/rifle/dpra/gold
+	name = "gold plated adhomian assault rifle"
+	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
+	need of a specialized industry or a highly trained workforce. This one is golden plated."
+	icon = 'icons/obj/guns/golden_mrrazhak.dmi'
+
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
-	desc = "An adhomian made submachine gun. Uses .45 rounds."
+	desc = "An Adhomian-made submachine gun."
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"
@@ -469,9 +542,48 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
 	fire_sound = 'sound/weapons/gunshot/gunshot_tommygun.ogg'
 
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
+
 /obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
+
+/obj/item/gun/projectile/automatic/tommygun/dom
+	name = "dominian submachine gun"
+	desc = "A submachine gun featuring a novel top loading configuration, used by the Empire of Dominia's armed forces."
+	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. \
+	Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon."
+	icon = 'icons/obj/guns/dom_smg.dmi'
+	icon_state = "owen"
+	item_state = "owen"
+	max_shells = 20
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag)
+
+/obj/item/gun/projectile/automatic/tommygun/dom/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "owen" : "owen-empty"
+
+/obj/item/gun/projectile/automatic/rifle/dnac
+	name = "dNAC-6.5 assault rifle"
+	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
+	icon = 'icons/obj/guns/xanu_rifle.dmi'
+	icon_state = "xanu_rifle"
+	item_state = "xanu_rifle"
+	magazine_type = /obj/item/ammo_magazine/a65
+	allowed_magazines = list(/obj/item/ammo_magazine/a65)
+	caliber = "a65"
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
+/obj/item/gun/projectile/automatic/rifle/dnac/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_rifle" : "xanu_rifle-empty"
 
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
@@ -490,6 +602,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	can_suppress = FALSE
 
 	firemodes = list(
 		list(mode_name="single coil", burst = 1),
@@ -514,6 +628,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	can_suppress = FALSE
+
 	is_wieldable = TRUE
 
 	firemodes = list(
@@ -523,18 +639,18 @@
 		)
 
 
-	fire_delay = 20
+	fire_delay = ROF_UNWIELDY
 	accuracy = -1
 
 	//wielding information
-	fire_delay_wielded = 5
+	fire_delay_wielded = ROF_SUPERHEAVY
 	accuracy_wielded = 2
 	scoped_accuracy = 2
 
 /obj/item/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -561,14 +677,12 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
 	accuracy = -2
-	fire_delay = 10
 	recoil_wielded = 0
 
-	fire_delay_wielded = 6
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay= 10, fire_delay_wielded=10),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(0,-1,-1), dispersion=list(0, 10, 15))
 		)
 

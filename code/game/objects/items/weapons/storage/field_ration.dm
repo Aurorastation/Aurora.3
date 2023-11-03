@@ -3,7 +3,7 @@
 	desc = "An individually packed meal, designated to be consumed on field."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "ration"
-	desc_fluff = "The republican army is the best equipped among the warring factions of Adhomai, being supplied by NanoTrasen and other outworld supporters. Canned goods and \
+	desc_extended = "The republican army is the best equipped among the warring factions of Adhomai, being supplied by NanoTrasen and other outworld supporters. Canned goods and \
 	modern rations are issued to all branches of the Republic's military. Native field meals are composed of salt-cured Fatshouters's meat, bread and Victory Gin, while imported ones \
 	are commonly found in the form of LiquidFood rations, a less than popular alternative manufactured by NanoTrasen."
 	var/preset_ration	//if the package comes with one in particular, not a random
@@ -40,8 +40,8 @@
 	preset_ration = "NanoTrasen Sponsored"
 
 /obj/item/storage/field_ration/nka
-	icon_state = "bigbox"
-	desc_fluff = "The early Alam'ardii forces relied on the landed nobility to provide them food, with the resources being taken from the private properties of their contractors. \
+	icon_state = "bigbox_nka"
+	desc_extended = "The early Alam'ardii forces relied on the landed nobility to provide them food, with the resources being taken from the private properties of their contractors. \
 	Their rations were composed mainly of salt-cured Snow Strider's meat, Blizzard Ears's flour and Fatshouters's milk. The defection of many officers from the Republican navy to the \
 	imperial side introduced the concept of canned goods, a luxury at the time, being used as rations. Large shipments of supplements, included food, were smuggled by the officers and \
 	their crew during the formation of the Royal Navy."
@@ -72,7 +72,7 @@
 
 /obj/item/storage/field_ration/dpra
 	icon_state = "bigbox"
-	desc_fluff = "The Adhomai Liberation army, being an amalgamation of regular army units, militia groups, and undercover agents, does not have any standard set when the subject is \
+	desc_extended = "The Adhomai Liberation army, being an amalgamation of regular army units, militia groups, and undercover agents, does not have any standard set when the subject is \
 	military nutrition. Depending on the area where one army might operate, its commanding officer, and available resources, rations might range from industrialized goods to foraging \
 	and hunting. It is a common practice for armies to confiscate villages productions, something that can cause resentment among farmers when their lands are occupied by the liberation \
 	army, to feed their soldiers."

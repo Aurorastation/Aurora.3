@@ -21,7 +21,7 @@
 	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
 	buckle_dir = SOUTH
@@ -30,7 +30,6 @@
 	var/material/padding_material
 
 	var/base_icon = "bed"
-	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
 	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.
@@ -110,7 +109,7 @@
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
@@ -187,7 +186,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		painted_colour = null
 		remove_padding()
 
@@ -198,13 +197,13 @@
 		else
 			anchored = TRUE
 			to_chat(user, "You fasten \the [src] to the floor.")
-		playsound(src, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	else if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
 				if(buckle(affecting))
@@ -224,7 +223,7 @@
 		W.pixel_x = 10 //make sure they reach the pillow
 		W.pixel_y = -6
 
-	else if(istype(W, /obj/item/device/floor_painter))
+	else if(istype(W, /obj/item/device/paint_sprayer))
 		return
 
 	else if(!istype(W, /obj/item/bedsheet))
@@ -250,7 +249,7 @@
 
 /obj/structure/bed/Move()
 	. = ..()
-	if(makes_rolling_sound)
+	if(makes_rolling_sound && has_gravity())
 		playsound(src, 'sound/effects/roll.ogg', 50, 1)
 	if(buckled && !istype(src, /obj/structure/bed/roller))
 		var/mob/living/occupant = buckled
@@ -291,7 +290,7 @@
 		occupant.apply_effect(6, STUN)
 		occupant.apply_effect(6, WEAKEN)
 		occupant.apply_effect(6, STUTTER)
-		occupant.apply_damage(10, BRUTE, def_zone)
+		occupant.apply_damage(10, DAMAGE_BRUTE, def_zone)
 		playsound(src.loc, "punch", 50, 1, -1)
 		if(isliving(A))
 			var/mob/living/victim = A
@@ -299,7 +298,7 @@
 			victim.apply_effect(6, STUN)
 			victim.apply_effect(6, WEAKEN)
 			victim.apply_effect(6, STUTTER)
-			victim.apply_damage(10, BRUTE, def_zone)
+			victim.apply_damage(10, DAMAGE_BRUTE, def_zone)
 
 		if(pulling)
 			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
@@ -324,6 +323,25 @@
 
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC, MATERIAL_CLOTH)
+
+/obj/structure/bed/padded/bunk
+	pixel_y = 16
+	var/sleeby_shift = 16
+
+/obj/structure/bed/padded/bunk/post_buckle(atom/movable/MA)
+	. = ..()
+	if(MA == buckled)
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = sleeby_shift
+		buckled.pixel_y = sleeby_shift
+		update_icon()
+	else
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = 0
+		MA.pixel_y = 0
+		update_icon()
 
 /obj/structure/bed/aqua
 	name = "aquabed"
@@ -352,6 +370,13 @@
 	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/has_iv_light = TRUE
+	//Items that can be attached to an IV
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	slowdown = 0
 
@@ -368,7 +393,10 @@
 	cut_overlays()
 	vis_contents = list()
 	if(density)
-		icon_state = "[base_icon]_up"
+		if(anchored)
+			icon_state = "[base_icon]_br"
+		else
+			icon_state = "[base_icon]_up"
 	else
 		icon_state = "[base_icon]_down"
 	if(beaker)
@@ -380,8 +408,11 @@
 		if(percentage < 25)
 			iv.add_overlay(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 6
+			iv.pixel_y = 7
 		add_overlay(iv)
+		if(has_iv_light)
+			var/image/light = image(icon, "iv[iv_attached]_l")
+			add_overlay(light)
 	if(vitals)
 		vitals.update_monitor()
 		vis_contents += vitals
@@ -399,7 +430,7 @@
 		vitals.bed = src
 		update_icon()
 		return
-	if(iv_stand && !beaker && (istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/blood)))
+	if(iv_stand && !beaker && is_type_in_list(I, accepted_containers))
 		if(!user.unEquip(I, target = src))
 			return
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
@@ -414,6 +445,12 @@
 	else
 		..()
 
+/obj/structure/bed/roller/AltClick(mob/user)
+	if(density && !use_check_and_message(user))
+		anchored = !anchored
+		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."))
+		update_icon()
+
 /obj/structure/bed/roller/proc/collapse()
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
@@ -427,7 +464,7 @@
 		return
 
 	if(beaker.volume > 0)
-		beaker.reagents.trans_to_mob(buckled, beaker.amount_per_transfer_from_this, CHEM_BLOOD)
+		beaker.reagents.trans_to_mob(buckled, min(iv_transfer_rate, beaker.amount_per_transfer_from_this), CHEM_BLOOD)
 		update_icon()
 
 /obj/structure/bed/roller/proc/remove_beaker(mob/user)
@@ -472,7 +509,7 @@
 		else
 			attach_iv(buckled, usr)
 		return
-	if(ishuman(over_object))
+	if(usr != over_object && ishuman(over_object))
 		if(user_buckle(over_object, usr))
 			attach_iv(buckled, usr)
 			return
@@ -511,6 +548,7 @@
 			if(iv_attached)
 				detach_iv(M, usr)
 		density = FALSE
+		anchored = FALSE
 		MA.pixel_y = 0
 		update_icon()
 
@@ -521,7 +559,7 @@
 	base_icon = "hover"
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
-	patient_shift = 6
+	has_iv_light = FALSE
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
@@ -554,10 +592,12 @@
 /obj/item/roller/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(isturf(target))
-		var/turf/T = target
+	var/turf/T = target
+	if(is_type_in_list(target, list(/obj/effect, /obj/structure/lattice)))
+		T = get_turf(target)
+	if(istype(T))
 		if(!T.density)
-			deploy_roller(user, target)
+			deploy_roller(user, T)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/roller_holder))

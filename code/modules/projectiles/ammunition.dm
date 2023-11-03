@@ -16,7 +16,7 @@
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-	drop_sound = /decl/sound_category/casing_drop_sound
+	drop_sound = /singleton/sound_category/casing_drop_sound
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
@@ -28,6 +28,10 @@
 		expend() // allows spawning spent casings by nulling projectile_type
 	randpixel_xy()
 	transform = turn(transform,rand(0,360))
+
+/obj/item/ammo_casing/Destroy()
+	QDEL_NULL(BB)
+	. = ..()
 
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
@@ -75,7 +79,7 @@
 		icon_state = spent_icon
 
 /obj/item/ammo_casing/examine(mob/user)
-	..()
+	. = ..()
 	if (!BB)
 		to_chat(user, "This one is spent.")
 
@@ -112,7 +116,7 @@
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
-	var/insert_sound = /decl/sound_category/metal_slide_reload //sound it plays when it gets inserted into a gun.
+	var/insert_sound = /singleton/sound_category/metal_slide_reload //sound it plays when it gets inserted into a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
 /obj/item/ammo_magazine/Initialize()
@@ -127,6 +131,10 @@
 		for(var/i in 1 to initial_ammo)
 			stored_ammo += new ammo_type(src)
 	update_icon()
+
+/obj/item/ammo_magazine/Destroy()
+	QDEL_NULL_LIST(stored_ammo)
+	. = ..()
 
 /obj/item/ammo_magazine/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/ammo_casing))
@@ -153,7 +161,7 @@
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
-		playsound(C, /decl/sound_category/casing_drop_sound, 50, FALSE)
+		playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)
 		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()
@@ -174,7 +182,7 @@
 		recyclable = FALSE
 
 /obj/item/ammo_magazine/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
 
 //magazine icon state caching (caching lists are in SSicon_cache)

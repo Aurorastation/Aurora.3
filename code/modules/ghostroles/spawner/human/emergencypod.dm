@@ -59,7 +59,7 @@
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	else if(t == "fib")
 		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee."
-		outfit = /datum/outfit/admin/pod/fib
+		outfit = /datum/outfit/admin/pod/bssb
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 	else
@@ -105,7 +105,7 @@
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
-	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason 
+	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason
 	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
 	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
 
@@ -134,7 +134,7 @@
 	name = "RescuePod - Priest"
 
 	uniform = /obj/item/clothing/under/rank/chaplain
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 
 	backpack_contents = list(
@@ -264,7 +264,7 @@
 	back = /obj/item/rig/retro // has an oxygen tank built in
 	belt = /obj/item/storage/belt/security/tactical
 	gloves = /obj/item/clothing/gloves/swat/ert
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	id = /obj/item/card/id/distress/legion
 	uniform = /obj/item/clothing/under/legion
 	accessory = /obj/item/clothing/accessory/holster/thigh
@@ -291,7 +291,7 @@
 	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/helmet/space/void/sol
 	suit = /obj/item/clothing/suit/space/void/sol
 	suit_store = /obj/item/tank/oxygen
@@ -321,11 +321,10 @@
 	name = "RescuePod - SCC"
 
 	uniform = /obj/item/clothing/under/rank/scc
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_hand =  /obj/item/storage/briefcase
-	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/holster/hip/
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
@@ -342,20 +341,20 @@
 /datum/outfit/admin/pod/scc/get_id_rank()
 	return "Stellar Corporate Conglomerate Functionary"
 
-/datum/outfit/admin/pod/fib
-	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
+/datum/outfit/admin/pod/bssb
+	name = "RescuePod - BSSB" // Doctor Pavel, I'm FIB.
 
-	uniform = /obj/item/clothing/under/rank/fib
+	uniform = /obj/item/clothing/under/rank/bssb
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/black
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	glasses = /obj/item/clothing/glasses/sunglasses
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-    	/obj/item/device/camera = 1,
-		/obj/item/clothing/suit/storage/toggle/fib = 1,
+		/obj/item/device/camera = 1,
+		/obj/item/clothing/suit/storage/toggle/bssb = 1,
 		/obj/item/handcuffs = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1,
@@ -364,10 +363,10 @@
 
 
 
-/datum/outfit/admin/pod/fib/get_id_assignment()
+/datum/outfit/admin/pod/bssb/get_id_assignment()
 	return "Federal Investigation Bureau Agent"
 
-/datum/outfit/admin/pod/fib/get_id_rank()
+/datum/outfit/admin/pod/bssb/get_id_rank()
 	return "Federal Investigation Bureau Agent"
 
 
@@ -393,8 +392,8 @@
 	belt = null
 
 	shoes = list(
-		/obj/item/clothing/shoes/laceup/all_species,
-		/obj/item/clothing/shoes/laceup/brown/all_species
+		/obj/item/clothing/shoes/laceup,
+		/obj/item/clothing/shoes/laceup/brown
 	)
 
 	glasses = list(

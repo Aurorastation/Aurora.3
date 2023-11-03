@@ -105,6 +105,18 @@ Pins Below.
 	else
 		return 0
 
+// Psionics pin, checks for psionics (psi aug not included)
+/obj/item/device/firing_pin/psionic
+	name = "psionics firing pin"
+	desc = "This is a psionics-locked firing pin which only authorizes users who are capable of psionics."
+	fail_message = "<span class='warning'>PSIONICS CHECK FAILED.</span>"
+
+/obj/item/device/firing_pin/psionic/pin_auth(mob/living/user)
+	if(user.has_psionics())
+		return 1
+	else
+		return 0
+
 // Implant pin, checks for implant
 /obj/item/device/firing_pin/implant
 	name = "implant-keyed firing pin"
@@ -217,8 +229,8 @@ Pins Below.
 
 /obj/item/device/firing_pin/away_site
 	name = "away site firing pin"
-	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-station."
-	fail_message = "<span class='warning'>USER ON STATION LEVEL.</span>"
+	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-ship."
+	fail_message = "<span class='warning'>USER ON SHIP LEVEL.</span>"
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)

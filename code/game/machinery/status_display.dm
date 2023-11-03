@@ -17,6 +17,7 @@
 	anchored = 1
 	density = 0
 	idle_power_usage = 10
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hears_arrivals = FALSE
 	var/mode = 1	// 0 = Blank
 					// 1 = Shuttle timer
@@ -136,7 +137,7 @@
 	return 0
 
 /obj/machinery/status_display/examine(mob/user)
-	. = ..(user)
+	. = ..()
 	if(mode != STATUS_DISPLAY_BLANK && mode != STATUS_DISPLAY_ALERT)
 		to_chat(user, "The display says:<br>\t[sanitize(message1)]<br>\t[sanitize(message2)]")
 

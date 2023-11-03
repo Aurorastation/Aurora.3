@@ -28,6 +28,9 @@
 /proc/Floor(x)
 	return round(x)
 
+/// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
+#define Ceil(value) ( -round(-(value)) )
+
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
@@ -112,13 +115,10 @@
 	if(discriminant != 0)
 		. += (-b - root) / bottom
 
-/proc/ToDegrees(radians)
-	// 180 / Pi ~ 57.2957795
-	return radians * 57.2957795
-
-/proc/ToRadians(degrees)
-	// Pi / 180 ~ 0.0174532925
-	return degrees * 0.0174532925
+/// 180 / Pi ~ 57.2957795
+#define TO_DEGREES(radians) ((radians) * 57.2957795)
+/// Pi / 180 ~ 0.0174532925
+#define TO_RADIANS(degrees) ((degrees) * 0.0174532925)
 
 // Vector algebra.
 /proc/squaredNorm(x, y)
@@ -171,3 +171,73 @@
 
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
+
+/// Value or the nearest multiple of divisor in either direction
+#define Roundm(value, divisor) round((value), (divisor))
+
+/// A random real number between low and high inclusive
+#define Frand(low, high) ( rand() * ((high) - (low)) + (low) )
+
+
+/**
+ * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
+ *
+ * Uses the ultra-fast [Bresenham Line-Drawing Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
+ */
+/proc/get_line(atom/starting_atom, atom/ending_atom)
+	var/current_x_step = starting_atom.x // start at X and Y, then add 1 or -1 to these to get every turf from start to end
+	var/current_y_step = starting_atom.y
+	var/starting_z = starting_atom.z
+
+	var/list/line = list(get_turf(starting_atom))
+
+	var/x_distance = ending_atom.x - current_x_step
+	var/y_distance = ending_atom.y - current_y_step
+
+	var/abs_x_distance = abs(x_distance)
+	var/abs_y_distance = abs(y_distance)
+
+	var/x_distance_sign = SIGN(x_distance)
+	var/y_distance_sign = SIGN(y_distance)
+
+	var/x = abs_x_distance >> 1
+	var/y = abs_y_distance >> 1
+
+	if (abs_x_distance >= abs_y_distance)
+		for (var/distance_counter in 0 to (abs_x_distance - 1))
+			y += abs_y_distance
+
+			if(y >= abs_x_distance) // Every abs_y_distance steps, step once in y direction
+				y -= abs_x_distance
+				current_y_step += y_distance_sign
+
+			current_x_step += x_distance_sign // Step in x direction
+			line += locate(current_x_step, current_y_step, starting_z)
+	else
+		for (var/distance_counter in 0 to (abs_y_distance - 1))
+			x += abs_x_distance
+
+			if(x >= abs_y_distance)
+				x -= abs_y_distance
+				current_x_step += x_distance_sign
+
+			current_y_step += y_distance_sign
+			line += locate(current_x_step, current_y_step, starting_z)
+
+	return line
+
+
+/// Returns the distance between two points
+#define DIST_BETWEEN_TWO_POINTS(ax, ay, bx, by) (sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay)))
+
+/**
+ * Returns bearing of object relative to observer (0-360)
+ * a is the observer, b is the other object
+ *
+ * observer_x - Observer's X coordinate
+ * observer_y - Observer's Y coordinate
+ * target_x - Target's X coordinate
+ * target_y - Target's Y coordinate
+ */
+#define BEARING_RELATIVE(observer_x, observer_y, target_x, target_y) (90 - Atan2(target_x - observer_x, target_y - observer_y))
+

@@ -4,9 +4,7 @@
 	if (MC_TICK_CHECK) return;		\
 	continue;
 
-/var/datum/controller/subsystem/falling/SSfalling
-
-/datum/controller/subsystem/falling
+SUBSYSTEM_DEF(falling)
 	name = "Falling"
 	flags = SS_NO_INIT
 	wait = 1
@@ -14,11 +12,9 @@
 	var/list/falling = list()
 	var/list/currentrun
 
-/datum/controller/subsystem/falling/New()
-	NEW_SS_GLOBAL(SSfalling)
-
-/datum/controller/subsystem/falling/stat_entry()
-	..("F:[falling.len]")
+/datum/controller/subsystem/falling/stat_entry(msg)
+	msg = "F:[falling.len]"
+	return ..()
 
 /datum/controller/subsystem/falling/fire(resumed = 0)
 	if (!resumed)
@@ -79,6 +75,7 @@
 		// its new destination this cycle. Immediately invokes fall_impact and
 		// fall_collateral if the next turf is not open space.
 		if (isopenturf(victim.loc) && victim.loc:is_hole)
+			victim.begin_falling(victim.loc, below)
 			victim.forceMove(below)
 			if(victim.pulledby && victim.pulledby.z != victim.z)
 				var/mob/M = victim.pulledby

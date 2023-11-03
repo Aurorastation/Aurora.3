@@ -5,6 +5,7 @@
 
 /obj/item/paper
 	name = "paper"
+	desc = "A piece of paper."
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
@@ -44,18 +45,22 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_change_icon_state = TRUE
+	var/set_unsafe_on_init = FALSE
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
 	if (text || title)
-		set_content(title, text ? text : info)
+		if(set_unsafe_on_init)
+			set_content_unsafe(title, text ? text : info)
+		else
+			set_content(title, text ? text : info)
 	else
 		updateinfolinks()
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 
 /obj/item/paper/proc/set_content(title, text)
 	if(title)
@@ -94,19 +99,20 @@
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
-/obj/item/paper/examine(mob/user)
+/obj/item/paper/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
-	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
+	if(distance <= 1)
 		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
 	paper_win.set_content(get_content(user, can_read(user, forceshow)))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
@@ -198,7 +204,7 @@
 		update_icon()
 		return
 
-	user.examinate(src)
+	examinate(user, src)
 	if(rigged && (Holiday == "April Fool's Day"))
 		if(last_honk <= world.time - 20) //Spam limiter.
 			last_honk = world.time
@@ -212,22 +218,22 @@
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
 			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
-		M.examinate(src)
+		examinate(M, src)
 
 	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
 				to_chat(user, SPAN_NOTICE("You wipe off the lipstick with [src]."))
-				H.lip_style = null
+				H.lipstick_color = null
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-								 	 SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
-				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
+										SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
+				if(do_after(user, 1 SECOND, H, do_flags = (DO_DEFAULT | DO_USER_UNIQUE_ACT) & ~DO_BOTH_CAN_TURN))
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
-										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
-					H.lip_style = null
+											SPAN_NOTICE("You wipe off [H]'s lipstick."))
+					H.lipstick_color = null
 					H.update_body()
 
 /obj/item/paper/proc/addtofield(var/id, var/text, var/links = 0)
@@ -317,15 +323,22 @@
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
 		t = replacetext(t, "\[logo_scc\]", "")
+		t = replacetext(t, "\[logo_scc_small\]", "")
 		t = replacetext(t, "\[logo_nt\]", "")
 		t = replacetext(t, "\[logo_nt_small\]", "")
 		t = replacetext(t, "\[logo_zh\]", "")
+		t = replacetext(t, "\[logo_zh_small\]", "")
 		t = replacetext(t, "\[logo_idris\]", "")
+		t = replacetext(t, "\[logo_idris_small\]", "")
 		t = replacetext(t, "\[logo_eridani\]", "")
-		t = replacetext(t, "\[logo_zavodskoi\]", "")
+		t = replacetext(t, "\[logo_eridani_small\]", "")
+		t = replacetext(t, "\[logo_zavod\]", "")
+		t = replacetext(t, "\[logo_zavod_small\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
+		t = replacetext(t, "\[logo_hp_small\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 		t = replacetext(t, "\[logo_golden\]", "")
+		t = replacetext(t, "\[barcode\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -362,7 +375,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, .proc/burnpaper_callback, P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))
@@ -659,30 +672,29 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
-\[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"})
+	var/T = parsepencode({"\[center\]\[logo_scc\]\[/center\]
+		\[center\]\[b\]\[i\]Encoded SCC Security Incident Report\[/b\]\[/i\]\[hr\]
+		\[small\]FOR USE BY <b>SCCV HORIZON</b> SECURITY ONLY\[/small\]\[br\]
+		\[barcode\]\[/center\]"})
 	info = T
 
 	..()
 
 /obj/item/paper/sentencing
-	name = "Criminal Sentencing and You"
+	name = "Sentencing and You"
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
-\[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
-\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
-\[br\]
-While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
-Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
-After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
-Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
-\[hr\]
-Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	var/T = parsepencode(
+		{"\[center\]\[logo_scc_small\]\[/center\]
+		\[center\]\[b\]\[i\]Operation of Sentencing Consoles\[/b\]\[/i\]\[hr\]
+		\[small\]In compliance with SCC criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing consoles. The operation of these consoles, or computers, is quite simple:
+		While preparing a convicted individual, remove their ID and have the console scan it.\[br\]
+		Next, select all applicable charges from the menu available. The console will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
+		After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
+		Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
+		\[hr\]Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form report inserted into them."}
+	)
 	info = T
 
 	..()
@@ -696,6 +708,13 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/medscan
 	icon_state = "medscan"
+	color = "#eeffe8"
+	set_unsafe_on_init = TRUE
+	var/datum/weakref/scan_target
+
+/obj/item/paper/medscan/Initialize(mapload, text, title, var/atom/set_scan_target)
+	. = ..()
+	scan_target = WEAKREF(set_scan_target)
 
 //
 // Fluff Papers
@@ -710,6 +729,29 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 // Used in the deck 3 cafe on the SCCV Horizon.
 /obj/item/paper/fluff/microwave
 	name = "\improper RE: Where are our microwaves?"
-	desc = null
-	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal Affairs</i></font></font>"
-	info_links = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal Affairs</i></font></font>"
+	desc = "A paper."
+	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
+		<BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer \
+		Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
+		<BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal \
+		Affairs</i></font></font>"
+
+// Used in the bunker on the SCCV Horizon.
+/obj/item/paper/fluff/bunker
+	name = "bunker evacuation route instructions"
+	desc = "A paper. It has evacuation route instructions printed on it."
+	info = "<font face=\"Verdana\"><center>SCCV Horizon Command Bunker<br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
+		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
+		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
+		equipment, if necessary.</li></ol></font></font>"
+
+// Used on the IAC ship, meant for distribution.
+/obj/item/paper/fluff/iac
+	name = "interstellar aid corps info pamphlet"
+	desc = "A paper. It has an IAC logo stamped right on front of it."
+	info = "<font face=\"Verdana\"><center><b>The Interstellar Aid Corps Needs YOUR Help!</b></center><br>With the crisis in the Wildlands still affecting billions \
+	of people, now more than ever the IAC needs your help to provide relief to those worst affected by Phoron shortages, Warlord attacks, and even a lack of \
+	basic necessities, such as food and water.<br>The IAC and its personnel have been able to provide relief to hundreds of colonies, but this can only happen \
+	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
+	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
+	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"

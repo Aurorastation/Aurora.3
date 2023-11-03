@@ -6,13 +6,13 @@
 	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
@@ -47,13 +47,13 @@
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_SHIELDED,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 3
@@ -124,7 +124,7 @@
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
+		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
@@ -169,18 +169,19 @@
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
-	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
+	desc = "A favorite of the Frontier Rangers, the Gunslinger suit is a Xanan-designed hardsuit meant to provide the user absolute situational awareness, while remaining sturdy under fire."
 	icon = 'icons/clothing/rig/gunslinger.dmi'
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
+	icon_supported_species_tags = list("ipc", "skr", "taj")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
@@ -190,7 +191,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
 /obj/item/rig/gunslinger/equipped
 	req_access = list(access_syndicate)
@@ -223,13 +224,13 @@
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
@@ -292,12 +293,12 @@
 	suit_type = "elyran battlesuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
 	offline_slowdown = 2
@@ -376,15 +377,16 @@
 /obj/item/rig/jinxiang
 	name = "jinxiang-pattern combat suit control module"
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
-	icon = 'icons/clothing/rig/jinxiang.dmi'
-	icon_state = "jinxiang"
+	icon = 'icons/clothing/rig/dominia.dmi'
+	icon_state = "dominia"
+	icon_supported_species_tags = list("una")
 	suit_type = "jinxiang combat suit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
@@ -395,7 +397,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
@@ -419,3 +421,57 @@
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
+
+/obj/item/rig/nanotrasen
+	name = "\improper NanoTrasen military-grade hardsuit control module"
+	desc = "A sleek and dangerous hardsuit, used by NanoTrasen's navy and emergency response teams."
+	suit_type = "\improper NanoTrasen military-grade hardsuit"
+	icon = 'icons/clothing/rig/nt_ert/commander.dmi'
+	icon_state = "ert_commander_rig"
+	icon_supported_species_tags = list("skr")
+	species_restricted = list(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	siemens_coefficient = 0.1
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen
+
+	slowdown = 1
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+/obj/item/clothing/head/helmet/space/rig/nanotrasen
+	light_overlay = "helmet_light_dual"
+
+/obj/item/rig/nanotrasen/nexus
+	name = "\improper Nexus RTRT hardsuit control module"
+	desc = "A variant of NanoTrasen's military-grade hardsuit, designed for usage by Nexus Corporate Security's rapid trauma response teams."
+	suit_type = "\improper Nexus RTRT hardsuit"
+	icon = 'icons/clothing/rig/nt_ert/medical.dmi'
+	icon_state = "ert_medical_rig"
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen/nexus
+
+/obj/item/clothing/head/helmet/space/rig/nanotrasen/nexus
+	light_overlay = "helmet_light_dual"
+
+/obj/item/rig/nanotrasen/corporate_auxiliary
+	name = "\improper NanoTrasen corporate auxiliary hardsuit control module"
+	desc = "A variant of NanoTrasen's military-grade hardsuit, designed for usage by NanoTrasen's contributions to the Republic of Biesel's corporate auxiliary forces."
+	suit_type = "\improper NanoTrasen corporate auxiliary hardsuit"
+	icon = 'icons/clothing/rig/nt_ert/corporate_auxiliary.dmi'
+	icon_state = "corporate_auxiliary_rig"
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
+
+/obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
+	light_overlay = "helmet_light_dual"

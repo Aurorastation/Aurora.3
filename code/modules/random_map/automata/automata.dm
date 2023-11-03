@@ -1,7 +1,5 @@
-#define CELL_ALIVE(VAL) (VAL == cell_live_value)
 #define KILL_CELL(CELL, NEXT_MAP) NEXT_MAP[CELL] = cell_dead_value;
 #define REVIVE_CELL(CELL, NEXT_MAP) NEXT_MAP[CELL] = cell_live_value;
-
 /datum/random_map/automata
 	descriptor = "generic caves"
 	initial_wall_cell = 55
@@ -9,6 +7,8 @@
 	var/cell_live_value = WALL_CHAR  // Cell is alive if it has this value.
 	var/cell_dead_value = FLOOR_CHAR // As above for death.
 	var/cell_threshold = 5           // Cell becomes alive with this many live neighbors.
+
+	var/datum/exoplanet_theme/planet_theme // Theme used for exoplanet automata
 
 // Automata-specific procs and processing.
 /datum/random_map/automata/generate_map()

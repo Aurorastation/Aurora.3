@@ -33,12 +33,10 @@
 	. = ..()
 	cloaking_devices -= src
 
-
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()
 	//Picked up or switched hands or worn
 	register_owner(user)
-
 
 //Handles dropped or thrown cloakers
 /obj/item/cloaking_device/dropped(var/mob/user)
@@ -99,7 +97,6 @@
 		cell.emp_act(severity)
 	..()
 
-
 /obj/item/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)
 		stop_modifier()
@@ -107,7 +104,6 @@
 
 	if (!modifier)
 		start_modifier()
-
 
 /obj/item/cloaking_device/proc/start_modifier()
 	if (!owner)
@@ -120,7 +116,6 @@
 	if (modifier)
 		modifier.stop(1)
 		modifier = null
-
 
 /obj/item/cloaking_device/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/cell))
@@ -142,9 +137,8 @@
 			return
 	..()
 
-
 /obj/item/cloaking_device/examine(mob/user)
-	..()
+	. = ..()
 	if (!cell)
 		to_chat(user, "It needs a power cell to function.")
 	else
@@ -158,6 +152,13 @@
 		owner = null
 		start_modifier()
 
+/mob/proc/disable_cloaking_device()
+	for(var/datum/modifier/cloaking_device/mod in modifiers)
+		if(istype(mod))
+			var/obj/item/cloaking_device/CD = locate(/obj/item/cloaking_device, src)
+			if(CD)
+				CD.deactivate()
+
 /*
 	Modifier
 */
@@ -165,9 +166,8 @@
 	..()
 	var/mob/living/L = target
 	L.cloaked = 1
-	L.mouse_opacity = 0
+	L.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	L.update_icon()
-
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
@@ -179,9 +179,8 @@
 					return
 	var/mob/living/L = target
 	L.cloaked = 0
-	L.mouse_opacity = 1
+	L.mouse_opacity = MOUSE_OPACITY_ICON
 	L.update_icon()
-
 
 /datum/modifier/cloaking_device/check_validity()
 	.=..()

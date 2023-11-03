@@ -16,6 +16,7 @@
 	aspect = ASPECT_BIOMED
 
 /obj/item/spell/resurrect/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
+	. = ..()
 	if(isliving(hit_atom))
 		var/mob/living/L = hit_atom
 		if(L == user)
@@ -44,15 +45,12 @@
 							to_chat(ghost, "The Technomancer [user.real_name] is trying to revive you. Re-enter your body if you want to be revived!")
 							break
 
-				H.adjustBruteLoss(-40)
-				H.adjustFireLoss(-40)
 
 				sleep(10 SECONDS)
 				if(H.client)
-					L.stat = CONSCIOUS //Note that if whatever killed them in the first place wasn't fixed, they're likely to die again.
-					dead_mob_list -= H
-					living_mob_list += H
-					H.timeofdeath = null
+					H.adjustBruteLoss(-40)
+					H.adjustFireLoss(-40)
+					L.basic_revival() //Restores your boy's brain to half health and makes them conscious. Doesn't touch anything internal: they'll immediately have a heart attack, good luck!
 					visible_message("<span class='danger'>\The [H]'s eyes open!</span>")
 					to_chat(user, "<span class='notice'>It's alive!</span>")
 					adjust_instability(50)

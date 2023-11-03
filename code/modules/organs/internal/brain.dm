@@ -33,7 +33,7 @@
 	else
 		set_max_damage(200)
 	if(!mapload)
-		addtimer(CALLBACK(src, .proc/clear_screen), 5)
+		addtimer(CALLBACK(src, PROC_REF(clear_screen)), 5)
 
 /obj/item/organ/internal/brain/Destroy()
 	if(brainmob)
@@ -208,7 +208,7 @@
 	callHook("debrain", list(brainmob))
 
 /obj/item/organ/internal/brain/examine(mob/user) // -- TLE
-	..(user)
+	. = ..()
 	if(brainmob && brainmob.client)//if thar be a brain inside... the brain.
 		to_chat(user, "You can feel the small spark of life still left in this one.")
 	else

@@ -12,7 +12,33 @@
 		message_admins("[key_name(src)] toggled debugging on.")
 		log_admin("[key_name(src)] toggled debugging on.",admin_key=key_name(usr))
 
+	switch(alert("Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", "No", "Yes"))
+		if("Yes")
+			config.all_logs_to_chat = 1
+		else
+			config.all_logs_to_chat = 0
+
 	feedback_add_details("admin_verb","DG2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/DebugToggle()
+	set category = "Debug"
+	set name = "Debugs Toggle"
+	if(!check_rights(R_DEBUG|R_DEV))	return
+
+	var/target = input(usr, "Select which log to toggle", "Debugs Toggle", null) in sortAssoc(config.logsettings)
+	if(target)
+		config.logsettings[target] = !config.logsettings[target]
+		to_chat(usr, "The log category [target] is now [config.logsettings[target]]")
+
+/client/proc/DebugToggleAll()
+	set category = "Debug"
+	set name = "Debugs Toggle ALL"
+	if(!check_rights(R_DEBUG|R_DEV))	return
+
+	switch(alert("Do you want to turn on ALL LOGS?.", "All logs to ON?", "No", "Yes"))
+		if("Yes")
+			for(var/k in config.logsettings)
+				config.logsettings[k] = TRUE
 
 // callproc moved to code/modules/admin/callproc
 
@@ -22,9 +48,9 @@
 	set name = "Cell"
 	if(!mob)
 		return
-	var/turf/T = mob.loc
+	var/turf/T = get_turf(mob)
 
-	if (!( istype(T, /turf) ))
+	if (!istype(T))
 		return
 
 	var/datum/gas_mixture/env = T.return_air()
@@ -307,6 +333,7 @@
 		if("Cancel")
 			return
 		if("ERT")
+			outfit_catagories["SCC-ERT"] = typesof(/datum/outfit/admin/ert/scc)
 			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
 			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
@@ -362,57 +389,6 @@
 	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [chosen_outfit].",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit].</span>", 1)
 	return
-
-/client/proc/startSinglo()
-
-	set category = "Debug"
-	set name = "Start Singularity"
-	set desc = "Sets up the singularity and all machines to get power flowing through the station"
-
-	if(alert("Are you sure? This will start up the engine. Should only be used during debug!",,"Yes","No") != "Yes")
-		return
-
-	for(var/obj/machinery/power/emitter/E in world)
-		if(E.anchored)
-			E.active = 1
-
-	for(var/obj/machinery/field_generator/F in world)
-		if(F.anchored)
-			F.Varedit_start = 1
-	spawn(30)
-		for(var/obj/machinery/the_singularitygen/G in world)
-			if(G.anchored)
-				var/obj/singularity/S = new /obj/singularity(get_turf(G), 50)
-				spawn(0)
-					qdel(G)
-				S.energy = 1750
-				S.current_size = 7
-				S.icon = 'icons/effects/224x224.dmi'
-				S.icon_state = "singularity_s7"
-				S.pixel_x = -96
-				S.pixel_y = -96
-				S.grav_pull = 0
-				//S.consume_range = 3
-				S.dissipate = 0
-				//S.dissipate_delay = 10
-				//S.dissipate_track = 0
-				//S.dissipate_strength = 10
-
-	for(var/obj/machinery/power/rad_collector/Rad in world)
-		if(Rad.anchored)
-			if(!Rad.P)
-				var/obj/item/tank/phoron/Phoron = new/obj/item/tank/phoron(Rad)
-				Phoron.air_contents.gas[GAS_PHORON] = 70
-				Rad.drainratio = 0
-				Rad.P = Phoron
-				Phoron.forceMove(Rad)
-
-			if(!Rad.active)
-				Rad.toggle_power()
-
-	for(var/obj/machinery/power/smes/SMES in world)
-		if(SMES.anchored)
-			SMES.input_attempt = 1
 
 /client/proc/cmd_debug_mob_lists()
 	set category = "Debug"
@@ -476,3 +452,18 @@
 	set desc = "Displays a list of things that didn't handle Initialize() properly"
 
 	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
+
+/client/proc/reload_nanoui_resources()
+	set category = "Debug"
+	set name = "Reload NanoUI Resources"
+	set desc = "Force the client to redownload NanoUI Resources"
+
+	// Close open NanoUIs.
+	SSnanoui.close_user_uis(usr)
+
+	// Re-load the assets.
+	var/datum/asset/assets = get_asset_datum(/datum/asset/nanoui)
+	assets.register()
+
+	// Clear the user's cache so they get resent.
+	usr.client.sent_assets = list()

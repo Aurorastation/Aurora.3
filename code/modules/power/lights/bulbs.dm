@@ -4,7 +4,7 @@
 // will fit into empty /obj/machinery/light of the corresponding type
 
 /obj/item/light
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	force = 2
 	throwforce = 5
 	w_class = ITEMSIZE_TINY
@@ -39,20 +39,20 @@
 	cut_overlays()
 	switch(status)
 		if(LIGHT_OK)
-			icon_state = "l[lighttype]_attachment"
-			var/image/I = image(icon, "l[lighttype]")
+			icon_state = "[lighttype]_attachment"
+			var/image/I = image(icon, "[lighttype]")
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A replacement [name]."
 		if(LIGHT_BURNED)
-			icon_state = "l[lighttype]_attachment"
-			var/image/I = image(icon, "l[lighttype]_burned")
+			icon_state = "[lighttype]_attachment"
+			var/image/I = image(icon, "[lighttype]_burned")
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A burnt-out [name]."
 		if(LIGHT_BROKEN)
-			icon_state = "l[lighttype]_attachment_broken"
-			var/image/I = image(icon, "l[lighttype]_broken")
+			icon_state = "[lighttype]_attachment_broken"
+			var/image/I = image(icon, "[lighttype]_broken")
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A broken [name]."
@@ -66,7 +66,7 @@
 
 		to_chat(user, SPAN_NOTICE("You inject the solution into \the [src]."))
 
-		if(S.reagents.has_reagent(/decl/reagent/toxin/phoron, 5))
+		if(S.reagents.has_reagent(/singleton/reagent/toxin/phoron, 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
@@ -108,7 +108,7 @@
 	matter = list(MATERIAL_GLASS = 100)
 	brightness_range = 8
 	brightness_power = 0.4
-	lighttype = "tube"
+	lighttype = "ltube"
 
 /obj/item/light/tube/colored
 	randomize_color = FALSE
@@ -140,9 +140,12 @@
 /obj/item/light/tube/large
 	w_class = ITEMSIZE_SMALL
 	name = "large light tube"
+	desc = "A replacement large light tube."
+	icon_state = "lstube_preset"
 	brightness_range = 15
 	brightness_power = 0.75
 	randomize_range = FALSE
+	lighttype = "lstube"
 
 /obj/item/light/bulb
 	name = "light bulb"
@@ -153,7 +156,7 @@
 	brightness_range = 5
 	brightness_power = 0.4
 	brightness_color = LIGHT_COLOR_TUNGSTEN
-	lighttype = "bulb"
+	lighttype = "lbulb"
 
 /obj/item/light/bulb/colored
 	randomize_color = FALSE
@@ -182,17 +185,10 @@
 	name = "cyan light bulb"
 	brightness_color = LIGHT_COLOR_CYAN
 
+/obj/item/light/bulb/colored/decayed
+	name = "decayed light bulb"
+	brightness_color = LIGHT_COLOR_DECAYED
+
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
-
-/obj/item/light/bulb/fire
-	name = "fire bulb"
-	desc = "A replacement fire bulb."
-	icon_state = "flight"
-	item_state = "egg_red"
-	matter = list(MATERIAL_GLASS = 100)
-	brightness_range = 8
-	brightness_power = 0.45
-	randomize_range = FALSE
-	randomize_color = FALSE

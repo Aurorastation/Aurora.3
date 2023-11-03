@@ -68,13 +68,13 @@ This is /obj/machinery level code to properly manage power usage from the area.
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	internal = is_internal
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
-	moved_event.register(src, src, .proc/update_power_on_move)
+	moved_event.register(src, src, PROC_REF(update_power_on_move))
 	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
 /obj/machinery/Destroy()
-	moved_event.unregister(src, src, .proc/update_power_on_move)
+	moved_event.unregister(src, src, PROC_REF(update_power_on_move))
 	REPORT_POWER_CONSUMPTION_CHANGE(get_power_usage(), 0)
 	. = ..()
 

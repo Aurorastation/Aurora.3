@@ -23,7 +23,7 @@
 /obj/screen/text
 	icon = null
 	icon_state = null
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen_loc = "CENTER-7,CENTER-7"
 	maptext_height = 480
 	maptext_width = 480
@@ -65,7 +65,7 @@
 	var/old_color = color
 	color = set_color
 	color_changed = TRUE
-	addtimer(CALLBACK(src, .proc/set_color_to, old_color), set_time)
+	addtimer(CALLBACK(src, PROC_REF(set_color_to), old_color), set_time)
 
 /obj/screen/inventory/proc/set_color_to(var/set_color)
 	color = set_color
@@ -135,6 +135,24 @@
 			usr.ClickOn(master)
 	return TRUE
 
+/obj/screen/storage/background
+	name = "background storage"
+	layer = SCREEN_LAYER+0.01
+
+/obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
+	. = ..()
+	master = set_master
+	if(master)
+		name = master.name
+	icon_state = set_icon_state
+
+/obj/screen/storage/background/Click()
+	if(usr.incapacitated())
+		return TRUE
+	if(master)
+		usr.ClickOn(master)
+	return TRUE
+
 /obj/screen/zone_sel
 	name = "damage zone"
 	icon_state = "zone_sel"
@@ -184,7 +202,7 @@
 
 /obj/effect/overlay/zone_sel
 	icon = 'icons/mob/zone_sel.dmi'
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
 	layer = SCREEN_LAYER + 0.1
@@ -244,6 +262,7 @@
 	if(choice != selecting)
 		selecting = choice
 		update_icon()
+		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /obj/screen/zone_sel/update_icon()
 	cut_overlays()
@@ -317,7 +336,7 @@
 					up_image.plane = LIGHTING_LAYER + 1
 					up_image.layer = LIGHTING_LAYER + 1
 					usr << up_image
-					addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, up_image), 12)
+					QDEL_IN(up_image, 12)
 				return
 			var/turf/T = GetAbove(usr)
 			if (!T)
@@ -427,7 +446,8 @@
 
 	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
 		if (user.stamina_bar)
-			QDEL_NULL(user.stamina_bar)
+			user.stamina_bar.endProgress()
+			user.stamina_bar = null
 	else
 		if (!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
@@ -436,8 +456,12 @@
 
 	if (user.m_intent == M_RUN)
 		icon_state = "running"
+	else if (user.m_intent == M_LAY)
+		icon_state = "lying"
 	else
 		icon_state = "walking"
+
+#define BLACKLIST_SPECIES_RUNNING list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
 /obj/screen/movement_intent/Click(location, control, params)
 	if(!usr)
@@ -459,7 +483,29 @@
 			if(M_RUN)
 				usr.m_intent = M_WALK
 			if(M_WALK)
-				usr.m_intent = M_RUN
+				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
+					usr.m_intent = M_RUN
+
+			if(M_LAY)
+
+				// No funny "haha i get the bonuses then stand up"
+				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
+				if(gun_in_hand?.wielded)
+					to_chat(C, SPAN_WARNING("You cannot wield and stand up!"))
+					return
+
+				if(C.lying_is_intentional)
+					usr.m_intent = M_WALK
+
+		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
+
+			// You want this bonus weapon or not? Wield it when you are lying, not before!
+			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
+			if(gun_in_hand?.wielded)
+				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
+				return
+			C.m_intent = M_LAY
+
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr
 		switch(usr.m_intent)
@@ -469,6 +515,8 @@
 				usr.m_intent = M_RUN
 		M.update_speed()
 	update_move_icon(usr)
+
+#undef BLACKLIST_SPECIES_RUNNING
 
 // Hand slots are special to handle the handcuffs overlay
 /obj/screen/inventory/hand

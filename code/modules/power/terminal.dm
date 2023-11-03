@@ -17,7 +17,7 @@
 /obj/machinery/power/terminal/Initialize()
 	. = ..()
 	var/turf/T = src.loc
-	if(level == 1) 
+	if(level == 1)
 		hide(!T.is_plating())
 	return
 
@@ -28,5 +28,5 @@
 	return ..()
 
 /obj/machinery/power/terminal/hide(var/i)
-	invisibility = i ? 101 : initial(invisibility)
+	set_invisibility(i ? 101 : initial(invisibility))
 	icon_state = i ? "term-f" : "term"

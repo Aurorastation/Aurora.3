@@ -1,7 +1,7 @@
 /obj/machinery/power/radial_floodlight
 	name = "radial floodlight"
 	desc = "A floodlight that illuminates a wide area around it. It has to be wrenched down on top of a knot to work."
-	icon = 'icons/obj/machines/floodlight.dmi'
+	icon = 'icons/obj/machinery/floodlight.dmi'
 	icon_state = "radial_floodlight"
 	anchored = FALSE
 	density = TRUE

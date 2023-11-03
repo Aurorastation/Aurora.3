@@ -1,4 +1,3 @@
-#define EMITTER_DAMAGE_POWER_TRANSFER 450 //used to transfer power to containment field generators
 #define EMITTER_LOOSE 0
 #define EMITTER_BOLTED 1
 #define EMITTER_WELDED 2
@@ -6,7 +5,7 @@
 /obj/machinery/power/emitter
 	name = "emitter"
 	desc = "It is a heavy duty industrial laser."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'icons/obj/emitter.dmi'
 	icon_state = "emitter"
 	anchored = FALSE
 	density = TRUE
@@ -36,8 +35,8 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/examine(mob/user)
-	..()
+/obj/machinery/power/emitter/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	switch(state)
 		if(EMITTER_LOOSE)
 			to_chat(user, SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire."))
@@ -45,7 +44,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire."))
 		if(EMITTER_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
-	if(Adjacent(user))
+	if(is_adjacent)
 		to_chat(user, SPAN_NOTICE("The shot counter display reads: [shot_counter]"))
 
 /obj/machinery/power/emitter/Destroy()
@@ -140,11 +139,11 @@
 			return
 
 		last_shot = world.time
-		if(shot_number < burst_shots)
-			fire_delay = 2
+		if (shot_number < burst_shots)
+			fire_delay = get_burst_delay()
 			shot_number++
 		else
-			fire_delay = rand(min_burst_delay, max_burst_delay)
+			fire_delay = get_rand_burst_delay()
 			shot_number = 0
 
 		//need to calculate the power per shot as the emitter doesn't fire continuously.
@@ -155,7 +154,7 @@
 		if(prob(35))
 			spark_system.queue()
 
-		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter(get_turf(src))
+		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
 		shot_counter++
@@ -258,3 +257,19 @@
 		activate(null)
 	else
 		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")
+
+/obj/machinery/power/emitter/proc/get_initial_fire_delay()
+	return 10 SECONDS
+
+/obj/machinery/power/emitter/proc/get_rand_burst_delay()
+	return rand(min_burst_delay, max_burst_delay)
+
+/obj/machinery/power/emitter/proc/get_burst_delay()
+	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
+
+/obj/machinery/power/emitter/proc/get_emitter_beam()
+	return new /obj/item/projectile/beam/emitter(get_turf(src))
+
+#undef EMITTER_LOOSE
+#undef EMITTER_BOLTED
+#undef EMITTER_WELDED

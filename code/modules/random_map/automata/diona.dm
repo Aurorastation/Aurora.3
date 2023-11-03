@@ -1,3 +1,7 @@
+/turf/simulated/wall/diona
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "diona"
+
 /turf/simulated/wall/diona/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, "biomass")
@@ -37,7 +41,7 @@
 		if(W.force)
 			user.visible_message(SPAN_DANGER("\The [user] [pick(W.attack_verb)] \the [src] with \the [W]!"), SPAN_NOTICE("You [pick(W.attack_verb)] \the [src] with \the [W]!"))
 			playsound(loc, W.hitsound, W.get_clamped_volume(), TRUE)
-			playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
+			playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
 			health -= W.force
 			if(health <= 0)
 				qdel(src)
@@ -87,7 +91,7 @@
 	light_range = 3
 	light_color = "#557733"
 	density = FALSE
-	destroy_spawntype = /mob/living/carbon/alien/diona
+	destroy_spawntype = null
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"

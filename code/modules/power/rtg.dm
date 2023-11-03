@@ -35,7 +35,7 @@
 	add_avail(power_gen)
 	if(panel_open && irradiate)
 		for (var/mob/living/L in range(2, src))
-			L.apply_damage(10, IRRADIATE, damage_flags = DAM_DISPERSED)	// Weak but noticeable.
+			L.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)	// Weak but noticeable.
 
 /obj/machinery/power/rtg/update_icon()
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
@@ -98,7 +98,7 @@
 	origin_tech = list(
 		TECH_DATA = 3,
 		TECH_MATERIAL = 4,
-		TECH_POWER = 3, 
+		TECH_POWER = 3,
 		TECH_ENGINEERING = 3,
 		TECH_PHORON = 3
 	)

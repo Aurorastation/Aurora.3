@@ -79,7 +79,7 @@
 		new /obj/item/stack/cable_coil(src,30,color)
 
 /obj/item/storage/toolbox/drill
-	name = "drilling kit"
+	name = "industrial drilling kit"
 	desc = "A kit supplied to drill technicians, containing the tools required to set up a basic asteroid drilling operation."
 	icon_state = "miningbox"
 	item_state = "miningbox"
@@ -101,8 +101,7 @@
 	starts_with = list(
 		/obj/item/crowbar = 1,
 		/obj/item/wrench = 1,
-		/obj/item/custom_ka_upgrade/upgrade_chips/damage = 1,
-		/obj/item/custom_ka_upgrade/cells/cell02 = 1
+		/obj/item/custom_ka_upgrade/barrels/barrel02 = 1
 	)
 
 /obj/item/storage/toolbox/syndicate
@@ -137,7 +136,7 @@
 	if (..())
 		if (contents.len)
 			spill(3, get_turf(M))
-			playsound(M, /decl/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
+			playsound(M, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
 			update_force()
 			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
@@ -239,7 +238,7 @@
 /obj/item/storage/toolbox/lunchbox/scc
 	name = "Stellar Corporate Conglomerate lunchbox"
 	desc = "A little lunchbox. This one is branded with the Stellar Corporate Conglomerate logo."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "lunchbox_scc"
 	item_state = "lunchbox_scc"
 

@@ -21,6 +21,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["skin_red"]          >> pref.r_skin
 	S["skin_green"]        >> pref.g_skin
 	S["skin_blue"]         >> pref.b_skin
+	S["tail_style_name"]   >> pref.tail_style
 	S["hair_style_name"]   >> pref.h_style
 	S["facial_style_name"] >> pref.f_style
 	S["grad_style_name"]   >> pref.g_style
@@ -47,6 +48,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["skin_red"]          << pref.r_skin
 	S["skin_green"]        << pref.g_skin
 	S["skin_blue"]         << pref.b_skin
+	S["tail_style_name"]   << pref.tail_style
 	S["hair_style_name"]   << pref.h_style
 	S["facial_style_name"] << pref.f_style
 	S["grad_style_name"]   << pref.g_style
@@ -69,6 +71,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"grad_colour",
 				"skin_tone" = "s_tone",
 				"skin_colour",
+				"tail_style",
 				"hair_style" = "h_style",
 				"facial_style" = "f_style",
 				"gradient_style" = "g_style",
@@ -95,6 +98,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"grad_colour",
 			"skin_tone",
 			"skin_colour",
+			"tail_style",
 			"hair_style",
 			"facial_style",
 			"gradient_style",
@@ -116,7 +120,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"facial_colour" = rgb(pref.r_facial, pref.g_facial, pref.b_facial),
 		"grad_colour"   = rgb(pref.r_grad, pref.g_grad, pref.b_grad),
 		"skin_tone"     = pref.s_tone,
-		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin) ,
+		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin),
+		"tail_style"    = pref.tail_style,
 		"hair_style"    = pref.h_style,
 		"facial_style"  = pref.f_style,
 		"gradient_style"= pref.g_style,
@@ -169,15 +174,17 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			try
 				pref.body_markings = json_decode(pref.body_markings)
 			catch (var/exception/e)
-				log_debug("BODY MARKINGS: Caught [e]. Initial value: [before]")
+				LOG_DEBUG("BODY MARKINGS: Caught [e]. Initial value: [before]")
 				pref.body_markings = list()
 		if (istext(pref.disabilities))
 			var/before = pref.disabilities
 			try
 				pref.disabilities = json_decode(pref.disabilities)
 			catch (var/exception/e)
-				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
+				LOG_DEBUG("DISABILITIES: Caught [e]. Initial value: [before]")
 				pref.disabilities = list()
+
+	var/datum/species/mob_species = all_species[pref.species]
 
 	pref.r_hair   = sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair   = sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -189,6 +196,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.r_skin   = sanitize_integer(pref.r_skin, 0, 255, initial(pref.r_skin))
 	pref.g_skin   = sanitize_integer(pref.g_skin, 0, 255, initial(pref.g_skin))
 	pref.b_skin   = sanitize_integer(pref.b_skin, 0, 255, initial(pref.b_skin))
+	pref.tail_style = sanitize_inlist(pref.tail_style, mob_species.selectable_tails, mob_species.tail)
 	pref.h_style  = sanitize_inlist(pref.h_style, hair_styles_list, initial(pref.h_style))
 	pref.f_style  = sanitize_inlist(pref.f_style, facial_hair_styles_list, initial(pref.f_style))
 	pref.g_style = sanitize_inlist(pref.g_style, hair_gradient_styles_list, initial(pref.g_style))
@@ -207,7 +215,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.disabilities = list()
 
 	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
-		pref.bgstate = "000"
+		pref.bgstate = "000000"
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()
@@ -229,71 +237,63 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "Prosthesis/Amputations: <a href='?src=\ref[src];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below
-	var/ind = 0
+	if(length(pref.organ_data))
+		out += "<ul>"
+
 	for(var/name in pref.organ_data)
 		var/status = pref.organ_data[name]
 		var/organ_name = name
 
 		if(status == "cyborg")
-			++ind
-			if(ind > 1)
-				out += ", "
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
 				R = all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = basic_robolimb
-			out += "\t[R.company] [organ_name] prosthesis"
+			out += "<li>- [R.company] [capitalize_first_letters(parse_zone(organ_name))] Prosthesis</li>"
 		else if(status == "amputated")
-			++ind
-			if(ind > 1)
-				out += ", "
-			out += "\tAmputated [organ_name]"
+			out += "<li>- Amputated [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "mechanical")
-			++ind
-			if(ind > 1)
-				out += ", "
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
 				R = all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = basic_robolimb
-			out += "\t[R.company] Mechanical [organ_name]"
+			out += "<li>- [R.company] Mechanical [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "nymph")
-			++ind
-			if(ind > 1)
-				out += ", "
-			out += "\tDiona Nymph [organ_name]"
+			out += "<li>- Diona Nymph [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "assisted")
-			++ind
-			if(ind > 1)
-				out += ", "
 			switch(organ_name)
 				if(BP_HEART)
-					out += "\tPacemaker-assisted [organ_name]"
+					out += "<li>- Pacemaker-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
-					out += "\tSurgically altered [organ_name]"
+					out += "<li>- Surgically Altered [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				if(BP_EYES)
-					out += "\tRetinal overlayed [organ_name]"
+					out += "<li>- Retinal Overlayed [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				else
-					out += "\tMechanically assisted [organ_name]"
+					out += "<li>- Mechanically Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "removed")
-			++ind
-			if(ind > 1)
-				out += ", "
-			out += "\tRemoved [organ_name]"
-	if(!ind)
-		out += "\[...\]<br><br>"
+			out += "<li>- Removed [capitalize_first_letters(parse_zone(organ_name))]</li>"
+
+	if(length(pref.organ_data))
+		out += "</ul><br><br>"
 	else
 		out += "<br><br>"
 
 	out += "</td><td><b>Preview</b>"
 	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle background</a>"
+	out += "<br><a href='?src=\ref[src];set_preview_scale=1'>Set Preview Scale - [pref.scale_x] - [pref.scale_y]</a>"
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	out += "</td></tr></table>"
 
-	out += "<b>Hair</b><br>"
+	var/tail_spacing = FALSE
+	if(length(mob_species.selectable_tails))
+		out += "<b>Tail</b><br>"
+		out += "<a href='?src=\ref[src];tail_style=1'>[pref.tail_style ? "Style: [pref.tail_style]" : "Style: None"]</a><br>"
+		tail_spacing = TRUE
+
+	out += "[tail_spacing ? "<br>" : ""]<b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
 	out += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
@@ -303,7 +303,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<a href='?src=\ref[src];facial_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_facial, pref.g_facial, pref.b_facial))] "
 	out += " Style: <a href='?src=\ref[src];facial_style=1'>[pref.f_style]</a><br>"
 
-	out += "<b>Gradient</b><br>"
+	out += "<br><b>Gradient</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];gradient_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_grad, pref.g_grad, pref.b_grad))] "
 	out += " Style: <a href='?src=\ref[src];gradient_style=1'>[pref.g_style]</a><br>"
@@ -341,21 +341,21 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["blood_type"])
-		var/new_b_type = input(user, "Choose your character's blood-type:", "Character Preference") as null|anything in valid_bloodtypes
+		var/new_b_type = tgui_input_list(user, "Choose your character's blood-type:", "Character Preference", valid_bloodtypes)
 		if(new_b_type && CanUseTopic(user))
 			pref.b_type = new_b_type
 			return TOPIC_REFRESH
 
 	else if(href_list["show_species"])
 		// Actual whitelist checks are handled elsewhere, this is just for accessing the preview window.
-		var/species_choice = input(usr, "Which species would you like to look at?", "Species Selection") as null|anything in playable_species
+		var/species_choice = tgui_input_list(usr, "Which species would you like to look at?", "Species Selection", playable_species)
 		if(!species_choice)
 			return
 		var/choice
 		if(length(playable_species[species_choice]) == 1)
 			choice = playable_species[species_choice][1]
 		else
-			choice = input(usr, "Which subspecies would you like to look at?", "Sub-species Selection") as null|anything in playable_species[species_choice]
+			choice = tgui_input_list(usr, "Which subspecies would you like to look at?", "Sub-species Selection", playable_species[species_choice])
 			if(!choice)
 				return
 		choice = html_decode(choice)
@@ -396,6 +396,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			else	// Species has no hair, or something fucked up.
 				pref.h_style = hair_styles_list["Bald"]
 
+			if(length(mob_species.selectable_tails))
+				pref.tail_style = pick(mob_species.selectable_tails)
+			else
+				pref.tail_style = null
+
 			//grab one of the valid facial hair styles for the newly chosen species
 			var/list/valid_facialhairstyles = list()
 			for(var/facialhairstyle in facial_hair_styles_list)
@@ -415,6 +420,24 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				//this shouldn't happen
 				pref.f_style = facial_hair_styles_list["Shaved"]
 
+			var/list/valid_hair_gradients = list()
+			for(var/hair_gradient in hair_gradient_styles_list)
+				var/datum/sprite_accessory/S = hair_gradient_styles_list[hair_gradient]
+				if(pref.gender == MALE && S.gender == FEMALE)
+					continue
+				if(pref.gender == FEMALE && S.gender == MALE)
+					continue
+				if(!(mob_species.type in S.species_allowed))
+					continue
+
+				valid_hair_gradients[hair_gradient] = valid_hair_gradients[hair_gradient]
+
+			if(length(valid_hair_gradients))
+				pref.g_style = pick(valid_hair_gradients)
+			else
+				//this shouldn't happen
+				pref.g_style = valid_hair_gradients["None"]
+
 			//reset hair colour and skin colour
 			pref.r_hair = 0//hex2num(copytext(new_hair, 2, 4))
 			pref.g_hair = 0//hex2num(copytext(new_hair, 4, 6))
@@ -427,10 +450,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			var/new_culture = mob_species.possible_cultures[1]
 			pref.culture = "[new_culture]"
-			var/decl/origin_item/culture/OC = decls_repository.get_decl(text2path(pref.culture))
+			var/singleton/origin_item/culture/OC = GET_SINGLETON(text2path(pref.culture))
 			var/new_origin = OC.possible_origins[1]
 			pref.origin = "[new_origin]"
-			var/decl/origin_item/origin/OO = decls_repository.get_decl(text2path(pref.origin))
+			var/singleton/origin_item/origin/OO = GET_SINGLETON(text2path(pref.origin))
 			pref.accent = OO.possible_accents[1]
 			pref.citizenship = OO.possible_citizenships[1]
 			pref.religion = OO.possible_religions[1]
@@ -453,7 +476,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["hair_color"])
 		if(!has_flag(mob_species, HAS_HAIR_COLOR))
 			return TOPIC_NOACTION
-		var/new_hair = input(user, "Choose your character's hair colour:", "Character Preference", rgb(pref.r_hair, pref.g_hair, pref.b_hair)) as color|null
+		var/new_hair = input(user, "Choose your character's hair colour.", "Character Preference", rgb(pref.r_hair, pref.g_hair, pref.b_hair)) as color|null
 		if(new_hair && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.r_hair = GetRedPart(new_hair)
 			pref.g_hair = GetGreenPart(new_hair)
@@ -463,11 +486,19 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["gradient_color"])
 		if(!has_flag(mob_species, HAS_HAIR_COLOR))
 			return TOPIC_NOACTION
-		var/new_grad = input(user, "Choose your character's secondary hair color:", "Character Preference", rgb(pref.r_grad, pref.g_grad, pref.b_grad)) as color|null
+		var/new_grad = input(user, "Choose your character's secondary hair color.", "Character Preference", rgb(pref.r_grad, pref.g_grad, pref.b_grad)) as color|null
 		if(new_grad && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.r_grad = GetRedPart(new_grad)
 			pref.g_grad = GetGreenPart(new_grad)
 			pref.b_grad = GetBluePart(new_grad)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["tail_style"])
+		if(!length(mob_species.selectable_tails))
+			return
+		var/new_tail_style = tgui_input_list(user, "Choose your character's tail style:", "Character Preference", mob_species.selectable_tails, pref.tail_style)
+		if(new_tail_style && CanUseTopic(user))
+			pref.tail_style = new_tail_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["hair_style"])
@@ -486,7 +517,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
 
-		var/new_h_style = input(user, "Choose your character's hair style:", "Character Preference", pref.h_style)  as null|anything in valid_hairstyles
+		var/new_h_style = tgui_input_list(user, "Choose your character's hair style.", "Character Preference", valid_hairstyles, pref.h_style)
 		if(new_h_style && CanUseTopic(user))
 			pref.h_style = new_h_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -500,7 +531,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			valid_gradients[gradstyle] = hair_gradient_styles_list[gradstyle]
 
-		var/new_g_style = input(user, "Choose a color pattern for your hair:", "Character Preference", pref.g_style)  as null|anything in valid_gradients
+		var/new_g_style = tgui_input_list(user, "Choose a color pattern for your hair.", "Character Preference", valid_gradients, pref.g_style)
 		if(new_g_style && CanUseTopic(user))
 			pref.g_style = new_g_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -508,7 +539,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["facial_color"])
 		if(!has_flag(mob_species, HAS_HAIR_COLOR))
 			return TOPIC_NOACTION
-		var/new_facial = input(user, "Choose your character's facial-hair colour:", "Character Preference", rgb(pref.r_facial, pref.g_facial, pref.b_facial)) as color|null
+		var/new_facial = input(user, "Choose your character's facial-hair colour.", "Character Preference", rgb(pref.r_facial, pref.g_facial, pref.b_facial)) as color|null
 		if(new_facial && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.r_facial = GetRedPart(new_facial)
 			pref.g_facial = GetGreenPart(new_facial)
@@ -518,7 +549,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["eye_color"])
 		if(!has_flag(mob_species, HAS_EYE_COLOR))
 			return TOPIC_NOACTION
-		var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference", rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes)) as color|null
+		var/new_eyes = input(user, "Choose your character's eye colour.", "Character Preference", rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes)) as color|null
 		if(new_eyes && has_flag(mob_species, HAS_EYE_COLOR) && CanUseTopic(user))
 			pref.r_eyes = GetRedPart(new_eyes)
 			pref.g_eyes = GetGreenPart(new_eyes)
@@ -528,7 +559,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["skin_tone"])
 		if(!has_flag(mob_species, HAS_SKIN_TONE))
 			return TOPIC_NOACTION
-		var/new_s_tone = input(user, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Character Preference", (-pref.s_tone) + 35)  as num|null
+		var/new_s_tone = tgui_input_number(user, "Choose your character's skin-tone. (Light 30 - 220 Dark)", "Character Preference", (-pref.s_tone) + 35, 220, 30)
 		if(new_s_tone && has_flag(mob_species, HAS_SKIN_TONE) && CanUseTopic(user))
 			pref.s_tone = 35 - max(min( round(new_s_tone), 220),30)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -537,7 +568,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(!has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
 			return TOPIC_NOACTION
 		if(has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
-			var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
+			var/new_skin = input(user, "Choose your character's skin colour.", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
 			if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
 				pref.r_skin = GetRedPart(new_skin)
 				pref.g_skin = GetGreenPart(new_skin)
@@ -545,7 +576,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 		else if(has_flag(mob_species, HAS_SKIN_PRESET))
-			var/new_preset = input(user, "Choose your character's body color preset:", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as null|anything in mob_species.character_color_presets
+			var/new_preset = tgui_input_list(user, "Choose your character's body color preset.", "Character Preference", mob_species.character_color_presets, rgb(pref.r_skin, pref.g_skin, pref.b_skin))
 			new_preset = mob_species.character_color_presets[new_preset]
 			pref.r_skin = GetRedPart(new_preset)
 			pref.g_skin = GetGreenPart(new_preset)
@@ -568,7 +599,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
 
-		var/new_f_style = input(user, "Choose your character's facial-hair style:", "Character Preference", pref.f_style)  as null|anything in valid_facialhairstyles
+		var/new_f_style = tgui_input_list(user, "Choose your character's facial-hair style:", "Character Preference", valid_facialhairstyles, pref.f_style)
 		if(new_f_style && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.f_style = new_f_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -587,7 +618,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			alert(user, "This species does not have any body markings available.")
 			return TOPIC_NOACTION
 
-		var/new_marking = input(user, "Choose a body marking:", "Character Preference")  as null|anything in usable_markings
+		var/new_marking = tgui_input_list(user, "Choose a body marking:", "Character Preference", usable_markings)
 		if(new_marking && CanUseTopic(user))
 			pref.body_markings[new_marking] = "#000000" //New markings start black
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -625,7 +656,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["limbs"])
 		var/list/acceptable_organ_input = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand")
-		var/limb_name = input(user, "Which limb do you want to change?") as null|anything in acceptable_organ_input
+		var/limb_name = tgui_input_list(user, "Which limb do you want to change?", "Limbs", acceptable_organ_input)
 		if(!limb_name && !CanUseTopic(user)) return TOPIC_NOACTION
 
 		var/carries_organs = 0
@@ -673,7 +704,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/available_states = mob_species.possible_external_organs_modifications
 		if(carries_organs)
 			available_states = list("Normal","Prosthesis")
-		var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in available_states
+		var/new_state = tgui_input_list(user, "What state do you wish the limb to be in?", "Limbs", available_states)
 		if(!new_state && !CanUseTopic(user))
 			return TOPIC_NOACTION
 
@@ -702,7 +733,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					usable_manufacturers[company] = M
 				if(!usable_manufacturers.len)
 					return
-				var/choice = input(user, "Which manufacturer do you wish to use for this limb?") as null|anything in usable_manufacturers
+				var/choice = tgui_input_list(user, "Which manufacturer do you wish to use for this limb?", "Limb Manufacturer", usable_manufacturers)
 				if(!choice)
 					return
 				pref.rlimb_data[limb] = choice
@@ -725,7 +756,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["organs"])
 		if(!mob_species.alterable_internal_organs.len)
 			return
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in mob_species.alterable_internal_organs
+		var/organ_name = tgui_input_list(user, "Which internal function do you want to change?", "Alter Organs", mob_species.alterable_internal_organs)
 		if(!organ_name)
 			return
 
@@ -735,7 +766,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(!altered_organ)
 			return
 
-		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in altered_organ.possible_modifications
+		var/new_state = tgui_input_list(user, "What state do you wish the organ to be in?", "Alter Organs", altered_organ.possible_modifications)
 
 		qdel(altered_organ)
 
@@ -757,7 +788,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					usable_manufacturers[company] = M
 				if(!usable_manufacturers.len)
 					return
-				var/choice = input(user, "Which manufacturer do you wish to use for this organ?") as null|anything in usable_manufacturers
+				var/choice = tgui_input_list(user, "Which manufacturer do you wish to use for this organ?", "Alter Organs", usable_manufacturers)
 				if(!choice)
 					return
 
@@ -783,7 +814,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["trait_add"])
 		var/list/available_disabilities = pref.disabilities ^ chargen_disabilities_list
 
-		var/new_trait = input(user, "Choose a disability:", "Character Preference")  as null|anything in available_disabilities
+		var/new_trait = tgui_input_list(user, "Choose a disability.", "Character Preference", available_disabilities)
 		if(new_trait && CanUseTopic(user))
 			pref.disabilities += new_trait
 		return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -795,6 +826,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["cycle_bg"])
 		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["set_preview_scale"])
+		var/new_x = input(user, "Set X Scale for Preview", "Preview Preference") as null|num
+		pref.scale_x = new_x ? clamp(new_x, 0.1, 2) : 1
+		var/new_y = input(user, "Set Y Scale for Preview", "Preview Preference") as null|num
+		pref.scale_y = new_y ? clamp(new_y, 0.1, 2) : 1
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["toggle_preview_value"])
@@ -865,8 +903,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=species;size=700x400")
+
+	user << browse(dat.Join(), "window=species;size=700x400")
 
 /*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 

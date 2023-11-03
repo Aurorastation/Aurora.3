@@ -36,7 +36,7 @@
 	var/force_holder
 
 /obj/item/gripper/examine(var/mob/user)
-	..()
+	. = ..()
 	if(wrapped)
 		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
 
@@ -57,6 +57,9 @@
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
 		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
+			if(I.anchored)
+				to_chat(user, SPAN_WARNING("\The [I] is anchored down!"))
+				return FALSE
 			if(feedback)
 				to_chat(user, SPAN_NOTICE("You collect \the [I]."))
 			if(isturf(I.loc) && I.Adjacent(user))
@@ -229,7 +232,7 @@
 		/obj/item/photo
 		)
 
-/obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
+/obj/item/gripper/research // A general usage gripper, used for toxins/robotics/xenobio/etc
 	name = "scientific gripper"
 	icon_state = "gripper-sci"
 	desc = "A simple grasping tool suited to assist in a wide array of research applications."
@@ -243,18 +246,20 @@
 		/obj/item/mecha_equipment,
 		/obj/item/device/radio/exosuit,
 		/obj/item/borg/upgrade,
-		/obj/item/device/flash, //to build borgs,
-		/obj/item/organ/internal/brain, //to insert into MMIs,
-		/obj/item/stack/cable_coil, //again, for borg building,
+		/obj/item/device/flash, // to build borgs,
+		/obj/item/organ/internal/brain, // to insert into MMIs,
+		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
-		/obj/item/device/assembly,//For building bots and similar complex R&D devices
-		/obj/item/device/healthanalyzer,//For building medibots
+		/obj/item/seeds, // To be able to plant things for Xenobotany
+		/obj/item/grown, // To be able to plant things for Xenobotany
+		/obj/item/device/assembly, // For building bots and similar complex R&D devices
+		/obj/item/device/healthanalyzer,// For building medibots
 		/obj/item/disk,
 		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
-		/obj/item/material/minihoe,//Farmbots and xenoflora
+		/obj/item/material/minihoe, // Farmbots and xenoflora
 		/obj/item/computer_hardware,
 		/obj/item/slimesteroid,
 		/obj/item/extract_enhancer,

@@ -1,7 +1,7 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
@@ -18,6 +18,11 @@
 
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
+	alt_titles = list(
+		"Workplace Liaison",
+		"Corporate Representative",
+		"Corporate Executive"
+		)
 	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -46,14 +51,10 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-	implants = list(
-		/obj/item/implant/mindshield
-	)
-
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
-		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
@@ -90,7 +91,7 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1

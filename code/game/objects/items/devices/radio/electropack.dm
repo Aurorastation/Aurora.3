@@ -3,7 +3,6 @@
 	desc = "Dance my monkeys! DANCE!!!"
 	icon_state = "electropack0"
 	item_state = "electropack"
-	frequency = 1449
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_HUGE
@@ -11,6 +10,10 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 2500)
 
 	var/code = 2
+
+/obj/item/device/radio/electropack/Initialize()
+	. = ..()
+	set_frequency(1449)
 
 /obj/item/device/radio/electropack/attack_hand(mob/user as mob)
 	if(src == user.back)

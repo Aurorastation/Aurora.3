@@ -10,10 +10,11 @@
 /obj/machinery/turretid
 	name = "turret control panel"
 	desc = "Used to control a room's automated defenses."
-	icon = 'icons/obj/machines/turret_control.dmi'
+	icon = 'icons/obj/machinery/turret_control.dmi'
 	icon_state = "control_standby"
 	anchored = 1
 	density = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1
@@ -128,17 +129,14 @@
 
 	ui_interact(user)
 
-/obj/machinery/turretid/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data
-	if(!data)
-		data = list()
-	VUEUI_SET_IFNOTSET(data["turrets"], list(), ., data)
-	VUEUI_SET_CHECK(data["locked"], locked, ., data)
-	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
-	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
-	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
-	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
+/obj/machinery/turretid/ui_data(mob/user)
+	var/list/data = list()
+	data["turrets"] = list()
+	data["locked"] = isAI(user) ? FALSE : locked
+	data["enabled"] = enabled
+	data["is_lethal"] = TRUE
+	data["lethal"] = lethal
+	data["can_switch"] = egun
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
@@ -149,65 +147,61 @@
 		"check_arrest" = "Check Arrest Status",
 		"check_access" = "Check Access Authorization"
 	)
-	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+	data["settings"] = list()
 	for(var/v in usedSettings)
 		var/name = usedSettings[v]
-		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
-		data["settings"][v]["category"] = name
-		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
+		data["settings"] += list(list("category" = name, "value" = vars[v], "variable_name" = v))
 
 	if(istype(control_area))
 		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
 			data["turrets"] = list()
-		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+		for(var/obj/machinery/porta_turret/aTurret in control_area.turrets)
 			var/ref = "\ref[aTurret]"
-			VUEUI_SET_IFNOTSET(data["turrets"][ref], list("ref" = ref), ., data)
-			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), ., data)
-			var/rtn = aTurret.vueui_data_change(data["turrets"][ref]["settings"], user, ui)
-			if(rtn)
-				data["turrets"][ref]["settings"] = rtn
-				. = data
+			data["turrets"] += list(list("name" = sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), "ref" = ref, "settings" = aTurret.get_settings(), "enabled" = aTurret.enabled, "lethal" = aTurret.lethal))
+	return data
 
+/obj/machinery/turretid/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
+		ui.open()
 
-/obj/machinery/turretid/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
-	ui.open()
+/obj/machinery/turretid/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-/obj/machinery/turretid/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(href_list["turret_ref"] == "this")
-		if(href_list["command"] && !isnull(href_list["value"]))
-			var/value = text2num(href_list["value"])
-			if(href_list["command"] == "enable")
-				enabled = value
-			else if(href_list["command"] == "lethal")
-				lethal = value
-			else if(href_list["command"] == "check_synth")
-				check_synth = value
-			else if(href_list["command"] == "target_borgs")
-				target_borgs = value
-			else if(href_list["command"] == "check_weapons")
-				check_weapons = value
-			else if(href_list["command"] == "check_records")
-				check_records = value
-			else if(href_list["command"] == "check_arrest")
-				check_arrest = value
-			else if(href_list["command"] == "check_access")
-				check_access = value
-			else if(href_list["command"] == "check_wildlife")
-				check_wildlife = value
-			updateTurrets()
-			SSvueui.check_uis_for_change(src)
-	else if(href_list["turret_ref"])
-		var/obj/machinery/porta_turret/aTurret = locate(href_list["turret_ref"]) in (control_area.turrets)
-		if(!aTurret)
-			return
-		. = aTurret.Topic(href, href_list)
-		SSvueui.check_uis_for_change(src)
+	switch(action)
+		if("command")
+			if(params["turret_ref"] == "this")
+				if(!isnull(params["value"]))
+					var/value = text2num(params["value"])
+					switch(params["command"])
+						if("enable")
+							enabled = value
+						if("lethal")
+							lethal = value
+						if("check_synth")
+							check_synth = value
+						if("target_borgs")
+							target_borgs = value
+						if("check_weapons")
+							check_weapons = value
+						if("check_records")
+							check_records = value
+						if("check_arrest")
+							check_arrest = value
+						if("check_access")
+							check_access = value
+						if("check_wildlife")
+							check_wildlife = value
+					updateTurrets()
+					. = TRUE
+			else
+				var/obj/machinery/porta_turret/aTurret = locate(params["turret_ref"]) in (control_area.turrets)
+				if(!aTurret)
+					return
+				. = aTurret.ui_act(action, params, ui, state)
 
 /obj/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = getState()

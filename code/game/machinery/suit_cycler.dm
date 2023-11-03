@@ -89,6 +89,7 @@
 	model_text = "Mining"
 	req_access = list(access_mining)
 	departments = list("Mining")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 /obj/machinery/suit_cycler/security
 	name = "security suit cycler"
@@ -138,7 +139,7 @@
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
@@ -172,7 +173,7 @@
 		return
 
 	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
-	if(do_after(user, 20, TRUE, src))
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -232,7 +233,7 @@
 			return
 
 		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
-		if(do_after(user, 20, TRUE, src))
+		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting)
 				return
 			var/mob/M = G.affecting
@@ -368,10 +369,9 @@
 	if(panel_open)
 		wires.Interact(user)
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=suit_cycler")
-	onclose(user, "suit_cycler")
-	return
+	var/datum/browser/suit_cycler = new(user, "suit_cycler", "Suit Cycler", 450, 500)
+	suit_cycler.set_content(dat)
+	suit_cycler.open()
 
 /obj/machinery/suit_cycler/Topic(href, href_list)
 	if(!Adjacent(usr) && !issilicon(usr))
@@ -509,7 +509,7 @@
 			occupant.take_organ_damage(0, radiation_level * 2 + rand(1, 3))
 		if(radiation_level > 1)
 			occupant.take_organ_damage(0, radiation_level + rand(1, 3))
-		occupant.apply_damage(radiation_level * 10, IRRADIATE, damage_flags = DAM_DISPERSED)
+		occupant.apply_damage(radiation_level * 10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/machinery/suit_cycler/proc/finished_job()
 	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
@@ -623,7 +623,7 @@
 				suit.name = "captain voidsuit"
 				suit.icon_state = "capspace"
 				suit.item_state = "capspace"
-		if("^%###^%$" || "Mercenary")
+		if("^%###^%$", "Mercenary")
 			if(helmet)
 				helmet.name = "blood-red voidsuit helmet"
 				helmet.icon_state = "rig0-syndie"

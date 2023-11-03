@@ -3,7 +3,7 @@ var/list/holder_mob_icon_cache = list()
 //Helper object for picking dionaea (and other creatures) up.
 /obj/item/holder
 	name = "holder"
-	desc = "You shouldn't ever see this."
+	desc = DESC_PARENT
 	icon = 'icons/mob/npc/held_mobs.dmi'
 	randpixel = 0
 	center_of_mass = null
@@ -53,8 +53,8 @@ var/list/holder_mob_icon_cache = list()
 	return ..()
 
 /obj/item/holder/examine(mob/user)
-	if (contained)
-		contained.examine(user)
+	if(contained)
+		return contained.examine(user)
 
 /obj/item/holder/attack_self()
 	for(var/mob/M in contents)
@@ -117,6 +117,7 @@ var/list/holder_mob_icon_cache = list()
 		M.attackby(W,user)
 
 /obj/item/holder/dropped(mob/user)
+	. = ..()
 
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
@@ -125,7 +126,7 @@ var/list/holder_mob_icon_cache = list()
 		//Repeat this check
 		//If we're still on the turf a few frames later, then we have actually been dropped or thrown
 		//Release the mob accordingly
-		addtimer(CALLBACK(src, .proc/post_drop), 3)
+		addtimer(CALLBACK(src, PROC_REF(post_drop)), 3)
 		return
 
 	if (istype(loc, /obj/item/storage))	//The second drop reads the container its placed into as the location
@@ -204,7 +205,7 @@ var/list/holder_mob_icon_cache = list()
 		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
 		return
 
-	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
+	add_verb(src,  /mob/living/proc/get_holder_location) //This has to be before we move the mob into the holder
 
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)
@@ -255,80 +256,6 @@ var/list/holder_mob_icon_cache = list()
 	if (istype(usr.loc, /obj/item/holder))
 		var/obj/item/holder/H = usr.loc
 		H.report_onmob_location(0, H.get_equip_slot(), src)
-
-/obj/item/holder/human
-	icon = null
-	contained_sprite = FALSE
-	var/holder_icon = 'icons/mob/holder_complex.dmi'
-	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
-	slot_flags = SLOT_BACK
-
-/obj/item/holder/human/sync(var/mob/living/M)
-	cut_overlays()
-	// Generate appropriate on-mob icons.
-	var/mob/living/carbon/human/owner = M
-	if(!icon && istype(owner) && owner.species)
-		var/icon/I = new /icon()
-
-		var/skin_colour = rgb(owner.r_skin, owner.g_skin, owner.b_skin)
-		var/hair_colour = rgb(owner.r_hair, owner.g_hair, owner.b_hair)
-		var/eye_colour =  rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
-		var/species_name = lowertext(owner.species.get_bodytype())
-
-		for(var/cache_entry in generate_for_slots)
-			var/cache_key = "[owner.species]-[cache_entry]-[skin_colour]-[hair_colour]"
-			if(!holder_mob_icon_cache[cache_key])
-
-				// Generate individual icons.
-				var/icon/mob_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_base")
-				mob_icon.Blend(skin_colour, ICON_ADD)
-				var/icon/hair_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_hair")
-				hair_icon.Blend(hair_colour, ICON_ADD)
-				var/icon/eyes_icon = icon(holder_icon, "[species_name]_holder_[cache_entry]_eyes")
-				eyes_icon.Blend(eye_colour, ICON_ADD)
-
-				// Blend them together.
-				mob_icon.Blend(eyes_icon, ICON_OVERLAY)
-				mob_icon.Blend(hair_icon, ICON_OVERLAY)
-
-				// Add to the cache.
-				holder_mob_icon_cache[cache_key] = mob_icon
-
-			var/newstate
-			switch (cache_entry)
-				if (slot_l_hand_str)
-					newstate = "[species_name]_lh"
-				if (slot_r_hand_str)
-					newstate = "[species_name]_rh"
-				if (slot_back_str)
-					newstate = "[species_name]_ba"
-
-			I.Insert(holder_mob_icon_cache[cache_key], newstate)
-
-
-		dir = 2
-		var/icon/mob_icon = icon(owner.icon, owner.icon_state)
-		I.Insert(mob_icon, species_name)
-		icon = I
-		icon_state = species_name
-		item_state = species_name
-
-		contained_sprite = TRUE
-
-		color = M.color
-		name = M.name
-		desc = M.desc
-		copy_overlays(M)
-		var/mob/living/carbon/human/H = loc
-		if(istype(H))
-			if(H.l_hand == src)
-				H.update_inv_l_hand()
-			else if(H.r_hand == src)
-				H.update_inv_r_hand()
-			else
-				H.regenerate_icons()
-
-		..()
 
 /obj/item/holder/verb/change_animal_name()
 	set name = "Name Animal"
@@ -450,6 +377,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
@@ -663,9 +591,23 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "corgi"
 	w_class = ITEMSIZE_NORMAL
 
+/obj/item/holder/ian
+	name = "corgi"
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "ian"
+	item_state = "ian"
+	w_class = ITEMSIZE_NORMAL
+
+/obj/item/holder/lisa
+	name = "lisa"
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "lisa"
+	item_state = "lisa"
+	w_class = ITEMSIZE_NORMAL
+
 /obj/item/holder/fox
 	name = "fox"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = ITEMSIZE_NORMAL
@@ -688,3 +630,25 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
 	w_class = ITEMSIZE_LARGE
+
+/obj/item/holder/fish
+	name = "fish"
+	attack_verb = list("fished", "disrespected", "smacked", "smackereled")
+	icon = 'icons/mob/npc/fish.dmi'
+	icon_state = "fish_rest"
+	item_state = "fish_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 4//Being hit with an entire fish typically hurts
+	throwforce = 4//Having an entire fish thrown at you also hurts
+	throw_speed = 1//Because it's cinematic
+
+/obj/item/holder/fish/gupper
+	icon_state = "gupper_rest"
+	item_state = "gupper_rest"
+
+/obj/item/holder/fish/cod
+	icon_state = "cod_rest"
+	item_state = "cod_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 6//quite large fishey
+	throwforce = 6

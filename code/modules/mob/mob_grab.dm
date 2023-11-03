@@ -1,7 +1,3 @@
-#define UPGRADE_COOLDOWN	40
-#define UPGRADE_KILL_TIMER	100
-
-
 //This is called from human_attackhand.dm before grabbing happens.
 //IT is called when grabber tries to grab this mob
 //Override this for special grab behaviour.
@@ -13,17 +9,6 @@
 /mob/living/proc/attempt_pull(var/mob/living/grabber)
 	return 1
 
-
-///Process_Grab()
-///Called by client/Move()
-///Checks to see if you are grabbing or being grabbed by anything and if moving will affect your grab.
-/client/proc/Process_Grab()
-	if(isliving(mob)) //if we are being grabbed
-		var/mob/living/L = mob
-		if(!L.canmove && L.grabbed_by.len)
-			L.resist() //shortcut for resisting grabs
-	for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-		G.reset_kill_state() //no wandering across the station/asteroid while choking someone
 
 /obj/item/grab
 	name = "grab"
@@ -49,6 +34,7 @@
 	abstract = 1
 	item_state = "nothing"
 	w_class = ITEMSIZE_HUGE
+	throw_range = 5
 
 	drop_sound = null
 	pickup_sound = null
@@ -180,6 +166,11 @@
 
 	adjust_position()
 
+/obj/item/grab/proc/handle_eye_mouth_covering_wrapper()
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(handle_eye_mouth_covering), affecting, assailant, assailant.zone_sel.selecting)
+
 /obj/item/grab/proc/handle_eye_mouth_covering(mob/living/carbon/target, mob/user, var/target_zone)
 	var/announce = (target_zone != last_hit_zone) //only display messages when switching between different target zones
 	last_hit_zone = target_zone
@@ -291,11 +282,13 @@
 		state = GRAB_AGGRESSIVE
 		icon_state = "grabbed1"
 		hud.icon_state = "reinforce1"
+		RegisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE, PROC_REF(handle_eye_mouth_covering_wrapper))
+		handle_eye_mouth_covering(affecting, assailant, assailant.zone_sel.selecting)
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
@@ -314,7 +307,7 @@
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
-		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
@@ -326,6 +319,8 @@
 			var/mob/living/carbon/human/A = affecting
 			if (!(A.species.flags & NO_BREATHE))
 				A.losebreath += 4
+				var/obj/item/organ/external/O = A.get_organ(BP_HEAD)
+				O.add_autopsy_data("Strangling")
 		affecting.set_dir(WEST)
 	else if(state == GRAB_KILL)
 		hud.icon_state = "kill"
@@ -351,19 +346,13 @@
 	if(!affecting)
 		return
 
-	if(ishuman(user) && affecting == M)
-		var/mob/living/carbon/human/H = user
-		if(H.check_psi_grab(src))
-			return
-
 	if(world.time < (last_action + 20))
 		return
 
 	last_action = world.time
 	reset_kill_state() //using special grab moves will interrupt choking them
 
-	//clicking on the victim while grabbing them
-	if(M == affecting)
+	if(M == affecting) //clicking on the victim while grabbing them
 		if(ishuman(affecting))
 			var/hit_zone = target_zone
 			flick(hud.icon_state, hud)
@@ -393,10 +382,11 @@
 						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
-	if(M == assailant && state >= GRAB_AGGRESSIVE)
+	else if(M == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()
+	. = ..()
 	loc = null
 	if(!destroying)
 		qdel(src)
@@ -414,12 +404,14 @@
 	if(!QDELETED(linked_grab))
 		qdel(linked_grab)
 
+	UnregisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE)
+
 	if(wielded)
 		if(affecting.buckled_to == assailant)
 			affecting.buckled_to = null
 			affecting.update_canmove()
 			affecting.anchored = FALSE
-		moved_event.unregister(assailant, src, /obj/item/grab/proc/move_affecting)
+		moved_event.unregister(assailant, src, PROC_REF(move_affecting))
 
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 	affecting.layer = initial(affecting.layer)
@@ -476,7 +468,7 @@
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
-	moved_event.register(assailant, src, /obj/item/grab/proc/move_affecting)
+	moved_event.register(assailant, src, PROC_REF(move_affecting))
 
 /obj/item/grab/proc/set_wielding()
 	wielded = TRUE

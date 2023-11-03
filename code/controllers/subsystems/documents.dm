@@ -1,9 +1,4 @@
-#define SSDOCS_MEDIUM_PAPER "paper"
-#define SSDOCS_MEDIUM_FILE "file"
-
-var/datum/controller/subsystem/docs/SSdocs
-
-/datum/controller/subsystem/docs
+SUBSYSTEM_DEF(docs)
 	name = "Documents"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
@@ -21,18 +16,16 @@ var/datum/controller/subsystem/docs/SSdocs
 /datum/controller/subsystem/docs/Initialize(timeofday)
 	//Load in the docs config
 	if(config.docs_load_docs_from == "sql")
-		log_debug("SSdocs: Attempting to Load from SQL")
+		log_subsystem_documents("SSdocs: Attempting to Load from SQL")
 		load_from_sql()
 	else if(config.docs_load_docs_from == "json")
-		log_debug("SSdocs: Attempting to Load from JSON")
+		log_subsystem_documents("SSdocs: Attempting to Load from JSON")
 		load_from_json()
 	else
-		log_game("SSdocs: invalid load option specified in config")
+		log_config("SSdocs: invalid load option specified in config")
+		log_subsystem_documents("invalid load option specified in config")
 
 	..()
-
-/datum/controller/subsystem/docs/New()
-	NEW_SS_GLOBAL(SSdocs)
 
 /*
 	Fetching Data
@@ -87,7 +80,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		if(!docs_by_tags[t])
 			return null
 		tag_sublist &= docs_by_tags[t]
-	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
+	log_subsystem_documents("Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
 	for(var/doc in tag_sublist)
 		var/datum/docs_document/dd = doc
@@ -112,7 +105,7 @@ var/datum/controller/subsystem/docs/SSdocs
 //Load the document data from SQL
 /datum/controller/subsystem/docs/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))
-		log_debug("SSdocs: SQL ERROR - Failed to connect. - Falling back to JSON")
+		log_subsystem_documents("SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
 		//Reset the currently loaded data
@@ -131,7 +124,7 @@ var/datum/controller/subsystem/docs/SSdocs
 					document_query.item[4],
 					json_decode(document_query.item[5]))
 			catch(var/exception/ec)
-				log_debug("SSdocs: Error when loading document: [ec]")
+				log_subsystem_documents("Error when loading document: [ec]")
 	return 1
 
 //Loads the document data from JSON
@@ -141,7 +134,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	if(isfile("config/docs.json"))
 		docsconfig = json_decode(return_file_text("config/docs.json"))
 	else
-		log_debug("SSdocs: Warning: Could not load config, as docs.json is missing")
+		log_subsystem_documents("Warning: Could not load config, as docs.json is missing")
 		return 0
 
 	//Reset the currently loaded data
@@ -158,7 +151,7 @@ var/datum/controller/subsystem/docs/SSdocs
 				docsconfig[document]["content"],
 				docsconfig[document]["tags"])
 		catch(var/exception/ec)
-			log_ss("docs","Error when loading document: [ec]")
+			log_subsystem_documents("Error when loading document: [ec]")
 	return 1
 
 /datum/controller/subsystem/docs/proc/add_document(var/name,var/title,var/chance,var/content,var/tags)
@@ -213,10 +206,10 @@ var/datum/controller/subsystem/docs/SSdocs
 		doc = SSdocs.pick_document_by_tags(total_tags)
 
 	if (!istype(doc))
-		log_ss("docs","Null paper acquired in post_spawn!")
+		log_subsystem_documents("Null paper acquired in post_spawn!")
 		return null
 
-	log_ss("docs","Document [doc.name] successfully spawned!")
+	log_subsystem_documents("Document [doc.name] successfully spawned!")
 	var/obj/item/paper/P = spawned
 	P.set_content(doc.title, doc.content)
 
@@ -231,7 +224,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	var/datum/computer_file/data/F = new/datum/computer_file/data()
 	F.filename = file.title
 	F.filetype = "TXT"
-	log_ss("docs","Digital file created: [file.title].TXT")
+	log_subsystem_documents("Digital file created: [file.title].TXT")
 	F.stored_data = file.content
 	F.calculate_size()
 	return F

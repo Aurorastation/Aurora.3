@@ -15,7 +15,7 @@ Class Vars:
 	zoneB - The archived zone of B. May be null in case of unsimulated connections.
 
 	edge - Stores the edge this connection is in. Can reference an edge that is no longer processed
-		   after this connection is removed, so make sure to check edge.coefficient > 0 before re-adding it.
+			after this connection is removed, so make sure to check edge.coefficient > 0 before re-adding it.
 
 Class Procs:
 
@@ -149,3 +149,7 @@ Class Procs:
 		else
 			erase()
 			return
+
+#undef CONNECTION_DIRECT
+#undef CONNECTION_SPACE
+#undef CONNECTION_INVALID

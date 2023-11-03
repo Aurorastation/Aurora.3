@@ -83,7 +83,7 @@
 			DoEffectPulse()
 
 //returns 0..1, with 1 being no protection and 0 being fully protected
-proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
+/proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	if(!H || !istype(H))
 		return 1
 
@@ -95,12 +95,12 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 
 	var/protected = 0
 
-	if(istype(H.wear_suit,/obj/item/clothing/suit/bio_suit/anomaly))
+	if(istype(H.wear_suit,/obj/item/clothing/suit/hazmat/anomaly))
 		protected += 0.6
 	else if(istype(H.wear_suit,/obj/item/clothing/suit/space/anomaly))
 		protected += 0.5
 
-	if(istype(H.head,/obj/item/clothing/head/bio_hood/anomaly))
+	if(istype(H.head,/obj/item/clothing/head/hazmat/anomaly))
 		protected += 0.3
 	else if(istype(H.head,/obj/item/clothing/head/helmet/space/anomaly))
 		protected += 0.2

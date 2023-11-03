@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/effects/SSeffects
-
-/datum/controller/subsystem/effects
+SUBSYSTEM_DEF(effects)
 	name = "Effects Master"
 	wait = 1		// Deciseconds.
 	flags = SS_NO_INIT
@@ -11,9 +9,6 @@ var/datum/controller/subsystem/effects/SSeffects
 
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()
-
-/datum/controller/subsystem/effects/New()
-	NEW_SS_GLOBAL(SSeffects)
 
 /datum/controller/subsystem/effects/fire(resumed = FALSE)
 	if (!resumed)
@@ -65,12 +60,13 @@ var/datum/controller/subsystem/effects/SSeffects
 			if (EFFECT_DESTROY)
 				STOP_VISUAL(V)
 				qdel(V)
-		
+
 		if (MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/effects/stat_entry()
-	..("E:[effect_systems.len] V:[visuals.len]")
+/datum/controller/subsystem/effects/stat_entry(msg)
+	msg = "E:[effect_systems.len] V:[visuals.len]"
+	return ..()
 
 /datum/controller/subsystem/effects/Recover()
 	if (istype(SSeffects))

@@ -4,7 +4,7 @@
 	icon          = LIGHTING_ICON
 	icon_state    = LIGHTING_BASE_ICON_STATE
 	color         = LIGHTING_BASE_MATRIX
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer         = LIGHTING_LAYER
 	invisibility  = INVISIBILITY_LIGHTING
 	simulated     = 0
@@ -17,7 +17,8 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New()
+/atom/movable/lighting_overlay/Initialize(mapload, ...)
+	. = ..()
 	SSlighting.total_lighting_overlays++
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.

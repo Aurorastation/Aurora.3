@@ -1,8 +1,9 @@
 /obj/machinery/button
 	name = "button"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "launcherbtt"
 	desc = "A remote control switch for something."
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/active = 0
 	var/operating = 0
@@ -59,19 +60,17 @@
 
 //alternate button with the same functionality, except has a lightswitch sprite instead
 /obj/machinery/button/switch
-	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
 
 /obj/machinery/button/switch/update_icon()
 	icon_state = "light[active]"
 
 /obj/machinery/button/switch/attack_hand()
-	playsound(src, /decl/sound_category/switch_sound, 30)
+	playsound(src, /singleton/sound_category/switch_sound, 30)
 	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead
 /obj/machinery/button/alternate
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 
 /obj/machinery/button/alternate/update_icon()
@@ -97,7 +96,6 @@
 
 //alternate button with the same toggle functionality, except has a lightswitch sprite instead
 /obj/machinery/button/toggle/switch
-	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
 
 /obj/machinery/button/toggle/switch/update_icon()
@@ -105,7 +103,6 @@
 
 //alternate button with the same toggle functionality, except has a door control sprite instead
 /obj/machinery/button/toggle/alternate
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 
 /obj/machinery/button/toggle/alternate/update_icon()
@@ -151,7 +148,6 @@
 #define SAFE   0x10
 
 /obj/machinery/button/toggle/door
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 
 	var/_door_functions = 1

@@ -6,44 +6,57 @@
 
 /datum/uplink_item/item/implants/imp_freedom
 	name = "Freedom Implant"
-	item_cost = 1
+	telecrystal_cost = 1
+	desc = "A box containing a freedom implant case and implanter."
 	path = /obj/item/storage/box/syndie_kit/imp_freedom
 
-/datum/uplink_item/item/implants/imp_compress
-	name = "Compressed Matter Implant"
-	desc = "A box containing a single implanter and matter cartridge. To remove an unintended target, use the implanter in-hand then open the cartridge with a screwdriver."
-	item_cost = 1
-	path = /obj/item/storage/box/syndie_kit/imp_compress
+/datum/uplink_item/item/implants/imp_emp
+	name = "EMP Implant"
+	telecrystal_cost = 1
+	desc = "A box containing an EMP implant case and implanter."
+	path = /obj/item/storage/box/syndie_kit/imp_emp
 
 /datum/uplink_item/item/implants/imp_explosive
 	name = "Explosive Implant (DANGER!)"
-	item_cost = 3
-	desc = "A box containing an explosive implant and implanter. Use the implant in-hand to set the explosion size and trigger phrase."
+	bluecrystal_cost = 3
+	desc = "A box containing an explosive implant case and implanter. Use the implant case with the implant pad to set the explosion size, trigger phrase, and trigger code."
 	path = /obj/item/storage/box/syndie_kit/imp_explosive
 
 /datum/uplink_item/item/implants/imp_deadman
 	name = "Deadman Implant (DANGER!)"
-	item_cost = 3
+	bluecrystal_cost = 3
 	desc = "A box containing an explosive implant and implanter. The implant monitors vitals and will detonate when the subject dies."
 	path = /obj/item/storage/box/syndie_kit/imp_deadman
 
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"
-	path = /obj/item/storage/box/syndie_kit/imp_uplink
+	path = /obj/item/implanter/uplink
 
 /datum/uplink_item/item/implants/imp_uplink/New()
 	..()
-	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
+	telecrystal_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
 	desc = "Contains [round((DEFAULT_TELECRYSTAL_AMOUNT / 2) * 0.8)] Telecrystal\s"
 
 /datum/uplink_item/item/implants/aug_combitool
 	name = "Combitool Augment Implanter"
-	item_cost = 2
+	bluecrystal_cost = 1
 	desc = "An augment implanter, with the combitool augment."
 	path = /obj/item/device/augment_implanter/combitool
 
 /datum/uplink_item/item/implants/aug_health_scanner
 	name = "Health Scanner Augment Implanter"
-	item_cost = 1
+	bluecrystal_cost = 1
 	desc = "An augment implanter, with the integrated health scanner augment."
 	path = /obj/item/device/augment_implanter/health_scanner
+
+/datum/uplink_item/item/implants/hiveshield
+	name = "Vaurca Hivenet Defense Implanter"
+	bluecrystal_cost = 1
+	desc = "An augment implanter, with a Hivenet defense augment. ONLY WORKS ON VAURCA!"
+	path = /obj/item/device/augment_implanter/hivenet_shield
+
+/datum/uplink_item/item/implants/hivewarfare
+	name = "Vaurca Hivenet Warfare Suite"
+	bluecrystal_cost = 5
+	desc = "A augment implanter, with a Hivenet defense augment and electronic warfare suite. ONLY WORKS ON VAURCA!"
+	path = /obj/item/device/augment_implanter/hivenet_warfare

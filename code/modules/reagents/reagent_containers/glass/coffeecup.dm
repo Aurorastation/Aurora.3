@@ -3,10 +3,6 @@
 	desc = "A plain white coffee cup."
 	icon = 'icons/obj/drink_glasses/coffecup.dmi'
 	icon_state = "coffeecup"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
-		)
 	item_state = "coffeecup"
 	volume = 30
 	var/fillsource = "coffeecup"
@@ -78,10 +74,20 @@
 	desc = "A coffee cup bearing the flag of the Izweski Hegemony."
 	icon_state = "coffeecup_hegemony"
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/jargon
-	name = "\improper Jargon coffee cup"
-	desc = "A purple coffee cup emblazoned with the flag of the Jargon Federation."
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
+	name = "\improper Nralakk coffee cup"
+	desc = "A purple coffee cup emblazoned with the flag of the Nralakk Federation."
 	icon_state = "coffeecup_jarg"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
+	name = "\improper San Colette coffee cup"
+	desc = "A tricolor coffee cup bearing the flag of San Colette."
+	icon_state = "coffeecup_sancolette"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/europa
+	name = "\improper Europa coffee cup"
+	desc = "A tricolor coffee cup bearing the flag of Europa."
+	icon_state = "coffeecup_europa"
 
 // Organisations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
@@ -139,6 +145,46 @@
 	name = "british coffee cup"
 	desc = "A coffee cup with the British flag emblazoned on it."
 	icon_state = "coffeecup_brit"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/shumaila
+	name = "shumaila coffee cup"
+	desc = "A coffee cup with a portrait of Shumaila, the current monarch of the New Kingdom of Adhomai."
+	icon_state = "coffeecup_shumaila"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nated
+	name = "nated coffee cup"
+	desc = "A coffee cup with a portrait of Supreme Commander Nated'Hakhan, the leader of the Adhomian Liberation Army."
+	icon_state = "coffeecup_nated"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/kingazunja
+	name = "vahzirthaamro coffee cup"
+	desc = "A coffee cup with a portrait of the late King Vahzirthaamro Azunja, the previous monarch of the New Kingdom of Adhomai."
+	icon_state = "coffeecup_kingazunja"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hadii
+	name = "hadii coffee cup"
+	desc = "A coffee cup with a portrait of Njadrasanukii Hadii, the president of the People's Republic of Adhomai."
+	icon_state = "coffeecup_hadii"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/njarir
+	name = "njarir coffee cup"
+	desc = "A coffee cup featuring the image of a Njarir Priest of S'rendarr."
+	icon_state = "coffeecup_njarir"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/msai
+	name = "m'sai coffee cup"
+	desc = "A coffee cup featuring the image of a M'sai hunter."
+	icon_state = "coffeecup_msai"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hharar
+	name = "hharar coffee cup"
+	desc = "A coffee cup featuring the image of a Hharar janitor."
+	icon_state = "coffeecup_hharar"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zhan
+	name = "zhan coffee cup"
+	desc = "A coffee cup featuring the image of a Zhan miner."
+	icon_state = "coffeecup_zhan"
 
 // Pure colors & other
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black

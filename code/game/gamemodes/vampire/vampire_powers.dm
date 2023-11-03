@@ -92,7 +92,7 @@
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			to_chat(src, SPAN_DANGER("[T] has no more blood left to give."))
 			break
 
@@ -103,7 +103,7 @@
 
 		// Alive and not of empty mind.
 		if (check_drain_target_state(T))
-			blood = min(15, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+			blood = min(15, REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -121,7 +121,7 @@
 				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
-			blood = min(5, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+			blood = min(5, REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
@@ -137,7 +137,7 @@
 
 			to_chat(src, SPAN_NOTICE(update_msg))
 		check_vampire_upgrade()
-		T.vessel.remove_reagent(/decl/reagent/blood, 5)
+		T.vessel.remove_reagent(/singleton/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -186,7 +186,7 @@
 			L.stuttering = 20
 			L.confused = 10
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-			L.flash_eyes(FLASH_PROTECTION_MAJOR)
+			L.flash_act(FLASH_PROTECTION_MAJOR)
 			victims += L
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
@@ -194,14 +194,14 @@
 
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_glare
-	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, .proc/finish_vamp_timeout))
+	remove_verb(src,/mob/living/carbon/human/proc/vampire_glare)
+	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Targeted stun ability, moderate duration.
 /mob/living/carbon/human/proc/vampire_hypnotise()
 	set category = "Vampire"
 	set name = "Hypnotise (10)"
-	set desc = "Through blood magic, you dominate the victim's mind and force them into a hypnotic transe."
+	set desc = "Through blood magic, you dominate the victim's mind and force them into a hypnotic trance."
 
 	var/datum/vampire/vampire = vampire_power(10, 1)
 	if(!vampire)
@@ -219,12 +219,15 @@
 		to_chat(src, SPAN_WARNING("No suitable targets."))
 		return
 
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
+	var/mob/living/carbon/human/T = tgui_input_list(src, "Select Victim", "Hypnotise", victims)
 	if(!vampire_can_affect_target(T))
+		return
+	if(vampire.status & VAMP_HYPNOTIZING)
+		to_chat(src, SPAN_WARNING("You are already focusing your gaze!"))
 		return
 
 	to_chat(src, SPAN_NOTICE("You begin peering into [T.name]'s mind, looking for a way to render them useless."))
-
+	vampire.status |= VAMP_HYPNOTIZING
 	if(do_mob(src, T, 50))
 		to_chat(src, SPAN_DANGER("You dominate [T.name]'s mind and render them temporarily powerless to resist."))
 		to_chat(T, SPAN_DANGER("You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak."))
@@ -235,13 +238,14 @@
 		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
-		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
-		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, .proc/finish_vamp_timeout))
+		remove_verb(src, /mob/living/carbon/human/proc/vampire_hypnotise)
+		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 	else
 		to_chat(src, SPAN_WARNING("You broke your gaze."))
+	vampire.status &= ~VAMP_HYPNOTIZING
 
 // Targeted teleportation, must be to a low-light tile.
-/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in turfs)
+/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)
 	set category = "Vampire"
 	set name = "Veil Step (20)"
 	set desc = "For a moment, move through the Veil and emerge at a shadow of your choice."
@@ -281,8 +285,8 @@
 	log_and_message_admins("activated veil step.")
 
 	vampire.use_blood(20)
-	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
-	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, .proc/finish_vamp_timeout))
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_veilstep)
+	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Summons bats.
 /mob/living/carbon/human/proc/vampire_bats()
@@ -325,8 +329,8 @@
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
-	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, .proc/finish_vamp_timeout))
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_bats)
+	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Chiropteran Screech
 /mob/living/carbon/human/proc/vampire_screech()
@@ -342,7 +346,7 @@
 
 	var/list/victims = list()
 	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
@@ -375,17 +379,18 @@
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
+		CHECK_TICK
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 	vampire.use_blood(90)
 
 	if(length(victims))
-		admin_attacker_log_many_victims(src, victims, "used chriopteran screech to stun", "was stunned by [key_name(src)] using chriopteran screech", "used chiropteran screech to stun")
+		admin_attacker_log_many_victims(src, victims, "used chiropteran screech to stun", "was stunned by [key_name(src)] using chiropteran screech", "used chiropteran screech to stun")
 	else
 		log_and_message_admins("used chiropteran screech.")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_screech
-	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, .proc/finish_vamp_timeout))
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_screech)
+	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Enables the vampire to be untouchable and walk through walls and other solid things.
 /mob/living/carbon/human/proc/vampire_veilwalk()
@@ -400,9 +405,10 @@
 	if(isAdminLevel(src.z))
 		return
 
-	if(pulledby)
-		if(pulledby.pulling == src)
-			pulledby.pulling = null
+	if(ismob(pulledby))
+		var/mob/M = pulledby
+		if(M.pulling == src)
+			M.pulling = null
 		pulledby = null
 	for(var/thing in grabbed_by)
 		qdel(thing)
@@ -458,7 +464,7 @@
 	ghost_last_move = world.time
 
 	var/turf/new_loc = get_step(src, direction)
-	if(new_loc.flags & NOJAUNT || istype(new_loc.loc, /area/chapel))
+	if(new_loc.turf_flags & TURF_FLAG_NOJAUNT || istype(new_loc.loc, /area/chapel))
 		to_chat(usr, SPAN_WARNING("Some strange aura is blocking the way!"))
 		return
 
@@ -471,8 +477,8 @@
 /obj/effect/dummy/veil_walk/process()
 	if(owner_mob.stat)
 		if(owner_mob.stat == UNCONSCIOUS)
-			to_chat(owner_mob, SPAN_WARNING("You cannot maintain this form while unconcious."))
-			addtimer(CALLBACK(src, .proc/kick_unconcious), 10, TIMER_UNIQUE)
+			to_chat(owner_mob, SPAN_WARNING("You cannot maintain this form while unconscious."))
+			addtimer(CALLBACK(src, PROC_REF(kick_unconcious)), 10, TIMER_UNIQUE)
 		else
 			deactivate()
 			return
@@ -582,7 +588,7 @@
 
 	log_and_message_admins("activated blood heal.")
 
-	while(do_after(src, 20, 0))
+	while(do_after(src, 2 SECONDS, do_flags = DO_UNIQUE & ~DO_USER_SAME_HAND))
 		if(!(vampire.status & VAMP_HEALING))
 			to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 			break
@@ -617,13 +623,13 @@
 		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
 		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50, FALSE)
+			heal_organ_damage(50, 50)
 			blood_used += 3
 
-		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /singleton/reagent/blood)
 		if(missing_blood)
 			to_heal = min(20, missing_blood)
-			vessel.add_reagent(/decl/reagent/blood, to_heal)
+			vessel.add_reagent(/singleton/reagent/blood, to_heal)
 			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
 
 		for(var/A in organs)
@@ -731,7 +737,7 @@
 		return
 
 	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process."))
-	to_chat(T, SPAN_WARNING("You feel an irresistable desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
+	to_chat(T, SPAN_WARNING("You feel an irresistible desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
 
 	if(!do_mob(src, T, 50))
 		visible_message(SPAN_DANGER("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), SPAN_DANGER("You are interrupted!"))
@@ -747,8 +753,8 @@
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
-	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
-	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, .proc/finish_vamp_timeout))
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_enthrall)
+	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Makes the vampire appear 'friendlier' to others.
 /mob/living/carbon/human/proc/vampire_presence()
@@ -772,7 +778,7 @@
 	vampire.status |= VAMP_PRESENCE
 
 	var/list/mob/living/carbon/human/affected = list()
-	var/list/emotes = list("[src] looks trusthworthy.",
+	var/list/emotes = list("[src] looks trustworthy.",
 							"You feel as if [src] is a relatively friendly individual.",
 							"You feel yourself paying more attention to what [src] is saying.",
 							"[src] has your best interests at heart, you can feel it.",
@@ -837,8 +843,8 @@
 	to_chat(T, SPAN_NOTICE("You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
-	T.reagents.add_reagent(/decl/reagent/rezadone, 3)
-	T.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/singleton/reagent/rezadone, 3)
+	T.reagents.add_reagent(/singleton/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -910,12 +916,12 @@
 		if(!vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
-		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			drained_all_blood = TRUE
 			break
 
-		T.vessel.remove_reagent(/decl/reagent/blood, 50)
+		T.vessel.remove_reagent(/singleton/reagent/blood, 50)
 
 	if(!drained_all_blood)
 		vampire.status &= ~VAMP_DRAINING
@@ -937,7 +943,7 @@
 
 	admin_attack_log(src, T, "successfully embraced [key_name(T)]", "was successfully embraced by [key_name(src)]", "successfully embraced and turned into a vampire")
 
-	to_chat(T, SPAN_DANGER("You awaken. Moments ago, you were dead, your conciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power."))
+	to_chat(T, SPAN_DANGER("You awaken. Moments ago, you were dead, your consciousness still forced stuck inside your body. Now you live. You feel different, a strange, dark force now present within you. You have an insatiable desire to drain the blood of mortals, and to grow in power."))
 	to_chat(src, SPAN_WARNING("You have corrupted another mortal with the taint of the Veil. Beware: they will awaken hungry and maddened; not bound to any master."))
 
 	var/datum/vampire/T_vampire = T.mind.antag_datums[MODE_VAMPIRE]
@@ -986,7 +992,7 @@
 
 	T.Weaken(3)
 
-	admin_attack_log(src, T, "lept at and grappled [key_name(T)]", "was lept at and grappled by [key_name(src)]", "lept at and grappled")
+	admin_attack_log(src, T, "leapt at and grappled [key_name(T)]", "was leapt at and grappled by [key_name(src)]", "leapt at and grappled")
 
 	var/use_hand = "left"
 	if(l_hand)
@@ -1008,5 +1014,5 @@
 	G.icon_state = "grabbed1"
 	G.synch()
 
-	verbs -= /mob/living/carbon/human/proc/grapple
-	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, .proc/finish_vamp_timeout, VAMP_FRENZIED))
+	remove_verb(src, /mob/living/carbon/human/proc/grapple)
+	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))

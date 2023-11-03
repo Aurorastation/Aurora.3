@@ -8,7 +8,7 @@
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 30000			//30000 W ~ 40 HP
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SCRUBBER //connects to regular and scrubber pipes
 
@@ -119,6 +119,7 @@
 				add_underlay(T, node, dir, node.icon_connect_type)
 			else
 				add_underlay(T,, dir)
+			underlays += "frame"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -172,7 +173,7 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if(!use_power || (stat & (NOPOWER|BROKEN)))
+	if(!use_power || (stat & (NOPOWER|BROKEN)) || !loc)
 		return 0
 	if(welded)
 		return 0
@@ -305,8 +306,9 @@
 			to_chat(user, SPAN_WARNING("You must remove the plating first."))
 			return TRUE
 		var/datum/gas_mixture/int_air = return_air()
+		if(!loc) return FALSE
 		var/datum/gas_mixture/env_air = loc.return_air()
-		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+		if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return TRUE
@@ -340,8 +342,8 @@
 		welded = !welded
 		update_icon()
 		user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-							 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-										 "You hear welding.")
+								SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+								"You hear welding.")
 		return TRUE
 
 	if(istype(W, /obj/item/melee/arm_blade))
@@ -367,8 +369,9 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
 	else
 		to_chat(user, "You are too far away to read the gauge.")

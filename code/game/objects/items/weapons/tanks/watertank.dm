@@ -26,6 +26,8 @@
 /obj/item/watertank/verb/toggle_mister()
 	set name = "Toggle Mister"
 	set category = "Object"
+	set src in usr
+
 	var/mob/living/carbon/human/user
 	if(istype(usr,/mob/living/carbon/human))
 		user = usr
@@ -127,7 +129,7 @@
 	desc = "A janitorial cleaner tank that is worn on the back, with a nozzle to clean dirt and graffiti."
 	icon_state = "waterpackjani"
 	item_state = "waterpackjani"
-	reagents_to_add = list(/decl/reagent/spacecleaner = 500)
+	reagents_to_add = list(/singleton/reagent/spacecleaner = 500)
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor
 	name = "janitor spray nozzle"

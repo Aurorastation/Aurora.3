@@ -8,7 +8,7 @@
 
 // Positionless remove/Edit are a bit weird,
 // not sure if adding these buttons is quite a good idea.
-// They introduce uncertainty, since, in case of 2 elements, 
+// They introduce uncertainty, since, in case of 2 elements,
 // they will work just with the 1st one
 /datum/integrated_io/list/proc/interact(mob/user)
 	var/list/my_list = data
@@ -21,7 +21,7 @@
 	t += "<a href='?src=\ref[src];swap=1'>Swap</a>  |  "
 	t += "<a href='?src=\ref[src];clear=1'>Clear</a><br>"
 	t += "<hr>"
-	// Iterating by index simplifies editing/deletion in game, 
+	// Iterating by index simplifies editing/deletion in game,
 	// since the href_list["pos"] var is consistent
 	for(var/i = 1, i <= my_list.len; i++)
 		t += "#[i] | [display_data(my_list[i])]  |  "
@@ -132,7 +132,7 @@
 /datum/integrated_io/list/display_pin_type()
 	return IC_FORMAT_LIST
 
-/datum/integrated_io/list/Topic(href, href_list, state = interactive_state)
+/datum/integrated_io/list/Topic(href, href_list, state = always_state)
 	if(!holder.check_interactivity(usr))
 		return
 	if(..())

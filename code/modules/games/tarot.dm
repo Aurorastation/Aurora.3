@@ -45,7 +45,7 @@
 
 /obj/item/deck/tarot/adhomai/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("D'as'ral Massacre","Mystic","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
+	for(var/name in list("D'as'ral Massacre","Mystic","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Enforcer","Kraszarrumalkarii","Rredouane's Dice","Great Revolution","Assassin","Assassination","Dymtris Line",
 	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
 		P = new()
 		P.name = "[name]"
@@ -62,17 +62,17 @@
 			P.back_icon = "card_back_adhomai"
 			cards += P
 
-/obj/item/deck/tarot/jargon
+/obj/item/deck/tarot/nralakk
 	name = "qwei'paqui homeworld deck"
 	desc = "A Skrellian deck of tarot cards depicting the main constellations of Nralakk."
-	icon_state = "deck_jargon"
+	icon_state = "deck_nralakk"
 
-/obj/item/deck/tarot/jargon/generate_deck()
+/obj/item/deck/tarot/nralakk/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh"))
 		P = new()
 		P.name = "[name]"
-		var/suit = "jargon"
+		var/suit = "nralakk"
 		switch(name)
 			if("Island")
 				P.desc = "One of the main constellations that is shared by both Qeblak and Weishii. It is associated with Loneliness. Introspection. Earth. Rising above or Sinking beneath. Reality."
@@ -111,16 +111,16 @@
 			if("Nioh")
 				suit = "aweiji"
 				P.desc = "One of the local constellations on the planet Aweiji. It is associated with Trust. Reliance. Perseverance. Survival."
-		P.card_icon = "[suit]_[lowertext(name)]" 
+		P.card_icon = "[suit]_[lowertext(name)]"
 		P.back_icon = "card_off_[suit]"
 		cards += P
 
-/obj/item/deck/tarot/nonjargon
+/obj/item/deck/tarot/nonnralakk
 	name = "qwei'paqui colonist deck"
 	desc = "A Skrellian deck of tarot cards depicting the local constellations of planets outside Nralakk."
-	icon_state = "deck_nonjargon"
+	icon_state = "deck_nonnralakk"
 
-/obj/item/deck/tarot/nonjargon/generate_deck()
+/obj/item/deck/tarot/nonnralakk/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("Shell","Wave","Trident","Palm Tree","Pulque","Eel","Iqi Star","Sky-Grazer","Dyn"))
 		P = new()

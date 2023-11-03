@@ -134,37 +134,37 @@
 
 /datum/category_item/player_setup_item/general/flavor/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["flavor_text"])
-		switch(href_list["flavor_text"])
-			if("open")
-			if("general")
-				var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavor_texts[href_list["flavor_text"]] = msg
-			else
-				var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavor_texts[href_list["flavor_text"]] = msg
+		if(href_list["flavor_text"] != "open")
+			switch(href_list["flavor_text"])
+				if("general")
+					var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavor_texts[href_list["flavor_text"]] = msg
+				else
+					var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavor_texts[href_list["flavor_text"]] = msg
 		SetFlavorText(user)
 		return TOPIC_HANDLED
 
 	else if(href_list["flavour_text_robot"])
-		switch(href_list["flavour_text_robot"])
-			if("open")
-			if("Default")
-				var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
-			else
-				var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
+		if(href_list["flavour_text_robot"] != "open")
+			switch(href_list["flavour_text_robot"])
+				if("Default")
+					var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
+				else
+					var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
 		SetFlavourTextRobot(user)
 		return TOPIC_HANDLED
 
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
 			if ("text")
-				var/new_sign = input(usr, "Please input the new character signature.", "New signature", html2pencode(pref.signature)) as null|text
+				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(pref.signature))
 				if (!new_sign)
 					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signature)
@@ -178,7 +178,7 @@
 
 				return TOPIC_REFRESH
 			if ("font")
-				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New")
+				var/new_font = tgui_input_list(usr, "Please select the font to use.", "New Font", list("Verdana", "Times New Roman", "Courier New"))
 				if (!new_font)
 					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signfont)

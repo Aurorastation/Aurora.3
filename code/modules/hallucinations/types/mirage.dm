@@ -42,7 +42,7 @@
 /datum/hallucination/mirage/bleeding/start()
 	number = min(round(holder.hallucination/10), 7)	//cap at 7 times for duration's sake
 	for(var/i = 1; i <= number; i++)
-		addtimer(CALLBACK(src, .proc/show_mirage), rand(30,50)*i)	//every 3 to 5 seconds
+		addtimer(CALLBACK(src, PROC_REF(show_mirage)), rand(30,50)*i)	//every 3 to 5 seconds
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		part = pick(H.organs)
@@ -149,7 +149,7 @@
 	number = 3
 
 /datum/hallucination/mirage/viscerator/start()
-	addtimer(CALLBACK(src, .proc/buzz), rand(30, 60))
+	addtimer(CALLBACK(src, PROC_REF(buzz)), rand(30, 60))
 	..()
 
 /datum/hallucination/mirage/viscerator/generate_mirage()

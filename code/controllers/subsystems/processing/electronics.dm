@@ -1,9 +1,7 @@
 #define IC_SPAWN_DEFAULT  1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
 #define IC_SPAWN_RESEARCH 2 // If the circuit design will be available in the IC printer after upgrading it.
 
-/var/datum/controller/subsystem/processing/electronics/SSelectronics
-
-/datum/controller/subsystem/processing/electronics
+PROCESSING_SUBSYSTEM_DEF(electronics)
 	name = "Electronics"
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_ELECTRONICS
@@ -14,9 +12,7 @@
 	var/list/printer_recipe_list = list()
 	var/list/printer_recipe_list_basic = list()
 	var/list/printer_recipe_list_upgraded = list()
-
-/datum/controller/subsystem/processing/electronics/New()
-	NEW_SS_GLOBAL(SSelectronics)
+	var/list/found_categories = list()
 
 /datum/controller/subsystem/processing/electronics/Initialize(timeofday)
 	init_subtypes(/obj/item/integrated_circuit, all_integrated_circuits)
@@ -28,10 +24,11 @@
 			circuits_to_use += IC
 
 	// Second loop is to find all categories.
-	var/list/found_categories = list()
 	for(var/obj/item/integrated_circuit/IC in circuits_to_use)
 		if(!(IC.category_text in found_categories))
 			found_categories += IC.category_text
+	found_categories += "Assemblies"
+	found_categories += "Tools"
 
 	// Third loop is to initialize lists by category names, then put circuits matching the category inside.
 	for(var/category in found_categories)
@@ -68,7 +65,6 @@
 		new /obj/item/device/electronic_assembly/large/industrial,
 		new /obj/item/device/electronic_assembly/drone/default,
 		new /obj/item/device/electronic_assembly/drone/arms,
-		new /obj/item/device/electronic_assembly/drone/secbot,
 		new /obj/item/device/electronic_assembly/drone/medbot,
 		new /obj/item/device/electronic_assembly/drone/genbot,
 		new /obj/item/device/electronic_assembly/drone/android,
@@ -92,20 +88,17 @@
 		new /obj/item/device/integrated_electronics/detailer
 	)
 
-
 	for(var/category in printer_recipe_list)
 		var/items = printer_recipe_list[category]
-		printer_recipe_list_basic[category] = list()
-		printer_recipe_list_upgraded[category] = list()
 		for(var/obj/O in items)
 			var/is_basic = TRUE
 			if(istype(O, /obj/item/integrated_circuit))
 				var/obj/item/integrated_circuit/IC = O
 				if((IC.spawn_flags & IC_SPAWN_RESEARCH) && (!(IC.spawn_flags & IC_SPAWN_DEFAULT)))
 					is_basic = FALSE
-			
-			printer_recipe_list_basic[category] += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "b" = is_basic))
-			printer_recipe_list_upgraded[category] += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "b" = TRUE))
+
+			printer_recipe_list_basic += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = is_basic, "category" = category))
+			printer_recipe_list_upgraded += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = TRUE, "category" = category))
 
 
 	..()

@@ -8,7 +8,7 @@
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled_to
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
-	held_item = /obj/item/material/stool/chair/
+	held_item = /obj/item/material/stool/chair
 
 /obj/structure/bed/stool/chair/Initialize()
 	. = ..()
@@ -44,7 +44,7 @@
 /obj/structure/bed/stool/chair/MouseDrop_T(mob/target, mob/user)
 	if(target == user && user.loc != loc && (reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
 		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
-		if(do_after(user, 2 SECONDS))
+		if(do_after(user, 2 SECONDS, DO_UNIQUE))
 			user.forceMove(loc)
 		return
 	return ..()
@@ -54,6 +54,13 @@
 		if(mover?.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
 			return FALSE
 	return ..()
+
+/obj/structure/bed/stool/chair/fancy
+	name = "fancy chair"
+	desc = "The armrests give you a signature feeling of superiority."
+	icon_state = "chair_fancy"
+	base_icon = "chair_fancy"
+	held_item = /obj/item/material/stool/chair/fancy
 
 /obj/structure/bed/stool/chair/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
@@ -91,172 +98,10 @@
 /obj/structure/bed/stool/chair/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-/obj/structure/bed/stool/chair/sofa
-	name = "sofa"
-	desc = "A sofa, how nice!"
-	icon_state = "sofamiddle_preview"
-	base_icon = "sofamiddle"
-
-/obj/structure/bed/stool/chair/sofa/brown/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
-
-/obj/structure/bed/stool/chair/sofa/black/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_DARK_GRAY)
-
-/obj/structure/bed/stool/chair/sofa/beige/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BEIGE)
-
-/obj/structure/bed/stool/chair/sofa/red/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
-
-/obj/structure/bed/stool/chair/sofa/orange/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_ORANGE)
-
-/obj/structure/bed/stool/chair/sofa/yellow/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_YELLOW)
-
-/obj/structure/bed/stool/chair/sofa/green/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_GREEN)
-
-/obj/structure/bed/stool/chair/sofa/lime/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_LIME)
-
-/obj/structure/bed/stool/chair/sofa/blue/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BLUE)
-
-/obj/structure/bed/stool/chair/sofa/teal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_TEAL)
-
-/obj/structure/bed/stool/chair/sofa/purple/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_PURPLE)
-
-/obj/structure/bed/stool/chair/sofa/violet/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
-
-/obj/structure/bed/stool/chair/sofa/left
-	icon_state = "sofaend_left_preview"
-	base_icon = "sofaend_left"
-
-/obj/structure/bed/stool/chair/sofa/left/brown/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
-
-/obj/structure/bed/stool/chair/sofa/left/black/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_DARK_GRAY)
-
-/obj/structure/bed/stool/chair/sofa/left/beige/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BEIGE)
-
-/obj/structure/bed/stool/chair/sofa/left/red/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
-
-/obj/structure/bed/stool/chair/sofa/left/orange/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_ORANGE)
-
-/obj/structure/bed/stool/chair/sofa/left/yellow/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_YELLOW)
-
-/obj/structure/bed/stool/chair/sofa/left/green/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_GREEN)
-
-/obj/structure/bed/stool/chair/sofa/left/lime/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_LIME)
-
-/obj/structure/bed/stool/chair/sofa/left/blue/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BLUE)
-
-/obj/structure/bed/stool/chair/sofa/left/teal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_TEAL)
-
-/obj/structure/bed/stool/chair/sofa/left/purple/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_PURPLE)
-
-/obj/structure/bed/stool/chair/sofa/left/violet/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
-
-/obj/structure/bed/stool/chair/sofa/right
-	icon_state = "sofaend_right_preview"
-	base_icon = "sofaend_right"
-
-/obj/structure/bed/stool/chair/sofa/right/brown/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
-
-/obj/structure/bed/stool/chair/sofa/right/black/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_DARK_GRAY)
-
-/obj/structure/bed/stool/chair/sofa/right/beige/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BEIGE)
-
-/obj/structure/bed/stool/chair/sofa/right/red/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
-
-/obj/structure/bed/stool/chair/sofa/right/orange/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_ORANGE)
-
-/obj/structure/bed/stool/chair/sofa/right/yellow/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_YELLOW)
-
-/obj/structure/bed/stool/chair/sofa/right/green/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_GREEN)
-
-/obj/structure/bed/stool/chair/sofa/right/lime/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_LIME)
-
-/obj/structure/bed/stool/chair/sofa/right/blue/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BLUE)
-
-/obj/structure/bed/stool/chair/sofa/right/teal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_TEAL)
-
-/obj/structure/bed/stool/chair/sofa/right/purple/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_PURPLE)
-
-/obj/structure/bed/stool/chair/sofa/right/violet/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
-
-
-/obj/structure/bed/stool/chair/sofa/corner
-	icon_state = "sofacorner_preview"
-	base_icon = "sofacorner"
-
-/obj/structure/bed/stool/chair/sofa/corner/brown/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
-
-/obj/structure/bed/stool/chair/sofa/corner/black/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_DARK_GRAY)
-
-/obj/structure/bed/stool/chair/sofa/corner/beige/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BEIGE)
-
-/obj/structure/bed/stool/chair/sofa/corner/red/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
-
-/obj/structure/bed/stool/chair/sofa/corner/orange/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_ORANGE)
-
-/obj/structure/bed/stool/chair/sofa/corner/yellow/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_YELLOW)
-
-/obj/structure/bed/stool/chair/sofa/corner/green/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_GREEN)
-
-/obj/structure/bed/stool/chair/sofa/corner/lime/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_LIME)
-
-/obj/structure/bed/stool/chair/sofa/corner/blue/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BLUE)
-
-/obj/structure/bed/stool/chair/sofa/corner/teal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_TEAL)
-
-/obj/structure/bed/stool/chair/sofa/corner/purple/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_PURPLE)
-
-/obj/structure/bed/stool/chair/sofa/corner/violet/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
-
-
 /obj/structure/bed/stool/chair/office // For the love of god, don't use this.
 	name = "office chair"
+	desc = "The propulsion of any lazy office worker, it has wheels."
+	icon_state = null
 	material_alteration = MATERIAL_ALTERATION_DESC
 	makes_rolling_sound = TRUE
 	anchored = FALSE
@@ -267,40 +112,40 @@
 	can_pad = FALSE
 
 /obj/structure/bed/stool/chair/office/light
-	icon_state = "officechair_white_preview"
+	icon_state = "officechair_white"
 	base_icon = "officechair_white"
 
 /obj/structure/bed/stool/chair/office/dark
-	icon_state = "officechair_dark_preview"
+	icon_state = "officechair_dark"
 	base_icon = "officechair_dark"
 
 /obj/structure/bed/stool/chair/office/bridge
 	name = "command chair"
 	desc = "It exudes authority... and looks about as comfortable as a brick."
-	icon_state = "bridge_preview"
+	icon_state = "bridge"
 	base_icon = "bridge"
 	anchored = TRUE
 
 /obj/structure/bed/stool/chair/office/bridge/legion
 	name = "legion pilot seat"
 	desc = "A comfortable seat for a pilot."
-	icon_state = "bridge_legion_preview"
+	icon_state = "bridge_legion"
 	base_icon = "bridge_legion"
 
 /obj/structure/bed/stool/chair/office/bridge/generic
-	icon_state = "bridge_generic_preview"
+	icon_state = "bridge_generic"
 	base_icon = "bridge_generic"
 
 /obj/structure/bed/stool/chair/office/bridge/pilot
 	name = "pilot seat"
 	desc = "A comfortable seat for a pilot."
-	icon_state = "pilot_preview"
+	icon_state = "pilot"
 	base_icon = "pilot"
 
 /obj/structure/bed/stool/chair/office/hover
 	name = "hoverchair"
 	desc = "Adjusts itself to the sitter's weight resulting in a most comfortable sitting experience. Like floating on a cloud."
-	icon_state = "hover_chair_preview"
+	icon_state = "hover_chair"
 	base_icon = "hover_chair"
 	makes_rolling_sound = FALSE
 	can_dismantle = FALSE
@@ -312,21 +157,34 @@
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
 /obj/structure/bed/stool/chair/office/hover/command
-	icon_state = "hover_command_preview"
+	icon_state = "hover_command"
 	base_icon = "hover_command"
 
-// Chair types
 /obj/structure/bed/stool/chair/plastic
+	name = "chair"
+	desc = "The monobloc chair. You'll have to take it, whether you like it or not."
+	icon_state = "plastic_chair"
+	base_icon = "plastic_chair"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	held_item = /obj/item/material/stool/chair/plastic
+	can_pad = FALSE
+	anchored = FALSE
 
 /obj/structure/bed/stool/chair/plastic/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC)
 
+/obj/structure/bed/stool/chair/plastic/post_buckle(atom/movable/MA) //you do not want to see an angry spaceman speeding while holding dearly onto it
+	. = ..()
+	if(MA == buckled)
+		anchored = TRUE
+	else
+		anchored = FALSE
+
 /obj/structure/bed/stool/chair/wood
 	name = "classic chair"
 	desc = "Old is never too old to not be in fashion."
-	icon_state = "wooden_chair_preview"
+	icon_state = "wooden_chair"
 	base_icon = "wooden_chair"
-	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 3
 	held_item = /obj/item/material/stool/chair/wood
 	can_pad = FALSE
@@ -336,7 +194,7 @@
 
 /obj/structure/bed/stool/chair/wood/wings
 	name = "winged chair"
-	icon_state = "wooden_chair_wings_preview"
+	icon_state = "wooden_chair_wings"
 	base_icon = "wooden_chair_wings"
 	held_item = /obj/item/material/stool/chair/wood/wings
 
@@ -346,7 +204,7 @@
 
 /obj/structure/bed/stool/chair/shuttle
 	name = "shuttle chair"
-	icon_state = "shuttlechair_preview"
+	icon_state = "shuttlechair"
 	base_icon = "shuttlechair"
 	buckling_sound = 'sound/effects/metal_close.ogg'
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
@@ -364,6 +222,26 @@
 /obj/structure/bed/stool/chair/shuttle/update_icon()
 	..()
 	if(!buckled)
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
+
+/obj/structure/bed/stool/chair/cockpit
+	name = "cockpit seating"
+	icon_state = "cockpit_preview"
+	base_icon = "cockpit"
+	buckling_sound = 'sound/effects/metal_close.ogg'
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	can_dismantle = FALSE
+	anchored = TRUE
+	held_item = null
+	desc = "A heavy set of belts and buckles, completed by a hinging arm mechanism that surrounds the occupant. Perfect for flying shuttles."
+	icon = 'icons/obj/spaceship/cockpit_chair.dmi'
+
+/obj/structure/bed/stool/chair/cockpit/CanPass(atom/movable/mover, turf/target, height, air_group)
+	return TRUE
+
+/obj/structure/bed/stool/chair/cockpit/update_icon()
+	..()
+	if(buckled)
 		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
 
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
@@ -391,35 +269,51 @@
 /obj/structure/bed/stool/chair/folding
 	name = "folding chair"
 	desc = "Temporary seating perfect for your next office party and/or wrestling match."
-	icon_state = "folding_chair_preview"
+	icon_state = "folding_chair"
 	base_icon = "folding_chair"
 	held_item = /obj/item/material/stool/chair/folding
+
+// Chair Items
 
 /obj/item/material/stool/chair
 	name = "chair"
 	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
-	desc_info = "Click it while in hand to right it."
-	icon = 'icons/obj/furniture.dmi'
+	desc_info = "Click it while in-hand to right it."
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "chair_item"
 	item_state = "chair"
 	base_icon = "chair"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
-		)
 	w_class = ITEMSIZE_HUGE
 	force_divisor = 0.5
 	origin_type = /obj/structure/bed/stool/chair
 
-// Because wood chairs are snowflake sprites.
+/obj/item/material/stool/chair/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_STEEL
+	..(newloc, new_material)
+
+/obj/item/material/stool/chair/fancy
+	name = "fancy chair"
+	desc = "Meeting brawl essential. Now all that's missing is corporate ukulele."
+	icon_state = "chair_fancy_item"
+	item_state = "chair_fancy"
+	base_icon = "chair_fancy"
+	origin_type = /obj/structure/bed/stool/chair/fancy
+
 /obj/item/material/stool/chair/wood
+	name = "classic chair"
 	icon_state = "wooden_chair_item"
 	item_state = "woodenchair"
 	base_icon = "wooden_chair"
 	origin_type = /obj/structure/bed/stool/chair/wood
-	applies_material_colour = FALSE
+
+/obj/item/material/stool/chair/wood/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_WOOD
+	..(newloc, new_material)
 
 /obj/item/material/stool/chair/wood/wings
+	name = "winged chair"
 	icon_state = "wooden_chair_wings_item"
 	item_state = "woodenchair"
 	base_icon = "wooden_chair_wings"
@@ -431,6 +325,17 @@
 	base_icon = "folding_chair"
 	origin_type = /obj/structure/bed/stool/chair/folding
 
+/obj/item/material/stool/chair/plastic
+	icon_state = "plastic_chair_item"
+	item_state = "plastic_chair"
+	base_icon = "plastic_chair"
+	origin_type = /obj/structure/bed/stool/chair/plastic
+
+/obj/item/material/stool/chair/plastic/New(var/newloc, new_material)
+	if(!new_material)
+		new_material = MATERIAL_PLASTIC
+	..(newloc, new_material)
+
 //Maybe if you tried hard, you could sit on these too.
 /obj/structure/bed/handrail
 	name = "handrail"
@@ -438,6 +343,8 @@
 	icon = 'icons/obj/handrail.dmi'
 	icon_state = "handrail"
 	base_icon = "handrail"
+	material_alteration = MATERIAL_ALTERATION_NONE
 	buckle_dir = FALSE
 	buckle_lying = FALSE
 	can_dismantle = FALSE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED

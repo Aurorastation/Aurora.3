@@ -38,8 +38,8 @@
 /datum/game_mode/meteor/post_setup()
 	..()
 	alert_title = "Automated Beacon AB-[rand(10, 99)]"
-	alert_text = "This is an automatic warning. Your facility: [current_map.full_name] is on a collision course with a nearby asteroid belt. Estimated time until impact is: [meteor_grace_period / 1200] MINUTES. Please perform necessary actions to secure your ship or station from the threat. Have a nice day."
-	start_text = "This is an automatic warning. Your facility: [current_map.full_name] has entered an asteroid belt. Estimated time until you leave the belt is: [rand(20,30)] HOURS and [rand(1, 59)] MINUTES. For your safety, please consider changing course or using protective equipment. Have a nice day."
+	alert_text = "This is an automatic warning. The [current_map.full_name] is on a collision course with a nearby asteroid belt. Estimated time until impact is: [meteor_grace_period / 1200] MINUTES. Please perform necessary actions to secure your ship or station from the threat. Have a nice day."
+	start_text = "This is an automatic warning. The [current_map.full_name] has entered an asteroid belt. Estimated time until you leave the belt is: [rand(20,30)] HOURS and [rand(1, 59)] MINUTES. For your safety, please consider changing course or using protective equipment. Have a nice day."
 	next_wave = round_duration_in_ticks + meteor_grace_period
 
 /datum/game_mode/meteor/proc/on_meteor_warn()
@@ -50,9 +50,9 @@
 	alert_sent = 2
 	command_announcement.Announce(start_text, alert_title)
 	if(current_map.use_overmap)
-		var/area/map = locate(/area/overmap)
+		var/area/map = global.map_overmap
 		for(var/turf/T in map)
-			T.overlays += image('icons/obj/overmap.dmi', "meteor[rand(1,4)]")
+			new/obj/effect/overmap/event/meteor(T)
 	next_wave = round_duration_in_ticks + meteor_wave_delay
 
 /datum/game_mode/meteor/process()

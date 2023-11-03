@@ -3,7 +3,7 @@
 	name = "kinetic force"
 	icon_state = null
 	damage = 0 //Base damage handled elsewhere.
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	check_armor = "bomb"
 	range = 5
 	var/pressure_decrease = 0.25
@@ -26,6 +26,7 @@
 		strike_thing(target_turf)
 
 /obj/item/projectile/kinetic/proc/do_damage(var/turf/T, var/living_damage = 1, var/mineral_damage = 1)
+	if(!istype(T)) return
 	var/datum/gas_mixture/environment = T.return_air()
 	living_damage *= max(1 - (environment.return_pressure() / 100) * 0.75, 0)
 	new /obj/effect/overlay/temp/kinetic_blast(T)
@@ -39,6 +40,6 @@
 /obj/item/projectile/kinetic/proc/strike_thing(var/turf/target_turf)
 	for(var/new_target in RANGE_TURFS(aoe, target_turf))
 		var/turf/aoe_turf = new_target
-		do_damage(aoe_turf, max(base_damage - base_damage * get_dist(aoe_turf, target_turf) * 0.25, 0), base_damage)
+		do_damage(aoe_turf, max(base_damage - base_damage * get_dist(aoe_turf, target_turf) * 0.25, 0), damage)
 	if(!QDELETED(src))
 		qdel(src)

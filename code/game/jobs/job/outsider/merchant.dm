@@ -67,7 +67,7 @@
 		/obj/item/clothing/shoes/laceup/brown,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/black,
+		/obj/item/clothing/shoes/sneakers/black,
 		/obj/item/clothing/shoes/cowboy
 		)
 	head = list(
@@ -84,7 +84,7 @@
 		/obj/item/clothing/suit/storage/toggle/trench,
 		/obj/item/clothing/suit/storage/hooded/wintercoat
 		)
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/wallet/random = 1

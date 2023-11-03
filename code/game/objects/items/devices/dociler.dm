@@ -13,7 +13,7 @@
 	var/mode = "completely"
 
 /obj/item/device/dociler/examine(var/mob/user)
-	. = ..(user)
+	. = ..()
 	to_chat(user, "<span class='notice'>It is currently set to [mode] docile mode.</span>")
 
 /obj/item/device/dociler/attack_self(var/mob/user)
@@ -60,7 +60,7 @@
 
 	loaded = 0
 	icon_state = "animal_tagger0"
-	addtimer(CALLBACK(src, .proc/do_recharge), 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(do_recharge)), 5 MINUTES)
 
 
 /obj/item/device/dociler/proc/do_recharge()

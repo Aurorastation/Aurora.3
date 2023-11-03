@@ -4,6 +4,9 @@
 	name_plural = "Type A"
 	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
@@ -21,6 +24,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
 	)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
@@ -70,7 +74,7 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = COLOR_VAURCA_BLOOD // dark yellow
@@ -97,6 +101,8 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -105,9 +111,7 @@
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
-		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca
 	)
 
 	has_limbs = list(
@@ -124,38 +128,40 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve
+	)
+
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora,
-		/decl/origin_item/culture/klax,
-		/decl/origin_item/culture/cthur
+		/singleton/origin_item/culture/zora,
+		/singleton/origin_item/culture/klax,
+		/singleton/origin_item/culture/cthur
 	)
 
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
+	psi_deaf = TRUE
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
+	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
-
-/datum/species/bug/has_psi_potential()
-	return FALSE
 
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
@@ -164,3 +170,4 @@
 	if(I.w_class <= ITEMSIZE_SMALL)
 		return TRUE
 	return FALSE
+

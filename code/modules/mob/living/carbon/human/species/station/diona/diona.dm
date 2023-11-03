@@ -4,10 +4,13 @@
 	name_plural = "Dionaea"
 	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
+	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 100
+	height_max = 250
 	total_health = 240
 	age_min = 30
 	age_max = 1000
-	default_genders = list(NEUTER)
+	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
@@ -65,7 +68,7 @@
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
-	has_organ = list( BP_STOMACH = /obj/item/organ/internal/stomach/diona)
+	has_organ = list(BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
@@ -112,20 +115,21 @@
 	max_hydration_factor = -1
 
 	possible_cultures = list(
-		/decl/origin_item/culture/xrim,
-		/decl/origin_item/culture/eum,
-		/decl/origin_item/culture/narrows,
-		/decl/origin_item/culture/diona_biesel,
-		/decl/origin_item/culture/diona_sol,
-		/decl/origin_item/culture/diona_eridani,
-		/decl/origin_item/culture/diona_dominia,
-		/decl/origin_item/culture/dionae_moghes,
-		/decl/origin_item/culture/dionae_jargon,
-		/decl/origin_item/culture/diona_coalition,
-		/decl/origin_item/culture/deep_space
+		/singleton/origin_item/culture/xrim,
+		/singleton/origin_item/culture/eum,
+		/singleton/origin_item/culture/narrows,
+		/singleton/origin_item/culture/diona_biesel,
+		/singleton/origin_item/culture/diona_sol,
+		/singleton/origin_item/culture/diona_eridani,
+		/singleton/origin_item/culture/dionae_moghes,
+		/singleton/origin_item/culture/dionae_nralakk,
+		/singleton/origin_item/culture/diona_coalition,
+		/singleton/origin_item/culture/deep_space,
+		/singleton/origin_item/culture/diona_voidtamer
 	)
 
 	alterable_internal_organs = list()
+	psi_deaf = TRUE
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -145,13 +149,14 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
+		INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, diona_split_into_nymphs))
 
-/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
 // Diona without head can live, but they cannot talk as loud anymore.
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
-	current_flags[4] = O.is_stump() ? 3 : world.view
-	return current_flags
+	if(O.is_stump())
+		message_range = 3
+		return list(HSP_MSGRANGE = message_range)
 
 /datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	current_flags = ..()
@@ -179,9 +184,6 @@
 				break
 	if(SB)
 		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
-
-/datum/species/diona/has_psi_potential()
-	return FALSE
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE

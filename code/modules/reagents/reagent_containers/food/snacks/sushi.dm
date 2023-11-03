@@ -1,17 +1,17 @@
 /obj/item/reagent_containers/food/snacks/sushi
 	name = "sushi"
 	desc = "A small, neatly wrapped morsel. Itadakimasu!"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/sushi.dmi'
 	icon_state = "sushi_rice"
 	bitesize = 1
 	var/fish_type = "fish"
-	reagent_data = list(/decl/reagent/nutriment = list())
+	reagent_data = list(/singleton/reagent/nutriment = list())
 
 /obj/item/reagent_containers/food/snacks/sushi/Initialize(var/ml, var/obj/item/reagent_containers/food/snacks/rice, var/obj/item/reagent_containers/food/snacks/topping)
 	. = ..(ml)
 	if(istype(topping))
-		var/list/flavor = LAZYLEN(topping.reagent_data) ? topping.reagent_data[/decl/reagent/nutriment] : null
-		var/list/ourflavor = LAZYLEN(reagent_data) ? reagent_data[/decl/reagent/nutriment] : null
+		var/list/flavor = LAZYLEN(topping.reagent_data) ? topping.reagent_data[/singleton/reagent/nutriment] : null
+		var/list/ourflavor = LAZYLEN(reagent_data) ? reagent_data[/singleton/reagent/nutriment] : null
 		for(var/taste_thing in flavor)
 			if(!ourflavor[taste_thing]) ourflavor[taste_thing] = 0
 			ourflavor[taste_thing] += flavor[taste_thing]
@@ -52,13 +52,13 @@
 /////////////
 /obj/item/reagent_containers/food/snacks/sashimi
 	name = "sashimi"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/sushi.dmi'
 	desc = "Thinly sliced raw fish. Tasty."
 	icon_state = "sashimi"
 	filling_color = "#FFDEFE"
 	gender = PLURAL
 	bitesize = 3
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 	var/fish_type = "fish"
 	var/slices = 1
 
@@ -109,7 +109,7 @@
 		return
 	. = ..()
 
- // Used for turning rice into sushi.
+// Used for turning rice into sushi.
 /obj/item/reagent_containers/food/snacks/boiledrice/attackby(var/obj/item/I, var/mob/user)
 	var/static/list/acceptable_types = list(
 		/obj/item/reagent_containers/food/snacks/sashimi = TRUE,

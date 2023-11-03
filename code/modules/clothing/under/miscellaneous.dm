@@ -71,16 +71,16 @@
 	worn_state = "centcom"
 	displays_id = 0
 
-/obj/item/clothing/under/rank/fib
-	name = "\improper FIB agent uniform"
-	desc = "A formal uniform used by Federal Investigations Bureau agents."
-	icon_state = "fib_uniform"
-	worn_state = "fib_uniform"
+/obj/item/clothing/under/rank/bssb
+	name = "\improper BSSB agent uniform"
+	desc = "A formal uniform used by Biesel Security Services Bureau agents."
+	icon_state = "bssb_uniform"
+	worn_state = "bssb_uniform"
 
 /obj/item/clothing/under/rank/scc
 	name = "Stellar Corporate Conglomerate agent uniform"
 	desc = "A formal blue uniform worn by agents of the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon = 'icons/clothing/under/uniforms/scc.dmi'
 	icon_state = "scc_agent"
 	item_state = "scc_agent"
@@ -335,7 +335,10 @@
 /obj/item/clothing/under/dress/offworlder
 	name = "\improper CR dress"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crdress"
+	item_state = "crdress"
 	worn_state = "crdress"
 
 /obj/item/clothing/under/hosformalmale
@@ -387,7 +390,7 @@
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
 
-/obj/item/clothing/under/serviceoveralls
+/obj/item/clothing/under/service_overalls
 	name = "workman outfit"
 	desc = "The very image of a working man. Not that you're probably doing work."
 	icon_state = "mechanic"
@@ -477,6 +480,8 @@
 	desc = "A traditional Japanese kimono."
 	icon_state = "kimono"
 	item_state = "kimono"
+	icon = 'icons/clothing/under/uniforms/kimono.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/kimono/ronin
 	name = "ronin kimono"
@@ -486,7 +491,7 @@
 
 /obj/item/clothing/under/kimono/fancy
 	name = "fancy kimono"
-	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mind iced tea cans."
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 
@@ -535,10 +540,22 @@
 	item_state = "tauceti_pilot"
 	worn_state = "tauceti_pilot"
 
+/obj/item/clothing/under/legion/tcaf
+	name = "\improper TCAF armsman uniform"
+	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of on-ship legionnaires serving the Republic."
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_armsman_uniform"
+	item_state = "tcaf_armsman_uniform"
+	worn_state = "tcaf_armsman_uniform"
+
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crsuit"
+	item_state = "crsuit"
 	worn_state = "crsuit"
 
 /obj/item/clothing/under/tactical
@@ -609,3 +626,91 @@
 	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
 	icon_state = "elyran_commander"
 	item_state = "elyran_commander"
+
+/obj/item/clothing/under/rank/konyang
+	name = "konyang army uniform"
+	desc = "A set of dark green fatigues issued to the soldiers of the Konyang Army. Its design is similar to the uniforms of the Solarian Army."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_army"
+	item_state = "konyang_army"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/rank/konyang/officer
+	name = "konyang army officer's uniform"
+	desc = "A green service uniform worn by the officers of the Konyang Army. Its design is similar to the uniforms of the Solarian Army"
+	icon_state = "konyang_army_officer"
+	item_state = "konyang_army_officer"
+
+/obj/item/clothing/under/rank/konyang/navy
+	name = "konyang navy uniform"
+	desc = "A blue utility uniform worn by the enlisted personnel of the Konyang Navy - often derided as more of a coast guard than a true armed force."
+	icon_state = "konyang_navy"
+	item_state = "konyang_navy"
+
+/obj/item/clothing/under/rank/konyang/navy/officer
+	name = "konyang navy officer's uniform"
+	desc = "A white service uniform worn by the officers of the Konyang Navy - often derided as more of a coast guard than a true armed force."
+	icon_state = "konyang_navy_officer"
+	item_state = "konyang_navy_officer"
+
+/obj/item/clothing/under/rank/konyang/space
+	name = "konyang aerospace force uniform"
+	desc = "A set of black coveralls worn by the soldiers of the Konyang Aerospace Forces, whether on-ship or in the field."
+	icon_state = "konyang_space"
+	item_state = "konyang_space"
+
+/obj/item/clothing/under/rank/konyang/space/officer
+	name = "konyang aerospace force officer's uniform"
+	desc = "A military service uniform issued to officers of the Konyang Aerospace Forces."
+	icon_state = "konyang_space_officer"
+	item_state = "konyang_space_officer"
+
+/obj/item/clothing/under/rank/konyang/mech_pilot
+	name = "konyang mechatronic corps jumpsuit"
+	desc = "A sky-blue jumpsuit worn by the exosuit pilots of the Konyang Army Mechatronic Corps - an elite exosuit unit that is often deployed abroad."
+	icon_state = "mech_pilot"
+	item_state = "mech_pilot"
+
+/obj/item/clothing/under/rank/konyang/police
+	name = "konyang national police uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders."
+	icon_state = "police"
+	item_state = "police"
+
+/obj/item/clothing/under/rank/konyang/police/lieutenant
+	name = "konyang national police lieutenant's uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders. This one is emblazoned with red, marking the wearer as a lieutenant."
+	icon_state = "konyang_police_lieutenant"
+	item_state = "konyang_police_lieutenant"
+
+/obj/item/clothing/under/konyang/pirate
+	name = "ragged konyanger clothing"
+	desc = "A grey shirt and dark shorts in a Konyang style, accentuated with a red scarf. The clothes are dirty, torn, and ragged - evidently not well-maintained by their owner."
+	icon = 'icons/clothing/under/uniforms/konyang_pirates.dmi'
+	icon_state = "pirate"
+	item_state = "pirate"
+
+/obj/item/clothing/under/konyang/pirate/tanktop
+	name = "disheveled konyanger clothing"
+	desc = "A dark yellow outfit in a Konyang style, with the sleeves cut off. It is stained with dirt, grease and a splatter of what looks like blood."
+	icon_state = "pirate1"
+	item_state = "pirate1"
+
+/obj/item/clothing/under/rank/konyang/krc
+	name = "konyang robotics company uniform"
+	desc = "A blue button-up shirt and brown trousers, with a red and white-striped tie. On the shirt, the logo of the Konyang Robotics Company is clearly displayed."
+	icon_state = "krc"
+	item_state = "krc"
+	armor = null
+
+/obj/item/clothing/under/rank/konyang/pachrom
+	name = "PACHROM uniform"
+	desc = "A well-worn and practical dark yellow jumpsuit, with the logo of PACHROM - a prominent Konyang corporation - emblazoned on the left arm."
+	icon_state = "pachrom"
+	item_state = "pachrom"
+	armor = null

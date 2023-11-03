@@ -1,8 +1,10 @@
 /obj/item/reagent_containers/chem_disp_cartridge
 	name = "chemical dispenser cartridge"
 	desc = "This goes in a chemical dispenser."
+	icon = 'icons/obj/item/reagent_containers/cartridge.dmi'
 	icon_state = "cartridge"
-
+	contained_sprite = TRUE
+	filling_states = "20;40;60;80;100"
 	w_class = ITEMSIZE_NORMAL
 
 	volume = CARTRIDGE_VOLUME_LARGE
@@ -23,14 +25,27 @@
 		src.temperature_override = temperature_override
 	if(spawn_reagent)
 		reagents.add_reagent(spawn_reagent, volume, temperature = src.temperature_override)
-		var/decl/reagent/R = decls_repository.get_decl(spawn_reagent)
+		var/singleton/reagent/R = GET_SINGLETON(spawn_reagent)
 		if(label)
 			setLabel(label)
 		else
 			setLabel(R.name)
 
+/obj/item/reagent_containers/chem_disp_cartridge/update_icon()
+	cut_overlays()
+
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+
+	if(!is_open_container())
+		var/lid_icon = "lid_[icon_state]"
+		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
+		add_overlay(lid)
+
 /obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It has a capacity of [volume] units.")
 	if(reagents.total_volume <= 0)
 		to_chat(user, "It is empty.")
@@ -65,6 +80,7 @@
 			to_chat(user, "<span class='notice'>You clear the label on \the [src].</span>")
 		label = ""
 		name = initial(name)
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/attack_self()
 	..()
@@ -74,6 +90,11 @@
 	else
 		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
 		flags |= OPENCONTAINER
+	update_icon()
+
+/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/afterattack(obj/target, mob/user , flag)
 	if (!is_open_container() || !flag)
@@ -108,3 +129,4 @@
 
 	else
 		return ..()
+	update_icon()

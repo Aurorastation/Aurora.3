@@ -11,7 +11,7 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	var/gas_filter_strength = 1			//For gas mask filters
-	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O)
+	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	armor = list(
 		bio = ARMOR_BIO_STRONG
 	)
@@ -51,17 +51,6 @@
 	filtered_gases = list(GAS_N2O)
 	item_state = "gas_mask"
 	icon_state = "gas_mask"
-
-//Plague Dr suit can be found in clothing/suits/bio.dm
-/obj/item/clothing/mask/gas/plaguedoctor
-	name = "plague doctor mask"
-	desc = "A modernised version of the classic design, this mask will not only filter out phoron but it can also be connected to an air supply."
-	icon_state = "plaguedoctor"
-	item_state = "plaguedoctor"
-	armor = list(
-		bio = ARMOR_BIO_SHIELDED
-	)
-	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/mask/gas/swat
 	name = "\improper SWAT mask"

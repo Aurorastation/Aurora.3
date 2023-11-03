@@ -24,6 +24,7 @@ var/global/list/frozen_crew = list()
 	icon_screen = "cryo"
 	icon_scanline = "altcomputerw-scanline"
 	light_color = LIGHT_COLOR_GREEN
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/mode = null
 
@@ -128,7 +129,7 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
-		var/obj/item/I = input(user, "Please choose which object to retrieve.", "Object recovery", null) as null|anything in frozen_items
+		var/obj/item/I = tgui_input_list(user, "Please choose which object to retrieve.", "Object Recovery", frozen_items)
 		if(!I)
 			return
 
@@ -246,11 +247,10 @@ var/global/list/frozen_crew = list()
 	on_exit_sound = 'sound/machines/cryopod/lift_exit.ogg'
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
 
 /obj/machinery/cryopod/living_quarters
 	name = "living quarters lift"
-	desc = "A lift heading to the ship's living quarters."
+	desc = "A lift heading to the living quarters."
 	icon = 'icons/obj/crew_quarters_lift.dmi'
 	icon_state = "pod"
 	on_store_message = "has departed for"
@@ -297,8 +297,8 @@ var/global/list/frozen_crew = list()
 	update_icon()
 	find_control_computer()
 
-/obj/machinery/cryopod/examine(mob/user)
-	..(user)
+/obj/machinery/cryopod/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(occupant)
 		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)]."))
 
@@ -407,6 +407,11 @@ var/global/list/frozen_crew = list()
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
 	frozen_crew += occupant
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		if(H.ghost_spawner)
+			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
+			GS.count--
 
 	// Let SSjobs handle the rest.
 	SSjobs.DespawnMob(occupant)
@@ -471,7 +476,7 @@ var/global/list/frozen_crew = list()
 		return
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), range = 3)
-	if(do_after(user, 20))
+	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE
 
@@ -524,6 +529,7 @@ var/global/list/frozen_crew = list()
 	if(occupant.client)
 		occupant.client.eye = src.occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.reset_death_timers()
 
 	occupant.forceMove(get_turf(src))
 	occupant = null
@@ -538,6 +544,7 @@ var/global/list/frozen_crew = list()
 		occupant.client.perspective = EYE_PERSPECTIVE
 		occupant.client.eye = src
 		time_entered = world.time
+		occupant.set_respawn_time()
 	update_icon()
 
 /obj/machinery/cryopod/update_icon()

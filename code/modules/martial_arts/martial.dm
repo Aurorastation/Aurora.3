@@ -100,11 +100,11 @@
 	var/damage_flags = attack.damage_flags()
 	var/armor_penetration = attack.armor_penetration
 
-	real_damage += attack.get_unarmed_damage(A)
+	real_damage += attack.get_unarmed_damage(A, D)
 	real_damage *= D.damage_multiplier
 	rand_damage *= D.damage_multiplier
 
-	if(HULK in A.mutations)
+	if(HAS_FLAG(A.mutations, HULK))
 		real_damage *= 2 // Hulks do twice the damage
 		rand_damage *= 2
 	if(A.is_berserk())
@@ -119,13 +119,13 @@
 			real_damage += G.punch_force
 			hit_dam_type = G.punch_damtype
 			if(A.pulling_punches)
-				hit_dam_type = PAIN
+				hit_dam_type = DAMAGE_PAIN
 
 			if(G.sharp)
-				damage_flags |= DAM_SHARP
+				damage_flags |= DAMAGE_FLAG_SHARP
 
 			if(G.edge)
-				damage_flags |= DAM_EDGE
+				damage_flags |= DAMAGE_FLAG_EDGE
 
 			if(istype(A.gloves,/obj/item/clothing/gloves/force))
 				var/obj/item/clothing/gloves/force/X = A.gloves
@@ -137,9 +137,36 @@
 
 	return 1
 
+/datum/martial_art/proc/heavy_vehicle_basic_hit(var/mob/living/carbon/human/A, var/mob/living/heavy_vehicle/D)
+	if(!istype(D))
+		crash_with("The target is not an heavy_vehicle")
+		return
+
+	var/hit_zone = A.zone_sel.selecting
+	//var/obj/item/mech_component/affecting = D.zoneToComponent(hit_zone)
+
+	var/rand_damage = rand(1, 5)
+
+	var/datum/unarmed_attack/attack = A.get_unarmed_attack(src, hit_zone)
+	var/hit_dam_type = attack.damage_type
+	var/damage_flags = attack.damage_flags()
+	var/armor_penetration = attack.armor_penetration
+
+	var/real_damage = rand_damage
+	real_damage += attack.get_unarmed_damage(A, D)
+
+	attack.show_attack(A, D, hit_zone, rand_damage)
+
+	var/miss_type = 1 //For now, mechs can't parry
+	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = armor_penetration)
+
+	return TRUE
+
+
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)
-		H.verbs += help_verb
+		add_verb(H, help_verb)
 		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teachings of this art in your abilities tab."))
 	LAZYADD(H.known_martial_arts, src)
 	if(!H.primary_martial_art)
@@ -147,7 +174,7 @@
 		H.primary_martial_art = src
 	if(length(H.known_martial_arts) > 1)
 		to_chat(H, SPAN_NOTICE("Now that you know more than one martial art, you can select your primary martial art in the abilities tab."))
-		H.verbs += /mob/living/carbon/human/proc/select_primary_martial_art
+		add_verb(H, /mob/living/carbon/human/proc/select_primary_martial_art)
 
 /datum/martial_art/proc/remove(var/mob/living/carbon/human/H)
 	LAZYREMOVE(H.known_martial_arts, src)
@@ -157,7 +184,7 @@
 		else
 			H.primary_martial_art = null
 	if(help_verb)
-		H.verbs -= help_verb
+		remove_verb(H, help_verb)
 	qdel(src)
 
 /datum/martial_art/proc/TornadoAnimate(mob/living/carbon/human/A)

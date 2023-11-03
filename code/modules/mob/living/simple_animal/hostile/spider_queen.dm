@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/spider_queen
 	name = "colossal greimorian"
 	desc = "A monstrous six-legged Greimorian."
-	desc_fluff = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
 	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon = 'icons/mob/npc/spider_queen.dmi'
@@ -97,7 +97,7 @@
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
 		M.layer = BELOW_MOB_LAYER
-		addtimer(CALLBACK(src, .proc/do_landing, M), 1 MINUTE)
+		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
 		return FALSE
@@ -114,6 +114,6 @@
 		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
 		for(var/mob/living/M in target_turf)
 			if(M != src)
-				M.apply_damage(50, BRUTE)
+				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN, blocked)
 	return TRUE

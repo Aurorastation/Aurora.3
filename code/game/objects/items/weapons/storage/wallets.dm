@@ -10,6 +10,9 @@
 		/obj/item/spacecash,
 		/obj/item/card,
 		/obj/item/clothing/mask/smokable,
+		/obj/item/storage/box/fancy/cigpaper,
+		/obj/item/storage/cigfilters,
+		/obj/item/storage/chewables/rollable,
 		/obj/item/clothing/accessory/badge,
 		/obj/item/clothing/accessory/locket,
 		/obj/item/clothing/ring,
@@ -34,7 +37,8 @@
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
 		/obj/item/sample,
-		/obj/item/key
+		/obj/item/key,
+		/obj/item/sign/painting_frame
 	)
 	slot_flags = SLOT_ID
 	build_from_parts = TRUE
@@ -115,6 +119,11 @@
 
 	return ..()
 
+/obj/item/storage/wallet/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	var/obj/item/card/id/id = GetID()
+	if(istype(id) && is_adjacent)
+		id.show(user)
 
 /obj/item/storage/wallet/random/fill()
 	..()

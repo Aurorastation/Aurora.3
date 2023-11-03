@@ -26,7 +26,7 @@
 	density = 1
 	anchored = 1
 	use_power = POWER_USE_OFF
-	clicksound = /decl/sound_category/switch_sound
+	clicksound = /singleton/sound_category/switch_sound
 
 	var/health = 500
 	var/busted = FALSE // this it to prevent the damage text from playing repeatedly
@@ -84,6 +84,11 @@
 	var/smes_amt = min((amount * SMESRATE), charge)
 	charge -= smes_amt
 	return smes_amt / SMESRATE
+
+/obj/machinery/power/smes/proc/drain_power_simple(var/amount = 0)
+	var/power_drawn = between(0, amount, charge)
+	charge -= power_drawn
+	return power_drawn
 
 /obj/machinery/power/smes/Destroy()
 	QDEL_NULL(big_spark)
@@ -162,22 +167,22 @@
 		return
 
 	if(inputting == 2)
-		add_overlay("smes-oc2")
+		add_overlay("[icon_state]-oc2")
 	else if (inputting == 1)
-		add_overlay("smes-oc1")
+		add_overlay("[icon_state]-oc1")
 	else if (input_attempt)
-		add_overlay("smes-oc0")
+		add_overlay("[icon_state]-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		add_overlay("smes-og[clevel]")
+		add_overlay("[icon_state]-og[clevel]")
 
 	if(outputting == 2)
-		add_overlay("smes-op2")
+		add_overlay("[icon_state]-op2")
 	else if (outputting == 1)
-		add_overlay("smes-op1")
+		add_overlay("[icon_state]-op1")
 	else
-		add_overlay("smes-op0")
+		add_overlay("[icon_state]-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
@@ -250,8 +255,6 @@
 	else
 		outputting = 0
 
-	SSvueui.check_uis_for_change(src)
-
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
 /obj/machinery/power/smes/proc/restore(var/percent_load)
@@ -277,7 +280,6 @@
 
 	if(clev != chargedisplay() ) //if needed updates the icons overlay
 		update_icon()
-	SSvueui.check_uis_for_change(src)
 	return
 
 //Will return 1 on failure
@@ -302,7 +304,7 @@
 			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			return 1
 	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
-	if(do_after(user, 50))
+	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
 		terminal.master = src
@@ -313,8 +315,7 @@
 /obj/machinery/power/smes/draw_power(var/amount)
 	if(terminal && terminal.powernet)
 		return terminal.powernet.draw_power(amount)
-	return 0
-
+	return FALSE
 
 /obj/machinery/power/smes/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -326,8 +327,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-
-/obj/machinery/power/smes/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		if(!open_hatch)
 			if(is_badly_damaged())
@@ -393,32 +393,29 @@
 		return 0
 	return 1
 
-/obj/machinery/power/smes/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	// this is the data that will be sent to the ui
-	data = list()
-	var/list/monitordata = ..()
-	if(monitordata)
-		data = monitordata
-	data["nameTag"] = name_tag
-	data["chargeTaken"] = round(input_taken)
+/obj/machinery/power/smes/ui_data(mob/user)
+	var/list/data = list()
+	data["name_tag"] = name_tag
+	data["charge_taken"] = round(input_taken)
 	data["charging"] = inputting
-	data["chargeAttempt"] = input_attempt
-	data["chargeLevel"] = input_level
-	data["chargeMax"] = input_level_max
-	data["outputLoad"] = round(output_used)
+	data["charge_attempt"] = input_attempt
+	data["charge_level"] = input_level
+	data["charge_max"] = input_level_max
+	data["output_load"] = round(output_used)
 	data["outputting"] = outputting
-	data["outputOnline"] = output_attempt
-	data["outputLevel"] = output_level
-	data["outputMax"] = output_level_max
+	data["output_attempt"] = output_attempt
+	data["output_level"] = output_level
+	data["output_max"] = output_level_max
 	data["time"] = time
-	data["chargeMode"] = charge_mode
-	data["storedCapacity"] = 0
+	data["wtime"] = world.time
+	data["charge_mode"] = charge_mode
+	data["stored_capacity"] = 0
 	if(capacity)
-		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
-	data["failTime"] = failure_timer * 2
+		data["stored_capacity"] = round(100.0*charge/capacity, 0.1)
+	data["fail_time"] = failure_timer * 2
 	return data
 
-/obj/machinery/power/smes/ui_interact(mob/user)
+/obj/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!can_function())
 		if(!terminal)
 			to_chat(user, SPAN_WARNING("\The [src] is lacking a terminal!"))
@@ -426,37 +423,41 @@
 		if(is_badly_damaged())
 			to_chat(user, SPAN_WARNING("\The [src] is too damaged to function!"))
 		return
-	// update the ui if it exists, returns null if no ui is passed/found
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		ui = new(user, src, "machinery-power-smes", 540, 420, "SMES Unit")
-		// open the new ui window
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SMES", name, 540, 420)
 		ui.open()
 
 /obj/machinery/power/smes/proc/Percentage()
 	return round(100.0*charge/capacity, 0.1)
 
-/obj/machinery/power/smes/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/power/smes/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if( href_list["cmode"] )
-		inputting(!input_attempt)
-		update_icon()
-	else if( href_list["online"] )
-		outputting(!output_attempt)
-		update_icon()
-	else if( href_list["reboot"] )
-		failure_timer = 0
-		update_icon()
-	else if( href_list["input"] )
-		input_level = clamp(href_list["input"], 0, input_level_max)	// clamp to range
-	else if( href_list["output"] )
-		output_level = clamp(href_list["output"], 0, output_level_max)	// clamp to range
+	switch(action)
+		if("cmode")
+			inputting(!input_attempt)
+			update_icon()
+			. = TRUE
+		if("online")
+			outputting(!output_attempt)
+			update_icon()
+			. = TRUE
+		if("reboot")
+			failure_timer = 0
+			update_icon()
+			. = TRUE
+		if("input")
+			input_level = clamp(params["input"], 0, input_level_max)	// clamp to range
+			. = TRUE
+		if("output")
+			output_level = clamp(params["output"], 0, output_level_max)	// clamp to range
+			. = TRUE
+
 	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
-	SSvueui.check_uis_for_change(src)
-	return 1
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
@@ -525,6 +526,14 @@
 /obj/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
+
+/obj/machinery/power/smes/buildable/superconducting
+	name = "superconducting cryogenic capacitor"
+	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
+	icon_state = "cannon_smes"
+	charge = 0
+	max_coils = 12
+	cur_coils = 12
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

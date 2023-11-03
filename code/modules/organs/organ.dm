@@ -39,8 +39,7 @@
 	var/list/transplant_data
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
-	var/list/trace_chemicals = list() // traces of chemicals in the organ,
-									  // links chemical IDs to number of ticks for which they'll stay in the blood
+	var/list/trace_chemicals = list() // traces of chemicals in the organ, links chemical IDs to number of ticks for which they'll stay in the blood
 
 	//DNA stuff.
 	var/datum/dna/dna
@@ -97,7 +96,7 @@
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]
 		else
-			log_debug("[src] at [loc] spawned without a proper DNA.")
+			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
 		var/mob/living/carbon/human/H = holder
 		if(istype(H))
 			if(internal)
@@ -145,7 +144,7 @@
 		owner = null
 
 	if (QDELETED(src))
-		log_debug("QDELETED organ [DEBUG_REF(src)] had process() called!")
+		LOG_DEBUG("QDELETED organ [DEBUG_REF(src)] had process() called!")
 		STOP_PROCESSING(SSprocessing, src)
 		return
 
@@ -167,11 +166,11 @@
 
 	if(!owner)
 		if (QDELETED(reagents))
-			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
+			LOG_DEBUG("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
-		if(REAGENT_VOLUME(reagents, /decl/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
-			reagents.remove_reagent(/decl/reagent/blood,0.1)
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
+			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
 		if(config.organs_decay) damage += rand(1,3)
@@ -187,6 +186,7 @@
 	else if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Handle antibiotics and curing infections
 		handle_antibiotics()
+		handle_immunosuppressants()
 		handle_rejection()
 		handle_germ_effects()
 
@@ -211,7 +211,7 @@
 	return
 
 /obj/item/organ/examine(mob/user)
-	..(user)
+	. = ..()
 	if(status & ORGAN_DEAD)
 		to_chat(user, "<span class='notice'>The decay has set in.</span>")
 
@@ -241,8 +241,7 @@
 			take_damage(1,silent=prob(30))
 
 /obj/item/organ/proc/handle_rejection()
-	// Process unsuitable transplants. TODO: consider some kind of
-	// immunosuppressant that changes transplant data to make it match.
+	// Process unsuitable transplants.
 	if(dna)
 		if(!rejecting)
 			if(blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
@@ -259,7 +258,7 @@
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent(/decl/reagent/toxin, rand(1,2))
+						owner.reagents.add_reagent(/singleton/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -310,10 +309,14 @@
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
+	var/antibiotics
 	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects) || (germ_level <= 0))
 		return
-
-	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
+	var/antiimmune = owner.chem_effects[CE_ANTIIMMUNE]
+	if(antiimmune)
+		antibiotics = ((owner.chem_effects[CE_ANTIBIOTIC]) * 0.5) //antibiotic effectiveness is severely hampered
+	else
+		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if(germ_level <= INFECTION_LEVEL_ONE)
 		if(antibiotics >= 5)
@@ -324,6 +327,20 @@
 		germ_level = max(germ_level - min(antibiotics, 6), 0) //Still quick, infection's not too bad. At max dose and germ_level 500, should take a minute or two
 	else
 		germ_level = max(germ_level - min(antibiotics * 0.5, 3), 0) //Big infections, very slow to stop. At max dose and germ_level 1000, should take five to six minutes
+
+//Immunosuppressants
+/obj/item/organ/proc/handle_immunosuppressants()
+	if(!owner || !(CE_ANTIIMMUNE in owner.chem_effects) || !rejecting)
+		return
+
+	var/antiimmune = owner.chem_effects[CE_ANTIIMMUNE]
+
+	if(rejecting <= 3)
+		rejecting = 0 //nullifies rejection
+		if(dna)
+			dna.b_type = owner.dna.b_type
+	else
+		rejecting = max(rejecting - min(antiimmune, 2), 0) //fairly slow to work, don't want it to be trivial after all
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)
@@ -360,12 +377,16 @@
 		name = robotic_name
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
-	robotize()
 	status = ORGAN_ASSISTED
-	robotic = 1
-	if(!robotize_type)
-		name = initial(name)
-		icon_state = initial(icon_state)
+	robotic = ROBOTIC_ASSISTED
+	switch(organ_tag)
+		if(BP_HEART)
+			name = "pacemaker-assisted [initial(name)]"
+		if(BP_EYES)
+			name = "retinal overlayed [initial(name)]"
+		else
+			name = "mechanically assisted [initial(name)]"
+	icon_state = initial(icon_state)
 
 /obj/item/organ/emp_act(var/severity)
 	if(!(status & ORGAN_ASSISTED))
@@ -414,7 +435,7 @@
 	if (!reagents)
 		create_reagents(5)
 
-	var/blood_data = LAZYACCESS(reagents.reagent_data, /decl/reagent/blood)
+	var/blood_data = LAZYACCESS(reagents.reagent_data, /singleton/reagent/blood)
 	if(!("blood_DNA" in blood_data))
 		owner.vessel.trans_to(src, 5, 1, 1)
 

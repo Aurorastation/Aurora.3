@@ -8,7 +8,7 @@
 
 /obj/structure/heavy_vehicle_frame
 	name = "exosuit frame"
-	desc = "The frame for am exosuit, apparently."
+	desc = "The frame for an exosuit, apparently."
 	icon = 'icons/mecha/mech_parts.dmi'
 	icon_state = "backbone"
 	density = 1
@@ -118,7 +118,7 @@
 			is_reinforced = 0
 			return
 
-		var/to_remove = input("Which component would you like to remove") as null|anything in list(arms, body, legs, head)
+		var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", list(arms, body, legs, head))
 
 		if(!to_remove)
 			to_chat(user, SPAN_WARNING("There are no components to remove.."))
@@ -169,7 +169,7 @@
 		// We're all done. Finalize the mech and pass the frame to the new system.
 		var/mob/living/heavy_vehicle/M = new(get_turf(src), src)
 		visible_message("\The [user] finishes off \the [M].")
-		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		arms = null
 		legs = null

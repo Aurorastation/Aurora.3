@@ -77,7 +77,7 @@ Frequency:
 				src.temp += "<B>Located Beacons:</B><BR>"
 
 				for(var/obj/item/device/radio/beacon/W in teleportbeacons)
-					if (W.frequency == src.frequency)
+					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
 							var/direct = max(abs(tr.x - sr.x), abs(tr.y - sr.y))
@@ -99,8 +99,8 @@ Frequency:
 						continue
 					else
 						var/mob/M = W.loc
-						if (M.stat == 2)
-							if (M.timeofdeath + 6000 < world.time)
+						if (M.stat == DEAD)
+							if (M.timeofdeath + W.lifespan_postmortem < world.time)
 								continue
 
 					var/turf/tr = get_turf(W)
@@ -239,13 +239,13 @@ Frequency:
 				else
 					teleport_options["[A.name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
-		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
+		var/teleport_choice = tgui_input_list(user, "Please select a teleporter to lock in on.", "Hand Teleporter", teleport_options)
 		if(!teleport_choice)
 			return
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			destroyed_event.register(linked_pad, src, /obj/item/hand_tele/proc/pad_destroyed)
+			destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
 			destroyed_event.unregister(old_pad, src)
 		return

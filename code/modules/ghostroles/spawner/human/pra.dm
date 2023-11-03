@@ -37,7 +37,7 @@
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	id = /obj/item/card/id/syndicate
@@ -59,7 +59,7 @@
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,

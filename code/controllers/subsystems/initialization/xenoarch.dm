@@ -1,28 +1,26 @@
-var/datum/controller/subsystem/xenoarch/SSxenoarch
-
 #define XENOARCH_SPAWN_CHANCE 0.5
 #define DIGSITESIZE_LOWER 4
 #define DIGSITESIZE_UPPER 12
 #define ARTIFACTSPAWNNUM_LOWER 6
 #define ARTIFACTSPAWNNUM_UPPER 12
 
-/datum/controller/subsystem/xenoarch
-	name = "Xenoarcheology"
+SUBSYSTEM_DEF(xenoarch)
+	name = "Xenoarchaeology"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_XENOARCH
 
 	var/list/artifact_spawning_turfs = list()
 	var/list/digsite_spawning_turfs = list()
 
-/datum/controller/subsystem/xenoarch/New()
-	NEW_SS_GLOBAL(SSxenoarch)
-
 /datum/controller/subsystem/xenoarch/Initialize(timeofday)
-	//create digsites
-	for(var/turf/simulated/mineral/M in turfs)
-		CHECK_TICK
+	set background = TRUE
 
-		if(!prob(XENOARCH_SPAWN_CHANCE))
+	//create digsites
+	for(var/turf/TIW in world)
+		CHECK_TICK
+		var/turf/simulated/mineral/M = TIW
+
+		if(!istype(M) || !prob(XENOARCH_SPAWN_CHANCE))
 			continue
 
 		digsite_spawning_turfs.Add(M)

@@ -43,12 +43,12 @@
 
 /datum/export/gear/space/syndiehelmet
 	cost = 150
-	unit_name = "Syndicate space helmet"
+	unit_name = "armored space helmet"
 	export_types = list(/obj/item/clothing/head/helmet/space/syndicate)
 
 /datum/export/gear/space/syndiesuit
 	cost = 300
-	unit_name = "Syndicate space suit"
+	unit_name = "armored space suit"
 	export_types = list(/obj/item/clothing/suit/space/syndicate)
 
 
@@ -65,12 +65,12 @@
 /datum/export/gear/biohood
 	cost = 50
 	unit_name = "biosuit hood"
-	export_types = list(/obj/item/clothing/head/bio_hood)
+	export_types = list(/obj/item/clothing/head/hazmat)
 
 /datum/export/gear/biosuit
 	cost = 100
 	unit_name = "biosuit"
-	export_types = list(/obj/item/clothing/suit/bio_suit)
+	export_types = list(/obj/item/clothing/suit/hazmat)
 
 /datum/export/gear/bombhelmet
 	cost = 50

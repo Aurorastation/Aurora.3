@@ -57,8 +57,8 @@
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
-	verbs += /mob/living/proc/ventcrawl
-	verbs -= /mob/living/simple_animal/verb/change_name
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/simple_animal/verb/change_name)
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)
@@ -99,12 +99,11 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
 	if(morphed)
 		. = form.examine(user)
-		if(get_dist(src, user) > 2)
-			return
-		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
+		if(distance <= 2)
+			to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else
 		return ..()
 
@@ -125,7 +124,7 @@
 	if(A?.loc == src)
 		return FALSE
 	visible_message(SPAN_WARNING("\The [src] begins swallowing \the [A] whole!"), SPAN_NOTICE("You begin swallowing \the [A] whole."))
-	if(do_after(src, delay, act_target = A))
+	if(do_after(src, delay, A))
 		visible_message(SPAN_WARNING("\The [src] swallows \the [A] whole!"), SPAN_NOTICE("You swallow \the [A] whole."))
 		A.forceMove(src)
 		return TRUE
@@ -209,12 +208,6 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/hostile/bullet_act(obj/item/projectile/P, def_zone)
-	..()
-	if (ismob(P.firer) && target_mob != P.firer)
-		target_mob = P.firer
-		stance = HOSTILE_STANCE_ATTACK
-
 /mob/living/simple_animal/hostile/morph/attackby(obj/item/O, mob/user)
 	..()
 	if(morphed && user != src)
@@ -246,6 +239,3 @@
 	for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 		spell_master.open_state = "morph_open"
 		spell_master.closed_state = "morph_closed"
-
-/mob/living/simple_animal/hostile/morph/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

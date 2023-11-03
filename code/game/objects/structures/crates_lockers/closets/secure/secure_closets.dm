@@ -44,7 +44,7 @@
 				add_fingerprint(user)
 			locked = !locked
 			user.visible_message(SPAN_NOTICE("[user] [locked ? null : "un"]locks \the [src]."),
-								 SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
+									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
 			update_icon()
 		else if(!silent)
 			to_chat(user, SPAN_NOTICE("Access Denied."))
@@ -62,7 +62,7 @@
 		desc += " It appears to be broken."
 		add_overlay("[icon_door_overlay]sparking")
 		CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
-		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
+		playsound(loc, /singleton/sound_category/spark_sound, 60, 1)
 		broken = TRUE
 		locked = FALSE
 		update_icon()
@@ -113,11 +113,9 @@
 		/obj/item/airbubble = 1,
 
 		// Rations
-		/obj/item/storage/box/fancy/mre/menu5 = 1,
-		/obj/item/storage/box/fancy/mre/menu9 = 1,
+		/obj/item/storage/box/fancy/mre/random = 2,
 		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
 
 		// Medical Supplies
-		/obj/item/storage/firstaid/marooning_equipment = 1,
-		/obj/item/storage/firstaid/o2 = 1
+		/obj/item/storage/firstaid/stab = 1,
 	)

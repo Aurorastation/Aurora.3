@@ -2,7 +2,7 @@
 	name = "SCC Agent"
 
 	uniform = /obj/item/clothing/under/rank/scc
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -36,6 +36,7 @@
 	head = /obj/item/clothing/head/helmet/merc/scc
 	uniform = /obj/item/clothing/under/tactical
 	suit = /obj/item/clothing/suit/armor/carrier/heavy/scc
+	l_ear = /obj/item/device/radio/headset/ert/ccia/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
 

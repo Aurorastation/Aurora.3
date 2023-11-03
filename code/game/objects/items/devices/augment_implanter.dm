@@ -16,7 +16,7 @@
 		augment_type = new new_augment(src)
 
 /obj/item/device/augment_implanter/examine(mob/user)
-	..(user)
+	. = ..()
 	if(augment_type)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")))
 	else
@@ -68,3 +68,12 @@
 
 /obj/item/device/augment_implanter/health_scanner
 	new_augment =	/obj/item/organ/internal/augment/health_scanner
+
+/obj/item/device/augment_implanter/hivenet_shield
+	new_augment =	/obj/item/organ/internal/augment/hiveshield
+
+/obj/item/device/augment_implanter/hivenet_advanced_shield
+	new_augment =	/obj/item/organ/internal/augment/hiveshield/advanced
+
+/obj/item/device/augment_implanter/hivenet_warfare
+	new_augment =	/obj/item/organ/internal/augment/hiveshield/warfare

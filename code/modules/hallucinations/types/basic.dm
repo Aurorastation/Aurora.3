@@ -52,12 +52,12 @@
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
 			to_chat(holder, "<span class='radio'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</span>")
-			addtimer(CALLBACK(src, .proc/delam_call), 20)
-			addtimer(CALLBACK(src, .proc/delam_call), 35)
+			addtimer(CALLBACK(src, PROC_REF(delam_call)), 20)
+			addtimer(CALLBACK(src, PROC_REF(delam_call)), 35)
 
 		if(10 to 15)    //Announcements that would be made by a player instead of random event
 			var/list/body = list(
-                        "Please avoid [pick("medical", "security", "the bar", "engineering", "operations", "the hangar")] at this time due to [pick("a k'ois outbreak.", "a hostage situation.", "hostile boarders.", "[holder].")]",
+						"Please avoid [pick("medical", "security", "the bar", "engineering", "operations", "the hangar")] at this time due to [pick("a k'ois outbreak.", "a hostage situation.", "hostile boarders.", "[holder].")]",
 						"Due to various complaints about [holder], we have conducted an investigation and due to the findings, we will [pick("arrest them. Please turn yourself in, [holder]", "terminate their employment with us.", "inform their family of their shortcomings.", "cyborgify them immediately.")]. Thank you.",
 						"[pick("Boarders have", "The AI has", "Intruders have")] demanded we sacrifice a crewmember to them. After [pick("much", "little", "quick")] deliberation, we have chosen [holder]. Please turn yourself over, or [pick("we", "your family", "all of us", "those you love")] will die.",
 						"Central Command has chosen [holder] as the SCC employee of the month! Everyone please congratulate them.",
@@ -147,6 +147,8 @@
 			holder.make_dizzy(105)
 		if(3)
 			to_chat(holder, SPAN_GOOD("You feel good."))
+		else
+			. = null //This does nothing, it's to avoid a dreamchecker error
 	..()
 
 //the prick feeling but you actually imagine someone injecting you
@@ -284,7 +286,7 @@
 	to_chat(holder, SPAN_DANGER("A sudden realization surges to the forefront of your mind. [message]"))
 	holder.disabilities |= PACIFIST
 	for(var/i = 1; i <= 2; i++)
-		addtimer(CALLBACK(src, .proc/calm_feeling), rand(80, 150)*i)
+		addtimer(CALLBACK(src, PROC_REF(calm_feeling)), rand(80, 150)*i)
 
 /datum/hallucination/passive/end()
 	if(holder.disabilities & PACIFIST)
@@ -451,7 +453,7 @@
 
 	repeats -= 1
 	if(repeats)	//And we do it all over again, one or two more times.
-		addtimer(CALLBACK(src, .proc/start), rand(50, 100))
+		addtimer(CALLBACK(src, PROC_REF(start)), rand(50, 100))
 	else
 		end()
 

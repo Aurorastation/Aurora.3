@@ -2,57 +2,105 @@
 //################### NEWSCASTERS BE HERE! ####
 //###-Agouri###################################
 
-var/list/obj/machinery/newscaster/allCasters = list() //Global list that will contain reference to all newscasters in existence.
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 30;
+
+#define PRESET_SOUTH \
+dir = SOUTH; \
+pixel_y = -26;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -8;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 8;
+
+///Global list that contains reference to all newscasters in existence.
+var/list/obj/machinery/newscaster/allCasters = list()
 
 /obj/machinery/newscaster
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "newscaster"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	var/isbroken = 0  //1 if someone banged it with something heavy
-	var/ispowered = 1 //starts powered, changes with power_change()
-	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
-	//OBSOLETE: We're now using a global news network
-	var/screen = 0                  //Or maybe I'll make it into a list within a list afterwards... whichever I prefer, go fuck yourselves :3
-		// 0 = welcome screen - main menu
-		// 1 = view feed channels
-		// 2 = create feed channel
-		// 3 = create feed story
-		// 4 = feed story submited sucessfully
-		// 5 = feed channel created successfully
-		// 6 = ERROR: Cannot create feed story
-		// 7 = ERROR: Cannot create feed channel
-		// 8 = print newspaper
-		// 9 = viewing channel feeds
-		// 10 = censor feed story
-		// 11 = censor feed channel
-		//Holy shit this is outdated, made this when I was still starting newscasters :3
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+
+	///If the newscaster is broken, boolean
+	var/isbroken = FALSE
+
+	///If it starts powered on, boolean
+	var/ispowered = TRUE //starts powered, changes with power_change()
+
+	/**
+	 * What the screen is displaying
+	 *
+	 * 0 = welcome screen - main menu
+	 * 1 = view feed channels
+	 * 2 = create feed channel
+	 * 3 = create feed story
+	 * 4 = feed story submited sucessfully
+	 * 5 = feed channel created successfully
+	 * 6 = ERROR: Cannot create feed story
+	 * 7 = ERROR: Cannot create feed channel
+	 * 8 = print newspaper
+	 * 9 = viewing channel feeds
+	 * 10 = censor feed story
+	 * 11 = censor feed channel
+	 */
+	var/screen = 0
+
 	var/paper_remaining = 0
-	var/securityCaster = 0
-		// 0 = Caster cannot be used to issue wanted posters
-		// 1 = the opposite
+
+	///If the caster can be used to issue wanted posters, boolean
+	var/securityCaster = FALSE
+
+	///Unique newscaster unit number
 	var/unit_no = 0 //Each newscaster has a unit number
-	//var/datum/feed_message/wanted //We're gonna use a feed_message to store data of the wanted person because fields are similar
-	//var/wanted_issue = 0          //OBSOLETE
-		// 0 = there's no WANTED issued, we don't need a special icon_state
-		// 1 = Guess what.
+
 	var/alert_delay = 500
-	var/alert = 0
-		// 0 = there hasn't been a news/wanted update in the last alert_delay
-		// 1 = there has
-	var/scanned_user = "Unknown" //Will contain the name of the person who currently uses the newscaster
-	var/msg = "";                //Feed message
+
+	///If there hasn't been a news/wanted update in the last alert_delay, boolean
+	var/alert = FALSE
+
+	///Contains the name of the person who currently uses the newscaster
+	var/scanned_user = "Unknown"
+
+	///Feed message
+	var/msg = "";
+
 	var/datum/news_photo/photo_data = null
 	var/paper_data = ""
 	var/paper_name = ""
-	var/channel_name = ""; //the feed channel which will be receiving the feed, or being created
-	var/c_locked=0;        //Will our new channel be locked to public submissions?
-	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
+
+	///The feed channel which will be receiving the feed, or being created
+	var/channel_name = "";
+
+	///If our new channel will be locked to public submissions, boolean
+	var/c_locked=FALSE
+
+	///How many hits the newscaster has taken
+	var/hitstaken = 0
+
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
 	var/global/list/screen_overlays
+
+/obj/machinery/newscaster/north
+	PRESET_NORTH
+
+/obj/machinery/newscaster/south
+	PRESET_SOUTH
+
+/obj/machinery/newscaster/west
+	PRESET_WEST
+
+/obj/machinery/newscaster/east
+	PRESET_EAST
 
 /obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
 	if(LAZYLEN(screen_overlays) && !force)
@@ -65,21 +113,42 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	for(var/i in 1 to 3)
 		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
-/obj/machinery/newscaster/security_unit                   //Security unit
+/obj/machinery/newscaster/security_unit
 	name = "Security Newscaster"
 	securityCaster = 1
 
-/obj/machinery/newscaster/Initialize()         //Constructor, ho~
+/obj/machinery/newscaster/security_unit/north
+	PRESET_NORTH
+
+/obj/machinery/newscaster/security_unit/south
+	PRESET_SOUTH
+
+/obj/machinery/newscaster/security_unit/west
+	PRESET_WEST
+
+/obj/machinery/newscaster/security_unit/east
+	PRESET_EAST
+
+/obj/machinery/newscaster/Initialize(mapload)
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
-	src.paper_remaining = 15            // Will probably change this to something better
-	src.unit_no = allCasters.len + 1
-	src.generate_overlays()
-	src.update_icon() //for any custom ones on the map...
+	paper_remaining = 15            // Will probably change this to something better
+	unit_no = allCasters.len + 1
+	if(dir & NORTH)
+		alpha = 127
+	generate_overlays()
+	update_icon() //for any custom ones on the map...
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/newscaster/Destroy()
 	allCasters -= src
 	return ..()
+
+/obj/machinery/newscaster/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)
@@ -122,7 +191,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(post_power_loss)), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
@@ -426,8 +495,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
 				dat += "<BR><A href='?src=\ref[src];setScreen=[0]'>ATTEMPT RESET</A>"
 
-		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
+		var/datum/browser/newscaster_main = new(user, "newscaster_main", "Newscaster", 450, 500)
+		newscaster_main.set_content(dat)
+		newscaster_main.open()
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
@@ -520,6 +590,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			comment.posted = "[worldtime2text()]"
 			viewing_story.comments += comment
 			to_chat(usr, "Comment successfully added!")
+			src.viewing_message = viewing_story
 			src.screen = 22
 			src.updateUsrDialog()
 
@@ -758,7 +829,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, /decl/sound_category/glass_break_sound, 100, 1)
+					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
@@ -836,12 +907,12 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(user.a_intent == I_GRAB)
 		if(!rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] rolls up \the [src]."),\
-								 SPAN_NOTICE("You roll up \the [src]."))
+									SPAN_NOTICE("You roll up \the [src]."))
 			rolled(user)
 		return
 	if(rolled)
 		user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to read it."),\
-						     SPAN_NOTICE("You unroll \the [src] to read it."))
+								SPAN_NOTICE("You unroll \the [src] to read it."))
 		rolled(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
@@ -916,8 +987,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
-		send_theme_resources(src)
-		human_user << browse(enable_ui_theme(human_user, dat), "window=newspaper_main;size=300x400")
+
+		human_user << browse(dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")
@@ -937,7 +1008,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == 0) //We're at the start, get to the middle
 					src.screen=1
 			src.curr_page++
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		else if(href_list["prev_page"])
 			if(curr_page == 0)
@@ -949,7 +1020,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == src.pages+1) //we're at the end, let's go back to the middle.
 					src.screen = 1
 			src.curr_page--
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		if (istype(src.loc, /mob))
 			src.attack_self(src.loc)
@@ -959,7 +1030,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(W.ispen())
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
-						     	 SPAN_NOTICE("You unroll \the [src] to write on it."))
+									SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
@@ -1028,7 +1099,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		if (!alert)
 			alert = 1
 			update_icon()
-			addtimer(CALLBACK(src, .proc/clearAlert), 300, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(clearAlert)), 300, TIMER_UNIQUE)
 
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else
@@ -1040,3 +1111,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/proc/clearAlert()
 	alert = 0
 	update_icon()
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

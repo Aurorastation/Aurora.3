@@ -73,11 +73,12 @@
 		return TRUE
 	return ..()
 
-/obj/item/holomenu/examine(mob/user, distance)
-	if(anchored && length(menu_text))
+/obj/item/holomenu/examine(mob/user, distance, is_adjacent)
+	if(anchored && length(menu_text) && is_adjacent)
 		interact(user)
-		return
-	return ..()
+		return TRUE
+	else
+		. = ..()
 
 /obj/item/holomenu/attack_hand(mob/user)
 	if(anchored)
@@ -92,7 +93,7 @@
 	return ..()
 
 /obj/item/holomenu/interact(mob/user)
-	var/datum/browser/holomenu_win = new(user, "holomenu", "Holo-Menu", 450, 500)
+	var/datum/browser/holomenu_win = new(user, "holomenu", "Holo-Display", 450, 500)
 	holomenu_win.set_content(menu_text)
 	holomenu_win.open()
 
@@ -122,4 +123,33 @@
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 		return
+	return ..()
+
+/obj/item/holomenu/holodeck
+	name = "holodeck status projector"
+	desc = "A hologram projector, this one has been set up to display text."
+	desc_info = "You can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
+	icon = 'icons/obj/holomenu_holodeck.dmi'
+	anchored = 1
+	layer = 4
+
+	req_one_access = list()
+
+/obj/item/holomenu/holodeck/attack_hand(mob/user)
+	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
+	if(!isnull(new_text))
+		menu_text = pencode2html(new_text)
+		update_icon()
+
+/obj/item/holomenu/holodeck/attackby(obj/item/I, mob/user)
+	var/obj/item/card/id/ID = I.GetID()
+	if(istype(ID))
+		return TRUE
+	if(istype(I, /obj/item/paper))
+		var/obj/item/paper/P = I
+		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+		menu_text = P.info
+		menu_text = replacetext(menu_text, "color=black>", "color=white>")
+		update_icon()
+		return TRUE
 	return ..()

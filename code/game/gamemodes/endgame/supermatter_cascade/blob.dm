@@ -39,11 +39,11 @@
 
 	// EXPAND
 	if(!istype(T,type))
-		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
+		addtimer(CALLBACK(src, PROC_REF(after_tick), T), 10)
 		if(A && !istype(A,type))
-			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
+			addtimer(CALLBACK(src, PROC_REF(after_tick), A), 10)
 		if(B && !istype(B,type))
-			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
+			addtimer(CALLBACK(src, PROC_REF(after_tick), B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
 		STOP_PROCESSING(SScalamity, src)
 
@@ -73,10 +73,10 @@
 
 // /vg/: Don't let ghosts fuck with this.
 /turf/unsimulated/wall/supermatter/attack_ghost(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_ai(mob/user as mob)
-	return user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\

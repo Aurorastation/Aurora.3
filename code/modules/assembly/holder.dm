@@ -62,9 +62,9 @@
 	if(master)
 		master.update_icon()
 
-/obj/item/device/assembly_holder/examine(mob/user)
-	. = ..(user)
-	if(. && (in_range(src, user) || src.loc == user))
+/obj/item/device/assembly_holder/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 || src.loc == user)
 		if (src.secured)
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else
@@ -175,14 +175,13 @@
 
 /obj/item/device/assembly_holder/Initialize(mapload, ...)
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/device/assembly_holder/Destroy()
 	if(a_left)
 		a_left.holder = null
 	if(a_right)
 		a_right.holder = null
-	listening_objects -= src
 	return ..()
 
 /obj/item/device/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)

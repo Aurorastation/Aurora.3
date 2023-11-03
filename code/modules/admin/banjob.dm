@@ -180,7 +180,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 /proc/jobban_loaddatabase()
 	// No database. Weee.
 	if (!establish_db_connection(dbcon))
-		error("Database connection failed. Reverting to the legacy ban system.")
+		log_world("ERROR: Database connection failed. Reverting to the legacy ban system.")
 		log_misc("Database connection failed. Reverting to the legacy ban system.")
 		config.ban_legacy_system = 1
 		jobban_loadbanfile()
@@ -230,7 +230,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (!ckey)
-		log_debug("JOBBAN: jobban_unban called without a mob and a backup ckey.")
+		LOG_DEBUG("JOBBAN: jobban_unban called without a mob and a backup ckey.")
 		return
 
 	// Check for a player record.
@@ -323,6 +323,28 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = SSjobs.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 6) //So things dont get squiiiiished!
+			jobs += "</tr><tr>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Command Support
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in command_support_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -609,6 +631,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 	switch (job)
 		if ("commanddept")
 			for (var/jobPos in command_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("commandsupportdept")
+			for (var/jobPos in command_support_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)

@@ -8,7 +8,7 @@
 	Nonetheless, NanoTrasen has managed to secure itself as a crucial member of the newly-founded Stellar Corporate Conglomerate
 	allowing themselves to remain as a dominant corporate presence within the Orion Spur.
 	</p>"}
-	departments = {"Medical<br>Science<br>Service"}
+	departments = {"Medical<br>Research<br>Service"}
 	title_suffix = "NT"
 
 	is_default = TRUE
@@ -24,6 +24,10 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
 		)
+	)
+
+	titles_to_loadout = list(
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/nanotrasen
 	)
 
 
@@ -46,3 +50,11 @@
 						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
 
 	return objective
+
+/datum/outfit/job/visitor/nanotrasen
+	name = "Off-Duty Crew Member - NanoTrasen"
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt

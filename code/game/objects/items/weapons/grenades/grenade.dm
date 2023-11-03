@@ -30,8 +30,9 @@
 		return 0
 	return 1
 
-/obj/item/grenade/examine(mob/user)
-	if(..(user, 0))
+/obj/item/grenade/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		if(det_time > 1)
 			to_chat(user, "The timer is set to [det_time/10] seconds.")
 			return
@@ -74,7 +75,7 @@
 	active = TRUE
 	playsound(loc, activation_sound, 75, 1, -3)
 
-	addtimer(CALLBACK(src, .proc/prime), det_time)
+	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
 
 /obj/item/grenade/proc/prime()
 	var/turf/T = get_turf(src)

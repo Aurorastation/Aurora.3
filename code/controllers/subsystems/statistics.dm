@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/statistics/SSfeedback
-
-/datum/controller/subsystem/statistics
+SUBSYSTEM_DEF(statistics)
 	name = "Statistics & Inactivity"
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
@@ -33,9 +31,6 @@
 
 	var/status_needs_update = FALSE
 
-/datum/controller/subsystem/statistics/New()
-	NEW_SS_GLOBAL(SSfeedback)
-
 /datum/controller/subsystem/statistics/Initialize(timeofday)
 	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
 		var/datum/statistic/S = new type
@@ -45,7 +40,7 @@
 
 		simple_statistics[S.key] = S
 
-	sortTim(simple_statistics, /proc/cmp_name_asc, TRUE)
+	sortTim(simple_statistics, GLOBAL_PROC_REF(cmp_name_asc), TRUE)
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
@@ -84,21 +79,21 @@
 	status_needs_update = TRUE
 
 /datum/controller/subsystem/statistics/Recover()
-	src.messages = SSfeedback.messages
-	src.messages_admin = SSfeedback.messages_admin
+	src.messages = SSstatistics.messages
+	src.messages_admin = SSstatistics.messages_admin
 
-	src.msg_common = SSfeedback.msg_common
-	src.msg_science = SSfeedback.msg_science
-	src.msg_command = SSfeedback.msg_command
-	src.msg_medical = SSfeedback.msg_medical
-	src.msg_engineering = SSfeedback.msg_engineering
-	src.msg_security = SSfeedback.msg_security
-	src.msg_deathsquad = SSfeedback.msg_deathsquad
-	src.msg_syndicate = SSfeedback.msg_syndicate
-	src.msg_cargo = SSfeedback.msg_cargo
-	src.msg_service = SSfeedback.msg_service
+	src.msg_common = SSstatistics.msg_common
+	src.msg_science = SSstatistics.msg_science
+	src.msg_command = SSstatistics.msg_command
+	src.msg_medical = SSstatistics.msg_medical
+	src.msg_engineering = SSstatistics.msg_engineering
+	src.msg_security = SSstatistics.msg_security
+	src.msg_deathsquad = SSstatistics.msg_deathsquad
+	src.msg_syndicate = SSstatistics.msg_syndicate
+	src.msg_cargo = SSstatistics.msg_cargo
+	src.msg_service = SSstatistics.msg_service
 
-	src.feedback = SSfeedback.feedback
+	src.feedback = SSstatistics.feedback
 
 /datum/controller/subsystem/statistics/proc/find_feedback_datum(variable)
 	for (var/datum/feedback_variable/FV in feedback)
@@ -116,7 +111,7 @@
 	var/pda_msg_amt = 0
 	var/rc_msg_amt = 0
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.machinery)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(MS.pda_msgs.len > pda_msg_amt)
 			pda_msg_amt = MS.pda_msgs.len
 		if(MS.rc_msgs.len > rc_msg_amt)
@@ -179,58 +174,58 @@
 	return text
 
 /proc/feedback_set(var/variable,var/value)
-	if(!SSfeedback)
+	if(!SSstatistics)
 		return
 
 	variable = sql_sanitize_text(variable)
 
-	var/datum/feedback_variable/FV = SSfeedback.find_feedback_datum(variable)
+	var/datum/feedback_variable/FV = SSstatistics.find_feedback_datum(variable)
 
 	if(!FV) return
 
 	FV.set_value(value)
 
 /proc/feedback_inc(var/variable,var/value)
-	if(!SSfeedback) return
+	if(!SSstatistics) return
 
 	variable = sql_sanitize_text(variable)
 
-	var/datum/feedback_variable/FV = SSfeedback.find_feedback_datum(variable)
+	var/datum/feedback_variable/FV = SSstatistics.find_feedback_datum(variable)
 
 	if(!FV) return
 
 	FV.inc(value)
 
 /proc/feedback_dec(var/variable,var/value)
-	if(!SSfeedback) return
+	if(!SSstatistics) return
 
 	variable = sql_sanitize_text(variable)
 
-	var/datum/feedback_variable/FV = SSfeedback.find_feedback_datum(variable)
+	var/datum/feedback_variable/FV = SSstatistics.find_feedback_datum(variable)
 
 	if(!FV) return
 
 	FV.dec(value)
 
 /proc/feedback_set_details(var/variable,var/details)
-	if(!SSfeedback) return
+	if(!SSstatistics) return
 
 	variable = sql_sanitize_text(variable)
 	details = sql_sanitize_text(details)
 
-	var/datum/feedback_variable/FV = SSfeedback.find_feedback_datum(variable)
+	var/datum/feedback_variable/FV = SSstatistics.find_feedback_datum(variable)
 
 	if(!FV) return
 
 	FV.set_details(details)
 
 /proc/feedback_add_details(var/variable,var/details)
-	if(!SSfeedback) return
+	if(!SSstatistics) return
 
 	variable = sql_sanitize_text(variable)
 	details = sql_sanitize_text(details)
 
-	var/datum/feedback_variable/FV = SSfeedback.find_feedback_datum(variable)
+	var/datum/feedback_variable/FV = SSstatistics.find_feedback_datum(variable)
 
 	if(!FV) return
 
@@ -262,8 +257,8 @@
 			"special"=H?.mind.special_role,
 			"pod"=podname,
 			"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
-			"laname"=H?.lastattacker.real_name,
-			"lackey"=H?.lastattacker.ckey,
+			"laname"=H?.lastattacker?.real_name,
+			"lackey"=H?.lastattacker?.ckey,
 			"gender"=H.gender,
 			"bruteloss"=H.getBruteLoss(),
 			"fireloss"=H.getFireLoss(),
@@ -288,5 +283,6 @@
 		return FALSE
 	S.increment_value(key)
 
-/datum/controller/subsystem/statistics/stat_entry()
-	..("Kicked: [kicked_clients]")
+/datum/controller/subsystem/statistics/stat_entry(msg)
+	msg = "Kicked: [kicked_clients]"
+	return ..()

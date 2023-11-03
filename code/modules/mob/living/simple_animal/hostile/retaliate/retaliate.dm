@@ -5,16 +5,7 @@
 	enemies = null
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/Found(var/atom/A)
-	if(isliving(A))
-		var/mob/living/L = A
-		if(!L.stat)
-			stance = HOSTILE_STANCE_ATTACK
-			return L
-		else
-			enemies -= L
-
-/mob/living/simple_animal/hostile/retaliate/ListTargets()
+/mob/living/simple_animal/hostile/retaliate/get_targets()
 	if(!length(enemies))
 		return list()
 	var/list/see = ..()
@@ -22,11 +13,15 @@
 	return see
 
 /mob/living/simple_animal/hostile/retaliate/handle_attack_by(mob/M)
-	enemies |= M
-	targets |= M
+	//For some ungodly reason, this can get called after Destroy(), so to avoid exceptions we have to
+	//check if the lists weren't nulled already
+	if(islist(enemies))
+		enemies |= M
+	if(islist(targets))
+		targets |= M
 
 	for(var/mob/living/simple_animal/hostile/retaliate/H in view(world.view, get_turf(src)))
-		if(H.faction == faction)
+		if(islist(H.enemies) && H.faction == faction)
 			H.enemies |= M
 
 /mob/living/simple_animal/proc/name_species()
@@ -42,7 +37,7 @@
 
 	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in SSshuttle.initialized_sectors)
 		if(src in E.animals)
-			var/newname = input("What do you want to name this species?", "Species naming", E.get_random_species_name()) as text|null
+			var/newname = tgui_input_text(usr, "What do you want to name this species?", "Species naming", E.get_random_species_name(), MAX_NAME_LEN)
 			newname = sanitizeName(newname, allow_numbers = TRUE)
 			if(newname && !use_check_and_message(usr))
 				if(E.rename_species(type, newname))

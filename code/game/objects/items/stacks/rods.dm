@@ -3,6 +3,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, light", /obj/structure/lattice/catwalk/indoor/grate/light, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
+	new /datum/stack_recipe("table frame", /obj/structure/table, 2, time = 10, one_per_turf = 1, on_floor = 1),
 	new /datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("cane", /obj/item/cane, 1, time = 6),
 	new /datum/stack_recipe("crowbar", /obj/item/crowbar, 1, time = 6),
@@ -34,6 +35,8 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
+	stacktype = /obj/item/stack/rods
+	icon_has_variants = TRUE
 
 /obj/item/stack/rods/full/Initialize()
 	. = ..()
@@ -51,17 +54,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/New(var/loc, var/amount=null)
 	..()
-
 	recipes = rod_recipes
-	update_icon()
-
-/obj/item/stack/rods/update_icon()
-	var/amount = get_amount()
-	if((amount <= 5) && (amount > 0))
-		icon_state = "rods-[amount]"
-	else
-		icon_state = "rods"
-	check_maptext(SMALL_FONTS(7, amount))
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -143,7 +136,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	user.visible_message(SPAN_NOTICE("[user] starts assembling a liquidbag barricade."),
 	SPAN_NOTICE("You start assembling a liquidbag barricade."))
 
-	if(!do_after(user, 3 SECONDS))
+	if(!do_after(user, 3 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 		return
 
 	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere

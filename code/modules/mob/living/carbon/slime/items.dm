@@ -31,7 +31,7 @@
 /obj/item/slime_extract/Initialize()
 	. = ..()
 	create_reagents(100)
-	reagents.add_reagent(/decl/reagent/slimejelly, 30)
+	reagents.add_reagent(/singleton/reagent/slimejelly, 30)
 
 /obj/item/slime_extract/grey
 	name = "grey slime extract"
@@ -126,13 +126,19 @@
 /obj/item/docility_serum
 	name = "docility serum"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for baby slimes."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-1"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/docility_serum/Initialize() // Better than hardsprited in stuff.
-	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	. = ..()
+	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PINK
 	add_overlay(filling)
+
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -144,7 +150,7 @@
 	if(M.mind)
 		to_chat(user, SPAN_WARNING("The slime is too intelligent to be pacified!"))
 		return ..()
-	if(M.is_adult)	
+	if(M.is_adult)
 		to_chat(user, SPAN_WARNING("The serum isn't advanced enough to affect adult slimes."))
 		return ..()
 
@@ -166,13 +172,19 @@
 /obj/item/advanced_docility_serum
 	name = "advanced docility serum"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-2"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
-	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	. = ..()
+	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PALE_PINK
 	add_overlay(filling)
+
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -184,7 +196,7 @@
 	if(M.mind)
 		to_chat(user, SPAN_WARNING("The slime is too intelligent to be pacified!"))
 		return ..()
-	if(!M.is_adult)	
+	if(!M.is_adult)
 		to_chat(user, SPAN_WARNING("The serum is too advanced to affect baby slimes."))
 		return ..()
 
@@ -206,13 +218,20 @@
 /obj/item/slimesteroid
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-3"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
-	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	SHOULD_CALL_PARENT(FALSE)
+
+	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_GREEN
 	add_overlay(filling)
+
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime)) //If target is not a slime.
@@ -235,13 +254,20 @@
 /obj/item/extract_enhancer
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-4"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
-	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	SHOULD_CALL_PARENT(FALSE)
+
+	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_BLUE
 	add_overlay(filling)
+
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
 
 /obj/effect/golemrune
 	anchored = TRUE
@@ -295,13 +321,14 @@
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
-	G.culture = decls_repository.get_decl(/decl/origin_item/culture/golem)
-	G.origin = decls_repository.get_decl(/decl/origin_item/origin/golem)
+	G.culture = GET_SINGLETON(/singleton/origin_item/culture/golem)
+	G.origin = GET_SINGLETON(/singleton/origin_item/origin/golem)
 	G.accent = G.origin.possible_accents[1]
 	G.citizenship = G.origin.possible_citizenships[1]
 	G.religion = G.origin.possible_religions[1]
 	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
 	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.client.init_verbs()
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 
 	qdel(src)

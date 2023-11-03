@@ -4,7 +4,7 @@
 /obj/item/inflatable_dispenser
 	name = "inflatables dispenser"
 	desc = "Small device which allows rapid deployment and removal of inflatables."
-	icon = 'icons/contained_items/items/inflatables_dispenser.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "inf_deployer"
 	w_class = ITEMSIZE_NORMAL
 	var/deploying = FALSE
@@ -20,8 +20,7 @@
 	stored_doors = max_doors
 
 /obj/item/inflatable_dispenser/examine(mob/user)
-	if(!..(user))
-		return
+	. = ..()
 	to_chat(user, SPAN_NOTICE("It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored."))
 	to_chat(user, SPAN_NOTICE("It is set to deploy [mode ? "doors" : "walls"]"))
 
@@ -67,7 +66,7 @@
 	deploying = 1
 	user.visible_message("<b>[user]</b> starts deploying an inflatable [mode ? "door" : "wall"].", SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
-	if(do_after(user, 30, needhand = FALSE))
+	if(do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		new newtype(T)
 		if(mode)
 			stored_doors--

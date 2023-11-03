@@ -8,41 +8,6 @@
 	if(volume)
 		create_reagents(volume)
 
-/obj/item/integrated_circuit/reagent/smoke
-	name = "smoke generator"
-	desc = "Unlike most electronics, creating smoke is completely intentional."
-	icon_state = "smoke"
-	extended_desc = "This smoke generator creates clouds of smoke on command.  It can also hold liquids inside, which will go \
-	into the smoke clouds when activated.  The reagents are consumed when smoke is made."
-	flags = OPENCONTAINER
-	complexity = 20
-	cooldown_per_use = 30 SECONDS
-	inputs = list()
-	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF)
-	activators = list("create smoke" = IC_PINTYPE_PULSE_IN)
-	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 3)
-	volume = 100
-	power_draw_per_use = 20
-
-/obj/item/integrated_circuit/reagent/smoke/on_reagent_change()
-	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
-	push_data()
-
-/obj/item/integrated_circuit/reagent/smoke/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, src)
-	push_data()
-	..()
-
-/obj/item/integrated_circuit/reagent/smoke/do_work()
-	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	var/datum/effect/effect/system/smoke_spread/chem/smoke_system = new()
-	smoke_system.set_up(reagents, 10, 0, get_turf(src))
-	spawn(0)
-		for(var/i = 1 to 8)
-			smoke_system.start()
-		reagents.clear_reagents()
-
 /obj/item/integrated_circuit/reagent/injector
 	name = "integrated hypo-injector"
 	desc = "This scary looking thing is able to pump liquids into whatever it's pointed at."
@@ -139,7 +104,7 @@
 					else
 						activate_pin(3)
 					return
-				if(NOCLONE in T.mutations) //target done been et, no more blood in him
+				if(HAS_FLAG(T.mutations, NOCLONE)) //target done been et, no more blood in him
 					if(T.reagents.trans_to_obj(src, tramount))
 						activate_pin(2)
 					else
@@ -283,7 +248,7 @@
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
 	var/list/cont = list()
 	for(var/_RE in reagents.reagent_volumes)
-		var/decl/reagent/RE = decls_repository.get_decl(_RE)
+		var/singleton/reagent/RE = GET_SINGLETON(_RE)
 		cont += RE.name
 	set_pin_data(IC_OUTPUT, 3, cont)
 	set_pin_data(IC_OUTPUT, 4, reagents.generate_taste_message(src))
@@ -338,7 +303,7 @@
 		if(!REAGENTS_FREE_SPACE(target.reagents))
 			return
 		for(var/_G in source.reagents.reagent_volumes)
-			var/decl/reagent/G = decls_repository.get_decl(_G)
+			var/singleton/reagent/G = GET_SINGLETON(_G)
 			if (!direc)
 				if(lowertext(G.name) in demand)
 					source.reagents.trans_type_to(target, _G, transfer_amount)

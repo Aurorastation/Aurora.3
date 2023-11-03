@@ -75,7 +75,7 @@
 					return TRUE
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if (do_after(user, 20) && state == 2)
+				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 2)
 					if (C.use(5))
 						state = 3
 						icon_state = "3"
@@ -86,7 +86,7 @@
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
-					playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You remove the cables.</span>")
 					state = 2
 					icon_state = "2"
@@ -94,14 +94,14 @@
 					A.amount = 5
 				return TRUE
 
-			if(istype(P, /obj/item/stack/material) && P.get_material_name() == "rglass")
+			if(istype(P, /obj/item/stack/material) && P.get_material_name() == MATERIAL_GLASS_REINFORCED)
 				var/obj/item/stack/RG = P
 				if (RG.get_amount() < 2)
 					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to put in the glass panel.</span>")
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if (do_after(user, 20) && state == 3)
+				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 3)
 					if(RG.use(2))
 						to_chat(user, "<span class='notice'>You put in the glass panel.</span>")
 						state = 4

@@ -109,12 +109,15 @@
 //This proc selects the spawnpoint to use. - Only used when mode is GS_LOC_POS
 /datum/ghostspawner/proc/select_spawnlocation(var/use=TRUE)
 	if(loc_type != GS_LOC_POS)
-		log_debug("Ghostspawner: select_spawnlocation is not valid for spawner [short_name] as it is not position based")
+		log_module_ghostroles_spawner("select_spawnlocation is not valid for spawner [short_name] as it is not position based")
 		return null
 	if(!isnull(spawnpoints))
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
 			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint, use) //Gets the first matching spawnpoint or null if none are available
 			if(T) //If we have a spawnpoint, return it
+				if(use)
+					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
+					spawnpoints += spawnpoint
 				return T
 	if(!isnull(landmark_name))
 		var/list/possible_landmarks = list()
@@ -125,14 +128,14 @@
 			var/obj/effect/landmark/L = pick(possible_landmarks)
 			return get_turf(L)
 
-	log_debug("Ghostspawner: Spawner [short_name] has neither spawnpoints nor landmarks or a matching spawnpoint/landmark could not be found")
+	log_module_ghostroles_spawner("Spawner [short_name] has neither spawnpoints nor landmarks or a matching spawnpoint/landmark could not be found")
 
 	return null //If we dont have anything return null
 
 //Selects a spawnatom from the list of available atoms and removes it if use is set to true (default)
 /datum/ghostspawner/proc/select_spawnatom(var/use=TRUE)
 	if(loc_type != GS_LOC_ATOM)
-		log_debug("Ghostspawner: select_spawnatom is not valid for spawner [short_name] as it is not atom based")
+		log_module_ghostroles_spawner("select_spawnatom is not valid for spawner [short_name] as it is not atom based")
 		return null
 	var/atom/A = pick(spawn_atoms)
 	if(use)
@@ -163,7 +166,19 @@
 		disable()
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
+	else
+		if(name)
+			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+		if(desc)
+			to_chat(user, SPAN_INFO("Role description: ") + desc)
 	universe.OnPlayerLatejoin(user)
+	if(current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
+		if(sector?.invisible_until_ghostrole_spawn)
+			sector.x = sector.start_x
+			sector.y = sector.start_y
+			sector.z = current_map.overmap_z
+			sector.invisible_until_ghostrole_spawn = FALSE
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -171,6 +186,10 @@
 	if(check_rights(req_perms_edit, show_msg=FALSE, user=user))
 		return TRUE
 	return FALSE
+
+//Proc to check if a specific user can jump to this spawner (ghosts should be able to)
+/datum/ghostspawner/proc/can_jump_to(mob/user)
+	return isobserver(user) && loc_type == GS_LOC_POS
 
 /datum/ghostspawner/proc/is_enabled()
 	if(loc_type == GS_LOC_ATOM)

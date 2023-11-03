@@ -51,17 +51,36 @@
 	src.adding += using
 
 /obj/screen/new_player
-	icon = 'icons/misc/hudmenu.dmi'
+	icon = 'icons/misc/hudmenu/hudmenu.dmi'
 	layer = HUD_LAYER
+
+/obj/screen/new_player/Initialize()
+	set_sector_things()
+	. = ..()
+
+/obj/screen/new_player/proc/set_sector_things()
+	if(SSatlas.current_sector.sector_hud_menu)
+		icon = SSatlas.current_sector.sector_hud_menu
 
 /obj/screen/new_player/title
 	name = "Title"
 	screen_loc = "WEST,SOUTH"
 	var/lobby_index = 1
+	var/refresh_timer_id = null
+
+/obj/screen/new_player/title/Destroy(force)
+	if(refresh_timer_id)
+		deltimer(refresh_timer_id)
+		refresh_timer_id = null
+	. = ..()
+
 
 /obj/screen/new_player/title/Initialize()
-	if(!current_map.lobby_icon)
+	if(SSatlas.current_sector.sector_lobby_art)
+		current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+	else if(!current_map.lobby_icon)
 		current_map.lobby_icon = pick(current_map.lobby_icons)
+
 	if(!length(current_map.lobby_screens))
 		var/list/known_icon_states = icon_states(current_map.lobby_icon)
 		for(var/screen in known_icon_states)
@@ -76,7 +95,7 @@
 				spawn(current_map.lobby_transitions)
 					Update()
 			else
-				addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 		else
 			icon_state = pick(current_map.lobby_screens)
 	else //This should basically never happen.
@@ -84,7 +103,15 @@
 
 	. = ..()
 
+/obj/screen/new_player/title/set_sector_things()
+	return
+
 /obj/screen/new_player/title/proc/Update()
+	if(QDELING(src))
+		return
+
+	if(!current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
+		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
 	lobby_index += 1
@@ -96,21 +123,44 @@
 		spawn(current_map.lobby_transitions)
 			Update()
 	else
-		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+		refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
+
+/obj/screen/new_player/selection
+	var/click_sound = 'sound/effects/menu_click.ogg'
+	var/hud_arrow
 
 /obj/screen/new_player/selection/New(var/datum/hud/H)
 	color = null
 	hud = H
 	..()
 
+/obj/screen/new_player/selection/Initialize()
+	. = ..()
+	set_sector_things()
+
+/obj/screen/new_player/selection/set_sector_things()
+	. = ..()
+	if(SSatlas.current_sector.sector_hud_menu_sound)
+		click_sound = SSatlas.current_sector.sector_hud_menu_sound
+	if(SSatlas.current_sector.sector_hud_arrow)
+		hud_arrow = SSatlas.current_sector.sector_hud_arrow
+		// We'll reset the animation just so it doesn't get stuck
+		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+
 /obj/screen/new_player/selection/MouseEntered(location, control, params)
-	var/matrix/M = matrix()
-	M.Scale(1.1, 1)
-	animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+	if(hud_arrow)
+		add_overlay(hud_arrow, force_compile = TRUE)
+	else
+		var/matrix/M = matrix()
+		M.Scale(1.1, 1)
+		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
-	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	if(hud_arrow)
+		cut_overlays(force_compile = TRUE)
+	else
+		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/join_game
@@ -155,7 +205,7 @@
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
 			player.ready(FALSE)
@@ -176,7 +226,7 @@
 
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	if(SSticker.current_state < GAME_STATE_PLAYING)
 		to_chat(player, SPAN_WARNING("The game hasn't started yet!"))
 		return
@@ -184,17 +234,17 @@
 
 /obj/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.new_player_observe()
 
 /obj/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.setupcharacter()
 
 /obj/screen/new_player/selection/changelog/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.client.changes()
 
 /obj/screen/new_player/selection/polls/Initialize()
@@ -211,12 +261,12 @@
 
 /obj/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.handle_player_polling()
 
 /obj/screen/new_player/selection/lore_summary/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.show_lore_summary()
 
 /mob/abstract/new_player/proc/setupcharacter()
@@ -253,41 +303,46 @@
 		alert(src, "Please wait, the map is not initialized yet.")
 		return 0
 
-	if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
-		if(!client)
-			return TRUE
-		var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
-		spawning = 1
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
+	if(!client)
+		return TRUE
+	// Only display the warning if it's a /new/ new player,
+	// if they've died and gone back to menu they probably already know their respawn time (and it won't be reset anymore)
+	if(!get_death_time(CREW))
+		if(alert(src, "Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
+			return FALSE
 
+	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
+	spawning = 1
+	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
 
-		observer.started_as_observer = 1
-		close_spawn_windows()
-		var/obj/O = locate("landmark*Observer-Start") in landmarks_list
-		if(istype(O))
-			to_chat(src, "<span class='notice'>Now teleporting.</span>")
-			observer.forceMove(O.loc)
-		else
-			to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
-		observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
+	observer.started_as_observer = 1
+	close_spawn_windows()
+	var/obj/O = locate("landmark*Observer-Start") in landmarks_list
+	if(istype(O))
+		to_chat(src, "<span class='notice'>Now teleporting.</span>")
+		observer.forceMove(O.loc)
+	else
+		to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
+	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
-		announce_ghost_joinleave(src)
-		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
-		client.prefs.dress_preview_mob(mannequin)
-		observer.appearance = mannequin.appearance
-		observer.appearance_flags = KEEP_TOGETHER
-		observer.alpha = 127
-		observer.layer = initial(observer.layer)
-		observer.invisibility = initial(observer.invisibility)
-		observer.desc = initial(observer.desc)
+	announce_ghost_joinleave(src)
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = new
+	client.prefs.dress_preview_mob(mannequin)
+	observer.appearance = mannequin.appearance
+	observer.appearance_flags = KEEP_TOGETHER
+	observer.alpha = 127
+	observer.layer = initial(observer.layer)
+	observer.set_invisibility(initial(observer.invisibility))
+	observer.desc = initial(observer.desc)
 
-		observer.real_name = client.prefs.real_name
-		observer.name = observer.real_name
-		if(!client.holder && !config.antag_hud_allowed)
-			observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
-		observer.ckey = ckey
-		observer.initialise_postkey()
-		qdel(src)
+	observer.real_name = client.prefs.real_name
+	observer.name = observer.real_name
+	if(!client.holder && !config.antag_hud_allowed)
+		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
+	observer.ckey = ckey
+	observer.initialise_postkey()
+	observer.client.init_verbs()
+	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()
 	if(config.lore_summary)

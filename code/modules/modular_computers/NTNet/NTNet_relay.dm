@@ -6,7 +6,7 @@
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
 	icon_state = "ntnet"
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	anchored = TRUE
 	density = TRUE
 	var/datum/ntnet/NTNet			// This is mostly for backwards reference and to allow varedit modifications from ingame.
@@ -69,35 +69,39 @@
 		ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
 
-/obj/machinery/ntnet_relay/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NTNetRelay")
+		ui.open()
+
+/obj/machinery/ntnet_relay/ui_data(mob/user)
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
 	data["dos_overload"] = dos_overload
 	data["dos_crashed"] = dos_failure
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_relay.tmpl", "NTNet Quantum Relay", 500, 300, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
-	ui_interact(user)
-
-/obj/machinery/ntnet_relay/Topic(href, href_list)
-	if(..())
-		return TRUE
-	if(href_list["restart"])
+/obj/machinery/ntnet_relay/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	if(action=="restart")
 		dos_overload = FALSE
 		dos_failure = FALSE
 		update_icon()
 		ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
-	else if(href_list["toggle"])
+		. = TRUE
+	if(action=="toggle")
 		enabled = !enabled
 		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
+		. = TRUE
+
+/obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
+	ui_interact(user)
 
 /obj/machinery/ntnet_relay/Initialize()
 	. = ..()
@@ -115,10 +119,6 @@
 	if(ntnet_global)
 		ntnet_global.relays.Remove(src)
 		ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
-		NTNet = null
-	for(var/datum/computer_file/program/ntnet_dos/D in dos_sources)
-		D.target = null
-		D.error = "Connection to quantum relay severed"
 	return ..()
 
 /obj/machinery/ntnet_relay/attackby(obj/item/W, mob/user)

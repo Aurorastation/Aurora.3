@@ -27,8 +27,8 @@ FLOOR SAFES
 	var/time_to_drill = 300 SECONDS		// Drill duration of the current thermal drill.
 	var/last_drill_time = 0				// Last world.time the drill time was checked. Used to reduce time_to_drill accurately
 	var/image/drill_overlay				// The drill overlay image to display during the drilling process.
-	var/drill_x_offset = -13			// The X pixel offset for the drill
-	var/drill_y_offset = -3				// The Y pixel offset for the drill
+	var/drill_x_offset = -4				// The X pixel offset for the drill
+	var/drill_y_offset = -8				// The Y pixel offset for the drill
 
 /obj/structure/safe/Initialize()
 	. = ..()
@@ -54,6 +54,7 @@ FLOOR SAFES
 
 /obj/structure/safe/Destroy()
 	if(drill)
+		drill.soundloop.stop()
 		drill.forceMove(loc)
 		drill = null
 	return ..()
@@ -118,6 +119,7 @@ FLOOR SAFES
 					if(broken)
 						return
 					last_drill_time = world.time
+					drill.soundloop.start()
 					START_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Turn Off")
@@ -126,6 +128,7 @@ FLOOR SAFES
 				if(do_after(user, 2 SECONDS))
 					if(!drill || !isprocessing)
 						return
+					drill.soundloop.stop()
 					STOP_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Remove Drill")
@@ -248,6 +251,7 @@ FLOOR SAFES
 
 /obj/structure/safe/proc/drill_open()
 	broken = TRUE
+	drill.soundloop.stop()
 	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
@@ -272,7 +276,7 @@ FLOOR SAFES
 	update_icon()
 
 /obj/structure/safe/floor/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 
 /obj/structure/safe/floor/hides_under_flooring()
 	return 1
@@ -283,7 +287,28 @@ FLOOR SAFES
 
 /obj/structure/safe/station/Initialize()
 	. = ..()
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
+	new /obj/item/stack/telecrystal/twentyfive(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+	new /obj/random/highvalue/safe(src)
+
+/obj/structure/safe/cash
+	name = "credit safe"
+
+/obj/structure/safe/cash/Initialize()
+	. = ..()
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+
+/obj/structure/safe/highvalue
+	name = "valuables safe"
+
+/obj/structure/safe/highvalue/Initialize()
+	. = ..()
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)

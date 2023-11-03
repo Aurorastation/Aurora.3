@@ -62,8 +62,10 @@
 #define MODE_THRALL "thrall"
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
+#define MODE_JOCKEY "jockey"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 20
+#define DEFAULT_BLUECRYSTAL_AMOUNT 15
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.
@@ -123,3 +125,4 @@
 #define VAMP_FRENZIED   0x8
 #define VAMP_ISTHRALL   0x10
 #define VAMP_FULLPOWER  0x20
+#define VAMP_HYPNOTIZING 0x40

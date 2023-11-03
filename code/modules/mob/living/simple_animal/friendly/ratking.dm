@@ -8,7 +8,7 @@
 
 
 /proc/announceToRodents(var/message)
-	for(var/R in SSmob.all_rats)
+	for(var/R in SSmobs.all_rats)
 		to_chat(R, message)
 
 /mob/living/simple_animal/rat/king
@@ -159,7 +159,7 @@
 	update_nutrition_stats()
 
 /mob/living/simple_animal/rat/king/splat()
-	src.apply_damage(5, BRUTE)
+	src.apply_damage(5, DAMAGE_BRUTE)
 
 /mob/living/simple_animal/rat/king/verb/kingDecree()
 	set category = "Abilities"
@@ -201,6 +201,8 @@
 			L.broken()
 		else
 			L.flicker()
+		CHECK_TICK
+
 	last_special = world.time + 30
 
 /mob/living/simple_animal/rat/king/verb/devourdead(mob/target as mob in oview())
@@ -283,3 +285,12 @@
 	if(rats.len >= RAT_KING_LEVEL)
 		return 1
 	return 0
+
+
+#undef RAT_MAYOR_LEVEL
+#undef RAT_BARON_LEVEL
+#undef RAT_DUKE_LEVEL
+#undef RAT_KING_LEVEL
+#undef RAT_EMPEROR_LEVEL
+#undef RAT_SAVIOR_LEVEL
+#undef RAT_GOD_LEVEL

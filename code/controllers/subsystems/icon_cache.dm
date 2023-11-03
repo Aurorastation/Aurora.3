@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/icon_cache/SSicon_cache
-
-/datum/controller/subsystem/icon_cache
+SUBSYSTEM_DEF(icon_cache)
 	name = "Icon Cache"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MISC_FIRST
@@ -24,6 +22,8 @@
 	var/list/furniture_cache = list()
 	var/list/floor_light_cache = list()
 	var/list/ashtray_cache = list()
+
+	var/list/airlock_icon_cache = list()
 
 	var/list/uristrunes = list()
 
@@ -68,9 +68,6 @@
 	var/list/crayon_cache = list()
 
 	var/list/istate_cache = list()
-
-/datum/controller/subsystem/icon_cache/New()
-	NEW_SS_GLOBAL(SSicon_cache)
 
 /datum/controller/subsystem/icon_cache/Initialize()
 	build_dust_cache()
@@ -136,13 +133,13 @@
 
 // Loads all icon states in an icon into the istate cache.
 /datum/controller/subsystem/icon_cache/proc/preload_icon(icon/I)
-	log_debug("SSicon_cache: preloading '[I]'...")
+	LOG_DEBUG("SSicon_cache: preloading '[I]'...")
 	var/list/cache = list()
 	var/image/im = new(icon = I)
 	for (var/state in icon_states(I))
 		im.icon_state = state
 		cache[state] = im.appearance
 
-	log_debug("SSicon_cache: preloaded [cache.len] states.")
+	LOG_DEBUG("SSicon_cache: preloaded [cache.len] states.")
 	istate_cache[I] = cache
 	return cache

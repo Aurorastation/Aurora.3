@@ -1,7 +1,23 @@
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 24;
+
+#define PRESET_SOUTH \
+dir = SOUTH; \
+pixel_y = -24;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -8;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 8;
+
 /obj/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "bell"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
@@ -9,23 +25,53 @@
 	req_access = list() //what access it needs to link your pda
 
 	var/id = null
-	var/list/obj/item/modular_computer/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
+
+	///A list of PDAs to alert upon someone touching the machine
+	var/list/obj/item/modular_computer/rings_pdas = list()
+
 	var/listener/ringers
 	var/on = TRUE
-	var/department = "Somewhere" //whatever department/desk you put this thing
-	var/pinged = FALSE //for cooldown
+
+	///Whatever department/desk you put this thing
+	var/department = "Somewhere"
+
+	///If the pinging is in cooldown, boolean
+	var/pinged = FALSE
+
 	var/global/list/screen_overlays
 
-/obj/machinery/ringer/Initialize()
+/obj/machinery/ringer/north
+	PRESET_NORTH
+
+/obj/machinery/ringer/south
+	PRESET_SOUTH
+
+/obj/machinery/ringer/west
+	PRESET_WEST
+
+/obj/machinery/ringer/east
+	PRESET_EAST
+
+/obj/machinery/ringer/Initialize(mapload)
 	. = ..()
 	if(id)
 		ringers = new(id, src)
+
+	if(src.dir & NORTH)
+		alpha = 127
 	generate_overlays()
 	update_icon()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/ringer/power_change()
 	..()
 	update_icon()
+
+/obj/machinery/ringer/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/ringer/Destroy()
 	QDEL_NULL(ringers)
@@ -73,7 +119,7 @@
 		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
 		rings_pdas += C
 		// WONT FIX: This requires callbacks fuck my dick.
-		destroyed_event.register(C, src, .proc/remove_pda)
+		destroyed_event.register(C, src, PROC_REF(remove_pda))
 		update_icon()
 		return TRUE
 	else
@@ -112,7 +158,7 @@
 		var/message = "Attention required!"
 		P.get_notification(message, 1, "[capitalize(department)]")
 
-	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(unping)), 45 SECONDS)
 
 /obj/machinery/ringer/proc/unping()
 	pinged = FALSE
@@ -125,7 +171,7 @@
 /obj/machinery/ringer_button
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "ringer"
 	anchored = TRUE
 	var/id = ""
@@ -160,3 +206,8 @@
 		var/obj/machinery/ringer/C = L.target
 		if (istype(C))
 			C.ring_pda()
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

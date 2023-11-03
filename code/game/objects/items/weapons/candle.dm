@@ -1,7 +1,7 @@
 /obj/item/flame/candle
 	name = "red candle"
 	desc = "a small pillar candle. Its specially-formulated fuel-oxidizer wax mixture allows continued combustion in airless environments."
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/obj/storage/fancy/candle.dmi'
 	icon_state = "candle1"
 	item_state = "candle1"
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -9,10 +9,13 @@
 	w_class = ITEMSIZE_TINY
 	light_color = "#E09D37"
 	var/wax = 2000
+	var/start_lit = FALSE
 
 /obj/item/flame/candle/Initialize()
 	. = ..()
 	wax = rand(1600, 2000)
+	if(start_lit)
+		light()
 
 /obj/item/flame/candle/update_icon()
 	var/i

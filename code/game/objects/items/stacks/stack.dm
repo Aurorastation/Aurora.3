@@ -23,7 +23,7 @@
 	var/list/charge_costs = null
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
-	icon = 'icons/obj/stacks/materials.dmi'
+	icon = 'icons/obj/item/stacks/materials.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
@@ -67,8 +67,9 @@
 	else
 		icon_state = "[initial(icon_state)]_3"
 
-/obj/item/stack/examine(mob/user)
-	if(..(user, 1))
+/obj/item/stack/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(!iscoil())
 			if(!uses_charge)
 				to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack.")
@@ -158,7 +159,7 @@
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	if (recipe.time)
-		if (!do_after(user, recipe.time))
+		if (!do_after(user, recipe.time, do_flags = DO_REPAIR_CONSTRUCT))
 			return
 
 	if (use(required))

@@ -11,14 +11,16 @@
 	opacity = FALSE
 	layer = 3.5
 	w_class = ITEMSIZE_NORMAL
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
 
 /obj/structure/sign/attackby(obj/item/tool, mob/user) // Deconstruction.
 	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
-		playsound(get_turf(user), tool.usesound, 50, 1)
-		unfasten(user)
+		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
+		if(tool.use_tool(src, user, 0, volume = 50))
+			unfasten(user)
 	else ..()
 
 /obj/structure/sign/proc/unfasten(mob/user)
@@ -37,11 +39,13 @@
 	w_class = ITEMSIZE_HUGE
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob) // Construction.
+/obj/item/sign/attackby(obj/item/tool, mob/user) // Construction.
 	if(tool.isscrewdriver() && isturf(user.loc))
-		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
+		var/direction = tgui_input_list(user, "In which direction?", "Select Direction", list("North", "East", "South", "West", "Cancel"))
 		if(direction == "Cancel") return
-		var/obj/structure/sign/S = new(user.loc)
+		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues
+			return
+		var/obj/structure/sign/S = new(get_turf(user))
 		switch(direction)
 			if("North")
 				S.pixel_y = 32
@@ -58,24 +62,6 @@
 		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
-
-//
-// Christmas
-//
-
-/obj/structure/sign/christmas/lights
-	name = "christmas lights"
-	desc = "Flashy."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "xmaslights"
-	layer = 4.9
-
-/obj/structure/sign/christmas/wreath
-	name = "wreath"
-	desc = "Prickly and overrated."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "doorwreath"
-	layer = 5
 
 //
 // Generic Signs
@@ -204,6 +190,11 @@
 	desc = "A direction sign, pointing out which way the medical department is."
 	icon_state = "direction_med"
 
+/obj/structure/sign/directions/custodial
+	name = "\improper CUSTODIAL CLOSET sign"
+	desc = "A direction sign, pointing out which way a custodial closet is."
+	icon_state = "direction_custodial"
+
 /obj/structure/sign/directions/evac
 	name = "\improper ESCAPE DOCK sign"
 	desc = "A direction sign, pointing out which way the escape dock is."
@@ -249,6 +240,11 @@
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
 	icon_state = "direction_all"
 
+/obj/structure/sign/directions/prop
+	name = "\improper PROPULSION sign"
+	desc = "A direction sign, pointing out which way the nearest propulsion area is."
+	icon_state = "direction_prop"
+
 //
 // Danger, Warning, and Hazard Signs
 //
@@ -292,6 +288,11 @@
 	name = "\improper DANGER: VACUUM sign"
 	desc = "A danger sign which reads \"DANGER: VACUUM\"."
 	icon_state = "vacuum"
+
+/obj/structure/sign/crush
+	name = "\improper DANGER: CRUSH HAZARD sign"
+	desc = "A danger sign which reads \"DANGER: CRUSH HAZARD\" and \"AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY\"."
+	icon_state = "crush"
 
 //
 // Emergency Signs
@@ -346,786 +347,281 @@
 	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed at by arrows."
 	icon_state = "meeting_point"
 
-//
-// Flags
-//
-
-// Flag Item
-/obj/item/flag
-	name = "boxed flag"
-	desc = "A flag neatly folded into a wooden container."
-	icon = 'icons/obj/flags.dmi'
-	icon_state = "flag_boxed"
-	var/flag_path
-	var/flag_size = 0
-
-// Flag on Wall
-/obj/structure/sign/flag
-	name = "blank flag"
-	desc = "Nothing to see here."
-	icon = 'icons/obj/flags.dmi'
-	icon_state = "flag"
-	var/icon/ripped_outline = icon('icons/obj/flags.dmi', "ripped")
-	var/obj/structure/sign/flag/linked_flag //For double flags
-	var/obj/item/flag/flagtype //For returning your flag
-	var/ripped = FALSE //If we've been torn down
-
-/obj/structure/sign/flag/blank
-	name = "blank banner"
-	desc = "A blank blue flag."
-	icon_state = "flag"
-
-/obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
-	if (!adjacent)
-		return
-
-	if((!iswall(A) && !istype(A, /obj/structure/window)) || !isturf(user.loc))
-		to_chat(user, SPAN_WARNING("You can't place this here!"))
-		return
-
-	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in cardinal))
-		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
-		return
-
-	var/obj/structure/sign/flag/P = new(user.loc)
-
-	switch(placement_dir)
-		if(NORTH)
-			P.pixel_y = 32
-		if(SOUTH)
-			P.pixel_y = -32
-		if(EAST)
-			P.pixel_x = 32
-		if(WEST)
-			P.pixel_x = -32
-
-	P.dir = placement_dir
-	if(flag_size)
-		P.icon_state = "[flag_path]_l"
-		var/obj/structure/sign/flag/P2 = new(user.loc)
-		P.linked_flag = P2
-		P2.linked_flag = P
-		P2.icon_state = "[flag_path]_r"
-		P2.dir = P.dir
-		switch(P2.dir)
-			if(NORTH)
-				P2.pixel_y = P.pixel_y
-				P2.pixel_x = 32
-			if(SOUTH)
-				P2.pixel_y = P.pixel_y
-				P2.pixel_x = 32
-			if(EAST)
-				P2.pixel_x = P.pixel_x
-				P2.pixel_y = -32
-			if(WEST)
-				P2.pixel_x = P.pixel_x
-				P2.pixel_y = 32
-		P2.name = name
-		P2.desc = desc
-		P2.desc_info = desc_info
-		P2.desc_fluff = desc_fluff
-		P2.flagtype = type
-	else
-		P.icon_state = "[flag_path]"
-	P.name = name
-	P.desc = desc
-	P.desc_info = desc_info
-	P.desc_fluff = desc_fluff
-	P.flagtype = type
-	qdel(src)
-
-/obj/structure/sign/flag/Destroy()
-	if(linked_flag?.linked_flag == src) // Catches other instances where one half might be destroyed, say by a broken wall, to avoid runtimes.
-		linked_flag.linked_flag = null // linked_flag
-	. = ..()
-
-/obj/structure/sign/flag/ex_act(severity)
-	switch(severity)
-		if(1)
-			qdel(src)
-		if(2)
-			if(prob(50))
-				qdel(src)
-			else
-				rip()
-		if(3)
-			rip()
-
-/obj/structure/sign/flag/unfasten(mob/user)
-	if(!ripped)
-		user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src] and folds it back up."), SPAN_NOTICE("You unfasten \the [src] and fold it back up."))
-		var/obj/item/flag/F = new flagtype(get_turf(user))
-		user.put_in_hands(F)
-	else
-		user.visible_message(SPAN_NOTICE("\The [user] unfastens the tattered remnants of \the [src]."), SPAN_NOTICE("You unfasten the tattered remains of \the [src]."))
-	if(linked_flag)
-		qdel(linked_flag) // Otherwise you're going to get weird duping nonsense.
-	qdel(src)
-
-/obj/structure/sign/flag/attack_hand(mob/user)
-	if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
-		if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
-			return FALSE
-		if(!do_after(user, 2 SECONDS, act_target = src))
-			return FALSE
-		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ))
-		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
-		add_fingerprint(user)
-		rip()
-
-/obj/structure/sign/flag/proc/rip(var/rip_linked = TRUE)
-	var/icon/I = new('icons/obj/flags.dmi', icon_state)
-	var/icon/mask = new('icons/obj/flags.dmi', "ripped")
-	I.AddAlphaMask(mask)
-	icon = I
-	name = "ripped flag"
-	desc = "You can't make out anything from the flag's original print. It's ruined."
-	ripped = TRUE
-	if(linked_flag && rip_linked)
-		linked_flag.rip(FALSE) // Prevents an infinite ripping loop.
-
-/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
-	..()
-
-	if(W.isFlameSource())
-
-		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
-		if(!do_after(user, 2 SECONDS, act_target = src))
-			return FALSE
-		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
-		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
-		new /obj/effect/decal/cleanable/ash(src.loc)
-		if(linked_flag)
-			qdel(linked_flag)
-		qdel(src)
-		return TRUE
-
-/obj/structure/sign/flag/blank/left
-	icon_state = "flag_l"
-
-/obj/structure/sign/flag/blank/right
-	icon_state = "flag_r"
-
-/obj/structure/sign/flag/sol
-	name = "Sol Alliance flag"
-	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	icon_state = "solgov"
-
-/obj/structure/sign/flag/sol/left
-	icon_state = "solgov_l"
-
-/obj/structure/sign/flag/sol/right
-	icon_state = "solgov_r"
-
-/obj/item/flag/sol
-	name = "Sol Alliance flag"
-	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	flag_path = "solgov"
-
-/obj/item/flag/sol/l
-	name = "Large Sol Alliance flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/dominia
-	name = "Dominian Empire flag"
-	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
-	icon_state = "dominia"
-
-/obj/structure/sign/flag/dominia/left
-	icon_state = "dominia_l"
-
-/obj/structure/sign/flag/dominia/right
-	icon_state = "dominia_r"
-
-/obj/item/flag/dominia
-	name = "Dominian Empire flag"
-	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
-	flag_path = "dominia"
-
-/obj/item/flag/dominia/l
-	name = "Large Dominian Empire flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/elyra
-	name = "Elyran flag"
-	desc = "The hopeful colors of the Serene Republic of Elyra."
-	icon_state = "elyra"
-
-/obj/structure/sign/flag/elyra/left
-	icon_state = "elyra_l"
-
-/obj/structure/sign/flag/elyra/right
-	icon_state = "elyra_r"
-
-/obj/item/flag/elyra
-	name = "Elyran flag"
-	desc = "The hopeful colors of the Serene Republic of Elyra."
-	flag_path = "elyra"
-
-/obj/item/flag/elyra/l
-	name = "Large Elyran flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/hegemony
-	name = "Hegemony flag"
-	desc = "The feudal standard of the Izweski Hegemony."
-	icon_state = "izweski"
-
-/obj/structure/sign/flag/hegemony/left
-	icon_state = "izweski_l"
-
-/obj/structure/sign/flag/hegemony/right
-	icon_state = "izweski_r"
-
-/obj/item/flag/hegemony
-	name = "Hegemony flag"
-	desc = "The feudal standard of the Izweski Hegemony."
-	flag_path = "izweski"
-
-/obj/item/flag/hegemony/l
-	name = "Large Hegemony flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/jargon
-	name = "Jargon Federation flag"
-	desc = "The insignia of the Jargon Federation."
-	icon_state = "jargon"
-
-/obj/structure/sign/flag/jargon/left
-	icon_state = "jargon_l"
-
-/obj/structure/sign/flag/jargon/right
-	icon_state = "jargon_r"
-
-/obj/item/flag/jargon
-	name = "Jargon Federation flag"
-	desc = "The insignia of the Jargon Federation."
-	flag_path = "jargon"
-
-/obj/item/flag/jargon/l
-	name = "Large Jargon Federation flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/traverse
-	name = "Free Traverser flag"
-	desc = "The insignia of the Free Traversers."
-	icon_state = "traverse"
-
-/obj/structure/sign/flag/traverse/left
-	icon_state = "traverse_l"
-
-/obj/structure/sign/flag/traverse/right
-	icon_state = "traverse_r"
-
-/obj/item/flag/traverse
-	name = "Free Traverser flag"
-	desc = "The insignia of the Free Traversers."
-	flag_path = "traverse"
-
-/obj/item/flag/traverse/l
-	name = "Large Free Traverser flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/nanotrasen
-	name = "NanoTrasen Corporation flag"
-	desc = "The logo of NanoTrasen on a flag."
-	icon_state = "nanotrasen"
-
-/obj/structure/sign/flag/nanotrasen/left
-	icon_state = "nanotrasen_l"
-
-/obj/structure/sign/flag/nanotrasen/right
-	icon_state = "nanotrasen_r"
-
-/obj/item/flag/nanotrasen
-	name = "NanoTrasen Corporation flag"
-	desc = "The logo of NanoTrasen on a flag."
-	flag_path = "nanotrasen"
-
-/obj/item/flag/nanotrasen/l
-	name = "Large NanoTrasen Corporation flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/eridani
-	name = "Eridani Corporate Federation flag"
-	desc = "The logo of the Eridani Corporate Federation on a flag."
-	icon_state = "eridani"
-
-/obj/structure/sign/flag/eridani/left
-	icon_state = "eridani_l"
-
-/obj/structure/sign/flag/eridani/right
-	icon_state = "eridani_r"
-
-/obj/item/flag/eridani
-	name = "Eridani Corporate Federation flag"
-	desc = "The logo of the Eridani Corporate Federation on a flag."
-	flag_path = "eridani"
-
-/obj/item/flag/eridani/l
-	name = "Large Eridani Corporate Federation flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/coalition
-	name = "Coalition of Colonies flag"
-	desc = "The flag of the diverse Coalition of Colonies."
-	icon_state = "coalition"
-
-/obj/structure/sign/flag/coalition/left
-	icon_state = "coalition_l"
-
-/obj/structure/sign/flag/coalition/right
-	icon_state = "coalition_r"
-
-/obj/item/flag/coalition
-	name = "Coalition of Colonies flag"
-	desc = "The flag of the diverse Coalition of Colonies."
-	flag_path = "coalition"
-
-/obj/item/flag/coalition/l
-	name = "Large Coalition of Colonies flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/vaurca
-	name = "Sedantis flag"
-	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
-	icon_state = "sedantis"
-
-/obj/structure/sign/flag/vaurca/left
-	icon_state = "sedantis_l"
-
-/obj/structure/sign/flag/vaurca/right
-	icon_state = "sedantis_r"
-
-/obj/item/flag/vaurca
-	name = "Sedantis flag"
-	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
-	flag_path = "sedantis"
-
-/obj/item/flag/vaurca/l
-	name = "Large Sedantis flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/america
-	name = "Old World flag"
-	desc = "The banner of an ancient nation, its glory old."
-	icon_state = "oldglory"
-
-/obj/structure/sign/flag/america/left
-	icon_state = "oldglory_l"
-
-/obj/structure/sign/flag/america/right
-	icon_state = "oldglory_r"
-
-/obj/item/flag/america
-	name = "Old World flag"
-	desc = "The banner of an ancient nation, its glory old."
-	flag_path = "oldglory"
-
-/obj/item/flag/america/l
-	name = "Large Old World flag"
-	flag_size = 1
-
-/obj/item/flag/dpra
-	name = "Democratic People's Republic of Adhomai flag"
-	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	flag_path = "dpra"
-	desc_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
-	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
-	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
-	nation they were fighting for the Democratic People's Republic of Adhomai."
-
-/obj/item/flag/dpra/l
-	name = "Large Democratic People's Republic of Adhomai flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/dpra
-	name = "Democratic People's Republic of Adhomai flag"
-	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	icon_state = "dpra"
-	desc_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
-	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
-	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
-	nation they were fighting for the Democratic People's Republic of Adhomai."
-
-/obj/structure/sign/flag/dpra/left
-	icon_state = "dpra_l"
-
-/obj/structure/sign/flag/dpra/right
-	icon_state = "dpra_r"
-
-/obj/item/flag/pra
-	name = "People's Republic of Adhomai flag"
-	desc = "The tajaran flag of the People's Republic of Adhomai."
-	flag_path = "pra"
-	desc_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
-	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
-	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
-	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
-	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
-
-/obj/item/flag/pra/l
-	flag_size = 1
-	name = "Large People's Republic of Adhomai flag"
-
-/obj/structure/sign/flag/pra
-	name = "People's Republic of Adhomai flag"
-	desc = "The tajaran flag of the People's Republic of Adhomai."
-	icon_state = "pra"
-	desc_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
-	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
-	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
-	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
-	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
-
-/obj/structure/sign/flag/pra/left
-	icon_state = "pra_l"
-
-/obj/structure/sign/flag/pra/right
-	icon_state = "pra_r"
-
-/obj/item/flag/nka
-	name = "New Kingdom of Adhomai flag"
-	desc = "The blue flag of the New Kingdom of Adhomai."
-	flag_path = "nka"
-	desc_fluff = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
-	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
-	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
-	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
-	ancient nobles and Republicans, and create a new noble dynasty."
-
-/obj/item/flag/nka/l
-	flag_size = 1
-	name = "Large New Kingdom of Adhomai flag"
-
-/obj/structure/sign/flag/nka
-	name = "New Kingdom of Adhomai flag"
-	desc = "The blue flag of the New Kingdom of Adhomai."
-	icon_state = "nka"
-	desc_fluff = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
-	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
-	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
-	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
-	ancient nobles and Republicans, and create a new noble dynasty."
-
-/obj/structure/sign/flag/nka/left
-	icon_state = "nka_l"
-
-/obj/structure/sign/flag/nka/right
-	icon_state = "nka_r"
-
-/obj/item/flag/heph
-	name = "Hephaestus Industries flag"
-	desc = "The logo of Hephaestus Industries on a flag."
-	flag_path = "heph"
-
-/obj/item/flag/heph/l
-	name = "Large Hephaestus Industries flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/heph
-	name = "Hephaestus Industries flag"
-	desc = "The logo of Hephaestus Industries on a flag."
-	icon_state = "heph"
-
-/obj/structure/sign/flag/heph/left
-	icon_state = "heph_l"
-
-/obj/structure/sign/flag/heph/right
-	icon_state = "heph_r"
-
-/obj/item/flag/zenghu
-	name = "Zeng-Hu Pharmaceuticals flag"
-	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
-	flag_path = "zenghu"
-
-/obj/item/flag/zenghu/l
-	name = "Large Zeng-Hu Pharmaceuticals flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/zenghu
-	name = "Zeng-Hu Pharmaceuticals flag"
-	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
-	icon_state = "zenghu"
-
-/obj/structure/sign/flag/zenghu/left
-	icon_state = "zenghu_l"
-
-/obj/structure/sign/flag/zenghu/right
-	icon_state = "zenghu_r"
-
-/obj/structure/sign/flag/zavodskoi
-	name = "Zavodskoi Interstellar flag"
-	desc = "The logo of Zavodskoi Interstellar on a flag."
-	icon_state = "zavodskoi"
-
-/obj/structure/sign/flag/zavodskoi/left
-	icon_state = "zavodskoi_l"
-
-/obj/structure/sign/flag/zavodskoi/right
-	icon_state = "zavodskoi_r"
-
-/obj/item/flag/zavodskoi
-	name = "Zavodskoi Interstellar flag"
-	desc = "The logo of Zavodskoi Interstellar on a flag."
-	flag_path = "zavodskoi"
-
-/obj/item/flag/zavodskoi/l
-	name = "Large Zavodskoi Interstellar flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/idris
-	name = "Idris Incorporated flag"
-	desc = "The logo of Idris Incorporated on a flag."
-	icon_state = "idris"
-
-/obj/structure/sign/flag/idris/left
-	icon_state = "idris_l"
-
-/obj/structure/sign/flag/idris/right
-	icon_state = "idris_r"
-
-/obj/item/flag/idris
-	name = "Idris Incorporated flag"
-	desc = "The logo of Idris Incorporated on a flag."
-	flag_path = "idris"
-
-/obj/item/flag/idris/l
-	name = "Large Idris Incorporated flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/trinaryperfection
-	name = "Trinary Perfection flag"
-	desc = "The flag of the Trinary Perfection."
-	desc_fluff = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
-	icon_state = "trinaryperfection"
-
-/obj/structure/sign/flag/trinaryperfection/left
-	icon_state = "trinaryperfection_l"
-
-
-/obj/structure/sign/flag/trinaryperfection/right
-	icon_state = "trinaryperfection_r"
-
-/obj/item/flag/trinaryperfection
-	name = "Trinary Perfection flag"
-	desc = "The flag of the Trinary Perfection."
-	desc_fluff = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
-	flag_path = "trinaryperfection"
-
-/obj/item/flag/trinaryperfection/l
-	name = "Large Trinary Perfection flag"
-	flag_size = 1
-
-/obj/item/flag/diona
-	name = "Imperial Diona standard"
-	desc = "A green Dominian standard which represents the Dionae within the Empire."
-	flag_path = "diona"
-
-/obj/structure/sign/flag/diona
-	name = "Imperial Diona standard"
-	desc = "A green Dominian standard which represents the Dionae within the Empire."
-	icon_state = "diona"
-
-/obj/item/flag/strelitz
-	name = "House Strelitz standard"
-	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
-	They are known for their military service and emphasis on personal bravery."
-	flag_path = "strelitz"
-
-/obj/structure/sign/flag/strelitz
-	name = "House Strelitz standard"
-	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
-	They are known for their military service and emphasis on personal bravery."
-	icon_state = "strelitz"
-
-/obj/item/flag/volvalaad
-	name = "House Volvalaad standard"
-	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their reformist ideals, and scientific prowess."
-	flag_path = "volvalaad"
-
-/obj/structure/sign/flag/volvalaad
-	name = "House Volvalaad standard"
-	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their reformist ideals and scientific prowess."
-	icon_state = "volvalaad"
-
-/obj/item/flag/kazkhz
-	name = "House Kazkhz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
-	flag_path = "kazkhz"
-
-/obj/structure/sign/flag/kazkhz
-	name = "House Kazkhz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
-	icon_state = "kazkhz"
-
-/obj/item/flag/caladius
-	name = "House Caladius standard"
-	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
-	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
-	flag_path = "caladius"
-
-/obj/structure/sign/flag/caladius
-	name = "House Caladius standard"
-	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
-	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
-	icon_state = "caladius"
-
-/obj/item/flag/zhao
-	name = "House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of the Empire of Dominia,\
-	known for its naval officers and patronage of the Dominian shipbuilding industry."
-	flag_path = "zhao"
-
-/obj/structure/sign/flag/zhao
-	name = "House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
-	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
-	icon_state = "zhao"
-
-/obj/structure/sign/flag/biesel
-	name = "Republic of Biesel flag"
-	desc = "The colours and symbols of the Republic of Biesel."
-	icon_state = "biesel"
-
-/obj/structure/sign/flag/biesel/left
-	icon_state = "biesel_l"
-
-/obj/structure/sign/flag/biesel/right
-	icon_state = "biesel_r"
-
-/obj/item/flag/biesel
-	name = "Republic of Biesel flag"
-	desc = "The flag representing the Republic of Biesel."
-	flag_path = "biesel"
-
-/obj/item/flag/biesel/l
-	name = "Large Republic of Biesel flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/scc
-	name = "Stellar Corporate Conglomerate flag"
-	desc = "The colours and logo of the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon_state = "scc"
-
-/obj/structure/sign/flag/scc/left
-	icon_state = "scc_l"
-
-/obj/structure/sign/flag/scc/right
-	icon_state = "scc_r"
-
-/obj/item/flag/scc
-	name = "Stellar Corporate Conglomerate flag"
-	desc = "The flag representing the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	flag_path = "scc"
-
-/obj/item/flag/scc/l
-	name = "Large Stellar Corporate Conglomerate flag"
-	flag_size = 1
-
-/obj/item/flag/fisanduh
-	name = "Confederated States of Fisanduh flag"
-	desc = "A flag of the fallen Confederated States of Fisanduh."
-	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
-	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
-	flag_path = "fisanduh"
-
-/obj/structure/sign/flag/fisanduh
-	name = "Confederated States of Fisanduh flag"
-	desc = "A flag of the fallen Confederated States of Fisanduh."
-	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
-	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
-	icon_state = "fisanduh"
-
-/obj/item/flag/fisanduh/l
-	name = "large Confederated States of Fisanduh flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/fisanduh/left
-	icon_state = "fisanduh_l"
-
-/obj/structure/sign/flag/fisanduh/right
-	icon_state = "fisanduh_r"
-
-/obj/item/flag/gadpathur
-	name = "United Planetary Defense Council of Gadpathur flag"
-	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
-	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
-	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
-	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
-	flag_path = "gadpathur"
-
-/obj/structure/sign/flag/gadpathur
-	name = "United Planetary Defense Council of Gadpathur flag"
-	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
-	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
-	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
-	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
-	icon_state = "gadpathur"
-
-/obj/item/flag/gadpathur/l
-	name = "large United Planetary Defense Council of Gadpathur flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/gadpathur/left
-	icon_state = "gadpathur_l"
-
-/obj/structure/sign/flag/gadpathur/right
-	icon_state = "gadpathur_r"
-
-/obj/item/flag/vysoka
-	name = "Free System of Vysoka flag"
-	desc = "The flag of the Free System of Vysoka."
-	desc_fluff = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
-	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
-	flag_path = "vysoka"
-
-/obj/structure/sign/flag/vysoka
-	name = "Free System of Vysoka flag"
-	desc = "The flag of the Free System of Vysoka."
-	desc_fluff = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
-	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
-	icon_state = "vysoka"
-
-/obj/item/flag/vysoka/l
-	name = "large Free System of Vysoka flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/vysoka/left
-	icon_state = "vysoka_l"
-
-/obj/structure/sign/flag/vysoka/right
-	icon_state = "vysoka_r"
-
-/obj/item/flag/konyang
-	name = "Konyang flag"
-	desc = "The flag of Konyang."
-	desc_fluff = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
-	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
-	flag_path = "konyang"
-
-/obj/structure/sign/flag/konyang
-	name = "Konyang flag"
-	desc = "The flag of Konyang."
-	desc_fluff = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
-	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
-	icon_state = "konyang"
-
-/obj/item/flag/konyang/l
-	name = "large Konyang flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/konyang/left
-	icon_state = "konyang_l"
-
-/obj/structure/sign/flag/konyang/right
-	icon_state = "konyang_r"
+// Paintings
+
+/obj/structure/sign/painting_frame
+	name = "empty frame"
+	desc = "An empty painting frame."
+	icon_state = "painting_frame"
+	w_class = ITEMSIZE_SMALL
+
+/obj/item/sign/painting_frame
+	name = "empty frame"
+	desc = "An empty painting frame."
+	icon_state = "painting_frame"
+	w_class = ITEMSIZE_SMALL
+
+/obj/structure/sign/painting_frame/hadii
+	name = "president Hadii portrait"
+	desc = "A portrait of President Hadii. An essential item in any Hadiist household."
+	icon_state = "hadii_painting"
+	desc_extended = "A state-endorsed cult of personality has been established around President Hadii. Through a robust propaganda system, republican citizens are informed daily about Malik's \
+	achievements and how only through his guidance the Republican can prosper. Portraits of President Hadii can be found in most Hadiist homes and government buildings. Njadrasanukii is known for \
+	his speeches praising his own administration and the bravery of his people; his voice can be heard frequently on the radio. While many admire him as a strong leader, others fear his ruthless \
+	ways of dealing with the opposition."
+
+/obj/item/sign/painting_frame/hadii
+	name = "president Hadii portrait"
+	desc = "A portrait of President Hadii. An essential item in any Hadiist household."
+	icon_state = "hadii_painting"
+	sign_state = "hadii_painting"
+	desc_extended = "A state-endorsed cult of personality has been established around President Hadii. Through a robust propaganda system, republican citizens are informed daily about Malik's \
+	achievements and how only through his guidance the Republican can prosper. Portraits of President Hadii can be found in most Hadiist homes and government buildings. Njadrasanukii is known for \
+	his speeches praising his own administration and the bravery of his people; his voice can be heard frequently on the radio. While many admire him as a strong leader, others fear his ruthless \
+	ways of dealing with the opposition."
+
+/obj/structure/sign/painting_frame/nated
+	name = "supreme commander Nated portrait"
+	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	icon_state = "nated_painting"
+	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
+	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
+	Supreme Commander took advantage of this belief to cultivate undying loyalty and fanaticism among his followers."
+
+/obj/item/sign/painting_frame/nated
+	name = "supreme commander Nated portrait"
+	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	icon_state = "nated_painting"
+	sign_state = "nated_painting"
+	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
+	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
+	Supreme Commander took advantage of this belief to cultivate undying loyalty and fanaticism among his followers."
+
+/obj/structure/sign/painting_frame/harrlala
+	name = "President Harrlala portrait"
+	desc = "A portrait of President Almrah Harrlala. The current leader of the Al'mariist civilian government."
+	icon_state = "harrlala_painting"
+	desc_extended = "Following the Armistice, President Almrah Harrlala continued with her internal policies while maintaining a strong stance against foreign dominance. Under her rule, schools to \
+	preserve local cultures and languages were established, Gakal’zaal was liberated from the Unathi rule, and the DPRA developed its nuclear program. Her status as one of the first female rulers \
+	in modern Tajaran history has inspired many women to engage in DPRA politics. However, her regime is plagued with deep issues. The ghost of separatism lingers over the nation after the Amohdan \
+	attempt to secede. Her ability to reconcile the various factions in the government was severely doubted when she failed to draw a plan to handle the rebellious island. Since the return of \
+	Halkiikijr to power, the authoritarian elements see this as a moment of weakness in the young Republic. President Harrlala must be ready to face further opposition if she wants to see her \
+	vision of Adhomai come to life."
+
+/obj/item/sign/painting_frame/harrlala
+	name = "President Harrlala portrait"
+	desc = "A portrait of President Almrah Harrlala. The current leader of the Al'mariist civilian government."
+	icon_state = "harrlala_painting"
+	sign_state = "harrlala_painting"
+	desc_extended = "Following the Armistice, President Almrah Harrlala continued with her internal policies while maintaining a strong stance against foreign dominance. Under her rule, schools to \
+	preserve local cultures and languages were established, Gakal’zaal was liberated from the Unathi rule, and the DPRA developed its nuclear program. Her status as one of the first female rulers \
+	in modern Tajaran history has inspired many women to engage in DPRA politics. However, her regime is plagued with deep issues. The ghost of separatism lingers over the nation after the Amohdan \
+	attempt to secede. Her ability to reconcile the various factions in the government was severely doubted when she failed to draw a plan to handle the rebellious island. Since the return of \
+	Halkiikijr to power, the authoritarian elements see this as a moment of weakness in the young Republic. President Harrlala must be ready to face further opposition if she wants to see her \
+	vision of Adhomai come to life."
+
+/obj/structure/sign/painting_frame/almari
+	name = "president Al'mari portrait"
+	desc = "A portrait of President Al'mari Hadii. An idol to Hadiist and Al'mariists."
+	icon_state = "almarii_painting"
+
+/obj/item/sign/painting_frame/almari
+	name = "president Al'mari portrait"
+	desc = "A portrait of President Al'mari Hadii. An idol to Hadiist and Al'mariists."
+	icon_state = "almarii_painting"
+	sign_state = "almarii_painting"
+
+/obj/structure/sign/painting_frame/vahzirthaamro
+	name = "king Vahzirthaamro portrait"
+	desc = "A portrait of King Vahzirthaamro Azunja. Even after his death, the King remains an important figure."
+	icon_state = "vahzirthaamro_painting"
+	desc_extended = "In 2449, in the middle of the night, Vahzirthaamro was released in secret along with the entirety of his retinue, as they quickly spread from town to town, asking for assistance \
+	from newly appointed officials and workers. Before long, the reminiscent families of the Kaltir region were happy to rejoin their flock. By 2450 his claim to rule had spread to all of Northern \
+	Harr'masir, and the New Kingdom of Adhomai officially seceded as an independent nation under the newly declared King Vahzirthaamro Azunja. He then led the Kingdom for the next decade, \
+	managing the balance between the different factions within the government and the ongoing war. Vahzirthaamro became a unifying figure for the population. After successfully securing Kaltir's \
+	ancient lands and negotiating the armistice that brought the end to the war, King Vahzirthaamro passed away in 2463. "
+
+/obj/item/sign/painting_frame/vahzirthaamro
+	name = "king Vahzirthaamro portrait"
+	desc = "A portrait of King Vahzirthaamro Azunja. Even after his death, the King remains an important figure."
+	icon_state = "vahzirthaamro_painting"
+	sign_state = "vahzirthaamro_painting"
+	desc_extended = "In 2449, in the middle of the night, Vahzirthaamro was released in secret along with the entirety of his retinue, as they quickly spread from town to town, asking for assistance \
+	from newly appointed officials and workers. Before long, the reminiscent families of the Kaltir region were happy to rejoin their flock. By 2450 his claim to rule had spread to all of Northern \
+	Harr'masir, and the New Kingdom of Adhomai officially seceded as an independent nation under the newly declared King Vahzirthaamro Azunja. He then led the Kingdom for the next decade, \
+	managing the balance between the different factions within the government and the ongoing war. Vahzirthaamro became a unifying figure for the population. After successfully securing Kaltir's \
+	ancient lands and negotiating the armistice that brought the end to the war, King Vahzirthaamro passed away in 2463. "
+
+/obj/structure/sign/painting_frame/shumaila
+	name = "queen Shumaila portrait"
+	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attracted a loyal following."
+	icon_state = "shumaila_painting"
+	desc_extended = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \
+	look, given that Shumaila became one of the few Tajara women to lead a nation. However, this fame has also led to calls from the nobility and her family to choose a husband. Shumaila retains \
+	that her marriage comes after her coronation. She was finally crowned in 2463 after King Azunja passed away. Outside of continuing her uncle's legacy, her plans to the Kingdom are still unclear to the wide public."
+
+/obj/item/sign/painting_frame/shumaila
+	name = "queen Shumaila portrait"
+	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attracted a loyal following."
+	icon_state = "shumaila_painting"
+	sign_state = "shumaila_painting"
+	desc_extended = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \
+	look, given that Shumaila became one of the few Tajara women to lead a nation. However, this fame has also led to calls from the nobility and her family to choose a husband. Shumaila retains \
+	that her marriage comes after her coronation. She was finally crowned in 2463 after King Azunja passed away. Outside of continuing her uncle's legacy, her plans to the Kingdom are still unclear to the wide public."
+
+/obj/item/sign/painting_frame/goddess
+	name = "tribunal triptych"
+	desc = "A small portrait of the Goddess. Representative of all three Aspects in one: the Tribunal."
+	icon_state = "goddess_unaspected"
+	sign_state = "goddess_unaspected"
+	desc_extended = "An all-powerful and all-knowing female supreme deity, the Goddess is the highest authority in the Moroz Holy Tribunal. Also \
+	known as Our Lady of Moroz, the Goddess is said to dwell on a utopian version of Moroz referred to as the Morozian Kingdom, or Kingdom of Moroz, \
+	where the souls of righteous Tribunalists pass to after they leave the mortal realm."
+
+/obj/structure/sign/painting_frame/goddess
+	name = "tribunal triptych"
+	desc = "A small portrait of the Goddess. Representative of all three Aspects in one: the Tribunal."
+	icon_state = "goddess_unaspected"
+	desc_extended = "An all-powerful and all-knowing female supreme deity, the Goddess is the highest authority in the Moroz Holy Tribunal. Also \
+	known as Our Lady of Moroz, the Goddess is said to dwell on a utopian version of Moroz referred to as the Morozian Kingdom, or Kingdom of Moroz, \
+	where the souls of righteous Tribunalists pass to after they leave the mortal realm."
+
+/obj/item/sign/painting_frame/goddess/soldier
+	name = "icon of the soldier"
+	desc = "A small portrait of the Goddess, representing the Aspect of the Soldier."
+	icon_state = "goddess_soldier"
+	sign_state = "goddess_soldier"
+	desc_extended = "Commonly worshiped by House Strelitz and the naval sections of House Zhao, the Soldier aspect of the Goddess is beloved by many members \
+	of the Imperial military and the Tribunal Investigations Constabulary. This aspect is generally depicted as wearing antiquated armor in the style of the \
+	knights of old Earth and often wielding an ornate sword while carrying the Imperial standard aloft, though some depictions- particularly those of \
+	the 56th Jadranic Infantry Regiment- discard this antiquated appearance for the arms and armor of the modern Imperial Army."
+
+/obj/structure/sign/painting_frame/goddess/soldier
+	name = "icon of the soldier"
+	desc = "A small portrait of the Goddess, representing the Aspect of the Soldier."
+	icon_state = "goddess_soldier"
+	desc_extended = "Commonly worshiped by House Strelitz and the naval sections of House Zhao, the Soldier aspect of the Goddess is beloved by many members \
+	of the Imperial military and the Tribunal Investigations Constabulary. This aspect is generally depicted as wearing antiquated armor in the style of the \
+	knights of old Earth and often wielding an ornate sword while carrying the Imperial standard aloft, though some depictions- particularly those of \
+	the 56th Jadranic Infantry Regiment- discard this antiquated appearance for the arms and armor of the modern Imperial Army."
+
+/obj/item/sign/painting_frame/goddess/artisan
+	name = "icon of the artisan"
+	desc = "A small portrait of the Goddess, representing the Aspect of the Artisan."
+	icon_state = "goddess_artisan"
+	sign_state = "goddess_artisan"
+	desc_extended = "Commonly worshiped by the more mercantile section of House Caladius, many tradesmen, and wealthy businesspeople across the Empire, \
+	the Artisan aspect of the Goddess is beloved by tradesmen, merchants, and those involved in the financial sector. Depictions of this aspect vary somewhat \
+	but generally fall into two categories: some depict the Artisan as wearing the clothing of House Caladius, while others depict Her in house-neutral businesswear. \
+	Some depictions of the Artisan clad the Goddess in the boilersuit uniform of a typical Imperial factory worker to symbolize the efforts even Ma’zals make to better the Empire."
+
+/obj/structure/sign/painting_frame/goddess/artisan
+	name = "icon of the artisan"
+	desc = "A small portrait of the Goddess, representing the Aspect of the Artisan."
+	icon_state = "goddess_artisan"
+	desc_extended = "Commonly worshiped by the more mercantile section of House Caladius, many tradesmen, and wealthy businesspeople across the Empire, \
+	the Artisan aspect of the Goddess is beloved by tradesmen, merchants, and those involved in the financial sector. Depictions of this aspect vary somewhat \
+	but generally fall into two categories: some depict the Artisan as wearing the clothing of House Caladius, while others depict Her in house-neutral businesswear. \
+	Some depictions of the Artisan clad the Goddess in the boilersuit uniform of a typical Imperial factory worker to symbolize the efforts even Ma’zals make to better the Empire."
+
+/obj/item/sign/painting_frame/goddess/scholar
+	name = "icon of the scholar"
+	desc = "A small portrait of the Goddess, representing the Aspect of the Scholar."
+	icon_state = "goddess_scholar"
+	sign_state = "goddess_scholar"
+	desc_extended = "Commonly worshiped by House Volvalaad and the engineering sections of House Zhao, the Scholar aspect of the Goddess is beloved \
+	by the Empire’s scientists, academics, and researchers. This aspect is often pictured wearing the uniform of a researcher and often depicts the Goddess \
+	as holding an open book and writing in it with an inkwell pen- items which are intended to symbolically represent the quest for knowledge is ever ongoing. \
+	Some depictions, particularly those commissioned by House Volvalaad, depict the Goddess as holding the human genome in her hands; a symbolic representation of \
+	the Volvalaad’s mastery of geneboosting."
+
+/obj/structure/sign/painting_frame/goddess/scholar
+	name = "icon of the scholar"
+	desc = "A small portrait of the Goddess, representing the Aspect of the Scholar."
+	icon_state = "goddess_scholar"
+	desc_extended = "Commonly worshiped by House Volvalaad and the engineering sections of House Zhao, the Scholar aspect of the Goddess is beloved \
+	by the Empire’s scientists, academics, and researchers. This aspect is often pictured wearing the uniform of a researcher and often depicts the Goddess \
+	as holding an open book and writing in it with an inkwell pen- items which are intended to symbolically represent the quest for knowledge is ever ongoing. \
+	Some depictions, particularly those commissioned by House Volvalaad, depict the Goddess as holding the human genome in her hands; a symbolic representation of \
+	the Volvalaad’s mastery of geneboosting."
+
+/obj/item/sign/painting_frame/martyr
+	name = "icon of the captain"
+	desc = "A small portrait of Captain Lotte Kiefer, a Tribunalist martyr."
+	icon_state = "martyr_lotte"
+	sign_state = "martyr_lotte"
+	desc_extended = "Born in 2332 to a family of Strelitz-affiliated minor nobles, Captain Lotte Kiefer of the Imperial Alliance’s Army rose through the ranks \
+	of the early Imperial Army to become its youngest Captain and was in command of the 74th Jinxiang Infantry Company when  the War of Moroz broke out in 2355. \
+	Called to duty by the Imperial Alliance, Kiefer and the 74th eagerly answered the call and volunteered to serve as a vanguard force intended to take and secure \
+	a Tribunalist cathedral within the Confederated States’ borders in Outer Fisanduh out of a fear non-Tribunalist Fisanduhians would destroy it. Throwing caution \
+	to the wind and placing their faith in the Goddess upon their holy mission, Kiefer and the 74th surged forward faster than any other Imperial unit and arrived \
+	at the cathedral shortly before the Confederated States of Fisanduh Army was about to detonate the structure. Kiefer perished in the fighting- killed instantly \
+	by a sniper’s bullet during an assault- but the 74th ultimately took the cathedral intact, preserving it for generations of future Tribunalists. In 2367 Kiefer \
+	was declared a Holy Martyr and is commonly venerated in her home of Jinxiang and throughout the Imperial Army."
+
+/obj/structure/sign/painting_frame/martyr
+	name = "icon of the captain"
+	desc = "A small portrait of Captain Lotte Kiefer, a Tribunalist martyr."
+	icon_state = "martyr_lotte"
+	desc_extended = "Born in 2332 to a family of Strelitz-affiliated minor nobles, Captain Lotte Kiefer of the Imperial Alliance’s Army rose through the ranks \
+	of the early Imperial Army to become its youngest Captain and was in command of the 74th Jinxiang Infantry Company when  the War of Moroz broke out in 2355. \
+	Called to duty by the Imperial Alliance, Kiefer and the 74th eagerly answered the call and volunteered to serve as a vanguard force intended to take and secure \
+	a Tribunalist cathedral within the Confederated States’ borders in Outer Fisanduh out of a fear non-Tribunalist Fisanduhians would destroy it. Throwing caution \
+	to the wind and placing their faith in the Goddess upon their holy mission, Kiefer and the 74th surged forward faster than any other Imperial unit and arrived \
+	at the cathedral shortly before the Confederated States of Fisanduh Army was about to detonate the structure. Kiefer perished in the fighting- killed instantly \
+	by a sniper’s bullet during an assault- but the 74th ultimately took the cathedral intact, preserving it for generations of future Tribunalists. In 2367 Kiefer \
+	was declared a Holy Martyr and is commonly venerated in her home of Jinxiang and throughout the Imperial Army."
+
+/obj/item/sign/painting_frame/martyr/matteo
+	name = "icon of the constable"
+	desc = "A small portrait of Tribunalist Constable Matteo Torres, a Tribunalist martyr."
+	icon_state = "martyr_matteo"
+	sign_state = "martyr_matteo"
+	desc_extended = "Born in 2355 to a minor Secondary family aligned with House Caladius, Tribunalist Constable Maximo Torres was a Senior Constable assigned to assist \
+	and protect Tribunalist clergy in Outer Fisanduh during the peak of the Fisanduh Freedom Front’s activities in the late 24th century. A devout Tribunalist and resolute \
+	constable, Torres ensured no harm came to his charges and endeared himself to the local Fisanduhians in his county by working to understand their grievances. But despite \
+	his efforts the 3F still attempted to assault and kill his charges and would have succeeded on 19 December, 2398, if not for his sacrifice. At the moment an improvised \
+	explosive device detonated Torres, thinking nothing of himself, threw himself bodily in front of a priestess and took a piece of shrapnel which would have certainly killed her. \
+	Unfortunately, Senior Constable Torres bled out shortly after shooting his attacker dead with his service revolver. It is a testament to his character that Fisanduhian \
+	Tribunalists them escorted his body and his living charge to the nearest Gendarmerie station unharmed. Senior Constable Torres was quickly declared a Holy Martyr in 2399 \
+	and is commonly venerated by officers of both the Tribunal Investigations Constabulary and the secular Imperial Dominian Constabulary."
+
+/obj/structure/sign/painting_frame/martyr/matteo
+	name = "icon of the constable"
+	desc = "A small portrait of Tribunalist Constable Matteo Torres, a Tribunalist martyr."
+	icon_state = "martyr_matteo"
+	desc_extended = "Born in 2355 to a minor Secondary family aligned with House Caladius, Tribunalist Constable Maximo Torres was a Senior Constable assigned to assist \
+	and protect Tribunalist clergy in Outer Fisanduh during the peak of the Fisanduh Freedom Front’s activities in the late 24th century. A devout Tribunalist and resolute \
+	constable, Torres ensured no harm came to his charges and endeared himself to the local Fisanduhians in his county by working to understand their grievances. But despite \
+	his efforts the 3F still attempted to assault and kill his charges and would have succeeded on 19 December, 2398, if not for his sacrifice. At the moment an improvised \
+	explosive device detonated Torres, thinking nothing of himself, threw himself bodily in front of a priestess and took a piece of shrapnel which would have certainly killed her. \
+	Unfortunately, Senior Constable Torres bled out shortly after shooting his attacker dead with his service revolver. It is a testament to his character that Fisanduhian \
+	Tribunalists them escorted his body and his living charge to the nearest Gendarmerie station unharmed. Senior Constable Torres was quickly declared a Holy Martyr in 2399 \
+	and is commonly venerated by officers of both the Tribunal Investigations Constabulary and the secular Imperial Dominian Constabulary."
+
+/obj/item/sign/painting_frame/martyr/valeria
+	name = "icon of the commoner"
+	desc = "A small portrait of Valeria Pokorni, a Tribunalist martyr."
+	icon_state = "martyr_valeria"
+	sign_state = "martyr_valeria"
+	desc_extended = "Born c. 2403 to an impoverished and rural algae farming family on Sun Reach, Valeria Pokorni, along with the rest of her family, were early Tribunalist converts \
+	upon the remote world then ruled over by the Pirate Lords. The Pokorni family practiced their faith in secret but kept to the Edicts and were ultimately delivered from the evil of \
+	the Pirate Lords by the Imperial Army’s intervention in 2422, which they welcomed with open arms. Valeria soon found work as a medical assistant for the 23rd Jadranic Infantry Regiment \
+	and proved herself a useful member of its support staff who endeared herself to the regimental medical team, even if her Vulgar Morozi was halting at best. Tragedy, however, struck in \
+	early 2423 when rebels against the Imperial Army ambushed the 23rd’s medical tent and attempted to slaughter its unarmed staff. Valeria, thinking nothing of her own safety, blocked the \
+	door to the tent with her body as the insurgents attempted to shoot through it. While she ultimately perished to gunfire, her sacrifice allowed the medical tent to be evacuated and let \
+	the 23rd capture all insurgents involved in the attack. Formerly a frontierswoman with no nation to call her own, she was buried with military honors and became the first Holy Martyr of \
+	Sun Reach in 2426. She is commonly venerated on Sun Reach and by Ma’zals throughout the Empire."
+
+/obj/structure/sign/painting_frame/martyr/valeria
+	name = "icon of the commoner"
+	desc = "A small portrait of Valeria Pokorni, a Tribunalist martyr."
+	icon_state = "martyr_valeria"
+	desc_extended = "Born c. 2403 to an impoverished and rural algae farming family on Sun Reach, Valeria Pokorni, along with the rest of her family, were early Tribunalist converts \
+	upon the remote world then ruled over by the Pirate Lords. The Pokorni family practiced their faith in secret but kept to the Edicts and were ultimately delivered from the evil of \
+	the Pirate Lords by the Imperial Army’s intervention in 2422, which they welcomed with open arms. Valeria soon found work as a medical assistant for the 23rd Jadranic Infantry Regiment \
+	and proved herself a useful member of its support staff who endeared herself to the regimental medical team, even if her Vulgar Morozi was halting at best. Tragedy, however, struck in \
+	early 2423 when rebels against the Imperial Army ambushed the 23rd’s medical tent and attempted to slaughter its unarmed staff. Valeria, thinking nothing of her own safety, blocked the \
+	door to the tent with her body as the insurgents attempted to shoot through it. While she ultimately perished to gunfire, her sacrifice allowed the medical tent to be evacuated and let \
+	the 23rd capture all insurgents involved in the attack. Formerly a frontierswoman with no nation to call her own, she was buried with military honors and became the first Holy Martyr of \
+	Sun Reach in 2426. She is commonly venerated on Sun Reach and by Ma’zals throughout the Empire."

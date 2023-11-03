@@ -2,7 +2,7 @@
 
 /mob/living/simple_animal/bee
 	name = "bees"
-	icon = 'icons/obj/apiary_bees_etc.dmi'
+	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "bees1"
 	icon_dead = "bees1"
 	mob_size = 0.5
@@ -97,11 +97,11 @@
 			else
 				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
-			M.apply_damage(min(strength*0.85,2)+mut, BURN, damage_flags = DAM_SHARP) // Stinging. The more mutated I am, the harder I sting.
+			M.apply_damage(min(strength*0.85,2)+mut, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!
-			M.apply_damage(venom_strength, PAIN)  //Bee venom causes pain, not organ failure
-			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic. 
-				M.apply_damage(venom_strength, OXY)
+			M.apply_damage(venom_strength, DAMAGE_PAIN)  //Bee venom causes pain, not organ failure
+			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic.
+				M.apply_damage(venom_strength, DAMAGE_OXY)
 			update_icon()
 			to_chat(M, "<span class='warning'>You have been stung!</span>")
 			M.flash_pain(5)
@@ -253,11 +253,11 @@
 /mob/living/simple_animal/bee/attempt_grab(var/mob/living/grabber)
 	if (prob(strength*5))//if the swarm is big you might grab a few bees, you won't make a serious dent
 		to_chat(grabber, "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>")
-		apply_damage(strength*0.5, BRUTE, used_weapon = "Crushing by [grabber.name]")
+		apply_damage(strength*0.5, DAMAGE_BRUTE, used_weapon = "Crushing by [grabber.name]")
 	else
 		to_chat(grabber, "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>")
 		if(verify_stingable(grabber))
-			grabber.apply_damage(strength*0.5, BURN)
+			grabber.apply_damage(strength*0.5, DAMAGE_BURN)
 
 	return 0
 

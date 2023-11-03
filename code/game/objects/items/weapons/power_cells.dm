@@ -1,7 +1,7 @@
 /obj/item/cell
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
@@ -17,17 +17,24 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	recyclable = TRUE
 
-//currently only used by energy-type guns, that may change in the future.
+/// Smaller variant, used by energy guns and similar small devices
 /obj/item/cell/device
 	name = "device power cell"
 	desc = "A small power cell designed to power handheld devices."
-	icon_state = "cell" //placeholder
+	icon_state = "device"
 	w_class = ITEMSIZE_SMALL
 	force = 0
 	throw_speed = 5
 	throw_range = 7
-	maxcharge = 1000
-	matter = list(MATERIAL_STEEL = 350, MATERIAL_GLASS = 50)
+	maxcharge = 100
+	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 5)
+
+/obj/item/cell/device/high
+	name = "advanced power cell"
+	desc = "A small, advanced power cell designed to power more energy demanding handheld devices."
+	icon_state = "hdevice"
+	maxcharge = 250
+	matter = list(MATERIAL_STEEL = 150, MATERIAL_GLASS = 10)
 
 /obj/item/cell/device/variable/New(newloc, charge_amount)
 	..(newloc)
@@ -35,8 +42,8 @@
 	charge = maxcharge
 
 /obj/item/cell/crap
-	name = "\improper rechargable AA battery"
-	desc = "You can't top the plasma top." //TOTALLY TRADEMARK INFRINGEMENT
+	name = "old power cell"
+	desc = "A cheap, old power cell. It's probably been in use for quite some time now."
 	origin_tech = list(TECH_POWER = 0)
 	maxcharge = 500
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 40)
@@ -44,6 +51,7 @@
 /obj/item/cell/crap/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()
 
 /obj/item/cell/crap/cig
 	name = "\improper rechargable mini-battery"
@@ -59,6 +67,7 @@
 /obj/item/cell/secborg/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()
 
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
@@ -83,6 +92,7 @@
 /obj/item/cell/high/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()
 
 /obj/item/cell/super
 	name = "super-capacity power cell"
@@ -94,6 +104,7 @@
 /obj/item/cell/super/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()
 
 /obj/item/cell/hyper
 	name = "hyper-capacity power cell"
@@ -105,6 +116,7 @@
 /obj/item/cell/hyper/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()
 
 /obj/item/cell/infinite
 	name = "infinite-capacity power cell!"
@@ -113,9 +125,10 @@
 	maxcharge = 30000 //determines how badly mobs get shocked
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
 
-	check_charge()
+/obj/item/cell/infinite/check_charge()
 		return 1
-	use()
+
+/obj/item/cell/infinite/use()
 		return 1
 
 /obj/item/cell/potato
@@ -153,6 +166,28 @@
 		charge = min(charge + (maxcharge / 10), maxcharge)
 		next_recharge = world.time + 1 MINUTE
 
+/obj/item/cell/nuclear
+	name = "miniaturized nuclear power core"
+	desc = "A small self-charging thorium core that can store an immense amount of charge."
+	origin_tech = list(TECH_POWER = 8, TECH_ILLEGAL = 4)
+	icon_state = "icell"
+	maxcharge = 50000
+	matter = null
+	var/next_recharge
+
+/obj/item/cell/nuclear/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/cell/nuclear/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/nuclear/process()
+	if(next_recharge < world.time)
+		charge = min(charge + (maxcharge / 10), maxcharge)
+		next_recharge = world.time + 30 SECONDS
+
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."
@@ -163,6 +198,7 @@
 /obj/item/cell/device/emergency_light/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()
 
 /obj/item/cell/proto
 	name = "proto power cell"
@@ -174,3 +210,4 @@
 /obj/item/cell/proto/empty/Initialize()
 	. = ..()
 	charge = 0
+	update_icon()

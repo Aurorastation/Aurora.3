@@ -38,11 +38,6 @@
 	unit_name = "lizard hide"
 	export_types = list(/obj/item/stack/material/animalhide/lizard)
 
-/datum/export/stack/skin/xeno
-	cost = 500
-	unit_name = "alien hide"
-	export_types = list(/obj/item/stack/material/animalhide/xeno)
-
 // Common materials.
 // For base materials, see materials.dm
 

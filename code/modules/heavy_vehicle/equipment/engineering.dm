@@ -13,7 +13,7 @@
 			if("Floors and Walls")
 				R.mode = RFD_FLOORS_AND_WALL
 			if("Windows and Grille")
-				R.mode = RFD_WINDOWS_AND_GRILLE
+				R.mode = RFD_WINDOW_AND_FRAME
 			if("Airlock")
 				R.mode = RFD_AIRLOCK
 			if("Deconstruct")
@@ -58,7 +58,7 @@
 /obj/item/extinguisher/mech/New()
 	reagents = new/datum/reagents(max_water)
 	reagents.my_atom = src
-	reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
+	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
 /obj/item/extinguisher/mech/get_hardpoint_maptext()

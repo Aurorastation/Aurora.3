@@ -1,7 +1,7 @@
 /obj/item/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	desc_info = "This is an energy weapon.  To fire this weapon, toggle the safety with ctrl-click (or enable HARM intent), \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energykill100"
@@ -29,6 +29,8 @@
 	var/self_recharge = 0	//if set, the weapon will recharge itself
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
+	/// Multiplies by charge cost to determine how much charge should be returned
+	var/recharge_multiplier = 1
 	var/charge_tick = 0
 
 	//vars passed to turrets
@@ -59,7 +61,7 @@
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	var/initial_charge = power_supply.charge
-	power_supply.charge = 0	
+	power_supply.charge = 0
 	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
@@ -92,11 +94,11 @@
 		if(!external || !external.use(charge_cost)) //Take power from the borg...
 			return 0
 
-	power_supply.give(charge_cost) //... to recharge the shot
+	power_supply.give(charge_cost * recharge_multiplier) //... to recharge the shot
 	update_maptext()
 	update_icon()
 
-	addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 /obj/item/gun/energy/consume_next_projectile()
 	if(!power_supply)
@@ -106,7 +108,7 @@
 	if(!power_supply.checked_use(charge_cost))
 		return null
 	if(self_recharge)
-		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	return new projectile_type(src)
 
 /obj/item/gun/energy/proc/get_external_power_supply()
@@ -129,9 +131,9 @@
 
 	return null
 
-/obj/item/gun/energy/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/energy/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
@@ -160,7 +162,7 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-			
+
 	..()
 
 /obj/item/gun/energy/handle_post_fire()

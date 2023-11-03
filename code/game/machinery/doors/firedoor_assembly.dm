@@ -1,7 +1,7 @@
-obj/structure/firedoor_assembly
-	name = "\improper emergency shutter assembly"
-	desc = "It can save lives."
-	icon = 'icons/obj/doors/DoorHazard.dmi'
+/obj/structure/firedoor_assembly
+	name = "emergency shutter assembly"
+	desc = "An emergency shutter assembly."
+	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_construction"
 	anchored = 0
 	opacity = 0
@@ -9,20 +9,20 @@ obj/structure/firedoor_assembly
 	build_amt = 4
 	var/wired = 0
 
-obj/structure/firedoor_assembly/update_icon()
+/obj/structure/firedoor_assembly/update_icon()
 	if(anchored)
 		icon_state = "door_anchored"
 	else
 		icon_state = "door_construction"
 
-obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
+/obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 	if(C.iscoil() && !wired && anchored)
 		var/obj/item/stack/cable_coil/cable = C
 		if (cable.get_amount() < 1)
 			to_chat(user, "<span class='warning'>You need one length of coil to wire \the [src].</span>")
 			return TRUE
 		user.visible_message("[user] wires \the [src].", "You start to wire \the [src].")
-		if(do_after(user, 40) && !wired && anchored)
+		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT) && !wired && anchored)
 			if (cable.use(1))
 				wired = 1
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")
@@ -40,7 +40,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 		if(anchored)
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message("<span class='warning'>[user] has inserted a circuit into \the [src]!</span>",
-								  "You have inserted the circuit into \the [src]!")
+									"You have inserted the circuit into \the [src]!")
 			new /obj/machinery/door/firedoor(src.loc)
 			qdel(C)
 			qdel(src)
@@ -51,7 +51,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 		anchored = !anchored
 		playsound(src.loc, C.usesound, 50, 1)
 		user.visible_message("<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
-							  "You have [anchored ? "" : "un" ]secured \the [src]!")
+								"You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()
 		return TRUE
 	else if(!anchored && C.iswelder())

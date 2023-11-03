@@ -5,28 +5,38 @@
 #define NONE 0
 
 // Turf-only flags.
-#define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NOJAUNT 		1
+#define TURF_FLAG_BACKGROUND 	2 // Used by shuttle movement to determine if it should be ignored by turf translation.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
 
+/// Occupation preferences.
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
+
 // Invisibility constants.
-#define INVISIBILITY_LIGHTING             20
-#define INVISIBILITY_LEVEL_ONE            35
-#define INVISIBILITY_LEVEL_TWO            45
-#define INVISIBILITY_OBSERVER             60
-#define INVISIBILITY_EYE		          61
+#define INVISIBILITY_LIGHTING		20
+#define INVISIBILITY_LEVEL_ONE		35
+#define INVISIBILITY_LEVEL_TWO		45
+#define INVISIBILITY_OVERMAP     	50
+#define INVISIBILITY_OBSERVER		60
+#define INVISIBILITY_EYE			61
+#define INVISIBILITY_SYSTEM			99
 
-#define SEE_INVISIBLE_LIVING              25
-#define SEE_INVISIBLE_NOLIGHTING 15
-#define SEE_INVISIBLE_LEVEL_ONE           35
-#define SEE_INVISIBLE_LEVEL_TWO           45
-#define SEE_INVISIBLE_CULT		          60
-#define SEE_INVISIBLE_OBSERVER            61
+#define SEE_INVISIBLE_LIVING		25
+#define SEE_INVISIBLE_NOLIGHTING	15
+#define SEE_INVISIBLE_LEVEL_ONE		35
+#define SEE_INVISIBLE_LEVEL_TWO		45
+#define SEE_INVISIBLE_CULT			60
+#define SEE_INVISIBLE_OBSERVER		61
+#define SEE_INVISIBLE_SYSTEM		99
 
-#define SEE_INVISIBLE_MINIMUM 5
-#define INVISIBILITY_MAXIMUM 100
-#define INVISIBILITY_ABSTRACT 101	// Special invis value that can never be seen by see_invisible.
+#define SEE_IN_DARK_DEFAULT			2
+
+#define SEE_INVISIBLE_MINIMUM		5
+#define INVISIBILITY_MAXIMUM		100
+#define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
@@ -37,44 +47,47 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY     0x8
-#define CHAT_OOC        0x10
-#define CHAT_DEAD       0x20
-#define CHAT_GHOSTEARS  0x40
-#define CHAT_GHOSTSIGHT 0x80
-#define CHAT_PRAYER     0x100
-#define CHAT_RADIO      0x200
-#define CHAT_ATTACKLOGS 0x400
-#define CHAT_DEBUGLOGS  0x800
-#define CHAT_LOOC       0x1000
-#define CHAT_GHOSTRADIO 0x2000
-#define SHOW_TYPING     0x4000
-#define CHAT_NOICONS    0x8000
-#define CHAT_GHOSTLOOC	0x10000
+#define SOUND_LOBBY				0x8
+#define CHAT_OOC				0x10
+#define CHAT_DEAD				0x20
+#define CHAT_GHOSTEARS			0x40
+#define CHAT_GHOSTSIGHT			0x80
+#define CHAT_PRAYER				0x100
+#define CHAT_RADIO				0x200
+#define CHAT_ATTACKLOGS			0x400
+#define CHAT_DEBUGLOGS			0x800
+#define CHAT_LOOC				0x1000
+#define CHAT_GHOSTRADIO			0x2000
+#define HIDE_TYPING_INDICATOR	0x4000
+#define CHAT_NOICONS			0x8000
+#define CHAT_GHOSTLOOC			0x10000
 
 // 0x1 is free.
 // 0x2 is free.
-#define PROGRESS_BARS  0x4
-#define PARALLAX_IS_STATIC 0x8
-#define FLOATING_MESSAGES 0x10
-#define HOTKEY_DEFAULT 0x20
-#define FULLSCREEN_MODE 0x40
-#define ACCENT_TAG_TEXT 0x80
+#define PROGRESS_BARS				0x4
+#define PARALLAX_IS_STATIC			0x8
+#define FLOATING_MESSAGES			0x10
+#define HOTKEY_DEFAULT				0x20
+#define FULLSCREEN_MODE				0x40
+#define ACCENT_TAG_TEXT				0x80
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
-//Sound effects toggles
-#define ASFX_AMBIENCE	1
-#define ASFX_FOOTSTEPS	2
-#define ASFX_VOTE		4
-#define ASFX_VOX		8
-#define ASFX_DROPSOUND	16
-#define ASFX_ARCADE		32
-#define ASFX_RADIO		64
-#define ASFX_INSTRUMENT 128
-#define ASFX_HUM 256
+// ASFX and SFX Toggles
+// (ASFX = Ambient Sound Effects; SFX = Sound Effects)
+#define ASFX_AMBIENCE			BITFLAG(0)
+#define ASFX_FOOTSTEPS			BITFLAG(1)
+#define ASFX_VOTE				BITFLAG(2)
+#define ASFX_VOX				BITFLAG(3)
+#define ASFX_DROPSOUND			BITFLAG(4)
+#define ASFX_ARCADE				BITFLAG(5)
+#define ASFX_RADIO				BITFLAG(6)
+#define ASFX_INSTRUMENT			BITFLAG(7)
+#define ASFX_HUM 				BITFLAG(8)
+#define ASFX_MUSIC				BITFLAG(9)
+#define ASFX_CONSOLE_AMBIENCE	BITFLAG(10)
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM)
+#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC | ASFX_CONSOLE_AMBIENCE)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -155,6 +168,8 @@
 #define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
+#define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
+#define DEFAULT_TABLE_FLIP_WEIGHT 22
 #define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"
@@ -218,13 +233,14 @@
 #define PROGRAM_SERVICE 2
 #define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
 
-#define DEVICE_UNKNOWN 0
-#define DEVICE_COMPANY 1
-#define DEVICE_PRIVATE 2
+#define DEVICE_UNSET 0
+#define DEVICE_COMPANY BITFLAG(0)
+#define DEVICE_PRIVATE BITFLAG(1)
+#define ALL_DEVICE_ENROLLMENTS DEVICE_COMPANY|DEVICE_PRIVATE
 
-#define SCANNER_MEDICAL 1
-#define SCANNER_REAGENT 2
-#define SCANNER_GAS 4
+#define SCANNER_MEDICAL BITFLAG(0)
+#define SCANNER_REAGENT BITFLAG(1)
+#define SCANNER_GAS BITFLAG(2)
 
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
@@ -267,10 +283,10 @@
 
 //supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
 #define RANGE_TURFS(RADIUS, CENTER) \
-  block( \
-    locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-    locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-  )
+	block( \
+		locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
+		locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
+	)
 
 #define get_turf(A) (get_step(A, 0))
 #define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
@@ -304,8 +320,8 @@
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
 
-#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
-#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 // Maploader bounds indices
 #define MAP_MINX 1
@@ -369,7 +385,7 @@
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
 // The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
-#define DEFAULT_WALL_OFFSET 28
+#define DEFAULT_WALL_OFFSET 22 // Don't touch this unless you're going to work with walls in a major way.
 
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
@@ -377,10 +393,10 @@
 
 /*
 Define for getting a bitfield of adjacent turfs that meet a condition.
- ORIGIN is the object to step from, VAR is the var to write the bitfield to
- TVAR is the temporary turf variable to use, FUNC is the condition to check.
- FUNC generally should reference TVAR.
- example:
+ORIGIN is the object to step from, VAR is the var to write the bitfield to
+TVAR is the temporary turf variable to use, FUNC is the condition to check.
+FUNC generally should reference TVAR.
+example:
 	var/turf/T
 	var/result = 0
 	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
@@ -430,15 +446,11 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 #define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
 
-
 // Z-controller stuff - see basic.dm to see why the fuck this is the way it is.
 #define IS_VALID_ZINDEX(z) !((z) > world.maxz || (z) > 17)
 
-#define HAS_ABOVE(z) (IS_VALID_ZINDEX(z) && SSatlas.z_levels & (1 << (z - 1)))
-#define HAS_BELOW(z) (IS_VALID_ZINDEX(z) && (z) != 1 && SSatlas.z_levels & (1 << (z - 2)))
-
-#define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
-#define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
+#define GET_ABOVE(A) (HasAbove(A:z) ? get_step(A, UP) : null)
+#define GET_BELOW(A) (HasBelow(A:z) ? get_step(A, DOWN) : null)
 
 #define GET_Z(A) (get_step(A, 0)?.z || 0)
 
@@ -493,6 +505,30 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
 
 //Ruin map template flags
-#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
+
+#define RAD_LEVEL_LOW 1 // Around the level at which radiation starts to become harmful
+#define RAD_LEVEL_MODERATE 25
+#define RAD_LEVEL_HIGH 40
+#define RAD_LEVEL_VERY_HIGH 100
+
+#define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
+
+// Defines for formatting cooldown actions for the stat panel.
+/// The stat panel the action is displayed in.
+#define PANEL_DISPLAY_PANEL "panel"
+/// The status shown in the stat panel.
+/// Can be stuff like "ready", "on cooldown", "active", "charges", "charge cost", etc.
+#define PANEL_DISPLAY_STATUS "status"
+/// The name shown in the stat panel.
+#define PANEL_DISPLAY_NAME "name"
+
+//Transfer Types
+#define TRANSFER_EMERGENCY "emergency transfer"
+#define TRANSFER_JUMP "bluespace jump"
+#define TRANSFER_CREW "crew transfer"
+
+/// Gyrotron power usage modifier.
+#define GYRO_POWER 25000

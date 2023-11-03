@@ -1,10 +1,13 @@
 /obj/machinery/door/airlock/lift
-	name = "Elevator Door"
+	name = "elevator door"
 	desc = "Ding."
+	airlock_type = "Lift"
+	door_color = COLOR_GRAY20
+	door_frame_color = COLOR_GRAY20
 	req_access = list(access_maint_tunnels)
+	glass = TRUE
+	opacity = FALSE
 	autoclose = FALSE
-	icon = 'icons/obj/doors/doorlift.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_lift
 	hashatch = FALSE
 	panel_visible_while_open = TRUE
 	insecure = FALSE

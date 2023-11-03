@@ -28,7 +28,7 @@
 	if(cooldown)
 		return FALSE
 	cooldown = 2
-	addtimer(CALLBACK(src, .proc/process_cooldown), 10)
+	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 10)
 
 	signal()
 	return TRUE
@@ -39,38 +39,42 @@
 	return
 
 /obj/item/device/assembly/signaler/interact(mob/user, flag1)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	ui_interact(user)
+
+/obj/item/device/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "devices-assembly-signaler", 320, 220, capitalize_first_letters(name), state = deep_inventory_state)
-	ui.open()
+		ui = new(user, src, "Signaler", "Signaler", 320, 220)
+		ui.open()
 
-/obj/item/device/assembly/signaler/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/device/assembly/signaler/ui_data(mob/user)
+	var/list/data = list()
 
-	VUEUI_SET_CHECK(data["frequency"], format_frequency(frequency), ., data)
-	VUEUI_SET_CHECK(data["code"], code, ., data)
+	data["frequency"] = format_frequency(frequency)
+	data["code"] = code
 
-/obj/item/device/assembly/signaler/Topic(href, href_list)
-	..()
+	return data
 
-	if(href_list["freq"])
-		var/new_frequency = frequency + text2num(href_list["freq"])
-		if(new_frequency < RADIO_LOW_FREQ || new_frequency > RADIO_HIGH_FREQ)
-			new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
-		set_frequency(new_frequency)
+/obj/item/device/assembly/signaler/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["code"])
-		code += text2num(href_list["code"])
-		code = clamp(code, 1, 100)
-		code = round(code)
+	switch(action)
+		if("freq")
+			var/new_frequency = text2num(params["freq"]) * 10
+			if(new_frequency < RADIO_LOW_FREQ || new_frequency > RADIO_HIGH_FREQ)
+				new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
+			set_frequency(new_frequency)
 
-	if(href_list["send"])
-		spawn( 0 )
-			signal(usr)
+		if("code")
+			var/new_code = text2num(params["code"])
+			code = clamp(new_code, 1, 100)
+			code = round(code)
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-	ui.check_for_change()
+		if("send")
+			spawn(0)
+				signal(usr)
 
 /obj/item/device/assembly/signaler/proc/signal(var/mob/user)
 	if(!radio_connection)

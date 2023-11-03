@@ -1,29 +1,30 @@
 // Damage things. TODO: Merge these down to reduce on defines.
-// Way to waste perfectly good damage-type names (BRUTE) on this... If you were really worried about case sensitivity, you could have just used lowertext(damagetype) in the proc.
-#define BRUTE     "brute"
-#define BURN      "fire"
-#define TOX       "tox"
-#define OXY       "oxy"
-#define CLONE     "clone"
-#define PAIN      "pain"
+// Way to waste perfectly good damage-type names (DAMAGE_BRUTE) on this... If you were really worried about case sensitivity, you could have just used lowertext(damagetype) in the proc.
+#define DAMAGE_BRUTE     "brute"
+#define DAMAGE_BURN      "fire"
+#define DAMAGE_TOXIN     "toxin"
+#define DAMAGE_OXY       "oxy"
+#define DAMAGE_CLONE     "clone"
+#define DAMAGE_PAIN      "pain"
+#define DAMAGE_RADIATION "radiation"
 
 #define CUT       "cut"
 #define BRUISE    "bruise"
 #define PIERCE    "pierce"
 #define LASER     "laser"
 
-#define DAM_EDGE      1
-#define DAM_SHARP     2
-#define DAM_LASER     4
-#define DAM_BULLET    8
-#define DAM_EXPLODE   16
-#define DAM_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
-#define DAM_BIO       64
+#define DAMAGE_FLAG_EDGE      1
+#define DAMAGE_FLAG_SHARP     2
+#define DAMAGE_FLAG_LASER     4
+#define DAMAGE_FLAG_BULLET    8
+#define DAMAGE_FLAG_EXPLODE   16
+#define DAMAGE_FLAG_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
+#define DAMAGE_FLAG_BIO       64
+#define DAMAGE_FLAG_PSIONIC   128
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
 #define PARALYZE  "paralize"
-#define IRRADIATE "irradiate"
 #define SLUR      "slur"
 #define STUTTER   "stutter"
 #define EYE_BLUR  "eye_blur"
@@ -88,5 +89,5 @@
 // that dealing just enough burn damage to kill the player will cause the given
 // proportion of their max blood volume to be lost
 // (e.g. 0.6 == 60% lost if 200 burn damage is taken).
-#define FLUIDLOSS_WIDE_BURN 0.6 //for burns from heat applied over a wider area, like from fire
-#define FLUIDLOSS_CONC_BURN 0.4 //for concentrated burns, like from lasers
+#define FLUIDLOSS_WIDE_BURN 0.3 //for burns from heat applied over a wider area, like from fire
+#define FLUIDLOSS_CONC_BURN 0.2 //for concentrated burns, like from lasers

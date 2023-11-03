@@ -1,14 +1,19 @@
-var/datum/controller/subsystem/atoms/SSatoms
+#define SUBSYSTEM_INIT_SOURCE "subsystem init"
 
 #define BAD_INIT_QDEL_BEFORE 1
 #define BAD_INIT_DIDNT_INIT 2
 #define BAD_INIT_SLEPT 4
 #define BAD_INIT_NO_HINT 8
 
-/datum/controller/subsystem/atoms
+SUBSYSTEM_DEF(atoms)
 	name = "Atoms"
 	init_order = SS_INIT_ATOMS
 	flags = SS_NO_FIRE
+
+	/// A stack of list(source, desired initialized state)
+	/// We read the source of init changes from the last entry, and assert that all changes will come with a reset
+	var/list/initialized_state = list()
+	var/base_initialized
 
 	var/initialized = INITIALIZATION_INSSATOMS
 	var/old_initialized
@@ -21,19 +26,17 @@ var/datum/controller/subsystem/atoms/SSatoms
 
 	var/list/BadInitializeCalls = list()
 
-/datum/controller/subsystem/atoms/New()
-	NEW_SS_GLOBAL(SSatoms)
-
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
+	initialized = INITIALIZATION_INNEW_REGULAR
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)
 	if(initialized == INITIALIZATION_INSSATOMS)
 		return
 
-	initialized = INITIALIZATION_INNEW_MAPLOAD
+	set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, SUBSYSTEM_INIT_SOURCE)
 
 	LAZYINITLIST(late_loaders)
 	LAZYINITLIST(late_qdel)
@@ -43,29 +46,31 @@ var/datum/controller/subsystem/atoms/SSatoms
 	if(atoms)
 		created_atoms = list()
 		count = atoms.len
-		for(var/I in atoms)
-			if(InitAtom(I, mapload_arg))
-				atoms -= I
+		for(var/I in 1 to atoms.len)
+			var/atom/A = atoms[I]
+			InitAtom(A, mapload_arg)
 			CHECK_TICK
 	else
 		count = 0
-		for(var/atom/A in world)
+		for(var/atom/A as anything in world)
 			if(!A.initialized)
 				InitAtom(A, mapload_arg)
 				++count
 				CHECK_TICK
 
 	admin_notice(SPAN_DANGER("Initialized [count] atoms."), R_DEBUG)
-	log_ss("atoms", "Initialized [count] atoms.")
+	log_subsystem("atoms", "Initialized [count] atoms.")
 
-	initialized = INITIALIZATION_INNEW_REGULAR
+	clear_tracked_initalize(SUBSYSTEM_INIT_SOURCE)
 
 	if(late_loaders.len)
-		for(var/I in late_loaders)
-			var/atom/A = I
+		for(var/I in 1 to late_loaders.len)
+			var/atom/A = late_loaders[I]
+			if(QDELETED(A))
+				continue
 			A.LateInitialize()
 		admin_notice(SPAN_DANGER("Late-initialized [late_loaders.len] atoms."), R_DEBUG)
-		log_ss("atoms", "Late initialized [late_loaders.len] atoms")
+		log_subsystem("atoms", "Late initialized [late_loaders.len] atoms")
 		late_loaders.Cut()
 
 	if(late_qdel.len)
@@ -74,13 +79,14 @@ var/datum/controller/subsystem/atoms/SSatoms
 			qdel(thing)
 
 		admin_notice(SPAN_DANGER("Late-qdeleted [num_qdels] atoms."), R_DEBUG)
-		log_ss("atoms", "Late qdeleted [num_qdels] atoms.")
+		log_subsystem("atoms", "Late qdeleted [num_qdels] atoms.")
 
 		late_qdel.Cut()
 
 	if(atoms)
 		. = created_atoms + atoms
 		created_atoms = null
+		// Note this doesn't actually do anything because we didn't finish porting TG init :^)
 
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)
 	var/the_type = A.type
@@ -95,7 +101,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 	if(start_tick != world.time)
 		BadInitializeCalls[the_type] |= BAD_INIT_SLEPT
 
-	if(result != INITIALIZE_HINT_NORMAL)
+	if(result !=INITIALIZE_HINT_NORMAL)
 		switch(result)
 			if(INITIALIZE_HINT_LATELOAD)
 				if(arguments[1])	//mapload
@@ -124,13 +130,18 @@ var/datum/controller/subsystem/atoms/SSatoms
 /datum/controller/subsystem/atoms/proc/ForceInitializeContents(atom/A)
 	var/list/mload_args = list(TRUE)
 	var/loaded = 0
+
+	set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, SUBSYSTEM_INIT_SOURCE+"- ForceInitializeContents: [text_ref(A)]")
+
 	for (var/thing in A)
 		var/atom/movable/AM = thing
 		if (!AM.initialized)
 			InitAtom(AM, mload_args)
 			++loaded
 
-	log_debug("atoms: force-loaded [loaded] out of [A.contents.len] atoms in [A].")
+	clear_tracked_initalize(SUBSYSTEM_INIT_SOURCE+"- ForceInitializeContents: [text_ref(A)]")
+
+	LOG_DEBUG("atoms: force-loaded [loaded] out of [A.contents.len] atoms in [A].")
 
 /datum/controller/subsystem/atoms/proc/InitLog()
 	. = ""
@@ -155,16 +166,39 @@ var/datum/controller/subsystem/atoms/SSatoms
 	initialized = SSatoms.initialized
 	if(initialized == INITIALIZATION_INNEW_MAPLOAD)
 		InitializeAtoms()
-	old_initialized = SSatoms.old_initialized
+	initialized_state = SSatoms.initialized_state
+	BadInitializeCalls = SSatoms.BadInitializeCalls
 
-/datum/controller/subsystem/atoms/proc/map_loader_begin()
-	old_initialized = initialized
-	initialized = INITIALIZATION_INSSATOMS
+/datum/controller/subsystem/atoms/proc/map_loader_begin(source)
+	set_tracked_initalized(INITIALIZATION_INSSATOMS, source)
 
-/datum/controller/subsystem/atoms/proc/map_loader_stop()
-	initialized = old_initialized
+/datum/controller/subsystem/atoms/proc/map_loader_stop(source)
+	clear_tracked_initalize(source)
 
-#undef BAD_INIT_QDEL_BEFORE
-#undef BAD_INIT_DIDNT_INIT
-#undef BAD_INIT_SLEPT
-#undef BAD_INIT_NO_HINT
+/// Use this to set initialized to prevent error states where the old initialized is overriden, and we end up losing all context
+/// Accepts a state and a source, the most recent state is used, sources exist to prevent overriding old values accidentially
+/datum/controller/subsystem/atoms/proc/set_tracked_initalized(state, source)
+	if(!length(initialized_state))
+		base_initialized = initialized
+	initialized_state += list(list(source, state))
+	initialized = state
+
+/datum/controller/subsystem/atoms/proc/clear_tracked_initalize(source)
+	if(!length(initialized_state))
+		return
+	for(var/i in length(initialized_state) to 1 step -1)
+		if(initialized_state[i][1] == source)
+			initialized_state.Cut(i, i+1)
+			break
+
+	if(!length(initialized_state))
+		initialized = base_initialized
+		base_initialized = INITIALIZATION_INNEW_REGULAR
+		return
+	initialized = initialized_state[length(initialized_state)][2]
+
+/// Returns TRUE if anything is currently being initialized
+/datum/controller/subsystem/atoms/proc/initializing_something()
+	return length(initialized_state) > 1
+
+#undef SUBSYSTEM_INIT_SOURCE

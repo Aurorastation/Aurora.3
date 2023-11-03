@@ -1,14 +1,12 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
 	level = 1
+
+	var/turf_flags
 	var/holy = 0
 
 	// Initial air contents (in moles)
-	var/oxygen = 0
-	var/carbon_dioxide = 0
-	var/nitrogen = 0
-	var/phoron = 0
-	var/hydrogen = 0
+	var/list/initial_gas
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
@@ -23,7 +21,7 @@
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
 
-	var/footstep_sound = /decl/sound_category/tiles_footstep
+	var/footstep_sound = /singleton/sound_category/tiles_footstep
 
 	var/list/decals
 	var/list/blueprints
@@ -45,17 +43,22 @@
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
+	var/image/resource_indicator
 
 	// Plating data.
 	var/base_name = "plating"
 	var/base_desc = "The naked hull."
 	var/base_icon = 'icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
+	var/base_color = null
+
 	var/last_clean //for clean log spam.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -64,15 +67,16 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
-	turfs += src
+	if (isStationLevel(z))
+		station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
-	if (smooth)
-		queue_smooth(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
 
 	if (light_range && light_power)
 		update_light()
@@ -102,13 +106,15 @@
 		crash_with("Improper turf qdeletion.")
 
 	changing_turf = FALSE
-	turfs -= src
+
+	if (isStationLevel(z))
+		station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()
 
 	if (ao_queued)
-		SSocclusion.queue -= src
+		SSao.queue -= src
 		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -116,6 +122,8 @@
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
+
+	resource_indicator = null
 
 	..()
 	return QDEL_HINT_IWILLGC
@@ -129,7 +137,7 @@
 	return 0
 
 /turf/proc/is_solid_structure()
-	return 1
+	return !(turf_flags & TURF_FLAG_BACKGROUND) || locate(/obj/structure/lattice, src)
 
 /turf/proc/is_space()
 	return 0
@@ -226,14 +234,20 @@ var/const/enterloopsanity = 100
 		var/mob/M = AM
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
-		if(M.lastarea.has_gravity() == 0)
+
+		var/has_gravity = M.lastarea.has_gravity()
+		if(!has_gravity)
 			inertial_drift(M)
 
 		// Footstep SFX logic moved to human_movement.dm - Move().
 
-		else if (type != /turf/space)
+		else if(!is_hole)
 			M.inertia_dir = 0
-			M.make_floating(0)
+
+		if(!M.is_floating && (is_hole || !has_gravity))
+			M.update_floating()
+		else if(M.is_floating && !is_hole && has_gravity)
+			M.update_floating()
 
 	if(does_footprint && footprint_color && ishuman(AM))
 		var/mob/living/carbon/human/H = AM
@@ -275,7 +289,7 @@ var/const/enterloopsanity = 100
 				break
 			objects++
 
-			if (oAM.simulated)
+			if (oAM.simulated && (oAM.flags & PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
@@ -304,6 +318,9 @@ var/const/enterloopsanity = 100
 	return can_have_cabling()
 
 /turf/attackby(obj/item/C, mob/user)
+	if(istype(C, /obj/item/grab))
+		var/obj/item/grab/grab = C
+		step(grab.affecting, get_dir(grab.affecting, src))
 	if (can_lay_cable() && C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
@@ -332,7 +349,7 @@ var/const/enterloopsanity = 100
 
 /turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
 	. = list()
-	for(var/turf/t in oview(src,1))
+	for(var/turf/t in orange(src,1))
 		if(check_blockage)
 			if(!t.density)
 				if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
@@ -376,12 +393,19 @@ var/const/enterloopsanity = 100
 
 //expects an atom containing the reagents used to clean the turf
 /turf/proc/clean(atom/source, mob/user)
-	if(source.reagents.has_reagent(/decl/reagent/water, 1) || source.reagents.has_reagent(/decl/reagent/spacecleaner, 1))
+	if(source.reagents.has_reagent(/singleton/reagent/water, 1) || source.reagents.has_reagent(/singleton/reagent/spacecleaner, 1))
 		clean_blood()
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src
 			T.dirt = 0
-			T.color = null
+			if(istype(src, /turf/simulated/floor))
+				var/turf/simulated/floor/F = src
+				if(F.flooring)
+					F.color = F.flooring.color
+				else
+					F.color = null
+			else
+				T.color = null
 		for(var/obj/effect/O in src)
 			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 				qdel(O)

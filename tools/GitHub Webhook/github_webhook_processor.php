@@ -1,6 +1,6 @@
 <?php
 /*
- *	Github webhook In-game PR Announcer and Changelog Generator for /tg/Station13
+ *	GitHub webhook In-game PR Announcer and Changelog Generator for /tg/Station13
  *	Author: MrStonedOne
  *	For documentation on the changelog generator see https://tgstation13.org/phpBB/viewtopic.php?f=5&t=5157
  *	To hide prs from being announced in game, place a [s] in front of the title
@@ -18,7 +18,7 @@
 //CONFIG START (all defaults are random examples, do change them)
 //Use single quotes for config options that are strings.
  
-//Github lets you have it sign the message with a secret that you can validate. This prevents people from faking events.
+//GitHub lets you have it sign the message with a secret that you can validate. This prevents people from faking events.
 //This var should match the secret you configured for this webhook on github.
 //set to NULL (no quotes) to disable validation.
 $hookSecret = '08ajh0qj93209qj90jfq932j32r';
@@ -75,7 +75,7 @@ if (!isset($_SERVER['HTTP_CONTENT_TYPE'])) {
 	$contenttype = $_SERVER['HTTP_CONTENT_TYPE'];
 }
 if (!isset($_SERVER['HTTP_X_GITHUB_EVENT'])) {
-	throw new \Exception("Missing HTTP 'X-Github-Event' header.");
+	throw new \Exception("Missing HTTP 'X-GitHub-Event' header.");
 }
 switch ($contenttype) {
 	case 'application/json':
@@ -271,7 +271,7 @@ function checkchangelog($payload, $merge = false) {
 			'Authorization: token ' . $apiKey,
         'content'	=> json_encode($content),
 		'ignore_errors' => true,
-		'user_agent' 	=> 'tgstation13.org-Github-Automation-Tools'
+		'user_agent' 	=> 'tgstation13.org-GitHub-Automation-Tools'
     ));
 	$filename = '/html/changelogs/AutoChangeLog-pr-'.$payload['pull_request']['number'].'.yml';
 	echo file_get_contents($payload['pull_request']['base']['repo']['url'].'/contents'.$filename, false, stream_context_create($scontext));

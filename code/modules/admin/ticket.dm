@@ -25,7 +25,7 @@ var/global/list/ticket_panels = list()
 	opened_rt = world.realtime
 
 	if (config.ticket_reminder_period)
-		reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+		reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/ticket/proc/broadcast_closure(closing_user)
 	var/client/owner_client = client_by_ckey(owner)
@@ -133,7 +133,7 @@ var/global/list/ticket_panels = list()
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
 				sound_to(C, 'sound/effects/adminhelp.ogg')
 
-	reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+	reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /proc/get_open_ticket_by_ckey(var/owner)
 	for(var/datum/ticket/ticket in tickets)
@@ -166,11 +166,9 @@ var/global/list/ticket_panels = list()
 		return
 
 	var/DBQuery/Q = dbcon.NewQuery({"INSERT INTO ss13_tickets
-		(game_id, message_count, admin_count, admin_list, opened_by, taken_by,
-		 closed_by, response_delay, opened_at, closed_at)
+		(game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at)
 	VALUES
-		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:,
-		 :closed_by:, :delay:, :opened_at:, :closed_at:)"})
+		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:, :closed_by:, :delay:, :opened_at:, :closed_at:)"})
 	Q.Execute(list(
 		"g_id" = game_id,
 		"m_count" = length(msgs),

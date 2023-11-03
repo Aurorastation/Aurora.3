@@ -25,6 +25,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	pre_attack(A, user)
 	add_fingerprint(user)
+	_log_attack("[A] at [A?.loc]/[A.x]-[A.y]-[A.z] got ITEM attacked by [usr]/[usr?.ckey] on INTENT [usr?.a_intent] with [src]")
 	return A.attackby(src, user, click_parameters)
 
 // attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
@@ -55,7 +56,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return I.attack(src, user, selected_zone)
 
 /mob/living/carbon/human/attackby(obj/item/I, mob/user)
-	if(user == src && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
+	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
@@ -65,7 +66,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return ..()
 
 /mob/living/simple_animal/attackby(obj/item/I, mob/living/user)
-	if(I.damtype == PAIN)
+	if(I.damtype == DAMAGE_PAIN)
 		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), 1, -1)
 		return TRUE
 	else
@@ -129,7 +130,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		power *= 2
 	if(user.is_berserk())
 		power *= 1.5

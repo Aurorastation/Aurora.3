@@ -2,7 +2,7 @@
 	name = "energy"
 	icon_state = "spark"
 	damage = 0
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "energy"
 
 //releases a burst of light on impact or after travelling a distance
@@ -22,13 +22,11 @@
 		return
 
 	//blind adjacent people
-	for(var/mob/living/carbon/M in viewers(T, flash_range))
-		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
-			M.confused = rand(5,15)
-			M.flash_eyes()
+	for(var/mob/living/M in viewers(T, flash_range))
+		if(M.flash_act(ignore_inherent = TRUE))
+			M.confused = rand(5, 15)
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
-			M.flash_eyes()
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -49,7 +47,7 @@
 	name = "electrode"
 	icon_state = "spark"
 	damage = 2 //Flavor.
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	agony = 40
 	eyeblur = 1
 	//Damage will be handled on the MOB side, to prevent window shattering.
@@ -63,35 +61,35 @@
 	name = "decloner beam"
 	icon_state = "declone"
 	damage = 20
-	damage_type = CLONE
+	damage_type = DAMAGE_CLONE
 	irradiate = 40
 
 /obj/item/projectile/energy/dart
 	name = "dart"
 	icon_state = "toxin"
 	damage = 5
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	weaken = 5
 
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
 	damage = 1
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	agony = 45
 	stutter = 10
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
 	damage = 2
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
 	icon_state = "neurotoxin"
 	damage = 5
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	weaken = 5
 
 /obj/item/projectile/energy/phoron
@@ -105,7 +103,7 @@
 	icon_state = "bfg"
 	check_armor = "bomb"
 	damage = 60
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	range = 100
 	embed = 0
@@ -133,7 +131,7 @@
 			if(M.stat == DEAD)
 				M.gib()
 			else
-				M.apply_damage(60, BRUTE, BP_HEAD)
+				M.apply_damage(60, DAMAGE_BRUTE, BP_HEAD)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 		else if(isturf(a) || isobj(a))
 			var/atom/A = a
@@ -147,7 +145,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bluespace"
 	damage = 0
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 10
 	embed = 0
@@ -160,7 +158,7 @@
 	var/area/A = get_area(target)
 	if(A && A.has_gravity())
 		A.gravitychange(FALSE)
-		addtimer(CALLBACK(src, .proc/turnongravity), 150)
+		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
 
 	if(istype(target, /obj/machinery/gravity_generator/main))
 		var/obj/machinery/gravity_generator/main/T = target
@@ -171,11 +169,11 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "heavybolt"
+	icon_state = "laser"
 	damage = 30
 	check_armor = "laser"
-	damage_type = BURN
-	damage_flags = DAM_LASER
+	damage_type = DAMAGE_BURN
+	damage_flags = DAMAGE_FLAG_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
@@ -184,16 +182,31 @@
 	damage = 20
 	pass_flags = PASSTABLE | PASSRAILING
 
+/obj/item/projectile/energy/blaster/disruptor/practice
+	damage = 5
+	damage_type = DAMAGE_PAIN
+	eyeblur = 0
+
+/obj/item/projectile/energy/blaster/skrell // for nralakk fed consular pistol
+	damage = 30
+	armor_penetration = 5
+	pass_flags = PASSTABLE | PASSRAILING
+
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
-	icon_state = "blue_laser"
+	icon_state = "bluelaser"
 	damage = 1
 	agony = 40
 	speed = 0.4
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	eyeblur = TRUE
 	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
+/obj/item/projectile/energy/disruptorstun/practice
+	damage = 5
+	damage_type = DAMAGE_PAIN
+	eyeblur = 0
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
@@ -201,6 +214,9 @@
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"
-	damage = 30
-	armor_penetration = 10
-	incinerate = 4
+	damage = 35
+	armor_penetration = 60
+	incinerate = 15
+
+/obj/item/projectile/energy/disruptorstun/skrell // for nralakk fed consular pistol
+	agony = 45

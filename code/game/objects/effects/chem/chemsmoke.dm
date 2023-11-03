@@ -48,13 +48,19 @@
 /obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
 	..()
 	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		reagents.splash(AM, splash_amount, copy = 1)
+		if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+			return
+		else
+			reagents.splash(AM, splash_amount, copy = 1)
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/effect/smoke/chem))
-				reagents.splash(AM, splash_amount, copy = 1)
+				if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+					return
+				else
+					reagents.splash(AM, splash_amount, copy = 1)
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System
@@ -208,7 +214,7 @@
 
 		var/offset = 0
 		var/points = round((radius * 2 * M_PI) / arcLength)
-		var/angle = round(ToDegrees(arcLength / radius), 1)
+		var/angle = round(TO_DEGREES(arcLength / radius), 1)
 
 		if(!IsInteger(radius))
 			offset = 45		//degrees
@@ -226,7 +232,7 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/start()
 	..()
-	if(seed.get_trait(TRAIT_SPREAD))
+	if(seed && seed.get_trait(TRAIT_SPREAD))
 		var/sporecount = 0
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
@@ -265,7 +271,8 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/icon/I, var/smoke_duration, var/dist = 1)
 	var/obj/effect/effect/smoke/chem/spores = new /obj/effect/effect/smoke/chem(location)
-	spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
+	if(spores && seed)
+		spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
 	..(T, I, smoke_duration, dist, spores)
 
 

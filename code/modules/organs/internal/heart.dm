@@ -7,8 +7,8 @@
 	robotic_name = "circulatory pump"
 	toxin_type = CE_CARDIOTOXIC
 
-	max_damage = 45
-	min_broken_damage = 25
+	max_damage = 60
+	min_broken_damage = 45
 	relative_size = 5
 	damage_reduction = 0.7
 
@@ -51,12 +51,12 @@
 		pulse_mod++
 
 	var/oxy = owner.get_blood_oxygenation()
-	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get MOAR OXY
+	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get moar oxygen
 		pulse_mod++
 	if(oxy < BLOOD_VOLUME_BAD) //MOAR
 		pulse_mod++
 
-	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
+	if(owner.status_flags & FAKEDEATH)
 		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
 		return
 
@@ -67,6 +67,7 @@
 		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
 		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
+		should_stop = should_stop || owner.chem_effects[CE_NOPULSE]
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
 			to_chat(owner, "<span class='danger'>Your heart has stopped!</span>")
 			pulse = PULSE_NONE
@@ -116,12 +117,12 @@
 		return
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
-		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /decl/reagent/blood))
+		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /singleton/reagent/blood))
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
-			if(REAGENT_DATA(owner.vessel, /decl/reagent/blood)) // Make sure there's blood at all
-				owner.vessel.add_reagent(/decl/reagent/blood, BLOOD_REGEN_RATE + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
+			if(REAGENT_DATA(owner.vessel, /singleton/reagent/blood)) // Make sure there's blood at all
+				owner.vessel.add_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
 				if(blood_volume <= BLOOD_VOLUME_SAFE) //We lose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(2)
 					owner.adjustHydrationLoss(1)
@@ -153,7 +154,7 @@
 						blood_max += bleed_amount
 						do_spray += "[temp.name]"
 					else
-						owner.vessel.remove_reagent(/decl/reagent/blood, bleed_amount)
+						owner.vessel.remove_reagent(/singleton/reagent/blood, bleed_amount)
 
 		switch(pulse)
 			if(PULSE_SLOW)

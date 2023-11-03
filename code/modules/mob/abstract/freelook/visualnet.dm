@@ -118,9 +118,9 @@
 	if(source in sources)
 		return FALSE
 	sources += source
-	moved_event.register(source, src, /datum/visualnet/proc/source_moved)
-	destroyed_event.register(source, src, /datum/visualnet/proc/remove_source)
-	for_all_chunks_in_range(source, /datum/chunk/proc/add_source, list(source))
+	moved_event.register(source, src, PROC_REF(source_moved))
+	destroyed_event.register(source, src, PROC_REF(remove_source))
+	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
 	return TRUE

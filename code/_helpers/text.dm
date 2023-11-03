@@ -85,11 +85,10 @@
 #define SYMBOLS_DETECTED_NEW_WORD 5 // symbols that we will interpret as the start of a new word
 
 /**
-  * Filters out undesirable characters from names.
-  *
-  * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
-  */
-
+ * Filters out undesirable characters from names.
+ *
+ * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
+ */
 /proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = TRUE)
 	if(!input)
 		return //Rejects the input if it is null
@@ -319,6 +318,18 @@
 			break
 	return copytext_char(t, 1, i) + uppertext(copytext_char(t, i, i + 1)) + copytext_char(t, i + 1)
 
+//Returns a string with the first element of the string uncapitalized, ignoring html-tags
+/proc/uncapitalize(t as text)
+	var/i = 1
+	while(copytext_char(t, i, i + 1) == "<")
+		i = findtext_char(t, ">", i + 1)
+		if(i)
+			i++
+		else
+			i = 2
+			break
+	return copytext_char(t, 1, i) + lowertext(copytext_char(t, i, i + 1)) + copytext_char(t, i + 1)
+
 //This proc strips html properly, remove < > and all text between
 //for complete text sanitizing should be used sanitize()
 /proc/strip_html_properly(input)
@@ -410,6 +421,7 @@
 		"LOOC" = "looc",
 		"ALOOC" = "adminlooc",
 		"DEV" = "dev",
+		"CCIA" = "ccia",
 		"ADMIN" = "admin",
 		"MOD" = "mod",
 		"DEAD" = "dead",
@@ -537,27 +549,46 @@
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
 	t = replacetext(t, "\[logo_scc\]", "<img src = scclogo.png>")
-	t = replacetext(t, "\[logo_nt\]", "<img src = ntlogo.png>")
-	t = replacetext(t, "\[logo_nt_small\]", "<img src = ntlogo_small.png>")
+	t = replacetext(t, "\[logo_scc_small\]", "<img src = scclogo_small.png>")
+	t = replacetext(t, "\[logo_nt\]", "<img src = nanotrasenlogo.png>")
+	t = replacetext(t, "\[logo_nt_small\]", "<img src = nanotrasenlogo_small.png>")
 	t = replacetext(t, "\[logo_zh\]", "<img src = zhlogo.png>")
+	t = replacetext(t, "\[logo_zh_small\]", "<img src = zhlogo_small.png>")
 	t = replacetext(t, "\[logo_idris\]", "<img src = idrislogo.png>")
+	t = replacetext(t, "\[logo_idris_small\]", "<img src = idrislogo_small.png>")
 	t = replacetext(t, "\[logo_eridani\]", "<img src = eridanilogo.png>")
+	t = replacetext(t, "\[logo_eridani_small\]", "<img src = eridanilogo_small.png>")
 	t = replacetext(t, "\[logo_zavod\]", "<img src = zavodlogo.png>")
+	t = replacetext(t, "\[logo_zavod_small\]", "<img src = zavodlogo_small.png>")
 	t = replacetext(t, "\[logo_hp_large\]", "<img src = hplogolarge.png>")
 	t = replacetext(t, "\[logo_hp\]", "<img src = hplogo.png>")
+	t = replacetext(t, "\[logo_hp_small\]", "<img src = hplogo_small.png>")
 	t = replacetext(t, "\[logo_orion\]", "<img src = orionlogo.png>")
+	t = replacetext(t, "\[logo_orion_small\]", "<img src = orionlogo_small.png>")
 	t = replacetext(t, "\[logo_pmcg\]", "<img src = pmcglogo.png>")
+	t = replacetext(t, "\[logo_pmcg_small\]", "<img src = pmcglogo_small.png>")
 	t = replacetext(t, "\[flag_be\]", "<img src = beflag.png>")
+	t = replacetext(t, "\[flag_be_small\]", "<img src = beflag_small.png>")
 	t = replacetext(t, "\[flag_elyra\]", "<img src = elyraflag.png>")
+	t = replacetext(t, "\[flag_elyra_small\]", "<img src = elyraflag_small.png>")
 	t = replacetext(t, "\[flag_sol\]", "<img src = solflag.png>")
+	t = replacetext(t, "\[flag_sol_small\]", "<img src = solflag_small.png>")
 	t = replacetext(t, "\[flag_coc\]", "<img src = cocflag.png>")
+	t = replacetext(t, "\[flag_coc_small\]", "<img src = cocflag_small.png>")
 	t = replacetext(t, "\[flag_dom\]", "<img src = domflag.png>")
-	t = replacetext(t, "\[flag_jargon\]", "<img src = jargonflag.png>")
+	t = replacetext(t, "\[flag_dom_small\]", "<img src = domflag_small.png>")
+	t = replacetext(t, "\[flag_nralakk\]", "<img src = nralakkflag.png>")
+	t = replacetext(t, "\[flag_nralakk_small\]", "<img src = nralakkflag_small.png>")
 	t = replacetext(t, "\[flag_pra\]", "<img src = praflag.png>")
+	t = replacetext(t, "\[flag_pra_small\]", "<img src = praflag_small.png>")
 	t = replacetext(t, "\[flag_dpra\]", "<img src = dpraflag.png>")
+	t = replacetext(t, "\[flag_dpra_small\]", "<img src = dpraflag_small.png>")
 	t = replacetext(t, "\[flag_nka\]", "<img src = nkaflag.png>")
+	t = replacetext(t, "\[flag_nka_small\]", "<img src = nkaflag_small.png>")
 	t = replacetext(t, "\[flag_izweski\]", "<img src = izweskiflag.png>")
+	t = replacetext(t, "\[flag_izweski_small\]", "<img src = izweskiflag_small.png>")
 	t = replacetext(t, "\[logo_golden\]", "<img src = goldenlogo.png>")
+	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -601,20 +632,26 @@
 
 	if(include_images)
 		t = replacetext(t, "<img src = scclogo.png>", "\[logo_scc\]")
-		t = replacetext(t, "<img src = ntlogo.png>", "\[logo_nt\]")
-		t = replacetext(t, "<img src = ntlogo_small.png>", "\[logo_nt_small\]")
+		t = replacetext(t, "<img src = scclogo_small.png>", "\[logo_scc_small\]")
+		t = replacetext(t, "<img src = nanotrasenlogo.png>", "\[logo_nt\]")
+		t = replacetext(t, "<img src = nanotrasenlogo_small.png>", "\[logo_nt_small\]")
 		t = replacetext(t, "<img src = zhlogo.png>", "\[logo_zh\]")
+		t = replacetext(t, "<img src = zhlogo_small.png>", "\[logo_zh_small\]")
 		t = replacetext(t, "<img src = idrislogo.png>", "\[logo_idris\]")
+		t = replacetext(t, "<img src = idrislogo_small.png>", "\[logo_idris_small\]")
 		t = replacetext(t, "<img src = eridanilogo.png>", "\[logo_eridani\]")
+		t = replacetext(t, "<img src = eridanilogo_small.png>", "\[logo_eridani_small\]")
 		t = replacetext(t, "<img src = zavodlogo.png>", "\[logo_zavod\]")
+		t = replacetext(t, "<img src = zavodlogo_small.png>", "\[logo_zavod_small\]")
 		t = replacetext(t, "<img src = hplogolarge.png>", "\[logo_hp_large\]")
 		t = replacetext(t, "<img src = hplogo.png>", "\[logo_hp\]")
+		t = replacetext(t, "<img src = hplogo_small.png>", "\[logo_hp_small\]")
 		t = replacetext(t, "<img src = beflag.png>", "\[flag_be\]")
 		t = replacetext(t, "<img src = elyraflag.png>", "\[flag_elyra\]")
 		t = replacetext(t, "<img src = solflag.png>", "\[flag_sol\]")
 		t = replacetext(t, "<img src = cocflag.png>", "\[flag_coc\]")
 		t = replacetext(t, "<img src = domflag.png>", "\[flag_dom\]")
-		t = replacetext(t, "<img src = jargonflag.png>", "\[flag_jargon\]")
+		t = replacetext(t, "<img src = nralakkflag.png>", "\[flag_nralakk\]")
 		t = replacetext(t, "<img src = praflag.png>", "\[flag_pra\]")
 		t = replacetext(t, "<img src = dpraflag.png>", "\[flag_dpra\]")
 		t = replacetext(t, "<img src = nkaflag.png>", "\[flag_nka\]")
@@ -729,3 +766,41 @@
 						return "[text]es"
 		return "[text]s"
 	return ""
+
+/**
+ * Used to get a properly sanitized input. Returns null if cancel is pressed.
+ *
+ * Arguments
+ ** user - Target of the input prompt.
+ ** message - The text inside of the prompt.
+ ** title - The window title of the prompt.
+ ** max_length - If you intend to impose a length limit - default is 1024.
+ ** no_trim - Prevents the input from being trimmed if you intend to parse newlines or whitespace.
+*/
+/proc/stripped_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
+	var/user_input = input(user, message, title, default) as text|null
+	if(isnull(user_input)) // User pressed cancel
+		return
+	if(no_trim)
+		return copytext(html_encode(user_input), 1, max_length)
+	else
+		return trim(html_encode(user_input), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
+
+/**
+ * Used to get a properly sanitized input in a larger box. Works very similarly to stripped_input.
+ *
+ * Arguments
+ ** user - Target of the input prompt.
+ ** message - The text inside of the prompt.
+ ** title - The window title of the prompt.
+ ** max_length - If you intend to impose a length limit - default is 1024.
+ ** no_trim - Prevents the input from being trimmed if you intend to parse newlines or whitespace.
+*/
+/proc/stripped_multiline_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
+	var/user_input = input(user, message, title, default) as message|null
+	if(isnull(user_input)) // User pressed cancel
+		return
+	if(no_trim)
+		return copytext(html_encode(user_input), 1, max_length)
+	else
+		return trim(html_encode(user_input), max_length)

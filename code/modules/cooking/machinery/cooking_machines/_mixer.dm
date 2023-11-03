@@ -17,7 +17,7 @@ fundamental differences
 	idle_power_usage = 50
 	appliancetype = 0
 
-/obj/machinery/appliance/mixer/examine(var/mob/user)
+/obj/machinery/appliance/mixer/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	to_chat(user, SPAN_NOTICE("It is currently set to make a [selected_option]"))
 
@@ -31,7 +31,7 @@ fundamental differences
 //Mixers cannot-not do combining mode. So the default option is removed from this. A combine target must be chosen
 /obj/machinery/appliance/mixer/choose_output()
 	set src in oview(1)
-	set name = "Choose output"
+	set name = "Choose Output"
 	set category = "Object"
 
 	if (use_check_and_message(usr))
@@ -39,7 +39,7 @@ fundamental differences
 
 	if(isemptylist(output_options))
 		return
-	var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options
+	var/choice = tgui_input_list(usr, "What specific food do you wish to make with [src]?", "Choose Output", output_options)
 	if(!choice)
 		return
 	selected_option = choice

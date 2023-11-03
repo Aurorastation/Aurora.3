@@ -1,0 +1,321 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"q" = (
+/mob/living/simple_animal/scavenger,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"M" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/adhomai_worm.dmi';
+	icon_state = "skeleton";
+	layer = 4.5;
+	name = "glacier worm carcass";
+	desc = "A massive carcass of an Adhomian aquatic creature."
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/adhomai_worm.dmi';
+	density = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"N" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/adhomai_worm.dmi';
+	density = 1
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/adhomai_worm.dmi';
+	density = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+"X" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/adhomai_worm.dmi';
+	density = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 233.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+M
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+q
+c
+X
+X
+X
+c
+c
+q
+c
+c
+"}
+(3,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(6,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+q
+c
+c
+"}
+(7,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(8,1,1) = {"
+c
+c
+c
+c
+c
+N
+N
+N
+q
+c
+c
+c
+c
+"}
+(9,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(10,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(11,1,1) = {"
+c
+c
+c
+c
+q
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(12,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+q
+c
+c
+c
+"}
+(13,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(14,1,1) = {"
+c
+c
+c
+q
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(15,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(16,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+q
+c
+c
+"}
+(17,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}
+(18,1,1) = {"
+c
+c
+c
+c
+c
+X
+X
+X
+c
+c
+c
+c
+c
+"}

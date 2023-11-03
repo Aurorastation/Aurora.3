@@ -1,15 +1,16 @@
 /obj/machinery/appliance/cooker/stove
 	name = "stove"
 	desc = "Don't touch it!"
-	icon_state = "stove_off"
+	icon_state = "stove"
 	cook_type = "pan-fried"
 	appliancetype = SKILLET | SAUCEPAN | POT
 	food_color = "#a34719"
 	can_burn_food = TRUE
 	active_power_usage = 6 KILOWATTS
 	heating_power = 6000
-	on_icon = "stove_on"
-	off_icon = "stove_off"
+	on_icon = "stove"
+	off_icon = "stove"
+	place_verb = "onto"
 
 	resistance = 5000 // Approx. 2 minutes.
 	idle_power_usage = 1 KILOWATTS
@@ -27,23 +28,84 @@
 		/obj/item/reagent_containers/cooking_container/saucepan
 	)
 
+	var/list/pan_positions = list(
+		list(-7, 6),
+		list(-7, -3),
+		list(7, 6),
+		list(7, -3)
+	)
+
 /obj/machinery/appliance/cooker/stove/update_icon()
 	. = ..()
 	cut_overlays()
 	var/list/pans = list()
+	var/pan_number = 0
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
-		var/image/pan_overlay
+		var/pan_icon_state
+		var/pan_position_number = Clamp((pan_number)+1, 1, 4)
+		var/list/positions = pan_positions[pan_position_number]
 		switch(CC.appliancetype)
 			if(SKILLET)
-				pan_overlay = image('icons/obj/cooking_machines.dmi', "skillet[Clamp(length(pans)+1, 1, 4)]")
+				pan_icon_state = "skillet"
+				if(pan_position_number >= 3)
+					pan_icon_state = "skillet_flip"
 			if(SAUCEPAN)
-				pan_overlay = image('icons/obj/cooking_machines.dmi', "pan[Clamp(length(pans)+1, 1, 4)]")
+				pan_icon_state = "pan"
+				if(pan_position_number >= 3)
+					pan_icon_state = "pan_flip"
 			if(POT)
-				pan_overlay = image('icons/obj/cooking_machines.dmi', "pot[Clamp(length(pans)+1, 1, 4)]")
+				pan_icon_state = "pot"
 			else
 				continue
+		var/mutable_appearance/pan_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', pan_icon_state)
+		pan_overlay.pixel_x = positions[1]
+		pan_overlay.pixel_y = positions[2]
 		pan_overlay.color = CC.color
 		pans += pan_overlay
+		pan_number = pan_position_number
+		//filling
+		if(CC.reagents.total_volume)
+			var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', "filling_overlay")
+			filling_overlay.pixel_x = positions[1]
+			filling_overlay.pixel_y = positions[2]
+			filling_overlay.color = CC.reagents.get_color()
+			switch(CC.appliancetype)
+				if(SKILLET)
+					filling_overlay.pixel_y -= 3
+				if(SAUCEPAN)
+					filling_overlay.pixel_y -= 2
+			pans += filling_overlay
+		// flame overlay
+		if(!stat)
+			var/mutable_appearance/flame_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', "stove_flame")
+			flame_overlay.pixel_x = positions[1]
+			flame_overlay.pixel_y = positions[2]
+			flame_overlay.color = "#006eff"
+			pans += flame_overlay
 	if(isemptylist(pans))
 		return
 	add_overlay(pans)
+
+/obj/machinery/appliance/cooker/stove/adhomai
+	name = "adhomian stove"
+	desc = "A rustic Adhomian stove. Warm enough to gather around the winter."
+	icon_state = "adhomai_stove_off"
+
+/obj/machinery/appliance/cooker/stove/adhomai/update_icon()
+	cut_overlays()
+	if(!stat)
+		icon_state = "adhomai_stove_on"
+	else
+		icon_state = "adhomai_stove_off"
+	if(!stat && temperature)
+		switch(temperature)
+			if(T0C to T20C)
+				add_overlay("stove_fire0")
+			if(T20C + 21 to T20C + 40)
+				add_overlay("stove_fire1")
+			if(T20C + 21 to T20C + 40)
+				add_overlay("stove_fire2")
+			if(T20C + 41 to T20C + 60)
+				add_overlay("stove_fire3")
+			if(T20C + 61 to INFINITY)
+				add_overlay("stove_fire4")

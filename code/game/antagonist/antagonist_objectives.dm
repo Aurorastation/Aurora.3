@@ -33,16 +33,15 @@
 /mob/living/proc/write_ambition()
 	set name = "Set Ambition"
 	set category = "IC"
-	set src = usr
 
 	if(!mind)
 		return
 	if(!is_special_character(src))
 		to_chat(src, "<span class='warning'>While you may perhaps have goals, this verb's meant to only be visible to antagonists.  Please make a bug report!</span>")
 		return
-	var/new_ambitions = input(src, "Write a short sentence of what your character hopes to accomplish \
+	var/new_ambitions = tgui_input_text(src, "Write a short sentence of what your character hopes to accomplish \
 	today as an antagonist.  Remember that this is purely optional.  It will be shown at the end of the \
-	round for everybody else.", "Ambitions", html_decode(mind.ambitions)) as null|message
+	round for everybody else.", "Ambitions", html_decode(mind.ambitions), multiline = TRUE)
 	if(isnull(new_ambitions))
 		return
 	new_ambitions = sanitize(new_ambitions)

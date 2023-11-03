@@ -91,11 +91,11 @@
 	return main_ear
 
 
-/obj/item/clothing/examine(var/mob/user)
-	..(user)
+/obj/item/clothing/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			to_chat(user, "\A [A] [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			to_chat(user, SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it."))
 
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
@@ -108,6 +108,7 @@
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -117,6 +118,7 @@
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
@@ -132,12 +134,17 @@
 
 	if(!LAZYLEN(accessories))
 		return
-	
+
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
 		var/list/options = list()
 		for (var/obj/item/clothing/accessory/i in accessories)
 			var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
+			if(i.color)
+				radial_button.color = i.color
+			if(i.build_from_parts && i.worn_overlay)
+				radial_button.cut_overlays()
+				radial_button.add_overlay(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else

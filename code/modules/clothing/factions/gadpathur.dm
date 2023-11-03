@@ -1,7 +1,7 @@
 /obj/item/clothing/under/uniform/gadpathur
 	name = "gadpathurian fatigues"
 	desc = "A simple black cloth shirt and brown NBC-treated pants commonly worn by Gadpathurians."
-	desc_fluff = "Gadpathur is, perhaps, the only planet with a government-mandated planetary costume. These uniforms can be \
+	desc_extended = "Gadpathur is, perhaps, the only planet with a government-mandated planetary costume. These uniforms can be \
 	found throughout the planet and are one of the most common markers of Gadpathurians abroad, due to the distinctive black \
 	shirt of the uniform. While some personalization is common on these uniforms, they mostly remain the same regardless of \
 	which cadre one belongs to."
@@ -13,7 +13,7 @@
 /obj/item/clothing/suit/storage/gadpathur
 	name = "gadpathurian overcoat"
 	desc = "A simple canvas overcoat typically worn by Gadpathurians. The dull colors of it make manufacturing easier."
-	desc_fluff = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
+	desc_extended = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
 	icon = 'icons/clothing/suits/coats/gadpathur_coat.dmi'
@@ -24,7 +24,7 @@
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur
 	name = "gadpathurian trenchcoat"
 	desc = "A heavier Gadpathurian overcoat with some piping on the shoulders. Likely meant for the colder regions of the planet."
-	desc_fluff = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
+	desc_extended = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
 	icon = 'icons/clothing/suits/coats/gadpathur_coat.dmi'
@@ -41,7 +41,7 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
 	name = "thermal coat"
 	desc = "A thermally insulated coat commonly worn by Gadpathurians during the planet's bitterly cold nights."
-	desc_fluff = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
+	desc_extended = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
 	icon = 'icons/clothing/suits/coats/gadpathur_coat.dmi'
@@ -52,7 +52,7 @@
 /obj/item/clothing/head/gadpathur
 	name = "cadre cap"
 	desc = "A snugly-fitting cap with the traditional Gadpathurian red-and-orange sun on its face. It has no other identifying features."
-	desc_fluff = "Soft headgear is commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
+	desc_extended = "Soft headgear is commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
 	Gadpathurian cadres universally avoid decorating their headgear beyond the barest essentials - such as the cadre one belongs \
 	to - in order to not give away unwanted information to observers."
 	icon = 'icons/clothing/head/gadpathur_cap.dmi'
@@ -70,7 +70,7 @@
 /obj/item/clothing/head/beret/gadpathur
 	name = "cadre beret"
 	desc = "A canvas beret with the traditional Gadpathurian red-and-orange sun on its badge. It has no other identifying marks."
-	desc_fluff = "Berets are commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
+	desc_extended = "Berets are commonly worn by cadre members while indoors on Gadpathur or while traveling abroad from the planet. \
 	Gadpathurian cadres universally avoid decorating their headgear beyond the barest essentials - such as the cadre one belongs \
 	to - in order to not give away unwanted information to observers."
 	icon = 'icons/clothing/head/gadpathur_beret.dmi'
@@ -111,7 +111,7 @@
 /obj/item/clothing/accessory/armband/gadpathur
 	name = "cadre brassard"
 	desc = "Gadpathurian cadres use these brassards, worn on their uniforms or their coats, to distinguish themselves."
-	desc_fluff = "Stop reading the fluff description of an accessory friend, we must fight the Solarian imperialists!"
+	desc_extended = "Stop reading the fluff description of an accessory friend, we must fight the Solarian imperialists!"
 	icon = 'icons/clothing/accessories/gadpathur_brassard.dmi'
 	icon_state = "gadpathur_brassard"
 	item_state = "gadpathur_brassard"
@@ -149,30 +149,24 @@
 	They can be easily ripped in half in the event of the wearer's death."
 	icon_state = "gadpathur_dogtags"
 	item_state = "gadpathur_dogtags"
-	var/separated = FALSE
+	can_be_broken = TRUE
+	tag_type = /obj/item/dogtag/gadpathur_tag
 
-/obj/item/clothing/accessory/dogtags/gadpathur/attack_self(mob/user)
-	if(!separated)
-		if (user.a_intent == I_HURT)
-			user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
-			separated = TRUE
-			var/obj/item/gadpathur_tag/tag = new(get_turf(user))
-			user.put_in_hands(tag)
-			separated = TRUE
-			update_icon()
-
-/obj/item/clothing/accessory/dogtags/gadpathur/update_icon()
-	if(separated)
-		icon_state = "[icon_state]_single"
-		item_state = "[item_state]_single"
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
-
-/obj/item/gadpathur_tag
+/obj/item/dogtag/gadpathur_tag
 	name = "gadpathurian dogtag"
 	desc = "Gadpathurian dogtags are issued to every non-exiled member of the planet's highly-militarized society and list their wearer's name, cadre, cadre ID, religion, and blood type. \
 	They can be easily ripped in half in the event of the wearer's death."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "gadpathur_tag"
 	w_class = ITEMSIZE_SMALL
+
+/obj/item/clothing/mask/breath/gadpathur
+	name = "gadpathurian rebreather"
+	desc = "A sturdy-looking rebreather with a canvas scarf wrapped around it. Boring, but sturdy-looking."
+	desc_extended = "A common sight on Gadpathur, the Type 2308 (its year of creation) rebreather is typically worn with an oxygen tank or filtration\
+	module to combat more minor contaminants found on Gadpathur. Not intended for use in seriously contaminated zones."
+	icon = 'icons/clothing/masks/gadpathur_breath.dmi'
+	icon_state = "gadpathur_breath"
+	item_state = "gadpathur_breath"
+	adjustable = FALSE
+	contained_sprite = TRUE

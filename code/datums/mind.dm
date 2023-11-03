@@ -8,12 +8,12 @@
 		ghost.mind is however used as a reference to the ghost's corpse
 
 	-	When creating a new mob for an existing IC character (e.g. cloning a dead guy or borging a brain of a human)
-		the existing mind of the old mob should be transfered to the new mob like so:
+		the existing mind of the old mob should be transferred to the new mob like so:
 
 			mind.transfer_to(new_mob)
 
 	-	You must not assign key= or ckey= after transfer_to() since the transfer_to transfers the client for you.
-		By setting key or ckey explicitly after transfering the mind with transfer_to you will cause bugs like DCing
+		By setting key or ckey explicitly after transferring the mind with transfer_to you will cause bugs like DCing
 		the player.
 
 	-	IMPORTANT NOTE 2, if you want a player to become a ghost, use mob.ghostize() It does all the hard work for you.
@@ -83,19 +83,19 @@
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
-		world.log <<  "## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn"
+		log_world("ERROR: ## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn")
 	var/datum/changeling/changeling = antag_datums[MODE_CHANGELING]
 	var/datum/vampire/vampire = antag_datums[MODE_VAMPIRE]
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
-			current.verbs -= /datum/changeling/proc/EvolutionMenu
+			remove_verb(current, /datum/changeling/proc/EvolutionMenu)
 		if(vampire)
 			current.remove_vampire_powers()
 		current.mind = null
 
-		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
-		SSvueui.user_transferred(current, new_character)
+		SSnanoui.user_transferred(current, new_character)
+		SStgui.on_transfer(current, new_character)
 		if(current.client && ticket_panels[current.client])
 			var/datum/ticket_panel/tp = ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
@@ -112,6 +112,7 @@
 		new_character.make_vampire()
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
+
 
 /datum/mind/proc/store_memory(new_text)
 	. = length(memory + new_text)
@@ -178,11 +179,6 @@
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))	return
 
-	if(current && isliving(current))
-		if(href_list["set_psi_faculty"] && href_list["set_psi_faculty_rank"])
-			current.set_psi_rank(href_list["set_psi_faculty"], text2num(href_list["set_psi_faculty_rank"]))
-			return TRUE
-
 	if(href_list["add_antagonist"])
 		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
 		if(antag)
@@ -218,7 +214,7 @@
 		memory = new_memo
 
 	else if (href_list["amb_edit"])
-		var/new_ambition = input("Enter a new ambition", "Memory",html_decode(src.ambitions)) as null|message
+		var/new_ambition = tgui_input_text("Enter a new ambition", "Memory", html_decode(ambitions))
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
@@ -362,7 +358,7 @@
 
 		switch(href_list["implant"])
 			if("remove")
-				for(var/obj/item/implant/mindshield/I in H.contents)
+				for(var/obj/item/implant/mindshield/loyalty/I in H.contents)
 					for(var/obj/item/organ/external/organs in H.organs)
 						if(I in organs.implants)
 							qdel(I)
@@ -370,10 +366,10 @@
 				to_chat(H, "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>")
 				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			if("add")
-				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font></span>")
+				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font></span>")
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
-			else
+
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])
@@ -393,7 +389,7 @@
 					else if(R.module_state_3 == R.module.emag)
 						R.module_state_3 = null
 						R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemag'ed [R].",admin_key=key_name(usr),ckey_target=key_name(R))
+					log_admin("[key_name_admin(usr)] has unemagged [R].",admin_key=key_name(usr),ckey_target=key_name(R))
 
 			if("unemagcyborgs")
 				if (istype(current, /mob/living/silicon/ai))
@@ -412,7 +408,7 @@
 							else if(R.module_state_3 == R.module.emag)
 								R.module_state_3 = null
 								R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.",admin_key=key_name(usr),ckey_target=key_name(ai))
+					log_admin("[key_name_admin(usr)] has unemagged [ai]'s Cyborgs.",admin_key=key_name(usr),ckey_target=key_name(ai))
 
 	else if (href_list["common"])
 		switch(href_list["common"])
@@ -427,11 +423,12 @@
 					var/obj/item/device/uplink/hidden/suplink = find_syndicate_uplink()
 					var/crystals
 					if (suplink)
-						crystals = suplink.uses
-					crystals = input("Amount of telecrystals for [key]","Operative uplink", crystals) as null|num
+						crystals = suplink.telecrystals + suplink.bluecrystals
+					crystals = input("Amount of telecrystals and bluecrystals for [key]","Operative uplink", crystals) as null|num
 					if (!isnull(crystals))
 						if (suplink)
-							suplink.uses = crystals
+							suplink.telecrystals = crystals
+							suplink.bluecrystals = crystals
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
@@ -439,6 +436,17 @@
 		for(var/datum/objective/objective in objectives)
 			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++
+
+	else if(href_list["set_psi_rank"])
+		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
+		return
+	else if(href_list["set_psi_rank_limitless"])
+		var/sure = tgui_alert(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", \
+					"Don't Get A Staff Complaint", list("I know what I'm doing!", "I fear no man. But that thing... it scares me!"))
+		if(sure == "I know what I'm doing!")
+			current.set_psi_rank(PSI_RANK_LIMITLESS)
+		return
+
 	edit_memory()
 
 /datum/mind/proc/find_syndicate_uplink()
@@ -524,19 +532,12 @@
 /mob/living/carbon/human/mind_initialize()
 	..()
 	if(!mind.assigned_role)
-		mind.assigned_role = "Assistant"	//defualt
+		mind.assigned_role = "Assistant"	//default
 
 //slime
 /mob/living/carbon/slime/mind_initialize()
 	..()
 	mind.assigned_role = "slime"
-
-/mob/living/carbon/alien/larva
-	icon_state = "larva0"
-
-/mob/living/carbon/alien/larva/mind_initialize()
-	..()
-	mind.special_role = "Larva"
 
 //AI
 /mob/living/silicon/ai/mind_initialize()
@@ -574,7 +575,7 @@
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"
 
-/mob/living/silicon/robot/syndicate/mind_initialize()
+/mob/living/silicon/robot/combat/mind_initialize()
 	..()
-	mind.assigned_role = "Syndicate Robot"
+	mind.assigned_role = "Combat Robot"
 	mind.special_role = "Mercenary"

@@ -66,16 +66,22 @@
 	item_state = "bandana_hydro"
 
 /obj/item/clothing/head/bandana/hydro/nt
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_gardener_headband"
 	item_state = "nt_gardener_headband"
 
 /obj/item/clothing/head/bandana/hydro/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "idris_gardener_headband"
 	item_state = "idris_gardener_headband"
+
+/obj/item/clothing/head/bandana/hydro/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_gardener_headband"
+	item_state = "orion_gardener_headband"
 
 /obj/item/clothing/head/bandana/cargo
 	name = "operations bandana"

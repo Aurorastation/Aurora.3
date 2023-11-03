@@ -4,10 +4,7 @@
 /obj/item/material/knife
 	name = "kitchen knife"
 	icon = 'icons/obj/kitchen.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT
@@ -22,6 +19,7 @@
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
@@ -46,7 +44,7 @@
 	for(var/thing in H.organs)
 		var/obj/item/organ/external/O = thing
 		available_organs[capitalize_first_letters(O.name)] = O
-	var/choice = input(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection") as null|anything in available_organs
+	var/choice = tgui_input_list(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection", available_organs)
 	if(!choice)
 		return
 
@@ -54,7 +52,7 @@
 	for(var/thing in O.implants)
 		var/obj/S = thing
 		usr.visible_message("<span class='notice'>[usr] starts carefully digging out something in [H == usr ? "themselves" : H]...</span>")
-		O.take_damage(8, 0, DAM_SHARP|DAM_EDGE, src)
+		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
@@ -69,6 +67,15 @@
 	item_state = "knife"
 	applies_material_colour = 0
 
+/obj/item/material/knife/raskariim
+	name = "adhomian ritual dagger"
+	desc = "An adhomian knife used in occult rituals."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "raskariim_dagger"
+	item_state = "raskariim_dagger"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
 /obj/item/material/knife/bayonet
 	name = "bayonet"
 	desc = "A sharp military knife, can be attached to a rifle."
@@ -79,6 +86,9 @@
 	force_divisor = 0.35
 	can_embed = 0
 	w_class = ITEMSIZE_NORMAL
+
+/obj/item/material/knife/bayonet/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 /obj/item/material/knife/tacknife
 	name = "tactical knife"
@@ -100,6 +110,9 @@
 	w_class = ITEMSIZE_NORMAL
 	applies_material_colour = 0
 	slot_flags = SLOT_BELT
+
+/obj/item/material/knife/trench/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 //Butterfly knives stab your eyes out too!
 

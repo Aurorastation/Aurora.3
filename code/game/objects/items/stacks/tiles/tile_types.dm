@@ -11,11 +11,11 @@
 /obj/item/stack/tile
 	name = "tile"
 	singular_name = "tile"
-	desc = "A non-descript floor tile"
+	desc = "A non-descript floor tile."
 	w_class = ITEMSIZE_NORMAL
 	max_amount = 60
 	recyclable = TRUE
-	icon = 'icons/obj/stacks/tiles.dmi'
+	icon = 'icons/obj/item/stacks/tiles.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_tiles.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_tiles.dmi',
@@ -45,20 +45,6 @@
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
-/obj/item/stack/tile/grass_alt
-	name = "grass tile"
-	singular_name = "grass floor tile"
-	desc = "A soft patch of grass."
-	icon_state = "tile_grass_alt"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	origin_tech = list(TECH_BIO = 1)
-	drop_sound = 'sound/items/drop/herb.ogg'
-	pickup_sound = 'sound/items/pickup/herb.ogg'
-
 /*
  * Wood
  */
@@ -75,43 +61,40 @@
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
-/obj/item/stack/tile/wood/coloured
-	icon_state = "tile_woodcoloured"
-
-/obj/item/stack/tile/wood/coloured/birch
+/obj/item/stack/tile/wood/birch
 	name = "birch wood floor tile"
-	color = WOOD_COLOR_BIRCH 
-	build_type = /obj/item/stack/tile/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH
+	build_type = /obj/item/stack/tile/wood/birch
 
-/obj/item/stack/tile/wood/coloured/mahogany
+/obj/item/stack/tile/wood/mahogany
 	name = "mahogany wood floor tile"
 	color = WOOD_COLOR_RICH
-	build_type = /obj/item/stack/tile/wood/coloured/mahogany
+	build_type = /obj/item/stack/tile/wood/mahogany
 
-/obj/item/stack/tile/wood/coloured/maple
+/obj/item/stack/tile/wood/maple
 	name = "maple wood floor tile"
 	color = WOOD_COLOR_PALE
-	build_type = /obj/item/stack/tile/wood/coloured/maple
+	build_type = /obj/item/stack/tile/wood/maple
 
-/obj/item/stack/tile/wood/coloured/bamboo
+/obj/item/stack/tile/wood/bamboo
 	name = "bamboo wood floor tile"
 	color = WOOD_COLOR_PALE2
-	build_type = /obj/item/stack/tile/wood/coloured/bamboo
+	build_type = /obj/item/stack/tile/wood/bamboo
 
-/obj/item/stack/tile/wood/coloured/ebony
+/obj/item/stack/tile/wood/ebony
 	name = "ebony wood floor tile"
 	color = WOOD_COLOR_BLACK
-	build_type = /obj/item/stack/tile/wood/coloured/ebony
+	build_type = /obj/item/stack/tile/wood/ebony
 
-/obj/item/stack/tile/wood/coloured/walnut
+/obj/item/stack/tile/wood/walnut
 	name = "walnut wood floor tile"
 	color = WOOD_COLOR_CHOCOLATE
-	build_type = /obj/item/stack/tile/wood/coloured/walnut
+	build_type = /obj/item/stack/tile/wood/walnut
 
-/obj/item/stack/tile/wood/coloured/yew
+/obj/item/stack/tile/wood/yew
 	name = "yew wood floor tile"
 	color = WOOD_COLOR_YELLOW
-	build_type = /obj/item/stack/tile/wood/coloured/yew
+	build_type = /obj/item/stack/tile/wood/yew
 
 /*
  * Carpets
@@ -129,83 +112,64 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/stack/tile/carpet_blue
-	name = "blue carpet"
-	singular_name = "carpet"
-	desc = "A piece of carpet. It is the same size as a normal floor tile!"
-	icon_state = "tile_carpet_blue"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+/obj/item/stack/tile/carpet/cyan
+	name = "cyan carpet"
+	icon_state = "tile_carpet_cyan"
 
-/obj/item/stack/tile/carpet_rubber
+/obj/item/stack/tile/carpet/rubber
 	name = "rubber carpet"
 	singular_name = "carpet"
 	desc = "A piece of rubber carpet. It is the same size as a normal floor tile!"
 	icon_state = "tile_carpet_rubber"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/stack/tile/carpet_art
+/obj/item/stack/tile/carpet/art
 	name = "adhomian carpet"
 	singular_name = "carpet"
 	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
 	icon_state = "carpet_art"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/stack/tile/carpet_fancybrown
+/obj/item/stack/tile/carpet/black
+	name = "black carpet"
+	icon_state = "tile_carpetblack"
+
+/obj/item/stack/tile/carpet/brown
 	name = "brown carpet"
 	icon_state = "tile_carpetbrown"
 
-/obj/item/stack/tile/carpet_purple
+/obj/item/stack/tile/carpet/purple
 	name = "purple carpet"
 	icon_state = "tile_carpetpurple"
 
-/obj/item/stack/tile/carpet_green
+/obj/item/stack/tile/carpet/green
 	name = "green carpet"
 	icon_state = "tile_carpetgreen"
 
-/obj/item/stack/tile/carpet_darkblue
+/obj/item/stack/tile/carpet/darkblue
 	name = "dark blue carpet"
 	icon_state = "tile_carpetblue"
 
-/obj/item/stack/tile/carpet_lightblue
+/obj/item/stack/tile/carpet/lightblue
 	name = "light blue carpet"
 	icon_state = "tile_carpetblue2"
 
-/obj/item/stack/tile/carpet_aquablue
+/obj/item/stack/tile/carpet/aquablue
 	name = "aqua blue carpet"
 	icon_state = "tile_carpetblue3"
 
-/obj/item/stack/tile/carpet_red
+/obj/item/stack/tile/carpet/red
 	name = "red carpet"
 	icon_state = "tile_carpetred"
 
-/obj/item/stack/tile/carpet_orange
+/obj/item/stack/tile/carpet/orange
 	name = "orange carpet"
 	icon_state = "tile_carpetorange"
 
-/obj/item/stack/tile/carpet_magenta
+/obj/item/stack/tile/carpet/magenta
 	name = "magenta carpet"
 	icon_state = "tile_carpetmagenta"
 
 /obj/item/stack/tile/lino
-	name = "old linoleum"
+	name = "linoleum"
 	singular_name = "linoleum"
 	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
 	icon_state = "tile_linoleum"
@@ -218,19 +182,9 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
-/obj/item/stack/tile/lino_grey
-	name = "linoleum"
-	singular_name = "linoleum"
-	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
-	icon_state = "tile_linoleum_grey"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
-	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
+/obj/item/stack/tile/lino/diamond
+	name = "diamond linoleum"
+	icon_state = "tile_linoleum_diamond"
 
 /*
  * Circuits
@@ -281,7 +235,7 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/tile/floor/full
+/obj/item/stack/tile/mono
 	name = "full steel tiles"
 	desc = "A set of full steel floor tiles."
 	singular_name = "full steel tile"
@@ -293,11 +247,9 @@
 	color = COLOR_RED_GRAY
 	icon_state = "tile_white"
 
-/obj/item/stack/tile/floor_steel
-	name = "steel floor tile"
-	singular_name = "steel floor tile"
-	icon_state = "tile_steel"
-	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
+/obj/item/stack/tile/floor/rust
+	name = "rusted steel floor tile"
+	desc = "A set of steel floor tiles. Seems to be only good for recycling."
 
 /obj/item/stack/tile/floor_white
 	name = "white floor tile"
@@ -362,15 +314,10 @@
 	matter = list(MATERIAL_DIAMOND = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/marble
-	name = "light marble floor tile"
-	singular_name = "light marble floor tile"
+	name = "marble floor tile"
+	singular_name = "marble floor tile"
 	icon_state = "tile_lightmarble"
 	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
-
-/obj/item/stack/tile/marble/dark
-	name = "dark marble floor tile"
-	singular_name = "dark marble floor tile"
-	icon_state = "tile_darkmarble"
 
 /*
  * Cyborg modules

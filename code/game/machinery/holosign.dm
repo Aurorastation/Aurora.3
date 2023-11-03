@@ -53,8 +53,7 @@
 /obj/machinery/button/switch/holosign
 	name = "holosign switch"
 	desc = "A remote control switch for holosign."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "holosign_switch"
+	icon_state = "light0"
 
 /obj/machinery/button/switch/holosign/attack_hand(mob/user as mob)
 	if(..())
@@ -67,6 +66,6 @@
 	update_icon()
 	for(var/obj/machinery/holosign/M in SSmachinery.machinery)
 		if (M.id == src.id)
-			INVOKE_ASYNC(M, /obj/machinery/holosign/proc/toggle)
+			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/holosign, toggle))
 
 	return

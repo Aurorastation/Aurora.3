@@ -8,7 +8,7 @@
 	var/lastuser = null
 
 /obj/item/spirit_board/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "The planchette is sitting at \"[planchette]\".")
 
 /obj/item/spirit_board/attack_hand(mob/user)
@@ -30,10 +30,10 @@
 /obj/item/spirit_board/proc/spirit_board_pick_letter(mob/M)
 	if(!spirit_board_checks(M))
 		return 0
-	planchette = input("Choose the letter.", "Seance!") as null|anything in list(
+	planchette = tgui_input_list(M, "Choose the letter.", "Seance!", list(
 		"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
 		"1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-		"YES", "NO", "GOODBYE")
+		"YES", "NO", "GOODBYE"))
 	if(!planchette || !Adjacent(M) || next_use > world.time)
 		return	next_use = world.time + rand(30,50)
 
@@ -74,3 +74,9 @@
 		return 0
 
 	return 1
+
+
+/obj/item/spirit_board/tajara
+	name = "ghostly board"
+	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
+	icon_state = "tajara_board"

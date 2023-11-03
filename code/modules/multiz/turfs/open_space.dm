@@ -14,6 +14,7 @@
 	roof_type = null
 	footstep_sound = null
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
+	turf_flags = TURF_FLAG_BACKGROUND
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.
@@ -39,14 +40,23 @@
 		if(direction == DOWN) //on a turf above, trying to enter
 			return !density
 
+/turf/proc/GetZPassBlocker()
+	return src
+
 /turf/simulated/open/CanZPass(atom/A, direction)
 	if(locate(/obj/structure/lattice/catwalk, src))
 		if(z == A.z)
 			if(direction == DOWN)
-				return 0
+				return FALSE
 		else if(direction == UP)
-			return 0
+			return FALSE
 	return 1
+
+/turf/simulated/open/GetZPassBlocker()
+	var/obj/structure/lattice/catwalk/catwalk = locate(/obj/structure/lattice/catwalk, src)
+	if(catwalk)
+		return catwalk
+	return src
 
 /turf/space/CanZPass(atom/A, direction)
 	if(locate(/obj/structure/lattice/catwalk, src))
@@ -56,6 +66,12 @@
 		else if(direction == UP)
 			return 0
 	return 1
+
+/turf/space/GetZPassBlocker()
+	var/obj/structure/lattice/catwalk/catwalk = locate(/obj/structure/lattice/catwalk, src)
+	if(catwalk)
+		return catwalk
+	return src
 
 
 // Add a falling atom by default. Even if it's not an atom that can actually fall.
@@ -123,22 +139,20 @@
 		LAZYREMOVE(climbers, climber)
 
 /turf/simulated/open/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	icon_state = "opendebug_airless"
 
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	z_flags = ZM_MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	icon_state = "debug_airless"
 
@@ -193,6 +207,18 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
+		var/depth = 1
+		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
+			depth += 1
+		to_chat(user, "It is about [depth] level\s deep.")
+
+
+/turf/simulated/open/is_open()
+	return TRUE
+
 /turf/simulated/open/update_icon(mapload)
 	update_mimic(!mapload)
 
@@ -204,7 +230,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
 
@@ -215,7 +241,7 @@
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return

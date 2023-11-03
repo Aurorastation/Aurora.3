@@ -25,10 +25,59 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 
+	var/has_storage = TRUE
+	var/obj/item/storage/internal/helmet/hold
+	var/slots = 1
+
 /obj/item/clothing/head/helmet/Initialize()
 	. = ..()
 	if(camera)
 		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+	if(has_storage)
+		hold = new /obj/item/storage/internal/helmet(src)
+		hold.storage_slots = slots
+		hold.max_storage_space = slots * ITEMSIZE_SMALL
+		hold.max_w_class = ITEMSIZE_SMALL
+
+/obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(has_storage && slot == slot_head_str && length(hold.contents))
+		for(var/obj/item/thing in hold.contents)
+			var/icon_type = hold.helmet_storage_types[thing.type]
+			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
+			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
+			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+	return I
+
+/obj/item/clothing/head/helmet/attack_hand(mob/user)
+	if(has_storage && !hold.handle_attack_hand(user))
+		return
+	return ..(user)
+
+/obj/item/clothing/head/helmet/MouseDrop(obj/over_object)
+	if(has_storage && !hold.handle_mousedrop(usr, over_object))
+		return
+	return ..(over_object)
+
+/obj/item/clothing/head/helmet/handle_middle_mouse_click(mob/user)
+	if(has_storage && Adjacent(user))
+		hold.open(user)
+		return TRUE
+	return FALSE
+
+/obj/item/clothing/head/helmet/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(!has_storage || istype(W, /obj/item/clothing/accessory))
+		return
+	hold.attackby(W, user)
+
+/obj/item/clothing/head/helmet/emp_act(severity)
+	if(has_storage) hold.emp_act(severity)
+	return ..()
+
+/obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+	if(has_storage) hold.hear_talk(M, msg, verb, speaking)
+	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
 	set name = "Toggle Helmet Camera"
@@ -47,36 +96,45 @@
 		else
 			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
 
-/obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera)
+/obj/item/clothing/head/helmet/space/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if((distance <= 1) && camera)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
-	desc_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_sec_commander"
 	item_state = "helm_sec_commander"
 
+/obj/item/clothing/head/helmet/hos/skrell
+	name = "head of security skrellmet"
+	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers, this one seems to be built for use by a Skrell."
+	icon_state = "helm_skrell_commander"
+	item_state = "helm_skrell_commander"
+
 /obj/item/clothing/head/helmet/hos/dermal
 	name = "dermal armor patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
+	has_storage = FALSE
 	allow_hair_covering = FALSE
 
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
+	has_storage = FALSE
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
 	icon_state = "officercap"
+	has_storage = FALSE
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/riot
@@ -84,6 +142,8 @@
 	desc = "It's a helmet specifically designed to protect against close range attacks."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	icon_state = "helm_riot"
 	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
@@ -125,7 +185,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -139,7 +199,7 @@
 	item_state = "helm_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -230,6 +290,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	siemens_coefficient = 1
+	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"
@@ -303,7 +364,7 @@
 	item_state = "hegemony_helmet"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
@@ -311,8 +372,8 @@
 	)
 
 /obj/item/clothing/head/helmet/unathi/klax
-	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors.."
+	name = "klaxan warrior helmet"
+	desc = "A helmet designated to be worn by a K'lax warrior. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"
@@ -326,6 +387,7 @@
 		rad = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
+	flash_protection = FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
@@ -337,6 +399,7 @@
 		melee = ARMOR_MELEE_KNIVES
 	)
 	siemens_coefficient = 0.75
+	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/tank/olive
 	color = "#727c58"

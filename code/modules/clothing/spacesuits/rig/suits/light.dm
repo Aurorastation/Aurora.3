@@ -1,4 +1,4 @@
-// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered. 
+// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
@@ -10,7 +10,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_MELEE_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -186,7 +186,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL,

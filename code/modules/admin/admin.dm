@@ -28,7 +28,7 @@ var/global/enabled_spooking = 0
 				var/msg = rendered
 				to_chat(C, msg)
 
-proc/admin_notice(var/message, var/rights)
+/proc/admin_notice(var/message, var/rights)
 	for(var/mob/M in mob_list)
 		if(check_rights(rights, 0, M))
 			to_chat(M, message)
@@ -77,8 +77,7 @@ proc/admin_notice(var/message, var/rights)
 	"}
 
 	if(M.client)
-		body += "| <A HREF='?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
-		body += "<a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a> | "
+		body += "| <a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a> | "
 		body += "\ <A HREF='?src=\ref[src];sendbacktolobby=\ref[M]]'>Send back to Lobby</A>"
 		var/muted = M.client.prefs.muted
 		body += {"<br><b>Mute: </b>
@@ -107,18 +106,16 @@ proc/admin_notice(var/message, var/rights)
 		var/mob/living/psyker = M
 		if(psyker.psi)
 			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
-			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
 		body += "<table width = '100%'>"
-		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
-			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
-			var/faculty_rank = psyker.psi ? psyker.psi.get_rank(faculty) : 0
-			body += "<tr><td><b>[faculty_decl.name]</b></td>"
-			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
-				var/psi_title = psychic_ranks_to_strings[i]
-				if(i == faculty_rank)
-					psi_title = "<b>[psi_title]</b>"
-				body += "<td><a href='?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
-			body += "</tr>"
+		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX, PSI_RANK_LIMITLESS))
+			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
+			var/psi_title = psychic_ranks_to_strings[psi_rank]
+			if(psi_rank == owner_rank)
+				psi_title = "<b>[psi_title]</b>"
+			if(psi_rank != PSI_RANK_LIMITLESS)
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
+			else
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
 		body += "</table>"
 
 	if (M.client)
@@ -601,8 +598,8 @@ proc/admin_notice(var/message, var/rights)
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
 
-	send_theme_resources(usr)
-	usr << browse(enable_ui_theme(usr, dat), "window=admincaster_main;size=400x600")
+
+	usr << browse(dat, "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 
@@ -699,7 +696,7 @@ proc/admin_notice(var/message, var/rights)
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = input("Global message to send:", "Admin Announce", null, null) as message
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
 	if(message)
 		if(!check_rights(R_SERVER, 0))
 			message = sanitize(message, 500, extra = 0)
@@ -958,7 +955,7 @@ proc/admin_notice(var/message, var/rights)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
-/proc/is_special_character(mob/M as mob) // returns 1 for specail characters and 2 for heroes of gamemode
+/proc/is_special_character(var/mob/M) // returns 1 for specail characters and 2 for heroes of gamemode
 	if(!SSticker.mode)
 		return 0
 	if (!istype(M))
@@ -1194,23 +1191,6 @@ proc/admin_notice(var/message, var/rights)
 	if(!ai_number)
 		to_chat(usr, "<b>No AIs located</b>") //Just so you know the thing is actually working and not just ignoring you.)
 
-/datum/admins/proc/show_skills()
-	set category = "Admin"
-	set name = "Show Skills"
-
-	if (!istype(src,/datum/admins))
-		src = usr.client.holder
-	if (!istype(src,/datum/admins))
-		to_chat(usr, "Error: you are not an admin!")
-		return
-
-	var/mob/living/carbon/human/M = input("Select mob.", "Select mob.") as null|anything in human_mob_list
-	if(!M) return
-
-	show_skill_window(usr, M)
-
-	return
-
 /client/proc/update_mob_sprite(mob/living/carbon/human/H as mob)
 	set category = "Admin"
 	set name = "Update Mob Sprite"
@@ -1287,6 +1267,7 @@ proc/admin_notice(var/message, var/rights)
 	log_admin("[key_name(usr)] stuffed [frommob.ckey] into [tomob.name].")
 	feedback_add_details("admin_verb","CGD")
 	tomob.ckey = frommob.ckey
+	tomob.client.init_verbs()
 	qdel(frommob)
 	return 1
 
@@ -1305,7 +1286,7 @@ proc/admin_notice(var/message, var/rights)
 		to_chat(usr, "Mode has not started.")
 		return
 
-	var/antag_type = input("Choose a template.","Force Latespawn") as null|anything in all_antag_types
+	var/antag_type = tgui_input_list(usr, "Choose a template.", "Force Latespawn", all_antag_types)
 	if(!antag_type || !all_antag_types[antag_type])
 		to_chat(usr, "Aborting.")
 		return
@@ -1368,16 +1349,16 @@ proc/admin_notice(var/message, var/rights)
 /datum/admins/proc/ccannoucment()
 	set category = "Special Verbs"
 	set name = "Custom sound Command Announcment"
-	set desc = "Emulate announcement that looks and sounds like the real one"
+	set desc = "Emulate announcement that looks and sounds like the real one."
 	if(!check_rights(R_FUN))
 		return
 
-	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
+	var/title = tgui_input_text(usr, "Input the announcement's title.", "Custom Announcement")
 	if(!title)
 		return
 	if(!check_rights(R_SERVER,0))
 		title = sanitize(title, 255, extra = 0)
-	var/message = input("Announcement content:", "CAnnounce", null, null) as message
+	var/message = tgui_input_text("Input the announcement's content.", "CAnnounce", multiline = TRUE)
 	if(!message)
 		return
 	if(!check_rights(R_SERVER,0))
@@ -1389,7 +1370,7 @@ proc/admin_notice(var/message, var/rights)
 	sounds += "--LOCAL--"
 	sounds += sounds_cache
 
-	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+	var/melody = tgui_input_list(usr, "Select a sound from the server to play.", "Sound Selection", sounds)
 
 	if(melody == "--CANCEL--")
 		return
@@ -1401,3 +1382,7 @@ proc/admin_notice(var/message, var/rights)
 	command_announcement.Announce(message, title, new_sound = melody)
 	log_and_message_admins("made custom announcement with custom sound", usr)
 	feedback_add_details("admin_verb","ACS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
+	var/turf/T = get_turf(src)
+	return T ? "[area_name ? "[get_area_name(T, TRUE)] " : " "]([T.x],[T.y],[T.z])[admin_jump_ref ? " [ADMIN_JMP(T)]" : ""]" : "nonexistent location"

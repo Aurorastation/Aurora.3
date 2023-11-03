@@ -1,5 +1,7 @@
 /obj/effect/decal/cleanable/liquid_fuel
 	//Liquid fuel is used for things that used to rely on volatile fuels or phoron being contained to a couple tiles.
+	name = "liquid fuel"
+	desc = "Some kind of sticky, flammable liquid."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
 	layer = TURF_LAYER+0.2
@@ -119,6 +121,7 @@
 	var/amount = 1
 
 /obj/effect/decal/cleanable/foam/Initialize(mapload, amt = 1, nologs = 0)
+	SHOULD_CALL_PARENT(FALSE)
 	src.amount = amt
 
 	var/has_spread = 0
@@ -130,11 +133,15 @@
 			has_spread = 1
 			break
 
+	initialized = TRUE
+
 	if(!has_spread)
 		Spread()
 		QDEL_IN(src, 2 MINUTES)
+		return INITIALIZE_HINT_NORMAL
 	else
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
+
 
 /obj/effect/decal/cleanable/foam/proc/Spread(exclude=list())
 	if(amount < 15) return

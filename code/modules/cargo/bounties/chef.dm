@@ -201,9 +201,9 @@
 	reward_high = 3200
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/boiledspagetti,
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/boiledspaghetti,
 				/obj/item/reagent_containers/food/snacks/pastatomato,
-				/obj/item/reagent_containers/food/snacks/meatballspagetti)
+				/obj/item/reagent_containers/food/snacks/meatballspaghetti)
 
 /datum/bounty/item/chef/dumplings
 	name = "Meat Buns or Momo"
@@ -253,7 +253,7 @@
 
 /datum/bounty/item/chef/skrell
 	name = "Federation Delicacies"
-	description = "We're holding a luncheon with some Jargon Federation representatives; send some Skrellian dishes!"
+	description = "We're holding a luncheon with some Nralakk Federation representatives; send some Skrellian dishes!"
 	reward_low = 3700
 	reward_high = 5700
 	required_count = 3

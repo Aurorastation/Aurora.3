@@ -18,13 +18,13 @@
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, access_maint_tunnels, access_intrepid)
+			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, access_maint_tunnels, access_intrepid)
+			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 
 	minimal_player_age = 10
 	ideal_character_age = list(
@@ -43,7 +43,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -56,10 +56,10 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
 
-	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel/med
-	dufflebag = /obj/item/storage/backpack/duffel/med
-	messengerbag = /obj/item/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/cmo
+	satchel = /obj/item/storage/backpack/satchel/cmo
+	dufflebag = /obj/item/storage/backpack/duffel/cmo
+	messengerbag = /obj/item/storage/backpack/messenger/cmo
 
 /datum/job/doctor
 	title = "Physician"
@@ -67,8 +67,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
 	economic_modifier = 7
@@ -115,7 +115,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/medical
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -129,17 +129,21 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/medic
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/med
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/med
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/med
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
-	jobtype = /datum/job/doctor
+	jobtype = /datum/job/surgeon
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/surgeon
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
@@ -174,7 +178,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/chemist
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
 	headset = /obj/item/device/radio/headset/headset_med
@@ -187,9 +191,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/pharmacy
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/pharm
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -223,7 +231,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/psych
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
 	headset = /obj/item/device/radio/headset/headset_med
@@ -235,10 +243,14 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
 
-	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel/med
-	dufflebag = /obj/item/storage/backpack/duffel/med
-	messengerbag = /obj/item/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/psychiatrist
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel = /obj/item/storage/backpack/satchel/psych
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag = /obj/item/storage/backpack/duffel/psych
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag = /obj/item/storage/backpack/messenger/psych
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
@@ -257,7 +269,7 @@
 	economic_modifier = 4
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 20,
+		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)
@@ -288,10 +300,14 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
-	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel/med
-	dufflebag = /obj/item/storage/backpack/duffel/med
-	messengerbag = /obj/item/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/emt
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel = /obj/item/storage/backpack/satchel/emt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag = /obj/item/storage/backpack/duffel/emt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag = /obj/item/storage/backpack/messenger/emt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
 		/obj/item/storage/firstaid/adv = 1
@@ -303,12 +319,29 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	alt_titles = list("First Responder Trainee", "Pharmacy Intern", "Resident Surgeon", "Resident Psychiatrist")
+	alt_outfits = list("First Responder Trainee" = /datum/outfit/job/intern_med/medtech, "Pharmacy Intern" = /datum/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /datum/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /datum/outfit/job/intern_med/psychiatrist)
+	alt_ages = list("Pharmacy Intern" = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Resident Surgeon" = list(
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Resident Psychiatrist" = list(
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	))
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(access_medical, access_surgery, access_medical_equip)
-	minimal_access = list(access_medical, access_surgery, access_medical_equip)
+	access = list(access_medical, access_medical_equip)
+	minimal_access = list(access_medical, access_medical_equip)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,
@@ -322,17 +355,69 @@
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
-	shoes = /obj/item/clothing/shoes/medical
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
 
 	backpack = /obj/item/storage/backpack/medic
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/med
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/med
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/med
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
+
+/datum/outfit/job/intern_med/medtech
+	name = "First Responder Trainee"
+
+	head = /obj/item/clothing/head/softcap/nt
+	shoes = /obj/item/clothing/shoes/jackboots
+
+	backpack = /obj/item/storage/backpack/emt
+	satchel = /obj/item/storage/backpack/satchel/emt
+	dufflebag = /obj/item/storage/backpack/duffel/emt
+	messengerbag = /obj/item/storage/backpack/messenger/emt
+
+	backpack_contents = list(
+		/obj/item/storage/firstaid = 1
+	)
+
+/datum/outfit/job/intern_med/pharmacist
+	name = "Pharmacy Intern"
+
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
+
+	backpack = /obj/item/storage/backpack/pharmacy
+	satchel = /obj/item/storage/backpack/satchel/pharm
+	dufflebag = /obj/item/storage/backpack/duffel/pharm
+	messengerbag = /obj/item/storage/backpack/messenger/pharm
+
+/datum/outfit/job/intern_med/surgeon
+	name = "Resident Surgeon"
+
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
+
+/datum/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!isskrell(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
+
+/datum/outfit/job/intern_med/psychiatrist
+	name = "Resident Psychiatrist"
+
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
+
+	backpack = /obj/item/storage/backpack/psychiatrist
+	satchel = /obj/item/storage/backpack/satchel/psych
+	dufflebag = /obj/item/storage/backpack/duffel/psych
+	messengerbag = /obj/item/storage/backpack/messenger/psych
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
+	tablet = /obj/item/modular_computer/handheld/preset/medical/psych

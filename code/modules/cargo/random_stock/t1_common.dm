@@ -372,7 +372,7 @@ STOCK_ITEM_COMMON(plant, 3.5)
 			if (turf_clear(U))
 				T = U
 				break
-	new /obj/structure/flora/pottedplant/random(T)
+	new /obj/random/pottedplant(T)
 
 STOCK_ITEM_COMMON(bag, 2)
 	var/type = pick( \
@@ -490,7 +490,6 @@ STOCK_ITEM_COMMON(warning, 2.2)
 STOCK_ITEM_COMMON(gasmask, 2)
 	var/list/masks = list(
 		/obj/item/clothing/mask/gas = 10,
-		/obj/item/clothing/mask/gas/plaguedoctor = 1,
 		/obj/item/clothing/mask/gas/swat = 5,
 		/obj/item/clothing/mask/gas/mime = 0.5,
 		/obj/item/clothing/mask/gas/monkeymask = 0.5,

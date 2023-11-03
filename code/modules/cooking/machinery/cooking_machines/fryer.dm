@@ -25,9 +25,9 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 
-/obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
+/obj/machinery/appliance/cooker/fryer/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if (.)//no need to duplicate adjacency check
+	if (is_adjacent)
 		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
@@ -39,7 +39,11 @@
 	if (prob(20))
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
-	oil.add_reagent(/decl/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
+	oil.add_reagent(/singleton/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
+
+/obj/machinery/appliance/cooker/fryer/Destroy()
+	QDEL_NULL(oil)
+	return ..()
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
@@ -55,7 +59,7 @@
 	..()//In addition to parent temperature calculation
 	//Fryer efficiency also drops when oil levels arent optimal
 	var/oil_level = 0
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
+	var/singleton/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if (OL && istype(OL))
 		oil_level = oil.reagent_volumes[OL.type]
 
@@ -74,6 +78,17 @@
 		icon_state = on_icon
 	else
 		icon_state = off_icon
+	cut_overlays()
+	var/list/pans = list()
+	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+		var/image/pan_overlay
+		if(CC.appliancetype == FRYER)
+			pan_overlay = image('icons/obj/machinery/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
+		pan_overlay.color = CC.color
+		pans += pan_overlay
+	if(isemptylist(pans))
+		return
+	add_overlay(pans)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories
@@ -93,12 +108,12 @@
 	var/total_oil = 0
 	var/total_our_oil = 0
 	var/total_removed = 0
-	var/decl/reagent/our_oil = oil.get_primary_reagent_decl()
+	var/singleton/reagent/our_oil = oil.get_primary_reagent_decl()
 
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
 			for (var/_R in I.reagents.reagent_volumes)
-				if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
+				if (ispath(_R, /singleton/reagent/nutriment/triglyceride/oil))
 					total_oil += I.reagents.reagent_volumes[_R]
 					if (_R != our_oil.type)
 						total_removed += I.reagents.reagent_volumes[_R]
@@ -144,7 +159,7 @@
 	var/damage = rand(7,13)
 	//Though this damage seems reduced, some hot oil is transferred to the victim and will burn them for a while after
 
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
+	var/singleton/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if(istype(OL))
 		damage *= OL.heatdamage(victim, oil)
 
@@ -173,7 +188,7 @@
 
 			E.take_damage(0, damage, used_weapon = "hot oil")
 		else
-			victim.apply_damage(damage, BURN, user.zone_sel.selecting)
+			victim.apply_damage(damage, DAMAGE_BURN, user.zone_sel.selecting)
 
 		if(!nopain)
 			var/arrows_var1 = E ? E.name : "flesh"
@@ -201,7 +216,7 @@
 	//So for now, restrict to oil only
 		var/amount = 0
 		for (var/_R in I.reagents.reagent_volumes)
-			if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
+			if (ispath(_R, /singleton/reagent/nutriment/triglyceride/oil))
 				var/delta = REAGENTS_FREE_SPACE(oil)
 				delta = min(delta, I.reagents.reagent_volumes[_R])
 				oil.add_reagent(_R, delta)

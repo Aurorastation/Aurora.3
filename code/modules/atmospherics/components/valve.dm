@@ -39,9 +39,9 @@
 
 /obj/machinery/atmospherics/valve/Initialize()
 	switch(dir)
-		if(NORTH || SOUTH)
+		if(NORTH, SOUTH)
 			initialize_directions = NORTH|SOUTH
-		if(EAST || WEST)
+		if(EAST, WEST)
 			initialize_directions = EAST|WEST
 	. = ..()
 
@@ -308,8 +308,9 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE
@@ -324,5 +325,5 @@
 		return TRUE
 
 /obj/machinery/atmospherics/valve/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It is [open ? "open" : "closed"].")

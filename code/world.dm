@@ -57,6 +57,9 @@ var/global/datum/global_init/init = new ()
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
 	fps = 20
+#ifdef FIND_REF_NO_CHECK_TICK
+	loop_checks = FALSE
+#endif
 
 #define RECOMMENDED_VERSION 510
 /world/New()
@@ -67,11 +70,11 @@ var/global/datum/global_init/init = new ()
 	log_startup()
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
-	if(config.log_runtime)
+	if(config.logsettings["log_runtime"])
 		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
-		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."
+		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
 	world.TgsNew()
 
@@ -86,7 +89,16 @@ var/global/datum/global_init/init = new ()
 	. = ..()
 
 #ifdef UNIT_TEST
-	log_unit_test("Unit Tests Enabled.  This will destroy the world when testing is complete.")
+	#if defined(MANUAL_UNIT_TEST)
+
+	world.log << "[ascii_green] *** NOTICE *** [ascii_reset] Unit Tests Enabled.  This will destroy the world when testing is complete."
+
+	#else
+
+	world.log << "::notice::Unit Tests Enabled.  This will destroy the world when testing is complete."
+
+	#endif
+
 	load_unit_test_changes()
 #endif
 
@@ -204,26 +216,24 @@ var/list/world_api_rate_limit = list()
 			if (0)
 				hard_reset = TRUE
 			else
-				if (SSpersist_config.rounds_since_hard_restart >= config.rounds_until_hard_restart)
+				if (SSpersistent_configuration.rounds_since_hard_restart >= config.rounds_until_hard_restart)
 					hard_reset = TRUE
-					SSpersist_config.rounds_since_hard_restart = 0
+					SSpersistent_configuration.rounds_since_hard_restart = 0
 				else
 					hard_reset = FALSE
-					SSpersist_config.rounds_since_hard_restart++
+					SSpersistent_configuration.rounds_since_hard_restart++
 	else if (!world.TgsAvailable() && hard_reset)
 		hard_reset = FALSE
 
-	SSpersist_config.save_to_file("data/persistent_config.json")
+	SSpersistent_configuration.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
-	var/datum/chatOutput/co
-	for(var/client/C in clients)
-		co = C.chatOutput
-		if(co)
-			co.ehjax_send(data = "roundrestart")
-
-	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
-		for(var/client/C in clients)
+	for(var/thing in clients)
+		if(!thing)
+			continue
+		var/client/C = thing
+		C?.tgui_panel?.send_roundrestart()
+		if(config.server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
 
 	world.TgsReboot()
@@ -349,15 +359,15 @@ var/list/world_api_rate_limit = list()
 
 /hook/startup/proc/load_databases()
 	if(!config.sql_enabled)
-		world.log << "Database Connection disabled. - Skipping Connection Establishment"
+		log_world("ERROR: Database Connection disabled. - Skipping Connection Establishment")
 		return 1
 	//Construct the database object from an init file.
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
 	if(!setup_database_connection(dbcon))
-		world.log <<  "Your server failed to establish a connection with the configured database."
+		log_world("ERROR: Your server failed to establish a connection with the configured database.")
 	else
-		world.log <<  "Database connection established."
+		log_world("Database connection established.")
 	return 1
 
 /proc/initialize_database_object(var/filename)
@@ -402,7 +412,7 @@ var/list/world_api_rate_limit = list()
 
 /proc/setup_database_connection(var/DBConnection/con)
 	if (!con)
-		error("No DBConnection object passed to setup_database_connection().")
+		log_world("ERROR: No DBConnection object passed to setup_database_connection().")
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
@@ -414,13 +424,15 @@ var/list/world_api_rate_limit = list()
 		con.failed_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
 		con.failed_connections++		//If it failed, increase the failed connections counter.
+		con.last_fail = world.timeofday
 
 #ifdef UNIT_TEST
 		// UTs are presumed public. Change this to hide your shit.
-		error("Database connection failed with message:")
-		error(con.ErrorMsg())
+		log_world("ERROR: Database connection failed with message:")
+		log_world("ERROR: [con.ErrorMsg()]")
 #else
-		world.log <<  con.ErrorMsg()
+		log_world("ERROR: [time2text(con.last_fail, "hh:mm:ss")]: Database connection failed (try #[con.failed_connections]/[FAILED_DB_CONNECTION_CUTOFF])")
+		log_world("ERROR: [con.ErrorMsg()]")
 #endif
 
 	return .
@@ -431,16 +443,41 @@ var/list/world_api_rate_limit = list()
 		return FALSE
 
 	if (!con)
-		error("No DBConnection object passed to establish_db_connection() proc.")
+		log_sql("ERROR: No DBConnection object passed to establish_db_connection() proc.")
 		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
-		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
-		return FALSE
+		if(world.timeofday < con.last_fail + 100) // 10 seconds
+			log_sql("ERROR: DB connection cutoff exceeded for a database object in establish_db_connection().")
+			return FALSE
+
+		con.failed_connections = 0
 
 	if (!con.IsConnected())
 		return setup_database_connection(con)
 	else
 		return TRUE
+
+
+/world/proc/change_fps(new_value = 20)
+	if(new_value <= 0)
+		CRASH("change_fps() called with [new_value] new_value.")
+	if(fps == new_value)
+		return //No change required.
+
+	fps = new_value
+	on_tickrate_change()
+
+/world/proc/change_tick_lag(new_value = 0.5)
+	if(new_value <= 0)
+		CRASH("change_tick_lag() called with [new_value] new_value.")
+	if(tick_lag == new_value)
+		return //No change required.
+
+	tick_lag = new_value
+	on_tickrate_change()
+
+/world/proc/on_tickrate_change()
+	SStimer?.reset_buckets()
 
 #undef FAILED_DB_CONNECTION_CUTOFF

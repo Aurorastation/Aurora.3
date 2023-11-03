@@ -7,7 +7,7 @@
 		if(stored_charge >= cell_increase)
 			to_chat(user, SPAN_WARNING("The pump on \the [src] refuses to move."))
 		else
-			if(!pump_delay || do_after(user, pump_delay, use_user_turf = -1))
+			if(!pump_delay || do_after(user, pump_delay, do_flags = (DO_SHOW_PROGRESS|DO_USER_CAN_MOVE|DO_USER_CAN_TURN)))
 				if(last_pump < world.time)
 					if(isturf(src.loc))
 						to_chat(user, SPAN_NOTICE("You pump \the [src]."))
@@ -18,7 +18,7 @@
 				playsound(src, 'sound/weapons/kinetic_reload.ogg', 50, FALSE)
 
 		is_pumping = FALSE
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 
 /obj/item/custom_ka_upgrade/cells/cell01
 	//Pump Action
@@ -234,7 +234,7 @@
 	icon_state = "cell_uraniumloader"
 	cell_increase = 300
 	capacity_increase = -5
-
+	firedelay_increase = 0.5 SECONDS
 	pump_restore = 0
 	pump_delay = 0
 

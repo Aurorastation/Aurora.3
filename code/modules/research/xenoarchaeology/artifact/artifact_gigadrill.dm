@@ -17,7 +17,7 @@
 		to_chat(user, "<span class='notice'>You press a button and [src] slowly spins down.</span>")
 	else
 		active = 1
-		icon_state = "gigadrill_mov"
+		icon_state = "gigadrill_active"
 		to_chat(user, "<span class='notice'>You press a button and [src] shudders to life.</span>")
 
 /obj/machinery/giga_drill/Collide(atom/A)

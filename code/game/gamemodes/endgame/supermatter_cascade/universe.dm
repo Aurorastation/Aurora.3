@@ -2,10 +2,10 @@ var/global/universe_has_ended = 0
 
 
 /datum/universal_state/supermatter_cascade
- 	name = "Supermatter Cascade"
- 	desc = "Unknown harmonance affecting universal substructure, converting nearby matter to supermatter."
+	name = "Supermatter Cascade"
+	desc = "Unknown harmonance affecting universal substructure, converting nearby matter to supermatter."
 
- 	decay_rate = 5 // 5% chance of a turf decaying on lighting update/airflow (there's no actual tick for turfs)
+	decay_rate = 5 // 5% chance of a turf decaying on lighting update/airflow (there's no actual tick for turfs)
 
 /datum/universal_state/supermatter_cascade/OnShuttleCall(var/mob/user)
 	if(user)
@@ -43,7 +43,7 @@ var/global/universe_has_ended = 0
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
-		M.flash_eyes()
+		M.flash_act()
 
 	if(evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
@@ -62,10 +62,10 @@ var/global/universe_has_ended = 0
 
 	new /obj/singularity/narsie/large/exit(pick(endgame_exits))
 	var/time = rand(30, 60)
-	log_debug("universal_state/cascade: Announcing to world in [time] seconds.")
-	log_debug("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
-	addtimer(CALLBACK(src, .proc/announce_to_world), time SECONDS)
-	addtimer(CALLBACK(src, .proc/end_universe), time SECONDS + 5 MINUTES)
+	LOG_DEBUG("universal_state/cascade: Announcing to world in [time] seconds.")
+	LOG_DEBUG("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
+	addtimer(CALLBACK(src, PROC_REF(announce_to_world)), time SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(end_universe)), time SECONDS + 5 MINUTES)
 
 /datum/universal_state/supermatter_cascade/proc/announce_to_world()
 	var/txt = {"
@@ -100,7 +100,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/turf/T in turfs)
+	for(var/turf/T in world)
 		if(istype(T, /turf/space))
 			T.add_overlay("end01")
 		else
@@ -137,8 +137,8 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)
-			M.current.Weaken(10)
-			M.current.flash_eyes()
+			if(M.current.flash_act())
+				M.current.Weaken(10)
 
 		clear_antag_roles(M)
 		CHECK_TICK

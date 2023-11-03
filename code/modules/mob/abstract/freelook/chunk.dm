@@ -134,7 +134,7 @@
 
 	if(seenby.len)
 		updating = TRUE
-		addtimer(CALLBACK(src, .proc/update), UPDATE_BUFFER)
+		addtimer(CALLBACK(src, PROC_REF(update)), UPDATE_BUFFER)
 	else
 		dirty = TRUE
 
@@ -176,7 +176,7 @@
 				var/mob/abstract/eye/m = eye
 				if (m && m.owner && m.owner.client)
 					m.owner.client.images += obfuscation_image
-	
+
 	dirty = FALSE
 	updating = FALSE
 
@@ -187,7 +187,7 @@
 	. = list()
 	var/turf/pos = get_turf(source)
 	if(pos)
-		for(var/turf/T in hear(range, pos))
+		for(var/turf/T in get_hear(range, pos))
 			. += T
 
 #undef UPDATE_BUFFER

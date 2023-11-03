@@ -60,7 +60,7 @@
 			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
 			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src,.proc/end_door_animation),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /obj/structure/closet/crate/get_door_transform(crateanim_1, crateanim_2)
 	var/matrix/M = matrix()
@@ -179,7 +179,7 @@
 	if (timeneeded > 0)
 		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
 		user.face_atom(src)
-		if (!do_after(user, timeneeded, needhand = TRUE, act_target = src))
+		if (!do_after(user, timeneeded, src))
 			return FALSE
 		else
 			forceMove(get_turf(table))
@@ -236,6 +236,27 @@
 	name = "mining cart"
 	icon_state = "miningcart"
 	door_hinge = 2.5
+
+/obj/structure/closet/crate/miningcart/ore/fill()
+	var/i_max = rand(3, 6)
+	for(var/i in 1 to i_max)
+		var/o = pickweight(
+			list(
+				/obj/item/ore = 2,
+				/obj/item/ore/coal = 3,
+				/obj/item/ore/diamond = 1,
+				/obj/item/ore/glass = 3,
+				/obj/item/ore/gold = 2,
+				/obj/item/ore/iron = 3,
+				/obj/item/ore/osmium = 1,
+				/obj/item/ore/silver = 2,
+				/obj/item/ore/slag = 1,
+				/obj/item/ore/uranium = 1
+			)
+		)
+		var/j_max = rand(4, 10)
+		for(var/j in 1 to j_max)
+			new o(src)
 
 /*these aren't needed anymore
 /obj/structure/closet/crate/hat
@@ -311,18 +332,18 @@
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
 
-	return_air()
-		var/datum/gas_mixture/gas = (..())
-		if(!gas)	return null
-		var/datum/gas_mixture/newgas = new/datum/gas_mixture()
-		newgas.copy_from(gas)
-		if(newgas.temperature <= target_temp)	return
+/obj/structure/closet/crate/freezer/return_air()
+	var/datum/gas_mixture/gas = (..())
+	if(!gas)	return null
+	var/datum/gas_mixture/newgas = new/datum/gas_mixture()
+	newgas.copy_from(gas)
+	if(newgas.temperature <= target_temp)	return
 
-		if((newgas.temperature - cooling_power) > target_temp)
-			newgas.temperature -= cooling_power
-		else
-			newgas.temperature = target_temp
-		return newgas
+	if((newgas.temperature - cooling_power) > target_temp)
+		newgas.temperature -= cooling_power
+	else
+		newgas.temperature = target_temp
+	return newgas
 
 /obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
 	name = "emergency rations"
@@ -330,13 +351,17 @@
 
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
-		new /obj/random/mre
+		new /obj/random/mre(src)
 		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
 	desc = "A large bin."
 	icon_state = "largebin"
+
+/obj/structure/closet/crate/bin/filled/fill()
+	for(var/i=1,i<=6,i++)
+		new /obj/random/junk(src)
 
 /obj/structure/closet/crate/drop
 	name = "drop crate"
@@ -507,17 +532,17 @@
 	icon_state = "hydro_crate"
 
 /obj/structure/closet/crate/hydroponics/prespawned
-	//This exists so the prespawned hydro crates spawn with their contents.
 
-	fill()
-		new /obj/item/reagent_containers/spray/plantbgone(src)
-		new /obj/item/reagent_containers/spray/plantbgone(src)
-		new /obj/item/material/minihoe(src)
-//		new /obj/item/weedspray(src)
-//		new /obj/item/weedspray(src)
-//		new /obj/item/pestspray(src)
-//		new /obj/item/pestspray(src)
-//		new /obj/item/pestspray(src)
+//This exists so the prespawned hydro crates spawn with their contents.
+/obj/structure/closet/crate/hydroponics/prespawned/fill()
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/reagent_containers/spray/plantbgone(src)
+	new /obj/item/material/minihoe(src)
+//	new /obj/item/weedspray(src)
+//	new /obj/item/weedspray(src)
+//	new /obj/item/pestspray(src)
+//	new /obj/item/pestspray(src)
+//	new /obj/item/pestspray(src)
 
 
 

@@ -3,7 +3,7 @@
 	name = "speed loader (.357)"
 	icon_state = "T38"
 	caliber = "357"
-	insert_sound = /decl/sound_category/revolver_reload
+	insert_sound = /singleton/sound_category/revolver_reload
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
@@ -13,7 +13,7 @@
 	name = "speed loader (.454)"
 	icon_state = "a454"
 	caliber = "454"
-	insert_sound = /decl/sound_category/revolver_reload
+	insert_sound = /singleton/sound_category/revolver_reload
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
@@ -23,7 +23,7 @@
 	name = "speed loader (.38)"
 	icon_state = "38"
 	caliber = "38"
-	insert_sound = /decl/sound_category/revolver_reload
+	insert_sound = /singleton/sound_category/revolver_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
@@ -107,6 +107,7 @@
 
 /obj/item/ammo_magazine/c45m/practice
 	name = "magazine (.45 practice)"
+	icon_state = "45_practice"
 	ammo_type = /obj/item/ammo_casing/c45/practice
 
 /obj/item/ammo_magazine/c45m/flash
@@ -121,6 +122,17 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 16
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c46m
+	name = "magazine (4.6mm)"
+	icon_state = "4.6x30p"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "4.6mm"
+	desc = "A magazine designed for the dNAC-4.6 pistol."
+	ammo_type = /obj/item/ammo_casing/c46mm
+	max_ammo = 15
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
@@ -187,7 +199,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	caliber = "9mm"
-	insert_sound = /decl/sound_category/polymer_slide_reload
+	insert_sound = /singleton/sound_category/polymer_slide_reload
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 
@@ -201,7 +213,7 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = "9mm"
-	insert_sound = /decl/sound_category/polymer_slide_reload
+	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -234,7 +246,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "10mm"
-	insert_sound = /decl/sound_category/polymer_slide_reload
+	insert_sound = /singleton/sound_category/polymer_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
@@ -251,7 +263,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = ".45"
 	max_ammo = 16
-	insert_sound = /decl/sound_category/polymer_slide_reload
+	insert_sound = /singleton/sound_category/polymer_slide_reload
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45uzi/empty
@@ -264,7 +276,7 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	caliber = ".45"
-	insert_sound = /decl/sound_category/polymer_slide_reload
+	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 20
 
 /obj/item/ammo_magazine/submachinemag/empty
@@ -278,7 +290,7 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	caliber = ".45"
-	insert_sound = /decl/sound_category/polymer_slide_reload
+	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 50
 
 // End of SMGs and PDWs //
@@ -290,7 +302,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a556"
-	insert_sound = /decl/sound_category/rifle_slide_reload
+	insert_sound = /singleton/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 30
@@ -326,6 +338,7 @@
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
+	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/practice
 
 /obj/item/ammo_magazine/a556/carbine/ap
@@ -339,6 +352,11 @@
 	icon_state = "5.56APc"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
+/obj/item/ammo_magazine/a556/carbine/blank
+	name = "carbine magazine (5.56mm blank)"
+	icon_state = "5.56c_practice"
+	ammo_type = /obj/item/ammo_casing/a556/blank
+
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"
 	icon_state = "5.56m"
@@ -349,12 +367,27 @@
 /obj/item/ammo_magazine/a556/makeshift/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/a65
+	name = "magazine (6.5mm)"
+	icon_state = "c6.5mm"
+	origin_tech = list(TECH_COMBAT = 3)
+	mag_type = MAGAZINE
+	caliber = "a65"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/a65
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a65/empty
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/a75
 	name = "ammo magazine (20mm)"
 	icon_state = "75"
 	mag_type = MAGAZINE
 	caliber = "75"
-	insert_sound = /decl/sound_category/rifle_slide_reload
+	insert_sound = /singleton/sound_category/rifle_slide_reload
 	ammo_type = /obj/item/ammo_casing/a75
 	multiple_sprites = 1
 	max_ammo = 4
@@ -381,7 +414,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a762"
-	insert_sound = /decl/sound_category/rifle_slide_reload
+	insert_sound = /singleton/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 50
@@ -395,7 +428,7 @@
 	icon_state = "c762"
 	mag_type = MAGAZINE
 	caliber = "a762"
-	insert_sound = /decl/sound_category/rifle_slide_reload
+	insert_sound = /singleton/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 20
@@ -404,6 +437,9 @@
 /obj/item/ammo_magazine/c762/sol
 	icon_state = "battlerifle_mag"
 	multiple_sprites = 0
+
+/obj/item/ammo_magazine/c762/dpra
+	icon_state = "mrrazhak_mag"
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
@@ -443,7 +479,7 @@
 	icon_state = "flechette"
 	mag_type = MAGAZINE
 	caliber = "flechette"
-	insert_sound = /decl/sound_category/rifle_slide_reload
+	insert_sound = /singleton/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	ammo_type = /obj/item/ammo_casing/flechette
 	max_ammo = 40
@@ -471,7 +507,7 @@
 	name = "magazine (slug)"
 	icon_state = "csmb"
 	caliber = "shotgun"
-	insert_sound = /decl/sound_category/rifle_slide_reload
+	insert_sound = /singleton/sound_category/rifle_slide_reload
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8

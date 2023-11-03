@@ -12,7 +12,7 @@
 
 /datum/hallucination/mindread/activate()
 	..()
-	addtimer(CALLBACK(src, .proc/mind_give), rand(30, 50))
+	addtimer(CALLBACK(src, PROC_REF(mind_give)), rand(30, 50))
 
 //set duration, foreshadow powers
 /datum/hallucination/mindread/start()
@@ -25,7 +25,7 @@
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
-			holder.flash_eyes()
+			holder.flash_act(ignore_inherent = TRUE)
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.visible_message("<b>[holder]</b> winces.")
@@ -38,11 +38,11 @@
 /datum/hallucination/mindread/proc/mind_give()
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/proc/fakemindread
+	add_verb(holder, /mob/living/carbon/proc/fakemindread)
 
 /datum/hallucination/mindread/end()
 	if(holder)
-		holder.verbs -= /mob/living/carbon/proc/fakemindread
+		remove_verb(holder, /mob/living/carbon/proc/fakemindread)
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 	..()
 
@@ -69,7 +69,7 @@
 	if(!creatures.len)
 		return
 
-	var/mob/target = input("Whose mind do you wish to probe?") as null|anything in creatures
+	var/mob/target = tgui_input_list(src, "Whose mind do you wish to probe?", "Read Mind", creatures)
 	if(!target)
 		return
 	if(target.stat)
@@ -100,7 +100,7 @@
 
 /datum/hallucination/telepathy/activate()
 	..()
-	addtimer(CALLBACK(src, .proc/tele_give), rand(30, 50))
+	addtimer(CALLBACK(src, PROC_REF(tele_give)), rand(30, 50))
 
 /datum/hallucination/telepathy/start()
 	duration = rand(2, 4) MINUTES
@@ -112,7 +112,7 @@
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
-			holder.flash_eyes()
+			holder.flash_act(ignore_inherent = TRUE)
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.visible_message("<b>[holder]</b> winces.")
@@ -125,11 +125,11 @@
 /datum/hallucination/telepathy/proc/tele_give()
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/proc/faketelepathy
+	add_verb(holder, /mob/living/carbon/proc/faketelepathy)
 
 /datum/hallucination/telepathy/end()
 	if(holder)
-		holder.verbs -= /mob/living/carbon/proc/faketelepathy
+		remove_verb(holder, /mob/living/carbon/proc/faketelepathy)
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 	..()
 
@@ -156,7 +156,7 @@
 		creatures += C
 	if(!creatures.len)
 		return
-	var/mob/target = input("Who do you wish to send a message to?") as null|anything in creatures
+	var/mob/target = tgui_input_list(usr, "Who do you wish to send a message to?", "Telepathic Message", creatures)
 	if(!target)
 		return
 	if(target.stat)

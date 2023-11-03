@@ -33,9 +33,7 @@ if(Datum.isprocessing) {\
 #define START_PROCESSING_POWER_OBJECT(Datum) START_PROCESSING_IN_LIST(Datum, power_objects)
 #define STOP_PROCESSING_POWER_OBJECT(Datum) STOP_PROCESSING_IN_LIST(Datum, power_objects)
 
-/var/datum/controller/subsystem/machinery/SSmachinery
-
-/datum/controller/subsystem/machinery
+SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
 	init_order = SS_INIT_MACHINERY
@@ -57,6 +55,8 @@ if(Datum.isprocessing) {\
 	var/list/obj/machinery/hologram/holopad/all_holopads = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
+	var/list/obj/machinery/telecomms/all_telecomms = list()
+	var/list/obj/machinery/telecomms/all_receivers = list()
 
 	var/list/rcon_smes_units = list()
 	var/list/rcon_smes_units_by_tag = list()
@@ -76,12 +76,11 @@ if(Datum.isprocessing) {\
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
 	recipe_datums = SSmachinery.recipe_datums
-	breaker_boxes = breaker_boxes
-	all_sensors = all_sensors
+	breaker_boxes = SSmachinery.breaker_boxes
+	all_sensors = SSmachinery.all_sensors
+	all_telecomms = SSmachinery.all_telecomms
+	all_receivers = SSmachinery.all_receivers
 	current_step = SSMACHINERY_PIPENETS
-
-/datum/controller/subsystem/machinery/New()
-	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	makepowernets()
@@ -96,7 +95,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_pipenets(resumed, no_mc_tick)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_MACHINERY
 		resumed = FALSE
@@ -104,7 +103,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_machinery(resumed, no_mc_tick)
 		cost_machinery = MC_AVERAGE(cost_machinery, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWERNETS
 		resumed = FALSE
@@ -112,7 +111,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_powernets(resumed, no_mc_tick)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWER_OBJECTS
 		resumed = FALSE
@@ -120,7 +119,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_power_objects(resumed, no_mc_tick)
 		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_PIPENETS
 
@@ -139,17 +138,18 @@ if(Datum.isprocessing) {\
 		propagate_network(cable, cable.powernet)
 
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
-	set background = TRUE
 	var/list/atmos_machines = list()
 	for (var/obj/machinery/atmospherics/machine in machines)
+		if(QDELETED(machine))
+			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
-	log_ss("machinery", "Initializing atmos machinery.")
+	log_subsystem("machinery", "Initializing atmos machinery.")
 	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.atmos_init()
 		CHECK_TICK
 	admin_notice(SPAN_DANGER("Initializing pipe networks."), R_DEBUG)
-	log_ss("machinery", "Initializing pipe networks.")
+	log_subsystem("machinery", "Initializing pipe networks.")
 	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.build_network()
 		CHECK_TICK
@@ -178,13 +178,34 @@ if(Datum.isprocessing) {\
 	var/obj/machinery/machine
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
+
+		if(!istype(machine)) // Below is a debugging and recovery effort. This should never happen, but has been observed recently.
+			if(!machine)
+				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
+			if(machine in processing)
+				processing.Remove(machine)
+				machine.isprocessing = null
+				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
+				continue
+			else if(resumed)
+				queue.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
+				process_machinery(0)
+				return
+			else // ??? possibly dequeued by another machine or something ???
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on an unresumed fire.")
+				continue
+
 		if (QDELETED(machine))
 			if (machine)
 				machine.isprocessing = null
 			processing -= machine
 			continue
-		if (machine.process_all() == PROCESS_KILL)
-			processing -= machine
+		//process_all was moved here because of calls overhead for no benefits
+		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
+			if(machine.process() == PROCESS_KILL)
+				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
+				processing -= machine
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -229,8 +250,8 @@ if(Datum.isprocessing) {\
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/stat_entry()
-	..({"\n\
+/datum/controller/subsystem/machinery/stat_entry(msg)
+	msg = {"\n\
 		Queues: \
 		Pipes [pipenets.len] \
 		Machines [processing.len] \
@@ -242,7 +263,8 @@ if(Datum.isprocessing) {\
 		Networks [round(cost_powernets, 1)] \
 		Objects [round(cost_power_objects, 1)]\n\
 		Overall [round(cost ? processing.len / cost : 0, 0.1)]
-	"})
+	"}
+	return ..()
 
 /datum/controller/subsystem/machinery/ExplosionStart()
 	suspend()
@@ -265,8 +287,8 @@ if(Datum.isprocessing) {\
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
 
-	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
-	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+	sortTim(rcon_smes_units, GLOBAL_PROC_REF(cmp_rcon_smes))
+	sortTim(rcon_breaker_units, GLOBAL_PROC_REF(cmp_rcon_bbox))
 
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY

@@ -6,7 +6,6 @@ The more pressure, the more boom.
 If it gains pressure too slowly, it may leak or just rupture instead of exploding.
 */
 
-//#define FIREDBG
 #define FIRE_LIGHT_1	2 //These defines are the power of the light given off by fire at various stages
 #define FIRE_LIGHT_2	4
 #define FIRE_LIGHT_3	5
@@ -15,11 +14,11 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/tmp/obj/fire/fire = null
 
 //Some legacy definitions so fires can be started.
-atom/proc/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/atom/proc/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	return null
 
 
-turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
+/turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 
 /turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
@@ -123,7 +122,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	//Icon for fire on turfs.
 
 	anchored = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	blend_mode = BLEND_ADD
 
@@ -152,7 +151,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
 	else
 		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
-	
+
 	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 
 	for(var/mob/living/L in loc)
@@ -244,9 +243,9 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	. = 0
 	if((temperature > PHORON_MINIMUM_BURN_TEMPERATURE || force_burn) && (no_check ||check_recombustability(zone? zone.fuel_objs : null)))
 
-		#ifdef FIREDBG
-		log_debug("***************** FIREDBG *****************")
-		log_debug("Burning [zone? zone.name : "zoneless gas_mixture"]!")
+		#ifdef ZASDBG
+		log_subsystem_zas_debug("***************** FIREDBG *****************")
+		log_subsystem_zas_debug("Burning [zone? zone.name : "zoneless gas_mixture"]!")
 		#endif
 
 		var/gas_fuel = 0
@@ -298,14 +297,14 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		var/used_fuel = min(total_reaction_progress, reaction_limit)
 		var/used_oxidizers = used_fuel*(FIRE_REACTION_OXIDIZER_AMOUNT/FIRE_REACTION_FUEL_AMOUNT)
 
-		#ifdef FIREDBG
-		log_debug("gas_fuel = [gas_fuel], liquid_fuel = [liquid_fuel], total_oxidizers = [total_oxidizers]")
-		log_debug("fuel_area = [fuel_area], total_fuel = [total_fuel], reaction_limit = [reaction_limit]")
-		log_debug("firelevel -> [firelevel] (gas: [gas_firelevel], liquid: [liquid_firelevel])")
-		log_debug("liquid_reaction_progress = [liquid_reaction_progress]")
-		log_debug("gas_reaction_progress = [gas_reaction_progress]")
-		log_debug("total_reaction_progress = [total_reaction_progress]")
-		log_debug("used_fuel = [used_fuel], used_oxidizers = [used_oxidizers]; ")
+		#ifdef ZASDBG
+		log_subsystem_zas_debug("gas_fuel = [gas_fuel], liquid_fuel = [liquid_fuel], total_oxidizers = [total_oxidizers]")
+		log_subsystem_zas_debug("fuel_area = [fuel_area], total_fuel = [total_fuel], reaction_limit = [reaction_limit]")
+		log_subsystem_zas_debug("firelevel -> [firelevel] (gas: [gas_firelevel], liquid: [liquid_firelevel])")
+		log_subsystem_zas_debug("liquid_reaction_progress = [liquid_reaction_progress]")
+		log_subsystem_zas_debug("gas_reaction_progress = [gas_reaction_progress]")
+		log_subsystem_zas_debug("total_reaction_progress = [total_reaction_progress]")
+		log_subsystem_zas_debug("used_fuel = [used_fuel], used_oxidizers = [used_oxidizers]; ")
 		#endif
 
 		//if the reaction is progressing too slow then it isn't self-sustaining anymore and burns out
@@ -332,14 +331,14 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		temperature = (starting_energy + vsc.fire_fuel_energy_release * (used_gas_fuel + used_liquid_fuel)) / heat_capacity()
 		update_values()
 
-		#ifdef FIREDBG
-		log_debug("used_gas_fuel = [used_gas_fuel]; used_liquid_fuel = [used_liquid_fuel]; total = [used_fuel]")
-		log_debug("new temperature = [temperature]; new pressure = [return_pressure()]")
+		#ifdef ZASDBG
+		log_subsystem_zas_debug("used_gas_fuel = [used_gas_fuel]; used_liquid_fuel = [used_liquid_fuel]; total = [used_fuel]")
+		log_subsystem_zas_debug("new temperature = [temperature]; new pressure = [return_pressure()]")
 		#endif
 
 		return firelevel
 
-datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
+/datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 	. = 0
 	for(var/g in gas)
 		if(gas_data.flags[g] & XGM_GAS_OXIDIZER && gas[g] >= 0.1)
@@ -404,7 +403,7 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 		//fires burn better when there is more oxidizer -- too much fuel will choke the fire out a bit, reducing firelevel.
 		var/mix_multiplier = 1 / (1 + (5 * ((total_fuel / total_combustables) ** 2)))
 
-		#ifdef FIREDBG
+		#ifdef ZASDBG
 		ASSERT(damping_multiplier <= 1)
 		ASSERT(mix_multiplier <= 1)
 		#endif
@@ -417,7 +416,7 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 /mob/living/proc/FireBurn(var/firelevel, var/last_temperature, var/pressure)
 	var/mx = 5 * firelevel/vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
-	apply_damage(2.5*mx, BURN)
+	apply_damage(2.5*mx, DAMAGE_BURN)
 
 
 /mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
@@ -452,13 +451,13 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 	//Always check these damage procs first if fire damage isn't working. They're probably what's wrong.
 
-	apply_damage(2.5*mx*head_exposure, BURN, BP_HEAD, used_weapon = "Fire")
-	apply_damage(2.5*mx*chest_exposure, BURN, BP_CHEST, used_weapon = "Fire")
-	apply_damage(2.0*mx*groin_exposure, BURN, BP_GROIN, used_weapon =  "Fire")
-	apply_damage(0.6*mx*legs_exposure, BURN, BP_L_LEG, used_weapon = "Fire")
-	apply_damage(0.6*mx*legs_exposure, BURN, BP_R_LEG, used_weapon = "Fire")
-	apply_damage(0.4*mx*arms_exposure, BURN, BP_L_ARM, used_weapon = "Fire")
-	apply_damage(0.4*mx*arms_exposure, BURN, BP_R_ARM, used_weapon = "Fire")
+	apply_damage(2.5*mx*head_exposure, DAMAGE_BURN, BP_HEAD, used_weapon = "Fire")
+	apply_damage(2.5*mx*chest_exposure, DAMAGE_BURN, BP_CHEST, used_weapon = "Fire")
+	apply_damage(2.0*mx*groin_exposure, DAMAGE_BURN, BP_GROIN, used_weapon =  "Fire")
+	apply_damage(0.6*mx*legs_exposure, DAMAGE_BURN, BP_L_LEG, used_weapon = "Fire")
+	apply_damage(0.6*mx*legs_exposure, DAMAGE_BURN, BP_R_LEG, used_weapon = "Fire")
+	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_L_ARM, used_weapon = "Fire")
+	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_R_ARM, used_weapon = "Fire")
 
 
 #undef FIRE_LIGHT_1

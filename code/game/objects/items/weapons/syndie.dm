@@ -13,8 +13,14 @@
 	desc = "A small wrapped package."
 	w_class = ITEMSIZE_NORMAL
 
-	var/power = 1  /*Size of the explosion.*/
+	///Size of the explosion
+	var/power = 1
+
+	///Used for the icon
 	var/size = "small"  /*Used for the icon, this one will make c-4small_0 for the off state.*/
+
+	///The detonator that makes this C4 charge explode
+	var/obj/item/syndie/c4detonator/detonator = null
 
 /obj/item/syndie/c4explosive/heavy
 	icon_state = "c-4large_0"
@@ -23,14 +29,20 @@
 	power = 2
 	size = "large"
 
-/obj/item/syndie/c4explosive/New()
+/obj/item/syndie/c4explosive/Initialize()
+	. = ..()
+
 	var/K = rand(1,2000)
 	K = md5(num2text(K)+name)
 	K = copytext(K,1,7)
 	src.desc += "\n You see [K] engraved on \the [src]."
-	var/obj/item/syndie/c4detonator/detonator = new(src.loc)
+	detonator = new(src.loc)
 	detonator.desc += "\n You see [K] engraved on the lighter."
 	detonator.bomb = src
+
+/obj/item/syndie/c4explosive/Destroy()
+	. = ..()
+	QDEL_NULL(detonator)
 
 /obj/item/syndie/c4explosive/proc/detonate()
 	icon_state = "c-4[size]_1"
@@ -59,6 +71,10 @@
 
 	var/obj/item/syndie/c4explosive/bomb
 	var/pr_open = 0  /*Is the "What do you want to do?" prompt open?*/
+
+/obj/item/syndie/c4detonator/Destroy()
+	bomb = null
+	. = ..()
 
 /obj/item/syndie/c4detonator/attack_self(mob/user as mob)
 	switch(src.icon_state)
@@ -139,7 +155,7 @@
 	use()
 
 /obj/item/syndie/teleporter/use()
-	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	ready_to_use = FALSE
 	check_maptext(SMALL_FONTS(6, "Charge"))
 	when_recharge = world.time + recharge_time

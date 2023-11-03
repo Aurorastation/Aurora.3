@@ -1,11 +1,14 @@
 /mob/Logout()
 	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_LOGOUT)
 
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
 	player_list -= src
 	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]",ckey=key_name(src))
-	SSfeedback.update_status()
+	SSstatistics.update_status()
+	if(client)
+		clear_important_client_contents(client)
 
 	if(admin_datums[src.ckey])
 		var/datum/admins/A = admin_datums[src.ckey]

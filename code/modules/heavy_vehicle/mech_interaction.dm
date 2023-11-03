@@ -38,7 +38,7 @@
 
 	var/modifiers = params2list(params)
 	if(modifiers["shift"])
-		A.examine(user)
+		examinate(user, A)
 		return
 
 	if(modifiers["alt"])
@@ -82,9 +82,9 @@
 	if(user != src)
 		set_intent(user.a_intent)
 		if(user.zone_sel)
-			zone_sel.set_selected_zone(user.zone_sel.selecting)
+			zone_sel.set_selected_zone(user.zone_sel.selecting, user)
 		else
-			zone_sel.set_selected_zone("chest")
+			zone_sel.set_selected_zone("chest", user)
 
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
@@ -153,6 +153,10 @@
 	if(A == src)
 		setClickCooldown(5)
 		return attack_self(user)
+	else if(istype(A, /obj/structure/inflatable/door) && a_intent == I_HELP) //allow mech to open inflatables
+		var/obj/structure/inflatable/door/D = A
+		D.TryToSwitchState(user)
+		return
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
@@ -173,7 +177,7 @@
 		if(H)
 			H.color = "#FF0000"
 	if(next_move > old_next_move) // TIMER_OVERRIDE would not work here, because the smaller delays tend to be called after the longer ones
-		addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+		addtimer(CALLBACK(src, PROC_REF(reset_hardpoint_color)), timeout)
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
@@ -235,21 +239,13 @@
 	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
-	sync_access()
+	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	walk(src, 0) // stop it from auto moving when the pilot gets in
 	return 1
-
-/mob/living/heavy_vehicle/proc/sync_access()
-	access_card.access = saved_access.Copy()
-	if(sync_access)
-		for(var/mob/pilot in pilots)
-			var/obj/item/card/id/pilot_id = pilot.GetIdCard()
-			if(pilot_id && pilot_id.access) access_card.access |= pilot_id.access
-			to_chat(pilot, "<span class='notice'>Security access permissions synchronized.</span>")
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
@@ -273,31 +269,26 @@
 	if(user in pilots)
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
+		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
 		UNSETEMPTY(pilots)
 
-/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
+/mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
+
+/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction, var/turn_only = FALSE)
 	if(!can_move(user))
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
 
-	if(dir == direction)
-		var/turf/target_loc = get_step(src, direction)
-		if(!legs.can_move_on(loc, target_loc))
-			return
-		if(incorporeal_move)
-			if(legs && legs.mech_step_sound)
-				playsound(src.loc,legs.mech_step_sound,40,1)
-			use_cell_power(legs.power_use * CELLRATE)
-			user.client.Process_Incorpmove(direction, src)
-		else
-			Move(target_loc, direction)
-	else
+	if(user.facing_dir == null && dir != direction)
 		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
-		next_mecha_move = world.time + legs.turn_delay
+		if(world.time + legs.turn_delay > next_mecha_move)
+			next_mecha_move = world.time + legs.turn_delay
 		set_dir(direction)
 		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
 			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
@@ -308,6 +299,18 @@
 				else
 					S.aura.layer = ABOVE_MOB_LAYER
 		update_icon()
+
+	if(!turn_only)
+		var/turf/target_loc = get_step(src, direction)
+		if(!legs.can_move_on(loc, target_loc))
+			return
+		if(incorporeal_move)
+			if(legs && legs.mech_step_sound)
+				playsound(src.loc,legs.mech_step_sound,40,1)
+			use_cell_power(legs.power_use * CELLRATE)
+			user.client.Process_Incorpmove(direction, src)
+		else
+			Move(target_loc, user.facing_dir || direction)
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
@@ -336,7 +339,7 @@
 		for(var/hardpoint in hardpoints)
 			if(hardpoints[hardpoint] == null)
 				free_hardpoints += hardpoint
-		var/to_place = input("Where would you like to install it?") as null|anything in (realThing.restricted_hardpoints & free_hardpoints)
+		var/to_place = tgui_input_list(user, "Where would you like to install it?", "Install Hardpoint", (realThing.restricted_hardpoints & free_hardpoints))
 		if(install_system(thing, to_place, user))
 			return
 		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
@@ -352,7 +355,7 @@
 					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]..."), SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
-				if(do_after(user, 30, TRUE, src))
+				if(do_after(user, 30, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
 						return
@@ -364,6 +367,7 @@
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
+					remote_type = RM.type
 					become_remote()
 					qdel(thing)
 			else if(thing.ismultitool())
@@ -376,7 +380,7 @@
 					if(hardpoints[hardpoint])
 						parts += hardpoint
 
-				var/to_remove = input("Which component would you like to remove") as null|anything in parts
+				var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", parts)
 
 				if(remove_system(to_remove, user))
 					return
@@ -384,21 +388,29 @@
 				return
 
 			else if(thing.iswrench())
-				if(length(pilots))
+				if(!remote && length(pilots))
 					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
-				if(do_after(user, 30, TRUE, src))
-					if(length(pilots))
+				if(do_after(user, 30, src))
+					if(!remote && length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 						return
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 						return
 					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."))
+					if(remote)
+						for(var/mob/pilot in pilots)
+							if(pilot.client)
+								pilot.body_return()
+							hatch_locked = FALSE
+							eject(pilot, TRUE)
+							qdel(pilot)
+							new remote_type(get_turf(src))
 					dismantle()
 					return
 			else if(thing.iswelder())
@@ -408,7 +420,7 @@
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
 					if(MC && MC.brute_damage)
 						damaged_parts += MC
-				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
+				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
 					to_fix.repair_brute_generic(thing, user)
 				return
@@ -419,7 +431,7 @@
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
 					if(MC && MC.burn_damage)
 						damaged_parts += MC
-				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
+				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
 					to_fix.repair_burn_generic(thing, user)
 				return
@@ -454,7 +466,7 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))
@@ -468,7 +480,7 @@
 
 /mob/living/heavy_vehicle/attack_hand(var/mob/user)
 	// Drag the pilot out if possible.
-	if(user.a_intent == I_HURT || user.a_intent == I_GRAB)
+	if(user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))
 			to_chat(user, "<span class='warning'>There is nobody inside \the [src].</span>")
 		else if(!hatch_closed)
@@ -477,6 +489,11 @@
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
 				user.visible_message("<span class='danger'>\The [user] drags \the [pilot] out of \the [src]!</span>")
 				eject(pilot, silent=1)
+
+		return
+
+	if(user.a_intent == I_HURT)
+		attack_generic(user)
 		return
 
 	// Otherwise toggle the hatch.
@@ -489,6 +506,20 @@
 	update_icon()
 	return
 
+/mob/living/heavy_vehicle/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+	if(!(user in pilots))
+		. = ..()
+
+		var/mob/living/carbon/human/H = user
+
+		if(!istype(H))
+			return
+
+		var/datum/martial_art/attacker_style = H.primary_martial_art
+		if(attacker_style && attacker_style.harm_act(H, src))
+			return TRUE
+
+
 
 /mob/living/heavy_vehicle/proc/attack_self(var/mob/user)
 	return visible_message("\The [src] pokes itself.")
@@ -499,9 +530,9 @@
 			return h
 	return 0
 
-/var/global/datum/topic_state/default/mech_state = new()
+/var/global/datum/ui_state/default/mech_state = new()
 
-/datum/topic_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
+/datum/ui_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
 	if(istype(src_object))
 		if(user in src_object.pilots)
 			return ..()
@@ -537,7 +568,7 @@
 				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
-				D.apply_damage(legs.trample_damage, BRUTE)
+				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 				return TRUE
 
 		else
@@ -547,7 +578,7 @@
 				if(issmall(L) && (L.stat == DEAD))
 					L.gib()
 					return TRUE
-			L.apply_damage(legs.trample_damage, BRUTE)
+			L.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 			return TRUE
 
 /mob/living/heavy_vehicle/proc/ToggleLockdown()
@@ -562,7 +593,7 @@
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
-		addtimer(CALLBACK(src, .proc/handle_hear_say, speaker, message), 0.5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), speaker, message), 0.5 SECONDS)
 	return ..()
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
@@ -665,7 +696,7 @@
 				if(toggle_lock())
 					say("Hatch [hatch_locked ? "locked" : "unlocked"].")
 				return
-			
+
 			// unlink the leader to get a new one
 			if(findtext(text, "unlink"))
 				if(!maintenance_protocols) // Can't lock yourself out
@@ -675,7 +706,7 @@
 				unassign_leader()
 				say("Leader dropped, awaiting new leader.")
 				return
-			
+
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()

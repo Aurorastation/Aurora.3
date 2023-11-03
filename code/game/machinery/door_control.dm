@@ -1,7 +1,6 @@
 /obj/machinery/button/remote
 	name = "remote object control"
 	desc = "It controls objects, remotely."
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 	power_channel = ENVIRON
 	var/desiredstate = 0
@@ -33,7 +32,7 @@
 	if(req_access.len || req_one_access.len)
 		req_access = list()
 		req_one_access = list()
-		playsound(src.loc, /decl/sound_category/spark_sound, 100, 1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 100, 1)
 		return 1
 
 /obj/machinery/button/remote/attack_hand(mob/user as mob)
@@ -184,7 +183,6 @@
 /obj/machinery/button/remote/driver
 	name = "mass driver button"
 	desc = "A remote control switch for a mass driver."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 
 /obj/machinery/button/remote/driver/trigger(mob/user as mob)
@@ -196,7 +194,7 @@
 	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			same_id += M
-			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
+			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/blast, open))
 
 	sleep(20)
 
@@ -207,7 +205,7 @@
 	sleep(50)
 
 	for(var/mm in same_id)
-		INVOKE_ASYNC(mm, /obj/machinery/door/blast/.proc/close)
+		INVOKE_ASYNC(mm, TYPE_PROC_REF(/obj/machinery/door/blast, close))
 
 	icon_state = "launcherbtt"
 	active = 0

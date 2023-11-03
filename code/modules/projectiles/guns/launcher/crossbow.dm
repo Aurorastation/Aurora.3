@@ -11,7 +11,7 @@
 	sharp = TRUE
 	edge = FALSE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -27,7 +27,7 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
 
 /obj/item/arrow/quill
 	name = "alien quill"
@@ -220,7 +220,7 @@
 	icon_state = "crossbowframe[buildstate]"
 
 /obj/item/crossbowframe/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(buildstate)
 		if(1) to_chat(user, "It has a loose rod frame in place.")
 		if(2) to_chat(user, "It has a steel backbone welded in place.")
@@ -370,5 +370,4 @@
 
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
-	if(.)
-		to_chat(user, "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.")
+	to_chat(user, "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.")

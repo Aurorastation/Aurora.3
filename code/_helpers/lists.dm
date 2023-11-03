@@ -15,6 +15,10 @@
  * Misc
  */
 
+///sort any value in a list
+/proc/sort_list(list/list_to_sort, cmp=/proc/cmp_text_asc)
+	return sortTim(list_to_sort.Copy(), cmp)
+
 //Returns a list in plain english as a string
 /proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "")
 	// this proc cannot be merged with counting_english_list to maintain compatibility
@@ -108,10 +112,17 @@
 			return TRUE
 	return FALSE
 
-//Checks for specific types in a list
-/proc/is_type_in_list(var/datum/A, var/list/L)
-	for(var/type in L)
-		if(istype(A, type))
+/**
+ * Checks if an object is of a type that derives from the parent types specified in the list, returns TRUE if so, FALSE otherwise
+ *
+ * * thing - The object to check
+ * * types - A list of types to perform the check against
+ */
+/proc/is_type_in_list(var/datum/thing, var/list/types)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+	for(var/type in types)
+		if(istype(thing, type))
 			return TRUE
 	return FALSE
 
@@ -305,21 +316,21 @@
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, order ? /proc/cmp_ckey_asc : /proc/cmp_ckey_dsc, FALSE)
+	return sortTim(target, order ? GLOBAL_PROC_REF(cmp_ckey_asc) : GLOBAL_PROC_REF(cmp_ckey_dsc), FALSE)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortAtom(var/list/atom/L, var/order = 1)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
+	return sortTim(target, order ? GLOBAL_PROC_REF(cmp_name_asc) : GLOBAL_PROC_REF(cmp_name_dsc), FALSE)
 
 //Mergesort: Specifically for record datums in a list.
 /proc/sortRecord(var/list/datum/record/L, var/order = 1)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
+	sortTim(target, order ? GLOBAL_PROC_REF(cmp_records_asc) : GLOBAL_PROC_REF(cmp_records_dsc), FALSE)
 	return target
 
 //Mergesort: any value in a list
@@ -327,14 +338,14 @@
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, /proc/cmp_text_asc)
+	return sortTim(target, GLOBAL_PROC_REF(cmp_text_asc))
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(var/list/L)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, /proc/cmp_name_asc, FALSE)
+	return sortTim(target, GLOBAL_PROC_REF(cmp_name_asc), FALSE)
 
 // List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
 /proc/sortByKey(var/list/L, var/key)
@@ -364,7 +375,7 @@
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(var/list/L)
 	var/list/ret = L.Copy()
-	sortTim(ret, /proc/cmp_text_asc, FALSE)
+	sortTim(ret, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 	return ret
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
@@ -831,3 +842,24 @@
 	. = list()
 	for (var/string in L)
 		. += capitalize(string)
+
+// Transforms a list of lists (of lists) into a single flat list.
+/proc/flatten_list(var/list/L)
+	. = list()
+	for(var/M in L)
+		if(!islist(M))
+			. += M
+		else
+			. += flatten_list(M)
+
+///takes an input_key, as text, and the list of keys already used, outputting a replacement key in the format of "[input_key] ([number_of_duplicates])" if it finds a duplicate
+///use this for lists of things that might have the same name, like mobs or objects, that you plan on giving to a player as input
+/proc/avoid_assoc_duplicate_keys(input_key, list/used_key_list)
+	if(!input_key || !istype(used_key_list))
+		return
+	if(used_key_list[input_key])
+		used_key_list[input_key]++
+		input_key = "[input_key] ([used_key_list[input_key]])"
+	else
+		used_key_list[input_key] = 1
+	return input_key

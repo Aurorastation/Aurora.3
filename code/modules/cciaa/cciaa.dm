@@ -1,11 +1,3 @@
-/proc/clear_cciaa_job(var/mob/living/carbon/human/M)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/actual_clear_ccia_job, M), 9000)
-
-/proc/actual_clear_ccia_job(mob/living/carbon/human/H)
-	if (!H.client)
-		var/oldjob = H.mind.assigned_role
-		SSjobs.FreeRole(oldjob)
-
 /datum/admins/proc/create_admin_fax(var/department in alldepartments)
 	set name = "Send admin fax"
 	set desc = "Send a fax from Central Command"
@@ -31,12 +23,12 @@
 		return
 
 	//todo: sanitize
-	var/input = input(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
+	var/input = tgui_input_text(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "", multiline = TRUE)
 	if (!input)
 		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
-	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
+	var/customname = tgui_input_text(usr, "Pick a title for the report.", "Title")
 	if (!customname)
 		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
@@ -106,5 +98,5 @@
 	set desc = "Launches the CCIA Shuttle."
 	set category = "Special Verbs"
 
-	var/datum/shuttle/autodock/ferry/S = SSshuttle.shuttles["Agent Shuttle"]
+	var/datum/shuttle/autodock/ferry/S = SSshuttle.shuttles["SCC Shuttle"]
 	S.launch(usr)

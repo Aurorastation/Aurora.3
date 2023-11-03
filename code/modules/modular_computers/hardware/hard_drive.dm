@@ -142,15 +142,21 @@
 		return null
 	if(!stored_files)
 		return null
+
 	for(var/datum/computer_file/F in stored_files)
+
+		if(QDELETED(F))
+			continue
+
 		if(F.filename == filename)
 			return F
+
 	return null
 
 /obj/item/computer_hardware/hard_drive/Destroy()
 	if(parent_computer?.hard_drive == src)
 		parent_computer.hard_drive = null
-	stored_files = null
+	QDEL_NULL_LIST(stored_files)
 	return ..()
 
 /obj/item/computer_hardware/hard_drive/Initialize(mapload)
@@ -159,7 +165,7 @@
 	if(mapload && prob(5))
 		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
 		if(!istype(file))
-			log_ss("docs", "pick_document_by_tag returned null file!")
+			log_subsystem_documents("pick_document_by_tag returned null file!")
 		else
 			var/datum/computer_file/data/F = SSdocs.create_file(file)
 			store_file(F)

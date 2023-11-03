@@ -65,6 +65,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	var/stored_index = 1
 	var/list/atoms_to_initialise = list()
+	var/has_expanded_world_maxx = FALSE
+	var/has_expanded_world_maxy = FALSE
 
 	while(dmmRegex.Find(tfile, stored_index))
 		stored_index = dmmRegex.next
@@ -104,6 +106,7 @@ var/global/dmm_suite/preloader/_preloader = new
 					continue
 				else
 					world.maxz = zcrd //create a new z_level if needed
+					SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 				if(!no_changeturf)
 					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
@@ -130,6 +133,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
 					world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
+					has_expanded_world_maxy = TRUE
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(ycrd, y_lower, y_upper))
 			else
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(min(ycrd, world.maxy), y_lower, y_upper))
@@ -154,6 +158,7 @@ var/global/dmm_suite/preloader/_preloader = new
 									break
 								else
 									world.maxx = xcrd
+									has_expanded_world_maxx = TRUE
 
 							if(xcrd >= 1)
 								var/model_key = copytext(line, tpos, tpos + key_len)
@@ -182,10 +187,13 @@ var/global/dmm_suite/preloader/_preloader = new
 	else
 		if(!measureOnly)
 			if(!no_changeturf)
-				for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
-					var/turf/T = t
+				for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 					T.post_change(FALSE)
+
+			if(has_expanded_world_maxx || has_expanded_world_maxy)
+				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
+
 		var/datum/map_load_metadata/M = new
 		M.bounds = bounds
 		M.atoms_to_initialise = atoms_to_initialise
@@ -296,6 +304,11 @@ var/global/dmm_suite/preloader/_preloader = new
 	//Instanciation
 	////////////////
 
+	//since we've switched off autoinitialisation, record atoms to initialise later
+	var/list/atoms_to_initialise = list()
+	//turn off base new Initialization until the whole thing is loaded
+	SSatoms.map_loader_begin(text_ref(src))
+
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
 
@@ -309,6 +322,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		if(!instance)
 			instance = new atype(null)
+			atoms_to_initialise += instance
 		if(crds)
 			instance.contents += crds
 
@@ -320,11 +334,6 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/first_turf_index = 1
 	while(!ispath(members[first_turf_index], /turf)) //find first /turf object in members
 		first_turf_index++
-
-	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin()
-	//since we've switched off autoinitialisation, record atoms to initialise later
-	var/list/atoms_to_initialise = list()
 
 	//instanciate the first /turf
 	var/turf/T
@@ -346,7 +355,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	for(index in 1 to first_turf_index-1)
 		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
 	//Restore initialization to the previous value
-	SSatoms.map_loader_stop()
+	SSatoms.map_loader_stop(text_ref(src))
 
 	var/datum/grid_load_metadata/M = new
 	M.atoms_to_initialise = atoms_to_initialise
@@ -363,7 +372,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
-			. = crds.ChangeTurf(path, FALSE, TRUE)
+			. = crds.ChangeTurf(path, FALSE, TRUE, TRUE)
 		else
 			. = create_atom(path, crds)//first preloader pass
 
@@ -372,9 +381,9 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
 	if(TICK_CHECK)
-		SSatoms.map_loader_stop()
+		SSatoms.map_loader_stop(text_ref(src))
 		stoplag()
-		SSatoms.map_loader_begin()
+		SSatoms.map_loader_begin(text_ref(src))
 
 /dmm_suite/proc/create_atom(path, crds)
 	// Doing this async is impossible, as we must return the ref.

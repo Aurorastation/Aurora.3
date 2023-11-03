@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/skybox/SSskybox
-
-/datum/controller/subsystem/skybox
+SUBSYSTEM_DEF(skybox)
 	name = "Space skybox"
 	init_order = SS_INIT_PARALLAX
 	flags = SS_NO_FIRE
@@ -12,7 +10,8 @@ var/datum/controller/subsystem/skybox/SSskybox
 	var/star_path = 'icons/skybox/skybox.dmi'
 	var/star_state = "stars"
 	var/list/skybox_cache = list()
-	var/list/space_appearance_cache	
+	var/list/space_appearance_cache
+
 
 /datum/controller/subsystem/skybox/proc/build_space_appearances()
 	space_appearance_cache = new(26)
@@ -28,9 +27,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
-
-/datum/controller/subsystem/skybox/New()
-	NEW_SS_GLOBAL(SSskybox)
+		background_color = SSatlas.current_sector.starlight_color
 
 /datum/controller/subsystem/skybox/Initialize()
 	. = ..()
@@ -54,7 +51,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	res.appearance_flags = KEEP_TOGETHER
 
 	var/sector_icon = SSatlas.current_sector.skybox_icon
-	var/image/base = overlay_image(skybox_icon, sector_icon, background_color)
+	var/image/base = overlay_image(skybox_icon, sector_icon)
 
 	if(use_stars)
 		var/image/stars = overlay_image(skybox_icon, star_state, flags = RESET_COLOR)

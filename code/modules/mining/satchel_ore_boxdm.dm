@@ -71,12 +71,12 @@
 		else
 			stored_ore[O.name] = 1
 
-/obj/structure/ore_box/examine(mob/user)
-	..()
+/obj/structure/ore_box/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	// Borgs can now check contents too.
 	if((!istype(user, /mob/living/carbon/human)) && (!istype(user, /mob/living/silicon/robot)))
 		return
-	if(!Adjacent(user)) //Can only check the contents of ore boxes if you can physically reach them.
+	if(!is_adjacent) //Can only check the contents of ore boxes if you can physically reach them.
 		return
 
 	add_fingerprint(user)

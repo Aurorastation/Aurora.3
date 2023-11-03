@@ -14,15 +14,15 @@
 	if(species && species.flags & NO_BLOOD) //We want the var for safety but we can do without the actual blood.
 		return
 
-	vessel.add_reagent(/decl/reagent/blood, species.blood_volume, temperature = species?.body_temperature)
+	vessel.add_reagent(/singleton/reagent/blood, species.blood_volume, temperature = species?.body_temperature)
 	fixblood()
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
-	if(!REAGENT_VOLUME(vessel, /decl/reagent/blood))
+	if(!REAGENT_VOLUME(vessel, /singleton/reagent/blood))
 		return
 	LAZYINITLIST(vessel.reagent_data)
-	LAZYSET(vessel.reagent_data, /decl/reagent/blood, get_blood_data())
+	LAZYSET(vessel.reagent_data, /singleton/reagent/blood, get_blood_data())
 
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt as num, var/tar = src, var/spraydir)
@@ -33,7 +33,7 @@
 	if(!amt)
 		return
 
-	vessel.remove_reagent(/decl/reagent/blood,amt)
+	vessel.remove_reagent(/singleton/reagent/blood,amt)
 	blood_splatter(tar, src, spray_dir = spraydir)
 
 #define BLOOD_SPRAY_DISTANCE 2
@@ -85,7 +85,7 @@
 #undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()
-	return round((REAGENT_VOLUME(vessel, /decl/reagent/blood)/species.blood_volume)*100)
+	return round((REAGENT_VOLUME(vessel, /singleton/reagent/blood)/species.blood_volume)*100)
 
 /mob/living/carbon/human/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
@@ -119,7 +119,7 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
-	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
+	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
 	if(!need_breathe())
@@ -141,7 +141,7 @@
 
 //Gets blood from mob to the container, preserving all data in it.
 /mob/living/carbon/proc/take_blood(obj/item/reagent_containers/container, var/amount)
-	container.reagents.add_reagent(/decl/reagent/blood, amount, get_blood_data(), temperature = species?.body_temperature)
+	container.reagents.add_reagent(/singleton/reagent/blood, amount, get_blood_data(), temperature = species?.body_temperature)
 	return TRUE
 
 //For humans, blood does not appear from blue, it comes from vessels.
@@ -155,14 +155,14 @@
 
 	vessel.trans_to_holder(container.reagents, amount)
 
-	if(vessel.has_reagent(/decl/reagent/blood))
-		LAZYSET(vessel.reagent_data, /decl/reagent/blood, get_blood_data())
+	if(vessel.has_reagent(/singleton/reagent/blood))
+		LAZYSET(vessel.reagent_data, /singleton/reagent/blood, get_blood_data())
 	vessel.trans_to_holder(container.reagents, amount)
 	return TRUE
 
 //Transfers blood from container to vessels
 /mob/living/carbon/proc/inject_blood(var/amount, var/datum/reagents/donor)
-	var/list/injected_data = REAGENT_DATA(donor, /decl/reagent/blood)
+	var/list/injected_data = REAGENT_DATA(donor, /singleton/reagent/blood)
 	var/chems = LAZYACCESS(injected_data, "trace_chem")
 	for(var/C in chems)
 		reagents.add_reagent(C, (text2num(chems[C]) / species.blood_volume) * amount)//adds trace chemicals to owner's blood
@@ -170,13 +170,13 @@
 //Transfers blood from reagents to vessel, respecting blood types compatability.
 /mob/living/carbon/human/inject_blood(var/amount, var/datum/reagents/donor)
 	if(!should_have_organ(BP_HEART))
-		reagents.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
+		reagents.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 		return
 	// Incompatibility is handled in mix_data now.
-	vessel.add_reagent(/decl/reagent/blood, amount, REAGENT_DATA(donor, /decl/reagent/blood), temperature = species?.body_temperature)
+	vessel.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 	..()
 
-proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
+/proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	if(!donor || !receiver) return 0
 
 	if(donor_species && receiver_species)
@@ -222,15 +222,18 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	. = ..()
 	var/list/trace_chems = list()
 	if(LAZYLEN(vessel.reagent_data))
-		trace_chems = LAZYACCESS(vessel.reagent_data[/decl/reagent/blood], "trace_chem") || list()
+		trace_chems = LAZYACCESS(vessel.reagent_data[/singleton/reagent/blood], "trace_chem") || list()
 	.["trace_chem"] = trace_chems.Copy()
 
-proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
-
+/proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
 	if(sourceless_color == COLOR_OIL)
 		decal_type = /obj/effect/decal/cleanable/blood/oil/streak
+	if(ishuman(source))
+		var/mob/living/carbon/human/H = source
+		if(H.isSynthetic())
+			decal_type = /obj/effect/decal/cleanable/blood/oil/streak
 	var/turf/T = get_turf(target)
 
 	// Are we dripping or splattering?
@@ -266,7 +269,7 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 		blood_data = donor.get_blood_data()
 	else if(isatom(source))
 		var/atom/donor = source
-		blood_data = REAGENT_DATA(donor.reagents, /decl/reagent/blood)
+		blood_data = REAGENT_DATA(donor.reagents, /singleton/reagent/blood)
 	else if(!source)
 		if(sourceless_color)
 			splatter.basecolor = sourceless_color
@@ -292,5 +295,5 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 			splatter.blood_DNA[blood_data["blood_DNA"]] = "O+"
 
 	splatter.fluorescent  = 0
-	splatter.invisibility = 0
+	splatter.set_invisibility(0)
 	return splatter

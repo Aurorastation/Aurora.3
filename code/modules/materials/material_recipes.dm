@@ -49,17 +49,19 @@
 	recipes += new /datum/stack_recipe_list("construction recipes",
 		list(
 			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20),
-			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/floor/full, 1, 4, 20),
+			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/mono, 1, 4, 20),
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
 			new /datum/stack_recipe("steel barricade", /obj/structure/barricade/metal, BUILD_AMT, time = 10 SECONDS, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 2, 20),
-			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("steel window frame", /obj/structure/window_frame/unanchored, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2),
+			new /datum/stack_recipe("floor light fixture frame", /obj/item/floor_frame/light, 2),
 			new /datum/stack_recipe("small light fixture frame", /obj/item/frame/light/small, 1),
+			new /datum/stack_recipe("small floor light fixture frame", /obj/item/floor_frame/light/small, 1),
+			new /datum/stack_recipe("spotlight fixture frame", /obj/item/frame/light/spot, 3),
 			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2),
 			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2),
 			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
@@ -75,32 +77,23 @@
 			new /datum/stack_recipe("shooting target", /obj/item/target, 5, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("dark office chair", /obj/structure/bed/stool/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("light office chair", /obj/structure/bed/stool/chair/office/light, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("plain padded chair", /obj/structure/bed/stool/chair/padded, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("steel chair (fancy)", /obj/structure/bed/stool/chair/fancy, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/stool/chair/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/stool/chair/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/stool/chair/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/stool/chair/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (corner, concave)", /obj/structure/bed/stool/chair/sofa/corner/concave, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (corner, convex)", /obj/structure/bed/stool/chair/sofa/corner/convex, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("steel crate", /obj/structure/closet/crate, BUILD_AMT, time = 50, one_per_turf = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
 		list(
-			new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("service airlock assembly", /obj/structure/door_assembly/door_assembly_ser, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("command airlock assembly", /obj/structure/door_assembly/door_assembly_com, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("security airlock assembly", /obj/structure/door_assembly/door_assembly_sec, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("engineering airlock assembly", /obj/structure/door_assembly/door_assembly_eng, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("mining airlock assembly", /obj/structure/door_assembly/door_assembly_min, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("atmospherics airlock assembly", /obj/structure/door_assembly/door_assembly_atmo, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("research airlock assembly", /obj/structure/door_assembly/door_assembly_research, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("medical airlock assembly", /obj/structure/door_assembly/door_assembly_med, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("generic airlock assembly", /obj/structure/door_assembly/door_assembly_generic, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("freezer airlock assembly", /obj/structure/door_assembly/door_assembly_fre, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("vault assembly", /obj/structure/door_assembly/door_assembly_vault, BUILD_AMT, time = 100, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("emergency shutter", /obj/structure/firedoor_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1)
 		))
@@ -160,7 +153,8 @@
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
 			new /datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, BUILD_AMT, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE),
-			new /datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1),
+			new /datum/stack_recipe("bonfire", /obj/structure/bonfire, BUILD_AMT, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE),
+			new /datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandals, 1),
 			new /datum/stack_recipe("wood circlet", /obj/item/woodcirclet, 1),
 			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
 			new /datum/stack_recipe("wooden chair", /obj/structure/bed/stool/chair/wood, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
@@ -228,13 +222,6 @@
 			new /datum/stack_recipe("canvas 23x23", /obj/item/canvas/twentythree_twentythree, 8)
 		))
 
-/material/hide/xeno/generate_recipes()
-	..()
-	recipes += new /datum/stack_recipe_list("[display_name] costumes",
-		list(
-			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 4, 1, time = 20)
-		))
-
 /material/hide/corgi/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] costumes",
@@ -289,8 +276,7 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("light marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
-			new /datum/stack_recipe("dark marble floor tile", /obj/item/stack/tile/marble/dark, 1, 4, 20)
+			new /datum/stack_recipe("marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
 		))
 
 /material/leather/generate_recipes()
@@ -300,3 +286,13 @@
 			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 4, 1, time = 20),
 			new /datum/stack_recipe("leather whip", /obj/item/melee/whip, 15, 1, time = 20)
 		))
+
+/material/wood/log/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 3, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("log bench", /obj/structure/flora/log_bench, 2, time = 20, one_per_turf = 1, on_floor = 1)
+
+/material/wood/branch/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 10, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch, 1, time = 15, one_per_turf = 0, on_floor = 0)

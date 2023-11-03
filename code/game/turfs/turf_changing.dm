@@ -19,9 +19,14 @@
 		above.update_mimic()
 
 	if(queue_neighbors)
-		queue_smooth_neighbors(src)
-	else
-		queue_smooth(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
+	else if(smoothing_flags && !(smoothing_flags & SMOOTH_QUEUED)) // we check here because proc overhead
+		SSicon_smooth.add_to_queue(src)
+
+	if (current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
@@ -29,7 +34,7 @@
 
 //Creates a new turf.
 // N is the type of the turf.
-/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, var/ignore_override)
+/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	if (!N)
 		return
 
@@ -112,9 +117,12 @@
 
 	W.decals = old_decals
 
-	W.post_change()
+	W.post_change(!mapload)
 
 	. = W
+
+	for(var/turf/T in RANGE_TURFS(1, src))
+		T.update_icon()
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))

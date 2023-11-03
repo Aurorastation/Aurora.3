@@ -18,6 +18,10 @@
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
 		. += natural_armor
+	if(psi)
+		var/armor = psi.GetComponent(/datum/component/armor/psionic)
+		if(armor)
+			. += armor
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
@@ -49,6 +53,15 @@
 		. = get_blocked_ratio(def_zone, P.damage_type, flags, P.armor_penetration, P.damage)
 	bullet_impact_visuals(P, def_zone, damage, .)
 	P.on_hit(src, ., def_zone)
+
+/mob/living/proc/get_flash_protection(ignore_inherent = FALSE)
+	return FLASH_PROTECTION_NONE
+
+/mob/living/proc/get_hearing_protection()
+	return FALSE
+
+/mob/living/proc/get_hearing_sensitivity()
+	return FALSE
 
 /mob/living/proc/aura_check(var/type)
 	if(!auras)
@@ -92,11 +105,11 @@
 		apply_effect(stun_amount, EYE_BLUR)
 
 	if(agony_amount)
-		apply_damage(agony_amount, PAIN, def_zone, used_weapon)
+		apply_damage(agony_amount, DAMAGE_PAIN, def_zone, used_weapon)
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 
-/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
+/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
@@ -104,6 +117,22 @@
 	for(var/obj/O in L)
 		O.emp_act(severity)
 	..()
+
+/mob/living/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(is_blind() && !(override_blindness_check || affect_silicon))
+		return FALSE
+
+	if(get_flash_protection(ignore_inherent) >= intensity)
+		return FALSE
+
+	overlay_fullscreen("flash", type)
+	addtimer(CALLBACK(src, /mob/proc/clear_fullscreen, "flash", length), length)
+	return TRUE
+
+/// Called when the mob hears a very loud noise!
+/// Intensity can be an EAR_PROTECTION_X define or an arbitrary/computed value between -1 and 2 (or more if you're insane)
+/mob/living/proc/noise_act(intensity = EAR_PROTECTION_MODERATE, stun_pwr = 0, damage_pwr = 0, deafen_pwr = 0)
+	return FALSE
 
 /mob/living/proc/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	return src
@@ -117,7 +146,7 @@
 
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
-	if(I.damtype == BRUTE && prob(33) && I.force) // Added blood for whacking non-humans too
+	if(I.damtype == DAMAGE_BRUTE && prob(33) && I.force) // Added blood for whacking non-humans too
 		var/turf/simulated/location = get_turf(src)
 		if(istype(location)) location.add_blood_floor(src)
 
@@ -127,7 +156,7 @@
 		return FALSE
 
 	//Hulk modifier
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		effective_force *= 2
 
 	//Apply weapon damage
@@ -199,12 +228,12 @@
 /mob/living/proc/embed(var/obj/O, var/def_zone=null)
 	O.forceMove(src)
 	src.embedded += O
-	src.verbs += /mob/proc/yank_out_object
+	add_verb(src, /mob/proc/yank_out_object)
 
-/mob/living/proc/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
+/mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message("<span class='danger'>[src] slams into \the [T]!</span>")
-	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
-	apply_damage(speed*5, BRUTE)
+	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
+	apply_damage(speed*5, DAMAGE_BRUTE)
 
 /mob/living/proc/near_wall(var/direction,var/distance=1)
 	var/turf/T = get_step(get_turf(src),direction)
@@ -222,18 +251,20 @@
 
 // End BS12 momentum-transfer code.
 
-/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
+/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
 	if(!damage)
 		return
 
-	adjustBruteLoss(damage)
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
 	if (attack_message)
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
-	spawn(1) updatehealth()
-	return 1
+
+	apply_damage(damage, damage_type, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+	updatehealth()
+
+	return TRUE
 
 /mob/living/proc/IgniteMob(var/fire_stacks_to_add = 0)
 
@@ -247,17 +278,18 @@
 
 	return FALSE
 
-#define MOB_FIRE_LIGHT_RANGE  3  //These control the intensity and range of light given off by a mob which is on fire
-#define MOB_FIRE_LIGHT_POWER  2
-
 /mob/living/proc/set_on_fire()
-	to_chat(src, SPAN_DANGER(FONT_LARGE("You're set on fire!")))
 	on_fire = TRUE
-	set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
+	to_chat(src, SPAN_DANGER(FONT_LARGE("You are set on fire!")))
+	set_light(3, 2, LIGHT_COLOR_FIRE)
+
+/mob/living/proc/extinguish_fire()
+	on_fire = FALSE
+	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
+	set_light(0)
 
 /mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
-
-	if (fire_stacks_to_remove)
+	if(fire_stacks_to_remove)
 		adjust_fire_stacks(-fire_stacks_to_remove)
 
 	if(fire_stacks <= 0 && on_fire)
@@ -266,11 +298,6 @@
 		return TRUE
 
 	return FALSE
-
-/mob/living/proc/extinguish_fire()
-	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
-	on_fire = FALSE
-	set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 
 /mob/living/proc/ExtinguishMobCompletely()
 	return ExtinguishMob(fire_stacks)
@@ -284,6 +311,10 @@
 	return fire_stacks
 
 /mob/living/proc/handle_fire()
+	if(!loc)
+		ExtinguishMobCompletely()
+		return TRUE
+
 	if(fire_stacks < 0)
 		fire_stacks = min(0, ++fire_stacks) //If we've doused ourselves in water to avoid fire, dry off slowly
 
@@ -327,10 +358,18 @@
 	for(var/datum/action/A in actions)
 		if(A.CheckRemoval(src))
 			A.Remove(src)
+
 	for(var/obj/item/I in src)
 		if(I.action_button_name)
+
+			//If the item_action object does not exist, try to create it
 			if(!I.action)
-				I.action = new I.default_action_type
+				//Try to use the default action type, if there is none, skip this implant
+				if(I.default_action_type)
+					I.action = new I.default_action_type
+				else
+					continue
+
 			I.action.name = I.action_button_name
 			I.action.SetTarget(I)
 			I.action.Grant(src)
@@ -362,6 +401,9 @@
 
 	var/button_number = 0
 	for(var/datum/action/A in actions)
+		if(QDELETED(A))
+			continue
+
 		button_number++
 		if(A.button == null)
 			var/obj/screen/movable/action_button/N = new(hud_used)
@@ -388,6 +430,3 @@
 			hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(button_number+1)
 			//hud_used.SetButtonCoords(hud_used.hide_actions_toggle,button_number+1)
 		client.screen += hud_used.hide_actions_toggle
-
-#undef	MOB_FIRE_LIGHT_RANGE  //These control the intensity and range of light given off by a mob which is on fire
-#undef	MOB_FIRE_LIGHT_POWER

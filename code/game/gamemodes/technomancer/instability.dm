@@ -1,4 +1,4 @@
-#define TECHNOMANCER_INSTABILITY_DECAY				0.97	// Multipler for how much instability is lost per Life() tick.
+#define TECHNOMANCER_INSTABILITY_DECAY				0.97	// Multiplier for how much instability is lost per Life() tick.
 // Numbers closer to 1.0 make instability decay slower.  Instability will never decay if it's at 1.0.
 // When set to 0.98, it has a half life of roughly 35 Life() ticks, or 1.1 minutes.
 // For 0.97, it has a half life of about 23 ticks, or 46 seconds.
@@ -16,13 +16,13 @@
 
 // Proc: adjust_instability()
 // Parameters: 0
-// Description: Does nothing, because inheritence.
+// Description: Does nothing, because inheritance.
 /mob/living/proc/adjust_instability(var/amount)
 	instability = between(0, round(instability + amount, TECHNOMANCER_INSTABILITY_PRECISION), 200)
 
 // Proc: adjust_instability()
 // Parameters: 1 (amount - how much instability to give)
-// Description: Adds or subtracks instability to the mob, then updates the hud.
+// Description: Adds or subtracts instability to the mob, then updates the hud.
 /mob/living/carbon/human/adjust_instability(var/amount)
 	..()
 	instability_update_hud()
@@ -59,7 +59,7 @@
 	instability = between(0, round(instability, TECHNOMANCER_INSTABILITY_PRECISION), 200)
 	last_instability = instability
 
-	//This should cushon against really bad luck.
+	//This should cushion against really bad luck.
 	if(instability && last_instability_event < (world.time - 5 SECONDS) && prob(50))
 		instability_effects()
 
@@ -84,7 +84,7 @@
 */
 // Proc: instability_effects()
 // Parameters: 0
-// Description: Does a variety of bad effects to the entity holding onto the instability, with more severe effects occuring if they have
+// Description: Does a variety of bad effects to the entity holding onto the instability, with more severe effects occurring if they have
 // a lot of instability.
 /mob/living/proc/instability_effects()
 	last_instability_event = world.time
@@ -206,12 +206,12 @@
 				rng = rand(0,8)
 				switch(rng)
 					if(0)
-						apply_damage(instability * 0.3, PAIN)
+						apply_damage(instability * 0.3, DAMAGE_PAIN)
 					if(1)
 						return
 					if(2)
 						if(can_feel_pain())
-							apply_damage(instability * 0.3, PAIN)
+							apply_damage(instability * 0.3, DAMAGE_PAIN)
 							to_chat(src, "<span class='danger'>You feel a sharp pain!</span>")
 					if(3)
 						apply_effect(instability * 0.3, EYE_BLUR)
@@ -234,13 +234,13 @@
 				rng = rand(0,8)
 				switch(rng)
 					if(0)
-						apply_damage(instability * 0.2, IRRADIATE)
+						apply_damage(instability * 0.2, DAMAGE_RADIATION)
 					if(1)
 						return
 					if(2)
 						if(can_feel_pain())
-							apply_damage(instability * 0.7, PAIN)
-							to_chat(src, "<span class='danger'>You feel an extremely angonizing pain from all over your body!</span>")
+							apply_damage(instability * 0.7, DAMAGE_PAIN)
+							to_chat(src, "<span class='danger'>You feel an extremely agonizing pain from all over your body!</span>")
 					if(3)
 						apply_effect(instability * 0.5, EYE_BLUR)
 						to_chat(src, "<span class='danger'>Your eyes start to get cloudy!</span>")
@@ -257,15 +257,15 @@
 				rng = rand(0,7)
 				switch(rng)
 					if(0)
-						apply_effect(instability, IRRADIATE)
+						apply_damage(instability, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 					if(1)
 						visible_message("<span class='warning'>\The [src] suddenly collapses!</span>",
 						"<span class='danger'>You suddenly feel very light-headed, and faint!</span>")
 						Paralyse(instability * 0.1)
 					if(2)
 						if(can_feel_pain())
-							apply_damage(instability, PAIN)
-							to_chat(src, "<span class='danger'>You feel an extremely angonizing pain from all over your body!</span>")
+							apply_damage(instability, DAMAGE_PAIN)
+							to_chat(src, "<span class='danger'>You feel an extremely agonizing pain from all over your body!</span>")
 					if(3)
 						apply_effect(instability, EYE_BLUR)
 						to_chat(src, "<span class='danger'>Your eyes start to get cloudy!</span>")
@@ -295,7 +295,7 @@
 // This should only be used for EXTERNAL sources of instability, such as from someone or something glowing.
 /mob/living/proc/receive_radiated_instability(amount)
 	// Energy armor like from the AMI RIG can protect from this.
-	var/armor_ratio = get_blocked_ratio(BP_CHEST, BURN, damage = 40)
+	var/armor_ratio = get_blocked_ratio(BP_CHEST, DAMAGE_BURN, damage = 40)
 	amount = amount * armor_ratio
 	if(amount && prob(10))
 		if(isSynthetic())
@@ -304,3 +304,8 @@
 			to_chat(src, "<span class='cult'><font size='4'>The purple glow makes you feel strange...</font></span>")
 	adjust_instability(amount)
 
+
+#undef TECHNOMANCER_INSTABILITY_DECAY
+#undef TECHNOMANCER_INSTABILITY_MIN_DECAY
+#undef TECHNOMANCER_INSTABILITY_PRECISION
+#undef TECHNOMANCER_INSTABILITY_MIN_GLOW

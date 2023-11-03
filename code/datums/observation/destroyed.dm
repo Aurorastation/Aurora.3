@@ -1,4 +1,4 @@
-var/datum/observ/destroyed/destroyed_event = new()
+var/singleton/observ/destroyed/destroyed_event = new()
 
-/datum/observ/destroyed
+/singleton/observ/destroyed
 	name = "Destroyed"
