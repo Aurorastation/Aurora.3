@@ -76,7 +76,30 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "aH" = (
-/obj/random/cookingoil,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "aI" = (
@@ -330,6 +353,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "dk" = (
@@ -443,6 +467,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32;
+	pixel_x = 16
+	},
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "ef" = (
@@ -466,7 +494,9 @@
 /area/ship/scc_scout_ship)
 "ek" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/sleeper,
+/obj/machinery/sleeper{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
 "em" = (
@@ -669,6 +699,7 @@
 	dir = 1
 	},
 /obj/structure/bookcase/libraryspawn/fiction,
+/obj/item/device/versebook/biesel,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "gd" = (
@@ -696,7 +727,6 @@
 /area/ship/scc_scout_ship)
 "gf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -969,15 +999,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "jR" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 33;
-	pixel_x = 5
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 24;
-	pixel_x = 5
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "jT" = (
@@ -1242,6 +1267,14 @@
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24;
+	pixel_x = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 33;
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
@@ -1926,6 +1959,13 @@
 	},
 /turf/template_noop,
 /area/ship/scc_scout_ship)
+"tJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "tN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2008,6 +2048,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "uz" = (
@@ -2199,6 +2240,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "wQ" = (
@@ -2602,14 +2644,14 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/item/reagent_containers/food/drinks/bottle/absinthe{
 	pixel_x = -6;
-	pixel_y = 10
+	pixel_y = 5
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /obj/item/reagent_containers/food/drinks/cans/iced_tea{
-	pixel_x = 4;
-	pixel_y = 8
+	pixel_x = 6;
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -2760,6 +2802,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Df" = (
@@ -2996,9 +3042,11 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "FN" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/structure/lattice,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
 /area/ship/scc_scout_ship)
 "Gi" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -3393,6 +3441,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "KG" = (
@@ -3490,6 +3539,9 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
+	},
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -3714,6 +3766,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "OM" = (
@@ -3931,6 +3984,10 @@
 	icon = 'icons/obj/computer.dmi';
 	icon_state = "television";
 	name = "PanaVision 2400"
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32;
+	pixel_x = 16
 	},
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship)
@@ -4247,9 +4304,6 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -4659,6 +4713,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "XS" = (
@@ -35237,9 +35292,9 @@ Xp
 SI
 hF
 dh
-DI
+tJ
 wP
-ro
+gf
 eG
 QK
 da
@@ -35494,9 +35549,9 @@ Xp
 Gi
 QK
 XQ
-BB
-Ek
-BB
+KT
+jT
+KT
 da
 aw
 da
@@ -38314,7 +38369,7 @@ uf
 xM
 Vn
 jT
-FN
+KT
 OJ
 px
 uK
@@ -40644,7 +40699,7 @@ Xj
 Xj
 Xj
 HF
-HF
+iT
 bB
 Xj
 Xj
@@ -40901,7 +40956,7 @@ Xj
 Xj
 Xj
 HF
-HF
+iT
 bB
 Xj
 Xj
@@ -41158,7 +41213,7 @@ bB
 bB
 bB
 HF
-HF
+iT
 bB
 bB
 bB
@@ -42191,7 +42246,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+bB
 HF
 Fq
 Xj
@@ -42418,8 +42473,8 @@ Xp
 Xp
 Xp
 Xp
-Xj
-Xj
+bB
+bB
 FL
 Zd
 ug
@@ -42427,7 +42482,7 @@ ca
 cj
 QP
 Xp
-Ek
+jT
 ut
 Xp
 HF
@@ -42684,7 +42739,7 @@ Om
 Om
 Tw
 Xp
-BB
+KT
 zG
 Xp
 HF
@@ -43715,7 +43770,7 @@ Xp
 Jm
 WJ
 gG
-Ys
+FN
 Xj
 Xj
 Ys
