@@ -452,5 +452,5 @@
 	..()
 	var/list/cards = list()
 	cards["hegemony passcard"] = /obj/item/clothing/accessory/badge/passcard/hegemony
-	cards["ouerean passcard"] = /obj/item/clothing/accessory/badge/passcard/ouerea
+	cards["ouerea passcard"] = /obj/item/clothing/accessory/badge/passcard/ouerea
 	gear_tweaks += new /datum/gear_tweak/path(cards)
