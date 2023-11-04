@@ -41,4 +41,4 @@ changes:
   - refactor: "Brought garbage-debug.dm back into garbage."
   - refactor: "Ported some parts of TG's reference tracking that were missing."
   - bugfix: "Fixed an issue that allowed the show harddels verb to be defined but the backend it relies upon not to."
-  - backend: "DMdoced a variable"
+  - backend: "DMdoced a variable."
