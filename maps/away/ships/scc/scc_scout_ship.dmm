@@ -1959,13 +1959,6 @@
 	},
 /turf/template_noop,
 /area/ship/scc_scout_ship)
-"tJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
 "tN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3091,6 +3084,13 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
+"GR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "GT" = (
@@ -35292,7 +35292,7 @@ Xp
 SI
 hF
 dh
-tJ
+GR
 wP
 gf
 eG
