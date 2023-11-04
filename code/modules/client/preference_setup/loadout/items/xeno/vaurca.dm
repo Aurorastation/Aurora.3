@@ -283,3 +283,13 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist")
+
+/datum/gear/accessory/tret_passcard
+	display_name = "tret passcard"
+	description = "A Hegemony-issued passcard for K'laxan Vaurcae."
+	path = /obj/item/clothing/accessory/badge/passcard/tret
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
+	culture_restriction = /singleton/origin_item/culture/klax
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
