@@ -47,7 +47,7 @@
 
 /singleton/recipe/spacylibertyduff
 	appliance = OVEN
-	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/alcohol/vodka = 5, /singleton/reagent/psilocybin = 5)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/alcohol/vodka = 5, /singleton/reagent/drugs/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
 /singleton/recipe/hotdiggitydonk //heated donk, in lieu of a microwave

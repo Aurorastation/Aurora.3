@@ -348,7 +348,7 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/syndicake
-	name = "Nutri-Cakes"
+	name = "\improper Nutri-Cakes"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "syndi_cakes"
 	desc = "An extremely moist snack cake."
@@ -617,7 +617,7 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#ED0758"
 	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/toxin/amatoxin = 6, /singleton/reagent/psilocybin = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/toxin/amatoxin = 6, /singleton/reagent/drugs/psilocybin = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("jelly" = 3, "mushroom" = 3))
 	bitesize = 3
 

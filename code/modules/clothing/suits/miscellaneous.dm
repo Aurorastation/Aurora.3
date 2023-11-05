@@ -62,7 +62,7 @@
 	name = "red space suit replica"
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
-	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
+	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -363,25 +363,25 @@
 
 /obj/item/clothing/suit/storage/toggle/trench/alt
 	name = "brown trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_brown"
 	item_state = "trenchcoat_brown"
 
 /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	name = "grey trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 
 /obj/item/clothing/suit/storage/toggle/trench/green
 	name = "green trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trenchcoat_green"
 	item_state = "trenchcoat_green"
 
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
-	desc = "A sleek canvas trenchcoat"
+	desc = "A sleek canvas trenchcoat."
 	icon_state = "trench_colorable"
 	item_state = "trench_colorable"
 

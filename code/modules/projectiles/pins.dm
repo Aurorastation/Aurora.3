@@ -229,8 +229,8 @@ Pins Below.
 
 /obj/item/device/firing_pin/away_site
 	name = "away site firing pin"
-	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-station."
-	fail_message = "<span class='warning'>USER ON STATION LEVEL.</span>"
+	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-ship."
+	fail_message = "<span class='warning'>USER ON SHIP LEVEL.</span>"
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)

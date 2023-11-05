@@ -99,6 +99,12 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	max_stack = 7
 
+/obj/item/ammo_casing/c46mm
+	desc = "A 4.6mm bullet casing."
+	caliber = "4.6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 15
+
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A 12-gauge slug."
@@ -261,6 +267,15 @@
 /obj/item/ammo_casing/a556/blank
 	desc = "A 5.56mm blank casing."
 	projectile_type = /obj/item/projectile/bullet/blank
+
+/obj/item/ammo_casing/a65
+	desc = "A 6.5mm bullet casing."
+	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
+	caliber = "a65"
+	projectile_type = /obj/item/projectile/bullet/rifle/a65
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 7
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"

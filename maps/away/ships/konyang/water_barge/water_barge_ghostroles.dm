@@ -16,7 +16,7 @@
 
 /datum/outfit/admin/pachrom
 	name = "PACHROM Crew"
-	uniform = /obj/item/clothing/under/color/grey //TODO: Pachrom uniforms
+	uniform = /obj/item/clothing/under/rank/konyang/pachrom
 	suit = /obj/item/clothing/suit/storage/hazardvest
 	shoes = /obj/item/clothing/shoes/workboots
 	gloves = /obj/item/clothing/gloves/black
