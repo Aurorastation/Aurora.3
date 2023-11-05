@@ -237,11 +237,11 @@
 
 	for (var/site_id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
-		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+		if ((site.spawns_in_current_sector()) && (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED))
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (SSatlas.current_sector.name in site.sectors))
+		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 
