@@ -3516,6 +3516,7 @@
 #include "maps\away\away_site\hivebot_hub\hivebot_hub.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_areas.dm"
+#include "maps\away\away_site\konyang\point_verdant\point_verdant_landmarks.dm"
 #include "maps\away\away_site\magshield\magshield.dm"
 #include "maps\away\away_site\magshield\magshield_areas.dm"
 #include "maps\away\away_site\overgrown_mining_station\overgrown_mining_station.dm"
