@@ -6,6 +6,7 @@
 	suffixes = list("away_site/konyang/point_verdant/point_verdant-1.dmm","away_site/konyang/point_verdant/point_verdant-2.dmm","away_site/konyang/point_verdant/point_verdant-3.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/point_verdant
 	map = "point_verdant"
@@ -36,6 +37,7 @@
 		"nav_point_verdant_waterdock_11",
 		"nav_point_verdant_waterdock_12",
 		"nav_point_verdant_waterdock_13",
+		"nav_point_verdant_waterdock_14",
 	)
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_point_verdant_spaceport_intrepid"),

@@ -1,4 +1,7 @@
 
+/obj/effect/shuttle_landmark/point_verdant
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
 /obj/effect/shuttle_landmark/point_verdant/spaceport_intrepid
 	name = "Point Verdant, Spaceport Landing Pad A (Intrepid)"
 	landmark_tag = "nav_point_verdant_spaceport_intrepid"
@@ -16,7 +19,9 @@
 	landmark_tag = "nav_point_verdant_corporate_canary"
 
 /obj/effect/shuttle_landmark/point_verdant/water
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	landmark_flags = 0
+	base_area = /area/point_verdant/water/deep
+	base_turf = /turf/simulated/floor/exoplanet/water/konyang
 
 /obj/effect/shuttle_landmark/point_verdant/water/dock_01
 	name = "Point Verdant, Waterdock 01"
@@ -69,3 +74,7 @@
 /obj/effect/shuttle_landmark/point_verdant/water/dock_13
 	name = "Point Verdant, Waterdock 13"
 	landmark_tag = "nav_point_verdant_waterdock_13"
+
+/obj/effect/shuttle_landmark/point_verdant/water/dock_14
+	name = "Point Verdant, Waterdock 14"
+	landmark_tag = "nav_point_verdant_waterdock_14"

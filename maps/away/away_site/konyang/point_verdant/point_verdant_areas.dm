@@ -98,8 +98,12 @@
 
 /area/point_verdant/water
 	name = "Point Verdant - Open Water"
+	icon_state = "fitness_pool"
 
 /area/point_verdant/water/Initialize()
 	. = ..()
 	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
 	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
+
+/area/point_verdant/water/deep // also used for waterdock landing area
+	name = "Point Verdant - Deep Water"
