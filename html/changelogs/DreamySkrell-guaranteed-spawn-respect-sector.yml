@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Away site/ruin guaranteed spawn flag respects current sector."
   - rscadd: "Guaranteed spawn flag added to Point Verdant."
+  - rscadd: "Sectors blacklist mechanism."

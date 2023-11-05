@@ -12,8 +12,13 @@
 
 	/// This ruin can only spawn in the sectors in this list.
 	/// Should contain names of sectors as defined in `space_sectors.dm`.
-	/// This list is flattened so it can contain nested lists (like for example, `ALL_POSSIBLE_SECTORS`).
+	/// This list is flattened so it can contain nested lists like, for example, `ALL_POSSIBLE_SECTORS`.
 	var/list/sectors = list()
+	/// Sectors in this list are removed from the `sectors` list.
+	/// Usage is same as of `sectors`.
+	/// Intention is to allow to, for example, set `sectors` to `ALL_POSSIBLE_SECTORS`,
+	/// but then disallow just one sector from that list.
+	var/list/sectors_blacklist = list()
 
 	/// Prefix part of the path to the dmm maps.
 	var/prefix = null
@@ -35,6 +40,8 @@
 		for (var/suffix in suffixes)
 			mappaths += (prefix + suffix)
 	sectors = flatten_list(sectors)
+	sectors_blacklist = flatten_list(sectors_blacklist)
+	sectors -= sectors_blacklist
 	..()
 
 /// Returns true if this ruin can spawn in current sector, otherwise false.
