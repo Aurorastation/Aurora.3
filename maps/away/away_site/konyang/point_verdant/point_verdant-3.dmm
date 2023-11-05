@@ -319,7 +319,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "dk" = (
-/obj/effect/shuttle_landmark/canary/hangar{
+/obj/effect/shuttle_landmark/point_verdant/spaceport_canary{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -530,6 +530,12 @@
 "fc" = (
 /obj/effect/decal/exterior_stairs/half/left{
 	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"fj" = (
+/obj/effect/shuttle_landmark/point_verdant/corporate_canary{
+	dir = 1
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -1325,7 +1331,7 @@
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "pl" = (
-/obj/effect/shuttle_landmark/intrepid/hangar{
+/obj/effect/shuttle_landmark/point_verdant/spaceport_intrepid{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -3407,7 +3413,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior)
 "NQ" = (
-/obj/effect/shuttle_landmark/mining/hangar{
+/obj/effect/shuttle_landmark/point_verdant/spaceport_spark{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -15835,8 +15841,8 @@ Cw
 Cw
 me
 TC
-dk
 DD
+fj
 DD
 DD
 DD

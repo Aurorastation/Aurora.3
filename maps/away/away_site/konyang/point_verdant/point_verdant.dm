@@ -23,8 +23,22 @@
 	instant_contact = TRUE
 
 	initial_generic_waypoints = list(
-		"nav_point_verdant_1",
-		"nav_point_verdant_2",
-		"nav_point_verdant_3",
-		"nav_point_verdant_4"
+		"nav_point_verdant_waterdock_01",
+		"nav_point_verdant_waterdock_02",
+		"nav_point_verdant_waterdock_03",
+		"nav_point_verdant_waterdock_04",
+		"nav_point_verdant_waterdock_05",
+		"nav_point_verdant_waterdock_06",
+		"nav_point_verdant_waterdock_07",
+		"nav_point_verdant_waterdock_08",
+		"nav_point_verdant_waterdock_09",
+		"nav_point_verdant_waterdock_10",
+		"nav_point_verdant_waterdock_11",
+		"nav_point_verdant_waterdock_12",
+		"nav_point_verdant_waterdock_13",
+	)
+	initial_restricted_waypoints = list(
+		"Intrepid" = list("nav_point_verdant_spaceport_intrepid"),
+		"Spark" = list("nav_point_verdant_spaceport_spark"),
+		"Canary" = list("nav_point_verdant_spaceport_canary", "nav_point_verdant_corporate_canary"),
 	)
