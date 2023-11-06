@@ -74,6 +74,7 @@
 
 /area/medical/smoking
 	name = "Medical - Smoking Lounge"
+	narrate = "A smell of secondhand smoke sits within this room."
 
 /area/medical/washroom
 	name = "Medical - Washroom"
@@ -118,6 +119,7 @@
 
 /area/hangar/intrepid
 	name = "Intrepid Hangar"
+	narrate = "A big, open room, often housing the Horizon's largest shuttle, the Intrepid."
 
 /area/hangar/intrepid/interstitial
 	name = "Intrepid Hangar Access"
@@ -155,6 +157,7 @@
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
 	sound_env = LARGE_ENCLOSED
+	narrate = "Scuff marks scar the floors from the movement of many crates and stored goods."
 
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
@@ -679,6 +682,7 @@
 	name = "Horizon - Disposals and Recycling"
 	icon_state = "disposal"
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
+	narrate = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
 
 /area/horizon/custodial/auxiliary
 	name = "Horizon - Auxiliary Custodial Closet"
@@ -822,6 +826,7 @@
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 	flags = HIDE_FROM_HOLOMAP
+	narrate = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."
 
 // Longbow
 /area/horizon/longbow

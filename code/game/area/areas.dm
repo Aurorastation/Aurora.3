@@ -62,6 +62,9 @@
 	var/station_area = FALSE
 	var/centcomm_area = FALSE
 
+	var/narrate //A text-based description of what this area is for.
+	var/list/blurbed_stated_to = list() //This list of names is here to make sure we don't state our descriptive blurb to a person more than once.
+
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
@@ -310,6 +313,7 @@ var/list/mob/living/forced_ambiance_list = new
 	// Stop playing music.
 	else
 		stop_music(L)
+	do_area_blurb(L)
 
 // Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
@@ -463,6 +467,14 @@ var/list/mob/living/forced_ambiance_list = new
 
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
+
+/area/proc/do_area_blurb(var/mob/living/L)
+	if(isnull(narrate))
+		return
+
+	if(!(L.ckey in blurbed_stated_to))
+		blurbed_stated_to += L.ckey
+		to_chat(L, SPAN_NOTICE("[narrate]"))
 
 #undef VOLUME_AMBIENCE
 #undef VOLUME_AMBIENT_HUM

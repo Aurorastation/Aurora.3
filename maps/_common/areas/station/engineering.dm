@@ -14,6 +14,7 @@
 	sound_env = LARGE_ENCLOSED
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+	narrate = "Many tanks are here, providing life support systems for the vessel."
 
 /area/engineering/atmos/monitoring
 	name = "Engineering - Atmospherics Monitoring Room"
