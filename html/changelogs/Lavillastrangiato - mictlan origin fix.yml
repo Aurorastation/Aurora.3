@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - spellcheck: "Specifies characters from Mictlan must originate from Mexico as well as Central/South America. Mexico is not in Central or South America."
+  - spellcheck: "Specifies characters from Mictlan must originate from Mexico as well as Central- or South America."
