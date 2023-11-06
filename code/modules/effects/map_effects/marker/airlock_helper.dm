@@ -5,11 +5,6 @@
 
 /// Specialization helper for the airlock marker. By itself does nothing.
 /// To be put above "exterior" components of the airlock, and on top of the actual airlock marker.
-/// - access button
-/// - air sensor
-/// - door - makes the door to be the exterior door of the airlock (opens when cycling to outside)
-/// - pump ()
-/// - chamber air pump ???
 /obj/effect/map_effect/marker_helper/airlock/exterior
 	name = "airlock marker helper (exterior/outside/vacuum)"
 	icon = 'icons/effects/map_effects.dmi'
