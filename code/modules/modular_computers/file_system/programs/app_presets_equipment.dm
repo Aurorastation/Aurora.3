@@ -7,15 +7,14 @@
 
 /datum/modular_computer_app_presets/wall_generic/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/filemanager(comp),
-		new /datum/computer_file/program/newsbrowser(comp),
+		COMPUTER_APP_PRESET_SYSTEM,
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/alarm_monitor/engineering(comp)
 	)
-	return _prg_list
+	return flatten_list(_prg_list)
 
 /datum/modular_computer_app_presets/ai
 	name = "ai"
@@ -25,8 +24,7 @@
 
 /datum/modular_computer_app_presets/ai/return_install_programs(obj/item/modular_computer/comp)
 	return list(
-		new /datum/computer_file/program/filemanager(comp),
-		new /datum/computer_file/program/ntnetdownload(comp)
+		COMPUTER_APP_PRESET_SYSTEM,
 	)
 
 /datum/modular_computer_app_presets/command/teleporter
@@ -37,21 +35,13 @@
 
 /datum/modular_computer_app_presets/command/teleporter/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
-		// system programs:
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/filemanager(comp),
-		// generic/civilian programs:
-		new /datum/computer_file/program/newsbrowser(comp),
-		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/map(comp),
-		// dept programs:
+		COMPUTER_APP_PRESET_SYSTEM,
+		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/teleporter(comp)
 	)
-	return _prg_list
+	return flatten_list(_prg_list)
 
 /datum/modular_computer_app_presets/command/account
 	name = "command_accounting"
@@ -61,8 +51,7 @@
 
 /datum/modular_computer_app_presets/command/account/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/filemanager(comp),
+		COMPUTER_APP_PRESET_SYSTEM,
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
@@ -70,12 +59,11 @@
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/account_db(comp)
 	)
-	return _prg_list
+	return flatten_list(_prg_list)
 
 /datum/modular_computer_app_presets/command/account/centcomm/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/filemanager(comp),
+		COMPUTER_APP_PRESET_SYSTEM,
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
@@ -83,7 +71,7 @@
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/account_db(comp, TRUE)
 	)
-	return _prg_list
+	return flatten_list(_prg_list)
 
 /datum/modular_computer_app_presets/trashcompactor
 	name = "trashcompactor"
@@ -95,7 +83,7 @@
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/crushercontrol(comp)
 	)
-	return _prg_list
+	return flatten_list(_prg_list)
 
 /datum/modular_computer_app_presets/cargo_delivery
 	name = "cargo_delivery"
@@ -105,16 +93,8 @@
 
 /datum/modular_computer_app_presets/cargo_delivery/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
-		// system programs:
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/filemanager(comp),
-		// generic/civilian programs:
-		new /datum/computer_file/program/newsbrowser(comp),
-		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/map(comp),
-		// dept/job programs:
+		COMPUTER_APP_PRESET_SYSTEM,
+		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
 		new /datum/computer_file/program/civilian/cargodelivery(comp)
 	)
-	return _prg_list
+	return flatten_list(_prg_list)
