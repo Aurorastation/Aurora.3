@@ -5,7 +5,7 @@
 	program_icon_state = "map"
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
-	size = 8
+	size = 4
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	tgui_id = "Map"
