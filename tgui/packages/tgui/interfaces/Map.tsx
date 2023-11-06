@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
-import { Input, Box, Section, Table } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { Slider, Input, Box, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 import { TextInputModal } from './TextInputModal';
 
@@ -13,32 +13,56 @@ export type MapData = {
 export const Map = (props, context) => {
   const { act, data } = useBackend<MapData>(context);
 
+  const [minimapZoom, setMinimapZoom] = useLocalState<number>(
+    context,
+    `minimapZoom`,
+    100
+  );
+
+  const map_size = 255;
+  const zoom_mod = minimapZoom / 100.0;
+
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
+          <Slider
+            animated
+            step={1}
+            stepPixelSize={10}
+            value={minimapZoom}
+            minValue={100}
+            maxValue={200}
+            onChange={(e, value) => setMinimapZoom(value)}>
+            {minimapZoom}
+          </Slider>
           <svg
-            height={500}
-            width={500}
-            viewBox="0 0 480 480"
+            height={'500px'}
+            width={'100%'}
+            viewBox={`0 0 ${map_size} ${map_size}`}
             overflow={'hidden'}>
-            <rect width="480" height="480" />
-            <g transform="translate(-240 -240)">
+            <rect width={map_size} height={map_size} />
+            <g
+              transform={`translate(
+                ${(map_size * (zoom_mod - 1.0)) / -2}
+                ${(map_size * (zoom_mod - 1.0)) / -2}
+              )`}>
               <image
-                width={480 * 2}
-                height={480 * 2}
+                width={map_size * zoom_mod}
+                height={map_size * zoom_mod}
                 xlinkHref={`data:image/jpeg;base64,${
                   data.map_images[data.user_z - 1]
                 }`}
               />
               <polygon
-                points="4,0 0,4 -4,0 0,-4"
+                points="3,0 0,3 -3,0 0,-3"
                 fill="#FF0000"
-                stroke="white"
+                stroke="#FFFF00"
                 stroke-width="0.5"
-                transform={`translate(${(data.user_x + (480 - 255) / 2) * 2} ${
-                  (255 - data.user_y + (480 - 255) / 2) * 2
-                })`}
+                transform={`translate(
+                  ${data.user_x * zoom_mod}
+                  ${(map_size - data.user_y) * zoom_mod}
+                )`}
               />
               <circle
                 r={16}
@@ -47,9 +71,10 @@ export const Map = (props, context) => {
                 fill="none"
                 stroke="#FF0000"
                 stroke-width="1"
-                transform={`translate(${(data.user_x + (480 - 255) / 2) * 2} ${
-                  (255 - data.user_y + (480 - 255) / 2) * 2
-                })`}
+                transform={`translate(
+                  ${data.user_x * zoom_mod}
+                  ${(map_size - data.user_y) * zoom_mod}
+                )`}
               />
             </g>
           </svg>

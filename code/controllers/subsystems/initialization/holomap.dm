@@ -6,8 +6,12 @@ SUBSYSTEM_DEF(holomap)
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
 
-	///
+	/// List of `/icon/` encoded images of minimaps, of every z-level, initialized at round start.
+	/// Every image is 255x255px.
 	var/list/holo_minimaps = list()
+
+	/// Same as `holo_minimaps`, but images are base64 encoded.
+	var/list/holo_minimaps_base64 = list()
 
 	///
 	var/list/extra_minimaps = list()
@@ -18,28 +22,25 @@ SUBSYSTEM_DEF(holomap)
 /datum/controller/subsystem/holomap/Initialize()
 	holo_minimaps.len = world.maxz
 	for (var/z in 1 to world.maxz)
-		holo_minimaps[z] = generateHoloMinimap(z)
+		generate_minimap(z)
 
 	LOG_DEBUG("SSholomap: [holo_minimaps.len] maps.")
 
-	for (var/z in current_map.station_levels)
-		generateStationMinimap(z)
+	// for (var/z in current_map.station_levels)
+	// 	generateStationMinimap(z)
 
 	..()
 
 
 // Generates the "base" holomap for one z-level, showing only the physical structure of walls and paths.
-/datum/controller/subsystem/holomap/proc/generateHoloMinimap(zlevel = 1)
-	// Save these values now to avoid a bazillion array lookups
-	var/offset_x = HOLOMAP_PIXEL_OFFSET_X(zlevel)
-	var/offset_y = HOLOMAP_PIXEL_OFFSET_Y(zlevel)
+/datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
 
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
-	var/icon/canvas = icon(HOLOMAP_ICON, "blank")
-	if(world.maxx + offset_x > canvas.Width())
-		CRASH("Minimap for z=[zlevel] : world.maxx ([world.maxx]) + holomap_offset_x ([offset_x]) must be <= [canvas.Width()]")
-	if(world.maxy + offset_y > canvas.Height())
-		CRASH("Minimap for z=[zlevel] : world.maxy ([world.maxy]) + holomap_offset_y ([offset_y]) must be <= [canvas.Height()]")
+	var/icon/canvas = icon('icons/255x255.dmi', "blank")
+	if(world.maxx > canvas.Width())
+		CRASH("Minimap for z=[zlevel] : world.maxx ([world.maxx]) must be <= [canvas.Width()]")
+	if(world.maxy > canvas.Height())
+		CRASH("Minimap for z=[zlevel] : world.maxy ([world.maxy]) must be <= [canvas.Height()]")
 
 	var/list/rock_tcache = typecacheof(list(
 		/turf/simulated/mineral,
@@ -69,13 +70,14 @@ SUBSYSTEM_DEF(holomap)
 		if (rock_tcache[Ttype])
 			continue
 		if (obstacle_tcache[Ttype] || (T.contents.len && locate(/obj/structure/grille, T)))
-			canvas.DrawBox(HOLOMAP_OBSTACLE, T.x + offset_x, T.y + offset_y)
+			canvas.DrawBox(HOLOMAP_OBSTACLE, T.x, T.y)
 		else if(path_tcache[Ttype] || (T.contents.len && locate(/obj/structure/lattice/catwalk, T)))
-			canvas.DrawBox(HOLOMAP_PATH, T.x + offset_x, T.y + offset_y)
+			canvas.DrawBox(HOLOMAP_PATH, T.x, T.y)
 
 		CHECK_TICK
 
-	return canvas
+	holo_minimaps[zlevel] = canvas
+	holo_minimaps_base64[zlevel] = icon2base64(canvas)
 
 /datum/controller/subsystem/holomap/proc/generateStationMinimap(zlevel)
 	// Save these values now to avoid a bazillion array lookups
