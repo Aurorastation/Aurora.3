@@ -10,6 +10,9 @@
 	available_on_ntnet = TRUE
 	tgui_id = "Map"
 
+	/// If zero/null, show the z-level of the user, otherwise show `z_override` z-level.
+	var/z_override = 0
+
 /datum/computer_file/program/map/ui_data(mob/user)
 	var/list/data = list()
 
@@ -19,14 +22,14 @@
 		data["_PC"] = headerdata
 		. = data
 
-	// var/map_image = SSholomap.holo_minimaps[3]
-	// data["map_image"] = icon2base64(map_image)
-
 	var/list/map_images = list()
 	for(var/map_image in SSholomap.holo_minimaps)
 		map_images += icon2base64(map_image)
-
 	data["map_images"] = map_images
+
+	data["user_x"] = user.x
+	data["user_y"] = user.y
+	data["user_z"] = user.z
 
 	return data
 
@@ -34,3 +37,5 @@
 	. = ..()
 	if(.)
 		return
+	if(action == "z_override")
+		z_override = text2num(params["z_override"])

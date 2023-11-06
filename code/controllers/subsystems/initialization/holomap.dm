@@ -6,8 +6,13 @@ SUBSYSTEM_DEF(holomap)
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
 
+	///
 	var/list/holo_minimaps = list()
+
+	///
 	var/list/extra_minimaps = list()
+
+	/// list of `/obj/machinery/station_map`
 	var/list/station_holomaps = list()
 
 /datum/controller/subsystem/holomap/Initialize()
