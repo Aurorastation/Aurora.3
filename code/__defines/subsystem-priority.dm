@@ -5,7 +5,6 @@
 #define SS_INIT_JOBS        21
 #define SS_INIT_MAPFINALIZE 20	// Asteroid generation.
 #define SS_INIT_PARALLAX    19	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_HOLOMAP     18
 #define SS_INIT_ATOMS       17	// World initialization. Will trigger lighting updates. Observers can join after this loads.
 #define SS_INIT_ASSETS      16	// Assets subsystem setup.
 #define SS_INIT_POWER       15	// Initial powernet build.
@@ -29,6 +28,7 @@
 #define SS_INIT_LOBBY      -3	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
 #define SS_INIT_PING 	   -4	// Pinger for the clients
 #define SS_INIT_CHAT       -5	// To ensure chat remains smooth during init.
+#define SS_INIT_HOLOMAP    -6   // Should be initialized after all away maps and planets
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.

@@ -110,7 +110,8 @@
 		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/chemistry_codex(comp),
-		new /datum/computer_file/program/scanner/medical(comp)
+		new /datum/computer_file/program/scanner/medical(comp),
+		new /datum/computer_file/program/map(comp),
 	)
 	return _prg_list
 

@@ -2659,6 +2659,7 @@
 #include "code\modules\modular_computers\file_system\programs\games\arcade.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\lawmanager.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\manifest.dm"
+#include "code\modules\modular_computers\file_system\programs\generic\map.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\news_browser.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\ntnrc_client.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\records.dm"
