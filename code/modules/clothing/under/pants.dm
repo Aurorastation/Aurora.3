@@ -114,12 +114,6 @@
 	icon_state = "jeansblack"
 	item_state = "jeansblack"
 
-/obj/item/clothing/under/pants/youngfolksjeans
-	name = "young folks jeans"
-	desc = "For those tired of boring old jeans."
-	icon_state = "jeansyoungfolks"
-	item_state = "jeansyoungfolks"
-
 /obj/item/clothing/under/pants/designer
 	name = "designer jeans"
 	desc = "Dark denim jeans carefully distressed to perfection. They're not as rugged as they look."
