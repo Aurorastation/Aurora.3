@@ -23,23 +23,32 @@ export const Map = (props, context) => {
             viewBox="0 0 480 480"
             overflow={'hidden'}>
             <rect width="480" height="480" />
-            <g
-            //transform="translate(-240 -240)"
-            >
+            <g transform="translate(-240 -240)">
               <image
-                width={480}
-                height={480}
+                width={480 * 2}
+                height={480 * 2}
                 xlinkHref={`data:image/jpeg;base64,${
                   data.map_images[data.user_z - 1]
                 }`}
               />
               <polygon
-                points="2,0 0,2 -2,0 0,-2"
+                points="4,0 0,4 -4,0 0,-4"
                 fill="#FF0000"
                 stroke="white"
                 stroke-width="0.5"
-                transform={`translate(${data.user_x + (480 - 255) / 2} ${
-                  255 - data.user_y + (480 - 255) / 2
+                transform={`translate(${(data.user_x + (480 - 255) / 2) * 2} ${
+                  (255 - data.user_y + (480 - 255) / 2) * 2
+                })`}
+              />
+              <circle
+                r={16}
+                cx={0}
+                cy={0}
+                fill="none"
+                stroke="#FF0000"
+                stroke-width="1"
+                transform={`translate(${(data.user_x + (480 - 255) / 2) * 2} ${
+                  (255 - data.user_y + (480 - 255) / 2) * 2
                 })`}
               />
             </g>
