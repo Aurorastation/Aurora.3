@@ -814,7 +814,6 @@
 #include "code\game\machinery\spaceheater.dm"
 #include "code\game\machinery\stargazer.dm"
 #include "code\game\machinery\stasis_bed.dm"
-#include "code\game\machinery\station_holomap.dm"
 #include "code\game\machinery\status_display.dm"
 #include "code\game\machinery\status_display_ai.dm"
 #include "code\game\machinery\status_display_snowflakes.dm"

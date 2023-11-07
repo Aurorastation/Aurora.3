@@ -17,17 +17,17 @@ SUBSYSTEM_DEF(holomap)
 	///
 	var/list/extra_minimaps = list()
 
-	/// list of `/obj/machinery/station_map`
-	var/list/station_holomaps = list()
-
 /datum/controller/subsystem/holomap/Initialize()
 	minimaps.len = world.maxz
+	minimaps_base64 = world.maxz
+	extra_minimaps.len = world.maxz
+
+
 	for (var/z in 1 to world.maxz)
 		generate_minimap(z)
 
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
 
-	extra_minimaps.len = world.maxz
 	for (var/z in 1 to world.maxz)
 		generate_minimap_areas(z)
 
