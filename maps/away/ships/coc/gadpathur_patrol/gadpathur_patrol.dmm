@@ -1528,9 +1528,9 @@
 /obj/item/clothing/glasses/regular,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/gun/projectile/pistol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "mk" = (
@@ -2219,7 +2219,7 @@
 /obj/structure/sign/vacuum{
 	pixel_y = -32
 	},
-/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "rL" = (
@@ -3619,9 +3619,9 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/glasses/hud/health/prescription,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/gun/projectile/pistol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "CN" = (
@@ -4055,23 +4055,19 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/francisca)
 "FX" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220);
-	name = "assault rifle cabinet"
-	},
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/gun/projectile/automatic/rifle/dnac,
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm cabinet"
+	},
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/gun/projectile/xanupistol,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/a65,
-/obj/item/gun/projectile/automatic/rifle/dnac,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
 "FY" = (
@@ -4216,30 +4212,20 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "HR" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(220);
+	name = "assault rifle cabinet"
+	},
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/closet/secure_closet{
-	name = "armor locker"
-	},
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/suit/armor/carrier/heavy{
-	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
-	},
-/obj/item/clothing/suit/armor/carrier/heavy{
-	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
-	},
-/obj/item/clothing/suit/armor/carrier/heavy{
-	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
-	},
-/obj/item/clothing/suit/armor/carrier/heavy{
-	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
-	},
-/obj/item/clothing/suit/armor/carrier/heavy{
-	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
-	},
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/gun/projectile/automatic/rifle/dnac,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
 "HS" = (
@@ -5369,7 +5355,7 @@
 	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
 	},
 /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "QU" = (
@@ -5509,7 +5495,7 @@
 	starting_accessories = list("/obj/item/clothing/accessory/flagpatch/gadpathur")
 	},
 /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
-/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "RU" = (
@@ -6368,12 +6354,30 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "YU" = (
-/obj/structure/table/rack,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet{
+	name = "armor locker"
+	},
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/suit/armor/carrier/heavy{
+	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
+	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
