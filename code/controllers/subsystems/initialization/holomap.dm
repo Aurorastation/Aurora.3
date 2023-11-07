@@ -27,15 +27,14 @@ SUBSYSTEM_DEF(holomap)
 
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
 
-	// for (var/z in current_map.station_levels)
-	// 	generateStationMinimap(z)
+	extra_minimaps.len = world.maxz
+	for (var/z in 1 to world.maxz)
+		generate_minimap_areas(z)
 
 	..()
 
-
 // Generates the "base" holomap for one z-level, showing only the physical structure of walls and paths.
 /datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
-
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
 	var/icon/canvas = icon('icons/255x255.dmi', "blank")
 	if(world.maxx > canvas.Width())
@@ -80,17 +79,13 @@ SUBSYSTEM_DEF(holomap)
 	minimaps[zlevel] = canvas
 	minimaps_base64[zlevel] = icon2base64(canvas)
 
-/datum/controller/subsystem/holomap/proc/generateStationMinimap(zlevel)
-	// Save these values now to avoid a bazillion array lookups
-	var/offset_x = HOLOMAP_PIXEL_OFFSET_X(zlevel)
-	var/offset_y = HOLOMAP_PIXEL_OFFSET_Y(zlevel)
-
+/datum/controller/subsystem/holomap/proc/generate_minimap_areas(zlevel)
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
-	var/icon/canvas = icon(HOLOMAP_ICON, "blank")
-	if(world.maxx + offset_x > canvas.Width())
-		crash_with("Minimap for z=[zlevel] : world.maxx ([world.maxx]) + holomap_offset_x ([offset_x]) must be <= [canvas.Width()]")
-	if(world.maxy + offset_y > canvas.Height())
-		crash_with("Minimap for z=[zlevel] : world.maxy ([world.maxy]) + holomap_offset_y ([offset_y]) must be <= [canvas.Height()]")
+	var/icon/canvas = icon('icons/255x255.dmi', "blank")
+	if(world.maxx > canvas.Width())
+		crash_with("Minimap for z=[zlevel] : world.maxx ([world.maxx]) must be <= [canvas.Width()]")
+	if(world.maxy > canvas.Height())
+		crash_with("Minimap for z=[zlevel] : world.maxy ([world.maxy]) must be <= [canvas.Height()]")
 
 	var/turf/T
 	var/area/A
@@ -98,30 +93,16 @@ SUBSYSTEM_DEF(holomap)
 		T = thing
 		A = T.loc
 		if (A.holomap_color)
-			canvas.DrawBox(A.holomap_color, T.x + offset_x, T.y + offset_y)
+			canvas.DrawBox(A.holomap_color, T.x, T.y)
 
 	// Save this nice area-colored canvas in case we want to layer it or something I guess
-	extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPAREAS]_[zlevel]"] = canvas
+	// extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPAREAS]_[zlevel]"] = canvas
 
 	var/icon/map_base = icon(minimaps[zlevel])
 	map_base.Blend(HOLOMAP_HOLOFIER, ICON_MULTIPLY)
 
 	// Generate the full sized map by blending the base and areas onto the backdrop
-	var/icon/big_map = icon(HOLOMAP_ICON, "stationmap")
+	var/icon/big_map = icon('icons/255x255.dmi', "blank")
 	big_map.Blend(map_base, ICON_OVERLAY)
 	big_map.Blend(canvas, ICON_OVERLAY)
-	extra_minimaps["[HOLOMAP_EXTRA_STATIONMAP]_[zlevel]"] = big_map
-
-	// Generate the "small" map (I presume for putting on wall map things?)
-	var/icon/small_map = icon(HOLOMAP_ICON, "blank")
-	small_map.Blend(map_base, ICON_OVERLAY)
-	small_map.Blend(canvas, ICON_OVERLAY)
-	small_map.Scale(WORLD_ICON_SIZE, WORLD_ICON_SIZE)
-
-	// And rotate it in every direction of course!
-	var/icon/actual_small_map = icon(small_map)
-	actual_small_map.Insert(new_icon = small_map, dir = SOUTH)
-	actual_small_map.Insert(new_icon = turn(small_map, 90), dir = WEST)
-	actual_small_map.Insert(new_icon = turn(small_map, 180), dir = NORTH)
-	actual_small_map.Insert(new_icon = turn(small_map, 270), dir = EAST)
-	extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[zlevel]"] = actual_small_map
+	extra_minimaps[zlevel] = big_map

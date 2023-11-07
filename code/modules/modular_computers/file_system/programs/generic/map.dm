@@ -27,6 +27,11 @@
 		map_images += icon2base64(map_image)
 	data["map_images"] = map_images
 
+	var/list/map_images_e = list()
+	for(var/map_image_e in SSholomap.extra_minimaps)
+		map_images_e += icon2base64(map_image_e)
+	data["map_images_e"] = map_images_e
+
 	data["user_x"] = user.x
 	data["user_y"] = user.y
 	data["user_z"] = user.z

@@ -1,10 +1,11 @@
 import { useBackend, useLocalState } from '../backend';
-import { Slider, Input, Box, Section, Table } from '../components';
+import { Tabs, Slider, Input, Box, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 import { TextInputModal } from './TextInputModal';
 
 export type MapData = {
   map_images: any; // base64 icon
+  map_images_e: any; // base64 icon
   user_x: number;
   user_y: number;
   user_z: number;
@@ -26,6 +27,25 @@ export const Map = (props, context) => {
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
+          <Section fitted>
+            <Tabs>
+              <Tabs.Tab
+                height="20%"
+                onClick={() => act('z_override', { z_override: 1 })}>
+                1
+              </Tabs.Tab>
+              <Tabs.Tab
+                height="20%"
+                onClick={() => act('z_override', { z_override: 2 })}>
+                2
+              </Tabs.Tab>
+              <Tabs.Tab
+                height="20%"
+                onClick={() => act('z_override', { z_override: 3 })}>
+                3
+              </Tabs.Tab>
+            </Tabs>
+          </Section>
           <Slider
             animated
             step={1}
@@ -34,7 +54,7 @@ export const Map = (props, context) => {
             minValue={100}
             maxValue={200}
             onChange={(e, value) => setMinimapZoom(value)}>
-            {minimapZoom}
+            Zoom: {minimapZoom}%
           </Slider>
           <svg
             height={'500px'}
@@ -44,14 +64,17 @@ export const Map = (props, context) => {
             <rect width={map_size} height={map_size} />
             <g
               transform={`translate(
-                ${(map_size * (zoom_mod - 1.0)) / -2}
-                ${(map_size * (zoom_mod - 1.0)) / -2}
+                ${(map_size * (zoom_mod - 1.0)) / -2 + (255 / 2 - data.user_x)}
+                ${
+                  (map_size * (zoom_mod - 1.0)) / -2 +
+                  (255 / 2 - (map_size - data.user_y))
+                }
               )`}>
               <image
                 width={map_size * zoom_mod}
                 height={map_size * zoom_mod}
                 xlinkHref={`data:image/jpeg;base64,${
-                  data.map_images[data.user_z - 1]
+                  data.map_images_e[data.user_z - 1]
                 }`}
               />
               <polygon
