@@ -223,7 +223,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "akw" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
@@ -757,12 +757,15 @@
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "aFA" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "aFN" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Exotic Energies Harvesting";
@@ -1452,12 +1455,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ben" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -1690,7 +1690,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "boY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -2114,6 +2114,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"bBL" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "bBR" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	input_tag = "ph_in";
@@ -2330,7 +2339,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	dir = 8;
 	frequency = 1386;
-	id_tag = "canary";
+	id_tag = "canary_dock";
 	name = "\improper Canary docking port controller";
 	pixel_x = 22;
 	pixel_y = -19;
@@ -2710,7 +2719,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "bVo" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "3,22";
@@ -2790,22 +2799,26 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
-	name = "interior access button";
 	pixel_x = -25;
-	pixel_y = 20;
-	req_one_access = list(31,48,67)
+	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	frequency = 1380;
-	id_tag = "mining_shuttle_interior_sensor";
 	pixel_x = -25;
 	pixel_y = 27
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
+"bZP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai_upload)
 "bZR" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
@@ -4112,7 +4125,7 @@
 /area/maintenance/engineering)
 "cTj" = (
 /turf/simulated/floor/tiled/dark,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "cTm" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -4501,13 +4514,19 @@
 	},
 /area/engineering/atmos/propulsion)
 "dir" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "diJ" = (
@@ -5047,8 +5066,12 @@
 /area/horizon/hydroponics/lower)
 "dEe" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/random/backpack,
+/obj/random/loot,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "dEl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -6823,7 +6846,7 @@
 	no_cargo = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "eOk" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6953,7 +6976,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "eTJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 8
@@ -6966,10 +6989,7 @@
 "eTV" = (
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_external";
-	req_access = list(13)
+	icon_state = "door_locked"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6977,15 +6997,17 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	dir = 1;
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
-	name = "exterior access button";
-	pixel_x = -21;
-	pixel_y = 11;
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
 	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -7292,6 +7314,9 @@
 "fbJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,17"
@@ -8061,9 +8086,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
-	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
@@ -8633,7 +8655,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "fVm" = (
 /obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
@@ -8749,7 +8771,7 @@
 "fYt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "fZr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -8771,24 +8793,16 @@
 /area/shuttle/mining)
 "fZQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/machinery/access_button{
-	command = "cycle_exterior";
 	dir = 4;
-	frequency = 1385;
 	layer = 3.1;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "exterior access button";
 	pixel_x = -22;
 	pixel_y = 2
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -21;
 	pixel_y = 10
 	},
@@ -8801,6 +8815,14 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "fZX" = (
@@ -9299,11 +9321,15 @@
 /turf/template_noop,
 /area/engineering/atmos/propulsion/starboard)
 "gsG" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/random/loot,
+/obj/structure/table/standard{
+	no_cargo = 1
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 15;
+	pixel_x = 2
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "gtE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -10418,15 +10444,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "hgR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "hgU" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11457,6 +11482,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"hUt" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai_upload)
 "hUC" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
@@ -11677,6 +11706,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"ieH" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "ieW" = (
 /obj/machinery/light{
 	dir = 8
@@ -12237,16 +12274,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "interior access button";
 	pixel_x = -5;
 	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_interior_sensor";
 	pixel_x = -5;
 	pixel_y = 25
 	},
@@ -12257,6 +12288,14 @@
 	pixel_x = 7;
 	pixel_y = 25
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "iDk" = (
@@ -12941,6 +12980,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "mining_shuttle_dock";
+	name = "\improper Spark docking port controller";
+	pixel_x = 6;
+	pixel_y = -19;
+	req_one_access = list(31,48,67);
+	tag_door = "mining_shuttle_dock_doors"
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "jbR" = (
@@ -13582,7 +13631,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "jyn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -13706,7 +13755,7 @@
 	},
 /obj/random/tool,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "jCf" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/warning{
@@ -14252,10 +14301,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "jYy" = (
@@ -14554,13 +14609,19 @@
 	c_tag = "Intrepid - Airlock Aft";
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kkS" = (
@@ -14942,8 +15003,6 @@
 /area/horizon/custodial/disposals)
 "kxk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -14956,6 +15015,14 @@
 	name = "Intrepid Shutter"
 	},
 /obj/item/device/radio/intercom/expedition/east,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kyq" = (
@@ -15677,8 +15744,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "kVu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -16835,7 +16908,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "lPP" = (
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
@@ -17532,7 +17605,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "mlc" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -17900,10 +17973,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "mxq" = (
@@ -18582,6 +18661,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"mVo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "mVJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -19159,7 +19244,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "nqp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19365,8 +19450,6 @@
 /area/hangar/control)
 "nvn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -19375,6 +19458,14 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nvV" = (
@@ -19462,10 +19553,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
@@ -19583,9 +19680,6 @@
 	},
 /area/shuttle/intrepid/engine_compartment)
 "nBA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	name = "Spark scrubber vent"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -19630,7 +19724,7 @@
 "nCI" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "nCV" = (
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -19660,7 +19754,7 @@
 	name = "port, atmospherics"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "nEm" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/custodial/disposals)
@@ -19707,9 +19801,23 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "nIP" = (
-/turf/simulated/wall/shuttle/unique/scc/research{
-	icon_state = "11,17"
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 11
 	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
 /area/shuttle/mining)
 "nJB" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -21045,7 +21153,7 @@
 /obj/structure/closet/crate,
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "oFA" = (
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -21593,14 +21701,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "pdC" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai_upload)
 "pdL" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
@@ -22848,12 +22950,17 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "pTp" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "pTw" = (
@@ -24194,10 +24301,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "qPV" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "qQa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -24460,6 +24565,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"qZp" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai)
 "qZx" = (
 /obj/structure/ladder/up{
 	pixel_y = 10
@@ -25086,14 +25194,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "rso" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/turf/simulated/floor/tiled/dark/full,
+/area/turret_protected/ai_upload)
 "rsL" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/research_port)
@@ -25295,20 +25397,16 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_c)
 "rBI" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "\improper Spark docking port controller";
-	pixel_x = 6;
-	pixel_y = -25;
-	req_one_access = list(31,48,67);
-	tag_door = "mining_shuttle_dock_doors"
+	icon_state = "door_locked";
+	id_tag = "mining_shuttle_dock_doors";
+	req_access = list(13)
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "rBR" = (
 /obj/structure/cable/green{
@@ -25437,6 +25535,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"rJn" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "rJw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -25456,6 +25560,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"rJD" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai_upload)
 "rJZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -25469,10 +25582,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "rKM" = (
@@ -25517,32 +25636,28 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "rMf" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "rMm" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_internal";
-	req_access = list(13)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -25807,8 +25922,8 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "rUd" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/maintenance/research_port)
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
 "rUH" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,8"
@@ -25939,9 +26054,11 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "mining_shuttle_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -26517,7 +26634,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "sxx" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -26761,12 +26878,8 @@
 /area/hangar/intrepid)
 "sIQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet,
-/obj/random/colored_jumpsuit,
-/obj/random/backpack,
-/obj/random/loot,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "sJJ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -27084,6 +27197,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
+"sSK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "sTu" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -27246,28 +27365,24 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	frequency = 1380;
-	id_tag = "mining_shuttle_controller";
 	pixel_x = 25;
-	pixel_y = 5;
-	req_one_access = list(31,48,67);
-	tag_airpump = "mining_shuttle_pump";
-	tag_chamber_sensor = "mining_shuttle_sensor";
-	tag_exterior_door = "mining_shuttle_external";
-	tag_interior_door = "mining_shuttle_internal";
-	tag_interior_sensor = "mining_shuttle_interior_sensor"
+	pixel_y = 5
 	},
 /obj/machinery/airlock_sensor{
 	dir = 8;
-	frequency = 1380;
-	id_tag = "mining_shuttle_sensor";
 	pixel_x = 25;
 	pixel_y = -7
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -27528,7 +27643,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "thO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -29790,6 +29905,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/hangar/starboard)
+"uJP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "uKh" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -29939,7 +30067,7 @@
 "uRl" = (
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "uRt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -30039,7 +30167,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
@@ -30538,8 +30668,12 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "vil" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "viX" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Tanks 5";
@@ -30580,7 +30714,7 @@
 "vjA" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "vjI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -30672,11 +30806,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "vmR" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "vnJ" = (
@@ -31043,7 +31179,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "vCG" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -31140,10 +31276,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "mining_shuttle_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "vFL" = (
@@ -31865,7 +32004,7 @@
 	name = "aft, bottom AI core"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "wif" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -32184,6 +32323,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"wqs" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/turret_protected/ai)
 "wrD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -33268,7 +33410,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai_upload)
 "xgm" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/industrial/warning{
@@ -33370,15 +33512,8 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xiH" = (
-/obj/structure/table/standard{
-	no_cargo = 1
-	},
-/obj/item/stack/material/steel/full{
-	pixel_y = 15;
-	pixel_x = 2
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai_upload)
 "xiN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -33408,20 +33543,23 @@
 "xjL" = (
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_sensor";
 	pixel_x = -24;
 	pixel_y = -6
 	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xjQ" = (
@@ -33772,12 +33910,17 @@
 /area/operations/storage)
 "xqo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/device/radio/intercom/expedition/east,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
@@ -33802,14 +33945,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenoarch_atrium)
 "xre" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "xrp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/warning{
@@ -34355,7 +34494,7 @@
 "xKI" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/area/turret_protected/ai)
 "xLq" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -35089,31 +35228,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "yib" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	cycle_to_external_air = 1;
-	dir = 8;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_x = 24;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in";
-	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
-	},
 /obj/machinery/light/small/red{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "yiT" = (
@@ -50741,8 +50876,8 @@ tPr
 dNk
 jyX
 rcA
+oXD
 rBI
-ukS
 nIP
 vFD
 kVu
@@ -61056,13 +61191,13 @@ uVL
 rsL
 qpJ
 rsL
-lCv
-lCv
-rso
-lCv
-lCv
-lCv
-lCv
+rUd
+rUd
+hgR
+rUd
+rUd
+rUd
+rUd
 xsN
 gVe
 bRg
@@ -61259,18 +61394,18 @@ uVL
 eBb
 lRC
 qco
-lCv
-xKI
 rUd
-idq
-xre
+xKI
+wqs
+mVo
+bBL
 fVh
-lCv
+rUd
 akC
 iGO
 iGO
 avE
-rMf
+uJP
 tdL
 ccZ
 eXb
@@ -61462,17 +61597,17 @@ uVL
 oTX
 nvZ
 nQN
-lCv
-npz
 rUd
+npz
+wqs
 cTj
 vjA
 sxc
-lCv
-lCv
-lCv
-lCv
-lCv
+rUd
+rUd
+rUd
+pdC
+pdC
 cDa
 jNq
 vDT
@@ -61665,17 +61800,17 @@ uVL
 feI
 dro
 rsL
-lCv
-eNY
-xiH
-vil
 rUd
+eNY
+gsG
+qPV
+wqs
 jBX
-lCv
-baq
-xre
+rUd
+sSK
+bBL
 vCC
-lCv
+pdC
 vcF
 sfh
 sfh
@@ -61867,18 +62002,18 @@ eSV
 eSV
 kVe
 kVe
-rsL
-lCv
+qZp
+rUd
 jyg
-dEe
-gsG
-rUd
+sIQ
+rJn
+wqs
 cTj
-grP
-rUd
-rUd
+vil
+wqs
+wqs
 nCI
-lCv
+pdC
 lKV
 sfh
 aFN
@@ -62071,18 +62206,18 @@ eSV
 eSV
 eSV
 wie
-lCv
+rUd
 lPL
-vmR
+ieH
+xre
 qPV
-vil
 uRl
-lCv
-mhf
+rUd
+hUt
 thF
 bVh
-pdC
-ben
+rJD
+vmR
 sfh
 plc
 vgS
@@ -62273,18 +62408,18 @@ eSV
 eSV
 eSV
 eSV
-rsL
-lCv
-lCv
-lCv
-lCv
-lCv
-lCv
-lCv
+qZp
+rUd
+rUd
+rUd
+rUd
+rUd
+rUd
+rUd
 ajM
-hgR
+aFA
 boN
-lCv
+pdC
 nVO
 sfh
 fsy
@@ -62476,19 +62611,19 @@ eSV
 eSV
 eSV
 eSV
-rsL
-rsL
-rsL
-rsL
-rsL
+qZp
+qZp
+qZp
+qZp
+qZp
 nEl
-rsL
-lCv
-mkW
+qZp
 rUd
+mkW
+rso
 fYt
-lCv
-aFA
+pdC
+ben
 sfh
 gTq
 lGH
@@ -62685,12 +62820,12 @@ eSV
 eSV
 eSV
 eSV
-rsL
-lCv
-sIQ
-vil
+xiH
+pdC
+dEe
+rMf
 oFy
-lCv
+pdC
 moP
 sfh
 wIM
@@ -62888,12 +63023,12 @@ eSV
 eSV
 eSV
 eSV
-rsL
-lCv
-dEe
+xiH
+pdC
+bZP
 xgc
 eTx
-lCv
+pdC
 vnJ
 sfh
 sfh
@@ -63091,12 +63226,12 @@ eSV
 eSV
 eSV
 eSV
-rsL
-lCv
-lCv
-lCv
-lCv
-lCv
+xiH
+pdC
+pdC
+pdC
+pdC
+pdC
 hrb
 erL
 erL
@@ -63294,12 +63429,12 @@ eSV
 eSV
 eSV
 eSV
-rsL
-rsL
-rsL
-rsL
-rsL
-lCv
+xiH
+xiH
+xiH
+xiH
+xiH
+pdC
 qbC
 erL
 erL
