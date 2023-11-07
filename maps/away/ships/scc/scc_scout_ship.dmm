@@ -172,6 +172,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "bi" = (
@@ -301,6 +305,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 32;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "co" = (
@@ -369,14 +378,21 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "cS" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external{
-	dir = 2
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
+/area/shuttle/scc_scout_shuttle)
 "da" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -739,6 +755,14 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "fO" = (
@@ -1027,6 +1051,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "iw" = (
@@ -1149,6 +1178,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "ke" = (
@@ -1195,9 +1228,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "kE" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "SCCV Scout Shuttle";
 	master_tag = "airlock_scc_scout_shuttle";
@@ -1205,6 +1235,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -1345,12 +1380,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
-"lO" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/scc_scout_shuttle)
 "lV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler/medical,
@@ -1390,6 +1419,11 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1562,6 +1596,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "ns" = (
@@ -1586,6 +1625,11 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1632,6 +1676,11 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = -28;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1799,9 +1848,6 @@
 /area/ship/scc_scout_ship)
 "ps" = (
 /obj/structure/table/steel,
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
 /obj/item/folder/red{
 	pixel_y = 1;
 	pixel_x = 3
@@ -1809,6 +1855,9 @@
 /obj/item/device/flashlight/lamp{
 	pixel_x = -4;
 	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
@@ -1826,6 +1875,16 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1864,14 +1923,14 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "pX" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/device/binoculars{
 	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
@@ -2076,6 +2135,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "rS" = (
@@ -2134,6 +2194,11 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -2202,15 +2267,17 @@
 /turf/simulated/floor/airless,
 /area/shuttle/scc_scout_shuttle)
 "tj" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_scc_scout_dock_port";
 	master_tag = "airlock_scc_scout_dock_port";
 	landmark_tag = "nav_scc_scout_dock_port"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "tl" = (
@@ -2226,6 +2293,9 @@
 "to" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "tu" = (
@@ -2359,6 +2429,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "uT" = (
@@ -2474,6 +2548,14 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "vP" = (
@@ -2556,6 +2638,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "wx" = (
@@ -2631,6 +2718,9 @@
 	landmark_tag = "nav_scc_scout_dock_aft"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2737,6 +2827,11 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3219,6 +3314,11 @@
 	master_tag = "airlock_scc_scout_dock_port";
 	landmark_tag = "nav_scc_scout_dock_port"
 	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Dn" = (
@@ -3305,9 +3405,6 @@
 "Ek" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Es" = (
@@ -3407,6 +3504,11 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -3547,6 +3649,11 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3706,6 +3813,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -3890,6 +4002,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "KD" = (
@@ -4069,6 +4184,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Ms" = (
@@ -4189,6 +4309,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Oh" = (
@@ -4277,6 +4401,11 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = 28;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -4500,6 +4629,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "RB" = (
@@ -4611,6 +4745,9 @@
 /area/shuttle/scc_scout_shuttle)
 "SF" = (
 /obj/structure/table/steel,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "SH" = (
@@ -4692,6 +4829,11 @@
 	master_tag = "airlock_scc_scout_dock_aft";
 	landmark_tag = "nav_scc_scout_dock_aft"
 	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Tw" = (
@@ -4729,6 +4871,11 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -4853,6 +5000,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -5074,6 +5224,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "WO" = (
@@ -5109,9 +5264,6 @@
 /area/ship/scc_scout_ship)
 "Xa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate{
-	name = "excavation crate"
-	},
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/excavation,
 /obj/item/device/flashlight/lantern,
@@ -5122,6 +5274,7 @@
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
+/obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "Xd" = (
@@ -5302,6 +5455,7 @@
 	landmark_tag = "nav_scc_scout_dock_port"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Ys" = (
@@ -5318,9 +5472,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "YF" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_scc_scout_dock_starboard";
 	master_tag = "airlock_scc_scout_dock_starboard";
@@ -5328,6 +5479,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -5431,9 +5587,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "ZP" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
@@ -5445,6 +5598,9 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 33;
 	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
@@ -34085,7 +34241,7 @@ bB
 Xp
 YF
 VD
-Xp
+Zd
 bB
 bB
 Xj
@@ -37436,7 +37592,7 @@ QV
 aI
 Oh
 aI
-lW
+cS
 lW
 sq
 pS
@@ -39714,7 +39870,7 @@ Xj
 Xj
 Xj
 Xp
-Xp
+Zd
 Xp
 Xp
 Xp
@@ -39753,7 +39909,7 @@ FF
 FF
 QV
 mA
-lO
+lc
 gb
 QV
 ub
@@ -39975,7 +40131,7 @@ Da
 xr
 nX
 gf
-cS
+wP
 Ca
 Au
 TW
@@ -44104,7 +44260,7 @@ bB
 Xp
 Dl
 uq
-Xp
+Zd
 bB
 bB
 bB
