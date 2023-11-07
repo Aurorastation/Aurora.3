@@ -531,6 +531,21 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, MATERIAL_GLASS = 5760)
 
+/obj/item/ammo_magazine/xanan_shotgun
+	name = "magazine"
+	icon_state = "xmag"
+	caliber = "shotgun"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	max_ammo = 8
+	matter = list(MATERIAL_STEEL = 2880)
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/xanan_shotgun/slugs
+	name = "magazine (slugs)"
+	ammo_type = /obj/item/ammo_casing/shotgun
+
 /obj/item/ammo_magazine/minigun
 	name = "minigun magazine box (7.62mm)"
 	icon_state = "a762"
