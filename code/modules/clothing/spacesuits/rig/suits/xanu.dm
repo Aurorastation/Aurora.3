@@ -3,6 +3,7 @@
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a d.N.A Defense design in color scheme and make."
 	desc_extended = "The dNAXS-52 combat hardsuit is designed for the All-Xanu Spacefleet's interstellar infantry. It is specially designed for boarding operations, close quarters combat, and demolitions."
 	suit_type = "dNAXS-52 combat hardsuit"
+	icon_supported_species_tags = null
 	icon = 'icons/clothing/rig/xanu/xanu_rig.dmi'
 	icon_state = "xanu_rig"
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
@@ -25,7 +26,7 @@
 		)
 
 /obj/item/rig/zero/xanu
-	name = "dNAXS-26 null suit control module"
+	name = "dNAXS-26 null hardsuit control module"
 	suit_type = "dNAXS-26 null hardsuit"
 	desc = "A very lightweight suit designed to allow use inside mechs and starfighters, designed specially for the Xanan spacefleet. It feels like you're wearing nothing at all."
 	desc_extended = "The dNAXS-26 'null' hardsuit was designed by d.N.A Defense at the request of the All-Xanu Spacefleet, for its spaceborne mech and starfighter pilots. Designed with comfort and mobility in mind, this suit allows pilots their full range of motion, while protecting them from minor radiation hazards and the vacuum of space."
