@@ -28534,6 +28534,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nue" = (
@@ -36728,6 +36729,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rtI" = (
@@ -47607,6 +47609,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
+"wwO" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload)
 "wwR" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/warning{
@@ -79336,7 +79345,7 @@ dvf
 fmV
 bgN
 dpE
-nPA
+wwO
 xkH
 mBB
 bHL
