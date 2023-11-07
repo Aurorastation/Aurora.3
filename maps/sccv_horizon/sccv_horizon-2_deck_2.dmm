@@ -42835,7 +42835,6 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/mob/living/silicon/robot/shell,
 /turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "upn" = (
@@ -49389,6 +49388,7 @@
 "xkH" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/mech_recharger,
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "xkQ" = (
