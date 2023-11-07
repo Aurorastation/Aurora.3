@@ -1,7 +1,7 @@
 ///Stinger grenade projectile
 /obj/item/projectile/bullet/rubberball/stinger_ball
 	damage = 2
-	agony = 50
+	agony = 40
 	armor_penetration = 10
 	range_step = 2
 	embed = FALSE
@@ -18,7 +18,7 @@
 	desc = "A stinger grenade, designed to explode and expel rubber balls over an area for less-lethal takedowns. Popular with many law enforcement agencies."
 	icon_state = "stinger"
 
-	var/num_fragments = 70  ///total number of balls produced by the grenade
+	var/num_fragments = 100  ///total number of balls produced by the grenade
 	var/fragment_damage = 2
 	var/damage_step = 2      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/explosion_size = 1   ///size of the center explosion

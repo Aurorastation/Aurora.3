@@ -122,7 +122,7 @@
 	name = "rubber ball"
 	icon_state = "pellets"
 	damage = 2
-	agony = 45
+	agony = 40
 	embed = FALSE
 	var/balls = 4
 	///projectile will lose a fragment each time it travels this distance. Can be a non-integer.
