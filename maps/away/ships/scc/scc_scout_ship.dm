@@ -1,14 +1,15 @@
 /datum/map_template/ruin/away_site/scc_scout_ship
 	name = "SCCV XYZ Scout Ship"
 	description = "SCCV XYZ Desc."
-	suffix = "ships/scc_scout_ship.dmm"
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
-	spawn_weight = 1000
+	suffixes = list("ships/scc/scc_scout_ship.dmm")
+	sectors = list(ALL_POSSIBLE_SECTORS)
+	spawn_weight = 1
 	spawn_cost = 1
 	id = "scc_scout_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scc_scout_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-/decl/submap_archetype/scc_scout_ship
+/singleton/submap_archetype/scc_scout_ship
 	map = "SCCV XYZ Scout Ship"
 	descriptor = "SCCV XYZ Desc."
 

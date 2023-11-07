@@ -32,7 +32,7 @@
 	name = "Dock, Aft"
 	landmark_tag = "nav_scc_scout_dock_aft"
 	docking_controller = "airlock_scc_scout_dock_aft"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit
 
 // --------------------- catwalk
 

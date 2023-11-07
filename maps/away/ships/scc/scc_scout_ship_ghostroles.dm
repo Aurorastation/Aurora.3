@@ -34,14 +34,14 @@
 	special_role = "SCCV XYZ Captain"
 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/cant_spawn(mob/user)
-	if((SSghostroles.spawners["scc_scout_ship_heph"].count \
-		+ SSghostroles.spawners["scc_scout_ship_zeng"].count \
-		+ SSghostroles.spawners["scc_scout_ship_nanotrasen"].count \
-		+ SSghostroles.spawners["scc_scout_ship_zavod"].count) \
-	>= 4)
-		return "SCC Scout Ship already has max crew, which is 4."
-	. = ..()
+// /datum/ghostspawner/human/scc_scout_ship_crew/cant_spawn(mob/user)
+// 	if((SSghostroles.spawners["scc_scout_ship_heph"].count \
+// 		+ SSghostroles.spawners["scc_scout_ship_zeng"].count \
+// 		+ SSghostroles.spawners["scc_scout_ship_nanotrasen"].count \
+// 		+ SSghostroles.spawners["scc_scout_ship_zavod"].count) \
+// 	>= 4)
+// 		return "SCC Scout Ship already has max crew, which is 4."
+// 	. = ..()
 
 /datum/ghostspawner/human/scc_scout_ship_crew/heph
 	short_name = "scc_scout_ship_heph"
@@ -50,7 +50,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_heph")
-	max_count = 4
+	max_count = 1
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/heph
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -67,7 +67,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zeng")
-	max_count = 4
+	max_count = 1
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/zeng
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -84,7 +84,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_nanotrasen")
-	max_count = 4
+	max_count = 1
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/nanotrasen
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -101,7 +101,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zavod")
-	max_count = 4
+	max_count = 1
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/zavod
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -136,7 +136,7 @@
 /datum/outfit/admin/scc_scout_ship_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
@@ -169,7 +169,7 @@
 	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
 
 	id = /obj/item/card/id/hephaestus
-	uniform = list(/obj/item/clothing/under/color/brown, /obj/item/clothing/under/color/green, /obj/item/clothing/under/serviceoveralls)
+	uniform = list(/obj/item/clothing/under/color/brown, /obj/item/clothing/under/color/green, /obj/item/clothing/under/service_overalls)
 	head = list(/obj/item/clothing/head/beret/corporate/heph, /obj/item/clothing/head/hardhat/green)
 	accessory = /obj/item/clothing/accessory/pin/corporate/heph
 

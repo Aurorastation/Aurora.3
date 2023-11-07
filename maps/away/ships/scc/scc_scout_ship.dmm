@@ -361,7 +361,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "co" = (
-/obj/item/storage/backpack/messenger/engi,
 /obj/structure/sign/flag/heph{
 	pixel_y = 0;
 	pixel_x = 32
@@ -382,6 +381,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/storage/backpack/messenger/heph,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "cs" = (
@@ -711,7 +711,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "eZ" = (
-/obj/item/storage/backpack/messenger,
 /obj/structure/sign/flag/zavodskoi{
 	pixel_y = -32
 	},
@@ -730,6 +729,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt,
 /obj/item/clothing/head/sidecap/zavod,
 /obj/structure/closet,
+/obj/item/storage/backpack/messenger/zavod,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "fd" = (
@@ -930,6 +930,9 @@
 	dir = 5
 	},
 /obj/structure/bookcase/libraryspawn/fiction,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "gd" = (
@@ -1735,7 +1738,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_shuttle)
 "mB" = (
-/obj/structure/bed,
 /obj/item/bedsheet/captain,
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_captain";
@@ -1745,6 +1747,7 @@
 	spawn_nothing_percentage = 95;
 	name = "random plushie (5% chance)"
 	},
+/obj/structure/bed/padded,
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship)
 "mD" = (
@@ -3075,7 +3078,8 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/surgery{
-	pixel_y = 3
+	pixel_y = 3;
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -3090,7 +3094,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "wQ" = (
-/obj/item/storage/backpack/messenger/tox,
 /obj/structure/sign/flag/zenghu{
 	pixel_x = 32
 	},
@@ -3111,6 +3114,7 @@
 /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng,
 /obj/item/clothing/suit/storage/toggle/longcoat/zeng,
 /obj/structure/closet,
+/obj/item/storage/backpack/messenger/zeng,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "wR" = (
@@ -3507,7 +3511,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Ae" = (
-/obj/structure/bed,
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_heph";
 	name = "igs - scc_scout_ship_heph"
@@ -3518,6 +3521,7 @@
 	spawn_nothing_percentage = 95;
 	name = "random plushie (5% chance)"
 	},
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "An" = (
@@ -3829,7 +3833,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "DG" = (
-/obj/item/storage/backpack/messenger,
 /obj/structure/sign/flag/nanotrasen{
 	pixel_y = -32
 	},
@@ -3849,6 +3852,7 @@
 /obj/item/clothing/suit/storage/toggle/longcoat/nt,
 /obj/item/flame/lighter/zippo/nt,
 /obj/structure/closet,
+/obj/item/storage/backpack/messenger/nt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "DI" = (
@@ -3971,7 +3975,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Fb" = (
-/obj/structure/bed,
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_zavod";
 	name = "igs - scc_scout_ship_zavod"
@@ -3981,6 +3984,7 @@
 	spawn_nothing_percentage = 95;
 	name = "random plushie (5% chance)"
 	},
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Fe" = (
@@ -5376,7 +5380,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Sr" = (
-/obj/structure/bed,
 /obj/item/bedsheet/purple,
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_zeng";
@@ -5387,6 +5390,7 @@
 	spawn_nothing_percentage = 95;
 	name = "random plushie (5% chance)"
 	},
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "SA" = (
@@ -5644,7 +5648,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "UL" = (
-/obj/structure/bed,
 /obj/item/bedsheet/blue,
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_nanotrasen";
@@ -5654,6 +5657,7 @@
 	spawn_nothing_percentage = 95;
 	name = "random plushie (5% chance)"
 	},
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "UR" = (
