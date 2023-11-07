@@ -25,8 +25,8 @@
 		)
 
 /obj/item/rig/zero/xanu
-	name = "\improper Xanan null suit control module"
-	suit_type = "Null hardsuit"
+	name = "dNAXS-26 null suit control module"
+	suit_type = "dNAXS-26 null hardsuit"
 	desc = "A very lightweight suit designed to allow use inside mechs and starfighters, designed specially for the Xanan spacefleet. It feels like you're wearing nothing at all."
 	desc_extended = "The dNAXS-26 'null' hardsuit was designed by d.N.A Defense at the request of the All-Xanu Spacefleet, for its spaceborne mech and starfighter pilots. Designed with comfort and mobility in mind, this suit allows pilots their full range of motion, while protecting them from minor radiation hazards and the vacuum of space."
 	icon = 'icons/clothing/rig/xanu/xanu_zero_suit.dmi'
