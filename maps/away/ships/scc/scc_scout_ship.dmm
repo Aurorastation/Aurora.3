@@ -39,11 +39,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
@@ -4144,6 +4144,12 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"GM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "GR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -4743,7 +4749,6 @@
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship)
 "LU" = (
-/obj/structure/closet,
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -5678,9 +5683,6 @@
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship)
 "UZ" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/structure/table/steel,
 /obj/item/device/multitool{
 	pixel_x = 3;
@@ -6320,12 +6322,6 @@
 /obj/machinery/door/firedoor/noid,
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
-"Zg" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Zo" = (
@@ -37120,7 +37116,7 @@ Xp
 Gi
 QK
 XQ
-Zg
+GM
 Ek
 BB
 da
