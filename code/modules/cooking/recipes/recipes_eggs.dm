@@ -64,3 +64,9 @@
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/soysauce = 5, /singleton/reagent/nutriment/protein/egg = 6)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/chawanmushi
+
+/singleton/recipe/shakshouka
+	appliance = SKILLET
+	fruit = list("tomato" = 2)
+	reagents = list(/singleton/reagent/spacespice = 2, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/protein/egg = 6)
+	result = /obj/item/reagent_containers/food/snacks/shakshouka
