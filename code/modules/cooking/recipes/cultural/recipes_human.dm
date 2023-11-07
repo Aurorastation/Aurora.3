@@ -222,7 +222,7 @@
 
 /singleton/recipe/bluemoon
 	appliance = SAUCEPAN
-	fruit = list ("blue raspberry" = 1)
+	fruit = list ("blue raspberries" = 1)
 	reagents = list(/singleton/reagent/drink/milk/cream = 5)
 	items = list(/obj/item/reagent_containers/food/snacks/chocolatebar/white)
 	result = /obj/item/reagent_containers/food/snacks/bluemoon
