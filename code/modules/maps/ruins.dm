@@ -17,7 +17,7 @@ var/list/banned_ruin_ids = list()
 	var/remaining = budget
 
 	for(var/datum/map_template/ruin/ruin in potentialRuins)
-		if((ruin.spawns_in_current_sector()) && (ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED))
+		if(HAS_FLAG(ruin.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
 			force_spawn |= ruin
 			continue
 		if(ruin.id in banned_ruin_ids)
