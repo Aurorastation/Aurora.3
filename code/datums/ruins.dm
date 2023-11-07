@@ -44,6 +44,6 @@
 	sectors -= sectors_blacklist
 	..()
 
-/// Returns true if this ruin can spawn in current sector, otherwise false.
+/// Returns `TRUE` if this ruin can spawn in current sector, otherwise `FALSE`.
 /datum/map_template/ruin/proc/spawns_in_current_sector()
 	return (SSatlas.current_sector.name in sectors)
