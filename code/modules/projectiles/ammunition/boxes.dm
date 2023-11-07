@@ -533,18 +533,51 @@
 
 /obj/item/ammo_magazine/xanan_shotgun
 	name = "magazine"
-	icon_state = "xmag"
+	desc = "A magazine for the dNAC-12 combat shotgun."
+	icon = 'icons/obj/guns/xanu_shotgun_mags.dmi'
+	icon_state = "xanu_shell_magazine"
 	caliber = "shotgun"
 	insert_sound = /singleton/sound_category/rifle_slide_reload
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
 	matter = list(MATERIAL_STEEL = 2880)
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/xanan_shotgun/shells
+	name = "magazine (buckshot)"
+	icon_state = "xanu_shell_magazine_buckshot"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_magazine/xanan_shotgun/incendiary
+	name = "magazine (incendiary)"
+	icon_state = "xanu_shell_magazine_incendiary"
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+
+/obj/item/ammo_magazine/xanan_shotgun/beanbag
+	name = "magazine (beanbag)"
+	icon_state = "xanu_shell_magazine_beanbag"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+
 /obj/item/ammo_magazine/xanan_shotgun/slugs
 	name = "magazine (slugs)"
+	icon_state = "xanu_shell_magazine_slug"
 	ammo_type = /obj/item/ammo_casing/shotgun
+
+/obj/item/ammo_magazine/xanan_shotgun/emp
+	name = "magazine (haywire slugs)"
+	icon_state = "xanu_shell_magazine_emp"
+	ammo_type = /obj/item/ammo_casing/shotgun/emp
+
+/obj/item/ammo_magazine/xanan_shotgun/stun
+	name = "magazine (stun)"
+	icon_state = "xanu_shell_magazine_stun"
+	ammo_type = /obj/item/ammo_casing/shotgun/emp
+
+/obj/item/ammo_magazine/xanan_shotgun/tracker
+	name = "magazine (tracking slug)"
+	icon_state = "xanu_shell_magazine_tracker"
+	ammo_type = /obj/item/ammo_casing/shotgun/tracking
 
 /obj/item/ammo_magazine/minigun
 	name = "minigun magazine box (7.62mm)"

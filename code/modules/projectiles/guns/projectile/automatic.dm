@@ -697,7 +697,7 @@
 	icon = 'icons/obj/guns/xanu_shotgun.dmi'
 	icon_state = "xanu_shotgun"
 	item_state = "xanu_shotgun"
-	magazine_type = /obj/item/ammo_magazine/xanan_shotgun
+	magazine_type = /obj/item/ammo_magazine/xanan_shotgun/shells
 	allowed_magazines = list(/obj/item/ammo_magazine/xanan_shotgun)
 
 /obj/item/gun/projectile/automatic/rifle/shotgun/xanan/update_icon()
