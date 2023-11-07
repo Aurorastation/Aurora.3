@@ -6,12 +6,13 @@ SUBSYSTEM_DEF(holomap)
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
 
-	/// List of `/icon/` encoded images of minimaps, of every z-level, initialized at round start.
+	/// List of images of minimaps, for every z-level, initialized at round start.
+	/// Key of list is the `z` of the z-level, value is the `/icon/`.
 	/// Every image is 255x255px.
-	var/list/holo_minimaps = list()
+	var/list/minimaps = list()
 
-	/// Same as `holo_minimaps`, but images are base64 encoded.
-	var/list/holo_minimaps_base64 = list()
+	/// Same as `minimaps`, but images are base64 encoded.
+	var/list/minimaps_base64 = list()
 
 	///
 	var/list/extra_minimaps = list()
@@ -20,11 +21,11 @@ SUBSYSTEM_DEF(holomap)
 	var/list/station_holomaps = list()
 
 /datum/controller/subsystem/holomap/Initialize()
-	holo_minimaps.len = world.maxz
+	minimaps.len = world.maxz
 	for (var/z in 1 to world.maxz)
 		generate_minimap(z)
 
-	LOG_DEBUG("SSholomap: [holo_minimaps.len] maps.")
+	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
 
 	// for (var/z in current_map.station_levels)
 	// 	generateStationMinimap(z)
@@ -76,8 +77,8 @@ SUBSYSTEM_DEF(holomap)
 
 		CHECK_TICK
 
-	holo_minimaps[zlevel] = canvas
-	holo_minimaps_base64[zlevel] = icon2base64(canvas)
+	minimaps[zlevel] = canvas
+	minimaps_base64[zlevel] = icon2base64(canvas)
 
 /datum/controller/subsystem/holomap/proc/generateStationMinimap(zlevel)
 	// Save these values now to avoid a bazillion array lookups
@@ -102,7 +103,7 @@ SUBSYSTEM_DEF(holomap)
 	// Save this nice area-colored canvas in case we want to layer it or something I guess
 	extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPAREAS]_[zlevel]"] = canvas
 
-	var/icon/map_base = icon(holo_minimaps[zlevel])
+	var/icon/map_base = icon(minimaps[zlevel])
 	map_base.Blend(HOLOMAP_HOLOFIER, ICON_MULTIPLY)
 
 	// Generate the full sized map by blending the base and areas onto the backdrop

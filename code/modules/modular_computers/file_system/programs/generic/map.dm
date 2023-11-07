@@ -23,7 +23,7 @@
 		. = data
 
 	var/list/map_images = list()
-	for(var/map_image in SSholomap.holo_minimaps)
+	for(var/map_image in SSholomap.minimaps)
 		map_images += icon2base64(map_image)
 	data["map_images"] = map_images
 
