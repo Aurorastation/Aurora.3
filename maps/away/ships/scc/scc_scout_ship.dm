@@ -38,23 +38,6 @@
 	designation = "[pick("Foo", "Bar")]"
 	..()
 
-/obj/effect/shuttle_landmark/scc_scout_ship/nav1
-	name = "SCCV XYZ Scout Ship - Port Side"
-	landmark_tag = "nav_scc_scout_ship_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/scc_scout_ship/nav2
-	name = "SCCV XYZ Scout Ship - Port Airlock"
-	landmark_tag = "nav_scc_scout_ship_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/scc_scout_ship/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_scc_scout_ship"
-	base_turf = /turf/space/transit/south
-
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle
 	name = "SCCV XYZ Scout Shuttle"
@@ -72,25 +55,12 @@
 	req_access = list()
 
 /datum/shuttle/autodock/overmap/scc_scout_shuttle
-	name = "SCCV XYZ Scout Shuttle"
+	name = "SCCV Scout Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/scc_scout_shuttle)
+	dock_target = "airlock_scc_scout_shuttle"
 	current_location = "nav_hangar_scc_scout"
 	landmark_transition = "nav_transit_scc_scout_ship"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_scc_scout"
-	defer_initialisation = TRUE
-
-/obj/effect/shuttle_landmark/scc_scout_shuttle/hangar
-	name = "SCCV XYZ Scout Shuttle Dock"
-	landmark_tag = "nav_hangar_scc_scout"
-	docking_controller = "scc_scout_shuttle_dock"
-	base_area = /area/ship/scc_scout_ship
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/scc_scout_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_scc_scout_ship"
-	base_turf = /turf/space/transit/south

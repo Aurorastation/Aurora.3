@@ -7,6 +7,12 @@
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
+"ad" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/shuttle_transit{
+	dir = 1
+	},
+/turf/space/transit,
+/area/space)
 "am" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -42,15 +48,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "aw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -153,10 +159,18 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
 "aX" = (
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -189,14 +203,14 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "bu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "bx" = (
@@ -214,11 +228,11 @@
 /turf/template_noop,
 /area/ship/scc_scout_ship)
 "bC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "bH" = (
@@ -273,6 +287,22 @@
 "cj" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"cm" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "co" = (
 /obj/item/storage/backpack/messenger/engi,
 /obj/structure/sign/flag/heph{
@@ -292,6 +322,9 @@
 /obj/item/clothing/under/rank/machinist/heph,
 /obj/item/clothing/accessory/storage/overalls/engineer,
 /obj/structure/closet,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "cs" = (
@@ -307,14 +340,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "cD" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/machinery/seed_storage/garden,
+/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "cJ" = (
@@ -323,31 +356,31 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "cP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "cS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "da" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	dir = 2
 	},
 /obj/machinery/access_button{
 	pixel_x = 20;
@@ -359,6 +392,9 @@
 	name = "airlock_scc_scout_fore_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "db" = (
@@ -367,8 +403,9 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "dd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -381,7 +418,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "dk" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/mining{
 	name = "Warehouse"
 	},
@@ -522,10 +559,9 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "eq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "es" = (
@@ -539,19 +575,19 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "eG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
-	},
-/obj/machinery/door/airlock/external{
-	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "eI" = (
@@ -638,11 +674,12 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "ft" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "surveyor_out_external";
-	frequency = 1389
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "fw" = (
@@ -666,13 +703,14 @@
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/storage/backpack/messenger,
-/obj/item/storage/backpack/messenger,
 /obj/item/storage/backpack/duffel,
 /obj/item/storage/backpack/satchel,
 /obj/item/clothing/wrists/watch/gold,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/storage/backpack/messenger,
+/obj/item/clothing/accessory/storage/pouches/brown,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "fH" = (
@@ -681,12 +719,26 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "fM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
+"fN" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/dock/aft,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "fO" = (
@@ -696,14 +748,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "fT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -728,17 +780,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "gb" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
-/obj/effect/shuttle_landmark/scc_scout_shuttle/hangar{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/scc_scout_shuttle)
 "gc" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -772,8 +821,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "gf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "gi" = (
@@ -854,6 +902,14 @@
 "gG" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/scc_scout_ship)
+"gP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/closet/crate/internals,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/scc_scout_shuttle)
 "gU" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32;
@@ -913,7 +969,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "hy" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -923,6 +978,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/service{
 	name = "Crew Quarters"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -955,9 +1013,17 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "hR" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/shuttle_landmark/scc_scout_ship/dock/starboard{
+	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
@@ -1033,7 +1099,9 @@
 "jH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "jN" = (
@@ -1054,7 +1122,7 @@
 /area/ship/scc_scout_ship)
 "jT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1067,25 +1135,41 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "kb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "ke" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_shuttle_dock";
+	master_tag = "airlock_scc_scout_shuttle_dock";
+	landmark_tag = "nav_scc_scout_shuttle_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "km" = (
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
@@ -1111,13 +1195,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "kE" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -1173,9 +1260,6 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
 /obj/machinery/access_button{
 	pixel_x = 28;
 	dir = 2
@@ -1185,17 +1269,15 @@
 	name = "airlock_scc_scout_fore_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "kW" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/scc_scout_shuttle)
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit,
+/area/space)
 "kX" = (
 /obj/structure/closet/crate/trashcart,
 /obj/random/loot,
@@ -1214,12 +1296,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "lw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
-	layer = 2.8
-	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_aft_port";
 	name = "airlock_scc_scout_aft_port"
@@ -1236,6 +1312,9 @@
 	},
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1256,13 +1335,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
 "lN" = (
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
 /obj/structure/curtain/black{
 	icon_state = "open";
 	layer = 4;
 	opacity = 0
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
@@ -1280,26 +1359,59 @@
 /obj/item/clothing/head/helmet/space/void/medical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"lW" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scc_scout_shuttle)
+"lZ" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "md" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "mr" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "ms" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -1320,23 +1432,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "mw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/scc_scout_shuttle)
 "mA" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_shuttle)
 "mB" = (
 /obj/structure/bed,
@@ -1397,7 +1515,6 @@
 /area/ship/scc_scout_ship)
 "mL" = (
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1436,6 +1553,12 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
@@ -1456,7 +1579,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
 "nE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1477,23 +1605,34 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "nT" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "nX" = (
-/obj/machinery/door/airlock/external{
-	frequency = 2137;
-	icon_state = "door_locked";
-	id_tag = scc_scout_ship_n_in
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "nY" = (
@@ -1582,9 +1721,9 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "oL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -1603,15 +1742,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"pf" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
+/obj/effect/shuttle_landmark/scc_scout_ship/catwalk/fore_port{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "pm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "po" = (
@@ -1666,36 +1813,45 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "pv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "px" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1380;
-	id_tag = "orion_traveler_pump"
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_shuttle_dock";
+	master_tag = "airlock_scc_scout_shuttle_dock";
+	landmark_tag = "nav_scc_scout_shuttle_dock"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "pS" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/scc_scout_shuttle)
 "pT" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1797,10 +1953,14 @@
 /obj/machinery/cryopod{
 	dir = 8
 	},
+/obj/machinery/computer/cryopod{
+	pixel_x = 28;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "qJ" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "qL" = (
@@ -1809,6 +1969,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "qM" = (
@@ -1849,6 +2010,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "rl" = (
@@ -1868,6 +2034,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"rq" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
 "rG" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/lime,
@@ -1879,32 +2052,35 @@
 	name = "Bridge";
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_shuttle)
 "rO" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor{
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "rP" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "orion_traveler_pump"
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "rS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1932,22 +2108,41 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"sq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/turf/simulated/wall/shuttle/scc,
+/area/shuttle/scc_scout_shuttle)
 "st" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "sB" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "sC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -2007,11 +2202,15 @@
 /turf/simulated/floor/airless,
 /area/shuttle/scc_scout_shuttle)
 "tj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "tl" = (
@@ -2025,10 +2224,8 @@
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/scc_scout_shuttle)
 "to" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/hatch{
-	name = "Propulsion"
-	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "tu" = (
@@ -2121,13 +2318,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"uq" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "ut" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "uz" = (
@@ -2137,11 +2346,18 @@
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/scc_scout_shuttle)
 "uK" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_shuttle_dock";
+	master_tag = "airlock_scc_scout_shuttle_dock";
+	landmark_tag = "nav_scc_scout_shuttle_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -2159,10 +2375,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "uZ" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_aft_port";
 	name = "airlock_scc_scout_aft_port"
@@ -2173,14 +2385,20 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "ve" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "vg" = (
@@ -2203,6 +2421,10 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"vm" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/space/port_far,
+/turf/template_noop,
+/area/space)
 "vt" = (
 /obj/machinery/light{
 	dir = 4
@@ -2228,6 +2450,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/scc_scout_shuttle)
 "vE" = (
@@ -2237,13 +2464,15 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "vG" = (
-/obj/machinery/door/airlock/external{
-	frequency = 2137;
-	icon_state = "door_locked";
-	id_tag = scc_scout_ship_n_out
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -2291,6 +2520,14 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"wm" = (
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/scc_scout_ship)
 "ws" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
@@ -2306,12 +2543,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "wt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
@@ -2332,9 +2573,8 @@
 /area/ship/scc_scout_ship)
 "wP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "wQ" = (
@@ -2370,7 +2610,7 @@
 /area/ship/scc_scout_ship)
 "wZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2381,17 +2621,19 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "xr" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "xs" = (
 /obj/structure/table/steel,
@@ -2416,29 +2658,27 @@
 /area/ship/scc_scout_ship)
 "xx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "xz" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "xD" = (
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "xL" = (
 /obj/effect/floor_decal/corner/lime,
@@ -2484,15 +2724,36 @@
 /obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
-"yc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+"yb" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
+"yc" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -2532,7 +2793,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "yB" = (
-/obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle,
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
@@ -2552,14 +2812,14 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "yM" = (
@@ -2589,7 +2849,9 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "zd" = (
@@ -2599,15 +2861,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "zg" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
 /turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
+/area/shuttle/scc_scout_shuttle)
 "zl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2617,6 +2885,11 @@
 /area/ship/scc_scout_ship)
 "zq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "zw" = (
@@ -2677,19 +2950,19 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark{
-	dir = 2
-	},
+/obj/effect/shuttle_landmark/scc_scout_ship/catwalk/aft,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
-"zW" = (
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/closet/crate/weapon,
+"zK" = (
 /turf/simulated/floor/plating,
+/area/shuttle/scc_scout_shuttle)
+"zW" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/tool,
+/turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Ae" = (
 /obj/structure/bed,
@@ -2753,6 +3026,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"Bk" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
 "Bn" = (
 /obj/structure/closet,
 /obj/item/clothing/shoes/jackboots,
@@ -2798,12 +3079,12 @@
 /area/ship/scc_scout_ship)
 "By" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
 /obj/machinery/meter{
 	pixel_y = 9;
 	pixel_x = 7
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -2825,15 +3106,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
-"BG" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/scc_scout_shuttle)
 "BL" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2844,22 +3116,15 @@
 /area/shuttle/scc_scout_shuttle)
 "BU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor{
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Ca" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Cc" = (
@@ -2914,6 +3179,10 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"CW" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/space/fore_starboard,
+/turf/template_noop,
+/area/space)
 "CX" = (
 /obj/item/storage/bag/ore,
 /obj/item/gun/custom_ka/frame01/prebuilt,
@@ -2929,6 +3198,15 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
+"Da" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "Df" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 1
@@ -2936,8 +3214,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Dl" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Dn" = (
@@ -2981,8 +3262,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "DI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -2990,8 +3271,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3011,6 +3292,9 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/effect/shuttle_landmark/scc_scout_ship/catwalk/fore_starboard{
+	dir = 1
+	},
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "Eh" = (
@@ -3020,7 +3304,10 @@
 /area/shuttle/scc_scout_shuttle)
 "Ek" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Es" = (
@@ -3032,7 +3319,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3055,8 +3342,10 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "EM" = (
@@ -3089,13 +3378,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Fe" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Ff" = (
@@ -3108,16 +3392,21 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Fg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -3130,20 +3419,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
-"Fq" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/shuttle_landmark{
-	dir = 1
-	},
-/obj/item/hullbeacon/red,
-/turf/space/dynamic,
-/area/ship/scc_scout_ship)
 "Fu" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window/eastright,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "FB" = (
@@ -3173,6 +3454,11 @@
 	dir = 4
 	},
 /turf/template_noop,
+/area/ship/scc_scout_ship)
+"FR" = (
+/obj/machinery/seed_storage/garden,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Gi" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -3208,6 +3494,7 @@
 "Gp" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/firealarm/north,
+/obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Gt" = (
@@ -3220,16 +3507,14 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "GE" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "GR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "GT" = (
@@ -3249,8 +3534,17 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Hb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -3323,8 +3617,18 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "HN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -3369,12 +3673,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Ix" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -3392,11 +3696,15 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "IB" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3429,18 +3737,17 @@
 /area/ship/scc_scout_ship)
 "IO" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "IS" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3457,45 +3764,29 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Jd" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/item/hullbeacon/red,
-/obj/effect/shuttle_landmark{
-	dir = 1
-	},
-/turf/space/dynamic,
-/area/ship/scc_scout_ship)
+/turf/space/transit,
+/area/space)
 "Jh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
-"Jm" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+"Js" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/shuttle_landmark{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
-"Js" = (
-/obj/machinery/vending/hydronutrients,
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "JC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "JD" = (
@@ -3510,14 +3801,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"JK" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/space/aft_starboard,
+/turf/template_noop,
+/area/space)
 "JO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/medical,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
 "JP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4;
@@ -3531,6 +3824,9 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3560,10 +3856,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Kq" = (
@@ -3587,10 +3882,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Ky" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_shuttle_dock";
+	master_tag = "airlock_scc_scout_shuttle_dock";
+	landmark_tag = "nav_scc_scout_shuttle_dock"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "KD" = (
@@ -3607,16 +3906,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "KM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "KS" = (
@@ -3675,10 +3974,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"Lv" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scc_scout_shuttle)
 "Lx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3723,14 +4032,14 @@
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "LV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3748,6 +4057,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"Mo" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "Ms" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -3765,9 +4088,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"MJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "MN" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "MW" = (
@@ -3787,15 +4116,23 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"Np" = (
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scc_scout_shuttle)
 "Nt" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -6;
 	pixel_y = 12
-	},
-/obj/machinery/computer/cryopod{
-	pixel_x = -32
 	},
 /obj/item/clothing/gloves/janitor,
 /obj/item/reagent_containers/toothpaste{
@@ -3818,7 +4155,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "NJ" = (
@@ -3836,6 +4172,25 @@
 "NZ" = (
 /turf/template_noop,
 /area/ship/scc_scout_ship)
+"Oc" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/shuttle_hangar{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_shuttle_dock";
+	master_tag = "airlock_scc_scout_shuttle_dock";
+	landmark_tag = "nav_scc_scout_shuttle_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "Oh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -3850,10 +4205,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "Ok" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 2137;
-	icon_state = "door_locked";
-	id_tag = scc_scout_ship_n_in
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3881,10 +4244,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Oz" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "OB" = (
@@ -3894,21 +4255,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "OG" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "OJ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_shuttle_dock";
+	master_tag = "airlock_scc_scout_shuttle_dock";
+	landmark_tag = "nav_scc_scout_shuttle_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -3952,12 +4320,12 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "OZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Pj" = (
@@ -4009,9 +4377,12 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "PQ" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "PU" = (
 /obj/effect/floor_decal/spline/plain{
@@ -4025,6 +4396,14 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"Qk" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/space/starboard_far,
+/turf/template_noop,
+/area/space)
+"Qw" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/space/fore_port,
+/turf/template_noop,
+/area/space)
 "QA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
@@ -4064,6 +4443,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
+/obj/structure/sink/kitchen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "QP" = (
@@ -4076,7 +4456,7 @@
 /area/ship/scc_scout_ship)
 "QV" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -4104,14 +4484,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"Rt" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "Ru" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 2137;
-	id_tag = scc_scout_ship_n_pump
-	},
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -4138,12 +4525,15 @@
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship)
 "RZ" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Sb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4169,12 +4559,8 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Se" = (
-/obj/structure/closet/crate/loot,
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "Sj" = (
 /obj/structure/bed/stool/chair/shuttle,
@@ -4258,8 +4644,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "SV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "SX" = (
@@ -4274,7 +4663,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Td" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
@@ -4298,10 +4687,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Tm" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 2137;
-	id_tag = scc_scout_ship_n_pump
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_aft";
+	master_tag = "airlock_scc_scout_dock_aft";
+	landmark_tag = "nav_scc_scout_dock_aft"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -4314,26 +4703,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "TG" = (
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
-"TJ" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/ship/scc_scout_ship)
 "TO" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_scc_scout_shuttle_side";
+	name = "airlock_scc_scout_shuttle_side"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4376,6 +4768,7 @@
 /area/shuttle/scc_scout_shuttle)
 "Uy" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_shuttle)
 "UB" = (
@@ -4410,9 +4803,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "UR" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
@@ -4452,14 +4842,17 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Vb" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -4482,6 +4875,7 @@
 	name = "Propulsion"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Vn" = (
@@ -4498,7 +4892,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "VB" = (
@@ -4508,8 +4902,15 @@
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
+"VD" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "VE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4571,19 +4972,13 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "We" = (
-/obj/machinery/door/airlock/external{
-	frequency = 2137;
-	icon_state = "door_locked";
-	id_tag = scc_scout_ship_n_out
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
+/area/shuttle/scc_scout_shuttle)
 "Wg" = (
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine,
 /turf/simulated/floor/plating,
@@ -4596,7 +4991,7 @@
 "Wj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor{
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4614,9 +5009,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "Wm" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_aft_port";
 	name = "airlock_scc_scout_aft_port"
@@ -4627,6 +5019,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Wo" = (
@@ -4661,26 +5058,35 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "WJ" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_west_out"
+/obj/effect/shuttle_landmark/scc_scout_ship/dock/port{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"WO" = (
+/obj/effect/shuttle_landmark/scc_scout_ship/space/aft_port,
+/turf/template_noop,
+/area/space)
 "WR" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown{
-	dir = 6
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "WU" = (
 /obj/structure/table/wood,
@@ -4698,7 +5104,7 @@
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Xa" = (
@@ -4763,7 +5169,7 @@
 	name = "Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Xp" = (
@@ -4794,14 +5200,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Xy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "SCCV Scout Shuttle";
+	master_tag = "airlock_scc_scout_shuttle";
+	name = "airlock_scc_scout_shuttle"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -4823,6 +5233,9 @@
 	},
 /obj/structure/sign/electricshock{
 	pixel_y = 32
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -4867,26 +5280,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "XV" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/shuttle_landmark{
-	dir = 4
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/ship/scc_scout_ship)
+/area/shuttle/scc_scout_shuttle)
 "XY" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"Yb" = (
+/obj/machinery/vending/hydronutrients,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
 "Yg" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_port";
+	master_tag = "airlock_scc_scout_dock_port";
+	landmark_tag = "nav_scc_scout_dock_port"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Ys" = (
@@ -4903,13 +5318,16 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "YF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1380;
-	id_tag = "orion_traveler_pump"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_scc_scout_dock_starboard";
+	master_tag = "airlock_scc_scout_dock_starboard";
+	landmark_tag = "nav_scc_scout_dock_starboard"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -4930,8 +5348,13 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
+"Za" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "Zd" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
@@ -4940,10 +5363,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -5244,43 +5668,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
 "}
 (2,1,1) = {"
 Xj
@@ -5501,43 +5925,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (3,1,1) = {"
 Xj
@@ -5758,43 +6182,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (4,1,1) = {"
 Xj
@@ -6015,43 +6439,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (5,1,1) = {"
 Xj
@@ -6272,43 +6696,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (6,1,1) = {"
 Xj
@@ -6529,43 +6953,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (7,1,1) = {"
 Xj
@@ -6786,43 +7210,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (8,1,1) = {"
 Xj
@@ -7043,43 +7467,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (9,1,1) = {"
 Xj
@@ -7300,43 +7724,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (10,1,1) = {"
 Xj
@@ -7557,43 +7981,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (11,1,1) = {"
 Xj
@@ -7814,43 +8238,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (12,1,1) = {"
 Xj
@@ -8071,43 +8495,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (13,1,1) = {"
 Xj
@@ -8328,43 +8752,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (14,1,1) = {"
 Xj
@@ -8585,43 +9009,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (15,1,1) = {"
 Xj
@@ -8842,43 +9266,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (16,1,1) = {"
 Xj
@@ -9099,43 +9523,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+ad
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (17,1,1) = {"
 Xj
@@ -9356,43 +9780,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (18,1,1) = {"
 Xj
@@ -9613,43 +10037,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (19,1,1) = {"
 Xj
@@ -9870,43 +10294,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (20,1,1) = {"
 Xj
@@ -10127,43 +10551,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (21,1,1) = {"
 Xj
@@ -10384,43 +10808,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (22,1,1) = {"
 Xj
@@ -10641,43 +11065,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (23,1,1) = {"
 Xj
@@ -10898,43 +11322,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (24,1,1) = {"
 Xj
@@ -11155,43 +11579,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (25,1,1) = {"
 Xj
@@ -11412,43 +11836,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (26,1,1) = {"
 Xj
@@ -11669,43 +12093,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (27,1,1) = {"
 Xj
@@ -11926,43 +12350,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (28,1,1) = {"
 Xj
@@ -12183,43 +12607,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (29,1,1) = {"
 Xj
@@ -12440,43 +12864,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (30,1,1) = {"
 Xj
@@ -12697,43 +13121,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (31,1,1) = {"
 Xj
@@ -12954,43 +13378,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+kW
 "}
 (32,1,1) = {"
 Xj
@@ -13211,43 +13635,43 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
+kW
 "}
 (33,1,1) = {"
 Xj
@@ -24921,7 +25345,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+Qk
 Xj
 Xj
 Xj
@@ -27720,7 +28144,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+JK
 Xj
 Xj
 Xj
@@ -28290,7 +28714,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+CW
 Xj
 Xj
 Xj
@@ -32656,13 +33080,13 @@ Xj
 Xj
 Xj
 Xj
+Ys
 Xj
 Xj
+Ys
 Xj
 Xj
-Xj
-Xj
-Xj
+Ys
 Xj
 Xj
 Xj
@@ -32913,13 +33337,13 @@ Xj
 Xj
 Xj
 Xj
-Ys
 Xj
 Xj
-Ys
 Xj
 Xj
-Ys
+Xj
+Xj
+Xj
 Xj
 Xj
 Xj
@@ -33168,7 +33592,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -33400,10 +33824,10 @@ Xj
 Ys
 Xj
 Xj
-Ys
+FN
 Xp
+yb
 hR
-XV
 Xp
 Ys
 Xj
@@ -33425,7 +33849,7 @@ Xj
 Xj
 Xj
 Xj
-rT
+Xj
 Xj
 Xj
 Xj
@@ -33660,7 +34084,7 @@ bB
 bB
 Xp
 YF
-BB
+VD
 Xp
 bB
 bB
@@ -33939,7 +34363,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -34196,7 +34620,7 @@ Xj
 Xj
 Xj
 Xj
-rT
+Xj
 Xj
 Xj
 Xj
@@ -34430,9 +34854,9 @@ UL
 Fb
 eZ
 Xp
-DI
-ro
-Fe
+GR
+gf
+lZ
 Xp
 tC
 bB
@@ -34710,7 +35134,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -34967,7 +35391,7 @@ Xj
 Xj
 Xj
 Xj
-rT
+Xj
 Xj
 Xj
 Xj
@@ -35738,7 +36162,7 @@ RB
 RB
 HF
 HF
-Jd
+Wi
 Xj
 Xj
 Xj
@@ -35995,7 +36419,7 @@ Sl
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -36252,7 +36676,7 @@ Sl
 Xj
 Xj
 Xj
-rT
+Xj
 Xj
 Xj
 Xj
@@ -36490,7 +36914,7 @@ Sd
 vg
 XP
 MN
-zW
+GZ
 od
 Xp
 HF
@@ -36766,7 +37190,7 @@ Sl
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -37012,9 +37436,9 @@ QV
 aI
 Oh
 aI
-Vb
-Vb
-vD
+lW
+lW
+sq
 pS
 mw
 Xj
@@ -37023,7 +37447,7 @@ Xj
 Xj
 Xj
 Xj
-rT
+Xj
 Xj
 Xj
 Xj
@@ -37269,8 +37693,8 @@ gV
 eh
 yU
 aI
-xz
 IB
+xz
 CP
 QA
 Lc
@@ -37491,11 +37915,11 @@ Xj
 Xj
 Xj
 rT
-Xj
 FL
 Xp
 od
 XA
+MN
 zG
 Xp
 aH
@@ -37527,7 +37951,7 @@ bV
 VE
 aI
 Hb
-Hb
+zg
 aI
 OG
 Ix
@@ -37537,7 +37961,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+rT
 Xj
 Xj
 Xj
@@ -37748,11 +38172,11 @@ Xj
 Xj
 Xj
 Xj
-Xj
 Wi
 Xp
 od
 GZ
+MN
 zG
 Td
 Lh
@@ -37788,13 +38212,13 @@ nT
 to
 Ko
 eq
-gi
+zK
 aI
 Xj
 Xj
 Xj
 Xj
-rT
+Xj
 Xj
 Xj
 Xj
@@ -38005,8 +38429,8 @@ Xj
 Xj
 Xj
 Xj
-Xj
 FL
+Xp
 Xp
 Xp
 Xp
@@ -38047,19 +38471,19 @@ aI
 aI
 aI
 aI
-kW
 Wp
 Xj
 Xj
 Xj
 Xj
 Xj
+Ys
 Xj
 Xj
+Ys
 Xj
 Xj
-Xj
-Xj
+Ys
 Xj
 Xj
 Xj
@@ -38262,8 +38686,8 @@ Xj
 Xj
 Xj
 rT
-Xj
-FL
+HF
+HF
 Xp
 nY
 Wc
@@ -38287,7 +38711,7 @@ Xp
 vD
 aI
 nk
-gV
+Lv
 aI
 ZJ
 eI
@@ -38310,13 +38734,13 @@ Xj
 Xj
 Xj
 Xj
-Ys
 Xj
 Xj
-Ys
 Xj
 Xj
-Ys
+Xj
+Xj
+Xj
 Xj
 Xj
 Xj
@@ -38794,14 +39218,14 @@ KT
 KT
 cP
 oL
-gf
+Fe
 ke
 Ky
-gb
+Oc
 Fg
 ft
-vP
-vP
+Np
+Np
 kb
 wZ
 rS
@@ -38810,7 +39234,7 @@ tN
 qJ
 uT
 FF
-km
+gP
 BL
 sG
 QV
@@ -39038,7 +39462,7 @@ FL
 Xp
 mL
 DJ
-DI
+MJ
 ns
 HP
 qA
@@ -39327,13 +39751,13 @@ FF
 FF
 FF
 FF
-aI
+QV
 mA
 lO
-mA
+gb
 QV
-BG
 ub
+Xj
 Xj
 Xj
 Xj
@@ -39546,13 +39970,13 @@ Xj
 Xj
 Xj
 Xj
-We
-pv
-em
+fN
+Da
+xr
 nX
-ro
+gf
 cS
-hF
+Ca
 Au
 TW
 Xp
@@ -39585,8 +40009,8 @@ Hx
 xx
 dd
 RZ
-sB
-sB
+We
+XV
 sB
 QV
 Xj
@@ -39820,7 +40244,7 @@ Xp
 ch
 vt
 MW
-Ca
+KM
 yM
 mI
 xL
@@ -40077,7 +40501,7 @@ Xp
 Xp
 Xp
 AU
-Ca
+KM
 qd
 LE
 go
@@ -40330,7 +40754,7 @@ Xp
 zd
 Lh
 Dn
-zg
+Eu
 Xp
 sL
 es
@@ -40347,7 +40771,7 @@ aI
 aI
 aI
 aI
-QV
+aI
 aI
 QV
 aI
@@ -40860,8 +41284,8 @@ pq
 Pu
 po
 Zd
-TJ
 dx
+HF
 HF
 Xj
 Xj
@@ -41095,7 +41519,7 @@ Xp
 Xp
 Sb
 oq
-Lh
+cj
 OK
 Xp
 Xp
@@ -41117,8 +41541,8 @@ GT
 XY
 aO
 Zd
-xr
 KS
+HF
 HF
 Xj
 Xj
@@ -41360,7 +41784,7 @@ SA
 IL
 mR
 cD
-Js
+xs
 Xp
 VG
 mM
@@ -41609,8 +42033,8 @@ bB
 HF
 Xp
 mr
-GE
-BB
+Lh
+cj
 dk
 cj
 NJ
@@ -41866,15 +42290,15 @@ bB
 FL
 Xp
 SV
-pv
+BB
 Oz
 Xp
-Se
+wm
 xD
 Se
 WR
-Se
-xs
+Xp
+Xp
 Xp
 jH
 Xp
@@ -42119,25 +42543,25 @@ Xj
 Xj
 Xj
 Xj
-Xj
+bB
 FL
 Xp
+Za
+pv
+lZ
 Xp
-rO
+Bk
+Js
+zW
+PQ
 Xp
-Xp
-Xp
-Xp
-Xp
-Xp
-Xp
-Xp
-Xp
+FR
+Yb
 KT
-KT
+GE
 oa
-KT
-zG
+GR
+Rt
 Xp
 IS
 IS
@@ -42378,23 +42802,23 @@ Xj
 Xj
 Xj
 FL
-HF
 Xp
-DI
-uZ
-lw
-Wm
-HF
-HF
-HF
-Zd
+Xp
+rO
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
 IA
 VB
 Xx
 yz
 YR
 cj
-zG
+DI
 Xp
 HF
 HF
@@ -42416,7 +42840,7 @@ Xj
 Xj
 bB
 HF
-Fq
+pf
 Xj
 Xj
 Xj
@@ -42637,20 +43061,20 @@ Xj
 FL
 HF
 Xp
-Xp
-Xp
-Xp
-Xp
-bB
-bB
-FL
+GR
+uZ
+lw
+Wm
+HF
+HF
+HF
 Zd
 ug
 ca
 cj
 QP
 Xp
-jT
+rq
 ut
 Xp
 HF
@@ -42891,15 +43315,15 @@ Xj
 Xj
 Xj
 Xj
-Hc
-RB
+FL
+HF
+Xp
+Xp
+Xp
+Xp
+Xp
 bB
 bB
-bB
-bB
-bB
-Xj
-Xj
 FL
 Zd
 Oq
@@ -42907,8 +43331,8 @@ Om
 Om
 Tw
 Xp
-KT
-zG
+cj
+DI
 Xp
 HF
 iT
@@ -43148,23 +43572,23 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Hc
+RB
+bB
+bB
+bB
+bB
+bB
 Xj
 Xj
 FL
-PQ
+Zd
 Zd
 Zd
 Zd
 Zd
 Xp
-OJ
+cm
 yc
 Xp
 HF
@@ -43679,7 +44103,7 @@ bB
 bB
 Xp
 Dl
-Ky
+uq
 Xp
 bB
 bB
@@ -43935,8 +44359,8 @@ Xj
 Xj
 Ys
 Xp
-Jm
 WJ
+Mo
 gG
 FN
 Xj
@@ -47506,7 +47930,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+WO
 Xj
 Xj
 Xj
@@ -48848,7 +49272,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+Qw
 Xj
 Xj
 Xj
@@ -51388,7 +51812,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+vm
 Xj
 Xj
 Xj

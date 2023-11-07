@@ -3611,6 +3611,7 @@
 #include "maps\away\ships\pra\headmaster\headmaster_ship.dm"
 #include "maps\away\ships\scc\scc_scout_ship_areas.dm"
 #include "maps\away\ships\scc\scc_scout_ship_ghostroles.dm"
+#include "maps\away\ships\scc\scc_scout_ship_landmarks.dm"
 #include "maps\away\ships\scc\scc_scout_ship.dm"
 #include "maps\away\ships\skrell_smuggler\tirakqi_freighter.dm"
 #include "maps\away\ships\skrell_smuggler\tirakqi_freighter_ghostroles.dm"
