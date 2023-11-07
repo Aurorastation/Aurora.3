@@ -280,7 +280,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "aJ" = (
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},

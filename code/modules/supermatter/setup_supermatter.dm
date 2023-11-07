@@ -75,7 +75,7 @@
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
 				continue
 			if(OPT_NITROUSOXIDE)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/sleeping_agent
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrous_oxide
 				continue
 			if(OPT_OXYGEN)
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/oxygen
@@ -123,7 +123,7 @@
 				F.coolant = ATM_CO2
 				continue
 			if(OPT_HYDROGEN)
-				F.coolant = ATM_H2
+				F.coolant = ATM_H
 				continue
 			if(OPT_NITROGEN)
 				F.coolant = ATM_N2

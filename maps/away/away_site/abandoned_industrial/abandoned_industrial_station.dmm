@@ -10886,7 +10886,7 @@
 /area/abandoned_industrial_station/hallways)
 "Ii" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/empty/nitrous_oxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/operations)
@@ -13784,7 +13784,7 @@
 /area/abandoned_industrial_station/hallways)
 "Rz" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
+/obj/machinery/portable_atmospherics/canister/empty/nitrous_oxide,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/operations)
 "RB" = (

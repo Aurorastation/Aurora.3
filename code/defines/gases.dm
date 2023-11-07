@@ -42,7 +42,7 @@
 	molar_mass = 0.002
 	flags = XGM_GAS_FUEL|XGM_GAS_FUSION_FUEL
 
-/singleton/xgm_gas/sleeping_agent
+/singleton/xgm_gas/nitrous_oxide
 	id = GAS_N2O
 	name = "Nitrous Oxide"
 	specific_heat = 40	// J/(mol*K)
