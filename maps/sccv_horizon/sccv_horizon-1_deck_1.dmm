@@ -223,7 +223,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "akw" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
@@ -765,7 +765,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "aFN" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Exotic Energies Harvesting";
@@ -1690,7 +1690,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "boY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -2122,7 +2122,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "bBR" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	input_tag = "ph_in";
@@ -2719,7 +2719,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "bVo" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "3,22";
@@ -2815,10 +2815,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
-"bZP" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
 "bZR" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
@@ -4125,7 +4121,7 @@
 /area/maintenance/engineering)
 "cTj" = (
 /turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "cTm" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -5071,7 +5067,7 @@
 /obj/random/backpack,
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "dEl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -6846,7 +6842,7 @@
 	no_cargo = 1
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "eOk" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6976,7 +6972,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "eTJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 8
@@ -8655,7 +8651,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "fVm" = (
 /obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
@@ -8771,7 +8767,7 @@
 "fYt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "fZr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -9329,7 +9325,7 @@
 	pixel_x = 2
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "gtE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -10451,7 +10447,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "hgU" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11482,10 +11478,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"hUt" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
 "hUC" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
@@ -11713,7 +11705,7 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "ieW" = (
 /obj/machinery/light{
 	dir = 8
@@ -13631,7 +13623,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "jyn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -13755,7 +13747,7 @@
 	},
 /obj/random/tool,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "jCf" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/warning{
@@ -16908,7 +16900,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "lPP" = (
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
@@ -17605,7 +17597,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "mlc" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -18661,12 +18653,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mVo" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/turret_protected/ai)
 "mVJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -19244,7 +19230,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "nqp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19724,7 +19710,7 @@
 "nCI" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "nCV" = (
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -19754,7 +19740,7 @@
 	name = "port, atmospherics"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "nEm" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/custodial/disposals)
@@ -21153,7 +21139,7 @@
 /obj/structure/closet/crate,
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "oFA" = (
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -21700,9 +21686,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
-"pdC" = (
-/turf/simulated/wall/r_wall,
-/area/turret_protected/ai_upload)
 "pdL" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
@@ -24302,7 +24285,7 @@
 /area/security/checkpoint)
 "qPV" = (
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "qQa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -24565,9 +24548,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"qZp" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/turret_protected/ai)
 "qZx" = (
 /obj/structure/ladder/up{
 	pixel_y = 10
@@ -25193,9 +25173,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"rso" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/turret_protected/ai_upload)
 "rsL" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/research_port)
@@ -25540,7 +25517,7 @@
 /obj/structure/closet/crate,
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "rJw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -25568,7 +25545,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "rJZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -25635,9 +25612,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
-"rMf" = (
-/turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
 "rMm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25921,9 +25895,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
-"rUd" = (
-/turf/simulated/wall/r_wall,
-/area/turret_protected/ai)
 "rUH" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,8"
@@ -26634,7 +26605,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "sxx" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -26879,7 +26850,7 @@
 "sIQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "sJJ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -27197,12 +27168,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
-"sSK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/turret_protected/ai)
 "sTu" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -27643,7 +27608,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "thO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -30067,7 +30032,7 @@
 "uRl" = (
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "uRt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -30667,13 +30632,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
-"vil" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/turret_protected/ai)
 "viX" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Tanks 5";
@@ -30714,7 +30672,7 @@
 "vjA" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "vjI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -31179,7 +31137,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "vCG" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -32004,7 +31962,7 @@
 	name = "aft, bottom AI core"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "wif" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -32325,7 +32283,7 @@
 /area/engineering/atmos)
 "wqs" = (
 /turf/simulated/floor/tiled/dark/full,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "wrD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -33410,7 +33368,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/ai_upload)
+/area/maintenance/research_port)
 "xgm" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/industrial/warning{
@@ -33511,9 +33469,6 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"xiH" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/turret_protected/ai_upload)
 "xiN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -33948,7 +33903,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "xrp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/warning{
@@ -34494,7 +34449,7 @@
 "xKI" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/area/maintenance/research_port)
 "xLq" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -61191,13 +61146,13 @@ uVL
 rsL
 qpJ
 rsL
-rUd
-rUd
+lCv
+lCv
 hgR
-rUd
-rUd
-rUd
-rUd
+lCv
+lCv
+lCv
+lCv
 xsN
 gVe
 bRg
@@ -61394,13 +61349,13 @@ uVL
 eBb
 lRC
 qco
-rUd
+lCv
 xKI
 wqs
-mVo
+idq
 bBL
 fVh
-rUd
+lCv
 akC
 iGO
 iGO
@@ -61597,17 +61552,17 @@ uVL
 oTX
 nvZ
 nQN
-rUd
+lCv
 npz
 wqs
 cTj
 vjA
 sxc
-rUd
-rUd
-rUd
-pdC
-pdC
+lCv
+lCv
+lCv
+lCv
+lCv
 cDa
 jNq
 vDT
@@ -61800,17 +61755,17 @@ uVL
 feI
 dro
 rsL
-rUd
+lCv
 eNY
 gsG
 qPV
 wqs
 jBX
-rUd
-sSK
+lCv
+baq
 bBL
 vCC
-pdC
+lCv
 vcF
 sfh
 sfh
@@ -62002,18 +61957,18 @@ eSV
 eSV
 kVe
 kVe
-qZp
-rUd
+rsL
+lCv
 jyg
 sIQ
 rJn
 wqs
 cTj
-vil
+grP
 wqs
 wqs
 nCI
-pdC
+lCv
 lKV
 sfh
 aFN
@@ -62206,14 +62161,14 @@ eSV
 eSV
 eSV
 wie
-rUd
+lCv
 lPL
 ieH
 xre
 qPV
 uRl
-rUd
-hUt
+lCv
+mhf
 thF
 bVh
 rJD
@@ -62408,18 +62363,18 @@ eSV
 eSV
 eSV
 eSV
-qZp
-rUd
-rUd
-rUd
-rUd
-rUd
-rUd
-rUd
+rsL
+lCv
+lCv
+lCv
+lCv
+lCv
+lCv
+lCv
 ajM
 aFA
 boN
-pdC
+lCv
 nVO
 sfh
 fsy
@@ -62611,18 +62566,18 @@ eSV
 eSV
 eSV
 eSV
-qZp
-qZp
-qZp
-qZp
-qZp
+rsL
+rsL
+rsL
+rsL
+rsL
 nEl
-qZp
-rUd
+rsL
+lCv
 mkW
-rso
+wqs
 fYt
-pdC
+lCv
 ben
 sfh
 gTq
@@ -62820,12 +62775,12 @@ eSV
 eSV
 eSV
 eSV
-xiH
-pdC
+rsL
+lCv
 dEe
-rMf
+qPV
 oFy
-pdC
+lCv
 moP
 sfh
 wIM
@@ -63023,12 +62978,12 @@ eSV
 eSV
 eSV
 eSV
-xiH
-pdC
-bZP
+rsL
+lCv
+sIQ
 xgc
 eTx
-pdC
+lCv
 vnJ
 sfh
 sfh
@@ -63226,12 +63181,12 @@ eSV
 eSV
 eSV
 eSV
-xiH
-pdC
-pdC
-pdC
-pdC
-pdC
+rsL
+lCv
+lCv
+lCv
+lCv
+lCv
 hrb
 erL
 erL
@@ -63429,12 +63384,12 @@ eSV
 eSV
 eSV
 eSV
-xiH
-xiH
-xiH
-xiH
-xiH
-pdC
+rsL
+rsL
+rsL
+rsL
+rsL
+lCv
 qbC
 erL
 erL
