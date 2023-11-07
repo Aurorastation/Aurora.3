@@ -74,7 +74,7 @@
 
 /area/medical/smoking
 	name = "Medical - Smoking Lounge"
-	narrate = "A smell of secondhand smoke sits within this room."
+	narrate = "The smell of cigarette smoke lingers within this room."
 
 /area/medical/washroom
 	name = "Medical - Washroom"

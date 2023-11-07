@@ -468,13 +468,24 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
 
-/area/proc/do_area_blurb(var/mob/living/L)
+/area/proc/do_area_blurb(mob/living/L, override)
 	if(isnull(narrate))
+		if(override)
+			to_chat(L, SPAN_NOTICE("No blurb set for this area."))
 		return
 
-	if(!(L.ckey in blurbed_stated_to))
+	if(!(L.ckey in blurbed_stated_to) || override)
 		blurbed_stated_to += L.ckey
 		to_chat(L, SPAN_NOTICE("[narrate]"))
+
+/mob/living/verb/show_area_blurb()
+	set name = "Show area blurb"
+	set category = "IC"
+
+	if(!incapacitated(INCAPACITATION_KNOCKOUT))
+		var/area/A = get_area(src)
+		if(A)
+			A.do_area_blurb(src, TRUE)
 
 #undef VOLUME_AMBIENCE
 #undef VOLUME_AMBIENT_HUM

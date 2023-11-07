@@ -65,6 +65,7 @@
 
 /area/point_verdant/interior/decrepit
 	name = "Point Verdant - Decrepit Apartments"
+	narrate = "A damp smell lingers in the air inside these dusty apartments."
 
 /area/point_verdant/interior/pharmacy
 	name = "Point Verdant - Pharmacy"

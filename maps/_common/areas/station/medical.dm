@@ -154,7 +154,7 @@
 /area/medical/gen_treatment
 	name = "Medical - General Treatment"
 	icon_state = "cryo"
-	narrate = "The smells of medicines and sterilizing supplies can be noticed here."
+	narrate = "The smells of medicines and strong sterilizing supplies fill the air."
 
 /area/medical/exam_room
 	name = "Medical - Exam Room 1"
@@ -181,7 +181,7 @@
 /area/medical/icu
 	name = "Medical - Intensive Care Unit"
 	icon_state = "cryo"
-	narrate = "The sounds of life support equipment can be heard within this room."
+	narrate = "The sounds of life support equipment can be heard within the room."
 
 /area/medical/triage
 	name = "Medical - Triage Room"
