@@ -59,7 +59,7 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/mounted/energy/plasmacutter,
 		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/actuators
 		)
@@ -113,7 +113,7 @@
 		/obj/item/rig_module/vision/sechud,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/actuators
 		)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
@@ -198,7 +198,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/vision/multi,
-		/obj/item/rig_module/mounted/pulse,
+		/obj/item/rig_module/mounted/energy/pulse,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/device/drill,

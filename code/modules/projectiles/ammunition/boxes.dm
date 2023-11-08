@@ -315,6 +315,17 @@
 	max_ammo = 20
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/proto_smg
+	name = "prototype SMG magazine (4mm)"
+	icon_state = "4mm"
+	origin_tech = list(TECH_COMBAT = 4)
+	mag_type = MAGAZINE
+	caliber = "4mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	ammo_type = /obj/item/ammo_casing/proto_smg
+	max_ammo = 40
+	multiple_sprites = TRUE
+
 // End of SMGs and PDWs //
 
 // Rifles and bigger calibers //

@@ -291,6 +291,13 @@
 	spent_icon = "rifle-casing-spent"
 	max_stack = 7
 
+/obj/item/ammo_casing/proto_smg
+	desc = "A small flachette casing."
+	caliber = "4mm"
+	projectile_type = /obj/item/projectile/bullet/proto_smg
+	icon_state = "flechette-casing"
+	spent_icon = "flechette-casing-spent"
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."

@@ -36,14 +36,14 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/mounted/energy/plasmacutter,
 		/obj/item/rig_module/actuators/combat
 	)
 	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
@@ -59,13 +59,13 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/mounted/energy/plasmacutter,
 		/obj/item/rig_module/actuators/combat
 	)

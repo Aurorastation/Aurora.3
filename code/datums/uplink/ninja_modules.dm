@@ -32,7 +32,7 @@
 	name = "Energy Blade and dart launcher."
 	desc = "A module that can produce a powerful energy blade in the users hand. It can also shoot stun-darts."
 	telecrystal_cost = 4
-	path = /obj/item/rig_module/mounted/energy_blade
+	path = /obj/item/rig_module/mounted/energy/energy_blade
 
 /datum/uplink_item/item/ninja_modules/matter_fab
 	name = "Matter Fabricator"

@@ -118,6 +118,7 @@
 #define isprojectile(A) istype(A, /obj/item/projectile)
 #define isbeam(A) istype(A, /obj/item/projectile/beam)
 #define isenergy(A) istype(A, /obj/item/projectile/energy)
+#define ismagazine(A) istype(A, /obj/item/ammo_magazine)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)

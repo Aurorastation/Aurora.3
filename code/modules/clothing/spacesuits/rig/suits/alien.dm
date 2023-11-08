@@ -153,7 +153,7 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/tesla_coil,
-		/obj/item/rig_module/mounted/tesla)
+		/obj/item/rig_module/mounted/energy/tesla)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_UTILITY
 
@@ -171,5 +171,5 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/tesla_coil,
-		/obj/item/rig_module/mounted/tesla,
+		/obj/item/rig_module/mounted/energy/tesla,
 		/obj/item/rig_module/device/door_hack)

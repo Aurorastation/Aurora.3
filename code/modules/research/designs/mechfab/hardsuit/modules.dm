@@ -64,7 +64,7 @@
 	desc = "A self-sustaining plasma arc capable of cutting through walls."
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 3, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 5250, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
-	build_path = /obj/item/rig_module/mounted/plasmacutter
+	build_path = /obj/item/rig_module/mounted/energy/plasmacutter
 
 /datum/design/hardsuitmodules/jet_module
 	name = "Hardsuit Maneuvering Jets"
@@ -99,14 +99,14 @@
 	desc = "A palm-mounted non-lethal energy projector."
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_MAGNET = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5250)
-	build_path = /obj/item/rig_module/mounted/taser
+	build_path = /obj/item/rig_module/mounted/energy/taser
 
 /datum/design/hardsuitmodules/egun_module
 	name = "Mounted Energy Gun"
 	desc = "A forearm-mounted energy projector."
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_MAGNET = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
-	build_path = /obj/item/rig_module/mounted/egun
+	build_path = /obj/item/rig_module/mounted/energy/egun
 
 /datum/design/hardsuitmodules/cooling_module
 	name = "Mounted Cooling Unit"
