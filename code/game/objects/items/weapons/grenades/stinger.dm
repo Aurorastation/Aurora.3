@@ -1,7 +1,7 @@
 ///Stinger grenade projectile
 /obj/item/projectile/bullet/rubberball/stinger_ball
 	damage = 2
-	agony = 40
+	agony = 50
 	armor_penetration = 10
 	range_step = 2
 	embed = FALSE
@@ -20,7 +20,7 @@
 
 	var/num_fragments = 100  ///total number of balls produced by the grenade
 	var/fragment_damage = 2
-	var/damage_step = 2      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
+	var/damage_step = 3      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/explosion_size = 1   ///size of the center explosion
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
