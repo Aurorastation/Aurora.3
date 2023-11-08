@@ -30,6 +30,8 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
   const center_point_x = data.destination_x;
   const center_point_y = data.destination_y;
 
+  const rand = Math.random() * 1.0;
+
   return (
     <Window resizable>
       <Window.Content scrollable>
@@ -105,7 +107,7 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
               <filter id="f1" x="0" y="0">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
                 <feTurbulence
-                  baseFrequency="0.01 0.4"
+                  baseFrequency={`${rand} ${1.0 - rand}`}
                   result="NOISE"
                   numOctaves="2"
                 />
