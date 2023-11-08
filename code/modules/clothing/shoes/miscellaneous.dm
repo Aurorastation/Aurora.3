@@ -53,9 +53,6 @@
 		M = user
 	return eyestab(M,user)
 
-/obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
-	trip_up(walking, running)
-
 /obj/item/clothing/shoes/galoshes
 	name = "galoshes"
 	desc = "A waterproof overshoe, made of rubber."

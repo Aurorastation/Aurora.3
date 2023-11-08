@@ -27,6 +27,11 @@
 		ui.autoupdate = FALSE
 
 /datum/computer_file/program/chat_client/Destroy()
+	service_deactivate()
+	my_user = null
+	focused_conv = null
+	active = null
+
 	return ..()
 
 /datum/computer_file/program/chat_client/proc/can_receive_notification(var/datum/computer_file/program/chat_client/from)
@@ -110,6 +115,11 @@
 	if(src in ntnet_global.chat_clients)
 		ntnet_global.chat_clients.Remove(src)
 	computer.update_static_data_for_all_viewers()
+
+/datum/computer_file/program/chat_client/proc/handle_ntnet_user_deletion(var/datum/ntnet_user)
+	if(ntnet_user == src.my_user)
+		service_deactivate()
+		my_user = null
 
 /datum/computer_file/program/chat_client/ui_data(mob/user)
 	. = ..()

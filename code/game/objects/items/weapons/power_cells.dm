@@ -166,6 +166,28 @@
 		charge = min(charge + (maxcharge / 10), maxcharge)
 		next_recharge = world.time + 1 MINUTE
 
+/obj/item/cell/nuclear
+	name = "miniaturized nuclear power core"
+	desc = "A small self-charging thorium core that can store an immense amount of charge."
+	origin_tech = list(TECH_POWER = 8, TECH_ILLEGAL = 4)
+	icon_state = "icell"
+	maxcharge = 50000
+	matter = null
+	var/next_recharge
+
+/obj/item/cell/nuclear/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/cell/nuclear/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/nuclear/process()
+	if(next_recharge < world.time)
+		charge = min(charge + (maxcharge / 10), maxcharge)
+		next_recharge = world.time + 30 SECONDS
+
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."

@@ -257,7 +257,7 @@
 			var/hit_dam_type = attack.damage_type
 			var/damage_flags = attack.damage_flags()
 
-			real_damage += attack.get_unarmed_damage(H)
+			real_damage += attack.get_unarmed_damage(src, H)
 			real_damage *= damage_multiplier
 			rand_damage *= damage_multiplier
 

@@ -97,15 +97,50 @@
 	sync_linked()
 
 /obj/item/modular_computer/Destroy()
-	kill_program(TRUE)
-	if(registered_id)
-		registered_id = null
+	STOP_PROCESSING(SSprocessing, src)
+
+	SStgui.close_uis(src)
+	enabled = FALSE
+
+	if(active_program)
+		active_program.kill_program(forced = TRUE)
+		SStgui.close_uis(active_program)
+
+	QDEL_NULL(active_program)
+
+	if(hard_drive)
+		for(var/datum/computer_file/program/P in hard_drive.stored_files)
+			P.event_unregistered()
+
+		QDEL_NULL_LIST(hard_drive.stored_files)
+
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
-	STOP_PROCESSING(SSprocessing, src)
+
+	registered_id = null
+
+	//Stop all the programs that we are running, or have
+	for(var/datum/computer_file/program/P in idle_threads)
+		P.kill_program(TRUE)
+
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			service.service_deactivate()
+			service.service_state = PROGRAM_STATE_KILLED
+
+	QDEL_NULL_LIST(idle_threads)
+	QDEL_NULL_LIST(enabled_services)
+
+	if(looping_sound)
+		soundloop.stop(src)
 	QDEL_NULL(soundloop)
+
 	QDEL_NULL(listener)
+
+	linked = null
+
 	return ..()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
@@ -268,13 +303,16 @@
 
 
 /obj/item/modular_computer/proc/run_program(prog, mob/user, var/forced=FALSE)
+	if(QDELETED(src))
+		return
+
 	var/datum/computer_file/program/P = null
 	if(!istype(user))
 		user = usr
 	if(hard_drive)
 		P = hard_drive.find_file_by_name(prog)
 
-	if(!P || !istype(P)) // Program not found or it's not executable program.
+	if(!P || !istype(P) || QDELING(P)) // Program not found or it's not executable program, or it's being GC'd
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))
 		return
 
@@ -381,12 +419,19 @@
 
 
 /obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(QDELETED(src))
+		return
+
 	. = FALSE
 	if(!S)
 		S = hard_drive?.find_file_by_name(service)
 
 	if(!istype(S)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to enable [service]\""))
+		return
+
+	//We found the program, but it's being deleted
+	if(QDELETED(S))
 		return
 
 	S.computer = src

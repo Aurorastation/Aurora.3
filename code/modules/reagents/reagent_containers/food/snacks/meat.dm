@@ -203,7 +203,7 @@
 	icon_state = "vannameat"
 	item_state = "vannameat"
 	contained_sprite = TRUE
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/mindbreaker = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
@@ -220,7 +220,7 @@
 	icon_state = "hugemushroomslice"
 	filling_color = "#E0D7C5"
 
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/psilocybin = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drugs/psilocybin = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("raw" = 2, "mushroom" = 2))
 	bitesize = 6
 

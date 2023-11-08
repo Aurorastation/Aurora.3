@@ -786,6 +786,50 @@
 /obj/structure/sign/flag/coalition/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+//All-Xanu Republic
+/obj/item/flag/xanu
+	name = "\improper All-Xanu Republic banner"
+	desc = "The banner of the All-Xanu Republic, the beating heart of the Coalition of Colonies."
+	desc_extended = "The banner of the All-Xanu Republic is a banner of three horizontal stripes, blue, orange, and green, with a white chevron featuring the same colors inset in each other. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, and the white represents justice and peace."
+	flag_path = "xanu"
+	flag_structure = /obj/structure/sign/flag/xanu
+
+/obj/structure/sign/flag/xanu
+	name = "\improper All-Xanu Republic banner"
+	desc = "The banner of the All-Xanu Republic, the beating heart of the Coalition of Colonies."
+	desc_extended = "The banner of the All-Xanu Republic is a banner of three horizontal stripes, blue, orange, and green, with a white chevron featuring the same colors inset in each other. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, and the white represents justice and peace."
+	icon_state = "xanu"
+	flag_path = "xanu"
+	flag_item = /obj/item/flag/xanu
+
+/obj/item/flag/xanu/l
+	name = "\improper All-Xanu Republic flag"
+	desc = "The flag of the All-Xanu Republic, the beating heart of the Coalition of Colonies"
+	desc_extended = "The flag of the All-Xanu Republic is a flag of three horizontal stripes, blue, orange, and green, with a white circle in the middle featuring the national crest of Xanu Prime, a peacock feather. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, white represents justice and peace, and the national crest represents the republic itself."
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/xanu/large
+
+/obj/structure/sign/flag/xanu/large
+	name = "\improper All-Xanu Republic flag"
+	desc = "The flag of the All-Xanu Republic, the beating heart of the Coalition of Colonies"
+	desc_extended = "The flag of the All-Xanu Republic is a flag of three horizontal stripes, blue, orange, and green, with a white circle in the middle featuring the national crest of Xanu Prime, a peacock feather. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, white represents justice and peace, and the national crest represents the republic itself."
+	icon_state = "xanu_l"
+	flag_path = "xanu"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/xanu/l
+
+/obj/structure/sign/flag/xanu/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/xanu/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/xanu/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/xanu/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Varuca/Sedantis
 
 /obj/item/flag/sedantis

@@ -565,6 +565,26 @@
 	..()
 	icon_state = (ammo_magazine)? "owen" : "owen-empty"
 
+/obj/item/gun/projectile/automatic/rifle/dnac
+	name = "dNAC-6.5 assault rifle"
+	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
+	icon = 'icons/obj/guns/xanu_rifle.dmi'
+	icon_state = "xanu_rifle"
+	item_state = "xanu_rifle"
+	magazine_type = /obj/item/ammo_magazine/a65
+	allowed_magazines = list(/obj/item/ammo_magazine/a65)
+	caliber = "a65"
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
+/obj/item/gun/projectile/automatic/rifle/dnac/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_rifle" : "xanu_rifle-empty"
+
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."

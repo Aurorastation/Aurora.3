@@ -1245,7 +1245,7 @@
 /area/maintenance/engineering)
 "aWx" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod1)
 "aWz" = (
@@ -1718,13 +1718,22 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "bpI" = (
-/obj/structure/closet,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 32;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
+/area/maintenance/hangar/starboard)
 "bpL" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -2343,7 +2352,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	dir = 8;
 	frequency = 1386;
-	id_tag = "canary";
+	id_tag = "canary_dock";
 	name = "\improper Canary docking port controller";
 	pixel_x = 22;
 	pixel_y = -19;
@@ -2803,20 +2812,20 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
-	name = "interior access button";
 	pixel_x = -25;
-	pixel_y = 20;
-	req_one_access = list(31,48,67)
+	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	frequency = 1380;
-	id_tag = "mining_shuttle_interior_sensor";
 	pixel_x = -25;
 	pixel_y = 27
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "bZR" = (
@@ -3983,7 +3992,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "cPq" = (
-/obj/effect/shuttle_landmark/horizon/deckone/starboard_propulsion,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/starboard_propulsion,
 /turf/template_noop,
 /area/template_noop)
 "cPt" = (
@@ -4511,13 +4520,19 @@
 	},
 /area/engineering/atmos/propulsion)
 "dir" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "diJ" = (
@@ -4757,6 +4772,23 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"dro" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "drK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5135,6 +5167,20 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "dGu" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
 "dHW" = (
@@ -5153,13 +5199,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "dIM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
+/area/maintenance/hangar/starboard)
 "dIS" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5400,8 +5449,23 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "dPt" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = -6;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
+	frequency = 1003
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -5458,7 +5522,7 @@
 	},
 /area/maintenance/wing/starboard/deck1)
 "dTk" = (
-/obj/effect/shuttle_landmark/horizon/nav2,
+/obj/effect/shuttle_landmark/horizon/hangar2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUP" = (
@@ -5985,8 +6049,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/brigdoor/northright,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "epr" = (
@@ -6010,7 +6072,6 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "eqa" = (
@@ -6370,9 +6431,20 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "eBb" = (
-/obj/effect/map_effect/airlock/s_to_n,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/engineering/atmos/propulsion/starboard)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "eBj" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	frequency = 1442;
@@ -6405,6 +6477,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/structure/closet,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "eDa" = (
@@ -6919,10 +6993,7 @@
 "eTV" = (
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_external";
-	req_access = list(13)
+	icon_state = "door_locked"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6930,15 +7001,17 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	dir = 1;
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
-	name = "exterior access button";
-	pixel_x = -21;
-	pixel_y = 11;
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
 	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -7147,6 +7220,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial)
+"eZM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
 "eZW" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "13,3"
@@ -7235,6 +7313,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,17"
 	},
@@ -7309,6 +7390,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
+"feI" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "feW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -7990,9 +8083,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -8711,24 +8801,16 @@
 /area/shuttle/mining)
 "fZQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/machinery/access_button{
-	command = "cycle_exterior";
 	dir = 4;
-	frequency = 1385;
 	layer = 3.1;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "exterior access button";
 	pixel_x = -22;
 	pixel_y = 2
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -21;
 	pixel_y = 10
 	},
@@ -8741,6 +8823,14 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "fZX" = (
@@ -8870,9 +8960,6 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/northright{
-	name = "Canister Access"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "gex" = (
@@ -9803,11 +9890,16 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
+"gNo" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
 "gNs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "gOa" = (
@@ -10683,8 +10775,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
 "hqV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -11482,6 +11582,9 @@
 "iab" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
@@ -11701,7 +11804,7 @@
 /area/hangar/canary)
 "ifU" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod4)
 "ifX" = (
@@ -11970,12 +12073,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
-"itT" = (
-/obj/effect/shuttle_landmark/skipjack_ship/first_deck{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "iuk" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "7,5"
@@ -12055,7 +12152,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "iAP" = (
@@ -12160,16 +12256,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "interior access button";
 	pixel_x = -5;
 	pixel_y = 20
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_interior_sensor";
 	pixel_x = -5;
 	pixel_y = 25
 	},
@@ -12180,6 +12270,14 @@
 	pixel_x = 7;
 	pixel_y = 25
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "iDk" = (
@@ -12858,6 +12956,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "mining_shuttle_dock";
+	name = "\improper Spark docking port controller";
+	pixel_x = 6;
+	pixel_y = -19;
+	req_one_access = list(31,48,67);
+	tag_door = "mining_shuttle_dock_doors"
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "jbR" = (
@@ -12866,7 +12974,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "jbS" = (
-/obj/effect/shuttle_landmark/horizon/deckone/starboard,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/starboard,
 /turf/template_noop,
 /area/template_noop)
 "jcd" = (
@@ -13053,8 +13161,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
 "jiS" = (
 /obj/machinery/light_switch{
@@ -13324,6 +13445,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"jun" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "juI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14146,10 +14287,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "jYy" = (
@@ -14448,13 +14595,19 @@
 	c_tag = "Intrepid - Airlock Aft";
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kkS" = (
@@ -14836,8 +14989,6 @@
 /area/horizon/custodial/disposals)
 "kxk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -14850,6 +15001,14 @@
 	name = "Intrepid Shutter"
 	},
 /obj/item/device/radio/intercom/expedition/east,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kyq" = (
@@ -15359,6 +15518,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
+"kMC" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion)
 "kMG" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -15554,8 +15730,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "kVu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -15909,12 +16091,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"lnk" = (
-/obj/effect/shuttle_landmark/merc_ship/first_deck{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "lnt" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -15952,12 +16128,20 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "lnQ" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square{
-	name = "Deck 1 Fore Maintenance Airlock (1004)";
-	radio_frequency = 1004
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/hangar/starboard)
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "loq" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -16383,6 +16567,10 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
+"lFD" = (
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "lFS" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 8
@@ -16813,6 +17001,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
+"lRC" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "lRH" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17318,8 +17515,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "mhL" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
+	frequency = 1003
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
@@ -17719,6 +17921,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"mvN" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/starboard)
 "mvO" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "7,20"
@@ -17748,10 +17962,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "mxq" = (
@@ -18824,7 +19044,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "nhU" = (
-/obj/effect/shuttle_landmark/horizon/deckone/fore,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/fore,
 /turf/template_noop,
 /area/template_noop)
 "nie" = (
@@ -18922,11 +19142,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "nmP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "nmQ" = (
@@ -19220,8 +19444,6 @@
 /area/hangar/control)
 "nvn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_external";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -19230,6 +19452,14 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nvV" = (
@@ -19247,6 +19477,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"nvZ" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "nwp" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/white{
@@ -19306,10 +19547,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
@@ -19427,9 +19674,6 @@
 	},
 /area/shuttle/intrepid/engine_compartment)
 "nBA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	name = "Spark scrubber vent"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -19556,9 +19800,23 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "nIP" = (
-/turf/simulated/wall/shuttle/unique/scc/research{
-	icon_state = "11,17"
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 11
 	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
 /area/shuttle/mining)
 "nJB" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -19747,7 +20005,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
 "nOU" = (
-/obj/effect/shuttle_landmark/horizon/deckone/port,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/port,
 /turf/template_noop,
 /area/template_noop)
 "nPq" = (
@@ -19822,6 +20080,21 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
+"nQN" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "nQT" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "12,4";
@@ -20045,8 +20318,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/brigdoor/northright,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "nZp" = (
@@ -20431,7 +20702,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/custodial/disposals)
 "omL" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -21037,10 +21307,19 @@
 /turf/simulated/wall,
 /area/outpost/mining_main/eva)
 "oOI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "oPw" = (
@@ -21141,6 +21420,14 @@
 "oTX" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -21757,7 +22044,7 @@
 /area/maintenance/research_port)
 "pos" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod3)
 "poM" = (
@@ -21963,6 +22250,23 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "pwQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "pxH" = (
@@ -22642,12 +22946,17 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "pTp" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "pTw" = (
@@ -22901,16 +23210,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "qco" = (
-/obj/machinery/door/window/northleft,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
+/area/maintenance/research_port)
 "qcr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -23289,12 +23598,25 @@
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "qpJ" = (
-/obj/effect/map_effect/airlock{
-	name = "Deck 1 Starboard Aft Maintenance Airlock (1001)";
-	radio_frequency = 1001
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/wing/starboard/deck1)
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_port_1";
+	name = "airlock_horizon_deck_1_aft_port_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "qpO" = (
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
@@ -24735,6 +25057,22 @@
 	icon_state = "14,24"
 	},
 /area/shuttle/intrepid/engine_compartment)
+"rqc" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
+	frequency = 1003
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "rqf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -24867,6 +25205,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"rsS" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/starboard)
 "rtb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light/small{
@@ -24876,12 +25222,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "rtC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/maintenance/hangar/starboard)
+/area/maintenance/wing/starboard/deck1)
 "rtF" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "2,9"
@@ -25053,20 +25397,16 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_c)
 "rBI" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "\improper Spark docking port controller";
-	pixel_x = 6;
-	pixel_y = -25;
-	req_one_access = list(31,48,67);
-	tag_door = "mining_shuttle_dock_doors"
+	icon_state = "door_locked";
+	id_tag = "mining_shuttle_dock_doors";
+	req_access = list(13)
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "rBR" = (
 /obj/structure/cable/green{
@@ -25109,7 +25449,7 @@
 	},
 /area/shuttle/intrepid/atmos_compartment)
 "rDi" = (
-/obj/effect/shuttle_landmark/horizon/deckone/aft,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/aft,
 /turf/template_noop,
 /area/template_noop)
 "rDE" = (
@@ -25227,10 +25567,16 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
+	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "rKM" = (
@@ -25284,19 +25630,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "rMm" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_internal";
-	req_access = list(13)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -25693,9 +26045,11 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "mining_shuttle_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -25919,6 +26273,10 @@
 	temperature = 278.15
 	},
 /area/medical/morgue/lower)
+"skE" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
 "skS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -26704,6 +27062,20 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"sOI" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "sPo" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -27010,28 +27382,24 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	frequency = 1380;
-	id_tag = "mining_shuttle_controller";
 	pixel_x = 25;
-	pixel_y = 5;
-	req_one_access = list(31,48,67);
-	tag_airpump = "mining_shuttle_pump";
-	tag_chamber_sensor = "mining_shuttle_sensor";
-	tag_exterior_door = "mining_shuttle_external";
-	tag_interior_door = "mining_shuttle_internal";
-	tag_interior_sensor = "mining_shuttle_interior_sensor"
+	pixel_y = 5
 	},
 /obj/machinery/airlock_sensor{
 	dir = 8;
-	frequency = 1380;
-	id_tag = "mining_shuttle_sensor";
 	pixel_x = 25;
 	pixel_y = -7
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -27370,7 +27738,7 @@
 	},
 /area/shuttle/mining)
 "tjN" = (
-/obj/effect/shuttle_landmark/horizon/nav1,
+/obj/effect/shuttle_landmark/horizon/hangar1,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "tkS" = (
@@ -28986,11 +29354,24 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "uoG" = (
-/obj/effect/map_effect/airlock/e_to_w{
-	name = "Deck 1 Port Thruster Airlock (1002)";
-	radio_frequency = 1002
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
+	name = "airlock_horizon_deck_1_aft_propulsion_2";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "uoI" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -29563,7 +29944,7 @@
 /area/engineering/atmos)
 "uKW" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod2)
 "uLM" = (
@@ -29798,7 +30179,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
@@ -30631,10 +31014,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "vse" = (
-/obj/machinery/light/small{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "vsW" = (
 /obj/effect/floor_decal/corner/dark_green/full,
@@ -30714,10 +31106,6 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_a)
 "vxw" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -30911,10 +31299,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "mining_shuttle_pump"
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	shuttle_tag = "Spark";
+	req_one_access = list(31,48,67)
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "vFL" = (
@@ -31135,13 +31526,20 @@
 /area/engineering/atmos/propulsion/starboard)
 "vPu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light/small/emergency{
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = 28;
 	dir = 4
 	},
-/obj/structure/platform_stairs/south_north_solo{
-	dir = 1
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "vQs" = (
@@ -32874,7 +33272,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/quarters)
 "xaf" = (
-/obj/effect/shuttle_landmark/horizon/deckone/port_propulsion,
+/obj/effect/shuttle_landmark/horizon/exterior/deck_1/port_propulsion,
 /turf/template_noop,
 /area/template_noop)
 "xaE" = (
@@ -33173,20 +33571,23 @@
 "xjL" = (
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_sensor";
 	pixel_x = -24;
 	pixel_y = -6
 	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xjQ" = (
@@ -33537,12 +33938,17 @@
 /area/operations/storage)
 "xqo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump";
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/device/radio/intercom/expedition/east,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
@@ -33935,8 +34341,6 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/brigdoor/northright,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "xFo" = (
@@ -33985,7 +34389,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "xGW" = (
@@ -34427,7 +34830,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "xSR" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "xTb" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -34571,11 +34984,30 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "xWM" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
+	name = "airlock_horizon_deck_1_aft_propulsion_1";
+	frequency = 1003
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
+"xWT" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_fore_1";
+	name = "airlock_horizon_deck_1_fore_1";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/starboard)
 "xXj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -34598,12 +35030,19 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "xXO" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square/wide{
-	name = "Deck 1 Port Maintenance Airlock (1003)";
-	radio_frequency = 1003
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
 	},
-/turf/simulated/wall/r_wall,
-/area/turret_protected/ai)
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_deck_1_starboard_1";
+	name = "airlock_horizon_deck_1_starboard_1";
+	frequency = 1003
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "xXU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -34825,31 +35264,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "yib" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	cycle_to_external_air = 1;
-	dir = 8;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_x = 24;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in";
-	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
-	},
 /obj/machinery/light/small/red{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
 	layer = 2.8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	shuttle_tag = "Intrepid";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "yiT" = (
@@ -43352,7 +43787,7 @@ eSV
 hTk
 ktZ
 jLm
-qco
+gdR
 hTk
 hoV
 hoV
@@ -43760,7 +44195,7 @@ mPZ
 kbI
 hTk
 hTk
-qpJ
+hTk
 hoV
 dEC
 kVe
@@ -43961,9 +44396,9 @@ eSV
 noz
 paL
 omL
-sTw
+jun
 dPt
-sTw
+rqc
 kVe
 kVe
 kVe
@@ -44162,10 +44597,10 @@ eSV
 eSV
 eSV
 noz
-dIM
-hIf
-hTk
-hTk
+paL
+sTw
+lnQ
+xXO
 hTk
 noz
 noz
@@ -44366,8 +44801,8 @@ eHZ
 hTk
 hTk
 gNs
-fif
-bpI
+rtC
+hTk
 hTk
 hTk
 acn
@@ -45401,9 +45836,9 @@ dqy
 vJT
 noz
 eSV
-xDY
+oYQ
 ifU
-xDY
+oYQ
 eSV
 eSV
 eSV
@@ -48600,8 +49035,8 @@ eSV
 eSV
 kVe
 awJ
+awJ
 auF
-eBb
 awJ
 awJ
 eSV
@@ -48804,7 +49239,7 @@ eSV
 kVe
 dGu
 xWM
-dGu
+sOI
 hqH
 awJ
 gsr
@@ -49617,7 +50052,7 @@ szM
 szM
 xQU
 lYV
-sfF
+lFD
 awJ
 uZU
 gal
@@ -50477,8 +50912,8 @@ tPr
 dNk
 jyX
 rcA
+oXD
 rBI
-ukS
 nIP
 vFD
 kVu
@@ -52123,7 +52558,7 @@ iab
 vPu
 oOI
 nmP
-bij
+msv
 kVe
 eSV
 eSV
@@ -52322,11 +52757,11 @@ ykR
 uJE
 raq
 wJg
-rtC
-msv
+wJh
+xWT
+dIM
 xSR
-xSR
-lnQ
+bij
 kVe
 eSV
 eSV
@@ -52528,7 +52963,7 @@ iAL
 epn
 msv
 vse
-xSR
+rsS
 wHJ
 kVe
 eSV
@@ -52550,7 +52985,7 @@ eSV
 eSV
 eSV
 eSV
-itT
+eSV
 eSV
 eSV
 eSV
@@ -52730,8 +53165,8 @@ cir
 iAL
 xEu
 msv
-xSR
-xSR
+bpI
+mvN
 msv
 kVe
 eSV
@@ -52933,9 +53368,9 @@ nWF
 epB
 nZb
 msv
-xSR
-xSR
-msv
+gNo
+skE
+ctz
 kVe
 eSV
 eSV
@@ -53136,8 +53571,8 @@ nWF
 msv
 msv
 msv
-kVe
-kVe
+gNo
+eZM
 kVe
 kVe
 eSV
@@ -57737,8 +58172,8 @@ eSV
 gdP
 uVL
 uVL
-pwQ
-uoG
+kMC
+uVL
 uVL
 aLK
 nSi
@@ -57939,7 +58374,7 @@ eSV
 eSV
 uVL
 uVL
-uVL
+uoG
 mhL
 xBf
 swD
@@ -60790,9 +61225,9 @@ cne
 uVL
 uVL
 rsL
-vil
+qpJ
 rsL
-xXO
+rUd
 rUd
 rUd
 rUd
@@ -60992,9 +61427,9 @@ dLn
 dLn
 uVL
 uVL
-vil
-vil
-vil
+eBb
+lRC
+qco
 rUd
 xKI
 xre
@@ -61196,8 +61631,8 @@ iPb
 uVL
 uVL
 oTX
-vil
-vil
+nvZ
+nQN
 rUd
 npz
 vmR
@@ -61398,8 +61833,8 @@ eSV
 eSV
 uVL
 uVL
-rsL
-vil
+feI
+dro
 rsL
 rUd
 eNY
@@ -61601,8 +62036,8 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
+kVe
+kVe
 qZp
 rUd
 jyg
@@ -65904,15 +66339,15 @@ iUg
 jKT
 xst
 eSV
-xDY
+mUk
 uKW
-xDY
+mUk
 eSV
 eSV
 eSV
-xDY
+jzw
 aWx
-xDY
+jzw
 eSV
 eSV
 eSV
@@ -66262,7 +66697,7 @@ eSV
 eSV
 eSV
 eSV
-lnk
+eSV
 eSV
 eSV
 eSV
