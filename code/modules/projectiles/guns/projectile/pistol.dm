@@ -507,8 +507,8 @@
 	magazine_type = /obj/item/ammo_magazine/c46m
 	allowed_magazines = list(/obj/item/ammo_magazine/c46m)
 	icon = 'icons/obj/guns/xanu_pistol.dmi'
-	icon_state = "pistol"
-	item_state = "pistol"
+	icon_state = "xanu_pistol"
+	item_state = "xanu_pistol"
 	caliber = "4.6mm"
 	accuracy = 1
 	offhand_accuracy = 1
@@ -521,8 +521,8 @@
 	..()
 	if(ammo_magazine)
 		if(ammo_magazine.stored_ammo.len)
-			icon_state = "pistol"
+			icon_state = "xanu_pistol"
 		else
-			icon_state = "pistol-em"
+			icon_state = "xanu_pistol-em"
 	else
-		icon_state = "pistol-e"
+		icon_state = "xanu_pistol-e"

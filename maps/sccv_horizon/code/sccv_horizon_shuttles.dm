@@ -109,7 +109,7 @@
 	name = "Intrepid"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit, /area/shuttle/intrepid/quarters)
-	dock_target = "intrepid_shuttle"
+	dock_target = "airlock_shuttle_intrepid"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
 	range = 2
@@ -157,7 +157,7 @@
 	name = "Spark"
 	move_time = 20
 	shuttle_area = /area/shuttle/mining
-	dock_target = "mining_shuttle_controller"
+	dock_target = "airlock_shuttle_spark"
 	current_location = "nav_hangar_mining"
 	landmark_transition = "nav_transit_mining"
 	range = 1
