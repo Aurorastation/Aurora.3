@@ -113,11 +113,29 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
                 />
                 <feDisplacementMap
                   in="SourceGraphic"
+                  result="abcd"
                   in2="NOISE"
                   scale="40"
                   xChannelSelector="R"
                   yChannelSelector="R"
                 />
+                {/* <feGaussianBlur stdDeviation="2" in="abcd" result="smoothed" />
+                <feImage
+                  width="8"
+                  height="8"
+                  xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
+                  result="displacement-map"
+                />
+                <feTile in="displacement-map" result="pixelate-map" />
+                <feDisplacementMap
+                  in="smoothed"
+                  in2="pixelate-map"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                  scale="50"
+                  result="pre-final"
+                /> */}
+                {/* <feComposite operator="in" in2="SourceGraphic" /> */}
               </filter>
             </defs>
             <rect width={map_size} height={map_size} />
