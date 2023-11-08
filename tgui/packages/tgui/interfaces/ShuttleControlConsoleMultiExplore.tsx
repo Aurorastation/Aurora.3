@@ -13,6 +13,9 @@ export type ShuttleControlConsoleMultiExploreData = {
   can_force: boolean;
   can_pick: boolean;
   destination_name: string;
+  destination_map_image: any; // base64 icon
+  destination_x: number;
+  destination_y: number;
   fuel_usage: number;
   remaining_fuel: number;
   fuel_span: string;
@@ -21,6 +24,11 @@ export type ShuttleControlConsoleMultiExploreData = {
 export const ShuttleControlConsoleMultiExplore = (props, context) => {
   const { act, data } =
     useBackend<ShuttleControlConsoleMultiExploreData>(context);
+
+  const map_size = 255;
+  const zoom_mod = 2.0;
+  const center_point_x = data.destination_x;
+  const center_point_y = data.destination_y;
 
   return (
     <Window resizable>
@@ -86,6 +94,72 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
               </LabeledList>
             </Box>
           ) : null}
+        </Section>
+        <Section title="?????">
+          <svg
+            height={'250px'}
+            width={'100%'}
+            viewBox={`0 0 ${map_size} ${map_size}`}
+            overflow={'hidden'}>
+            <defs>
+              <filter id="f1" x="0" y="0">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                <feTurbulence
+                  baseFrequency="0.01 0.4"
+                  result="NOISE"
+                  numOctaves="2"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="NOISE"
+                  scale="40"
+                  xChannelSelector="R"
+                  yChannelSelector="R"
+                />
+              </filter>
+            </defs>
+            <rect width={map_size} height={map_size} />
+            <g
+              transform={`translate(
+                ${
+                  (map_size * (zoom_mod - 1.0)) / -2 +
+                  (255 / 2 - center_point_x)
+                }
+                ${
+                  (map_size * (zoom_mod - 1.0)) / -2 +
+                  (255 / 2 - (map_size - center_point_y))
+                }
+              )`}>
+              <image
+                width={map_size * zoom_mod}
+                height={map_size * zoom_mod}
+                xlinkHref={`data:image/jpeg;base64,${data.destination_map_image}`}
+                filter="url(#f1)"
+              />
+              <polygon
+                points="3,0 0,3 -3,0 0,-3"
+                fill="#FF0000"
+                stroke="#FFFF00"
+                stroke-width="0.5"
+                transform={`translate(
+                      ${center_point_x * zoom_mod}
+                      ${(map_size - center_point_y) * zoom_mod}
+                    )`}
+              />
+              <circle
+                r={16}
+                cx={0}
+                cy={0}
+                fill="none"
+                stroke="#FF0000"
+                stroke-width="1"
+                transform={`translate(
+                      ${center_point_x * zoom_mod}
+                      ${(map_size - center_point_y) * zoom_mod}
+                    )`}
+              />
+            </g>
+          </svg>
         </Section>
         <Section title="Shuttle Control">
           <Button
