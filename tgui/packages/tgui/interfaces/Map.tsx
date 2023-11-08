@@ -1,7 +1,6 @@
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Input, Box, Section, Table } from '../components';
+import { Tabs, Slider, Section } from '../components';
 import { NtosWindow } from '../layouts';
-import { TextInputModal } from './TextInputModal';
 
 export type MapData = {
   map_image: any; // base64 icon
@@ -33,11 +32,12 @@ export const Map = (props, context) => {
               <Tabs.Tab>Levels: </Tabs.Tab>
               {data.station_levels?.map((station_level) => (
                 <Tabs.Tab
+                  key={station_level}
                   width="50px"
                   backgroundColor={
-                    data.z_override == station_level ? '#4972a1' : null
+                    data.z_override === station_level ? '#4972a1' : null
                   }
-                  icon={data.user_z == station_level ? 'user' : null}
+                  icon={data.user_z === station_level ? 'user' : null}
                   onClick={() =>
                     act('z_override', { z_override: station_level })
                   }>
@@ -82,7 +82,7 @@ export const Map = (props, context) => {
                 height={map_size * zoom_mod}
                 xlinkHref={`data:image/jpeg;base64,${data.map_image}`}
               />
-              {!data.z_override || data.user_z == data.z_override ? (
+              {!data.z_override || data.user_z === data.z_override ? (
                 <>
                   <polygon
                     points="3,0 0,3 -3,0 0,-3"
