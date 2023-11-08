@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(holomap)
 	init_order = SS_INIT_HOLOMAP
 
 	/// List of images of minimaps, for every z-level, initialized at round start.
+	/// This is the "base" minimap, shows only the physical structure of walls and paths, and respects `HIDE_FROM_HOLOMAP`.
 	/// Key of list is the `z` of the z-level, value is the `/icon/`.
 	/// Every image is 255x255px.
 	var/list/minimaps = list()
@@ -18,22 +19,19 @@ SUBSYSTEM_DEF(holomap)
 	var/list/minimaps_area_colored_base64 = list()
 
 /datum/controller/subsystem/holomap/Initialize()
-	minimaps.len = world.maxz
-	minimaps_base64 = world.maxz
-	minimaps_area_colored_base64.len = world.maxz
+	generate_all_minimaps()
+	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
+	..()
 
+/datum/controller/subsystem/holomap/proc/generate_all_minimaps()
+	minimaps.len = world.maxz
+	minimaps_base64.len = world.maxz
+	minimaps_area_colored_base64.len = world.maxz
 
 	for (var/z in 1 to world.maxz)
 		generate_minimap(z)
-
-	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
-
-	for (var/z in 1 to world.maxz)
 		generate_minimap_area_colored(z)
 
-	..()
-
-// Generates the "base" holomap for one z-level, showing only the physical structure of walls and paths.
 /datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
 	var/icon/canvas = icon('icons/255x255.dmi', "blank")
