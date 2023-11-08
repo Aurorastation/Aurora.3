@@ -50937,14 +50937,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "xWa" = (
-/obj/item/rig/medical/equipped{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/obj/item/rig/medical/equipped{
-	pixel_x = -5;
-	pixel_y = 5
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -50955,6 +50947,14 @@
 	pixel_y = 5
 	},
 /obj/machinery/door/window/southleft,
+/obj/item/clothing/head/helmet/space/void/medical,
+/obj/item/clothing/head/helmet/space/void/medical,
+/obj/item/clothing/suit/space/void/medical,
+/obj/item/clothing/suit/space/void/medical,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xWb" = (
