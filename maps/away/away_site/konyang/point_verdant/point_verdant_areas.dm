@@ -24,7 +24,7 @@
 /area/point_verdant/sewer
 	name = "Point Verdant - Sewers"
 	sound_env = SEWER_PIPE
-	narrate = "Dark and grimy sewers, it smells utterly horrible down here."
+	narrate = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here."
 
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior

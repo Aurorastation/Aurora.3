@@ -59,6 +59,7 @@
 
 /area/medical/ward/isolation
 	name = "Medical - Isolation Ward"
+	narrate = "This seldom-used ward somehow smells sterile and musty at the same time."
 
 /area/medical/emergency_storage
 	name = "Medical - Lower Deck Emergency Storage"
@@ -157,11 +158,12 @@
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
 	sound_env = LARGE_ENCLOSED
-	narrate = "Scuff marks scar the floors from the movement of many crates and stored goods."
+	narrate = "Scuff marks scar the floor from the movement of many crates and stored goods."
 
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"
+	narrate = "The scents of oil and machine lubricant fill the air in this workshop."
 
 /area/operations/lobby
 	name = "Operations Lobby"
