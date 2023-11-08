@@ -22,19 +22,15 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/list/map_images = list()
-	for(var/map_image in SSholomap.minimaps)
-		map_images += icon2base64(map_image)
-	data["map_images"] = map_images
-
-	var/list/map_images_e = list()
-	for(var/map_image_e in SSholomap.extra_minimaps)
-		map_images_e += icon2base64(map_image_e)
-	data["map_images_e"] = map_images_e
+	var/z_level = z_override ? z_override : user.z
+	if(z_level in current_map.station_levels)
+		data["map_image"] = SSholomap.minimaps_area_colored_base64[z_level]
 
 	data["user_x"] = user.x
 	data["user_y"] = user.y
 	data["user_z"] = user.z
+	data["station_levels"] = current_map.station_levels
+	data["z_override"] = z_override
 
 	return data
 

@@ -4,11 +4,12 @@ import { NtosWindow } from '../layouts';
 import { TextInputModal } from './TextInputModal';
 
 export type MapData = {
-  map_images: any; // base64 icon
-  map_images_e: any; // base64 icon
+  map_image: any; // base64 icon
   user_x: number;
   user_y: number;
   user_z: number;
+  station_levels: number[];
+  z_override: number;
 };
 
 export const Map = (props, context) => {
@@ -29,21 +30,27 @@ export const Map = (props, context) => {
         <Section title="Map Program">
           <Section fitted>
             <Tabs>
-              <Tabs.Tab
-                height="20%"
-                onClick={() => act('z_override', { z_override: 1 })}>
-                1
-              </Tabs.Tab>
-              <Tabs.Tab
-                height="20%"
-                onClick={() => act('z_override', { z_override: 2 })}>
-                2
-              </Tabs.Tab>
-              <Tabs.Tab
-                height="20%"
-                onClick={() => act('z_override', { z_override: 3 })}>
-                3
-              </Tabs.Tab>
+              <Tabs.Tab>Levels: </Tabs.Tab>
+              {data.station_levels?.map((station_level) => (
+                <Tabs.Tab
+                  width="50px"
+                  backgroundColor={
+                    data.z_override == station_level ? '#4972a1' : null
+                  }
+                  icon={data.user_z == station_level ? 'user' : null}
+                  onClick={() =>
+                    act('z_override', { z_override: station_level })
+                  }>
+                  {station_level}
+                </Tabs.Tab>
+              ))}
+              {data.z_override ? (
+                <Tabs.Tab onClick={() => act('z_override', { z_override: 0 })}>
+                  Clear Override
+                </Tabs.Tab>
+              ) : (
+                ''
+              )}
             </Tabs>
           </Section>
           <Slider
@@ -73,32 +80,36 @@ export const Map = (props, context) => {
               <image
                 width={map_size * zoom_mod}
                 height={map_size * zoom_mod}
-                xlinkHref={`data:image/jpeg;base64,${
-                  data.map_images_e[data.user_z - 1]
-                }`}
+                xlinkHref={`data:image/jpeg;base64,${data.map_image}`}
               />
-              <polygon
-                points="3,0 0,3 -3,0 0,-3"
-                fill="#FF0000"
-                stroke="#FFFF00"
-                stroke-width="0.5"
-                transform={`translate(
-                  ${data.user_x * zoom_mod}
-                  ${(map_size - data.user_y) * zoom_mod}
-                )`}
-              />
-              <circle
-                r={16}
-                cx={0}
-                cy={0}
-                fill="none"
-                stroke="#FF0000"
-                stroke-width="1"
-                transform={`translate(
-                  ${data.user_x * zoom_mod}
-                  ${(map_size - data.user_y) * zoom_mod}
-                )`}
-              />
+              {!data.z_override || data.user_z == data.z_override ? (
+                <>
+                  <polygon
+                    points="3,0 0,3 -3,0 0,-3"
+                    fill="#FF0000"
+                    stroke="#FFFF00"
+                    stroke-width="0.5"
+                    transform={`translate(
+                      ${data.user_x * zoom_mod}
+                      ${(map_size - data.user_y) * zoom_mod}
+                    )`}
+                  />
+                  <circle
+                    r={16}
+                    cx={0}
+                    cy={0}
+                    fill="none"
+                    stroke="#FF0000"
+                    stroke-width="1"
+                    transform={`translate(
+                      ${data.user_x * zoom_mod}
+                      ${(map_size - data.user_y) * zoom_mod}
+                    )`}
+                  />
+                </>
+              ) : (
+                ''
+              )}
             </g>
           </svg>
         </Section>

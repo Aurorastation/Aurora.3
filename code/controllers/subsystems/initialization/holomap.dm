@@ -14,13 +14,13 @@ SUBSYSTEM_DEF(holomap)
 	/// Same as `minimaps`, but images are base64 encoded.
 	var/list/minimaps_base64 = list()
 
-	///
-	var/list/extra_minimaps = list()
+	/// Same as `minimaps_base64`, but the map is colored with `holomap_color` of the `/area/`
+	var/list/minimaps_area_colored_base64 = list()
 
 /datum/controller/subsystem/holomap/Initialize()
 	minimaps.len = world.maxz
 	minimaps_base64 = world.maxz
-	extra_minimaps.len = world.maxz
+	minimaps_area_colored_base64.len = world.maxz
 
 
 	for (var/z in 1 to world.maxz)
@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(holomap)
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
 
 	for (var/z in 1 to world.maxz)
-		generate_minimap_areas(z)
+		generate_minimap_area_colored(z)
 
 	..()
 
@@ -79,7 +79,7 @@ SUBSYSTEM_DEF(holomap)
 	minimaps[zlevel] = canvas
 	minimaps_base64[zlevel] = icon2base64(canvas)
 
-/datum/controller/subsystem/holomap/proc/generate_minimap_areas(zlevel)
+/datum/controller/subsystem/holomap/proc/generate_minimap_area_colored(zlevel)
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
 	var/icon/canvas = icon('icons/255x255.dmi', "blank")
 	if(world.maxx > canvas.Width())
@@ -95,9 +95,6 @@ SUBSYSTEM_DEF(holomap)
 		if (A.holomap_color)
 			canvas.DrawBox(A.holomap_color, T.x, T.y)
 
-	// Save this nice area-colored canvas in case we want to layer it or something I guess
-	// extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPAREAS]_[zlevel]"] = canvas
-
 	var/icon/map_base = icon(minimaps[zlevel])
 	map_base.Blend(HOLOMAP_HOLOFIER, ICON_MULTIPLY)
 
@@ -105,4 +102,4 @@ SUBSYSTEM_DEF(holomap)
 	var/icon/big_map = icon('icons/255x255.dmi', "blank")
 	big_map.Blend(map_base, ICON_OVERLAY)
 	big_map.Blend(canvas, ICON_OVERLAY)
-	extra_minimaps[zlevel] = big_map
+	minimaps_area_colored_base64[zlevel] = icon2base64(big_map)
