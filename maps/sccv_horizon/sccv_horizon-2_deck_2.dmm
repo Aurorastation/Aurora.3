@@ -1707,6 +1707,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aLc" = (
@@ -7727,7 +7728,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "dHt" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/platform{
 	dir = 8
 	},
@@ -7737,6 +7737,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "dHG" = (
@@ -8522,6 +8523,7 @@
 /area/horizon/zta)
 "ebQ" = (
 /obj/machinery/alarm/north,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "ebR" = (
@@ -12397,6 +12399,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "fSw" = (
@@ -17014,6 +17017,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
+"hWn" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "hWo" = (
 /obj/machinery/hologram/holopad,
 /obj/structure/cable/green{
@@ -22860,6 +22867,7 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "kNH" = (
@@ -34372,6 +34380,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "qnb" = (
@@ -38438,6 +38447,11 @@
 	},
 /turf/simulated/open,
 /area/hallway/primary/central_one)
+"siV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "siY" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
@@ -40337,6 +40351,7 @@
 /obj/structure/platform,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/platform_stairs/full/east_west_cap,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "tiJ" = (
@@ -84472,7 +84487,7 @@ lUA
 acA
 oLv
 yka
-lBd
+siV
 lBd
 sEu
 vqk
@@ -84674,7 +84689,7 @@ cjD
 cjD
 cjD
 yka
-lBd
+siV
 duk
 pVs
 pVs
@@ -84875,7 +84890,7 @@ sgi
 duk
 fuu
 tmO
-pVs
+hWn
 leT
 pVs
 pVs
