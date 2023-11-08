@@ -129,7 +129,7 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/power_sink,
-		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/mounted/energy/ion,
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/maneuvering_jets,
