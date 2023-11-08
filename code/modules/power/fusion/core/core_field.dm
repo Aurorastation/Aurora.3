@@ -2,6 +2,7 @@
 #define FUSION_INSTABILITY_DIVISOR 50000
 #define FUSION_RUPTURE_THRESHOLD   10000
 #define FUSION_REACTANT_CAP        10000
+#define WARNING_DELAY 20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -18,6 +19,7 @@
 	var/field_strength = 0.01
 	var/tick_instability = 0
 	var/percent_unstable = 0
+	var/percent_unstable_archive = 0
 
 	var/obj/machinery/power/fusion_core/owned_core
 	var/list/reactants = list()
@@ -44,6 +46,14 @@
 	particles = new/particles/fusion
 
 	var/animating_ripple = FALSE
+
+	var/obj/item/device/radio/radio
+	var/safe_alert = "INDRA core stabilizing."
+	var/safe_warned = 0
+	var/public_alert = 0
+	var/warning_alert = "Attention! INDRA core instability rising!"
+	var/emergency_alert = "ALERT! INDRA CORE MELTDOWN IMMINENT!"
+	var/lastwarning = 0
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -112,6 +122,7 @@
 /obj/effect/fusion_em_field/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(update_light_colors)), 10 SECONDS, TIMER_LOOP)
+	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
 /obj/effect/fusion_em_field/proc/update_light_colors()
 	var/use_range
@@ -209,6 +220,7 @@
 
 /obj/effect/fusion_em_field/proc/check_instability()
 	if(tick_instability > 0)
+		percent_unstable_archive = percent_unstable
 		percent_unstable += (tick_instability*size)/FUSION_INSTABILITY_DIVISOR
 		tick_instability = 0
 		UpdateVisuals()
@@ -228,6 +240,7 @@
 		if(percent_unstable > 0.5 && prob(percent_unstable*100))
 			var/ripple_radius = (((size-1) / 2) * WORLD_ICON_SIZE) + WORLD_ICON_SIZE
 			var/wave_size = 4
+			warning()
 			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
 				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 			else
@@ -270,6 +283,38 @@
 					Radiate()
 			Ripple(wave_size, ripple_radius)
 	return
+
+/obj/effect/fusion_em_field/proc/warning()
+	var/alert_msg = " instability at [percent_unstable]%"
+
+	if(percent_unstable < 0.7 && percent_unstable >= percent_unstable_archive)
+		alert_msg = warning_alert + alert_msg
+		lastwarning = world.timeofday - WARNING_DELAY * 4
+		safe_warned = 0
+	else if(percent_unstable < 0.9)
+		alert_msg = emergency_alert + alert_msg
+		lastwarning = world.timeofday
+	else if(!safe_warned)
+		safe_warned = 1
+		alert_msg = safe_alert
+		lastwarning = world.timeofday
+	else
+		alert_msg = null
+	
+	if(alert_msg)
+		if(world.timeofday - lastwarning >= WARNING_DELAY * 10)
+			radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
+
+		if((percent_unstable > 0.9) && !public_alert)
+			radio.autosay("ALERT! INDRA REACTOR CORE MELTDOWN IMMINENT!", "INDRA Reactor Monitor")
+			public_alert = 1
+				for(var/mob/M in player_list)
+					var/turf/T = get_turf(M)
+					if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
+						sound_to(M, 'sound/effects/nuclearsiren.ogg')
+		else if(safe_warned && public_alert)
+			radio.autosay(alert_msg, "INDRA Reactor Monitor")
+			public_alert = 0
 
 /obj/effect/fusion_em_field/proc/Ripple(_size, _radius)
 	if(!animating_ripple)
@@ -524,6 +569,7 @@
 	set_light(0)
 	RadiateAll()
 	QDEL_NULL_LIST(particle_catchers)
+	QDEL_NULL(radio)
 	if(owned_core)
 		owned_core.owned_field = null
 		owned_core = null
