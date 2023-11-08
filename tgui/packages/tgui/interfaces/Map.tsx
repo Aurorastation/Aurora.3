@@ -37,7 +37,7 @@ export const Map = (props, context) => {
                   backgroundColor={
                     data.z_override === station_level ? '#4972a1' : null
                   }
-                  icon={data.user_z === station_level ? 'user' : null}
+                  icon={data.user_z === station_level ? 'user' : 'minus'}
                   onClick={() =>
                     act('z_override', { z_override: station_level })
                   }>
