@@ -2,7 +2,7 @@
  * Contains
  * /obj/item/rig_module/grenade_launcher
  * /obj/item/rig_module/mounted
- * /obj/item/rig_module/mounted/taser
+ * /obj/item/rig_module/mounted/energy/taser
  * /obj/item/rig_module/shield
  * /obj/item/rig_module/fabricator
  * /obj/item/rig_module/device/flash
@@ -113,6 +113,86 @@
 
 /obj/item/rig_module/mounted
 	name = "mounted laser cannon"
+	desc = "Some sort of mounted gun."
+	selectable = TRUE
+	usable = TRUE
+	module_cooldown = 0
+	icon_state = "lcannon"
+
+	engage_string = "Configure"
+
+	category = MODULE_LIGHT_COMBAT
+
+	interface_name = "mounted gun"
+	interface_desc = "A suit mounted gun."
+
+/obj/item/rig_module/mounted/energy
+	abstract_type = /obj/item/rig_module/mounted/energy
+	var/obj/item/gun/energy/laser
+
+/obj/item/rig_module/mounted/energy/Initialize()
+	. = ..()
+	if(ispath(laser))
+		laser = new laser(src)
+		laser.canremove = FALSE
+		laser.has_safety = FALSE
+
+/obj/item/rig_module/mounted/energy/engage(atom/target, mob/user)
+
+	if(!..() || !laser)
+		return FALSE
+
+	if(!target)
+		var/list/extra_mobs = list()
+		if(holder.wearer != user)
+			extra_mobs += holder.wearer
+		laser.toggle_firing_mode(user, extra_mobs)
+		return TRUE
+
+	laser.Fire(target, holder.wearer)
+	return TRUE
+
+/obj/item/rig_module/mounted/ballistic
+	abstract_type = /obj/item/rig_module/mounted/ballistic
+	var/obj/item/gun/projectile/ballistic
+
+/obj/item/rig_module/mounted/ballistic/Initialize()
+	. = ..()
+	if(ispath(ballistic))
+		ballistic = new ballistic(src)
+		ballistic.canremove = FALSE
+		ballistic.has_safety = FALSE
+
+/obj/item/rig_module/mounted/ballistic/engage(atom/target, mob/user)
+
+	if(!..() || !ballistic)
+		return FALSE
+
+	if(!target)
+		var/list/extra_mobs = list()
+		if(holder.wearer != user)
+			extra_mobs += holder.wearer
+		ballistic.toggle_firing_mode(user, extra_mobs)
+		return TRUE
+
+	ballistic.Fire(target, holder.wearer)
+	return TRUE
+
+/obj/item/rig_module/mounted/ballistic/accepts_item(obj/item/input, mob/living/user)
+	var/obj/item/rig/rig = get_rig(src)
+
+	if(!istype(input) || !istype(user) || !rig)
+		return FALSE
+
+	if (ismagazine(input) && ballistic.ammo_magazine)
+		ballistic.unload_ammo(user, FALSE)
+
+	else
+		ballistic.load_ammo(input, user)
+
+
+/obj/item/rig_module/mounted/energy/lcannon
+	name = "mounted laser cannon"
 	desc = "A shoulder-mounted battery-powered laser cannon mount."
 	selectable = TRUE
 	usable = TRUE
@@ -126,34 +206,9 @@
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
 
-	var/gun_type = /obj/item/gun/energy/lasercannon/mounted
-	var/obj/item/gun/gun
+	laser = /obj/item/gun/energy/lasercannon/mounted
 
-/obj/item/rig_module/mounted/New()
-	..()
-	gun = new gun_type(src)
-	if(istype(gun, /obj/item/gun))
-		gun.has_safety = FALSE
-
-/obj/item/rig_module/mounted/Destroy()
-	QDEL_NULL(gun)
-	. = ..()
-
-/obj/item/rig_module/mounted/engage(atom/target, mob/user)
-	if(!..())
-		return FALSE
-
-	if(!target)
-		var/list/extra_mobs = list()
-		if(holder.wearer != user)
-			extra_mobs += holder.wearer
-		gun.toggle_firing_mode(user, extra_mobs)
-		return TRUE
-
-	gun.Fire(target, user)
-	return TRUE
-
-/obj/item/rig_module/mounted/egun
+/obj/item/rig_module/mounted/energy/egun
 	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	icon_state = "egun"
@@ -163,11 +218,11 @@
 	interface_name = "mounted energy gun"
 	interface_desc = "A forearm-mounted suit-powered energy gun."
 
-	gun_type = /obj/item/gun/energy/gun/mounted
+	laser = /obj/item/gun/energy/gun/mounted
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/mounted/taser
+/obj/item/rig_module/mounted/energy/taser
 	name = "mounted taser"
 	desc = "A palm-mounted nonlethal energy projector."
 	icon_state = "taser"
@@ -182,11 +237,11 @@
 	interface_name = "mounted taser"
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
-	gun_type = /obj/item/gun/energy/taser/mounted
+	laser = /obj/item/gun/energy/taser/mounted
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/mounted/pulse
+/obj/item/rig_module/mounted/energy/pulse
 	name = "mounted pulse rifle"
 	desc = "A shoulder-mounted battery-powered pulse rifle mount."
 	icon_state = "pulse"
@@ -194,9 +249,9 @@
 	interface_name = "mounted pulse rifle"
 	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
 
-	gun_type = /obj/item/gun/energy/pulse/mounted
+	laser = /obj/item/gun/energy/pulse/mounted
 
-/obj/item/rig_module/mounted/plasma
+/obj/item/rig_module/mounted/energy/plasma
 
 	name = "mounted plasma cannon"
 	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results. This one seems fitted for RIG usage."
@@ -205,19 +260,31 @@
 	interface_name = "mounted plasma cannon"
 	interface_desc = "A shoulder-mounted cell-powered burst plasma cannon."
 
-	gun_type = /obj/item/gun/energy/mountedplasma
+	laser = /obj/item/gun/energy/mountedplasma
 
-/obj/item/rig_module/mounted/smg
+/obj/item/rig_module/mounted/ballistic/smg
 	name = "mounted submachine gun"
-	desc = "A forearm-mounted suit-powered ballistic submachine gun."
+	desc = "A forearm-mounted ballistic submachine gun."
 	icon_state = "smg"
 
 	interface_name = "mounted submachine gun"
-	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
+	interface_desc = "A forearm-mounted ballistic submachine gun. Use a prototype SMG magazine (4mm) on your suit control module to reload."
 
-	gun_type = /obj/item/gun/energy/mountedsmg
+	ballistic = /obj/item/gun/projectile/automatic/mounted
 
-/obj/item/rig_module/mounted/xray
+/obj/item/rig_module/mounted/ballistic/machine_pistol
+	name = "mounted machine pistol"
+	desc = "A wrist-mounted ballistic machine pistol."
+	icon_state = "machine_oistol"
+
+	interface_name = "mounted machine pistol"
+	interface_desc = "A wrist-mounted ballistic machine pistol. Use a top mounted magazine (9mm) on your suit control module to reload."
+
+	ballistic = /obj/item/gun/projectile/automatic/wt550/mounted
+
+	category = MODULE_LIGHT_COMBAT
+
+/obj/item/rig_module/mounted/energy/xray
 	name = "mounted xray laser gun"
 	desc = "A forearm-mounted suit-powered xray laser gun."
 	icon_state = "xray"
@@ -225,9 +292,9 @@
 	interface_name = "mounted xray laser gun"
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
 
-	gun_type = /obj/item/gun/energy/xray/mounted
+	laser = /obj/item/gun/energy/xray/mounted
 
-/obj/item/rig_module/mounted/ion
+/obj/item/rig_module/mounted/energy/ion
 	name = "mounted ion rifle"
 	desc = "A shoulder-mounted battery-powered ion rifle mount."
 	icon_state = "ion"
@@ -235,9 +302,9 @@
 	interface_name = "mounted ion rifle"
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
-	gun_type = /obj/item/gun/energy/rifle/ionrifle/mounted
+	laser = /obj/item/gun/energy/rifle/ionrifle/mounted
 
-/obj/item/rig_module/mounted/tesla
+/obj/item/rig_module/mounted/energy/tesla
 	name = "mounted tesla carbine"
 	desc = "A shoulder-mounted battery-powered tesla carbine mount."
 	icon_state = "tesla"
@@ -245,9 +312,9 @@
 	interface_name = "mounted tesla carbine"
 	interface_desc = "A shoulder-mounted cell-powered tesla carbine."
 
-	gun_type = /obj/item/gun/energy/tesla/mounted
+	laser = /obj/item/gun/energy/tesla/mounted
 
-/obj/item/rig_module/mounted/plasmacutter
+/obj/item/rig_module/mounted/energy/plasmacutter
 	name = "hardsuit plasma cutter"
 	desc = "A forearm mounted kinetic accelerator"
 	icon_state = "plasmacutter"
@@ -260,20 +327,20 @@
 
 	category = MODULE_UTILITY
 
-	gun_type = /obj/item/gun/energy/plasmacutter/mounted
+	laser = /obj/item/gun/energy/plasmacutter/mounted
 
-/obj/item/rig_module/mounted/thermalldrill
+/obj/item/rig_module/mounted/energy/thermalldrill
 	name = "hardsuit thermal drill"
 	desc = "An incredibly lethal looking thermal drill."
 	icon_state = "thermaldrill"
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
 
-	gun_type = /obj/item/gun/energy/vaurca/thermaldrill/mounted
+	laser = /obj/item/gun/energy/vaurca/thermaldrill/mounted
 
 	category = MODULE_UTILITY
 
-/obj/item/rig_module/mounted/energy_blade
+/obj/item/rig_module/mounted/energy/energy_blade
 	name = "energy blade projector"
 	desc = "A powerful cutting beam projector."
 	icon_state = "eblade"
@@ -291,11 +358,11 @@
 	active_power_cost = 10
 	passive_power_cost = 0
 
-	gun_type = /obj/item/gun/energy/crossbow/ninja
+	laser = /obj/item/gun/energy/crossbow/ninja
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/mounted/energy_blade/process()
+/obj/item/rig_module/mounted/energy/energy_blade/process()
 	if(holder && holder.wearer)
 		if(!(locate(/obj/item/melee/energy/blade) in holder.wearer))
 			deactivate(holder.wearer)
@@ -303,7 +370,7 @@
 
 	return ..()
 
-/obj/item/rig_module/mounted/energy_blade/activate(mob/user)
+/obj/item/rig_module/mounted/energy/energy_blade/activate(mob/user)
 	..()
 
 	var/mob/living/M = holder.wearer
@@ -320,7 +387,7 @@
 	blade.creator = M
 	M.put_in_hands(blade)
 
-/obj/item/rig_module/mounted/energy_blade/deactivate()
+/obj/item/rig_module/mounted/energy/energy_blade/deactivate()
 	..()
 
 	var/mob/living/M = holder.wearer

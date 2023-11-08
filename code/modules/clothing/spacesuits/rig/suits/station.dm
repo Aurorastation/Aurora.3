@@ -109,7 +109,7 @@
 /obj/item/rig/industrial/equipped
 
 	initial_modules = list(
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/mounted/energy/plasmacutter,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
 		/obj/item/rig_module/device/rfd_c,
@@ -378,7 +378,7 @@
 		/obj/item/rig_module/vision/sechud,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/taser
+		/obj/item/rig_module/mounted/energy/taser
 		)
 
 /obj/item/rig/hazard/equipped/pirate

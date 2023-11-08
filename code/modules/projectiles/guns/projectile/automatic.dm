@@ -2,15 +2,17 @@
 	name = "prototype SMG"
 	desc = "A prototype version of a lightweight, fast-firing gun."
 	icon = 'icons/obj/guns/saber.dmi'
-	icon_state = "saber"	//ugly //yup
+	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
+	icon_state = "saber"
 	item_state = "saber"
 	w_class = ITEMSIZE_NORMAL
-	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
-	max_shells = 22
-	caliber = "9mm"
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	load_method = MAGAZINE
+	caliber = "4mm"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3)
 	slot_flags = SLOT_BELT
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/proto_smg
+	magazine_type = /obj/item/ammo_magazine/proto_smg
+	allowed_magazines = list(/obj/item/ammo_magazine/proto_smg)
 	accuracy = 1
 	multi_aim = 1
 	burst_delay = 2
@@ -25,6 +27,35 @@
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
+
+/obj/item/gun/projectile/automatic/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "saber" : "saber-empty"
+
+/obj/item/gun/projectile/automatic/mounted
+	name = "mounted prototype SMG"
+	can_suppress = FALSE
+	auto_eject = TRUE
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/gun/projectile/automatic/mounted/load_ammo(obj/item/A, mob/user)
+	var/obj/item/rig/rig = get_rig()
+	if(istype(rig))
+		if(!rig.offline && rig.suit_is_deployed())
+			..()
+		else
+			to_chat(user, SPAN_WARNING("You can't reload your submachine gun without deploying your hardsuit!"))
+			balloon_alert(user, "Deploy your hardsuit first!")
+			return
+
+/obj/item/gun/projectile/automatic/mounted/unload_ammo(mob/user, allow_dump = 0)
+	var/obj/item/rig/rig = get_rig()
+	if(istype(rig))
+		if(!rig.offline && rig.suit_is_deployed())
+			..()
+		else
+			to_chat(user, SPAN_WARNING("You can't unload your submachine gun without deploying your hardsuit!"))
+			balloon_alert(user, "Deploy your hardsuit first!")
 
 //Submachine guns and personal defence weapons, go.
 
@@ -146,6 +177,34 @@
 	else
 		icon_state = "wt550"
 	return
+
+/obj/item/gun/projectile/automatic/wt550/mounted
+	name = "mounted machine pistol"
+	desc = "A variation of the NI 550 Saber, designed to interface with hardsuits."
+	magazine_type = /obj/item/ammo_magazine/mc9mmt
+	auto_eject = TRUE
+	can_suppress = FALSE
+	accuracy = 0
+	offhand_accuracy = 0
+
+/obj/item/gun/projectile/automatic/wt550/mounted/load_ammo(obj/item/A, mob/user)
+	var/obj/item/rig/rig = get_rig()
+	if(istype(rig))
+		if(!rig.offline && rig.suit_is_deployed())
+			..()
+		else
+			to_chat(user, SPAN_WARNING("You can't reload your machine pistol without deploying your hardsuit!"))
+			balloon_alert(user, "Deploy your hardsuit first!")
+			return
+
+/obj/item/gun/projectile/automatic/wt550/mounted/unload_ammo(mob/user, allow_dump = 0)
+	var/obj/item/rig/rig = get_rig()
+	if(istype(rig))
+		if(!rig.offline && rig.suit_is_deployed())
+			..()
+		else
+			to_chat(user, SPAN_WARNING("You can't unload your machine pistol without deploying your hardsuit!"))
+			balloon_alert(user, "Deploy your hardsuit first!")
 
 /obj/item/gun/projectile/automatic/konyang_pirate
 	name = "pirate smg"
