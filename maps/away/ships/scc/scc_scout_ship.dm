@@ -41,19 +41,38 @@
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle
-	name = "SCCV XYZ Scout Shuttle"
-	desc = "SCCV XYZ Shuttle Desc."
-	shuttle = "SCCV XYZ Scout Shuttle"
+	name = "SCC Scout Shuttle"
+	desc = "SCC Shuttle Desc."
+	shuttle = "SCC Scout Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	// name = "Freebooter Shuttle"
+	// class = "ICV"
+	// designation = "Sheep's Clothing"
+	// desc = "The Plough-class tender is an utterly unremarkable engineering vessel, manufactured by Hephaestus and commonly seen attached to Ox-class ships. Scarcely capable of much except short-distance cargo hauling and loading."
+	// shuttle = "Freebooter Shuttle"
+	// icon_state = "shuttle"
+	// moving_state = "shuttle_moving"
+	// colors = list("#9dc04c", "#52c24c")
+	// max_speed = 1/(3 SECONDS)
+	// burn_delay = 2 SECONDS
+	// vessel_mass = 3000 //very inefficient pod
+	// fore_dir = NORTH
+	// vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/scc_scout_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "SCCV XYZ Scout Shuttle"
-	req_access = list()
+	shuttle_tag = "SCC Scout Shuttle"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "mass_driver"
+	icon_keyboard = "tech_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /datum/shuttle/autodock/overmap/scc_scout_shuttle
 	name = "SCCV Scout Shuttle"
