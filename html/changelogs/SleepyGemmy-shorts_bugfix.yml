@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixed colourable shorts being invisible when worn."
+  - bugfix: "Fixed colourable shorts being invisible."
