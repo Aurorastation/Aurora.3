@@ -62,8 +62,10 @@
 	var/station_area = FALSE
 	var/centcomm_area = FALSE
 
-	var/narrate //A text-based description of what this area is for.
-	var/list/blurbed_stated_to = list() //This list of names is here to make sure we don't state our descriptive blurb to a person more than once.
+	//A text-based description of the area, can be used for sounds, notable things in the room, etc.
+	var/area_blurb
+	//This list of ckeys is here to make sure we don't state our descriptive blurb to a person more than once.
+	var/list/blurbed_stated_to = list()
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
@@ -469,14 +471,14 @@ var/list/mob/living/forced_ambiance_list = new
 		M.shuttle_move(T)
 
 /area/proc/do_area_blurb(mob/living/L, override)
-	if(isnull(narrate))
+	if(isnull(area_blurb))
 		if(override)
 			to_chat(L, SPAN_NOTICE("No blurb set for this area."))
 		return
 
 	if(!(L.ckey in blurbed_stated_to) || override)
 		blurbed_stated_to += L.ckey
-		to_chat(L, SPAN_NOTICE("[narrate]"))
+		to_chat(L, SPAN_NOTICE("[area_blurb]"))
 
 /mob/living/verb/show_area_blurb()
 	set name = "Show area blurb"

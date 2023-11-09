@@ -124,7 +124,7 @@
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
 	ambience = AMBIENCE_GHOSTLY
-	narrate = "Morgue trays sit within this room to hold the deceased until their postmortem wishes can be attented to."
+	area_blurb = "Morgue trays sit within this room to hold the deceased until their postmortem wishes can be attented to."
 
 /area/medical/pharmacy
 	name = "Medical - Pharmacy"
@@ -154,7 +154,7 @@
 /area/medical/gen_treatment
 	name = "Medical - General Treatment"
 	icon_state = "cryo"
-	narrate = "The smells of medicines and strong sterilizing supplies fill the air."
+	area_blurb = "The smells of medicines and strong sterilizing supplies fill the air."
 
 /area/medical/exam_room
 	name = "Medical - Exam Room 1"
@@ -181,7 +181,7 @@
 /area/medical/icu
 	name = "Medical - Intensive Care Unit"
 	icon_state = "cryo"
-	narrate = "The sounds of life support equipment can be heard within the room."
+	area_blurb = "The sounds of life support equipment can be heard within the room."
 
 /area/medical/triage
 	name = "Medical - Triage Room"

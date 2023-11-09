@@ -4,7 +4,7 @@
 	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
 	ambience = list('sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
 	sound_env = ASTEROID
-	narrate = "A strange, glowing blue river can be seen flowing through the cave. You feel like touching it is very unwise."
+	area_blurb = "A strange, glowing blue river can be seen flowing through the cave. You feel like touching it is very unwise."
 
 /area/bluespaceriver/ground
 	name = "\improper Arctic Planet Surface"

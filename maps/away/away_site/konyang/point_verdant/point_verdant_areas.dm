@@ -14,7 +14,7 @@
 /area/point_verdant/coast
 	name = "Point Verdant - Waterside"
 	ambience = AMBIENCE_KONYANG_WATER
-	narrate = "The crashing sounds of waves on the shore can be heard here. The vast ocean spreads out as far as the eye can see."
+	area_blurb = "The crashing sounds of waves on the shore can be heard here. The vast ocean spreads out as far as the eye can see."
 
 /area/point_verdant/reservoir
 	name = "Point Verdant - Reservoir"
@@ -24,7 +24,7 @@
 /area/point_verdant/sewer
 	name = "Point Verdant - Sewers"
 	sound_env = SEWER_PIPE
-	narrate = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here."
+	area_blurb = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here."
 
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
@@ -48,7 +48,7 @@
 
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
-	narrate = "Bleeps, bloops and flashing lights of arcade machines fill this building."
+	area_blurb = "Bleeps, bloops and flashing lights of arcade machines fill this building."
 
 /area/point_verdant/interior/police
 	name = "Point Verdant - Police Department"
@@ -65,7 +65,7 @@
 
 /area/point_verdant/interior/decrepit
 	name = "Point Verdant - Decrepit Apartments"
-	narrate = "A damp smell lingers in the air inside these dusty apartments."
+	area_blurb = "A damp smell lingers in the air inside these dusty apartments."
 
 /area/point_verdant/interior/pharmacy
 	name = "Point Verdant - Pharmacy"
@@ -85,7 +85,7 @@
 
 /area/point_verdant/interior/tunnels
 	name = "Point Verdant - Tunnels"
-	narrate = "Sounds echo through these tunnels."
+	area_blurb = "Sounds echo through these tunnels."
 
 /area/point_verdant/interior/shallow//For open-walled areas, like awnings and balconies
 	sound_env = CITY
@@ -95,7 +95,7 @@
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"
 	ambience = AMBIENCE_KONYANG_RAIN
-	narrate = "The sounds and smells of the city of Point Verdant can be heard amd smelled all around."
+	area_blurb = "The sounds and smells of the city of Point Verdant can be heard amd smelled all around."
 
 /area/point_verdant/outdoors/Initialize()
 	. = ..()

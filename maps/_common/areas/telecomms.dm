@@ -15,7 +15,7 @@
 /area/tcommsat/chamber
 	name = "Telecoms Central Compartment"
 	icon_state = "tcomsatcham"
-	narrate = "Many whirring and blinking machines fill the room, keeping the ship's communications online."
+	area_blurb = "Many whirring and blinking machines fill the room, keeping the ship's communications online."
 
 /area/turret_protected/tcomsat
 	name = "Telecoms Exterior"

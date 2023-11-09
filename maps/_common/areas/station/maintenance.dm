@@ -6,7 +6,7 @@
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
-	narrate = "Dark and dusty maintenance halls twist and turn all around."
+	area_blurb = "Dark and dusty maintenance halls twist and turn all around."
 
 /area/maintenance/civ
 	name = "Civilian Maintenance"
@@ -254,7 +254,7 @@
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
-	narrate = "One of the ship's substations, helping to distribute power throughout the network."
+	area_blurb = "One of the ship's substations, helping to distribute power throughout the network."
 
 /area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"

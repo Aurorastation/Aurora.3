@@ -41,7 +41,7 @@
 	icon_state = "bridge"
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
-	narrate = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
+	area_blurb = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
 
 /area/bridge/selfdestruct
 	name = "Command - Station Authentication Terminal Safe"
@@ -50,7 +50,7 @@
 /area/bridge/controlroom // Horizon.
 	name = "Command - Control Room"
 	flags = RAD_SHIELDED
-	narrate = "The full expanse of space lies before you, spread across the windows. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic fillament."
+	area_blurb = "The full expanse of space lies before you, spread across the windows. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic fillament."
 
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"
