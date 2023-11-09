@@ -89,7 +89,7 @@
 /datum/shuttle/autodock/overmap/scc_scout_shuttle
 	name = "SCC Scout Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/scc_scout_shuttle)
+	shuttle_area = list(/area/shuttle/scc_scout_ship_shuttle/cockpit, /area/shuttle/scc_scout_ship_shuttle/eva, /area/shuttle/scc_scout_ship_shuttle/cargo, /area/shuttle/scc_scout_ship_shuttle/medbay, /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard, /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 	dock_target = "airlock_scc_scout_shuttle"
 	current_location = "nav_scc_scout_shuttle_dock"
 	landmark_transition = "nav_scc_scout_shuttle_transit"

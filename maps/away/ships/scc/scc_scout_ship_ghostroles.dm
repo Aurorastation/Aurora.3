@@ -17,7 +17,7 @@
 // 	special_role = "SCCV XYZ Crew"
 // 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew_captain
+/datum/ghostspawner/human/scc_scout_ship_crew/captain
 	short_name = "scc_scout_ship_captain"
 	name = "SCCV XYZ Scout Ship Captain"
 	desc = "You are the captain. Pilot the ship, lead your crew, start expeditions, explore worlds."
@@ -34,14 +34,22 @@
 	special_role = "SCCV XYZ Captain"
 	respawn_flag = null
 
-// /datum/ghostspawner/human/scc_scout_ship_crew/cant_spawn(mob/user)
-// 	if((SSghostroles.spawners["scc_scout_ship_heph"].count \
-// 		+ SSghostroles.spawners["scc_scout_ship_zeng"].count \
-// 		+ SSghostroles.spawners["scc_scout_ship_nanotrasen"].count \
-// 		+ SSghostroles.spawners["scc_scout_ship_zavod"].count) \
-// 	>= 4)
-// 		return "SCC Scout Ship already has max crew, which is 4."
-// 	. = ..()
+/datum/ghostspawner/human/scc_scout_ship_crew/orion
+	short_name = "scc_scout_ship_orion"
+	name = "SCCV XYZ Scout Ship Orion Express Crewman"
+	desc = "You are a Orion Express crewman. Be the ship's mechanist, or a cargo and fuel technician, or a miner, or a chef, or a general crewman/assistant who knows a tiny bit of everything."
+	tags = list("External")
+
+	spawnpoints = list("scc_scout_ship_orion")
+	max_count = 1
+
+	outfit = /datum/outfit/admin/scc_scout_ship_crew/orion
+	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "SCCV XYZ Crewman (Orion)"
+	special_role = "SCCV XYZ Crewman (Orion)"
+	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/heph
 	short_name = "scc_scout_ship_heph"
@@ -119,7 +127,6 @@
 	id = /obj/item/card/id/orion_ship
 	uniform = list(/obj/item/clothing/under/color/black, /obj/item/clothing/under/color/grey, /obj/item/clothing/under/color/white)
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = list(/obj/item/storage/backpack/messenger, /obj/item/storage/backpack/duffel)
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
@@ -154,7 +161,7 @@
 
 	id = /obj/item/card/id/gold
 	uniform = /obj/item/clothing/under/rank/captain/white
-	back = list(/obj/item/storage/backpack/messenger/com, /obj/item/storage/backpack/duffel/cap)
+	back = list(/obj/item/storage/backpack/messenger/com, /obj/item/storage/backpack/satchel/cap)
 	head = /obj/item/clothing/head/caphat/cap/beret
 	gloves = /obj/item/clothing/gloves/captain/white
 	accessory = /obj/item/clothing/accessory/sleevepatch/scc
@@ -165,12 +172,22 @@
 		/obj/item/implant/mindshield
 	)
 
+/datum/outfit/admin/scc_scout_ship_crew/orion
+	name = "SCCV XYZ Scout Ship Orion Express Crewman"
+
+	id = /obj/item/card/id/orion
+	uniform = list(/obj/item/clothing/under/color/white, /obj/item/clothing/under/color/black, /obj/item/clothing/under/service_overalls)
+	back = list(/obj/item/storage/backpack/messenger/orion, /obj/item/storage/backpack/satchel/orion)
+	head = list(/obj/item/clothing/head/beret/corporate/orion, /obj/item/clothing/head/hardhat/white, /obj/item/clothing/head/softcap/orion_custodian)
+	accessory = /obj/item/clothing/accessory/pin/corporate/orion
+
 /datum/outfit/admin/scc_scout_ship_crew/heph
 	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
 
 	id = /obj/item/card/id/hephaestus
 	uniform = list(/obj/item/clothing/under/color/brown, /obj/item/clothing/under/color/green, /obj/item/clothing/under/service_overalls)
-	head = list(/obj/item/clothing/head/beret/corporate/heph, /obj/item/clothing/head/hardhat/green)
+	back = list(/obj/item/storage/backpack/messenger/heph, /obj/item/storage/backpack/satchel/heph)
+	head = list(/obj/item/clothing/head/beret/corporate/heph, /obj/item/clothing/head/hardhat/green, /obj/item/clothing/head/sidecap/heph)
 	accessory = /obj/item/clothing/accessory/pin/corporate/heph
 
 /datum/outfit/admin/scc_scout_ship_crew/zeng
@@ -178,6 +195,7 @@
 
 	id = /obj/item/card/id/zeng_hu
 	uniform = list(/obj/item/clothing/under/color/purple, /obj/item/clothing/under/color/white, /obj/item/clothing/under/rank/medical/surgeon/zeng)
+	back = list(/obj/item/storage/backpack/messenger/zeng, /obj/item/storage/backpack/satchel/zeng)
 	head = list(/obj/item/clothing/head/beret/corporate/zeng, /obj/item/clothing/head/softcap/zeng, /obj/item/clothing/head/surgery/zeng)
 	accessory = /obj/item/clothing/accessory/pin/corporate/zeng
 
@@ -186,6 +204,7 @@
 
 	id = /obj/item/card/id
 	uniform = list(/obj/item/clothing/under/color/blue, /obj/item/clothing/under/color/lightblue, /obj/item/clothing/under/rank/medical/surgeon)
+	back = list(/obj/item/storage/backpack/messenger/nt, /obj/item/storage/backpack/satchel/nt)
 	head = list(/obj/item/clothing/head/beret/corporate, /obj/item/clothing/head/softcap/nt, /obj/item/clothing/head/surgery)
 	accessory = /obj/item/clothing/accessory/pin/corporate
 
@@ -194,6 +213,7 @@
 
 	id = /obj/item/card/id/zavodskoi
 	uniform = list(/obj/item/clothing/under/color/red, /obj/item/clothing/under/color/brown, /obj/item/clothing/under/rank/medical/surgeon/zavod)
-	head = list(/obj/item/clothing/head/beret/corporate/zavod, /obj/item/clothing/head/softcap/zavod, /obj/item/clothing/head/beret/red, /obj/item/clothing/head/surgery/zavod)
+	back = list(/obj/item/storage/backpack/messenger/zavod, /obj/item/storage/backpack/satchel/zavod)
+	head = list(/obj/item/clothing/head/beret/corporate/zavod, /obj/item/clothing/head/softcap/zavod, /obj/item/clothing/head/sidecap/zavod, /obj/item/clothing/head/surgery/zavod)
 	accessory = /obj/item/clothing/accessory/pin/corporate/zavod
 
