@@ -213,6 +213,11 @@
 			radiation += radiate
 
 	check_instability()
+
+	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
+		if((world.timeofday - lastwarning) >= WARNING_DELAY * 10)
+			warning()
+
 	Radiate()
 	if(radiation)
 		SSradiation.radiate(src, round(radiation*0.001))
@@ -240,7 +245,6 @@
 		if(percent_unstable > 0.5 && prob(percent_unstable*100))
 			var/ripple_radius = (((size-1) / 2) * WORLD_ICON_SIZE) + WORLD_ICON_SIZE
 			var/wave_size = 4
-			warning()
 			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
 				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 			else
@@ -285,27 +289,37 @@
 	return
 
 /obj/effect/fusion_em_field/proc/warning()
-	var/alert_msg = " instability at [percent_unstable]%"
+	var/unstable = round(percent_unstable * 100)
+	var/alert_msg = " Instability at [unstable]%"
 
-	if(percent_unstable < 0.7 && percent_unstable >= percent_unstable_archive)
-		alert_msg = warning_alert + alert_msg
-		lastwarning = world.timeofday - WARNING_DELAY * 4
-		safe_warned = 0
-	else if(percent_unstable < 0.9)
-		alert_msg = emergency_alert + alert_msg
-		lastwarning = world.timeofday
-	else if(!safe_warned)
-		safe_warned = 1
-		alert_msg = safe_alert
-		lastwarning = world.timeofday
+	if(percent_unstable > 0.5)
+		if(percent_unstable >= percent_unstable_archive)
+			if(percent_unstable < 0.7)
+				alert_msg = warning_alert + alert_msg
+				lastwarning = world.timeofday
+				safe_warned = 0
+			else if(percent_unstable < 0.9)
+				alert_msg = emergency_alert + alert_msg
+				lastwarning = world.timeofday  - WARNING_DELAY * 4
+			else if(percent_unstable > 0.9)
+				lastwarning = world.timeofday  - WARNING_DELAY * 4
+				alert_msg = emergency_alert + alert_msg
+			else
+				alert_msg = null
+		else if(!safe_warned)
+			safe_warned = 1
+			alert_msg = safe_alert
+			lastwarning = world.timeofday
+		else
+			alert_msg = null
 	else
 		alert_msg = null
 	
 	if(alert_msg)
-		if(world.timeofday - lastwarning >= WARNING_DELAY * 10)
-			radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
+		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
 
 		if((percent_unstable > 0.9) && !public_alert)
+			alert_msg = null
 			radio.autosay("ALERT! INDRA REACTOR CORE MELTDOWN IMMINENT!", "INDRA Reactor Monitor")
 			public_alert = 1
 				for(var/mob/M in player_list)
