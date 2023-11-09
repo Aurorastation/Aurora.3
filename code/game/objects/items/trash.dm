@@ -85,7 +85,7 @@
 
 /obj/item/trash/snack_bowl/macandcheese
 	name = "empty mac and cheese"
-	icon_state	= "macandcheese"
+	icon_state = "macandcheese"
 
 /obj/item/trash/pistachios
 	name = "pistachios pack"
