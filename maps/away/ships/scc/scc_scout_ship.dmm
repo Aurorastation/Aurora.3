@@ -1280,6 +1280,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
+"hV" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "ii" = (
 /obj/machinery/door/firedoor/noid,
 /obj/structure/grille,
@@ -4071,7 +4074,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/quarters)
 "Dz" = (
-/turf/simulated/wall/shuttle/scc,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "DG" = (
 /obj/structure/sign/flag/nanotrasen{
@@ -5367,6 +5370,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
+"OF" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/scc_scout_ship_shuttle/cockpit)
 "OG" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/warning{
@@ -38613,9 +38619,9 @@ EZ
 EZ
 Hc
 jV
-aI
+hV
 Wi
-aI
+hV
 TO
 wt
 qB
@@ -38870,7 +38876,7 @@ aI
 aI
 aI
 Wi
-aI
+hV
 Oh
 aI
 tM
@@ -39903,11 +39909,11 @@ Zx
 aW
 aW
 JB
-FN
-FN
-FN
-FN
-FN
+OF
+OF
+OF
+OF
+OF
 Wp
 Xj
 Xj
@@ -40160,11 +40166,11 @@ FF
 gP
 CX
 lK
-FN
+OF
 zC
 Iv
 Xr
-FN
+OF
 QV
 QV
 Xj
@@ -40931,11 +40937,11 @@ FF
 gP
 nB
 Mn
-FN
-FN
+OF
+OF
 rJ
 QV
-FN
+OF
 QV
 QV
 Xj
@@ -41961,7 +41967,7 @@ yp
 Wq
 FN
 FN
-FN
+OF
 QV
 QV
 rT
@@ -42472,7 +42478,7 @@ Dz
 Dz
 Ot
 Wi
-aI
+hV
 aI
 Xj
 Xj
