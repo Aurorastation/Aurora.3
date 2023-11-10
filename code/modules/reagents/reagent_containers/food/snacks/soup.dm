@@ -184,7 +184,7 @@
 
 /obj/item/reagent_containers/food/snacks/soup/krakensoup
 	name = "kraken soup"
-	desc = "A zesty Bieselite seafood dish made of squid, pumpkin, paprika and red vegetables. Always a little uncomfortable to eat if there's Skrell around."
+	desc = "A zesty Biesellite seafood dish made of squid, pumpkin, paprika and red vegetables. Always a little uncomfortable to eat if there's Skrell around."
 	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
 	icon_state = "krakensoup"
 	trash = /obj/item/trash/snack_bowl
