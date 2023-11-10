@@ -651,6 +651,7 @@
 		set_pin_data(IC_OUTPUT, 4, round(n2_level*100,0.1))
 		set_pin_data(IC_OUTPUT, 5, round(co2_level*100,0.1))
 		set_pin_data(IC_OUTPUT, 6, round(phoron_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 6, round(n2o_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 7, round(hydrogen_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 8, round(deuterium_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 9, round(tritium_level*100,0.01))

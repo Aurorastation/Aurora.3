@@ -111,7 +111,7 @@
 
 #define GAS_OXYGEN				"oxygen"
 #define GAS_CO2					"carbon_dioxide"
-#define GAS_N2O					"nitrous_oxide"
+#define GAS_N2O					"sleeping_agent"
 #define GAS_NITROGEN			"nitrogen"
 #define GAS_NO2					"nitrogen_dioxide"
 #define GAS_PHORON				"phoron"

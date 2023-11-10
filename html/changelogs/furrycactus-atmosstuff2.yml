@@ -40,4 +40,3 @@ delete-after: True
 changes:
   - rscadd: "Updated some atmos equipment to properly recognise the majority of the new gasses. They can now be individually filtered, most importantly."
   - imageadd: "Added new canister sprites for the majority of the new gasses."
-  - tweak: "Replaced the few remaining references to sleeping_agent with nitrous_oxide."

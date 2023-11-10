@@ -75,7 +75,7 @@
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
 				continue
 			if(OPT_NITROUSOXIDE)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrous_oxide
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/sleeping_agent
 				continue
 			if(OPT_OXYGEN)
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/oxygen

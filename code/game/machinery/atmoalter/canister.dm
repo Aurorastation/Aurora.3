@@ -31,12 +31,12 @@
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1
 
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide
+/obj/machinery/portable_atmospherics/canister/sleeping_agent
 	name = "Canister: \[N2O\]"
 	icon_state = "redws"
 	canister_color = "redws"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide/Initialize()
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
 
@@ -194,7 +194,7 @@
 	name = "Canister \[CO2\]"
 	icon_state = "black"
 	canister_color = "black"
-/obj/machinery/portable_atmospherics/canister/empty/nitrous_oxide
+/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent
 	name = "Canister \[N2O\]"
 	icon_state = "redws"
 	canister_color = "redws"
@@ -555,7 +555,7 @@ update_flag
 		log_open_userless("a signaler")
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide/roomfiller/Initialize()
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
 	air_contents.gas[GAS_N2O] = 9*4000
 	spawn(10)
