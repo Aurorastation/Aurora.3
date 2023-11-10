@@ -48,7 +48,7 @@
 	var/animating_ripple = FALSE
 
 	var/obj/item/device/radio/radio
-	var/safe_alert = "INDRA core stabilizing."
+	var/safe_alert = "NOTICE: INDRA reactor stabilizing."
 	var/safe_warned = 0
 	var/public_alert = 0
 	var/warning_alert = "Attention! INDRA core instability rising!"
