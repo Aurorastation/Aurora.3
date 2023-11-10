@@ -355,3 +355,11 @@
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
 	result = /obj/item/reagent_containers/food/snacks/blt
+
+/singleton/recipe/pita
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	reagents = list(/singleton/reagent/sugar = 5 , /singleton/reagent/water = 5)
+	result = /obj/item/reagent_containers/food/snacks/pita

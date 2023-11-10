@@ -59,3 +59,24 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("potato" = 4, "herbs" = 4))
 	bitesize = 3
+
+
+/obj/item/reagent_containers/food/snacks/falafel
+	name = "falafel"
+	desc = "Falafel balls in a fluffy pita with some hummus, chips, and/or salad - popular, beloved, cheap street food. Originates in the middle east, also common in Elyria."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "falafel"
+	filling_color = "#b4b876"
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3, "hummus" = 2, "pita bread" = 2))
+
+/obj/item/reagent_containers/food/snacks/hengsharolls
+	name = "hengsha rolls"
+	desc = "Originally created in times of scarcity during New Gibson's settlement as a meal requiring basic, readily available ingredients and no electricity to make, these rolls made of cabbage leaves stuffed with mashed potato, corn and tofu cubes are now considered a cultural Gibsonite staple."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "hengsharolls"
+	trash = /obj/item/trash/board
+	filling_color = "#9fd6a7"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 4, "corn" = 3, "cabbage" = 1))
+	bitesize = 3

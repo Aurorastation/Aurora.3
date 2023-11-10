@@ -354,3 +354,33 @@
 	bitesize = 1.5
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/coating/beerbatter = 2, /singleton/reagent/nutriment/triglyceride/oil = 1)
 
+//Squiddle dee dee it's time to use that squid meat
+/obj/item/reagent_containers/food/snacks/north60squid
+	name = "north 60 squid"
+	desc = "Xanan dish, Crunchy squid with a side of shrimp, swimming in a pool of garlic sauce. You'll often hear friendly arguments around Himavat City about which bar serves the best version of this."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "north60squid"
+	trash = /obj/item/trash/north60squidempty
+	filling_color = "#c79e77"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3, /singleton/reagent/nutriment/garlicsauce = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy seafood" = 4))
+	reagent_data = list(/singleton/reagent/nutriment/garlicsauce = list("garlic sauce" = 3))
+
+	//XANAN
+/obj/item/reagent_containers/food/snacks/north60squid/update_icon()
+	var/percent_north60squid = round((reagents.total_volume / 6) * 100)
+	switch(percent_north60squid)
+		if(0 to 70)
+			icon_state = "north60squidhalf"
+		if(71 to INFINITY)
+			icon_state = "north60squid"
+
+/obj/item/reagent_containers/food/snacks/falafelballs
+	name = "falafel balls"
+	desc = "A middle eastern dish also popular in Elyria, these crunchy fried chickpea balls are often served as a side to a dish of Hummus, in a Pita, or some sort of wrap."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "falafelballs"
+	trash = /obj/item/trash/plate
+	filling_color = "#74812c"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3))

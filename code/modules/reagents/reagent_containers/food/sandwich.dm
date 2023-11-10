@@ -89,3 +89,20 @@
 	bitesize = 2
 	base_name = "burger"
 	topper = "burger_top"
+
+
+//pita
+/obj/item/reagent_containers/food/snacks/pita
+	name = "pita"
+	desc = "A plain, fluffy, pocket-shaped flatbread to put things in or dip into various dishes and dips."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "pita"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 3))
+	filling_color = "#d8af79"
+
+	var/list/ingredients = list()
+	var/base_name = "pita"
+	var/topper = "pita_filling"
+
+

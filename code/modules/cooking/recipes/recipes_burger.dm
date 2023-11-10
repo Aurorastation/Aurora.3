@@ -110,3 +110,10 @@
 		/obj/item/reagent_containers/food/snacks/bun
 	)
 	result = /obj/item/reagent_containers/food/snacks/chickenfillet
+/singleton/recipe/sloppyjoe
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	reagents = list(/singleton/reagent/nutriment/protein = 6 , /singleton/reagent/nutriment/barbecue = 5)
+
+	result = /obj/item/reagent_containers/food/snacks/sloppyjoe

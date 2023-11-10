@@ -259,3 +259,26 @@
 /obj/item/trash/proteinbar
 	name = "protein bar wrapper"
 	icon_state = "proteinbar"
+
+/obj/item/trash/leaf
+	name = "dirty leaf"
+	icon_state = "leaf"
+	desc = "Is... Is that a big old leaf with... are those beans on it? Why?! What kind of situation would lead to this?!"
+
+/obj/item/trash/north60squidempty
+	name = "empty platter"
+	icon_state = "north60squidempty"
+	desc = "A deep dish meant to held a pool of sauce, seafood, and delicious memories. Now it's trash though."
+
+/obj/item/trash/triolade
+	name = "empty dessert dish"
+	icon_state = "triolade"
+
+/obj/item/trash/board
+	name = "dirty board"
+	icon_state = "board"
+
+trash = /obj/item/trash/icecreamcup
+	name = "empty ice cream cup"
+	icon_state = "icecreamcup"
+	desc = "Oh look, it's one of those prank fake melted ice cream cu- oh, nope. it's real. eugh. Do... Do you have a napkin?"

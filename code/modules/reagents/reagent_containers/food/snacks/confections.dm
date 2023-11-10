@@ -29,3 +29,26 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("apple" = 3, "caramel" = 3, "sweetness" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/triolade
+	name = "triolade mousse"
+	desc = "Fluffy white, milk, and dark chocolate stacked upon each other in inviting layers."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "triolade"
+	filling_color = "#ad724f"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("milk chocolate" = 3, "white chocolate" = 3, "dark chocolate" = 3))
+	trash = /obj/item/trash/triolade
+	bitesize = 1
+
+
+/obj/item/reagent_containers/food/snacks/izuixu
+	name = "izuixu"
+	desc = "A recent trend in recent years, created a collaboration between two friends from Valkyrie - a Human and an Unathi, this dessert mixture of ice cream rolls and xuizi juice is truly a modern symbol of the Valkyrian dream and modern day cultural bonds."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "izuixu"
+	trash = /obj/item/trash/icecreamcup
+	filling_color = "#be59be"
+	center_of_mass = list("x"=15, "y"=4)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5 , /singleton/reagent/alcohol/butanol/xuizijuice = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("ice cream" = 4))

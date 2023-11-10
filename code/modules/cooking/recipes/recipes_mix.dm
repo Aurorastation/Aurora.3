@@ -32,6 +32,14 @@
 		/obj/item/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofukabob
+/singleton/recipe/hengsharolls
+	fruit = list("cabbage" = 1, "corn" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/mashedpotato,
+		/obj/item/reagent_containers/food/snacks/tofu
+		)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/hengsharolls
 
 // Salads
 
@@ -42,7 +50,6 @@
 /singleton/recipe/aesirsalad
 	fruit = list("goldapple" = 1, "ambrosiadeus" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/aesirsalad
-
 /singleton/recipe/validsalad
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
@@ -52,4 +59,16 @@
 	. = ..(container)
 	for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
 		being_cooked.reagents.del_reagent(/singleton/reagent/toxin)
+
+
+//Pita
+/singleton/recipe/falafel
+	items = list(
+	/obj/item/reagent_containers/food/snacks/falafelballs,
+	/obj/item/reagent_containers/food/snacks/dip/hummus,
+	/obj/item/reagent_containers/food/snacks/pita
+	)
+	fruit = list("tomato" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/falafel
 

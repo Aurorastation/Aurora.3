@@ -208,3 +208,14 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/sloppyjoe
+	name = "sloppy joe"
+	desc = "Yum yum! Hope you brought a napkin!... or ten."
+	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
+	icon_state = "sloppyjoe"
+	item_state = "burger" // Don't touch this unless you know what you're doing
+	filling_color = "#7e4118"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("bun" = 3))
+	bitesize = 2

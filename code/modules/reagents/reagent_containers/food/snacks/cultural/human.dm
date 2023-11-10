@@ -194,7 +194,7 @@
 /obj/item/reagent_containers/food/snacks/crabmeat
 	name = "crab legs"
 	desc = "... Coffee? Is that you?"
-	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "crabmeat"
 	bitesize = 1
 
@@ -369,3 +369,25 @@
 	icon_state = "brudet"
 	reagent_data = list(/singleton/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/chetroinuoc
+	name = "che troi nuoc"
+	desc = "Traditional solarian dessert from New Hai Phong, these triangular sweet rice dumplings are filled with beans."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "chetroinuoc3"
+	trash = /obj/item/trash/leaf
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/rice = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet rice" = 4, "beans" = 2))
+	bitesize = 2
+	filling_color = "#bb9b9b"
+
+/obj/item/reagent_containers/food/snacks/chetroinuoc/update_icon()
+	var/percent_chetroinuoc = round((reagents.total_volume / 12) * 100)
+	switch(percent_chetroinuoc)
+		if(0 to 33)
+			icon_state = "chetroinuoc1"
+		if(34 to 66)
+			icon_state = "chetroinuoc2"
+		if(67 to INFINITY)
+			icon_state = "chetroinuoc3"
+

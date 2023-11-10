@@ -648,3 +648,51 @@
 	var/reagent_type = pick(list(/singleton/reagent/drink/milk/cream,/singleton/reagent/nutriment/cherryjelly,/singleton/reagent/nutriment/mint,/singleton/reagent/frostoil,/singleton/reagent/capsaicin,/singleton/reagent/drink/milk/cream,/singleton/reagent/drink/coffee,/singleton/reagent/drink/milkshake))
 	reagents.add_reagent(reagent_type, 4)
 
+/obj/item/reagent_containers/food/snacks/sliceable/giffypie
+	name = "giffy pie"
+	desc = "Popularized in recent years after a Solarian mother was shown serving it on a cooking reality show. She wasn't even one of the participants."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "giffypie"
+	slice_path = /obj/item/reagent_containers/food/snacks/giffypieslice
+	slices_num = 5
+	filling_color = "#a58cc5"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 16)
+	reagent_data = list(/singleton/reagent/nutriment = list("pie" = 10, "peanut butter ganache" = 10, "grape jelly" = 15))
+
+
+/obj/item/reagent_containers/food/snacks/giffypieslice
+	name = "slice of giffy pie"
+	desc = "A thick layer of peanut butter ganache with a layer of grape jelly above, and some blue cream on top. Just like on the reality show that made it popular!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "giffypieslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#a58cc5"
+	bitesize = 3
+	center_of_mass = list("x"=16, "y"=12)
+
+
+//roulades (currently 1, more to come)
+
+/obj/item/reagent_containers/food/snacks/sliceable/chocolateroulade
+	name = "chocolate roulade"
+	desc = "chocolate cake with a twist."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "chocolateroulade"
+	trash = /obj/item/trash/plate
+	filling_color = "#573a2f"
+	center_of_mass = list("x"=16, "y"=12)
+	slice_path = /obj/item/reagent_containers/food/snacks/chocolaterouladeslice
+	slices_num = 5
+	reagents_to_add = list(/singleton/reagent/nutriment = 16)
+	reagent_data = list(/singleton/reagent/nutriment = list("baked goods" = 10, "chocolate" = 10))
+
+/obj/item/reagent_containers/food/snacks/chocolaterouladeslice
+	name = "slice of chocolate roulade"
+	desc = "a slice of chocolate cake with a twist!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "chocolaterouladeslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#573a2f"
+	bitesize = 3
+	center_of_mass = list("x"=16, "y"=12)

@@ -282,3 +282,21 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/truffle
 	result_quantity = 4
+
+/singleton/recipe/giffypie
+	appliance = OVEN
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/flour = 10, /singleton/reagent/nutriment/grapejelly = 10, /singleton/reagent/nutriment/peanutbutter = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/giffypie
+	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
+
+//Roulades (only 1 right now, more to come later)
+/singleton/recipe/chocolateroulade
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+	)
+	reagents = list(/singleton/reagent/sugar = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/chocolateroulade
+	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
