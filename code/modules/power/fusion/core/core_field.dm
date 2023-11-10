@@ -328,7 +328,7 @@
 						sound_to(M, 'sound/effects/nuclearsiren.ogg')
 		else if(safe_warned && public_alert)
 			radio.autosay(alert_msg, "INDRA Reactor Monitor")
-			public_alert = 0
+			public_alert = FALSE
 
 /obj/effect/fusion_em_field/proc/Ripple(_size, _radius)
 	if(!animating_ripple)
