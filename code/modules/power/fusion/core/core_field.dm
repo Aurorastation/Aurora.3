@@ -52,7 +52,7 @@
 	var/safe_warned = 0
 	var/public_alert = 0
 	var/warning_alert = "Attention! INDRA core instability rising!"
-	var/emergency_alert = "ALERT! INDRA CORE MELTDOWN IMMINENT!"
+	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
 	var/lastwarning = 0
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
