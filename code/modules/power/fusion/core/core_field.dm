@@ -49,8 +49,8 @@
 
 	var/obj/item/device/radio/radio
 	var/safe_alert = "NOTICE: INDRA reactor stabilizing."
-	var/safe_warned = 0
-	var/public_alert = 0
+	var/safe_warned = FALSE
+	var/public_alert = FALSE
 	var/warning_alert = "WARNING: INDRA reactor destabilizing!"
 	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
 	var/lastwarning = 0
