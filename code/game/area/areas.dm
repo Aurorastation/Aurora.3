@@ -62,9 +62,9 @@
 	var/station_area = FALSE
 	var/centcomm_area = FALSE
 
-	//A text-based description of the area, can be used for sounds, notable things in the room, etc.
+	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
 	var/area_blurb
-	//This list of ckeys is here to make sure we don't state our descriptive blurb to a person more than once.
+	/// This list of ckeys is here to make sure we don't state our descriptive blurb to a person more than once.
 	var/list/blurbed_stated_to = list()
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
@@ -489,6 +489,7 @@ var/list/mob/living/forced_ambiance_list = new
 		blurbed_stated_to += L.ckey
 		to_chat(L, SPAN_NOTICE("[area_blurb]"))
 
+/// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
 /mob/living/verb/show_area_blurb()
 	set name = "Show area blurb"
 	set category = "IC"
@@ -497,6 +498,15 @@ var/list/mob/living/forced_ambiance_list = new
 		var/area/A = get_area(src)
 		if(A)
 			A.do_area_blurb(src, TRUE)
+
+/// A ghost version of the view area blurb verb so you can view it while observing.
+/mob/abstract/observer/verb/ghost_show_area_blurb()
+	set name = "Show area blurb"
+	set category = "IC"
+
+	var/area/A = get_area(src)
+	if(A)
+		A.do_area_blurb(src, TRUE)
 
 #undef VOLUME_AMBIENCE
 #undef VOLUME_AMBIENT_HUM
