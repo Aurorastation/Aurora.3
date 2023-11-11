@@ -67,6 +67,9 @@
 /area/ship/ranger_corvette/canteen
 	name = "Ranger Gunboat Canteen"
 
+/area/ship/ranger_corvette/engineering
+	name = "Ranger Gunboat Reactor Room"
+
 /area/shuttle/ranger_shuttle
 	name = "Ranger Shuttle"
 	icon_state = "shuttle2"
