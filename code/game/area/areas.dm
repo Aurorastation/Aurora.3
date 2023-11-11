@@ -470,6 +470,15 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
 
+/*
+* Displays an area blurb on a mob's screen.
+*
+* Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
+*
+* Parameters:
+* * `L` - The mob to show an area blurb.
+* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs etc.
+*/
 /area/proc/do_area_blurb(mob/living/L, override)
 	if(isnull(area_blurb))
 		if(override)
