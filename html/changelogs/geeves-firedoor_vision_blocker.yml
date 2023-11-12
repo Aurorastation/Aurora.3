@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Multi-tile airlocks and firedoors now properly block vision when closed."
