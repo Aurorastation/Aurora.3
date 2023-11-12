@@ -43,8 +43,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "docking_ranger";
-	master_tag = "docking_ranger"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
@@ -132,8 +132,8 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle";
-	master_tag = "ranger_shuttle"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -214,8 +214,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "docking_ranger";
-	master_tag = "docking_ranger"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -295,8 +295,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle";
-	master_tag = "ranger_shuttle"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -358,8 +358,8 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "docking_ranger";
-	master_tag = "docking_ranger"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -667,7 +667,9 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "cIm" = (
 /obj/structure/table/stone/marble,
@@ -845,7 +847,9 @@
 	dir = 10
 	},
 /obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "dFf" = (
 /obj/machinery/airlock_sensor{
@@ -1223,6 +1227,9 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/window/full{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/engineering)
 "fbf" = (
@@ -1934,9 +1941,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/leader)
 "hXP" = (
-/obj/machinery/door/window{
-	dir = 8
-	},
 /obj/structure/closet/crate{
 	name = "!!! TRITIUM CONTAINER !!!"
 	},
@@ -2022,7 +2026,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
+	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = 28;
@@ -2092,7 +2099,9 @@
 "iDh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/shuttle/ranger_shuttle)
 "iFw" = (
 /obj/structure/table/wood,
@@ -3303,8 +3312,8 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle";
-	master_tag = "ranger_shuttle"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/machinery/access_button{
 	pixel_x = 12;
@@ -3710,8 +3719,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "docking_ranger";
-	master_tag = "docking_ranger"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -4002,8 +4011,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle";
-	master_tag = "ranger_shuttle"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 2;
@@ -4430,8 +4439,8 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle";
-	master_tag = "ranger_shuttle"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4624,8 +4633,8 @@
 "sCd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "docking_ranger";
-	master_tag = "docking_ranger"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -5439,8 +5448,8 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "docking_ranger";
-	master_tag = "docking_ranger"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/machinery/access_button{
 	pixel_x = -23;
@@ -5569,8 +5578,8 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle";
-	master_tag = "ranger_shuttle"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
 	},
 /obj/machinery/access_button{
 	pixel_x = -12;
