@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed airlocks beeping when they try to close but are blocked."

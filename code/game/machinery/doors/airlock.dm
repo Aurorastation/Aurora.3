@@ -48,8 +48,6 @@
 	var/backup_power_lost_until = -1
 	/// Integer. World time when backup power was lost.
 	var/backup_power_lost_at = 0
-	/// Integer. World time when we may next beep due to doors being blocked by mobs. Spam prevention.
-	var/next_beep_at = 0
 	/// Boolean. Whether or not the door is welded shut.
 	var/welded = FALSE
 	/// Boolean. Whether or not the door is locked/bolted.
@@ -1948,9 +1946,6 @@ About the new airlock wires panel:
 		for(var/turf/turf in locs)
 			for(var/atom/movable/AM in turf)
 				if(AM.blocks_airlock())
-					if(world.time > next_beep_at)
-						playsound(src.loc, close_failure_blocked, 30, 0, -3)
-						next_beep_at = world.time + SecondsToTicks(20)
 					close_door_in(6)
 					return
 	var/has_opened_hatch = FALSE
