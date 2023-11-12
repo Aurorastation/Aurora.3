@@ -2,7 +2,7 @@
 #define FUSION_INSTABILITY_DIVISOR 50000
 #define FUSION_RUPTURE_THRESHOLD   10000
 #define FUSION_REACTANT_CAP        10000
-#define WARNING_DELAY 20
+#define FUSION_WARNING_DELAY 20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -215,7 +215,7 @@
 	check_instability()
 
 	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
-		if((world.timeofday - lastwarning) >= WARNING_DELAY * 10)
+		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
 			warning()
 
 	Radiate()
@@ -300,9 +300,9 @@
 				safe_warned = FALSE
 			else if(percent_unstable < 0.9)
 				alert_msg = emergency_alert + alert_msg
-				lastwarning = world.timeofday - WARNING_DELAY * 4
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 			else if(percent_unstable > 0.9)
-				lastwarning = world.timeofday - WARNING_DELAY * 4
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 				alert_msg = emergency_alert + alert_msg
 			else
 				alert_msg = null
