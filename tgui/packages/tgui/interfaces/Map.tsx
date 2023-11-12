@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section, NoticeBox, LabeledList, ColorBox } from '../components';
+import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -77,25 +77,36 @@ export const Map = (props, context) => {
           #define HOLOMAP_AREACOLOR_CIVILIAN    "#5bc1c199"
           */}
           {showLegend ? (
-            <NoticeBox info>
-              <LabeledList>
+            <NoticeBox color="grey">
+              <Table>
                 {[
-                  { d: 'Command', c: '#386d80' },
-                  { d: 'Security', c: '#ae1212' },
-                  { d: 'Medical', c: '#6f9e00' },
-                  { d: 'Science', c: '#A154A6' },
-                  { d: 'Engineering', c: '#F1C231' },
-                  { d: 'Operations', c: '#E06F00' },
-                  { d: 'Civilian', c: '#5bc1c1' },
-                  { d: 'Hallways', c: '#ffffff' },
-                  { d: 'Dock', c: '#0000FF' },
-                  { d: 'Hangar', c: '#777777' },
-                ].map((dc) => (
-                  <LabeledList.Item label={dc.d} color={dc.c}>
-                    ████
-                  </LabeledList.Item>
+                  [
+                    { d: 'Command', c: '#386d80' },
+                    { d: 'Security', c: '#ae1212' },
+                  ],
+                  [
+                    { d: 'Medical', c: '#6f9e00' },
+                    { d: 'Science', c: '#A154A6' },
+                  ],
+                  [
+                    { d: 'Engineering', c: '#F1C231' },
+                    { d: 'Operations', c: '#E06F00' },
+                  ],
+                  [
+                    { d: 'Civilian', c: '#5bc1c1' },
+                    { d: 'Hallways', c: '#ffffff' },
+                  ],
+                  [
+                    { d: 'Dock', c: '#0000FF' },
+                    { d: 'Hangar', c: '#777777' },
+                  ],
+                ].map((a) => (
+                  <Table.Row>
+                    <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
+                    <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
+                  </Table.Row>
                 ))}
-              </LabeledList>
+              </Table>
             </NoticeBox>
           ) : (
             ''
