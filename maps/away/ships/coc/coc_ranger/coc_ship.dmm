@@ -33,9 +33,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "agA" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -174,9 +172,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "aKd" = (
 /turf/simulated/floor/tiled/dark/full,
@@ -284,9 +280,7 @@
 /obj/structure/sign/flag/coalition{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bex" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -303,9 +297,7 @@
 	master_tag = "ranger_shuttle_dock";
 	cycle_to_external_air = 1
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
 "bhp" = (
 /turf/simulated/floor/carpet,
@@ -449,9 +441,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bzo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -510,9 +500,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bNr" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -683,9 +671,7 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "cIm" = (
 /obj/structure/table/stone/marble,
@@ -831,9 +817,7 @@
 /area/ship/ranger_corvette/brig)
 "duC" = (
 /obj/machinery/computer/ship/helm,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "dwE" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -863,9 +847,7 @@
 	dir = 10
 	},
 /obj/machinery/meter,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "dFf" = (
 /obj/machinery/airlock_sensor{
@@ -1014,9 +996,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "eue" = (
 /obj/machinery/door/airlock/security{
@@ -1088,9 +1068,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "eCy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1485,9 +1463,7 @@
 /obj/structure/sign/flag/coalition{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "gec" = (
 /obj/machinery/shower,
@@ -1693,9 +1669,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "gMK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1837,9 +1811,7 @@
 "hnE" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/ranger_shuttle,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "hqB" = (
 /obj/machinery/door/airlock/engineering{
@@ -2118,9 +2090,7 @@
 "iDh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "iFw" = (
 /obj/structure/table/wood,
@@ -2462,9 +2432,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "jXh" = (
 /obj/effect/landmark/entry_point/port{
@@ -2515,9 +2483,7 @@
 "kfF" = (
 /obj/machinery/power/smes,
 /obj/structure/cable/green,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "kiF" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2876,6 +2842,9 @@
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
+"lYq" = (
+/turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
 "lYK" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -3153,9 +3122,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "mVV" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3391,18 +3358,14 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "nZU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "oey" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3497,9 +3460,7 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "oKe" = (
 /obj/structure/sign/directions/com{
@@ -4344,9 +4305,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "rpP" = (
 /obj/structure/sign/directions/com{
@@ -4416,9 +4375,7 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "rKi" = (
 /obj/structure/viewport,
@@ -4826,9 +4783,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/extinguisher_cabinet/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "teP" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -5089,9 +5044,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "tAd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5682,9 +5635,7 @@
 	icon_state = "1-2";
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "vtO" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -5699,9 +5650,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "vwc" = (
 /turf/simulated/floor/tiled/dark/full,
@@ -6250,9 +6199,7 @@
 /area/ship/ranger_corvette/leader)
 "xfP" = (
 /obj/machinery/computer/ship/engines,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "xnk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -6382,9 +6329,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "xFA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -41293,7 +41238,7 @@ bbM
 gLv
 tcC
 etR
-uHL
+lYq
 oJk
 mQF
 aHv
@@ -41548,7 +41493,7 @@ yep
 duC
 twl
 hnE
-uHL
+lYq
 xCw
 pVw
 fqt
@@ -41804,8 +41749,8 @@ xRX
 yau
 yau
 fVq
-uHL
-uHL
+lYq
+lYq
 rpr
 uHL
 tbY
