@@ -3298,10 +3298,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
