@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed the xenoarchaeology cells being mislabelled."
+  - maptweak: "Implemented some minor visual tweaks to xenoarchaeology."
