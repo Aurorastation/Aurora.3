@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added LED collars. It produces faint light but will be very bright on your character sprite. Can be worn on uniforms, voidsuits, and armor. Can change color by using in-hand. Mapped a box into EVA and the warden's office."
+  - rscadd: "Mapped a box of electro-tether devices into EVA."
+  - tweak: "Tweaked electro-tethers to have less bright beams the farther away the users are from eachother."

@@ -2107,7 +2107,10 @@
 /area/medical/first_responder)
 "aTI" = (
 /obj/structure/table/rack,
-/obj/item/storage/lockbox/anti_augment,
+/obj/item/storage/lockbox/anti_augment{
+	pixel_x = 4;
+	pixel_y = -6
+	},
 /obj/item/storage/box/chemimp{
 	pixel_x = -6;
 	pixel_y = -6
@@ -2125,6 +2128,10 @@
 	dir = 2;
 	pixel_x = 0;
 	pixel_y = -19
+	},
+/obj/item/storage/box/led_collars{
+	pixel_x = 8;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
@@ -2198,9 +2205,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -2469,19 +2476,17 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "bbl" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -2753,13 +2758,13 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
+	dir = 8;
+	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -3462,9 +3467,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -3702,9 +3707,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -5434,13 +5439,12 @@
 "cww" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -5485,9 +5489,9 @@
 "cxn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -6250,18 +6254,16 @@
 /area/hallway/medical)
 "cSv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -7250,13 +7252,13 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
+	dir = 8;
+	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -8982,9 +8984,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -9855,13 +9857,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "eKj" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -9967,17 +9967,14 @@
 /area/engineering/engine_monitoring/rust)
 "eOK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -10797,13 +10794,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -20021,18 +20017,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "jri" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_ai";
-	name = "airlock_horizon_deck_2_ai";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_ai"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -22810,9 +22804,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -23921,8 +23915,7 @@
 	name = "External Blast Doors";
 	pixel_x = 7;
 	pixel_y = -18;
-	req_one_access = list(19,11);
-	dir = 2
+	req_one_access = list(19,11)
 	},
 /obj/machinery/light/small,
 /obj/structure/window/reinforced{
@@ -24872,13 +24865,13 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4
+	dir = 4;
+	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -26003,9 +25996,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -29591,23 +29584,21 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_y = -7;
-	pixel_x = -20
+	pixel_x = -20;
+	pixel_y = -7
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = -20;
 	dir = 4;
+	pixel_x = -20;
 	pixel_y = 7
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_ai";
-	name = "airlock_horizon_deck_2_ai";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_ai"
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
@@ -29631,13 +29622,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "nZj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -31828,9 +31817,9 @@
 "pae" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -32957,9 +32946,9 @@
 /area/engineering/atmos/storage)
 "pFS" = (
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -34581,18 +34570,16 @@
 	name = "AI Maintenance Blast Door"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_ai";
-	name = "airlock_horizon_deck_2_ai";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_ai"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -34842,14 +34829,14 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = 23;
-	pixel_y = -19;
-	dir = 1
+	pixel_y = -19
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_levi";
-	name = "airlock_horizon_deck_2_levi";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_levi"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -37299,13 +37286,12 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = -12;
-	pixel_y = 28;
-	dir = 2
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_levi";
-	name = "airlock_horizon_deck_2_levi";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_levi"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -37816,17 +37802,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "rTS" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -39902,13 +39885,11 @@
 /area/medical/exam)
 "tau" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -40816,18 +40797,18 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = -20
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
-	name = "airlock_horizon_deck_2_aft_indra";
-	frequency = 2003
+	name = "airlock_horizon_deck_2_aft_indra"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/aft_airlock)
@@ -41322,13 +41303,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -41830,14 +41810,14 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
-	name = "airlock_horizon_deck_2_aft_indra";
-	frequency = 2003
+	name = "airlock_horizon_deck_2_aft_indra"
 	},
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -42897,18 +42877,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "upv" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = 28;
-	dir = 8
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -47527,18 +47505,18 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = -20
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_levi";
-	name = "airlock_horizon_deck_2_levi";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_levi"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
@@ -48886,14 +48864,13 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
-	name = "airlock_horizon_deck_2_aft_indra";
-	frequency = 2003
+	name = "airlock_horizon_deck_2_aft_indra"
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = 20;
-	dir = 2
+	pixel_y = 20
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -50863,18 +50840,16 @@
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
 "xTr" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = 28;
-	dir = 8
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
