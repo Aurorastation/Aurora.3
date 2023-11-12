@@ -991,6 +991,7 @@
 #include "code\game\objects\items\devices\auto_cpr.dm"
 #include "code\game\objects\items\devices\binoculars.dm"
 #include "code\game\objects\items\devices\chameleonproj.dm"
+#include "code\game\objects\items\devices\cosmetic_surgery_kit.dm"
 #include "code\game\objects\items\devices\debugger.dm"
 #include "code\game\objects\items\devices\dociler.dm"
 #include "code\game\objects\items\devices\flash.dm"
