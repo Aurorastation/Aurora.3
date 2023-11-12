@@ -101,7 +101,7 @@ export const Map = (props, context) => {
                     { d: 'Hangar', c: '#777777' },
                   ],
                 ].map((a) => (
-                  <Table.Row>
+                  <Table.Row key={a}>
                     <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
                     <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
                   </Table.Row>
