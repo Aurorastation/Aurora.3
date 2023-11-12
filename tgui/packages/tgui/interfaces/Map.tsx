@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section } from '../components';
+import { Tabs, Slider, Section, NoticeBox, LabeledList, ColorBox } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -20,6 +20,12 @@ export const Map = (props, context) => {
     100
   );
 
+  const [showLegend, setShowLegend] = useLocalState<boolean>(
+    context,
+    `showLegend`,
+    false
+  );
+
   const map_size = 255;
   const zoom_mod = minimapZoom / 100.0;
 
@@ -27,32 +33,73 @@ export const Map = (props, context) => {
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
-          <Section fitted>
-            <Tabs>
-              <Tabs.Tab>Levels: </Tabs.Tab>
-              {data.station_levels?.map((station_level) => (
-                <Tabs.Tab
-                  key={station_level}
-                  width="50px"
-                  backgroundColor={
-                    data.z_override === station_level ? '#4972a1' : null
-                  }
-                  icon={data.user_z === station_level ? 'user' : 'minus'}
-                  onClick={() =>
-                    act('z_override', { z_override: station_level })
-                  }>
-                  {station_level}
-                </Tabs.Tab>
-              ))}
-              {data.z_override ? (
-                <Tabs.Tab onClick={() => act('z_override', { z_override: 0 })}>
-                  Clear Override
-                </Tabs.Tab>
-              ) : (
-                ''
-              )}
-            </Tabs>
-          </Section>
+          <Tabs>
+            <Tabs.Tab>Levels: </Tabs.Tab>
+            {data.station_levels?.map((station_level) => (
+              <Tabs.Tab
+                key={station_level}
+                width="50px"
+                backgroundColor={
+                  data.z_override === station_level ? '#4972a1' : null
+                }
+                icon={data.user_z === station_level ? 'user' : 'minus'}
+                onClick={() =>
+                  act('z_override', { z_override: station_level })
+                }>
+                {station_level}
+              </Tabs.Tab>
+            ))}
+            {data.z_override ? (
+              <Tabs.Tab
+                icon="filter-circle-xmark"
+                onClick={() => act('z_override', { z_override: 0 })}>
+                Clear Override
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}
+            <Tabs.Tab
+              icon="fa-circle-question"
+              onClick={() => setShowLegend(!showLegend)}>
+              {showLegend ? 'Hide Legend' : 'Show Legend'}
+            </Tabs.Tab>
+          </Tabs>
+          {/*
+          #define HOLOMAP_AREACOLOR_COMMAND     "#386d8099"
+          #define HOLOMAP_AREACOLOR_SECURITY    "#ae121299"
+          #define HOLOMAP_AREACOLOR_MEDICAL     "#6f9e00c2"
+          #define HOLOMAP_AREACOLOR_SCIENCE     "#A154A699"
+          #define HOLOMAP_AREACOLOR_ENGINEERING "#F1C23199"
+          #define HOLOMAP_AREACOLOR_OPERATIONS  "#E06F0099"
+          #define HOLOMAP_AREACOLOR_HALLWAYS    "#ffffffa5"
+          #define HOLOMAP_AREACOLOR_DOCK        "#0000FFCC"
+          #define HOLOMAP_AREACOLOR_HANGAR      "#777777"
+          #define HOLOMAP_AREACOLOR_CIVILIAN    "#5bc1c199"
+          */}
+          {showLegend ? (
+            <NoticeBox info>
+              <LabeledList>
+                {[
+                  { d: 'Command', c: '#386d80' },
+                  { d: 'Security', c: '#ae1212' },
+                  { d: 'Medical', c: '#6f9e00' },
+                  { d: 'Science', c: '#A154A6' },
+                  { d: 'Engineering', c: '#F1C231' },
+                  { d: 'Operations', c: '#E06F00' },
+                  { d: 'Civilian', c: '#5bc1c1' },
+                  { d: 'Hallways', c: '#ffffff' },
+                  { d: 'Dock', c: '#0000FF' },
+                  { d: 'Hangar', c: '#777777' },
+                ].map((dc) => (
+                  <LabeledList.Item label={dc.d} color={dc.c}>
+                    ████
+                  </LabeledList.Item>
+                ))}
+              </LabeledList>
+            </NoticeBox>
+          ) : (
+            ''
+          )}
           <Slider
             animated
             step={1}
