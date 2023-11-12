@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Moved damage and bandage layers to above the uniform layer to make it easier to see injuries."
