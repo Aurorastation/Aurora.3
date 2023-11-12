@@ -42,7 +42,10 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "docking_ranger";
+	master_tag = "docking_ranger"
+	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
@@ -128,7 +131,10 @@
 	name = "port, crew compartment"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle";
+	master_tag = "ranger_shuttle"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -207,7 +213,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "docking_ranger";
+	master_tag = "docking_ranger"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -285,7 +294,10 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle";
+	master_tag = "ranger_shuttle"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -345,7 +357,10 @@
 	dir = 2;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "docking_ranger";
+	master_tag = "docking_ranger"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
 "boM" = (
@@ -669,7 +684,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "cJN" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
@@ -834,7 +852,10 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
@@ -875,7 +896,10 @@
 	pixel_y = 0;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
@@ -2167,7 +2191,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "jgn" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "jih" = (
@@ -2631,7 +2657,10 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -3277,7 +3306,10 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle";
+	master_tag = "ranger_shuttle"
+	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = -28;
@@ -3681,7 +3713,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "docking_ranger";
+	master_tag = "docking_ranger"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -3970,7 +4005,10 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle";
+	master_tag = "ranger_shuttle"
+	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 2;
 	pixel_y = 28
@@ -4117,7 +4155,10 @@
 /area/ship/ranger_corvette/foyer)
 "qMt" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
@@ -4392,7 +4433,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle";
+	master_tag = "ranger_shuttle"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4583,7 +4627,10 @@
 /area/ship/ranger_corvette/munitions)
 "sCd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "docking_ranger";
+	master_tag = "docking_ranger"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
 "sCu" = (
@@ -4776,7 +4823,10 @@
 	pixel_y = -8;
 	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
@@ -5392,7 +5442,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "docking_ranger";
+	master_tag = "docking_ranger"
+	},
 /obj/machinery/access_button{
 	pixel_x = -23;
 	pixel_y = 22;
@@ -5519,7 +5572,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle";
+	master_tag = "ranger_shuttle"
+	},
 /obj/machinery/access_button{
 	pixel_x = -12;
 	pixel_y = -28;
@@ -5682,11 +5738,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armory";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -6037,7 +6099,10 @@
 /area/ship/ranger_corvette/atmospherics)
 "wHL" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -6055,7 +6120,10 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ranger_shuttle)
 "wNT" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_ranger_external";
+	name = "airlock_ranger_external"
+	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
