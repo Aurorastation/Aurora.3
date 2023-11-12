@@ -1054,22 +1054,14 @@
 	armor = null
 	w_class = ITEMSIZE_NORMAL
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
-	var/has_sensor = SUIT_NO_SENSORS //For the crew computer 2 = unable to change mode
-	var/sensor_mode = SUIT_SENSOR_OFF
-		/*
-		1 = Report living/dead
-		2 = Report detailed damages
-		3 = Report location
-		*/
+	var/has_sensor = SUIT_NO_SENSORS ///0 = No sensors, 1 = Sensors, 2 = Locked sensors
+	var/sensor_mode = SUIT_SENSOR_OFF ///0 = Off, 1 = Report living/dead, 2 = Report detailed damages, 3 = Report location
 	var/displays_id = 1
-	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	var/initial_icon_override //If set, rolling up sleeves/rolling down will use this icon state instead of initial().
+	var/rolled_down = -1 ///0 = unrolled, 1 = rolled, -1 = cannot be toggled
+	var/rolled_sleeves = -1 ///0 = unrolled, 1 = rolled, -1 = cannot be toggled
+	var/initial_icon_override ///If set, rolling up sleeves/rolling down will use this icon state instead of initial().
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM, BODYTYPE_TESLA_BODY)
-
-	//convenience var for defining the icon state for the overlay used when the clothing is worn.
-	//Also used by rolling/unrolling.
-	var/worn_state = null
+	var/worn_state = null ///Convenience var for defining the icon state for the overlay used when the clothing is worn. Also used by rolling/unrolling.
 	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR)
 
@@ -1211,8 +1203,8 @@
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
-	if (isobserver(M)) return
-	if (user.incapacitated()) return
+	if (isobserver(M) || user.incapacitated())
+		return
 	if(has_sensor >= SUIT_LOCKED_SENSORS)
 		to_chat(user, "The controls are locked.")
 		return 0
@@ -1220,7 +1212,7 @@
 		to_chat(user, "This suit does not have any sensors.")
 		return 0
 
-	var/switchMode = tgui_input_list(user, "Select a sensor mode.", "Suit Sensor Mode", get_key_by_index(SUIT_SENSOR_MODES, sensor_mode + 1))
+	var/switchMode = tgui_input_list(user, "Select a sensor mode.", "Suit Sensor Mode", SUIT_SENSOR_MODES)
 	if(get_dist(user, src) > 1)
 		to_chat(user, "You have moved too far away.")
 		return
@@ -1231,11 +1223,11 @@
 			if(SUIT_SENSOR_OFF)
 				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "You disable your suit's remote sensing equipment.")
 			if(SUIT_SENSOR_BINARY)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report whether you are live or dead.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse.")
 			if(SUIT_SENSOR_VITAL)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your vital lifesigns.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse and vital lifesigns.")
 			if(SUIT_SENSOR_TRACKING)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your vital lifesigns as well as your coordinate position.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse, vital lifesigns and your coordinate position.")
 	else if (ismob(src.loc))
 		if(sensor_mode == SUIT_SENSOR_OFF)
 			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), "You disable [src.loc]'s remote sensing equipment.")
