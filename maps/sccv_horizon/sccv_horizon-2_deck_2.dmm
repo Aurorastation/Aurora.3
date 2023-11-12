@@ -42419,6 +42419,30 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
+/obj/item/storage/box/lights/colored/blue{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/storage/box/lights/colored/cyan{
+	pixel_y = 10;
+	pixel_x = -6
+	},
+/obj/item/storage/box/lights/colored/green{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/obj/item/storage/box/lights/colored/magenta{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/lights/colored/red{
+	pixel_y = 2;
+	pixel_x = 6
+	},
+/obj/item/storage/box/lights/colored/yellow{
+	pixel_x = -6;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uhE" = (
