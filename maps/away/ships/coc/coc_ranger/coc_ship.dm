@@ -169,7 +169,7 @@
 	landmark_tag = "nav_hangar_ranger"
 	docking_controller = "ranger_shuttle_dock"
 	base_area = /area/space
-	base_turf = /turf/space
+	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/transit
