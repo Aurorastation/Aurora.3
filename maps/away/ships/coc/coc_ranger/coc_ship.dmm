@@ -133,7 +133,8 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	master_tag = "ranger_shuttle_dock";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -280,6 +281,9 @@
 /obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
 	dir = 4
 	},
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -296,7 +300,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	master_tag = "ranger_shuttle_dock";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -361,6 +366,10 @@
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock"
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1;
+	pixel_y = 8
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
 "boM" = (
@@ -375,6 +384,14 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/brig)
+"bsL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "bsV" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -430,8 +447,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1227,7 +1243,7 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/cobweb,
-/obj/structure/window/full{
+/obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -1465,6 +1481,9 @@
 "fVq" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 8
+	},
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3313,7 +3332,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	master_tag = "ranger_shuttle_dock";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/access_button{
 	pixel_x = 12;
@@ -3369,8 +3389,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4012,7 +4031,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	master_tag = "ranger_shuttle_dock";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 2;
@@ -4440,7 +4460,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	master_tag = "ranger_shuttle_dock";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4635,6 +4656,9 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock"
+	},
+/obj/machinery/light/small/emergency{
+	pixel_y = -22
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -5579,7 +5603,8 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	master_tag = "ranger_shuttle_dock";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/access_button{
 	pixel_x = -12;
@@ -39982,7 +40007,7 @@ uyk
 wUT
 wve
 wUT
-sCd
+bsL
 sCd
 oUC
 fmB
