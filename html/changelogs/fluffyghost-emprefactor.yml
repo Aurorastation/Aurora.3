@@ -54,3 +54,4 @@ changes:
   - refactor: "All emp_act now uses the defined damage, instead of the magic numbers."
   - refactor: "EMP magic number 3 do not exist anymore, standarized everything that used it back into EMP_LIGHT."
   - refactor: "Some function substitution for EMP that was not meant to behave like an EMP for other objects."
+  - rscadd: "The empulse function can now exclude types, in addition to objects."
