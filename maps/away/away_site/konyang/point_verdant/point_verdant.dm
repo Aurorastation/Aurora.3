@@ -8,6 +8,8 @@
 	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/point_verdant
 	map = "point_verdant"
 	descriptor = "A landing zone within Point Verdant city limits."
