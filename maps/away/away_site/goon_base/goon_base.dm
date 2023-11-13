@@ -8,6 +8,8 @@
 	id = "goon"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/goon_ship)
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/goon
 	map = "goon base"
 	descriptor = "An asteroid with a occupied hangar carved into it."
