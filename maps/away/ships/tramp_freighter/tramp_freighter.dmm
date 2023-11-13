@@ -709,10 +709,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
-"eoK" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/tramp_freighter)
 "etL" = (
 /turf/space/transit/north,
 /area/space)
@@ -1694,9 +1690,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
-"phz" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
 "pmv" = (
 /obj/structure/plasticflaps,
 /obj/machinery/conveyor{
@@ -2012,7 +2005,6 @@
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/flannel/red,
 /obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/youngfolksjeans,
 /obj/item/clothing/head/cowboy,
 /obj/item/clothing/shoes/cowboy/classic,
 /obj/item/clothing/shoes/jackboots,
@@ -2131,9 +2123,6 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"wYA" = (
-/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "wZf" = (
 /turf/simulated/floor,
@@ -31367,7 +31356,7 @@ ehI
 lfq
 ylV
 ylV
-wYA
+ylV
 xRX
 xRX
 xRX
@@ -31624,8 +31613,8 @@ lfq
 tvU
 ylV
 qXU
-wYA
-wYA
+ylV
+ylV
 xRX
 xRX
 xRX
@@ -31879,10 +31868,10 @@ aSJ
 aHt
 ylV
 ylV
-wYA
+ylV
 gdk
 fUQ
-wYA
+ylV
 xRX
 xRX
 xRX
@@ -32395,8 +32384,8 @@ gdk
 rWz
 ckN
 bXv
-wYA
-wYA
+ylV
+ylV
 xRX
 xRX
 xRX
@@ -32652,7 +32641,7 @@ gdk
 jgW
 udB
 pDO
-wYA
+ylV
 xRX
 xRX
 xRX
@@ -32905,10 +32894,10 @@ cVA
 cBb
 aSJ
 ylV
-wYA
-wYA
-wYA
-wYA
+ylV
+ylV
+ylV
+ylV
 xRX
 xRX
 xRX
@@ -33160,8 +33149,8 @@ eiL
 aSJ
 bfg
 aSJ
-wYA
-wYA
+ylV
+ylV
 aap
 xRX
 xRX
@@ -33417,9 +33406,9 @@ nyj
 ylV
 ylV
 ylV
-wYA
-wYA
-wYA
+ylV
+ylV
+ylV
 xRX
 xRX
 xRX
@@ -33676,7 +33665,7 @@ eEk
 onP
 ozs
 qFX
-wYA
+ylV
 jMF
 xRX
 xRX
@@ -33930,11 +33919,11 @@ elQ
 euz
 eEk
 rgA
-eoK
+aHt
 fMy
 hDn
-wYA
-wYA
+ylV
+ylV
 xRX
 xRX
 xRX
@@ -34166,17 +34155,17 @@ xRX
 rtf
 wZf
 gQH
-phz
-phz
-phz
-phz
+aBb
+aBb
+aBb
+aBb
 hZq
 ePO
-phz
-phz
-phz
-phz
-phz
+aBb
+aBb
+aBb
+aBb
+aBb
 lRa
 jCz
 ylV
@@ -34187,11 +34176,11 @@ ivo
 eEk
 eCb
 hqX
-wYA
-wYA
-wYA
+ylV
+ylV
+ylV
 aHt
-wYA
+ylV
 xRX
 xRX
 xRX
@@ -34444,7 +34433,7 @@ emn
 eEk
 eCb
 kon
-wYA
+ylV
 uCl
 rNF
 fhJ
@@ -34701,11 +34690,11 @@ enr
 euz
 eCb
 eIb
-wYA
+ylV
 hQi
 eyx
-eoK
-wYA
+aHt
+ylV
 xRX
 xRX
 xRX
@@ -34958,11 +34947,11 @@ ylV
 euz
 eEk
 exg
-eoK
+aHt
 fQG
 eCV
 fhJ
-wYA
+ylV
 xRX
 xRX
 xRX
@@ -35195,16 +35184,16 @@ rtf
 wZf
 axB
 aBb
-phz
-phz
-phz
-phz
+aBb
+aBb
+aBb
+aBb
 xeK
 bgD
-phz
-phz
-phz
-phz
+aBb
+aBb
+aBb
+aBb
 lRa
 mpg
 ylV
@@ -35218,8 +35207,8 @@ gcq
 iHx
 eyx
 vFx
-wYA
-wYA
+ylV
+ylV
 xRX
 xRX
 xRX
@@ -35476,7 +35465,7 @@ ylV
 fRD
 rMI
 mut
-wYA
+ylV
 xRX
 xRX
 xRX
@@ -35733,7 +35722,7 @@ ylV
 ylV
 ylV
 ylV
-wYA
+ylV
 lXE
 lXE
 lXE

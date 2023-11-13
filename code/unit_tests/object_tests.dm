@@ -7,6 +7,7 @@
  */
 /datum/unit_test/machinery_global_test
 	name = "OBJECTS: Machinery Global List Test"
+	groups = list("map")
 
 /datum/unit_test/machinery_global_test/start_test()
 	var/list/all_types = list()
@@ -37,6 +38,7 @@
  */
 /datum/unit_test/flooring_build_type_conflicts
 	name = "OBJECTS: All flooring shall have a unique build type"
+	groups = list("map")
 
 /datum/unit_test/flooring_build_type_conflicts/start_test()
 	var/list/known_types = list()
@@ -62,6 +64,7 @@
 
 /datum/unit_test/check_vending_products
 	name = "OBJECTS: All vending products shall be /obj subtypes"
+	groups = list("machinery")
 
 /datum/unit_test/check_vending_products/start_test()
 	var/list/vending_products = list()
