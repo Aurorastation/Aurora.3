@@ -2541,6 +2541,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "IS" = (
@@ -2710,14 +2711,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
-"LX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
 "Mo" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/blood/OMinus,
@@ -2989,8 +2982,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "Ql" = (
-/obj/machinery/power/smes,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/goonbase)
 "Qm" = (
@@ -66172,7 +66165,7 @@ mW
 ms
 ms
 np
-LX
+mW
 gM
 Jw
 Ke
