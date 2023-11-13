@@ -47,6 +47,22 @@
 				<li class="rscadd">Sectors blacklist mechanism.</li>
 				<li class="rscadd">Point Verdant: spaceport and waterdocks.</li>
 			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">The CI now uses multiple pods to load-balance the tests in parallel.</li>
+				<li class="backend">Pods configuration is loaded from config/unit_test/ut_pods_configuration.json with a personalized ID (set by the CI) that instructs SSunit_test on what to do.</li>
+				<li class="backend">Labeler now downloads the PR, which I hope would help with the changelog required label.</li>
+				<li class="backend">Away sites now have a tag that indicates in what CI pod they should be tested, for load balancing. The tag is mandatory.</li>
+				<li class="backend">Unit tests now have tags, which are used to select which pods run which unit tests, using the &#x27;has any tag in&#x27; logic.</li>
+				<li class="backend">The CI now supports fail fast when running inside a merge queue.</li>
+				<li class="backend">The CI now supports retrying a pod run up to N times, when running inside a merge queue.</li>
+				<li class="backend">After the fixing of all the bad formatting of the code in a previous PR, megalinter is reintroduced, now it&#x27;s only your code that&#x27;s wrongly formatted.</li>
+				<li class="backend">The CI now only uploads artifacts with the logs on test failure, saving space.</li>
+				<li class="backend">The CI now sets the environment variables before any other step is done, so they are set correctly across the steps.</li>
+				<li class="backend">The linters now run in parallel.</li>
+				<li class="backend">Added the ability (off by default) to SSH into the unit test pods to diagnose issues.</li>
+				<li class="backend">Introduced SSunit_tests_config, to store and manage the unit tests config.</li>
+			</ul>
 			<h3 class="author">Sniblet updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Using psi-mend now gives intended feedback.</li>
