@@ -173,3 +173,14 @@
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
+
+/obj/item/reagent_containers/food/snacks/vkrexiwrap
+	name = "v'krexi wrap"
+	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with meat."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "vkrexiwrap_meat"
+	reagents_to_add = list(/singleton/reagent/mental/vkrexi = 2)
+
+/obj/item/reagent_containers/food/snacks/vkrexiwrap/veggie
+	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with veggies."
+	icon_state = "vkrexiwrap_veggie"
