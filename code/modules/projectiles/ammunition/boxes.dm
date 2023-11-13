@@ -123,6 +123,17 @@
 	max_ammo = 16
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c46m
+	name = "magazine (4.6mm)"
+	icon_state = "4.6x30p"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "4.6mm"
+	desc = "A magazine designed for the dNAC-4.6 pistol."
+	ammo_type = /obj/item/ammo_casing/c46mm
+	max_ammo = 15
+	multiple_sprites = TRUE
+
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
 	desc = "A bulky magazine for the Kumar Arms 2557."

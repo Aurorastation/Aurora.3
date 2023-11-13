@@ -718,10 +718,7 @@ BREATH ANALYZER
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new(user.loc)
-	R.color = "#eeffe8"
-	R.set_content_unsafe("Scan ([M.name])", connected.format_occupant_data(get_occupant_data(M)))
-
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

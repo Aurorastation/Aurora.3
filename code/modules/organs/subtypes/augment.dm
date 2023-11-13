@@ -425,6 +425,10 @@
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
 
+/obj/item/organ/internal/augment/ethanol_burner
+	name = "integrated ethanol burner"
+	organ_tag = BP_AUG_ETHANOL_BURNER
+
 // Geeves!
 /obj/item/organ/internal/augment/language
 	name = "language processor"
