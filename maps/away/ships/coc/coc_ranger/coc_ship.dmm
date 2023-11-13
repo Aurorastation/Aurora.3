@@ -658,14 +658,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
-"cxy" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
-	},
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
 "cHm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -1603,6 +1595,17 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/foyer)
+"grA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock"
+	},
+/obj/machinery/light/small/emergency{
+	pixel_y = -22
+	},
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "gtw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -2031,8 +2034,8 @@
 	},
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar{
 	dir = 8;
-	base_area = area/space;
-	base_turf = /turf/space/dynamic
+	base_area = null;
+	base_turf = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -4615,9 +4618,6 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock"
-	},
-/obj/machinery/light/small/emergency{
-	pixel_y = -22
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -39954,8 +39954,8 @@ uyk
 wUT
 wve
 wUT
-cxy
 sCd
+grA
 oUC
 fmB
 lXU
