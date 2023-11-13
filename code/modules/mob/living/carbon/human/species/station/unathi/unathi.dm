@@ -112,7 +112,7 @@
 		BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
 		BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
 		BP_STOMACH =    /obj/item/organ/internal/stomach/unathi
-    )
+	)
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
