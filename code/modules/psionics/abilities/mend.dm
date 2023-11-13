@@ -34,7 +34,7 @@
 
 	user.visible_message(SPAN_NOTICE("[user] lays a palm on [H]..."), SPAN_NOTICE("You lay your palm on [H] and get to work."))
 	to_chat(user, SPAN_NOTICE("You start by flowing your regenerative psionic energy through their vital organs..."))
-	for(var/obj/item/organ/O in H.bad_internal_organs)
+	for(var/obj/item/organ/O in H.internal_organs)
 		if(do_mob(user, H, 15 SECONDS))
 			if(O.damage > 0) // Fix internal damage
 				to_chat(user, SPAN_NOTICE("You mend their [O]'s bruising."))
