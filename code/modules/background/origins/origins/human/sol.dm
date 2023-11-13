@@ -158,7 +158,7 @@
 /singleton/origin_item/origin/mictlan
 	name = "Mictlan"
 	desc = "One of the worlds unlucky enough to be annexed into the Republic of Biesel's Corporate Reconstruction Zone following the Solarian Collapse, Mictlan has become the site of growing fighting and unrest directed at the Republic and its forces. Mictlaners now find themselves increasingly caught between Sol and Biesel, and the conflict on their planet shows no signs of deescalating."
-	important_information = "While Mictlan has been a beacon of multiculturalism among humans and aliens in the Orion Spur, many humans that have immigrated to the planet have been assimilated into Mictlan's culture and society. Because of this, <b>human characters born on Mictlan must have names and appearances consistent with the peoples of Central and South America.</b> Only characters native to Mictlan may take the Mictlan accent. This is enforceable by server moderators and admins."
+	important_information = "While Mictlan has been a beacon of multiculturalism among humans and aliens in the Orion Spur, many humans that have immigrated to the planet have been assimilated into Mictlan's culture and society. Because of this, <b>human characters born on Mictlan must have names and appearances consistent with the peoples of Mexico, Central America, and South America.</b> Only characters native to Mictlan may take the Mictlan accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
