@@ -9,10 +9,6 @@ var/regex/html_tags = regex(@"<.*?>", "g")
 var/regex/angular_brackets = regex(@"[<>]", "g")
 var/regex/filename_forbidden_chars = regex(@{""|[\\\n\t/?%*:|<>]|\.\."}, "g")
 
-
-/// Does 4 spaces. Used as a makeshift tabulator.
-#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
-
 /// Removes characters incompatible with file names.
 #define SANITIZE_FILENAME(text) (filename_forbidden_chars.Replace(text, ""))
 
