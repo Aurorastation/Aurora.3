@@ -67,6 +67,9 @@
 /area/ship/ranger_corvette/canteen
 	name = "Ranger Gunboat Canteen"
 
+/area/ship/ranger_corvette/engineering
+	name = "Ranger Gunboat Reactor Room"
+
 /area/shuttle/ranger_shuttle
 	name = "Ranger Shuttle"
 	icon_state = "shuttle2"
@@ -165,8 +168,8 @@
 	name = "Ranger Shuttle Hangar"
 	landmark_tag = "nav_hangar_ranger"
 	docking_controller = "ranger_shuttle_dock"
-	base_area = /area/ship/ranger_corvette
-	base_turf = /turf/simulated/floor/plating
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/transit
