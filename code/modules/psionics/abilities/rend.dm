@@ -17,7 +17,7 @@
 	armor_penetration = 30
 	cooldown = 30
 	psi_cost = 35
-	attack_verb = list("rends apart", "disintegrates")
+	attack_verb = list("rent apart", "disintegrated")
 	hitsound = 'sound/weapons/heavysmash.ogg'
 	flags = 0
 	var/structure_mode = FALSE
