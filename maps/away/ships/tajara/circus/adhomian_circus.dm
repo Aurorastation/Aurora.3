@@ -4,7 +4,7 @@
 	suffixes = list("ships/tajara/circus/adhomian_circus.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "adhomian_circus_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)
 

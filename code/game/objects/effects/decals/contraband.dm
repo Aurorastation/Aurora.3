@@ -128,7 +128,7 @@
 
 /obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswirecutter())
-		playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")
 			qdel(src)
@@ -142,7 +142,7 @@
 	if(ruined)
 		return
 	if(user.a_intent == I_HELP)
-		user.examinate(src)
+		examinate(user, src)
 		return
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
 		if(ruined || !user.Adjacent(src))

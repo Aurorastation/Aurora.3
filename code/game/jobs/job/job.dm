@@ -96,6 +96,7 @@
 			if(ECONOMICALLY_UNDERPAID)		econ_status = 0.75
 			if(ECONOMICALLY_POOR)			econ_status = 0.50
 			if(ECONOMICALLY_DESTITUTE)		econ_status = 0.25
+			if(ECONOMICALLY_RUINED)			econ_status = 0.01
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
@@ -109,7 +110,7 @@
 		var/remembered_info = ""
 		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
 		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> $[M.money]<br>"
+		remembered_info += "<b>Your account funds are:</b> [M.money]电<br>"
 
 		if(M.transactions.len)
 			var/datum/transaction/T = M.transactions[1]
@@ -211,7 +212,7 @@
 	uniform = /obj/item/clothing/under/color/grey
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	headset = /obj/item/device/radio/headset
 	bowman = /obj/item/device/radio/headset/alt
@@ -239,7 +240,7 @@
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
-	return J.get_access(get_id_assignment(H))
+	return J.get_access(get_id_assignment(H, TRUE))
 
 /datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)

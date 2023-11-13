@@ -77,6 +77,14 @@
 	tag_icon = "tajara_oldyassa"
 	text_tag = "YSA"
 
+/datum/accent/new_yassa
+	name = ACCENT_NEWYASSA
+	description = "A consciously learned accent created by New Kingdom's intellectuals in an attempt to replicate Old Ya'ssa. It is adopted by nobility who want to reinforce their \
+	noble heritage. Commoners consider New Ya'ssa to be pretentious. Pre-contact Ya'ssa speakers consider it a poorly made copy. This accent is also commonly used in the New Kingdom's \
+	entertainment sector."
+	tag_icon = "tajara_newyassa"
+	text_tag = "NYS"
+
 /datum/accent/northrasnrr
 	name = ACCENT_NORTHRASNRR
 	description = "While similar to the Republican Siik'maas, Northern Ras'nrr Siik'maas is relatively free from the Hadiist additions. It is known for its \

@@ -54,7 +54,7 @@
 /obj/screen/ai/camera_list/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		var/camera = input(AI) as null|anything in AI.get_camera_list()
+		var/camera = tgui_input_list(AI, "Select a camera.", "Show Camera List", AI.get_camera_list())
 		if (camera)
 			AI.ai_camera_list(camera)
 
@@ -66,7 +66,7 @@
 /obj/screen/ai/camera_track/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		var/target_name = input(AI) as null|anything in AI.trackable_mobs()
+		var/target_name = tgui_input_list(AI, "Select a mob to track.", "Track With Camera", AI.trackable_mobs())
 		if (target_name)
 			AI.ai_camera_track(target_name)
 
@@ -87,17 +87,7 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		SSrecords.open_manifest_vueui(usr)
-
-/obj/screen/ai/alerts
-	name = "Show Alerts"
-	icon_state = "alerts"
-	screen_loc = ui_ai_alerts
-
-/obj/screen/ai/alerts/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_alarm_monitor()
+		SSrecords.open_manifest_tgui(usr)
 
 /obj/screen/ai/announcement
 	name = "Announcement"
@@ -125,9 +115,10 @@
 	screen_loc = ui_ai_state_laws
 
 /obj/screen/ai/state_laws/Click()
-	if (isAI(usr))
+	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_law_manager()
+		AI.computer.ui_interact(usr)
+		AI.computer.run_program("lawmanager")
 
 /obj/screen/ai/take_image
 	name = "Take Image"

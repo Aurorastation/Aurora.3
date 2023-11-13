@@ -18,9 +18,9 @@
 	var/temperature = T20C
 	var/starts_with = list()
 
-/obj/machinery/appliance/cooker/examine(var/mob/user)
+/obj/machinery/appliance/cooker/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if (.)	//no need to duplicate adjacency check
+	if (is_adjacent)
 		if (!stat)
 			if (temperature < min_temp)
 				to_chat(user, SPAN_WARNING("[src] is still heating up and is too cold to cook anything yet."))

@@ -1,31 +1,28 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
-	desc = "A sleek, sturdy box"
+	desc = "A sleek, sturdy box."
 	icon_state = "syndiebox"
 	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
 	name = "box (F)"
-	starts_with = list(/obj/item/implanter/freedom = 1)
-
-/obj/item/storage/box/syndie_kit/imp_freedom/fill()
-	..()
-	var/obj/item/implanter/O = new(src)
-	O.imp = new /obj/item/implant/freedom(O)
-	O.update()
-	return
+	starts_with = list(/obj/item/implantpad = 1, /obj/item/implanter = 1, /obj/item/implantcase/freedom = 1)
 
 /obj/item/storage/box/syndie_kit/imp_compress
 	name = "box (C)"
-	starts_with = list(/obj/item/implanter/compressed = 1)
+	starts_with = list(/obj/item/implantpad = 1, /obj/item/implanter/compressed = 1)
 
 /obj/item/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
+	starts_with = list(/obj/item/implantpad = 1, /obj/item/implanter = 1, /obj/item/implantcase/explosive = 1)
+
+/obj/item/storage/box/syndie_kit/imp_emp
+	name = "box (M)"
+	starts_with = list(/obj/item/implantpad = 1, /obj/item/implanter = 1, /obj/item/implantcase/emp = 1)
 
 /obj/item/storage/box/syndie_kit/imp_deadman
 	name = "box (D)"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive/deadman = 1)
+	starts_with = list(/obj/item/implantpad = 1, /obj/item/implanter = 1, /obj/item/implantcase/explosive/deadman = 1)
 
 
 /obj/item/storage/box/syndie_kit/imp_uplink
@@ -39,6 +36,16 @@
 		/obj/item/clothing/suit/space/syndicate = 1,
 		/obj/item/clothing/head/helmet/space/syndicate = 1,
 		/obj/item/clothing/mask/gas/syndicate = 1,
+		/obj/item/tank/emergency_oxygen/double = 1
+	)
+
+/obj/item/storage/box/syndie_kit/space/covert
+	name = "boxed space suit and helmet"
+	worn_overlay = "syndiesuit"
+	starts_with = list(
+		/obj/item/clothing/suit/space/syndicate/covert = 1,
+		/obj/item/clothing/head/helmet/space/syndicate/covert = 1,
+		/obj/item/clothing/mask/breath = 1,
 		/obj/item/tank/emergency_oxygen/double = 1
 	)
 
@@ -99,11 +106,6 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "box"
-
-/obj/item/storage/box/syndie_kit/g9mm
-	name = "smooth operator"
-	desc = "9mm with silencer kit."
-	starts_with = list(/obj/item/gun/projectile/pistol = 1, /obj/item/silencer = 1)
 
 /obj/item/storage/box/syndie_kit/toxin
 	name = "toxin kit"
@@ -197,3 +199,23 @@
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 2
 	)
+
+/obj/item/storage/box/syndie_kit/nerveworms
+	name = "nerve fluke kit"
+	desc = "Contains the eggs of a Nerve Fluke (non-lethal, incapacitating)."
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/nerveworm_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
+
+/obj/item/storage/box/syndie_kit/heartworms
+	name = "heart fluke kit"
+	desc = "Contains the eggs of a Heart Fluke (lethal)."
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
+
+/obj/item/storage/box/syndie_kit/radsuit
+	name = "radiation suit kit"
+	desc = "Contains a radiation suit and geiger counter to protect you from radiation."
+	starts_with = list(/obj/item/clothing/head/radiation = 1, /obj/item/clothing/suit/radiation = 1, /obj/item/clothing/glasses/safety/goggles = 1, /obj/item/device/geiger = 1, /obj/item/reagent_containers/pill/hyronalin = 1)
+
+/obj/item/storage/box/syndie_kit/syringe_gun
+	name = "syringe gun kit"
+	desc = "Contains a syringe gun and the parts require to assemble a few darts."
+	starts_with = list(/obj/item/gun/launcher/syringe = 1, /obj/item/syringe_cartridge = 3, /obj/item/reagent_containers/syringe = 3)

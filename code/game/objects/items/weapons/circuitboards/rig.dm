@@ -18,6 +18,9 @@
 /obj/item/circuitboard/rig_assembly/civilian/eva
 	name = "EVA suit central circuit board"
 
+/obj/item/circuitboard/rig_assembly/civilian/eva/pilot
+	name = "pilot suit central circuit board"
+
 /obj/item/circuitboard/rig_assembly/civilian/ce
 	name = "advanced void suit central circuit board"
 	origin_tech = list(TECH_DATA = 5)

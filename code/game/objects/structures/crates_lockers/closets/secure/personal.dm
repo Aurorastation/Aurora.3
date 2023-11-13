@@ -20,7 +20,7 @@
 		new /obj/item/clothing/under/medical_gown(src)
 	else
 		new /obj/item/clothing/under/medical_gown/white(src)
-	new /obj/item/clothing/shoes/white( src )
+	new /obj/item/clothing/shoes/sneakers( src )
 
 
 /obj/structure/closet/secure_closet/personal/cabinet

@@ -45,7 +45,7 @@
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in range(0)
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	var/N = tgui_input_list(usr, "Select the amount to transfer from this. ", "[src]", possible_transfer_amounts, amount_per_transfer_from_this)
 	if(N)
 		amount_per_transfer_from_this = N
 
@@ -100,7 +100,7 @@
 		dipped.attempt_apply_coating(src, user)
 		return
 	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
-		if(do_after(user, 10))
+		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
 				user.do_attack_animation(src)
@@ -115,7 +115,7 @@
 		return ..()
 
 /obj/item/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
-	if(!proximity || !is_open_container())
+	if(!proximity || (!is_open_container() && !is_pour_container()))
 		return
 	if(is_type_in_list(target,can_be_placed_into))
 		return
@@ -124,7 +124,7 @@
 	if(standard_splash_mob(user, target))
 		return
 	if(standard_pour_into(user, target))
-		SSvueui.check_uis_for_change(target)
+		SStgui.update_uis(target)
 		return
 	if(standard_splash_obj(user, target))
 		return
@@ -314,7 +314,7 @@
 				break
 		if(chugs > 3)
 			if(!(H.species.flags & NO_BREATHE))
-				H.visible_message(SPAN_NOTICE("[src] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
+				H.visible_message(SPAN_NOTICE("[H] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
 				H.emote("gasp")
 		return
 

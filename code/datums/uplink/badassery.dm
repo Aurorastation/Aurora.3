@@ -6,7 +6,7 @@
 
 /datum/uplink_item/item/badassery/balloon
 	name = "For showing that You Are The BOSS (Useless Balloon)"
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+	telecrystal_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/toy/balloon/syndicate
 
 /datum/uplink_item/item/badassery/balloon/NT
@@ -16,7 +16,7 @@
 /datum/uplink_item/item/badassery/crayonmre
 	name = "Crayon MRE"
 	desc = "An exceptionally robust MRE."
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+	telecrystal_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/storage/box/fancy/mre/menu11/special
 
 /**************
@@ -27,22 +27,22 @@
 	desc = "Buys you one random item."
 
 /datum/uplink_item/item/badassery/random_one/buy(var/obj/item/device/uplink/U, var/mob/user)
-	var/datum/uplink_item/item = default_uplink_selection.get_random_item(U.uses)
+	var/datum/uplink_item/item = default_uplink_selection.get_random_item(U.telecrystals)
 	return item.buy(U, user)
 
-/datum/uplink_item/item/badassery/random_one/can_buy(obj/item/device/uplink/U)
-	return default_uplink_selection.get_random_item(U.uses, U) != null
+/datum/uplink_item/item/badassery/random_one/can_buy_telecrystals(obj/item/device/uplink/U)
+	return default_uplink_selection.get_random_item(U.telecrystals, U) != null
 
 /datum/uplink_item/item/badassery/random_many
 	name = "Random Items"
 	desc = "Buys you as many random items you can afford. Convenient packaging NOT included."
 
-/datum/uplink_item/item/badassery/random_many/cost(var/telecrystals)
+/datum/uplink_item/item/badassery/random_many/telecrystal_cost(var/telecrystals)
 	return max(1, telecrystals)
 
 /datum/uplink_item/item/badassery/random_many/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/list/bought_items = list()
-	for(var/datum/uplink_item/UI in get_random_uplink_items(U, U.uses, loc))
+	for(var/datum/uplink_item/UI in get_random_uplink_items(U, U.telecrystals, loc))
 		UI.purchase_log(U)
 		var/obj/item/I = UI.get_goods(U, loc)
 		if(istype(I))
@@ -60,7 +60,7 @@
 /datum/uplink_item/item/badassery/surplus
 	name = "Surplus Crate"
 	antag_roles = list(MODE_MERCENARY)
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT * 4
+	telecrystal_cost = DEFAULT_TELECRYSTAL_AMOUNT * 4
 	var/item_worth = DEFAULT_TELECRYSTAL_AMOUNT * 6
 	var/icon
 

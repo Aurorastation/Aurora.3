@@ -41,6 +41,7 @@
 /obj/item/towel/verb/lay_out()
 	set name = "Lay Out Towel"
 	set category = "Object"
+	set src in usr
 
 	to_chat(usr, "<span class='notice'>You lay out \the [src] flat on the ground.</span>")
 	var/obj/item/towel_flat/T = new /obj/item/towel_flat(usr.loc)

@@ -264,7 +264,7 @@
 
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.can_examine())
-		user.examinate(src)
+		examinate(user, src)
 
 /*
 	Ctrl click
@@ -291,13 +291,10 @@
 
 /atom/proc/AltClick(var/mob/user)
 	var/turf/T = get_turf(src)
-	if(T && user.TurfAdjacent(T))
-		if(user.listed_turf == T)
-			user.listed_turf = null
-		else
-			user.listed_turf = T
-			user.client.statpanel = "Turf"
-	return 1
+	if(!T || !user.TurfAdjacent(T))
+		return FALSE
+	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
+		user.set_listed_turf(T)
 
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
@@ -372,7 +369,7 @@ var/global/list/click_catchers
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"
 
 /obj/screen/click_catcher/Destroy()

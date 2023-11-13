@@ -105,9 +105,9 @@
 	health = 50
 
 /mob/living/simple_animal/hostile/carp/russian/FindTarget()
-    . = ..()
-    if(.)
-        custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
+	. = ..()
+	if(.)
+		custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
 /mob/living/simple_animal/hostile/carp/asteroid
 	icon_state = "carp_asteroid"
@@ -255,6 +255,7 @@
 	health = 5
 	mob_size = 2
 	density = FALSE
+	destroy_surroundings = FALSE
 
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	harm_intent_damage = 5

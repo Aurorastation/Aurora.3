@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
-	desc_info = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
+	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease."
+	desc_extended = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
 	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
 	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."
 	icon = 'icons/obj/guns/heavysniper.dmi'
@@ -86,7 +86,7 @@
 /obj/item/gun/projectile/heavysniper/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(!has_scope)
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a scope!"))
@@ -110,6 +110,7 @@
 	ammo_type = /obj/item/ammo_casing/slugger
 	magazine_type = null
 	has_scope = FALSE
+	fire_delay = ROF_UNWIELDY
 
 /obj/item/gun/projectile/heavysniper/unathi/update_icon()
 	..()
@@ -141,7 +142,7 @@
 
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
-	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of the most dangerous of game. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
+	desc = "A less-than-lethal modification to the PTR-7 anti-materiel rifle, designed to incapacitate rioters. Fires .50 cal PPS shells that deploy a torpor-inducing drug payload."
 	icon = 'icons/obj/guns/tranqsniper.dmi'
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
@@ -151,7 +152,8 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 	caliber = "PPS"
 	recoil = 1
-	silenced = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	max_shells = 4
 	ammo_type = null
@@ -172,7 +174,7 @@
 
 /obj/item/gun/projectile/dragunov
 	name = "marksman rifle"
-	desc = "A semi-automatic marksman rifle. Uses 7.62mm rounds."
+	desc = "A semi-automatic marksman rifle."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
@@ -200,6 +202,7 @@
 
 	recoil_wielded = 1
 	accuracy_wielded = 1
+	fire_delay = ROF_SUPERHEAVY
 
 /obj/item/gun/projectile/dragunov/update_icon()
 	..()
@@ -217,7 +220,7 @@
 /obj/item/gun/projectile/dragunov/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -226,9 +229,9 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
-	desc = "The ZI Pointer, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. \
-	Features a longer, heavier barrel and low-power fixed-magnification optic in lieu of the grenade launcher. \
-	A vertical grip has been attached under the forend to help offset the change in balance and improve handling. Uses 5.56mm rounds."
+	desc = "The ZI Greyhound, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. Features a longer, heavier barrel \
+	with a low-power fixed-magnification optic. A vertical grip has been attached under the forend, to help offset the change in balance \
+	and improve handling."
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
@@ -253,7 +256,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1,-1), dispersion=list(0, 8))
 		)
 
@@ -267,7 +270,7 @@
 /obj/item/gun/projectile/automatic/rifle/w556/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)

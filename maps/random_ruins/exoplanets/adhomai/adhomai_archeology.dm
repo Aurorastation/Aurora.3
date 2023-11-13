@@ -46,7 +46,7 @@
 	uniform = /obj/item/clothing/under/tajaran/archeologist
 	suit = /obj/item/clothing/suit/storage/tajaran/archeologist
 	head = /obj/item/clothing/head/tajaran/archeologist
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	belt = /obj/item/melee/whip
 	accessory = /obj/item/clothing/accessory/holster/waist/brown

@@ -4,6 +4,7 @@
 	icon_state = "cannon"
 	scannable = TRUE
 	layer = ABOVE_OBJ_LAYER
+	requires_contact = FALSE
 
 	var/obj/item/ship_ammunition/ammunition
 	var/atom/target //The target is the actual overmap object we're hitting.

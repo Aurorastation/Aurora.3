@@ -42,30 +42,43 @@
 	assembly.state = 4
 	SSmachinery.all_cameras += src
 
-	/* // Use this to look for cameras that have the same c_tag.
-	for(var/obj/machinery/camera/C in cameranet.cameras)
-		var/list/tempnetwork = C.network&src.network
-		if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
-			world.log <<  "[src.c_tag] [src.x] [src.y] [src.z] conflicts with [C.c_tag] [C.x] [C.y] [C.z]"
-	*/
+	// Use this to look for cameras that have the same c_tag.
+	if(!isnull(src.c_tag))
+		for(var/obj/machinery/camera/C in cameranet.cameras)
+			var/list/tempnetwork = C.network&src.network
+			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
+				log_mapping_error("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
+
 	if(!src.network || src.network.len < 1)
 		if(loc)
-			log_error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
+			log_mapping_error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
 		else
-			log_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
+			log_mapping_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
+
+	set_pixel_offsets()
+
 	return ..()
 
 /obj/machinery/camera/Destroy()
 	SSmachinery.all_cameras -= src
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
-		qdel(assembly)
-		assembly = null
-	qdel(wires)
-	wires = null
+		QDEL_NULL(assembly)
+
+	cancelCameraAlarm(force = TRUE)
+
+	QDEL_NULL(wires)
+
+	cameranet.remove_source(src)
+	cameranet.cameras -= src
+
 	return ..()
+
+/obj/machinery/camera/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? -13 : 13)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? -3 : DEFAULT_WALL_OFFSET) : 0
 
 /obj/machinery/camera/process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
@@ -232,7 +245,7 @@
 				visible_message("<span class='notice'> [user] has deactivated [src]!</span>")
 			else
 				visible_message("<span class='notice'> [src] clicks and shuts down. </span>")
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
@@ -240,7 +253,7 @@
 				visible_message("<span class='notice'> [user] has reactivated [src]!</span>")
 			else
 				visible_message("<span class='notice'> [src] clicks and reactivates itself. </span>")
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
 
@@ -277,6 +290,9 @@
 	if(isXRay()) return SEE_TURFS|SEE_MOBS|SEE_OBJS
 	return 0
 
+/obj/machinery/camera/grants_equipment_vision(mob/user)
+	return can_use()
+
 //This might be redundant, because of check_eye()
 /obj/machinery/camera/proc/kick_viewers()
 	for(var/mob/O in player_list)
@@ -299,8 +315,8 @@
 	alarm_on = 1
 	camera_alarm.triggerAlarm(loc, src, duration)
 
-/obj/machinery/camera/proc/cancelCameraAlarm()
-	if(wires.IsIndexCut(CAMERA_WIRE_ALARM))
+/obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
+	if(wires.IsIndexCut(CAMERA_WIRE_ALARM) && !force)
 		return
 
 	alarm_on = 0
@@ -367,7 +383,7 @@
 
 	// Do after stuff here
 	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
-	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
+	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	user.flash_act(FLASH_PROTECTION_MAJOR)
 	busy = 1
 	if(WT.use_tool(src, user, 100, volume = 50))
@@ -435,7 +451,7 @@
 		update_coverage(1)
 
 /obj/machinery/camera/proc/nano_structure()
-	var/cam[0]
+	var/cam = list()
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
 	cam["camera"] = "\ref[src]"

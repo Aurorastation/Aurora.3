@@ -83,7 +83,7 @@
 			dust()
 
 /mob/living/simple_animal/rat/Destroy()
-	SSmob.all_rats -= src
+	SSmobs.all_rats -= src
 
 	return ..()
 
@@ -91,8 +91,8 @@
 	. = ..()
 
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
-	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
 
 	if(name == initial(name))
 		name = "[name] ([rand(1, 1000)])"
@@ -117,7 +117,7 @@
 		holder_type = /obj/item/holder/rat/irish
 
 
-	SSmob.all_rats += src
+	SSmobs.all_rats += src
 
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
@@ -251,7 +251,7 @@
 	if(client)
 		client.time_died_as_rat = world.time
 
-	SSmob.all_rats -= src
+	SSmobs.all_rats -= src
 
 	..()
 

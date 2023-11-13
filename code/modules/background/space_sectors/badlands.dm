@@ -4,6 +4,7 @@
 	weapon scientists, there's even a market for mercenaries, in the hunting of the particularly large and lethal creatures. Of course, there are also those looking to make a life for themselves, \
 	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
+	sector_welcome_message = 'sound/AI/welcome_badlands.ogg'
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert)
 	starlight_color = "#b13636"
 	starlight_power = 2
@@ -58,7 +59,7 @@
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/adhomai_welcome.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/tajara_hud.dmi'
-	sector_hud_menu_sound = 'sound/effects/tajara_menu_click.ogg'
+	sector_hud_menu_sound = 'sound/effects/menu_click_heavy.ogg'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/srandmarr/get_port_travel_time()

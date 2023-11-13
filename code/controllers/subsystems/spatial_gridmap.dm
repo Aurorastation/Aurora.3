@@ -96,9 +96,7 @@
  * as of right now this system operates on a subset of the important_recursive_contents list for atom/movable, specifically
  * [RECURSIVE_CONTENTS_HEARING_SENSITIVE] and [RECURSIVE_CONTENTS_CLIENT_MOBS] because both are those are both 1. important and 2. commonly searched for
  */
-/var/datum/controller/subsystem/spatial_grid/SSspatial_grid
-
-/datum/controller/subsystem/spatial_grid
+SUBSYSTEM_DEF(spatial_grid)
 	name = "Spatial Grid"
 	flags = SS_NO_FIRE
 
@@ -117,9 +115,6 @@
 	var/list/mob/abstract/oranges_ear/pregenerated_oranges_ears = list()
 	///how many pregenerated /mob/abstract/oranges_ear instances currently exist. this should hopefully never exceed its starting value
 	var/number_of_oranges_ears = NUMBER_OF_PREGENERATED_ORANGES_EARS
-
-/datum/controller/subsystem/spatial_grid/New()
-	NEW_SS_GLOBAL(SSspatial_grid)
 
 /datum/controller/subsystem/spatial_grid/Initialize(start_timeofday)
 	. = ..()

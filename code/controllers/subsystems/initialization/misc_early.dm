@@ -1,7 +1,7 @@
 // This is one of the first subsystems initialized by the MC.
 // Stuff that should be loaded before everything else that isn't significant enough to get its own SS goes here.
 
-/datum/controller/subsystem/misc_early
+SUBSYSTEM_DEF(misc_early)
 	name = "Early Miscellaneous Init"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE | SS_NO_DISPLAY

@@ -13,7 +13,7 @@
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
-	fire_delay = 8
+	fire_delay = ROF_HEAVY
 
 /obj/item/gun/projectile/plasma/update_icon()
 	..()
@@ -34,7 +34,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light)
 	caliber = "plasma bolt"
 	fire_sound = 'sound/weapons/gunshot/bolter.ogg'
-	fire_delay = 6
+	fire_delay = ROF_RIFLE
 
 /obj/item/gun/energy/mountedplasma
 	name = "plasma cannon"
@@ -49,7 +49,7 @@
 
 /obj/item/gun/projectile/plasma/bolter/pistol
 	name = "plasma pistol"
-	desc = "An Elyran designed firearm used for diplomatic protection and high value escort which fires super heated bolts of plasma. Rare outside of it's birth country due to the maintenance and production costs."
+	desc = "An Elyran designed firearm, used for diplomatic protection and high-value escort, which fires super heated bolts of plasma. Rare outside of Elyra due to the maintenance and production costs."
 	icon = 'icons/obj/guns/plasma_pistol.dmi'
 	icon_state = "plasma"
 	item_state = "plasma"
@@ -57,6 +57,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light/pistol)
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	accuracy = 1
+	fire_delay = ROF_INTERMEDIATE
 
 /obj/item/gun/projectile/plasma/bolter/pistol/update_icon()
 	..()

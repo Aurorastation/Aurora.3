@@ -30,7 +30,7 @@
 	anchored = TRUE
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "dirt"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/decal/cleanable/flour
 	name = "flour"
@@ -163,7 +163,7 @@
 
 /obj/effect/decal/cleanable/confetti/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
-	if(do_after(user, 60))
+	if(do_after(user, 6 SECONDS))
 		qdel(src)
 
 /obj/effect/decal/cleanable/acid_remnants

@@ -119,7 +119,7 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
-	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
+	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
 	if(!need_breathe())

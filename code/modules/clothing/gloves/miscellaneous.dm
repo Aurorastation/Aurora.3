@@ -284,6 +284,16 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
+/obj/item/clothing/gloves/tcaf
+	name = "\improper TCAF armsman gloves"
+	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_armsman_gloves"
+	item_state = "tcaf_armsman_gloves"
+	build_from_parts = TRUE
+	worn_overlay = "over"
+
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
 	desc = "A metal gauntlet armed with a wrist-mounted shotgun."
@@ -332,7 +342,7 @@
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
-	set name = "Unload Ballistic Gauntlet "
+	set name = "Unload Ballistic Gauntlet"
 	set desc = "Unload the shells from the gauntlet's mounted gun."
 	set category = "Object"
 	set src in usr

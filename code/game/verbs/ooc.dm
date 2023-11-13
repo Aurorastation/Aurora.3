@@ -1,3 +1,7 @@
+/client/verb/ooc_verb()
+	set name = ".OOC"
+	set hidden = TRUE
+	winset(src, null, "command=[src.tgui_say_create_open_command(OOC_CHANNEL)]")
 
 /client/verb/ooc(msg as text)
 	set name = "OOC"
@@ -7,17 +11,18 @@
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
-	if(!mob)	return
+	if(!mob)
+		return
+
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	msg = sanitize(msg)
-	if(!msg)	return
-
 	if(!(prefs.toggles & CHAT_OOC))
 		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
 		return
+
+	msg = sanitize(msg)
 
 	if(!holder)
 		if(!config.ooc_allowed)
@@ -222,3 +227,17 @@
 
 		pct += delta
 		winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
+
+/client/verb/refresh_tgui()
+	set name = "Refresh TGUI"
+	set category = "OOC"
+
+	for(var/window_id in tgui_windows)
+		var/datum/tgui_window/window = tgui_windows[window_id]
+		window.reinitialize()
+
+/client/verb/fix_stat_panel()
+	set name = "Fix-Stat-Panel"
+	set hidden = TRUE
+
+	init_verbs()

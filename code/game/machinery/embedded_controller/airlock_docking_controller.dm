@@ -11,10 +11,14 @@
 	docking_program = new/datum/computer/file/embedded_program/docking/airlock(src, airlock_program)
 	program = docking_program
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
+/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DockingAirlockConsole", name, ui_x=470, ui_y=250)
+		ui.open()
 
-	data = list(
+/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_data(mob/user)
+	return list(
 		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
 		"exterior_status" = airlock_program.memory["exterior_status"],
 		"interior_status" = airlock_program.memory["interior_status"],
@@ -24,42 +28,29 @@
 		"override_enabled" = docking_program.override_enabled
 	)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "docking_airlock_console.tmpl", name, 470, 290)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/obj/machinery/embedded_controller/radio/airlock/docking_port/Topic(href, href_list)
-	if(..())
+/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_act(action, params)
+	. = ..()
+	if(.)
 		return
 
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
-
-	var/clean = 0
-	switch(href_list["command"])	//anti-HTML-hacking checks
-		if("cycle_ext")
-			clean = 1
-		if("cycle_int")
-			clean = 1
-		if("force_ext")
-			clean = 1
-		if("force_int")
-			clean = 1
-		if("abort")
-			clean = 1
-		if("toggle_override")
-			clean = 1
-
-	if(clean)
-		program.receive_user_command(href_list["command"])
-
-	return 1
-
-
+	if(action == "command")
+		var/clean = FALSE
+		switch(params["command"])	//anti-HTML-hacking checks
+			if("cycle_ext")
+				clean = TRUE
+			if("cycle_int")
+				clean = TRUE
+			if("force_ext")
+				clean = TRUE
+			if("force_int")
+				clean = TRUE
+			if("abort")
+				clean = TRUE
+			if("toggle_override")
+				clean = TRUE
+		if(clean)
+			program.receive_user_command(params["command"])
+			return TRUE
 
 //A docking controller for an airlock based docking port
 /datum/computer/file/embedded_program/docking/airlock

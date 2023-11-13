@@ -99,7 +99,7 @@
 
 	dat += "</b></center>"
 
-	send_theme_resources(user)
+
 	var/datum/browser/arcade_win = new(user, "arcade", capitalize_first_letters(name))
 	arcade_win.set_content(dat)
 	arcade_win.open()

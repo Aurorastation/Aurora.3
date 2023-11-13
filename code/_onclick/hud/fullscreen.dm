@@ -66,7 +66,7 @@
 	icon = 'icons/mob/screen/full.dmi'
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer = HUD_LAYER - 0.1
 	var/severity = 0
 	var/allstate = 0 //shows if it should show up for dead people too

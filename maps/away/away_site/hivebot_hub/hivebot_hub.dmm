@@ -193,7 +193,8 @@
 	icon_state = "door_locked";
 	id_tag = "solar_outer";
 	locked = 1;
-	name = "Solar External Access"
+	name = "Solar External Access";
+	dir = 1
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -208,7 +209,7 @@
 	frequency = 1379;
 	id_tag = "solar_starboard_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "solar_starboard_pump";
 	tag_chamber_sensor = "solar_starboard_sensor";
 	tag_exterior_door = "solar_starboard_outer";
@@ -237,7 +238,8 @@
 	icon_state = "door_locked";
 	id_tag = "solar_inner";
 	locked = 1;
-	name = "Solar Access"
+	name = "Solar Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/yellow{
@@ -305,7 +307,7 @@
 	name = "interior access button";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_access = newlist()
+	req_access = null
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -482,12 +484,12 @@
 /obj/item/stack/material/steel,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "bc" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "bd" = (
@@ -508,7 +510,8 @@
 	icon_state = "door_locked";
 	id_tag = "centcom_shuttle_bay_door";
 	locked = 1;
-	name = "Transport Airlock"
+	name = "Transport Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -521,13 +524,13 @@
 	name = "interior access button";
 	pixel_x = -24;
 	pixel_y = 24;
-	req_access = newlist()
+	req_access = null
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "bh" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken4"
+	broken = 4
 	},
 /area/derelict)
 "bi" = (
@@ -550,6 +553,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/derelict)
+"bm" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	glass = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_shuttle_bay_door";
+	locked = 1;
+	name = "Transport Airlock";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "bo" = (
 /obj/structure/table/rack,
 /obj/random/tech_supply,
@@ -562,11 +577,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/airless,
 /area/derelict)
 "br" = (
@@ -599,8 +610,8 @@
 "bt" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -628,18 +639,18 @@
 /obj/structure/table/standard,
 /mob/living/simple_animal/hostile/hivebot/bomber,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "by" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken4"
+	broken = 4
 	},
 /area/derelict)
 "bz" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken1"
+	broken = 1
 	},
 /area/derelict)
 "bA" = (
@@ -647,7 +658,7 @@
 	frequency = 1379;
 	id_tag = "solar_starboard_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "solar_starboard_pump";
 	tag_chamber_sensor = "solar_starboard_sensor";
 	tag_exterior_door = "solar_starboard_outer";
@@ -708,7 +719,8 @@
 /area/derelict)
 "bI" = (
 /obj/machinery/door/airlock{
-	name = "Control room"
+	name = "Control room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -727,12 +739,12 @@
 "bM" = (
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken4"
+	broken = 4
 	},
 /area/derelict)
 "bN" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken0"
+	broken = 0
 	},
 /area/derelict)
 "bO" = (
@@ -780,7 +792,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken4"
+	broken = 4
 	},
 /area/derelict)
 "bV" = (
@@ -891,7 +903,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cl" = (
@@ -937,13 +949,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "ct" = (
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cu" = (
@@ -997,7 +1009,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "cC" = (
@@ -1049,7 +1061,7 @@
 "cJ" = (
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cK" = (
@@ -1102,8 +1114,8 @@
 "cU" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1121,12 +1133,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cW" = (
 /obj/machinery/door/airlock{
-	name = "Cantina"
+	name = "Cantina";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1172,7 +1185,7 @@
 "de" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -1207,13 +1220,13 @@
 /area/derelict)
 "dj" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "dk" = (
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "dl" = (
@@ -1249,7 +1262,7 @@
 "dq" = (
 /mob/living/simple_animal/hostile/hivebot/range/rapid,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "dr" = (
@@ -1280,10 +1293,10 @@
 "dw" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "dx" = (
@@ -1346,7 +1359,8 @@
 /area/derelict)
 "dN" = (
 /obj/machinery/door/airlock{
-	name = "Cantina"
+	name = "Cantina";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1373,14 +1387,14 @@
 "dY" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken0"
+	broken = 0
 	},
 /area/derelict)
 "dZ" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -1390,7 +1404,8 @@
 /area/derelict)
 "eb" = (
 /obj/machinery/door/airlock{
-	name = "Bunk room"
+	name = "Bunk room";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1453,7 +1468,7 @@
 "es" = (
 /mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "et" = (
@@ -1485,7 +1500,7 @@
 "eE" = (
 /mob/living/simple_animal/hostile/hivebot/bomber,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "eF" = (
@@ -1547,7 +1562,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "eV" = (
@@ -1559,7 +1574,8 @@
 /area/derelict)
 "eY" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1617,13 +1633,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken0"
+	broken = 0
 	},
 /area/derelict)
 "ff" = (
 /obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken4"
+	broken = 4
 	},
 /area/derelict)
 "fg" = (
@@ -1655,7 +1671,7 @@
 	frequency = 1379;
 	id_tag = "solar_starboard_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "solar_starboard_pump";
 	tag_chamber_sensor = "solar_starboard_sensor";
 	tag_exterior_door = "solar_starboard_outer";
@@ -1725,7 +1741,8 @@
 /area/derelict)
 "fr" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -1760,7 +1777,7 @@
 /obj/machinery/light/small,
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_broken0"
+	broken = 0
 	},
 /area/derelict)
 "fw" = (
@@ -30949,7 +30966,7 @@ ac
 av
 av
 aP
-bf
+bm
 av
 av
 av

@@ -51,11 +51,11 @@
 
 /datum/browser/proc/add_stylesheet(name, file)
 	stylesheets["[ckey(name)].css"] = file
-	register_asset("[ckey(name)].css", file)
+	SSassets.transport.register_asset("[ckey(name)].css", file)
 
 /datum/browser/proc/add_script(name, file)
 	scripts["[ckey(name)].js"] = file
-	register_asset("[ckey(name)].js", file)
+	SSassets.transport.register_asset("[ckey(name)].js", file)
 
 /datum/browser/proc/set_content(ncontent)
 	content = ncontent
@@ -66,10 +66,10 @@
 /datum/browser/proc/get_header()
 	var/file
 	for (file in stylesheets)
-		head_content += "<link rel='stylesheet' type='text/css' href='[file]'>"
+		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
 	for (file in scripts)
-		head_content += "<script type='text/javascript' src='[file]'></script>"
+		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
 	var/title_attributes = "class='uiTitle'"
 	if (title_image)
@@ -107,9 +107,9 @@
 	if (width && height)
 		window_size = "size=[width]x[height];"
 	if (stylesheets.len)
-		send_asset_list(user, stylesheets, verify = FALSE)
+		SSassets.transport.send_assets(user.client, stylesheets)
 	if (scripts.len)
-		send_asset_list(user, scripts, verify = FALSE)
+		SSassets.transport.send_assets(user.client, scripts)
 	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
 		setup_onclose()

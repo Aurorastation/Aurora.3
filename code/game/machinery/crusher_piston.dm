@@ -174,7 +174,7 @@
 	if(!pstn) //We dont process if theres no piston
 		return
 	if(process_lock)
-		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
+		LOG_DEBUG("crusher_piston process() has been called while it was still locked. Aborting")
 		return
 	process_lock = 1
 	var/timediff = world.time - action_start_time
@@ -467,7 +467,7 @@
 	density = 1
 	anchored = 1
 	opacity = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //
 // The piston_move proc for various objects

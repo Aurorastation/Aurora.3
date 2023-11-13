@@ -1,9 +1,9 @@
 /*
 	- Abstract machinery -
-	
+
 	Pretty much designed for whenever you want something that is not a machine to interact with the power grid.
 	Better to use one of these to be notified of power changes than poll with process().
-	
+
 */
 
 /obj/machinery/abstract
@@ -11,8 +11,8 @@
 	desc = "No matter how hard you look at it, you have no idea what it is. (please inform coders if you see this)"
 	simulated = FALSE
 	anchored = 1
-	mouse_opacity = 0
-	
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
 /obj/machinery/abstract/attack_ai(mob/user as mob)
 	return
 

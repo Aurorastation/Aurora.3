@@ -80,7 +80,6 @@
 /turf/simulated/floor,
 /area/bluespaceriver/ship)
 "ao" = (
-/obj/machinery/computer/power_monitor,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ap" = (
@@ -134,7 +133,9 @@
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "aB" = (
-/obj/machinery/door/airlock/command,
+/obj/machinery/door/airlock/command{
+	dir = 1
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -149,9 +150,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aE" = (
-/obj/machinery/r_n_d/server,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/research.dmi';
+	icon_state = "server";
+	name = "broken down R&D server";
+	desc = "A server which used to house a back-up of all ship research. It can be used to restore lost data, or to act as another point of retrieval. Looks like it's too far gone for that though.";
+	density = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -159,7 +166,9 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aG" = (
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/research{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -231,8 +240,7 @@
 /area/bluespaceriver/ship)
 "aW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -25;
 	rcon_setting = 3
 	},
@@ -254,7 +262,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/random/loot,
 /obj/machinery/light{
@@ -298,7 +306,7 @@
 /obj/machinery/artifact_harvester,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -372,6 +380,10 @@
 	dir = 8;
 	level = 2
 	},
+/obj/machinery/alarm/west{
+	pixel_x = -25;
+	rcon_setting = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bo" = (
@@ -405,7 +417,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/bluespaceriver/ship)
 "bt" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
@@ -457,7 +471,9 @@
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "bE" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -466,7 +482,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/white,
@@ -521,7 +537,6 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -531,10 +546,16 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bP" = (
 /obj/structure/fuel_port,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "bQ" = (
@@ -551,7 +572,7 @@
 /obj/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
 	pixel_x = 28;
-	req_access = newlist()
+	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -562,30 +583,27 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/power/smes/buildable,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 1
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "bW" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
+	dir = 1;
 	use_power = 1
 	},
 /turf/simulated/floor,
@@ -700,7 +718,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
@@ -778,14 +796,24 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24
+/obj/machinery/power/apc/high/north,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"ge" = (
+/obj/structure/curtain/open/bed,
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "hN" = (
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/research{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -815,11 +843,19 @@
 	temperature = 250
 	},
 /area/bluespaceriver/ground)
+"uq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/wall/titanium,
+/area/bluespaceriver/ship)
 "vc" = (
 /obj/structure/bookcase/libraryspawn/reference,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"AW" = (
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Co" = (
@@ -828,12 +864,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
+"Ed" = (
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
 "HI" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 250
 	},
 /area/bluespaceriver/ground)
+"Iz" = (
+/obj/machinery/alarm/north{
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bluespaceriver/ship)
 "JT" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
@@ -2542,7 +2590,7 @@ bD
 bG
 ay
 ay
-bC
+ay
 ac
 ac
 ac
@@ -2941,7 +2989,7 @@ an
 an
 at
 ay
-aF
+Ed
 aF
 aV
 bf
@@ -3041,7 +3089,7 @@ ac
 ac
 an
 ao
-aF
+AW
 ay
 aG
 aO
@@ -3049,7 +3097,7 @@ ay
 bf
 bt
 ay
-bJ
+ge
 ay
 bJ
 ay
@@ -3359,7 +3407,7 @@ bJ
 ay
 bJ
 ay
-ch
+Iz
 ay
 ay
 ay
@@ -3864,11 +3912,11 @@ ay
 ay
 bm
 hN
-ay
+uq
 dT
 bU
 ay
-bC
+ay
 ac
 ac
 ac
@@ -3968,7 +4016,7 @@ bn
 bq
 ay
 bP
-bV
+ay
 bC
 ac
 ac
@@ -4069,7 +4117,7 @@ an
 an
 bA
 ay
-bC
+bV
 bW
 ac
 ac

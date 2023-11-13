@@ -70,7 +70,7 @@
 		..()
 
 /obj/singularity/energy_ball/examine(mob/user)
-	..()
+	. = ..()
 	if(orbiting_balls.len)
 		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
 
@@ -440,3 +440,6 @@
 
 	else if(closest_structure)
 		closest_structure.tesla_act(power, melt)
+
+#undef TESLA_DEFAULT_POWER
+#undef TESLA_MINI_POWER

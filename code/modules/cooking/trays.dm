@@ -1,13 +1,13 @@
 /*
- * Trays - Nanako, ported by Jade
- */
- //Use tray on an item to load it.
- //To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
- //Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
+* Trays - Nanako, ported by Jade
+*/
+//Use tray on an item to load it.
+//To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
+//Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
 
 /obj/item/tray
 	name = "tray"
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
@@ -192,6 +192,7 @@
 	..()
 
 /obj/item/tray/dropped(mob/user)
+	. = ..()
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
 		if (ismob(loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob

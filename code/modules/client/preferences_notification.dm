@@ -153,7 +153,7 @@
 		var/cciaa_actions = count_ccia_actions(user)
 		if (cciaa_actions)
 			new_notification("info", cciaa_actions)
-		
+
 		add_active_notifications(user)
 
 /datum/preferences/proc/add_active_notifications(var/client/user)
@@ -161,7 +161,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		log_error("Error initiatlizing database connection while getting notifications.")
+		log_world("ERROR: Error initiatlizing database connection while getting notifications.")
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery({"SELECT
@@ -215,7 +215,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		log_error("Error initiatlizing database connection while counting CCIA actions.")
+		log_world("ERROR: Error initiatlizing database connection while counting CCIA actions.")
 		return null
 
 	var/DBQuery/prep_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")

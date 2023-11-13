@@ -29,7 +29,7 @@
 	data["supplier"] = supplier
 	data["supplier_data"] = supplier_datum.get_list()
 
-	//Adjust the price based on the supplier adjusetment and the categories
+	//Adjust the price based on the supplier adjustment and the categories
 	data["price_adjusted"] = get_adjusted_price()
 	return data
 
@@ -113,7 +113,7 @@
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
 	var/item_id = 1 //Current id of the item in the order
-	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate
+	var/item_num = 0 //Number of items in the container - Used to limit the items in the crate
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
 	var/container_type = "" //Type of the container for the order - cate, box
 	var/list/required_access = list() //Access required to unlock the crate
@@ -140,14 +140,14 @@
 		tracking_code = rand(1000,9999)
 	return tracking_code
 
-// Returns a list of the items in the order - Formated as list to be json_encoded
+// Returns a list of the items in the order - Formatted as list to be json_encoded
 /datum/cargo_order/proc/get_item_list()
 	var/list/item_list = list()
 	for (var/datum/cargo_order_item/coi in items)
 		item_list.Add(list(coi.get_list()))
 	return item_list
 
-// Returns a list of all the objects in the order - Formated as a list to be json_encoded
+// Returns a list of all the objects in the order - Formatted as a list to be json_encoded
 /datum/cargo_order/proc/get_object_list()
 	var/list/object_list = list()
 	for (var/datum/cargo_order_item/coi in items)
@@ -155,7 +155,7 @@
 			object_list.Add(object)
 	return object_list
 
-// Gets a list of the order data - Formated as list to be json_encoded
+// Gets a list of the order data - Formatted as list to be json_encoded
 /datum/cargo_order/proc/get_list()
 	var/list/data = list()
 	data["order_id"] = order_id
@@ -278,10 +278,10 @@
 		if(CARGO_CONTAINER_BODYBAG)
 			return /obj/structure/closet/body_bag
 		else
-			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
+			LOG_DEBUG("Cargo: Tried to get container type for invalid container [container_type]")
 			return /obj/structure/largecrate
 
-// Returns the numer of items that can be stored in the container
+// Returns the number of items that can be stored in the container
 /datum/cargo_order/proc/get_container_storage()
 	switch(container_type)
 		if(CARGO_CONTAINER_CRATE)
@@ -291,7 +291,7 @@
 		if(CARGO_CONTAINER_BOX)
 			return 5 //You can fit 5 larger items into a box
 		else
-			log_debug("Cargo: Tried to get storage size for invalid container [container_type]")
+			LOG_DEBUG("Cargo: Tried to get storage size for invalid container [container_type]")
 			return 0 //Something went wrong
 
 // Gets the list of the suppliers involved in the order
@@ -350,7 +350,7 @@
 		invoice_type = "Final"
 	order_data += "<h4>[invoice_type] Invoice #[order_id]</h4>"
 	order_data += "<hr>"
-	//List the personell involved in the order
+	//List the personnel involved in the order
 	order_data += "<u>Ordered by:</u> [ordered_by]<br>"
 	order_data += "<u>Submitted at:</u> [time_submitted]<br>"
 	if(authorized_by)

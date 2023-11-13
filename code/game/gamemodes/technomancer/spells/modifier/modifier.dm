@@ -14,11 +14,13 @@
 	set_light(spell_light_range, spell_light_intensity, l_color = light_color)
 
 /obj/item/spell/modifier/on_melee_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(isliving(hit_atom))
 		return on_add_modifier(hit_atom)
 	return FALSE
 
 /obj/item/spell/modifier/on_ranged_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(isliving(hit_atom))
 		return on_add_modifier(hit_atom)
 	return FALSE
@@ -34,7 +36,7 @@
 	qdel(src)
 	return TRUE
 
-// Technomancer specific subtype which keeps track of spell power and gets targeted specificially by Dispel.
+// Technomancer specific subtype which keeps track of spell power and gets targeted specifically by Dispel.
 /datum/modifier/technomancer
 	var/on_created_text
 	var/on_expired_text

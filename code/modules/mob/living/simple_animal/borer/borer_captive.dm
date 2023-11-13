@@ -65,6 +65,6 @@
 	to_chat(host, SPAN_DANGER("With an immense exertion of will, you regain control of your body!"))
 	to_chat(borer.host, SPAN_DANGER("You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you."))
 	borer.detach()
-	verbs -= /mob/living/carbon/proc/release_control
-	verbs -= /mob/living/carbon/proc/punish_host
-	verbs -= /mob/living/carbon/proc/spawn_larvae
+	remove_verb(src, /mob/living/carbon/proc/release_control)
+	remove_verb(src, /mob/living/carbon/proc/punish_host)
+	remove_verb(src, /mob/living/carbon/proc/spawn_larvae)

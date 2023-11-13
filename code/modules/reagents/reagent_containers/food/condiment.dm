@@ -8,7 +8,7 @@
 /obj/item/reagent_containers/food/condiment
 	name = "condiment container"
 	desc = "Just your average condiment container."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/condiment.dmi'
 	icon_state = "emptycondiment"
 	flags = OPENCONTAINER
 	possible_transfer_amounts = list(1,5,10)
@@ -40,10 +40,8 @@
 	if(fixed_state && !force)
 		return
 	if(isemptylist(reagents.reagent_volumes))
-		icon_state = "emptycondiment"
 		name = "condiment bottle"
 		desc = "An empty condiment bottle."
-		center_of_mass = list("x"=16, "y"=6)
 		return
 
 	var/singleton/reagent/master = reagents.get_primary_reagent_decl()
@@ -64,12 +62,10 @@
 
 /obj/item/reagent_containers/food/condiment/shaker
 	name = "shaker"
+	empty_icon_state = "emptyshaker"
 	volume = 20
-	fixed_state = TRUE
 	center_of_mass = list("x"=17, "y"=11)
 	amount_per_transfer_from_this = 1
-	volume = 20
-	fixed_state = TRUE
 
 /obj/item/reagent_containers/food/condiment/shaker/Initialize()
 	. = ..()
@@ -94,6 +90,16 @@
 	icon_state = "spacespicebottle"
 	volume = 40
 	reagents_to_add = list(/singleton/reagent/spacespice = 40)
+
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles
+	icon_state = "sprinklesbottle"
+	volume = 40
+	reagents_to_add = list(/singleton/reagent/nutriment/sprinkles = 40)
+
+/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice
+	icon_state = "spacespicebottle"
+	volume = 40
+	reagents_to_add = list(/singleton/reagent/spacespice/pumpkinspice = 40)
 
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
@@ -252,6 +258,3 @@
 
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
 	reagents_to_add = list(/singleton/reagent/crayon_dust/brown = 10)
-
-
-//End of MRE stuff.

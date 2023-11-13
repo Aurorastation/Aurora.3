@@ -29,6 +29,9 @@
 		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(A))
 		imbued_from = R
 		T.rune = new R.rune.type
+		if(istype(R.rune, /datum/rune/teleport))
+			var/datum/rune/teleport/teleport_rune = R.rune
+			T.network = teleport_rune.network
 		break
 	if(imbued_from)
 		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))

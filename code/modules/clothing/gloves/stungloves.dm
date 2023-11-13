@@ -33,12 +33,12 @@
 	//add cell
 	else if(wired && istype(W, /obj/item/cell))
 		if(cell)
-			to_chat(user, "<span class='notice'>A [cell] is already attached to the [src].</span>")
+			to_chat(user, "<span class='notice'>\A [cell] is already attached to the [src].</span>")
 			return
 		user.drop_from_inventory(W,src)
 		cell = W
 		w_class = ITEMSIZE_NORMAL
-		to_chat(user, "<span class='notice'>You attach the [cell] to the [src].</span>")
+		to_chat(user, "<span class='notice'>You attach \the [cell] to the [src].</span>")
 		update_icon()
 		return
 
@@ -47,7 +47,7 @@
 		//stunglove stuff
 		if(cell)
 			cell.update_icon()
-			to_chat(user, "<span class='notice'>You cut the [cell] away from the [src].</span>")
+			to_chat(user, "<span class='notice'>You cut \the [cell] away from the [src].</span>")
 			cell.forceMove(get_turf(src.loc))
 			cell = null
 			w_class = ITEMSIZE_SMALL

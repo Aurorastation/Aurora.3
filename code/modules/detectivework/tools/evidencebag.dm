@@ -96,8 +96,9 @@
 	return
 
 /obj/item/evidencebag/examine(mob/user)
-	..(user)
-	if (stored_item) user.examinate(stored_item)
+	. = ..()
+	if (stored_item)
+		examinate(user, stored_item)
 
 /obj/item/evidencebag/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))

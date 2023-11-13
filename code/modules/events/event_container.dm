@@ -46,7 +46,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new next_event.event_type(next_event)	// Events are added and removed from the processing queue in their New/kill procs
 
-		log_debug("Starting event '[next_event.name]' of severity [severity_to_string[severity]].")
+		LOG_DEBUG("Starting event '[next_event.name]' of severity [severity_to_string[severity]].")
 		next_event = null						// When set to null, a random event will be selected next time
 	else
 		// If not, wait for one minute, instead of one tick, before checking again.
@@ -111,7 +111,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		var/event_delay = rand(config.event_delay_lower[severity], config.event_delay_upper[severity]) * playercount_modifier
 		next_event_time = world.time + event_delay
 
-	log_debug("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
+	LOG_DEBUG("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
 
 /datum/event_container/proc/SelectEvent()
 	var/datum/event_meta/EM = input("Select an event to queue up.", "Event Selection", null) as null|anything in available_events
@@ -233,7 +233,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Nothing",					/datum/event/nothing,					135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list("Engineer" = 2), pop_needed = 10),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Space Vines",				/datum/event/spacevine, 				0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Spider Infestation",		/datum/event/spider_infestation,		25,	 	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Major Vermin Infestation",	/datum/event/infestation/major, 		15,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),

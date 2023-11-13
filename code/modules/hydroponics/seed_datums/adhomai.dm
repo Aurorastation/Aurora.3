@@ -129,7 +129,7 @@
 	display_name = "sugar trees"
 	seed_noun = SEED_NOUN_SEEDS
 	mutants = null
-	chems = list(/singleton/reagent/sugar = list(2, 10))
+	chems = list(/singleton/reagent/sugar = list(2, 10), /singleton/reagent/nutriment/gelatin = list(2, 5))
 	kitchen_tag = "nmshaan"
 
 /datum/seed/nmshaan/setup_traits()

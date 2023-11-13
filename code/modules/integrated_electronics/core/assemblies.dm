@@ -1,6 +1,3 @@
-#define IC_COMPONENTS_BASE 25
-#define IC_COMPLEXITY_BASE 75
-
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
 	desc = "It's a case, for building small electronics with."
@@ -152,6 +149,7 @@
 	set name = "Rename Circuit"
 	set category = "Object"
 	set desc = "Rename your circuit, useful to stay organized."
+	set src in usr
 
 	var/mob/M = usr
 	if(!check_interactivity(M))
@@ -184,9 +182,9 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/device/electronic_assembly/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
+/obj/item/device/electronic_assembly/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			IC.external_examine(user)
 		if(opened)
@@ -331,7 +329,7 @@
 
 	var/obj/item/integrated_circuit/input/choice
 	if(available_inputs)
-		var/selection = input(user, "What do you want to interact with?", "Interaction") as null|anything in input_selection
+		var/selection = tgui_input_list(user, "What do you want to interact with?", "Interaction", input_selection)
 		if(selection)
 			var/index = input_selection.Find(selection)
 			choice = available_inputs[index]

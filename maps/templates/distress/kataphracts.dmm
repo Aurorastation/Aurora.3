@@ -2,16 +2,10 @@
 "a" = (
 /obj/machinery/power/emitter,
 /obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "b" = (
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "c" = (
 /obj/structure/table/rack,
@@ -45,10 +39,7 @@
 	},
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "d" = (
 /obj/structure/closet/crate/freezer{

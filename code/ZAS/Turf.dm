@@ -5,9 +5,9 @@
 /turf/var/datum/gas_mixture/air
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
-	if (LAZYLEN(graphic_add))
+	if(graphic_add && LAZYLEN(graphic_add))
 		vis_contents += graphic_add
-	if(LAZYLEN(graphic_remove))
+	if(graphic_remove && LAZYLEN(graphic_remove))
 		vis_contents -= graphic_remove
 
 /turf/proc/update_air_properties()
@@ -111,7 +111,7 @@
 	ATMOS_CANPASS_TURF(s_block, src, src)
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
-		if(verbose) log_debug("Self-blocked.")
+		log_subsystem_zas_debug("Self-blocked.")
 		//dbg(blocked)
 		#endif
 		if(zone)
@@ -145,7 +145,7 @@
 		if(block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) log_debug("[d] is blocked.")
+			log_subsystem_zas_debug("[d] is blocked.")
 			//unsim.dbg(air_blocked, turn(180,d))
 			#endif
 
@@ -156,7 +156,7 @@
 		if(r_block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) log_debug("[d] is blocked.")
+			log_subsystem_zas_debug("[d] is blocked.")
 			//dbg(air_blocked, d)
 			#endif
 
@@ -190,7 +190,7 @@
 					//    we are blocking them and not blocking ourselves - this prevents tiny zones from forming on doorways.
 					if(((block & ZONE_BLOCKED) && !(r_block & ZONE_BLOCKED)) || ((r_block & ZONE_BLOCKED) && !(s_block & ZONE_BLOCKED)))
 						#ifdef ZASDBG
-						if(verbose) log_debug("[d] is zone blocked.")
+						log_subsystem_zas_debug("[d] is zone blocked.")
 
 						//dbg(zone_blocked, d)
 						#endif
@@ -202,21 +202,23 @@
 
 						#ifdef ZASDBG
 						dbg(assigned)
-						if(verbose) log_debug("Added to [zone]")
+						log_subsystem_zas_debug("Added to [zone]")
 						#endif
 
 				else if(sim.zone != zone)
 
 					#ifdef ZASDBG
-					if(verbose) log_debug("Connecting to [sim.zone]")
+					log_subsystem_zas_debug("Connecting to [sim.zone]")
 					#endif
 
 					SSair.connect(src, sim)
 
 			#ifdef ZASDBG
-				else if(verbose) log_debug("[d] has same zone.")
+				else
+					log_subsystem_zas("[d] has same zone.")
 
-			else if(verbose) log_debug("[d] has invalid zone.")
+			else
+				log_subsystem_zas("[d] has invalid zone.")
 			#endif
 		else
 			//Postponing connections to tiles until a zone is assured.
@@ -251,26 +253,16 @@
 	//Create gas mixture to hold data for passing
 	var/datum/gas_mixture/GM = new
 
-	GM.adjust_multi(GAS_OXYGEN, oxygen, GAS_CO2, carbon_dioxide, GAS_NITROGEN, nitrogen, GAS_PHORON, phoron, GAS_HYDROGEN, hydrogen)
-	GM.temperature = temperature
-
-	return GM
-
-/turf/remove_air(amount as num)
-	var/datum/gas_mixture/GM = new
-
-	var/sum = oxygen + carbon_dioxide + nitrogen + phoron
-	if(sum>0)
-		GM.gas[GAS_OXYGEN] = (oxygen/sum)*amount
-		GM.gas[GAS_CO2] = (carbon_dioxide/sum)*amount
-		GM.gas[GAS_NITROGEN] = (nitrogen/sum)*amount
-		GM.gas[GAS_PHORON] = (phoron/sum)*amount
-		GM.gas[GAS_HYDROGEN] = (hydrogen/sum)*amount
-
+	if(initial_gas)
+		GM.gas = initial_gas.Copy()
 	GM.temperature = temperature
 	GM.update_values()
 
 	return GM
+
+/turf/remove_air(amount as num)
+	var/datum/gas_mixture/GM = return_air()
+	return GM.remove(amount)
 
 /turf/simulated/assume_air(datum/gas_mixture/giver)
 	var/datum/gas_mixture/my_air = return_air()
@@ -285,10 +277,6 @@
 		my_air.adjust_gas_temp(gasid, moles, temp)
 
 	return 1
-
-/turf/simulated/remove_air(amount as num)
-	var/datum/gas_mixture/my_air = return_air()
-	return my_air.remove(amount)
 
 /turf/simulated/return_air()
 	if(zone)
@@ -308,9 +296,9 @@
 /turf/proc/make_air()
 	air = new/datum/gas_mixture
 	air.temperature = temperature
-	air.adjust_multi(GAS_OXYGEN, oxygen, GAS_CO2, carbon_dioxide, GAS_NITROGEN, nitrogen, GAS_PHORON, phoron, GAS_HYDROGEN, hydrogen)
-	air.group_multiplier = 1
-	air.volume = CELL_VOLUME
+	if(initial_gas)
+		air.gas = initial_gas.Copy()
+	air.update_values()
 
 /turf/simulated/proc/c_copy_air()
 	if(!air)

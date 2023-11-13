@@ -34,6 +34,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
+	surgerysound = 'sound/items/surgery/bonesetter.ogg'
 	drop_sound = 'sound/items/drop/wrench.ogg'
 	pickup_sound = 'sound/items/pickup/wrench.ogg'
 
@@ -62,7 +63,8 @@
 	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-	usesound = 'sound/items/screwdriver.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
+	surgerysound = 'sound/items/Screwdriver.ogg'
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
@@ -137,7 +139,8 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
 	edge = TRUE
-	usesound = 'sound/items/wirecutter.ogg'
+	usesound = 'sound/items/Wirecutter.ogg'
+	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
@@ -219,7 +222,8 @@
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
-	usesound = 'sound/items/welder.ogg'
+	usesound = 'sound/items/Welder.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
@@ -335,8 +339,9 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user)
-	if(..(user, 0))
+/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
@@ -454,7 +459,7 @@
 				log_and_message_admins("is attempting to welderbomb", user)
 				to_chat(user, SPAN_ALERT("You start heating the fueltank..."))
 				tank.armed = 1
-				if(do_after(user, 100))
+				if(do_after(user, 10 SECONDS, O, DO_UNIQUE))
 					if(tank.defuse)
 						user.visible_message("[user] melts some of the framework on the [O]!", "You melt some of the framework!")
 						tank.defuse = 0
@@ -691,6 +696,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
+	surgerysound = 'sound/items/surgery/retractor.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
@@ -791,7 +797,7 @@
 
 /obj/item/combitool/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
 
 /obj/item/combitool/iswrench()
@@ -850,7 +856,7 @@
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings:")
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")

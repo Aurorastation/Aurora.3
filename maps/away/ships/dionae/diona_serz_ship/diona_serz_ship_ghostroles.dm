@@ -7,7 +7,7 @@
 	tags = list("External")
 
 	spawnpoints = list("serz_voidtamer")
-	max_count = 2
+	max_count = 3
 
 	outfit = /datum/outfit/admin/serz_voidtamer
 
@@ -34,7 +34,7 @@
 	)
 
 	id = null
-	
+
 	l_ear = /obj/item/device/radio/headset/ship
 
 	l_pocket = /obj/item/device/radio

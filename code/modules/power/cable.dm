@@ -156,7 +156,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 		for(var/mob/O in viewers(src, null))
 			O.show_message(SPAN_WARNING("[user] cuts the cable."), 1)
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
 			var/turf/turf = GetBelow(src)
@@ -488,6 +488,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	var/static/list/possible_cable_coil_colours = list(
 		"Yellow" = COLOR_YELLOW,
 		"Green" = COLOR_LIME,
@@ -516,10 +517,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	update_wclass()
 
 /obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
-	if(..())
-		return TRUE
-
-	if(ishuman(M))
+	if(ishuman(M) && user.a_intent == I_HELP)
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
@@ -531,9 +529,9 @@ By design, d1 is the smallest direction and d2 is the highest
 			if(!BP_IS_ROBOTIC(affecting))
 				if(affecting.is_bandaged())
 					to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been closed."))
-					return ..()
+					return
 				else
-					if(amount <= 10)
+					if(!can_use(10, user))
 						to_chat(user, SPAN_NOTICE("You don't have enough coils for this!"))
 						return
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -553,15 +551,14 @@ By design, d1 is the smallest direction and d2 is the highest
 							W.bandage("cable-stitched")
 							use(10)
 							affecting.add_pain(25)
-							if(prob(50))
+							if(prob(min(30 + (germ_level/5), 65))) //Less chance of infection if you clean the coil. Coil's germ level is set to GERM_LEVEL_AMBIENT
 								var/obj/item/organ/external/O = H.get_organ(user.zone_sel.selecting)
-								to_chat(H, SPAN_DANGER("Something burns in your [O.name]!"))
-								O.germ_level += rand(400, 600)
+								O.germ_level += rand(150, 250) + germ_level //Again, if you did your prep, the infection will not be as bad
 						else
 							to_chat(user, SPAN_NOTICE("This wound isn't large enough for a stitch!"))
 					affecting.update_damages()
-			else
-				return ..()
+	else
+		return ..()
 
 /obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
 	if(ishuman(M))
@@ -605,7 +602,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
-			playsound(target, 'sound/items/wirecutter.ogg', 15)
+			playsound(target, 'sound/items/Wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough cable for this!"))
@@ -637,7 +634,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/item/stack/cable_coil/proc/choose_cable_color(var/user)
-	var/selected_type = input("Pick a new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
+	var/selected_type = tgui_input_list(user, "Pick a new colour.", "Cable Colour", possible_cable_coil_colours)
 	set_cable_color(selected_type, user)
 
 /obj/item/stack/cable_coil/proc/set_cable_color(selected_color, var/user)
@@ -660,7 +657,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		slot_flags = SLOT_BELT
 
 /obj/item/stack/cable_coil/examine(mob/user)
-	..()
+	. = ..()
 	if(!uses_charge)
 		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 	else
@@ -669,6 +666,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
 	set category = "Object"
+	set src in usr
 
 	if(ishuman(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
 		if(!isturf(usr.loc))
@@ -697,6 +695,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
 	set category = "Object"
+	set src in usr
 
 	choose_cable_color(usr)
 
@@ -994,6 +993,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/verb/make_noose()
 	set name = "Make Noose"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
@@ -1043,7 +1043,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/noose/attackby(obj/item/I, mob/user, params)
 	if(I.iswirecutter())
 		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))
 			var/mob/living/M = buckled
 			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),\
@@ -1078,10 +1078,10 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/mob/living/M = buckled
 		if(M != user)
 			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
-								 SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
+									SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
 			if(do_mob(user, M, 100))
 				user.visible_message(SPAN_NOTICE("[user] unties the noose over [M]'s neck!"),\
-									 SPAN_NOTICE("You untie the noose over [M]'s neck!"))
+										SPAN_NOTICE("You untie the noose over [M]'s neck!"))
 			else
 				return
 		else
@@ -1128,7 +1128,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-		SSfeedback.IncrementSimpleStat("hangings")
+		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
 	else
 		M.visible_message(\
@@ -1141,7 +1141,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
 					SPAN_DANGER("[user] ties \the [src] over your neck!"))
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-				SSfeedback.IncrementSimpleStat("hangings")
+				SSstatistics.IncrementSimpleStat("hangings")
 				return TRUE
 			else
 				user.visible_message(\

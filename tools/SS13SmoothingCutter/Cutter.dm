@@ -42,123 +42,122 @@
 		outputIcon = icon(filename) //open the icon again each iteration, to work around byond memory limits
 
 		switch(statename)
-			if("box")
-				var/icon/box = icon(sourceIcon, state)
+			if("i")
+				var/icon/i = icon(sourceIcon, state)
 
-				var/icon/corner1i = icon(box)
-				corner1i.DrawBox(null, 1, 1, 32, 16)
+				var/icon/corner1i = icon(i)
+				corner1i.DrawBox(null, 1, 1, 32, 24)
 				corner1i.DrawBox(null, 17, 1, 32, 32)
 				outputIcon.Insert(corner1i, "1-i")
 
-				var/icon/corner2i = icon(box)
+				var/icon/corner2i = icon(i)
 				corner2i.DrawBox(null, 1, 1, 16, 32)
-				corner2i.DrawBox(null, 17, 1, 32, 16)
+				corner2i.DrawBox(null, 17, 1, 32, 24)
 				outputIcon.Insert(corner2i, "2-i")
 
-				var/icon/corner3i = icon(box)
-				corner3i.DrawBox(null, 1, 32, 32, 17)
+				var/icon/corner3i = icon(i)
+				corner3i.DrawBox(null, 1, 32, 16, 25)
 				corner3i.DrawBox(null, 17, 32, 32, 1)
 				outputIcon.Insert(corner3i, "3-i")
 
-				var/icon/corner4i = icon(box)
+				var/icon/corner4i = icon(i)
 				corner4i.DrawBox(null, 1, 1, 16, 32)
-				corner4i.DrawBox(null, 17, 17, 32, 32)
+				corner4i.DrawBox(null, 17, 32, 32, 25)
 				outputIcon.Insert(corner4i, "4-i")
 
-				world << "Box: [icon2html(box, usr)] -> [icon2html(corner1i, usr)] [icon2html(corner2i, usr)] [icon2html(corner3i, usr)] [icon2html(corner4i, usr)]"
-
-			if("line")
-				var/icon/line = icon(sourceIcon, state)
+			if("ns")
+				var/icon/ns = icon(sourceIcon, state)
 
 				//Vertical
-				var/icon/line1n = icon(line)
-				line1n.DrawBox(null, 1, 1, 32, 16)
+				var/icon/line1n = icon(ns)
+				line1n.DrawBox(null, 1, 1, 32, 24)
 				line1n.DrawBox(null, 17, 1, 32, 32)
 				outputIcon.Insert(line1n, "1-n")
 
-				var/icon/line2n = icon(line)
+				var/icon/line2n = icon(ns)
 				line2n.DrawBox(null, 1, 1, 16, 32)
-				line2n.DrawBox(null, 17, 1, 32, 16)
+				line2n.DrawBox(null, 17, 1, 32, 24)
 				outputIcon.Insert(line2n, "2-n")
 
-				var/icon/line3s = icon(line)
-				line3s.DrawBox(null, 1, 32, 32, 17)
+				var/icon/line3s = icon(ns)
+				line3s.DrawBox(null, 1, 32, 16, 25)
 				line3s.DrawBox(null, 17, 32, 32, 1)
 				outputIcon.Insert(line3s, "3-s")
 
-				var/icon/line4s = icon(line)
+				var/icon/line4s = icon(ns)
 				line4s.DrawBox(null, 1, 1, 16, 32)
-				line4s.DrawBox(null, 17, 17, 32, 32)
+				line4s.DrawBox(null, 17, 32, 32, 25)
 				outputIcon.Insert(line4s, "4-s")
 
+			if("we")
+				var/icon/we = icon(sourceIcon, state)
+
 				//Horizontal
-				var/icon/line1w = icon(line3s) //Correct
-				line1w.Turn(90)
+				var/icon/line1w = icon(we)
+				line1w.DrawBox(null, 1, 1, 32, 24)
+				line1w.DrawBox(null, 17, 1, 32, 32)
 				outputIcon.Insert(line1w, "1-w")
 
-				var/icon/line2e = icon(line1n)
-				line2e.Turn(90)
+				var/icon/line2e = icon(we)
+				line2e.DrawBox(null, 1, 1, 16, 32)
+				line2e.DrawBox(null, 17, 1, 32, 24)
 				outputIcon.Insert(line2e, "2-e")
 
-				var/icon/line3w = icon(line4s)
-				line3w.Turn(90)
+				var/icon/line3w = icon(we)
+				line3w.DrawBox(null, 1, 32, 16, 25)
+				line3w.DrawBox(null, 17, 32, 32, 1)
 				outputIcon.Insert(line3w, "3-w")
 
-				var/icon/line4e = icon(line2n)
-				line4e.Turn(90)
+				var/icon/line4e = icon(we)
+				line4e.DrawBox(null, 1, 1, 16, 32)
+				line4e.DrawBox(null, 17, 32, 32, 25)
 				outputIcon.Insert(line4e, "4-e")
 
-				world << "Line: [icon2html(line, usr)] -> [icon2html(line1n, usr)] [icon2html(line2n, usr)] [icon2html(line3s, usr)] [icon2html(line4s, usr)] [icon2html(line1w, usr)] [icon2html(line2e, usr)] [icon2html(line3w, usr)] [icon2html(line4e, usr)]"
+			if("nwse")
+				var/icon/nwse = icon(sourceIcon, state)
 
-			if("center_4")
-				var/icon/center4 = icon(sourceIcon, state)
-
-				var/icon/corner1nw = icon(center4)
-				corner1nw.DrawBox(null, 1, 1, 32, 16)
+				var/icon/corner1nw = icon(nwse)
+				corner1nw.DrawBox(null, 1, 1, 32, 24)
 				corner1nw.DrawBox(null, 17, 1, 32, 32)
 				outputIcon.Insert(corner1nw, "1-nw")
 
-				var/icon/corner2ne = icon(center4)
+				var/icon/corner2ne = icon(nwse)
 				corner2ne.DrawBox(null, 1, 1, 16, 32)
-				corner2ne.DrawBox(null, 17, 1, 32, 16)
+				corner2ne.DrawBox(null, 17, 1, 32, 24)
 				outputIcon.Insert(corner2ne, "2-ne")
 
-				var/icon/corner3sw = icon(center4)
-				corner3sw.DrawBox(null, 1, 32, 32, 17)
+				var/icon/corner3sw = icon(nwse)
+				corner3sw.DrawBox(null, 1, 32, 16, 25)
 				corner3sw.DrawBox(null, 17, 32, 32, 1)
 				outputIcon.Insert(corner3sw, "3-sw")
 
-				var/icon/corner4se = icon(center4)
+				var/icon/corner4se = icon(nwse)
 				corner4se.DrawBox(null, 1, 1, 16, 32)
-				corner4se.DrawBox(null, 17, 17, 32, 32)
+				corner4se.DrawBox(null, 17, 32, 32, 25)
 				outputIcon.Insert(corner4se, "4-se")
 
-				world << "Center4: [icon2html(center4, usr)] -> [icon2html(corner1nw, usr)] [icon2html(corner2ne, usr)] [icon2html(corner3sw, usr)] [icon2html(corner4se, usr)]"
+			if("f")
+				var/icon/f = icon(sourceIcon, state)
 
-			if("center_8")
-				var/icon/center8 = icon(sourceIcon, state)
-
-				var/icon/corner1f = icon(center8)
-				corner1f.DrawBox(null, 1, 1, 32, 16)
+				var/icon/corner1f = icon(f)
+				corner1f.DrawBox(null, 1, 1, 32, 24)
 				corner1f.DrawBox(null, 17, 1, 32, 32)
 				outputIcon.Insert(corner1f, "1-f")
 
-				var/icon/corner2f = icon(center8)
+				var/icon/corner2f = icon(f)
 				corner2f.DrawBox(null, 1, 1, 16, 32)
-				corner2f.DrawBox(null, 17, 1, 32, 16)
+				corner2f.DrawBox(null, 17, 1, 32, 24)
 				outputIcon.Insert(corner2f, "2-f")
 
-				var/icon/corner3f = icon(center8)
-				corner3f.DrawBox(null, 1, 32, 32, 17)
+				var/icon/corner3f = icon(f)
+				corner3f.DrawBox(null, 1, 32, 16, 25)
 				corner3f.DrawBox(null, 17, 32, 32, 1)
 				outputIcon.Insert(corner3f, "3-f")
 
-				var/icon/corner4f = icon(center8)
+				var/icon/corner4f = icon(f)
 				corner4f.DrawBox(null, 1, 1, 16, 32)
-				corner4f.DrawBox(null, 17, 17, 32, 32)
+				corner4f.DrawBox(null, 17, 32, 32, 25)
 				outputIcon.Insert(corner4f, "4-f")
-
-				world << "Center8: [icon2html(center8, usr)] -> [icon2html(corner1f, usr)] [icon2html(corner2f, usr)] [icon2html(corner3f, usr)] [icon2html(corner4f, usr)]"
 
 			if("diag")
 				var/icon/diag = icon(sourceIcon, state)
@@ -178,8 +177,6 @@
 				diagnw.Turn(180)
 				outputIcon.Insert(diagnw, "d-nw")
 
-				world << "Diag: [icon2html(diag, usr)] -> [icon2html(diagse, usr)] [icon2html(diagsw, usr)] [icon2html(diagne, usr)] [icon2html(diagnw, usr)]"
-
 			if("diag_corner_a")
 				var/icon/diag_corner_a = icon(sourceIcon, state)
 
@@ -198,8 +195,6 @@
 				diagnw0.Turn(180)
 				outputIcon.Insert(diagnw0, "d-nw-0")
 
-				world << "Diag_Corner_A: [icon2html(diag_corner_a, usr)] -> [icon2html(diagse0, usr)] [icon2html(diagsw0, usr)] [icon2html(diagne0, usr)] [icon2html(diagnw0, usr)]"
-
 			if("diag_corner_b")
 				var/icon/diag_corner_b = icon(sourceIcon, state)
 
@@ -217,8 +212,6 @@
 				var/icon/diagnw1 = icon(diag_corner_b)
 				diagnw1.Turn(180)
 				outputIcon.Insert(diagnw1, "d-nw-0")
-
-				world << "Diag_Corner_B: [icon2html(diag_corner_b, usr)] -> [icon2html(diagse1, usr)] [icon2html(diagsw1, usr)] [icon2html(diagne1, usr)] [icon2html(diagnw1, usr)]"
 
 
 

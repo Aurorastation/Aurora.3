@@ -188,6 +188,7 @@
 	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
 		checks++
+		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
 		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")

@@ -151,7 +151,7 @@
 	set_trait(TRAIT_PRODUCTION,6)
 	set_trait(TRAIT_YIELD,6)
 	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"peanut")
+	set_trait(TRAIT_PRODUCT_ICON,"nuts")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#F2B369")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
@@ -179,6 +179,28 @@
 
 /obj/item/seeds/soyaseed
 	seed_type = "soybean"
+
+
+/datum/seed/chickpea
+	name = "chickpea"
+	seed_name = "chickpea"
+	display_name = "chickpeas"
+	chems = list(/singleton/reagent/nutriment = list(1, 20))
+	kitchen_tag = "chickpeas"
+
+/datum/seed/chickpea/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION, 4)
+	set_trait(TRAIT_PRODUCTION, 4)
+	set_trait(TRAIT_YIELD, 3)
+	set_trait(TRAIT_POTENCY, 5)
+	set_trait(TRAIT_PRODUCT_ICON, "bean")
+	set_trait(TRAIT_PRODUCT_COLOUR, "#e0ce25")
+	set_trait(TRAIT_PLANT_ICON, "bush2")
+
+/obj/item/seeds/chickpeas
+	seed_type = "chickpea"
 
 ///////////////
 //  Cabbage  //

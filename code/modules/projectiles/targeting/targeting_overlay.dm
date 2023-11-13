@@ -9,7 +9,7 @@
 	layer = FLY_LAYER
 	appearance_flags = NO_CLIENT_COLOR
 	simulated = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/mob/living/aiming_at   // Who are we currently targeting, if anyone?
 	var/obj/item/aiming_with   // What are we targeting with?

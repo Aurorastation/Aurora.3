@@ -33,7 +33,7 @@
 	if(usr)
 		if (usr.client)
 			if(usr.client.holder)
-				to_chat(M, "\bold You hear a voice in your head... \italic [msg]")
+				to_chat(M, "<b>You hear a voice in your head... <i>[msg]</i></b>")
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("<span class='notice'><b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</b></span>", 1)
@@ -249,7 +249,7 @@ Ccomp's first proc.
 
 	for(var/mob/M in mobs)
 		var/name = M.name
-		ghosts[name] = M                                        //get the name of the mob for the popup list
+		ghosts[name] = M	//get the name of the mob for the popup list
 	if(what==1)
 		return ghosts
 	else
@@ -264,19 +264,19 @@ Ccomp's first proc.
 		to_chat(src, "Only administrators may use this command.")
 	var/list/ghosts = get_ghosts(1,1,src)
 
-	var/target = input("Please, select a ghost!", "COME BACK TO LIFE!", null, null) as null|anything in ghosts
+	var/target = tgui_input_list(src, "Please, select a ghost!", "COME BACK TO LIFE!", ghosts)
 	if(!target)
-		to_chat(src, "Hrm, appears you didn't select a ghost")		// Sanity check, if no ghosts in the list we don't want to edit a null variable and cause a runtime error.)
+		to_chat(src, SPAN_WARNING("You didn't select a ghost!"))		// Sanity check, if no ghosts in the list we don't want to edit a null variable and cause a runtime error.)
 		return
 
 	var/mob/abstract/observer/G = ghosts[target]
 	if(G.has_enabled_antagHUD && config.antag_hud_restricted)
 		var/response = alert(src, "Are you sure you wish to allow this individual to play?","Ghost has used AntagHUD","Yes","No")
 		if(response == "No") return
-	G.timeofdeath=-19999						/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-									   there won't be an autopsy.
-									*/
+
+	/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+	timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure there won't be an autopsy.*/
+	G.timeofdeath=-19999
 	var/datum/preferences/P
 
 	if (G.client)
@@ -332,7 +332,7 @@ Ccomp's first proc.
 	if(config.antag_hud_allowed)
 		for(var/mob/abstract/observer/g in get_ghosts())
 			if(!g.client.holder)						//Remove the verb from non-admin ghosts
-				g.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
+				remove_verb(g, /mob/abstract/observer/verb/toggle_antagHUD)
 			if(g.antagHUD)
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
@@ -343,7 +343,7 @@ Ccomp's first proc.
 	else
 		for(var/mob/abstract/observer/g in get_ghosts())
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
-				g.verbs += /mob/abstract/observer/verb/toggle_antagHUD
+				add_verb(g,  /mob/abstract/observer/verb/toggle_antagHUD)
 			to_chat(g, "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>")	// Notify all observers they can now use AntagHUD)
 		config.antag_hud_allowed = 1
 		action = "enabled"
@@ -555,7 +555,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/reporttitle
 	var/reportbody
 	var/reporter = null
-	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom")
+	var/reporttype = tgui_alert(usr, "Choose whether to use a template or custom report.", "Create Command Report", list("Custom", "Template"))
 	if(!reporttype)
 		return
 	switch(reporttype)
@@ -578,27 +578,28 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") as null|anything in template_names
+			reporttitle = tgui_input_list(usr, "Please select a command report template.", "Create Command Report", template_names)
 			if(!reporttitle)
 				return
 			reportbody = templates[reporttitle]
 
 		if("Custom")
-			reporttitle = sanitizeSafe(input(usr, "Pick a title for the report.", "Title") as text|null)
+			reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the report.", "Title"))
 			if(!reporttitle)
 				reporttitle = "NanoTrasen Update"
-			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
+			reportbody = sanitize(tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "Body", multiline = TRUE), extra = FALSE)
 			if(!reportbody)
 				return
 
 	if (reporttype == "Template")
-		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
+		reporter = sanitizeSafe(tgui_input_text(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name"))
 		if (reporter)
 			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
 		else
 			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
 
-	switch(alert("Should this be announced to the general population?",,"Yes","No"))
+	var/announce = tgui_alert(usr, "Should this be announced to the general population?", "Announcement", list("Yes","No"))
+	switch(announce)
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
@@ -907,8 +908,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(input("The evacuation will just be cancelled if you call it. Call anyway?") in list("Confirm", "Cancel") != "Confirm")
 			return
 
-	var/choice = input("Is this an emergency evacuation or a crew transfer?") in list("Emergency", "Crew Transfer")
-	evacuation_controller.call_evacuation(usr, (choice == "Emergency"))
+	var/choice = input("Is this an emergency evacuation, bluespace jump, or a crew transfer?") in list(TRANSFER_EMERGENCY, TRANSFER_CREW, TRANSFER_JUMP)
+	evacuation_controller.call_evacuation(usr, choice)
 
 
 	feedback_add_details("admin_verb","CSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

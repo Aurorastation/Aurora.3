@@ -280,7 +280,7 @@
 				if(!bibledelay)
 
 					var/obj/item/storage/bible/B = new /obj/item/storage/bible(src.loc)
-					B.verbs += /obj/item/storage/bible/proc/Set_Religion
+					B.verbs += /obj/item/storage/bible/verb/Set_Religion
 					var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7", "8", "9", "10", "11", "12", "13" , "14", "15" , "16")
 					B.icon_state = randbook
 					B.item_state = randbook

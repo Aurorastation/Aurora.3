@@ -16,27 +16,58 @@
 */
 
 /datum/looping_sound
+
+	///A `/list` of `/atom`, destinations for the sound
 	var/list/atom/output_atoms = list()
+
+	/**
+	 * A list with soundfiles, or a soundfile, to play for the intermediate steps
+	 *
+	 * Must contain at least one sound
+	 */
 	var/mid_sounds
+
+	///The length to wait between playing mid_sounds
 	var/mid_length
+
+	///Volume for the start sound
 	var/start_volume
+
+	///A soundfile, played before starting the mid_sounds loop
 	var/start_sound
+
+	///How long to wait before starting the main loop after playing start_sound
 	var/start_length
+
+	///Volume for the end sound
 	var/end_volume
+
+	///A soundfile, the sound played after the main loop has concluded
 	var/end_sound
+
+	///Chance per loop to play a mid_sound
 	var/chance
+
+	///Sound output volume
 	var/volume = 100
+
+	///Whether or not the sounds will vary in pitch when played
 	var/vary = FALSE
+
+	///The max amount of loops to run for
 	var/max_loops
 	var/direct
+
+	///The extra range of the sound in tiles, defaults to 0.
 	var/extra_range
 	var/falloff
 
+	///The ID of the timer that's used to loop the sounds.
 	var/timerid
 
 /datum/looping_sound/New(list/_output_atoms=list(), start_immediately=FALSE, _direct=FALSE)
 	if(!mid_sounds)
-		WARNING("A looping sound datum was created without sounds to play.")
+		crash_with("A looping sound datum was created without sounds to play.")
 		return
 
 	output_atoms |= _output_atoms

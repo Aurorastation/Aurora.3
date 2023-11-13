@@ -13,8 +13,8 @@
 /area/engineering/aft_airlock
 	name = "Engineering - Aft Service Airlock"
 
-/area/engineering/engine_room/tesla
-	name = "Engineering - Tesla Engine"
+/area/engineering/engine_room/rust
+	name = "Engineering - INDRA Engine"
 
 /area/engineering/smes
 	name = "Engineering - SM SMES"
@@ -22,11 +22,11 @@
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 
-/area/engineering/smes/tesla
-	name = "Engineering - Tesla SMES"
+/area/engineering/smes/rust
+	name = "Engineering - INDRA SMES"
 
-/area/engineering/engine_monitoring/tesla
-	name = "Engineering - Tesla Engine Monitoring"
+/area/engineering/engine_monitoring/rust
+	name = "Engineering - INDRA Engine Monitoring"
 
 /area/engineering/atmos/air
 	name = "Engineering - Air Mixing"
@@ -40,8 +40,8 @@
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
-/area/hallway/engineering/tesla
-	name = "Engineering - Tesla Hallway"
+/area/hallway/engineering/rust
+	name = "Engineering - INDRA Hallway"
 
 //Medical
 
@@ -131,6 +131,9 @@
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
 
+/area/hangar/canary
+	name = "Canary Hangar"
+
 //Operations
 
 /area/operations
@@ -170,6 +173,11 @@
 
 /area/operations/office
 	name = "Operations Office"
+	icon_state = "quartoffice"
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/operations/office_aux
+	name = "Operations Office (Aux)"
 	icon_state = "quartoffice"
 	sound_env = MEDIUM_SOFTFLOOR
 
@@ -289,9 +297,12 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit
 	name = "Cockpit"
-/area/shuttle/intrepid/rotary
-	name = "Intrepid Armament"
+/area/shuttle/intrepid/quarters
+	name = "Intrepid Crew Quarters"
 
+/area/shuttle/canary
+	name = "Canary"
+	requires_power = TRUE
 //
 // SCCV Horizon Areas
 //
@@ -647,6 +658,7 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	flags = RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria

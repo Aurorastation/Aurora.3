@@ -1,12 +1,17 @@
 /**********************Mineral deposits**************************/
 /turf/unsimulated/mineral
 	name = "impassable rock"
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "rock-dark"
+	icon = 'icons/turf/smooth/rock_dense.dmi'
+	icon_state = "wall"
 	blocks_air = TRUE
 	density = TRUE
 	gender = PLURAL
 	opacity = TRUE
+	smoothing_flags = SMOOTH_TRUE
+	color = "#6e632f"
+
+/turf/unsimulated/mineral/konyang
+	color = "#514e5c"
 
 // This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 var/list/mineral_can_smooth_with = list(
@@ -25,11 +30,10 @@ var/list/mineral_can_smooth_with = list(
 	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
@@ -78,7 +82,7 @@ var/list/mineral_can_smooth_with = list(
 
 	has_opaque_atom = TRUE
 
-	if(smooth)
+	if(smoothing_flags)
 		canSmoothWith = mineral_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
@@ -94,7 +98,7 @@ var/list/mineral_can_smooth_with = list(
 	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/mineral/examine(mob/user)
-	..()
+	. = ..()
 	if(mineral)
 		switch(mined_ore)
 			if(0)
@@ -174,10 +178,12 @@ var/list/mineral_can_smooth_with = list(
 		/turf/unsimulated/mineral,
 		/turf/unsimulated/mineral/asteroid
 	)
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -196,7 +202,7 @@ var/list/mineral_can_smooth_with = list(
 
 	has_opaque_atom = TRUE
 
-	if(smooth)
+	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
@@ -408,6 +414,21 @@ var/list/mineral_can_smooth_with = list(
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
+/turf/simulated/mineral/ChangeTurf(N, tell_universe, force_lighting_update, ignore_override, mapload)
+	var/old_has_resources = has_resources
+	var/list/old_resources = resources
+	var/image/old_resource_indicator = resource_indicator
+
+	var/turf/new_turf = ..()
+
+	new_turf.has_resources = old_has_resources
+	new_turf.resources = old_resources
+	new_turf.resource_indicator = old_resource_indicator
+	if(new_turf.resource_indicator)
+		new_turf.add_overlay(new_turf.resource_indicator)
+
+	return new_turf
+
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
 	//otherwise, they come out inside a chunk of rock
@@ -605,14 +626,13 @@ var/list/mineral_can_smooth_with = list(
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = ""
 	desc = "An exposed developer texture. Someone wasn't paying attention."
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
 	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
 
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
@@ -653,7 +673,7 @@ var/list/asteroid_floor_smooth = list(
 	if(mapload && permit_ao)
 		queue_ao()
 
-	if(smooth)
+	if(smoothing_flags)
 		canSmoothWith = asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
@@ -697,7 +717,7 @@ var/list/asteroid_floor_smooth = list(
 		var/obj/item/stack/rods/R = W
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -708,7 +728,7 @@ var/list/asteroid_floor_smooth = list(
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
@@ -804,12 +824,14 @@ var/list/asteroid_floor_smooth = list(
 		if(S.collection_mode)
 			for(var/obj/item/ore/O in contents)
 				O.attackby(W, user)
+				CHECK_TICK
 				return
 	else if(istype(W,/obj/item/storage/bag/fossils))
 		var/obj/item/storage/bag/fossils/S = W
 		if(S.collection_mode)
 			for(var/obj/item/fossil/F in contents)
 				F.attackby(W, user)
+				CHECK_TICK
 				return
 	else
 		..(W, user)
@@ -824,25 +846,25 @@ var/list/asteroid_floor_smooth = list(
 		var/list/ore = list()
 		for(var/metal in resources)
 			switch(metal)
-				if("silicates")
+				if(ORE_SAND)
 					ore += /obj/item/ore/glass
-				if("carbonaceous rock")
+				if(ORE_COAL)
 					ore += /obj/item/ore/coal
-				if("iron")
+				if(ORE_IRON)
 					ore += /obj/item/ore/iron
-				if("gold")
+				if(ORE_GOLD)
 					ore += /obj/item/ore/gold
-				if("silver")
+				if(ORE_SILVER)
 					ore += /obj/item/ore/silver
-				if("diamond")
+				if(ORE_DIAMOND)
 					ore += /obj/item/ore/diamond
-				if("uranium")
+				if(ORE_URANIUM)
 					ore += /obj/item/ore/uranium
-				if("phoron")
+				if(ORE_PHORON)
 					ore += /obj/item/ore/phoron
-				if("osmium")
+				if(ORE_PLATINUM)
 					ore += /obj/item/ore/osmium
-				if("hydrogen")
+				if(ORE_HYDROGEN)
 					ore += /obj/item/ore/hydrogen
 				else
 					if(prob(25))

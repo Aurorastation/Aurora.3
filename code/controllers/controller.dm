@@ -10,11 +10,11 @@
 
 /datum/controller/proc/Recover()
 
-/datum/controller/proc/stat_entry()
+/datum/controller/proc/stat_entry(msg)
 
 // Called when SSexplosives begins processing explosions.
 /datum/controller/proc/ExplosionStart()
-	
+
 // Called when SSexplosives finishes processing all queued explosions.
 /datum/controller/proc/ExplosionEnd()
 

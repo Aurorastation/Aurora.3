@@ -48,7 +48,7 @@
 			return TRUE
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
-	if(!do_after(user, 30, TRUE, src))
+	if(!do_after(user, 30, src))
 		return
 
 	if(!can_open)
@@ -125,7 +125,7 @@
 			var/obj/item/weldingtool/WT = W
 			if(WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You burn away the fungi with \the [WT]."))
-				playsound(src, 'sound/items/welder.ogg', 10, 1)
+				playsound(src, 'sound/items/Welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return
@@ -175,10 +175,11 @@
 
 		if(WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("You start repairing the damage to [src]."))
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
 				take_damage(-damage)
+				clear_bulletholes()
 		else
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
@@ -199,7 +200,7 @@
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
 			dismantle_verb = "cutting"
-			dismantle_sound = 'sound/items/welder.ogg'
+			dismantle_sound = 'sound/items/Welder.ogg'
 			cut_delay *= 0.7
 		else if(istype(W, /obj/item/gun/energy/plasmacutter))
 			var/obj/item/gun/energy/plasmacutter/PC = W

@@ -66,6 +66,14 @@
 	name = "Title"
 	screen_loc = "WEST,SOUTH"
 	var/lobby_index = 1
+	var/refresh_timer_id = null
+
+/obj/screen/new_player/title/Destroy(force)
+	if(refresh_timer_id)
+		deltimer(refresh_timer_id)
+		refresh_timer_id = null
+	. = ..()
+
 
 /obj/screen/new_player/title/Initialize()
 	if(SSatlas.current_sector.sector_lobby_art)
@@ -87,7 +95,7 @@
 				spawn(current_map.lobby_transitions)
 					Update()
 			else
-				addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 		else
 			icon_state = pick(current_map.lobby_screens)
 	else //This should basically never happen.
@@ -99,6 +107,9 @@
 	return
 
 /obj/screen/new_player/title/proc/Update()
+	if(QDELING(src))
+		return
+
 	if(!current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
 		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
@@ -112,7 +123,7 @@
 		spawn(current_map.lobby_transitions)
 			Update()
 	else
-		addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+		refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /obj/screen/new_player/selection
 	var/click_sound = 'sound/effects/menu_click.ogg'
@@ -327,9 +338,10 @@
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
 	if(!client.holder && !config.antag_hud_allowed)
-		observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
+		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
+	observer.client.init_verbs()
 	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()

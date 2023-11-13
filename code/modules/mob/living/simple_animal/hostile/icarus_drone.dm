@@ -100,7 +100,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/icarus_drone/examine(mob/user)
-	..()
+	. = ..()
 	if(malfunctioning)
 		if(hostile_drone)
 			to_chat(user, SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed."))

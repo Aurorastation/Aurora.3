@@ -1,30 +1,6 @@
 var/eventchance = 10 // Percent chance per 5 minutes.
 var/hadevent    = 0
 
-/proc/high_radiation_event()
-
-	for(var/mob/living/carbon/human/H in living_mob_list)
-		var/turf/T = get_turf(H)
-		if(!T)
-			continue
-		if(isNotStationLevel(T.z))
-			continue
-
-		H.apply_damage((rand(15,75)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if (prob(5))
-			H.apply_damage((rand(90,150)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if (prob(25))
-			if (prob(75))
-				randmutb(H)
-				domutcheck(H,null,MUTCHK_FORCED)
-			else
-				randmutg(H)
-				domutcheck(H,null,MUTCHK_FORCED)
-	sleep(100)
-	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert")
-
-
-
 //Changing this to affect the main station. Blame Urist. --Pete
 /proc/prison_break() // -- Callagan
 
@@ -62,7 +38,7 @@ var/hadevent    = 0
 		sleep(150)
 		command_announcement.Announce("Gr3y.T1d3 virus detected in [station_name()] imprisonment subroutines. Recommend station AI involvement.", "Security Alert")
 	else
-		log_error("ERROR: Could not initate grey-tide. Unable find prison or brig area.")
+		log_world("ERROR: Could not initate grey-tide. Unable find prison or brig area.")
 
 /proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)

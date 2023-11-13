@@ -8,13 +8,14 @@
 	icon_state = "mousetrap"
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
+	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	origin_tech = list(TECH_COMBAT = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
 /obj/item/device/assembly/mousetrap/examine(mob/user)
 	. = ..()
-	if(. && armed)
+	if(armed)
 		to_chat(user, "It looks like it's armed.")
 
 /obj/item/device/assembly/mousetrap/update_icon()

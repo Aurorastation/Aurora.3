@@ -1,14 +1,6 @@
-#define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
-#define EJECT_CASINGS	1 //drop spent casings on the ground after firing
-#define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
-#define DELETE_CASINGS	3 //deletes the casing, used in caseless ammunition guns or something
-
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  To reload, click the weapon in your hand to unload (if needed), then add the appropiate ammo.  The description \
-	will tell you what caliber you need."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = ITEMSIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
@@ -35,6 +27,11 @@
 	var/unjam_cooldown = 0      //Gives the unjammer some time after spamming unjam to not eject their mag
 	var/jam_chance = 0          //Chance it jams on fire
 
+	///Pixel offset for the suppressor overlay on the x axis.
+	var/suppressor_x_offset
+	///Pixel offset for the suppressor overlay on the y axis.
+	var/suppressor_y_offset
+
 	//TODO generalize ammo icon states for guns
 	//var/magazine_states = 0
 	//var/list/icon_keys = list()		//keys
@@ -42,12 +39,30 @@
 
 /obj/item/gun/projectile/Initialize()
 	. = ..()
+	desc_info = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
+	then click where you want to fire.  To reload, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
 	if(ispath(magazine_type) && (load_method & MAGAZINE))
 		ammo_magazine = new magazine_type(src)
 	update_icon()
+
+/obj/item/gun/projectile/Destroy()
+	chambered = null
+	QDEL_NULL(ammo_magazine)
+	QDEL_NULL_LIST(loaded)
+	. = ..()
+
+/obj/item/gun/projectile/update_icon()
+	..()
+	if(suppressed)
+		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/suppressor.dmi', "suppressor")
+		if(suppressor_x_offset)
+			MA.pixel_x = suppressor_x_offset
+		if(suppressor_y_offset)
+			MA.pixel_y = suppressor_y_offset
+		underlays += MA
 
 /obj/item/gun/projectile/consume_next_projectile()
 	if(jam_num)
@@ -212,9 +227,26 @@
 	update_maptext()
 	update_icon()
 
-/obj/item/gun/projectile/attackby(obj/item/A, mob/user)
+/obj/item/gun/projectile/attackby(obj/item/I, mob/user)
 	. = ..()
-	load_ammo(A, user)
+	if(.)
+		return
+	load_ammo(I, user)
+	if(istype(I, /obj/item/suppressor))
+		var/obj/item/suppressor/S = I
+		if(!can_suppress)
+			balloon_alert(user, "\the [S.name] doesn't fit")
+			return
+		if(user.l_hand != suppressor && user.r_hand != suppressor)
+			balloon_alert(user, "not in hand")
+			return
+		if(suppressed)
+			balloon_alert(user, "already has a suppressor")
+			return
+		user.drop_from_inventory(suppressor, src)
+		balloon_alert(user, "[S.name] attached")
+		install_suppressor(S)
+		return
 
 /obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
@@ -253,14 +285,16 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/gun/projectile/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/projectile/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
 	if(jam_num)
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
+	if(suppressed)
+		to_chat(user, "It has a suppressor attached.")
 	to_chat(user, "Has [get_ammo()] round\s remaining.")
 	return
 
@@ -296,3 +330,26 @@
 		else
 			. += "No magazine inserted.<br>"
 	. += ..(FALSE)
+
+///Installs a new suppressor, assumes that the suppressor is already in the contents of src
+/obj/item/gun/projectile/proc/install_suppressor(obj/item/suppressor/S)
+	suppressed = TRUE
+	w_class += S.w_class //Add our weight class to the item's weight class
+	suppressor = S
+	update_icon()
+
+/obj/item/gun/projectile/clear_suppressor()
+	if(!can_unsuppress)
+		return
+	if(istype(suppressor))
+		w_class -= suppressor.w_class
+	return ..()
+
+/obj/item/gun/projectile/AltClick(mob/user)
+	if(use_check_and_message(user))
+		return
+	if(suppressed && can_unsuppress)
+		balloon_alert(user, "[suppressor.name] removed")
+		user.put_in_hands(suppressor)
+		clear_suppressor()
+	return ..()

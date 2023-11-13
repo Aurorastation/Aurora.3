@@ -101,6 +101,18 @@
 	cost = 100
 	obj_path = /obj/item/technomancer_core/overcharged
 
+/datum/technomancer/equipment/bracelet
+	name = "Bracelet Core"
+	desc = "A core created for those unable to master the art of technomancy, or for those that desire a more incognito approach. \
+	This variant of the core goes onto the wrists instead of onto the back.<br>\
+	<font color='red'>Capacity: 5k</font><br>\
+	Recharge: 50/s<br>\
+	<font color='green'>Instability Modifier: 60%</font><br>\
+	<font color='green'>Energy Cost Modifier: 60%</font><br>\
+	<font color='red'><b>Spell Power: 60%</b></font>"
+	cost = 50
+	obj_path = /obj/item/technomancer_core/bracelet
+
 /datum/technomancer/equipment/hypo_belt
 	name = "Hypo Belt"
 	desc = "A medical belt designed to carry autoinjectors and other medical equipment.  Comes with one of each hypo."
@@ -138,7 +150,7 @@
 	max_storage_space = 16
 
 /datum/technomancer/equipment/thermals
-	name = "Thermoncle"
+	name = "Thermonocle"
 	desc = "A fancy monocle with a thermal optics lens installed.  Allows you to see people across walls."
 	cost = 150
 	obj_path = /obj/item/clothing/glasses/thermal/plain/monocle

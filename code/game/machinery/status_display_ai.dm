@@ -84,7 +84,7 @@ var/list/ai_status_emotions = list(
 	src.update()
 
 /proc/get_ai_emotion(mob/user as mob)
-	return input(user, "Please, select a status!", "AI Status", null, null) in get_ai_emotions(user.ckey)
+	return input(user, "Please, select a status!", "AI Status", null) in get_ai_emotions(user.ckey)
 
 /obj/machinery/ai_status_display/proc/update()
 	switch (mode)

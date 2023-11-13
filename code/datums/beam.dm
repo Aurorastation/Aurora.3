@@ -196,7 +196,7 @@
 	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
 
 /obj/effect/ebeam
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD

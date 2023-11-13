@@ -27,6 +27,7 @@
 	aspect = ASPECT_TELE
 
 /obj/item/spell/mark/on_use_cast(mob/living/user)
+	. = ..()
 	if(!allowed_to_teleport()) // Otherwise you could teleport back to the admin Z-level.
 		to_chat(user, "<span class='warning'>You can't teleport here!</span>")
 		return 0
@@ -63,6 +64,7 @@
 	aspect = ASPECT_TELE
 
 /obj/item/spell/recall/on_use_cast(mob/living/user)
+	. = ..()
 	if(pay_energy(3000))
 		if(!mark_spell_ref)
 			to_chat(user, "<span class='danger'>There's no Mark!</span>")

@@ -25,5 +25,5 @@
 		mappaths = list()
 		for (var/suffix in suffixes)
 			mappaths += (prefix + suffix)
-
+	sectors = flatten_list(sectors)
 	..()

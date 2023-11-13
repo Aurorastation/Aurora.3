@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/skybox/SSskybox
-
-/datum/controller/subsystem/skybox
+SUBSYSTEM_DEF(skybox)
 	name = "Space skybox"
 	init_order = SS_INIT_PARALLAX
 	flags = SS_NO_FIRE
@@ -30,9 +28,6 @@ var/datum/controller/subsystem/skybox/SSskybox
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
 		background_color = SSatlas.current_sector.starlight_color
-
-/datum/controller/subsystem/skybox/New()
-	NEW_SS_GLOBAL(SSskybox)
 
 /datum/controller/subsystem/skybox/Initialize()
 	. = ..()

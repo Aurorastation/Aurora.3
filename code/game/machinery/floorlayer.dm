@@ -35,7 +35,7 @@
 
 /obj/machinery/floorlayer/attackby(obj/item/I, mob/user)
 	if(I.iswrench())
-		var/m = input(user, "Choose work mode", "Mode") as null|anything in mode
+		var/m = tgui_input_list(user, "Choose work mode", "Mode", mode)
 		mode[m] = !mode[m]
 		var/O = mode[m]
 		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."))
@@ -51,7 +51,7 @@
 		if(!length(contents))
 			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		else
-			var/obj/item/stack/tile/E = input(user, "Choose which set of tiles you want to remove.", "Tiles") as null|anything in contents
+			var/obj/item/stack/tile/E = tgui_input_list(user, "Choose which set of tiles you want to remove.", "Tiles", contents)
 			if(E)
 				to_chat(user, SPAN_NOTICE("You remove \the [E] from \the [src]."))
 				user.put_in_hands(E)
@@ -59,11 +59,11 @@
 		return TRUE
 
 	if(I.isscrewdriver())
-		T = input(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles") as null|anything in contents
+		T = tgui_input_list(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles", contents)
 		return TRUE
 
 /obj/machinery/floorlayer/examine(mob/user)
-	..()
+	. = ..()
 	var/dismantle = mode["dismantle"]
 	var/laying = mode["laying"]
 	var/collect = mode["collect"]

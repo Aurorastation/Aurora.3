@@ -18,14 +18,14 @@
 		client.screen += vampire.blood_hud
 		client.screen += vampire.frenzy_hud
 
-	verbs += new /datum/antagonist/vampire/proc/vampire_help
+	add_verb(src, /datum/antagonist/vampire/proc/vampire_help)
 
 	for(var/datum/power/vampire/P in vampirepowers)
 		if(!(P in vampire.purchased_powers))
 			if(!P.blood_cost)
 				vampire.add_power(mind, P, 0)
 		else if(P.isVerb && P.verbpath)
-			verbs += P.verbpath
+			add_verb(src,  P.verbpath)
 
 	return TRUE
 
@@ -53,7 +53,7 @@
 
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if (!vampire)
-		log_debug("[src] has a vampire power but is not a vampire.")
+		LOG_DEBUG("[src] has a vampire power but is not a vampire.")
 		return
 	if (vampire.holder && !ignore_holder)
 		to_chat(src, "<span class='warning'>You cannot use this power while walking through the Veil.</span>")
@@ -198,7 +198,7 @@
 
 		sight |= SEE_MOBS
 
-		verbs += /mob/living/carbon/human/proc/grapple
+		add_verb(src, /mob/living/carbon/human/proc/grapple)
 
 		return TRUE
 
@@ -224,7 +224,7 @@
 
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
-		verbs -= /mob/living/carbon/human/proc/grapple
+		remove_verb(src, /mob/living/carbon/human/proc/grapple)
 		regenerate_icons()
 
 		return TRUE
@@ -243,7 +243,7 @@
 		return
 	for (var/datum/power/vampire/P in vampire.purchased_powers)
 		if (P.isVerb)
-			verbs -= P.verbpath
+			remove_verb(src, P.verbpath)
 
 	if (vampire.status & VAMP_FRENZIED)
 		vampire_stop_frenzy(1)

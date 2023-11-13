@@ -12,27 +12,12 @@
 	size = 11
 	usage_flags = PROGRAM_ALL_REGULAR
 	color = LIGHT_COLOR_ORANGE
+	tgui_id = "PenalMechs"
 
-	var/obj/machinery/camera/current_camera = null
+	var/obj/machinery/camera/current_camera
 
-/datum/computer_file/program/penal_mechs/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-penalcontroller", 500, 400, "Penal Mech Monitoring")
-		ui.auto_update_content = TRUE
-	ui.open()
-
-/datum/computer_file/program/penal_mechs/vueui_transfer(oldobj)
-	for(var/o in SSvueui.transfer_uis(oldobj, src, "mcomputer-security-penalcontroller", 500, 400, "Penal Mech Monitoring"))
-		var/datum/vueui/ui = o
-		// Let's ensure our ui's autoupdate after transfer.
-		// TODO: revert this value on transfer out.
-		ui.auto_update_content = TRUE
-	return TRUE
-
-/datum/computer_file/program/penal_mechs/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/datum/computer_file/program/penal_mechs/ui_data(mob/user)
+	var/list/data = list()
 
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
@@ -57,7 +42,7 @@
 
 			mechData["camera_status"] = M.camera.status
 			mechData["lockdown"] = M.lockdown
-			mechs[++mechs.len] = mechData
+			mechs += list(mechData)
 
 		for(var/robot in SSvirtualreality.robots[REMOTE_PRISON_ROBOT])
 			var/mob/living/R = robot
@@ -73,56 +58,57 @@
 			var/turf/robot_turf = get_turf(R)
 			robotData["location"] = "[robot_turf.x], [robot_turf.y], [robot_turf.z]"
 
-			robots[++robots.len] = robotData
+			robots += list(robotData)
 
 	data["mechs"] = sortByKey(mechs, "pilot")
 	data["robots"] = sortByKey(robots, "pilot")
 
 	data["current_cam_loc"] = current_camera ? "\ref[current_camera.loc]" : null
 
-	return data // This UI needs to constantly update
+	return data
 
 
-/datum/computer_file/program/penal_mechs/Topic(href, href_list)
+/datum/computer_file/program/penal_mechs/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	if(.)
+		return
 
-	if(href_list["track_mech"])
-		if(current_camera)
-			reset_current()
-			usr.reset_view()
-		else
-			var/mob/living/heavy_vehicle/M = locate(href_list["track_mech"]) in mob_list
-			if(!istype(M))
-				return FALSE
-			var/obj/machinery/camera/C = M.camera
-			if(C)
-				switch_to_camera(usr, C)
-		return TRUE
-
-	if(href_list["lockdown_mech"])
-		var/mob/living/heavy_vehicle/M = locate(href_list["lockdown_mech"]) in mob_list
-		if(ismob(M))
-			M.ToggleLockdown()
+	switch(action)
+		if("track_mech")
+			if(current_camera)
+				reset_current()
+				usr.reset_view()
+			else
+				var/mob/living/heavy_vehicle/M = locate(params["track_mech"]) in mob_list
+				if(!istype(M))
+					return FALSE
+				var/obj/machinery/camera/C = M.camera
+				if(C)
+					switch_to_camera(usr, C)
 			return TRUE
 
-	if(href_list["terminate"])
-		var/mob/living/M = locate(href_list["terminate"]) in mob_list
-		if(M?.old_mob && M.vr_mob)
-			to_chat(M, SPAN_WARNING("Your connection to remote-controlled [M] is forcibly severed!"))
-			M.body_return()
-			return TRUE
+		if("lockdown_mech")
+			var/mob/living/heavy_vehicle/M = locate(params["lockdown_mech"]) in mob_list
+			if(ismob(M))
+				M.ToggleLockdown()
+				return TRUE
 
-	if(href_list["message_pilot"])
-		var/mob/living/M = locate(href_list["message_pilot"]) in mob_list
-		if(ismob(M))
-			var/message = sanitize(input("Message to [M.old_mob]", "Set Message") as text|null)
+		if("terminate")
+			var/mob/living/M = locate(params["terminate"]) in mob_list
+			if(M?.old_mob && M.vr_mob)
+				to_chat(M, SPAN_WARNING("Your connection to remote-controlled [M] is forcibly severed!"))
+				M.body_return()
+				return TRUE
 
-			to_chat(usr, SPAN_NOTICE("Sending message to [M.old_mob]: [message]"))
-			to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
-			return TRUE
+		if("message_pilot")
+			var/mob/living/M = locate(params["message_pilot"]) in mob_list
+			if(ismob(M))
+				var/message = sanitize(input("Message to [M.old_mob]", "Set Message") as text|null)
 
+				to_chat(usr, SPAN_NOTICE("Sending message to [M.old_mob]: [message]"))
+				to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
+				return TRUE
 
-// ToDo - Move this set of camera procs to a general datum when more VueUI programs need cameras
 /datum/computer_file/program/penal_mechs/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))

@@ -301,7 +301,6 @@
 				return
 			else
 				health -= rand(40,80)
-		else
 
 	if(health <= 0)
 		dismantle()

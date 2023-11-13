@@ -31,7 +31,7 @@
 		new/datum/track("Endless Space", 'sound/music/space.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
 		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
-		new/datum/track("Thunderdome", 'sound/music/thunderdome.ogg'),
+		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
 	)
 
@@ -135,7 +135,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "jukebox.tmpl", title, 450, 600)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)

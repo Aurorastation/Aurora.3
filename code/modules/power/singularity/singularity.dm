@@ -1,4 +1,4 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+#define I_SINGULO "singulo"
 
 /obj/singularity/
 	name = "gravitational singularity"
@@ -495,13 +495,13 @@
 	move_self = 1
 
 /obj/singularity/singularity_act(S, size)
-    if(current_size <= size)
-        var/gain = (energy/2)
-        var/dist = max((current_size - 2), 1)
-        explosion(src.loc,(dist),(dist*2),(dist*4))
-        spawn(0)
-            qdel(src)
-        return gain
+	if(current_size <= size)
+		var/gain = (energy/2)
+		var/dist = max((current_size - 2), 1)
+		explosion(src.loc,(dist),(dist*2),(dist*4))
+		spawn(0)
+			qdel(src)
+		return gain
 
 /obj/singularity/can_fall()
 	return FALSE
@@ -510,3 +510,5 @@
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
+
+#undef I_SINGULO

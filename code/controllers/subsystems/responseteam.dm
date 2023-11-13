@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/distress/SSdistress
-
-/datum/controller/subsystem/distress
+SUBSYSTEM_DEF(distress)
 	name = "Distress"
 	flags = SS_NO_FIRE
 
@@ -18,9 +16,8 @@
 /datum/controller/subsystem/distress/Recover()
 	send_emergency_team = SSdistress.send_emergency_team
 
-/datum/controller/subsystem/distress/New()
-	NEW_SS_GLOBAL(SSdistress)
-	feedback_set("responseteam_count",0)
+/datum/controller/subsystem/distress/PreInit()
+	feedback_set("responseteam_count", 0)
 
 /datum/controller/subsystem/distress/Initialize(start_timeofday)
 	. = ..()
@@ -32,9 +29,9 @@
 			available_teams += ert
 		all_ert_teams += ert
 
-/datum/controller/subsystem/distress/stat_entry()
-	var/out = "CC:[can_call_ert]"
-	..(out)
+/datum/controller/subsystem/distress/stat_entry(msg)
+	msg = "CC:[can_call_ert]"
+	return ..()
 
 /datum/controller/subsystem/distress/proc/pick_random_team()
 	var/list/datum/responseteam/possible_teams = list()
@@ -151,7 +148,7 @@
 	for(var/datum/responseteam/A in SSdistress.all_ert_teams)
 		plaintext_teams += A.name
 
-	var/choice = input("Select the response team type.","Response Team Selection") as null|anything in plaintext_teams
+	var/choice = input(usr, "Select the response team type.","Response Team Selection", plaintext_teams)
 
 	if(SSdistress.send_emergency_team)
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")

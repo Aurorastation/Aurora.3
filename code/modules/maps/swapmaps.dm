@@ -18,8 +18,7 @@
 	- House interiors
 	- Individual custom player houses
 	- Virtually unlimited terrain
-	- Sharing maps between servers running different instances of the same
-	  game
+	- Sharing maps between servers running different instances of the same game
 	- Loading and saving pieces of maps for reusable room templates
  */
 
@@ -58,7 +57,7 @@
 	SwapMaps_CreateFromTemplate(id)
 		Create a new map by loading another map to use as a template.
 		This map has id==src and will not be saved. To make it savable,
-		  change id with swapmap.SetID(newid).
+			change id with swapmap.SetID(newid).
 	SwapMaps_LoadChunk(id,turf/locorner)
 		Load a swapmap as a "chunk", at a specific place. A new datum is
 		created but it's not added to the list of maps to save or unload.
@@ -79,16 +78,16 @@
 		Cache an icon file by name for space-saving storage
 
 	swapmap.New(id,x,y,z)
-		Create a new map; specify id, width (x), height (y), and
-		 depth (z)
+		Create a new map; specify id, width (x), height (y), and depth (z)
 		Default size is world.maxx,world.maxy,1
+
 	swapmap.New(id,turf1,turf2)
 		Create a new map; specify id and 2 corners
-		This becomes a /swapmap for one of the compiled-in maps, for
-		 easy saving.
+		This becomes a /swapmap for one of the compiled-in maps, for easy saving.
+
 	swapmap.New()
-		Create a new map datum, but does not allocate space or assign an
-		 ID (used for loading).
+		Create a new map datum, but does not allocate space or assign an ID (used for loading).
+
 	swapmap.Del()
 		Deletes a map but does not save
 	swapmap.Save()
@@ -100,30 +99,28 @@
 	swapmap.SetID(id)
 		Change the map's id and make changes to the lookup list
 	swapmap.AllTurfs(z)
-		Returns a block of turfs encompassing the entire map, or on just
-		 one z-level
+		Returns a block of turfs encompassing the entire map, or on just one z-level
 		z is in world coordinates; it is optional
+
 	swapmap.Contains(turf/T)
 		Returns nonzero if T is inside the map's boundaries.
 		Also works for objs and mobs, but the proc is not area-safe.
 	swapmap.InUse()
-		Returns nonzero if a mob with a key is within the map's
-		 boundaries.
+		Returns nonzero if a mob with a key is within the map's boundaries.
+
 	swapmap.LoCorner(z=z1)
 		Returns locate(x1,y1,z), where z=z1 if none is specified.
 	swapmap.HiCorner(z=z2)
 		Returns locate(x2,y2,z), where z=z2 if none is specified.
 	swapmap.BuildFilledRectangle(turf/corner1,turf/corner2,item)
-		Builds a filled rectangle of item from one corner turf to the
-		 other, on multiple z-levels if necessary. The corners may be
-		 specified in any order.
+		Builds a filled rectangle of item from one corner turf to the other, on multiple z-levels if necessary. The corners may be specified in any order.
 		item is a type path like /turf/wall or /obj/barrel{full=1}.
+
 	swapmap.BuildRectangle(turf/corner1,turf/corner2,item)
-		Builds an unfilled rectangle of item from one corner turf to
-		 the other, on multiple z-levels if necessary.
+		Builds an unfilled rectangle of item from one corner turf to the other, on multiple z-levels if necessary.
+
 	swapmap.BuildInTurfs(list/turfs,item)
-		Builds item on all of the turfs listed. The list need not
-		 contain only turfs, or even only atoms.
+		Builds item on all of the turfs listed. The list need not contain only turfs, or even only atoms.
  */
 
 /swapmap
@@ -186,62 +183,6 @@
 			if(x2>=world.maxx || y2>=world.maxy || z2>=world.maxz) CutXYZ()
 			qdel(areas)
 	..()
-
-	/*
-		Savefile format:
-		map
-		  id
-		  x		// size, not coords
-		  y
-		  z
-		  areas	// list of areas, not including default
-		  [each z; 1 to depth]
-		    [each y; 1 to height]
-		      [each x; 1 to width]
-		        type	// of turf
-		        AREA    // if non-default; saved as a number (index into areas list)
-		        vars    // all other changed vars
-	 */
-/swapmap/Write(savefile/S)
-	var/x
-	var/y
-	var/z
-	var/n
-	var/list/areas
-	var/area/defarea=locate(world.area)
-	if(!defarea) defarea=new world.area
-	areas=list()
-	for(var/turf/T in block(locate(x1,y1,z1),locate(x2,y2,z2)))
-		areas[T.loc]=null
-	for(n in areas)	// quickly eliminate associations for smaller storage
-		areas-=n
-		areas+=n
-	areas-=defarea
-	InitializeSwapMaps()
-	locked=1
-	S["id"] << id
-	S["z"] << z2-z1+1
-	S["y"] << y2-y1+1
-	S["x"] << x2-x1+1
-	S["areas"] << areas
-	for(n in 1 to areas.len) areas[areas[n]]=n
-	var/oldcd=S.cd
-	for(z=z1,z<=z2,++z)
-		S.cd="[z-z1+1]"
-		for(y=y1,y<=y2,++y)
-			S.cd="[y-y1+1]"
-			for(x=x1,x<=x2,++x)
-				S.cd="[x-x1+1]"
-				var/turf/T=locate(x,y,z)
-				S["type"] << T.type
-				if(T.loc!=defarea) S["AREA"] << areas[T.loc]
-				T.Write(S)
-				S.cd=".."
-			S.cd=".."
-		sleep()
-		S.cd=oldcd
-	locked=0
-	qdel(areas)
 
 /swapmap/Read(savefile/S,_id,turf/locorner)
 	var/x
@@ -452,28 +393,6 @@
 */
 /swapmap/proc/BuildInTurfs(list/turfs,item)
 		for(var/T in turfs) new item(T)
-
-/atom/Write(savefile/S)
-	for(var/V in vars-"x"-"y"-"z"-"contents"-"icon"-"overlays"-"underlays")
-		if(issaved(vars[V]))
-			if(vars[V]!=initial(vars[V])) S[V]<<vars[V]
-			else S.dir.Remove(V)
-	if(icon!=initial(icon))
-		if(swapmaps_iconcache && swapmaps_iconcache[icon])
-			S["icon"]<<swapmaps_iconcache[icon]
-		else S["icon"]<<icon
-	// do not save mobs with keys; do save other mobs
-	var/mob/M
-	for(M in src) if(M.key) break
-	if(overlays.len) S["overlays"]<<overlays
-	if(underlays.len) S["underlays"]<<underlays
-	if(contents.len && !isarea(src))
-		var/list/l=contents
-		if(M)
-			l=l.Copy()
-			for(M in src) if(M.key) l-=M
-		if(l.len) S["contents"]<<l
-		if(l!=contents) qdel(l)
 
 /atom/Read(savefile/S)
 	var/list/l

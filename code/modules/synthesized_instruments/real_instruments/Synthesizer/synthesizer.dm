@@ -17,7 +17,7 @@
 		if (!anchored && !isinspace())
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			to_chat(usr, SPAN_NOTICE(" You begin to tighten \the [src] to the floor..."))
-			if (do_after(user, 2 SECONDS, src))
+			if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
 				if(!anchored && !isinspace())
 					user.visible_message( \
 						"[user] tightens \the [src]'s casters.", \
@@ -27,7 +27,7 @@
 		else if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			to_chat(usr, SPAN_NOTICE(" You begin to loosen \the [src]'s casters..."))
-			if (do_after(user, 4 SECONDS, src))
+			if (do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 				if(anchored)
 					user.visible_message( \
 						"[user] loosens \the [src]'s casters.", \

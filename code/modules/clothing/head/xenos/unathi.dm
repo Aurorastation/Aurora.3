@@ -25,23 +25,23 @@
 	item_state = "decorated_ronin_hat4"
 
 /obj/item/clothing/head/unathi/dark
-	icon_state = "darkonin_hat"
+	icon_state = "darkronin_hat"
 	item_state = "darkronin_hat"
 
 /obj/item/clothing/head/unathi/deco/dark
-	icon_state = "decorated_darkonin_hat"
+	icon_state = "decorated_darkronin_hat"
 	item_state = "decorated_darkronin_hat"
 
 /obj/item/clothing/head/unathi/deco/dark/green
-	icon_state = "decorated_darkonin_hat2"
+	icon_state = "decorated_darkronin_hat2"
 	item_state = "decorated_darkronin_hat2"
 
 /obj/item/clothing/head/unathi/deco/dark/blue
-	icon_state = "decorated_darkonin_hat3"
+	icon_state = "decorated_darkronin_hat3"
 	item_state = "decorated_darkronin_hat3"
 
 /obj/item/clothing/head/unathi/deco/dark/orange
-	icon_state = "decorated_darkonin_hat4"
+	icon_state = "decorated_darkronin_hat4"
 	item_state = "decorated_darkronin_hat4"
 
 /obj/item/clothing/head/unathi/maxtlatl

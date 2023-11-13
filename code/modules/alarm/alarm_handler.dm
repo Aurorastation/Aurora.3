@@ -104,3 +104,7 @@
 /datum/alarm_handler/proc/notify_listeners(var/alarm, var/was_raised)
 	for(var/listener in listeners)
 		call(listener, listeners[listener])(src, alarm, was_raised)
+
+
+#undef ALARM_RAISED
+#undef ALARM_CLEARED

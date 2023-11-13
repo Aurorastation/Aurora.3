@@ -48,7 +48,7 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
-	//Since queue_smooth() manually wakes the subsystem, we have to use enable/disable.
+	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.disable()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
@@ -162,7 +162,7 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
-	//Since queue_smooth() manually wakes the subsystem, we have to use enable/disable.
+	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.disable()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
@@ -171,7 +171,7 @@
 		else
 			SSicon_smooth.enable()
 			return FALSE
-	
+
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)

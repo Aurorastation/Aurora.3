@@ -23,7 +23,7 @@
 		for(var/area/A in shuttle_area)
 			for(var/mob/living/M in A)
 				M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), 2,
-							   SPAN_WARNING("The shuttle shakes but fails to take off."), 1)
+								SPAN_WARNING("The shuttle shakes but fails to take off."), 1)
 				return 0 //failure!
 	return 1 //sucess, continue with launch
 
@@ -163,14 +163,17 @@
 
 /obj/structure/fuel_port/phoron // The best and most expensive fuel. Likely to be in the hands of corporate forces, though the well-off along with military forces throughout the Spur also have a good chance of using it.
 
+/obj/structure/fuel_port/phoron/scc
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
+
 /obj/structure/fuel_port/phoron/Initialize()
 	. = ..()
-	new /obj/item/tank/phoron/shuttle(src) 
+	new /obj/item/tank/phoron/shuttle(src)
 
 /obj/structure/fuel_port/hydrogen // The most common and serviceable fuel for a shuttle. It's not as good as phoron, but it will still get you places. It's also not scarce! Used by practically everyone.
 
 /obj/structure/fuel_port/hydrogen/Initialize()
 	. = ..()
-	new /obj/item/tank/hydrogen/shuttle(src) 
+	new /obj/item/tank/hydrogen/shuttle(src)
 
 #undef waypoint_sector

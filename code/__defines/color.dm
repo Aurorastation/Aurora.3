@@ -42,10 +42,10 @@
 #define COLOR_RED_LIGHT        "#ff3333"
 #define COLOR_BEIGE            "#ceb689"
 #define COLOR_BABY_BLUE        "#89cff0"
-#define COLOR_PALE_GREEN_GRAY  "#aed18b"
+#define COLOR_PALE_GREEN_GRAY  "#8ba574"
 #define COLOR_PALE_RED_GRAY    "#cc9090"
-#define COLOR_PALE_PURPLE_GRAY "#bda2ba"
-#define COLOR_PALE_BLUE_GRAY   "#8bbbd5"
+#define COLOR_PALE_PURPLE_GRAY "#8a7387"
+#define COLOR_PALE_BLUE_GRAY   "#708997"
 #define COLOR_LUMINOL          "#66ffff"
 #define COLOR_SILVER           "#c0c0c0"
 #define COLOR_GRAY80           "#cccccc"
@@ -92,8 +92,13 @@
 #define COLOR_ASH              "#615C5B"
 #define COLOR_SNOW             "#9CADAD"
 #define COLOR_LING_HIVEMIND    "#583012"
+#define COLOR_LINOLEUM         "#4E4D41"
 
 #define COLOR_TOOLS            "#eac041"
+
+#define COLOR_STERILE          "#DBDBDB"
+#define COLOR_TILED  		   "#737878"
+#define COLOR_TILED_2  		   "#7A6E70"
 
 
 // Blood colors
@@ -106,6 +111,8 @@
 
 // Wood Colours
 
+#define WOOD_COLOR_GENERIC     "#8f5847"
+#define WOOD_COLOR_GENCONTRAST "#683b2e"
 #define WOOD_COLOR_BIRCH       "#d5a66e"
 #define WOOD_COLOR_RICH        "#792f27"
 #define WOOD_COLOR_PALE        "#d2bc9d"
@@ -113,6 +120,12 @@
 #define WOOD_COLOR_BLACK       "#332521"
 #define WOOD_COLOR_CHOCOLATE   "#543c30"
 #define WOOD_COLOR_YELLOW      "#e3994e"
+
+#define GLASS_COLOR            "#aaccff"
+#define GLASS_COLOR_PHORON     "#7c3a9a"
+#define GLASS_COLOR_PHORON_R	"#4a1861"
+#define GLASS_COLOR_TINTED     "#222222"
+#define GLASS_COLOR_FROSTED    "#eeeeee"
 
 //Color defines used by the assembly detailer.
 #define COLOR_ASSEMBLY_BLACK    "#545454"

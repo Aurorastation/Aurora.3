@@ -21,8 +21,8 @@
 	var/pressure_setting = 10                           // Percentage of the gas in the tank used to fire the projectile.
 	var/possible_pressure_amounts = list(5,10,20,25,50) // Possible pressure settings.
 	var/force_divisor = 400                             // Force equates to speed. Speed/5 equates to a damage multiplier for whoever you hit.
-	                                                    // For reference, a fully pressurized oxy tank at 50% gas release firing a health
-	                                                    // analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+														// For reference, a fully pressurized oxy tank at 50% gas release firing a health
+														// analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
 /obj/item/gun/launcher/pneumatic/Initialize()
 	. = ..()
 	item_storage = new(src)
@@ -100,8 +100,9 @@
 	item_storage.remove_from_storage(launched, src)
 	return launched
 
-/obj/item/gun/launcher/pneumatic/examine(mob/user)
-	if(!..(user, 2))
+/obj/item/gun/launcher/pneumatic/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	to_chat(user, "The valve is dialed to [pressure_setting]%.")
 	if(tank)
@@ -152,7 +153,7 @@
 	icon_state = "pneumatic[buildstate]"
 
 /obj/item/cannonframe/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(buildstate)
 		if(1) to_chat(user, "It has a pipe segment installed.")
 		if(2) to_chat(user, "It has a pipe segment welded in place.")

@@ -118,17 +118,70 @@
 				if(Collide(M)) //Bump will make sure we don't hit a mob multiple times
 					return
 
+/obj/item/projectile/bullet/rubberball
+	name = "rubber ball"
+	icon_state = "pellets"
+	damage = 2
+	agony = 45
+	embed = FALSE
+	var/balls = 4
+	///projectile will lose a fragment each time it travels this distance. Can be a non-integer.
+	var/range_step = 2
+	var/base_spread = 90
+	var/spread_step = 10
+
+/obj/item/projectile/bullet/rubberball/proc/get_balls(var/distance)
+	var/ball_loss = round((distance - 1)/range_step)
+	return max(balls - ball_loss, 1)
+
+/obj/item/projectile/bullet/rubberball/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
+	if (balls < 0)
+		return TRUE
+
+	var/total_balls = get_balls(distance)
+	var/spread = max(base_spread - (spread_step*distance), 0)
+
+	var/prone_chance = 0
+	if(!base_spread)
+		prone_chance = max(spread_step*(distance - 2), 0)
+
+	var/hits = 0
+	for (var/i in 1 to total_balls)
+		if(target_mob.lying && target_mob != original && prob(prone_chance))
+			continue
+
+		var/old_zone = def_zone
+		def_zone = ran_zone(def_zone, spread)
+		if (..())
+			hits++
+		def_zone = old_zone
+
+	balls -= hits
+	if (hits >= total_balls || balls <= 0)
+		return TRUE
+	return FALSE
+
+/obj/item/projectile/bullet/rubberball/Move()
+	. = ..()
+
+	if(. && !base_spread && isturf(loc))
+		for(var/mob/living/M in loc)
+			if(M.lying || !M.CanPass(src, loc))
+				if(Collide(M))
+					return
+
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	damage = 25
-	armor_penetration = 10
+	damage = 20
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
+	armor_penetration = 0
 
 /obj/item/projectile/bullet/pistol/medium/ap
-	armor_penetration = 35
+	armor_penetration = 15
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/pistol/strong
@@ -227,6 +280,11 @@
 	armor_penetration = 34
 	penetrating = FALSE
 
+/obj/item/projectile/bullet/rifle/a65
+	damage = 30
+	armor_penetration = 30
+	penetrating = FALSE
+
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
@@ -245,10 +303,14 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/vintage
-	name = "vintage bullet"
+	name = ".30-06 Govt. bullet"
 	damage = 50
 	weaken = 1
 	penetrating = TRUE
+
+/obj/item/projectile/bullet/rifle/govt
+	name = ".40-70 Govt. bullet"
+	damage = 50
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
@@ -442,11 +504,66 @@
 	explosion(A, -1, heavy_impact_range, 2)
 	..()
 
-/obj/item/projectile/bullet/recoilless_rifle/peac
+/obj/item/projectile/bullet/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
 	damage = 25
 	armor_penetration = 35
 	anti_materiel_potential = 6
-	penetrating = TRUE
-	heavy_impact_range = -1
+	embed = FALSE
+	penetrating = 1
+
+	var/devastation_range = -1
+	var/heavy_impact_range = -1
+	var/light_impact_range = 2
+
+/obj/item/projectile/bullet/peac/check_penetrate(atom/hit_atom)
+	if(hit_atom == original)
+		return FALSE
+	return ..()
+
+/obj/item/projectile/bullet/peac/on_impact(var/atom/hit_atom)
+	explosion(hit_atom, devastation_range, heavy_impact_range, light_impact_range)
+
+/obj/item/projectile/bullet/peac/he
+	name = "high-explosive missile"
+	armor_penetration = 0
+	anti_materiel_potential = 3
+
+	devastation_range = 1
+	heavy_impact_range = 2
+	light_impact_range = 4
+
+/obj/item/projectile/bullet/peac/shrapnel
+	name = "fragmentation missile"
+	armor_penetration = 0
+	anti_materiel_potential = 2
+
+	light_impact_range = 1
+
+/obj/item/projectile/bullet/peac/shrapnel/preparePixelProjectile()
+	. = ..()
+	range = get_dist(firer, original)
+
+/obj/item/projectile/bullet/peac/shrapnel/on_impact(var/atom/hit_atom)
+	..()
+	spawn_shrapnel(starting ? get_dir(starting, original) : dir)
+
+/obj/item/projectile/bullet/peac/shrapnel/proc/spawn_shrapnel(var/shrapnel_dir)
+	set waitfor = FALSE
+
+	var/turf/O = get_turf(src)
+	var/list/target_turfs = list()
+	target_turfs += get_step(O, shrapnel_dir)
+	target_turfs += get_step(O, turn(shrapnel_dir, -45))
+	target_turfs += get_step(O, turn(shrapnel_dir, 45))
+
+	for(var/turf/T in target_turfs)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new(O)
+		P.damage = 30
+		P.pellets = 4
+		P.range_step = 3
+		P.shot_from = src
+		P.range = 15
+		P.name = "shrapnel"
+		P.launch_projectile(T)

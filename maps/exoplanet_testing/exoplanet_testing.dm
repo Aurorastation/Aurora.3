@@ -83,7 +83,6 @@
 	spawned_features = seedRuins(map_z, features_budget, ruins_to_spawn, /area/exoplanet, maxx, maxy, ignore_sector = TRUE)
 	generate_landing(2)
 	update_biome()
-	generate_daycycle()
 	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
 

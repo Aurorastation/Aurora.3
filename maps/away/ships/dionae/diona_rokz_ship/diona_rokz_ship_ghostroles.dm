@@ -7,7 +7,7 @@
 	tags = list("External")
 
 	spawnpoints = list("rokz_voidtamer")
-	max_count = 2
+	max_count = 3
 
 	outfit = /datum/outfit/admin/rokz_voidtamer
 

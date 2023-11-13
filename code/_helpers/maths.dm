@@ -225,3 +225,19 @@
 			line += locate(current_x_step, current_y_step, starting_z)
 
 	return line
+
+
+/// Returns the distance between two points
+#define DIST_BETWEEN_TWO_POINTS(ax, ay, bx, by) (sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay)))
+
+/**
+ * Returns bearing of object relative to observer (0-360)
+ * a is the observer, b is the other object
+ *
+ * observer_x - Observer's X coordinate
+ * observer_y - Observer's Y coordinate
+ * target_x - Target's X coordinate
+ * target_y - Target's Y coordinate
+ */
+#define BEARING_RELATIVE(observer_x, observer_y, target_x, target_y) (90 - Atan2(target_x - observer_x, target_y - observer_y))
+

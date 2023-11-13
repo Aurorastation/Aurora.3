@@ -30,11 +30,13 @@
 	var/usesound
 	var/toolspeed = 1
 
+	var/surgerysound
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/Topic(href, href_list, var/datum/topic_state/state = default_state)
+/obj/Topic(href, href_list, var/datum/ui_state/state = default_state)
 	if(..())
 		return 1
 
@@ -47,7 +49,7 @@
 	CouldNotUseTopic(usr)
 	return 1
 
-/obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
+/obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
 	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
@@ -200,7 +202,7 @@
 /obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (loc == wearer && icon_supported_species_tags.len)
+		if (wearer && icon_supported_species_tags.len)
 			if (wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
 				return 1
@@ -256,3 +258,6 @@
 		. |= DAMAGE_FLAG_SHARP
 		if(damtype == DAMAGE_BURN)
 			. |= DAMAGE_FLAG_LASER
+
+/obj/proc/set_pixel_offsets()
+	return

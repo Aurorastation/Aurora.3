@@ -93,42 +93,45 @@
 	interact(user)
 
 /obj/item/device/multitool/interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	ui_interact(user)
+
+/obj/item/device/multitool/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "devices-multitool", 300, 250, capitalize_first_letters(name), state = inventory_state)
-	ui.open()
+		ui = new(user, src, "Multitool", "Multitool", 300, 250)
+		ui.open()
 
-/obj/item/device/multitool/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/device/multitool/ui_data(mob/user)
+	var/list/data = list()
 
-	VUEUI_SET_CHECK(data["tracking_apc"], tracking_apc, ., data)
+	data["tracking_apc"] = tracking_apc
 
-	VUEUI_SET_CHECK(data["has_selected_io"], !isnull(selected_io), ., data)
 	if(selected_io)
-		VUEUI_SET_CHECK(data["selected_io_name"], selected_io.name, ., data)
-		VUEUI_SET_CHECK(data["selected_io_type"], selected_io.io_type, ., data)
+		data["selected_io"] = list("name" = selected_io.name, "type" = selected_io.io_type)
+	return data
 
-/obj/item/device/multitool/Topic(href, href_list)
+/obj/item/device/multitool/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE
 
-	if(href_list["track_apc"])
-		tracking_apc = !tracking_apc
-		if(tracking_apc)
-			START_PROCESSING(SSprocessing, src)
-			apc_indicator = mutable_appearance(icon, "lost")
-			add_overlay(apc_indicator)
-		else
-			STOP_PROCESSING(SSprocessing, src)
-			QDEL_NULL(apc_indicator)
+	switch(action)
+		if("track_apc")
+			tracking_apc = !tracking_apc
+			if(tracking_apc)
+				START_PROCESSING(SSprocessing, src)
+				apc_indicator = mutable_appearance(icon, "lost")
+				add_overlay(apc_indicator)
+			else
+				STOP_PROCESSING(SSprocessing, src)
+				QDEL_NULL(apc_indicator)
+			. = TRUE
 
-	if(href_list["clear_io"])
-		selected_io = null
+		if("clear_io")
+			selected_io = null
+			. = TRUE
 
 	update_icon()
-	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/multitool/update_icon()
 	if(tracking_apc)
@@ -196,7 +199,6 @@
 		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
 
 	update_icon()
-	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/multitool/proc/unwire(datum/integrated_io/io1, datum/integrated_io/io2, mob/user)
 	if(!io1.linked.len || !io2.linked.len)

@@ -1,18 +1,23 @@
 /mob/living/simple_animal/hostile/commanded
 	name = "commanded"
+	var/short_name = null
 	stance = COMMANDED_STOP
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	density = FALSE
 	belongs_to_station = TRUE
 	hostile_nameable = TRUE
-	var/short_name = null
+
 	var/list/command_buffer = list()
 	var/list/known_commands = list("stay", "stop", "attack", "follow")
-	var/mob/master = null //undisputed master. Their commands hold ultimate sway and ultimate power.
-	var/list/allowed_targets = list() //WHO CAN I KILL D:
-	var/retribution = 1 //whether or not they will attack us if we attack them like some kinda dick.
+
 	var/list/sad_emote = list("whimpers")
+
+	var/mob/master = null //undisputed master. Their commands hold ultimate sway and ultimate power.
+	var/datum/weakref/following_mob_ref
+	var/list/allowed_targets = list() //WHO CAN I KILL D:
+
+	var/retribution = 1 //whether or not they will attack us if we attack them like some kinda dick.
 
 /mob/living/simple_animal/hostile/commanded/Initialize()
 	. = ..()
@@ -69,6 +74,11 @@
 			commanded_stop()
 
 /mob/living/simple_animal/hostile/commanded/change_stance(var/new_stance)
+	if(following_mob_ref)
+		var/mob/mob_to_follow = following_mob_ref.resolve()
+		UnregisterSignal(mob_to_follow, COMSIG_MOB_POINT)
+		following_mob_ref = null
+
 	. = ..()
 	if(!.)
 		return
@@ -113,10 +123,9 @@
 
 /mob/living/simple_animal/hostile/commanded/proc/follow_target()
 	stop_automated_movement = 1
-	if(!target_mob)
-		return
-	if(get_dist(src, target_mob) <= 10)
-		walk_to(src,target_mob,1,move_to_delay)
+	var/mob/mob_to_follow = following_mob_ref?.resolve()
+	if(mob_to_follow && get_dist(src, mob_to_follow) <= 10)
+		walk_to(src,mob_to_follow,1,move_to_delay)
 
 /mob/living/simple_animal/hostile/commanded/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
 	return
@@ -164,15 +173,19 @@
 			. += M
 
 
-/mob/living/simple_animal/hostile/commanded/proc/attack_command(var/mob/speaker,var/text)
+/mob/living/simple_animal/hostile/commanded/proc/attack_command(var/mob/speaker, var/text, var/mob/mob_target)
 	target_mob = null //want me to attack something? Well I better forget my old target.
 	walk_to(src,0)
-	change_stance(HOSTILE_STANCE_IDLE)
+	change_stance(HOSTILE_STANCE_ATTACKING)
 	if(text == "attack" || findtext(text,"everyone") || findtext(text,"anybody") || findtext(text, "somebody") || findtext(text, "someone")) //if its just 'attack' then just attack anybody, same for if they say 'everyone', somebody, anybody. Assuming non-pickiness.
 		allowed_targets = list("everyone")//everyone? EVERYONE
 		return 1
 
-	allowed_targets += get_targets_by_name(text)
+	if(mob_target)
+		allowed_targets += mob_target
+		friends -= mob_target
+	else
+		allowed_targets += get_targets_by_name(text)
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	return targets.len != 0
@@ -181,41 +194,67 @@
 	target_mob = null
 	change_stance(COMMANDED_STOP)
 	stop_automated_movement = 1
-	walk_to(src,0)
+	walk_to(src, 0)
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	return 1
 
 /mob/living/simple_animal/hostile/commanded/proc/stop_command(var/mob/speaker,var/text)
 	allowed_targets = list()
-	walk_to(src,0)
-	target_mob = null //gotta stop SOMETHIN
+	walk_to(src, 0)
 	change_stance(HOSTILE_STANCE_IDLE)
 	stop_automated_movement = 0
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	return 1
 
-/mob/living/simple_animal/hostile/commanded/proc/follow_command(var/mob/speaker,var/text)
-	//we can assume 'stop following' is handled by stop_command
-	if(findtext(text,"me"))
-		change_stance(COMMANDED_FOLLOW)
-		target_mob = speaker //this wont bite me in the ass later.
-		return 1
-	var/list/targets = get_targets_by_name(text)
-	if(targets.len > 1 || !targets.len) //CONFUSED. WHO DO I FOLLOW?
-		return 0
+/mob/living/simple_animal/hostile/commanded/proc/follow_command(var/mob/speaker, var/text, var/mob/mob_target)
+	allowed_targets = list()
+	walk_to(src, 0)
 
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
+
+	if(!mob_target)
+		if(findtext(text, "me"))
+			mob_target = speaker
+		else
+			var/list/targets = get_targets_by_name(text)
+			if(targets.len > 1 || !targets.len) //CONFUSED. WHO DO I FOLLOW?
+				return FALSE
+			mob_target = targets[1]
+
 	change_stance(COMMANDED_FOLLOW) //GOT SOMEBODY. BETTER FOLLOW EM.
-	target_mob = targets[1] //YEAH GOOD IDEA
+	following_mob_ref = WEAKREF(mob_target)
+	friends |= mob_target
+	RegisterSignal(mob_target, COMSIG_MOB_POINT, PROC_REF(point_command))
 
 	return 1
 
 /mob/living/simple_animal/hostile/commanded/proc/misc_command(var/mob/speaker,var/text)
 	return 0
 
+/mob/living/simple_animal/hostile/commanded/handle_pointed_at(var/mob/pointer)
+	if(pointer != master && !(pointer in friends))
+		return
+	var/mob_to_follow = following_mob_ref?.resolve()
+	if(stance != COMMANDED_FOLLOW || mob_to_follow != pointer)
+		follow_command(pointer, mob_target = pointer)
+	else
+		stop_command(pointer)
+
+/mob/living/simple_animal/hostile/commanded/proc/point_command(var/mob/pointer, var/atom/pointed_at)
+	SIGNAL_HANDLER
+
+	if(pointed_at == src || pointer == pointed_at || !isliving(pointed_at))
+		return
+
+	switch(pointer.a_intent)
+		if(I_GRAB)
+			INVOKE_ASYNC(src, PROC_REF(follow_command), pointer, null, pointed_at)
+		if(I_HURT)
+			if(pointed_at != master || (!(pointed_at in friends) || pointer == master))
+				INVOKE_ASYNC(src, PROC_REF(attack_command), pointer, null, pointed_at)
 
 /mob/living/simple_animal/hostile/commanded/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	//if they attack us, we want to kill them. None of that "you weren't given a command so free kill" bullshit.
@@ -278,9 +317,8 @@
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/hostile/commanded/handle_attack_by(var/obj/item/O, var/mob/user)
 	..()
-
 	// We forgive our master
 	if(user == master)
 		target_mob = null

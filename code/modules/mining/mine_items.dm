@@ -20,6 +20,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
+	surgerysound = 'sound/weapons/rapidslice.ogg'
 	var/drill_sound = /singleton/sound_category/pickaxe_sound
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
@@ -78,6 +79,7 @@
 	return ..()
 
 /obj/item/pickaxe/dropped(mob/user)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/pickaxe/O = user.get_inactive_hand()
@@ -765,13 +767,10 @@
 /obj/item/lazarus_injector
 	name = "lazarus injector"
 	desc = "An injector with a secret patented cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	icon_state = "lazarus_loaded"
 	item_state = "lazarus_loaded"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
-		)
+	contained_sprite = TRUE
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
@@ -845,7 +844,7 @@
 		update_icon()
 
 /obj/item/lazarus_injector/examine(mob/user)
-	..()
+	. = ..()
 	if(!loaded)
 		to_chat(user, SPAN_INFO("\The [src] is empty."))
 	if(malfunctioning || emagged)
@@ -871,7 +870,7 @@
 	..()
 
 /obj/item/card/mining_point_card/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_NOTICE("There's [points] point\s on the card."))
 
 /**********************"Fultons"**********************/
@@ -906,7 +905,7 @@ var/list/total_extraction_beacons = list()
 		return
 
 	else
-		var/A = input(user, "Select a beacon to connect to", "Warp Extraction Pack") in possible_beacons
+		var/A = tgui_input_list(user, "Select a beacon to connect to.", "Warp Extraction Pack", possible_beacons, beacon)
 		if(!A)
 			return
 		beacon = A
@@ -1048,7 +1047,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "shield2"
 	layer = 5
 	anchored = TRUE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/resonance_damage = 20
 	var/creator
 	var/obj/item/resonator/res
@@ -1194,7 +1193,7 @@ var/list/total_extraction_beacons = list()
 
 		busy_sculpting = TRUE
 
-		var/choice = input(user, "What would you like to sculpt?", "Sculpting Options") as null|anything in list("Sculpture", "Ladder")
+		var/choice = tgui_input_list(user, "What would you like to sculpt?", "Sculpting Options", list("Sculpture", "Ladder"))
 		if(!choice)
 			busy_sculpting = FALSE
 			return
@@ -1207,7 +1206,7 @@ var/list/total_extraction_beacons = list()
 		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), SPAN_NOTICE("You begin sculpting."))
 
 		if(prob(25))
-			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
 		else
 			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
 
@@ -1240,7 +1239,7 @@ var/list/total_extraction_beacons = list()
 			var/list/choices = list()
 			for(var/mob/living/M in view(7,user))
 				choices += M
-			T = input(user, "Who do you wish to sculpt?", "Sculpt Options") as null|anything in choices
+			T = tgui_input_list(user, "Who do you wish to sculpt?", "Sculpt Options", choices)
 			if(!T)
 				to_chat(user, SPAN_NOTICE("You decide against sculpting for now."))
 				return FALSE

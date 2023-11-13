@@ -36,7 +36,7 @@
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSmob, src)
+	STOP_PROCESSING(SSmobs, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -111,7 +111,7 @@
 		return
 
 	on = TRUE
-	START_PROCESSING(SSmob, src)
+	START_PROCESSING(SSmobs, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
@@ -119,7 +119,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
-	STOP_PROCESSING(SSmob, src)
+	STOP_PROCESSING(SSmobs, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)
@@ -164,11 +164,11 @@
 	if(istype(W, /obj/item/cell))
 		if(cover_open)
 			if(cell)
-				to_chat(user, SPAN_WARNING("There is a [cell] already installed here."))
+				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
 				user.drop_from_inventory(W,src)
 				cell = W
-				to_chat(user, SPAN_NOTICE("You insert the [cell]."))
+				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
 		update_icon()
 		return
 
@@ -210,8 +210,10 @@
 		M.update_inv_back()
 		M.update_inv_s_store()
 
-/obj/item/device/suit_cooling_unit/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/device/suit_cooling_unit/examine(mob/user, distance)
+	. = ..()
+
+	if(!distance <= 1)
 		return
 
 	if(on)
@@ -228,7 +230,7 @@
 
 	if(cover_open)
 		if(cell)
-			to_chat(user, SPAN_NOTICE("The panel is open, exposing the [cell]."))
+			to_chat(user, SPAN_NOTICE("The panel is open, exposing \the [cell]."))
 		else
 			to_chat(user, SPAN_NOTICE("The panel is open."))
 

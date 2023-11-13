@@ -105,8 +105,14 @@
 	ui_interact(user)
 	return
 
-/obj/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=1)
-	var/list/data[0]
+/obj/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AtmoScrubber", ui_x=500, ui_y=380)
+		ui.open()
+
+/obj/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)
+	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
 	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
 	data["rate"] = round(volume_rate)
@@ -116,37 +122,33 @@
 	data["cellCharge"] = cell ? cell.charge : 0
 	data["cellMaxCharge"] = cell ? cell.maxcharge : 1
 	data["on"] = on ? 1 : 0
-
 	data["hasHoldingTank"] = holding ? 1 : 0
-	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
+	if(holding)
+		data["holdingTankName"] = holding?.name
+		data["holdingTankPressure"] = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0)
+	else
+		data["holdingTankName"] = null
+		data["holdingTankPressure"] = null
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "portscrubber.tmpl", "Portable Scrubber", 480, 400, state = physical_state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-
-/obj/machinery/portable_atmospherics/powered/scrubber/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(href_list["power"])
+/obj/machinery/portable_atmospherics/powered/scrubber/ui_act(action, list/params)
+	. = ..()
+	if(.)
+		return
+	if(action=="togglePower")
 		on = !on
-		. = 1
-	if (href_list["remove_tank"])
+		update_icon()
+		. = TRUE
+	if(action=="removeTank")
 		if(holding)
 			holding.forceMove(loc)
 			holding = null
-		. = 1
-	if (href_list["volume_adj"])
-		var/diff = text2num(href_list["volume_adj"])
-		volume_rate = Clamp(volume_rate+diff, minrate, maxrate)
-		. = 1
-	update_icon()
-
+		. = TRUE
+		update_icon()
+	if(action=="setVolume")
+		volume_rate = Clamp(text2num(params["targetVolume"]), minrate, maxrate)
+		. = TRUE
+		update_icon()
 
 //Huge scrubber
 /obj/machinery/portable_atmospherics/powered/scrubber/huge

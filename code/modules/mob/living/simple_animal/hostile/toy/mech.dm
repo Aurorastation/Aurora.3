@@ -19,6 +19,7 @@
 	speed = 2
 	mob_size = MOB_MINISCULE
 	tameable = FALSE
+	destroy_surroundings = FALSE
 
 	blood_overlay_icon = null
 
@@ -39,6 +40,9 @@
 	icon_dead = "[initial(parent.icon_state)]-dead"
 	contained_mech = parent
 	parent.forceMove(src)
+
+/mob/living/simple_animal/hostile/mech/isSynthetic()
+	return TRUE
 
 /mob/living/simple_animal/hostile/mech/setup_target_type_validators()
 	target_type_validator_map[/mob/living/simple_animal/hostile/mech] = CALLBACK(src, PROC_REF(validator_rival))

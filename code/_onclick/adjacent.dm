@@ -121,20 +121,19 @@ Quick adjacency (to turf):
 */
 /turf/proc/ClickCross(var/target_dir, var/border_only, var/target_atom = null)
 	for(var/obj/O in src)
-		if( !O.density || O == target_atom || O.throwpass) continue // throwpass is used for anything you can click through
+		if(!O.density || O == target_atom || O.throwpass)
+			continue // throwpass is used for anything you can click through
 
-		if( O.flags&ON_BORDER) // windows have throwpass but are on border, check them first
-			if( O.dir & target_dir || O.dir&(O.dir-1) ) // full tile windows are just diagonals mechanically
-				var/obj/structure/window/W = target_atom
-				if(istype(W))
+		if(O.flags & ON_BORDER) // windows have throwpass but are on border, check them first
+			if(O.dir & target_dir || O.dir & (O.dir - 1)) // full tile windows are just diagonals mechanically
+				if(istype(target_atom, /obj/structure/window))
+					var/obj/structure/window/W = target_atom
 					if(!W.is_fulltile())	//exception for breaking full tile windows on top of single pane windows
-						return 0
-				else
-					return 0
-
-		else if( !border_only ) // dense, not on border, cannot pass over
-			return 0
-	return 1
+						return FALSE
+				return TRUE
+		else if(!border_only) // dense, not on border, cannot pass over
+			return FALSE
+	return TRUE
 /*
 	Aside: throwpass does not do what I thought it did originally, and is only used for checking whether or not
 	a thrown object should stop after already successfully entering a square.  Currently the throw code involved

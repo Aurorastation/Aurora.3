@@ -67,7 +67,7 @@
 		link = "'[sanitizeSQL(link)]'"
 	else
 		link = "NULL"
-	
+
 	var/sql_ckey = sanitizeSQL(ckey)
 	var/question = input("Write your question","Question") as message
 	if(!question)

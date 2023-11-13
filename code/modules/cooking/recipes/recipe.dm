@@ -9,7 +9,7 @@
  * * items are objects. Fruits, tools, circuit boards.
  * * result is type to create as new object
  * * time is optional parameter, you shall use in in your machine,
-	 default /singleton/recipe/ procs does not rely on this parameter.
+		default /singleton/recipe/ procs does not rely on this parameter.
  *
  *  Functions you need:
  *  /singleton/recipe/proc/make(var/obj/container as obj)
@@ -268,8 +268,6 @@
 
 
 	switch(reagent_mix)
-		if (RECIPE_REAGENT_REPLACE)
-			//We do no transferring
 		if (RECIPE_REAGENT_SUM)
 			//Sum is easy, just shove the entire buffer into the result
 			buffer.trans_to_holder(holder, buffer.total_volume)

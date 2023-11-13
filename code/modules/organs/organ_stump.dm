@@ -5,6 +5,7 @@
 
 /obj/item/organ/external/stump/Initialize(mapload, var/internal, var/obj/item/organ/external/limb)
 	if(istype(limb))
+		name = "[limb.name] stump"
 		limb_name = limb.limb_name
 		body_part = limb.body_part
 		amputation_point = limb.amputation_point

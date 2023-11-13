@@ -2,7 +2,7 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "phasein"
 	layer = ABOVE_MOB_LAYER
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	duration = 15
 
 /obj/effect/temp_visual/phase/out

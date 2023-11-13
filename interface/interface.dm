@@ -45,8 +45,8 @@
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, file2text(RULES_FILE)), "window=rules;size=640x500")
+
+	src << browse(file2text(RULES_FILE), "window=rules;size=640x500")
 #undef RULES_FILE
 
 /client/verb/hotkeys_help()

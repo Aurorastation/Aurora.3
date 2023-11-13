@@ -21,7 +21,7 @@
 
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 
-	fire_delay = 35
+	fire_delay = ROF_SPECIAL
 	fire_sound = 'sound/weapons/gunshot/musket.ogg'
 	recoil = 4
 

@@ -36,7 +36,7 @@
 	var/force_holder
 
 /obj/item/gripper/examine(var/mob/user)
-	..()
+	. = ..()
 	if(wrapped)
 		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
 
@@ -57,6 +57,9 @@
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
 		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
+			if(I.anchored)
+				to_chat(user, SPAN_WARNING("\The [I] is anchored down!"))
+				return FALSE
 			if(feedback)
 				to_chat(user, SPAN_NOTICE("You collect \the [I]."))
 			if(isturf(I.loc) && I.Adjacent(user))

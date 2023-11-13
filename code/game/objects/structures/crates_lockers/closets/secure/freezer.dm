@@ -50,9 +50,9 @@
 /obj/structure/closet/secure_closet/freezer/fridge/fill()
 	..()
 	for(var/i = 0, i < 5, i++)
-		new /obj/item/reagent_containers/food/drinks/milk(src)
+		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
 	for(var/i = 0, i < 2, i++)
-		new /obj/item/reagent_containers/food/drinks/soymilk(src)
+		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/storage/box/fancy/egg_box(src)
 
@@ -82,3 +82,14 @@
 
 	for(var/i = 0, i < rand(6,9), i++)
 		new /obj/random/coin(src)
+
+/obj/structure/closet/secure_closet/freezer/cafe/fill()
+	..()
+	for(var/i = 0, i < 6, i++)
+		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	for(var/i = 0, i < 3, i++)
+		new /obj/item/storage/box/fancy/egg_box(src)
+		new /obj/item/reagent_containers/food/condiment/flour(src)
+	for(var/i = 0, i < 2, i++)
+		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
+		new /obj/item/reagent_containers/food/condiment/sugar(src)

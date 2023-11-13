@@ -58,7 +58,7 @@
 
 	is_in_use = TRUE
 	user.visible_message("<b>[user]</b> begins waving \the [src] around \the [target]...", SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), range = 3)
-	if(!do_after(user, 50, TRUE, target))
+	if(!do_after(user, 50, target))
 		is_in_use = FALSE
 		return
 	is_in_use = FALSE

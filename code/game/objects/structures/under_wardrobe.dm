@@ -1,9 +1,3 @@
-#define M_UNDER "Male underwear"
-#define F_UNDER "Female underwear"
-#define M_SOCKS "Male socks"
-#define F_SOCKS "Female socks"
-#define U_SHIRT "Undershirt"
-
 /obj/structure/undies_wardrobe
 	name = "underwear wardrobe"
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."
@@ -77,7 +71,7 @@
 		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return
-		var/datum/category_item/underwear/selected_underwear = input(H, "Choose underwear:", "Choose underwear", H.all_underwear[UWC.name]) as null|anything in UWC.items
+		var/datum/category_item/underwear/selected_underwear = tgui_input_list(H, "Choose your underwear.", "Choose Underwear", UWC.items, H.all_underwear[UWC.name])
 		if(selected_underwear && CanUseTopic(H, default_state))
 			H.all_underwear[UWC.name] = selected_underwear
 			H.hide_underwear[UWC.name] = FALSE

@@ -22,8 +22,12 @@
 
 	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
 
-	var/defer_initialisation = FALSE //this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
-	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
+	/**
+	 * This shuttle will/won't be initialised automatically.
+	 * If set to `TRUE`, you are responsible for initialzing the shuttle manually.
+	 * Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
+	 */
+	var/defer_initialisation = FALSE
 	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
 	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
@@ -130,12 +134,14 @@
 		if(attempt_move(interim))
 			on_move_interim()
 			var/fwooshed = 0
+			destination.deploy_landing_indicators(src)
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
 					playsound(destination, sound_landing, 50, 20, is_global = TRUE)
 				sleep(5)
 			if(!attempt_move(destination))
+				destination.clear_landing_indicators()
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
 
 		moving_status = SHUTTLE_IDLE

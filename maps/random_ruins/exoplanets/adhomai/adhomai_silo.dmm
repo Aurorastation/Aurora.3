@@ -247,7 +247,8 @@
 "R" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
 /turf/simulated/floor/concrete{

@@ -39,7 +39,7 @@
 	if(O.check_completion())
 		return TRUE
 	return FALSE
-	
+
 /datum/bounty/item/science/forcegloves
 	name = "Force Gloves"
 	description = "%PERSONNAME has been challenged to a sparring duel in the holodeck. Ship them a pair of forcegloves so there can be a fair fight."
@@ -91,10 +91,6 @@
 /datum/bounty/item/science/circuitboard/dronecontrol
 	name = "Drone Control Circuitboard"
 	wanted_types = list(/obj/item/circuitboard/drone_control)
-
-/datum/bounty/item/science/circuitboard/powermonitor
-	name = "Power Monitor Circuitboard"
-	wanted_types = list(/obj/item/circuitboard/powermonitor)
 
 /datum/bounty/item/science/battery
 	name = "Heavy-Duty Power Cell"

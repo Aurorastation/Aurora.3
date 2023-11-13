@@ -44,6 +44,8 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 3
+	destroy_surroundings = FALSE
+
 
 /mob/living/simple_animal/hostile/retaliate/shantak
 	name = "shantak"
@@ -65,6 +67,7 @@
 	speak = list("Shuhn","Shrunnph?","Shunpf")
 	emote_see = list("scratches the ground","shakes out it's mane","tinkles gently")
 	mob_size = 5
+	break_stuff_probability = 1
 
 /mob/living/simple_animal/yithian
 	name = "yithian"

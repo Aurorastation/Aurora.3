@@ -10,30 +10,11 @@
 	available_on_ntnet = FALSE
 	required_access_run = access_heads
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	tgui_id = "Teleporter"
 	var/datum/weakref/pad_ref
 
-/datum/computer_file/program/teleporter/ui_interact(var/mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if(!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-command-teleporter", 600, 400, "Teleporter Control System")
-		ui.auto_update_content = TRUE
-	ui.open()
-
-/datum/computer_file/program/teleporter/vueui_transfer(oldobj)
-	. = FALSE
-	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-command-teleporter", 600, 400, "Teleporter Control System")
-	for(var/tui in uis)
-		var/datum/vueui/ui = tui
-		ui.auto_update_content = TRUE
-		. = TRUE
-
-/datum/computer_file/program/teleporter/vueui_on_transfer(datum/vueui/ui)
-	. = ..()
-	ui.auto_update_content = FALSE
-
-/datum/computer_file/program/teleporter/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/datum/computer_file/program/teleporter/ui_data(mob/user)
+	var/list/data = list()
 
 	// Gather data for computer header
 	var/headerdata = get_header_data(data["_PC"])
@@ -50,9 +31,9 @@
 
 	// block of root level data
 	data["has_linked_pad"] = !!linked_pad
-	LAZYINITLIST(data["nearby_pads"])
-	LAZYINITLIST(data["teleport_beacons"])
-	LAZYINITLIST(data["teleport_implants"])
+	data["nearby_pads"] = list()
+	data["teleport_beacons"] = list()
+	data["teleport_implants"] = list()
 	data["calibration"] = 0
 	data["selected_target"] = null
 	data["selected_target_name"] = "None"
@@ -61,10 +42,10 @@
 		var/list/near_pads_info = list()
 		for(var/obj/machinery/teleport/pad/S in range(3, T))
 			var/list/pad_info = list(
-				"pad_name" = "[S.name] ([S.x]-[S.y][S.z])",
+				"name" = "[S.name] ([S.x]-[S.y][S.z])",
 				"ref" = "\ref[S]"
 				)
-			near_pads_info[++near_pads_info.len] = pad_info
+			near_pads_info += list(pad_info)
 		data["nearby_pads"] = near_pads_info
 	else
 		var/atom/selected_atom = linked_pad.locked_obj ? linked_pad.locked_obj.resolve() : null
@@ -89,10 +70,10 @@
 			else
 				area_index[tmpname] = 1
 			var/list/teleporter_info = list(
-				"beacon_name" = tmpname,
+				"name" = tmpname,
 				"ref" = "\ref[R]"
 				)
-			teleport_beacon_info[++teleport_beacon_info.len] = teleporter_info
+			teleport_beacon_info += list(teleporter_info)
 		data["teleport_beacons"] = teleport_beacon_info
 
 		var/list/teleport_implant_info = list()
@@ -102,7 +83,7 @@
 			else
 				var/mob/M = I.loc
 				if(M.stat == DEAD)
-					if(M.timeofdeath + 6000 < world.time)
+					if(M.timeofdeath + I.lifespan_postmortem < world.time)
 						continue
 				var/turf/IT = get_turf(M)
 				if(!IT)
@@ -117,52 +98,59 @@
 				else
 					area_index[tmpname] = 1
 				var/list/implant_info = list(
-					"implant_name" = tmpname,
+					"name" = tmpname,
 					"ref" = "\ref[I]"
 				)
-				teleport_implant_info[++teleport_implant_info.len] = implant_info
+				teleport_implant_info += list(implant_info)
 		data["teleport_implants"] = teleport_implant_info
 
 	return data
 
-/datum/computer_file/program/teleporter/Topic(href, href_list)
-	if(..())
-		return TRUE
+/datum/computer_file/program/teleporter/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["pad"])
-		var/obj/machinery/teleport/pad/linked_pad = locate(href_list["pad"]) in range(3, get_turf(computer.loc))
-		pad_ref = WEAKREF(linked_pad)
-	else if(href_list["recalibrate"])
-		var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
-		linked_pad.start_recalibration()
-	else if(href_list["beacon"])
-		var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
-		var/obj/O = locate(href_list["beacon"]) in teleportbeacons
-		if(linked_pad.locked_obj)
-			var/obj/LO = linked_pad.locked_obj.resolve()
-			if(LO == O)
-				linked_pad.disengage()
-				return
-		linked_pad.locked_obj = WEAKREF(O)
-		linked_pad.locked_obj_name = href_list["name"]
-		if(!linked_pad.engaged)
-			linked_pad.engage()
-			linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
-	else if(href_list["implant"])
-		var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
-		var/obj/O = locate(href_list["implant"]) in implants
-		if(linked_pad.locked_obj)
-			var/obj/LO = linked_pad.locked_obj.resolve()
-			if(LO == O)
-				linked_pad.disengage()
-				return
-		linked_pad.locked_obj = WEAKREF(O)
-		linked_pad.locked_obj_name = href_list["name"]
-		if(!linked_pad.engaged)
-			linked_pad.engage()
-			linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+	switch(action)
+		if("pad")
+			var/obj/machinery/teleport/pad/linked_pad = locate(params["pad"]) in range(3, get_turf(computer.loc))
+			pad_ref = WEAKREF(linked_pad)
+			. = TRUE
 
-	SSvueui.check_uis_for_change(src)
+		if("recalibrate")
+			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+			linked_pad.start_recalibration()
+			. = TRUE
+
+		if("beacon")
+			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+			var/obj/O = locate(params["beacon"]) in teleportbeacons
+			if(linked_pad.locked_obj)
+				var/obj/LO = linked_pad.locked_obj.resolve()
+				if(LO == O)
+					linked_pad.disengage()
+					return
+			linked_pad.locked_obj = WEAKREF(O)
+			linked_pad.locked_obj_name = params["name"]
+			if(!linked_pad.engaged)
+				linked_pad.engage()
+				linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+			. = TRUE
+
+		if("implant")
+			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+			var/obj/O = locate(params["implant"]) in implants
+			if(linked_pad.locked_obj)
+				var/obj/LO = linked_pad.locked_obj.resolve()
+				if(LO == O)
+					linked_pad.disengage()
+					return
+			linked_pad.locked_obj = WEAKREF(O)
+			linked_pad.locked_obj_name = params["name"]
+			if(!linked_pad.engaged)
+				linked_pad.engage()
+				linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+			. = TRUE
 
 /datum/computer_file/program/teleporter/ninja
 	required_access_run = list()

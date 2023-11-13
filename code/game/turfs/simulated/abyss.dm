@@ -2,7 +2,7 @@
 	name = "abyss"
 	desc = "It stares back at you."
 	icon = 'icons/turf/smooth/abyss.dmi'
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	icon_state = "smooth"
 	var/static/list/forbidden_types = typecacheof(list(

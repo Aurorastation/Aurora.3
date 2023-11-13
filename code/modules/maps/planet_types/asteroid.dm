@@ -1,8 +1,8 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid
 	name = "mineral asteroid"
 	desc = "A large, resource rich asteroid."
-	massvolume = "Miniscule, not immediately apparent in mass"
-	surfacegravity = "Miniscule, non-obstructive gravity well"
+	massvolume = "~0.02"
+	surfacegravity = "0.04~"
 	surface_color = COLOR_GRAY
 	scanimage = "asteroid.png"
 	possible_themes = list(/datum/exoplanet_theme/barren/asteroid)
@@ -14,7 +14,7 @@
 	place_near_main = list(1, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
-  	icon_state = "asteroid[rand(1,3)]"
+	icon_state = "asteroid[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
 	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")

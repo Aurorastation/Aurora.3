@@ -6,7 +6,7 @@
 	icon = 'icons/effects/map_effects.dmi'
 	var/window_path = /obj/structure/window/basic
 	var/frame_path = /obj/structure/window_frame
-	var/grille_path = /obj/structure/grille
+	var/grille_path = /obj/structure/grille/over
 	var/firedoor_path = /obj/machinery/door/firedoor
 	var/single_window = FALSE // For full window panes and full windows.
 	var/spawn_frame = FALSE // For full windows.
@@ -207,3 +207,10 @@
 	name = "full reinforced borosilicate window spawner with firedoor"
 	icon_state = "full_brwindow-f"
 	spawn_firedoor = TRUE
+
+//For smoothing into material colored walls, like wood
+/obj/effect/map_effect/window_spawner/full/wood
+	name = "full wooden window spawner"
+	icon_state = "full_rwindow"
+	frame_path = /obj/structure/window_frame/wood
+	window_path = /obj/structure/window/full/reinforced

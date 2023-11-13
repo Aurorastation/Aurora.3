@@ -26,7 +26,11 @@ var/list/preferences_datums = list()
 	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/html_UI_style = "Nano"
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
+	var/tgui_inputs = TRUE
+	var/tgui_buttons_large = FALSE
+	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -98,13 +102,14 @@ var/list/preferences_datums = list()
 	var/culture
 	var/origin
 
+	var/list/psionics = list()
+
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
-		"1" = "character_preview_map:1,5:-12",
-		"2" = "character_preview_map:1,3:15",
-		"4"  = "character_preview_map:1:0,2:10",
-		"8"  = "character_preview_map:1:0,1:5",
-		"BG" = "character_preview_map:1,1 to 1,5"
+		"1" = list(1, 0, 5, -12),
+		"2" = list(1, 0, 3, 15),
+		"4" = list(1, 0, 2, 10),
+		"8" = list(1, 0, 1, 5)
 	)
 
 		//Jobs, uses bitflags
@@ -154,9 +159,9 @@ var/list/preferences_datums = list()
 
 	// SPAAAACE
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
-	var/clientfps = 0
+	var/clientfps = 100
 	var/floating_chat_color
-	var/speech_bubble_type = "normal"
+	var/speech_bubble_type = "default"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -170,20 +175,26 @@ var/list/preferences_datums = list()
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/bgstate = "000"
+	var/bgstate = "000000"
 	var/list/bgstate_options = list(
-		"fffff",
-		"000",
-		"new_steel",
-		"dark2",
+		"FFFFFF",
+		"000000",
+		"tiled_preview",
+		"monotile_preview",
+		"dark_preview",
 		"wood",
-		"wood_light",
-		"grass_alt",
-		"new_reinforced",
-		"new_white"
+		"grass",
+		"reinforced",
+		"white_preview",
+		"freezer",
+		"carpet",
+		"reinforced"
 		)
 
 	var/fov_cone_alpha = 255
+
+	var/scale_x = 1
+	var/scale_y = 1
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -247,14 +258,14 @@ var/list/preferences_datums = list()
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-	send_theme_resources(user)
+
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
 	popup.open(FALSE) // Skip registering onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
 
-/datum/preferences/proc/update_character_previews(mutable_appearance/MA)
+/datum/preferences/proc/update_character_previews(mutable_appearance/MA, var/big_mob = FALSE)
 	if(!client)
 		return
 
@@ -267,12 +278,13 @@ var/list/preferences_datums = list()
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/total_floors.dmi'
+		BG.icon = 'icons/turf/flooring/tiles.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
-	BG.screen_loc = preview_screen_locs["BG"]
+	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
+	var/index = 0
 	for(var/D in global.cardinal)
 		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
@@ -281,7 +293,17 @@ var/list/preferences_datums = list()
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
-		O.screen_loc = preview_screen_locs["[D]"]
+		var/list/screen_locs = preview_screen_locs["[D]"]
+		var/screen_x = screen_locs[1]
+		var/screen_x_minor = screen_locs[2]
+		screen_x_minor -= MA.pixel_x
+		var/screen_y = screen_locs[3]
+		var/screen_y_minor = screen_locs[4]
+		if(big_mob)
+			screen_y_minor += round(30 - (index * 15))
+		screen_y_minor -= MA.pixel_y
+		O.screen_loc = "character_preview_map:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
+		index++
 
 /datum/preferences/proc/show_character_previews()
 	if(!client || !char_render_holders)
@@ -425,6 +447,8 @@ var/list/preferences_datums = list()
 
 	character.s_tone = s_tone
 
+	character.lipstick_color = null
+
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
@@ -468,6 +492,12 @@ var/list/preferences_datums = list()
 
 	character.headset_choice = headset_choice
 
+	if(length(psionics))
+		for(var/power in psionics)
+			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
+			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
+				P.apply(character)
+
 	if(icon_updates)
 		character.force_update_limbs()
 		character.update_mutations(0)
@@ -510,9 +540,12 @@ var/list/preferences_datums = list()
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.width = 300
+	load_diag.height = 390
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<tt><center>"
@@ -531,11 +564,13 @@ var/list/preferences_datums = list()
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
+
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=saves")
+	user << browse(null, "window=load_diag")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
@@ -543,7 +578,7 @@ var/list/preferences_datums = list()
 		return
 
 	if(!H.mind.assigned_role)
-		log_debug("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
+		LOG_DEBUG("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
 	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
 	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
@@ -630,6 +665,7 @@ var/list/preferences_datums = list()
 
 		ccia_actions = list()
 		disabilities = list()
+		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
 

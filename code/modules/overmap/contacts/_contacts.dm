@@ -74,7 +74,7 @@
 	if(pinged)
 		return
 	pinged = TRUE
-	effect.opacity = 1
+	effect.opacity = initial(effect.opacity)
 	show()
 	animate(marker, alpha=255, 0.5 SECOND, 1, LINEAR_EASING)
 	addtimer(CALLBACK(src, PROC_REF(unping)), 1 SECOND)
@@ -103,9 +103,11 @@
 			owner.contact_datums -= effect
 		owner = null
 
-	// Remove the effect opacity and null the effect
+	// Remove the effect opacity, effect, marker and radar
 	effect.opacity = 0
 	effect = null
+	marker = null
+	radar = null
 
 	QDEL_NULL_LIST(images)
 	. = ..()

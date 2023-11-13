@@ -76,16 +76,15 @@
 		explode()
 		return 0
 
-	if(maxcharge < amount)	return 0
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
 	return amount_used
 
 
-/obj/item/cell/examine(mob/user)
+/obj/item/cell/examine(mob/user, distance, is_adjacent)
 	. = ..()
 
-	if(get_dist(src, user) > 1)
+	if(distance > 1)
 		return
 
 	if(maxcharge <= 2500)

@@ -23,7 +23,7 @@
 	onclose(user, "scroll")
 	return
 
-/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/topic_state/state = default_state)
+/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/ui_state/state = default_state)
 	if(..())
 		return 1
 

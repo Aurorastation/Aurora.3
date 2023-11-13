@@ -88,8 +88,9 @@
 /obj/structure/janitorialcart/proc/get_short_status()
 	return "Contents: [english_list(contents)]"
 
-/obj/structure/janitorialcart/examine(mob/user)
-	if(..(user, 1))
+/obj/structure/janitorialcart/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
 			to_chat(user, "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!")
@@ -203,7 +204,7 @@
 	if(user)
 		playsound(src.loc, I.usesound, 50, 1)
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
-		if (!do_after(user, 30, needhand = 0))
+		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return
 
 	dismantle()

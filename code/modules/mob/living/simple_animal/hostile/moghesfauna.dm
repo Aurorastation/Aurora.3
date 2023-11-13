@@ -9,6 +9,7 @@
 	speak_emote = list("hisses","roars")
 	emote_hear = list("hisses","grumbles","growls")
 	emote_see = list("hisses ferociously", "stomps")
+	emote_sounds = list('sound/effects/creatures/monstergrowl.ogg')
 	turns_per_move = 5
 	speak_chance = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
@@ -26,7 +27,7 @@
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomped"
-	attack_sound = 'sound/effects/creatures/monstergrowl.ogg'
+	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	faction = "lizard"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)

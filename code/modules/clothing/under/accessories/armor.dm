@@ -26,6 +26,11 @@
 	icon_state = "legguards_generic"
 	item_state = "legguards_generic"
 
+/obj/item/clothing/accessory/leg_guard/scc
+	name = "scc leg guards"
+	icon_state = "legguards_scc"
+	item_state = "legguards_scc"
+
 /obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
 	desc = "These will protect your legs and feet from energy weapons."
@@ -34,7 +39,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -108,6 +113,21 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/accessory/leg_guard/tcaf
+	name = "\improper TCAF legionnaire leg carapace"
+	desc = "Try to sweep the leg against someone wearing these."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_boot_armor"
+	item_state = "tcaf_boot_armor"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -135,6 +155,11 @@
 	icon_state = "armguards_generic"
 	item_state = "armguards_generic"
 
+/obj/item/clothing/accessory/arm_guard/scc
+	name = "scc arm guards"
+	icon_state = "armguards_scc"
+	item_state = "armguards_scc"
+
 /obj/item/clothing/accessory/arm_guard/ablative
 	name = "ablative arm guards"
 	desc = "These arm guards will protect your hands and arms from energy weapons."
@@ -143,7 +168,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -229,3 +254,23 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+
+/obj/item/clothing/accessory/arm_guard/tcaf
+	name = "\improper TCAF carapace arm guards"
+	desc = "Blue carapace armguards to protect you in the modern battlefield of 2465."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_armguards"
+	item_state = "tcaf_armguards"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe
+	name = "striped TCAF carapace arm guards"
+	icon_state = "tcaf_armguards_stripe"
+	item_state = "tcaf_armguards_stripe"

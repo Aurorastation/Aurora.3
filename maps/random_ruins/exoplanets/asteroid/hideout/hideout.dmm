@@ -2,66 +2,76 @@
 "aK" = (
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "aV" = (
 /obj/item/gun/projectile/pirate,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "aW" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "bD" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
+"bK" = (
+/turf/template_noop,
+/area/template_noop)
 "bZ" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "cv" = (
 /obj/random/junk,
 /obj/item/stack/cable_coil/cut,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
+"cC" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "du" = (
 /obj/machinery/light/small/red,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "dA" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "dK" = (
 /obj/effect/gibspawner/robot,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "dT" = (
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "ef" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "gc" = (
 /mob/living/simple_animal/hostile/rogue_drone,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "ge" = (
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "go" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "gq" = (
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
@@ -72,84 +82,86 @@
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "hm" = (
 /obj/random/glowstick,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "hz" = (
 /obj/random/keg,
 /turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "hO" = (
 /obj/structure/cable{
 	dir = 4
 	},
 /obj/item/broken_device,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "iD" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "iX" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/ale,
 /obj/item/reagent_containers/food/drinks/bottle/small/ale,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "js" = (
 /obj/structure/table/rack,
 /obj/random/contraband,
 /obj/random/contraband,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "jG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "jI" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "jJ" = (
 /obj/structure/table/rack,
 /obj/structure/trash_pile,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "kh" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "ku" = (
 /obj/structure/table/rack,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "ky" = (
 /obj/structure/grille/broken,
 /obj/item/material/shard,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
-"mi" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "mN" = (
 /obj/effect/gibspawner/robot,
 /turf/simulated/wall,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
+"np" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "nt" = (
 /obj/random/junk,
 /obj/random/finances,
 /turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "nB" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/gun/projectile/revolver/mateba,
@@ -158,44 +170,44 @@
 	},
 /obj/effect/landmark/corpse/hideout/captain,
 /turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "oe" = (
 /obj/effect/map_effect/airlock/long/square/engine/reversed,
 /turf/simulated/wall,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "pw" = (
 /obj/random/vendor,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "pI" = (
 /obj/random/voidsuit/no_nanotrasen,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "sz" = (
 /obj/structure/droppod_door,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "tb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "tp" = (
 /obj/random/melee,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "tA" = (
 /obj/item/trash/syndi_cakes,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/turf/template_noop,
+/area/template_noop)
 "tH" = (
 /turf/simulated/wall/shuttle/dark,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "uq" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "uO" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -203,38 +215,38 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "vK" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "vV" = (
 /obj/structure/mech_wreckage/powerloader,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "wl" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "xD" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "xT" = (
 /turf/simulated/wall{
 	can_open = 1
 	},
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "yg" = (
 /mob/living/simple_animal/hostile/viscerator,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "yh" = (
 /obj/item/ammo_casing/shotgun/pellet{
 	projectile_type = null
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "yi" = (
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
@@ -243,44 +255,44 @@
 	projectile_type = null
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "yP" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/ammo_casing/shotgun/pellet{
 	projectile_type = null
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "zf" = (
 /obj/random/glowstick,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "zo" = (
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Ab" = (
 /obj/random/document/junk,
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Aq" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "AD" = (
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "AQ" = (
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Bt" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "BK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -289,236 +301,234 @@
 	},
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Cq" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "CB" = (
 /obj/structure/table/wood,
 /obj/random/medical,
 /obj/random/random_flag,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Dk" = (
 /obj/effect/gibspawner/human,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "DN" = (
 /obj/structure/trash_pile,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/turf/template_noop,
+/area/template_noop)
 "DT" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/landmark/corpse/hideout,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "DW" = (
 /obj/structure/reagent_dispensers/keg/beerkeg,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/turf/template_noop,
+/area/template_noop)
 "Ec" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Eo" = (
 /obj/machinery/floodlight,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Fi" = (
 /obj/effect/gibspawner/human,
 /obj/item/gun/projectile/shotgun/improvised/sawn,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Fv" = (
 /obj/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Fx" = (
 /obj/random/medical,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "GC" = (
 /turf/simulated/mineral,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "GE" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "GN" = (
 /obj/effect/gibspawner/human,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "HT" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "HW" = (
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_casing/shotgun/pellet,
 /obj/item/gun/projectile/revolver/lemat,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/turf/template_noop,
+/area/template_noop)
 "Id" = (
 /obj/item/ammo_casing/shotgun/pellet{
 	projectile_type = null
 	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "If" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Iz" = (
 /obj/structure/bed/stool/bar/wood,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "IP" = (
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Jj" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Kx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "KE" = (
 /obj/random/junk,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Lg" = (
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Mw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "MX" = (
 /obj/random/firstaid,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Oe" = (
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4;
 	pixel_x = -4
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Oz" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "OE" = (
 /obj/structure/table/rack,
 /obj/structure/closet/crate/drop/grey{
 	opened = 1
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "OK" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "PR" = (
 /turf/simulated/wall,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "QK" = (
 /obj/structure/cable{
 	dir = 8
 	},
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/tiled/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "QU" = (
 /obj/item/mecha_equipment/mounted_system/combat/taser,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Rl" = (
 /mob/living/simple_animal/hostile/rogue_drone,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Rs" = (
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Sy" = (
 /obj/random/melee,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Tj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Tn" = (
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Um" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/turf/simulated/floor/airless,
+/area/template_noop)
 "VS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Wg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
-"Xa" = (
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
-"Xu" = (
-/obj/item/ammo_casing/shotgun/pellet{
-	projectile_type = null
-	},
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "ZE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "ZO" = (
 /obj/effect/decal/cleanable/blood/gibs/robot/limb,
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/airless,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 
 (1,1,1) = {"
 dT
@@ -556,14 +566,14 @@ dT
 "}
 (2,1,1) = {"
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+np
+cC
+cC
+cC
+cC
+cC
 dT
 dT
 dT
@@ -590,9 +600,9 @@ dT
 "}
 (3,1,1) = {"
 dT
-dT
-dT
-dT
+cC
+cC
+cC
 dT
 dT
 dT
@@ -812,8 +822,8 @@ ku
 PR
 GC
 dT
-dT
-dT
+cC
+cC
 dT
 dT
 dT
@@ -846,8 +856,8 @@ zo
 PR
 GC
 dT
-dT
-dT
+cC
+cC
 dT
 dT
 dT
@@ -880,8 +890,8 @@ PR
 PR
 GC
 dT
-dT
-dT
+cC
+cC
 dT
 dT
 dT
@@ -909,7 +919,7 @@ zo
 PR
 GC
 GC
-dT
+bK
 GC
 GC
 GC
@@ -1114,8 +1124,8 @@ PR
 GC
 GC
 dT
-dT
-dT
+cC
+cC
 dT
 dT
 dT
@@ -1148,8 +1158,8 @@ PR
 GC
 dT
 dT
-dT
-dT
+cC
+cC
 dT
 dT
 dT
@@ -1170,8 +1180,8 @@ dT
 dT
 dT
 GC
-dT
-dT
+bK
+bK
 GC
 hz
 nt
@@ -1188,22 +1198,22 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+np
+np
+np
 "}
 (21,1,1) = {"
 dT
 GC
-dT
+bK
 GC
 GC
 GC
@@ -1222,20 +1232,20 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (22,1,1) = {"
-dT
+cC
 dT
 GC
 GC
@@ -1256,17 +1266,17 @@ dT
 dT
 dT
 dK
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (23,1,1) = {"
 dT
@@ -1290,17 +1300,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (24,1,1) = {"
 dT
@@ -1324,21 +1334,21 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (25,1,1) = {"
-dT
-dT
+cC
+cC
 dT
 dT
 Tn
@@ -1358,17 +1368,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (26,1,1) = {"
 dT
@@ -1378,7 +1388,7 @@ dT
 dT
 dT
 wl
-Xa
+zo
 CB
 Iz
 xD
@@ -1392,17 +1402,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (27,1,1) = {"
 dT
@@ -1412,9 +1422,9 @@ dT
 dT
 dT
 wl
-Xa
-Xa
-Xu
+zo
+zo
+yh
 gc
 MX
 GE
@@ -1426,17 +1436,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (28,1,1) = {"
 dT
@@ -1447,10 +1457,10 @@ dT
 dT
 PR
 dA
-mi
+KE
 Dk
-Xa
-Xa
+zo
+zo
 GE
 PR
 PR
@@ -1460,17 +1470,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (29,1,1) = {"
 dT
@@ -1480,10 +1490,10 @@ dT
 dT
 dT
 vK
-Xa
-Xa
+zo
+zo
 aV
-Xu
+yh
 QU
 If
 vK
@@ -1494,17 +1504,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (30,1,1) = {"
 dT
@@ -1514,11 +1524,11 @@ dT
 dT
 dT
 PR
-mi
+KE
 pw
-Xa
+zo
 pw
-mi
+KE
 vV
 wl
 dT
@@ -1528,17 +1538,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (31,1,1) = {"
 dT
@@ -1562,17 +1572,17 @@ dT
 dT
 dT
 dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
-dT
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
+cC
 "}
 (32,1,1) = {"
 dT

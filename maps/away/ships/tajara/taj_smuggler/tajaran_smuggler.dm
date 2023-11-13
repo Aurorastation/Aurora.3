@@ -2,7 +2,7 @@
 	name = "Adhomian Freighter"
 	description = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
 	suffixes = list("ships/tajara/taj_smuggler/tajaran_smuggler.dmm")
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajaran_smuggler"
@@ -46,8 +46,8 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tajaran_smuggler/New()
-    designation = "[pick("Brave Ha'rron", "Trickster Farwa", "Legal and Safe Cargo", "Adhomian Trader", "Minharrzka", "Rredouane's Chosen", "Adhomai's Pride")]"
-    ..()
+	designation = "[pick("Brave Ha'rron", "Trickster Farwa", "Legal and Safe Cargo", "Adhomian Trader", "Minharrzka", "Rredouane's Chosen", "Adhomai's Pride")]"
+	..()
 
 /obj/effect/shuttle_landmark/tajaran_smuggler/nav1
 	name = "Adhomian Freighter - Port Side"

@@ -52,7 +52,8 @@
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 2,
 			/mob/living/simple_animal/tindalos = 2,
-			/mob/living/simple_animal/cosmozoan = 1,
+			/mob/living/simple_animal/aquatic/fish/gupper = 1,
+			/mob/living/simple_animal/aquatic/fish/cod = 1
 		)
 	)
 

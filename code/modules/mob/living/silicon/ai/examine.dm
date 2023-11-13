@@ -1,6 +1,6 @@
 /mob/living/silicon/ai/examine(mob/user)
 	if(!..(user))
-		return
+		return TRUE
 
 	var/msg = ""
 	if (src.stat == DEAD)
@@ -34,7 +34,7 @@
 		msg += hardware.get_examine_desc()
 	to_chat(user, msg)
 	user.showLaws(src)
-	return
+	return TRUE
 
 /mob/proc/showLaws(var/mob/living/silicon/S)
 	return

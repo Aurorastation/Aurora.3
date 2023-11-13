@@ -133,6 +133,11 @@
 				"<b>[user.name]</b> unbuckles [MA.name].", \
 				SPAN_NOTICE("You were unbuckled from [src] by [user.name]."),\
 				SPAN_NOTICE("You hear metal clanking."))
+		else if(isliving(user) && isobj(MA))
+			user.visible_message(\
+				"<b>[user]</b> unbuckles \the [MA] from [src].",\
+				SPAN_NOTICE("You unbuckle \the [MA] from [src]."),\
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			MA.visible_message(\
 				"<b>[MA.name]</b> unbuckles themselves.",\

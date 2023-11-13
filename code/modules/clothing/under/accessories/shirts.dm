@@ -355,3 +355,83 @@
 	desc = "A comfy university sweatshirt. This one is black."
 	icon_state = "usweatshirt_black"
 	item_state = "usweatshirt_black"
+
+// Polo Shirts
+/obj/item/clothing/accessory/polo
+	name = "polo shirt"
+	desc = "A stylish polo shirt."
+	icon = 'icons/obj/item/clothing/accessory/polo.dmi'
+	icon_state = "polo"
+	item_state = "polo"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/polo/polo_fem
+	desc = "A stylish polo shirt with a waist fit."
+	icon_state = "polo_fem"
+	item_state = "polo_fem"
+
+/obj/item/clothing/accessory/polo/polo_blue
+	name = "blue polo shirt"
+	desc = "A blue, stylish polo shirt."
+	icon_state = "polo_blue"
+	item_state = "polo_blue"
+
+/obj/item/clothing/accessory/polo/polo_blue_fem
+	name = "blue polo shirt"
+	desc = "A blue, stylish polo shirt with a waist fit."
+	icon_state = "polo_blue_fem"
+	item_state = "polo_blue_fem"
+
+/obj/item/clothing/accessory/polo/polo_red
+	name = "red polo shirt"
+	desc = "A red, stylish polo shirt."
+	icon_state = "polo_red"
+	item_state = "polo_red"
+
+/obj/item/clothing/accessory/polo/polo_red_fem
+	name = "red polo shirt"
+	desc = "A red, stylish polo shirt with a waist fit."
+	icon_state = "polo_red_fem"
+	item_state = "polo_red_fem"
+
+/obj/item/clothing/accessory/polo/polo_grayyellow
+	name = "tan polo shirt"
+	desc = "A tan, stylish polo shirt."
+	icon_state = "polo_grayyellow"
+	item_state = "polo_grayyellow"
+
+/obj/item/clothing/accessory/polo/polo_grayyellow_fem
+	name = "tan polo shirt"
+	desc = "A tan, stylish polo shirt with a waist fit."
+	icon_state = "polo_grayyellow_fem"
+	item_state = "polo_grayyellow_fem"
+
+/obj/item/clothing/accessory/polo/polo_greenstrip
+	desc = "A stylish polo shirt with a green strip around the collar."
+	icon_state = "polo_corp"
+	item_state = "polo_corp"
+
+/obj/item/clothing/accessory/polo/polo_greenstrip_fem
+	desc = "A stylish polo shirt with a green strip around the collar and a waist fit."
+	icon_state = "polo_corp_fem"
+	item_state = "polo_corp_fem"
+
+/obj/item/clothing/accessory/polo/polo_bluestrip
+	desc = "A stylish polo shirt with a blue strip around the collar."
+	icon_state = "polo_dais"
+	item_state = "polo_dais"
+
+/obj/item/clothing/accessory/polo/polo_bluestrip_fem
+	desc = "A stylish polo shirt with a blue strip around the collar and a waist fit."
+	icon_state = "polo_dais_fem"
+	item_state = "polo_dais_fem"
+
+/obj/item/clothing/accessory/polo/polo_redstrip
+	desc = "A stylish polo shirt with a red strip around the collar."
+	icon_state = "polo_nt"
+	item_state = "polo_nt"
+
+/obj/item/clothing/accessory/polo/polo_redstrip_fem
+	desc = "A stylish polo shirt with a red strip around the collar and a waist fit."
+	icon_state = "polo_nt_fem"
+	item_state = "polo_nt_fem"

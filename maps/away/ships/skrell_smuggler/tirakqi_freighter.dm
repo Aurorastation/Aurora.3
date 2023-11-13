@@ -54,8 +54,8 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/New()
-    designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
-    ..()
+	designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "skrell_freighter")

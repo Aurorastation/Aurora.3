@@ -107,12 +107,12 @@ var/list/ai_verbs_default = list(
 	var/custom_sprite = FALSE 				// Whether the selected icon is custom
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
-	src.verbs |= ai_verbs_default
-	src.verbs |= silicon_subsystems
+	add_verb(src, ai_verbs_default)
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/ai/proc/remove_ai_verbs()
-	src.verbs -= ai_verbs_default
-	src.verbs -= silicon_subsystems
+	remove_verb(src, ai_verbs_default)
+	remove_verb(src, silicon_subsystems)
 
 /mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
 	shouldnt_see = typecacheof(/obj/effect/rune)
@@ -356,8 +356,8 @@ var/list/ai_verbs_default = list(
 			To use something, simply click on it.</p>\
 		<h2>AI Shell</h2>\
 		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
-			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
-			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
+			This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
 		<h2>OOC Notes</h2>\
 		<p>Please remember that as an AI <strong>you can heavily skew the game in your (and thus usually the crew's) favour</strong>. \
@@ -374,7 +374,7 @@ var/list/ai_verbs_default = list(
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
 		</p>\
 		"
-	usr << browse(enable_ui_theme(usr, dat), "window=aihelp,size=520x700")
+	usr << browse(dat, "window=aihelp,size=520x700")
 
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"
@@ -383,7 +383,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if (!custom_sprite)
-		var/new_sprite = input("Select an icon!", "AI", selected_sprite) as null|anything in ai_icons
+		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", ai_icons, selected_sprite)
 		if(new_sprite) selected_sprite = new_sprite
 	update_icon()
 
@@ -391,7 +391,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
 	set name = "Show Crew Manifest"
-	SSrecords.open_manifest_vueui(usr)
+	SSrecords.open_manifest_tgui(usr)
 
 //AI Examine code
 /mob/living/silicon/ai/proc/ai_examine(atom/A as mob|obj|turf in view(src.eyeobj))
@@ -416,7 +416,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement") as null|message
+	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
 	if(!input)
 		return
 
@@ -441,7 +441,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if(confirm == "Yes")
-		call_shuttle_proc(src)
+		call_shuttle_proc(src, TRANSFER_EMERGENCY)
 
 	post_display_status("shuttle")
 
@@ -512,8 +512,6 @@ var/list/ai_verbs_default = list(
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
 		switchCamera(locate(href_list["switchcamera"])) in cameranet.cameras
-	if (href_list["showalerts"])
-		subsystem_alarm_monitor()
 	//Carn: holopad requests
 	if (href_list["jumptoholopad"])
 		var/obj/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])
@@ -648,7 +646,7 @@ var/list/ai_verbs_default = list(
 			if(H.near_camera())
 				selectable_humans[H.name] = H
 		if(length(selectable_humans))
-			var/chosen_human = input(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select") as null|anything in selectable_humans
+			var/chosen_human = tgui_input_list(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select", selectable_humans)
 			if(!chosen_human)
 				return
 			var/mob/living/carbon/human/H = selectable_humans[chosen_human]
@@ -656,7 +654,7 @@ var/list/ai_verbs_default = list(
 		else
 			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
 	else
-		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "loadout character", "custom")
+		input = tgui_input_list(usr, "Please select a hologram.", "Hologram", list("default", "floating face", "carp", "loadout character", "custom"))
 		if(input)
 			switch(input)
 				if("custom")
@@ -667,7 +665,7 @@ var/list/ai_verbs_default = list(
 					else
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
-					var/mob/living/carbon/human/H = SSmob.get_mannequin(usr.client.ckey)
+					var/mob/living/carbon/human/H = SSmobs.get_mannequin(usr.client.ckey)
 					holo_icon.appearance = H.appearance
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))

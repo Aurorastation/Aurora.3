@@ -30,9 +30,9 @@
 			'sound/voice/chitter2.ogg',
 			'sound/effects/squelch1.ogg',
 			'sound/items/wrench.ogg',
-			'sound/items/welder.ogg',
+			'sound/items/Welder.ogg',
 			/singleton/sound_category/crowbar_sound,
-			'sound/items/screwdriver.ogg',
+			'sound/items/Screwdriver.ogg',
 			'sound/items/drill_use.ogg',
 			'sound/items/air_wrench.ogg')
 

@@ -26,6 +26,11 @@
 	speak_emote = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	emote_hear = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	sad_emote = list("bwoops sadly")
+	emote_sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
 
 	ranged = TRUE
 	projectilesound = 'sound/weapons/taser2.ogg'
@@ -71,6 +76,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("bwuups happily!")
+			playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
 			return TRUE
 	else if(usr == master)
 		return TRUE

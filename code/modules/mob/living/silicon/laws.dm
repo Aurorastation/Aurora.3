@@ -1,5 +1,3 @@
-#define DEFAULT_LAW_CHANNEL "Main Frequency"
-
 /mob/living/silicon/proc/laws_sanity_check()
 	if(!src.laws)
 		laws = new base_law_type

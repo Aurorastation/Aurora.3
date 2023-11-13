@@ -54,7 +54,7 @@
 		return 1
 
 /obj/machinery/bot/examine(mob/user)
-	..(user)
+	. = ..()
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
 			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")

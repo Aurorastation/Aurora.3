@@ -2,8 +2,12 @@
 #define MEGAWATTS *1000000
 #define GIGAWATTS *1000000000
 
-#define CELLRATE 0.002 // Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
-                       // It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
+/**
+ * Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
+ *
+ * It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
+ */
+#define CELLRATE 0.002
 
 // Doors!
 #define DOOR_CRUSH_DAMAGE 20
@@ -77,6 +81,7 @@
 #define NETWORK_SECOND_DECK "Second Deck"
 #define NETWORK_THIRD_DECK "Third Deck"
 #define NETWORK_INTREPID "Intrepid"
+#define NETWORK_CANARY "Canary"
 
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.

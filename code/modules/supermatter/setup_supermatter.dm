@@ -26,8 +26,8 @@
 	3. For every pump that needs to be maxed / turned on add a `pump_max` marker.
 	4. For every connector port that needs an empty canister add a `empty_canister` marker.
 	5. For every filter that needs to be set up for the coolant add a `filter` marker.
-	   Note that the filters must be set up to filter the coolant back into the core loop by default.
-	   Otherwise the auto setup will mess up and you'll end up without the correct coolant gas!
+		Note that the filters must be set up to filter the coolant back into the core loop by default.
+		Otherwise the auto setup will mess up and you'll end up without the correct coolant gas!
 	6. For every freezer that needs to be on, add a `freezer` marker.
 	7. For every SMES that needs to be online and maxed, add a `smes` marker.
 	8. On top of the SM core map a `core` marker.

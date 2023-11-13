@@ -12,7 +12,8 @@
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
 	name = "[current_map.boss_name] Update Announcement"
-	item_cost = 5
+	telecrystal_cost = 5
+	bluecrystal_cost = 5
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
@@ -32,7 +33,7 @@
 	name = "Crew Arrival Announcement/Records"
 	desc = "Creates a fake crew arrival announcement as well as fake crew records, using your current appearance (including held items!) and worn id card. Trigger with care!"
 	antag_roles = list(MODE_MERCENARY)
-	item_cost = 4
+	telecrystal_cost = 4
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
 	if(!user)
@@ -86,7 +87,7 @@
 /datum/uplink_item/abstract/announcements/fake_ion_storm
 	name = "Ion Storm Announcement"
 	desc = "Interferes with the station's ion sensors. Triggers immediately upon investment."
-	item_cost = 2
+	telecrystal_cost = 2
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/static/cooldown = 0
@@ -103,7 +104,7 @@
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
-	item_cost = 3
+	telecrystal_cost = 3
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/static/cooldown = 0

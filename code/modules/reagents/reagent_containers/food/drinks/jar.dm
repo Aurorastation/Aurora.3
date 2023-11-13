@@ -3,7 +3,6 @@
 /obj/item/reagent_containers/glass/beaker/jar
 	name = "glass jar"
 	desc = "A glass jar. You can put the lid back on and use it for other things."
-	icon = 'icons/obj/drinks.dmi'
 	icon_state = "jar"
 	filling_states = "-10;10;25;50;75;80;100"
 	matter = list(MATERIAL_GLASS = 5000)

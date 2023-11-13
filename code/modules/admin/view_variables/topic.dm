@@ -406,7 +406,7 @@
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/robot/proc,/mob/living/silicon/robot/verb)
 			if(/mob/living/silicon/ai)
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/ai/proc,/mob/living/silicon/ai/verb)
-		possibleverbs -= H.verbs
+		remove_verb(H, H.verbs)
 		possibleverbs += "Cancel" 								// ...And one for the bottom
 
 		var/verb = input("Select a verb!", "Verbs",null) as anything in possibleverbs
@@ -416,7 +416,7 @@
 		if(!verb || verb == "Cancel")
 			return
 		else
-			H.verbs += verb
+			add_verb(H, verb)
 
 	else if(href_list["remverb"])
 		if(!check_rights(R_DEBUG|R_DEV))      return
@@ -433,7 +433,7 @@
 		if(!verb)
 			return
 		else
-			H.verbs -= verb
+			remove_verb(H, verb)
 
 	else if(href_list["addorgan"])
 		if(!check_rights(R_SPAWN))	return
@@ -478,23 +478,6 @@
 		to_chat(usr, "Removed [rem_organ] from [M].")
 		rem_organ.removed()
 		qdel(rem_organ)
-
-	else if(href_list["fix_nano"])
-		if(!check_rights(R_DEBUG)) return
-
-		var/mob/H = locate(href_list["fix_nano"])
-
-		if(!istype(H) || !H.client)
-			to_chat(usr, "This can only be done on mobs with clients")
-			return
-
-		to_chat(usr, SPAN_ALERT("This command is temporarily disabled."))
-		//SSnanoui.send_resources(H.client)
-
-		//to_chat(usr, "Resource files sent")
-		//to_chat(H, "Your NanoUI Resource files have been refreshed")
-
-		//log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ", admin_key=key_name(usr), ckey=key_name(H))
 
 	else if(href_list["regenerateicons"])
 		if(!check_rights(0))	return

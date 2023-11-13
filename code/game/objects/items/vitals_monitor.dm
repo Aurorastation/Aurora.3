@@ -69,20 +69,21 @@
 
 /obj/item/vitals_monitor/Click() // attack_hand doesn't work here because it's inside the rollerbed
 	if(bed && bed.Adjacent(usr))
-		interact(usr)
+		ui_interact(usr)
 		return
 	return ..()
 
-/obj/item/vitals_monitor/interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/item/vitals_monitor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "devices-vitalsmonitor", 480, 250, capitalize_first_letters(name), set_state_object = bed)
-		ui.auto_update_content = TRUE
-	ui.open()
+		ui = new(user, src, "VitalsMonitor", "Vitals Monitor", 480, 300)
+		ui.open()
 
-/obj/item/vitals_monitor/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/vitals_monitor/ui_status(mob/user, datum/ui_state/state)
+	return (bed && bed.Adjacent(user)) ? UI_INTERACTIVE : UI_UPDATE
+
+/obj/item/vitals_monitor/ui_data(mob/user)
+	var/list/data = list()
 
 	var/mob/living/carbon/human/H
 	if(bed?.buckled)
@@ -92,7 +93,7 @@
 			H = locate() in bed.buckled.contents
 
 	var/has_occupant = !isnull(H)
-	VUEUI_SET_CHECK(data["has_occupant"], has_occupant, ., data)
+	data["has_occupant"] = has_occupant
 
 	if(has_occupant)
 		var/displayed_stat = H.stat
@@ -117,9 +118,11 @@
 		if(pulse_result == ">250")
 			pulse_result = -3
 
-		VUEUI_SET_CHECK(data["stat"], displayed_stat, ., data)
-		VUEUI_SET_CHECK(data["brain_activity"], H.get_brain_result(), ., data)
-		VUEUI_SET_CHECK(data["blood_pressure"], H.get_blood_pressure(), ., data)
-		VUEUI_SET_CHECK(data["blood_pressure_level"], H.get_blood_pressure_alert(), ., data)
-		VUEUI_SET_CHECK(data["blood_volume"], H.get_blood_volume(), ., data)
-		VUEUI_SET_CHECK(data["blood_o2"], blood_oxygenation, ., data)
+		data["stat"] = displayed_stat
+		data["brain_activity"] = H.get_brain_result()
+		data["blood_pressure"] = H.get_blood_pressure()
+		data["blood_pressure_level"] = H.get_blood_pressure_alert()
+		data["blood_volume"] = H.get_blood_volume()
+		data["blood_o2"] = blood_oxygenation
+
+	return data

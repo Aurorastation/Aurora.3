@@ -87,7 +87,7 @@
 	)
 
 	/// relatively speaking, the % (0-1) of turfs that will have resources generated in them
-	var/gnd_ore_coverage = 0.5
+	var/gnd_ore_coverage = 0.3
 	/// List of random seeds used for ore noise generation. Automatically generated on New() using wall_ore_levels.
 	var/list/ore_seeds
 	var/list/gnd_ore_seeds
@@ -258,6 +258,11 @@
 			gen_turf.resources[ORE_SAND] = rand(3, 5)
 			gen_turf.resources[ORE_COAL] = rand(3, 5)
 			if(ground_resources_roll)
+				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, gen_turf.layer, pick(cardinal))
+				resource_indicator.alpha = rand(30, 60)
+				gen_turf.resource_indicator = resource_indicator
+				if(!gen_turf.density)
+					gen_turf.add_overlay(resource_indicator)
 				for(var/OT in ground_ore_levels[ground_resources_roll])
 					var/rand_vals = ground_ore_levels[ground_resources_roll][OT]
 					gen_turf.resources[OT] = rand(rand_vals[1], rand_vals[2])
@@ -336,7 +341,11 @@
 	if(!length(ore_seeds))
 		return
 
-	for(var/turf/simulated/mineral/M in block(locate(min_x, min_y, z_to_check), locate(max_x, max_y, z_to_check)))
+	for(var/turf/simulated/S in block(locate(min_x, min_y, z_to_check), locate(max_x, max_y, z_to_check)))
+		if(!istype(S))
+			continue
+		S.update_air_properties()
+		var/turf/simulated/mineral/M = S
 		if(!istype(M) || M.mineral)
 			continue
 		var/coord_to_str = (world.maxx * M.y) + M.x
