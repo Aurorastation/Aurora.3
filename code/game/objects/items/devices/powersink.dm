@@ -171,10 +171,10 @@
 				else
 					AP.flicker_all()
 			else if (T.master)
-				T.master.emp_act(dist)
+				T.master.emp_act(EMP_LIGHT)
 
 		var/atom/aa = A
-		aa.emp_act(dist)
+		aa.emp_act(EMP_LIGHT)
 
 		if (prob(15 * dist))
 			explosion(aa.loc, 0, 0, 3, 4)

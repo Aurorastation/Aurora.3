@@ -102,6 +102,8 @@ var/global/list/robot_modules = list(
 	return ..()
 
 /obj/item/robot_module/emp_act(severity)
+	. = ..()
+
 	if(modules)
 		for(var/obj/O in modules)
 			O.emp_act(severity)
@@ -110,8 +112,6 @@ var/global/list/robot_modules = list(
 	if(synths)
 		for(var/datum/matter_synth/S in synths)
 			S.emp_act(severity)
-	..()
-	return
 
 /obj/item/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
 	var/obj/item/extinguisher/E = locate() in modules

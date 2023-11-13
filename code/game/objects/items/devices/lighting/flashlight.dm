@@ -215,9 +215,10 @@
 		update_light()
 
 /obj/item/device/flashlight/emp_act(severity)
+	. = ..()
+
 	for(var/obj/O in contents)
 		O.emp_act(severity)
-	..()
 
 /obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
 	add_fingerprint(user)

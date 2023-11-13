@@ -366,7 +366,6 @@
 
 /obj/effect/fusion_em_field/proc/Radiate()
 	if(istype(loc, /turf))
-		var/empsev = max(1, min(3, Ceil(size/2)))
 		for(var/atom/movable/AM in range(max(1,Floor(size/2)), loc))
 
 			if(AM == src || AM == owned_core || !AM.simulated)
@@ -382,7 +381,7 @@
 
 			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"))
 			tick_instability += rand(30,50)
-			AM.emp_act(empsev)
+			AM.emp_act(EMP_LIGHT)
 
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()

@@ -92,10 +92,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/cloaking_device/emp_act(severity)
+	. = ..()
+
 	deactivate()
 	if (cell)
 		cell.emp_act(severity)
-	..()
 
 /obj/item/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)

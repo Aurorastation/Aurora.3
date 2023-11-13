@@ -119,8 +119,24 @@
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
+/**
+ * React to an EMP of the given severity
+ *
+ * Default behaviour is to send the [COMSIG_ATOM_PRE_EMP_ACT] and [COMSIG_ATOM_EMP_ACT] signal
+ *
+ * * severity - The severity of the EMP pulse (how strong it is), defines in `code\__defines\empulse.dm`
+ *
+ * Returns the protection value
+ */
 /atom/proc/emp_act(var/severity)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+
+	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_PRE_EMP_ACT, severity)
+
+	RETURN_TYPE(protection)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
+	return protection // Pass the protection value collected here upwards
 
 /atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return

@@ -54,9 +54,10 @@
 		pockets.attackby(W, user)
 
 /obj/item/clothing/suit/armor/emp_act(severity)
+	. = ..()
+
 	if (pockets)
 		pockets.emp_act(severity)
-	..()
 
 /obj/item/clothing/suit/armor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	if (pockets)
@@ -184,10 +185,11 @@
 	return
 
 /obj/item/clothing/suit/armor/reactive/emp_act(severity)
+	. = ..()
+
 	active = 0
 	src.icon_state = "reactiveoff"
 	src.item_state = "reactiveoff"
-	..()
 
 /obj/item/clothing/suit/armor/tactical
 	name = "tactical armor"

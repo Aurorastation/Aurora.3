@@ -729,12 +729,17 @@
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
-/obj/item/device/wormhole_jaunter/emp_act(power)
+/obj/item/device/wormhole_jaunter/emp_act(severity)
+	. = ..()
+
 	var/triggered = FALSE
-	if(power == 1)
-		triggered = TRUE
-	else if(power == 2 && prob(50))
-		triggered = TRUE
+
+	switch(severity)
+		if(EMP_HEAVY)
+			triggered = TRUE
+		if(EMP_LIGHT)
+			if(prob(50))
+				triggered = TRUE
 
 	if(triggered)
 		usr.visible_message(SPAN_WARNING("\The [src] overloads and activates!"))
@@ -833,6 +838,8 @@
 			return
 
 /obj/item/lazarus_injector/emp_act()
+	. = ..()
+
 	if(!malfunctioning)
 		malfunctioning = TRUE
 		update_icon()

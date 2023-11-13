@@ -92,12 +92,13 @@
 		O.Weaken(flash_time)
 
 /obj/machinery/flasher/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	if(prob(75/severity))
 		flash()
-	..(severity)
 
 /obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
 	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 150))

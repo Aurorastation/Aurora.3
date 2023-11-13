@@ -119,6 +119,8 @@
 	return
 
 /obj/machinery/bot/emp_act(severity)
+	. = ..()
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)

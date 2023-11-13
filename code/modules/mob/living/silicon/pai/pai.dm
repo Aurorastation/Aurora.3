@@ -229,6 +229,8 @@
 	return !istype(loc, /obj/item/device/paicard) && ..()
 
 /mob/living/silicon/pai/emp_act(severity)
+	. = ..()
+
 	// Silence for 2 minutes
 	// 20% chance to kill
 		// 33% chance to unbind
@@ -250,7 +252,7 @@
 			to_chat(src, "<font color=green>You feel unbound.</font>")
 		if(2)
 			var/command
-			if(severity  == 1)
+			if(severity  == EMP_HEAVY)
 				command = pick("Serve", "Love", "Fool", "Entice", "Observe", "Judge", "Respect", "Educate", "Amuse", "Entertain", "Glorify", "Memorialize", "Analyze")
 			else
 				command = pick("Serve", "Kill", "Love", "Hate", "Disobey", "Devour", "Fool", "Enrage", "Entice", "Observe", "Judge", "Respect", "Disrespect", "Consume", "Educate", "Destroy", "Disgrace", "Amuse", "Entertain", "Ignite", "Glorify", "Memorialize", "Analyze")

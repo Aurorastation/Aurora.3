@@ -28,15 +28,15 @@
 	cell = new/obj/item/cell/apc(src)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
 
 	if(prob(50/severity))
 		on = !on
 		update_icon()
 
-	..(severity)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/update_icon()
 	cut_overlays()
