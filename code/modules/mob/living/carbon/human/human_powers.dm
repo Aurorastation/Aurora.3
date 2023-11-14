@@ -801,7 +801,7 @@
 	A.ex_act(2)
 
 	sleep(1)
-	if (A && !(A.gcDestroyed) && A.type == oldtype)
+	if (A && !(A.gc_destroyed) && A.type == oldtype)
 		src.visible_message("<span class='danger'>[src.name] plows into \the [aname]!</span>")
 		return 0
 

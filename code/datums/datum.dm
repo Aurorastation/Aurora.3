@@ -9,7 +9,7 @@
 	 * If this is non zero then the object has been garbage collected and is awaiting either
 	 * a hard del by the GC subsystme, or to be autocollected (if it has no references)
 	 */
-	var/tmp/gcDestroyed
+	var/gc_destroyed
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
@@ -28,6 +28,9 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
+
+	/// Datum level flags
+	var/datum_flags = NONE
 
 	/// A cached version of our \ref
 	/// The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
