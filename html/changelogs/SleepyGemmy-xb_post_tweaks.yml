@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Added some missing QoL features to xenobiology."
+  - bugfix: "Added some QoL tweaks to xenobiology."
