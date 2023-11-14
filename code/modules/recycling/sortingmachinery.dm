@@ -393,3 +393,6 @@
 	if(trunk)
 		trunk.linked = null
 	return ..()
+
+/obj/machinery/disposal/deliveryChute/full // Full variant that blocks air.
+	atmos_canpass = CANPASS_NEVER
