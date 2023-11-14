@@ -366,7 +366,7 @@
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy seafood" = 4))
 	reagent_data = list(/singleton/reagent/nutriment/garlicsauce = list("garlic sauce" = 3))
 
-	//XANAN
+
 /obj/item/reagent_containers/food/snacks/north60squid/update_icon()
 	var/percent_north60squid = round((reagents.total_volume / 6) * 100)
 	switch(percent_north60squid)

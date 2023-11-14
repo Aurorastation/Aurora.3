@@ -68,3 +68,22 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/drink/carrotjuice = 3, /singleton/reagent/oculine = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "cabbage" = 2))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/matsuul
+	name = "Matsuul"
+	desc = "Several places claim to be the origin place of Matsuul'hu (Matsuul for short), but all that's known for a fact is that this bowl of stir-fried, thinly sliced fish, tiny squares of earthern root pasta, eki mushrooms, and mint, is a local street food available in any melting pot where multiple species live together."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "matsuul"
+	trash = /obj/item/trash/purplebowl
+	filling_color = "#70c9c1"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein/seafood = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("earthernroot pasta" = 2, "mushroom" = 2, "mint" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/matsuul/update_icon()
+	var/percent_matsuul = round((reagents.total_volume / 14) * 100)
+	switch(percent_matsuul)
+		if(0 to 50)
+			icon_state = "matsuulhalf"
+		if(51 to INFINITY)
+			icon_state = "matsuul"

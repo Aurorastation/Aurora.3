@@ -80,3 +80,39 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 4, "corn" = 3, "cabbage" = 1))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/tabboulehsalad
+	name = "tabbouleh salad"
+	desc = "Freshly ground bulgur wheat, tomato, lemon juice, oil, cucumber, and onion. Nutritious, fresh, healthy, and- NO WE'RE NOT HAVING A PIZZA, DANGIT!"
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "tabboulehsalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#5a9c62"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("salad" = 2, "tomato" = 2, "bulgur" = 2, "greens" = 2))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/tunasalad
+	name = "tuna salad"
+	desc = "Tunalicious!"
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "tunasalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#e6d89a"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/seafood = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("tuna"  = 3), /singleton/reagent/nutriment = list("mayo" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/tunapastasalad
+	name = "tuna pasta salad"
+	desc = "Probably the furthest you can possibly get from a salad and still call it a salad."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "tunasalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#e6d89a"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein/seafood = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("tuna"  = 3), /singleton/reagent/nutriment = list("mayo" = 3, "pasta" =4))
+	bitesize = 2

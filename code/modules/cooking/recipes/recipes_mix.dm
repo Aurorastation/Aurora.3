@@ -60,6 +60,29 @@
 	for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
 		being_cooked.reagents.del_reagent(/singleton/reagent/toxin)
 
+/singleton/recipe/tabboulehsalad
+	fruit = list("mint" = 3, "tomato" = 1, "wheat" = 1, "lemon" = 1)
+	result = /obj/item/reagent_containers/food/snacks/salad/tabboulehsalad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
+/singleton/recipe/tunasalad
+	fruit = list("mint" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+		)
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/tunasalad
+
+/singleton/recipe/tunapastasalad
+	fruit = list("mint" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledspaghetti,
+		/obj/item/reagent_containers/food/snacks/fish
+		)
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/tunapastasalad
 
 //Pita
 /singleton/recipe/falafel
@@ -71,4 +94,5 @@
 	fruit = list("tomato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/falafel
+
 

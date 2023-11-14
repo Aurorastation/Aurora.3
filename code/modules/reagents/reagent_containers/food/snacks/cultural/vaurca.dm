@@ -173,3 +173,25 @@
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
+
+/obj/item/reagent_containers/food/snacks/sliceable/koisroulade
+	name = "k'ois roulade"
+	desc = "Don't worry, there's enough K'ois for everyone!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koisroulade"
+	trash = /obj/item/trash/plate
+	filling_color = "#E6E600"
+	bitesize = 5
+	reagents_to_add = list(/singleton/reagent/kois = 30, /singleton/reagent/toxin/phoron = 20)
+	slice_path = /obj/item/reagent_containers/food/snacks/koisrouladeslice
+	slices_num = 5
+	reagent_data = list(/singleton/reagent/kois = list("k'ois" = 10, "party" = 2))
+
+/obj/item/reagent_containers/food/snacks/koisrouladeslice
+	name = "k'ois roulade slice"
+	desc = "K'ois, with a twist!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koisrouladeslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#E6E600"
+	bitesize = 5

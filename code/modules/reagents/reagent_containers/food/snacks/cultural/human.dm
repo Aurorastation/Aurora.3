@@ -390,4 +390,3 @@
 			icon_state = "chetroinuoc2"
 		if(67 to INFINITY)
 			icon_state = "chetroinuoc3"
-

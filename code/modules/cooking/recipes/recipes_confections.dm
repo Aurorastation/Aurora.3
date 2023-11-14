@@ -33,3 +33,24 @@
 	)
 	reagents = list(/singleton/reagent/nutriment/coco = 5 , /singleton/reagent/drink/milk/cream = 5)
 	result = /obj/item/reagent_containers/food/snacks/triolade
+
+///singleton/recipe/palfooz
+	//fruit = list("cherry" = 1)
+//	reagents = list(/singleton/reagent/drink/ice = 10, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/gelatin = 5)
+	//reagent_mix = RECIPE_REAGENT_REPLACE
+//	items = list(
+//		/obj/item/reagent_containers/food/snacks/pineapple_ring,
+//		/obj/item/reagent_containers/food/snacks/pineapple_ring,
+//	)
+//	result = /obj/item/reagent_containers/food/snacks/plafooz
+
+
+/singleton/recipe/palfooz
+	fruit = list("cherry" = 1)
+	//reagents = list(/singleton/reagent/drink/ice = 10, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/gelatin = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	//items = list(
+	//	/obj/item/reagent_containers/food/snacks/pineapple_ring,
+	//	/obj/item/reagent_containers/food/snacks/pineapple_ring
+	//)
+	result = /obj/item/reagent_containers/food/snacks/palfooz

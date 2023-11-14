@@ -45,3 +45,15 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/lomein
+
+/singleton/recipe/matsuul
+	appliance = SKILLET | SAUCEPAN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sashimi,
+		/obj/item/reagent_containers/food/snacks/sashimi,
+		/obj/item/reagent_containers/food/snacks/sashimi
+	)
+	fruit = list("earthenroot" = 1, "eki" = 1, "mint" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/matsuul
+

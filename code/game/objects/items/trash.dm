@@ -278,7 +278,10 @@
 	name = "dirty board"
 	icon_state = "board"
 
-trash = /obj/item/trash/icecreamcup
+/obj/item/trash/icecreamcup
 	name = "empty ice cream cup"
 	icon_state = "icecreamcup"
 	desc = "Oh look, it's one of those prank fake melted ice cream cu- oh, nope. it's real. eugh. Do... Do you have a napkin?"
+/obj/item/trash/purplebowl
+	name = "empty bowl"
+	icon_state = "purplebowl"

@@ -36,3 +36,13 @@
 				/obj/item/reagent_containers/food/snacks/friedkois
 	)
 	result = /obj/item/reagent_containers/food/snacks/koisburger
+
+/singleton/recipe/koisroulade
+	appliance = OVEN
+	fruit = list("koisspore" = 1)
+	items = list(
+				/obj/item/reagent_containers/food/snacks/friedkois,
+				/obj/item/reagent_containers/food/snacks/soup/kois
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/koisroulade
+

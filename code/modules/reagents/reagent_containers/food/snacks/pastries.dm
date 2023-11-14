@@ -696,3 +696,11 @@
 	filling_color = "#573a2f"
 	bitesize = 3
 	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/reagent_containers/food/snacks/cakepopselection
+	name = "cake pop"
+	desc = "Clearly it's the healthier choice if you're only having a SMALL lump of sugary dough coated in sugar with some sugar on top. How responsible of you!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("sugar" = 4, "cakee" = 2))
