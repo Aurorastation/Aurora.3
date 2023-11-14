@@ -12,7 +12,7 @@ Nothing should ever be included before this file.
 #define UNIT_TEST
 #define MANUAL_UNIT_TEST
 
-#endif
+#endif //SPACEMAN_DMM
 
 
 #if defined(OPENDREAM)
@@ -31,4 +31,4 @@ Nothing should ever be included before this file.
 #define REFERENCE_TRACKING_DEBUG
 #define MANUAL_UNIT_TEST
 
-#endif
+#endif //OPENDREAM
