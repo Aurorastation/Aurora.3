@@ -494,7 +494,7 @@
 	stack_type = /obj/item/stack/material/glass
 	table_icon = 'icons/obj/structure/tables/glass_table.dmi'
 	flags = MATERIAL_BRITTLE
-	icon_colour = null
+	icon_colour = "#00E1FF"
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD

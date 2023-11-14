@@ -390,3 +390,30 @@
 			icon_state = "chetroinuoc2"
 		if(67 to INFINITY)
 			icon_state = "chetroinuoc3"
+// Europa
+
+/obj/item/reagent_containers/food/snacks/deepdive
+	name = "deep dive"
+	desc = "A traditional savory stacked layer dish from Europa, made of fish pastes, cream cheese, seaweed on top, and occasionaly some sauce, served in a transparent deep dish."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "deepdive"
+	trash = /obj/item/trash/deepdive
+	filling_color = "#006666"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("nori" = 3))
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+// Biesel
+
+/obj/item/reagent_containers/food/snacks/bluemoon
+	name = "blue moon"
+	desc = "This way of serving a white chocolate-raspberry mousse was originally made popular in Mendell's Vega De Rosa district in the 24th century and has since gained popularity around Tau Ceti."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "bluemoon"
+	trash = /obj/item/trash/bluemoon
+	filling_color = "#4377E2"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("blue raspberry" = 5))
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

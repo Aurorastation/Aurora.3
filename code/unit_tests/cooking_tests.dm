@@ -7,6 +7,7 @@
  */
 /datum/unit_test/cooking_recipes_fruits
 	name = "COOKING: Check recipe fruit tags"
+	groups = list("generic", "cooking")
 
 	// In case you want to see all the unused tags. Disabled by default because holy shit so many.
 	var/print_all_unused_tags = FALSE

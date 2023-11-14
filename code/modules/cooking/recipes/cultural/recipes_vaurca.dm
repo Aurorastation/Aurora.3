@@ -46,3 +46,18 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/koisroulade
 
+/singleton/recipe/vkrexiwrap
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tortilla,
+		/obj/item/reagent_containers/food/snacks/meatball,
+		/obj/item/reagent_containers/food/snacks/meatball
+	)
+	reagents = list(/singleton/reagent/mental/vkrexi = 1)
+	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap
+
+/singleton/recipe/vkrexiwrap/veggie
+	fruit = list("chili" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tortilla,
+	)
+	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap/veggie

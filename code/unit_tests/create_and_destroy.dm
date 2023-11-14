@@ -1,6 +1,7 @@
 ///Delete one of every type, sleep a while, then check to see if anything has gone fucky
 /datum/unit_test/create_and_destroy
 	name = "Create and Destroy Test"
+	groups = list("create and destroy")
 	var/result = null
 
 // var/datum/running_create_and_destroy = FALSE

@@ -83,6 +83,10 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
+/obj/item/trash/snack_bowl/macandcheese
+	name = "empty mac and cheese"
+	icon_state = "macandcheese"
+
 /obj/item/trash/pistachios
 	name = "pistachios pack"
 	icon_state = "pistachios_pack"
@@ -285,3 +289,18 @@
 /obj/item/trash/purplebowl
 	name = "empty bowl"
 	icon_state = "purplebowl"
+/obj/item/trash/deepdive
+	name = "empty deepdive dish"
+	icon_state = "deepdive"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bluemoon
+	name = "empty blue moon"
+	icon_state = "bluemoon"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/shakshouka
+	name = "empty shakshouka pan"
+	icon_state = "shakshouka"
