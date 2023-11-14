@@ -302,7 +302,7 @@
 			to_chat(user, SPAN_WARNING("This device doesn't have any components installed."))
 			return TRUE
 
-		var/obj/item/computer_hardware/choice = input(user, "Which component do you want to uninstall?", "Hardware Removal") as null|anything in all_components
+		var/obj/item/computer_hardware/choice = tgui_input_list(user, "Which component do you want to uninstall?", "Hardware Removal", all_components)
 		if(!choice)
 			return TRUE
 		if(!Adjacent(usr))
@@ -334,7 +334,7 @@
 		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))
 			return
 		if(P.focused_conv)
-			P.focused_conv.cl_send(P, text, M)
+			P.focused_conv.cl_send(P, html_decode(text), M)
 	registered_message = text
 
 /obj/item/modular_computer/examine(mob/user, distance, is_adjacent)

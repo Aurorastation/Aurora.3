@@ -8,6 +8,8 @@
 	id = "hegemony_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hegemony_shuttle)
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/hegemony_corvette
 	map = "Hegemony Corvette"
 	descriptor = "Ship with lizards."

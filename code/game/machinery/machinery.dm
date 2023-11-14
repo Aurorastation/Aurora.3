@@ -456,7 +456,7 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10, var/message)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
 		return 0
 
@@ -469,12 +469,15 @@ Class Procs:
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
 	visible_message(SPAN_NOTICE(message))
 
-	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper), print_delay)
+	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
 	return 1
 
-/obj/machinery/proc/print_move_paper(obj/paper)
-	paper.forceMove(loc)
+/obj/machinery/proc/print_move_paper(obj/paper, mob/user)
+	if(user)
+		user.put_in_hands(paper)
+	else
+		paper.forceMove(loc)
 	printing = FALSE
 
 /obj/machinery/bullet_act(obj/item/projectile/P, def_zone)

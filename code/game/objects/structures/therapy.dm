@@ -123,8 +123,7 @@
 			to_chat(user, "You must stand in whisper range of [H].")
 			return
 
-		text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
-		text = sanitize(text)
+		text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion")
 		if(!text)
 			return
 

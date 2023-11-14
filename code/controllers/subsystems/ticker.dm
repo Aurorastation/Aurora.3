@@ -453,7 +453,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			available_ghostroles |= G.name
 
 	// Special case, to list the Merchant in case it is available at roundstart
-	if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
+	if(SSjobs.type_occupations[/datum/job/merchant]?.total_positions)
 		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
 	if(length(available_ghostroles))

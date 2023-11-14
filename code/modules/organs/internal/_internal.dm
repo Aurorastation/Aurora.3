@@ -129,9 +129,9 @@
 		. = "damaged "
 	if(status & ORGAN_DEAD)
 		if(can_recover())
-			. = "decaying [.]"
+			. = "necrotic and debridable [.]"
 		else
-			. = "necrotic [.]"
+			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
 /obj/item/organ/internal/process()

@@ -23,6 +23,16 @@ var/global/list/default_medbay_channels = list(
 	num2text(MED_I_FREQ) = list(access_medical_equip)
 )
 
+var/global/list/default_expedition_channels = list(
+	num2text(PUB_FREQ) = list(),
+	num2text(EXP_FREQ) = list(),
+	num2text(HAIL_FREQ) = list()
+)
+
+var/global/list/default_interrogation_channels = list(
+	num2text(INT_FREQ) = list()
+)
+
 //
 // Radios
 //

@@ -21,7 +21,7 @@
 				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
-			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
+			selected_string = tgui_input_list(usr, "Select a new hairstyle.", "Your Hairstyle", valid_hairstyles, hair_style)
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
@@ -46,7 +46,7 @@
 			var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 			if(species.type in test.species_allowed)
 				valid_hairstyles.Add(hair_string)
-		selected_string = input("Select a new headtail style", "Your headtail style", hair_style) as null|anything in valid_hairstyles
+		selected_string = tgui_input_list(usr, "Select a new headtail style", "Your Headtail Style", valid_hairstyles, hair_style)
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
@@ -67,7 +67,7 @@
 			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
 			if(species.type in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
-		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
+		selected_string = tgui_input_list(usr, "Select a new screen", "Your monitor display", valid_screenstyles, screen_style)
 		if(selected_string && f_style != selected_string)
 			f_style = selected_string
 			regenerate_icons()
@@ -1247,7 +1247,7 @@
 		to_chat(src, SPAN_WARNING("You don't know any martial arts!"))
 		return
 
-	var/datum/martial_art/selected_martial_art = input(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection") as null|anything in known_martial_arts
+	var/datum/martial_art/selected_martial_art = tgui_input_list(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection", known_martial_arts)
 	if(!selected_martial_art)
 		return
 

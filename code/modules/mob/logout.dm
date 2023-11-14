@@ -30,10 +30,6 @@
 				post_webhook_event(WEBHOOK_ADMIN, list("title"="Admin has logged out", "message"="**[key_name(src)]** logged out - only AFK admins _([admins_number_afk])_ are online."))
 				discord_bot.send_to_admins("[key_name(src)] logged out - only AFK admins ([admins_number_afk]) are online.")
 
-	if (typing_indicator)
-		vis_contents -= typing_indicator
-	is_typing = FALSE
-
 	if (mob_thinks)
 		MOB_START_THINKING(src)
 	..()

@@ -282,7 +282,7 @@
 	var/obj/item/paper/R = new /obj/item/paper(get_turf(src))
 	R.color = "#fef8ff"
 	R.set_content_unsafe("Weapon Analysis ([item.name])", get_print_info(item))
-	print(R, message = "\The [src] beeps, printing \the [R] after a moment.")
+	print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
 /obj/machinery/weapons_analyzer/proc/get_print_info(var/obj/item/device)
 	var/dat = "<span class='notice'><b>Analysis performed at [worldtime2text()]</b></span><br>"

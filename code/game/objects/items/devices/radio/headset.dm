@@ -679,6 +679,12 @@
 	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/burglar
 
+/obj/item/device/radio/headset/jockey
+	icon_state = "syn_headset"
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+	ks1type = /obj/item/device/encryptionkey/jockey
+
 /obj/item/device/radio/headset/ninja
 	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)

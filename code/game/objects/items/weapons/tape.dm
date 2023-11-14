@@ -6,6 +6,7 @@
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	surgerysound = /singleton/sound_category/rip_sound
 
 /obj/item/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))

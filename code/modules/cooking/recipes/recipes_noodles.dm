@@ -45,3 +45,23 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/lomein
+
+/singleton/recipe/macandcheese
+	appliance = SAUCEPAN | POT
+	reagents = list (/singleton/reagent/water = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/macandcheese
+
+/singleton/recipe/macandcheese/bacon
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/reagent_containers/food/snacks/macandcheese/bacon

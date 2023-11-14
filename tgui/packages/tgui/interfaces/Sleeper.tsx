@@ -71,7 +71,7 @@ export const OccupantStatus = (props, context) => {
             title="Occupant Status"
             buttons={
               <Button
-                content="Eject"
+                content="Eject Occupant"
                 color="bad"
                 icon="person-booth"
                 onClick={() => act('eject')}
@@ -137,8 +137,6 @@ export const OccupantStatus = (props, context) => {
               'No stomach detected.'
             )}
           </Section>
-        </Table.Cell>
-        <Table.Cell>
           <Section title="Injectable Reagents">
             <Table>
               {data.reagents.map((reagent) => (

@@ -45,7 +45,7 @@
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in range(0)
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	var/N = tgui_input_list(usr, "Select the amount to transfer from this. ", "[src]", possible_transfer_amounts, amount_per_transfer_from_this)
 	if(N)
 		amount_per_transfer_from_this = N
 

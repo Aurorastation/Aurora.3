@@ -261,7 +261,7 @@
 			return TRUE
 
 		if (action == "createpill_multiple")
-			count = input("Select the number of pills to make.", "Max [max_pill_count]", pillamount) as num
+			count = tgui_input_number(usr, "Select the number of pills to make.", src.name, pillamount, max_pill_count, 1)
 			count = Clamp(count, 1, max_pill_count)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
@@ -270,7 +270,7 @@
 		var/amount_per_pill = reagents.total_volume/count
 		if (amount_per_pill > 60) amount_per_pill = 60
 
-		var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
+		var/name = tgui_input_text(usr, "Name your pill.", src.name, "[reagents.get_primary_reagent_name()] ([amount_per_pill] units)", MAX_NAME_LEN)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE

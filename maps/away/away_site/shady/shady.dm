@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "shady"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/shady
 	map = "shady asteroid"
 	descriptor = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."

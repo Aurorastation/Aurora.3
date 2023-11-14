@@ -425,6 +425,13 @@
 /obj/item/storage/box/fancy/cigarettes/cigar/prank
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar/prank
 
+/obj/item/storage/box/fancy/cigarettes/oracle
+	name = "\improper Natural Vysokan Soothsayer oracle cigarette packet"
+	desc = "Featuring an illustration of a soothsayer from Vysoka on its packaging, these cigarettes are advertised as containing oracle instead of the normal tobacco. A warning box stating \"These oracle cigarettes are not healthier than tobacco alternatives\" appears to have been haphazardly placed on the packet."
+	icon_state = "Opacket"
+	item_state = "Fpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/oracle
+
 /*
  * Vial Box
  */

@@ -1346,11 +1346,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "eF" = (
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/northeast)
 "eG" = (
 /obj/item/stack/rods,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/northeast)
 "eH" = (
 /obj/item/book/manual/nuclear,
@@ -2826,7 +2826,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jx" = (
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "jy" = (
 /obj/structure/morgue{
@@ -5077,14 +5077,14 @@
 "qn" = (
 /obj/structure/table/wood,
 /obj/random/loot,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qp" = (
 /obj/structure/bed/psych,
 /obj/structure/bed/psych{
 	icon_state = "psychbed_padding"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qq" = (
 /obj/item/clothing/mask/gas,
@@ -5132,16 +5132,16 @@
 /obj/structure/filingcabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qz" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qA" = (
 /obj/structure/table/rack,
@@ -5166,18 +5166,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qF" = (
 /obj/structure/bookcase,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qG" = (
 /obj/item/clothing/glasses/sunglasses,
@@ -5220,7 +5220,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qO" = (
 /obj/machinery/space_heater,
@@ -5566,7 +5566,7 @@
 /area/derelict/hallway/southeast)
 "rP" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "rQ" = (
 /obj/machinery/power/solar_control{
@@ -5783,7 +5783,7 @@
 /obj/structure/table/standard,
 /obj/item/gun/launcher/syringe/rapid,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "so" = (
 /obj/item/bedsheet/medical,
@@ -6031,7 +6031,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "tb" = (
 /obj/item/material/shard{
@@ -6100,7 +6100,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "tm" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "tn" = (
 /obj/structure/window/reinforced{
@@ -6206,7 +6206,7 @@
 /area/template_noop)
 "tA" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "tB" = (
 /obj/structure/cable/yellow{
@@ -7397,7 +7397,7 @@
 "wU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "wV" = (
 /obj/structure/table/rack,

@@ -85,7 +85,7 @@
 		else if(is_alien_whitelisted(user, S))
 			species_selection += S
 
-	var/picked_species = input(user,"Select your species") in species_selection
+	var/picked_species = tgui_input_list(user, "Select your species.", "Species Selection", species_selection)
 	if(!picked_species)
 		picked_species = possible_species[1]
 
@@ -94,7 +94,7 @@
 
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species, assigned_gender)
-	var/age = input(user, "Enter your characters age:","Num") as num
+	var/age = tgui_input_number(user, "Enter your character's age.", "Age", 25, 1000, 0)
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)

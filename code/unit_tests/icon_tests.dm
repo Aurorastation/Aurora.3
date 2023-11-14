@@ -1,5 +1,6 @@
 /datum/unit_test/icon_test
 	name = "ICON STATE template"
+	groups = list("graphic")
 
 /datum/unit_test/icon_test/closets
 	name = "CLOSET template"

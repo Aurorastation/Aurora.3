@@ -47,10 +47,20 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/Destroy()
 	for(var/datum/integrated_io/I in inputs)
 		qdel(I)
+	inputs = null
+
+
 	for(var/datum/integrated_io/O in outputs)
 		qdel(O)
+	outputs = null
+
+
 	for(var/datum/integrated_io/A in activators)
 		qdel(A)
+	activators = null
+
+	assembly = null
+
 	. = ..()
 
 /obj/item/integrated_circuit/ui_host()

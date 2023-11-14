@@ -27,6 +27,17 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/sensors/terminal
+	name = "sensors terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "teleport"
+	icon_keyboard = "teleport_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
@@ -238,7 +249,7 @@
 
 	if(sensors)
 		if (action == "range")
-			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
+			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
 			if(!CanInteract(usr, default_state))
 				return FALSE
 			if (nrange)
@@ -268,7 +279,7 @@
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
-			var/new_class = input("Insert a new ship class. 4 letters maximum.", "IFF Management") as text|null
+			var/new_class = tgui_input_text(usr, "Insert a new ship class. 4 letters maximum.", "IFF Management", linked.class, 4)
 			if(!length(new_class))
 				return
 			new_class = sanitizeSafe(new_class, 5)
@@ -284,7 +295,7 @@
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
-			var/new_name = input("Insert a new ship name. 24 letters maximum.", "IFF Management") as text|null
+			var/new_name = tgui_input_text(usr, "Insert a new ship name. 24 letters maximum.", "IFF Management", linked.designation, MAX_NAME_LEN)
 			if(!length(new_name))
 				return
 			new_name = sanitizeSafe(new_name, 24)

@@ -148,7 +148,7 @@ SUBSYSTEM_DEF(distress)
 	for(var/datum/responseteam/A in SSdistress.all_ert_teams)
 		plaintext_teams += A.name
 
-	var/choice = input("Select the response team type.","Response Team Selection") as null|anything in plaintext_teams
+	var/choice = input(usr, "Select the response team type.","Response Team Selection", plaintext_teams)
 
 	if(SSdistress.send_emergency_team)
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")

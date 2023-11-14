@@ -396,7 +396,7 @@
 	if(!..())
 		return FALSE
 
-	var/choice= input("Would you like to toggle the synthesiser, set the name or set an accent?") as null|anything in list("Enable","Disable","Set Name", "Set Accent")
+	var/choice= tgui_input_list(user, "Would you like to toggle the synthesiser, set the name or set an accent?", "Synthesizer", list("Enable","Disable","Set Name", "Set Accent"))
 
 	if(!choice)
 		return FALSE
@@ -417,7 +417,7 @@
 			voice_holder.voice = raw_choice
 			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
 		if("Set Accent")
-			var/raw_choice = input(user, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+			var/raw_choice = tgui_input_list(user, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
 			if(!raw_choice)
 				return FALSE
 			voice_holder.current_accent = raw_choice

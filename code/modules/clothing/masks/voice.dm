@@ -30,7 +30,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+	var/choice = tgui_input_list(usr, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
 	if(choice)
 		to_chat(usr, SPAN_NOTICE("You are now mimicking the [choice] accent."))
 		changer.current_accent = choice
@@ -64,7 +64,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+	var/choice = tgui_input_list(usr, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
 	if(choice)
 		to_chat(usr, SPAN_NOTICE("You are now mimicking the [choice] accent."))
 		changer.current_accent = choice

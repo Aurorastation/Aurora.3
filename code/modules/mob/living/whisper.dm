@@ -9,8 +9,6 @@
 	message = sanitize(message)
 	message = formalize_text(message)
 
-	SStyping.set_indicator_state(client, FALSE)
-
 	if(client.handle_spam_prevention(message, MUTE_IC))
 		return
 

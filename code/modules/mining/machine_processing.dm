@@ -123,27 +123,21 @@
 		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
 			if(params["choice"] == "claim")
-				if(access_mining_station in ID.access)
-					if(points >= 0)
-						ID.mining_points += points
-						if(points != 0)
-							ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
-						points = 0
-					else
-						to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
+				if(points >= 0)
+					ID.mining_points += points
+					if(points != 0)
+						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
+					points = 0
 				else
-					to_chat(usr, SPAN_WARNING("Required access not found."))
+					ping("<b>\The [src]</b> pings, \"Transaction failed due to a negative point value. No transaction can be done until this value has returned to a positive one.\"")
 			if(params["choice"] == "print_report")
-				if(access_mining_station in ID.access)
-					print_report(usr)
-				else
-					to_chat(usr, SPAN_WARNING("Required access not found."))
+				print_report(usr)
 		return TRUE
 
 	if(action == "toggle_smelting")
 		var/ore_name = params["toggle_smelting"]
 
-		var/choice = input("What setting do you wish to use for processing [ore_name]?") as null|anything in list("Smelting", "Compressing", "Alloying", "Nothing")
+		var/choice = tgui_input_list(usr, "What setting do you wish to use for processing [ore_name]?", "Processing", list("Smelting", "Compressing", "Alloying", "Nothing"))
 		if(!choice)
 			return TRUE
 

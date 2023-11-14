@@ -329,7 +329,7 @@
 
 	var/obj/item/integrated_circuit/input/choice
 	if(available_inputs)
-		var/selection = input(user, "What do you want to interact with?", "Interaction") as null|anything in input_selection
+		var/selection = tgui_input_list(user, "What do you want to interact with?", "Interaction", input_selection)
 		if(selection)
 			var/index = input_selection.Find(selection)
 			choice = available_inputs[index]

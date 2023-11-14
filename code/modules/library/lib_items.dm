@@ -51,9 +51,9 @@
 	else
 		..()
 
-/obj/structure/bookcase/attack_hand(var/mob/user as mob)
+/obj/structure/bookcase/attack_hand(var/mob/user)
 	if(contents.len)
-		var/obj/item/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
+		var/obj/item/book/choice = tgui_input_list(user, "Which book would you like to remove from the shelf?", "Bookcase", contents)
 		if(choice)
 			if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 				return
@@ -243,7 +243,7 @@
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return
-		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
+		var/choice = tgui_alert(user, "What would you like to change?", "Book", list("Title", "Contents", "Author", "Cancel"))
 		switch(choice)
 			if("Title")
 				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))

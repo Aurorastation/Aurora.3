@@ -16,8 +16,8 @@
 	)
 
 /singleton/origin_item/origin/xanu_prime
-	name = "Xanu Prime"
-	desc = "Xanu Prime has long been considered one of the most important planets in the Coalition of Colonies, housing its current capital. Xanans are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface is scarred due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
+	name = "All-Xanu Republic"
+	desc = "Xanu Prime has long been considered one of the most important planets in the Coalition of Colonies, housing its current capital. The citizens of the All-Xanu Republic, the government of the planet, are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface is scarred due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
 	possible_accents = list(ACCENT_XANU)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_STOLITISM, RELIGION_MOROZ, RELIGION_LUCEISM)
@@ -55,7 +55,7 @@
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB)
 
 /singleton/origin_item/origin/gadpathur
-	name = "Gadpathur"
+	name = "United Planetary Defense Council of Gadpathur"
 	desc = "During the Interstellar War, Gadpathur was orbitally bombarded by the Solarian Alliance until the planet was barely able to sustain human life. The planet has clawed its way back into stability over the intervening centuries, and is currently an ultra-militarized regime absolutely dedicated to ensuring that the Alliance is never again able to challenge the Coalition."
 	important_information = "Because of Gadpathur's insular nature that is unwelcome to outsiders and its origins of being settled by Indian colonists, <b>characters born on the planet must have names and physical characteristics typical of people from the modern-day Indian Subcontinent.</b> Only native Gadpathurians may take the Gadpathuri accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_GADPATHUR)

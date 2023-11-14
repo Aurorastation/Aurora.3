@@ -42,6 +42,7 @@
 
 /area/point_verdant/interior/hotel
 	name = "Point Verdant - Hotel"
+	icon_state = "crew_quarters"
 
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
@@ -74,6 +75,10 @@
 /area/point_verdant/interior/offices
 	name = "Point Verdant - Corporate Offices"
 
+/area/point_verdant/interior/maint_janitorial
+	name = "Point Verdant - Maint/Janitorial"
+	icon_state = "maintenance"
+
 /area/point_verdant/interior/tunnels
 	name = "Point Verdant - Tunnels"
 
@@ -93,8 +98,12 @@
 
 /area/point_verdant/water
 	name = "Point Verdant - Open Water"
+	icon_state = "fitness_pool"
 
 /area/point_verdant/water/Initialize()
 	. = ..()
 	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
 	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
+
+/area/point_verdant/water/deep // also used for waterdock landing area
+	name = "Point Verdant - Deep Water"

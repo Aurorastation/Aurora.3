@@ -6,6 +6,7 @@
 #define IFF_RAIDER "raider"
 #define IFF_LONER "loner"
 #define IFF_BURGLAR "burglar"
+#define IFF_JOCKEY "jockey"
 #define IFF_CULTIST "cultist"
 #define IFF_BLUESPACE "bluespace"
 #define IFF_DEATHSQUAD "deathsquad"

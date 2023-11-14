@@ -109,7 +109,7 @@
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)

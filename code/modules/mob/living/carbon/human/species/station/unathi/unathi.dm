@@ -13,7 +13,7 @@
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
-	selectable_tails = list("Tail")
+	selectable_tails = list("Tail", "Damaged Tail", "Stubby Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -105,14 +105,14 @@
 		)
 
 	has_organ = list(
-		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
-		BP_HEART =    /obj/item/organ/internal/heart/unathi,
-		BP_LIVER =    /obj/item/organ/internal/liver/unathi,
-		BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
-		BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
-		BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
-		BP_EYES =    /obj/item/organ/internal/eyes/unathi
-	)
+        BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
+        BP_EYES =    /obj/item/organ/internal/eyes/unathi,
+        BP_HEART =    /obj/item/organ/internal/heart/unathi,
+        BP_LIVER =    /obj/item/organ/internal/liver/unathi,
+        BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
+        BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
+        BP_STOMACH =    /obj/item/organ/internal/stomach/unathi
+    )
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 

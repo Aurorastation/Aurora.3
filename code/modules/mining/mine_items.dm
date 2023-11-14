@@ -20,6 +20,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
+	surgerysound = 'sound/weapons/rapidslice.ogg'
 	var/drill_sound = /singleton/sound_category/pickaxe_sound
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
@@ -904,7 +905,7 @@ var/list/total_extraction_beacons = list()
 		return
 
 	else
-		var/A = input(user, "Select a beacon to connect to", "Warp Extraction Pack") in possible_beacons
+		var/A = tgui_input_list(user, "Select a beacon to connect to.", "Warp Extraction Pack", possible_beacons, beacon)
 		if(!A)
 			return
 		beacon = A
@@ -1192,7 +1193,7 @@ var/list/total_extraction_beacons = list()
 
 		busy_sculpting = TRUE
 
-		var/choice = input(user, "What would you like to sculpt?", "Sculpting Options") as null|anything in list("Sculpture", "Ladder")
+		var/choice = tgui_input_list(user, "What would you like to sculpt?", "Sculpting Options", list("Sculpture", "Ladder"))
 		if(!choice)
 			busy_sculpting = FALSE
 			return
@@ -1238,7 +1239,7 @@ var/list/total_extraction_beacons = list()
 			var/list/choices = list()
 			for(var/mob/living/M in view(7,user))
 				choices += M
-			T = input(user, "Who do you wish to sculpt?", "Sculpt Options") as null|anything in choices
+			T = tgui_input_list(user, "Who do you wish to sculpt?", "Sculpt Options", choices)
 			if(!T)
 				to_chat(user, SPAN_NOTICE("You decide against sculpting for now."))
 				return FALSE

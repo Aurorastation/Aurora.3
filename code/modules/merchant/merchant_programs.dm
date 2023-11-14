@@ -20,6 +20,10 @@
 	var/temp
 	var/bank = 0 //A straight up money till
 
+/datum/computer_file/program/merchant/Destroy()
+	pad = null
+	. = ..()
+
 /datum/computer_file/program/merchant/proc/get_merchant(var/num)
 	if(num > SStrade.traders.len)
 		num = SStrade.traders.len
@@ -77,7 +81,7 @@
 	last_comms = "PAD NOT CONNECTED"
 
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
-	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
+	var/BulkAmount = tgui_input_number(usr, "How many items? (Buy 1-50 items. 0 to cancel.)", "Merchant", 1, 50, 0)
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
 		return

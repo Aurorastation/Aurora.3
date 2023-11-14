@@ -227,7 +227,7 @@
 
 	// Its vital that if you make new power tools or new recipies that you include this
 
-/obj/item/Initialize()
+/obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
 		for(var/type in armor)

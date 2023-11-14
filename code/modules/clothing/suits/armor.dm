@@ -331,14 +331,6 @@
 	icon_badge = "hosvest_badge"
 	icon_nobadge = "hosvest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/pcrc
-	name = "PCRC armor vest"
-	desc = "A simple kevlar plate carrier belonging to Proxima Centauri Risk Control. This one has a PCRC crest clipped to the chest."
-	icon_state = "pcrcvest_nobadge"
-	item_state = "pcrcvest_nobadge"
-	icon_badge = "pcrcvest_badge"
-	icon_nobadge = "pcrcvest_nobadge"
-
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
 	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a detective's badge clipped to the chest."
@@ -407,14 +399,6 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-
-/obj/item/clothing/suit/storage/vest/heavy/pcrc
-	name = "PCRC heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to Proxima Centauri Risk Control with webbing attached. This one has a PCRC crest clipped to the chest."
-	icon_state = "pcrcwebvest_nobadge"
-	item_state = "pcrcwebvest_nobadge"
-	icon_badge = "pcrcwebvest_badge"
-	icon_nobadge = "pcrcwebvest_nobadge"
 
 //ert related armor
 

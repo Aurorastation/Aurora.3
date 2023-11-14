@@ -27,6 +27,11 @@
 		ui.autoupdate = FALSE
 
 /datum/computer_file/program/chat_client/Destroy()
+	service_deactivate()
+	my_user = null
+	focused_conv = null
+	active = null
+
 	return ..()
 
 /datum/computer_file/program/chat_client/proc/can_receive_notification(var/datum/computer_file/program/chat_client/from)
@@ -110,6 +115,11 @@
 	if(src in ntnet_global.chat_clients)
 		ntnet_global.chat_clients.Remove(src)
 	computer.update_static_data_for_all_viewers()
+
+/datum/computer_file/program/chat_client/proc/handle_ntnet_user_deletion(var/datum/ntnet_user)
+	if(ntnet_user == src.my_user)
+		service_deactivate()
+		my_user = null
 
 /datum/computer_file/program/chat_client/ui_data(mob/user)
 	. = ..()
@@ -323,9 +333,9 @@
 
 	if(href_list["Reply"])
 		var/mob/living/user = usr
+		if(ishuman(user))
+			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
-		var/message = input(user, "Enter message or leave blank to cancel: ")
+		var/message = tgui_input_text(user, "Enter a message or leave blank to cancel.", "Chat Client")
 		if(istype(conv) && message)
-			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)

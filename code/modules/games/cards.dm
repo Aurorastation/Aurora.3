@@ -102,7 +102,7 @@
 	var/list/to_discard = list()
 	for(var/datum/playingcard/P in cards)
 		to_discard[P.name] = P
-	var/discarding = input(user, "Which card do you wish to draw?", "Deck of Cards") as null|anything in to_discard
+	var/discarding = tgui_input_list(user, "Which card do you wish to draw?", "Deck of Cards", to_discard)
 	if(!discarding || !to_discard[discarding] || !user || !src)
 		return
 
@@ -130,7 +130,7 @@
 		if(!player.stat)
 			players += player
 
-	var/mob/living/M = input("Who do you wish to deal a card?") as null|anything in players
+	var/mob/living/M = tgui_input_list(usr, "Who do you wish to deal a card?", "Deal", players)
 	if(!usr || !src || !M) return
 
 	deal_at(usr, M)
@@ -240,7 +240,7 @@
 	for(var/datum/playingcard/P in cards)
 		to_discard[P.name] = P
 	var/input_text = "Which card do you wish to [deploy_in_front ? "put down" : "draw"]?"
-	var/discarding = input(user, input_text, "Hand of Cards") as null|anything in to_discard
+	var/discarding = tgui_input_list(user, input_text, "Hand of Cards", to_discard)
 	if(!discarding || !to_discard[discarding] || !user || !src)
 		return
 

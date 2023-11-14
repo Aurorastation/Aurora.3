@@ -62,13 +62,13 @@
 	. = ..()
 
 /obj/item/clothing/attackby(obj/item/I, mob/user)
-	if(IC)
+	if(IC && (istype(I, /obj/item/integrated_circuit) || I.iswrench() || I.iscrowbar() || istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.ismultitool() || I.isscrewdriver() || istype(I, /obj/item/cell/device)))
 		IC.attackby(I, user)
 	else
 		..()
 
 /obj/item/clothing/attack_self(mob/user)
-	if(IC)
+	if(IC?.opened)
 		IC.attack_self(user)
 	else
 		..()

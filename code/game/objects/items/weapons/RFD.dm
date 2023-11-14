@@ -738,11 +738,11 @@
 			pipe_selection = aux_pipes
 		if(DEVICES)
 			pipe_selection = devices
-	pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
+	pipe_examine = tgui_input_list(user, "Choose the pipe you want to deploy.", "Pipe Selection", pipe_selection, selected_pipe)
 	selected_pipe = pipe_selection[pipe_examine]
 
 /obj/item/rfd/piping/AltClick(mob/user)
-	selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
+	selected_mode = tgui_input_list(user, "Choose the category you want to change to.", "Pipe Categories", modes, selected_mode)
 	switch(selected_mode)
 		if(STANDARD_PIPE)
 			pipe_examine = "Pipe"

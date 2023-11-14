@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "saniorios_smuggler"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/saniorios_smuggler
 	map = "Sani'Orios"
 	descriptor = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."

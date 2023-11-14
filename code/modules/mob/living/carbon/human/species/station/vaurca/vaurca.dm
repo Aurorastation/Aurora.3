@@ -101,6 +101,8 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -109,9 +111,7 @@
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
-		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca
 	)
 
 	has_limbs = list(

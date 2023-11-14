@@ -15,11 +15,27 @@
 
 	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
 
+/obj/structure/Initialize(mapload)
+	. = ..()
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
+	if (!mapload)
+		updateVisibility(src)	// No point checking this before visualnet initializes.
+	if(climbable)
+		verbs += /obj/structure/proc/climb_on
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
+
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
 	if (smoothing_flags)
+		SSicon_smooth.remove_from_queues(src)
 		SSicon_smooth.add_to_queue_neighbors(src)
+
+	climbers = null
+
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
@@ -64,18 +80,6 @@
 /obj/structure/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
 	bullet_ping(P)
-
-/obj/structure/Initialize(mapload)
-	. = ..()
-	if(!isnull(material) && !istype(material))
-		material = SSmaterials.get_material_by_name(material)
-	if (!mapload)
-		updateVisibility(src)	// No point checking this before visualnet initializes.
-	if(climbable)
-		verbs += /obj/structure/proc/climb_on
-	if (smoothing_flags)
-		SSicon_smooth.add_to_queue(src)
-		SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/proc/climb_on()
 

@@ -84,7 +84,7 @@
 		P.stamped = list(/obj/item/stamp)
 		P.overlays = list("paper_stamped")
 		P.set_content_unsafe(pname, info)
-		print(P)
+		print(P, user = usr)
 
 		if(scanned_object && istype(scanned_object, /obj/machinery/artifact))
 			var/obj/machinery/artifact/A = scanned_object
