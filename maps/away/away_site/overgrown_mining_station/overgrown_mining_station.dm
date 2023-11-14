@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "overgrown_mining_station"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/overgrown_mining_station
 	map = "overgrown_mining_station"
 	descriptor = "A derelict mining station."

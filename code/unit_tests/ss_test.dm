@@ -8,6 +8,107 @@
  */
 #ifdef UNIT_TEST
 
+/*
+	The Unit Tests Configuration subsystem
+*/
+
+var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
+/datum/controller/subsystem/unit_tests_config
+	name = "Unit Test Config"
+	init_order = SS_INIT_PERSISTENT_CONFIG
+	flags = SS_NO_FIRE
+
+	var/datum/unit_test/UT = new // Logging/output
+
+	///What is our identifier, what pod are we, and hence what are we supposed to run
+	var/identifier = null
+
+	///The configuration, decoded from `config/unit_test/ut_pods_configuration.json`, specific for our identifier
+	var/list/config = list()
+
+	///Boolean, if the tests should fast fail (Anything fails = the pod shuts down)
+	var/fail_fast = FALSE
+
+	///How many times can the pod retries before the unit test is considered failed
+	var/retries = 0
+
+/datum/controller/subsystem/unit_tests_config/New()
+	. = ..()
+
+	world.fps = 10
+
+	//Acquire our identifier, or enter Hopper mode if failing to do so
+	try
+		src.identifier = rustg_file_read("config/unit_test/identifier.txt")
+
+		if(isnull(src.identifier))
+			UT.fail("**** This UT is being run without an identifier! Aborting... ****")
+			del world
+	catch()
+		UT.fail("**** Exception encountered while trying to acquire an identifier for this UT! ***")
+		del world
+
+
+
+	ASSERT(!isnull(src.identifier))
+
+	//Try to acquire our configuration
+	try
+
+		src.config = json_decode(rustg_file_read("config/unit_test/ut_pods_configuration.json"))
+
+		UT.debug("Pods configuration file read as: [json_encode(src.config)]")
+		UT.debug("Will extract the pod configuration for pod with identifier: [src.identifier]")
+
+		for(var/k in src.config)
+			UT.debug("The following pod configuration is defined: [k]")
+
+		src.config = src.config[src.identifier]
+
+		UT.debug("Pods configuration extrapolated as: [json_encode(src.config)]")
+
+		if(isnull(src.config))
+			UT.fail("**** This UT is being run without a config, it's null! Aborting... ****")
+			del world
+
+		if(!src.config.len)
+			UT.fail("**** This UT is being run without a config! Aborting... ****")
+			del world
+
+	catch(var/exception/e)
+		UT.fail("**** Exception encountered while trying to acquire the config for this UT! Identifier: [identifier] ***")
+		UT.fail("**** Exception encountered: [e] ***")
+		. = ..(e)
+		del world
+
+	refresh_retries(FALSE)
+	refresh_fail_fast()
+
+
+/**
+ * Refresh the `retries` variable from the environment variables
+ *
+ * * decrement - A boolean, if `TRUE` it decrements the environment variable that holds the retries left
+ */
+/datum/controller/subsystem/unit_tests_config/proc/refresh_retries(decrement = FALSE)
+	src.retries = text2num(world.GetConfig("env", "CI_MAX_RETRIES"))
+
+	if(decrement && src.retries)
+		world.SetConfig("env", "CI_MAX_RETRIES", num2text((src.retries - 1)))
+
+/**
+ * Refresh the `fail_fast` variable depending on the CI trigger reason
+ */
+/datum/controller/subsystem/unit_tests_config/proc/refresh_fail_fast()
+
+	//Off by default, so only need to flip it on when we wish it to
+	if(world.GetConfig("env", "CI_TRIGGER_REASON") == "merge_group")
+		src.fail_fast = TRUE
+
+
+/*
+	The Unit Tests subsystem
+*/
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
 	var/datum/unit_test/UT = new // Use this to log things from outside where a specific unit_test is defined
@@ -19,6 +120,7 @@
 	wait = 2 SECONDS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
 
+
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
 	UT.notice("Initializing Unit Testing", __FILE__, __LINE__)
 
@@ -26,13 +128,21 @@
 	//Start the Round.
 	//
 
-	for (var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
+	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
+
 		if(findtext(D.name, "template"))
 			qdel(D)
 			continue
 
-		queue += D
+		if(!length(D.groups))
+			UT.fail("**** Unit Test has no group assigned! [D.name] ****")
+			del world
+
+		for(var/group in D.groups)
+			if((group in SSunit_tests_config.config["unit_test_groups"]) || (SSunit_tests_config.config["unit_test_groups"][1] == "*"))
+				queue += D
+				break
 
 	UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
 	..()
@@ -82,8 +192,14 @@
 
 		total_unit_tests++
 
+		if(unit_tests_failures && SSunit_tests_config.fail_fast)
+			UT.fail("**** Fail fast is enabled and an unit test failed! Aborting... ****", __FILE__, __LINE__)
+			handle_tests_ending(TRUE)
+			break
+
 		if (MC_TICK_CHECK)
 			return
+
 
 	if (!curr.len)
 		stage++
@@ -126,9 +242,17 @@
 		if (4)	// Finalization.
 			if(all_unit_tests_passed)
 				UT.pass("**** All Unit Tests Passed \[[total_unit_tests]\] ****", __FILE__, __LINE__)
+				handle_tests_ending(FALSE)
 			else
 				UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
-			del world
+				handle_tests_ending(TRUE)
+
+/datum/controller/subsystem/unit_tests/proc/handle_tests_ending(is_failure = FALSE)
+	if(is_failure && SSunit_tests_config.retries)
+		SSunit_tests_config.refresh_retries(TRUE)
+		world.Reboot("Restarting for another UT try, remaining tries: [SSunit_tests_config.retries]", TRUE)
+	else
+		del world
 
 //This is only valid during unit tests
 /world/Error(var/exception/e)

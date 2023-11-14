@@ -8,6 +8,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
 
+	unit_test_groups = list(3)
+
 /obj/effect/overmap/visitable/ship/kataphract_ship
 	name = "kataphract chapter ship"
 	desc = "A large corvette manufactured by a Hephaestus sponsored Hegemonic Guild. This is a heavily armoured Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' \
