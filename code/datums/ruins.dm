@@ -9,11 +9,25 @@
 	var/spawn_cost = 0
 	var/player_cost = 0
 	var/ship_cost = 0
-	var/list/sectors = list() //This ruin can only spawn in the sectors in this list.
 
+	/// This ruin can only spawn in the sectors in this list.
+	/// Should contain names of sectors as defined in `space_sectors.dm`.
+	/// This list is flattened so it can contain nested lists like, for example, `ALL_POSSIBLE_SECTORS`.
+	var/list/sectors = list()
+	/// Sectors in this list are removed from the `sectors` list.
+	/// Usage is same as of `sectors`.
+	/// Intention is to allow to, for example, set `sectors` to `ALL_POSSIBLE_SECTORS`,
+	/// but then disallow just one sector from that list.
+	var/list/sectors_blacklist = list()
+
+	/// Prefix part of the path to the dmm maps.
 	var/prefix = null
+	/// A list of suffix parts of paths of the dmm maps.
+	/// Combined with prefix to get the actual path.
 	var/list/suffixes = null
-	template_flags = TEMPLATE_FLAG_NO_RUINS // Don't let ruins spawn on top of ruins
+
+	/// Template flags for this ruin
+	template_flags = TEMPLATE_FLAG_NO_RUINS
 
 	// !! Currently only implemented for away sites
 	var/list/force_ruins // Listed ruins are always spawned unless disallowed by flags.
@@ -26,4 +40,10 @@
 		for (var/suffix in suffixes)
 			mappaths += (prefix + suffix)
 	sectors = flatten_list(sectors)
+	sectors_blacklist = flatten_list(sectors_blacklist)
+	sectors -= sectors_blacklist
 	..()
+
+/// Returns `TRUE` if this ruin can spawn in current sector, otherwise `FALSE`.
+/datum/map_template/ruin/proc/spawns_in_current_sector()
+	return (SSatlas.current_sector.name in sectors)
