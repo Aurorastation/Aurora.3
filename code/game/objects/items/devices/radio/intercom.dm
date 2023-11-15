@@ -27,8 +27,8 @@ pixel_x = 8;
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
-	obj_flags = OBJ_FLAG_CONDUCTABLE | ATOM_FLAG_NO_BLOOD
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/global/list/screen_overlays

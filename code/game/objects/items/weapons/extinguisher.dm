@@ -5,7 +5,8 @@
 	icon_state = "metal_canister"
 	item_state = "metal_canister"
 	hitsound = 'sound/weapons/smash.ogg'
-	obj_flags = OBJ_FLAG_CONDUCTABLE | ATOM_FLAG_OPEN_CONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 8
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2

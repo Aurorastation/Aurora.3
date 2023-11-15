@@ -366,7 +366,8 @@
 	desc = "A warding metallic of tajaran origin."
 	icon_state = "steel_talisman"
 	item_state = "steel_talisman"
-	obj_flags = OBJ_FLAG_CONDUCTABLE | ITEM_FLAG_NO_BLUDGEON
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/clothing/accessory/tajaran/charm/steel/silver
 	name = "silver charm"

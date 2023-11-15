@@ -101,7 +101,7 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate
 	name = "plate"
 	desc = "A plate for dishing up the finest of cuisine."
-	atom_flags = null
+	atom_flags = 0
 	icon_state = "plate"
 	var/obj/item/holding
 

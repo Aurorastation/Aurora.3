@@ -6,7 +6,8 @@
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
 	throw_range = 4
-	obj_flags = OBJ_FLAG_CONDUCTABLE | MOVABLE_FLAG_PROXMOVE
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	var/status = FALSE   // FALSE - not readied // TRUE - bomb finished with welder
 	var/obj/item/device/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device
 	var/obj/item/tank/bombtank = null //the second part of the bomb is a phoron tank

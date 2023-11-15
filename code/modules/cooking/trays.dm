@@ -215,7 +215,7 @@
 	icon_state = "l_plate"
 	throwforce = 4
 	force = 3
-	atom_flags = null
+	atom_flags = 0
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
 	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass

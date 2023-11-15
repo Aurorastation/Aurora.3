@@ -104,7 +104,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_TINY
-	obj_flags = OBJ_FLAG_CONDUCTABLE | ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE
@@ -400,7 +401,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_LARGE
-	obj_flags = OBJ_FLAG_CONDUCTABLE | ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE

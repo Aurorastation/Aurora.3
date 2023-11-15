@@ -14,7 +14,7 @@
 	mobdamagetype = DAMAGE_BURN
 	cooking_coeff = 0
 	cooking_power = 0
-//	atom_flags = null
+//	atom_flags = 0
 	var/temperature = T20C
 	var/starts_with = list()
 

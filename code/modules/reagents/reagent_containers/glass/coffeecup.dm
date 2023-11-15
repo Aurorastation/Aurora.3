@@ -210,7 +210,8 @@
 	name = "metal coffee cup"
 	desc = "A metal coffee cup. You're not sure which metal."
 	icon_state = "coffeecup_metal"
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER | OBJ_FLAG_CONDUCTABLE
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass
@@ -253,7 +254,8 @@
 	name = "tall metal coffee cup"
 	desc = "An unreasonably tall coffee cup, for when you really need to wake up in the morning. This one is made of metal."
 	icon_state = "coffeecup_tall_metal"
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER | OBJ_FLAG_CONDUCTABLE
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/rainbow
