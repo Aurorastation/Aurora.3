@@ -41,8 +41,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
@@ -130,8 +132,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -292,8 +296,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
@@ -353,8 +359,10 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1;
@@ -1596,8 +1604,10 @@
 "grA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /obj/machinery/light/small/emergency{
 	pixel_y = -22
@@ -3301,8 +3311,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /obj/machinery/access_button{
 	pixel_x = 12;
@@ -3701,8 +3713,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -3993,8 +4007,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 2;
@@ -4417,8 +4433,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4611,8 +4629,10 @@
 "sCd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
@@ -5422,8 +5442,10 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_ranger_docking";
-	master_tag = "airlock_ranger_docking"
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /obj/machinery/access_button{
 	pixel_x = -23;
@@ -5552,8 +5574,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock"
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /obj/machinery/access_button{
 	pixel_x = -12;
