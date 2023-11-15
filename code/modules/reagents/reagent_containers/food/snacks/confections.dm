@@ -30,18 +30,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("apple" = 3, "caramel" = 3, "sweetness" = 2))
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/triolade
-	name = "triolade mousse"
-	desc = "Fluffy white, milk, and dark chocolate stacked upon each other in inviting layers."
-	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
-	icon_state = "triolade"
-	filling_color = "#ad724f"
-	reagents_to_add = list(/singleton/reagent/nutriment = 6)
-	reagent_data = list(/singleton/reagent/nutriment = list("milk chocolate" = 4, "white chocolate" = 4, "dark chocolate" = 4))
-	trash = /obj/item/trash/triolade
-	bitesize = 2
-
-
 /obj/item/reagent_containers/food/snacks/izuixu
 	name = "izu-ixu"
 	desc = "A recent trend, created as a collaboration between two friends from Valkyrie - a Human and an Unathi, this dessert mixture of ice cream rolls and xuizi juice is truly a modern symbol of the Valkyrian dream and modern day cultural bonds. It's naturally green but artificially made pink to make it more inviting."
@@ -52,6 +40,17 @@
 	center_of_mass = list("x"=15, "y"=4)
 	reagents_to_add = list(/singleton/reagent/nutriment = 5 , /singleton/reagent/alcohol/butanol/xuizijuice = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("xuizi ice cream" = 5))
+
+/obj/item/reagent_containers/food/snacks/triolade
+	name = "triolade mousse"
+	desc = "Fluffy white, milk, and dark chocolate stacked upon each other in inviting layers."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "triolade"
+	filling_color = "#ad724f"
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("milk chocolate" = 4, "white chocolate" = 4, "dark chocolate" = 4))
+	trash = /obj/item/trash/triolade
+	bitesize = 2
 
 ///obj/item/reagent_containers/food/snacks/plafooz
 //	name = "palfooz"
@@ -78,7 +77,7 @@
 
 /obj/item/reagent_containers/food/snacks/palfooz
 	name = "palfooz"
-	desc = "Fresh pineapple floats. So to show their ingredients are fresh, many Vyoskan establishments started serving this elaborate, fancy dessert, on a pineapple slice floating in light cherry syrup. It's customary to give it a spin as you serve it to show it's really floating. The dish itself is really just pineapple sorbet and cherry jello, but it's still so FANCY."
+	desc = "Fresh pineapple floats. So to show their ingredients are fresh, many Vyoskan establishments started serving this dessert on a pineapple slice floating in light cherry syrup. It's customary to give it a spin as you serve it to show it's really floating. The dish itself is really just pineapple sorbet and cherry jello, but it's still so FANCY."
 	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "palfooz"
 	filling_color = "#ffeb94"
