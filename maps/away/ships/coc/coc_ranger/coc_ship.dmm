@@ -875,6 +875,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/sign/fire{
+	name = "\improper DANGER: FLAMMABLE GAS";
+	pixel_x = -32
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "dHA" = (
@@ -2074,7 +2078,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/holofloor/reinforced,
+/turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "itr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3900,12 +3904,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/ranger_shuttle)
-"pVQ" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
 "pXU" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -5331,21 +5329,11 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/bathroom)
 "ulR" = (
-/obj/structure/sign/fire{
-	name = "\improper DANGER: FLAMMABLE GAS";
-	pixel_x = 32;
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/sign/vacuum{
 	pixel_y = -32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -5601,7 +5589,7 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/reinforced,
+/turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "uWT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -37392,7 +37380,7 @@ dmm
 jsq
 vFS
 mzO
-ulR
+jsa
 yfz
 sCu
 uwG
@@ -39201,8 +39189,8 @@ tsn
 wkO
 xzl
 wUT
-pVQ
-sLq
+aKd
+ulR
 oUC
 paq
 qza
