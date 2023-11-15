@@ -158,6 +158,7 @@
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
 	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
+	banners["banner, All-Xanu Republic"] = /obj/item/flag/xanu
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
@@ -174,6 +175,7 @@
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
 	banners["banner, Silversun"] = /obj/item/flag/silversun
+	banners["banner, Luna"] = /obj/item/flag/luna
 	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
 	banners["banner, Hive K'lax"] = /obj/item/flag/klax
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
@@ -230,6 +232,7 @@
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
 	flags["flag, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi/l
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
+	flags["flag, All-Xanu Republic"] = /obj/item/flag/xanu/l
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
@@ -244,6 +247,7 @@
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
 	flags["flag, Silversun"] = /obj/item/flag/silversun/l
+	flags["flag, Luna"] = /obj/item/flag/luna/l
 	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
 	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l

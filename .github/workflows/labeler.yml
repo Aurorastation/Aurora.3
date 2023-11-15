@@ -8,8 +8,13 @@ jobs:
       contents: read
       pull-requests: write
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/labeler@v4
-      with:
-        sync-labels: true
-        dot: true
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set labels for PR
+        uses: actions/labeler@v4
+        with:
+          sync-labels: true
+          dot: true

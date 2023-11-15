@@ -439,7 +439,7 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~5 minutes
@@ -490,7 +490,11 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(BP_IS_ROBOTIC(heart))
+		recession = 10
+		return
+
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~7.5 minutes

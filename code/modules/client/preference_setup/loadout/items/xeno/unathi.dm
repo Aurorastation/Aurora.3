@@ -350,6 +350,12 @@
 	path = /obj/item/organ/internal/augment/venomous_rest
 	cost = 1
 
+/datum/gear/augment/autakh/ethanol_burner
+	display_name = "integrated ethanol burner"
+	description = "An augment spearheaded by the Dreg Aut'akh beneath Eridani, and perfected by the Razortails on Biesel, this burner lets Unathi consume ethanol with no health complications."
+	path = /obj/item/organ/internal/augment/ethanol_burner
+	cost = 1
+
 /datum/gear/augment/autakh/eyes
 	display_name = "eye augment selection"
 	description = "A selection of au'takh eye augments."

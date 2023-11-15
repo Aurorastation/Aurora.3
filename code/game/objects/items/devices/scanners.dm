@@ -199,7 +199,7 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
 
 		var/blood_volume_string = "<span class='scan_green'>\>[BLOOD_VOLUME_SAFE]%</span>"
-		switch(H.get_blood_oxygenation())
+		switch(H.get_blood_volume())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				blood_volume_string = "<span class='scan_notice'>\<[BLOOD_VOLUME_SAFE]%</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)
@@ -718,10 +718,7 @@ BREATH ANALYZER
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new(user.loc)
-	R.color = "#eeffe8"
-	R.set_content_unsafe("Scan ([M.name])", connected.format_occupant_data(get_occupant_data(M)))
-
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

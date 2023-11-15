@@ -32,7 +32,7 @@
 	desc_extended = "Imported from the New Kingdom of Adhomai."
 	icon_state = "nkapacket"
 	item_state = "Fpacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai/menthol
 
 /obj/item/tajcard
 	name = "collectable tajaran card"

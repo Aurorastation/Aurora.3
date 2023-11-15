@@ -193,7 +193,7 @@
 
 /obj/item/reagent_containers/inhaler/xuxigas/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/xuxigas, volume)
+	reagents.add_reagent(/singleton/reagent/drugs/xuxigas, volume)
 	update_icon()
 	return
 
@@ -241,7 +241,7 @@
 
 /obj/item/reagent_containers/inhaler/space_drugs/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/space_drugs, volume)
+	reagents.add_reagent(/singleton/reagent/drugs/mms, volume)
 	update_icon()
 	return
 
@@ -286,6 +286,6 @@
 
 /obj/item/reagent_containers/inhaler/raskara_dust/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/raskara_dust, volume)
+	reagents.add_reagent(/singleton/reagent/drugs/raskara_dust, volume)
 	update_icon()
 	return

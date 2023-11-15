@@ -786,6 +786,50 @@
 /obj/structure/sign/flag/coalition/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+//All-Xanu Republic
+/obj/item/flag/xanu
+	name = "\improper All-Xanu Republic banner"
+	desc = "The banner of the All-Xanu Republic, the beating heart of the Coalition of Colonies."
+	desc_extended = "The banner of the All-Xanu Republic is a banner of three horizontal stripes, blue, orange, and green, with a white chevron featuring the same colors inset in each other. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, and the white represents justice and peace."
+	flag_path = "xanu"
+	flag_structure = /obj/structure/sign/flag/xanu
+
+/obj/structure/sign/flag/xanu
+	name = "\improper All-Xanu Republic banner"
+	desc = "The banner of the All-Xanu Republic, the beating heart of the Coalition of Colonies."
+	desc_extended = "The banner of the All-Xanu Republic is a banner of three horizontal stripes, blue, orange, and green, with a white chevron featuring the same colors inset in each other. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, and the white represents justice and peace."
+	icon_state = "xanu"
+	flag_path = "xanu"
+	flag_item = /obj/item/flag/xanu
+
+/obj/item/flag/xanu/l
+	name = "\improper All-Xanu Republic flag"
+	desc = "The flag of the All-Xanu Republic, the beating heart of the Coalition of Colonies"
+	desc_extended = "The flag of the All-Xanu Republic is a flag of three horizontal stripes, blue, orange, and green, with a white circle in the middle featuring the national crest of Xanu Prime, a peacock feather. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, white represents justice and peace, and the national crest represents the republic itself."
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/xanu/large
+
+/obj/structure/sign/flag/xanu/large
+	name = "\improper All-Xanu Republic flag"
+	desc = "The flag of the All-Xanu Republic, the beating heart of the Coalition of Colonies"
+	desc_extended = "The flag of the All-Xanu Republic is a flag of three horizontal stripes, blue, orange, and green, with a white circle in the middle featuring the national crest of Xanu Prime, a peacock feather. The blue represents liberty and freedom, orange represents determination and hard work, green represents the planet and its people, white represents justice and peace, and the national crest represents the republic itself."
+	icon_state = "xanu_l"
+	flag_path = "xanu"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/xanu/l
+
+/obj/structure/sign/flag/xanu/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/xanu/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/xanu/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/xanu/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Varuca/Sedantis
 
 /obj/item/flag/sedantis
@@ -2191,6 +2235,45 @@
 
 /obj/structure/sign/flag/silversun/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// Luna
+
+/obj/item/flag/luna
+	name = "\improper Lunan flag"
+	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	flag_path = "luna"
+	flag_structure = /obj/structure/sign/flag/luna
+
+/obj/structure/sign/flag/luna
+	name = "\improper Lunan flag"
+	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	flag_path = "luna"
+	icon_state = "luna"
+	flag_item = /obj/item/flag/luna
+
+/obj/item/flag/luna/l
+	name = "large Lunan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/luna/large
+
+/obj/structure/sign/flag/luna/large
+	icon_state = "luna_l"
+	flag_path = "luna"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/luna/l
+
+/obj/structure/sign/flag/luna/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/luna/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/luna/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/luna/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 
 // Hive Zo'ra
 
