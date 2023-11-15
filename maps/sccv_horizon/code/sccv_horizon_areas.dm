@@ -670,6 +670,7 @@
 	name = "Horizon - Deck 3 Cafeteria"
 	icon_state = "cafeteria"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_blurb = "The smell of coffee wafts over from the cafe. Patience the tree, stands proudly in the centre of the atrium."
 
 // Custodial
 /area/horizon/custodial
@@ -679,6 +680,7 @@
 	sound_env = LARGE_ENCLOSED
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_blurb = "A strong, concentrated smell of many cleaning supplies sits within this room."
 
 /area/horizon/custodial/disposals
 	name = "Horizon - Disposals and Recycling"

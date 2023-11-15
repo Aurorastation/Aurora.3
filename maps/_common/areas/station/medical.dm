@@ -12,6 +12,7 @@
 	lightswitch = TRUE
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
+	area_blurb = "The smells of a hospital waft through the air, strong sterilizing agents, medicines and latex gloves. It's not a pleasant smell, but one you could grow to ignore."
 
 /area/medical/medbay2
 	name = "Medbay Hallway - Starboard"
@@ -52,6 +53,7 @@
 /area/medical/psych
 	name = "Medical - Psych Room"
 	icon_state = "medbay3"
+	area_blurb = "With wooden floors and carpets, this room has a warmer feeling compared to the sterility of the rest of the medical wing."
 
 /area/medical/upperlevel
 	name = "Medical - Upper-Level Hallway"
@@ -154,7 +156,6 @@
 /area/medical/gen_treatment
 	name = "Medical - General Treatment"
 	icon_state = "cryo"
-	area_blurb = "The smells of medicines and strong sterilizing supplies fill the air."
 
 /area/medical/exam_room
 	name = "Medical - Exam Room 1"
