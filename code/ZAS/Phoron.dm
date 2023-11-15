@@ -9,9 +9,9 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	var/CLOTH_CONTAMINATION_NAME = "Cloth Contamination"
 	var/CLOTH_CONTAMINATION_DESC = "If this is on, phoron does damage by getting into cloth."
 
-	var/ITEM_FLAG_PHORON_GUARD_ONLY = FALSE
-	var/ITEM_FLAG_PHORON_GUARD_ONLY_NAME = "\"PhoronGuard Only\""
-	var/ITEM_FLAG_PHORON_GUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
+	var/PHORONGUARD_ONLY = FALSE
+	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
+	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
 
 	var/GENETIC_CORRUPTION = FALSE
 	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
@@ -140,7 +140,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 /mob/living/carbon/human/proc/pl_head_protected()
 	//Checks if the head is adequately sealed.
 	if(head)
-		if(vsc.plc.ITEM_FLAG_PHORON_GUARD_ONLY)
+		if(vsc.plc.PHORONGUARD_ONLY)
 			if(head.item_flags & ITEM_FLAG_PHORON_GUARD)
 				return 1
 		else if(head.body_parts_covered & EYES)
@@ -153,11 +153,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
 		if(!protection)
 			continue
-		if(vsc.plc.ITEM_FLAG_PHORON_GUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
+		if(vsc.plc.PHORONGUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
 			return 0
 		coverage |= protection.body_parts_covered
 
-	if(vsc.plc.ITEM_FLAG_PHORON_GUARD_ONLY)
+	if(vsc.plc.PHORONGUARD_ONLY)
 		return 1
 
 	return BIT_TEST_ALL(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)
