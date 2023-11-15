@@ -697,6 +697,29 @@
 	bitesize = 3
 	center_of_mass = list("x"=16, "y"=12)
 
+/obj/item/reagent_containers/food/snacks/sliceable/ylpharoulade
+	name = "ylpha roulade"
+	desc = "A sweet roll made of Ylpha Berries and white chocolate!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "ylpharoulade"
+	trash = /obj/item/trash/plate
+	filling_color = "#be5d92"
+	center_of_mass = list("x"=16, "y"=12)
+	slice_path = /obj/item/reagent_containers/food/snacks/ylpharouladeslice
+	slices_num = 5
+	reagents_to_add = list(/singleton/reagent/nutriment = 16)
+	reagent_data = list(/singleton/reagent/nutriment = list("baked goods" = 10, "white chocolate" = 10, "ylpha berry" = 10))
+
+/obj/item/reagent_containers/food/snacks/ylpharouladeslice
+	name = "slice of ylpha roulade"
+	desc = "The deliciousness of Ylpha berries and white chocolate rolled into one!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "ylpharouladeslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#be5d92"
+	bitesize = 3
+	center_of_mass = list("x"=16, "y"=12)
+
 /obj/item/reagent_containers/food/snacks/cakepopselection
 	name = "cake pop"
 	desc = "Clearly it's the healthier choice if you're only having a SMALL lump of sugary dough coated in sugar with some sugar on top. How responsible of you!"

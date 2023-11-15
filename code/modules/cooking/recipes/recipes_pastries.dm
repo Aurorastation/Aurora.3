@@ -295,14 +295,23 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/giffypie
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
-//Roulades (only 1 right now, more to come later)
+//Roulades
+/singleton/recipe/ylpharoulade
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar/white
+	)
+	reagents = list(/singleton/reagent/sugar = 10, /singleton/reagent/drink/ylphaberryjuice = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/ylpharoulade
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
 /singleton/recipe/chocolateroulade
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/reagent_containers/food/snacks/chocolatebar,
-		/obj/item/reagent_containers/food/snacks/chocolatebar,
 	)
 	reagents = list(/singleton/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/chocolateroulade
-	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
+	reagent_mix = RECIPE_REAGENT_REPLACE

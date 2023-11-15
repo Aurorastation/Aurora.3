@@ -26,12 +26,6 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/izuixu
 
-/singleton/recipe/palfooz
-	appliance = MIX
-	fruit = list("cherry" = 2)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/palfooz
-
 /singleton/recipe/triolade
 	appliance = SAUCEPAN
 	items = list(
@@ -42,3 +36,9 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify it
 	result = /obj/item/reagent_containers/food/snacks/triolade
 
+
+/singleton/recipe/palfooz
+	appliance = MIX
+	fruit = list("cherry" = 2)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/palfooz
