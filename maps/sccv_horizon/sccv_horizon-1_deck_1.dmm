@@ -4127,13 +4127,9 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "cTs" = (
@@ -8650,6 +8646,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "fVm" = (
@@ -9521,14 +9518,8 @@
 "gyD" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -10229,7 +10220,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
 "haI" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
@@ -23380,6 +23370,16 @@
 /obj/effect/floor_decal/corner/dark_green/full,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"qiG" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "qiZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -26128,10 +26128,10 @@
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_a)
 "sdW" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "seU" = (
@@ -27771,16 +27771,8 @@
 "tnb" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/cobweb2,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "tns" = (
@@ -30632,6 +30624,13 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
+"vik" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "viX" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Tanks 5";
@@ -34038,6 +34037,11 @@
 "xur" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/substation/engineering/lower)
+"xvh" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "xvk" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "4,8"
@@ -60739,7 +60743,7 @@ uVL
 uVL
 gyD
 eKc
-mhf
+idq
 pom
 wXZ
 mhf
@@ -61146,13 +61150,13 @@ uVL
 rsL
 qpJ
 rsL
-lCv
-lCv
+pom
+pom
 hgR
-lCv
-lCv
-lCv
-lCv
+pom
+pom
+pom
+pom
 xsN
 gVe
 bRg
@@ -61349,13 +61353,13 @@ uVL
 eBb
 lRC
 qco
-lCv
+pom
 xKI
 wqs
-idq
-bBL
+vik
+qiG
 fVh
-lCv
+pom
 akC
 iGO
 iGO
@@ -61552,17 +61556,17 @@ uVL
 oTX
 nvZ
 nQN
-lCv
+pom
 npz
 wqs
 cTj
 vjA
 sxc
-lCv
-lCv
-lCv
-lCv
-lCv
+pom
+pom
+pom
+pom
+pom
 cDa
 jNq
 vDT
@@ -61755,17 +61759,17 @@ uVL
 feI
 dro
 rsL
-lCv
+pom
 eNY
 gsG
 qPV
 wqs
 jBX
-lCv
+pom
 baq
 bBL
 vCC
-lCv
+pom
 vcF
 sfh
 sfh
@@ -61958,9 +61962,9 @@ eSV
 kVe
 kVe
 rsL
-lCv
+pom
 jyg
-sIQ
+xvh
 rJn
 wqs
 cTj
@@ -61968,7 +61972,7 @@ grP
 wqs
 wqs
 nCI
-lCv
+pom
 lKV
 sfh
 aFN
@@ -62161,13 +62165,13 @@ eSV
 eSV
 eSV
 wie
-lCv
+pom
 lPL
 ieH
 xre
 qPV
 uRl
-lCv
+pom
 mhf
 thF
 bVh
@@ -62364,17 +62368,17 @@ eSV
 eSV
 eSV
 rsL
-lCv
-lCv
-lCv
-lCv
-lCv
-lCv
-lCv
+pom
+pom
+pom
+pom
+pom
+pom
+pom
 ajM
 aFA
 boN
-lCv
+pom
 nVO
 sfh
 fsy
@@ -62573,11 +62577,11 @@ rsL
 rsL
 nEl
 rsL
-lCv
+pom
 mkW
 wqs
 fYt
-lCv
+pom
 ben
 sfh
 gTq
@@ -62776,11 +62780,11 @@ eSV
 eSV
 eSV
 rsL
-lCv
+pom
 dEe
 qPV
 oFy
-lCv
+pom
 moP
 sfh
 wIM
@@ -62979,11 +62983,11 @@ eSV
 eSV
 eSV
 rsL
-lCv
+pom
 sIQ
 xgc
 eTx
-lCv
+pom
 vnJ
 sfh
 sfh
@@ -63182,11 +63186,11 @@ eSV
 eSV
 eSV
 rsL
-lCv
-lCv
-lCv
-lCv
-lCv
+pom
+pom
+pom
+pom
+pom
 hrb
 erL
 erL
@@ -63389,7 +63393,7 @@ rsL
 rsL
 rsL
 rsL
-lCv
+pom
 qbC
 erL
 erL
@@ -63592,7 +63596,7 @@ eSV
 eSV
 eSV
 rsL
-lCv
+pom
 hrb
 erL
 erL

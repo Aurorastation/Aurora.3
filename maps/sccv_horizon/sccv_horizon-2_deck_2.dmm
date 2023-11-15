@@ -16915,7 +16915,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
-	name = "AI SMES";
+	name = "AI Core";
 	req_access = list(16)
 	},
 /obj/machinery/door/blast/regular/open{
@@ -16923,6 +16923,7 @@
 	name = "AI Maintenance Blast Door"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai)
 "hSp" = (
