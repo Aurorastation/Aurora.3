@@ -158,22 +158,22 @@
 	..()
 
 /obj/item/clothing/accessory/badge/officer
-	name = "officer's badge"
-	desc = "A bronze corporate security badge. Stamped with the words 'Security Officer.'"
+	name = "security officer's badge"
+	desc = "A bronze security badge."
 	icon_state = "bronzebadge"
 	overlay_state = "bronzebadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
-	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
+	desc = "A silver security badge."
 	icon_state = "silverbadge"
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/hos
-	name = "commander's badge"
-	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
+	name = "head of security's badge"
+	desc = "An immaculately polished gold security badge."
 	icon_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
