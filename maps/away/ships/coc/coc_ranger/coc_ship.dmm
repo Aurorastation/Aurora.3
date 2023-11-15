@@ -2652,9 +2652,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "lfi" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -3446,9 +3444,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "oEN" = (
 /obj/machinery/door/airlock{
