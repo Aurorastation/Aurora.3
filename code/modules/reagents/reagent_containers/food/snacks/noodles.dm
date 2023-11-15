@@ -79,6 +79,8 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein/seafood = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("earthernroot pasta" = 2, "mushroom" = 2, "mint" = 2))
 	bitesize = 2
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
 /obj/item/reagent_containers/food/snacks/matsuul/update_icon()
 	var/percent_matsuul = round((reagents.total_volume / 14) * 100)

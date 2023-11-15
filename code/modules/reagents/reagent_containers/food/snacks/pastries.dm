@@ -701,6 +701,6 @@
 	name = "cake pop"
 	desc = "Clearly it's the healthier choice if you're only having a SMALL lump of sugary dough coated in sugar with some sugar on top. How responsible of you!"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
-	bitesize = 2
-	reagents_to_add = list(/singleton/reagent/nutriment = 4)
-	reagent_data = list(/singleton/reagent/nutriment = list("sugar" = 4, "cakee" = 2))
+	bitesize = 3
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("sugar" = 4, "cake" = 2))

@@ -362,9 +362,10 @@
 	icon_state = "north60squid"
 	trash = /obj/item/trash/north60squidempty
 	filling_color = "#c79e77"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3, /singleton/reagent/nutriment/garlicsauce = 3)
-	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy seafood" = 4))
-	reagent_data = list(/singleton/reagent/nutriment/garlicsauce = list("garlic sauce" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment/garlicsauce = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy seafood" = 4, "apple" = 2, "lemon" = 2), list(/singleton/reagent/nutriment/garlicsauce = list("garlic sauce" = 6)))
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
 
 /obj/item/reagent_containers/food/snacks/north60squid/update_icon()

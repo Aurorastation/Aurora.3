@@ -137,9 +137,6 @@
 /singleton/recipe/cakepops
 	appliance = OVEN
 	reagents = list(/singleton/reagent/browniemix = 5, /singleton/reagent/nutriment/vanilla = 5, /singleton/reagent/nutriment/sprinkles = 2)
-	items = list(
-	/obj/item/reagent_containers/food/drinks/drinkingglass
-	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/storage/box/fancy/cakepopjar
 

@@ -36,10 +36,10 @@
 	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "triolade"
 	filling_color = "#ad724f"
-	reagents_to_add = list(/singleton/reagent/nutriment = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("milk chocolate" = 3, "white chocolate" = 3, "dark chocolate" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("milk chocolate" = 4, "white chocolate" = 4, "dark chocolate" = 4))
 	trash = /obj/item/trash/triolade
-	bitesize = 1
+	bitesize = 2
 
 
 /obj/item/reagent_containers/food/snacks/izuixu
@@ -82,7 +82,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "palfooz"
 	filling_color = "#ffeb94"
-	reagents_to_add = list(/singleton/reagent/nutriment = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("pineapple sorbet" = 4, "cherry" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("pineapple sorbet" = 4, "cherry" = 4))
 	trash = /obj/item/trash/snack_bowl
 	bitesize = 2

@@ -273,6 +273,8 @@
 	name = "empty platter"
 	icon_state = "north60squidempty"
 	desc = "A deep dish meant to held a pool of sauce, seafood, and delicious memories. Now it's trash though."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
 /obj/item/trash/triolade
 	name = "empty dessert dish"
@@ -289,6 +291,9 @@
 /obj/item/trash/purplebowl
 	name = "empty bowl"
 	icon_state = "purplebowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
 /obj/item/trash/deepdive
 	name = "empty deepdive dish"
 	icon_state = "deepdive"
@@ -304,3 +309,6 @@
 /obj/item/trash/shakshouka
 	name = "empty shakshouka pan"
 	icon_state = "shakshouka"
+	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'

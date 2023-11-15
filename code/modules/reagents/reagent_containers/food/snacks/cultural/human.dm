@@ -399,8 +399,8 @@
 	icon_state = "deepdive"
 	trash = /obj/item/trash/deepdive
 	filling_color = "#006666"
-	reagents_to_add = list(/singleton/reagent/nutriment/ = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("nori" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 3, /singleton/reagent/nutriment/protein/seafood = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("nori" = 3, "cream cheese" = 2))
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
@@ -414,6 +414,6 @@
 	trash = /obj/item/trash/bluemoon
 	filling_color = "#4377E2"
 	reagents_to_add = list(/singleton/reagent/nutriment/ = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("blue raspberry" = 5))
+	reagent_data = list(/singleton/reagent/nutriment = list("blue raspberry" = 5, "white chocolate" = 3))
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'

@@ -759,6 +759,8 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "cakepopsfull"
 	icon_type = "cake pop"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	storage_type = "glass"
 	storage_slots = 20
 	max_storage_space = 20
