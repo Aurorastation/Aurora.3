@@ -16,7 +16,7 @@ Plates that can hold your cooking stuff
 	fragile = 3
 	shatter_material = DEFAULT_TABLE_MATERIAL // Slight typecasting abuse here, gets converted to a material in Initialize().
 	can_be_placed_into = list()
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
 
 /obj/item/reagent_containers/bowl/examine(mob/user, distance)
@@ -101,7 +101,7 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate
 	name = "plate"
 	desc = "A plate for dishing up the finest of cuisine."
-	flags = null
+	atom_flags = null
 	icon_state = "plate"
 	var/obj/item/holding
 

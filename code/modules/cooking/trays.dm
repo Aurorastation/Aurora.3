@@ -15,7 +15,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
 	recyclable = TRUE
 	hitsound = /singleton/sound_category/bottle_hit_broken
@@ -215,7 +215,7 @@
 	icon_state = "l_plate"
 	throwforce = 4
 	force = 3
-	flags = null
+	atom_flags = null
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
 	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass

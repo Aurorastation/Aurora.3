@@ -9,6 +9,8 @@
 /area
 	var/global/global_uid = 0
 	var/uid
+	///Bitflag (Any of `AREA_FLAG_*`). See `code\__defines\misc.dm`.
+	var/area_flags
 	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/fire = null
 	var/atmosalm = 0
@@ -105,10 +107,10 @@
 	. = ..()
 
 /area/proc/is_prison()
-	return flags & PRISON
+	return area_flags & AREA_FLAG_PRISON
 
 /area/proc/is_no_crew_expected()
-	return flags & NO_CREW_EXPECTED
+	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
 /area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
 	if(isnull(state))

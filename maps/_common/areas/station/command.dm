@@ -18,7 +18,7 @@
 /area/bridge/aibunker
 	name = "Command - Bunker"
 	icon_state = "ai_foyer"
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/bridge/centcom_meetingroom
 	name = "Level A Meeting Room"
@@ -48,7 +48,7 @@
 
 /area/bridge/controlroom // Horizon.
 	name = "Command - Control Room"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"

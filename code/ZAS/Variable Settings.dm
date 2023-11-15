@@ -200,7 +200,7 @@ var/global/vs_control/vsc = new
 	switch(def)
 		if("Phoron - Standard")
 			plc.CLOTH_CONTAMINATION = 1 //If this is on, phoron does damage by getting into cloth.
-			plc.PHORONGUARD_ONLY = 0
+			plc.ITEM_FLAG_PHORON_GUARD_ONLY = 0
 			plc.GENETIC_CORRUPTION = 0 //Chance of genetic corruption as well as toxic damage, X in 1000.
 			plc.SKIN_BURNS = 0       //Phoron has an effect similar to mustard gas on the un-suited.
 			plc.EYE_BURNS = 1 //Phoron burns the eyes of anyone not wearing eye protection.
@@ -209,7 +209,7 @@ var/global/vs_control/vsc = new
 
 		if("Phoron - Low Hazard")
 			plc.CLOTH_CONTAMINATION = 0 //If this is on, phoron does damage by getting into cloth.
-			plc.PHORONGUARD_ONLY = 0
+			plc.ITEM_FLAG_PHORON_GUARD_ONLY = 0
 			plc.GENETIC_CORRUPTION = 0 //Chance of genetic corruption as well as toxic damage, X in 1000
 			plc.SKIN_BURNS = 0       //Phoron has an effect similar to mustard gas on the un-suited.
 			plc.EYE_BURNS = 1 //Phoron burns the eyes of anyone not wearing eye protection.
@@ -218,7 +218,7 @@ var/global/vs_control/vsc = new
 
 		if("Phoron - High Hazard")
 			plc.CLOTH_CONTAMINATION = 1 //If this is on, phoron does damage by getting into cloth.
-			plc.PHORONGUARD_ONLY = 0
+			plc.ITEM_FLAG_PHORON_GUARD_ONLY = 0
 			plc.GENETIC_CORRUPTION = 0 //Chance of genetic corruption as well as toxic damage, X in 1000.
 			plc.SKIN_BURNS = 1       //Phoron has an effect similar to mustard gas on the un-suited.
 			plc.EYE_BURNS = 1 //Phoron burns the eyes of anyone not wearing eye protection.
@@ -227,7 +227,7 @@ var/global/vs_control/vsc = new
 
 		if("Phoron - Oh Shit!")
 			plc.CLOTH_CONTAMINATION = 1 //If this is on, phoron does damage by getting into cloth.
-			plc.PHORONGUARD_ONLY = 1
+			plc.ITEM_FLAG_PHORON_GUARD_ONLY = 1
 			plc.GENETIC_CORRUPTION = 5 //Chance of genetic corruption as well as toxic damage, X in 1000.
 			plc.SKIN_BURNS = 1       //Phoron has an effect similar to mustard gas on the un-suited.
 			plc.EYE_BURNS = 1 //Phoron burns the eyes of anyone not wearing eye protection.
@@ -313,7 +313,7 @@ var/global/vs_control/vsc = new
 
 			plc.PHORON_DMG 					= initial(plc.PHORON_DMG)
 			plc.CLOTH_CONTAMINATION 		= initial(plc.CLOTH_CONTAMINATION)
-			plc.PHORONGUARD_ONLY 			= initial(plc.PHORONGUARD_ONLY)
+			plc.ITEM_FLAG_PHORON_GUARD_ONLY 			= initial(plc.ITEM_FLAG_PHORON_GUARD_ONLY)
 			plc.GENETIC_CORRUPTION 			= initial(plc.GENETIC_CORRUPTION)
 			plc.SKIN_BURNS 					= initial(plc.SKIN_BURNS)
 			plc.EYE_BURNS 					= initial(plc.EYE_BURNS)

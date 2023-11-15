@@ -14,7 +14,7 @@
 	mobdamagetype = DAMAGE_BURN
 	cooking_coeff = 0
 	cooking_power = 0
-	flags = null
+//	atom_flags = null
 	var/temperature = T20C
 	var/starts_with = list()
 
@@ -140,7 +140,7 @@
 		update_cooking_power() // update!
 	for(var/cooking_obj in cooking_objs)
 		var/datum/cooking_item/CI = cooking_obj
-		if((CI.container.flags && NOREACT) || isemptylist(CI.container?.reagents.reagent_volumes))
+		if((CI.container.atom_flags && ATOM_FLAG_NO_REACT) || isemptylist(CI.container?.reagents.reagent_volumes))
 			continue
 		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
 	return ..()

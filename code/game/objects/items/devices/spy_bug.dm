@@ -6,7 +6,7 @@
 	item_state = "nothing"
 	layer = TURF_LAYER+0.2
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5.0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS

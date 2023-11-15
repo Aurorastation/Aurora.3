@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	volume = 30
 	force = 6
-	flags = OPENCONTAINER | NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ITEM_FLAG_NO_BLUDGEON
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 	center_of_mass = list("x"=14, "y"=6)

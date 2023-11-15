@@ -11,7 +11,7 @@
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = list(1, 2)
 	volume = 2
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/living/user as mob)
 	if(W.ispen())

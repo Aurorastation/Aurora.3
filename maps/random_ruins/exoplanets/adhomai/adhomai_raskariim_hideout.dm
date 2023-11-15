@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	turf_initializer = new /datum/turf_initializer/maintenance/raskariim()
 	ambience = AMBIENCE_GHOSTLY
 

@@ -12,7 +12,7 @@ BREATH ANALYZER
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	icon_state = "health"
 	item_state = "healthanalyzer"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL
@@ -373,7 +373,7 @@ BREATH ANALYZER
 	item_state = "analyzer"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
@@ -407,7 +407,7 @@ BREATH ANALYZER
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT | OPENCONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE | ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
@@ -480,7 +480,7 @@ BREATH ANALYZER
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
@@ -521,7 +521,7 @@ BREATH ANALYZER
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
@@ -562,7 +562,7 @@ BREATH ANALYZER
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	throwforce = 0
@@ -584,7 +584,7 @@ BREATH ANALYZER
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 0
 	throw_speed = 3

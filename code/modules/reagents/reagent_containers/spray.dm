@@ -9,7 +9,7 @@
 	icon_state = "cleaner"
 	item_state = "cleaner"
 	center_of_mass = list("x" = 16,"y" = 10)
-	flags = OPENCONTAINER|NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER|ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL

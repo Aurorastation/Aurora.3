@@ -9,9 +9,9 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	var/CLOTH_CONTAMINATION_NAME = "Cloth Contamination"
 	var/CLOTH_CONTAMINATION_DESC = "If this is on, phoron does damage by getting into cloth."
 
-	var/PHORONGUARD_ONLY = FALSE
-	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
-	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
+	var/ITEM_FLAG_PHORON_GUARD_ONLY = FALSE
+	var/ITEM_FLAG_PHORON_GUARD_ONLY_NAME = "\"PhoronGuard Only\""
+	var/ITEM_FLAG_PHORON_GUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
 
 	var/GENETIC_CORRUPTION = FALSE
 	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
@@ -41,7 +41,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 /obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
-	if(flags & PHORONGUARD)
+	if(item_flags & ITEM_FLAG_PHORON_GUARD)
 		return FALSE
 	return TRUE
 
@@ -99,15 +99,15 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 		var/burn_eyes = 1
 
 		//Check for protective glasses
-		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & AIRTIGHT))
+		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//Check for protective maskwear
-		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & AIRTIGHT))
+		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//Check for protective helmets
-		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & AIRTIGHT))
+		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//If we still need to, burn their eyes
@@ -140,8 +140,8 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 /mob/living/carbon/human/proc/pl_head_protected()
 	//Checks if the head is adequately sealed.
 	if(head)
-		if(vsc.plc.PHORONGUARD_ONLY)
-			if(head.flags & PHORONGUARD)
+		if(vsc.plc.ITEM_FLAG_PHORON_GUARD_ONLY)
+			if(head.item_flags & ITEM_FLAG_PHORON_GUARD)
 				return 1
 		else if(head.body_parts_covered & EYES)
 			return 1
@@ -153,11 +153,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
 		if(!protection)
 			continue
-		if(vsc.plc.PHORONGUARD_ONLY && !(protection.flags & PHORONGUARD))
+		if(vsc.plc.ITEM_FLAG_PHORON_GUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
 			return 0
 		coverage |= protection.body_parts_covered
 
-	if(vsc.plc.PHORONGUARD_ONLY)
+	if(vsc.plc.ITEM_FLAG_PHORON_GUARD_ONLY)
 		return 1
 
 	return BIT_TEST_ALL(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)

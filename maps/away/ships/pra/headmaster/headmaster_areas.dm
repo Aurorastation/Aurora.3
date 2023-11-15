@@ -5,7 +5,7 @@
 	dynamic_lighting = 1
 	no_light_control = 0
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/headmaster_ship/bridge
 	name = "Headmaster Ship Bridge"

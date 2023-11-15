@@ -1,7 +1,7 @@
 //Maintenance
 
 /area/maintenance
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
@@ -229,7 +229,7 @@
 /area/maintenance/interstitial_construction_site
 	name = "Construction Zone"
 	icon_state = "engineering_workshop"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/maintenance/interstitial_construction_site/zone_2
 	name = "Secondary Construction Zone"
