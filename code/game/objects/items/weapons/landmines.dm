@@ -10,9 +10,9 @@
 /obj/item/landmine/update_icon()
 	..()
 	if(!deployed)
-		icon_state = "[icon_state]"
+		icon_state = "[initial(icon_state)]"
 	else
-		icon_state = "[icon_state]_on"
+		icon_state = "[initial(icon_state)]_on"
 
 /obj/item/landmine/verb/hide_under()
 	set src in oview(1)
@@ -37,7 +37,7 @@
 			"<span class='danger'>You begin deploying \the [src]!</span>"
 			)
 
-		if (do_after(user, 6 SECONDS, DO_REPAIR_CONSTRUCT))
+		if (do_after(user, 6 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 			user.visible_message(
 				"<span class='danger'>[user] has deployed \the [src].</span>",
 				"<span class='danger'>You have deployed \the [src]!</span>"
@@ -75,14 +75,46 @@
 
 /obj/item/landmine/attack_hand(mob/user as mob)
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
-		user.visible_message(
-				"<span class='danger'>[user] triggers \the [src].</span>",
-				"<span class='danger'>You trigger \the [src]!</span>",
-				"<span class='danger'>You hear a mechanical click!</span>"
-				)
-		trigger(user)
+		attack_hand_trigger(user)
 	else
 		..()
+
+/**
+ * Called when the attack_hand is supposed to trigger the mine
+ *
+ * * user - The `/mob` that attacked the mine
+ */
+/obj/item/landmine/proc/attack_hand_trigger(mob/user)
+	user.visible_message(
+			SPAN_DANGER("[user] triggers \the [src]."),
+			SPAN_DANGER("You trigger \the [src]!"),
+			SPAN_DANGER("You hear a mechanical click!")
+			)
+	trigger(user)
+
+/**
+ * Activates the landmine, arming it
+ *
+ * NOT the same as deploying it, which is putting it on the ground
+ *
+ * * user - The `/mob` that activated the mine
+ */
+/obj/item/landmine/proc/activate(mob/user)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	src.deactivated = FALSE
+
+/**
+ * Deactivates the landmine, disarming it
+ *
+ * NOT the same as removing it from the ground
+ *
+ * * user - The `/mob` that activated the mine
+ */
+/obj/item/landmine/proc/deactivate(mob/user)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	src.deactivated = TRUE
 
 /obj/item/landmine/attackby(obj/item/I, mob/user)
 	..()
@@ -90,9 +122,9 @@
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(1))
 			to_chat(user, SPAN_NOTICE("You start carefully start rewiring \the [src]."))
-			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
+			if(do_after(user, 10 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 				to_chat(user, SPAN_NOTICE("You successfully rewire \the [src], priming it for use."))
-				deactivated = FALSE
+				activate(user)
 			return
 		else
 			to_chat(user, SPAN_WARNING("There's not enough cable to finish the task."))
@@ -104,7 +136,7 @@
 		if(I.use_tool(src, user, 150, volume = 50))
 			if(prob(W.bomb_defusal_chance))
 				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], though it's missing some essential wiring now."))
-				deactivated = TRUE
+				deactivate(user)
 				anchored = FALSE
 				deployed = FALSE
 				update_icon()
@@ -178,3 +210,77 @@
 	spark(src, 3, alldirs)
 	empulse(src.loc, 2, 4)
 	qdel(src)
+
+/obj/item/landmine/standstill
+	name = "Standstill Landmine"
+	desc = "A landmine that only triggers if you release the pressure from the trigger."
+	var/engaged_by = null
+
+/obj/item/landmine/standstill/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	engaged_by = null
+	. = ..()
+
+/obj/item/landmine/standstill/trigger(mob/living/L)
+	if(!engaged_by && !deactivated)
+		to_chat(L, SPAN_HIGHDANGER("Something clicks below your feet, a sense of dread permeates your skin, better not move..."))
+		engaged_by = ref(L)
+
+		//Because mobs can bump and swap with one another, and we use forcemove that doesn't call Crossed/Uncrossed/Entered/Exited, we have to
+		//keep looking if the victim is still on the mine, and otherwise explode the mine
+		START_PROCESSING(SSfast_process, src)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), L, "You get a dreadful feeling from your [pick("right", "left")] foot...", "Dread", list("Mom..."))
+
+		playsound_allinrange(src, sound('sound/weapons/empty/empty6.ogg'))
+
+	else
+		late_trigger(locate(engaged_by))
+
+/obj/item/landmine/standstill/Uncrossed(O)
+	. = ..()
+
+	//Oh no...
+	if(engaged_by && O == locate(engaged_by))
+		var/mob/living/victim = O
+		to_chat(victim, SPAN_HIGHDANGER("The mine clicks below your feet."))
+		addtimer(CALLBACK(src, PROC_REF(late_trigger), victim), 1 SECONDS)
+
+/obj/item/landmine/standstill/process()
+	if(!engaged_by || deactivated)
+		STOP_PROCESSING(SSfast_process, src)
+		return
+
+	var/mob/living/victim = locate(engaged_by)
+	var/turf/our_turf = get_turf(src)
+
+	if(!(victim in our_turf))
+		late_trigger(locate(engaged_by))
+
+/**
+ * Called when the actual explosion needs to be performed
+ *
+ * * victim - The `/mob` that triggers the explosion
+ */
+/obj/item/landmine/standstill/proc/late_trigger(mob/living/victim)
+	if(!deactivated)
+		for(var/mob/living/person_in_range in range(world.view, src))
+			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
+
+		explosion(loc, 2, 5, 7, world.view)
+		qdel(src)
+
+/obj/item/landmine/standstill/deactivate(mob/user)
+	src.engaged_by = null
+	. = ..()
+
+/obj/item/landmine/standstill/attackby(obj/item/I, mob/user)
+	if(engaged_by && (user == locate(engaged_by)))
+		to_chat(user, SPAN_ALERT("You are unable to reach the mine without moving your foot, and you feel like doing so would not end well..."))
+	else
+		..()
+
+/obj/item/landmine/standstill/attack_hand_trigger(mob/user)
+	if(!engaged_by)
+		return
+
+	late_trigger(locate(engaged_by))
