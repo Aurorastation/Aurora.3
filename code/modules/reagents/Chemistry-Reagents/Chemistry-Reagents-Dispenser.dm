@@ -197,14 +197,20 @@
 /singleton/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
+
+	var/has_valid_aug = FALSE
+	var/obj/item/organ/internal/augment/ethanol_burner/aug = M.internal_organs_by_name[BP_AUG_ETHANOL_BURNER]
+	if(aug && !aug.is_broken())
+		has_valid_aug = TRUE
+
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+	if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.adjustHydrationLoss(-hydration_factor * removed)
 
-	if (alien == IS_UNATHI)//unathi are poisoned by alcohol as well
+	if (!has_valid_aug && alien == IS_UNATHI)//unathi are poisoned by alcohol as well
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 
 	..()

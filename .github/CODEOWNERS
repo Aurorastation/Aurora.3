@@ -11,7 +11,7 @@
 /code/__defines/master_controller.dm @Arrow768
 /code/controllers/master @Arrow768
 /code/controllers/subsystems/fail2topic.dm @Arrow768
-/code/world.dm @Arrow768
+/code/game/world.dm @Arrow768
 /code/modules/admin/ @Arrow768
 /code/modules/web_interface/ @Arrow768
 /code/modules/world_api/ @Arrow768

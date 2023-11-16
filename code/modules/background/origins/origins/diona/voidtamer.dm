@@ -14,7 +14,7 @@
 	important_information = "Dionae from this cluster tend to come in every form and mind type, although primarily will still be cyclops forms. Dionae from voidtamer groups tend to be highly knowledgeable on spacefauna-related subjects due to their previous work."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_CRIMSONSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/comets
 	name = "Comets Voidtamer"
@@ -22,18 +22,18 @@
 	important_information = "Dionae from this cluster tend to have more egalitarian mind types, preferring to have decisions be made amongst the entire gestalt over a sole leader. Dionae from voidtamer groups tend to be highly knowledgeable on spacefauna-related subjects due to their previous work."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_CRIMSONSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/rokz
 	name = "Rokz Voidtamer"
 	desc = "One of two competing voidtamer clans found operating near Moghes. Due to their history interacting Unathi, both clans tend to be fairly influenced by Unathi culture and religion, although do still a distinct identity from one another."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG, ACCENT_SANDSONG, ACCENT_WASTESONG)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_OTHER)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER)
 
 /singleton/origin_item/origin/serz
 	name = "Serz Voidtamer"
 	desc = "One of two competing voidtamer clans found operating near Moghes. Due to their history interacting Unathi, both clans tend to be fairly influenced by Unathi culture and religion, although do still a distinct identity from one another."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG, ACCENT_SANDSONG, ACCENT_WASTESONG)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_OTHER)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER)
