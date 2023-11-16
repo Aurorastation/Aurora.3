@@ -274,7 +274,7 @@
 /obj/item/clothing/under/rank/captain/hephaestus
 	name = "hephaestus captain's jumpsuit"
 	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
-	has_sensor = 0
+	has_sensor = SUIT_NO_SENSORS
 	icon = 'icons/clothing/under/uniforms/cyclops_uniforms.dmi'
 	icon_state = "heph_captain"
 	item_state = "heph_captain"
