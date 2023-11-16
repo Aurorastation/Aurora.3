@@ -245,6 +245,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
+"bY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/dominian_unathi)
 "cg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -2210,6 +2216,22 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_x = -5;
+	pixel_y = 25
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -5;
+	pixel_y = 20
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "rM" = (
@@ -3468,9 +3490,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "Bi" = (
-/obj/effect/map_effect/airlock/s_to_n/long,
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/dominian_unathi)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_unathi/hangar)
 "Bk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4048,6 +4076,23 @@
 "EV" = (
 /turf/simulated/wall,
 /area/ship/dominian_unathi/canteen)
+"Fb" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_unathi)
 "Fc" = (
 /obj/effect/overmap/visitable/ship/landable/dominian_unathi_shuttle,
 /obj/machinery/hologram/holopad/long_range,
@@ -5561,6 +5606,24 @@
 /obj/structure/window/shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
+"RW" = (
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_unathi)
 "RX" = (
 /turf/simulated/wall,
 /area/ship/dominian_unathi/armory)
@@ -6278,6 +6341,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "Wn" = (
@@ -6626,6 +6697,23 @@
 	name = "aft, port hallway"
 	},
 /obj/effect/landmark/entry_point/aft,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "Yo" = (
@@ -6714,6 +6802,27 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_shutle";
+	name = "airlock_shutle_kazhkz";
+	shuttle_tag = "Kazhkz Fighter";
+	req_one_access = list(212)
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	pixel_x = -24;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "YT" = (
@@ -23003,7 +23112,7 @@ ZK
 gY
 cI
 wt
-zW
+Bi
 CT
 iD
 BQ
@@ -23165,7 +23274,7 @@ Xt
 sq
 BJ
 GT
-zW
+RW
 SP
 UF
 GY
@@ -23327,10 +23436,10 @@ qv
 gY
 EO
 oo
+bY
 BQ
 BQ
 BQ
-Bi
 rH
 jU
 yp
@@ -23492,7 +23601,7 @@ Xj
 Yn
 YL
 Wm
-YL
+Fb
 OD
 yh
 mt
