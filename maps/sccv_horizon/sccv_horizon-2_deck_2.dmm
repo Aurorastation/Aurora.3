@@ -29930,8 +29930,11 @@
 	name = "Cell Containment Blast Door";
 	dir = 2
 	},
-/obj/machinery/disposal/deliveryChute/full{
+/obj/machinery/disposal/deliveryChute{
 	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -30448,8 +30451,11 @@
 	id = "xenobio";
 	name = "Cell Containment Blast Door"
 	},
-/obj/machinery/disposal/deliveryChute/full{
+/obj/machinery/disposal/deliveryChute{
 	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
