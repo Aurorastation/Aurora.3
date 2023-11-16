@@ -231,6 +231,6 @@
 	appliance = SAUCEPAN
 	fruit = list ("blue raspberry" = 1)
 	reagents = list(/singleton/reagent/drink/milk/cream = 5)
-	items = list(/obj/item/reagent_containers/food/snacks/chocolatebar/white)
+	items = list(/obj/item/reagent_containers/food/snacks/whitechocolate)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/bluemoon

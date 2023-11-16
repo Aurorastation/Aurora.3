@@ -300,7 +300,7 @@
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/reagent_containers/food/snacks/chocolatebar/white
+		/obj/item/reagent_containers/food/snacks/whitechocolate
 	)
 	reagents = list(/singleton/reagent/sugar = 10, /singleton/reagent/drink/ylphaberryjuice = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/ylpharoulade

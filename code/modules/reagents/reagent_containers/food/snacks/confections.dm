@@ -52,6 +52,18 @@
 	trash = /obj/item/trash/triolade
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/floatingisland
+	name = "floating island"
+	desc = "Fresh pineapple floats. So to show their ingredients are fresh, many establishments started serving this dessert on a pineapple slice floating in light cherry syrup. It's customary to give it a spin as you serve it to show it's really floating. The dish itself is really just pineapple sorbet and cherry jello, but it's still so FANCY."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "floatingisland"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#ffeb94"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/gelatin = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pineapple sorbet" = 4, "cherry jello" = 4))
+	trash = /obj/item/trash/snack_bowl
+	bitesize = 2
+
 ///obj/item/reagent_containers/food/snacks/plafooz
 //	name = "palfooz"
 //	desc = "Fresh pineapple floats. So to show their ingredients are fresh, many Vyoskan establishments started serving this elaborate, fancy dessert, on a pineapple slice floating in light cherry syrup. It's customary to give it a spin as you serve it to show it's really floating. The dish itself is really just pineapple sorbet and cherry jello, but it's still so FANCY."
@@ -65,23 +77,14 @@
 //	bitesize = 2
 //	filling_color = "#ffeb94"
 
-///obj/item/reagent_containers/food/snacks/palfooz/update_icon()
-//	var/percent_palfooz = round((reagents.total_volume / 8) * 100)
-//	switch(percent_palfooz)
-//		if(0 to 40)
-//			icon_state = "palfoozbitten"
-//		if(0 to 98)
-//			icon_state= "palfoozstopped"
-//		if(99 to INFINITY)
-//			icon_state = "palfoozstoppedizui"
+/obj/item/reagent_containers/food/snacks/floatingisland/update_icon()
+	var/percent_floatingisland = round((reagents.total_volume / 8) * 100)
+	switch(percent_floatingisland)
+		if(0 to 40)
+			icon_state = "floatingislandbitten"
+		if(0 to 98)
+			icon_state= "floatingislandstopped"
+		if(99 to INFINITY)
+			icon_state = "floatingisland"
 
-/obj/item/reagent_containers/food/snacks/palfooz
-	name = "palfooz"
-	desc = "Fresh pineapple floats. So to show their ingredients are fresh, many Vyoskan establishments started serving this dessert on a pineapple slice floating in light cherry syrup. It's customary to give it a spin as you serve it to show it's really floating. The dish itself is really just pineapple sorbet and cherry jello, but it's still so FANCY."
-	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
-	icon_state = "palfooz"
-	filling_color = "#ffeb94"
-	reagents_to_add = list(/singleton/reagent/nutriment = 8)
-	reagent_data = list(/singleton/reagent/nutriment = list("pineapple sorbet" = 4, "cherry" = 4))
-	trash = /obj/item/trash/snack_bowl
-	bitesize = 2
+

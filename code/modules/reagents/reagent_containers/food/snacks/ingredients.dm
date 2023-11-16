@@ -194,7 +194,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 5))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/chocolatebar/white
+/obj/item/reagent_containers/food/snacks/whitechocolate
 	name = "white chocolate bar"
 	desc = "Claimed by some to not really be chocolate. Most don't care."
 	icon_state = "whitechocolate"
@@ -204,7 +204,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("white chocolate" = 5))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/chocolatebar/white/wrapped
+/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped
 	icon_state = "whitechocolate_wrapped"
 
 /obj/item/reagent_containers/food/snacks/mashedpotato

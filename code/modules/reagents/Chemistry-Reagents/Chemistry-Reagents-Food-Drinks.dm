@@ -5445,7 +5445,7 @@
 	name = "Vanilla Extract"
 	description = "The extract from vanilla beans..."
 	color = "#e8efe5"
-	taste_description = "vanilla"i
+	taste_description = "vanilla"
 	condiment_desc = "A cute little bottle holding great and intense powers within. The power of Vanilla extract."
 	condiment_icon_state = "vanilla"
 
