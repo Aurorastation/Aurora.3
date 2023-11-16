@@ -1227,7 +1227,7 @@
 			if(SUIT_SENSOR_VITAL)
 				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse and vital lifesigns.")
 			if(SUIT_SENSOR_TRACKING)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse, vital lifesigns and your coordinate position.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse, vital lifesigns, and your coordinate position.")
 	else if (ismob(src.loc))
 		if(sensor_mode == SUIT_SENSOR_OFF)
 			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), "You disable [src.loc]'s remote sensing equipment.")
