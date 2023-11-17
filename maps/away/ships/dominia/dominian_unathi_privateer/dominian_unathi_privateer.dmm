@@ -2209,7 +2209,6 @@
 	layer = 2.71
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "rH" = (
@@ -2382,7 +2381,6 @@
 /area/ship/dominian_unathi/portthrust)
 "sE" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "sF" = (
@@ -3568,7 +3566,6 @@
 	layer = 2.71
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "BJ" = (
@@ -3850,7 +3847,6 @@
 "Dm" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "Dr" = (
@@ -4346,7 +4342,6 @@
 	name = "DANGER - FLAMMABLE"
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "GK" = (
@@ -4779,7 +4774,6 @@
 	layer = 2.71
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "Ke" = (
@@ -4955,7 +4949,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "Ly" = (
@@ -6411,7 +6404,6 @@
 	layer = 2.71
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "WR" = (
