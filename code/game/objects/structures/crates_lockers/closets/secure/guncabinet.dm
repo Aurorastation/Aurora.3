@@ -64,5 +64,7 @@
 	new /obj/item/gun/energy/laser/shotgun/research(src)
 	new /obj/item/material/hatchet/machete(src)
 	new /obj/item/material/hatchet/machete(src)
+	new /obj/item/material/hatchet/machete(src)
+	new /obj/item/clothing/accessory/holster/utility/machete(src)
 	new /obj/item/clothing/accessory/holster/utility/machete(src)
 	new /obj/item/clothing/accessory/holster/utility/machete(src)
