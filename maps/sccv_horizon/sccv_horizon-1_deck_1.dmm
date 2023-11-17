@@ -12618,7 +12618,7 @@
 	frequency = 1442;
 	input_tag = "port_prop_in";
 	output_tag = "port_prop_out";
-	sensors = list("port_prop_sensor"="Port Propulsion Sensor")
+	sensors = list("port_prop_sensor"="Port  Propulsion  Sensor")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
@@ -12945,7 +12945,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor"="Starboard  Propulsion  Sensor")
+	sensors = list("starboard_prop_sensor"="Starboard    Propulsion    Sensor")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
@@ -25031,6 +25031,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"rpw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Emergency Weaponry";
+	req_access = list(48)
+	},
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "rpB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -51111,7 +51127,7 @@ hhO
 tgR
 uBi
 tgR
-wCx
+rpw
 dNk
 gZP
 dJT
