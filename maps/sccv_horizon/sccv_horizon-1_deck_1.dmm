@@ -16623,6 +16623,16 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Locker Room"
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Emergency Weaponry";
+	req_access = list(48)
+	},
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "lIE" = (
@@ -25031,22 +25041,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"rpw" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Emergency Weaponry";
-	req_access = list(48)
-	},
-/obj/item/gun/energy/laser/shotgun/research,
-/obj/item/gun/energy/laser/shotgun/research,
-/obj/item/clothing/accessory/holster/utility/machete,
-/obj/item/clothing/accessory/holster/utility/machete,
-/obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
 "rpB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -51127,7 +51121,7 @@ hhO
 tgR
 uBi
 tgR
-rpw
+wCx
 dNk
 gZP
 dJT
