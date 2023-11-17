@@ -7,6 +7,7 @@
 	ship_cost = 1
 	id = "dominian_unathi"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/dominian_unathi
 	map = "Kazhkz Privateer Ship"
