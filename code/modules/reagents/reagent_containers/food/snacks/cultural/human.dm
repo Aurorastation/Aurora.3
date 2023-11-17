@@ -194,7 +194,7 @@
 /obj/item/reagent_containers/food/snacks/crabmeat
 	name = "crab legs"
 	desc = "... Coffee? Is that you?"
-	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "crabmeat"
 	bitesize = 1
 
