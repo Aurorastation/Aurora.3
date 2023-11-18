@@ -99,15 +99,18 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	if(prob(40))
-		M.silent = max(M.silent, 10) //Our throat is raw and we are trying to dissociate. Also prevents hilarious scream spam when the REAL pain hits in a second.
-		M.add_chemical_effect(CE_CARDIOTOXIC, 3) //The traitor HATES us, and it looks like medical isn't coming. Let's skip the wait and die. Or just transcend into hell if we have a prosthetic/no heart.
+	if(prob(40)) //It looks like medical isn't coming. Let's die. Or transcend beyond hell if we're a diona.
+		M.silent = max(M.silent, 10) //Our throat is raw and we are trying to dissociate. Also prevents hilarious scream spam.
+		M.add_chemical_effect(CE_CARDIOTOXIC, 2)
 		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
 		M.update_accumulated_pain(120)
 		if(prob(10))
 			M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
 	else if(prob(10))
 		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
+		if(istype(H) && (H.species.flags & NO_BLOOD))
+			return
+		M.adjustOxyLoss(20 * removed)
 
 /singleton/reagent/toxin/panotoxin/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	var/pain_to_refund = M.accumulated_pain //5u does about 1900-2600 pain.
@@ -115,8 +118,8 @@
 		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves on constant scans while preventing spam if IV'd.
 		to_chat(M, SPAN_GOOD("You feel the agony start to recede!"))
 		M.apply_effect(pain_to_refund * -0.6, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse except red nightshade.
-	if(pain_to_refund > 3000)
-		to_chat(M, SPAN_WARNING("Was life always so beautiful...?"))
+	if(pain_to_refund > 4000)
+		to_chat(M, SPAN_WARNING("You're... free? Was life always so beautiful...?"))
 		M.apply_effect(pain_to_refund * -0.8, DAMAGE_PAIN) //If it's super bad, reduce again to mitigate OOC agony. We've been through multiple heart failures at this point. Let's be generous.
 	M.update_accumulated_pain(-pain_to_refund)
 	pain_to_refund = 0
