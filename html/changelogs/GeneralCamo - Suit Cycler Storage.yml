@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Suit cyclers can now store and disinfect masks and magboots."
   - maptweak: "Voidsuits are now stored in suit cyclers on the SCCV Horizon, instead of racks."
-  - refactor: "Split the suit cycler units from the handling code.
+  - refactor: "Split the suit cycler units from the handling code."
