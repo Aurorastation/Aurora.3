@@ -58,13 +58,3 @@
 /obj/structure/closet/secure_closet/guncabinet/exped
 	name = "expedition gun cabinet"
 	req_access = list(access_mining, access_xenoarch)
-
-/obj/structure/closet/secure_closet/guncabinet/exped/fill()
-	new /obj/item/gun/energy/laser/shotgun/research(src)
-	new /obj/item/gun/energy/laser/shotgun/research(src)
-	new /obj/item/material/hatchet/machete(src)
-	new /obj/item/material/hatchet/machete(src)
-	new /obj/item/material/hatchet/machete(src)
-	new /obj/item/clothing/accessory/holster/utility/machete(src)
-	new /obj/item/clothing/accessory/holster/utility/machete(src)
-	new /obj/item/clothing/accessory/holster/utility/machete(src)
