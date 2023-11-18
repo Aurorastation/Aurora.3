@@ -1,7 +1,3 @@
-#define WORLD_ICON_SIZE 32
-#define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
-#define WORLD_MIN_SIZE 32
-
 /*
 	The initialization of the game happens roughly like this:
 
@@ -76,7 +72,7 @@ var/global/datum/global_init/init = new ()
 	if(byond_version < RECOMMENDED_VERSION)
 		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
-	world.TgsNew()
+	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
 
 	config.post_load()
 

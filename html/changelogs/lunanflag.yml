@@ -1,0 +1,6 @@
+author: Pirouette, StevIII
+
+delete-after: True
+
+changes:
+  - imageadd: "Added a Lunan banner, flag, and flagpatch to loadout."
