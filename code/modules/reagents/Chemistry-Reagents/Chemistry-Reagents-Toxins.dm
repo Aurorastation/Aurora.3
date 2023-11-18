@@ -77,7 +77,7 @@
 	reagent_state = LIQUID
 	color = "#008844"
 	strength = 0
-	overdose = 5
+	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_description = "stinging needles"
 
 /singleton/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -100,7 +100,8 @@
 		if(!H.can_feel_pain())
 			return
 	if(prob(40))
-		M.add_chemical_effect(CE_CARDIOTOXIC, 3) //The traitor HATES you, and it looks like medical isn't coming. Let's skip the wait. Die.
+		M.silent = max(M.silent, 10) //Our throat is raw and we are trying to dissociate. Also prevents hilarious scream spam when the REAL pain hits in a second.
+		M.add_chemical_effect(CE_CARDIOTOXIC, 3) //The traitor HATES us, and it looks like medical isn't coming. Let's skip the wait and die. Or just transcend into hell if we have a prosthetic/no heart.
 		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
 		M.update_accumulated_pain(120)
 		if(prob(10))
