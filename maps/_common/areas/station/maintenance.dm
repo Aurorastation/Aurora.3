@@ -6,7 +6,7 @@
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
-	area_blurb = "Dark, tight and filled with barely filtered air. This place feels alien compared to the interior of the ship, a place where one could get lost or badly hurt. Around you hisses compressed air through pipes, a buzz of electrical charge through wires and rumbles of the hull settling through damp maintenance corridors."
+	area_blurb = "Dark, tight, and filled with barely filtered air. This place feels alien compared to the interior of the ship, a place where one could get lost or badly hurt. Around you hisses compressed air through pipes, a buzz of electrical charge through wires, and rumbles of the hull settling through damp maintenance corridors."
 
 /area/maintenance/civ
 	name = "Civilian Maintenance"

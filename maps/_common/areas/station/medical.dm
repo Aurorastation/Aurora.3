@@ -12,7 +12,7 @@
 	lightswitch = TRUE
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
-	area_blurb = "The smells of a hospital waft through the air, strong sterilizing agents, medicines and latex gloves. It's not a pleasant smell, but one you could grow to ignore."
+	area_blurb = "The smells of a hospital waft through the air: strong sterilizing agents, various medicines, and sterile gloves. It's not a pleasant smell, but one you could grow to ignore."
 
 /area/medical/medbay2
 	name = "Medbay Hallway - Starboard"
@@ -126,7 +126,7 @@
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
 	ambience = AMBIENCE_GHOSTLY
-	area_blurb = "Morgue trays sit within this room to hold the deceased until their postmortem wishes can be attented to."
+	area_blurb = "Morgue trays sit within this room to hold the deceased until their postmortem wishes can be attended to."
 
 /area/medical/pharmacy
 	name = "Medical - Pharmacy"

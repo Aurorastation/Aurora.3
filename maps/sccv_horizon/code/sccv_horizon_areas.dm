@@ -670,7 +670,7 @@
 	name = "Horizon - Deck 3 Cafeteria"
 	icon_state = "cafeteria"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	area_blurb = "The smell of coffee wafts over from the cafe. Patience the tree, stands proudly in the centre of the atrium."
+	area_blurb = "The smell of coffee wafts over from the cafe. Patience the tree stands proudly in the centre of the atrium."
 
 // Custodial
 /area/horizon/custodial

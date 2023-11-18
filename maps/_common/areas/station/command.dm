@@ -51,7 +51,7 @@
 /area/bridge/controlroom // Horizon.
 	name = "Command - Control Room"
 	flags = RAD_SHIELDED
-	area_blurb = "The full expanse of space lies beyond a thick pane of glass, all that protects you from a cold death. The computers all hum with various displays and holographic signs, overwhelming if you were not used to such an environments. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
+	area_blurb = "The full expanse of space lies beyond a thick pane of glass, all that protects you from a cold death. The computers all hum with various displays and holographic signs, overwhelming if you were not used to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
 
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"
