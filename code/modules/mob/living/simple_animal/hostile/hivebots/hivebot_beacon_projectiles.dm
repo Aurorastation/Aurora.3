@@ -3,7 +3,7 @@
 	damage = 20
 	damage_type = DAMAGE_BURN
 	agony = 20
-	armor_penetration = 40
+	armor_penetration = 20
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun

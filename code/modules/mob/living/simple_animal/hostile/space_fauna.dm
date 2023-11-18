@@ -26,7 +26,7 @@
 	harm_intent_damage = 4
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	armor_penetration = 15
+	armor_penetration = 10
 	attack_flags = DAMAGE_FLAG_EDGE
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -167,11 +167,11 @@
 	maxHealth = 150
 	health = 150
 
-	speed = 9
+	speed = 6
 
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	armor_penetration = 25
+	armor_penetration = 15
 
 /mob/living/simple_animal/hostile/carp/bloater
 	name = "bloater"
