@@ -77,7 +77,7 @@
 	reagent_state = LIQUID
 	color = "#008844"
 	strength = 0
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = REAGENTS_OVERDOSE * 0.25
 	taste_description = "stinging needles"
 
 /singleton/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -99,7 +99,7 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	if(prob(40)) //It looks like medical isn't coming. Let's die. Or transcend beyond hell if we're a diona.
+	if(prob(40)) //It looks like medical isn't coming. Let's die.
 		M.silent = max(M.silent, 10) //Our throat is raw and we are trying to dissociate. Also prevents hilarious scream spam.
 		M.add_chemical_effect(CE_CARDIOTOXIC, 2)
 		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
@@ -108,7 +108,7 @@
 			M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
 	else if(prob(10))
 		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
-		if(istype(H) && (H.species.flags & NO_BLOOD))
+		if(M.species.flags & NO_BLOOD)
 			return
 		M.adjustOxyLoss(20 * removed)
 
@@ -117,10 +117,10 @@
 	if(pain_to_refund > 80)
 		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves on constant scans while preventing spam if IV'd.
 		to_chat(M, SPAN_GOOD("You feel the agony start to recede!"))
-		M.apply_effect(pain_to_refund * -0.6, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse except red nightshade.
+		M.apply_effect(pain_to_refund * -0.6, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse in the game except for red nightshade.
 	if(pain_to_refund > 4000)
 		to_chat(M, SPAN_WARNING("You're... free? Was life always so beautiful...?"))
-		M.apply_effect(pain_to_refund * -0.8, DAMAGE_PAIN) //If it's super bad, reduce again to mitigate OOC agony. We've been through multiple heart failures at this point. Let's be generous.
+		M.apply_effect(pain_to_refund * -0.2, DAMAGE_PAIN) //If it's super bad, reduce further to mitigate OOC agony. We've been through multiple heart failures at this point. Let's be generous.
 	M.update_accumulated_pain(-pain_to_refund)
 	pain_to_refund = 0
 	return
