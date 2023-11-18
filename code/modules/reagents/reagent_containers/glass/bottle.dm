@@ -252,3 +252,7 @@
 /obj/item/reagent_containers/glass/bottle/syrup/caramel
 	name = "caramel syrup dispenser"
 	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)
+
+/obj/item/reagent_containers/glass/bottle/triglyceride
+	name = "Triglyceride Bottle"
+	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride = 60)
