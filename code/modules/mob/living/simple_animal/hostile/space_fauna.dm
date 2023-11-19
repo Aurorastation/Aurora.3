@@ -181,6 +181,11 @@
 	add_overlay(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
+/mob/living/simple_animal/hostile/carp/shark/reaver/eel/death()
+	. = ..()
+	cut_overlays()
+	set_light(0)
+
 /mob/living/simple_animal/hostile/carp/bloater
 	name = "bloater"
 	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
