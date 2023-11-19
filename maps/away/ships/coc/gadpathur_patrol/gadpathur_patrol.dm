@@ -8,6 +8,8 @@
 	id = "gadpathur_patroller"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/gadpathur_shuttle)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/gadpathur_patrol
 	map = "Gadpathurian Patrol Corvette"
 	descriptor = "Gadpathur navy patrol ship."
