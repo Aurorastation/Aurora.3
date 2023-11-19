@@ -795,11 +795,14 @@
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/crew_prep)
 "gX" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/longbow{
-	weapon_id = "Gadpathur Corvette Longbow Cannon"
+	weapon_id = "Gadpathur Corvette Longbow Cannon";
+	pixel_y = -320;
+	pixel_x = -64
 	},
-/turf/simulated/open/airless,
-/area/ship/gadpathur_patrol/exterior)
+/turf/simulated/floor/reinforced/airless,
+/area/ship/gadpathur_patrol/armanent/longbow)
 "gZ" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-9"
@@ -1659,11 +1662,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "nv" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/francisca{
-	weapon_id = "Gadpathur Corvette Rotary Cannon"
+	weapon_id = "Gadpathur Corvette Rotary Cannon";
+	pixel_x = -64;
+	pixel_y = -162
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/reinforced/airless,
+/area/ship/gadpathur_patrol/armanent/francisca)
 "nx" = (
 /obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/dark,
@@ -33411,7 +33417,7 @@ RJ
 RJ
 RJ
 RL
-gX
+fX
 uE
 uE
 uE
@@ -33915,7 +33921,7 @@ uE
 Lb
 LJ
 IM
-fj
+gX
 fj
 Th
 Th
@@ -34446,7 +34452,7 @@ uE
 uE
 uE
 uE
-nv
+uE
 uE
 uE
 uE
@@ -34955,7 +34961,7 @@ Zs
 Zs
 pg
 pg
-Th
+nv
 Th
 RJ
 fX
