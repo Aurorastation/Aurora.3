@@ -125,3 +125,15 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_gadpathur_corvette"
 	base_turf = /turf/space/transit/north
+
+/obj/structure/closet/secure_closet/guncabinet/gadpathur
+	req_access = list(access_gadpathur_navy_officer)
+
+/obj/structure/closet/secure_closet/guncabinet/gadpathur/sidearm
+	name = "sidearm cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/gadpathur/rifle
+	name = "assault rifle cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/gadpathur/shotgun
+	name = "shotgun cabinet"

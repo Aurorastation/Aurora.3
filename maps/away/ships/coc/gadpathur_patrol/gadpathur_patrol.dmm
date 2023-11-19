@@ -4062,9 +4062,7 @@
 /area/ship/gadpathur_patrol/armanent/francisca)
 "FX" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "sidearm cabinet"
-	},
+/obj/structure/closet/secure_closet/guncabinet/gadpathur/sidearm,
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m,
 /obj/item/gun/projectile/xanupistol,
@@ -4218,10 +4216,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "HR" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220);
-	name = "assault rifle cabinet"
-	},
+/obj/structure/closet/secure_closet/guncabinet/gadpathur/rifle,
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
 /obj/item/gun/projectile/automatic/rifle/dnac,
@@ -5988,10 +5983,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/quarters)
 "VT" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(220);
-	name = "shotgun cabinet"
-	},
+/obj/structure/closet/secure_closet/guncabinet/gadpathur/shotgun,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
 /obj/item/ammo_magazine/xanan_shotgun/shells,
