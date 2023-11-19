@@ -535,3 +535,21 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 4))
 	bitesize = 2
+
+
+//pita
+/obj/item/reagent_containers/food/snacks/pita
+	name = "pita"
+	desc = "A plain, fluffy, pocket-shaped flatbread to put things in or dip into various dishes and dips."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "pita"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 3))
+	filling_color = "#d8af79"
+
+/obj/item/reagent_containers/food/snacks/pita/hummus
+	name = "hummus pita"
+	desc = "Pita bread stuffed to the brim with Hummus. Just as it should be."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "pita_hummus"
+	filling_color = "#ffe4c1"

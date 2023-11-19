@@ -362,8 +362,8 @@
 	icon_state = "north60squid"
 	trash = /obj/item/trash/north60squidempty
 	filling_color = "#c79e77"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment/garlicsauce = 3)
-	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy seafood" = 4, "apple" = 2, "lemon" = 2), list(/singleton/reagent/nutriment/garlicsauce = list("garlic sauce" = 6)))
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 4, /singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/garlicsauce = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy seafood" = 10), /singleton/reagent/nutriment = list("apple" = 5, "lemon" = 5), /singleton/reagent/nutriment/garlicsauce = list("garlic sauce" = 10))
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
@@ -378,10 +378,10 @@
 
 /obj/item/reagent_containers/food/snacks/falafelballs
 	name = "falafel balls"
-	desc = "A middle eastern dish also popular in Elyria, these crunchy fried chickpea balls are often served as a side to a dish of Hummus, in a Pita, or some sort of wrap."
+	desc = "A middle eastern dish also popular in Elyra, these crunchy fried chickpea balls are often served as a side to a dish of Hummus, in a Pita, or some sort of wrap."
 	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
 	icon_state = "falafelballs"
 	trash = /obj/item/trash/plate
 	filling_color = "#74812c"
-	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3))

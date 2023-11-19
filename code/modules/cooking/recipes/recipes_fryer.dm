@@ -171,7 +171,7 @@
 /singleton/recipe/north60squid
 	appliance = FRYER
 	items = list(/obj/item/reagent_containers/food/snacks/squidmeat = 1)
-	reagents = list(/singleton/reagent/drink/lemonjuice = 5 , /singleton/reagent/drink/applejuice = 5)
+	reagents = list(/singleton/reagent/drink/lemonjuice = 5 , /singleton/reagent/drink/applejuice = 5, /singleton/reagent/nutriment/garlicsauce = 10)
 	coating = /singleton/reagent/nutriment/coating/beerbatter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/north60squid

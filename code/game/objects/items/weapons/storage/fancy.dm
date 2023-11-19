@@ -753,7 +753,7 @@
 	)
 
 
-/obj/item/storage/box/fancy/cakepopjar
+/obj/item/storage/box/fancy/food/cakepopjar
 	name = "cake pops"
 	desc = "Unhealthy? Don't be silly! If sprinkles of unnatural colors, intensely concentrated sugar, and bright, oil-based food dyes were bad for you, why would our children be evolutionarily drawn to eating them?!"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
@@ -774,7 +774,7 @@
 	throwforce = 4
 
 
-/obj/item/storage/box/fancy/cakepopjar/fill()
+/obj/item/storage/box/fancy/food/cakepopjar/fill()
 	.=..()
 	for(var/obj/item/reagent_containers/food/snacks/cakepopselection/cakepop in src.contents)
 		var/MM = text2num(time2text(world.timeofday, "MM"))
@@ -795,7 +795,7 @@
 				if(4)
 					cakepop.icon_state = "cakepop4"
 
-/obj/item/storage/box/fancy/cakepopjar/update_icon()
+/obj/item/storage/box/fancy/food/cakepopjar/update_icon()
 	. = ..()
 	var/MM = text2num(time2text(world.timeofday, "MM"))
 	if(MM == 10) //checks if it's october to give the cake pop jar halloween colors
@@ -824,3 +824,44 @@
 			icon_state = "cakepopsstuffed"
 		else
 			icon_state = "cakepopshalf"
+
+/obj/item/storage/box/fancy/food/pralinebox
+	name = "box of pralines"
+	desc = "A heart shaped box filled with assorted delicious chocolate pralines. Used to show love either for another person, or more commonly - for chocolate."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "heartbox_closed"
+	item_state = "heartbox_closed"
+	icon_type = "chocolate praline"
+	contained_sprite = TRUE
+	storage_slots = 20
+	max_storage_space = 20
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/pralines
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/pralines/praline1 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline2 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline3 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline4 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline5 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline6 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline7 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline8 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline9 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline10 = 1
+	)
+	throwforce = 2
+
+/obj/item/storage/box/fancy/food/pralinebox/update_icon()
+	. = ..()
+	if(opened)
+		if(contents.len == 0)
+			icon_state = "heartbox_empty"
+			item_state = "heartbox_open"
+		else if(contents.len <= 9)
+			icon_state = "heartbox_half"
+			item_state = "heartbox_open"
+		else if(contents.len <= 10)
+			item_state = "heartbox_open"
+			icon_state = "heartbox_full"

@@ -92,6 +92,7 @@
 	fruit = list("pumpkin" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/squidmeat)
 	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/spacespice = 2)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/krakensoup
 
 

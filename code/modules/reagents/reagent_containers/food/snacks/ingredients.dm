@@ -197,6 +197,7 @@
 /obj/item/reagent_containers/food/snacks/whitechocolate
 	name = "white chocolate bar"
 	desc = "Claimed by some to not really be chocolate. Most don't care."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
 	icon_state = "whitechocolate"
 	filling_color = "#E3E3C7"
 

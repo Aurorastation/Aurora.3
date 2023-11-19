@@ -657,7 +657,7 @@
 	slices_num = 5
 	filling_color = "#a58cc5"
 	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/singleton/reagent/nutriment = 16)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15)
 	reagent_data = list(/singleton/reagent/nutriment = list("pie" = 10, "peanut butter ganache" = 10, "grape jelly" = 15))
 
 
@@ -684,7 +684,7 @@
 	center_of_mass = list("x"=16, "y"=12)
 	slice_path = /obj/item/reagent_containers/food/snacks/chocolaterouladeslice
 	slices_num = 5
-	reagents_to_add = list(/singleton/reagent/nutriment = 16)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15)
 	reagent_data = list(/singleton/reagent/nutriment = list("baked goods" = 10, "chocolate" = 10))
 
 /obj/item/reagent_containers/food/snacks/chocolaterouladeslice
@@ -707,7 +707,7 @@
 	center_of_mass = list("x"=16, "y"=12)
 	slice_path = /obj/item/reagent_containers/food/snacks/ylpharouladeslice
 	slices_num = 5
-	reagents_to_add = list(/singleton/reagent/nutriment = 16)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15)
 	reagent_data = list(/singleton/reagent/nutriment = list("baked goods" = 10, "white chocolate" = 10, "ylpha berry" = 10))
 
 /obj/item/reagent_containers/food/snacks/ylpharouladeslice
@@ -725,5 +725,31 @@
 	desc = "Clearly it's the healthier choice if you're only having a SMALL lump of sugary dough coated in sugar with some sugar on top. How responsible of you!"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	bitesize = 3
+	trash = /obj/item/trash/stick
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("sugar" = 4, "cake" = 2))
+
+/obj/item/reagent_containers/food/snacks/sliceable/strawberrybars
+	name = "strawberry crumble bars"
+	gender = PLURAL
+	desc = "a tray full of delicious sweet bars of strawberry jam and sugary crumbs of dough on top. Might wanna slice it."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "strawberrybars"
+	slice_path = /obj/item/reagent_containers/food/snacks/strawberrybar
+	slices_num = 4
+	trash = /obj/item/trash/brownies
+	filling_color = "#6e0202"
+	center_of_mass = list("x"=15, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10)
+	reagent_data = list(/singleton/reagent/nutriment = list("strawberry" = 8, "crumbly dough" = 8, "rhubarb" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/strawberrybar
+	name = "strawberry crumble bar"
+	desc = "A jammy strawberry delight coated in some seriously crumbly dough."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "strawberrybar"
+	trash = /obj/item/trash/plate
+	filling_color = "#6e0202"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)

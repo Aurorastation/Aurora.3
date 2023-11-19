@@ -207,13 +207,13 @@
 	items = list(/obj/item/reagent_containers/food/snacks/fish)
 	result = /obj/item/reagent_containers/food/snacks/soup/brudet
 
-/singleton/recipe/chetroinuoc
+/singleton/recipe/chetroinuoc // Europan food
 	appliance = SAUCEPAN | POT
 	reagents = list(/singleton/reagent/nutriment/vanilla = 5, /singleton/reagent/nutriment/rice = 10)
 	fruit = list("soybeans" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/chetroinuoc
-// Europa
+
 
 /singleton/recipe/deepdive
 	fruit = list ("seaweed" = 1)

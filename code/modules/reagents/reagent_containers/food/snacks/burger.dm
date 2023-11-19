@@ -216,6 +216,6 @@
 	icon_state = "sloppyjoe"
 	item_state = "burger" // Don't touch this unless you know what you're doing
 	filling_color = "#7e4118"
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("bun" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("barbecue sauce" = 5, "bun" = 5), /singleton/reagent/nutriment/protein = list("ground beef" = 5))
 	bitesize = 2

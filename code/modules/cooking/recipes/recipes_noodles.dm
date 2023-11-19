@@ -1,4 +1,5 @@
 
+
 /singleton/recipe/boiledspaghetti
 	appliance = SAUCEPAN | POT
 	reagents = list(/singleton/reagent/water = 5)
@@ -76,3 +77,57 @@
 		/obj/item/reagent_containers/food/snacks/bacon
 	)
 	result = /obj/item/reagent_containers/food/snacks/macandcheese/bacon
+
+/singleton/recipe/ramenbowl
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/nutriment/soysauce = 5)
+	fruit = list("seaweed" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/egg
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/ramenbowl
+
+/singleton/recipe/spaghettibolognese
+	appliance = SAUCEPAN | POT
+	fruit = list("garlic" = 1, "onion" = 1, "tomato" = 1)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/protein = 6)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/spaghettibolognese
+
+/singleton/recipe/ravioli/cheese
+	appliance = SAUCEPAN | POT
+	fruit = list("tomato" = 1)
+	reagents = list(/singleton/reagent/water = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/ravioli/cheese
+
+/singleton/recipe/ravioli/meat
+	appliance = SAUCEPAN | POT
+	fruit = list("tomato" = 1)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/protein = 6)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/ravioli/meat
+
+/singleton/recipe/ravioli/earthenroot
+	appliance = SAUCEPAN | POT
+	fruit = list("earthenroot" = 1, "pumpkin" = 1, "tomato" = 1)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/drink/milk/soymilk = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/ravioli/earthenroot

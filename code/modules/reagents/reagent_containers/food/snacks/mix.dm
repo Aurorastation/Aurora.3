@@ -63,11 +63,11 @@
 
 /obj/item/reagent_containers/food/snacks/falafel
 	name = "falafel"
-	desc = "Falafel balls in a fluffy pita with some hummus, chips, and/or salad - popular, beloved, cheap street food. Originates in the middle east, also common in Elyria."
+	desc = "Falafel balls in a fluffy pita with some hummus, chips, and/or salad - popular, beloved, cheap street food. Originates in the middle east, also common in Elyra."
 	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
 	icon_state = "falafel"
 	filling_color = "#b4b876"
-	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment = 7)
 	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3, "hummus" = 2, "pita bread" = 2))
 
 /obj/item/reagent_containers/food/snacks/hengsharolls
@@ -79,7 +79,7 @@
 	filling_color = "#9fd6a7"
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 4, "corn" = 3, "cabbage" = 1))
-	bitesize = 3
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/salad/tabboulehsalad
 	name = "tabbouleh salad"

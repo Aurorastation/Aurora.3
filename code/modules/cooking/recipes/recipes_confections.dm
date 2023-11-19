@@ -23,6 +23,7 @@
 
 /singleton/recipe/izuixu
 	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/drink/ice = 5, /singleton/reagent/alcohol/butanol/xuizijuice= 5)
+	fruit = list("strawberries" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/izuixu
 
@@ -46,3 +47,15 @@
 		/obj/item/reagent_containers/food/snacks/pineapple_ring
 	)
 	result = /obj/item/reagent_containers/food/snacks/floatingisland
+
+/singleton/recipe/pralinebox //Don't put this recipe in the wiki i want it to be hidden here in the code.
+	appliance = SAUCEPAN
+	fruit = list("cherries" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/whitechocolate
+	)
+	reagents = list(/singleton/reagent/nutriment/coco = 10 , /singleton/reagent/drink/milk/cream = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify it
+	result = /obj/item/storage/box/fancy/food/pralinebox

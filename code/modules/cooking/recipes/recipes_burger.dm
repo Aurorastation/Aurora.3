@@ -111,9 +111,10 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/chickenfillet
 /singleton/recipe/sloppyjoe
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun
 	)
 	reagents = list(/singleton/reagent/nutriment/protein = 6 , /singleton/reagent/nutriment/barbecue = 5)
-
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/sloppyjoe

@@ -272,7 +272,7 @@
 /obj/item/trash/north60squidempty
 	name = "empty platter"
 	icon_state = "north60squidempty"
-	desc = "A deep dish meant to held a pool of sauce, seafood, and delicious memories. Now it's trash though."
+	desc = "A deep dish meant to hold a pool of sauce and seafood, but now it only holds delicious memories. Trash it."
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
@@ -312,3 +312,7 @@
 	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/stick
+	name = "candy stick"
+	icon_state = "rock_candy"
