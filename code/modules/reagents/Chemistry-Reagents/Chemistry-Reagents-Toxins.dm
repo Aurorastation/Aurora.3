@@ -77,7 +77,8 @@
 	reagent_state = LIQUID
 	color = "#008844"
 	strength = 0
-	overdose = REAGENTS_OVERDOSE * 0.25
+	overdose = 2
+	od_minimum_dose = REAGENTS_OVERDOSE * 0.25
 	taste_description = "stinging needles"
 
 /singleton/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -99,23 +100,18 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	if(prob(40)) //It looks like medical isn't coming. Let's die.
-		M.silent = max(M.silent, 10) //Our throat is raw and we are trying to dissociate. Also prevents hilarious scream spam.
-		M.add_chemical_effect(CE_CARDIOTOXIC, 2)
+	if(prob(5))
+		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
+	else if(prob(5))
+		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
 		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
 		M.update_accumulated_pain(120)
-		if(prob(10))
-			M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
-	else if(prob(10))
-		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
-		if(M.species.flags & NO_BLOOD)
-			return
-		M.adjustOxyLoss(20 * removed)
+		M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
 
 /singleton/reagent/toxin/panotoxin/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	var/pain_to_refund = M.accumulated_pain //5u does about 1900-2600 pain.
 	if(pain_to_refund > 80)
-		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves on constant scans while preventing spam if IV'd.
+		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves them constant scans while preventing spam if IV'd.
 		to_chat(M, SPAN_GOOD("You feel the agony start to recede!"))
 		M.apply_effect(pain_to_refund * -0.6, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse in the game except for red nightshade.
 	if(pain_to_refund > 4000)
