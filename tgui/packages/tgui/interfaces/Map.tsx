@@ -1,3 +1,4 @@
+import { paginate } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
 import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
@@ -9,6 +10,7 @@ export type MapData = {
   user_z: number;
   station_levels: number[];
   z_override: number;
+  dept_colors_map: { d: string; c: string }[];
 };
 
 export const Map = (props, context) => {
@@ -64,43 +66,10 @@ export const Map = (props, context) => {
               {showLegend ? 'Hide Legend' : 'Show Legend'}
             </Tabs.Tab>
           </Tabs>
-          {/*
-          #define HOLOMAP_AREACOLOR_COMMAND     "#386d8099"
-          #define HOLOMAP_AREACOLOR_SECURITY    "#ae121299"
-          #define HOLOMAP_AREACOLOR_MEDICAL     "#6f9e00c2"
-          #define HOLOMAP_AREACOLOR_SCIENCE     "#A154A699"
-          #define HOLOMAP_AREACOLOR_ENGINEERING "#F1C23199"
-          #define HOLOMAP_AREACOLOR_OPERATIONS  "#E06F0099"
-          #define HOLOMAP_AREACOLOR_HALLWAYS    "#ffffffa5"
-          #define HOLOMAP_AREACOLOR_DOCK        "#0000FFCC"
-          #define HOLOMAP_AREACOLOR_HANGAR      "#777777"
-          #define HOLOMAP_AREACOLOR_CIVILIAN    "#5bc1c199"
-          */}
           {showLegend ? (
             <NoticeBox color="grey">
               <Table>
-                {[
-                  [
-                    { d: 'Command', c: '#386d80' },
-                    { d: 'Security', c: '#ae1212' },
-                  ],
-                  [
-                    { d: 'Medical', c: '#6f9e00' },
-                    { d: 'Science', c: '#A154A6' },
-                  ],
-                  [
-                    { d: 'Engineering', c: '#F1C231' },
-                    { d: 'Operations', c: '#E06F00' },
-                  ],
-                  [
-                    { d: 'Civilian', c: '#5bc1c1' },
-                    { d: 'Hallways', c: '#ffffff' },
-                  ],
-                  [
-                    { d: 'Dock', c: '#0000FF' },
-                    { d: 'Hangar', c: '#777777' },
-                  ],
-                ].map((a) => (
+                {paginate(data.dept_colors_map, 2).map((a) => (
                   <Table.Row key={a}>
                     <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
                     <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
