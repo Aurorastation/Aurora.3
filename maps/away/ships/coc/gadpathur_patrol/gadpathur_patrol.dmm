@@ -5993,12 +5993,16 @@
 	name = "shotgun cabinet"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/gun/projectile/shotgun/pump/combat,
-/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/slugs,
+/obj/item/ammo_magazine/xanan_shotgun/beanbag,
+/obj/item/ammo_magazine/xanan_shotgun/beanbag,
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/slugs,
+/obj/item/ammo_magazine/xanan_shotgun/beanbag,
+/obj/item/ammo_magazine/xanan_shotgun/beanbag,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
 "VU" = (
