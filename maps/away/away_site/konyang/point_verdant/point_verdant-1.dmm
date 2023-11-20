@@ -31,15 +31,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"an" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/sewer)
 "ao" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -883,16 +874,6 @@
 /obj/structure/reagent_dispensers/keg/mead,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
-"dj" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/interior/tunnels)
 "dm" = (
 /obj/structure/table/stone/marble,
 /obj/random/soap{
@@ -2479,8 +2460,6 @@
 	icon_state = "dir_arrow";
 	tiles = 1
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
 /area/point_verdant/sewer)
 "jL" = (
@@ -2804,18 +2783,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
-"lb" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/sewer)
 "lc" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -2899,7 +2866,6 @@
 	layer = 9.1;
 	dir = 1
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
 /area/point_verdant/sewer)
 "lt" = (
@@ -3235,11 +3201,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/point_verdant/interior)
-"mE" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/water/shallow/sewage,
-/area/point_verdant/sewer)
 "mG" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8;
@@ -4204,12 +4165,6 @@
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
-"qT" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/sewage,
-/area/point_verdant/sewer)
 "qU" = (
 /obj/structure/stairs/urban/road_ramp{
 	dir = 1
@@ -4264,14 +4219,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
-"ri" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/sewer)
 "rj" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -5215,14 +5162,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
-"va" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/sewage,
-/area/point_verdant/sewer)
 "vb" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -6823,11 +6762,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
-"Ca" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/sewage,
-/area/point_verdant/sewer)
 "Cb" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -8323,15 +8257,6 @@
 "Ir" = (
 /turf/simulated/wall/r_wall,
 /area/point_verdant/interior/police)
-"It" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/interior/tunnels)
 "Iu" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -8485,17 +8410,6 @@
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
-"IU" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/sewer)
 "IV" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/storage/box/toothpaste,
@@ -8600,13 +8514,11 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "Jp" = (
-/obj/random/dirt_75,
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/sewer)
 "Jq" = (
@@ -8759,11 +8671,6 @@
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
-"JY" = (
-/obj/random/dirt_75,
-/obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/interior/tunnels)
 "Kb" = (
 /obj/machinery/vending/security{
 	density = 0;
@@ -9959,9 +9866,7 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
 "Ph" = (
-/obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/sewer)
 "Pi" = (
@@ -10123,13 +10028,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
-"PS" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/sewer)
 "PT" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12286,10 +12184,6 @@
 /obj/item/screwdriver,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
-"Zb" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/water/shallow/sewage,
-/area/point_verdant/sewer)
 "Zc" = (
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -29823,7 +29717,7 @@ Sx
 Sx
 Sx
 SO
-Zb
+Sx
 Sx
 Sx
 Sx
@@ -30077,14 +29971,14 @@ MO
 rf
 SO
 Sx
-Zb
+Sx
 Sx
 SO
-Zb
-Zb
 Sx
 Sx
-Zb
+Sx
+Sx
+Sx
 Sx
 OC
 jy
@@ -30334,15 +30228,15 @@ MO
 rf
 SO
 Sx
-Zb
-Zb
-OV
-Zb
-Zb
-Zb
 Sx
-Zb
-Zb
+Sx
+SO
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 qv
 jy
 rf
@@ -30599,7 +30493,7 @@ ud
 ud
 Sx
 Sx
-Zb
+Sx
 ud
 jy
 rf
@@ -30854,8 +30748,8 @@ OF
 OF
 Wt
 ud
-Ca
-Zb
+Sx
+Sx
 Sx
 ud
 Qb
@@ -31111,8 +31005,8 @@ su
 bk
 LE
 OC
-Zb
-Zb
+Sx
+Sx
 Sx
 OC
 Qb
@@ -31368,8 +31262,8 @@ bk
 Fn
 MY
 ud
-OV
-OV
+SO
+SO
 SO
 ud
 Qb
@@ -31625,8 +31519,8 @@ Fn
 xg
 MY
 ud
-Zb
-Zb
+Sx
+Sx
 Sx
 ud
 jy
@@ -31882,9 +31776,9 @@ at
 Ui
 LE
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 ud
 jy
 rf
@@ -32139,9 +32033,9 @@ at
 bk
 LE
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 rf
@@ -32396,9 +32290,9 @@ at
 bk
 LE
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 rf
@@ -32653,9 +32547,9 @@ at
 bk
 MY
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 rf
@@ -32910,8 +32804,8 @@ at
 bk
 MY
 OC
-Zb
-Zb
+Sx
+Sx
 Sx
 OC
 jy
@@ -33167,8 +33061,8 @@ at
 at
 MY
 ud
-Zb
-Zb
+Sx
+Sx
 Sx
 OC
 jy
@@ -33425,7 +33319,7 @@ at
 LE
 ud
 Sx
-Zb
+Sx
 Sx
 OC
 jy
@@ -33682,7 +33576,7 @@ at
 LE
 ud
 Sx
-Zb
+Sx
 Sx
 OC
 jy
@@ -33939,7 +33833,7 @@ at
 LE
 ud
 Sx
-Zb
+Sx
 Sx
 OC
 jy
@@ -34196,8 +34090,8 @@ at
 LE
 ud
 Sx
-Zb
-Zb
+Sx
+Sx
 OC
 jy
 rf
@@ -34452,9 +34346,9 @@ Jk
 at
 LE
 ud
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 OC
 DF
 rf
@@ -34709,9 +34603,9 @@ nh
 at
 LE
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 ud
 jy
 rf
@@ -34966,7 +34860,7 @@ WN
 at
 LE
 OC
-Zb
+Sx
 Sx
 Sx
 ud
@@ -35223,9 +35117,9 @@ kf
 at
 LE
 OC
-Ca
-Zb
-Ca
+Sx
+Sx
+Sx
 IM
 nk
 rf
@@ -35480,9 +35374,9 @@ at
 at
 LE
 OC
-Ca
-qT
-Ca
+Sx
+Sx
+Sx
 ud
 Qb
 rf
@@ -35737,9 +35631,9 @@ bk
 bk
 LE
 ud
-Ca
-qT
-Zb
+Sx
+Sx
+Sx
 ud
 Qb
 rf
@@ -35994,9 +35888,9 @@ AV
 bk
 MY
 ud
-Ca
-Ca
-Zb
+Sx
+Sx
+Sx
 ud
 Qb
 rf
@@ -36251,9 +36145,9 @@ hB
 vq
 oE
 ud
-Ca
-Zb
-Zb
+Sx
+Sx
+Sx
 ud
 Qb
 rf
@@ -36508,9 +36402,9 @@ AV
 Fn
 MY
 ud
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 ud
 Qb
 rf
@@ -36765,9 +36659,9 @@ bk
 Fn
 LE
 OC
-OV
-OV
-OV
+SO
+SO
+SO
 ud
 Qb
 rf
@@ -37022,9 +36916,9 @@ bk
 bk
 LE
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 ud
 Qb
 bk
@@ -40877,7 +40771,7 @@ Fn
 bk
 LE
 OC
-Zb
+Sx
 Sx
 Sx
 OC
@@ -41134,7 +41028,7 @@ Fn
 Fn
 LE
 OC
-Zb
+Sx
 Sx
 Sx
 OC
@@ -41391,8 +41285,8 @@ bk
 Fn
 LE
 OC
-Ca
-Zb
+Sx
+Sx
 Sx
 OC
 jy
@@ -41648,8 +41542,8 @@ bk
 Fn
 LE
 OC
-Zb
-Ca
+Sx
+Sx
 Sx
 OC
 jy
@@ -41905,9 +41799,9 @@ bk
 Fn
 MY
 OC
-Zb
-Ca
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 Fn
@@ -42162,9 +42056,9 @@ bk
 bk
 LE
 OC
-Zb
-Ca
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 Fn
@@ -42419,9 +42313,9 @@ fP
 bk
 LE
 OC
-Zb
-Ca
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 bk
@@ -42676,9 +42570,9 @@ Fn
 Fn
 LE
 OC
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
 OC
 jy
 bk
@@ -42933,9 +42827,9 @@ Fn
 Fn
 LE
 OC
-Zb
 Sx
-Zb
+Sx
+Sx
 OC
 jy
 Fn
@@ -43191,8 +43085,8 @@ fP
 MY
 OC
 Sx
-Zb
-Zb
+Sx
+Sx
 OC
 jy
 Fn
@@ -43448,7 +43342,7 @@ Fn
 MY
 OC
 Sx
-Zb
+Sx
 Sx
 OC
 jy
@@ -44476,7 +44370,7 @@ bk
 LE
 OC
 Sx
-Zb
+Sx
 Sx
 OC
 jy
@@ -44733,7 +44627,7 @@ OW
 cP
 OC
 Sx
-Zb
+Sx
 Sx
 OC
 Xe
@@ -44989,8 +44883,8 @@ OC
 OC
 OC
 OC
-Zb
-Zb
+Sx
+Sx
 Sx
 OC
 OC
@@ -45214,23 +45108,43 @@ SO
 Sx
 Sx
 Sx
-Zb
-Zb
-Zb
-Zb
-Zb
-va
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
+jK
+Sx
 mU
 ls
-Ca
-Ca
-Ca
-Ca
-Ca
-Ca
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+SO
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 Sx
 Sx
 Sx
@@ -45246,27 +45160,7 @@ Sx
 Sx
 Sx
 Sx
-Zb
-Zb
-Zb
-Zb
 Sx
-Sx
-Sx
-Sx
-Sx
-Sx
-SO
-Sx
-Sx
-Sx
-Sx
-Zb
-Zb
-Zb
-Zb
-Zb
-Zb
 Sx
 Sx
 OC
@@ -45471,21 +45365,21 @@ SO
 Sx
 Sx
 Sx
-Zb
-Ca
-Ca
-Ca
-Ca
+Sx
+Sx
+Sx
+Sx
+Sx
 jK
-Ca
+Sx
 mU
 ls
-Ca
-Ca
-Ca
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 Sx
 Sx
 Sx
@@ -45500,14 +45394,14 @@ Sx
 Sx
 Sx
 Sx
-Zb
-Sx
-Zb
-Zb
 Sx
 Sx
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 Sx
 Sx
 Sx
@@ -45523,7 +45417,7 @@ bM
 bM
 bM
 bM
-Zb
+Sx
 Sx
 Sx
 OC
@@ -45728,21 +45622,21 @@ SO
 Sx
 Sx
 Sx
-Zb
-Ca
-Ca
-Ca
-Ca
+Sx
+Sx
+Sx
+Sx
+Sx
 jK
-Ca
+Sx
 mU
 ls
-Zb
-Zb
-Zb
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 Sx
 Sx
 Sx
@@ -45757,15 +45651,15 @@ Sx
 Sx
 Sx
 Sx
-Zb
-Zb
-Zb
-Zb
-Zb
-Zb
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 Sx
 Sx
 Sx
@@ -45780,8 +45674,8 @@ pY
 Sd
 fl
 bM
-Zb
-Zb
+Sx
+Sx
 Sx
 OC
 Qb
@@ -46038,8 +45932,8 @@ nD
 Sd
 bM
 Sx
-Zb
-Zb
+Sx
+Sx
 OC
 Qb
 Fn
@@ -46295,8 +46189,8 @@ pF
 Sd
 bM
 Sx
-Zb
-Zb
+Sx
+Sx
 OC
 jy
 Fn
@@ -46768,7 +46662,7 @@ Zg
 rf
 rf
 LE
-Zb
+Sx
 nk
 Fn
 Fn
@@ -47025,7 +46919,7 @@ rf
 rf
 rf
 LE
-Zb
+Sx
 Qb
 rf
 Kw
@@ -47087,8 +46981,8 @@ OC
 SO
 oU
 OV
-It
-JY
+Ht
+LK
 CH
 YL
 gZ
@@ -47282,7 +47176,7 @@ rf
 mr
 OW
 cP
-Zb
+Sx
 Qb
 rf
 rf
@@ -47322,29 +47216,29 @@ CW
 jv
 vB
 bM
-Zb
-Zb
+Sx
+Sx
 Sx
 Sx
 SO
 Sx
 Sx
-Zb
-Zb
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
+Sx
 SO
 Sx
 Sx
 Sx
-Zb
-mE
-an
-PS
-lb
-IU
-dj
+Sx
+SO
+Ph
+Ph
+Jp
+Jp
+Ht
 CH
 zg
 IN
@@ -47539,7 +47433,7 @@ rf
 LE
 Sx
 Sx
-Zb
+Sx
 Qb
 rf
 rf
@@ -47579,17 +47473,17 @@ bM
 bM
 bM
 bM
-Ca
-Ca
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
 SO
 Sx
 Sx
 Sx
 Sx
-Zb
-Zb
+Sx
+Sx
 Ql
 SO
 Sx
@@ -47598,10 +47492,10 @@ Sx
 Sx
 Sx
 SO
-ri
-PS
+Ph
+Ph
 Jp
-It
+Ht
 CH
 bs
 oi
@@ -47836,10 +47730,10 @@ rf
 rf
 mf
 SO
-Zb
-Zb
-Zb
-Zb
+Sx
+Sx
+Sx
+Sx
 Tx
 Sx
 Sx
@@ -47855,7 +47749,7 @@ Sx
 Sx
 SO
 SO
-mE
+SO
 Ph
 Jp
 Ht
