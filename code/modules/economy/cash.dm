@@ -207,33 +207,33 @@
 		var/result = rand(1,10000)
 		if(result <= 4000) // 40% chance to not earn anything at all.
 			won = 0
-			speak("You've won: [won] CREDITS. Better luck next time!")
+			speak("You've won: [won] credits. Better luck next time!")
 		else if (result <= 8000) // 40% chance
-			won = 50
-			speak("You've won: [won] CREDITS. Partial winner!")
+			won = 10
+			speak("You've won: [won] credits. Better than nothing!")
 		else if (result <= 9000) // 10% chance
-			won = 100
-			speak("You've won: [won] CREDITS. Winner!")
+			won = 50
+			speak("You've won: [won] credits. Try again!")
 		else if (result <= 9500) // 5% chance
-			won = 200
-			speak("You've won: [won] CREDITS. SUPER WINNER! You're lucky!")
+			won = 100
+			speak("You've won: [won] credits. Halfway there!")
 		else if (result <= 9750) // 2.5% chance
-			won = 500
-			speak("You've won: [won] CREDITS. MEGA WINNER! You're super lucky!")
+			won = 200
+			speak("You've won: [won] credits. You're even!")
 		else if (result <= 9900) // 1.5% chance
-			won = 1000
-			speak("You've won: [won] CREDITS. ULTRA WINNER! You're mega lucky!")
+			won = 500
+			speak("You've won: [won] CREDITS. WINNER! You're lucky!")
 		else if (result <= 9950) // 0.5% chance
+			won = 1000
+			speak("You've won: [won] CREDITS. SUPER WINNER! You're super lucky!")
+		else if (result <= 9975) // 0.25% chance
+			won = 1500
+			speak("You've won: [won] CREDITS. MEGA WINNER! You're mega lucky!")
+		else if (result <= 9999) // 0.24% chance
 			won = 2500
 			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else if (result <= 9975) // 0.25% chance
+		else // 0.01% chance
 			won = 5000
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else if (result <= 9999) // 0.24% chance
-			won = 10000
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else ///0.01% chance
-			won = 25000
 			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
 
 		scratches_remaining -= 1
