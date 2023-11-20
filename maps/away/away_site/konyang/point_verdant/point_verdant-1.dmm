@@ -142,6 +142,19 @@
 /obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
+"aM" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/bag/plasticbag{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "aQ" = (
 /obj/structure/extinguisher_cabinet/north,
 /obj/effect/floor_decal/spline/plain/corner,
@@ -362,7 +375,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/item/material/shard,
+/obj/item/material/shard{
+	pixel_y = 4
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = 0;
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "bx" = (
@@ -1499,6 +1519,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/bag/trash,
 /obj/item/hammer,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "fK" = (
@@ -1862,6 +1883,7 @@
 /area/point_verdant/interior/tunnels)
 "hr" = (
 /obj/structure/trash_pile,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "ht" = (
@@ -2183,6 +2205,11 @@
 	pixel_y = 13;
 	pixel_x = 5
 	},
+/obj/item/material/ashtray/plastic{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "iB" = (
@@ -2825,7 +2852,14 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
-/obj/item/material/twohanded/fireaxe,
+/obj/item/material/knife/butterfly{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 7;
+	pixel_y = -2
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior)
 "lj" = (
@@ -3622,6 +3656,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "oG" = (
@@ -3927,6 +3962,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "pQ" = (
@@ -5604,6 +5640,23 @@
 "wL" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
+"wM" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = -8;
+	pixel_x = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "wP" = (
 /obj/structure/structural_support,
 /obj/effect/decal/cleanable/dirt,
@@ -5931,6 +5984,22 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
+"yi" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/decal/cleanable/ash{
+	pixel_y = -1;
+	pixel_x = 1
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = 0;
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "yk" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled,
@@ -5961,6 +6030,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "yt" = (
@@ -6758,6 +6828,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
 /area/point_verdant/sewer)
+"Cb" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/dirt_75,
+/obj/item/broken_bottle{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "Cc" = (
 /obj/structure/girder,
 /obj/item/stack/rods,
@@ -6933,6 +7016,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/cobweb2,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "CX" = (
@@ -8714,6 +8798,7 @@
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "Kl" = (
@@ -8759,6 +8844,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "KA" = (
@@ -9092,6 +9178,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/effect/decal/cleanable/cobweb,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "LV" = (
@@ -9372,6 +9459,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "MT" = (
@@ -9793,6 +9881,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "OT" = (
@@ -9960,12 +10049,12 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/vomit,
 /obj/item/handcuffs,
-/obj/item/storage/bag/plasticbag,
 /obj/effect/floor_decal/corner/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/structure/bed/stool/chair/wood,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "PC" = (
@@ -11392,6 +11481,7 @@
 	pixel_y = 2;
 	pixel_x = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "VC" = (
@@ -11428,14 +11518,9 @@
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
 /obj/item/material/kitchen/utensil/knife/boot{
-	pixel_x = -4;
+	pixel_x = 1;
 	pixel_y = 3
 	},
-/obj/item/material/knife/bayonet{
-	pixel_x = 7;
-	pixel_y = -2
-	},
-/obj/item/material/knife/butterfly,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior)
 "VN" = (
@@ -12243,6 +12328,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
+"Zj" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "Zo" = (
 /obj/effect/floor_decal/corner/orange{
@@ -46969,10 +47058,10 @@ XM
 bM
 bM
 ys
-Kz
+Cb
 oF
 bh
-dS
+Zj
 mh
 Sd
 bM
@@ -47483,8 +47572,8 @@ ec
 bM
 pP
 PA
-Kz
-Kz
+wM
+aM
 bM
 bM
 bM
@@ -47740,7 +47829,7 @@ cq
 bM
 OS
 iA
-oF
+yi
 Kk
 bM
 rf
