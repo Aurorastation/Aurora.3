@@ -18,6 +18,11 @@
 
 	var/storage_cost
 
+	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_x_dimension = 32
+	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_y_dimension = 32
+
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
