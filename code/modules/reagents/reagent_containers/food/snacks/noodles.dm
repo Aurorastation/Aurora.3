@@ -68,3 +68,18 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/drink/carrotjuice = 3, /singleton/reagent/oculine = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "cabbage" = 2))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/macandcheese
+	name = "mac and cheese"
+	desc = "Cheesy, simple, messy fun."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "macandcheese"
+	trash = /obj/item/trash/snack_bowl/macandcheese
+	filling_color = "#F1C022"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cheese = 5, /singleton/reagent/water = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5))
+
+/obj/item/reagent_containers/food/snacks/macandcheese/bacon
+	name = "bacon mac and cheese"
+	icon_state = "baconmacandcheese"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cheese = 5, /singleton/reagent/water = 5, /singleton/reagent/nutriment/protein = 3)
