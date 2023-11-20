@@ -353,12 +353,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "ais" = (
-/obj/structure/closet/hazmat/research,
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobotanical Greenhouse 2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "aiP" = (
 /obj/machinery/door/firedoor,
@@ -1692,12 +1695,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "aKU" = (
-/obj/structure/platform,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "aLc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3173,14 +3178,15 @@
 	name = "Distro to Trays";
 	use_power = 1
 	},
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 8;
-	pixel_y = 5
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/platform,
+/obj/structure/platform_deco{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "bsG" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -7792,17 +7798,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "dHt" = (
-/obj/structure/platform{
-	dir = 8
-	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "dHG" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -12462,16 +12462,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "fSm" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/structure/closet/hazmat/research,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "fSw" = (
 /obj/structure/cable/green{
@@ -15297,10 +15292,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal/small/north,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "het" = (
@@ -16332,8 +16324,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -17697,10 +17688,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "ikJ" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Xenobotanical Greenhouse 2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
@@ -17719,6 +17706,11 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "Sterile Sink";
+	pixel_x = 20
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -19018,12 +19010,14 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/kitchen/freezer)
 "iRl" = (
-/obj/structure/closet/firecloset,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 1;
+	icon_state = "freezer"
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "iRm" = (
@@ -19546,9 +19540,6 @@
 /area/crew_quarters/heads/hor)
 "jeo" = (
 /obj/machinery/door/firedoor,
-/obj/structure/platform{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/door/airlock/glass_research{
@@ -22595,7 +22586,7 @@
 	dir = 5
 	},
 /obj/machinery/vending/hydronutrients/xenobotany,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "kDC" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -22941,8 +22932,6 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "kNe" = (
-/obj/effect/floor_decal/corner/mauve/full,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -12
@@ -22952,8 +22941,9 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "kNH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -24148,7 +24138,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/obj/structure/table/reinforced,
+/obj/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "lss" = (
@@ -24690,7 +24683,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "lHx" = (
 /obj/machinery/recharge_station,
@@ -28174,7 +28167,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "nhF" = (
 /obj/structure/bed/stool/chair/padded/black,
@@ -28223,13 +28216,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -29535,9 +29528,6 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29547,6 +29537,9 @@
 	},
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -34485,14 +34478,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "qmV" = (
-/obj/structure/platform_deco{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "qnb" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -37872,7 +37859,8 @@
 	name = "Xenobotany Maintenance";
 	req_access = list(52)
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "rRS" = (
 /obj/machinery/door/airlock/glass_service{
@@ -38400,7 +38388,6 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "scN" = (
@@ -40460,11 +40447,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "tiI" = (
-/obj/structure/platform,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/platform_stairs/full/east_west_cap,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/obj/structure/platform/cutout{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "tiJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -40606,6 +40593,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -43390,9 +43381,6 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/substation/engineering)
 "uxp" = (
-/obj/machinery/atmospherics/unary/heater{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -47896,6 +47884,7 @@
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
 	},
+/obj/structure/platform/cutout,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "wzW" = (
@@ -49032,6 +49021,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
+"wZG" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/platform,
+/obj/structure/closet/hazmat/research,
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "wZJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -49465,12 +49461,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "xio" = (
-/obj/machinery/atmospherics/unary/freezer{
-	dir = 1;
-	icon_state = "freezer"
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
+	},
+/obj/machinery/atmospherics/unary/heater{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -51632,15 +51627,11 @@
 	dir = 8;
 	name = "Trays to Scrubbers"
 	},
-/obj/structure/sink/kitchen{
-	dir = 4;
-	name = "Sterile Sink";
-	pixel_x = -20
-	},
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "yfo" = (
 /obj/machinery/door/firedoor,
@@ -84169,7 +84160,7 @@ pkV
 jMk
 rFn
 tiI
-rFn
+wZG
 iwo
 gqF
 gzU
