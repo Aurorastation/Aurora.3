@@ -136,11 +136,28 @@
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"
 
+
+/*
+##################
+	Subtypes
+##################
+*/
+
+/**
+ * # Sharpened trap
+ *
+ * This device has an even higher chance of penetrating armor and locking foes in place
+ */
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
 	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
 	activated_armor_penetration = 100
 
+/**
+ * # Animal trap
+ *
+ * Used to catch small animals like rats, lizards, and chicks
+ */
 /obj/item/trap/animal
 	name = "small trap"
 	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
@@ -506,6 +523,11 @@
 /obj/item/trap/animal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return TRUE
 
+/**
+ * # Animal trap (Medium)
+ *
+ * Used to catch medium animals like cats, monkeys, nymphs, and wayward maintenance drones
+ */
 /obj/item/trap/animal/medium
 	name = "medium trap"
 	desc = "A medium mechanical trap that is used to catch moderately-sized animals like cats, monkeys, nymphs, and wayward maintenance drones."
@@ -527,6 +549,11 @@
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
 						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
 
+/**
+ * # Animal trap (Large)
+ *
+ * Used to catch larger animals, from spiders and dogs to bears and even larger mammals
+ */
 /obj/item/trap/animal/large
 	name = "large trap"
 	desc = "A large mechanical trap that is used to catch larger animals, from spiders and dogs to bears and even larger mammals."
@@ -641,7 +668,11 @@
 	else
 		..()
 
-
+/**
+ * # Tripwire trap
+ *
+ * A trap that makes you fall over
+ */
 /obj/item/trap/tripwire
 	name = "tripwire trap"
 	desc = "A piece of cable coil strung between two metal rods. Low-tech, but reliable."
@@ -689,3 +720,96 @@
 	if(!L.lying && (L.m_intent == M_RUN) || prob(5))
 		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
 		L.Weaken(3)
+
+/**
+ * # Punji trap
+ *
+ * A trap that damages and gives an infection to the victim, can have a message attached
+ */
+/obj/item/trap/punji
+	name = "punji trap"
+	desc = "An horrendous trap."
+	var/message = null
+
+/obj/item/trap/punji/attack_mob(mob/living/L)
+
+	//Reveal the trap, if not already visible
+	hide(FALSE)
+
+	//Select a target zone
+	var/target_zone
+	if(L.lying)
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_L_ARM, BP_R_HAND, BP_R_ARM)
+	else
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+	//Try to apply the damage
+	var/success = FALSE
+	success += L.apply_damage(60, DAMAGE_TOXIN, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	success += L.apply_damage(60, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+
+	//If successfully applied, give the message
+	if(success)
+		L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"),
+								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [target_zone]!"))),
+								SPAN_WARNING("<b>You feel your body fall, and something sharp penetrate your [target_zone]!</b>"))
+
+		//Show the leftover message, if any, after a little
+		addtimer(CALLBACK(src, PROC_REF(reveal_message), L), 3 SECONDS)
+
+		//If it's a human and not an IPC, apply an infection, otherwise we're done
+		if(!istype(L, /mob/living/carbon/human) && !isipc(L))
+			return
+
+		var/mob/living/carbon/human/human = L
+		var/obj/item/organ/organ = human.get_organ(target_zone)
+
+		organ.germ_level += INFECTION_LEVEL_THREE
+
+/obj/item/trap/punji/proc/reveal_message(mob/living/victim)
+	if(!message)
+		return
+
+	//If the mob moved away and/or no longer sees the trap, do not show the message
+	if(!(src in oview(world.view, victim)))
+		return
+
+	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+
+/obj/item/trap/punji/examine(mob/user, distance)
+	. = ..()
+	if(src.message && distance < 3)
+		to_chat(user, SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+
+/obj/item/trap/punji/verb/hide_under()
+	set src in oview(1)
+	set name = "Hide"
+	set desc = "Hide the trap under the cover."
+	set category = "Object"
+
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	to_chat(usr, SPAN_NOTICE("You begin hiding the trap..."))
+	if(!do_after(usr, 15 SECONDS))
+		return
+
+	hide(TRUE)
+	to_chat(usr, SPAN_ALERT("You hide \the [src], remember where you left it or suffer the very same warcrime you wanted to inflict!"))
+
+/obj/item/trap/punji/verb/set_message()
+	set src in oview(1)
+	set name = "Set Message"
+	set desc = "Set a message for the victim of the trap."
+	set category = "Object"
+
+	if(src.message)
+		to_chat(usr, SPAN_NOTICE("There is already a carved message inside the trap, can't make more..."))
+		return
+
+	var/added_message = tgui_input_text(usr, "Leave your message here...", "Punji trap message", multiline = TRUE, encode = FALSE)
+
+	if(added_message)
+		to_chat(usr, SPAN_NOTICE("You begin carving the message inside the trap..."))
+		if(do_after(usr, 10 SECONDS))
+			src.message = strip_html_readd_newlines(added_message)

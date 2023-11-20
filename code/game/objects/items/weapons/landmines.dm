@@ -1,7 +1,7 @@
 /obj/item/landmine
 	name = "land mine"
 	desc = "An anti-personnel explosive device used for area denial."
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'icons/obj/mine.dmi'
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
@@ -154,8 +154,17 @@
 	if(deployed)
 		trigger()
 
-//landmines that do more than explode
+/*
+##################
+	Subtypes
+##################
+*/
 
+/**
+ * # Fragmentation Landmine
+ *
+ * A landmine that throws sharpnels around
+ */
 /obj/item/landmine/frag
 	var/num_fragments = 15
 	var/fragment_damage = 10
@@ -168,6 +177,11 @@
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
 	qdel(src)
 
+/**
+ * # Radiation Landmine
+ *
+ * A landmine that irradiates the victim
+ */
 /obj/item/landmine/radiation
 	icon_state = "radlandmine"
 
@@ -179,6 +193,11 @@
 			H.apply_radiation(50)
 	qdel(src)
 
+/**
+ * # Phoron Landmine
+ *
+ * A landmine that releases phoron
+ */
 /obj/item/landmine/phoron
 	icon_state = "phoronlandmine"
 
@@ -192,6 +211,11 @@
 
 	qdel(src)
 
+/**
+ * # Nitrous Oxide Landmine
+ *
+ * A landmine that releases nitrous oxide
+ */
 /obj/item/landmine/n2o
 	icon_state = "phoronlandmine"
 
@@ -203,6 +227,11 @@
 
 	qdel(src)
 
+/**
+ * # EMP Landmine
+ *
+ * A landmine that emits an EMP pulse
+ */
 /obj/item/landmine/emp
 	icon_state = "emplandmine"
 
@@ -211,9 +240,16 @@
 	empulse(src.loc, 2, 4)
 	qdel(src)
 
+
+/**
+ * # Phoron Landmine
+ *
+ * A landmine that only explodes when pressure is released
+ */
 /obj/item/landmine/standstill
 	name = "Standstill Landmine"
 	desc = "A landmine that only triggers if you release the pressure from the trigger."
+	icon_state = "standstill"
 	var/engaged_by = null
 
 /obj/item/landmine/standstill/Destroy()
