@@ -8086,16 +8086,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
-"dMA" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_two/fore)
 "dMG" = (
 /obj/machinery/alarm/east{
 	alarm_id = 1601;
@@ -10906,10 +10896,6 @@
 /obj/effect/floor_decal/corner/dark_green,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -23614,16 +23600,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"lcG" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -25806,10 +25782,6 @@
 	},
 /obj/machinery/light{
 	dir = 8
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -30146,10 +30118,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ohc" = (
@@ -30874,16 +30842,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"oyK" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/lobby)
 "oyP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/east,
@@ -42432,9 +42390,6 @@
 "uft" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -70618,7 +70573,7 @@ ilT
 nge
 fKi
 xxi
-oyK
+dpG
 sYl
 oUt
 oUt
@@ -71456,7 +71411,7 @@ hGC
 tre
 qfC
 hnf
-dMA
+tre
 kgp
 piY
 bhj
@@ -79713,7 +79668,7 @@ weq
 sig
 ybp
 nnr
-lcG
+rnA
 kGX
 kGX
 kGX

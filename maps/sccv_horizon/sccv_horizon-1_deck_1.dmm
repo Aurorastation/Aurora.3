@@ -8042,18 +8042,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
-"fEu" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
 "fEy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -9917,10 +9905,6 @@
 /area/hangar/canary)
 "gOP" = (
 /obj/effect/floor_decal/corner/dark_green/full,
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -15550,9 +15534,6 @@
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -28963,10 +28944,6 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ueg" = (
@@ -63011,7 +62988,7 @@ hUC
 qwT
 fZu
 lPW
-fEu
+hot
 mSq
 adX
 bJa
