@@ -8,6 +8,8 @@
 	id = "tajara_safehouse"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/tajara_safehouse
 	map = "abandoned outpost"
 	descriptor = "A derelict space outpost."

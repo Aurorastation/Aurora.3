@@ -73,9 +73,9 @@ SUBSYSTEM_DEF(holomap)
 		if (rock_tcache[Ttype])
 			continue
 		if (obstacle_tcache[Ttype] || (T.contents.len && locate(/obj/structure/grille, T)))
-			canvas.DrawBox(HOLOMAP_OBSTACLE, T.x, T.y)
+			canvas.DrawBox(HOLOMAP_OBSTACLE + "DD", T.x, T.y)
 		else if(path_tcache[Ttype] || (T.contents.len && locate(/obj/structure/lattice/catwalk, T)))
-			canvas.DrawBox(HOLOMAP_PATH, T.x, T.y)
+			canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
 
 		CHECK_TICK
 
@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(holomap)
 		T = thing
 		A = T.loc
 		if (A.holomap_color)
-			canvas.DrawBox(A.holomap_color, T.x, T.y)
+			canvas.DrawBox(A.holomap_color + "99", T.x, T.y)
 
 	var/icon/map_base = icon(minimaps[zlevel])
 	map_base.Blend(HOLOMAP_HOLOFIER, ICON_MULTIPLY)

@@ -1,5 +1,6 @@
+import { paginate } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section } from '../components';
+import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -9,6 +10,7 @@ export type MapData = {
   user_z: number;
   station_levels: number[];
   z_override: number;
+  dept_colors_map: { d: string; c: string }[];
 };
 
 export const Map = (props, context) => {
@@ -20,6 +22,12 @@ export const Map = (props, context) => {
     100
   );
 
+  const [showLegend, setShowLegend] = useLocalState<boolean>(
+    context,
+    `showLegend`,
+    false
+  );
+
   const map_size = 255;
   const zoom_mod = minimapZoom / 100.0;
 
@@ -27,32 +35,51 @@ export const Map = (props, context) => {
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
-          <Section fitted>
-            <Tabs>
-              <Tabs.Tab>Levels: </Tabs.Tab>
-              {data.station_levels?.map((station_level) => (
-                <Tabs.Tab
-                  key={station_level}
-                  width="50px"
-                  backgroundColor={
-                    data.z_override === station_level ? '#4972a1' : null
-                  }
-                  icon={data.user_z === station_level ? 'user' : 'minus'}
-                  onClick={() =>
-                    act('z_override', { z_override: station_level })
-                  }>
-                  {station_level}
-                </Tabs.Tab>
-              ))}
-              {data.z_override ? (
-                <Tabs.Tab onClick={() => act('z_override', { z_override: 0 })}>
-                  Clear Override
-                </Tabs.Tab>
-              ) : (
-                ''
-              )}
-            </Tabs>
-          </Section>
+          <Tabs>
+            <Tabs.Tab>Levels: </Tabs.Tab>
+            {data.station_levels?.map((station_level) => (
+              <Tabs.Tab
+                key={station_level}
+                width="50px"
+                backgroundColor={
+                  data.z_override === station_level ? '#4972a1' : null
+                }
+                icon={data.user_z === station_level ? 'user' : 'minus'}
+                onClick={() =>
+                  act('z_override', { z_override: station_level })
+                }>
+                {station_level}
+              </Tabs.Tab>
+            ))}
+            {data.z_override ? (
+              <Tabs.Tab
+                icon="filter-circle-xmark"
+                onClick={() => act('z_override', { z_override: 0 })}>
+                Clear Override
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}
+            <Tabs.Tab
+              icon="fa-circle-question"
+              onClick={() => setShowLegend(!showLegend)}>
+              {showLegend ? 'Hide Legend' : 'Show Legend'}
+            </Tabs.Tab>
+          </Tabs>
+          {showLegend ? (
+            <NoticeBox color="grey">
+              <Table>
+                {paginate(data.dept_colors_map, 2).map((a) => (
+                  <Table.Row key={a}>
+                    <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
+                    <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
+                  </Table.Row>
+                ))}
+              </Table>
+            </NoticeBox>
+          ) : (
+            ''
+          )}
           <Slider
             animated
             step={1}
