@@ -1259,6 +1259,13 @@
 /mob/living/heavy_vehicle/premade/superheavy,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"eJ" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_cop";
+	identifier = "konyang_cop"
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "eN" = (
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
@@ -3493,6 +3500,16 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"nT" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_senior_cop";
+	identifier = "konyang_senior_cop"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/police)
 "nV" = (
 /obj/structure/stairs_lower{
 	dir = 4;
@@ -4890,6 +4907,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
+"tT" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_bar";
+	identifier = "konyang_bar"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/bar)
 "tW" = (
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
@@ -11030,6 +11054,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"TT" = (
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_cop";
+	identifier = "konyang_cop"
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "TZ" = (
 /obj/structure/boat,
 /obj/effect/step_trigger/thrower{
@@ -12002,6 +12034,10 @@
 "Yg" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_superintendent";
+	identifier = "konyang_superintendent"
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
@@ -21001,7 +21037,7 @@ rf
 rf
 lC
 AR
-nq
+nT
 wL
 mO
 ai
@@ -22029,7 +22065,7 @@ rf
 rf
 Ir
 eq
-ch
+TT
 mO
 mO
 ai
@@ -22286,7 +22322,7 @@ rf
 rf
 Ir
 Ib
-AN
+eJ
 AN
 Te
 lC
@@ -38972,7 +39008,7 @@ iw
 sZ
 mj
 eN
-eN
+tT
 eN
 oQ
 sZ

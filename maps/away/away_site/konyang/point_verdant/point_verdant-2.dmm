@@ -2246,6 +2246,10 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_ee";
+	identifier = "konyang_ee"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "ha" = (
@@ -8257,6 +8261,10 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_pharm";
+	identifier = "konyang_pharm"
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "yO" = (
@@ -11853,6 +11861,13 @@
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
+"Jr" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_gwok";
+	identifier = "konyang_gwok"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior)
 "Js" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16
@@ -16584,6 +16599,10 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_ee";
+	identifier = "konyang_ee"
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "XE" = (
@@ -16878,6 +16897,16 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
+"YH" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_zh";
+	identifier = "konyang_zh"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/offices)
 "YI" = (
 /obj/structure/stairs/urban,
 /turf/simulated/floor/wood,
@@ -29229,7 +29258,7 @@ Al
 rw
 ci
 FP
-gW
+YH
 ci
 ci
 lI
@@ -32063,7 +32092,7 @@ rB
 ms
 hX
 SN
-gW
+YH
 mm
 ci
 oP
@@ -50876,7 +50905,7 @@ jV
 po
 xb
 CI
-Yx
+Jr
 VD
 iP
 zC
