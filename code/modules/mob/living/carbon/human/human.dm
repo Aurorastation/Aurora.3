@@ -667,7 +667,7 @@
 				var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel"), R.physical_status)
 
 				if(hasHUD(usr,"medical"))
-					if(setmedical != "Cancel")
+					if(!isnull(setmedical) && setmedical != "Cancel")
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
