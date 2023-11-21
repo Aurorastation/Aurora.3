@@ -27,43 +27,42 @@
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1
 	name = "Third Deck Starboard Dock 1"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
-	docking_controller = "nuke_shuttle_dock_airlock"
+	docking_controller = "airlock_horizon_dock_deck_3_starboard_1"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
-
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2
 	name = "Third Deck Starboard Dock 2"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
-	docking_controller = "dock_horizon_1_airlock"
+	docking_controller = "airlock_horizon_dock_deck_3_starboard_2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3
 	name = "Third Deck Starboard Dock 3"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
-	docking_controller = "dock_horizon_3_airlock"
+	docking_controller = "airlock_horizon_dock_deck_3_starboard_3"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1
 	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_horizon_dock_deck_3_port_2"
-	docking_controller = "green_dock_aft_airlock"
+	docking_controller = "airlock_horizon_dock_deck_3_port_2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_2
 	name = "Third Deck Port Dock 2"
 	landmark_tag = "nav_horizon_dock_deck_3_port_4"
-	docking_controller = "dock_horizon_4_airlock"
+	docking_controller = "airlock_horizon_dock_deck_3_port_4"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_3
 	name = "Third Deck Port Dock 3"
 	landmark_tag = "nav_horizon_dock_deck_3_port_5"
-	docking_controller = "specops_dock_airlock"
+	docking_controller = "airlock_horizon_dock_deck_3_port_5"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 

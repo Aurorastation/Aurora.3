@@ -216,6 +216,7 @@
 	display_name = "blue raspberry bush"
 	mutants = list("berries","poisonberries","glowberries")
 	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/blueraspberryjuice = list(10,10))
+	kitchen_tag = "blue raspberry"
 
 /datum/seed/berry/raspberry/blue/setup_traits()
 	..()
