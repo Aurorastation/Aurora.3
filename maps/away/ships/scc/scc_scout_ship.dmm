@@ -254,7 +254,10 @@
 /area/ship/scc_scout_ship/mess)
 "bp" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/hydroponics)
 "bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -601,6 +604,12 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
 "dG" = (
@@ -754,6 +763,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/mess)
+"eB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship/maint_propulsion_port)
 "eG" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -879,10 +904,11 @@
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/mess)
 "fr" = (
-/obj/machinery/mech_recharger/hephaestus,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
@@ -1184,22 +1210,38 @@
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/ship/scc_scout_ship/maint_atmos)
+"gN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship/maint_propulsion_port)
 "gP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "gU" = (
-/obj/structure/sign/nosmoking_2{
-	pixel_x = -32;
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/toolcloset,
 /obj/random/dirt_75,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 28;
+	pixel_x = -8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "gV" = (
@@ -1316,6 +1358,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/device/analyzer{
+	pixel_x = 7;
+	pixel_y = -7
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "hJ" = (
@@ -1463,9 +1509,6 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "jH" = (
-/obj/machinery/door/airlock/glass{
-	dir = 4
-	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -1473,6 +1516,15 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/glass_service{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
 "jN" = (
@@ -1597,6 +1649,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "ko" = (
@@ -1819,10 +1874,10 @@
 "lJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "lK" = (
@@ -2199,6 +2254,9 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "nT" = (
@@ -2254,6 +2312,10 @@
 "oa" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "oc" = (
@@ -2263,12 +2325,6 @@
 /turf/simulated/wall/r_wall,
 /area/ship/scc_scout_ship/maint_atmos)
 "om" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/extinguisher_cabinet/north,
 /obj/structure/cable{
@@ -2276,6 +2332,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
@@ -2362,7 +2424,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/eva)
 "oK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -2371,6 +2432,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -3663,10 +3727,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "xx" = (
@@ -3882,7 +3949,7 @@
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "yU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_recharger/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "za" = (
@@ -4355,6 +4422,12 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "Dl" = (
@@ -4647,6 +4720,9 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "FB" = (
@@ -4709,6 +4785,7 @@
 /area/ship/scc_scout_ship/mess)
 "Gd" = (
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Gi" = (
@@ -4766,6 +4843,8 @@
 "GE" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "GM" = (
@@ -6699,6 +6778,12 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
 "VO" = (
@@ -7278,7 +7363,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/hydroponics)
 "YZ" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -41947,7 +42035,7 @@ Ca
 Au
 TW
 pP
-gU
+XT
 Oo
 gz
 Xp
@@ -42201,10 +42289,10 @@ Ok
 TH
 Xv
 Gd
-Au
+gN
 sT
 pP
-XT
+gU
 cW
 am
 Xp
@@ -42458,7 +42546,7 @@ hu
 hu
 hu
 sJ
-Au
+eB
 dJ
 pP
 XT
