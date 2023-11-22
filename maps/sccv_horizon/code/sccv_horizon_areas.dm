@@ -829,7 +829,6 @@
 	icon_state = "zta"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
-	flags = HIDE_FROM_HOLOMAP
 	area_blurb = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
