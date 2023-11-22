@@ -499,6 +499,13 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"kk" = (
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/space)
 "km" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall{
@@ -514,6 +521,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/turf/simulated/floor,
+/area/space)
+"kr" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
 "kI" = (
@@ -828,6 +842,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
+"rm" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
 "rn" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -1036,6 +1057,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"um" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "ux" = (
 /obj/structure/closet/cabinet,
@@ -1275,6 +1304,13 @@
 /obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/wood,
 /area/space)
+"zr" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
 "zu" = (
 /obj/structure/closet/crate,
 /obj/random/tool,
@@ -1343,6 +1379,13 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"zX" = (
+/obj/random/dirt_75,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/space)
 "Ac" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -1404,6 +1447,7 @@
 /obj/item/tank/oxygen{
 	pixel_x = -10
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
 "AM" = (
@@ -1571,6 +1615,12 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"EY" = (
+/obj/structure/toilet{
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Fh" = (
 /turf/simulated/floor/reinforced/airless,
@@ -1841,6 +1891,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
+/area/space)
+"Jg" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Ji" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -2338,9 +2396,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Sp" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty,
-/turf/simulated/floor,
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Su" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -2423,6 +2482,13 @@
 /obj/random/colored_jumpsuit,
 /obj/random/action_figure,
 /turf/simulated/floor/tiled,
+/area/space)
+"Uj" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/space)
 "Uk" = (
 /obj/item/clothing/suit/space/emergency,
@@ -22320,7 +22386,7 @@ Wl
 Zi
 wj
 wj
-wj
+pT
 wj
 wj
 Dh
@@ -24630,11 +24696,11 @@ wj
 wj
 wj
 wj
+pT
 wj
 wj
 wj
-wj
-wj
+pT
 wj
 kq
 Qv
@@ -25660,7 +25726,7 @@ Dh
 Dh
 Dh
 Dh
-wj
+dt
 Dh
 Dh
 qK
@@ -27463,7 +27529,7 @@ dV
 Dh
 wj
 qK
-io
+Uj
 wj
 wj
 wj
@@ -27720,8 +27786,8 @@ pJ
 Dh
 wj
 qK
-Pk
-vO
+kr
+Hv
 NG
 vO
 av
@@ -27958,7 +28024,7 @@ wj
 wj
 wj
 wj
-io
+Uj
 Ap
 wj
 wj
@@ -28214,8 +28280,8 @@ BT
 av
 vO
 NG
-vO
-QW
+Hv
+zr
 RI
 cf
 qx
@@ -37991,7 +38057,7 @@ OM
 gs
 wj
 wj
-pT
+wj
 wj
 wj
 Dh
@@ -38247,10 +38313,10 @@ wj
 pT
 wj
 wj
-Dh
-Dh
-Dh
-wj
+um
+um
+um
+dt
 Dh
 Dh
 Dh
@@ -38504,9 +38570,9 @@ cf
 qK
 cf
 wj
-Dh
-Dh
-Dh
+qK
+OM
+TQ
 wj
 wj
 wj
@@ -38761,12 +38827,12 @@ qK
 OM
 qK
 dt
-Dh
-Dh
-Dh
+OM
+qK
+TQ
 wj
 Sp
-Sp
+TQ
 wj
 pT
 wj
@@ -39018,12 +39084,12 @@ pT
 wj
 wj
 wj
-Dh
-Dh
-Dh
+wj
+wj
+TQ
 wj
 Sp
-Sp
+TQ
 wj
 Dh
 Dh
@@ -39275,12 +39341,12 @@ qK
 Pl
 pb
 wj
-Dh
-Dh
-Dh
+EY
+kk
+TQ
 wj
 Sp
-PP
+TQ
 wj
 Dh
 Dh
@@ -39532,13 +39598,13 @@ OM
 OM
 HK
 wj
-Dh
-Dh
-Dh
-dt
-Dh
-Dh
-Dh
+wj
+wj
+TQ
+zX
+TQ
+TQ
+wj
 Dh
 Dh
 dt
@@ -39789,13 +39855,13 @@ gs
 Qb
 gs
 wj
-Dh
-Dh
-Dh
+EY
+zX
+TQ
 wj
-Dh
-Dh
-Dh
+Jg
+Jg
+wj
 Dh
 Dh
 wj
@@ -40048,9 +40114,9 @@ wj
 wj
 wj
 wj
-wj
-wj
 pT
+wj
+wj
 wj
 wj
 Dh
@@ -41079,7 +41145,7 @@ Dh
 Dh
 Dh
 Dh
-wj
+dt
 Dh
 Dh
 Dh
@@ -43373,7 +43439,7 @@ Zi
 wj
 io
 qK
-qK
+qx
 qK
 Ap
 Np
@@ -43398,7 +43464,7 @@ Dh
 wj
 HJ
 pI
-Dh
+qK
 Ap
 wj
 Uk
@@ -43630,7 +43696,7 @@ Zi
 MZ
 Pk
 vO
-vO
+NG
 vO
 vO
 Kg
@@ -43655,7 +43721,7 @@ Su
 wj
 HJ
 DX
-Dh
+qK
 Ap
 wj
 Hj
@@ -43887,7 +43953,7 @@ sg
 wj
 eY
 Qm
-OM
+wj
 qK
 lY
 vO
@@ -43913,7 +43979,7 @@ wj
 HJ
 Kg
 AE
-pI
+rm
 wj
 Uk
 FW
@@ -44144,9 +44210,9 @@ Zi
 wj
 wj
 wj
-OM
-qK
-io
+wj
+Qv
+kq
 wj
 wj
 wj
@@ -44169,8 +44235,8 @@ Su
 wj
 HJ
 vO
-pI
-io
+rm
+Uj
 wj
 Uk
 OM
