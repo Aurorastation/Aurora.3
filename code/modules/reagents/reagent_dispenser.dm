@@ -77,11 +77,11 @@
 				START_PROCESSING(SSprocessing,src)
 
 		else if(accept_any_reagent)
-			if(flags & OPENCONTAINER)
+			if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
 				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."), SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
 			else
 				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."), SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
-			flags ^= OPENCONTAINER
+			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 			return
 
 /obj/structure/reagent_dispensers/process()

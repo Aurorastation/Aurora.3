@@ -22,7 +22,7 @@
 	use_common = TRUE
 
 /area/grand_romanovich
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE

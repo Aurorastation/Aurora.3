@@ -59,7 +59,7 @@
 	if(deployed || ignore_deployment)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(H.shoes?.item_flags & LIGHTSTEP)
+			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 				..()
 				return
 		if(isliving(AM))
