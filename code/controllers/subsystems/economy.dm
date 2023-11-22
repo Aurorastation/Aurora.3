@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/economy/SSeconomy
-
-/datum/controller/subsystem/economy
+SUBSYSTEM_DEF(economy)
 	name = "Economy"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
@@ -10,9 +8,6 @@ var/datum/controller/subsystem/economy/SSeconomy
 	var/list/all_money_accounts = list()
 	var/num_financial_terminals = 1
 	var/next_account_number = 0
-
-/datum/controller/subsystem/economy/New()
-	NEW_SS_GLOBAL(SSeconomy)
 
 /datum/controller/subsystem/economy/Initialize(timeofday)
 	next_account_number = rand(111111, 999999)
@@ -40,7 +35,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 /**
  * Account Creation
  */
- //Create the station Account
+
+///Create the station Account
 /datum/controller/subsystem/economy/proc/create_station_account()
 	if(station_account)
 		return FALSE

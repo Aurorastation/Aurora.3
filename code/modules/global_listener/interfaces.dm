@@ -2,7 +2,7 @@
 // -- Global Listeners --
 /*
 This is basically just a simple way to add a reference to an object to an automatically maintained & named global list.
- Lists are indexed by a string ID, and the lists can contain any /datum type.
+Lists are indexed by a string ID, and the lists can contain any /datum type.
 
 Creating a listener:
 

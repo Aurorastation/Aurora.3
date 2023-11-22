@@ -7,8 +7,14 @@
 	var/obj/item/device/electronic_assembly/device/EA
 
 /obj/item/device/assembly/electronic_assembly/Initialize()
+	. = ..()
 	EA = new(src)
 	EA.holder = src
+
+/obj/item/device/assembly/electronic_assembly/Destroy()
+	EA.holder = null
+	QDEL_NULL(EA)
+
 	. = ..()
 
 /obj/item/device/assembly/electronic_assembly/attackby(obj/item/I, mob/user)
@@ -46,7 +52,7 @@
 			I.do_work()
 
 /obj/item/device/assembly/electronic_assembly/examine(mob/user)
-	. = ..(user, 1)
+	. = ..()
 	if(EA)
 		for(var/obj/item/integrated_circuit/IC in EA.contents)
 			IC.external_examine(user)
@@ -63,17 +69,34 @@
 	name = "electronic device"
 	icon_state = "setup_device"
 	desc = "It's a tiny electronic device with specific use for attaching to other devices."
-	var/obj/item/device/assembly/electronic_assembly/holder
 	w_class = ITEMSIZE_TINY
 	max_components = IC_COMPONENTS_BASE * 3/4
 	max_complexity = IC_COMPLEXITY_BASE * 3/4
 
+	var/obj/item/device/assembly/electronic_assembly/holder
+	var/obj/item/integrated_circuit/built_in/device_input/input
+	var/obj/item/integrated_circuit/built_in/device_output/output
+
+
 /obj/item/device/electronic_assembly/device/Initialize()
 	. = ..()
-	var/obj/item/integrated_circuit/built_in/device_input/input = new(src)
-	var/obj/item/integrated_circuit/built_in/device_output/output = new(src)
-	input.assembly = src
-	output.assembly = src
+
+	src.input = new(src)
+	src.output = new(src)
+
+	src.input.assembly = src
+	src.output.assembly = src
+
+/obj/item/device/electronic_assembly/device/Destroy()
+	src.holder = null
+
+	src.input.assembly = null
+	src.output.assembly = null
+
+	QDEL_NULL(src.input)
+	QDEL_NULL(src.output)
+
+	. = ..()
 
 /obj/item/device/electronic_assembly/device/check_interactivity(mob/user)
 	if(!CanInteract(user, state = deep_inventory_state))

@@ -21,7 +21,7 @@
 /area/magshield/engine
 	name = "Orbital Station Engine"
 	icon_state = "engine"
-	
+
 /area/magshield/smes_storage
 	name = "Orbital Station SMES Battery Room"
 	icon_state = "smes_storage"

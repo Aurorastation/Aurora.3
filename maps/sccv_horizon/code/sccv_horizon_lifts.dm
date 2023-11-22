@@ -81,6 +81,10 @@
 	waypoint_station = "nav_morgue_lift_bottom"
 	waypoint_offsite = "nav_morgue_lift_top"
 
+/obj/effect/shuttle_landmark/lift
+	name = "ABSTRACT DEF; DO NOT USE THIS"
+	icon_state = "lift_landmark"
+
 /obj/effect/shuttle_landmark/lift/morgue_top
 	name = "Morgue Top"
 	landmark_tag = "nav_morgue_lift_top"

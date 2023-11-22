@@ -70,7 +70,7 @@
 		qdel(src)
 
 /obj/item/device/modkit/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "It looks as though it modifies voidsuits to fit [target_species] users.")
 
 /obj/item/device/modkit/tajaran
@@ -342,6 +342,30 @@
 		/obj/item/clothing/suit/space/void/zenghu/skrell = /obj/item/clothing/suit/space/void/zenghu
 	)
 
+/obj/item/voidsuit_modkit/nexus
+	name = "\improper Nexus voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a NanoTrasen hardsuit into its Nexus variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on a hardsuit with this item \
+	The same process can be used to convert the hardsuit back into a regular hardsuit. Make sure not to have any modules in the suit \
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/rig/nanotrasen = /obj/item/rig/nanotrasen/nexus,
+		/obj/item/rig/nanotrasen/nexus = /obj/item/rig/nanotrasen
+	)
+
+/obj/item/voidsuit_modkit/nt_auxiliary
+	name = "\improper NanoTrasen corporate auxiliary voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a NanoTrasen hardsuit into its corporate auxiliary variant. Wow!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on a hardsuit with this item \
+	The same process can be used to convert the hardsuit back into a regular hardsuit. Make sure not to have any modules in the suit \
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/rig/nanotrasen = /obj/item/rig/nanotrasen/corporate_auxiliary,
+		/obj/item/rig/nanotrasen/corporate_auxiliary = /obj/item/rig/nanotrasen
+	)
+
 /obj/item/storage/box/srf
 	name = "srf modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
@@ -396,6 +420,16 @@
 	name = "hiskyn revanchists modkit box"
 	desc = "Contains modkits to convert Unathi pirate voidsuits into a Hiskyn Revanchist variant."
 	starts_with = list(/obj/item/voidsuit_modkit/hiskyn = 4)
+
+/obj/item/storage/box/nanotrasen_nexus
+	name = "\improper Nexus modkit box"
+	desc = "Contains modkits to convert NanoTrasen hardsuits into a Nexus variant."
+	starts_with = list(/obj/item/voidsuit_modkit/nexus = 4)
+
+/obj/item/storage/box/nanotrasen_auxiliary
+	name = "\improper NanoTrasen corporate auxiliary modkit box"
+	desc = "Contains modkits to convert NanoTrasen hardsuits into an NT corporate auxiliary variant."
+	starts_with = list(/obj/item/voidsuit_modkit/nt_auxiliary = 4)
 
 
 #undef MODKIT_HELMET

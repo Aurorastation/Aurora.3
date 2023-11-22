@@ -6,9 +6,9 @@
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lights.dmi'
-	var/base_state = "tube"
-	icon_state = "tube_example"
+	icon = 'icons/obj/machinery/light.dmi'
+	var/base_state = "tube"		// base description and icon_state
+	icon_state = "tube_empty"
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
@@ -83,8 +83,7 @@
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	name = "small light fixture"
-	icon_state = "bulb_example"
+	icon_state = "bulb_empty"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
@@ -137,8 +136,7 @@
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"
-	icon_state = "slight_example"
-	base_state = "slight"
+	icon_state = "tube_empty"
 	desc = "An extremely powerful lighting fixture."
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
@@ -178,6 +176,7 @@
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
+
 	if (!has_power())
 		stat |= NOPOWER
 	if (start_with_cell && !no_emergency)
@@ -199,10 +198,19 @@
 		brightness_color = pick(randomized_colors)
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
+	set_pixel_offsets()
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(cell)
 	return ..()
+
+/obj/machinery/light/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
+
+/obj/machinery/light/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
 
 /obj/machinery/light/update_icon()
 	cut_overlays()
@@ -625,8 +633,6 @@
 	status = LIGHT_BROKEN
 	stat |= BROKEN
 	update()
-	if (!skip_sound_and_sparks)
-		CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/shatter()
 	if(status == LIGHT_EMPTY)

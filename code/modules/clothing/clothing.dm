@@ -536,7 +536,7 @@
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -638,7 +638,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_HEAD]"
+		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_HEAD]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -806,12 +806,12 @@
 	update_clothing_icon()
 
 /obj/item/clothing/mask/proc/adjust_sprites()
-    if(hanging)
-        icon_state = "[icon_state]down"
-        item_state = "[item_state]down"
-    else
-        icon_state = initial(icon_state)
-        item_state = initial(item_state)
+	if(hanging)
+		icon_state = "[icon_state]down"
+		item_state = "[item_state]down"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 /obj/item/clothing/mask/proc/lower_message(mob/user)
 	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
@@ -827,11 +827,6 @@
 //Shoes
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'icons/obj/clothing/shoes.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_shoes.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_shoes.dmi'
-		)
 	desc = "Comfortable-looking shoes."
 	species_sprite_adaption_type = WORN_SHOES
 	gender = PLURAL //Carn: for grammarically correct text-parsing
@@ -863,7 +858,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(usr.stat || usr.restrained() || usr.incapacitated())
+	if(use_check_and_message(usr))
 		return
 
 	holding.forceMove(get_turf(usr))
@@ -998,7 +993,7 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
@@ -1006,7 +1001,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_SUIT]"
+		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_SUIT]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -1183,7 +1178,7 @@
 	var/image/our_image
 	if(contained_sprite)
 		auto_adapt_species(src)
-		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_UNDER]"
+		var/state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][WORN_UNDER]"
 		our_image = image(icon_override || icon, state)
 	else if(icon_override)
 		our_image = image(icon_override, icon_state)
@@ -1200,8 +1195,8 @@
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
-/obj/item/clothing/under/examine(mob/user)
-	..(user)
+/obj/item/clothing/under/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	switch(src.sensor_mode)
 		if(0)
 			to_chat(user, "Its sensors appear to be disabled.")
@@ -1225,7 +1220,7 @@
 		return 0
 
 	var/list/modes = list("Off", "Binary sensors", "Vitals tracker", "Tracking beacon")
-	var/switchMode = input("Select a sensor mode:", "Suit Sensor Mode", modes[sensor_mode + 1]) in modes
+	var/switchMode = tgui_input_list(usr, "Select a sensor mode.", "Suit Sensor Mode", modes)
 	if(get_dist(usr, src) > 1)
 		to_chat(usr, "You have moved too far away.")
 		return

@@ -4,10 +4,7 @@
 /obj/item/material/knife
 	name = "kitchen knife"
 	icon = 'icons/obj/kitchen.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT
@@ -22,6 +19,7 @@
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
@@ -46,7 +44,7 @@
 	for(var/thing in H.organs)
 		var/obj/item/organ/external/O = thing
 		available_organs[capitalize_first_letters(O.name)] = O
-	var/choice = input(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection") as null|anything in available_organs
+	var/choice = tgui_input_list(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection", available_organs)
 	if(!choice)
 		return
 

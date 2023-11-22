@@ -43,7 +43,7 @@
 /obj/structure/cable{
 	dir = 8
 	},
-/obj/machinery/power/apc/super{
+/obj/machinery/power/apc/super/south{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,

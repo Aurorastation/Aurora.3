@@ -345,9 +345,120 @@
 	if(!M.chem_effects[CE_STRAIGHTWALK])
 		M.confused = max(M.confused, 6)
 
+/singleton/reagent/morphine
+	name = "Morphine"
+	description = "Morphine is a very strong medication derived from the opium plant. It is extremely effective at treating severe pain. The drug is highly addictive and sense-numbing. Unlike other painkillers, morphine can be inhaled."
+	reagent_state = LIQUID
+	color = "#5c4033"
+	overdose = 20
+	od_minimum_dose = 2
+	specific_heat = 1
+	scannable = TRUE
+	metabolism = REM / 3.33 // 0.06ish units per tick
+	ingest_met = REM / 1.5 // Should be 0.13 units per tick
+	breathe_met = REM * 4 // .8 units per tick
+	specific_heat = 1.2
+
+/singleton/reagent/morphine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
+
+/singleton/reagent/morphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 120)
+		M.add_chemical_effect(CE_SLOWDOWN, 1)
+		if(!M.chem_effects[CE_CLEARSIGHT])
+			M.eye_blurry = max(M.eye_blurry, 5)
+		if(!M.chem_effects[CE_STRAIGHTWALK])
+			M.confused = max(M.confused, 15)
+
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.druggy = max(M.druggy, bac * 100)
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+	if(bac >= 0.04)
+		if(prob(3))
+			to_chat(M, SPAN_WARNING(pick("You're having trouble breathing.", "You begin to feel a bit light headed.", "Your breathing is very shallow.", "")))
+		if(M.losebreath < 15)
+			M.losebreath++
+
+/singleton/reagent/morphine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	..()
+	M.druggy = max(M.druggy, 20)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+	if(M.losebreath < 15)
+		M.losebreath++
+
+/singleton/reagent/tramarine
+	name = "Tramarine"
+	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opiods, or an overdose."
+	reagent_state = LIQUID
+	color = "#c4a05d"
+	overdose = 20
+	od_minimum_dose = 2
+	scannable = TRUE
+	metabolism = REM / 3.33 // 0.06ish units per tick
+	ingest_met = REM / 1.5 // Should be 0.13 units per tick
+	breathe_met = REM * 4 // .8 units per tick
+
+/singleton/reagent/tramarine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
+
+/singleton/reagent/tramarine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 90)
+		M.add_chemical_effect(CE_SLOWDOWN, 2)
+		if(!M.chem_effects[CE_CLEARSIGHT])
+			M.eye_blurry = max(M.eye_blurry, 5)
+		if(!M.chem_effects[CE_STRAIGHTWALK])
+			M.confused = max(M.confused, 15)
+		if(prob(7))
+			M.emote(pick("twitch", "drool", "moan", "gasp"))
+
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.druggy = max(M.druggy, bac * 100)
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+	if(bac >= 0.04)
+		if(prob(3))
+			to_chat(M, SPAN_WARNING(pick("You're having trouble breathing.", "You begin to feel a bit light headed.", "Your breathing is very shallow.", "")))
+		if(M.losebreath < 15)
+			M.losebreath++
+		M.bodytemperature = max(M.bodytemperature + 1 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+		M.add_chemical_effect(CE_PULSE, 2)
+		if(prob(3))
+			to_chat(M, SPAN_WARNING(pick("You feel so hot...", "Why is it so hot!?")))
+
+/singleton/reagent/tramarine/overdose(mob/living/carbon/M, alien, datum/reagents/holder)
+	..()
+	M.druggy = max(M.druggy, 20)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+	if(M.losebreath < 15)
+		M.losebreath++
+	M.bodytemperature = max(M.bodytemperature + 1 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+	M.add_chemical_effect(CE_PULSE, 2)
+	if(prob(3))
+		to_chat(M, SPAN_WARNING(pick("You feel so hot...", "Why is it so hot!?")))
+	M.make_jittery(10)
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(10)
+
 /singleton/reagent/oxycomorphine
 	name = "Oxycomorphine"
-	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
+	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Unlike other painkillers, oxycomorphine can be inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 10
@@ -358,7 +469,6 @@
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
 	metabolism_min = 0.005
-	breathe_mul = 0
 
 /singleton/reagent/oxycomorphine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
@@ -369,6 +479,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 200)
+		M.add_chemical_effect(CE_SLOWDOWN, 2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -416,7 +527,7 @@
 		M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
-	holder.remove_reagent(/singleton/reagent/mindbreaker, 5)
+	holder.remove_reagent(/singleton/reagent/drugs/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
 	M.eye_blurry = max(M.eye_blurry - 5, 0)
 	M.confused = max(M.confused - 10, 0)
@@ -1001,7 +1112,6 @@
 	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
 		to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
 
-	LAZYINITLIST(holder.reagent_data)
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
 
 /singleton/reagent/mental/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -1020,9 +1130,28 @@
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
 
 /singleton/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
-	. = ..()
+	..()
 	M.adjustOxyLoss(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
+
+/singleton/reagent/mental/caromeg
+	name = "Caromeg"
+	description = "Caromeg is a stimulant commonly found in oracle products. It encourages sociability and pleasure, but in high doses can promote paranoia, severe fever, and brain damage."
+	reagent_state = LIQUID
+	color = "#230101"
+	metabolism = 0.0016 * REM
+	overdose = 15
+	od_minimum_dose = 3
+	taste_description = "sour staleness"
+	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
+	goodmessage = list("You feel like talking a bit more.", "You feel better than usual.", "Your anxieties disappear.")
+
+/singleton/reagent/mental/caromeg/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
+	..()
+	M.bodytemperature = max(M.bodytemperature + 1 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+	M.add_chemical_effect(CE_NEUROTOXIC, 1 * removed * scale)
+	if (prob(3))
+		to_chat(M, SPAN_DANGER(pick("Everyone around you is plotting against you...", "They are laughing at you, not with you...", "They'll kill you if you're not careful...", "You can't trust anybody...")))
 
 /singleton/reagent/mental/corophenidate
 	name = "Corophenidate"
@@ -1523,6 +1652,17 @@
 			var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
 			M.add_chemical_effect(CE_CARDIOTOXIC, heart.max_damage * 0.05)
 
+/singleton/reagent/menthol
+	name = "Menthol"
+	description = "Tastes naturally minty, and imparts a very mild numbing sensation."
+	taste_description = "mint"
+	reagent_state = LIQUID
+	color = "#80af9c"
+	metabolism = REM * 0.002
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	specific_heat = 1.0
+
 //Secret Chems
 /singleton/reagent/elixir
 	name = "Elixir of Life"
@@ -1607,7 +1747,7 @@
 /singleton/reagent/kilosemine
 	name = "Kilosemine"
 	description = "An illegal stimulant, known by specialists for its properties that somehow mix the effects of Synaptizine and Hyperzine without the immediate side \
-				   effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
+					effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
 	reagent_state = SOLID
 	scannable = TRUE
 	color = "#EE4B2B"
@@ -1640,7 +1780,7 @@
 	var/mob/living/carbon/human/H = M
 	if(prob(H.chem_doses[type] / 2))
 		to_chat(H, SPAN_WARNING(pick("You feel like you're on limited time...", "Something in the left side of your chest feels like it's bursting!",
-									 "You feel like today is your last day, and you should make it count...")))
+										"You feel like today is your last day, and you should make it count...")))
 	if(prob(H.chem_doses[type] / 3))
 		if(prob(75))
 			H.emote(pick("twitch", "shiver"))

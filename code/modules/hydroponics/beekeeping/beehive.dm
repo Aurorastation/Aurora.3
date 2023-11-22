@@ -46,10 +46,10 @@
 			if(81 to 100)
 				add_overlay("bees3")
 
-/obj/machinery/beehive/examine(mob/user)
-	..()
+/obj/machinery/beehive/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	to_chat(user, SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames."))
-	if(user.Adjacent(src))
+	if(is_adjacent)
 		if(bee_count)
 			if(closed)
 				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src].")))

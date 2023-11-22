@@ -92,9 +92,9 @@
 	return
 
 
-/obj/item/device/assembly/examine(mob/user)
+/obj/item/device/assembly/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(. && (in_range(src, user) || loc == user))
+	if(distance <= 1 || loc == user)
 		if(secured)
 			to_chat(user, "\The [src] is ready!")
 		else

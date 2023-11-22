@@ -10,11 +10,16 @@
 	path = /obj/item/clothing/accessory/badge/trinary
 	slot = slot_tie
 
+/datum/gear/religion/trinary/coif
+	display_name = "trinary perfection coif"
+	path = /obj/item/clothing/head/trinary
+	slot = slot_head
+
 /datum/gear/religion/trinary/robe
 	display_name = "trinary perfection robes selection"
 	description = "A selection of robes worn by adherents of the Trinary Perfection."
 	path = /obj/item/clothing/suit/trinary_robes
-	slot = slot_w_uniform
+	slot = slot_wear_suit
 
 /datum/gear/religion/trinary/robe/New()
 	..()
@@ -157,6 +162,22 @@
 	path = /obj/item/clothing/accessory/dominia
 	slot = slot_tie
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/religion/dominia/accessory/lyodii
+	display_name = "lyodic tribunal necklace"
+	path = /obj/item/clothing/accessory/dominia/lyodii
+
+/datum/gear/religion/dominia/accessory/tic
+	display_name = "retired tribunal investigator card selection"
+	description = "A selection of cards identifying the user as a retired tribunal investigator."
+	path = /obj/item/clothing/accessory/dominia/tic
+
+/datum/gear/religion/dominia/accessory/tic/New()
+	..()
+	var/list/tic_cards = list()
+	tic_cards["retired tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic/retired
+	tic_cards["retired caladius tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic/retired/caladius
+	gear_tweaks += new /datum/gear_tweak/path(tic_cards)
 
 /datum/gear/religion/dominia/medical
 	display_name = "tribunalist medical beret"

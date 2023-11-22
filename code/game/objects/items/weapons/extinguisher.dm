@@ -55,8 +55,9 @@
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
 
-/obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
-	if(!..(user, 2))
+/obj/item/reagent_containers/extinguisher_refill/examine(mob/user, distance) //Copied from inhalers.
+	. = ..()
+	if(!distance <= 2)
 		return
 
 	if(is_open_container())
@@ -126,8 +127,9 @@
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
-/obj/item/extinguisher/examine(mob/user)
-	if(..(user, 0))
+/obj/item/extinguisher/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
 		to_chat(user,"The safety is [safety ? "on" : "off"].")
 	return

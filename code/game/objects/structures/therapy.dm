@@ -22,9 +22,9 @@
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed
 
-/obj/item/pocketwatch/examine(mob/user)
-	..()
-	if (get_dist(src, user) <= 1)
+/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance <= 1)
 		checktime()
 
 /obj/item/pocketwatch/verb/checktime(mob/user)
@@ -123,8 +123,7 @@
 			to_chat(user, "You must stand in whisper range of [H].")
 			return
 
-		text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
-		text = sanitize(text)
+		text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion")
 		if(!text)
 			return
 

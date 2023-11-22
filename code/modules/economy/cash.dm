@@ -76,7 +76,7 @@
 	src.desc = "A bundle of Biesel Standard Credit chips. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
-	var/amount = input(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
+	var/amount = tgui_input_number(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20, worth, 0)
 
 	if(QDELETED(src))
 		return 0
@@ -175,9 +175,9 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/spacecash/ewallet/examine(mob/user)
-	..(user)
-	if (!(user in view(2)) && user!=src.loc) return
+/obj/item/spacecash/ewallet/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance > 2 && user!=src.loc) return
 	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
 
 /obj/item/spacecash/ewallet/lotto

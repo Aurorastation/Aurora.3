@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/zcopy/SSzcopy
-
-/datum/controller/subsystem/zcopy
+SUBSYSTEM_DEF(zcopy)
 	name = "Z-Copy"
 	wait = 1
 	init_order = SS_INIT_ZCOPY

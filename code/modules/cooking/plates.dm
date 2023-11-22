@@ -146,13 +146,13 @@ Plates that can hold your cooking stuff
 		return
 
 /obj/item/reagent_containers/bowl/plate/attack_self(mob/user)
-    if(!user.get_inactive_hand())
-        var/obj/item/reagent_containers/food/snacks/F = holding
-        user.put_in_hands(F)
-        holding = null
-        update_icon()
-        to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
-        return
+	if(!user.get_inactive_hand())
+		var/obj/item/reagent_containers/food/snacks/F = holding
+		user.put_in_hands(F)
+		holding = null
+		update_icon()
+		to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
+		return
 
 /obj/item/reagent_containers/bowl/plate/attack(mob/living/M, mob/living/user, target_zone)
 	if(istype(holding, /obj/item/reagent_containers/food/snacks))
@@ -177,3 +177,9 @@ Plates that can hold your cooking stuff
 		holding.update_icon() // Just to be safe.
 		LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
 	set_overlays(O)
+
+/obj/item/reagent_containers/bowl/zhukamir
+	name = "\improper Zhukamir cauldron"
+	desc = "A small ornamental cauldron used as an altar by the worshippers of Zhukamir, the Ma'ta'ke deity of agriculture and cooking."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "zhukamir"

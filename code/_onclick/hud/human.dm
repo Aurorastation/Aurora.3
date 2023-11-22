@@ -553,3 +553,4 @@
 	var/list/modifiers = params2list(params)
 	if(status_message && modifiers["shift"])
 		to_chat(usr, status_message)
+

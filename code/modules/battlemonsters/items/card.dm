@@ -83,33 +83,33 @@
 /obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title,var/trap,var/spell)
 
 	if(trap)
-		trap_datum = SSbattlemonsters.FindMatchingTrap(trap,TRUE)
+		trap_datum = SSbattle_monsters.FindMatchingTrap(trap,TRUE)
 		update_icon()
 		return
 
 	if(spell)
-		spell_datum = SSbattlemonsters.FindMatchingSpell(spell,TRUE)
+		spell_datum = SSbattle_monsters.FindMatchingSpell(spell,TRUE)
 		update_icon()
 		return
 
 	if(prefix)
-		prefix_datum = SSbattlemonsters.FindMatchingPrefix(prefix,TRUE)
+		prefix_datum = SSbattle_monsters.FindMatchingPrefix(prefix,TRUE)
 	else
-		prefix_datum = SSbattlemonsters.GetRandomPrefix()
+		prefix_datum = SSbattle_monsters.GetRandomPrefix()
 
 	if(root)
-		root_datum = SSbattlemonsters.FindMatchingRoot(root,TRUE)
+		root_datum = SSbattle_monsters.FindMatchingRoot(root,TRUE)
 	else
-		root_datum = SSbattlemonsters.GetRandomRoot()
+		root_datum = SSbattle_monsters.GetRandomRoot()
 
 	var/rarity_score = prefix_datum.rarity_score + root_datum.rarity_score
 
 	if(title)
-		suffix_datum = SSbattlemonsters.FindMatchingSuffix(title,TRUE)
+		suffix_datum = SSbattle_monsters.FindMatchingSuffix(title,TRUE)
 	else if(rarity_score >= 3)
-		suffix_datum = SSbattlemonsters.GetRandomSuffix()
+		suffix_datum = SSbattle_monsters.GetRandomSuffix()
 	else
-		suffix_datum = SSbattlemonsters.FindMatchingSuffix("no_title",TRUE)
+		suffix_datum = SSbattle_monsters.FindMatchingSuffix("no_title",TRUE)
 
 /obj/item/battle_monsters/card/update_icon()
 
@@ -164,20 +164,20 @@
 
 	transform = M
 
-/obj/item/battle_monsters/card/examine(mob/user)
+/obj/item/battle_monsters/card/examine(mob/user, distance, is_adjacent)
 
-	..()
+	. = ..()
 
 	if(facedown && src.loc != user)
 		to_chat(user, SPAN_NOTICE("You can't examine \the [src] while it's face down!"))
 		return
 
 	if(trap_datum)
-		SSbattlemonsters.ExamineTrapCard(user,trap_datum)
+		SSbattle_monsters.ExamineTrapCard(user,trap_datum)
 	else if(spell_datum)
-		SSbattlemonsters.ExamineSpellCard(user,spell_datum)
+		SSbattle_monsters.ExamineSpellCard(user,spell_datum)
 	else
-		SSbattlemonsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
+		SSbattle_monsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
 /obj/item/battle_monsters/card/MouseEntered(location, control, params)
 	. = ..()
@@ -186,13 +186,13 @@
 		var/card_content = desc
 		if(trap_datum)
 			card_title = trap_datum.name
-			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetTrapFormatting(FALSE), trap_datum, FALSE)
+			card_content = SSbattle_monsters.FormatSpellText(SSbattle_monsters.GetTrapFormatting(FALSE), trap_datum, FALSE)
 		else if(spell_datum)
 			card_title = spell_datum.name
-			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(FALSE), spell_datum, FALSE)
+			card_content = SSbattle_monsters.FormatSpellText(SSbattle_monsters.GetSpellFormatting(FALSE), spell_datum, FALSE)
 		else
 			card_title = root_datum.name
-			card_content = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(FALSE), prefix_datum, root_datum, suffix_datum, FALSE)
+			card_content = SSbattle_monsters.FormatMonsterText(SSbattle_monsters.GetMonsterFormatting(FALSE), prefix_datum, root_datum, suffix_datum, FALSE)
 		openToolTip(usr, src, params, card_title, card_content)
 
 /obj/item/battle_monsters/card/MouseExited(location, control, params)

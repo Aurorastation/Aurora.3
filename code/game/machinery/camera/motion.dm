@@ -18,7 +18,7 @@
 			triggerAlarm()
 	else if (detectTime == -1)
 		for (var/mob/target in motionTargets)
-			if (target.stat == 2) lostTarget(target)
+			if (target.stat == 2 || QDELING(target)) lostTarget(target)
 			// If not detecting with motion camera...
 			if (!area_motion)
 				// See if the camera is still in range
@@ -27,12 +27,18 @@
 					lostTarget(target)
 
 /obj/machinery/camera/proc/newTarget(var/mob/target)
-	if (istype(target, /mob/living/silicon/ai)) return 0
+	if(QDELETED(target))
+		return FALSE
+
+	if (istype(target, /mob/living/silicon/ai))
+		return FALSE
+
 	if (detectTime == 0)
 		detectTime = world.time // start the clock
-	if (!(target in motionTargets))
+	if (!(target in motionTargets) && !QDELING(target))
 		motionTargets += target
-	return 1
+
+	return TRUE
 
 /obj/machinery/camera/proc/lostTarget(var/mob/target)
 	if (target in motionTargets)
@@ -59,6 +65,6 @@
 /obj/machinery/camera/HasProximity(atom/movable/AM as mob|obj)
 	// Motion cameras outside of an "ai monitored" area will use this to detect stuff.
 	if (!area_motion)
-		if(isliving(AM))
+		if(isliving(AM) && !QDELING(AM))
 			newTarget(AM)
 

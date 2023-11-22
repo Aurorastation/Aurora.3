@@ -8,7 +8,7 @@
 /obj/item/reagent_containers/food/condiment
 	name = "condiment container"
 	desc = "Just your average condiment container."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/condiment.dmi'
 	icon_state = "emptycondiment"
 	flags = OPENCONTAINER
 	possible_transfer_amounts = list(1,5,10)
@@ -40,10 +40,8 @@
 	if(fixed_state && !force)
 		return
 	if(isemptylist(reagents.reagent_volumes))
-		icon_state = "emptycondiment"
 		name = "condiment bottle"
 		desc = "An empty condiment bottle."
-		center_of_mass = list("x"=16, "y"=6)
 		return
 
 	var/singleton/reagent/master = reagents.get_primary_reagent_decl()
@@ -64,12 +62,10 @@
 
 /obj/item/reagent_containers/food/condiment/shaker
 	name = "shaker"
+	empty_icon_state = "emptyshaker"
 	volume = 20
-	fixed_state = TRUE
 	center_of_mass = list("x"=17, "y"=11)
 	amount_per_transfer_from_this = 1
-	volume = 20
-	fixed_state = TRUE
 
 /obj/item/reagent_containers/food/condiment/shaker/Initialize()
 	. = ..()
@@ -262,33 +258,3 @@
 
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
 	reagents_to_add = list(/singleton/reagent/crayon_dust/brown = 10)
-
-
-//End of MRE stuff.
-
-//syrups
-
-/obj/item/reagent_containers/glass/bottle/syrup
-	name = "syrup dispenser"
-	desc = "A small bottle dispenser."
-	icon = 'icons/obj/syrup.dmi'
-	icon_state = "syrup"
-	filling_states = "20;40;60;80;100"
-	flags = OPENCONTAINER
-	volume = 50
-
-/obj/item/reagent_containers/glass/bottle/syrup/chocolate
-	name = "chocolate syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
-
-/obj/item/reagent_containers/glass/bottle/syrup/pumpkin
-	name = "pumpkin spice syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
-
-/obj/item/reagent_containers/glass/bottle/syrup/vanilla
-	name = "vanilla syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
-
-/obj/item/reagent_containers/glass/bottle/syrup/caramel
-	name = "caramel syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)

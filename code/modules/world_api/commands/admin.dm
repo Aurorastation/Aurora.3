@@ -26,10 +26,12 @@
 		response = "Ghost has used Antag Hud - Respawn Aborted"
 		data = null
 		return TRUE
-	G.timeofdeath=-19999	/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-										 timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-										 there won't be an autopsy.
-									*/
+
+	/*
+	time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+	timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure there won't be an autopsy.
+	*/
+	G.timeofdeath=-19999
 	var/datum/preferences/P
 
 	if (G.client)

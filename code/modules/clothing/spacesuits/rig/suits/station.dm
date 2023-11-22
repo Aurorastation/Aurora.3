@@ -235,6 +235,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
+	boot_type = /obj/item/clothing/shoes/magboots/advance
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell,/obj/item/storage/toolbox,/obj/item/storage/bag/inflatable)
 
@@ -315,7 +316,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
-	slowdown = 0
+	slowdown = 1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 

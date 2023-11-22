@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/news/SSnews
-
-/datum/controller/subsystem/news
+SUBSYSTEM_DEF(news)
 	name = "News"
 	flags = SS_NO_FIRE
 	var/list/datum/feed_channel/network_channels = list()
@@ -10,9 +8,6 @@
 /datum/controller/subsystem/news/Recover()
 	src.network_channels = SSnews.network_channels
 	src.wanted_issue = SSnews.wanted_issue
-
-/datum/controller/subsystem/news/New()
-	NEW_SS_GLOBAL(SSnews)
 
 /datum/controller/subsystem/news/Initialize(timeofday)
 	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")

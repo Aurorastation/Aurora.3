@@ -83,7 +83,7 @@
 	return cell
 
 /obj/item/device/flashlight/proc/set_brightness(mob/user)
-	var/choice = input("Choose a brightness level.") as null|anything in brightness_levels
+	var/choice = tgui_input_list(user, "Choose a brightness level.", "Flashlight", brightness_levels)
 	if(choice)
 		brightness_level = choice
 		power_usage = brightness_levels[choice]
@@ -124,12 +124,14 @@
 		M.update_inv_r_ear()
 		M.update_inv_head()
 
-/obj/item/device/flashlight/examine(mob/user)
+/obj/item/device/flashlight/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(power_use && brightness_level)
 		to_chat(user, SPAN_NOTICE("\The [src] is set to [brightness_level]."))
 		if(cell)
 			to_chat(user, SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."))
+	if(light_wedge && isturf(loc))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -198,11 +200,6 @@
 
 /obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
 	toggle()
-
-/obj/item/device/flashlight/examine(mob/user, distance)
-	. = ..()
-	if(light_wedge && isturf(loc))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
 
 /obj/item/device/flashlight/dropped(mob/user)
 	. = ..()
@@ -282,7 +279,7 @@
 			to_chat(user, SPAN_NOTICE("There's visible lag between the left and right pupils' reactions."))
 
 		var/list/pinpoint = list(/singleton/reagent/oxycomorphine=1,/singleton/reagent/mortaphenyl=5)
-		var/list/dilating = list(/singleton/reagent/space_drugs=5,/singleton/reagent/mindbreaker=1)
+		var/list/dilating = list(/singleton/reagent/drugs/mms=5,/singleton/reagent/drugs/mindbreaker=1)
 		var/datum/reagents/ingested = H.get_ingested_reagents()
 		if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils are already pinpoint and cannot narrow any more."))

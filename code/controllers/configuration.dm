@@ -62,6 +62,8 @@ var/list/gamemode_cache = list()
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
 	"log_subsystems_tgui" = TRUE, // TGUI
+	"log_subsystems_zas" = FALSE, // ZAS
+	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 
 	//// MODULES ////
 
@@ -114,6 +116,8 @@ var/list/gamemode_cache = list()
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
 	"world_subsystems_tgui" = "subsystems/tgui.log",
+	"world_subsystems_zas" = "subsystems/zas.log",
+	"world_subsystems_zas_debug" = "subsystems/zas.log",
 
 	//// MODULES ////
 
@@ -153,7 +157,7 @@ var/list/gamemode_cache = list()
 	var/protect_roles_from_antagonist = 0// If security and such can be traitor/cult/other
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
-	var/Ticklag = 0.4
+	var/Ticklag = 0.33
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -256,6 +260,7 @@ var/list/gamemode_cache = list()
 	//Unversal modifiers
 	var/walk_speed = 0
 	var/walk_delay_multiplier = 1
+	var/lying_delay_multiplier = 4
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
 

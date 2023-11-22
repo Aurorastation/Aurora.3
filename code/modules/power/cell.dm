@@ -81,10 +81,10 @@
 	return amount_used
 
 
-/obj/item/cell/examine(mob/user)
+/obj/item/cell/examine(mob/user, distance, is_adjacent)
 	. = ..()
 
-	if(get_dist(src, user) > 1)
+	if(distance > 1)
 		return
 
 	if(maxcharge <= 2500)

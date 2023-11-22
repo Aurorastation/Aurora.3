@@ -385,7 +385,8 @@
 
 /obj/item/gun/energy/vaurca/thermaldrill
 	name = "thermal drill"
-	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
+	desc = "A rare and immensely potent drill produced by the K'lax Hive, possessing a self-charging isotropic phoron-accelerated core."
+	desc_extended = "The latest iteration of the infamous K'laxan Thermal Drill, the original design dating back millennia. Produced on Tret and sold primarily to Hephaestus Industries, each of these drills has a self-charging isotropic phoron-accelerated core and is far more expensive than its traditional counterpart as a result. This is a price many seem willing to tolerate when accounting for the potency of the Thermal Drill and the increased yields facilities equipped with one begin to see. A burst of concentrated energy from the Thermal Drill tears through rock and xenoflaura alike as if both were mere paper. The few independent miners that have obtained this tool almost invariably treat it as a prized possession."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
@@ -394,37 +395,40 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	accuracy = 0 // Overwrite just in case.
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
-	sel_mode = 1
 	burst = 10
 	burst_delay = 1
 	fire_delay = 20
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 1
-	charge_meter = 1
+	recharge_multiplier = 5
 	charge_cost = 50
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "thermaldrill"
 
+	var/needs_wielding = TRUE
 	is_wieldable = TRUE
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
 		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
 		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
-		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, fire_delay_wielded = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
-		)
+		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 3, fire_delay = 3, fire_delay_wielded = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+	)
 
 	needspin = FALSE
 
 /obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
+	var/turf/current_turf = get_turf(user)
+	if(isStationLevel(current_turf.z))
+		to_chat(user, SPAN_DANGER("\The [src] cannot be used on the ship!"))
+		return FALSE
 	if(is_charging)
 		to_chat(user, SPAN_DANGER("\The [src] is already charging!"))
 		return FALSE
-	if(!wielded)
+	if(needs_wielding && !wielded)
 		to_chat(user, SPAN_DANGER("You cannot fire this weapon with just one hand!"))
 		return FALSE
 	if(can_autofire)
@@ -435,47 +439,16 @@
 		is_charging = FALSE
 		return FALSE
 	is_charging = FALSE
-	if(user.get_active_hand() != src)
+	if(needs_wielding && user.get_active_hand() != src)
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	return ..()
 
-/obj/item/gun/energy/vaurca/mountedthermaldrill
+/obj/item/gun/energy/vaurca/thermaldrill/mounted
 	name = "mounted thermal drill"
-	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
-	icon = 'icons/obj/vaurca_items.dmi'
-	icon_state = "thermaldrill"
-	item_state = "thermaldrill"
-	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
-	fire_sound = 'sound/magic/lightningbolt.ogg'
-	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
-	force = 15
-	projectile_type = /obj/item/projectile/beam/thermaldrill
-	max_shots = 90
-	sel_mode = 1
-	burst = 30
-	burst_delay = 1
-	fire_delay = 20
-	self_recharge = 1
-	recharge_time = 1
-	charge_meter = 1
-	use_external_power = 1
+	needs_wielding = FALSE
+	use_external_power = TRUE
 	charge_cost = 25
-
-/obj/item/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
-	if(is_charging)
-		to_chat(user, SPAN_WARNING("\The [src] is already charging!"))
-		return FALSE
-	user.visible_message(SPAN_DANGER("\The [user] begins charging \the [src]!"), SPAN_DANGER("You begin charging \the [src]!"), SPAN_DANGER("You hear a low pulsing roar!"))
-	is_charging = TRUE
-	if(!do_after(user, 2 SECONDS))
-		is_charging = FALSE
-		return FALSE
-	is_charging = FALSE
-	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return ..()
 
 /obj/item/gun/energy/vaurca/tachyon
 	name = "tachyon carbine"

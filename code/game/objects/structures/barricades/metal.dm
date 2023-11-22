@@ -15,7 +15,7 @@
 	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
 
 /obj/structure/barricade/metal/examine(mob/user)
-	..()
+	. = ..()
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)
 			to_chat(user, SPAN_INFO("The protection panel is still tighly screwed in place."))

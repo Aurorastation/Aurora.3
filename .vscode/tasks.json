@@ -27,6 +27,11 @@
         "label": "Build All"
       },
       {
+        "command": "${command:dreammaker.reparse}",
+        "group": "build",
+        "label": "dm: reparse"
+      },
+      {
         "type": "shell",
         "command": "tools/dreamchecker/dreamchecker",
         "windows": {

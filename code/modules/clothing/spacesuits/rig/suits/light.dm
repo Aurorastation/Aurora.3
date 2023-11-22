@@ -1,4 +1,4 @@
-// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered. 
+// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."

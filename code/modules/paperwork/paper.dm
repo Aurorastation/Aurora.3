@@ -45,12 +45,16 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_change_icon_state = TRUE
+	var/set_unsafe_on_init = FALSE
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
 	if (text || title)
-		set_content(title, text ? text : info)
+		if(set_unsafe_on_init)
+			set_content_unsafe(title, text ? text : info)
+		else
+			set_content(title, text ? text : info)
 	else
 		updateinfolinks()
 		if (mapload)
@@ -95,14 +99,14 @@
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
-/obj/item/paper/examine(mob/user)
+/obj/item/paper/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
-	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
+	if(distance <= 1)
 		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
@@ -200,7 +204,7 @@
 		update_icon()
 		return
 
-	user.examinate(src)
+	examinate(user, src)
 	if(rigged && (Holiday == "April Fool's Day"))
 		if(last_honk <= world.time - 20) //Spam limiter.
 			last_honk = world.time
@@ -214,7 +218,7 @@
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
 			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
-		M.examinate(src)
+		examinate(M, src)
 
 	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
 		if(ishuman(M))
@@ -225,10 +229,10 @@
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-								 	 SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
-				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
+										SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
+				if(do_after(user, 1 SECOND, H, do_flags = (DO_DEFAULT | DO_USER_UNIQUE_ACT) & ~DO_BOTH_CAN_TURN))
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
-										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
+											SPAN_NOTICE("You wipe off [H]'s lipstick."))
 					H.lipstick_color = null
 					H.update_body()
 
@@ -704,6 +708,13 @@
 
 /obj/item/paper/medscan
 	icon_state = "medscan"
+	color = "#eeffe8"
+	set_unsafe_on_init = TRUE
+	var/datum/weakref/scan_target
+
+/obj/item/paper/medscan/Initialize(mapload, text, title, var/atom/set_scan_target)
+	. = ..()
+	scan_target = WEAKREF(set_scan_target)
 
 //
 // Fluff Papers

@@ -44,7 +44,7 @@
 				add_fingerprint(user)
 			locked = !locked
 			user.visible_message(SPAN_NOTICE("[user] [locked ? null : "un"]locks \the [src]."),
-								 SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
+									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
 			update_icon()
 		else if(!silent)
 			to_chat(user, SPAN_NOTICE("Access Denied."))

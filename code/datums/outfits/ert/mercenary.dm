@@ -2,7 +2,7 @@
 	name = "Mercenary Freelancer"
 
 	uniform = /obj/item/clothing/under/syndicate
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel

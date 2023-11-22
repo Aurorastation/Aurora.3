@@ -123,7 +123,7 @@
 		/obj/item/clothing/mask/gas = 10,
 
 		/obj/item/clothing/shoes/chameleon = 0.5,
-		/obj/item/clothing/shoes/black = 5,
+		/obj/item/clothing/shoes/sneakers/black = 5,
 
 		/obj/item/clothing/suit/chameleon = 0.1,
 		/obj/item/clothing/suit/armor/vest = 1,

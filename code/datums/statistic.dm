@@ -132,13 +132,13 @@
 	if (!H.ckey)
 		return
 
-	SSfeedback.IncrementGroupedStat("ckey_deaths", H.ckey)
+	SSstatistics.IncrementGroupedStat("ckey_deaths", H.ckey)
 	if (gibbed)
-		SSfeedback.IncrementSimpleStat("gibs")
+		SSstatistics.IncrementSimpleStat("gibs")
 
 /hook/clone/proc/increment_statistics(mob/living/carbon/human/H)
 	. = TRUE
 	if (!H.ckey)
 		return
 
-	SSfeedback.IncrementSimpleStat("clones")
+	SSstatistics.IncrementSimpleStat("clones")

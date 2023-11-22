@@ -67,7 +67,7 @@ var/global/list/robot_modules = list(
 	apply_status_flags(R)
 
 	if(R.radio)
-		R.radio.recalculateChannels()
+		INVOKE_ASYNC(R.radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
@@ -378,7 +378,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
 	modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
 	modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
-	modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
+	modules += new /obj/item/device/paint_sprayer(src)// to make america great again (c)
 	modules += new /obj/item/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -444,7 +444,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/no_use/loader(src)
 	modules += new /obj/item/device/lightreplacer(src)
 	modules += new /obj/item/device/pipe_painter(src)
-	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/device/paint_sprayer(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
@@ -914,7 +914,7 @@ var/global/list/robot_modules = list(
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 	if(R.radio)
-		R.radio.recalculateChannels()
+		INVOKE_ASYNC(R.radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 
 /obj/item/robot_module/military
 	name = "military robot module"
@@ -960,7 +960,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/soap/drone(src)
 	modules += new /obj/item/extinguisher(src)
 	modules += new /obj/item/device/pipe_painter(src)
-	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/device/paint_sprayer(src)
 	modules += new /obj/item/device/t_scanner(src)
 	modules += new /obj/item/gripper/multi_purpose(src)
 	modules += new /obj/item/gripper/no_use/loader(src)

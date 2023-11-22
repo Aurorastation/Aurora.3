@@ -53,7 +53,7 @@
 		..()
 
 /obj/item/gun/projectile/shotgun/improvised/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(fail_chance)
 		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
 		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
@@ -90,7 +90,7 @@
 	icon_state = "ishotgun[buildstate]"
 
 /obj/item/receivergun/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(buildstate)
 		if(1) to_chat(user, "It has a pipe segment installed.")
 		if(2) to_chat(user, "It has a stock installed.")
@@ -156,7 +156,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 
 /obj/item/gun/projectile/improvised_handgun/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(jam_chance)
 		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
 		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
@@ -168,7 +168,7 @@
 	icon_state = "ipistol[buildstate]"
 
 /obj/item/stock/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(buildstate)
 		if(1) to_chat(user, "It is carved in the shape of a pistol handle.")
 		if(2) to_chat(user, "It has a receiver installed.")

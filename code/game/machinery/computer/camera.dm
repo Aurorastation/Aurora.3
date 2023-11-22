@@ -35,6 +35,16 @@
 		reset_current()
 	return viewflag
 
+/obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
+	if(user.stat || user.blinded || inoperable())
+		return FALSE
+	if(!current_camera)
+		return FALSE
+	var/viewflag = current_camera.check_eye(user)
+	if (viewflag < 0) //camera doesn't work
+		return FALSE
+	return TRUE
+
 /obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(..())
 		return
@@ -279,6 +289,16 @@
 	icon_keyboard = "yellow_key"
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
+
+/obj/machinery/computer/security/engineering/terminal
+	name = "engineering camera monitor"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "engines"
+	icon_keyboard = "power_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)

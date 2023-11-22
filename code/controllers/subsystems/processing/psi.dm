@@ -1,8 +1,6 @@
 var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psionically Harmonious", "Psionic Apex", "Limitless")
 
-/var/datum/controller/subsystem/processing/psi/SSpsi
-
-/datum/controller/subsystem/processing/psi
+PROCESSING_SUBSYSTEM_DEF(psi)
 	name = "Psionics"
 	priority = SS_PRIORITY_PSYCHICS
 	flags = SS_BACKGROUND
@@ -15,9 +13,6 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 	var/list/nlom_voters = list()
 	var/list/all_aura_images = list()
 	var/list/all_psi_complexes = list()
-
-/datum/controller/subsystem/processing/psi/New()
-	NEW_SS_GLOBAL(SSpsi)
 
 /datum/controller/subsystem/processing/psi/fire(resumed)
 	..()

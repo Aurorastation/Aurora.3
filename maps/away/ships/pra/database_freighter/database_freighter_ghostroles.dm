@@ -21,7 +21,7 @@
 	name = "Database Freighter Surveyor"
 
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/database_freighter
 	l_ear = /obj/item/device/radio/headset/ship

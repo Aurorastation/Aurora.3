@@ -3,8 +3,12 @@
 
 	if(ismob(mover))
 		var/mob/moving_mob = mover
-		if ((other_mobs && moving_mob.other_mobs))
-			return 1
+		if(moving_mob.pulledby == src)
+			return TRUE
+		if(length(moving_mob.grabbed_by))
+			for(var/obj/item/grab/G in moving_mob.grabbed_by)
+				if(G.assailant == src)
+					return TRUE
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
@@ -238,9 +242,16 @@
 				console.jump_on_click(mob,T)
 				return
 
-		// Only meaningful for living mobs.
-		if(Process_Grab())
-			return
+		if(length(mob.grabbed_by))
+			var/turf/target_turf = get_step(mob, direct)
+			for(var/obj/item/grab/G in mob.grabbed_by)
+				// can't move, try resisting and stop movement
+				if(G.state > GRAB_PASSIVE || get_dist(G.assailant, target_turf) > 1)
+					L.resist()
+					return
+
+		for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
+			G.reset_kill_state() //no wandering across the station/asteroid while choking someone
 
 	if(!mob.canmove || mob.paralysis)
 		return
@@ -313,6 +324,8 @@
 			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+			else if (H.m_intent == M_LAY && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE)))
+				tally = (tally / (1 + H.lying_speed_factor)) * config.lying_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else

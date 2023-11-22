@@ -118,6 +118,8 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(1)
+	if(lying)
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/Move()
 	. = ..()

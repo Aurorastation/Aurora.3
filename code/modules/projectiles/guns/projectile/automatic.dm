@@ -16,6 +16,8 @@
 	burst_delay = 2
 	sel_mode = 1
 	fire_delay = ROF_SMG
+	can_suppress = TRUE
+	suppressor_x_offset = 8
 
 	firemodes = list(
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
@@ -40,6 +42,9 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/mini_uzi/update_icon()
 	..()
@@ -65,6 +70,9 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 11
 
 /obj/item/gun/projectile/automatic/c20r/update_icon()
 	..()
@@ -80,6 +88,7 @@
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/c20r/sol/update_icon()
 	..()
@@ -100,6 +109,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
 
 /obj/item/gun/projectile/automatic/wt550/lethal
 	magazine_type = /obj/item/ammo_magazine/mc9mmt
@@ -133,6 +145,7 @@
 	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
+	can_suppress = FALSE
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
@@ -334,7 +347,7 @@
 		icon_state = "carbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
-	..()
+	. = ..()
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
@@ -529,6 +542,10 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
 	fire_sound = 'sound/weapons/gunshot/gunshot_tommygun.ogg'
 
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
+
 /obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
@@ -548,6 +565,26 @@
 	..()
 	icon_state = (ammo_magazine)? "owen" : "owen-empty"
 
+/obj/item/gun/projectile/automatic/rifle/dnac
+	name = "dNAC-6.5 assault rifle"
+	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
+	icon = 'icons/obj/guns/xanu_rifle.dmi'
+	icon_state = "xanu_rifle"
+	item_state = "xanu_rifle"
+	magazine_type = /obj/item/ammo_magazine/a65
+	allowed_magazines = list(/obj/item/ammo_magazine/a65)
+	caliber = "a65"
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
+/obj/item/gun/projectile/automatic/rifle/dnac/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_rifle" : "xanu_rifle-empty"
+
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
@@ -565,6 +602,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	can_suppress = FALSE
 
 	firemodes = list(
 		list(mode_name="single coil", burst = 1),
@@ -588,6 +627,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	can_suppress = FALSE
 
 	is_wieldable = TRUE
 
@@ -648,3 +689,22 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan
+	name = "dNAC-12 combat shotgun"
+	desc = "A magazine-fed semi-automatic combat shotgun, designed by d.N.A Defense on Xanu Prime."
+	desc_extended = "The dNAC-12 combat shotgun was designed for the All-Xanu Grand Army and the All-Xanu National Militia for its law enforcement duties and military police. Due to its reliability, ease of use, and flexibility however, it has been adopted by the Air Corps and Spacefleet as well for defensive purposes."
+	icon = 'icons/obj/guns/xanu_shotgun.dmi'
+	icon_state = "xanu_shotgun"
+	item_state = "xanu_shotgun"
+	magazine_type = /obj/item/ammo_magazine/xanan_shotgun/shells
+	allowed_magazines = list(/obj/item/ammo_magazine/xanan_shotgun)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_shotgun" : "xanu_shotgun-empty"
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1), dispersion=list(0, 10))
+		)

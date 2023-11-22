@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/sun/sun
-
-/datum/controller/subsystem/sun
+SUBSYSTEM_DEF(sun)
 	name = "Sun"
 	flags = SS_NO_INIT | SS_POST_FIRE_TIMING | SS_BACKGROUND
 	wait = 1 MINUTE
@@ -15,8 +13,7 @@ var/datum/controller/subsystem/sun/sun
 	var/tmp/list/updating_solars
 	var/solar_next_update	// last time the sun position was checked and adjusted
 
-/datum/controller/subsystem/sun/New()
-	NEW_SS_GLOBAL(sun)
+/datum/controller/subsystem/sun/PreInit()
 	LAZYINITLIST(solars)
 
 	rate = rand(50,200)/100			// 50% - 200% of standard rotation

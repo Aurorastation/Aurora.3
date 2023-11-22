@@ -142,7 +142,7 @@
 	if(ruined)
 		return
 	if(user.a_intent == I_HELP)
-		user.examinate(src)
+		examinate(user, src)
 		return
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
 		if(ruined || !user.Adjacent(src))

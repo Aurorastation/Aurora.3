@@ -72,8 +72,9 @@
 	failmsg = "The [name]'s refill light blinks red."
 	..()
 
-/obj/item/device/lightreplacer/examine(mob/user)
-	if(..(user, 2))
+/obj/item/device/lightreplacer/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		to_chat(user, "It has [uses] lights remaining.")
 		if (store_broken)
 			to_chat(user, "It is storing [stored()]/[max_stored] broken lights.")
@@ -146,7 +147,7 @@
 			to_chat(user, SPAN_WARNING("There are no more working lights left in the box!"))
 			return
 
-		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+		if (do_after(user, load_interval, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) && boxstartloc == box.loc && ourstartloc == src.loc)
 			if(uses >= max_uses) //catches loading from multiple boxes
 				break
 			uses++

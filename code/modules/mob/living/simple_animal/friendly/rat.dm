@@ -83,7 +83,7 @@
 			dust()
 
 /mob/living/simple_animal/rat/Destroy()
-	SSmob.all_rats -= src
+	SSmobs.all_rats -= src
 
 	return ..()
 
@@ -117,7 +117,7 @@
 		holder_type = /obj/item/holder/rat/irish
 
 
-	SSmob.all_rats += src
+	SSmobs.all_rats += src
 
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
@@ -251,7 +251,7 @@
 	if(client)
 		client.time_died_as_rat = world.time
 
-	SSmob.all_rats -= src
+	SSmobs.all_rats -= src
 
 	..()
 

@@ -12,8 +12,8 @@
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 3 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 0 //Minor Version Number --> Increment when adding features
-	version["patch"] = 1 //Patchlevel --> Increment when fixing bugs
+	version["minor"] = 1 //Minor Version Number --> Increment when adding features
+	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
 

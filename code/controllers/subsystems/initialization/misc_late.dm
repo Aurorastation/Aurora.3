@@ -1,6 +1,6 @@
 // This subsystem loads later in the init process. Not last, but after most major things are done.
 
-/datum/controller/subsystem/misc_late
+SUBSYSTEM_DEF(misc_late)
 	name = "Late Miscellaneous Init"
 	init_order = SS_INIT_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
@@ -14,7 +14,7 @@
 		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
-	if(current_map.use_overmap)
+	if(current_map.use_overmap && map_overmap)
 		ghostteleportlocs[map_overmap.name] = map_overmap
 
 	sortTim(ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))

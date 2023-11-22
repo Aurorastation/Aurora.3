@@ -3,7 +3,7 @@
 /obj/machinery/mineral/stacking_unit_console
 	name = "stacking machine console"
 	desc = "This console allows you to set the max stack size for the stacking machine, as well as letting you eject stacks manually."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
@@ -91,7 +91,7 @@
 		return
 
 	if(href_list["change_stack"])
-		var/choice = input("What would you like to set the stack amount to?") as null|anything in list(1,5,10,20,50)
+		var/choice = tgui_input_list(usr, "What would you like to set the stack amount to?", "Stacking", list(1,5,10,20,50))
 		if(!choice)
 			return TRUE
 		machine.stack_amt = choice

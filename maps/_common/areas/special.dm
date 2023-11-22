@@ -132,6 +132,10 @@
 	name = "Burglar Hideout"
 	icon_state = "burglar"
 
+/area/antag/jockey
+	name = "Jockey Workshop"
+	icon_state = "jockey"
+
 /area/antag/loner
 	name = "Loner Basement"
 	icon_state = "loner"

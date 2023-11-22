@@ -52,6 +52,7 @@
 	var/stamina = 0
 	var/max_stamina = 100//Maximum stamina. We start taking oxyloss when this runs out while sprinting
 	var/sprint_speed_factor = 0.4
+	var/lying_speed_factor = 0
 	var/sprint_cost_factor = 1
 	var/stamina_recovery = 1
 	var/min_walk_delay = 0//When move intent is walk, movedelay is clamped to this value as a lower bound
@@ -73,4 +74,7 @@
 	var/limb_breaking = FALSE // used to limit people from queuing up limb-breaks
 	var/list/obj/aura/auras //Basically a catch-all aura/force-field thing.
 
-	var/named = FALSE //Affects renaming animals and monkey species. Set to TRUE for animals with unique names, such as station pets. Doesn't affect any other mob. 
+	var/named = FALSE //Affects renaming animals and monkey species. Set to TRUE for animals with unique names, such as station pets. Doesn't affect any other mob.
+
+	///what icon the mob uses for speechbubbles
+	var/bubble_icon = "default"

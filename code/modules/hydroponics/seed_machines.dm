@@ -130,7 +130,7 @@
 // Allows for a trait to be extracted from a seed packet, destroying that seed.
 /obj/machinery/botany/extractor
 	name = "lysis-isolation centrifuge"
-	icon_state = "traitcopier"
+	icon_state = "centrifuge"
 
 	var/datum/seed/genetics // Currently scanned seed genetic structure.
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.

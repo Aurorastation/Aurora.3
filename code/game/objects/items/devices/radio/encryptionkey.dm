@@ -63,6 +63,12 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 
+/obj/item/device/encryptionkey/jockey
+	icon_state = "cypherkey"
+	additional_channels = list(CHANNEL_JOCKEY = TRUE, CHANNEL_HAILING = TRUE)
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+
 /obj/item/device/encryptionkey/ninja
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_NINJA = TRUE, CHANNEL_HAILING = TRUE)

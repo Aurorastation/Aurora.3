@@ -36,7 +36,7 @@
 	var/force_holder
 
 /obj/item/gripper/examine(var/mob/user)
-	..()
+	. = ..()
 	if(wrapped)
 		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
 

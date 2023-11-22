@@ -156,11 +156,6 @@
 	. = ..()
 	handle_radiation_light()
 
-/mob/living/simple_animal/cat/apply_radiation_effects()
-	. = ..()
-	if(.)
-		apply_damage((rand(30,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
 	if (flee_target && !(flee_target.loc in view(src)))
@@ -251,10 +246,15 @@
 				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
 		else
 			if (prob(5))
-				visible_emote(pick("nuzzles [friend].",
-								   "brushes against [friend].",
-								   "rubs against [friend].",
-								   "purrs."),0)
+				var/emote = pick(
+								"nuzzles [friend].",
+								"brushes against [friend].",
+								"rubs against [friend].",
+								"purrs.",
+								)
+
+				visible_emote(emote, 0)
+
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
@@ -295,7 +295,7 @@
 	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
 
@@ -311,7 +311,7 @@
 	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
 
@@ -358,6 +358,6 @@
 	holder_type = /obj/item/holder/cat/crusher
 
 /mob/living/simple_animal/cat/crusher/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

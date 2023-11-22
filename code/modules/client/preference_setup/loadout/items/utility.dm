@@ -121,7 +121,7 @@
 	display_name = "business card"
 	description = "A selection of business cards." // I'm not smart enough to make it spawn inside the holders and carry over the text so we'll have to live with this
 	path = /obj/item/paper/business_card
-	flags = GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/business_card/New()
 	..()

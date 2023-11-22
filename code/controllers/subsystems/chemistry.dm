@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/chemistry/SSchemistry
-
-/datum/controller/subsystem/chemistry
+SUBSYSTEM_DEF(chemistry)
 	name = "Chemistry"
 	priority = SS_PRIORITY_CHEMISTRY
 	init_order = SS_INIT_MISC_FIRST
@@ -82,9 +80,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	msg = "AH:[active_holders.len]"
 	return ..()
 
-/datum/controller/subsystem/chemistry/New()
-	NEW_SS_GLOBAL(SSchemistry)
-
 /datum/controller/subsystem/chemistry/Initialize()
 	initialize_chemical_reactions()
 	initialize_codex_data()
@@ -129,6 +124,11 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
 	. = 0
 	var/list/chemconfig = list()
+
+	if(!(rustg_file_exists("config/secretchem.json") == "true"))
+		log_config("The file config/secretchem.json was not found, secret chemicals will not be loaded.")
+		return
+
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)

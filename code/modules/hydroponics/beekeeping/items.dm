@@ -1,7 +1,8 @@
 /obj/item/reagent_containers/food/snacks/honeycomb
 	name = "honeycomb"
 	desc = "Dripping with sugary sweetness."
-	icon_state = "honeycomb"
+	icon = 'icons/obj/beekeeping.dmi'
+	icon_state = "honeycomb_food"
 	reagents_to_add = list(
 		/singleton/reagent/nutriment/honey = 10,
 		/singleton/reagent/nutriment = 0.5,

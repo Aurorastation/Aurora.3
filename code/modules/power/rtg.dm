@@ -98,7 +98,7 @@
 	origin_tech = list(
 		TECH_DATA = 3,
 		TECH_MATERIAL = 4,
-		TECH_POWER = 3, 
+		TECH_POWER = 3,
 		TECH_ENGINEERING = 3,
 		TECH_PHORON = 3
 	)

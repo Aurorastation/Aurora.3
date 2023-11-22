@@ -8,6 +8,8 @@
 	id = "iac_rescue_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/iac_shuttle)
 
+	unit_test_groups = list(3)
+
 
 /singleton/submap_archetype/iac_rescue_ship
 	map = "IAC Rescue Ship"

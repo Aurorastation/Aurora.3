@@ -318,6 +318,8 @@ var/list/GPS_list = list()
 	gpstag = "STAT0"
 
 /obj/item/device/gps/stationary/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
 	compass = new(src)
 	update_position()
 

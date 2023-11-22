@@ -111,7 +111,7 @@
 	ATMOS_CANPASS_TURF(s_block, src, src)
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
-		if(verbose) LOG_DEBUG("Self-blocked.")
+		log_subsystem_zas_debug("Self-blocked.")
 		//dbg(blocked)
 		#endif
 		if(zone)
@@ -145,7 +145,7 @@
 		if(block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) LOG_DEBUG("[d] is blocked.")
+			log_subsystem_zas_debug("[d] is blocked.")
 			//unsim.dbg(air_blocked, turn(180,d))
 			#endif
 
@@ -156,7 +156,7 @@
 		if(r_block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) LOG_DEBUG("[d] is blocked.")
+			log_subsystem_zas_debug("[d] is blocked.")
 			//dbg(air_blocked, d)
 			#endif
 
@@ -190,7 +190,7 @@
 					//    we are blocking them and not blocking ourselves - this prevents tiny zones from forming on doorways.
 					if(((block & ZONE_BLOCKED) && !(r_block & ZONE_BLOCKED)) || ((r_block & ZONE_BLOCKED) && !(s_block & ZONE_BLOCKED)))
 						#ifdef ZASDBG
-						if(verbose) LOG_DEBUG("[d] is zone blocked.")
+						log_subsystem_zas_debug("[d] is zone blocked.")
 
 						//dbg(zone_blocked, d)
 						#endif
@@ -202,21 +202,23 @@
 
 						#ifdef ZASDBG
 						dbg(assigned)
-						if(verbose) LOG_DEBUG("Added to [zone]")
+						log_subsystem_zas_debug("Added to [zone]")
 						#endif
 
 				else if(sim.zone != zone)
 
 					#ifdef ZASDBG
-					if(verbose) LOG_DEBUG("Connecting to [sim.zone]")
+					log_subsystem_zas_debug("Connecting to [sim.zone]")
 					#endif
 
 					SSair.connect(src, sim)
 
 			#ifdef ZASDBG
-				else if(verbose) LOG_DEBUG("[d] has same zone.")
+				else
+					log_subsystem_zas("[d] has same zone.")
 
-			else if(verbose) LOG_DEBUG("[d] has invalid zone.")
+			else
+				log_subsystem_zas("[d] has invalid zone.")
 			#endif
 		else
 			//Postponing connections to tiles until a zone is assured.

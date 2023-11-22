@@ -8,7 +8,7 @@
 	var/uses = 1        // Uses before the kit deletes itself.
 
 /obj/item/device/kit/examine()
-	..()
+	. = ..()
 	to_chat(usr, "It has [uses] use\s left.")
 
 /obj/item/device/kit/use(var/amt, var/mob/user)

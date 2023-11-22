@@ -86,7 +86,7 @@
 	if(!time_to_dig)
 		time_to_dig = 50
 
-	if(do_after(user, time_to_dig * mine_rate, act_target = src))
+	if(do_after(user, time_to_dig * mine_rate, src))
 		if(!src)
 			return
 		harvest()

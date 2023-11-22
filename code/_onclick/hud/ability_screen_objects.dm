@@ -179,7 +179,7 @@
 	if(ability_master && !ability_master.ability_objects.len)
 		ability_master.update_icon()
 	ability_master = null
-	..()
+	. = ..()
 
 /obj/screen/ability/update_icon()
 	overlays.Cut()
@@ -328,6 +328,7 @@
 /obj/screen/ability/obj_based/psionic/examine(mob/user)
 	to_chat(user, SPAN_NOTICE("<font size=4>This ability is <b>[connected_power.name]</b>.</font>"))
 	to_chat(user, SPAN_NOTICE("[connected_power.desc]"))
+	return TRUE
 
 /// Technomancer.
 /obj/screen/ability/obj_based/technomancer
