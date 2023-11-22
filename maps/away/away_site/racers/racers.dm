@@ -20,7 +20,7 @@
 	comms_name = "station"
 
 /area/racers
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "unregistered station"
 	icon_state = "bar"
 	requires_power = FALSE

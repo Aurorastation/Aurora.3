@@ -23,4 +23,4 @@
 	requires_power = FALSE
 	base_turf = /turf/space
 	no_light_control = TRUE
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP

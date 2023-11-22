@@ -329,7 +329,7 @@
 /area/horizon/maintenance
 	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
 	icon_state = "maintenance"
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
@@ -384,7 +384,7 @@
 // Stairwells
 /area/horizon/stairwell
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/horizon/stairwell/central
@@ -403,7 +403,7 @@
 // Crew Quarters
 /area/horizon/crew_quarters
 	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Cryogenics
@@ -482,7 +482,7 @@
 // Holodeck
 /area/horizon/holodeck_control
 	name = "Horizon - Holodeck Alpha"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/holodeck_control/beta
@@ -494,7 +494,7 @@
 	sound_env = LARGE_ENCLOSED
 	no_light_control = TRUE
 	dynamic_lighting = FALSE
-	flags = RAD_SHIELDED | NO_GHOST_TELEPORT_ACCESS
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/holodeck/alphadeck
@@ -658,7 +658,7 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria
@@ -731,7 +731,7 @@
 /area/horizon/security/brig
 	name = "Horizon - Security - Brig"
 	icon_state = "brig"
-	flags = HIDE_FROM_HOLOMAP | PRISON
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PRISON
 	ambience = AMBIENCE_HIGHSEC
 
 /area/horizon/security/holding_cell_a
@@ -745,21 +745,21 @@
 /area/horizon/security/head_of_security
 	name = "Horizon - Security - Head of Security's Office"
 	icon_state = "head_quarters"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
 	sound_env = SMALL_ENCLOSED
 
 /area/horizon/security/warden
 	name = "Horizon - Security - Warden's Office"
 	icon_state = "Warden"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
 	sound_env = SMALL_ENCLOSED
 
 /area/horizon/security/armoury
 	name = "Horizon - Security - Armoury"
 	icon_state = "Warden"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
 	sound_env = LARGE_ENCLOSED
 
@@ -821,7 +821,7 @@
 	icon_state = "zta"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // Longbow
 /area/horizon/longbow
@@ -829,13 +829,13 @@
 	icon_state = "bridge_weapon"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/horizon/grauwolf
 	name = "Horizon - Grauwolf Weapon System"
 	icon_state = "bridge_weapon"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Weapon Systems End **********/

@@ -18,7 +18,7 @@
 	desc = "An abandoned space structure."
 
 /area/overgrown_mining_station
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "Overgrown Mining Station"
 	icon_state = "overgrown_mining_station"
 	requires_power = FALSE

@@ -15,7 +15,7 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/key_data
 	var/clean_msg
 	var/last_clean
@@ -50,7 +50,7 @@
 	if(isliving(AM))
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(H.shoes?.item_flags & LIGHTSTEP)
+			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 				return
 		var/mob/living/M =	AM
 		M.slip("the [src.name]",3)

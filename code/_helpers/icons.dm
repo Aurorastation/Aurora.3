@@ -1146,7 +1146,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 		if (isnull(icon_state))
 			icon_state = thing.icon_state
 			//Despite casting to atom, this code path supports mutable appearances, so let's be nice to them
-			if(isnull(icon_state) || (isatom(thing) && thing.flags & HTML_USE_INITAL_ICON))
+			if(isnull(icon_state) || (isatom(thing) && thing.atom_flags & ATOM_FLAG_HTML_USE_INITIAL_ICON))
 				icon_state = initial(thing.icon_state)
 				if (isnull(dir))
 					dir = initial(thing.dir)

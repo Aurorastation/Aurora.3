@@ -7,7 +7,7 @@
 	icon_state = ""
 	item_state = "kineticgun"
 	contained_sprite = 1
-	flags =  CONDUCT
+	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEMSIZE_NORMAL

@@ -22,7 +22,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_NORMAL
 	force = 9.0
 	throwforce = 15.0
@@ -141,7 +141,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere
 		if(O.density)
-			if(!(O.flags & ON_BORDER) || O.dir == user.dir)
+			if(!(O.atom_flags & ATOM_FLAG_CHECKS_BORDER) || O.dir == user.dir)
 				return
 
 	var/build_stack = amount
