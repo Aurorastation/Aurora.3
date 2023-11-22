@@ -1227,12 +1227,15 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 
 /**
  * Centers an image.
+ *
  * Requires:
- * The Image
- * The x dimension of the icon file used in the image
- * The y dimension of the icon file used in the image
- * eg: center_image(image_to_center, 32,32)
- * eg2: center_image(image_to_center, 96,96)
+ * * The Image
+ * * The x dimension of the icon file used in the image
+ * * The y dimension of the icon file used in the image
+ *
+ * Examples:
+ * * center_image(image_to_center, 32,32)
+ * * center_image(image_to_center, 96,96)
 **/
 /proc/center_image(image/image_to_center, x_dimension = 0, y_dimension = 0)
 	if(!image_to_center)
