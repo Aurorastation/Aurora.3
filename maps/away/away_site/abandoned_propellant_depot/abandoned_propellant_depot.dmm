@@ -1,4 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/obj/item/reagent_containers/food/drinks/flask/barflask{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/turf/simulated/floor,
+/area/space)
 "aj" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -196,6 +206,11 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"cW" = (
+/obj/structure/reagent_dispensers/keg/beerkeg,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor,
 /area/space)
 "dc" = (
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -520,6 +535,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"gU" = (
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/turf/simulated/floor,
+/area/space)
 "gW" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/portable_atmospherics/canister/empty/nitrogen,
@@ -641,6 +663,27 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"iF" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/turf/simulated/floor,
+/area/space)
+"iK" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/chem_disp_cartridge/ethanol{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker/vial{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/turf/simulated/floor,
+/area/space)
 "iO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/aux,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -708,6 +751,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor,
+/area/space)
+"jO" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/flask/flask_cup{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "jR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -905,6 +956,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"nB" = (
+/obj/random/junk{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/turf/simulated/floor,
 /area/space)
 "nI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/aux{
@@ -1347,6 +1405,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
+"sC" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/curtain/black,
 /turf/simulated/floor,
 /area/space)
 "sD" = (
@@ -1985,6 +2052,21 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"Af" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/cabinet,
+/obj/item/storage/box/beakers{
+	pixel_y = -4
+	},
+/obj/item/storage/box/beakers{
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/simulated/floor,
+/area/space)
 "Ai" = (
 /obj/structure/table/steel,
 /obj/item/device/radio/phone{
@@ -2149,6 +2231,26 @@
 /obj/structure/closet/firecloset/full,
 /turf/simulated/wall/r_wall,
 /area/space)
+"Cu" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/turf/simulated/floor,
+/area/space)
+"CD" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/beaker/pitcher{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "CF" = (
 /obj/structure/table/steel,
 /obj/random/tool,
@@ -2176,6 +2278,29 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
+/area/space)
+"De" = (
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 0;
+	pixel_x = 2
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -3;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/turf/simulated/floor,
 /area/space)
 "Dh" = (
 /turf/simulated/floor,
@@ -2475,8 +2600,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "HJ" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/broken_bottle{
+	pixel_x = 8;
+	pixel_y = 3
+	},
 /turf/simulated/floor,
 /area/space)
 "HK" = (
@@ -2748,6 +2876,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"KY" = (
+/obj/random/junk{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor,
+/area/space)
 "Lg" = (
 /obj/structure/closet,
 /obj/item/device/flashlight/maglight{
@@ -2882,6 +3017,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
+"Nf" = (
+/obj/item/broken_bottle{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "Np" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
@@ -2901,6 +3043,22 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"NI" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/bottle/saline{
+	pixel_x = -5;
+	pixel_y = -8
+	},
+/obj/item/reagent_containers/glass/bottle/stoxin{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/drinks/flask/barflask{
+	pixel_x = 6;
+	pixel_y = -1
+	},
 /turf/simulated/floor,
 /area/space)
 "NJ" = (
@@ -2951,6 +3109,14 @@
 "Or" = (
 /obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/carpet/purple,
+/area/space)
+"Oy" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/item/broken_bottle{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "OA" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -3033,6 +3199,10 @@
 	icon_state = "m-7"
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"PH" = (
+/obj/structure/chemkit,
+/turf/simulated/floor,
 /area/space)
 "PL" = (
 /obj/item/ammo_casing/a762/spent{
@@ -3282,6 +3452,17 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/space)
+"Tc" = (
+/obj/random/junk{
+	pixel_x = -5;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask{
+	pixel_x = 15;
+	pixel_y = -1
+	},
+/turf/simulated/floor,
+/area/space)
 "Tg" = (
 /obj/structure/closet,
 /turf/simulated/floor/wood,
@@ -3474,6 +3655,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
+/turf/simulated/floor,
+/area/space)
+"Wa" = (
+/obj/structure/distillery,
 /turf/simulated/floor,
 /area/space)
 "Wc" = (
@@ -25663,7 +25848,7 @@ wj
 Dn
 ri
 wj
-Dh
+KY
 PV
 Dh
 vJ
@@ -26177,10 +26362,10 @@ wj
 io
 qK
 wj
-HJ
-QW
-Dh
-Dh
+nd
+aa
+Af
+cW
 wj
 Dh
 wj
@@ -26434,10 +26619,10 @@ wj
 eZ
 Qv
 wj
-Dh
-Dh
-Dh
-Dh
+iK
+gU
+HJ
+iF
 wj
 Dh
 dt
@@ -26691,11 +26876,11 @@ tN
 io
 Ap
 wj
+PH
+Tc
 Dh
-Dh
-Dh
-Dh
-dt
+nB
+sC
 Dh
 wj
 Dh
@@ -26948,10 +27133,10 @@ Zj
 QW
 Ap
 wj
-Dh
-Dh
-Dh
-Dh
+Wa
+De
+NI
+Cu
 wj
 Dh
 wj
@@ -32079,7 +32264,7 @@ kI
 Zi
 wj
 wj
-wj
+PV
 wj
 tN
 eY
@@ -32335,8 +32520,8 @@ Wl
 ob
 ob
 vJ
-HP
-vO
+Dh
+Pk
 av
 QW
 qK
@@ -34646,7 +34831,7 @@ TQ
 TQ
 ke
 ke
-ke
+Oy
 qK
 dt
 qK
@@ -35930,7 +36115,7 @@ MZ
 wj
 wj
 wj
-CR
+CD
 CR
 wj
 wj
@@ -37983,7 +38168,7 @@ Zi
 Wl
 wj
 qK
-HA
+Nf
 VU
 VU
 VU
@@ -40565,7 +40750,7 @@ wj
 Uh
 qK
 gu
-gs
+jO
 wj
 Qv
 Qv
