@@ -13,7 +13,7 @@
 	possible_transfer_amounts = list(10,20,30,60)
 	volume = 60
 	unacidable = 0
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	fragile = 0
 	var/paint_reagent = null //name of the reagent responsible for colouring the paint
 	var/paint_type = null //used for colouring detective technicolor coat and hat
