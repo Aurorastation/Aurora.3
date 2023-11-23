@@ -3,7 +3,8 @@
 
 SUBSYSTEM_DEF(holomap)
 	name = "Holomap"
-	flags = SS_NO_FIRE
+	flags = SS_BACKGROUND
+	wait = 30 SECONDS
 	init_order = SS_INIT_HOLOMAP
 
 	/// List of images of minimaps, for every z-level, initialized at round start.
@@ -35,6 +36,11 @@ SUBSYSTEM_DEF(holomap)
 	for (var/z in 1 to world.maxz)
 		generate_minimap(z)
 		generate_minimap_area_colored(z)
+		generate_minimap_hull_scan(z)
+
+/datum/controller/subsystem/holomap/fire(resumed = FALSE)
+	minimaps_hull_scan_base64.len = world.maxz
+	for (var/z in 1 to world.maxz)
 		generate_minimap_hull_scan(z)
 
 /datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
@@ -115,15 +121,22 @@ SUBSYSTEM_DEF(holomap)
 	if(world.maxy > canvas.Height())
 		CRASH("Minimap for z=[zlevel] : world.maxy ([world.maxy]) must be <= [canvas.Height()]")
 
+	var/list/mineral_wall_tcache = typecacheof(list(
+		/turf/simulated/mineral,
+		/turf/unsimulated/mineral,
+	))
+	var/list/mineral_floor_tcache = typecacheof(list(
+		/turf/unsimulated/floor/asteroid,
+		/turf/simulated/mineral,
+		/turf/simulated/floor/exoplanet,
+	))
 	var/list/space_tcache = typecacheof(list(
 		/turf/simulated/open,
 		/turf/space,
 	))
 	var/list/hull_tcache = typecacheof(list(
-		/turf/simulated/mineral,
 		/turf/simulated/wall,
 		/turf/simulated/floor,
-		/turf/unsimulated/mineral,
 		/turf/unsimulated/wall,
 		/turf/unsimulated/floor,
 	))
@@ -134,8 +147,10 @@ SUBSYSTEM_DEF(holomap)
 		T = thing
 		Ttype = T.type
 
-		if (space_tcache[Ttype])
-			canvas.DrawBox(HOLOMAP_PATH, T.x, T.y)
+		if (mineral_wall_tcache[Ttype])
+			canvas.DrawBox(HOLOMAP_MINERAL_WALL, T.x, T.y)
+		else if (mineral_floor_tcache[Ttype])
+			canvas.DrawBox(HOLOMAP_MINERAL_FLOOR, T.x, T.y)
 		else if(hull_tcache[Ttype])
 			canvas.DrawBox(HOLOMAP_OBSTACLE, T.x, T.y)
 

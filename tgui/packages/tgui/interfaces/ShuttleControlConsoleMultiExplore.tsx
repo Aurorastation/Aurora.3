@@ -97,50 +97,16 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
             </Box>
           ) : null}
         </Section>
-        <Section title="?????">
-          <svg
-            height={'250px'}
-            width={'100%'}
-            viewBox={`0 0 ${map_size} ${map_size}`}
-            overflow={'hidden'}>
-            <defs>
-              <filter id="f1" x="0" y="0">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-                <feTurbulence
-                  baseFrequency={`${rand} ${1.0 - rand}`}
-                  result="NOISE"
-                  numOctaves="2"
-                />
-                <feDisplacementMap
-                  in="SourceGraphic"
-                  result="abcd"
-                  in2="NOISE"
-                  scale="40"
-                  xChannelSelector="R"
-                  yChannelSelector="R"
-                />
-                {/* <feGaussianBlur stdDeviation="2" in="abcd" result="smoothed" />
-                <feImage
-                  width="8"
-                  height="8"
-                  xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
-                  result="displacement-map"
-                />
-                <feTile in="displacement-map" result="pixelate-map" />
-                <feDisplacementMap
-                  in="smoothed"
-                  in2="pixelate-map"
-                  xChannelSelector="R"
-                  yChannelSelector="G"
-                  scale="50"
-                  result="pre-final"
-                /> */}
-                {/* <feComposite operator="in" in2="SourceGraphic" /> */}
-              </filter>
-            </defs>
-            <rect width={map_size} height={map_size} />
-            <g
-              transform={`translate(
+
+        {data.destination_map_image ? (
+          <Section title="Scan">
+            <svg
+              height={'250px'}
+              width={'100%'}
+              viewBox={`0 0 ${map_size} ${map_size}`}
+              overflow={'hidden'}>
+              <g
+                transform={`translate(
                 ${
                   (map_size * (zoom_mod - 1.0)) / -2 +
                   (255 / 2 - center_point_x)
@@ -150,37 +116,52 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
                   (255 / 2 - (map_size - center_point_y))
                 }
               )`}>
-              <image
-                width={map_size * zoom_mod}
-                height={map_size * zoom_mod}
-                xlinkHref={`data:image/jpeg;base64,${data.destination_map_image}`}
-                filter="url(#f1)"
-              />
-              <polygon
-                points="3,0 0,3 -3,0 0,-3"
-                fill="#FF0000"
-                stroke="#FFFF00"
-                stroke-width="0.5"
-                transform={`translate(
+                <image
+                  width={map_size * zoom_mod}
+                  height={map_size * zoom_mod}
+                  xlinkHref={`data:image/jpeg;base64,${data.destination_map_image}`}
+                />
+                <polygon
+                  points="3,0 0,3 -3,0 0,-3"
+                  fill="#FF0000"
+                  stroke="#FFFF00"
+                  stroke-width="0.5"
+                  transform={`translate(
                       ${center_point_x * zoom_mod}
                       ${(map_size - center_point_y) * zoom_mod}
                     )`}
-              />
-              <circle
-                r={16}
-                cx={0}
-                cy={0}
-                fill="none"
-                stroke="#FF0000"
-                stroke-width="1"
-                transform={`translate(
+                />
+                <circle
+                  r={16}
+                  cx={0}
+                  cy={0}
+                  fill="none"
+                  stroke="#FF0000"
+                  stroke-width="1"
+                  transform={`translate(
                       ${center_point_x * zoom_mod}
                       ${(map_size - center_point_y) * zoom_mod}
                     )`}
-              />
-            </g>
-          </svg>
-        </Section>
+                />
+                <rect
+                  x={-24}
+                  y={-24}
+                  width={48}
+                  height={48}
+                  stroke="red"
+                  stroke-width="1"
+                  fill="none"
+                  transform={`translate(
+                    ${center_point_x * zoom_mod}
+                    ${(map_size - center_point_y) * zoom_mod}
+                  )`}
+                />
+              </g>
+            </svg>
+          </Section>
+        ) : (
+          ''
+        )}
         <Section title="Shuttle Control">
           <Button
             content="Launch Shuttle"
