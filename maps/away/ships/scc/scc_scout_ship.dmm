@@ -934,6 +934,8 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/random/powercell,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "fz" = (
@@ -1196,6 +1198,7 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/weldingtool/largetank,
 /obj/random/dirt_75,
+/obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "gF" = (
@@ -5199,6 +5202,10 @@
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Jb" = (
 /obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_x = -8;
+	pixel_y = 3
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
 "Jd" = (
@@ -6348,6 +6355,11 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north,
+/obj/random/tech_supply,
+/obj/random/tech_supply{
+	pixel_x = -5;
+	pixel_y = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "SI" = (

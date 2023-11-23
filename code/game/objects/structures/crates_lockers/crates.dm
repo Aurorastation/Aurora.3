@@ -551,6 +551,8 @@
 //Quantity of spawns is number of discrete selections from the loot lists, default 10
 
 /obj/structure/closet/crate/loot
+	icon = 'icons/obj/random.dmi'
+	icon_state = "loot_crate"
 	var/rarity = 1
 	var/quantity = 10
 	var/list/spawntypes
