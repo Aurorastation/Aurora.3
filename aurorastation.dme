@@ -3638,6 +3638,7 @@
 #include "maps\away\ships\tcfl_patrol\tcfl_peacekeeper_ship.dm"
 #include "maps\away\ships\tcfl_patrol\tcfl_peacekeeper_ship_ghostroles.dm"
 #include "maps\away\ships\tramp_freighter\tramp_freighter.dm"
+#include "maps\away\ships\tramp_freighter\tramp_freighter_areas.dm"
 #include "maps\away\ships\tramp_freighter\tramp_freighter_ghostroles.dm"
 #include "maps\away\ships\wildlands_militia\militia_ship.dm"
 #include "maps\away\ships\wildlands_militia\militia_ship_ghostroles.dm"
