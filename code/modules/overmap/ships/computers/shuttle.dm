@@ -38,7 +38,7 @@
 
 		. += list(
 			"destination_name" = shuttle.get_destination_name(),
-			"destination_map_image" = shuttle.next_location ? SSholomap.minimaps_hull_scan_base64[shuttle.next_location.z] : null,
+			"destination_map_image" = shuttle.next_location ? SSholomap.minimaps_scan_base64[shuttle.next_location.z] : null,
 			"destination_x" = shuttle.next_location?.x,
 			"destination_y" = shuttle.next_location?.y,
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,

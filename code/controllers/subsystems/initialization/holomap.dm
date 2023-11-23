@@ -19,8 +19,8 @@ SUBSYSTEM_DEF(holomap)
 	/// Same as `minimaps_base64`, but the map is colored with `holomap_color` of the `/area/`
 	var/list/minimaps_area_colored_base64 = list()
 
-	/// Same as `minimaps_base64`, but it only discriminates between space and non-space.
-	var/list/minimaps_hull_scan_base64 = list()
+	/// Same as `minimaps_base64`, but does not show discriminate between walls and paths.
+	var/list/minimaps_scan_base64 = list()
 
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()
@@ -31,17 +31,17 @@ SUBSYSTEM_DEF(holomap)
 	minimaps.len = world.maxz
 	minimaps_base64.len = world.maxz
 	minimaps_area_colored_base64.len = world.maxz
-	minimaps_hull_scan_base64.len = world.maxz
+	minimaps_scan_base64.len = world.maxz
 
 	for (var/z in 1 to world.maxz)
 		generate_minimap(z)
 		generate_minimap_area_colored(z)
-		generate_minimap_hull_scan(z)
+		generate_minimap_scan(z)
 
 /datum/controller/subsystem/holomap/fire(resumed = FALSE)
-	minimaps_hull_scan_base64.len = world.maxz
+	minimaps_scan_base64.len = world.maxz
 	for (var/z in 1 to world.maxz)
-		generate_minimap_hull_scan(z)
+		generate_minimap_scan(z)
 
 /datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
@@ -113,7 +113,7 @@ SUBSYSTEM_DEF(holomap)
 	big_map.Blend(canvas, ICON_OVERLAY)
 	minimaps_area_colored_base64[zlevel] = icon2base64(big_map)
 
-/datum/controller/subsystem/holomap/proc/generate_minimap_hull_scan(zlevel = 1)
+/datum/controller/subsystem/holomap/proc/generate_minimap_scan(zlevel = 1)
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
 	var/icon/canvas = icon('icons/255x255.dmi', "blank")
 	if(world.maxx > canvas.Width())
@@ -156,4 +156,4 @@ SUBSYSTEM_DEF(holomap)
 
 		CHECK_TICK
 
-	minimaps_hull_scan_base64[zlevel] = icon2base64(canvas)
+	minimaps_scan_base64[zlevel] = icon2base64(canvas)
