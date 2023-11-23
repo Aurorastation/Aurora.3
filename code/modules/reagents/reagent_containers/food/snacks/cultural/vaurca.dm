@@ -195,13 +195,18 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#E6E600"
 	bitesize = 5
-/obj/item/reagent_containers/food/snacks/vkrexiwrap
-	name = "v'krexi wrap"
+/obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
+	name = "meat v'krexi wrap"
 	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with meat."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "vkrexiwrap_meat"
-	reagents_to_add = list(/singleton/reagent/mental/vkrexi = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/mental/vkrexi = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tortilla" = 8, "bittersweet sauce" = 8), /singleton/reagent/nutriment/protein = list("meat" = 10))
 
 /obj/item/reagent_containers/food/snacks/vkrexiwrap/veggie
+	name = "veggie v'krexi wrap"
 	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with veggies."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "vkrexiwrap_veggie"
+	reagents_to_add = list(/singleton/reagent/nutriment = 9, /singleton/reagent/capsaicin = 4, /singleton/reagent/mental/vkrexi = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("assorted vegetables" = 8, "peppers" = 5, "bittersweet sauce" = 8))

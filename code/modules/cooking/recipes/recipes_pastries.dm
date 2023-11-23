@@ -292,7 +292,7 @@
 	result = /obj/item/reagent_containers/food/snacks/truffle
 	result_quantity = 4
 
-/singleton/recipe/pie/giffy
+/singleton/recipe/giffypie
 	appliance = OVEN
 	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/flour = 10, /singleton/reagent/nutriment/grapejelly = 10, /singleton/reagent/nutriment/peanutbutter = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/giffypie

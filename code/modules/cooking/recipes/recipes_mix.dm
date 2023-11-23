@@ -72,7 +72,7 @@
 		)
 	reagents = list(/singleton/reagent/nutriment/mayonnaise = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/tunasalad
+	result = /obj/item/reagent_containers/food/snacks/salad/tunasalad
 
 /singleton/recipe/tunapastasalad
 	fruit = list("mint" = 1)
@@ -82,17 +82,6 @@
 		)
 	reagents = list(/singleton/reagent/nutriment/mayonnaise = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/tunapastasalad
-
-//Pita
-/singleton/recipe/falafel
-	items = list(
-	/obj/item/reagent_containers/food/snacks/falafelballs,
-	/obj/item/reagent_containers/food/snacks/dip/hummus,
-	/obj/item/reagent_containers/food/snacks/pita
-	)
-	fruit = list("tomato" = 1)
-	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/falafel
+	result = /obj/item/reagent_containers/food/snacks/salad/tunapasta
 
 

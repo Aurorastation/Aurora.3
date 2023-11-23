@@ -656,7 +656,6 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/giffypieslice
 	slices_num = 5
 	filling_color = "#a58cc5"
-	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/nutriment = 15)
 	reagent_data = list(/singleton/reagent/nutriment = list("pie" = 10, "peanut butter ganache" = 10, "grape jelly" = 15))
 

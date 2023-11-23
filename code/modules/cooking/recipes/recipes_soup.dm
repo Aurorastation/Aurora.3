@@ -57,11 +57,11 @@
 	reagents = list(/singleton/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/tomato
 
-/singleton/recipe/bluespacetomatosoup
+/singleton/recipe/spiralsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("bluespacetomato" = 1, "icechili" = 1 )
 	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/drink/milk/cream = 5)
-	result = /obj/item/reagent_containers/food/snacks/soup/bluespace
+	result = /obj/item/reagent_containers/food/snacks/soup/spiralsoup
 
 /singleton/recipe/misosoup
 	appliance = POT

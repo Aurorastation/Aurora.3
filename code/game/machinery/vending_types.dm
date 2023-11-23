@@ -351,7 +351,8 @@
 		/obj/item/reagent_containers/food/snacks/koisbar = 4
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/snacks/cookie = 6
+		/obj/item/reagent_containers/food/snacks/cookie = 6,
+		/obj/item/storage/box/fancy/food/pralinebox = 2
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/snacks/candy = 15,

@@ -833,8 +833,8 @@
 	item_state = "heartbox_closed"
 	icon_type = "chocolate praline"
 	contained_sprite = TRUE
-	storage_slots = 20
-	max_storage_space = 20
+	storage_slots = 10
+	max_storage_space = 10
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	can_hold = list(

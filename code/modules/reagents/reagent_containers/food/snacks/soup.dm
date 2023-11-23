@@ -142,15 +142,15 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/drink/tomatojuice = 10, /singleton/reagent/nutriment = 5)
 
-/obj/item/reagent_containers/food/snacks/soup/bluespace
+/obj/item/reagent_containers/food/snacks/soup/spiralsoup
 	name = "spiral soup"
-	desc = "Considered an extremely high end meal, usually served in only a select few of the finest dining establishments of Xanu and Biesel - Because if prepared or consumed wrong it could be dangerous. Eat carefully." //basically, either eat it slowly, or remove the bluespace dust from the soup, otherwise - suffer the consequences of teleportation!
+	desc = "Considered an extremely high end meal, usually served in only a select few of the finest dining establishments of Xanu and Biesel with specially trained chefs - Because if prepared or consumed wrong it could be dangerous. Eat carefully." //basically, either eat it slowly, or remove the dangerous ingredients from the soup, otherwise - suffer the consequences of teleportation or brainfreeze!
 	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
 	icon_state = "spiral_soup"
 	filling_color = "#008cff"
 	bitesize = 3
-	reagents_to_add = list(/singleton/reagent/bluespace_dust = 5, /singleton/reagent/nutriment = 5, /singleton/reagent/frostoil = 1, /singleton/reagent/alcohol/singulo = 12, /singleton/reagent/water = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("pan-dimensional flavors" = 4, "joy" = 2))
+	reagents_to_add = list(/singleton/reagent/bluespace_dust = 3, /singleton/reagent/nutriment = 5, /singleton/reagent/frostoil = 0.5, /singleton/reagent/alcohol/singulo = 12, /singleton/reagent/water = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("pan-dimensional flavors" = 4, "elation" = 2))
 
 /obj/item/reagent_containers/food/snacks/soup/miso
 	name = "miso soup"

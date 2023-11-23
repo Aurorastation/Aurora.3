@@ -46,18 +46,23 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/koisroulade
 
-/singleton/recipe/vkrexiwrap
+/singleton/recipe/vkrexiwrap/meat
+	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tortilla,
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball
 	)
-	reagents = list(/singleton/reagent/mental/vkrexi = 1)
-	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap
+	reagents = list(/singleton/reagent/mental/vkrexi = 1) //NOTE: This means the RAEGENT of vkrexi taffy, not the solid item! you might have to grind the item to get it.
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
 
 /singleton/recipe/vkrexiwrap/veggie
+	appliance = MIX
 	fruit = list("chili" = 1, "cabbage" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tortilla,
 	)
+	reagents = list(/singleton/reagent/mental/vkrexi = 1) //NOTE: This means the RAEGENT of vkrexi taffy, not the solid item! you might have to grind the item to get it.
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap/veggie

@@ -129,7 +129,6 @@
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/ravioli
-
 	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
 	icon_state = "ravioli"
 	trash = /obj/item/trash/plate

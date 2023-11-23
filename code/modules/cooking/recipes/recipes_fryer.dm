@@ -181,3 +181,4 @@
 	appliance = FRYER
 	fruit = list("chickpeas" = 2)
 	result = /obj/item/reagent_containers/food/snacks/falafelballs
+

@@ -60,16 +60,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("potato" = 4, "herbs" = 4))
 	bitesize = 3
 
-
-/obj/item/reagent_containers/food/snacks/falafel
-	name = "falafel"
-	desc = "Falafel balls in a fluffy pita with some hummus, chips, and/or salad - popular, beloved, cheap street food. Originates in the middle east, also common in Elyra."
-	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
-	icon_state = "falafel"
-	filling_color = "#b4b876"
-	reagents_to_add = list(/singleton/reagent/nutriment = 7)
-	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3, "hummus" = 2, "pita bread" = 2))
-
 /obj/item/reagent_containers/food/snacks/hengsharolls
 	name = "hengsha rolls"
 	desc = "Originally created in times of scarcity during New Gibson's settlement as a meal requiring basic, readily available ingredients and no electricity to make, these rolls made of cabbage leaves stuffed with mashed potato, corn and tofu cubes are now considered a cultural Gibsonite staple."
@@ -93,7 +83,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("salad" = 2, "tomato" = 2, "bulgur" = 2, "greens" = 2))
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/tunasalad
+/obj/item/reagent_containers/food/snacks/salad/tunasalad
 	name = "tuna salad"
 	desc = "Tunalicious!"
 	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
@@ -105,9 +95,9 @@
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("tuna"  = 3), /singleton/reagent/nutriment = list("mayo" = 3))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/tunapastasalad
+/obj/item/reagent_containers/food/snacks/salad/tunapasta
 	name = "tuna pasta salad"
-	desc = "Probably the furthest you can possibly get from a salad and still call it a salad."
+	desc = "Probably the furthest you can possibly get from a salad and still call it a salad without looking like a weirdo."
 	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
 	icon_state = "tunasalad"
 	trash = /obj/item/trash/snack_bowl
@@ -116,3 +106,4 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein/seafood = 3)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("tuna"  = 3), /singleton/reagent/nutriment = list("mayo" = 3, "pasta" =4))
 	bitesize = 2
+
