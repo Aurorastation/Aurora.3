@@ -14,7 +14,7 @@
 	name = "grab"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "reinforce"
-	flags = 0
+	atom_flags = 0
 	var/obj/screen/grab/hud = null
 	var/mob/living/affecting = null
 	var/mob/living/carbon/human/assailant = null
@@ -151,7 +151,7 @@
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/A = affecting
 			var/obj/item/clothing/C = A.head
-			if(C && (C.item_flags & THICKMATERIAL))
+			if(C && (C.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				return
 			if(!(A.species.flags & NO_BREATHE))
 				A.losebreath = max(A.losebreath + 3, 5)
@@ -301,7 +301,7 @@
 	else if(state < GRAB_UPGRADING)
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/H = affecting
-			if(H.head && (H.head.item_flags & AIRTIGHT))
+			if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"))
 				return
 		hud.icon_state = "kill1"

@@ -2,7 +2,7 @@
 	name = "Point Verdant - Conglomerate Spaceport"
 	requires_power = 0
 	no_light_control = 1
-	flags = HIDE_FROM_HOLOMAP | RAD_SHIELDED
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_env = CITY

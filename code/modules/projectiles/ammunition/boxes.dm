@@ -134,6 +134,12 @@
 	max_ammo = 15
 	multiple_sprites = TRUE
 
+/obj/item/ammo_magazine/c46m/extended
+	name = "extended magazine (4.6mm)"
+	icon_state = "4.6x30p_extended"
+	desc = "A magazine designed for the dNAC-4.6 II submachine gun, but can also be used in the dNAC-4.6 pistol."
+	max_ammo = 30
+
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
 	desc = "A bulky magazine for the Kumar Arms 2557."

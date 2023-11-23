@@ -4,7 +4,7 @@
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 	contained_sprite = TRUE
 	var/on = FALSE

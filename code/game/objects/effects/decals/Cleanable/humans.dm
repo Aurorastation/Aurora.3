@@ -96,7 +96,7 @@
 		if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
 			var/obj/item/clothing/shoes/S = perp.shoes
 			if(istype(S))
-				if(S.item_flags & LIGHTSTEP)
+				if(S.item_flags & ITEM_FLAG_LIGHT_STEP)
 					return
 				S.blood_color = basecolor
 				S.track_footprint = max(amount, S.track_footprint)
