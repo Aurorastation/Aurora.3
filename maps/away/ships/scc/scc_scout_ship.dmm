@@ -591,7 +591,7 @@
 	},
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
-/area/ship/scc_scout_ship/exterior)
+/area/ship/scc_scout_ship/bridge)
 "dA" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 4
@@ -5304,6 +5304,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "Kj" = (
@@ -5431,7 +5434,7 @@
 	},
 /obj/machinery/shipsensors/strong,
 /turf/simulated/floor/airless,
-/area/ship/scc_scout_ship/exterior)
+/area/ship/scc_scout_ship/bridge)
 "KT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
@@ -7325,6 +7328,15 @@
 	},
 /turf/template_noop,
 /area/space)
+"Yx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship/hydroponics)
 "YB" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -7512,7 +7524,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "ZT" = (
-/obj/structure/bed/stool/chair/padded/blue,
+/obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship/quarters)
 
@@ -44885,7 +44897,7 @@ Xx
 yz
 YR
 bp
-DI
+Yx
 bZ
 pJ
 pJ

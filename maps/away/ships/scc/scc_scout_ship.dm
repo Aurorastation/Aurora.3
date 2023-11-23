@@ -53,7 +53,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/scc_scout_ship/New()
-	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Hailstorm", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Risk of Rain", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper")]"
+	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Hailstorm", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper")]"
 	..()
 
 // /obj/effect/overmap/visitable/ship/freebooter_ship/get_skybox_representation()
@@ -79,7 +79,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/New()
-	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Hailstorm", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Risk of Rain", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper")]"
+	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Hailstorm", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scc_scout_shuttle
