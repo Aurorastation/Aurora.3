@@ -130,10 +130,6 @@ SUBSYSTEM_DEF(holomap)
 		/turf/simulated/mineral,
 		/turf/simulated/floor/exoplanet,
 	))
-	var/list/space_tcache = typecacheof(list(
-		/turf/simulated/open,
-		/turf/space,
-	))
 	var/list/hull_tcache = typecacheof(list(
 		/turf/simulated/wall,
 		/turf/simulated/floor,
