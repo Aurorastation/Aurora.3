@@ -3303,6 +3303,18 @@
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
+"PC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/medical,
+/obj/item/deployable_kit/surgery_table,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/storage/firstaid/surgery,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/cargo)
 "PL" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
@@ -3534,6 +3546,7 @@
 /obj/item/tank/phoron/shuttle,
 /obj/item/reagent_containers/food/snacks/phoroncandy,
 /obj/item/trash/cigbutt/roll,
+/obj/item/reagent_containers/inhaler/phoron,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
 "Ts" = (
@@ -34223,7 +34236,7 @@ bR
 Yy
 hv
 fA
-pZ
+PC
 fA
 pZ
 fA
