@@ -657,3 +657,9 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_golden_deep
 	id = access_golden_deep
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_idris = 218
+/datum/access/access_idris
+	id = access_idris
+	desc = "Idris Vault Ship"
+	access_type = ACCESS_TYPE_CENTCOM
