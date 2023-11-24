@@ -172,7 +172,7 @@
 	display_name = "retired tribunal investigator card selection"
 	description = "A selection of cards identifying the user as a retired tribunal investigator."
 	path = /obj/item/clothing/accessory/dominia/tic
-culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/accessory/tic/New()
 	..()
