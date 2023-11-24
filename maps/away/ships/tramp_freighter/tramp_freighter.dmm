@@ -142,10 +142,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/machinery/access_button{
 	pixel_y = 28;
 	dir = 2;
@@ -154,6 +150,10 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -596,16 +596,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "he" = (
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -696,9 +696,9 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "ip" = (
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -1308,11 +1308,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "pD" = (
@@ -1790,23 +1790,23 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/shuttle_landmark/tramp_freighter/dock{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "xn" = (
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -2978,12 +2978,12 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -3137,13 +3137,13 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "freighter_airlock_port";
-	name = "freighter_airlick_port"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "freighter_airlock_port";
+	name_unlabel = "freighter_airlock_port"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
