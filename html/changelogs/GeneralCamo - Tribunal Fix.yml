@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Temporarily removed origin restrictions on Assunzionite and Tribunalist religious gear, for usage by Xanan expatriots."
+  - tweak: "Temporarily allowed Coalition culture to pick Assunzionite and Tribunalist religious gear, for usage by Xanan expatriots."
