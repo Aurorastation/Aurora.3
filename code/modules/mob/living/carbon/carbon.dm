@@ -487,7 +487,3 @@
 
 /mob/living/carbon/proc/should_have_limb(var/organ_check)
 	return FALSE
-
-/mob/living/carbon/proc/update_accumulated_pain(pain_increment)
-	accumulated_pain += pain_increment
-	return

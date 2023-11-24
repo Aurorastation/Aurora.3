@@ -16,6 +16,7 @@
 	var/pose = null
 	var/list/chem_effects = list()
 	var/list/chem_doses = list()
+	var/list/chem_tracking = list() //!for keeping count of values that increment as a chem works (amount of damage, etc)
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
@@ -42,4 +43,3 @@
 	var/list/stasis_sources = list()
 	var/stasis_value
 	var/pain_immune = FALSE //for special cases where something permanently removes a mob's ability to feel pain
-	var/accumulated_pain = 0 //for healing pain at the end of a panotoxin poisoning
