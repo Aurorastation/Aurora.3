@@ -156,6 +156,30 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
                     ${(map_size - center_point_y) * zoom_mod}
                   )`}
                 />
+                <text
+                  x="26"
+                  y="-8"
+                  text-anchor="left"
+                  fill="red"
+                  font-size="12"
+                  transform={`translate(
+                    ${center_point_x * zoom_mod}
+                    ${(map_size - center_point_y) * zoom_mod}
+                  )`}>
+                  {data.destination_x}
+                </text>
+                <text
+                  x="26"
+                  y="8"
+                  text-anchor="left"
+                  fill="red"
+                  font-size="12"
+                  transform={`translate(
+                    ${center_point_x * zoom_mod}
+                    ${(map_size - center_point_y) * zoom_mod}
+                  )`}>
+                  {data.destination_y}
+                </text>
               </g>
             </svg>
           </Section>
