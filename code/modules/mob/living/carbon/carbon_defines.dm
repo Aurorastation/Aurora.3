@@ -16,7 +16,7 @@
 	var/pose = null
 	var/list/chem_effects = list()
 	var/list/chem_doses = list()
-	var/list/chem_tracking = list() //! for keeping count of values that increment as a chem works (amount of damage, etc)
+	var/list/chem_tracking = list() //! For keeping count of values that increment as a chem works (amount of damage, etc)
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
