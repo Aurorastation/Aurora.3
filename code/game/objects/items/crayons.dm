@@ -1,5 +1,4 @@
 /obj/item/pen/crayon/red
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonred"
 	colour = "#DA0000"
 	shadeColour = "#810C0C"
@@ -7,7 +6,6 @@
 	reagents_to_add = list(/singleton/reagent/crayon_dust/red = 10)
 
 /obj/item/pen/crayon/orange
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonorange"
 	colour = "#FF9300"
 	shadeColour = "#A55403"
@@ -15,7 +13,6 @@
 	reagents_to_add = list(/singleton/reagent/crayon_dust/orange = 10)
 
 /obj/item/pen/crayon/yellow
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonyellow"
 	colour = "#FFF200"
 	shadeColour = "#886422"
@@ -23,7 +20,6 @@
 	reagents_to_add = list(/singleton/reagent/crayon_dust/yellow = 10)
 
 /obj/item/pen/crayon/green
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayongreen"
 	colour = "#A8E61D"
 	shadeColour = "#61840F"
@@ -31,7 +27,6 @@
 	reagents_to_add = list(/singleton/reagent/crayon_dust/green = 10)
 
 /obj/item/pen/crayon/blue
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonblue"
 	colour = "#00B7EF"
 	shadeColour = "#0082A8"
@@ -39,7 +34,6 @@
 	reagents_to_add = list(/singleton/reagent/crayon_dust/blue = 10)
 
 /obj/item/pen/crayon/purple
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonpurple"
 	colour = "#DA00FF"
 	shadeColour = "#810CFF"
@@ -47,7 +41,6 @@
 	reagents_to_add = list(/singleton/reagent/crayon_dust/purple = 10)
 
 /obj/item/pen/crayon/mime
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonmime"
 	desc = "A very sad-looking crayon."
 	colour = "#FFFFFF"
@@ -67,7 +60,6 @@
 	return
 
 /obj/item/pen/crayon/rainbow
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonrainbow"
 	colour = "#FFF000"
 	shadeColour = "#000FFF"
@@ -80,7 +72,6 @@
 	return
 
 /obj/item/pen/crayon/augment
-	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonaugment"
 	colour = "#FFF200"
 	shadeColour = "#886422"
