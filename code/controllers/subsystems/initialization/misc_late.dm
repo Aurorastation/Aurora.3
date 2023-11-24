@@ -8,7 +8,7 @@ SUBSYSTEM_DEF(misc_late)
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
 	// Setup the teleport locs.
 	for(var/area/AR as anything in the_station_areas)
-		if(AR.flags & NO_GHOST_TELEPORT_ACCESS)
+		if(AR.area_flags & AREA_FLAG_NO_GHOST_TELEPORT_ACCESS)
 			continue
 		var/list/area_turfs = AR.contents
 		if (area_turfs.len) // Check the area is mapped

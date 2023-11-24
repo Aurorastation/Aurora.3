@@ -10,7 +10,8 @@
 	matter = list(MATERIAL_IRON = 10)
 	possible_transfer_amounts = null
 	volume = 5
-	flags = CONDUCT | OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/reagent_containers/food/drinks/trophy/gold_cup
 	name = "gold cup"
