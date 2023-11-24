@@ -108,7 +108,7 @@
 		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
 		rag = R
 		rag.forceMove(src)
-		flags &= ~OPENCONTAINER
+		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/remove_rag(mob/user)
@@ -116,14 +116,14 @@
 		return
 	user.put_in_hands(rag)
 	rag = null
-	flags |= (initial(flags) & OPENCONTAINER)
+	atom_flags |= (initial(atom_flags) & ATOM_FLAG_OPEN_CONTAINER)
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/delete_rag()
 	if(!rag)
 		return
 	QDEL_NULL(rag)
-	flags |= (initial(flags) & OPENCONTAINER)
+	atom_flags |= (initial(atom_flags) & ATOM_FLAG_OPEN_CONTAINER)
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/open(mob/user)
@@ -342,7 +342,7 @@
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/champagne = 100)
-	flags = 0 // starts closed
+	atom_flags = 0 // starts closed
 	///Used for sabrage; increases the chance of success per 1 force of the attacking sharp item
 	var/sabrage_success_percentile = 5
 	///Whether this bottle was a victim of a successful sabrage attempt
@@ -423,7 +423,7 @@
 								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
 								"You can hear a pop.")
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
 	///Type of cork to fire away
@@ -618,7 +618,7 @@
 	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 30
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	reagents_to_add = list(/singleton/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
@@ -657,7 +657,7 @@
 	icon_state = "beer"
 	volume = 30
 	smash_duration = 1
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	rag_underlay = "rag_small"
 	center_of_mass = list("x"=16, "y"=8)
 
