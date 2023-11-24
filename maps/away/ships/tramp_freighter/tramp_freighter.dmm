@@ -4,34 +4,31 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "ae" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "ax" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
 "aB" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -125,6 +122,14 @@
 "bR" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/cargo)
+"bS" = (
+/obj/machinery/light{
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboardthrust)
 "bY" = (
 /obj/effect/shuttle_landmark/freighter_shuttle/transit,
 /turf/space,
@@ -135,9 +140,6 @@
 /turf/simulated/floor,
 /area/tramp_freighter/cargo)
 "ce" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -192,15 +194,14 @@
 "cD" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
@@ -210,19 +211,10 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "cM" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -230,18 +222,23 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "cO" = (
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 8
-	},
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
@@ -259,15 +256,16 @@
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
 "cZ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Office";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
@@ -307,12 +305,12 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "dO" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/power/apc/high/west{
 	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
@@ -342,15 +340,14 @@
 "ek" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
@@ -385,6 +382,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor,
 /area/tramp_freighter/cargo)
+"ey" = (
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/portthrust)
 "eA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/zora,
@@ -466,12 +467,14 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
 "fJ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/armory)
@@ -498,20 +501,22 @@
 /area/tramp_freighter/cargo)
 "fW" = (
 /obj/random/tool,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "fY" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
@@ -537,14 +542,16 @@
 /turf/simulated/floor/carpet,
 /area/tramp_freighter/lounge)
 "gu" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
 	name = "Anti-Piracy Armory";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/armory)
@@ -567,6 +574,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
+"gR" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
 "gS" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
@@ -584,10 +597,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "hb" = (
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -596,6 +605,12 @@
 	pixel_y = 0
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "he" = (
@@ -707,15 +722,15 @@
 /area/tramp_freighter/engi)
 "iD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
 	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -782,15 +797,12 @@
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
 "jU" = (
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 8
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -845,16 +857,15 @@
 /area/shuttle/freighter_shuttle)
 "kr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
 	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -927,20 +938,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "ln" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/crew_quarters)
 "lq" = (
+/obj/machinery/power/apc/high/south{
+	req_access = null
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/south{
-	req_access = null
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -953,7 +969,6 @@
 /turf/simulated/floor/airless,
 /area/tramp_freighter/bridge)
 "lv" = (
-/obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -966,15 +981,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "lF" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
@@ -1041,11 +1055,13 @@
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_x = 32
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "mu" = (
@@ -1095,8 +1111,7 @@
 /area/tramp_freighter/mess)
 "mQ" = (
 /obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
@@ -1107,16 +1122,15 @@
 /turf/simulated/floor,
 /area/tramp_freighter/cargo)
 "mS" = (
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -1132,11 +1146,11 @@
 /turf/simulated/floor/carpet/art,
 /area/tramp_freighter/captain)
 "nk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "nn" = (
@@ -1168,11 +1182,6 @@
 /turf/template_noop,
 /area/tramp_freighter/armory)
 "nG" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
@@ -1181,6 +1190,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -1198,15 +1210,11 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/tramp_freighter/portthrust)
 "nR" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "od" = (
@@ -1226,11 +1234,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1241,14 +1244,12 @@
 	name = "Propulsion Maintenance";
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/hangar)
 "ov" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1257,6 +1258,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -1353,13 +1357,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "qq" = (
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -1368,6 +1376,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
@@ -1378,6 +1389,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "qw" = (
@@ -1385,11 +1401,14 @@
 /area/tramp_freighter/portthrust)
 "qz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/power/apc/high/east{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
@@ -1412,6 +1431,11 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/landmark/entry_point/fore{
 	name = "port"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
@@ -1444,11 +1468,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
-/obj/structure/cable/green{
-	dir = 4
-	},
 /obj/machinery/power/apc/high/north{
 	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
@@ -1461,10 +1485,21 @@
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
+"sI" = (
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboardthrust)
 "sK" = (
 /obj/structure/cable/green,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/machinery/power/apc/high/south{
+	req_access = null
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
@@ -1475,10 +1510,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "sV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1488,6 +1519,9 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	name = "Mess Hall"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/mess)
@@ -1555,20 +1589,17 @@
 /area/shuttle/freighter_shuttle)
 "tS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -1598,15 +1629,14 @@
 /area/tramp_freighter/cargo)
 "uo" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -1657,12 +1687,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1670,6 +1694,9 @@
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/freighter_shuttle/hangar,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "vv" = (
@@ -1682,25 +1709,24 @@
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
 "vH" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/mess)
 "vI" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -1720,9 +1746,6 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "wl" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freight_shuttle";
@@ -1796,11 +1819,6 @@
 /area/tramp_freighter/engi)
 "xp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "xu" = (
@@ -1839,16 +1857,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
@@ -1860,15 +1876,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "xV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/mess)
@@ -1877,11 +1892,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "ye" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "yi" = (
@@ -1892,18 +1909,14 @@
 /area/tramp_freighter/hangar)
 "yS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "yT" = (
@@ -1940,6 +1953,8 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -1986,9 +2001,6 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "zN" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -1996,12 +2008,14 @@
 	dir = 10;
 	pixel_y = 0
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
 "zS" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
-/obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/curtain/black{
 	icon_state = "open";
 	layer = 4;
@@ -2142,17 +2156,15 @@
 /area/tramp_freighter/crew_quarters)
 "Bm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /obj/structure/cable/green{
-	dir = 1
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "Bn" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2162,12 +2174,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "BC" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -2189,16 +2201,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "BM" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
@@ -2231,6 +2244,11 @@
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
@@ -2284,25 +2302,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "CF" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
 	name = "Reactor";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
@@ -2324,25 +2344,26 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "Dm" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "Dx" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
@@ -2373,23 +2394,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "El" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
 	name = "Hangar";
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "Em" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2397,8 +2416,10 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 4
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
@@ -2460,11 +2481,13 @@
 /area/shuttle/freighter_shuttle)
 "EQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "EY" = (
@@ -2485,11 +2508,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/bridge)
 "FB" = (
-/obj/structure/cable/green{
-	dir = 4
-	},
 /obj/machinery/power/apc/high/north{
 	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/bridge)
@@ -2505,22 +2528,24 @@
 /area/tramp_freighter/portthrust)
 "FV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "FY" = (
-/obj/structure/cable/green{
-	dir = 8
-	},
 /obj/machinery/power/terminal{
 	dir = 1;
 	icon_state = "term"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "Gf" = (
@@ -2529,14 +2554,16 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "Gm" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion Maintenance";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
@@ -2556,6 +2583,14 @@
 "Gt" = (
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
+"Gu" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
 "Gv" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2564,15 +2599,16 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/hangar)
 "GF" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/mining{
 	name = "Bridge";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/bridge)
@@ -2580,12 +2616,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "GN" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "GO" = (
@@ -2618,13 +2656,14 @@
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light{
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "HK" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2635,18 +2674,22 @@
 	name = "Cargo Compartment";
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/cargo)
 "HY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
 	name = "Cargo Compartment"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/mess)
@@ -2657,20 +2700,19 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "Iv" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/mess)
@@ -2681,9 +2723,6 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
 "IO" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -2696,6 +2735,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "IX" = (
@@ -2711,13 +2755,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "Jn" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
@@ -2737,11 +2783,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2749,6 +2790,9 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "Jw" = (
@@ -2789,11 +2833,13 @@
 /obj/machinery/mineral/processing_unit_console{
 	pixel_x = 32
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "JZ" = (
@@ -2806,22 +2852,15 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/lounge)
 "Kg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/hangar)
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboardthrust)
 "Ky" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -2966,17 +3005,15 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "Mf" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
@@ -3045,11 +3082,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "MQ" = (
@@ -3062,12 +3101,13 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "MV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
 "MX" = (
@@ -3156,12 +3196,11 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/mess)
 "On" = (
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "Os" = (
@@ -3173,6 +3212,9 @@
 /obj/random/civgun,
 /obj/random/civgun,
 /obj/random/civgun,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/armory)
 "Ov" = (
@@ -3184,8 +3226,7 @@
 	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
@@ -3218,35 +3259,25 @@
 /obj/item/spacecash/c50,
 /obj/item/spacecash/c50,
 /obj/structure/closet,
-/obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
 "Pb" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "Pl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3256,30 +3287,31 @@
 	pixel_y = 0
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/hangar)
 "Pn" = (
-/obj/machinery/power/portgen/basic/fusion,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/reinforced,
 /area/tramp_freighter/power)
 "Pp" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -3299,9 +3331,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "PR" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/machinery/alarm/south{
 	req_one_access = null
 	},
@@ -3317,13 +3346,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "Ql" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/yellow,
-/area/tramp_freighter/lounge)
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboardthrust)
 "Qp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -3331,13 +3357,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "Qu" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -3354,13 +3382,13 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
 "QZ" = (
-/obj/structure/cable/green{
-	dir = 1
-	},
 /obj/machinery/power/apc/high/east{
 	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "Rl" = (
@@ -3389,15 +3417,17 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "Ry" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
 "RN" = (
@@ -3408,22 +3438,21 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "RX" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
 "RZ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "Sc" = (
@@ -3474,16 +3503,14 @@
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/captain)
 "SN" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
 "SS" = (
@@ -3528,15 +3555,13 @@
 /turf/simulated/floor/carpet/art,
 /area/tramp_freighter/captain)
 "Tx" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "TG" = (
@@ -3601,9 +3626,6 @@
 /turf/simulated/floor/carpet/art,
 /area/tramp_freighter/captain)
 "UB" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4
@@ -3629,14 +3651,17 @@
 "UH" = (
 /obj/structure/table/steel,
 /obj/item/storage/belt/utility/alt,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
@@ -3699,11 +3724,11 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "VF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/bridge)
 "VK" = (
@@ -3728,6 +3753,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "VP" = (
@@ -3753,11 +3783,6 @@
 /turf/simulated/floor/tiled/white,
 /area/tramp_freighter/mess)
 "Wc" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3768,17 +3793,20 @@
 	name = "Engineering";
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "Wi" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -3820,6 +3848,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "WW" = (
@@ -3847,10 +3876,6 @@
 /turf/simulated/floor/reinforced,
 /area/tramp_freighter/power)
 "Xg" = (
-/obj/structure/cable/green{
-	icon_state = "1-2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3860,6 +3885,9 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	name = "Mess Hall"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
@@ -3915,21 +3943,18 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "Yb" = (
-/obj/structure/cable/green{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null
 	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "Yj" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -3939,6 +3964,9 @@
 	},
 /obj/machinery/power/apc/high/west{
 	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/crew_quarters)
@@ -3952,14 +3980,16 @@
 /turf/simulated/floor,
 /area/tramp_freighter/cargo)
 "YO" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/mining{
 	name = "Crew Bunks";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
@@ -3982,6 +4012,11 @@
 	req_one_access = null;
 	shuttle_tag = "Freight Shuttle";
 	cycle_to_external_air = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
@@ -33146,10 +33181,10 @@ hX
 hX
 hX
 uU
-go
+sI
 lO
 XB
-lO
+Kg
 uU
 Ru
 lR
@@ -34174,8 +34209,8 @@ hX
 hX
 hX
 uU
-pL
-go
+bS
+Ql
 MQ
 Hy
 QZ
@@ -35723,7 +35758,7 @@ fH
 fH
 fH
 fH
-Kg
+nG
 GB
 GB
 bR
@@ -36231,8 +36266,8 @@ Sf
 Gn
 QQ
 lb
-GM
-GM
+gR
+Gu
 VN
 YZ
 Cb
@@ -36755,7 +36790,7 @@ Qp
 Gt
 uh
 xP
-BM
+lF
 Ay
 eZ
 eZ
@@ -37539,8 +37574,8 @@ Yj
 ln
 YO
 Ry
-Ql
-Ql
+MV
+MV
 SN
 pk
 MX
@@ -39316,7 +39351,7 @@ hX
 qw
 fL
 cL
-fL
+ey
 fL
 zB
 MK
