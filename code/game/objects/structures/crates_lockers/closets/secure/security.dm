@@ -348,16 +348,16 @@
 	new /obj/item/pen (src)
 	new /obj/item/storage/briefcase(src)
 
-/obj/structure/closet/secure_closet/bridge_crew
-	name = "bridge crew's locker"
-	req_access = list(access_bridge_crew)
+/obj/structure/closet/secure_closet/steward
+	name = "steward's locker"
+	req_access = list(access_steward)
 	icon_state = "sec"
 	icon_door = "hop"
 
-/obj/structure/closet/secure_closet/bridge_crew/fill()
+/obj/structure/closet/secure_closet/steward/fill()
 	..()
-	new /obj/item/clothing/under/rank/bridge_crew(src)
-	new /obj/item/clothing/head/caphat/bridge_crew(src)
+	new /obj/item/clothing/under/rank/steward(src)
+	new /obj/item/clothing/head/caphat/steward(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)

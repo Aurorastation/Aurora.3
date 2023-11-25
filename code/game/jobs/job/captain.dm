@@ -111,12 +111,12 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	access = list(access_sec_doors, access_medical, access_engine, access_ship_weapons, access_change_ids, access_eva, access_heads,
 					access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 					access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
-					access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, access_teleporter)
+					access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_steward, access_intrepid, access_teleporter)
 
 	minimal_access = list(access_sec_doors, access_medical, access_ship_weapons, access_engine, access_change_ids, access_eva, access_heads,
 							access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 							access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
-							access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, access_teleporter)
+							access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_steward, access_intrepid, access_teleporter)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -144,17 +144,17 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
-/datum/job/bridge_crew
-	title = "Bridge Crew"
-	flag = BRIDGE_CREW
-	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
+/datum/job/steward
+	title = "Steward"
+	flag = STEWARD
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "the"
 	supervisors = "the executive officer and the captain"
-	selection_color = "#2b5bb5"
+	selection_color = "#90524b"
 	minimal_player_age = 20
 	economic_modifier = 5
 	ideal_character_age = list(
@@ -169,19 +169,20 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	outfit = /datum/outfit/job/bridge_crew
+	outfit = /datum/outfit/job/steward
 
-	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_bridge_crew, access_intrepid, access_teleporter, access_external_airlocks)
-	minimal_access = list(access_heads, access_eva, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_teleporter, access_external_airlocks)
+	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_steward, access_intrepid, access_teleporter, access_external_airlocks)
+	minimal_access = list(access_heads, access_eva, access_gateway, access_weapons, access_steward, access_intrepid, access_teleporter, access_external_airlocks)
+	alt_titles = list("Pilot")
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/bridge_crew
-	name = "Bridge Crew"
-	jobtype = /datum/job/bridge_crew
+/datum/outfit/job/steward
+	name = "Steward"
+	jobtype = /datum/job/steward
 
-	head = /obj/item/clothing/head/caphat/bridge_crew
-	uniform = /obj/item/clothing/under/rank/bridge_crew
+	head = /obj/item/clothing/head/caphat/steward
+	uniform = /obj/item/clothing/under/rank/steward
 	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_com

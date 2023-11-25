@@ -203,7 +203,7 @@
 
 /obj/item/rig/eva/pilot/equipped
 
-	req_access = list(access_bridge_crew)
+	req_access = list(access_steward)
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,

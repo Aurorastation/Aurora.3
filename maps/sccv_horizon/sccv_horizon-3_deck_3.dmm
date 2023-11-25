@@ -756,7 +756,7 @@
 /area/bridge/selfdestruct)
 "azM" = (
 /turf/simulated/wall,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "aAl" = (
 /obj/random/pottedplant,
 /obj/structure/railing/mapped,
@@ -1560,7 +1560,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "bdE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2013,7 +2013,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "bzC" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -2023,7 +2023,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "bzT" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/lounge/secondary)
@@ -2968,7 +2968,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "cwP" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -6975,7 +6975,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "fyL" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -6993,9 +6993,9 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/bridge_crew,
+/obj/structure/closet/secure_closet/steward,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "fyZ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -7286,7 +7286,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "fJy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -9592,7 +9592,7 @@
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "hpb" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -10360,7 +10360,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "hUQ" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/spline/plain{
@@ -10517,7 +10517,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "ihp" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -10585,7 +10585,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "iii" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -10961,7 +10961,7 @@
 	dir = 6
 	},
 /obj/effect/landmark/start{
-	name = "Bridge Crew"
+	name = "Steward"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -12380,7 +12380,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "jyV" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
@@ -13952,7 +13952,7 @@
 	dir = 6
 	},
 /obj/effect/landmark/start{
-	name = "Bridge Crew"
+	name = "Steward"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -14847,7 +14847,7 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/tubes,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "lkQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -15026,7 +15026,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "lrg" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/slide_projector,
@@ -16721,7 +16721,7 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "mIs" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -19609,7 +19609,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "oLh" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
@@ -20629,7 +20629,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "pNZ" = (
-/obj/structure/closet/secure_closet/bridge_crew,
+/obj/structure/closet/secure_closet/steward,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -20637,7 +20637,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "pOs" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -21605,9 +21605,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/bridge_crew,
+/obj/structure/closet/secure_closet/steward,
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "qDx" = (
 /obj/machinery/camera/motion{
 	c_tag = "Telecommunications - Starboard";
@@ -21989,7 +21989,7 @@
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/full,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "qUt" = (
 /turf/simulated/wall/r_wall,
 /area/tcommsat/chamber)
@@ -23072,7 +23072,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "rLV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -25297,7 +25297,7 @@
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (10mm Pistol and Holsters)";
@@ -26161,7 +26161,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "tWA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -28050,7 +28050,7 @@
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/full,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "vuK" = (
 /obj/structure/bed/stool/chair/padded/brown,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -28284,7 +28284,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "vBQ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/disposal/small/south,
@@ -29013,7 +29013,7 @@
 /area/tcommsat/entrance)
 "wcf" = (
 /turf/simulated/wall/r_wall,
-/area/bridge/bridge_crew)
+/area/bridge/steward)
 "wcy" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9

@@ -64,7 +64,7 @@
 
 /obj/item/clothing/under/skrell/nralakk/ox
 	name = "Ox bridge and security uniform"
-	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the security service or as pilots or bridge crew."
+	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the security service or as pilots or stewards."
 	item_state = "ox_sec"
 	icon_state = "ox_sec"
 
@@ -96,7 +96,7 @@
 
 /obj/item/clothing/under/skrell/nralakk/ix/security
 	name = "Ix bridge and security uniform"
-	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical working in the security service or as pilots or bridge crew."
+	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical working in the security service or as pilots or stewards."
 	item_state = "ix_sec"
 	icon_state = "ix_sec"
 
@@ -128,7 +128,7 @@
 
 /obj/item/clothing/under/skrell/nralakk/oqi/security
 	name = "Oqi bridge and security uniform"
-	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the security service or as pilots or bridge crew."
+	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the security service or as pilots or stewards."
 	item_state = "oqi_sec"
 	icon_state = "oqi_sec"
 
@@ -160,7 +160,7 @@
 
 /obj/item/clothing/under/skrell/nralakk/iqi/security
 	name = "Iqi bridge and security uniform"
-	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the security service or as pilots or bridge crew."
+	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the security service or as pilots or stewards."
 	item_state = "iqi_sec"
 	icon_state = "iqi_sec"
 
@@ -194,7 +194,7 @@
 
 /obj/item/clothing/suit/storage/toggle/skrell/ox/security
 	name = "Ox bridge and security jacket"
-	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in the security service or as pilots or bridge crew."
+	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in the security service or as pilots or stewards."
 	item_state = "ox_sec_jacket"
 	icon_state = "ox_sec_jacket"
 
@@ -226,7 +226,7 @@
 
 /obj/item/clothing/suit/storage/toggle/skrell/ix/security
 	name = "Ix bridge and security jacket"
-	desc = "A plain jacket that signifies the wearer as a low-scoring Secondary Numerical in the security service or as pilots or bridge crew."
+	desc = "A plain jacket that signifies the wearer as a low-scoring Secondary Numerical in the security service or as pilots or stewards."
 	item_state = "ix_sec_jacket"
 	icon_state = "ix_sec_jacket"
 
@@ -258,7 +258,7 @@
 
 /obj/item/clothing/suit/storage/toggle/skrell/oqi/security
 	name = "Oqi bridge and security jacket"
-	desc = "A more fashionable jacket that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the security service or as pilots or bridge crew."
+	desc = "A more fashionable jacket that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the security service or as pilots or stewards."
 	item_state = "oqi_sec_jacket"
 	icon_state = "oqi_sec_jacket"
 
@@ -290,7 +290,7 @@
 
 /obj/item/clothing/suit/storage/toggle/skrell/iqi/security
 	name = "Iqi bridge and security jacket"
-	desc = "A very fashionable jacket that signifies the wearer as a high-scoring Primary Numerical in the security service or as pilots or bridge crew."
+	desc = "A very fashionable jacket that signifies the wearer as a high-scoring Primary Numerical in the security service or as pilots or stewards."
 	item_state = "iqi_sec_jacket"
 	icon_state = "iqi_sec_jacket"
 

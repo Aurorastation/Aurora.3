@@ -163,6 +163,23 @@
 	icon_state = "orion_librarian"
 	item_state = "orion_librarian"
 
+/obj/item/clothing/under/librarian/heph
+	icon_state = "heph_librarian"
+	item_state = "heph_librarian"
+
+/obj/item/clothing/under/librarian/pmc
+	icon_state = "pmc_librarian"
+	item_state = "pmc_librarian"
+
+/obj/item/clothing/under/librarian/zavod
+	icon_state = "zavod_librarian"
+	item_state = "zavod_librarian"
+
+/obj/item/clothing/under/librarian/zeng
+	icon_state = "zeng_librarian"
+	item_state = "zeng_librarian"
+
+
 // Miner
 
 /obj/item/clothing/under/rank/miner
@@ -205,38 +222,38 @@
 	icon_state = "orion_tech"
 	item_state = "orion_tech"
 
-/obj/item/clothing/under/rank/bridge_crew
-	name = "bridge crew's jumpsuit"
-	desc = "The uniform worn by the SCC's bridge crew."
+/obj/item/clothing/under/rank/steward
+	name = "steward's jumpsuit"
+	desc = "The uniform worn by the SCC's stewards."
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
-	icon_state = "bridge_crew"
-	item_state = "bridge_crew"
+	icon_state = "steward"
+	item_state = "steward"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/rank/bridge_crew/alt
-	name = "bridge crew's skirt"
-	desc = "The uniform worn by the SCC's bridge crew, featuring a skirt."
-	icon_state = "bridge_crew_alt"
-	item_state = "bridge_crew_alt"
-/obj/item/clothing/under/rank/bridge_crew/alt/white
-	icon_state = "bridge_crew_alt_white"
-	item_state = "bridge_crew_alt_white"
+/obj/item/clothing/under/rank/steward/alt
+	name = "stewards's skirt"
+	desc = "The uniform worn by the SCC's stewards, featuring a skirt."
+	icon_state = "steward_alt"
+	item_state = "steward_alt"
+/obj/item/clothing/under/rank/steward/alt/white
+	icon_state = "steward_alt_white"
+	item_state = "steward_alt_white"
 
-/obj/item/clothing/under/rank/bridge_crew/sancolette
-	name = "bridge crew's uniform"
+/obj/item/clothing/under/rank/steward/sancolette
+	name = "stewards's uniform"
 	desc = "A bridge staff uniform in SCC colors but Colettish style, consisting of trousers and meant to be paired with a jacket. Fancy!"
 	desc_extended = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
 	uniforms of the Civil Guard are one of the more striking uniforms found in the local military forces of the Alliance, and are often copied by both corporate and civil actors."
-	icon_state = "bridge_crew_sancol"
-	item_state = "bridge_crew_sancol"
+	icon_state = "steward_sancol"
+	item_state = "steward_sancol"
 
-/obj/item/clothing/under/rank/bridge_crew/sancolette/alt
-	name = "bridge crew's uniform"
+/obj/item/clothing/under/rank/steward/sancolette/alt
+	name = "stewards's uniform"
 	desc = "A bridge staff uniform in SCC colors but Colettish style, consisting of navy trousers and meant to be paired with a jacket. Fancy!"
 	desc_extended = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
 	uniforms of the Civil Guard are one of the more striking uniforms found in the local military forces of the Alliance, and are often copied by both corporate and civil actors."
-	icon_state = "bridge_crew_sancol_alt"
-	item_state = "bridge_crew_sancol_alt"
+	icon_state = "steward_sancol_alt"
+	item_state = "steward_sancol_alt"
 
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"

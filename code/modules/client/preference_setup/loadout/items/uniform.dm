@@ -144,18 +144,18 @@
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
 
-/datum/gear/uniform/bridge_crew
-	display_name = "bridge crew uniform selection"
-	path = /obj/item/clothing/under/rank/bridge_crew/alt
-	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
+/datum/gear/uniform/steward
+	display_name = "steward uniform selection"
+	path = /obj/item/clothing/under/rank/steward/alt
+	allowed_roles = list("Steward", "Captain", "Executive Officer")
 
-/datum/gear/uniform/bridge_crew/New()
+/datum/gear/uniform/steward/New()
 	..()
 	var/list/bridgecrew = list()
-	bridgecrew["bridge crew uniform, skirt"] = /obj/item/clothing/under/rank/bridge_crew/alt
-	bridgecrew["bridge crew uniform, skirt, white"] = /obj/item/clothing/under/rank/bridge_crew/alt/white
-	bridgecrew["bridge crew uniform, san colettish"] = /obj/item/clothing/under/rank/bridge_crew/sancolette
-	bridgecrew["bridge crew uniform, san colettish, blue"] = /obj/item/clothing/under/rank/bridge_crew/sancolette/alt
+	bridgecrew["steward uniform, skirt"] = /obj/item/clothing/under/rank/steward/alt
+	bridgecrew["steward uniform, skirt, white"] = /obj/item/clothing/under/rank/steward/alt/white
+	bridgecrew["steward uniform, san colettish"] = /obj/item/clothing/under/rank/steward/sancolette
+	bridgecrew["steward uniform, san colettish, blue"] = /obj/item/clothing/under/rank/steward/sancolette/alt
 	gear_tweaks += new /datum/gear_tweak/path(bridgecrew)
 
 /datum/gear/uniform/pants

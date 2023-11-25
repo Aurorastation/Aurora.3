@@ -20,7 +20,6 @@ export type IDData = {
   all_centcom_access: Access[];
   regions: Region[];
 
-  command_support_jobs: Job[];
   engineering_jobs: Job[];
   medical_jobs: Job[];
   science_jobs: Job[];
@@ -123,17 +122,6 @@ export const AccessModification = (props, context) => {
                 color="white"
                 onClick={() => act('assign', { assign_target: 'Custom' })}
               />
-            </LabeledList.Item>
-            <LabeledList.Item label="Command Support" labelColor="#114DC1">
-              {data.command_support_jobs.map((job) => (
-                <Button
-                  key={job.job}
-                  content={job.job}
-                  color="blue"
-                  onClick={() => act('assign', { assign_target: job.job })}
-                  disabled={data.id_rank === job.job}
-                />
-              ))}
             </LabeledList.Item>
             <LabeledList.Item label="Engineering" labelColor="#FFA500">
               {data.engineering_jobs.map((job) => (

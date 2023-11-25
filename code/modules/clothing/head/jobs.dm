@@ -52,20 +52,20 @@
 	icon_state = "executive_officer_cap"
 	item_state = "executive_officer_cap"
 
-/obj/item/clothing/head/caphat/bridge_crew
-	name = "bridge crew cap"
-	desc = "A stylish cap issued to the bridge crew of SCC vessels."
+/obj/item/clothing/head/caphat/steward
+	name = "steward cap"
+	desc = "A stylish cap issued to the stewards of SCC vessels."
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	contained_sprite = TRUE
-	icon_state = "bridge_crew_cap"
-	item_state = "bridge_crew_cap"
+	icon_state = "steward_cap"
+	item_state = "steward_cap"
 
-/obj/item/clothing/head/caphat/bridge_crew/alt
-	name = "bridge crew cap"
-	desc = "A more formal hat in a Colettish style, authorized for the bridge crew of SCC vessels."
+/obj/item/clothing/head/caphat/steward/alt
+	name = "stewards cap"
+	desc = "A more formal hat in a Colettish style, authorized for the stewards of SCC vessels."
 	desc_extended = "Designed to allow the wearer to wear both a peaked cap and a radio headset, Colettish 'crusher' caps are prized throughout the Alliance and Republic for their comfort."
-	icon_state = "bridge_crew_cap_alt"
-	item_state = "bridge_crew_cap_alt"
+	icon_state = "steward_cap_alt"
+	item_state = "steward_cap_alt"
 
 //Chaplain
 /obj/item/clothing/head/chaplain_hood

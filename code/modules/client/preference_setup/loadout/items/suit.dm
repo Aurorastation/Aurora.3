@@ -1,6 +1,6 @@
 // Suit slot
 /datum/gear/suit
-	display_name = "san colette bridge crew jacket"
+	display_name = "san colette steward jacket"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"

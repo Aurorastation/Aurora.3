@@ -17,7 +17,7 @@
 
 /area/peoples_station/bridge
 	name = "People's Space Station Bridge"
-	icon_state = "bridge_crew"
+	icon_state = "steward"
 
 /area/peoples_station/living_quarters
 	name = "People's Space Living Quarters"

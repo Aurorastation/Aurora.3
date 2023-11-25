@@ -414,10 +414,10 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
 
-/datum/gear/head/bridge_crew_cap_alt
-	display_name = "san colettish bridge crew cap"
-	path = /obj/item/clothing/head/caphat/bridge_crew/alt
-	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
+/datum/gear/head/steward_cap_alt
+	display_name = "san colettish steward cap"
+	path = /obj/item/clothing/head/caphat/steward/alt
+	allowed_roles = list("Steward", "Captain", "Executive Officer")
 
 /datum/gear/head/gadpathur
 	display_name = "gadpathurian headgear selection"

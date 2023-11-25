@@ -31959,7 +31959,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/structure/closet/secure_closet/bridge_crew,
+/obj/structure/closet/secure_closet/steward,
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)

@@ -305,13 +305,13 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
-	name = "bridge crew jacket"
+	name = "steward jacket"
 	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
 	desc_extended= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
 	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/bridge_crew_jacket_sancol.dmi'
-	icon_state = "bridge_crew_jacket_sancol"
-	item_state = "bridge_crew_jacket_sancol"
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/steward_jacket_sancol.dmi'
+	icon_state = "steward_jacket_sancol"
+	item_state = "steward_jacket_sancol"
 
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"

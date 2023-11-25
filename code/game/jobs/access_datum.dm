@@ -434,10 +434,10 @@ var/const/access_intrepid = 73
 	desc = "Intrepid Shuttle"
 	region = ACCESS_REGION_COMMAND
 
-var/const/access_bridge_crew = 74
-/datum/access/bridge_crew
-	id = access_bridge_crew
-	desc = "Bridge Crew"
+var/const/access_steward = 74
+/datum/access/steward
+	id = access_steward
+	desc = "Steward"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_ship_weapons = 75

@@ -244,9 +244,9 @@
 /area/crew_quarters/heads/hop/xo
 	name = "Command - Executive Officer's Office"
 
-/area/bridge/bridge_crew
-	name = "Bridge Crew Preparation"
-	icon_state = "bridge_crew"
+/area/bridge/steward
+	name = "Steward Preparation"
+	icon_state = "steward"
 
 /area/bridge/helm
 	name = "Bridge Helm"

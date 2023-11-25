@@ -61,6 +61,7 @@
 		"Atmospheric Technician" = /datum/outfit/job/atmos/zavodskoi,
 		"Engineering Apprentice" = /datum/outfit/job/intern_eng/zavodskoi,
 		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/zavodskoi,
+		"Corporate Reporter" = /datum/outfit/job/journalist/zavodskoi,
 		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi,
 		"Off-Duty Crew Member" = /datum/outfit/job/visitor/zavodskoi
 	)
@@ -251,6 +252,17 @@
 		/obj/item/gun/projectile/pistol = 1,
 		/obj/item/stamp/zavodskoi = 1
 	)
+
+/datum/outfit/job/journalist/zavodskoi
+	name = "Corporate Reporter - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/librarian/zavod
+	id = /obj/item/card/id/zavodskoi
+
+	backpack_faction = /obj/item/storage/backpack/zavod
+	satchel_faction = /obj/item/storage/backpack/satchel/zavod
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
 /datum/outfit/job/visitor/zavodskoi
 	name = "Off-Duty Crew Member - Zavodskoi Interstellar"

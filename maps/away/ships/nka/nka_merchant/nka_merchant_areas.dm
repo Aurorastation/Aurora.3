@@ -33,7 +33,7 @@
 
 /area/nka_merchant/bridge/secondary
 	name = "Her Majesty's Mercantile Flotilla Ship Secondary Bridge"
-	icon_state = "bridge_crew"
+	icon_state = "steward"
 
 /area/nka_merchant/warehouse
 	name = "Her Majesty's Mercantile Flotilla Ship warehouse"

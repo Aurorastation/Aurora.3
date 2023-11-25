@@ -15,7 +15,7 @@ var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
-var/const/BRIDGE_CREW		=(1<<12)
+var/const/STEWARD			=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
 var/const/HRA              =(1<<14)
 
@@ -69,13 +69,6 @@ var/list/command_positions = list(
 	"Operations Manager"
 )
 
-var/list/command_support_positions = list(
-	"Human Resources Assistant",
-	"Corporate Liaison",
-	"Consular Officer",
-	"Bridge Crew"
-)
-
 var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Engineer",
@@ -116,15 +109,19 @@ var/list/service_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Corporate Reporter",
-	"Chaplain"
+	"Chaplain",
+	"Steward"
 )
 
 var/list/civilian_positions = list(
 	"Assistant",
 	"Off-Duty Crew Member",
 	"Passenger",
-	"Merchant"
+	"Merchant",
+	"Corporate Reporter",
+	"Human Resources Assistant",
+	"Corporate Liaison",
+	"Consular Officer"
 )
 
 var/list/security_positions = list(
