@@ -43,7 +43,7 @@
 		return
 	user.change_appearance(APPEARANCE_SURGERYKIT, user)
 	used = TRUE
-	var/response = input(user, "What would you like to call your new self?", "Name change") as null | text
+	var/response = tgui_input_text(user, "What would you like to call your new self?", "Name Change")
 	response = sanitize(response, MAX_NAME_LEN)
 	if(!response)
 		return
