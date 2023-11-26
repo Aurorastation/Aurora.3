@@ -172,7 +172,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
-	flags |= NOREACT // so it doesn't react until you light it
+	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/process()
@@ -213,7 +213,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			e.start()
 			qdel(src)
 			return
-		flags &= ~NOREACT // allowing reagents to react after being lit
+		atom_flags &= ~ATOM_FLAG_NO_REACT // allowing reagents to react after being lit
 		reagents.handle_reactions()
 		icon_state = icon_on
 		item_state = icon_on
@@ -705,7 +705,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	w_class = ITEMSIZE_TINY
 	throwforce = 4
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	attack_verb = list("burnt", "singed")
 	var/base_state

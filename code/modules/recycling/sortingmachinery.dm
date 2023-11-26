@@ -6,7 +6,6 @@
 	var/obj/wrapped = null
 	density = 1
 	var/sortTag = null
-	flags = NOBLUDGEON
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	var/examtext = null
 	var/nameset = 0
@@ -256,7 +255,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
 /obj/item/device/destTagger/proc/openwindow(mob/user as mob)

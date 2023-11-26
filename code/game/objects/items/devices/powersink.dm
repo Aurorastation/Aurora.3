@@ -6,7 +6,7 @@
 	icon_state = "powersink0"
 	item_state = "powersink0"
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
