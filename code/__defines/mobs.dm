@@ -168,6 +168,7 @@
 #define BP_AUG_FUEL_CELL       "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER    "integrated air analyzer"
 #define BP_AUG_LANGUAGE        "integrated language processor"
+#define BP_AUG_ETHANOL_BURNER  "integrated ethanol burner"
 #define BP_AUG_PSI             "psionic receiver"
 #define BP_AUG_CALF_OVERRIDE   "calf overdrive"
 #define BP_AUG_MEMORY          "memory inhibitor"

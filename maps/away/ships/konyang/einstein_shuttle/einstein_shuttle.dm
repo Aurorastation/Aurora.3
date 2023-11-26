@@ -8,6 +8,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/einstein_shuttle)
 	sectors = list(SECTOR_HANEUNIM)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/einstein_shuttle
 	map = "clear sector"
 	descriptor = "An empty sector."
@@ -28,7 +30,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/einstein_shuttle/helm
 	name = "Einstein Shuttle - Helm"

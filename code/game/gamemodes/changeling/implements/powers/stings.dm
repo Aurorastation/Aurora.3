@@ -86,7 +86,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/singleton/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/drugs/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"

@@ -45,12 +45,16 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_change_icon_state = TRUE
+	var/set_unsafe_on_init = FALSE
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
 	if (text || title)
-		set_content(title, text ? text : info)
+		if(set_unsafe_on_init)
+			set_content_unsafe(title, text ? text : info)
+		else
+			set_content(title, text ? text : info)
 	else
 		updateinfolinks()
 		if (mapload)
@@ -704,6 +708,13 @@
 
 /obj/item/paper/medscan
 	icon_state = "medscan"
+	color = "#eeffe8"
+	set_unsafe_on_init = TRUE
+	var/datum/weakref/scan_target
+
+/obj/item/paper/medscan/Initialize(mapload, text, title, var/atom/set_scan_target)
+	. = ..()
+	scan_target = WEAKREF(set_scan_target)
 
 //
 // Fluff Papers

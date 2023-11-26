@@ -25,7 +25,7 @@
 		)
 	icon_state = "wrench"
 	item_state = "wrench"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -54,7 +54,7 @@
 		)
 	icon_state = "screwdriver"
 	item_state = "screwdriver"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 8
 	throwforce = 5
@@ -128,7 +128,7 @@
 		)
 	icon_state = "wirecutters"
 	item_state = "wirecutters"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 6
 	throw_speed = 2
@@ -218,7 +218,7 @@
 	item_state = "welder"
 	var/welding_state = "welding_sparks"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
@@ -688,7 +688,7 @@
 		)
 	icon_state = "crowbar"
 	item_state = "crowbar"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -717,7 +717,7 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 12
 	throwforce = 12
-	flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_ENGINEERING = 2)
@@ -752,7 +752,7 @@
 		)
 	icon_state = "pipewrench"
 	item_state = "pipewrench"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -835,7 +835,7 @@
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -908,7 +908,7 @@
 	desc = "Harvested from the finest NanoTrasen steel sheep."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "steel_wool"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/lit
 	matter = list(MATERIAL_STEEL = 40)
@@ -972,7 +972,7 @@
 		)
 	icon_state = "hammer"
 	item_state = "hammer"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 5

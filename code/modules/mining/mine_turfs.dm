@@ -824,12 +824,14 @@ var/list/asteroid_floor_smooth = list(
 		if(S.collection_mode)
 			for(var/obj/item/ore/O in contents)
 				O.attackby(W, user)
+				CHECK_TICK
 				return
 	else if(istype(W,/obj/item/storage/bag/fossils))
 		var/obj/item/storage/bag/fossils/S = W
 		if(S.collection_mode)
 			for(var/obj/item/fossil/F in contents)
 				F.attackby(W, user)
+				CHECK_TICK
 				return
 	else
 		..(W, user)

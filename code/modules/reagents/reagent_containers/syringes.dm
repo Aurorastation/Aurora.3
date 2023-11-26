@@ -414,7 +414,7 @@
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
-	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 5, /singleton/reagent/mindbreaker = 10)
+	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 5, /singleton/reagent/drugs/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()

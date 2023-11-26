@@ -86,6 +86,9 @@
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
 
+/obj/item/clothing/shoes/workboots/all_species
+	species_restricted = null
+
 /obj/item/clothing/shoes/workboots/brown
 	name = "brown workboots"
 	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first."
@@ -138,7 +141,7 @@
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_MINOR
 	)
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.35
 	can_hold_knife = TRUE
 	build_from_parts = TRUE

@@ -13,7 +13,7 @@
 	volume = 60
 	accuracy = 0.1
 	w_class = ITEMSIZE_SMALL
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	fragile = 2
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
@@ -64,10 +64,10 @@
 	..()
 	if(is_open_container())
 		to_chat(usr, "<span class = 'notice'>You put the lid on \the [src].</span>")
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
 		to_chat(usr, "<span class = 'notice'>You take the lid off \the [src].</span>")
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
 /obj/item/reagent_containers/glass/AltClick(var/mob/user)
@@ -168,7 +168,7 @@
 	matter = list(MATERIAL_GLASS = 500)
 	volume = 60
 	amount_per_transfer_from_this = 10
-	flags = OPENCONTAINER | NOREACT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 	fragile = 0
 
 /obj/item/reagent_containers/glass/beaker/bluespace
@@ -250,7 +250,7 @@
 	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	volume = 300
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'

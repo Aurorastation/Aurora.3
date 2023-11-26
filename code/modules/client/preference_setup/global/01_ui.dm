@@ -196,7 +196,7 @@
 			if("ooc")
 				pref.ooccolor = initial(pref.ooccolor)
 			if("fps")
-				pref.clientfps = 0
+				pref.clientfps = initial(pref.clientfps)
 		return TOPIC_REFRESH
 
 	return ..()

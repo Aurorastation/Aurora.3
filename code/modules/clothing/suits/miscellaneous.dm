@@ -29,7 +29,7 @@
 	desc = "Suit for a cyborg costume."
 	icon_state = "death"
 	item_state = "death"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fire_resist = T0C+5200
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
@@ -62,7 +62,7 @@
 	name = "red space suit replica"
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
-	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
+	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT

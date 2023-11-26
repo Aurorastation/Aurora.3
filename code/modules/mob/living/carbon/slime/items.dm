@@ -11,7 +11,7 @@
 	origin_tech = list(TECH_BIO = 4)
 	var/uses = 1 // uses before it goes inert
 	var/enhanced = FALSE //has it been enhanced before?
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/slime_extract/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/extract_enhancer))

@@ -370,7 +370,7 @@
 	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
 	density = TRUE
 	anchored = TRUE
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	climbable = TRUE
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform"

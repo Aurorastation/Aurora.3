@@ -11,7 +11,7 @@
 	contained_sprite = TRUE
 	icon_state = "flippers"
 	item_state = "flippers"
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	slowdown = 1
 
 /obj/item/clothing/shoes/footwraps
@@ -53,9 +53,6 @@
 		M = user
 	return eyestab(M,user)
 
-/obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
-	trip_up(walking, running)
-
 /obj/item/clothing/shoes/galoshes
 	name = "galoshes"
 	desc = "A waterproof overshoe, made of rubber."
@@ -64,7 +61,7 @@
 	icon_state = "galoshes"
 	item_state = "galoshes"
 	permeability_coefficient = 0.05
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	slowdown = 1
 	species_restricted = null
 	icon_auto_adapt = TRUE
@@ -83,7 +80,7 @@
 	icon_state = "brown"
 	item_state = "brown"
 	contained_sprite = TRUE
-	item_flags = NOSLIP|LIGHTSTEP
+	item_flags = ITEM_FLAG_NO_SLIP|ITEM_FLAG_LIGHT_STEP
 	slowdown = 0
 	origin_tech = list(TECH_ILLEGAL = 3)
 	icon_auto_adapt = FALSE

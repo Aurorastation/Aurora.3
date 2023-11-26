@@ -334,7 +334,7 @@
 		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))
 			return
 		if(P.focused_conv)
-			P.focused_conv.cl_send(P, text, M)
+			P.focused_conv.cl_send(P, html_decode(text), M)
 	registered_message = text
 
 /obj/item/modular_computer/examine(mob/user, distance, is_adjacent)
