@@ -158,22 +158,22 @@
 	..()
 
 /obj/item/clothing/accessory/badge/officer
-	name = "officer's badge"
-	desc = "A bronze corporate security badge. Stamped with the words 'Security Officer.'"
+	name = "security officer's badge"
+	desc = "A bronze security badge."
 	icon_state = "bronzebadge"
 	overlay_state = "bronzebadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
-	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
+	desc = "A silver security badge."
 	icon_state = "silverbadge"
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/hos
-	name = "commander's badge"
-	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
+	name = "head of security's badge"
+	desc = "An immaculately polished gold security badge."
 	icon_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
@@ -483,6 +483,27 @@
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 
+/obj/item/clothing/accessory/badge/passcard/hegemony
+	name = "hegemony passcard"
+	desc = "A passcard issued to citizens of the Izweski Hegemony."
+	desc_extended = "As the feudal citizenship standards of the Hegemony have changed to deal with the realities of an interstellar empire, human-inspired passcards have become a quick and easy method of identification for Unathi travelling abroad. This passcard is the most common design, seen throughout Hegemony space."
+	icon_state = "passcard_hegemony"
+	item_state = "passcard_hegemony"
+
+/obj/item/clothing/accessory/badge/passcard/ouerea
+	name = "ouerean passcard"
+	desc = "A passcard issued to residents of the planet Ouerea."
+	desc_extended = "Though not a fully independent state, the people of Ouerea have managed to win a great deal of autonomy from the Izweski Hegemony, which is reflected in the passcards that citizens of the Confederation carry."
+	icon_state = "passcard_ouerea"
+	item_state = "passcard_ouerea"
+
+/obj/item/clothing/accessory/badge/passcard/tret
+	name = "tret passcard"
+	desc = "A passcard issued to residents of the planet Tret."
+	desc_extended = "In recognition of the K'lax Hive's unique status and needs, the Hegemony has issued custom passcards for the planet Tret, for easy identification of K'laxan Vaurcae abroad. Many K'lax do not carry these, though those working in the Hegemony are likely to."
+	icon_state = "passcard_tret"
+	item_state = "passcard_tret"
+
 // Work Visa
 /obj/item/clothing/accessory/badge/passcard/workvisa
 	name = "republic of biesel work visa"
@@ -574,6 +595,12 @@
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
+
+/obj/item/clothing/accessory/badge/passport/hegemony
+	name = "hegemony passport"
+	desc = "A passport issued to a citizen of the Izweski Hegemony."
+	icon_state = "passport_hegemony"
+	item_state = "passport_hegemony"
 
 #undef CANT_OPEN
 #undef CLOSED

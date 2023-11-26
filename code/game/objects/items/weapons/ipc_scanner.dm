@@ -5,7 +5,7 @@
 	icon_state = "ipc_tag_scanner"
 	item_state = "ipc_tag_scanner"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL

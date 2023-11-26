@@ -7,7 +7,7 @@
 	icon_state = "locator"
 
 	// Copied from debugger.dm
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5.0
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0

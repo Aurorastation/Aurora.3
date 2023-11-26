@@ -29,7 +29,7 @@
 	var/bottlesprite = "bottle-1" //yes, strings
 	var/pillsprite = "pill1"
 	var/max_pill_count = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/datum/asset/spritesheet/chem_master/chem_asset
 	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
 	var/datum/tgui/ui = null

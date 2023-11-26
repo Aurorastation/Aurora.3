@@ -77,7 +77,7 @@
 
 /obj/item/organ/internal/parasite/kois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "kois-on"
 	dead_icon = "kois-off"
 
@@ -149,7 +149,7 @@
 
 /obj/item/organ/internal/parasite/blackkois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "black-on"
 	dead_icon = "black-off"
 	subtle = 1
@@ -439,7 +439,7 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~5 minutes
@@ -490,7 +490,11 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(BP_IS_ROBOTIC(heart))
+		recession = 10
+		return
+
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~7.5 minutes
