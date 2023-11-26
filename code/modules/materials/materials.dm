@@ -494,7 +494,7 @@
 	stack_type = /obj/item/stack/material/glass
 	table_icon = 'icons/obj/structure/tables/glass_table.dmi'
 	flags = MATERIAL_BRITTLE
-	icon_colour = null
+	icon_colour = "#00E1FF"
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
@@ -561,7 +561,7 @@
 					to_chat(user, "<span class='warning'>This material is not reinforced enough to use for a door.</span>")
 					return
 				for(var/obj/obstacle in T)
-					if((obstacle.flags & ON_BORDER) && obstacle.dir == user.dir)
+					if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && obstacle.dir == user.dir)
 						failed_to_build = 1
 	if(failed_to_build)
 		to_chat(user, "<span class='warning'>There is no room in this location.</span>")

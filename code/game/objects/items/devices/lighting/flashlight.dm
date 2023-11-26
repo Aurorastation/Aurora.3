@@ -10,7 +10,7 @@
 	icon_state = "flashlight"
 	item_state = "flashlight"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
 	uv_intensity = 50
@@ -304,7 +304,7 @@
 	item_state = "pen"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_EARS
 	brightness_on = 2
 	w_class = ITEMSIZE_TINY
@@ -315,7 +315,7 @@
 	desc = "A miniature lamp, that might be used by small robots."
 	icon_state = "penlight"
 	item_state = ""
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	brightness_on = 2
 	efficiency_modifier = 2
 	w_class = ITEMSIZE_TINY
@@ -375,7 +375,7 @@
 	desc = "Some nifty lamps drawing from internal battery sources to produce a light, though a dim one."
 	icon_state = "headlights"
 	item_state = "headlights"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	brightness_on = 2
 	w_class = ITEMSIZE_TINY

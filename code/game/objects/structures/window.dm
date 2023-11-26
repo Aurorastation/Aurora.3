@@ -14,7 +14,7 @@
 	w_class = ITEMSIZE_NORMAL
 	layer = WINDOW_PANE_LAYER
 	anchored = TRUE
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hitsound = 'sound/effects/glass_hit.ogg'
 	var/maxhealth = 14
@@ -258,7 +258,7 @@
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
-	if(W.flags & NOBLUDGEON)
+	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
 	if(W.isscrewdriver() && user.a_intent != I_HURT)
@@ -538,7 +538,7 @@
 	icon = 'icons/obj/smooth/shuttle_window.dmi'
 	icon_state = "shuttle_window"
 	basestate = "window"
-	flags = 0
+	atom_flags = 0
 	obj_flags = null
 	maxhealth = 40
 	reinf = TRUE
@@ -614,7 +614,7 @@
 /obj/structure/window/full
 	name = "window"
 	desc = "You aren't supposed to see this."
-	flags = 0
+	atom_flags = 0
 	obj_flags = null
 	dir = 5
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
@@ -665,7 +665,7 @@
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
-	if(W.flags & NOBLUDGEON)
+	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
 	if(W.isscrewdriver() && user.a_intent != I_HURT)

@@ -1,5 +1,6 @@
 /datum/unit_test/roundstart_cable_connectivity
 	name = "POWER: Roundstart Cables that are Connected Share Powernets"
+	groups = list("map")
 
 /datum/unit_test/roundstart_cable_connectivity/proc/find_connected_neighbours(var/obj/structure/cable/C)
 	. = list()
@@ -51,6 +52,7 @@
 
 /datum/unit_test/areas_apc_uniqueness
 	name = "POWER: Each area should have at most one APC."
+	groups = list("map")
 
 /datum/unit_test/areas_apc_uniqueness/start_test()
 	var/failed = 0
@@ -71,6 +73,7 @@
 
 /datum/unit_test/area_power_tally_accuracy
 	name = "POWER: All areas must have accurate power use values."
+	groups = list("map")
 
 /datum/unit_test/area_power_tally_accuracy/start_test()
 	var/failed = FALSE

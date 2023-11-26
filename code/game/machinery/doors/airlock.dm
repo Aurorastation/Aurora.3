@@ -212,8 +212,6 @@
 	if (glass)
 		paintable |= AIRLOCK_PAINTABLE_WINDOW
 		window_material = SSmaterials.get_material_by_name(init_material_window)
-		if (!window_color)
-			window_color = window_material.icon_colour
 		opacity = FALSE
 	update_icon()
 
@@ -458,8 +456,6 @@
 /obj/machinery/door/airlock/proc/paint_window(paint_color)
 	if (paint_color)
 		window_color = paint_color
-	else if (window_material?.icon_colour)
-		window_color = window_material.icon_colour
 	else
 		window_color = GLASS_COLOR
 	update_icon()

@@ -149,7 +149,7 @@ emp_act
 /mob/living/carbon/human/proc/check_head_airtight_coverage()
 	var/list/clothing = list(head, wear_mask, wear_suit)
 	for(var/obj/item/clothing/C in clothing)
-		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT)))
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (ITEM_FLAG_AIRTIGHT)))
 			return TRUE
 	return FALSE
 
@@ -157,7 +157,7 @@ emp_act
 /mob/living/carbon/human/proc/check_mouth_coverage()
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform)
 	for(var/obj/item/gear in protective_gear)
-		if(istype(gear) && (gear.body_parts_covered & FACE) && !(gear.item_flags & FLEXIBLEMATERIAL))
+		if(istype(gear) && (gear.body_parts_covered & FACE) && !(gear.item_flags & ITEM_FLAG_FLEXIBLE_MATERIAL))
 			return gear
 	return null
 
@@ -263,7 +263,7 @@ emp_act
 					apply_effect(20, PARALYZE, blocked)
 
 		//Apply blood
-		if(!(I.flags & NOBLOODY))
+		if(!(I.atom_flags & ATOM_FLAG_NO_BLOOD))
 			I.add_blood(src)
 
 		var/is_sharp_weapon = is_sharp(I)
