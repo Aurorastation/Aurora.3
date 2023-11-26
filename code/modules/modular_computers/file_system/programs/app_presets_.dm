@@ -43,7 +43,6 @@
 )
 
 #define COMPUTER_APP_PRESET_HORIZON_MEDICAL list(\
-	new /datum/computer_file/program/suit_sensors(comp),\
 	new /datum/computer_file/program/records/medical(comp),\
 	new /datum/computer_file/program/chemistry_codex(comp),\
 	new /datum/computer_file/program/scanner/medical(comp),\
