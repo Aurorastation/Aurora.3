@@ -5,7 +5,7 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 	contained_sprite = TRUE
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = null
 	volume = 50 //Sets the default container amount for all food items.
 	var/bitesize = 1

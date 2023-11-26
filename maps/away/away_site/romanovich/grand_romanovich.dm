@@ -7,6 +7,8 @@
 	ship_cost = 2
 	id = "grand_romanovich"
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/grand_romanovich
 	map = "Grand Romanovich Casino"
 	descriptor = "An adhomian style casino in Tau Ceti's space."
@@ -20,7 +22,7 @@
 	use_common = TRUE
 
 /area/grand_romanovich
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE

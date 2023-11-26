@@ -2,7 +2,7 @@
 /obj/item/plantspray
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	item_state = "spray"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 4
 	w_class = ITEMSIZE_SMALL
@@ -34,7 +34,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "plastic_jug"
 	item_state = "plastic_jug"
-	flags = 0
+	atom_flags = 0
 	possible_transfer_amounts = list(5, 10, 20, 40, 80)
 	volume = 80
 	w_class = ITEMSIZE_NORMAL

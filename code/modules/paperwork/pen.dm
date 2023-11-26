@@ -168,7 +168,7 @@
  * Reagent Pens
  */
 /obj/item/pen/reagent
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 

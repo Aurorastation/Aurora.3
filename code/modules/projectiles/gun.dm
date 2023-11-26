@@ -50,7 +50,7 @@
 	icon_state = "pistol"
 	item_state = "pistol"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEMSIZE_NORMAL
