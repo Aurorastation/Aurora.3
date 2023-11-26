@@ -6,7 +6,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/adhomian_circus/port
 	name = "Adhomian Traveling Circus Port Wing"
