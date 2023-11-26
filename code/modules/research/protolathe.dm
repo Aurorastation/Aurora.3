@@ -2,7 +2,7 @@
 	name = "protolathe"
 	desc = "An upgraded variant of a common Autolathe, this can only be operated via a nearby RnD console, but can manufacture cutting edge technology, provided it has the design and the correct materials."
 	icon_state = "protolathe"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	idle_power_usage = 30
 	active_power_usage = 5000

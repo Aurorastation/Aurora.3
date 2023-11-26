@@ -15,7 +15,7 @@
 	var/list/can_size_overrides = list("x" = 0, "y" = -3) // position of the can's opening - make sure to take away 16 from X and 23 from Y
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'

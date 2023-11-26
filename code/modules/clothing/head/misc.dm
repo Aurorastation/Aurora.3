@@ -244,7 +244,7 @@
 	name = "fez"
 	desc = "You should wear a fez. Fezzes are cool."
 	icon_state = "fez"
-	item_flags = SHOWFLAVORTEXT
+	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
 
 //end bs12 hats
 

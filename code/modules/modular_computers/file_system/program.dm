@@ -49,13 +49,15 @@
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	computer.idle_threads -= src
-	computer.enabled_services -= src
-	computer = null
+	if(computer)
+		computer.idle_threads -= src
+		computer.enabled_services -= src
+		computer = null
 	. = ..()
 
 /datum/computer_file/program/ui_host()
-	return computer.ui_host()
+	if(computer)
+		return computer.ui_host()
 
 /datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()

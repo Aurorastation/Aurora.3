@@ -117,7 +117,7 @@
 
 	var/obj/item/M = new augment_type(owner)
 	M.canremove = FALSE
-	M.item_flags |= NOMOVE
+	M.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.equip_to_slot(M, aug_slot)
 	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
 	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
@@ -424,6 +424,10 @@
 /obj/item/organ/internal/augment/fuel_cell
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
+
+/obj/item/organ/internal/augment/ethanol_burner
+	name = "integrated ethanol burner"
+	organ_tag = BP_AUG_ETHANOL_BURNER
 
 // Geeves!
 /obj/item/organ/internal/augment/language

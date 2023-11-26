@@ -87,12 +87,12 @@
 		var/obj/item/clothing/worn_suit = M.wear_suit
 		var/obj/item/clothing/worn_helmet = M.head
 		if(worn_suit) // Are you wearing clothes?
-			if ((worn_suit.flags & THICKMATERIAL))
+			if ((worn_suit.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.7
 			else
 				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, "bio"), 70)) // Is it sealed? I can't get to 70% of your body.
 		if(worn_helmet)
-			if ((worn_helmet.flags & THICKMATERIAL))
+			if ((worn_helmet.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.3
 			else
 				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.

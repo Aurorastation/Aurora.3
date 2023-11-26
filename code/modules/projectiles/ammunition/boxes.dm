@@ -123,6 +123,23 @@
 	max_ammo = 16
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c46m
+	name = "magazine (4.6mm)"
+	icon_state = "4.6x30p"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "4.6mm"
+	desc = "A magazine designed for the dNAC-4.6 pistol."
+	ammo_type = /obj/item/ammo_casing/c46mm
+	max_ammo = 15
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/c46m/extended
+	name = "extended magazine (4.6mm)"
+	icon_state = "4.6x30p_extended"
+	desc = "A magazine designed for the dNAC-4.6 II submachine gun, but can also be used in the dNAC-4.6 pistol."
+	max_ammo = 30
+
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
 	desc = "A bulky magazine for the Kumar Arms 2557."
@@ -356,6 +373,21 @@
 /obj/item/ammo_magazine/a556/makeshift/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/a65
+	name = "magazine (6.5mm)"
+	icon_state = "c6.5mm"
+	origin_tech = list(TECH_COMBAT = 3)
+	mag_type = MAGAZINE
+	caliber = "a65"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/a65
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a65/empty
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/a75
 	name = "ammo magazine (20mm)"
 	icon_state = "75"
@@ -504,6 +536,54 @@
 	icon_state = "csms"
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, MATERIAL_GLASS = 5760)
+
+/obj/item/ammo_magazine/xanan_shotgun
+	name = "magazine"
+	desc = "A magazine for the dNAC-12 combat shotgun."
+	icon = 'icons/obj/guns/xanu_shotgun_mags.dmi'
+	icon_state = "xanu_shell_magazine"
+	caliber = "shotgun"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 8
+	matter = list(MATERIAL_STEEL = 2880)
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/xanan_shotgun/shells
+	name = "magazine (buckshot)"
+	icon_state = "xanu_shell_magazine_buckshot"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_magazine/xanan_shotgun/incendiary
+	name = "magazine (incendiary)"
+	icon_state = "xanu_shell_magazine_incendiary"
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+
+/obj/item/ammo_magazine/xanan_shotgun/beanbag
+	name = "magazine (beanbag)"
+	icon_state = "xanu_shell_magazine_beanbag"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+
+/obj/item/ammo_magazine/xanan_shotgun/slugs
+	name = "magazine (slugs)"
+	icon_state = "xanu_shell_magazine_slug"
+	ammo_type = /obj/item/ammo_casing/shotgun
+
+/obj/item/ammo_magazine/xanan_shotgun/emp
+	name = "magazine (haywire slugs)"
+	icon_state = "xanu_shell_magazine_emp"
+	ammo_type = /obj/item/ammo_casing/shotgun/emp
+
+/obj/item/ammo_magazine/xanan_shotgun/stun
+	name = "magazine (stun)"
+	icon_state = "xanu_shell_magazine_stun"
+	ammo_type = /obj/item/ammo_casing/shotgun/emp
+
+/obj/item/ammo_magazine/xanan_shotgun/tracker
+	name = "magazine (tracking slug)"
+	icon_state = "xanu_shell_magazine_tracker"
+	ammo_type = /obj/item/ammo_casing/shotgun/tracking
 
 /obj/item/ammo_magazine/minigun
 	name = "minigun magazine box (7.62mm)"

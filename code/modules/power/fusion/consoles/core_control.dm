@@ -2,6 +2,16 @@
 	name = "\improper INDRA fusion core control"
 	ui_template = "FusionCoreControl"
 
+/obj/machinery/computer/fusion/core_control/terminal
+	name = "\improper INDRA fusion core control"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "solar_screen"
+	icon_keyboard = "id_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)

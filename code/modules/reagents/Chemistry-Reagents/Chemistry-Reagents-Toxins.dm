@@ -674,6 +674,33 @@
 	nicotine = REM * 0.1
 	taste_mult = 2
 
+/singleton/reagent/toxin/oracle
+	name = "Oracle"
+	description = "Oracle originates from Vysoka, where it is often chewed, or dried and smoked or snorted. This is a common variant."
+	reagent_state = SOLID
+	color = "#ad5555"
+	taste_description = "tartness"
+	strength = 0
+	taste_mult = 10
+	var/caromeg = 0.2
+
+/singleton/reagent/toxin/oracle/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	holder.add_reagent(/singleton/reagent/mental/caromeg, removed * caromeg)
+
+/singleton/reagent/toxin/oracle/rich
+	name = "Vedamor Oracle"
+	color = "#ed1c1c"
+	description = "Vedamor is a city-state on Vysoka, renown for its high-quality soil. Their oracle is renown for being sweeter and more effective than the common variety."
+	taste_description = "sweetness"
+	caromeg = 0.5
+
+/singleton/reagent/toxin/oracle/liquid
+	name = "Caromeg Solution"
+	description = "A diluted caromeg solution, refined from oracle."
+	reagent_state = LIQUID
+	caromeg = REM * 0.1
+	taste_mult = 2
+
 /mob/living/carbon/human/proc/berserk_start()
 	to_chat(src, SPAN_DANGER("An uncontrollable rage courses through your body and overtakes your thoughts - your blood begins to boil with fury!"))
 	add_client_color(/datum/client_color/berserk)

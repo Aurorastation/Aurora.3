@@ -290,6 +290,16 @@
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
 
+/obj/machinery/computer/security/engineering/terminal
+	name = "engineering camera monitor"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "engines"
+	icon_keyboard = "power_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)
 		network = engineering_networks.Copy()

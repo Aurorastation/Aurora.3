@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	sharp = 1
 	edge = TRUE
 	var/active = 1 // For butterfly knives

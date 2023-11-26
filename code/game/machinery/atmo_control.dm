@@ -166,6 +166,15 @@
 	var/max_pressure_setting = MAX_VENT_PRESSURE
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
+/obj/machinery/computer/general_air_control/large_tank_control/terminal
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "tank"
+	icon_keyboard = "atmos_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/general_air_control/large_tank_control/wall
 	icon = 'icons/obj/modular_telescreen.dmi'
 	icon_state = "telescreen"
@@ -251,8 +260,14 @@
 	INVOKE_ASYNC(radio_connection, TYPE_PROC_REF(/datum/radio_frequency, post_signal), src, signal, filter = RADIO_ATMOSIA)
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/machinery/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "tank"
+	icon_keyboard = "atmos_key"
 	ui_type = "AtmosControlSupermatter"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 	frequency = 1438
 	var/input_tag

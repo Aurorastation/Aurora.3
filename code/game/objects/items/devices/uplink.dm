@@ -188,15 +188,15 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 												// and if it's sanitized for html.
 				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
 				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>") // change line breaks into <br>
-				nanoui_data["exploit"]["name"] =  html_encode(L.name)
-				nanoui_data["exploit"]["sex"] =  html_encode(L.sex)
-				nanoui_data["exploit"]["age"] =  html_encode(L.age)
-				nanoui_data["exploit"]["species"] =  html_encode(L.species)
-				nanoui_data["exploit"]["rank"] =  html_encode(L.rank)
-				nanoui_data["exploit"]["citizenship"] =  html_encode(L.citizenship)
-				nanoui_data["exploit"]["employer"] =  html_encode(L.employer)
-				nanoui_data["exploit"]["religion"] =  html_encode(L.religion)
-				nanoui_data["exploit"]["fingerprint"] =  html_encode(L.fingerprint)
+				nanoui_data["exploit"]["name"] = html_encode(L.name)
+				nanoui_data["exploit"]["sex"] = html_encode(L.sex)
+				nanoui_data["exploit"]["age"] = html_encode(L.age)
+				nanoui_data["exploit"]["species"] = html_encode(L.species)
+				nanoui_data["exploit"]["rank"] = html_encode(L.rank)
+				nanoui_data["exploit"]["citizenship"] = html_encode(L.citizenship)
+				nanoui_data["exploit"]["employer"] = html_encode(L.employer)
+				nanoui_data["exploit"]["religion"] = html_encode(L.religion)
+				nanoui_data["exploit"]["fingerprint"] = html_encode(L.fingerprint)
 
 				nanoui_data["exploit_exists"] = 1
 				break
@@ -358,7 +358,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	desc = "A small device used for access restricted sites in the remote corners of the Extranet."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/contract_uplink/Initialize(var/mapload, var/mind)
@@ -403,7 +403,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	desc_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 
 	///Amount of starting telecrystals. Defaults to default amount if not set.
@@ -440,6 +440,10 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 /obj/item/device/special_uplink/burglar
 	name = "sponsored uplink"
 	starting_telecrystals = 20
+
+/obj/item/device/special_uplink/jockey
+	name = "jockey uplink"
+	starting_telecrystals = 10
 
 /obj/item/device/special_uplink/raider
 	name = "underground uplink"

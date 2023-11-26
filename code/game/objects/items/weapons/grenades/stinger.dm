@@ -18,9 +18,9 @@
 	desc = "A stinger grenade, designed to explode and expel rubber balls over an area for less-lethal takedowns. Popular with many law enforcement agencies."
 	icon_state = "stinger"
 
-	var/num_fragments = 70  ///total number of balls produced by the grenade
+	var/num_fragments = 100  ///total number of balls produced by the grenade
 	var/fragment_damage = 2
-	var/damage_step = 2      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
+	var/damage_step = 3      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/explosion_size = 1   ///size of the center explosion
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
