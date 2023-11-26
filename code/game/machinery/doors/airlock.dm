@@ -101,8 +101,6 @@
 	var/close_sound_powered = 'sound/machines/airlock/covert1c.ogg'
 	/// Soundfile. The sound played when the door closes while unpowered.
 	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
-	/// Soundfile. The sound played when the door cannot close because it's blocked.
-	var/close_failure_blocked = 'sound/machines/triple_beep.ogg'
 	/// Soundfile. The sound played when the door is unlocked/unbolted.
 	var/bolts_rising = 'sound/machines/boltsup.ogg'
 	/// Soundfile. The sound played when the door is locked/bolted.
