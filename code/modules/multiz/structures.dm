@@ -59,7 +59,7 @@
 	if(LAZYLEN(destroy_tools))
 		if(is_type_in_list(C, destroy_tools))
 			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [C]!", SPAN_NOTICE("You start breaking down \the [src] with \the [C]."))
-			if(do_after(user, 10 SECONDS, TRUE))
+			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
 				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [C]!", SPAN_NOTICE("You break down \the [src] with \the [C]."))
 				qdel(src)
 			return
@@ -370,7 +370,7 @@
 	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
 	density = TRUE
 	anchored = TRUE
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	climbable = TRUE
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform"

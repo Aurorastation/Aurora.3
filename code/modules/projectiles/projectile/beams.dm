@@ -4,6 +4,7 @@
 	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
+	armor_penetration = 10
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	check_armor = "laser"
@@ -20,6 +21,7 @@
 /obj/item/projectile/beam/practice
 	name = "laser"
 	damage = 5
+	armor_penetration = 0
 	damage_type = DAMAGE_PAIN
 	eyeblur = 0
 
@@ -362,25 +364,18 @@
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal drill"
 	icon_state = "gauss"
-	damage = 2
+	damage = 15
 	no_attack_log = TRUE
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
 	tracer_type = /obj/effect/projectile/tracer/solar
 	impact_type = /obj/effect/projectile/impact/solar
 
-/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/A)
-	if(isturf(A))
-		if(istype(A, /turf/simulated/mineral))
-			if(prob(75)) //likely because its a mining tool
-				var/turf/simulated/mineral/M = A
-				if(prob(33))
-					M.GetDrilled(1)
-				else if(!M.emitter_blasts_taken)
-					M.emitter_blasts_taken += 2
-				else if(prob(66))
-					M.emitter_blasts_taken += 2
-	..()
+/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/hit_atom)
+	if(istype(hit_atom, /turf/simulated/mineral))
+		var/turf/simulated/mineral/mineral = hit_atom
+		mineral.GetDrilled(TRUE)
+	return ..()
 
 
 

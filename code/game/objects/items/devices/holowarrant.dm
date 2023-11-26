@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/list/storedwarrant = list() //All the warrants currently stored
 	var/activename = null
 	var/activecharges = null
@@ -37,7 +37,7 @@
 		to_chat(user, SPAN_NOTICE("There are no warrants available at this time."))
 		return
 	var/temp
-	temp = input(usr, "Which warrant would you like to load?") as null|anything in storedwarrant
+	temp = tgui_input_list(usr, "Which warrant would you like to load?", storedwarrant)
 	for(var/datum/record/warrant/W in SSrecords.warrants)
 		if(W.name == temp)
 			activename = W.name

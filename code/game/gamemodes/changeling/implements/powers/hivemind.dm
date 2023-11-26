@@ -7,7 +7,7 @@
 	var/datum/changeling/changeling = changeling_power()
 	if(!changeling)
 		return
-	var/chosen_player = input("Choose a hivemind member to eject.", "Eject") as null|anything in changeling.hivemind_members
+	var/chosen_player = tgui_input_list(src, "Choose a hivemind member to eject.", "Eject", changeling.hivemind_members)
 	if(!chosen_player)
 		return
 	var/mob/abstract/hivemind/M = changeling.hivemind_members[chosen_player]
@@ -19,7 +19,7 @@
 	set name = "Hivemind Commune"
 	set desc = "Speak with all members of the hivemind."
 
-	var/message = input(src, "What do you wish to tell your Hivemind?", "Hivemind Commune") as text
+	var/message = tgui_input_text(src, "What do you wish to tell your Hivemind?", "Hivemind Commune")
 	if(!message)
 		return
 	relay_hivemind(changeling_message_process(message), src)
@@ -49,7 +49,7 @@
 		to_chat(src, SPAN_WARNING("We have no internal hivemind members to release!"))
 		return
 
-	var/chosen_player = input("Choose a hivemind member to release as a morph.", "Hivemind Morph") as null|anything in changeling.hivemind_members
+	var/chosen_player = tgui_input_list(src, "Choose a hivemind member to release as a morph.", "Hivemind Morph", changeling.hivemind_members)
 	if(!chosen_player)
 		return
 

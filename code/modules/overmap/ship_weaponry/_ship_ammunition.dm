@@ -68,7 +68,7 @@
 			var/datum/species/S = H.species
 			if(S.mob_size >= mob_carry_size || S.resist_mod >= 10 || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
-				if(do_after(user, 1 SECONDS))
+				if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
 					wield(user)
 					return TRUE
@@ -77,7 +77,7 @@
 				var/obj/item/rig/R = H.back
 				if(R.suit_is_deployed())
 					visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving with some difficulty..."))
-					if(do_after(user, 5 SECONDS))
+					if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
 						visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
 						wield(user)
 						return TRUE

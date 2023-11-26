@@ -8,6 +8,8 @@
 	id = "diona_rokz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/diona_rokz_ship
 	map = "Rokz Clan Ship"
 	descriptor = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
@@ -71,8 +73,8 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/New()
-    designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
-    ..()
+	designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "diona")

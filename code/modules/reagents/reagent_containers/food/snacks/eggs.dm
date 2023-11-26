@@ -192,3 +192,11 @@
 	bitesize = 1
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5)
+
+/obj/item/reagent_containers/food/snacks/shakshouka
+	name = "shakshouka"
+	desc = "A spicy middle eastern tomato and egg dish that has gained vast popularity in Elyra."
+	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon_state = "shakshouka"
+	trash = /obj/item/trash/shakshouka
+	filling_color = "#BB2912"

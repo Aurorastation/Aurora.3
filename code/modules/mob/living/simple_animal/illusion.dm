@@ -25,7 +25,7 @@
 
 /mob/living/simple_animal/illusion/Destroy()
 	copying = null
-	return ..()	
+	return ..()
 
 // Because we can't perfectly duplicate some examine() output, we directly examine the AM it is copying.  It's messy but
 // this is to prevent easy checks from the opposing force.

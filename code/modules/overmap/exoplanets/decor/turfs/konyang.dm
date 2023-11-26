@@ -34,14 +34,14 @@
 	name = "wilting mossy grass"
 	icon = 'icons/turf/flooring/exoplanet/konyang/moss_transition_1.dmi'
 	icon_state = "unsmooth"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(/turf/simulated/floor/exoplanet/konyang/wilting, /turf/simulated/floor/exoplanet/konyang/pink)
 
 /turf/simulated/floor/exoplanet/konyang/pink//manually mapped. To be surrounded by wilting grass
 	name = "blossoming mossy grass"
 	icon = 'icons/turf/flooring/exoplanet/konyang/moss_transition_2.dmi'
 	icon_state = "unsmooth"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 
 /turf/simulated/floor/exoplanet/dirt_konyang//a different path entirely so it will allow for edges to generate from grass
 	name = "compacted dirt"
@@ -57,6 +57,6 @@
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
 	icon_state = "sand"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 	does_footprint = FALSE
 	has_edge_icon = FALSE

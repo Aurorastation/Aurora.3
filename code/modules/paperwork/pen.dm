@@ -168,7 +168,7 @@
  * Reagent Pens
  */
 /obj/item/pen/reagent
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 
@@ -225,7 +225,7 @@
 	icon_state = "pen_blue"
 	colour = "blue"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/cryptobiolin = 10)
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/drugs/cryptobiolin = 10)
 
 /obj/item/pen/reagent/hyperzine
 	icon_state = "pen_yellow"

@@ -33,7 +33,7 @@
 		)
 	throwforce = 0
 	force = 0
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/mob/living/carbon/human/owner
 	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.
@@ -44,7 +44,7 @@
 	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
 /obj/item/spell/examine(mob/user, distance) // Nothing on examine.
-	return
+	return TRUE
 
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)

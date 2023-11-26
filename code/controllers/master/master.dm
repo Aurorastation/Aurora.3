@@ -1,17 +1,16 @@
- /**
-  * StonedMC
-  *
-  * Designed to properly split up a given tick among subsystems
-  * Note: if you read parts of this code and think "why is it doing it that way"
-  * Odds are, there is a reason
-  *
- **/
 var/datum/controller/master/Master = new()
 
 //current tick limit, assigned by the queue controller before running a subsystem.
 //used by check_tick as well so that the procs subsystems call can obey that SS's tick limits
 var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
+/**
+ * StonedMC
+ *
+ * Designed to properly split up a given tick among subsystems
+ * Note: if you read parts of this code and think "why is it doing it that way"
+ * Odds are, there is a reason
+ */
 /datum/controller/master
 	name = "Master"
 
@@ -226,7 +225,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 #endif
 
 	world.TgsInitializationComplete()
-	world.tick_lag = config.Ticklag
+	world.change_tick_lag(config.Ticklag)
 
 	var/initialized_tod = REALTIMEOFDAY
 

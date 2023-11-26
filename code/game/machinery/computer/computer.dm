@@ -19,6 +19,9 @@
 	var/overlay_layer
 	var/is_holographic = TRUE
 	var/icon_broken = "broken"
+	var/is_connected = FALSE
+	var/has_off_keyboards = FALSE
+	var/can_pass_under = TRUE
 
 /obj/machinery/computer/Initialize()
 	. = ..()
@@ -80,8 +83,23 @@
 
 	icon_state = initial(icon_state)
 
+	//Connecting multiple computers in a row
+	if(is_connected)
+		var/append_string = ""
+		var/left = turn(dir, 90)
+		var/right = turn(dir, -90)
+		var/turf/L = get_step(src, left)
+		var/turf/R = get_step(src, right)
+		var/obj/machinery/computer/LC = locate() in L
+		var/obj/machinery/computer/RC = locate() in R
+		if(LC && LC.dir == dir && initial(LC.icon_state) == "computer")
+			append_string += "_L"
+		if(RC && RC.dir == dir && initial(RC.icon_state) == "computer")
+			append_string += "_R"
+		icon_state = "computer[append_string]"
+
 	if(stat & BROKEN)
-		icon_state = "[initial(icon_state)]-broken"
+		icon_state = "[icon_state]-broken"
 		if (overlay_layer != layer)
 			add_overlay(image(icon, icon_broken, overlay_layer))
 		else
@@ -92,7 +110,10 @@
 		if (icon_scanline)
 			add_overlay(icon_scanline)
 		if (icon_keyboard)
-			add_overlay(icon_keyboard)
+			if((stat & NOPOWER) && has_off_keyboards)
+				add_overlay("[icon_keyboard]_off")
+			else
+				add_overlay(icon_keyboard)
 		else if (overlay_layer != layer)
 			add_overlay(image(icon, icon_screen, overlay_layer))
 		else
@@ -150,14 +171,14 @@
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)
 		return 1
-	if(istype(mover,/obj/item/projectile) && density)
+	if(istype(mover,/obj/item/projectile) && density && is_holographic)
 		if (prob(80))
 //Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually
 //pass through
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE))
+	else if(mover.checkpass(PASSTABLE) && can_pass_under)
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
@@ -166,3 +187,11 @@
 /obj/machinery/computer/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
+
+/obj/machinery/computer/terminal
+	name = "terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1

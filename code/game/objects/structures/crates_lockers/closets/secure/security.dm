@@ -102,6 +102,7 @@
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/ids(src)
+	new /obj/item/storage/box/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -170,6 +171,7 @@
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
+	new /obj/item/storage/box/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)

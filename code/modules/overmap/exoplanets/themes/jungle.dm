@@ -40,7 +40,7 @@
 	surface_turfs = list(
 		/turf/simulated/mineral
 	)
-	mountain_threshold = 0.8
+	mountain_threshold = 0.6
 	possible_biomes = list(
 		BIOME_COOL = list(
 			BIOME_ARID = /singleton/biome/konyang/water,

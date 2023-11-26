@@ -42,7 +42,7 @@
 		))
 
 	data["scrubbers"] = scrubberdata
-	
+
 	return data
 
 /obj/machinery/computer/area_atmos/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -53,14 +53,14 @@
 	if(action=="scan")
 		scanscrubbers()
 		return TRUE
-	
+
 	if(action=="cmode")
 		for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
 			if(scrubber.id == text2num(params["cmode"]))
 				scrubber.on = !(scrubber.on)
 				scrubber.update_icon()
 				break
-		
+
 		return TRUE
 
 /obj/machinery/computer/area_atmos/proc/scanscrubbers()

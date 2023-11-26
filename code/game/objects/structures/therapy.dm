@@ -57,7 +57,7 @@
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
 	w_class = ITEMSIZE_TINY
-	flags = NOBLUDGEON
+	atom_flags = ITEM_FLAG_NO_BLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE
@@ -123,8 +123,7 @@
 			to_chat(user, "You must stand in whisper range of [H].")
 			return
 
-		text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
-		text = sanitize(text)
+		text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion")
 		if(!text)
 			return
 

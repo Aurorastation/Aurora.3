@@ -23,6 +23,16 @@ var/global/list/default_medbay_channels = list(
 	num2text(MED_I_FREQ) = list(access_medical_equip)
 )
 
+var/global/list/default_expedition_channels = list(
+	num2text(PUB_FREQ) = list(),
+	num2text(EXP_FREQ) = list(),
+	num2text(HAIL_FREQ) = list()
+)
+
+var/global/list/default_interrogation_channels = list(
+	num2text(INT_FREQ) = list()
+)
+
 //
 // Radios
 //
@@ -32,7 +42,7 @@ var/global/list/default_medbay_channels = list(
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "walkietalkie"
 	item_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9

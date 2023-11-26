@@ -129,7 +129,7 @@
 			if(cell) current_mounts   += "cell"
 			if(installed_modules && installed_modules.len) current_mounts += "system module"
 
-			var/to_remove = input("Which would you like to modify?") as null|anything in current_mounts
+			var/to_remove = tgui_input_list(usr, "Which would you like to modify?", "Hardsuit Modification", current_mounts)
 			if(!to_remove)
 				return
 
@@ -167,7 +167,7 @@
 						to_chat(user, "There are no installed modules to remove.")
 						return
 
-					var/removal_choice = input("Which module would you like to remove?") as null|anything in possible_removals
+					var/removal_choice = tgui_input_list(usr, "Which module would you like to remove?", "Hardsuit Modification", possible_removals)
 					if(!removal_choice)
 						return
 

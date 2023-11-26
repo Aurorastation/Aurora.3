@@ -38,15 +38,17 @@
 	var/list/supply_name = list("1" = "engine parts", "2" = "hull parts", "3" = "electronic parts", "4" = "food", "5" = "fuel", "6" = "credits")
 	var/list/settlers = list()
 	var/num_traitors = 0
-	var/list/events = list(ORION_TRAIL_RAIDERS		= 3,
-						   ORION_TRAIL_FLUX			= 1,
-						   ORION_TRAIL_ILLNESS		= 3,
-						   ORION_TRAIL_BREAKDOWN	= 2,
-						   ORION_TRAIL_MUTINY		= 3,
-						   ORION_TRAIL_MALFUNCTION	= 2,
-						   ORION_TRAIL_COLLISION	= 1,
-						   ORION_TRAIL_CARP			= 3
-						   )
+	var/list/events = list(
+							ORION_TRAIL_RAIDERS		= 3,
+							ORION_TRAIL_FLUX		= 1,
+							ORION_TRAIL_ILLNESS		= 3,
+							ORION_TRAIL_BREAKDOWN	= 2,
+							ORION_TRAIL_MUTINY		= 3,
+							ORION_TRAIL_MALFUNCTION	= 2,
+							ORION_TRAIL_COLLISION	= 1,
+							ORION_TRAIL_CARP		= 3
+						)
+
 	var/list/stops = list("Pluto","Asteroid Belt","Proxima Centauri","Dead Space","Rigel Prime","Tau Ceti Beta","Black Hole","Space Outpost Beta-9","Orion Prime")
 	var/list/stopblurbs = list(
 		"Pluto, long since occupied with long-range sensors and scanners, stands ready to, and indeed continues to probe the far reaches of the galaxy.",

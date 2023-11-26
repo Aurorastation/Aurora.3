@@ -129,7 +129,7 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
-		var/obj/item/I = input(user, "Please choose which object to retrieve.", "Object recovery", null) as null|anything in frozen_items
+		var/obj/item/I = tgui_input_list(user, "Please choose which object to retrieve.", "Object Recovery", frozen_items)
 		if(!I)
 			return
 
@@ -476,7 +476,7 @@ var/global/list/frozen_crew = list()
 		return
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), range = 3)
-	if(do_after(user, 20))
+	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE
 

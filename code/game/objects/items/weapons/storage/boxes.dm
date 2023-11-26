@@ -387,6 +387,14 @@
 	illustration = "flashbang"
 	starts_with = list(/obj/item/grenade/flashbang = 7)
 
+/obj/item/storage/box/stingers
+	name = "box of stinger grenades"
+	desc = "A box containing 7 antipersonnel stinger grenades. <br> WARNING: These devices are extremely dangerous and can cause injury."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "stinger"
+	starts_with = list(/obj/item/grenade/stinger = 7)
+
 /obj/item/storage/box/firingpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."

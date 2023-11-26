@@ -341,7 +341,7 @@
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
-	mod_type = input("Please, select a module!", "Robot", null, null) as null|anything in modules
+	mod_type = tgui_input_list(src, "Please, select a module!", "Robot", modules)
 
 	if(module)
 		selecting_module = FALSE
@@ -499,29 +499,13 @@
 		if(C.installed)
 			installed_components += V
 
-	var/toggle = input(src, "Which component do you want to toggle?", "Toggle Component") as null|anything in installed_components
+	var/toggle = tgui_input_list(src, "Which component do you want to toggle?", "Toggle Component", installed_components)
 	if(!toggle)
 		return
 
 	var/datum/robot_component/C = components[toggle]
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
-
-/mob/living/silicon/robot/verb/view_holomap()
-	set category = "Robot Commands"
-	set name = "View Holomap"
-	set desc = "View a virtual map of the surrounding area."
-
-	var/obj/machinery/station_map/mobile/holo_map_object
-	if(src.holo_map)
-		holo_map_object = src.holo_map.resolve()
-
-	// Not an else because weakref.resolve() can return false. Edge case
-	if(!holo_map_object)
-		holo_map_object = new(src)
-		src.holo_map = WEAKREF(holo_map)
-
-	holo_map_object.startWatching(src)
 
 /mob/living/silicon/robot/verb/rebuild_overlays()
 	set category = "Robot Commands"
@@ -696,7 +680,7 @@
 						if(C.installed == TRUE || C.installed == -1)
 							removable_components += V
 
-					var/remove = input(user, "Which component do you want to pry out?", "Remove Component") as null|anything in removable_components
+					var/remove = tgui_input_list(user, "Which component do you want to pry out?", "Remove Component", removable_components)
 					if(!remove)
 						return
 					var/datum/robot_component/C = components[remove]

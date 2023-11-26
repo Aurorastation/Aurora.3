@@ -5,6 +5,7 @@
 
 /datum/unit_test/research_design_cost
 	name = "RECIPES: Design Cost"
+	groups = list("generic", "research")
 
 /datum/unit_test/research_design_cost/start_test()
 	var/tested_count = 0
@@ -35,6 +36,7 @@
 
 /datum/unit_test/stack_recipe_cost
 	name = "RECIPES: Stack Recipes"
+	groups = list("generic")
 
 /datum/unit_test/stack_recipe_cost/start_test()
 	var/tested_count = 0

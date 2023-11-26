@@ -514,6 +514,18 @@
 		M.adjustToxLoss(1.5 * removed)
 		//Copied from tea. though i feel it should be stronger as its not diluted with water
 
+/singleton/reagent/nutriment/cocagrounds
+	name = "Coca Grounds"
+	description = "Enjoy the great taste of tea."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#056608"
+	taste_description = "potent gritty tea"
+	taste_mult = 0.4
+	condiment_name = "ground tea"
+	condiment_icon_state = "tea"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /singleton/reagent/nutriment/soysauce
 	name = "Soy Sauce"
 	description = "A salty sauce made from the soy plant."
@@ -855,7 +867,7 @@
 			if(I.body_parts_covered & EYES)
 				eyes_covered |= EYES_PROTECTED
 				eye_protection = I.name
-			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
+			if((I.body_parts_covered & FACE) && !(I.item_flags & ITEM_FLAG_FLEXIBLE_MATERIAL))
 				mouth_covered = 1
 				face_protection = I.name
 
@@ -1170,6 +1182,16 @@
 		return
 	M.adjustOxyLoss(-2 * removed)
 
+/singleton/reagent/drink/cranberryjuice
+	name = "Cranberry Juice"
+	description = "Rich cranberry juice. Bright and tart."
+	color = "#a0274b"
+	taste_description = "tart cranberries"
+
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of cranberry juice"
+	glass_desc = "Fresh, tart, and sweet cranberry juice."
+
 /singleton/reagent/drink/potatojuice
 	name = "Potato Juice"
 	description = "Juice of the potato. Bleh."
@@ -1318,6 +1340,17 @@
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0.1 * removed, 0)
 		holder.remove_reagent(/singleton/reagent/capsaicin, 10 * removed)
+
+/singleton/reagent/drink/milk/steamed_milk
+	name = "Steamed Milk"
+	description = "A frothy opaque white liquid made by adding steam to milk."
+	color = "#bebebb"
+	taste_description =  "hot creamy milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of steamed milk"
+	glass_desc = "Hot and creamy milk. Would go great with coffee!"
+	default_temperature = T0C + 66
 
 /singleton/reagent/drink/milk/cream
 	name = "Cream"
@@ -1721,6 +1754,18 @@
 	glass_name = "glass of tropical iced tea"
 	glass_desc = "For maximum enjoyment, drink while at the beach on a warm summer day."
 
+/singleton/reagent/drink/tea/cocatea
+	name = "Mate de Coca"
+	description = "An herbal tea made of coca leaves, this tea originated in South America in the Andean countries, and is still consumed there and in Mictlan to this day."
+	color = "#adff2f"
+	taste_description = "mildly bitter, but sweet"
+
+	glass_icon_state = "bigteacup"
+	glass_name = "cup of mate de coca"
+	glass_desc = "An herbal tea made of coca leaves, this tea originated in South America in the Andean countries, and is still consumed there and in Mictlan to this day."
+	adj_dizzy = -1
+	adj_drowsy = -3
+	adj_sleepy = -3
 
 //Coffee
 //==========
@@ -1783,18 +1828,18 @@
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
 
-/singleton/reagent/drink/coffee/cafe_latte
-	name = "Cafe Latte"
+/singleton/reagent/drink/coffee/caffe_misto
+	name = "Caffe Misto"
 	description = "A nice, strong and tasty beverage to enjoy while reading."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter cream"
+	taste_description = "slightly bitter cream"
 
-	glass_icon_state = "cafe_latte"
-	glass_name = "glass of cafe latte"
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of caffe misto"
 	glass_desc = "A nice, strong and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
-/singleton/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/coffee/caffe_misto/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
 
@@ -1810,15 +1855,15 @@
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/ration
-    name = "Ration Coffee"
-    description = "Watered-down coffee. One cup now becomes four!"
-    color = "#664300" // rgb: 102, 67, 0
-    taste_description = "weak, watered-down coffee"
+	name = "Ration Coffee"
+	description = "Watered-down coffee. One cup now becomes four!"
+	color = "#664300" // rgb: 102, 67, 0
+	taste_description = "weak, watered-down coffee"
 
-    glass_icon_state = "hot_coffee"
-    glass_name = "glass of ration coffee"
-    glass_desc = "Coffee, watered-down."
-    glass_center_of_mass = list("x"=15, "y"=9)
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of ration coffee"
+	glass_desc = "Coffee, watered-down."
+	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/freddo_espresso
 	name = "Freddo Espresso"
@@ -1829,6 +1874,17 @@
 	glass_icon_state = "hot_coffee"
 	glass_name = "glass of freddo espresso"
 	glass_desc = "Espresso with ice cubes poured over ice."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/singleton/reagent/drink/coffee/flat_white
+	name = "Flat White"
+	description = "A nice, strong, and refreshing beverage to enjoy while reading."
+	color = "#664300" // rgb: 102, 67, 0
+	taste_description = "slightly bitter cream"
+
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of flat white"
+	glass_desc = "A nice, strong, and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/caffe_americano
@@ -1844,23 +1900,23 @@
 
 /singleton/reagent/drink/coffee/flat_white
 	name = "Flat White Espresso"
-	description = "Espresso with a bit of steamy hot milk."
+	description = "Short espresso with steamy hot milk."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter coffee and milk"
+	taste_description = "hot creamy coffee"
 
-	glass_icon_state = "cafe_latte"
+	glass_icon_state = "caffe_latte"
 	glass_name = "glass of flat white"
-	glass_desc = "Espresso with a bit of steamy hot milk."
+	glass_desc = "Short espresso with steamy hot milk."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/latte
-	name = "Latte"
+	name = "Caffe Latte"
 	description = "A nice, strong, and refreshing beverage to enjoy while reading."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter cream"
+	taste_description = "bitter foamy cream"
 
-	glass_icon_state = "cafe_latte"
-	glass_name = "glass of cafe latte"
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of caffe latte"
 	glass_desc = "A nice, strong, and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
@@ -1919,22 +1975,11 @@
 	name = "Macchiato"
 	description = "Espresso with milk foam."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter milk foam"
+	taste_description = "very bitter milk foam"
 
 	glass_icon_state = "hot_coffee"
 	glass_name = "glass of macchiato"
 	glass_desc = "Espresso with milk foam."
-	glass_center_of_mass = list("x"=15, "y"=9)
-
-/singleton/reagent/drink/coffee/mocacchino
-	name = "Mocacchino"
-	description = "Espresso with hot milk and chocolate."
-	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "sweet milk and bitter coffee"
-
-	glass_icon_state = "cafe_latte"
-	glass_name = "glass of mocacchino"
-	glass_desc = "Espresso with hot milk and chocolate."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/icecoffee/psfrappe
@@ -2155,6 +2200,22 @@
 	glass_icon_state  = "spacecola"
 	glass_name = "glass of Comet Cola"
 	glass_desc = "A glass of refreshing Comet Cola"
+	glass_center_of_mass = list("x"=17, "y"=6)
+
+/singleton/reagent/drink/coca_cola
+	name = "Coca Cola"
+	description = "A very refreshing beverage, not for children."
+	reagent_state = LIQUID
+	color = "#080400"
+	adj_dizzy = -1
+	adj_drowsy = -5
+	adj_sleepy = -3
+	taste_description = "a very strong cola"
+	carbonated = TRUE
+
+	glass_icon_state  = "spacecola"
+	glass_name = "glass of coca cola"
+	glass_desc = "A glass of very refreshing coca cola."
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /singleton/reagent/drink/spacemountainwind
@@ -2449,8 +2510,19 @@
 
 	glass_icon_state = "aleglass"
 	glass_name = "glass of ale"
-	glass_desc = "A freezing pint of delicious ale"
+	glass_desc = "A freezing pint of delicious ale."
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/alcohol/applejack
+	name = "Applejack"
+	description = "Hard apple cider that has been distilled. The result is much more flavorful and alcoholic."
+	color = "#d4661b"
+	strength = 14
+	taste_description = "strong cider"
+
+	glass_icon_state = "applejack"
+	glass_name = "glass of applejack"
+	glass_desc = "Hard apple cider that has been distilled. The result is much more flavorful and alcoholic."
 
 /singleton/reagent/alcohol/beer
 	name = "Beer"
@@ -2564,6 +2636,17 @@
 	..()
 	if(alien != IS_DIONA)
 		M.dizziness +=5
+
+/singleton/reagent/alcohol/fernet
+	name = "Fernet"
+	description = "A bitter, herbal spirit with strong ties to the Earth continent of South America. Commonly mixed with cola."
+	color = "#4e1e12"
+	strength = 30
+	taste_description = "bitter herbs"
+
+	glass_icon_state = "fernet_glass"
+	glass_name = "glass of fernet"
+	glass_desc = "A glass of raw, bitter fernet. Should probably mix this with something."
 
 /singleton/reagent/alcohol/gin
 	name = "Gin"
@@ -2822,6 +2905,26 @@
 	glass_name = "glass of geneboosted wine"
 	glass_desc = "An imperiously classy drink. In Her name, so shall it be drunk!"
 
+/singleton/reagent/alcohol/wine/assunzione
+	name = "Assunzioni Wine"
+	description = "A complex wine originating from the Dalyanese vineyards of Assunzione. The liturgical wine of choice for Luceian masses and holy gatherings."
+	strength = 15
+	taste_description = "red wine, truffles, hints of dried fruit, and herbs"
+
+	glass_icon_state = "assunzionewineglass"
+	glass_name = "glass of Assunzione wine"
+	glass_desc = "A complex wine originating from the Dalyanese vineyards of Assunzione. The liturgical wine of choice for Luceian masses and holy gatherings."
+
+/singleton/reagent/alcohol/wine/rose
+	name = "Rose Wine"
+	description = "A fruity, light, pink wine that looks and tastes like lighthearted fun."
+	strength = 8
+	taste_description = "citrus, cherry, and sweet wine"
+
+	glass_icon_state = "roseglass"
+	glass_name = "glass of rose"
+	glass_desc = "A fruity, light, pink wine that looks and tastes like lighthearted fun."
+
 /singleton/reagent/alcohol/wine/algae
 	name = "Algae Wine"
 	description = "More of an absinthe than a wine. The favored drink of the Imperial military."
@@ -2860,6 +2963,18 @@
 	glass_icon_state = "tarasunglass"
 	glass_name = "glass of tarasun"
 	glass_desc = "An incredibly potent alcoholic beverage, distilled and fermented from tenelote milk."
+
+/singleton/reagent/alcohol/triplesec
+	name = "Triple Sec"
+	description = "An orangey liqueur made from bitter, dried orange peels. Usually mixed with cocktails."
+	taste_description = "orange peel"
+	color = "#fc782b"
+	strength = 12
+	taste_description = "orange peel"
+
+	glass_icon_state = "glass_orange"
+	glass_name = "glass of triple sec"
+	glass_desc = "An orangey liqueur made from bitter, dried orange peels. Usually mixed with cocktails."
 
 // Cocktails
 
@@ -3213,6 +3328,18 @@
 	glass_name = "glass of Devil's Kiss"
 	glass_desc = "Creepy time!"
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/alcohol/fernet_con_coca
+	name = "Fernet Con Coca"
+	description = "Cola spiked with bitter fernet. A sweet and bitter punch, not for the faint of heart."
+	color = "#382b20"
+	strength = 20
+	taste_description = "deeply bittersweet cola"
+	carbonated = TRUE
+
+	glass_icon_state = "root_beer_glass"
+	glass_name = "glass of fernet con coca"
+	glass_desc = "Cola spiked with bitter fernet. A sweet and bitter punch, not for the faint of heart."
 
 /singleton/reagent/alcohol/driestmartini
 	name = "Driest Martini"
@@ -4054,6 +4181,17 @@
 	glass_name = "glass of Stars and Stripes"
 	glass_desc = "Someone, somewhere, is saluting."
 
+/singleton/reagent/alcohol/cosmopolitan
+	name = "Cosmopolitan"
+	description = "Sweet, sour, and chic. The Cosmopolitan is a legendary, upscale classic."
+	color = "#f3174e"
+	strength = 27
+	taste_description = "fruity sweetness"
+
+	glass_icon_state = "cosmopolitan"
+	glass_name = "glass of Cosmopolitan"
+	glass_desc = "Sweet, sour, and chic. The Cosmopolitan is a legendary, upscale classic."
+
 /singleton/reagent/alcohol/metropolitan
 	name = "Metropolitan"
 	description = "What more could you ask for?"
@@ -4064,6 +4202,17 @@
 	glass_icon_state = "metropolitan"
 	glass_name = "glass of Metropolitan"
 	glass_desc = "What more could you ask for?"
+
+/singleton/reagent/alcohol/mendellian
+	name = "Mendellian"
+	description = "A blue citrusy spin on the Cosmopolitan, named after the most cosmopolitan city in the Spur."
+	color = "#4f66e7"
+	strength = 27
+	taste_description = "citrusy urbanism"
+
+	glass_icon_state = "mendellian"
+	glass_name = "glass of Mendellian"
+	glass_desc = "A blue citrusy spin on the Cosmopolitan, named after the most cosmopolitan city in the Spur."
 
 /singleton/reagent/alcohol/primeminister
 	name = "Prime Minister"
@@ -5536,6 +5685,28 @@
 	glass_icon_state = "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
+
+/singleton/reagent/alcohol/red_dwarf_sangria
+	name = "Red Dwarf Sangria"
+	description = "A rich, sweet wine punch made with Assunzione wine, applejack, and orange juice."
+	strength = 30
+	color = "#960e15"
+	taste_description = "fruit cocktail, sweet red wine, and a hint of truffles"
+
+	glass_icon_state = "redsangria"
+	glass_name = "glass of red dwarf sangria"
+	glass_desc = "A rich, sweet wine punch made with Assunzione wine, applejack, and orange juice."
+
+/singleton/reagent/alcohol/forbidden_apple
+	name = "Forbidden Apple"
+	description = "A champagne cocktail spiked with applejack and orange liqueur."
+	strength = 25
+	color = "#bd6717"
+	taste_description = "champagne, a hint of apples, and orange sweetness"
+
+	glass_icon_state = "forbiddenapple"
+	glass_name = "glass of forbidden apple"
+	glass_desc = "A champagne cocktail spiked with applejack and orange liqueur."
 
 /singleton/reagent/drink/gibbfloats
 	name = "Root-Cola Floats"

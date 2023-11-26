@@ -67,12 +67,12 @@
 	return ..()
 
 /obj/machinery/power/portgen/examine(mob/user, distance, is_adjacent)
-	if(distance > 1)
-		return
-	if(active)
-		to_chat(user, SPAN_NOTICE("The generator is on."))
-	else
-		to_chat(user, SPAN_NOTICE("The generator is off."))
+	. = ..()
+	if(is_adjacent)
+		if(active)
+			to_chat(user, SPAN_NOTICE("The generator is on."))
+		else
+			to_chat(user, SPAN_NOTICE("The generator is off."))
 
 /obj/machinery/power/portgen/emp_act(severity)
 	var/duration = 6000 //ten minutes
@@ -469,7 +469,7 @@
 	board_path = "/obj/item/circuitboard/portgen/fusion"
 
 	anchored = TRUE
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2

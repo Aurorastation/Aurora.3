@@ -42,7 +42,7 @@
 /obj/machinery/cell_charger/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(distance > 5)
-		return
+		return TRUE
 
 	if(charging)
 		to_chat(user, "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%.")

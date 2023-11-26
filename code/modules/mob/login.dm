@@ -59,7 +59,7 @@
 
 	player_list |= src
 	update_Login_details()
-	SSfeedback.update_status()
+	SSstatistics.update_status()
 
 	client.images.Cut()				//remove the images such as AIs being unable to see runes
 	client.screen.Cut()				//remove hud items just in case

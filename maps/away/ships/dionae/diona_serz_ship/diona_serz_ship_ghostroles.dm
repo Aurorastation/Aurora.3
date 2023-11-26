@@ -34,7 +34,7 @@
 	)
 
 	id = null
-	
+
 	l_ear = /obj/item/device/radio/headset/ship
 
 	l_pocket = /obj/item/device/radio

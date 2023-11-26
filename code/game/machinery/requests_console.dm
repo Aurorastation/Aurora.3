@@ -404,7 +404,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 			data = html_encode(data)
 			C.set_content("NFC-[id] - [name]", data)
-			print(C)
+			print(C, user = usr)
 
 			paperstock--
 
@@ -500,7 +500,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return FALSE
 
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
-	var/sendto = input("Select department.", "Send Fax", null, null) as null|anything in allConsoles
+	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", allConsoles)
 	if(!sendto)
 		return
 	if(use_check_and_message(user))

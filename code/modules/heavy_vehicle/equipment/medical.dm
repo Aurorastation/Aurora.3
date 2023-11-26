@@ -299,24 +299,19 @@
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
-	sound_scan = FALSE
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		sound_scan = TRUE
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(src)
 	if(!fullScan)
 		for(var/mob/pilot in user.pilots)
-			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
+			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = TRUE)
 	else
 		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-		if(do_after(user, 7 SECONDS, TRUE))
+		if(do_after(user, 7 SECONDS))
 			print_scan(M, user)
 			add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new(user.loc)
-	R.color = "#eeffe8"
-	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
-
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user.loc, internal_bodyscanner.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
 	if(ishuman(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(R)
 	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))

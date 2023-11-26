@@ -7,7 +7,7 @@
 	icon_state = ""
 	item_state = "kineticgun"
 	contained_sprite = 1
-	flags =  CONDUCT
+	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEMSIZE_NORMAL
@@ -234,7 +234,7 @@
 		installed_upgrade_chip.on_fire(src)
 	if(installed_barrel)
 		installed_barrel.on_fire(src)
-	
+
 	var/turf/T = get_turf(src)
 
 	if(T)
@@ -252,7 +252,7 @@
 			else
 				shot_projectile.base_damage = damage_increase
 				return shot_projectile
-				
+
 		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
 			var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase

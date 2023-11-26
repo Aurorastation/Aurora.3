@@ -129,13 +129,13 @@
 	fall_mod = 0.25
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell/neaera,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell/neaera,
 		BP_HEART =    /obj/item/organ/internal/heart/skrell/neaera,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell/neaera,
 		BP_LIVER =    /obj/item/organ/internal/liver/skrell/neaera,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell/neaera,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell/neaera,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell/neaera
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 /datum/species/monkey/unathi

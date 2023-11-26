@@ -238,7 +238,7 @@
 /obj/item/device/magnetic_lock/process()
 	if(!processpower)
 		return
-	var/obj/item/cell/C = powercell 
+	var/obj/item/cell/C = powercell
 	var/delta_sec = (world.time - last_process_time) / 10
 	var/drainamount = drain_per_second * delta_sec
 	if (C)
@@ -281,7 +281,7 @@
 
 	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
 
-	if (do_after(user, 35))
+	if (do_after(user, 3.5 SECONDS))
 
 		if (!check_target(newtarget, user)) return
 

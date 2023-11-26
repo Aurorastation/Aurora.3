@@ -94,7 +94,7 @@
 /obj/effect/shuttle_landmark/lift/morgue_bottom
 	name = "Morgue Bottom"
 	landmark_tag = "nav_morgue_lift_bottom"
-	flags = SLANDMARK_FLAG_AUTOSET
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/medical/morgue/lower
 	base_turf = /turf/simulated/floor/plating
 
@@ -117,7 +117,7 @@
 /obj/effect/shuttle_landmark/lift/operations_first_deck
 	name = "Operations Lift - First Deck"
 	landmark_tag = "nav_operations_lift_first_deck"
-	flags = SLANDMARK_FLAG_AUTOSET
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/operations/loading
 	base_turf = /turf/simulated/floor/plating
 
@@ -160,7 +160,7 @@
 /obj/effect/shuttle_landmark/lift/robotics_first_deck
 	name = "Robotics Lift - First Deck"
 	landmark_tag = "nav_robotics_lift_first_deck"
-	flags = SLANDMARK_FLAG_AUTOSET
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/rnd/eva
 	base_turf = /turf/simulated/floor/plating
 

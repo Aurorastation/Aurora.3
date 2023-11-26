@@ -3,11 +3,7 @@
 #define EXPLFX_SHAKE 1
 #define EXPLFX_NONE 0
 
-var/datum/controller/subsystem/explosives/SSexplosives
-
-// yes, let's move the laggiest part of the game to a process
-// nothing could go wrong -- Lohikar
-/datum/controller/subsystem/explosives
+SUBSYSTEM_DEF(explosives)
 	name = "Explosives"
 	wait = 1
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
@@ -22,9 +18,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/explosion_in_progress
 
 	var/mc_notified = FALSE
-
-/datum/controller/subsystem/explosives/New()
-	NEW_SS_GLOBAL(SSexplosives)
 
 /datum/controller/subsystem/explosives/Recover()
 	work_queue = SSexplosives.work_queue

@@ -11,7 +11,7 @@
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	health = 150
 	visible = 0.0
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	opacity = 0
 	var/obj/item/airlock_electronics/electronics = null
 	explosion_resistance = 5
@@ -58,7 +58,7 @@
 
 	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
 		if(inoperable())
-			if(do_after(M, 1 SECOND, TRUE, src))
+			if(do_after(M, 1 SECOND, src))
 				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
 				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 				open()
@@ -207,7 +207,7 @@
 
 	if(allowed(user))
 		if(inoperable())
-			if(!do_after(user, 1 SECOND, TRUE, src))
+			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 		if (src.density)

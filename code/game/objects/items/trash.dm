@@ -35,9 +35,21 @@
 	icon_state = "cheesie_honkers"
 
 /obj/item/trash/chips
-	name = "chips"
+	name = "empty chip packet"
 	icon_state = "chips"
 	item_state = "chips"
+
+/obj/item/trash/chips/cucumber
+	icon_state = "cucumberchips"
+
+/obj/item/trash/chips/chicken
+	icon_state = "chickenchips"
+
+/obj/item/trash/chips/dirtberry
+	icon_state = "dirtberrychips"
+
+/obj/item/trash/chips/phoron
+	icon_state = "phoronchips"
 
 /obj/item/trash/popcorn
 	name = "popcorn"
@@ -48,7 +60,7 @@
 	icon_state = "sosjerky"
 
 /obj/item/trash/syndi_cakes
-	name = "syndi cakes"
+	name = "\improper Nutri-Cakes"
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
@@ -70,6 +82,10 @@
 	icon_state	= "snack_bowl"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+
+/obj/item/trash/snack_bowl/macandcheese
+	name = "empty mac and cheese"
+	icon_state = "macandcheese"
 
 /obj/item/trash/pistachios
 	name = "pistachios pack"
@@ -247,3 +263,19 @@
 /obj/item/trash/proteinbar
 	name = "protein bar wrapper"
 	icon_state = "proteinbar"
+
+/obj/item/trash/deepdive
+	name = "empty deepdive dish"
+	icon_state = "deepdive"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bluemoon
+	name = "empty blue moon"
+	icon_state = "bluemoon"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/shakshouka
+	name = "empty shakshouka pan"
+	icon_state = "shakshouka"

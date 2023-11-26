@@ -50,6 +50,9 @@
 	say("Boot sequence complete!")
 	return src
 
+/mob/living/silicon/robot/combat/get_speech_bubble_state_modifier()
+	return "syndibot"
+
 // Syndicate Borg Gear
 /obj/item/gun/energy/mountedsmg
 	name = "mounted submachine gun"

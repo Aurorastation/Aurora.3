@@ -1,5 +1,6 @@
 /datum/unit_test/sql_preferences_columns
 	name = "SQL: Preferences Columns"
+	groups = list("generic")
 
 /datum/unit_test/sql_preferences_columns/start_test()
 	if(!config.sql_enabled)
@@ -97,6 +98,7 @@
 
 /datum/unit_test/sql_preferences_vars
 	name = "SQL: Preferences Variables"
+	groups = list("generic")
 
 /datum/unit_test/sql_preferences_vars/start_test()
 	var/faults = 0

@@ -7,9 +7,9 @@
 
 datum/unit_test/template
 	name = "Test Template - Change My name"		// If it's a template leave the word "template" in it's name so it's not ran.
-	
+
 	async = 1 // Set if we should continue testing elsewhere and come back and check on the results.
-	
+
 
 datum/unit_test/template/start_test()
 	// This must return something, if it's null the unit_test runner will think we runtimed.
@@ -29,7 +29,7 @@ datum/unit_test/template/check_result()
 	// Return 0 if we need to come back again and check this.
 	// Return 1 if the test is complete.
 
-	// 
+	//
 
 	pass("Winner is you")
 

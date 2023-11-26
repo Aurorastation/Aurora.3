@@ -223,38 +223,38 @@
 	var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 	var/blackbox_msg = "[part_a][data["name"]][part_blackbox_b][quotedmsg][part_c]"
 
-	if(istype(SSfeedback))
+	if(istype(SSstatistics))
 		switch(frequency)
 			if(PUB_FREQ)
-				SSfeedback.msg_common += blackbox_msg
+				SSstatistics.msg_common += blackbox_msg
 			if(SCI_FREQ)
-				SSfeedback.msg_science += blackbox_msg
+				SSstatistics.msg_science += blackbox_msg
 			if(COMM_FREQ)
-				SSfeedback.msg_command += blackbox_msg
+				SSstatistics.msg_command += blackbox_msg
 			if(MED_FREQ)
-				SSfeedback.msg_medical += blackbox_msg
+				SSstatistics.msg_medical += blackbox_msg
 			if(ENG_FREQ)
-				SSfeedback.msg_engineering += blackbox_msg
+				SSstatistics.msg_engineering += blackbox_msg
 			if(SEC_FREQ)
-				SSfeedback.msg_security += blackbox_msg
+				SSstatistics.msg_security += blackbox_msg
 			if(DTH_FREQ)
-				SSfeedback.msg_deathsquad += blackbox_msg
+				SSstatistics.msg_deathsquad += blackbox_msg
 			if(SYND_FREQ)
-				SSfeedback.msg_syndicate += blackbox_msg
+				SSstatistics.msg_syndicate += blackbox_msg
 			if(RAID_FREQ)
-				SSfeedback.msg_raider += blackbox_msg
+				SSstatistics.msg_raider += blackbox_msg
 			if(NINJ_FREQ)
-				SSfeedback.msg_ninja += blackbox_msg
+				SSstatistics.msg_ninja += blackbox_msg
 			if(BLSP_FREQ)
-				SSfeedback.msg_bluespace += blackbox_msg
+				SSstatistics.msg_bluespace += blackbox_msg
 			if(BURG_FREQ)
-				SSfeedback.msg_burglar += blackbox_msg
+				SSstatistics.msg_burglar += blackbox_msg
 			if(SUP_FREQ)
-				SSfeedback.msg_cargo += blackbox_msg
+				SSstatistics.msg_cargo += blackbox_msg
 			if(SRV_FREQ)
-				SSfeedback.msg_service += blackbox_msg
+				SSstatistics.msg_service += blackbox_msg
 			else
 				if(frequency in AWAY_FREQS_ASSIGNED)
-					SSfeedback.msg_ship += blackbox_msg
+					SSstatistics.msg_ship += blackbox_msg
 				else
-					SSfeedback.messages += blackbox_msg
+					SSstatistics.messages += blackbox_msg

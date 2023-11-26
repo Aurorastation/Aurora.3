@@ -44,7 +44,7 @@
 	icon_state = "lightreplacer"
 	item_state = "lightreplacer"
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 2)
 
@@ -147,7 +147,7 @@
 			to_chat(user, SPAN_WARNING("There are no more working lights left in the box!"))
 			return
 
-		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+		if (do_after(user, load_interval, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) && boxstartloc == box.loc && ourstartloc == src.loc)
 			if(uses >= max_uses) //catches loading from multiple boxes
 				break
 			uses++

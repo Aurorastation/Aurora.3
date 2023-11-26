@@ -183,7 +183,7 @@
 	var/obj/item/organ/external/E = input(src, "Select a limb to detach:", "Nymph Limb Detach") as null|anything in my_nymph_limbs
 	if(!istype(E))
 		return
-	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
+	if(!do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 	if(E.detach_nymph_limb() && my_nymph_limbs.len == 1)
 		remove_verb(src, /mob/living/carbon/human/proc/detach_nymph_limb)
@@ -199,7 +199,7 @@
 	if(istype(E))
 		to_chat(src, "You start to detach from your host.")
 		to_chat(E.owner, "The nymph acting as your [E.name] starts to unattach itself.")
-		if(do_after(src, delay = 3 SECONDS, needhand = FALSE))
+		if(do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			E.detach_nymph_limb()
 
 // Organ detach
@@ -261,7 +261,7 @@
 		if(!limb_choice)
 			return
 
-	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
+	if(!do_after(src, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 
 	// Make new limb and put it on the host
@@ -321,7 +321,7 @@
 		if(!limb_choice)
 			return
 
-	if(!do_after(target, delay = 3 SECONDS, needhand = TRUE))
+	if(!do_after(target, delay = 3 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		return
 
 	// Make new limb and put it on the host
