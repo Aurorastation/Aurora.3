@@ -304,7 +304,7 @@
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
-	flags |= NOREACT
+	atom_flags |= ATOM_FLAG_NO_REACT
 	create_reagents(15 * storage_slots)	//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 	. = ..()
 

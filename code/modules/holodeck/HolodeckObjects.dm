@@ -169,7 +169,7 @@
 			grab_smash_attack(G, DAMAGE_PAIN)
 			return
 
-	if(W.flags & NOBLUDGEON) return
+	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
 	if(W.isscrewdriver())
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
@@ -262,7 +262,7 @@
 	throw_range = 5
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'

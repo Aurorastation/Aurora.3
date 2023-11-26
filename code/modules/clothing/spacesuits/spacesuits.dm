@@ -9,7 +9,7 @@
 	icon_state = "softsuit_helmet"
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	permeability_coefficient = 0.01
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
@@ -49,7 +49,7 @@
 	w_class = ITEMSIZE_LARGE
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
-	item_flags = THICKMATERIAL|INJECTIONPORT
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/device/suit_cooling_unit, /obj/item/tank)
 	slowdown = 1

@@ -5,7 +5,7 @@
 	icon_state = "briefcase"
 	item_state = "briefcase"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 8.0
 	throw_speed = 1
 	throw_range = 4

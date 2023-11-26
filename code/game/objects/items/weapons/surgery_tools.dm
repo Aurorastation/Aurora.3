@@ -28,7 +28,7 @@
 	item_state = "retractor"
 	surgerysound = 'sound/items/surgery/retractor.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 
 /*
@@ -41,7 +41,7 @@
 	item_state = "hemostat"
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
 
@@ -55,7 +55,7 @@
 	item_state = "cautery"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
 
@@ -70,7 +70,7 @@
 	surgerysound = 'sound/items/surgery/surgicaldrill.ogg'
 	hitsound = /singleton/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 15
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
@@ -87,7 +87,7 @@
 	icon_state = "scalpel"
 	item_state = "scalpel"
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	sharp = 1
 	edge = TRUE
@@ -145,7 +145,7 @@
 	item_state = "saw"
 	surgerysound = 'sound/items/surgery/circularsaw.ogg'
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 15
 	w_class = ITEMSIZE_NORMAL
 	throwforce = 9

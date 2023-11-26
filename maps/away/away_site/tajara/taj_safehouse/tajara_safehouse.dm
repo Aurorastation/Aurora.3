@@ -8,6 +8,8 @@
 	id = "tajara_safehouse"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/tajara_safehouse
 	map = "abandoned outpost"
 	descriptor = "A derelict space outpost."
@@ -28,7 +30,7 @@
 /area/tajara_safehouse
 	name = "Abandoned Outpost"
 	icon_state = "bar"
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = FALSE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE

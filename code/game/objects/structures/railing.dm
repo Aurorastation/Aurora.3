@@ -9,7 +9,7 @@
 	layer = OBJ_LAYER
 	anchored = FALSE
 
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
@@ -300,7 +300,7 @@
 		return FALSE
 
 	for(var/atom/A in destination_turf.contents - src)
-		if(A.density && !(A.flags & ON_BORDER))
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
 			return FALSE
 

@@ -14,14 +14,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
-"aac" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
-	locked = 1;
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "aaq" = (
 /obj/machinery/light{
 	dir = 8;
@@ -11977,10 +11969,6 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "kDq" = (
@@ -12694,15 +12682,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
-"lkM" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "lkU" = (
 /obj/machinery/door/airlock{
 	id_tag = "Dormitory 2";
@@ -13440,10 +13419,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"lMR" = (
-/obj/item/device/radio/intercom/east,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/central)
 "lMS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -16685,12 +16660,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"oGz" = (
-/obj/machinery/door/airlock/glass{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/aft)
 "oHb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -54017,7 +53986,7 @@ twe
 pMI
 qmj
 twe
-lkM
+vHg
 oUS
 kqa
 cCJ
@@ -54806,7 +54775,7 @@ oVw
 hZo
 kvz
 kvz
-lMR
+wZN
 kvz
 kvz
 aVE
@@ -54828,7 +54797,7 @@ qLs
 kvz
 kvz
 xpj
-lMR
+wZN
 kvz
 fCy
 kvz
@@ -56636,7 +56605,7 @@ kvz
 aVE
 kvz
 wGw
-oGz
+aaa
 wGw
 kSh
 fQm
@@ -81559,7 +81528,7 @@ fdu
 fdu
 fdu
 cta
-aac
+jAf
 oHb
 fdu
 fdu
