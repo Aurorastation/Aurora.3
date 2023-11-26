@@ -11,7 +11,7 @@
 /obj/item/reagent_containers/food/snacks/monkeycube
 	name = "monkey cube"
 	desc = "Just add water!"
-	flags = 0
+	atom_flags = 0
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "monkeycube"
 	bitesize = 12

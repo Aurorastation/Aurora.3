@@ -57,7 +57,7 @@
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
 	w_class = ITEMSIZE_TINY
-	flags = NOBLUDGEON
+	atom_flags = ITEM_FLAG_NO_BLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE

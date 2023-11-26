@@ -135,7 +135,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			if(user.a_intent != I_HELP)
 				return
 
-			if(W.flags & CONDUCT)
+			if(W.obj_flags & OBJ_FLAG_CONDUCTABLE)
 				shock(user, 50, 0.7)
 
 		if(d1 == 12 || d2 == 12)
@@ -482,7 +482,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	recyclable = TRUE
-	flags = HELDMAPTEXT|CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil

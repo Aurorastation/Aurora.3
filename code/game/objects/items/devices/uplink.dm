@@ -358,7 +358,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	desc = "A small device used for access restricted sites in the remote corners of the Extranet."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/contract_uplink/Initialize(var/mapload, var/mind)
@@ -403,7 +403,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	desc_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 
 	///Amount of starting telecrystals. Defaults to default amount if not set.

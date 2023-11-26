@@ -29,12 +29,12 @@
 
 /obj/item/reagent_containers/weldpack/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
-		if(flags & OPENCONTAINER)
-			flags &= ~OPENCONTAINER
+		if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
-			flags = OPENCONTAINER
+			atom_flags = ATOM_FLAG_OPEN_CONTAINER
 		playsound(src, W.usesound, 70)
-		to_chat(user, SPAN_NOTICE("You wrench \the [src]'s fuel cap [(flags & OPENCONTAINER) ? "open" : "closed"]."))
+		to_chat(user, SPAN_NOTICE("You wrench \the [src]'s fuel cap [(atom_flags & ATOM_FLAG_OPEN_CONTAINER) ? "open" : "closed"]."))
 		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/T = W

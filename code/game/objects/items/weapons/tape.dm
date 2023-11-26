@@ -98,9 +98,9 @@
 	drop_sound = null
 	var/obj/item/stuck = null
 
-/obj/item/ducttape/New()
-	..()
-	flags |= NOBLUDGEON
+/obj/item/ducttape/Initialize()
+	. = ..()
+	item_flags |= ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/ducttape/examine(mob/user)
 	return stuck.examine(user)

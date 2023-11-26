@@ -9,6 +9,8 @@
 	spawn_cost = 1
 	id = "crashed_elyran_tanker"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/crashed_elyran_tanker
 	map = "crashed_elyran_tanker"
 	descriptor = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
@@ -58,7 +60,7 @@
 	landmark_tag = "nav_crashed_elyran_tanker_west"
 
 /area/crashed_elyran_tanker
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // ---------------- areas
 /area/crashed_elyran_tanker/bridge
