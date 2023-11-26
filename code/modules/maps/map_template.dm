@@ -148,7 +148,7 @@
 		var/turf/T = i
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
-			T.flags |= TURF_NORUINS
+			T.turf_flags |= TURF_NORUINS
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()

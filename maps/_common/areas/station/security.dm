@@ -20,7 +20,7 @@
 /area/security/brig
 	name = "Security - Brig"
 	lightswitch = TRUE
-	flags = PRISON
+	area_flags = AREA_FLAG_PRISON
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -50,7 +50,7 @@
 /area/security/prison
 	name = "Security - Prison Wing"
 	lightswitch = TRUE
-	flags = PRISON
+	area_flags = AREA_FLAG_PRISON
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
@@ -129,7 +129,7 @@
 /area/security/range
 	name = "Security - Firing Range"
 	icon_state = "firingrange"
-	flags = FIRING_RANGE
+	area_flags = AREA_FLAG_FIRING_RANGE
 	no_light_control = 0
 
 /area/security/tactical
@@ -165,7 +165,7 @@
 	icon_state = "nuke_storage"
 	ambience = AMBIENCE_HIGHSEC
 	holomap_color = null
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	no_light_control = 0
 
 /area/security/checkpoint
@@ -212,7 +212,7 @@
 	icon_state = "security"
 	icon_state = "security"
 	holomap_color = null
-	flags = HIDE_FROM_HOLOMAP | PRISON
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PRISON
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 

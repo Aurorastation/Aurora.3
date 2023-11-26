@@ -13,7 +13,7 @@
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
@@ -53,7 +53,7 @@
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
 	else
@@ -63,7 +63,7 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		return
 	. = ..()
 
@@ -219,7 +219,7 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/hyperzine, 30)
-	flags ^= OPENCONTAINER
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return
 
@@ -229,6 +229,6 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
-	flags ^= OPENCONTAINER
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return
