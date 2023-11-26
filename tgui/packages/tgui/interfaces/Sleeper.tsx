@@ -129,7 +129,7 @@ export const OccupantStatus = (props, context) => {
           <Section title="Stomach Reagents">
             {data.hasstomach ? (
               data.stomachreagents.length ? (
-                <BloodReagents />
+                <StomachReagents />
               ) : (
                 'No detected reagents in the stomach.'
               )

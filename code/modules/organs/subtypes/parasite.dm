@@ -77,7 +77,7 @@
 
 /obj/item/organ/internal/parasite/kois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "kois-on"
 	dead_icon = "kois-off"
 
@@ -149,7 +149,7 @@
 
 /obj/item/organ/internal/parasite/blackkois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "black-on"
 	dead_icon = "black-off"
 	subtle = 1

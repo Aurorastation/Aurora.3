@@ -307,7 +307,7 @@
 /mob/living/carbon/human/get_hearing_protection()
 	. = EAR_PROTECTION_NONE
 
-	if ((l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION))
+	if ((l_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (r_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (head?.item_flags & ITEM_FLAG_SOUND_PROTECTION))
 		return EAR_PROTECTION_MAJOR
 
 	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))

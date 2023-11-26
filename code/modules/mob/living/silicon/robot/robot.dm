@@ -507,22 +507,6 @@
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
 
-/mob/living/silicon/robot/verb/view_holomap()
-	set category = "Robot Commands"
-	set name = "View Holomap"
-	set desc = "View a virtual map of the surrounding area."
-
-	var/obj/machinery/station_map/mobile/holo_map_object
-	if(src.holo_map)
-		holo_map_object = src.holo_map.resolve()
-
-	// Not an else because weakref.resolve() can return false. Edge case
-	if(!holo_map_object)
-		holo_map_object = new(src)
-		src.holo_map = WEAKREF(holo_map)
-
-	holo_map_object.startWatching(src)
-
 /mob/living/silicon/robot/verb/rebuild_overlays()
 	set category = "Robot Commands"
 	set name = "Rebuild Overlays"

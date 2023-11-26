@@ -1,12 +1,3 @@
-#define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span>"
-
-/// Macro from Lummox used to get height from a MeasureText proc
-#define WXH_TO_HEIGHT(x) text2num(copytext(x, findtextEx(x, "x") + 1))
-
-#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
-#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
-#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
-
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
@@ -31,7 +22,49 @@
  * Text sanitization
  */
 
-//Used for preprocessing entered text
+/**
+ * Same as `strip_html_full`, but readds the newlines after the stripping
+ *
+ * Not SQL escaping safe, do not use alone for SQL sanitizing operations
+ *
+ * Returns a string
+ */
+/proc/strip_html_readd_newlines(text, limit = MAX_MESSAGE_LEN)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+	//For some reason at the first replace the backslash doubles, go figure... Either way, this is how to match it
+	var/static/regex/regex_newlines = regex(@"(\\n)", "g")
+	//And this matches the two newlines after the HTML strip and encoding
+	var/static/regex/regex_newlines_readd = regex(@"(##)", "g")
+
+	//We make them double, so we know the # is not part of the special ascii encoding of characters
+	var/message = regex_newlines.Replace(text, @"\n\n")
+
+	//Strip the HTML from the message
+	message = strip_html_full(message, limit)
+
+	//Bring the newlines back
+	return regex_newlines_readd.Replace(message, "<br>")
+
+/// Runs STRIP_HTML_SIMPLE and sanitize.
+/proc/strip_html(text, limit = MAX_MESSAGE_LEN)
+	return sanitize_tg(STRIP_HTML_SIMPLE(text, limit))
+
+/// Runs STRIP_HTML_FULL and sanitize.
+/proc/strip_html_full(text, limit = MAX_MESSAGE_LEN)
+	return sanitize_tg(STRIP_HTML_FULL(text, limit))
+
+/// Runs byond's html encoding sanitization proc, after replacing new-lines and tabs for the # character.
+/// This is ported from tg, hence the name
+/proc/sanitize_tg(text)
+	var/static/regex/regex = regex(@"[\n\t]", "g")
+	return html_encode(regex.Replace(text, "#"))
+
+/**
+ * DEPRECATED, USE `strip_html_full` / `strip_html` / `sanitize_tg` / `strip_html_readd_newlines` WHERE POSSIBLE
+ *
+ * Used for preprocessing entered text
+ */
 /proc/sanitize(var/input, var/max_length = MAX_MESSAGE_LEN, var/encode = 1, var/trim = 1, var/extra = 1)
 	if(!input)
 		return

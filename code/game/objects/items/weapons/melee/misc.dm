@@ -13,7 +13,7 @@
 	desc = "A tool used by great men to placate the frothing masses."
 	icon_state = "chain"
 	item_state = "chain"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
@@ -27,7 +27,7 @@
 	desc = "A deadly chainsaw in the shape of a sword."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chainswordoff"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 7
@@ -183,7 +183,7 @@
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 5

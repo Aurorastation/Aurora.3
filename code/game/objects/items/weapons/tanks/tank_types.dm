@@ -90,7 +90,7 @@
 	icon_state = "phoron"
 	item_state = "phoron"
 	gauge_icon = null
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = null	//they have no straps!
 
 /obj/item/tank/phoron/adjust_initial_gas()
@@ -119,7 +119,7 @@
 	desc = "Contains gaseous hydrogen. Do not inhale. Warning: extremely flammable."
 	icon_state = "hydrogen"
 	item_state = "hydrogen"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/tank/hydrogen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_HYDROGEN, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
@@ -138,7 +138,7 @@
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"
 	gauge_cap = 4
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	force = 4.0
