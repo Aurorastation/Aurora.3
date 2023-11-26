@@ -2,7 +2,7 @@
 	density = 1
 	layer = 4.0
 	animate_movement = 2
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
 

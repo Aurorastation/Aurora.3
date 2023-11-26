@@ -474,7 +474,7 @@
 			return
 
 		to_chat(user, SPAN_WARNING("You stick \the [W] into the light socket!"))
-		if(has_power() && (W.flags & CONDUCT))
+		if(has_power() && (W.obj_flags & OBJ_FLAG_CONDUCTABLE))
 			spark(src, 3)
 			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -482,7 +482,7 @@
 /obj/machinery/light/proc/smash_check(var/obj/O, var/mob/living/user, var/others_text, var/self_text, var/only_break)
 	if(prob(1 + O.force * 5))
 		user.visible_message(SPAN_WARNING("\The [user] [others_text] \the [src]!"), SPAN_WARNING("You hit \the [src], and it [self_text]!"), SPAN_WARNING("You hear a tinkle of breaking glass!"))
-		if(!stat && (O.flags & CONDUCT))
+		if(!stat && (O.obj_flags & OBJ_FLAG_CONDUCTABLE))
 			if(prob(12))
 				electrocute_mob(user, get_area(src), src, 0.3)
 		if(only_break)

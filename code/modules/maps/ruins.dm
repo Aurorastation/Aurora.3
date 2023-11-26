@@ -17,12 +17,12 @@ var/list/banned_ruin_ids = list()
 	var/remaining = budget
 
 	for(var/datum/map_template/ruin/ruin in potentialRuins)
-		if(ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+		if(HAS_FLAG(ruin.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
 			force_spawn |= ruin
 			continue
 		if(ruin.id in banned_ruin_ids)
 			continue
-		if(!(SSatlas.current_sector.name in ruin.sectors) && !ignore_sector)
+		if(!(ruin.spawns_in_current_sector()) && !ignore_sector)
 			continue
 		available[ruin] = ruin.spawn_weight
 
@@ -88,7 +88,7 @@ var/list/banned_ruin_ids = list()
 		valid = TRUE
 		for(var/turf/check_turf in ruin.get_affected_turfs(choice, TRUE))
 			var/area/check_area = get_area(check_turf)
-			if(!istype(check_area, filter_area) || check_turf.flags & TURF_NORUINS)
+			if(!istype(check_area, filter_area) || check_turf.turf_flags & TURF_NORUINS)
 				valid = FALSE
 				break
 

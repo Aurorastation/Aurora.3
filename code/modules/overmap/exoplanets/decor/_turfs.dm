@@ -5,7 +5,7 @@
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
-	flags = null
+	turf_flags = null
 
 	does_footprint = TRUE
 

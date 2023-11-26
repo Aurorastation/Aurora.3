@@ -6,6 +6,8 @@
 	id = "sensor_relay"
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/sensor_relay
 	map = "sensor_relay"
 	descriptor = "A sensor relay."
@@ -29,7 +31,7 @@
 	icon = 'maps/away/away_site/sensor_relay/sensor_relay_sprites.dmi'
 	name = "Sensor Relay"
 	icon_state = "sensor_relay_area"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = TRUE
 	base_turf = /turf/space
 	no_light_control = TRUE

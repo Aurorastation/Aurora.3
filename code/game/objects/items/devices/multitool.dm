@@ -12,7 +12,7 @@
 	item_state = "multitool"
 	item_icons = null
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5.0
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
