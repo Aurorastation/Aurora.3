@@ -146,6 +146,7 @@
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/eki = 3,
 		/obj/item/seeds/fjylozyn = 3,
 		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/glowshroom = 2,
