@@ -155,19 +155,6 @@
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"aat" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	name = "Cold Storage";
-	req_access = list(66);
-	dir = 1
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/medical/surgerywing)
 "aau" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -10250,14 +10237,6 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "atx" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
-"aty" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -22591,13 +22570,6 @@
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aNJ" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "aNK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -27780,12 +27752,6 @@
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"aWM" = (
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "aWN" = (
 /obj/structure/sign/directions/engineering{
 	dir = 8;
@@ -29248,13 +29214,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
-"aZe" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/port)
 "aZf" = (
 /obj/machinery/power/apc/south,
 /obj/structure/cable/green{
@@ -29576,24 +29535,6 @@
 "aZJ" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aZK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/obj/machinery/door/firedoor{
-	enable_smart_generation = 0
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -34412,10 +34353,6 @@
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 6";
 	dir = 8
-	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -41772,10 +41709,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bxq" = (
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -49432,11 +49365,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bPL" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/research_port)
-"bPM" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/research_port)
@@ -62174,10 +62102,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
-"kAL" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet,
-/area/crew_quarters/bar)
 "kAV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -63284,10 +63208,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mMJ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/maintenance/bar)
 "mNw" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -89881,7 +89801,7 @@ aQq
 aVh
 ePx
 aXX
-aZe
+aWs
 aVq
 bbq
 bcV
@@ -89926,11 +89846,11 @@ bbs
 htm
 bbs
 bbs
-bPM
+uzs
 bQj
 bQD
 bPL
-bPM
+uzs
 bSf
 bbs
 bcY
@@ -99388,7 +99308,7 @@ nLT
 aSr
 aTT
 aIi
-aWM
+aZs
 aYn
 aZr
 baI
@@ -99711,7 +99631,7 @@ sEV
 sEV
 bYZ
 ivR
-kAL
+jnD
 bSM
 bNO
 cbi
@@ -103534,7 +103454,7 @@ bGB
 bBP
 bIs
 pie
-mMJ
+gfU
 bGC
 bGC
 bGC
@@ -106586,7 +106506,7 @@ ahC
 ahC
 aXa
 aYq
-aZK
+aZC
 avd
 avd
 bfh
@@ -107640,7 +107560,7 @@ aap
 bCc
 bCc
 bCc
-aat
+aap
 bzk
 bzk
 bxU
@@ -108120,7 +108040,7 @@ aGL
 qSC
 cCf
 aLQ
-aNJ
+awK
 aPu
 aRb
 aRb
@@ -114533,7 +114453,7 @@ aoq
 apF
 aqS
 asi
-aty
+atx
 avj
 awN
 ayE

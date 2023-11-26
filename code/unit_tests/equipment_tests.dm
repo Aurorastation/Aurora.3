@@ -4,6 +4,9 @@
 
 /datum/unit_test/vision_glasses/
 	name = "EQUIPMENT: Vision Template"
+	groups = list("generic", "vision")
+
+
 	var/mob/living/carbon/human/H = null
 	var/expectation = SEE_INVISIBLE_NOLIGHTING
 	var/glasses_type = null

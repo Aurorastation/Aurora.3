@@ -275,7 +275,7 @@
 	desc = "A bag for carrying lots of money. It's got a big dollar sign printed on the front."
 	icon_state = "moneybag"
 	item_state = "moneybag"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	max_storage_space = 100
 	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)

@@ -9,7 +9,7 @@
 	icon_state = "telecrystal"
 	w_class = ITEMSIZE_TINY
 	max_amount = 50
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
 	icon_has_variants = TRUE
 	var/crystal_type = CRYSTAL_TYPE_TELECRYSTAL

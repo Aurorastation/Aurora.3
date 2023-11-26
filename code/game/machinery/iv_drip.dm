@@ -80,7 +80,7 @@
 /obj/machinery/iv_drip/Crossed(var/mob/H)
 	if(ishuman(H))
 		var/mob/living/carbon/human/M = H
-		if(M.shoes?.item_flags & LIGHTSTEP)
+		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.incapacitated())
 			return

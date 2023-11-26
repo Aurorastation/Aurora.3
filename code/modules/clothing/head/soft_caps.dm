@@ -4,7 +4,7 @@
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	item_state = "softcap"
-	item_flags = SHOWFLAVORTEXT
+	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
 	siemens_coefficient = 0.9

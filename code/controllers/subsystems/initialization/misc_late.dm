@@ -8,13 +8,13 @@ SUBSYSTEM_DEF(misc_late)
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
 	// Setup the teleport locs.
 	for(var/area/AR as anything in the_station_areas)
-		if(AR.flags & NO_GHOST_TELEPORT_ACCESS)
+		if(AR.area_flags & AREA_FLAG_NO_GHOST_TELEPORT_ACCESS)
 			continue
 		var/list/area_turfs = AR.contents
 		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
-	if(current_map.use_overmap)
+	if(current_map.use_overmap && map_overmap)
 		ghostteleportlocs[map_overmap.name] = map_overmap
 
 	sortTim(ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))

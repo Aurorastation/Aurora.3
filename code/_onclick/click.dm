@@ -345,7 +345,7 @@
 	var/dy = A.y - y
 
 	var/direction
-	if (loc == A.loc && A.flags & ON_BORDER)
+	if (loc == A.loc && A.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 		direction = A.dir
 	else if (!dx && !dy)
 		return

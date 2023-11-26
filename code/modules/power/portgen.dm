@@ -469,7 +469,7 @@
 	board_path = "/obj/item/circuitboard/portgen/fusion"
 
 	anchored = TRUE
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2

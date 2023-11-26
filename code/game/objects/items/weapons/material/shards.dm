@@ -26,6 +26,7 @@
 		return
 
 	icon_state = "[material.shard_icon][pick("large", "medium", "small")]"
+
 	randpixel_xy()
 	update_icon()
 
