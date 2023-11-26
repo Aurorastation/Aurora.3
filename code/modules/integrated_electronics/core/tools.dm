@@ -11,7 +11,7 @@
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "wirer-wire"
 	item_state = "wirer"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	var/datum/integrated_io/selected_io
 	var/mode = WIRE
@@ -109,7 +109,8 @@
 	settings to specific circuits, or for debugging purposes.  It can also pulse activation pins."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "debugger"
-	flags = CONDUCT | NOBLUDGEON
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/data_to_write = null
 	var/accepting_refs = 0
@@ -170,7 +171,7 @@
 	desc = "A combination autopainter and flash anodizer designed to give electronic assemblies a colorful, wear-resistant finish."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "detailer"
-	item_flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/detail_color = COLOR_ASSEMBLY_WHITE
 	var/static/list/color_list = list(

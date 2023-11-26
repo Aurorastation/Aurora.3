@@ -246,7 +246,7 @@
 	icon_state = "ecartridge"
 	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 10)
 	volume = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/ecig_cartridge/examine(mob/user)
 	. = ..()

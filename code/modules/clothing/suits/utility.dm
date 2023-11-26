@@ -54,7 +54,7 @@
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
 	w_class = ITEMSIZE_HUGE//Too large to fit in a backpack
-	item_flags = THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -92,7 +92,7 @@
 		bomb = ARMOR_BOMB_SHIELDED
 	)
 	siemens_coefficient = 0.1
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS

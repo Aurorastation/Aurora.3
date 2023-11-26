@@ -21,31 +21,6 @@
 #define SLOT_WRISTS     BITFLAG(15)
 #define SLOT_S_STORE    BITFLAG(16)
 
-// Flags bitmasks.
-#define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
-#define CONDUCT            0x2   // Conducts electricity. (metal etc.)
-#define ON_BORDER          0x4   // Item has priority to check when entering or leaving.
-#define NOBLOODY           0x8   // Used for items if they don't want to get a blood overlay.
-#define OPENCONTAINER      0x10  // Is an open container for chemistry purposes.
-#define PHORONGUARD        0x20  // Does not get contaminated by phoron.
-#define NOREACT            0x40  // Reagents don't react inside this container.
-#define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
-#define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
-#define NOMOVE             0x200 // Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
-#define HTML_USE_INITAL_ICON  0x400 // Should we use the initial icon for display? Mostly used by overlay only objects
-#define POURCONTAINER      0x800  // reagent container that can pour its contents with a lid on. only used for syrup bottles for now
-
-//Flags for items (equipment)
-#define THICKMATERIAL          BITFLAG(0)  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
-#define AIRTIGHT               BITFLAG(1)  // Functions with internals.
-#define NOSLIP                 BITFLAG(2)  // Prevents from slipping on wet floors, in space, etc.
-#define BLOCK_GAS_SMOKE_EFFECT BITFLAG(3)  // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
-#define FLEXIBLEMATERIAL       BITFLAG(4)  // At the moment, masks with this flag will not prevent eating even if they are covering your face.
-#define SOUNDPROTECTION        BITFLAG(5)  // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
-#define LIGHTSTEP              BITFLAG(6)  // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
-#define INJECTIONPORT          BITFLAG(7)  // Allows syringes and hyposprays to inject, even if the material is thick
-#define SHOWFLAVORTEXT         BITFLAG(8)  // won't block flavourtext when worn on equipment slot
-
 // Flags for pass_flags.
 #define PASSTABLE		0x1
 #define PASSGLASS		0x2

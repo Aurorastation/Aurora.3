@@ -745,7 +745,7 @@
 	var/turf/target = get_step(src, dir)
 
 	for(var/obj/obstacle in get_turf(src))
-		if((obstacle.flags & ON_BORDER) && (src != obstacle))
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (src != obstacle))
 			if(!obstacle.CheckExit(src, target))
 				brokesomething++
 				if (!crash_into(obstacle))

@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "big_derelict"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/big_derelict
 	map = "large derelict"
 	descriptor = "A very large derelict station. According to the starmap, it shouldn't exist."

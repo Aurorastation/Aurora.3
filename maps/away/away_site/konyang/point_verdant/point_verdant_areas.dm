@@ -2,7 +2,7 @@
 	name = "Point Verdant - Conglomerate Spaceport"
 	requires_power = 0
 	no_light_control = 1
-	flags = HIDE_FROM_HOLOMAP | RAD_SHIELDED
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	ambience = AMBIENCE_KONYANG_TRAFFIC
 	sound_env = CITY
@@ -14,6 +14,7 @@
 /area/point_verdant/coast
 	name = "Point Verdant - Waterside"
 	ambience = AMBIENCE_KONYANG_WATER
+	area_blurb = "The crashing sounds of waves on the shore punctuates the air. The vast ocean spreads out as far as the eye can see, looking almost flat."
 
 /area/point_verdant/reservoir
 	name = "Point Verdant - Reservoir"
@@ -23,6 +24,7 @@
 /area/point_verdant/sewer
 	name = "Point Verdant - Sewers"
 	sound_env = SEWER_PIPE
+	area_blurb = "Tainted water flows through these dark and grimy sewers, it smells utterly horrible down here. It's best not to think what you are breathing in, or touching."
 
 //All walls and interior stuff uses this area, otherwise rain will appear over walls. suboptimal!
 /area/point_verdant/interior
@@ -46,6 +48,7 @@
 
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
+	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."
 
 /area/point_verdant/interior/police
 	name = "Point Verdant - Police Department"
@@ -62,6 +65,7 @@
 
 /area/point_verdant/interior/decrepit
 	name = "Point Verdant - Decrepit Apartments"
+	area_blurb = "A damp smell lingers in the air inside these dusty apartments, it might be wise to keep an eye out for mould."
 
 /area/point_verdant/interior/pharmacy
 	name = "Point Verdant - Pharmacy"
@@ -81,6 +85,7 @@
 
 /area/point_verdant/interior/tunnels
 	name = "Point Verdant - Tunnels"
+	area_blurb = "Sounds echo impressively through these tunnels."
 
 /area/point_verdant/interior/shallow//For open-walled areas, like awnings and balconies
 	sound_env = CITY
@@ -90,6 +95,7 @@
 /area/point_verdant/outdoors
 	name = "Point Verdant - Outdoors"
 	ambience = AMBIENCE_KONYANG_RAIN
+	area_blurb = "The sounds and smells of Point Verdant bombard you from all directions. Skyscrapers tower up further into the city. Rain batters down on your body, encouraging you to seek shelter." //alter this if a dynamic weather system is added, so its isn't always raining.
 
 /area/point_verdant/outdoors/Initialize()
 	. = ..()
@@ -98,8 +104,12 @@
 
 /area/point_verdant/water
 	name = "Point Verdant - Open Water"
+	icon_state = "fitness_pool"
 
 /area/point_verdant/water/Initialize()
 	. = ..()
 	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="ripple","layer"=OBJ_LAYER-0.1))
 	add_overlay(image("icon"='icons/effects/rain_effects.dmi',"icon_state"="rain","layer"=MOB_LAYER+0.1))
+
+/area/point_verdant/water/deep // also used for waterdock landing area
+	name = "Point Verdant - Deep Water"

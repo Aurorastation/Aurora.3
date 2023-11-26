@@ -18,7 +18,7 @@
 	density = 0
 	dir = NORTH
 	w_class = ITEMSIZE_NORMAL
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/obj/item/airlock_electronics/electronics = null
 
@@ -271,7 +271,7 @@
 		if (obstacle == src)
 			continue
 
-		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && obstacle.dir == targetdir)
 			to_chat(usr, SPAN_WARNING("You can't turn the windoor assembly that way, there's already something there!"))
 			return
 

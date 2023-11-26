@@ -32,7 +32,7 @@
 /obj/item/clothing/mask/chewable/Initialize()
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 	. = ..()
-	flags |= NOREACT // so it doesn't react until you light it
+	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
 	if(wrapped)
 		slot_flags = null
 		update_icon()

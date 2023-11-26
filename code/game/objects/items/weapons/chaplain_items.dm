@@ -260,7 +260,7 @@
 	icon_state = "urn"
 	applies_material_colour = TRUE
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/material/urn/afterattack(var/obj/A, var/mob/user, var/proximity)
 	if(!istype(A, /obj/effect/decal/cleanable/ash))
