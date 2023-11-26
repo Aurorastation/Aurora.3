@@ -10,7 +10,7 @@
 	anchored = FALSE
 	density = TRUE
 	climbable = TRUE
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	build_amt = 15
 	slowdown = 0
 

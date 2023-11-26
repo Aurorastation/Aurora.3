@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "racers"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/racers
 	map = "unregistered station"
 	descriptor = "A unregistered station."
@@ -18,7 +20,7 @@
 	comms_name = "station"
 
 /area/racers
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "unregistered station"
 	icon_state = "bar"
 	requires_power = FALSE

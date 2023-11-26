@@ -12,7 +12,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	icon_state = "firing_pin"
 	item_state = "pen"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_TINY
 	attack_verb = list("poked")
 	var/emagged = FALSE
@@ -100,7 +100,7 @@ Pins Below.
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
 	var/area/A = get_area(src)
-	if (A && (A.flags & FIRING_RANGE))
+	if (A && (A.area_flags & AREA_FLAG_FIRING_RANGE))
 		return 1
 	else
 		return 0

@@ -9,7 +9,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	var/active = 0.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	throwforce = 10.0
 	throw_speed = 2
