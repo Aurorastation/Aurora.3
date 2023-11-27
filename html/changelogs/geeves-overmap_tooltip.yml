@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added tooltips to overmap objects, hold shift while hovering over them to see more info."
