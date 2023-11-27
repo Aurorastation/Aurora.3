@@ -198,7 +198,7 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 3,
-		/obj/item/seeds/xuiziseed = 3
+		/obj/item/seeds/xuiziseed = 3,
 		/obj/item/seeds/ylpha = 2
 	)
 	screen_x = 1000
