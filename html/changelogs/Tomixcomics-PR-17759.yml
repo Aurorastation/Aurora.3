@@ -39,13 +39,13 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added a whole bunch of new food dishes."
-  - rscadd: "Added reagent called Chco-nut spread."
+  - rscadd: "Added reagent called Choco-nut spread."
   - rscadd: "Added several new food bounties."
   - rscadd: "Added a few new round start tips."
-  - bugfix: "Fixed pathway for crab meat icon, stopping the horizon's immoral shipping of invisicrab."
+  - bugfix: "Fixed pathway for crab meat icon, stopping the Horizon's immoral shipping of invisicrab."
   - bugfix: "Changed incorrect or problematic recipes for a few recently added dishes to make them work more as intended."
   - bugfix: "Corrected bug where the sprite for steaks that have only been bitten once wasn't showing up when that happens."
   - imageadd: "Added a new sprite for Vanilla Extract."
-  - tweak: "Changed Bluespace Tomato soup to be more in line with how it was originally supposed to be, renamed it 'Sprial Soup'."
+  - tweak: "Changed Bluespace Tomato soup to be more in line with how it was originally supposed to be, renamed it 'Spiral Soup'."
   - tweak: "Updated icons for some dishes from a recent update - namely reducing the size of Blue Moon and Mac and Cheese dishes to be visually smaller, as well as minor tweaks to other dish icons."
 
