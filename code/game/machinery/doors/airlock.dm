@@ -161,7 +161,7 @@
 	var/insecure = TRUE
 	var/securitylock = FALSE
 
-	/// Override access by code level. This is an associative list that should only be set through the appropriate /effect/.
+	/// Override access by code level. This is an associative list that should only be set through /obj/effect/map_effect/door_helper/level_access.
 	/// Structure example: "red" -> list(1, 2)
 	/// Uses standard access if the current level is not on the list.
 	var/list/access_override_by_level

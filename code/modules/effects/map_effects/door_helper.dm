@@ -20,12 +20,11 @@
 
 /obj/effect/map_effect/door_helper/level_access
 	icon_state = "level_door"
+	/// Example of an appropriate way to set this: list("red" = list(1, 2))
+	/// Alternatively, for a door that is free access on a certain code: list("green" = null)
 	var/list/access_by_level
 
 /obj/effect/map_effect/door_helper/level_access/modify_door(obj/machinery/door/D)
 	if(isairlock(D))
 		var/obj/machinery/door/airlock/A = D
 		A.access_override_by_level = access_by_level
-
-/obj/effect/map_effect/door_helper/level_access/bridge
-	access_by_level = list("green" = null)
