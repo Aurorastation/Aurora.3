@@ -226,6 +226,10 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "ca" = (
@@ -504,6 +508,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "eR" = (
@@ -819,6 +824,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "hL" = (
@@ -1165,6 +1171,7 @@
 	pixel_x = 5;
 	pixel_y = 8
 	},
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "mx" = (
@@ -2756,6 +2763,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "Em" = (
@@ -3398,6 +3406,10 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "Ma" = (
@@ -3794,6 +3806,10 @@
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior/hotel)
 "Qi" = (
@@ -3929,6 +3945,10 @@
 "Sk" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "Sn" = (

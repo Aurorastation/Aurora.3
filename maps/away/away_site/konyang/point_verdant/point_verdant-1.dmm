@@ -1196,7 +1196,7 @@
 /area/point_verdant/interior/tunnels)
 "eq" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+	req_access = list(217)
 	},
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/pistol/sol,
@@ -1259,6 +1259,10 @@
 /mob/living/heavy_vehicle/premade/superheavy,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"eJ" = (
+/obj/effect/decal/cleanable/flour,
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/decrepit)
 "eN" = (
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
@@ -2006,7 +2010,7 @@
 /area/point_verdant/interior)
 "hW" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+	req_access = list(217)
 	},
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
@@ -3493,6 +3497,16 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"nT" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_senior_cop";
+	identifier = "konyang_senior_cop"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/police)
 "nV" = (
 /obj/structure/stairs_lower{
 	dir = 4;
@@ -3566,7 +3580,8 @@
 /area/point_verdant/interior/tunnels)
 "ou" = (
 /obj/machinery/door/airlock/glass{
-	dir = 4
+	dir = 4;
+	req_access = list(217)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -3630,6 +3645,10 @@
 "oI" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_utility";
+	identifier = "konyang_utility"
 	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/maint_janitorial)
@@ -4784,6 +4803,10 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_utility";
+	identifier = "konyang_utility"
+	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/maint_janitorial)
 "tC" = (
@@ -4880,7 +4903,7 @@
 /area/point_verdant/interior)
 "tS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+	req_access = list(217)
 	},
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/pistol/sol,
@@ -4890,6 +4913,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
+"tT" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_bar";
+	identifier = "konyang_bar"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/bar)
 "tW" = (
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
@@ -7515,7 +7545,22 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior)
 "FD" = (
-/obj/structure/closet/secure_closet,
+/obj/structure/closet/secure_closet{
+	req_access = list(217)
+	},
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/konyang/police,
+/obj/item/clothing/head/konyang/police,
+/obj/item/clothing/head/konyang/police,
+/obj/item/clothing/under/rank/konyang/police,
+/obj/item/clothing/under/rank/konyang/police,
+/obj/item/clothing/under/rank/konyang/police,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "FE" = (
@@ -8197,7 +8242,18 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
 "Ib" = (
-/obj/structure/closet/secure_closet,
+/obj/structure/closet/secure_closet{
+	req_access = list(217)
+	},
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Ic" = (
@@ -8464,6 +8520,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
 "Jj" = (
@@ -9695,6 +9753,7 @@
 	},
 /obj/item/reagent_containers/inhaler/hyperzine,
 /obj/item/storage/box/fancy/matches,
+/obj/item/material/twohanded/baseballbat/metal,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "Ow" = (
@@ -11669,12 +11728,13 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "WD" = (
-/obj/effect/decal/cleanable/flour,
 /obj/machinery/light/colored/decayed{
 	dir = 8;
 	pixel_y = 0;
 	pixel_x = -10
 	},
+/obj/structure/undies_wardrobe,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
 "WF" = (
@@ -12002,6 +12062,10 @@
 "Yg" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_superintendent";
+	identifier = "konyang_superintendent"
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
@@ -21001,7 +21065,7 @@ rf
 rf
 lC
 AR
-nq
+nT
 wL
 mO
 ai
@@ -32285,7 +32349,7 @@ Kl
 qV
 qV
 qV
-Kl
+eJ
 at
 bk
 LE
@@ -38972,7 +39036,7 @@ iw
 sZ
 mj
 eN
-eN
+tT
 eN
 oQ
 sZ
