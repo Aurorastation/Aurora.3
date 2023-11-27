@@ -19769,10 +19769,10 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "oSO" = (
 /obj/machinery/light,
-/obj/machinery/washing_machine,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
+/obj/structure/closet/athletic_mixed,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "oTm" = (
@@ -20048,6 +20048,7 @@
 	c_tag = "Third Deck - Locker Room";
 	dir = 1
 	},
+/obj/machinery/washing_machine,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "pdq" = (
