@@ -2,7 +2,7 @@
 #define FUSION_INSTABILITY_DIVISOR 50000
 #define FUSION_RUPTURE_THRESHOLD   10000
 #define FUSION_REACTANT_CAP        10000
-#define WARNING_DELAY 20
+#define FUSION_WARNING_DELAY 20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -48,11 +48,11 @@
 	var/animating_ripple = FALSE
 
 	var/obj/item/device/radio/radio
-	var/safe_alert = "INDRA core stabilizing."
-	var/safe_warned = 0
-	var/public_alert = 0
-	var/warning_alert = "Attention! INDRA core instability rising!"
-	var/emergency_alert = "ALERT! INDRA CORE MELTDOWN IMMINENT!"
+	var/safe_alert = "NOTICE: INDRA reactor stabilizing."
+	var/safe_warned = FALSE
+	var/public_alert = FALSE
+	var/warning_alert = "WARNING: INDRA reactor destabilizing!"
+	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
 	var/lastwarning = 0
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
@@ -215,7 +215,7 @@
 	check_instability()
 
 	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
-		if((world.timeofday - lastwarning) >= WARNING_DELAY * 10)
+		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
 			warning()
 
 	Radiate()
@@ -290,24 +290,24 @@
 
 /obj/effect/fusion_em_field/proc/warning()
 	var/unstable = round(percent_unstable * 100)
-	var/alert_msg = " Instability at [unstable]%"
+	var/alert_msg = " Instability at [unstable]%."
 
 	if(percent_unstable > 0.5)
 		if(percent_unstable >= percent_unstable_archive)
 			if(percent_unstable < 0.7)
 				alert_msg = warning_alert + alert_msg
 				lastwarning = world.timeofday
-				safe_warned = 0
+				safe_warned = FALSE
 			else if(percent_unstable < 0.9)
 				alert_msg = emergency_alert + alert_msg
-				lastwarning = world.timeofday  - WARNING_DELAY * 4
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 			else if(percent_unstable > 0.9)
-				lastwarning = world.timeofday  - WARNING_DELAY * 4
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 				alert_msg = emergency_alert + alert_msg
 			else
 				alert_msg = null
 		else if(!safe_warned)
-			safe_warned = 1
+			safe_warned = TRUE
 			alert_msg = safe_alert
 			lastwarning = world.timeofday
 		else
@@ -320,15 +320,15 @@
 
 		if((percent_unstable > 0.9) && !public_alert)
 			alert_msg = null
-			radio.autosay("ALERT! INDRA REACTOR CORE MELTDOWN IMMINENT!", "INDRA Reactor Monitor")
-			public_alert = 1
-				for(var/mob/M in player_list)
-					var/turf/T = get_turf(M)
-					if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
-						sound_to(M, 'sound/effects/nuclearsiren.ogg')
+			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
+			public_alert = TRUE
+			for(var/mob/M in player_list)
+				var/turf/T = get_turf(M)
+				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
+					sound_to(M, 'sound/effects/nuclearsiren.ogg')
 		else if(safe_warned && public_alert)
 			radio.autosay(alert_msg, "INDRA Reactor Monitor")
-			public_alert = 0
+			public_alert = FALSE
 
 /obj/effect/fusion_em_field/proc/Ripple(_size, _radius)
 	if(!animating_ripple)
