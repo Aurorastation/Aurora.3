@@ -134,7 +134,7 @@
 	else if(!aiming_at || !istype(aiming_at.loc, /turf))
 		FEEDBACK_FAILURE(owner, "You have lost sight of your target!")
 	else if(owner.incapacitated() || owner.lying || owner.restrained())
-		FEEDBACK_FAILURE(owner, "You must be concious and standing to keep track of your target!")
+		FEEDBACK_FAILURE(owner, "You must be conscious and standing to keep track of your target!")
 	else if(aiming_at.is_invisible_to(owner))
 		FEEDBACK_FAILURE(owner, "Your target has become invisible!")
 	else if(!(aiming_at in view(owner)))
@@ -191,7 +191,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 	LAZYDISTINCTADD(aiming_at.aimed_at_by, src)
-	toggle_active(1)
+	toggle_active(TRUE)
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35

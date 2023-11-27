@@ -38,4 +38,5 @@
 		SPAN_DANGER("\The [owner] pulls the trigger reflexively!"),
 		SPAN_DANGER("You pull the trigger reflexively!")
 	)
-
+	G.Fire(aiming_at, owner)
+	toggle_active(FALSE)
