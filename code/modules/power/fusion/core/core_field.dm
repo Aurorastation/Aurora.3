@@ -314,7 +314,6 @@
 			alert_msg = null
 	else
 		alert_msg = null
-	
 	if(alert_msg)
 		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
 
