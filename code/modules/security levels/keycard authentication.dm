@@ -221,4 +221,10 @@ var/global/maint_all_access = 0
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(access_maint_tunnels)))
 		return 1
+	if(access_override_by_level)
+		var/sec_level = get_security_level()
+		if(sec_level in access_override_by_level)
+			var/access_to_use = access_override_by_level[sec_level]
+			if(!access_to_use || has_access(access_to_use, A))
+				return TRUE
 	return ..(M)
