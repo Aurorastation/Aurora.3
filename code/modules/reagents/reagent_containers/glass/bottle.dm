@@ -9,7 +9,7 @@
 	filling_states = "20;40;60;80;100"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15,25,30,60)
-	flags = 0
+	atom_flags = 0
 	volume = 60
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
@@ -234,7 +234,7 @@
 	desc = "A small bottle dispenser."
 	icon_state = "syrup"
 	filling_states = "20;40;60;80;100"
-	flags = POURCONTAINER
+	atom_flags = ATOM_FLAG_POUR_CONTAINER
 	volume = 50
 
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate
@@ -252,3 +252,7 @@
 /obj/item/reagent_containers/glass/bottle/syrup/caramel
 	name = "caramel syrup dispenser"
 	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)
+
+/obj/item/reagent_containers/glass/bottle/triglyceride
+	name = "triglyceride bottle"
+	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride = 60)

@@ -10,8 +10,7 @@
 	icon_state = "yellow"
 	density = 1
 	var/health = 100.0
-	flags = CONDUCT
-	obj_flags = OBJ_FLAG_SIGNALER
+	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
@@ -354,7 +353,7 @@ update_flag
 	if(istype(W, /obj/item/mecha_equipment/clamp))
 		return
 	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
-		if(W.flags & NOBLUDGEON)
+		if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
 		user.do_attack_animation(src, W)

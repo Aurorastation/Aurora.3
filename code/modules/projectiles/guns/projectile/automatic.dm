@@ -94,6 +94,29 @@
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
+/obj/item/gun/projectile/automatic/xanusmg
+	name = "\improper Xanan submachine gun"
+	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
+	desc_extended = "The dNAC-4.6 II submachine gun is a custom-made submachine gun for the All-Xanu Armed Forces, designed to use the same 4.6mm rounds as the dNAC-4.6 pistol. It mainly sees use as a personal defensive weapon for pilots and drivers, but has also been used aboard the spacefleet's vessels for close quarters combat."
+	magazine_type = /obj/item/ammo_magazine/c46m/extended
+	allowed_magazines = list(/obj/item/ammo_magazine/c46m/extended)
+	icon = 'icons/obj/guns/xanu_smg.dmi'
+	icon_state = "xanu_smg"
+	item_state = "xanu_smg"
+	caliber = "4.6mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = 1
+
+/obj/item/gun/projectile/automatic/xanusmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_smg" : "xanu_smg-e"
+
+
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
 	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
@@ -689,3 +712,22 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan
+	name = "dNAC-12 combat shotgun"
+	desc = "A magazine-fed semi-automatic combat shotgun, designed by d.N.A Defense on Xanu Prime."
+	desc_extended = "The dNAC-12 combat shotgun was designed for the All-Xanu Grand Army and the All-Xanu National Militia for its law enforcement duties and military police. Due to its reliability, ease of use, and flexibility however, it has been adopted by the Air Corps and Spacefleet as well for defensive purposes."
+	icon = 'icons/obj/guns/xanu_shotgun.dmi'
+	icon_state = "xanu_shotgun"
+	item_state = "xanu_shotgun"
+	magazine_type = /obj/item/ammo_magazine/xanan_shotgun/shells
+	allowed_magazines = list(/obj/item/ammo_magazine/xanan_shotgun)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_shotgun" : "xanu_shotgun-empty"
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1), dispersion=list(0, 10))
+		)
