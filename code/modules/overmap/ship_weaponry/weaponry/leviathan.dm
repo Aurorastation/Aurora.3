@@ -213,6 +213,7 @@
 			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology!"
 	icon = 'icons/obj/machinery/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "cannon_key"
+	slot_flags = SLOT_MASK
 
 /obj/item/leviathan_case
 	name = "leviathan key case"
