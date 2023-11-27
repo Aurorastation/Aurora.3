@@ -210,9 +210,12 @@
 /obj/item/leviathan_key
 	name = "leviathan activation key"
 	desc = "A key made of hardlight used to activate the Leviathan. It is a software-controlled morphing key that uses self-replicating encryption: \
-			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology!"
+			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology! \
+			If you're vain, you could also probably wear it as a necklace."
 	icon = 'icons/obj/machinery/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "cannon_key"
+	item_state = "cannon_key"
+	contained_sprite = TRUE
 	slot_flags = SLOT_MASK
 
 /obj/item/leviathan_case
