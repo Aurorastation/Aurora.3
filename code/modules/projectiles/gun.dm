@@ -363,9 +363,9 @@
 
 	if(!is_offhand && user.a_intent == I_HURT) // no recursion
 		var/obj/item/gun/SG = user.get_inactive_hand()
-		if(istype(SG))
-			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
+		if(istype(SG) && SG.w_class <= w_class)
+			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
+			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 1)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
