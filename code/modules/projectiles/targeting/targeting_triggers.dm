@@ -39,4 +39,8 @@
 		SPAN_DANGER("You pull the trigger reflexively!")
 	)
 	G.Fire(aiming_at, owner)
+	cancel_aiming()
+	aim_cooldown(3)
 	toggle_active(FALSE)
+	if(owner.client)
+		owner.client.remove_gun_icons()
