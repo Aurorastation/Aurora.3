@@ -100,7 +100,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/spaghettibolognese
 
-/singleton/recipe/ravioli/cheese
+/singleton/recipe/raviolicheese
 	appliance = SAUCEPAN | POT
 	fruit = list("tomato" = 1)
 	reagents = list(/singleton/reagent/water = 5)
@@ -113,7 +113,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ravioli/cheese
 
-/singleton/recipe/ravioli/meat
+/singleton/recipe/raviolimeat
 	appliance = SAUCEPAN | POT
 	fruit = list("tomato" = 1)
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/protein = 6)
@@ -125,7 +125,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ravioli/meat
 
-/singleton/recipe/ravioli/earthenroot
+/singleton/recipe/ravioliearthenroot
 	appliance = SAUCEPAN | POT
 	fruit = list("earthenroot" = 1, "pumpkin" = 1, "tomato" = 1)
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/drink/milk/soymilk = 5)

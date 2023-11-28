@@ -46,7 +46,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/koisroulade
 
-/singleton/recipe/vkrexiwrap/meat
+/singleton/recipe/vkrexiwrap_meat
 	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tortilla,
@@ -57,7 +57,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
 
-/singleton/recipe/vkrexiwrap/veggie
+/singleton/recipe/vkrexiwrap_veggie
 	appliance = MIX
 	fruit = list("chili" = 1, "cabbage" = 1)
 	items = list(

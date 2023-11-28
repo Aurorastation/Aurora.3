@@ -32,6 +32,7 @@
 		/obj/item/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofukabob
+
 /singleton/recipe/hengsharolls
 	fruit = list("cabbage" = 1, "corn" = 1)
 	items = list(
