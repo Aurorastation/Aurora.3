@@ -775,7 +775,7 @@
 
 
 /obj/item/storage/box/fancy/food/cakepopjar/fill()
-	.=..()
+	. = ..()
 	for(var/obj/item/reagent_containers/food/snacks/cakepopselection/cakepop in src.contents)
 		var/MM = text2num(time2text(world.timeofday, "MM"))
 		if(MM == 10) //this checks if the month is october and if so gives the cake pops themselves halloween colors!
