@@ -141,7 +141,7 @@
 /obj/machinery/door/airlock/atmos{
 	dir = 8;
 	name = "Atmospherics";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -365,7 +365,7 @@
 /obj/machinery/door/airlock/glass_security{
 	dir = 4;
 	name = "EVA Storage";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/eva)
@@ -410,7 +410,7 @@
 "fw" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
@@ -420,7 +420,7 @@
 	pixel_x = -32
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
@@ -466,7 +466,7 @@
 "fK" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -793,7 +793,7 @@
 /area/idris_wreck/vault)
 "jx" = (
 /obj/machinery/door/airlock/security{
-	req_access = list(218);
+	req_access = list(220);
 	name = "Security Unit Storage"
 	},
 /turf/simulated/floor/tiled,
@@ -1015,7 +1015,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -1039,7 +1039,7 @@
 	pixel_x = 7;
 	pixel_y = -25;
 	specialfunctions = 4;
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -1114,7 +1114,7 @@
 /obj/machinery/door/airlock/service{
 	dir = 2;
 	name = "Cryogenics";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/cryo)
@@ -1175,7 +1175,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(218);
+	req_access = list(220);
 	name = "Port Nacelle"
 	},
 /turf/simulated/floor/plating,
@@ -1345,7 +1345,7 @@
 "sk" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/item/gun/bang/sec,
 /obj/item/gun/bang/sec,
@@ -1456,7 +1456,7 @@
 /obj/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cafeteria";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/kitchen)
@@ -1481,7 +1481,7 @@
 "ue" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/random/finances,
 /obj/random/finances,
@@ -1834,7 +1834,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/forehall)
@@ -1892,7 +1892,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Reactor Array";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
@@ -1943,7 +1943,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/command{
 	name = "Captain's Office";
-	req_access = list(218);
+	req_access = list(220);
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1973,7 +1973,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/security{
-	req_access = list(218);
+	req_access = list(220);
 	name = "Armory"
 	},
 /turf/simulated/floor/plating,
@@ -1983,7 +1983,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/security{
-	req_access = list(218);
+	req_access = list(220);
 	name = "Security Unit Storage"
 	},
 /turf/simulated/floor/plating,
@@ -2348,7 +2348,7 @@
 "EK" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/item/gun/energy/rifle,
 /turf/simulated/floor/tiled,
@@ -2429,7 +2429,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(218);
+	req_access = list(220);
 	name = "Engineering"
 	},
 /turf/simulated/floor/tiled,
@@ -2468,7 +2468,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/engineering{
 	name = "Thrusters";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
@@ -2519,7 +2519,7 @@
 	pixel_x = 7;
 	pixel_y = 25;
 	specialfunctions = 4;
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
@@ -2962,7 +2962,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/random/vault_weapon,
 /obj/random/vault_weapon,
@@ -3071,7 +3071,7 @@
 /obj/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cryogenics";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/cryoentrance)
@@ -3132,7 +3132,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(218);
+	req_access = list(220);
 	name = "Starboard Nacelle"
 	},
 /turf/simulated/floor/plating,
@@ -3332,7 +3332,7 @@
 "Sf" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
-	req_access = list(218)
+	req_access = list(220)
 	},
 /obj/random/vault_rig,
 /obj/random/vault_rig,
@@ -3410,7 +3410,7 @@
 "SP" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/captain)
@@ -3554,7 +3554,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_command{
 	name = "Central Ring";
-	req_access = list(218)
+	req_access = list(220)
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
