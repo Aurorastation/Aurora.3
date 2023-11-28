@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a hivenet manifest, which lets Vaurca see other Vaurca that're awake."
