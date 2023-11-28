@@ -21,6 +21,9 @@
 	var/crusty = FALSE
 	var/image/overlay
 
+	var/offset_pixel_y = 0
+	var/offset_pixel_x = 0
+
 /datum/fluidtrack/New(_direction, _color, _wet)
 	src.direction = _direction
 	src.basecolor = _color
@@ -50,6 +53,9 @@
 
 	// List of laid tracks and their colors.
 	var/list/datum/fluidtrack/stack = list()
+
+	/// Amount of pixels to shift either way in an attempt to make the tracks more organic
+	var/transverse_amplitude = 3
 
 /obj/effect/decal/cleanable/blood/tracks/reveal_blood()
 	if(!fluorescent)
@@ -138,6 +144,15 @@
 			track.overlay = null
 		var/image/I = image(icon, icon_state = state, dir = num2dir(truedir))
 		I.color = track.basecolor
+
+		switch(truedir)
+			if(NORTH, SOUTH)
+				I.pixel_x += track.offset_pixel_x ? track.offset_pixel_x : rand(-transverse_amplitude, transverse_amplitude)
+			if(EAST, WEST)
+				I.pixel_y += track.offset_pixel_y ? track.offset_pixel_y : rand(-transverse_amplitude, transverse_amplitude)
+
+		track.offset_pixel_x = I.pixel_x
+		track.offset_pixel_y = I.pixel_y
 
 		track.fresh = 0
 		track.overlay = I

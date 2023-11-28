@@ -169,7 +169,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 25))
 	bitesize = 10
 
-/obj/item/reagent_containers/food/snacks/nt_muffin
+/obj/item/reagent_containers/food/snacks/burger/nt_muffin
 	name = "\improper NtMuffin"
 	desc = "A NanoTrasen sponsered biscuit with egg, cheese, and sausage."
 	icon_state = "nt_muffin"

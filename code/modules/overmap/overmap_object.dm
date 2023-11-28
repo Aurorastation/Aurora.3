@@ -144,6 +144,26 @@
 							V.target(src, H.machine)
 			GS.targeting = FALSE //Extra safety.
 
+/obj/effect/overmap/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"])
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		var/description = get_tooltip_description()
+		openToolTip(usr, src, params, name, description)
+
+/obj/effect/overmap/proc/get_tooltip_description()
+	if(!desc)
+		return ""
+	var/description = "<ul>"
+	description += "<li>[desc]</li>"
+	description += "</ul>"
+	return description
+
+/obj/effect/overmap/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
 /obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/ship/C)
 	C.targeting = TRUE
 	usr.visible_message(SPAN_WARNING("[usr] starts calibrating the targeting systems, swiping around the holographic screen..."), SPAN_WARNING("You start calibrating the targeting systems, swiping around the screen as you focus..."))
