@@ -50,7 +50,7 @@
 /area/pra_satellite
 	name = "Hadiist Satellite"
 	icon_state = "research"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	requires_power = TRUE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE

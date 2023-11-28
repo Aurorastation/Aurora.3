@@ -6,7 +6,7 @@
 	icon_state = "red"
 	item_state = "red"
 	center_of_mass = list("x" = 16,"y" = 11)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5
 	throwforce = 10
 	throw_speed = 1

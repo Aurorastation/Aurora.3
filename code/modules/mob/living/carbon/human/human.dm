@@ -1629,9 +1629,9 @@
 	)
 	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		var/injection_modifier = BASE_INJECTION_MOD
-		if(C.item_flags & INJECTIONPORT)
+		if(C.item_flags & ITEM_FLAG_INJECTION_PORT)
 			injection_modifier = SUIT_INJECTION_MOD
-		else if(C.item_flags & THICKMATERIAL)
+		else if(C.item_flags & ITEM_FLAG_THICK_MATERIAL)
 			injection_modifier = INJECTION_FAIL
 		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
 			continue
@@ -1656,7 +1656,7 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
-		if(C.item_flags & SHOWFLAVORTEXT)
+		if(C.item_flags & ITEM_FLAG_SHOW_FLAVOR_TEXT)
 			continue
 
 		if(C.body_parts_covered & HEAD)
@@ -1711,7 +1711,7 @@
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
-	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
+	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP)))
 		return 0
 	. = ..(slipped_on,stun_duration)
 
