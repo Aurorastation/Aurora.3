@@ -725,7 +725,6 @@
 	..()
 	icon_state = (ammo_magazine)? "k556rifle" : "k556rifle-e"
 
-
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47
 	name = "konyang assault carbine"
 	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
