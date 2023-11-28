@@ -195,6 +195,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#E6E600"
 	bitesize = 5
+
 /obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
 	name = "meat v'krexi wrap"
 	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with meat."

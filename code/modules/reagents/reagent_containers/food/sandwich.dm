@@ -90,5 +90,3 @@
 	base_name = "burger"
 	topper = "burger_top"
 
-
-
