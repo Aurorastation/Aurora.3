@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Tweaked dual-wielding penalties to not be as harsh and to fire faster. It still works best with smaller weapons such as pistols."
-  - tweak: "Tweaked dual-wielding to only apply if its smaller or the same size as your main firearm, this makes it easier to pull out a pistol and use only that."
