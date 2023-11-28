@@ -731,8 +731,8 @@
 	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
 	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
-	icon_state = "konyang-47"
-	item_state = "konyang-47"
+	icon_state = "k47"
+	item_state = "k47"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
 	w_class = ITEMSIZE_LARGE
 	ammo_type = "/obj/item/ammo_casing/a556"
@@ -744,7 +744,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "konyang-47" : "konyang-47-e"
+	icon_state = (ammo_magazine)? "k47" : "k47-e"
 
 /obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle
 	name = "re-bored rifle"
