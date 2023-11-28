@@ -2278,13 +2278,13 @@
 
 /obj/item/flag/persepolis
 	name = "\improper Persepolis flag"
-	desc = "The flag of Persepolis. MORE DESCRIPTION HERE."
+	desc = "The flag of Persepolis. The colors are similar to the Presepolean sky during sunrise over the planet's oceans. The writing on the flag reads: Freedom and Justice."
 	flag_path = "persepolis"
 	flag_structure = /obj/structure/sign/flag/persepolis
 
 /obj/structure/sign/flag/persepolis
 	name = "\improper Persepolis flag"
-	desc = "The flag of Persepolis. MORE DESCRIPTION HERE."
+	desc = "The flag of Persepolis. The colors are similar to the Presepolean sky during sunrise over the planet's oceans. The writing on the flag reads: Freedom and Justice.."
 	flag_path = "persepolis"
 	icon_state = "persepolis"
 	flag_item = /obj/item/flag/persepolis
@@ -2316,13 +2316,13 @@
 
 /obj/item/flag/damascus
 	name = "\improper Damascus flag"
-	desc = "The flag of Damascus. MORE DESCRIPTION HERE."
+	desc = "The flag of Damascus. Popularized during the Elyran Revolution among protestors, the writing on the flag bears the famed slogan: At Any Price."
 	flag_path = "damascus"
 	flag_structure = /obj/structure/sign/flag/damascus
 
 /obj/structure/sign/flag/damascus
 	name = "\improper Damascus flag"
-	desc = "The flag of Damascus. MORE DESCRIPTION HERE."
+	desc = "The flag of Damascus. Popularized during the Elyran Revolution among protestors, the writing on the flag bears the famed slogan: At Any Price."
 	flag_path = "damascus"
 	icon_state = "damascus"
 	flag_item = /obj/item/flag/damascus
@@ -2353,13 +2353,13 @@
 //Medina
 /obj/item/flag/medina
 	name = "\improper Medina flag"
-	desc = "The flag of Medina. MORE DESCRIPTION HERE."
+	desc = "The flag of Medina. The colors represent wealth, progress, purity, and phoron."
 	flag_path = "medina"
 	flag_structure = /obj/structure/sign/flag/medina
 
 /obj/structure/sign/flag/medina
 	name = "\improper Medina flag"
-	desc = "The flag of Medina. MORE DESCRIPTION HERE."
+	desc = "The flag of Medina. The colors represent wealth, progress, purity, and phoron."
 	flag_path = "medina"
 	icon_state = "medina"
 	flag_item = /obj/item/flag/medina
@@ -2390,13 +2390,13 @@
 //Aemaq
 /obj/item/flag/aemaq
 	name = "\improper Aemaq flag"
-	desc = "The flag of Aemaq. MORE DESCRIPTION HERE."
+	desc = "The flag of Aemaq. The colors of the flag represent wealth, energy, the planet's oceans, and the pure hearts of the Aemaqans."
 	flag_path = "aemaq"
 	flag_structure = /obj/structure/sign/flag/aemaq
 
 /obj/structure/sign/flag/aemaq
 	name = "\improper Aemaq flag"
-	desc = "The flag of Aemaq. MORE DESCRIPTION HERE."
+	desc = "The flag of Aemaq. The colors of the flag represent wealth, energy, the planet's oceans, and the pure hearts of the Aemaqans."
 	flag_path = "aemaq"
 	icon_state = "aemaq"
 	flag_item = /obj/item/flag/aemaq
@@ -2427,13 +2427,13 @@
 //New Suez
 /obj/item/flag/newsuez
 	name = "\improper New Suez flag"
-	desc = "The flag of New Suez. MORE DESCRIPTION HERE."
+	desc = "The flag of New Suez. The moon of Persepolis is surrounded by the stars that represent the parties of the 2381 New Suez Accords."
 	flag_path = "newsuez"
 	flag_structure = /obj/structure/sign/flag/newsuez
 
 /obj/structure/sign/flag/newsuez
 	name = "\improper New Suez flag"
-	desc = "The flag of New Suez. MORE DESCRIPTION HERE."
+	desc = "The flag of New Suez. The moon of Persepolis is surrounded by the stars that represent the parties of the 2381 New Suez Accords."
 	flag_path = "newsuez"
 	icon_state = "newsuez"
 	flag_item = /obj/item/flag/newsuez
