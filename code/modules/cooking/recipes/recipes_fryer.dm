@@ -175,7 +175,6 @@
 	coating = /singleton/reagent/nutriment/coating/beerbatter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/north60squid
-	//XANAN
 
 /singleton/recipe/falafelballs
 	appliance = FRYER
