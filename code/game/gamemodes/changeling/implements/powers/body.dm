@@ -42,6 +42,7 @@
 	if(ishuman(src))
 		src.visible_message("<span class='warning'>[src] transforms!</span>")
 		var/mob/living/carbon/human/H = src
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 
@@ -50,6 +51,10 @@
 		H.sync_organ_dna()
 		H.flavor_text = ""
 		H.height = chosen_dna.height
+		H.gender = chosen_dna.gender
+		H.pronouns = chosen_dna.pronouns
+		H.accent = chosen_dna.accent
+		changeling.mimiced_accent = chosen_dna.accent
 		domutcheck(H, null) //donut check heh heh heh - Geeves
 		H.UpdateAppearance()
 
