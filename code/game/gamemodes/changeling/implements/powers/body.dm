@@ -53,7 +53,8 @@
 		H.height = chosen_dna.height
 		H.gender = chosen_dna.gender
 		H.pronouns = chosen_dna.pronouns
-		changeling.mimiced_accent = chosen_dna.accent
+		if(!changeling.mimicing)
+			changeling.mimiced_accent = chosen_dna.accent
 		domutcheck(H, null) //donut check heh heh heh - Geeves
 		H.UpdateAppearance()
 
