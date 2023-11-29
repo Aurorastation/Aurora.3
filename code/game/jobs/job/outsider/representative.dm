@@ -26,6 +26,14 @@
 	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
+/datum/job/representative/after_spawn(mob/living/carbon/human/H)
+	var/datum/faction/faction = SSjobs.GetFaction(H)
+	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
+/datum/job/representative/on_despawn(mob/living/carbon/human/H)
+	var/datum/faction/faction = SSjobs.GetFaction(H)
+	LAZYADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
 	var/fax_department = "Representative's Office"
