@@ -45,6 +45,8 @@
 	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
 
 //Only override this proc
+/datum/job/proc/pre_spawn(mob/abstract/new_player/player)
+
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
 /datum/job/proc/on_despawn(mob/living/carbon/human/H)

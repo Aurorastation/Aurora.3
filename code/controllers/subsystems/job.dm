@@ -97,6 +97,8 @@ SUBSYSTEM_DEF(jobs)
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
+		if(!player.IsJobAvailable(rank))
+			return FALSE
 
 		if(!(player.client.prefs.GetPlayerAltTitle(job) in player.client.prefs.GetValidTitles(job)))
 			to_chat(player, "<span class='warning'>Your character is too young!</span>")
@@ -111,6 +113,7 @@ SUBSYSTEM_DEF(jobs)
 			player.mind.role_alt_title = GetPlayerAltTitle(player, rank)
 			unassigned -= player
 			job.current_positions++
+			job.pre_spawn(player)
 			return TRUE
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
