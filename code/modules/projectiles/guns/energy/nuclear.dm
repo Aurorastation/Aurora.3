@@ -213,7 +213,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 8
-	fire_delay = 3
+	fire_delay = 5
 	can_turret = 0
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
