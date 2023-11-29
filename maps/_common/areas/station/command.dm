@@ -8,6 +8,10 @@
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink wafts notably through the air."
 
+/area/bridge/upperdeck
+	name = "Command Atrium Upper Deck"
+	icon_state = "bridge"
+
 /area/bridge/minibar
 	name = "Command Break Room"
 	icon_state = "bridge"

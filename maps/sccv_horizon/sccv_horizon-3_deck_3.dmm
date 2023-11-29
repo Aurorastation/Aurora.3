@@ -1117,6 +1117,19 @@
 /obj/machinery/telecomms/server/presets/service,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
+"aOs" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Atrium Starboard";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bridge)
 "aOA" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -1145,7 +1158,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "aQk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
@@ -1498,6 +1511,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Captain's Office Fore";
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "baO" = (
@@ -1846,7 +1863,7 @@
 	pixel_y = -23
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "bkv" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
@@ -2488,6 +2505,9 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"bTh" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/lawoffice/representative_two)
 "bTH" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/stone/marble,
@@ -6150,7 +6170,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "eHB" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
@@ -7092,6 +7112,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
+"fqO" = (
+/turf/simulated/wall/r_wall,
+/area/lawoffice/representative_two)
 "frj" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -8031,6 +8054,10 @@
 /area/medical/washroom)
 "fTY" = (
 /obj/machinery/light,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Atrium Aft";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "fUZ" = (
@@ -8209,7 +8236,7 @@
 	id = "rep"
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/lawoffice/representative_two)
 "gbo" = (
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
@@ -8362,7 +8389,7 @@
 	id = "rep"
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/lawoffice/representative_two)
 "ggJ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -8704,7 +8731,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "grI" = (
 /obj/machinery/light{
 	dir = 4
@@ -9798,7 +9825,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/bridge)
+/area/lawoffice/representative_two)
 "hhb" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -10003,7 +10030,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "hmd" = (
 /obj/machinery/door/airlock{
 	dir = 1;
@@ -10422,7 +10449,7 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "hzz" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11437,13 +11464,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "ipV" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "repb"
 	},
 /turf/simulated/floor/tiled,
-/area/bridge)
+/area/lawoffice/representative_two)
 "iqb" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -12428,6 +12455,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Atrium Starboard Maintenance"
+	},
 /turf/simulated/floor/wood,
 /area/bridge)
 "iUf" = (
@@ -12771,7 +12801,7 @@
 	pixel_x = -43
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "jid" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13367,7 +13397,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "jIj" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
@@ -14313,6 +14343,9 @@
 "krM" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Atrium Port Maintenance"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -16160,6 +16193,10 @@
 /area/horizon/crew_armoury/foyer)
 "lBS" = (
 /obj/machinery/light/floor,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Atrium Fore";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "lCc" = (
@@ -16838,7 +16875,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "mdb" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -17397,9 +17434,6 @@
 /obj/item/ladder_mobile,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Captain's Office Aft"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
@@ -18214,7 +18248,7 @@
 	dir = 7
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "nac" = (
 /obj/machinery/shower{
 	dir = 1;
@@ -18860,7 +18894,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "nxq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
@@ -19241,7 +19275,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "nMa" = (
 /obj/machinery/telecomms/message_server,
 /obj/machinery/light,
@@ -19432,6 +19466,10 @@
 "nSO" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Atrium Port";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "nTv" = (
@@ -20338,7 +20376,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "owI" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -21354,7 +21392,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "pna" = (
 /obj/structure/table/standard,
 /obj/item/folder/sec,
@@ -21578,7 +21616,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "pAs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -22146,7 +22184,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "qbu" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -23193,9 +23231,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Captain's Office Aft"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -25440,7 +25475,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "stP" = (
 /obj/structure/sink/kitchen{
 	name = "water fountain";
@@ -29882,7 +29917,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "vGh" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/mirror{
@@ -29958,7 +29993,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "vID" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -30489,6 +30524,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Captain's Office Aft"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "wdy" = (
@@ -30738,7 +30776,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "wmW" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -31135,7 +31173,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "wEU" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -32918,7 +32956,7 @@
 	pixel_x = -48
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "xVe" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
@@ -32978,7 +33016,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/bridge)
+/area/lawoffice/representative_two)
 "yad" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -32996,7 +33034,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/bridge)
+/area/lawoffice/representative_two)
 "ycA" = (
 /obj/machinery/light{
 	dir = 8
@@ -50474,9 +50512,9 @@ slo
 slo
 slo
 slo
-lbL
-lbL
-rQz
+fqO
+fqO
+bTh
 hfB
 hfB
 bJM
@@ -51484,7 +51522,7 @@ jwe
 vFc
 vEP
 gcM
-lbL
+fqO
 vFR
 qaI
 wDN
@@ -51686,7 +51724,7 @@ rpI
 qOO
 qro
 uow
-lbL
+fqO
 hyU
 pmA
 xZy
@@ -51888,7 +51926,7 @@ slo
 jnZ
 qkd
 aTZ
-lbL
+fqO
 ipH
 ipV
 ggl
@@ -54512,7 +54550,7 @@ fBZ
 ude
 hOg
 rcX
-lWM
+aOs
 baR
 lWM
 lWM
