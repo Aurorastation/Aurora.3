@@ -149,7 +149,12 @@
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/lawoffice/representative
-	name = "Representative Office"
+	name = "Representative Office A"
+	icon_state = "law_rep"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/lawoffice/representative_two
+	name "Representative Office B"
 	icon_state = "law_rep"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
