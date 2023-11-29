@@ -214,12 +214,9 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 8
 	fire_delay = 5
-	can_turret = 0
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
 	can_switch_modes = 1
-	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
