@@ -48,7 +48,7 @@
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
 /datum/job/proc/on_despawn(mob/living/carbon/human/H)
-
+	return
 /datum/job/proc/announce(mob/living/carbon/human/H)
 
 /datum/job/proc/get_outfit(mob/living/carbon/human/H, alt_title=null)
