@@ -138,7 +138,7 @@
 	required_count = 8
 	random_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/muffin,
-			/obj/item/reagent_containers/food/snacks/nt_muffin,
+			/obj/item/reagent_containers/food/snacks/burger/nt_muffin,
 			/obj/item/reagent_containers/food/snacks/berrymuffin)
 
 /datum/bounty/item/chef/chawanmush

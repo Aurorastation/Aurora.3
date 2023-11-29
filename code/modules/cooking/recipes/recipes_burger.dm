@@ -86,7 +86,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/nt_muffin
+	result = /obj/item/reagent_containers/food/snacks/burger/nt_muffin
 
 /singleton/recipe/bearburger
 	items = list(

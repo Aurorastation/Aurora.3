@@ -136,7 +136,7 @@
 	icon_state = "diona0"
 	footstep_sound = /singleton/sound_category/grass_footstep
 	initial_flooring = /singleton/flooring/diona
-	flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
+	turf_flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
 
 /turf/simulated/floor/diona/airless
 	initial_gas = null

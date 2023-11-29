@@ -20,7 +20,7 @@
 	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling, 4 = gumballs, 5 = holder
 	var/list/contained = list()
 	drop_sound = 'sound/items/drop/glass.ogg'

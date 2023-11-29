@@ -1,7 +1,7 @@
 /atom
 	layer = 2
 	var/level = 2
-	var/flags = 0
+	var/atom_flags = 0
 	var/init_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -107,15 +107,15 @@
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
 /atom/proc/is_open_container()
-	return flags & OPENCONTAINER
+	return atom_flags & ATOM_FLAG_OPEN_CONTAINER
 
 /atom/proc/is_pour_container()
-	return flags & POURCONTAINER
+	return atom_flags & ATOM_FLAG_POUR_CONTAINER
 
 /atom/proc/CheckExit()
 	return 1
 
-// If you want to use this, the atom must have the PROXMOVE flag and the moving atom must also have the PROXMOVE flag currently to help with lag. -ComicIronic
+// If you want to use this, the atom must have the MOVABLE_FLAG_PROXMOVE flag and the moving atom must also have the MOVABLE_FLAG_PROXMOVE flag currently to help with lag. -ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
@@ -528,7 +528,7 @@
 // Returns 1 if made bloody, returns 0 otherwise.
 /atom/proc/add_blood(mob/living/carbon/human/M)
 
-	if(flags & NOBLOODY)
+	if(atom_flags & ATOM_FLAG_NO_BLOOD)
 		return 0
 
 	if(!blood_DNA || !istype(blood_DNA, /list))	// If our list of DNA doesn't exist yet (or isn't a list), initialise it.

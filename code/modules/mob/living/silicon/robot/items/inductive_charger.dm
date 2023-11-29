@@ -6,7 +6,7 @@
 	icon = 'icons/obj/item/tools/inductive_charger.dmi'
 	icon_state = "inductive_charger"
 	item_state = "inductive_charger"
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	contained_sprite = TRUE
 	var/is_in_use = FALSE
 	var/ready_to_use = TRUE

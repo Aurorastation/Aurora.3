@@ -1146,7 +1146,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 		if (isnull(icon_state))
 			icon_state = thing.icon_state
 			//Despite casting to atom, this code path supports mutable appearances, so let's be nice to them
-			if(isnull(icon_state) || (isatom(thing) && thing.flags & HTML_USE_INITAL_ICON))
+			if(isnull(icon_state) || (isatom(thing) && thing.atom_flags & ATOM_FLAG_HTML_USE_INITIAL_ICON))
 				icon_state = initial(thing.icon_state)
 				if (isnull(dir))
 					dir = initial(thing.dir)
@@ -1224,3 +1224,42 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 
 	var/icon/I = getFlatIcon(thing)
 	return icon2html(I, target, sourceonly = sourceonly)
+
+/**
+ * Centers an image.
+ *
+ * Requires:
+ * * The Image
+ * * The x dimension of the icon file used in the image
+ * * The y dimension of the icon file used in the image
+ *
+ * Examples:
+ * * center_image(image_to_center, 32,32)
+ * * center_image(image_to_center, 96,96)
+**/
+/proc/center_image(image/image_to_center, x_dimension = 0, y_dimension = 0)
+	if(!image_to_center)
+		return
+
+	if(!x_dimension || !y_dimension)
+		return
+
+	if((x_dimension == world.icon_size) && (y_dimension == world.icon_size))
+		return image_to_center
+
+	//Offset the image so that its bottom left corner is shifted this many pixels
+	//This makes it infinitely easier to draw larger inhands/images larger than world.iconsize
+	//but still use them in game
+	var/x_offset = -((x_dimension / world.icon_size) - 1) * (world.icon_size * 0.5)
+	var/y_offset = -((y_dimension / world.icon_size) - 1) * (world.icon_size * 0.5)
+
+	//Correct values under world.icon_size
+	if(x_dimension < world.icon_size)
+		x_offset *= -1
+	if(y_dimension < world.icon_size)
+		y_offset *= -1
+
+	image_to_center.pixel_x = x_offset
+	image_to_center.pixel_y = y_offset
+
+	return image_to_center

@@ -7,7 +7,7 @@
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
 	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	flags_inv = HIDEFACE
 	sprite_sheets = null
 
