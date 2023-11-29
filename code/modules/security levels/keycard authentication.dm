@@ -225,6 +225,6 @@ var/global/maint_all_access = 0
 		var/sec_level = get_security_level()
 		if(sec_level in access_override_by_level)
 			var/access_to_use = access_override_by_level[sec_level]
-			if(!access_to_use || has_access(access_to_use, A))
+			if(!access_to_use || has_access(access_to_use, accesses = A))
 				return TRUE
 	return ..(M)
