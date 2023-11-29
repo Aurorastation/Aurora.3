@@ -193,7 +193,7 @@
 
 	offhand_accuracy = 6 // same as firing it in your main hand
 
-	projectile_type = /obj/item/projectile/beam/pistol/scc
+	projectile_type = /obj/item/projectile/beam/pistol/scc/weak
 	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 4)
 
 	firemodes = list(
