@@ -1376,13 +1376,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge)
-"aXS" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/dark_blue/full,
-/turf/simulated/floor/tiled,
-/area/bridge)
 "aYc" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -4142,11 +4135,6 @@
 "dqz" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge)
-"dqD" = (
-/obj/structure/table/wood,
-/obj/machinery/recharger,
-/turf/simulated/floor/carpet,
-/area/lawoffice/consular_two)
 "dqR" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/dark_green{
@@ -4670,6 +4658,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"dNu" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/supply)
 "dNV" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -5569,6 +5563,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"epJ" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/representative{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/simulated/floor/carpet,
+/area/lawoffice/consular_two)
 "epY" = (
 /obj/structure/platform_stairs/full{
 	dir = 8
@@ -6305,6 +6307,16 @@
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"eQa" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled,
+/area/bridge)
 "eQq" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -6332,6 +6344,10 @@
 "eQY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -7774,16 +7790,6 @@
 "fMW" = (
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
-"fNg" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/structure/railing/mapped{
-	dir = 1;
-	pixel_y = 9
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
 "fNC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -8166,8 +8172,12 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/security/evidence_storage)
 "gaB" = (
-/turf/simulated/wall/r_wall,
-/area/bridge/supply)
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "gbi" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -8178,6 +8188,11 @@
 /obj/item/crowbar,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"gbo" = (
+/obj/structure/table/wood,
+/obj/machinery/recharger,
+/turf/simulated/floor/carpet,
+/area/lawoffice/consular_two)
 "gbC" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8505,6 +8520,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"gmx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop/xo)
 "gmF" = (
 /obj/machinery/alarm/east,
 /obj/structure/flora/pottedplant{
@@ -10384,14 +10408,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/template_noop)
-"hyw" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/representative{
-	pixel_x = -1;
-	pixel_y = 5
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice/consular_two)
 "hzh" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/camera/network/command{
@@ -10690,6 +10706,10 @@
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"hKi" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled,
+/area/bridge/supply)
 "hKm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11070,6 +11090,12 @@
 /obj/machinery/newscaster/security_unit/west,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"icg" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice/consular_two)
 "icU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -11414,6 +11440,17 @@
 	pixel_y = 9
 	},
 /turf/simulated/floor/wood,
+/area/bridge)
+"ipV" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/platform,
+/obj/random/pottedplant,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/bridge)
 "iqb" = (
 /obj/structure/lattice/catwalk,
@@ -13372,7 +13409,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -16488,10 +16525,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"lNl" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled,
-/area/bridge/supply)
 "lNA" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -18026,6 +18059,9 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "mTK" = (
@@ -19316,7 +19352,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -20099,10 +20135,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation/monitoring)
-"okg" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/carpet,
-/area/lawoffice/consular_two)
 "oks" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -21664,9 +21696,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "pAc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "pAs" = (
@@ -23035,6 +23068,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/operations/office_aux)
+"qGP" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "qGX" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -23112,14 +23150,6 @@
 /obj/structure/platform,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
-"qJi" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/machinery/light/floor,
-/obj/structure/reagent_dispensers/water_cooler,
-/turf/simulated/floor/tiled,
-/area/bridge)
 "qKv" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -23273,6 +23303,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
+"qOa" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/carpet,
+/area/lawoffice/consular_two)
 "qOO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -23341,17 +23375,6 @@
 	opacity = 0
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/bridge)
-"qSu" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/platform,
-/obj/random/pottedplant,
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "qSG" = (
@@ -23791,6 +23814,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -24704,6 +24730,17 @@
 /area/horizon/security/interrogation/monitoring)
 "rQz" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/bridge)
+"rQE" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled,
 /area/bridge)
 "rQI" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -26035,7 +26072,6 @@
 /turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/port)
 "sJA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/command{
 	dir = 1;
@@ -26056,6 +26092,7 @@
 	opacity = 0
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hop/xo)
 "sKC" = (
@@ -30033,12 +30070,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"vCj" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/supply)
 "vCB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -30532,12 +30563,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
-"vSt" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/lawoffice/consular_two)
 "vSJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -31391,6 +31416,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"wAf" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/supply)
 "wAi" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -31456,11 +31484,11 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "wDN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge)
@@ -33058,10 +33086,7 @@
 	dir = 10
 	},
 /obj/machinery/light/floor,
-/obj/structure/railing/mapped{
-	dir = 1;
-	pixel_y = 9
-	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "xIn" = (
@@ -51114,8 +51139,8 @@ jOD
 hij
 ppg
 rQO
-okg
-dqD
+qOa
+gbo
 gnf
 hij
 wmP
@@ -51519,7 +51544,7 @@ hij
 iQF
 bml
 pWL
-hyw
+epJ
 eIO
 mZK
 iUc
@@ -51720,7 +51745,7 @@ sRf
 hij
 rzm
 iGb
-vSt
+icg
 fCi
 ggl
 ovT
@@ -51931,7 +51956,7 @@ wDN
 pAc
 sJA
 eQY
-rCl
+gmx
 rCl
 wMV
 hcg
@@ -52330,9 +52355,9 @@ qkd
 hij
 scd
 hij
-qSu
+ipV
 bcH
-aXS
+gaB
 vIv
 eho
 sSv
@@ -52736,7 +52761,7 @@ lCP
 qAb
 dmp
 fiZ
-fNg
+eQa
 vIv
 tFa
 vQU
@@ -52938,7 +52963,7 @@ nJv
 cSQ
 llH
 fiZ
-xIa
+rQE
 wIr
 mVT
 cJU
@@ -53140,7 +53165,7 @@ vup
 ans
 dmp
 fiZ
-fNg
+eQa
 qKG
 gJz
 aDg
@@ -53751,7 +53776,7 @@ lbL
 wGR
 wAO
 wAO
-wAO
+qGP
 asO
 qMd
 ksn
@@ -54149,9 +54174,9 @@ llH
 cNU
 quN
 cNU
-qJi
-gaB
-gaB
+xIa
+wAf
+wAf
 gKI
 eah
 iwW
@@ -54556,10 +54581,10 @@ cNU
 nNZ
 lsE
 hhB
-lNl
-lNl
+hKi
+hKi
 hCC
-vCj
+dNu
 htX
 vPl
 sOs
