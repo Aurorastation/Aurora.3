@@ -105,7 +105,7 @@
 
 /obj/machinery/suit_cycler/syndicate
 	name = "non-standard suit cycler"
-	model_text = "Nonstandard"
+	model_text = "Non-Standard"
 	req_access = list(access_syndicate)
 	departments = list("Mercenary")
 	can_repair = TRUE
@@ -120,7 +120,7 @@
 
 /obj/machinery/suit_cycler/hos
 	name = "head of security suit cycler"
-	model_text = "head of Security"
+	model_text = "Head of Security"
 	req_access = list(access_hos)
 	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
@@ -323,62 +323,48 @@
 	return 1
 
 /obj/machinery/suit_cycler/attack_hand(mob/user)
-
 	add_fingerprint(user)
+
+	if(panel_open)
+		wires.Interact(user)
+		return
 
 	if(..() || stat & (BROKEN|NOPOWER))
 		return
-
-	if(!user.IsAdvancedToolUser())
-		return FALSE
 
 	if(electrified != 0)
 		if(src.shock(user, 100))
 			return
 
-	usr.set_machine(src)
+	ui_interact(user)
 
-	var/dat = ""
+/obj/machinery/suit_cycler/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SuitCycler", name, ui_x=450, ui_y=500)
+		ui.open()
 
-	if(src.active)
-		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></span>"
+/obj/machinery/suit_cycler/ui_data(mob/user)
+	return list(
+		"in_use" = active,
+		"locked" = locked,
+		"emagged" = emagged,
+		"has_access" = allowed(user),
+		"can_repair" = can_repair,
+		"model_text" = model_text,
+		"radiation_level" = radiation_level,
+		"target_department" = target_department,
+		"target_species" = target_species,
+		"helmet" = helmet ? list("name" = helmet.name, "damage" = 0) : null,
+		"suit" = suit ? list("name" = suit.name, "damage" = suit.damage) : null
+	)
 
-	else if(locked)
-		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></span>"
-		if(src.allowed(usr))
-			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
-	else
-		dat += "<h1>Suit cycler</h1>"
-		dat += "<B>Welcome to the [model_text ? "[model_text] " : ""]suit cycler control panel. <a href='?src=\ref[src];toggle_lock=1'>\[lock unit\]</a></B><HR>"
-
-		dat += "<h2>Maintenance</h2>"
-		dat += "<b>Helmet: </b> [helmet ? "\the [helmet]" : "no helmet stored" ]. <A href='?src=\ref[src];eject_helmet=1'>\[eject\]</a><br/>"
-		dat += "<b>Suit: </b> [suit ? "\the [suit]" : "no suit stored" ]. <A href='?src=\ref[src];eject_suit=1'>\[eject\]</a>"
-
-		if(can_repair && suit && istype(suit))
-			dat += "[(suit.damage ? " <A href='?src=\ref[src];repair_suit=1'>\[repair\]</a>" : "")]"
-
-		dat += "<br/><b>UV decontamination systems:</b> <font color = '[emagged ? "red'>SYSTEM ERROR" : "green'>READY"]</font><br>"
-		dat += "Output level: [radiation_level]<br>"
-		dat += "<A href='?src=\ref[src];select_rad_level=1'>\[select power level\]</a> <A href='?src=\ref[src];begin_decontamination=1'>\[begin decontamination cycle\]</a><br><hr>"
-
-		dat += "<h2>Customisation</h2>"
-		dat += "<b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_department]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
-		dat += "<br><A href='?src=\ref[src];apply_paintjob=1'>\[apply customisation routine\]</a><br><hr>"
-
-	if(panel_open)
-		wires.Interact(user)
-
-	var/datum/browser/suit_cycler = new(user, "suit_cycler", "Suit Cycler", 450, 500)
-	suit_cycler.set_content(dat)
-	suit_cycler.open()
-
-/obj/machinery/suit_cycler/Topic(href, href_list)
-	if(!Adjacent(usr) && !issilicon(usr))
-		to_chat(usr, SPAN_WARNING("\The [src] is out of your reach."))
+/obj/machinery/suit_cycler/ui_act(action, params)
+	. = ..()
+	if(.)
 		return
 
-	if(href_list["eject_suit"])
+	if(action == "eject_suit")
 		if(!suit)
 			return
 		suit.forceMove(get_turf(src))
@@ -387,7 +373,7 @@
 		suit = null
 		update_icon()
 
-	else if(href_list["eject_helmet"])
+	else if(action == "eject_helmet")
 		if(!helmet)
 			return
 		helmet.forceMove(get_turf(src))
@@ -396,25 +382,25 @@
 		helmet = null
 		update_icon()
 
-	else if(href_list["select_department"])
-		var/choice = input("Please select the target department paintjob.", "Suit cycler", null) as null|anything in departments
+	else if(action == "select_department")
+		var/choice = tgui_input_list(usr, "Please select the target department paintjob.", "Cycler Target Department Selection", departments, target_department)
 		if(choice)
 			target_department = choice
 
-	else if(href_list["select_species"])
-		var/choice = input("Please select the target species configuration.", "Suit cycler", null) as null|anything in species
+	else if(action == "select_species")
+		var/choice = tgui_input_list(usr, "Please select the target species configuration.", "Cycler Target Species Selection", species, target_species)
 		if(choice)
 			target_species = choice
 
-	else if(href_list["select_rad_level"])
+	else if(action == "select_rad_level")
 		var/choices = list(1, 2, 3)
 		if(emagged)
 			choices = list(1, 2, 3, 4, 5)
-		var/choice = input("Please select the desired radiation level.", "Suit cycler", null) as null|anything in choices
+		var/choice = tgui_input_list(usr, "Please select the desired radiation level.", "Cycler Radiation Level Selection", choices, radiation_level)
 		if(choice)
 			radiation_level = choice
 
-	else if(href_list["repair_suit"])
+	else if(action == "repair_suit")
 		if(!suit || !can_repair)
 			return
 		active = TRUE
@@ -423,7 +409,7 @@
 			repair_suit()
 			finished_job()
 
-	else if(href_list["apply_paintjob"])
+	else if(action == "apply_paintjob")
 		if(!suit && !helmet)
 			return
 		if(suit && suit.helmet)
@@ -444,17 +430,14 @@
 			apply_paintjob()
 			finished_job()
 
-	else if(href_list["toggle_safties"])
-		safeties = !safeties
-
-	else if(href_list["toggle_lock"])
+	else if(action == "toggle_lock")
 		if(src.allowed(usr))
 			locked = !locked
 			to_chat(usr, SPAN_WARNING("You [locked ? "" : "un"]lock \the [src]."))
 		else
 			to_chat(usr, SPAN_WARNING("Access denied."))
 
-	else if(href_list["begin_decontamination"])
+	else if(action == "begin_decontamination")
 		if(safeties && occupant)
 			to_chat(usr, SPAN_WARNING("The cycler has detected an occupant. Please remove the occupant before commencing the decontamination cycle."))
 			return
@@ -476,9 +459,6 @@
 				suit.decontaminate()
 			if(radiation_level > 1)
 				suit.clean_blood()
-
-	src.updateUsrDialog()
-	return
 
 /obj/machinery/suit_cycler/process()
 	if(electrified > 0)

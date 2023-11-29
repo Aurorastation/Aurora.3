@@ -77,7 +77,12 @@
 	var/adminperms = FALSE
 	var/encryption_key
 	var/decryption_key
-	var/list/granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve)
+
+	var/list/granted_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
+	)
+
 	var/list/all_hive_verbs = list(
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivevoid,
@@ -148,7 +153,8 @@
 		/mob/living/carbon/human/proc/hivenet_encrypt,
 		/mob/living/carbon/human/proc/hivenet_camera,
 		/mob/living/carbon/human/proc/hivenet_lattice,
-		/mob/living/carbon/human/proc/hivenet_decrypt
+		/mob/living/carbon/human/proc/hivenet_decrypt,
+		/mob/living/carbon/human/proc/hivenet_manifest
 	)
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin/process()
