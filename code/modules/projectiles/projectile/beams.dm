@@ -26,7 +26,7 @@
 	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
-	damage = 20
+	damage = 25
 	armor_penetration = 5
 
 /obj/item/projectile/beam/pistol/scc
@@ -37,6 +37,7 @@
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/item/projectile/beam/pistol/scc/weak
+	damage = 20
 	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
