@@ -101,7 +101,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		absorbDNA(newDNA)
 		changeling.mimiced_accent = H.accent
 
-if(changeling.has_entered_stasis)
+	if(changeling.has_entered_stasis)
 		remove_verb(src, /mob/proc/changeling_fakedeath)
 
 	return TRUE
