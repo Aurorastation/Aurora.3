@@ -20,7 +20,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/mimiced_accent = "Biesellite"
 	var/justate
 	var/can_respec = FALSE
-/// if they've entered stasis before, then we don't want to give them stasis again
+	/// if they've entered stasis before, then we don't want to give them stasis again
 	var/has_entered_stasis = FALSE
 
 /datum/changeling/New(var/gender=FEMALE)
