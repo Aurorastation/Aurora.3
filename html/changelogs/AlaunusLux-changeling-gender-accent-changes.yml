@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Transforming now changes gender and pronouns, as well as automatically changing accent."
+  - tweak: "Mimic Accent is no longer a separate ability. Mimic Voice now asks which accent to use after asking for a name."
