@@ -203,7 +203,7 @@
 		)
 
 /obj/item/gun/energy/repeater/pistol
-	name = "repeater pistol"
+	name = ""
 	desc = "A more compact and portable version of the Stellar Corporate Conglomerate Energy Repeater. It has two settings: Stun, and Lethal."
 	desc_extended = "The SCC-ER1-2 was designed to be a reliable yet more compact version of the SCC-ER1, capable of defending Staff and Assets."
 	icon = 'icons/obj/guns/sccpistol.dmi'
@@ -213,7 +213,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 8
-	fire_delay = 4
+	fire_delay = 3
 	can_turret = 0
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
