@@ -46,6 +46,7 @@
 
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
+	return
 
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
