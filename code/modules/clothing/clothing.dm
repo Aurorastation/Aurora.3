@@ -1054,8 +1054,13 @@
 	armor = null
 	w_class = ITEMSIZE_NORMAL
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
-	var/has_sensor = SUIT_NO_SENSORS ///0 = No sensors, 1 = Sensors, 2 = Locked sensors
-	var/sensor_mode = SUIT_SENSOR_OFF ///0 = Off, 1 = Report living/dead, 2 = Report detailed damages, 3 = Report location
+
+	///SUIT_NO_SENSORS = No sensors, SUIT_HAS_SENSORS = Sensors, SUIT_LOCKED_SENSORS = Locked sensors
+	var/has_sensor = SUIT_NO_SENSORS
+
+	///SUIT_SENSOR_OFF = Off, SUIT_SENSOR_BINARY = Report living/dead, SUIT_SENSOR_VITAL = Report detailed damages, SUIT_SENSOR_TRACKING = Report location
+	var/sensor_mode = SUIT_SENSOR_OFF
+
 	var/displays_id = 1
 
 	///0 = unrolled, 1 = rolled, -1 = cannot be toggled
