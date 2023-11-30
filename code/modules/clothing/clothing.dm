@@ -1057,7 +1057,9 @@
 	var/has_sensor = SUIT_NO_SENSORS ///0 = No sensors, 1 = Sensors, 2 = Locked sensors
 	var/sensor_mode = SUIT_SENSOR_OFF ///0 = Off, 1 = Report living/dead, 2 = Report detailed damages, 3 = Report location
 	var/displays_id = 1
-	var/rolled_down = -1 ///0 = unrolled, 1 = rolled, -1 = cannot be toggled
+
+	///0 = unrolled, 1 = rolled, -1 = cannot be toggled
+	var/rolled_down = -1
 	var/rolled_sleeves = -1 ///0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/initial_icon_override ///If set, rolling up sleeves/rolling down will use this icon state instead of initial().
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM, BODYTYPE_TESLA_BODY)
