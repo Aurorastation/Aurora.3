@@ -1061,7 +1061,10 @@
 	///0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_down = -1
 	var/rolled_sleeves = -1 ///0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	var/initial_icon_override ///If set, rolling up sleeves/rolling down will use this icon state instead of initial().
+
+	///If set, rolling up sleeves/rolling down will use this icon state instead of initial().
+	var/initial_icon_override
+
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM, BODYTYPE_TESLA_BODY)
 
 	///Convenience var for defining the icon state for the overlay used when the clothing is worn. Also used by rolling/unrolling.
