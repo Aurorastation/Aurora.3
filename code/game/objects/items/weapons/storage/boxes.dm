@@ -1258,7 +1258,7 @@
 
 /obj/item/storage/box/landmines/claymore
 	name = "box of claymore landmines"
-	desc = "A box containing 5 standstill landmines, relative detonators, and a spare one to trigger them all."
+	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
 	starts_with = list(
 		/obj/item/landmine/claymore = 5,
 		/obj/item/device/assembly/signaler = 6
