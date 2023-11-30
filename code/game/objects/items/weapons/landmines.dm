@@ -1,7 +1,7 @@
 /obj/item/landmine
 	name = "land mine"
 	desc = "An anti-personnel explosive device used for area denial."
-	icon = 'icons/obj/mine.dmi'
+	icon = 'icons/obj/item/landmine/mine.dmi'
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
@@ -43,15 +43,31 @@
 				"<span class='danger'>You have deployed \the [src]!</span>"
 				)
 
-			deployed = TRUE
-			user.drop_from_inventory(src)
-			update_icon()
-			anchored = TRUE
+			deploy(user)
 
-/obj/item/landmine/proc/trigger(mob/living/L)
+/**
+ * Called when a landmine is deployed
+ *
+ * * deployer - The `/mob` that deployed the mine
+ */
+/obj/item/landmine/proc/deploy(mob/deployer)
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	src.deployed = TRUE
+	deployer.drop_from_inventory(src)
+	update_icon()
+	src.anchored = TRUE
+
+/**
+ * Called when a landmine was triggered, and is supposed to explode
+ *
+ * * triggerer - The `/mob/living` that triggered the mine
+ */
+/obj/item/landmine/proc/trigger(mob/living/triggerer)
 	spark(src, 3, alldirs)
-	if(ishuman(L))
-		L.Weaken(2)
+	if(ishuman(triggerer))
+		triggerer.Weaken(2)
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
@@ -172,7 +188,7 @@
 	var/explosion_size = 3
 	var/spread_range = 7
 
-/obj/item/landmine/frag/trigger(mob/living/L)
+/obj/item/landmine/frag/trigger(mob/living/triggerer)
 	spark(src, 3, alldirs)
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
 	qdel(src)
@@ -201,7 +217,7 @@
 /obj/item/landmine/phoron
 	icon_state = "phoronlandmine"
 
-/obj/item/landmine/phoron/trigger(mob/living/L)
+/obj/item/landmine/phoron/trigger(mob/living/triggerer)
 	spark(src, 3, alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
@@ -235,7 +251,7 @@
 /obj/item/landmine/emp
 	icon_state = "emplandmine"
 
-/obj/item/landmine/emp/trigger(mob/living/L)
+/obj/item/landmine/emp/trigger(mob/living/triggerer)
 	spark(src, 3, alldirs)
 	empulse(src.loc, 2, 4)
 	qdel(src)
@@ -257,15 +273,15 @@
 	engaged_by = null
 	. = ..()
 
-/obj/item/landmine/standstill/trigger(mob/living/L)
+/obj/item/landmine/standstill/trigger(mob/living/triggerer)
 	if(!engaged_by && !deactivated)
-		to_chat(L, SPAN_HIGHDANGER("Something clicks below your feet, a sense of dread permeates your skin, better not move..."))
-		engaged_by = ref(L)
+		to_chat(triggerer, SPAN_HIGHDANGER("Something clicks below your feet, a sense of dread permeates your skin, better not move..."))
+		engaged_by = ref(triggerer)
 
 		//Because mobs can bump and swap with one another, and we use forcemove that doesn't call Crossed/Uncrossed/Entered/Exited, we have to
 		//keep looking if the victim is still on the mine, and otherwise explode the mine
 		START_PROCESSING(SSfast_process, src)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), L, "You get a dreadful feeling from your [pick("right", "left")] foot...", "Dread", list("Mom..."))
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), triggerer, "You get a dreadful feeling from your [pick("right", "left")] foot...", "Dread", list("Mom..."))
 
 		playsound_allinrange(src, sound('sound/weapons/empty/empty6.ogg'))
 
@@ -320,3 +336,71 @@
 		return
 
 	late_trigger(locate(engaged_by))
+
+/**
+ * # Claymore mine
+ *
+ * A landmine that projects sharpnels in a cone of explosion, towards one direction
+ */
+/obj/item/landmine/claymore
+	name = "Claymore Landmine"
+	desc = "A landmine that projects sharpnels in a cone of explosion, towards one direction."
+	desc_extended = "A household name, this mine finds extensive use amongst military forces due to its ability to provide area penetration denial and aid ambushes. \
+	It is narrated that Gadpathur, its largest manufacturer in modern times, have built more of these mines than the census of the core planets of the Solarian Alliance."
+	desc_info = "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
+	icon = 'icons/obj/item/landmine/claymore.dmi'
+	icon_state = "m20"
+	var/datum/wires/landmine/claymore/trigger_wire = null
+	var/obj/item/device/assembly/signaler/signaler = null
+
+/obj/item/landmine/claymore/Initialize(mapload, ...)
+	. = ..()
+	trigger_wire = new(src)
+
+/obj/item/landmine/claymore/Destroy()
+	trigger_wire.holder = null
+	QDEL_NULL(trigger_wire)
+	QDEL_NULL(signaler)
+	. = ..()
+
+/obj/item/landmine/claymore/update_icon()
+	icon_state = (src.deployed) ? "[initial(icon_state)]_active" : initial(icon_state)
+
+/obj/item/landmine/claymore/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/device/assembly/signaler))
+		if(!isnull(signaler))
+			to_chat(user, SPAN_NOTICE("There is already a signaler inserted in \the [src]."))
+			return
+
+		signaler = I
+
+		user.drop_from_inventory(I, src)
+
+		trigger_wire.Attach("red", signaler)
+
+	else
+		. = ..()
+
+/obj/item/landmine/claymore/Crossed(AM, ignore_deployment)
+	return //Does nothing with mere crossing over
+
+/obj/item/landmine/claymore/deploy(mob/deployer)
+	. = ..()
+	src.dir = deployer.dir
+
+#define SHOTS_TO_LAUNCH 20
+/obj/item/landmine/claymore/trigger(mob/living/triggerer)
+	if(deactivated || !deployed)
+		return
+
+	var/list/turf/candidate_turfs = get_turfs_in_cone(get_turf(src), dir2angle(src.dir), world.view, 60)
+
+	for(var/i = 0; i < SHOTS_TO_LAUNCH; i++)
+		var/turf/to_hit = pick(candidate_turfs)
+
+		var/obj/item/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
+		pellet.fire(Get_Angle(get_turf(src), to_hit))
+
+	qdel(src)
+
+#undef SHOTS_TO_LAUNCH

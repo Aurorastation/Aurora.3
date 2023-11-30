@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/item/traps.dmi'
+	icon = 'icons/obj/item/traps/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -640,7 +640,7 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
-	icon = 'icons/obj/item/traps.dmi'
+	icon = 'icons/obj/item/traps/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 5
@@ -729,7 +729,16 @@
 /obj/item/trap/punji
 	name = "punji trap"
 	desc = "An horrendous trap."
+	icon = 'icons/obj/item/traps/punji.dmi'
+	icon_base = "punji"
+	icon_state = "punji0"
 	var/message = null
+
+/obj/item/trap/punji/Crossed(atom/movable/AM)
+	if(deployed && isliving(AM))
+		var/mob/living/L = AM
+		attack_mob(L)
+		update_icon()
 
 /obj/item/trap/punji/attack_mob(mob/living/L)
 
@@ -750,21 +759,26 @@
 
 	//If successfully applied, give the message
 	if(success)
-		L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"),
-								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [target_zone]!"))),
-								SPAN_WARNING("<b>You feel your body fall, and something sharp penetrate your [target_zone]!</b>"))
 
 		//Show the leftover message, if any, after a little
 		addtimer(CALLBACK(src, PROC_REF(reveal_message), L), 3 SECONDS)
 
-		//If it's a human and not an IPC, apply an infection, otherwise we're done
-		if(!istype(L, /mob/living/carbon/human) && !isipc(L))
+		//Give a simple message and return if it's not a human
+		if(!ishuman(L))
+			L.visible_message(SPAN_DANGER("You step on \the [src]!"))
 			return
 
 		var/mob/living/carbon/human/human = L
 		var/obj/item/organ/organ = human.get_organ(target_zone)
 
-		organ.germ_level += INFECTION_LEVEL_THREE
+		human.visible_message(SPAN_DANGER("\The [human] steps on \the [src]!"),
+								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [organ.name]!"))),
+								SPAN_WARNING("<b>You feel your body fall, and something sharp penetrate your [organ.name]!</b>"))
+
+		//If it's a human and not an IPC, apply an infection
+		//We are returning early before this step in case something isn't a human, so this should be fine not to catch borgs/bot/exosuits/whatever
+		if(!isipc(L))
+			organ.germ_level += INFECTION_LEVEL_THREE
 
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)
