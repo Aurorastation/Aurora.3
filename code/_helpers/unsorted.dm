@@ -1062,7 +1062,6 @@ var/list/wall_items = typecacheof(list(
 	/obj/structure/mirror,
 	/obj/structure/fireaxecabinet,
 	/obj/machinery/computer/security/telescreen/entertainment,
-	/obj/machinery/station_map,
 	/obj/structure/sign
 ))
 

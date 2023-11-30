@@ -22,7 +22,7 @@
 	name="cursed station"
 	icon_state = "outpost_mine_main"
 	requires_power = TRUE
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/cursed/hangar
 	name="hangar"

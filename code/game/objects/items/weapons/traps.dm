@@ -125,7 +125,7 @@
 /obj/item/trap/Crossed(atom/movable/AM)
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
-		if(H.shoes?.item_flags & LIGHTSTEP)
+		if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM

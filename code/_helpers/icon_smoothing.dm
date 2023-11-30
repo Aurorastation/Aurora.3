@@ -189,7 +189,7 @@
 		return
 	if(QDELETED(A))
 		return
-	A.flags |= HTML_USE_INITAL_ICON
+	A.atom_flags |= ATOM_FLAG_HTML_USE_INITIAL_ICON
 	if((A.smoothing_flags & SMOOTH_TRUE) || (A.smoothing_flags & SMOOTH_MORE))
 		var/adjacencies = A.calculate_adjacencies()
 
