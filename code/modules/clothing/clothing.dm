@@ -1060,7 +1060,9 @@
 
 	///0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_down = -1
-	var/rolled_sleeves = -1 ///0 = unrolled, 1 = rolled, -1 = cannot be toggled
+
+	///0 = unrolled, 1 = rolled, -1 = cannot be toggled
+	var/rolled_sleeves = -1
 
 	///If set, rolling up sleeves/rolling down will use this icon state instead of initial().
 	var/initial_icon_override
