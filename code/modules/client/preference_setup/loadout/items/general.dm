@@ -181,6 +181,7 @@
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	banners["banner, Orion Express"] = /obj/item/flag/orion_express
 	banners["banner, Imperial Frontier"] = /obj/item/flag/imperial_frontier
+	banners["banner, Scarab Fleet"] = /obj/item/flag/scarab
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -253,6 +254,7 @@
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	flags["flag, Orion Express"] = /obj/item/flag/orion_express/l
 	flags["flag, Imperial Frontier"] = /obj/item/flag/imperial_frontier/l
+	flags["flag, Scarab Fleet"] = /obj/item/flag/scarab/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

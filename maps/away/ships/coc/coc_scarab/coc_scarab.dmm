@@ -60,6 +60,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
+"aE" = (
+/obj/structure/sign/flag/scarab{
+	pixel_y = 32
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
 "aG" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/coc_scarab,
@@ -1401,6 +1407,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"lE" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/structure/sign/flag/scarab/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
 "lM" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -1458,6 +1476,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/sign/flag/scarab/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
 "mu" = (
@@ -1902,6 +1923,9 @@
 	dir = 10
 	},
 /obj/machinery/shipsensors/weak,
+/obj/structure/sign/flag/scarab{
+	pixel_y = 32
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "ql" = (
@@ -2125,6 +2149,9 @@
 "rV" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
+	},
+/obj/structure/sign/flag/scarab/large/east{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/bunks)
@@ -3832,6 +3859,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/sign/flag/scarab/large/west{
+	pixel_x = -32
+	},
 /turf/simulated/floor/reinforced,
 /area/coc_scarab/grauwolf)
 "Hm" = (
@@ -4564,6 +4594,9 @@
 /obj/machinery/appliance/cooker/oven,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/sign/flag/scarab/large/north{
+	pixel_y = 32
 	},
 /turf/simulated/floor/lino,
 /area/coc_scarab/mess)
@@ -5592,6 +5625,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"Vi" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/sign/flag/scarab/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "Vl" = (
 /turf/simulated/wall/r_wall,
 /area/coc_scarab/engine)
@@ -37892,7 +37933,7 @@ hF
 hF
 hg
 ab
-FG
+lE
 vV
 fY
 zw
@@ -38646,7 +38687,7 @@ kv
 ny
 VS
 RA
-RA
+Vi
 ES
 xh
 xC
@@ -42254,7 +42295,7 @@ Av
 EW
 eX
 eX
-TZ
+aE
 JI
 cB
 cB
