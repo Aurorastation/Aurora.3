@@ -1,6 +1,23 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"ab" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/bridge)
 "ac" = (
 /obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"ah" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/airless,
 /area/space)
 "an" = (
@@ -11,18 +28,58 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"av" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
+"aG" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/coc_scarab,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"aQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/light/salvage,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "aS" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"aT" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "aX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
-/area/space)
+/area/shuttle/scarab_harvester)
 "aZ" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -39,33 +96,134 @@
 /obj/item/clothing/accessory/holster/armpit,
 /obj/item/clothing/accessory/holster/armpit,
 /obj/item/clothing/accessory/holster/armpit,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/armory)
+"bg" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/coc_scarab/solars)
 "bj" = (
 /obj/machinery/air_sensor{
 	frequency = 1442;
 	id_tag = "scav_sensor"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/coc_scarab/engine)
+"bn" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
 "bp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
-/area/space)
+/area/shuttle/scarab_harvester)
 "bt" = (
 /obj/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"bu" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
+"by" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
 /area/space)
 "bG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "bJ" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/scarab_harvester)
+"bL" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
+/area/space)
+"bN" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
+"bO" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/mess)
+"bR" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_scarab";
+	identifier = "coc_scarab"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"bT" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"bU" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "cc" = (
 /obj/structure/cable/green{
@@ -74,7 +232,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "ck" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -82,8 +240,26 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/coc_scarab/shuttle_start{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
 /area/space)
+"cn" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
+"co" = (
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "cs" = (
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -97,7 +273,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"cu" = (
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "cB" = (
 /turf/template_noop,
 /area/space)
@@ -106,7 +294,16 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"cE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"cK" = (
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "cM" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -114,6 +311,58 @@
 	},
 /turf/template_noop,
 /area/space)
+"cN" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/shaker,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"cP" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust2";
+	name = "airlock_scarab_thrust2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"cR" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/coc_scarab/solars)
+"cV" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
+/area/space)
+"cW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"cX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"dc" = (
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	name = "Harvesting Vent Control";
+	output_tag = "scarab_harvest_vent";
+	frequency = 1439
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"df" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "di" = (
 /obj/item/storage/box/masks{
 	pixel_x = 4;
@@ -121,8 +370,11 @@
 	},
 /obj/item/storage/box/gloves,
 /obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
 "dn" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -131,12 +383,78 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"dt" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"dx" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"dB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"dD" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"dE" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"dF" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/shuttle_landmark/coc_scarab/harvester_start{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"dG" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "dV" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -145,10 +463,30 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 4
+	dir = 4;
+	id_tag = "scarab_harvest_vent"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
+"ec" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/railing/mapped{
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"eq" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "et" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -156,27 +494,54 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"eD" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "eE" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/overmap/visitable/ship/landable/scarab_shuttle,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"eG" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust2";
+	name = "airlock_scarab_thrust2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "eH" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "eK" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "eN" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -193,11 +558,48 @@
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"eO" = (
+/obj/effect/shuttle_landmark/coc_scarab/nav2,
+/turf/template_noop,
 /area/space)
 "eX" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
+"eY" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"fc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_scarab";
+	identifier = "coc_scarab"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "fn" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -205,7 +607,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "fp" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger{
@@ -217,18 +619,54 @@
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"fw" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"fy" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "fz" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"fB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "fC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"fD" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "fF" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -236,7 +674,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "fS" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner{
@@ -247,13 +685,59 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"fY" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"gc" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "gf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"gg" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"gh" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"gi" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"gl" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
 "gs" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -261,18 +745,66 @@
 	},
 /turf/template_noop,
 /area/space)
+"gt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"gu" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/largecrate/animal/hakhma,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
 "gA" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"gH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "gI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"gK" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space,
 /area/space)
+"gL" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/airless,
+/area/space)
+"gS" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 8;
+	id_tag = "scarab_thrust2"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/coc_scarab/thrust2)
 "gU" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -280,8 +812,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/valve,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "hb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/cable{
@@ -290,10 +823,10 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "hg" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_scarab/mess)
 "hm" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -305,8 +838,97 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
+"ho" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/coc_scarab/solars)
+"hz" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"hA" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"hF" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"hW" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "ib" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -314,12 +936,75 @@
 	name = "Combustion Chamber Vent"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/engine)
+"ie" = (
+/obj/machinery/vending/hydronutrients,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"il" = (
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"in" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	layer = 2.8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"iu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/scarab_harvester)
+"iA" = (
+/obj/structure/closet,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"iD" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "iE" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"iG" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/engineering{
+	name = "Equipment Storage"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/medical)
 "iH" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -328,27 +1013,116 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"iI" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
 "iU" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
 	target_pressure = 15000
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"iW" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
 "jb" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "jh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"jk" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space,
 /area/space)
+"jq" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"js" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
+"jt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/coc_scarab/grauwolf)
+"jw" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"jG" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "jM" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -356,7 +1130,46 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
+"jN" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"jO" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/thrust1)
+"jY" = (
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"ka" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"kb" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "kf" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -365,81 +1178,165 @@
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"kh" = (
+/obj/machinery/door/airlock/medical{
+	dir = 4;
+	name = "Operating Theatre"
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "kj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"kn" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "kv" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/equipment)
 "kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue,
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"kD" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "kH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"kK" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "lb" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
+"lh" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "ln" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"lq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"ls" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "lB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"lM" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
 /area/space)
 "lO" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
-	frequency = 1441;
+	frequency = 1442;
 	icon_state = "map_injector";
 	id = "scavver_teg_in"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/coc_scarab/engine)
+"lW" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "mh" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
 "ml" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "mm" = (
 /obj/machinery/sleeper{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
+"ms" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"mt" = (
+/obj/structure/closet/emcloset/offworlder,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
 "mu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "mw" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -450,6 +1347,63 @@
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
+"mz" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"mE" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/armband/offworlder/engineering,
+/obj/item/clothing/accessory/armband/offworlder/engineering,
+/obj/item/clothing/accessory/armband/offworlder/medical,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"mM" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/hydroponics)
+"mS" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/hatch{
+	name = "Engine Room"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"mT" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/space)
+"mY" = (
+/obj/effect/shuttle_landmark/coc_scarab/harvester_transit{
+	dir = 8
+	},
+/turf/space/transit/north,
 /area/space)
 "nd" = (
 /obj/structure/table/rack,
@@ -459,19 +1413,72 @@
 /obj/item/device/gps/mining,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
 "ni" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
+"nl" = (
+/obj/effect/shuttle_landmark/coc_scarab/nav1,
+/turf/template_noop,
 /area/space)
+"nq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"ny" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/equipment)
+"nD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"nP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
 "nV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "nX" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -481,6 +1488,17 @@
 	name = "Combustion ChamberBlast Doors"
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"nZ" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"od" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space,
 /area/space)
 "ol" = (
 /obj/machinery/mineral/stacking_machine,
@@ -492,14 +1510,14 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "ox" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_scarab)
 "oE" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -512,18 +1530,32 @@
 "oK" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"oN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Bay"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
 "oW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "oX" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "oY" = (
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -531,7 +1563,7 @@
 	},
 /obj/machinery/power/tracker,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
 "pi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -539,7 +1571,7 @@
 	icon_state = "map-scrubbers"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "pl" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -547,6 +1579,24 @@
 	},
 /turf/template_noop,
 /area/space)
+"pn" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Crew Quarters"
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "pr" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -558,39 +1608,148 @@
 	name = "Combustion ChamberBlast Doors"
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"pv" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
+"pw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Ammo Storage"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
+"px" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/template_noop,
 /area/space)
+"py" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"pz" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "pA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "pG" = (
 /obj/machinery/optable,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"pH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light,
+/turf/simulated/floor/airless,
 /area/space)
 "pL" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"pQ" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/cooking_container/board,
+/obj/item/material/hatchet/butch,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"pW" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"pY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "pZ" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 8
+	dir = 8;
+	id_tag = "scarab_harvest_vent"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/scarab_harvester)
+"qc" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "qd" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"qi" = (
+/obj/machinery/iv_drip,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "qs" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
@@ -603,23 +1762,73 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 8
+	dir = 8;
+	id_tag = "scarab_harvest_vent"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/scarab_harvester)
+"qO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"qQ" = (
+/obj/machinery/vending/hydroseeds,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"qS" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
+"qW" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
 "ra" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"re" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/airless,
+/area/space)
+"rj" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/shuttle_landmark/coc_scarab/intrepid{
+	dir = 1
+	},
+/turf/template_noop,
 /area/space)
 "rk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1;
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "rt" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -636,19 +1845,37 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
 "ru" = (
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_probe,
-/obj/item/ship_ammunition/grauwolf_probe,
-/obj/item/ship_ammunition/grauwolf_probe,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
 /area/space)
 "rx" = (
 /obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"rA" = (
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "rB" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/yellow{
@@ -656,8 +1883,23 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/airless,
 /area/space)
+"rC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
 "rL" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -666,6 +1908,22 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"rV" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"sd" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
 /area/space)
 "sh" = (
 /obj/structure/cable/yellow{
@@ -678,8 +1936,14 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
 "si" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -687,7 +1951,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "sp" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/adv{
@@ -717,19 +1981,96 @@
 	pixel_y = 5;
 	pixel_x = 18
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"sq" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
 /area/space)
+"sA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/mess)
 "sH" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"sI" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"sK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
+"sL" = (
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"sP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
+"sR" = (
+/obj/effect/shuttle_landmark/coc_scarab/nav4,
+/turf/template_noop,
 /area/space)
+"sV" = (
+/turf/template_noop,
+/area/coc_scarab/solars)
 "te" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/valve,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"th" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "ti" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -745,17 +2086,63 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"tk" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/scarab_harvester)
+"tr" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/space,
 /area/space)
+"tC" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
+"tE" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/steel,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
 "tF" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust2";
+	name = "airlock_scarab_thrust2"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/thrust2)
+"tM" = (
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
+"tZ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "ua" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -764,7 +2151,7 @@
 	name = "Combustion ChamberBlast Doors"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "ud" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/generator{
@@ -775,17 +2162,43 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"uh" = (
+/obj/effect/shuttle_landmark/coc_scarab/shuttle_transit{
+	dir = 8
+	},
+/turf/space/transit/north,
 /area/space)
+"ui" = (
+/obj/machinery/computer/ship/helm/terminal,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"un" = (
+/obj/effect/shuttle_landmark/coc_scarab/nav3,
+/turf/template_noop,
+/area/space)
+"uw" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
 "ux" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "uI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"uL" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "uN" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Theatre Locker";
@@ -799,9 +2212,8 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
 "uO" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
 	},
@@ -812,18 +2224,24 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"uU" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
 "uW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "vj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
-/area/space)
+/area/shuttle/scarab_harvester)
 "vk" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -831,7 +2249,11 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"vm" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "vt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
@@ -841,7 +2263,14 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"vD" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "vI" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -859,23 +2288,31 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "vK" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/thrust1)
 "vV" = (
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/bridge)
 "vY" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_scarab)
 "vZ" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -884,7 +2321,7 @@
 "wb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "wc" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -894,12 +2331,44 @@
 	dir = 10
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_scarab)
+"wl" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"wo" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "ws" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"wv" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/space,
 /area/space)
 "ww" = (
 /obj/structure/cable/yellow{
@@ -908,7 +2377,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "wD" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -916,11 +2385,30 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"wE" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"wH" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset/offworlder,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"wI" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"wT" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "wY" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/coc_scarab)
 "xe" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
@@ -930,13 +2418,36 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"xl" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/space)
 "xo" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"xr" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/ammo)
+"xs" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 8;
+	id_tag = "scarab_thrust1"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/coc_scarab/thrust1)
 "xC" = (
 /obj/structure/table/glass,
 /obj/item/roller{
@@ -952,7 +2463,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
 "xI" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -961,28 +2472,50 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/ammo)
 "xJ" = (
 /obj/machinery/sparker{
 	id = "scav_igni";
 	pixel_x = -15
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/coc_scarab/engine)
 "xO" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/bridge)
 "xR" = (
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"xT" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "ya" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1000,7 +2533,18 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
+"yg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/binary/passive_gate,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"yu" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/thrust2)
 "yw" = (
 /obj/machinery/power/smes/buildable/main_engine,
 /obj/structure/cable/green{
@@ -1008,69 +2552,328 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"yz" = (
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"yH" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"yK" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
 "yP" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"yQ" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"yR" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_bridge";
+	name = "Bridge Blast Door"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/bridge)
+"yU" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armory"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
+"zd" = (
+/obj/structure/table/steel,
+/obj/item/deck/cards{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"zh" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
 "zk" = (
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/hydroponics)
 "zm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"zs" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"zw" = (
+/obj/structure/table/steel,
+/obj/machinery/button/remote/blast_door{
+	name = "Bridge Blast Shutters";
+	id = "scarab_bridge";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"zx" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	layer = 2.8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"zy" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"zB" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"zC" = (
+/obj/structure/largecrate/animal/hakhma,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
+"zL" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"zN" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"zU" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/airless,
 /area/space)
 "zV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"zW" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space,
 /area/space)
+"Ac" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"Ar" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "Ay" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
+	frequency = 1442;
 	icon_state = "map_injector";
 	id = "scavver_teg_in"
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/coc_scarab/engine)
+"Az" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "AA" = (
 /obj/structure/viewport,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "AD" = (
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
 	weapon_id = "Scarab Flak Cannon"
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "AL" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"AR" = (
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
 "AS" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_scarab)
+"AU" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
+"AV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "AY" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
 	target_pressure = 15000
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Ba" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Bd" = (
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
 "Bh" = (
 /obj/machinery/mineral/processing_unit,
 /obj/effect/floor_decal/industrial/warning{
@@ -1080,22 +2883,107 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"Bj" = (
+/turf/space/transit/north,
 /area/space)
+"Bk" = (
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"Bm" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"Bn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "Bo" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	dir = 8;
+	id_tag = "scarab_harvest_vent"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
+"Br" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"BE" = (
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"BL" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
 "BN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"BR" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"BV" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/armory)
+"BW" = (
+/obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "Cb" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1106,7 +2994,24 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Ck" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust1";
+	name = "airlock_scarab_thrust1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"Cm" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "Co" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1114,10 +3019,23 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "Cs" = (
+/obj/machinery/air_sensor{
+	id_tag = "scarab_thrust2_sensor"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/coc_scarab/thrust2)
+"Cv" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "Cw" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -1130,6 +3048,9 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "CD" = (
@@ -1137,13 +3058,81 @@
 	dir = 8;
 	name = "pump to waste"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"CK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
+"CL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"CP" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"CW" = (
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"Dg" = (
+/obj/machinery/conveyor{
+	id = "scarab_miner";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"Dj" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "Dk" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"Dm" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"Dz" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	layer = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
 "DD" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1155,7 +3144,11 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"DF" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "DG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1165,14 +3158,49 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "DI" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Eg" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"El" = (
+/obj/machinery/vending/boozeomat{
+	req_access = null
+	},
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"En" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
 "Eq" = (
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Er" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
 /area/space)
+"Eu" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_scarab";
+	identifier = "coc_scarab"
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "Ev" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1180,26 +3208,60 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"Ex" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Ey" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "EA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"EE" = (
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "EG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"EN" = (
+/obj/structure/closet,
+/obj/item/rig/light/offworlder,
+/obj/item/rig/light/offworlder,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "EO" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 4
+	dir = 4;
+	id_tag = "scarab_harvest_vent"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/scarab_harvester)
+"ER" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
 "Fc" = (
 /obj/structure/table/standard,
 /obj/item/storage/pill_bottle/rmt,
@@ -1209,43 +3271,188 @@
 /obj/item/storage/pill_bottle/rmt,
 /obj/item/storage/pill_bottle/rmt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
+"Fj" = (
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
 "Fn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "Fq" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/space)
+"Fr" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"Fu" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"FA" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"FF" = (
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8;
+	name = "Carbon Dioxide Supply Monitor";
+	sensors = list("scarab_thrust1_sensor"="Tank");
+	output_tag = "scarab_thrust1"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"FH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"FJ" = (
+/obj/machinery/light,
+/turf/simulated/floor/airless,
+/area/space)
+"FO" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust2";
+	name = "airlock_scarab_thrust2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Ge" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Gk" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "Gl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "Gt" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "Gu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "Gv" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"GA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"GD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"GJ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/mech_wreckage/powerloader,
+/turf/simulated/floor/airless,
+/area/space)
+"GK" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/space,
 /area/space)
 "GR" = (
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"GS" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"GT" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/ore_box,
+/turf/simulated/floor/airless,
+/area/space)
+"GW" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "GX" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1255,14 +3462,76 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
+/area/coc_scarab/grauwolf)
+"Hm" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"Hp" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/engine)
+"Hq" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/east{
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"Hu" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/mess)
+"HC" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
 "HF" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"HL" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "HW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1275,20 +3544,78 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"HZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"Id" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "Ie" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"If" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"Ig" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
 "Il" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/space)
+"In" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Flak Battery";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "It" = (
 /turf/simulated/floor/airless,
 /area/space)
+"Iw" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_bridge";
+	name = "Bridge Blast Door";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/bridge)
 "Ix" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1296,22 +3623,64 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Iy" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"IB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/shipsensors,
+/turf/simulated/floor/airless,
+/area/coc_scarab/bridge)
 "IC" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
 "ID" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 8
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"II" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"IK" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
 "IM" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1321,20 +3690,47 @@
 	dir = 6
 	},
 /turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"IR" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
 /area/space)
 "IU" = (
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/coc_scarab/engine)
+"IZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "Je" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/armory)
+"Jg" = (
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8;
+	name = "Carbon Dioxide Supply Monitor";
+	sensors = list("scarab_thrust2_sensor"="Tank");
+	output_tag = "scarab_thrust2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "Ji" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "Jq" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
@@ -1342,7 +3738,11 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
+"Jx" = (
+/obj/machinery/computer/ship/targeting,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
 "Jy" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/yellow{
@@ -1350,18 +3750,70 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/airless,
 /area/space)
+"JA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "JI" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"JY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"Kk" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space,
 /area/space)
 "Kl" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"Kp" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"Kq" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "Ks" = (
 /obj/machinery/conveyor{
 	dir = 9;
@@ -1373,23 +3825,144 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"Ku" = (
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
+"Kv" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/hydroponics)
+"Kz" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust1";
+	name = "airlock_scarab_thrust1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"KA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"KB" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"KP" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "KR" = (
 /obj/machinery/atmospherics/binary/pump/fuel,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"KT" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
 "KY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"Lc" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/mess)
 "Lf" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"Lh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"Lo" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"Lr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "Lw" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -1397,13 +3970,13 @@
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/armory)
 "Lx" = (
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Scarab Flak Cannon"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "LD" = (
 /obj/machinery/button/remote/airlock{
 	id = "scarab_combustion";
@@ -1413,21 +3986,89 @@
 	specialfunctions = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "LE" = (
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
+"LK" = (
+/obj/machinery/vending/dinnerware,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"LX" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
 "LY" = (
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/bridge)
+"Mg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"Mj" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Mo" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"Mr" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Mt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
+"MC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "MD" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1435,18 +4076,163 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/ammo)
+"ML" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
 "MN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"MP" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"MS" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust1";
+	name = "airlock_scarab_thrust1"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"MT" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/bunks)
+"MV" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1;
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"MX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"MZ" = (
+/obj/structure/table/steel,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"Nd" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"Ne" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Nj" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"No" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
+"Ns" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
+"Nz" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"NB" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
+"NR" = (
+/obj/machinery/air_sensor{
+	id_tag = "scarab_thrust1_sensor"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/coc_scarab/thrust1)
 "NT" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_scarab)
+"Oa" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"Ob" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Od" = (
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
 "Oe" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1454,7 +4240,27 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Of" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"Og" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/device/binoculars,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
 "Oi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
@@ -1464,8 +4270,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "Oq" = (
 /obj/item/reagent_containers/blood/OMinus{
 	pixel_x = -7
@@ -1500,20 +4307,20 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
 "Os" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
-	tag_east = 2;
+	tag_east = 1;
 	tag_north = 1;
-	tag_north_con = 0.8;
-	tag_south = 1;
-	tag_south_con = 0.2;
+	tag_north_con = 0.33;
+	tag_south = 2;
 	tag_west = 1;
-	tag_west_con = 0
+	tag_west_con = 0.33;
+	tag_east_con = 0.33
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "Ov" = (
 /obj/structure/table/rack,
 /obj/random/voidsuit/freebooter,
@@ -1522,29 +4329,109 @@
 /obj/item/device/gps/mining,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
 "Oy" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	dir = 4
+	dir = 4;
+	id_tag = "scarab_harvest_vent"
 	},
 /turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
+"OB" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/template_noop,
 /area/space)
+"OM" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"OS" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced,
+/area/coc_scarab/grauwolf)
 "Pa" = (
 /obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/power/apc/high/west{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"Pm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Pw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"Py" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/coc_scarab/grauwolf)
+"PA" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/shaker_cup,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"PP" = (
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 6
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
 "PR" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
+"PS" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"PX" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "Qd" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -1559,13 +4446,23 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
 "Qj" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"Ql" = (
+/obj/machinery/door/window/eastleft,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
+"Qo" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "Qz" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1577,8 +4474,45 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
+"QA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/shuttle/scarab_harvester)
+"QJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"QK" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust2";
+	name = "airlock_scarab_thrust2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "QO" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -1589,18 +4523,80 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"QU" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust1";
+	name = "airlock_scarab_thrust1"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "Rb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Rc" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"Re" = (
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "Rn" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/scarab_harvester)
+"Rp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"Rr" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/ore_box,
+/turf/simulated/floor/airless,
 /area/space)
+"Ru" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "Ry" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1612,15 +4608,33 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "RA" = (
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_scarab/medical)
 "RB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/simulated/floor/plating,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"RC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "RL" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1628,12 +4642,23 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "RM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"RN" = (
+/obj/machinery/computer/ship/navigation{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"RS" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/airless,
 /area/space)
 "RT" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -1644,16 +4669,35 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"RU" = (
+/obj/structure/largecrate/animal/hakhma,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
 "RW" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
 /obj/random/civgun,
 /obj/random/civgun,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/armory)
+"Sb" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "Se" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1664,11 +4708,19 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"Sf" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
 "Sj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "Sm" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -1680,7 +4732,37 @@
 	name = "Combustion ChamberBlast Doors"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"So" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
+"Sy" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Sz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
+"SB" = (
+/obj/structure/table/steel,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"SG" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "SH" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1688,26 +4770,30 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"SL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_stbd";
+	master_tag = "airlock_scarab_stbd"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "SR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "SX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "SZ" = (
-/obj/machinery/computer/general_air_control/supermatter_core{
-	frequency = 1439;
-	input_tag = "scavver_teg_in";
-	name = "Combustion Monitoring Terminal";
-	output_tag = "scavver_teg_out";
-	sensors = list("scav_sensor"="Combustion Chamber")
-	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "scav_vent";
@@ -1718,12 +4804,40 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "scav_combustion_blast";
-	name = "Emergency Chamber Vent";
+	name = "Chamber Blast Doors";
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	name = "Combustion Chamber Control";
+	output_tag = "scavver_teg_out";
+	frequency = 1442;
+	input_tag = "scavver_teg_in";
+	sensors = list("scav_sensor"="Combustion Chamber")
+	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Th" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
+"Tj" = (
+/obj/machinery/computer/ship/engines{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"Tt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "Tu" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1735,8 +4849,11 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/equipment)
 "Tw" = (
 /obj/structure/table/rack,
 /obj/random/custom_ka,
@@ -1744,7 +4861,22 @@
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
+"Tx" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
 /area/space)
+"TA" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
 "TC" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
@@ -1760,7 +4892,7 @@
 	name = "Combustion ChamberBlast Doors"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "TH" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -1770,12 +4902,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "TN" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/bridge)
 "TP" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -1787,13 +4924,59 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/power/apc/high/south{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "TS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"TT" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"TW" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/armory)
+"TZ" = (
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"Uc" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "Ud" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 4
@@ -1805,30 +4988,98 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "Ug" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
-"Ul" = (
-/obj/machinery/button/ignition{
-	id_tag = "scav_igni";
-	pixel_x = 23;
+/area/shuttle/coc_scarab)
+"Uh" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/ore_box,
+/turf/simulated/floor/airless,
 /area/space)
+"Uk" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/ammo)
+"Ul" = (
+/obj/machinery/button/ignition{
+	dir = 8;
+	pixel_x = 23;
+	id = "scav_igni"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Up" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/mess)
+"UB" = (
+/obj/machinery/door/airlock/external,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust1";
+	name = "airlock_scarab_thrust1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"UF" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust1";
+	name = "airlock_scarab_thrust1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"UL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
 "UN" = (
 /obj/machinery/power/solar,
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
 "UP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 "Vh" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/yellow{
@@ -1836,24 +5087,121 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "Vl" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/coc_scarab/engine)
 "Vn" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
-	frequency = 1441;
+	frequency = 1442;
 	id_tag = "scavver_teg_out"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/coc_scarab/engine)
+"Vo" = (
+/obj/machinery/computer/ship/navigation/terminal,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/grauwolf)
+"Vp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
+"Vr" = (
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"Vu" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"Vz" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"VD" = (
+/obj/structure/table/rack,
+/obj/random/voidsuit/freebooter,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/clothing/mask/breath/offworlder/jagmask,
+/obj/item/device/gps/mining,
+/obj/item/clothing/shoes/magboots,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "VF" = (
 /obj/machinery/atmospherics/pipe/tank{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"VG" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_scarab_shuttle";
+	master_tag = "scarab_shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
+"VK" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space,
 /area/space)
+"VM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	dir = 2;
+	name = "Hydroponics"
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/hydroponics)
 "VN" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -1865,23 +5213,66 @@
 	name = "Combustion ChamberBlast Doors"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
 "VR" = (
 /obj/machinery/mineral/rigpress,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"VS" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/medical)
+"Wa" = (
+/obj/machinery/computer/ship/sensors/terminal,
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"Wf" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "Wg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
 "Wl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
+"WD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
+"WG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"WP" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
 "WQ" = (
 /obj/structure/table/rack,
 /obj/item/device/flashlight/lantern,
@@ -1891,42 +5282,122 @@
 /obj/item/storage/box/flares,
 /obj/item/storage/box/flares,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
+"WX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
+"Xe" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
 "Xi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "Xq" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"Xu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/mess)
+"Xx" = (
+/obj/structure/table/steel,
+/obj/item/material/knife/bayonet,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/mess)
+"Xy" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
 "XU" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_scarab)
 "XX" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/space)
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
+"XZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"Yf" = (
+/obj/machinery/bodyscanner,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/medical)
+"Yi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/coc_scarab/bridge)
 "Yk" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"Yv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
+"YD" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/bunks)
 "YF" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1944,7 +5415,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_scarab/solars)
 "YK" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -1954,6 +5425,43 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"YM" = (
+/obj/structure/closet/crate/hydroponics/prespawned,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/hatchet,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
+"YV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/bridge)
+"YY" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/grauwolf)
+"Zb" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/space,
+/area/space)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1962,6 +5470,30 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Zj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
+"Zl" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"Zp" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "ZA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
@@ -1969,24 +5501,42 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
+"ZF" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_scarab_port";
+	master_tag = "airlock_scarab_port"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/equipment)
+"ZG" = (
+/obj/machinery/door/window/eastright,
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
 "ZH" = (
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/scarab_harvester)
 "ZI" = (
 /obj/machinery/vending/engineering{
 	req_access = null
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_scarab/equipment)
 "ZJ" = (
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_scarab/grauwolf)
 "ZK" = (
 /obj/machinery/conveyor{
 	id = "scarab_miner";
@@ -1999,7 +5549,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
+"ZM" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bridge)
+"ZO" = (
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "ZS" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -2012,7 +5571,31 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/coc_scarab/engine)
+"ZT" = (
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"ZX" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "scarab_thrust2";
+	name = "airlock_scarab_thrust2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "ZZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/cable/green{
@@ -2021,7 +5604,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_scarab)
 
 (1,1,1) = {"
 cB
@@ -2258,27 +5841,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (2,1,1) = {"
 cB
@@ -2515,27 +6098,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (3,1,1) = {"
 cB
@@ -2772,27 +6355,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (4,1,1) = {"
 cB
@@ -3029,27 +6612,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+mY
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (5,1,1) = {"
 cB
@@ -3286,27 +6869,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (6,1,1) = {"
 cB
@@ -3543,27 +7126,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (7,1,1) = {"
 cB
@@ -3800,27 +7383,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (8,1,1) = {"
 cB
@@ -4057,27 +7640,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (9,1,1) = {"
 cB
@@ -4314,27 +7897,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (10,1,1) = {"
 cB
@@ -4571,27 +8154,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (11,1,1) = {"
 cB
@@ -4828,27 +8411,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (12,1,1) = {"
 cB
@@ -5085,27 +8668,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (13,1,1) = {"
 cB
@@ -5342,27 +8925,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (14,1,1) = {"
 cB
@@ -5599,27 +9182,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (15,1,1) = {"
 cB
@@ -5856,27 +9439,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (16,1,1) = {"
 cB
@@ -6113,27 +9696,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (17,1,1) = {"
 cB
@@ -6370,27 +9953,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (18,1,1) = {"
 cB
@@ -6627,27 +10210,27 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
 "}
 (19,1,1) = {"
 cB
@@ -6886,25 +10469,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (20,1,1) = {"
 cB
@@ -7143,25 +10726,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+uh
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (21,1,1) = {"
 cB
@@ -7400,25 +10983,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (22,1,1) = {"
 cB
@@ -7657,25 +11240,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (23,1,1) = {"
 cB
@@ -7914,25 +11497,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (24,1,1) = {"
 cB
@@ -8171,25 +11754,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (25,1,1) = {"
 cB
@@ -8428,25 +12011,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (26,1,1) = {"
 cB
@@ -8685,25 +12268,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (27,1,1) = {"
 cB
@@ -8942,25 +12525,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (28,1,1) = {"
 cB
@@ -9199,25 +12782,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (29,1,1) = {"
 cB
@@ -9456,25 +13039,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (30,1,1) = {"
 cB
@@ -9713,25 +13296,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (31,1,1) = {"
 cB
@@ -9970,25 +13553,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (32,1,1) = {"
 cB
@@ -10227,25 +13810,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (33,1,1) = {"
 cB
@@ -10484,25 +14067,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (34,1,1) = {"
 cB
@@ -10741,25 +14324,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
+Bj
 "}
 (35,1,1) = {"
 cB
@@ -10998,25 +14581,25 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
 "}
 (36,1,1) = {"
 cB
@@ -12166,7 +15749,7 @@ cB
 cB
 cB
 cB
-cB
+sR
 cB
 cB
 cB
@@ -25013,7 +28596,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -25270,7 +28853,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -25527,7 +29110,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -25784,7 +29367,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -26041,7 +29624,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -26298,7 +29881,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -26555,7 +30138,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -26812,7 +30395,7 @@ cB
 cB
 cB
 cB
-qs
+cB
 cB
 cB
 cB
@@ -27069,13 +30652,13 @@ cB
 cB
 cB
 cB
-qs
 cB
 cB
 cB
 cB
-cB
-cB
+gK
+IR
+IR
 cB
 cB
 cB
@@ -27326,13 +30909,13 @@ cB
 cB
 cB
 cB
-qs
 cB
 cB
 cB
 cB
-cB
-cB
+Kk
+px
+rj
 cB
 cB
 cB
@@ -27583,13 +31166,13 @@ cB
 cB
 cB
 cB
-qs
 cB
 cB
 cB
 cB
-cB
-cB
+Kk
+lM
+lM
 cB
 cB
 cB
@@ -27840,13 +31423,13 @@ cB
 cB
 cB
 cB
-qs
 cB
 cB
 cB
 cB
-cB
-cB
+GK
+lb
+lb
 cB
 cB
 cB
@@ -28089,21 +31672,21 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
-cB
+sd
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+tr
+lb
+lb
 cB
 cB
 cB
@@ -28337,30 +31920,30 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
-cB
+sd
+IR
+IR
+IR
+IR
+IR
+IR
+Er
+lb
+OB
+Bm
+gL
+GT
+cV
+Lo
+Lo
+Lo
+cV
+gL
+GT
+Tx
+tr
+lb
+lb
 cB
 cB
 cB
@@ -28594,30 +32177,30 @@ cB
 cB
 cB
 cB
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
-cB
+jO
+jO
+jO
+jO
+jO
+jO
+jO
+px
+IR
+px
+ec
+bL
+GJ
+zU
+It
+BE
+It
+zU
+zU
+zU
+ru
+tr
+lb
+lb
 cB
 cB
 cB
@@ -28851,30 +32434,30 @@ cB
 cB
 cB
 cB
+jO
+Wf
+gH
+gi
+dt
+Cm
+jO
+jO
+px
+px
 Il
-Eq
-Eq
-Eq
-Eq
-Eq
+jw
+zU
+zU
+FJ
 Il
+Az
+zU
+Rr
+pH
 Il
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
-cB
+wv
+lb
+lb
 cB
 cB
 cB
@@ -29108,30 +32691,30 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Eq
-Eq
-Eq
-Il
-Il
-Il
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
-cB
+wI
+QJ
+Pw
+wE
+PS
+jG
+jO
+jO
+jO
+px
+bU
+Rr
+zU
+zU
+It
+Th
+It
+zU
+zU
+bL
+RS
+tr
+lb
+lb
 cB
 cB
 cB
@@ -29365,30 +32948,30 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Eq
-Eq
-Eq
-tF
-Eq
-tF
+wI
+CP
+vK
+Dm
+MC
+pY
+UF
+MS
+Ck
 qs
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
-cB
+dE
+ah
+by
+re
+It
+It
+It
+re
+by
+re
+Uh
+tr
+lb
+lb
 cB
 cB
 cB
@@ -29622,15 +33205,16 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Eq
-Eq
-Eq
-tF
-Eq
-tF
+wI
+Mo
+Zj
+FF
+zx
+fB
+Kz
+QU
+UB
+yQ
 qs
 qs
 qs
@@ -29643,30 +33227,29 @@ qs
 qs
 qs
 qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+Zb
 cB
 cB
 cB
@@ -29879,16 +33462,16 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Il
-DI
-DI
-Il
-Il
-Il
-qs
+wI
+Qo
+Zj
+jO
+vD
+tk
+jO
+jO
+jO
+oE
 gs
 vZ
 vZ
@@ -29902,28 +33485,28 @@ vZ
 vZ
 vZ
 Qd
-cB
-cB
+lb
+lb
 qs
 qs
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+lb
+Dj
+Lo
+Lo
+It
+It
+Lo
+Lo
+RB
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+tr
 cB
 cB
 cB
@@ -30136,16 +33719,16 @@ cB
 cB
 cB
 cB
-Il
-Eq
-Eq
-Il
-Cs
-Cs
-Il
-Il
+jO
+Lh
+fy
+jO
+xs
+NR
+jO
+jO
 lb
-qs
+oE
 cM
 gs
 vZ
@@ -30159,29 +33742,29 @@ vZ
 vZ
 vZ
 pl
-cB
-cB
+lb
+lb
 qs
 qs
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
+lb
+bT
+It
+It
+It
+It
+It
+kD
+lb
+lb
+mM
+mM
+YY
+YY
+YY
+YY
+YY
+YY
+YY
 cB
 cB
 cB
@@ -30393,16 +33976,16 @@ cB
 cB
 cB
 lb
-Il
-Il
-Il
-Il
-Il
-Il
-Il
+jO
+jO
+jO
+jO
+jO
+jO
+jO
 lb
 lb
-qs
+oE
 cM
 aZ
 vZ
@@ -30416,31 +33999,31 @@ vZ
 vZ
 vZ
 Qd
-cB
-cB
+lb
+lb
 qs
 qs
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
-Il
-vV
-Il
-vV
-vV
+lb
+bT
+It
+It
+It
+It
+It
+mM
+mM
+mM
+mM
+RU
+YY
+KT
+Fj
 GX
+Py
 Gl
-Gl
-ZJ
-cB
-cB
+OS
+xl
+mT
 cB
 cB
 cB
@@ -30659,7 +34242,7 @@ lb
 lb
 lb
 lb
-qs
+oE
 cM
 gs
 vZ
@@ -30673,31 +34256,31 @@ vZ
 vZ
 vZ
 pl
-cB
-cB
+lb
+lb
 qs
 qs
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
-Il
-vV
-vV
-Il
-vV
-vV
+lb
+Hm
+It
+It
+It
+It
+It
+mM
+zC
+tM
+tM
+CK
+YY
+qS
+Fj
 Wl
 AD
-ZJ
-ZJ
-cB
-cB
+OS
+OS
+xl
+mT
 cB
 cB
 cB
@@ -30916,7 +34499,7 @@ lb
 lb
 lb
 lb
-qs
+oE
 cM
 aZ
 vZ
@@ -30930,31 +34513,31 @@ vZ
 vZ
 vZ
 Qd
-cB
-cB
+lb
+lb
 qs
 qs
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
-vV
-vV
-vV
-vV
-vV
-vV
+lb
+lb
+bT
+It
+It
+It
+It
+mM
+RU
+tM
+tM
+So
+YY
+Vo
+Sz
 Wl
-ZJ
-ZJ
-ZJ
-cB
-cB
+OS
+OS
+OS
+xl
+mT
 cB
 cB
 cB
@@ -31164,16 +34747,16 @@ lb
 Qe
 sh
 UN
-lb
+cR
+Qe
+sh
+UN
+cR
 Qe
 sh
 UN
 lb
-Qe
-sh
-UN
-lb
-qs
+oE
 cM
 lb
 lb
@@ -31187,25 +34770,25 @@ vZ
 vZ
 vZ
 pl
-cB
-Il
-kv
-kv
-Il
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
-vV
-vV
-vV
-Il
-vV
-vV
+lb
+ny
+wo
+Oa
+ny
+lb
+Hm
+Zp
+Zp
+Zp
+Zp
+mM
+gu
+Ql
+ZG
+BL
+YY
+Og
+pv
 Wl
 Lx
 ZJ
@@ -31418,56 +35001,56 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
-qs
+oE
 cM
-Il
-Il
-Il
-Il
-Il
+Hp
+Hp
+Hp
+Hp
+Hp
 ID
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Eq
-Eq
-Il
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
-vV
-vV
-vV
-Il
-vV
-vV
+Hp
+Hp
+Hp
+Hp
+ny
+ny
+ny
+ny
+rA
+yz
+ny
+lb
+lb
+lb
+lb
+lb
+lb
+mM
+qQ
+zk
+zk
+ie
+YY
+bu
+js
 DG
-fF
+jt
 fF
 Fn
-cB
+lb
 cB
 cB
 cB
@@ -31678,54 +35261,54 @@ lb
 Qe
 YF
 UN
-lb
+cR
+Qe
+YF
+UN
+cR
 Qe
 YF
 UN
 lb
-Qe
-YF
-UN
-lb
-qs
+oE
 cM
-Il
-Eq
-qd
-Eq
-Eq
-fC
+DI
+vm
+Nj
+Gk
+Sy
+nq
 VF
 qd
 ux
-qd
-Il
+Mj
+ny
 Dk
 Lf
-Il
-Eq
-Eq
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Eq
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-cB
-cB
+ny
+SL
+SL
+ny
+VS
+VS
+VS
+VS
+VS
+VS
+mM
+co
+zk
+zk
+Vr
+MT
+MT
+In
+MT
+MT
+MT
+MT
+lb
+lb
 cB
 cB
 cB
@@ -31932,58 +35515,58 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
-qs
+oE
 cM
-Il
+DI
 rx
 Os
-zV
+Id
 Eq
 fC
 EA
 cC
 uW
 kz
-Il
-vV
-vV
-Il
-kv
-kv
-Il
-Il
+ny
+ls
+sL
+ny
+BR
+GS
+ny
+VS
 pG
-zk
-zk
+jY
+jY
 uN
 di
-Il
-hg
-hg
-hg
-hg
-Il
-hg
-hg
-hg
-hg
-hg
-Il
-Il
-cB
-cB
+mM
+DF
+zk
+zk
+DF
+MT
+cu
+Mg
+iA
+EN
+mE
+MT
+ab
+IB
+lb
 cB
 cB
 cB
@@ -32192,58 +35775,58 @@ lb
 Qe
 YF
 UN
-lb
+cR
+Qe
+YF
+UN
+cR
 Qe
 YF
 UN
 lb
-Qe
-YF
-UN
-lb
-qs
-cM
-Il
-Eq
+fD
+GW
+DI
+Ix
 nV
 iU
-Eq
-fC
+Ix
+IZ
 CD
-Eq
-Eq
+Ix
+Ey
 sH
-Il
+ny
 Ov
-vV
+sL
 VR
-vV
-vV
-Wg
-Il
+sL
+HZ
+aQ
+VS
 aS
-zk
-zk
-zk
+jY
+jY
+jY
 fS
-Il
-hg
-hg
-hg
-hg
-Il
-hg
-hg
-hg
-hg
-hg
-hg
-Il
-Il
-Il
-Je
-Je
-Je
+mM
+iD
+sI
+kn
+DF
+MT
+YD
+KB
+Ns
+Tt
+cK
+Eu
+ab
+ab
+ab
+yR
+yR
+ab
 cB
 cB
 cB
@@ -32446,21 +36029,21 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
-qs
+oE
 cM
-Il
+Hp
 LD
 Eq
 Gu
@@ -32468,39 +36051,39 @@ Ul
 fC
 Rb
 Eq
-Eq
-Rb
-Il
+RL
+Fu
+ny
 nd
-vV
+sL
 mh
-vV
-vV
+sL
+HZ
 Kl
-Il
-Il
-Il
-zk
-Il
-Il
-Il
-hg
-hg
-hg
-hg
-Il
-hg
-hg
-hg
-hg
-hg
-hg
-Il
+VS
+VS
+VS
+kh
+VS
+VS
+mM
+DF
+GA
+MX
+DF
+MT
+zd
+fc
+ka
+Ac
+cK
+Eu
+ab
+mt
+RN
+zN
 vV
-vV
-vV
-vV
-Je
+Iw
 cB
 cB
 cB
@@ -32546,7 +36129,7 @@ cB
 cB
 cB
 cB
-cB
+nl
 cB
 cB
 cB
@@ -32706,16 +36289,16 @@ lb
 Qe
 YF
 UN
-lb
+cR
+Qe
+YF
+UN
+cR
 Qe
 YF
 UN
 lb
-Qe
-YF
-UN
-lb
-qs
+oE
 cM
 Vl
 ua
@@ -32727,37 +36310,37 @@ Ie
 pi
 ln
 Zd
-Il
+ny
 Ov
-vV
-vV
-vV
-vV
+sL
+sL
+sL
+HZ
 Wg
-Il
+VS
 bt
 Jq
-zk
-zk
+jY
+jY
 mm
-Il
-hg
-hg
-hg
-hg
-Il
-hg
-hg
-hg
-hg
-hg
-hg
-Il
+mM
+YM
+GA
+MX
+eD
+MT
+MZ
+rV
+gg
+nD
+cK
+bR
+ab
+uU
 vV
-vV
-vV
-vV
-Je
+ZM
+Fr
+Iw
 cB
 cB
 cB
@@ -32960,19 +36543,19 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
-qs
+oE
 cM
 ib
 xJ
@@ -32980,41 +36563,41 @@ Ay
 lO
 Sm
 Pq
-zV
-Eq
+Id
+FH
 eH
 TP
-Il
-nd
+ny
+VD
+sL
+df
+sL
+dB
+Cv
+VS
+Yf
+Jq
+UL
+jY
+EE
+mM
+mM
+Kv
+VM
+mM
+MT
+MT
+MT
+MT
+pn
+MT
+MT
+ab
 vV
+Rp
 vV
-vV
-vV
-vV
-Il
-zk
-zk
-zk
-zk
-mm
-Il
-hg
-hg
-hg
-hg
-Il
-Il
-Il
-Il
-hg
-Il
-Il
-Il
-vV
-vV
-vV
-vV
-Je
+Od
+Iw
 cB
 cB
 cB
@@ -33217,17 +36800,17 @@ cB
 cB
 cB
 oY
-dn
+bg
 rt
-dn
-dn
-dn
-rt
-dn
-dn
-dn
-rt
-dn
+bg
+bg
+bg
+ho
+bg
+bg
+bg
+ho
+bg
 dn
 Vh
 cM
@@ -33239,39 +36822,39 @@ VN
 Eq
 rk
 ud
-rk
+MV
 vI
-Ix
+mS
 Tu
-Ix
-Ix
+lh
+Nd
 Tu
-Ix
-Ix
-Ix
+AV
+lh
+iG
 Qz
+Sb
 IC
-IC
-IC
-IC
-Ix
-Tu
-Ix
-Ix
-Ix
-Ix
-Ix
-Ix
-Ix
-Ix
-Ix
-Ix
-Ix
+Sb
+Sb
+oN
+AU
+nP
+Xe
+gl
+AU
+sK
+AU
+gl
+Vp
+AU
+AU
+YV
 xO
-vV
-vV
-vV
-Je
+aG
+TN
+Bk
+Iw
 cB
 cB
 cB
@@ -33423,7 +37006,7 @@ cB
 cB
 cB
 cB
-cB
+eO
 cB
 cB
 cB
@@ -33474,17 +37057,17 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
 Jy
 cM
@@ -33494,41 +37077,41 @@ IU
 Vn
 nX
 Pq
-vK
+zs
 gU
 uI
 Cb
-Il
+ny
 eN
-vV
-vV
+sL
+Kq
 Ev
-vV
+HZ
 ZI
-Il
+VS
 LE
-zk
-zk
-zk
-zk
-Il
+jY
+FA
+jY
+jY
+Up
 XX
+pQ
+iI
 hg
 hg
+Ig
+Nz
+Nz
+Nz
+Nz
 hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-Il
+ab
 LY
+qW
 vV
-vV
-vV
-Je
+Jx
+Iw
 cB
 cB
 cB
@@ -33734,11 +37317,11 @@ lb
 Qe
 ya
 UN
-lb
+cR
 Qe
 ya
 UN
-lb
+cR
 Qe
 ya
 UN
@@ -33752,40 +37335,40 @@ ua
 Vl
 SZ
 Eq
-vk
+gh
 kj
 Ry
-Il
+ny
 gA
-vV
-vV
+sL
+sL
 Ev
-vV
+HZ
 GR
-Il
+VS
 Oq
-zk
-zk
-zk
-zk
-Il
+jY
+jY
+jY
+jY
+Up
+TT
+AR
+cN
 hg
+Kp
+Br
+hF
+hF
+hF
+hF
 hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-Il
+ab
+uU
 vV
-vV
-vV
-vV
-Je
+fY
+zw
+Iw
 cB
 cB
 cB
@@ -33988,17 +37571,17 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
 Jy
 cM
@@ -34011,38 +37594,38 @@ Sj
 Sj
 hb
 uI
-RL
-Il
+KP
+ny
 Tw
-vV
-vV
+sL
+sL
 Ev
-vV
+HZ
 ws
-Il
+VS
 RA
 RA
-zk
-zk
+jY
+jY
 Fc
-Il
+Up
+Of
+AR
+PA
 hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-Il
+cX
+Iy
+hF
+hF
+hF
+hF
+mz
+ab
+wl
+Tj
+CW
 vV
-vV
-vV
-vV
-Je
+Iw
 cB
 cB
 cB
@@ -34248,11 +37831,11 @@ lb
 Qe
 ya
 UN
-lb
+cR
 Qe
 ya
 UN
-lb
+cR
 Qe
 ya
 UN
@@ -34269,37 +37852,37 @@ Eq
 vk
 AY
 RL
-Il
-vV
-vV
-vV
+ny
+ls
+sL
+sL
 Ev
-vV
+HZ
 Gv
-Il
+VS
+qi
 PR
-PR
-zk
-zk
+jY
+jY
 sp
-Il
+Up
+LX
+AR
+tE
 hg
 hg
+Ig
+zh
+zh
+zh
+zh
 hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-Il
-Il
-Il
-Je
-Je
-Je
+ab
+ab
+ab
+yR
+yR
+ab
 cB
 cB
 cB
@@ -34502,19 +38085,19 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
-qs
+oE
 cM
 DI
 ZS
@@ -34526,34 +38109,34 @@ si
 Oe
 oX
 QO
-Il
+ny
 WQ
 fp
-Il
-TH
-kv
-Il
-Il
+ny
+hz
+WP
+ny
+VS
 RA
 RA
-zk
-zk
+SG
+jY
 xC
-Il
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-hg
-Il
-Il
-cB
-cB
+Up
+El
+AR
+Bd
+Xu
+Hq
+KA
+wH
+SB
+PP
+LK
+Up
+ab
+Yi
+lb
 cB
 cB
 cB
@@ -34762,55 +38345,55 @@ lb
 Qe
 ya
 UN
-lb
+cR
+Qe
+ya
+UN
+cR
 Qe
 ya
 UN
 lb
-Qe
-ya
-UN
-lb
-qs
+oE
 cM
 DI
 fC
 Eq
-Eq
+fw
 Eq
 yw
-Ix
-Ix
+yH
+Bn
 RT
 cc
-Il
-Il
-Il
-Il
-RL
-Eq
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-hg
-Il
-Il
-Il
-Il
-Il
-cB
-cB
-cB
+ny
+ny
+ny
+ny
+xT
+qO
+ny
+VS
+VS
+VS
+VS
+VS
+VS
+Up
+Up
+Up
+Up
+Up
+Up
+Ig
+Up
+Up
+Up
+Up
+Up
+lb
+lb
+lb
 cB
 cB
 cB
@@ -35016,56 +38599,56 @@ cB
 cB
 cB
 lb
-cB
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
-lb
-cB
+sV
+cR
+sV
 jM
-cB
+sV
 lb
-qs
+oE
 cM
-Il
+Hp
 Yk
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-cB
-cB
-Il
-RL
-Eq
-Il
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-Il
+Hp
+Hp
+Hp
+Hp
+Hp
+Hp
+Hp
+Hp
+ny
+lb
+lb
+ny
+ZF
+Re
+ny
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+xr
+MD
 xI
-vV
-vV
-Il
-vV
-Il
+xr
+sA
+BV
 mw
 RW
-fp
+TW
 Je
-cB
+lb
 cB
 cB
 cB
@@ -35276,16 +38859,16 @@ lb
 Qe
 hm
 UN
-lb
+cR
+Qe
+hm
+UN
+cR
 Qe
 hm
 UN
 lb
-Qe
-hm
-UN
-lb
-qs
+oE
 cM
 lb
 aZ
@@ -35299,28 +38882,28 @@ vZ
 vZ
 vZ
 Qd
-cB
-Il
-TH
+lb
+ny
+qc
 kv
-Il
+ny
+lb
 cB
 cB
 cB
 cB
 cB
-cB
-cB
-Il
-MD
-vV
-vV
-Il
-vV
-Il
-vV
-vV
-vV
+lb
+lb
+xr
+TA
+IK
+xr
+Lc
+BV
+Ku
+No
+Ku
 Je
 cB
 cB
@@ -35542,7 +39125,7 @@ lb
 lb
 lb
 lb
-qs
+oE
 cM
 gs
 vZ
@@ -35556,28 +39139,28 @@ vZ
 vZ
 vZ
 pl
-cB
-cB
+lb
+lb
 oE
 Fq
+lb
+lb
 cB
 cB
 cB
 cB
 cB
 cB
-cB
-cB
-Il
-xo
-vV
-vV
-vV
-vV
-vV
-vV
-vV
-vV
+lb
+xr
+Uk
+sP
+pw
+Hu
+yU
+ML
+rC
+Ku
 Je
 cB
 cB
@@ -35799,7 +39382,7 @@ lb
 lb
 lb
 lb
-qs
+oE
 cM
 aZ
 vZ
@@ -35813,10 +39396,11 @@ vZ
 vZ
 vZ
 Qd
-cB
-cB
+lb
+lb
 oE
 Fq
+lb
 cB
 cB
 cB
@@ -35824,17 +39408,16 @@ cB
 cB
 cB
 cB
-cB
-Il
-Il
+lb
+xr
 ni
-vV
-Il
-vV
-Il
-vV
-vV
-vV
+Sf
+xr
+bO
+BV
+dx
+ER
+Ku
 Je
 cB
 cB
@@ -36047,16 +39630,16 @@ cB
 cB
 cB
 lb
-Il
-Il
-Il
-Il
-Il
-Il
-Il
+yu
+yu
+yu
+yu
+yu
+yu
+yu
 lb
 lb
-qs
+oE
 cM
 gs
 vZ
@@ -36070,10 +39653,11 @@ vZ
 vZ
 vZ
 pl
-cB
-cB
+lb
+lb
 oE
 Fq
+lb
 cB
 cB
 cB
@@ -36081,17 +39665,16 @@ cB
 cB
 cB
 cB
-cB
-cB
-Il
-Il
-ru
-Il
-vV
-Il
+lb
+xr
+xr
+xr
+xr
+Xx
+BV
 Lw
 ba
-vV
+cn
 Je
 cB
 cB
@@ -36304,16 +39887,16 @@ cB
 cB
 cB
 cB
-Il
-Eq
-Eq
-Eq
-Eq
-Eq
-Il
-Il
+yu
+uL
+Ne
+Uc
+zL
+zy
+yu
+yu
 lb
-qs
+oE
 cM
 aZ
 vZ
@@ -36327,10 +39910,11 @@ vZ
 vZ
 vZ
 Qd
-cB
-cB
+lb
+lb
 oE
 Fq
+lb
 cB
 cB
 cB
@@ -36338,18 +39922,17 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
-Il
+lb
+lb
+xr
+xr
+xr
+Up
+BV
+BV
+BV
+BV
+BV
 cB
 cB
 cB
@@ -36561,16 +40144,16 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Eq
-Eq
-Eq
-Il
-Il
-Il
-qs
+Ge
+zV
+aa
+Rc
+Ba
+Mr
+yu
+yu
+yu
+oE
 aZ
 vZ
 vZ
@@ -36584,10 +40167,11 @@ vZ
 vZ
 vZ
 pl
-cB
-cB
+lb
+lb
 oE
 Fq
+lb
 cB
 cB
 cB
@@ -36596,16 +40180,15 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+qs
 cB
 cB
 cB
@@ -36818,50 +40401,50 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Eq
-Eq
-Eq
-tF
-Eq
-tF
-qs
-qs
-qs
-qs
-qs
+Ge
+Ob
+pW
+py
+WD
+OM
+QK
+FO
+eG
+gc
+od
+od
+od
+od
 Fq
 rL
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
-YK
+Zl
+Zl
+Zl
+Zl
+Zl
+Zl
+Zl
+Zl
+Zl
 Cw
 YK
-YK
-YK
-YK
-YK
-YK
-YK
+Zl
+jq
+jq
+jq
+jq
+aT
 ck
-Fq
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
+eY
+VK
+od
+od
+od
+od
+od
+od
+od
+od
 qs
 cB
 cB
@@ -37075,51 +40658,51 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Eq
-Eq
-Eq
+Ge
+wT
+gt
+Jg
+in
+ZO
+cP
+ZX
 tF
-Eq
-tF
-qs
-cB
-cB
-cB
-cB
+tr
+lb
+lb
+lb
+lb
 Fq
 oE
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
-cB
-cB
-cB
-cB
-cB
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+jk
+lb
+lb
+lb
+lb
+Vz
 eX
-TH
-kv
-eX
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-qs
+bN
+NB
+WX
+bn
+lb
+lb
+lb
+lb
+lb
+lb
+lb
+jk
 cB
 cB
 cB
@@ -37332,41 +40915,41 @@ cB
 cB
 cB
 cB
-wY
-Eq
-Eq
-Il
-DI
-DI
-Il
-Il
-Il
-qs
-cB
-cB
-cB
-cB
-Fq
+Ge
+Ex
+gt
+yu
+dG
+HL
+yu
+yu
+yu
+tr
+lb
+lb
+lb
+iW
+dF
 oE
-cB
-cB
-cB
-cB
+HC
+lb
+lb
+lb
 dV
 EO
 Oy
-cB
-cB
-cB
-qs
-cB
+lb
+lb
+lb
+jk
+lb
 eX
 eX
 eX
 eX
 eX
-RL
-Eq
+JA
+tC
 eX
 eX
 eX
@@ -37375,8 +40958,8 @@ eX
 eX
 eX
 eX
-cB
-qs
+lb
+jk
 cB
 cB
 cB
@@ -37589,51 +41172,51 @@ cB
 cB
 cB
 cB
-Il
-Eq
-Eq
-Il
+yu
+kK
+lW
+yu
+gS
 Cs
-Cs
-Il
-Il
+yu
+yu
 cB
-qs
-cB
-cB
-cB
+jk
+lb
+lb
+lb
 bJ
-kv
-TH
-bJ
-cB
-cB
+Ru
+hW
+iu
+lb
+lb
 bJ
 vj
 Rn
 bp
 bJ
-cB
-cB
-qs
-cB
+lb
+lb
+jk
+lb
 wY
 BN
 Xq
 Xq
 eX
-RL
-Eq
+VG
+av
 eX
 iH
-jb
+yK
 jb
 eX
 ra
 vY
 IM
 cB
-qs
+jk
 cB
 cB
 cB
@@ -37846,51 +41429,51 @@ cB
 cB
 cB
 cB
-Il
-Il
-Il
-Il
-Il
-Il
-Il
+yu
+yu
+yu
+yu
+yu
+yu
+yu
 cB
 cB
-qs
-cB
-cB
+jk
+lb
+Mt
 bJ
 bJ
-Eq
-RL
+kb
+GD
 bJ
 bJ
 bJ
 bJ
-Eq
-RM
+th
+JY
 gf
 fz
 cB
 cB
-qs
+jk
 cB
 wY
 wb
 bG
 wb
 eX
-TH
-kv
+Ar
+eq
 eX
 SH
-vV
-vV
+En
+En
 eX
-ra
+Xy
 ox
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -38112,42 +41695,42 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
 bJ
 bJ
 bJ
-kv
+zB
 TH
 bJ
+dD
 AL
 AL
-AL
-Eq
+WG
 RM
 ml
 fz
 cB
 cB
-qs
+jk
 cB
 wY
 ZZ
 wD
 xe
-wD
+II
 fn
-vV
-vV
+cE
+hA
 SH
-vV
+En
 eX
 eX
-It
+TZ
 JI
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -38369,42 +41952,42 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
-Je
-Eq
-Eq
-Eq
+pz
+Wa
+jN
+XZ
 ZH
 Pa
 gI
-oK
+If
 SX
-Eq
+Lr
 RM
 MN
 bJ
 cB
 cB
-qs
+jk
 cB
 eX
 Oi
 UP
-pA
-vV
-vV
-vV
-vV
+yg
+cW
+CL
+En
+En
 SH
-vV
+En
 Qj
-Je
-It
+tZ
+TZ
 AS
 wc
 cB
-qs
+jk
 cB
 cB
 cB
@@ -38626,14 +42209,14 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
-Je
-Eq
-Eq
-Eq
+pz
+ui
+il
+BW
+il
 gf
-RB
 KR
 Xi
 TS
@@ -38643,25 +42226,25 @@ ZA
 bJ
 cB
 cB
-qs
+jk
 cB
 eX
 HW
-vV
-vV
+En
+En
 KY
 KY
 EG
-vV
+En
 SH
-TN
+ms
 Gt
-Je
-It
-It
+tZ
+TZ
+TZ
 ac
-qs
-qs
+VK
+tr
 cB
 cB
 cB
@@ -38883,24 +42466,24 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
-Je
-Eq
-Eq
-Eq
+pz
+nZ
+il
+il
+il
 MN
-Eq
 Ji
 oK
 kH
-Eq
+il
 RM
 MN
 bJ
 cB
 cB
-qs
+jk
 cB
 eX
 Se
@@ -38911,14 +42494,14 @@ vt
 an
 Co
 eE
-TN
-vV
-Je
-It
-It
+ms
+Eg
+tZ
+TZ
+TZ
 ac
-qs
-qs
+od
+tr
 cB
 cB
 cB
@@ -39140,42 +42723,42 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
 bJ
 bJ
-Eq
-Eq
+ZT
+il
+il
 yP
-Eq
+PX
 HF
 HF
-HF
-Eq
+il
 RM
 ml
 fz
 cB
 cB
-qs
+jk
 cB
 eX
 lB
 eK
-vV
-mu
+Dz
+xo
 mu
 EG
-vV
-vV
-vV
+En
+En
+En
 pL
-Je
-It
+tZ
+TZ
 NT
 XU
 cB
-qs
+jk
 cB
 cB
 cB
@@ -39397,9 +42980,9 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
-cB
+QA
 bJ
 bJ
 bJ
@@ -39408,31 +42991,31 @@ bJ
 bJ
 bJ
 bJ
-Eq
-RM
+dc
+RC
 zm
 fz
 cB
 cB
-qs
+jk
 cB
 wY
 wb
 Ud
-vV
-vV
-vV
-vV
-vV
-vV
-vV
+En
+Pm
+uw
+En
+En
+En
+En
 eX
 eX
-It
+Yv
 JI
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -39654,7 +43237,7 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -39671,7 +43254,7 @@ tq
 bJ
 cB
 cB
-qs
+jk
 cB
 wY
 wb
@@ -39680,16 +43263,16 @@ eX
 Ug
 eX
 xR
-vV
-vV
-vV
-vV
+En
+En
+En
+En
 eX
-It
+Vu
 JI
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -39911,7 +43494,7 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -39928,25 +43511,25 @@ pZ
 cB
 cB
 cB
-qs
-cB
+jk
+lb
 wY
 pA
 Ks
 ZK
 Bh
-ZK
+Dg
 ol
 iE
-vV
-vV
-Wg
+MP
+En
+lq
 eX
-It
+TZ
 AS
 wc
 cB
-qs
+jk
 cB
 cB
 cB
@@ -40168,7 +43751,7 @@ cB
 cB
 cB
 cB
-qs
+jk
 cB
 cB
 cB
@@ -40185,8 +43768,8 @@ cB
 cB
 cB
 cB
-qs
-cB
+jk
+lb
 eX
 eX
 eX
@@ -40203,7 +43786,7 @@ eX
 eX
 eX
 cB
-qs
+jk
 cB
 cB
 cB
@@ -40425,7 +44008,7 @@ cB
 cB
 cB
 cB
-qs
+zW
 cB
 cB
 cB
@@ -40442,7 +44025,10 @@ cB
 cB
 cB
 cB
-qs
+zW
+lb
+lb
+lb
 cB
 cB
 cB
@@ -40457,10 +44043,7 @@ cB
 cB
 cB
 cB
-cB
-cB
-cB
-qs
+zW
 cB
 cB
 cB
@@ -51745,7 +55328,7 @@ cB
 cB
 cB
 cB
-cB
+un
 cB
 cB
 cB

@@ -27,7 +27,7 @@
 /obj/machinery/computer/ship/helm/terminal
 	name = "helm control terminal"
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
-	icon_screen = "helm"
+	icon_screen = "nav"
 	icon_keyboard = "security_key"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
