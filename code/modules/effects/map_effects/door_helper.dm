@@ -20,6 +20,9 @@
 
 /obj/effect/map_effect/door_helper/level_access
 	icon_state = "level_door"
+
+	/// Sets access_by_level (access override based on security level) on the airlock this is spawned on.
+	/// For more information check the access_by_level variable on the airlock.
 	/// Example of an appropriate way to set this: list("red" = list(1, 2))
 	/// Alternatively, for a door that is free access on a certain code: list("green" = null)
 	var/list/access_by_level

@@ -2065,7 +2065,7 @@ About the new airlock wires panel:
 	if(p_open)
 		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
 	if(islist(access_override_by_level))
-		to_chat(user, SPAN_NOTICE("This airlock changes access requirement depending on the level."))
+		to_chat(user, SPAN_NOTICE("This airlock changes access requirements depending on the level."))
 
 /obj/machinery/door/airlock/emag_act(var/remaining_charges)
 	. = ..()
