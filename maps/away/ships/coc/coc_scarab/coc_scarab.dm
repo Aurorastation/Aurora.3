@@ -19,7 +19,7 @@
 /obj/effect/overmap/visitable/ship/coc_scarab
 	name = "Scarab Salvage Ship"
 	class = "SFV" //Scarab Fleet Vessel
-	desc = ""
+	desc = "An ancient Burrow-class transport vessel, bearing signs of extensive modification. These vessels are rarely seen in service outside of the Scarab Fleet in the modern day."
 	icon_state = "freighter"
 	moving_state = "freighter_moving"
 	colors = list("#a400c1", "#4d61fc")
@@ -27,7 +27,7 @@
 	volume = "57 meters length, 48 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Starboard fore ballistic armament, dual port flight craft."
-	sizeclass = ""
+	sizeclass = "Modified Burrow-class transport."
 	shiptype = "Salvage, fuel extraction and mineral exploration."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -48,7 +48,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/coc_scarab/New()
-	designation = "[pick("a", "b")]"
+	designation = "[pick("Umphangi", "Umfuni", "Zibal", "Albahith", "Sikeo", "Chaj-a Hemaeda", "Khog Tseverlegch", "Khaigch")]"
 	..()
 
 /obj/effect/shuttle_landmark/coc_scarab
@@ -78,9 +78,9 @@
 //Shuttles
 /obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester
 	name = "Scarab Gas Harvester"
-	desc = ""
+	desc = "An old Hephaestus-designed shuttle, intended for atmospheric mining of gas giants. This one appears to have been extensively modified."
 	class = "SFV"
-	designation = "Workhorse"
+	designation = "Vacuum"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	shuttle = "Scarab Gas Harvester"
@@ -117,9 +117,9 @@
 
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle
 	name = "Scarab Shuttle"
-	desc = ""
+	desc = "An early predecessor to the modern Pickaxe-class, this ancient mining shutle appears to have been extensively repurposed."
 	class = "SFV"
-	designation = "byeah"
+	designation = "Breaker"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	shuttle = "Scarab Shuttle"
