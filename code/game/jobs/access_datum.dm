@@ -667,9 +667,9 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_konyang_vendors
 	id = access_konyang_vendors
 	access_type = ACCESS_TYPE_CENTCOM
-  
+
 /var/const/access_idris = 220
 /datum/access/access_idris
 	id = access_idris
 	desc = "Idris Vault Ship"
-  access_type = ACCESS_TYPE_CENTCOM
+  	access_type = ACCESS_TYPE_CENTCOM
