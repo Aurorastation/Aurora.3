@@ -297,7 +297,9 @@
 		"target_department" = target_department,
 		"target_species" = target_species,
 		"helmet" = helmet ? list("name" = helmet.name, "damage" = 0) : null,
-		"suit" = suit ? list("name" = suit.name, "damage" = suit.damage) : null
+		"suit" = suit ? list("name" = suit.name, "damage" = suit.damage) : null,
+		"boots" = boots ? list("name" = boots.name, "damage" = 0) : null,
+		"mask" = mask ? list("name" = mask.name, "damage" = 0) : null
 	)
 
 /obj/machinery/suit_cycler/ui_act(action, params)
@@ -321,6 +323,24 @@
 		if(Adjacent(usr))
 			usr.put_in_hands(helmet)
 		helmet = null
+		update_icon()
+
+	else if(action == "eject_boots")
+		if(!boots)
+			return
+		boots.forceMove(get_turf(src))
+		if(Adjacent(usr))
+			usr.put_in_hands(boots)
+		boots = null
+		update_icon()
+
+	else if(action == "eject_mask")
+		if(!mask)
+			return
+		mask.forceMove(get_turf(src))
+		if(Adjacent(usr))
+			usr.put_in_hands(mask)
+		mask = null
 		update_icon()
 
 	else if(action == "select_department")
