@@ -94,6 +94,29 @@
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
+/obj/item/gun/projectile/automatic/xanusmg
+	name = "\improper Xanan submachine gun"
+	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
+	desc_extended = "The dNAC-4.6 II submachine gun is a custom-made submachine gun for the All-Xanu Armed Forces, designed to use the same 4.6mm rounds as the dNAC-4.6 pistol. It mainly sees use as a personal defensive weapon for pilots and drivers, but has also been used aboard the spacefleet's vessels for close quarters combat."
+	magazine_type = /obj/item/ammo_magazine/c46m/extended
+	allowed_magazines = list(/obj/item/ammo_magazine/c46m/extended)
+	icon = 'icons/obj/guns/xanu_smg.dmi'
+	icon_state = "xanu_smg"
+	item_state = "xanu_smg"
+	caliber = "4.6mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = 1
+
+/obj/item/gun/projectile/automatic/xanusmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_smg" : "xanu_smg-e"
+
+
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
 	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."

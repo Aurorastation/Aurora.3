@@ -657,24 +657,33 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_golden_deep
 	id = access_golden_deep
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_konyang_police = 218
+/datum/access/access_konyang_police
+	id = access_konyang_police
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_coalition = 218
+/var/const/access_konyang_vendors = 219
+/datum/access/access_konyang_vendors
+	id = access_konyang_vendors
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_coalition = 220
 /datum/access/access_coalition
 	id = access_coalition
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_coalition_navy = 219
+/var/const/access_coalition_navy = 221
 /datum/access/access_coalition_navy
 	id = access_coalition_navy
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_gadpathur_navy = 220
+/var/const/access_gadpathur_navy = 222
 /datum/access/access_gadpathur_navy
 	id = access_gadpathur_navy
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_gadpathur_navy_officer = 221
+/var/const/access_gadpathur_navy_officer = 223
 /datum/access/access_gadpathur_navy_officer
 	id = access_gadpathur_navy_officer
 	access_type = ACCESS_TYPE_CENTCOM

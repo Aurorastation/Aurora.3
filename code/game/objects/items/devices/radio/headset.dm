@@ -202,7 +202,7 @@
 	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
 	icon_state = "earset"
 	item_state = "earset"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/wrist
@@ -652,7 +652,7 @@
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/syndicate

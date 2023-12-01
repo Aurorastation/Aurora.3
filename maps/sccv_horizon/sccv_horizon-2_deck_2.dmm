@@ -353,12 +353,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "ais" = (
-/obj/structure/closet/hazmat/research,
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobotanical Greenhouse 2"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "aiP" = (
 /obj/machinery/door/firedoor,
@@ -1692,12 +1695,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "aKU" = (
-/obj/structure/platform,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "aLc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2102,7 +2107,10 @@
 /area/medical/first_responder)
 "aTI" = (
 /obj/structure/table/rack,
-/obj/item/storage/lockbox/anti_augment,
+/obj/item/storage/lockbox/anti_augment{
+	pixel_x = 4;
+	pixel_y = -6
+	},
 /obj/item/storage/box/chemimp{
 	pixel_x = -6;
 	pixel_y = -6
@@ -2120,6 +2128,10 @@
 	dir = 2;
 	pixel_x = 0;
 	pixel_y = -19
+	},
+/obj/item/storage/box/led_collars{
+	pixel_x = 8;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
@@ -2140,6 +2152,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/medical/pharmacy)
+"aUy" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "aUz" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green{
@@ -2195,9 +2213,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -2286,6 +2304,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
+"aXO" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/aft_airlock)
 "aXX" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/dark_green{
@@ -2486,19 +2513,17 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "bbl" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -2775,13 +2800,13 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
+	dir = 8;
+	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -3173,14 +3198,15 @@
 	name = "Distro to Trays";
 	use_power = 1
 	},
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 8;
-	pixel_y = 5
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/platform,
+/obj/structure/platform_deco{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "bsG" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -3392,6 +3418,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
+"bxW" = (
+/turf/simulated/floor/tiled/full,
+/area/engineering/rust_office)
 "byh" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -3502,9 +3531,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -3742,9 +3771,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -5298,9 +5327,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Foyer"
 	},
@@ -5437,6 +5463,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
+"cuH" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp/off{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "cuQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5475,13 +5509,12 @@
 "cww" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -5526,9 +5559,9 @@
 "cxn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -5790,6 +5823,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
+"cIc" = (
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "cIr" = (
 /obj/machinery/light{
 	dir = 4
@@ -6250,8 +6286,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/cooled,
-/area/turret_protected/ai)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload_foyer)
 "cRu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -6316,18 +6353,16 @@
 /area/hallway/medical)
 "cSv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -6415,6 +6450,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
+"cVs" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "cVR" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6495,6 +6536,21 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"cXk" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "cXq" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -6520,6 +6576,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
+"cYs" = (
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
+	name = "INDRA Reactor Office";
+	req_access = list(11)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/aft_airlock)
 "cZc" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
@@ -7115,6 +7184,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "doc" = (
@@ -7334,13 +7406,13 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
+	dir = 8;
+	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -7348,8 +7420,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -7792,17 +7864,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "dHt" = (
-/obj/structure/platform{
-	dir = 8
-	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "dHG" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7858,6 +7924,15 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/washroom/central)
+"dId" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "dIk" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -8088,16 +8163,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
-"dMA" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_two/fore)
 "dMG" = (
 /obj/machinery/alarm/east{
 	alarm_id = 1601;
@@ -9078,9 +9143,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -9508,14 +9573,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "eyY" = (
-/obj/machinery/door/blast/regular/open{
-	id = "AICore";
-	name = "AI Maintenance Blast Door"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/cooled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/turret_protected/ai)
 "eAl" = (
 /obj/machinery/camera/network/service{
@@ -9948,13 +10010,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "eKj" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -10064,17 +10124,14 @@
 /area/engineering/engine_monitoring/rust)
 "eOK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -10620,6 +10677,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
+"fbG" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/table/standard,
+/obj/random/tool{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "fbT" = (
 /obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -10657,6 +10724,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
+"fcV" = (
+/obj/item/modular_computer/console/preset/ai,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/cooled,
+/area/turret_protected/ai)
 "fdh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10881,13 +10955,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -10904,10 +10977,6 @@
 /obj/effect/floor_decal/corner/dark_green,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -11143,9 +11212,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "fnd" = (
@@ -11252,6 +11319,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
+"fqd" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "fqn" = (
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 1
@@ -12462,16 +12538,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "fSm" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/structure/closet/hazmat/research,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "fSw" = (
 /obj/structure/cable/green{
@@ -13667,6 +13738,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"grq" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/engineering/rust_office)
 "grQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -15297,10 +15374,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal/small/north,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "het" = (
@@ -15994,6 +16068,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/medical/psych)
+"hui" = (
+/obj/effect/floor_decal/corner_wide/yellow/full,
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "huP" = (
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -16231,6 +16309,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
+"hBk" = (
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "hBz" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -16332,8 +16417,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -16656,14 +16740,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "hHM" = (
-/obj/structure/ladder{
-	pixel_y = 4
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Aft";
 	dir = 1
 	},
-/turf/simulated/open,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/fancy,
+/turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "hHV" = (
 /obj/structure/cable/green{
@@ -16909,13 +16994,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "hRY" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - Second Deck Airlock"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating/cooled,
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "AI Core";
+	req_access = list(16)
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "AICore";
+	name = "AI Maintenance Blast Door"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
 /area/turret_protected/ai)
 "hSp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -17697,10 +17790,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "ikJ" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Xenobotanical Greenhouse 2";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
@@ -17719,6 +17808,11 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "Sterile Sink";
+	pixel_x = 20
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -18169,6 +18263,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
+"iwt" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/engineering/rust_office)
 "iwu" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -19018,12 +19118,14 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/kitchen/freezer)
 "iRl" = (
-/obj/structure/closet/firecloset,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 1;
+	icon_state = "freezer"
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "iRm" = (
@@ -19546,9 +19648,6 @@
 /area/crew_quarters/heads/hor)
 "jeo" = (
 /obj/machinery/door/firedoor,
-/obj/structure/platform{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/door/airlock/glass_research{
@@ -20154,18 +20253,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "jri" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_ai";
-	name = "airlock_horizon_deck_2_ai";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_ai"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -21260,6 +21357,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
+"jRF" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "jRN" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -21572,7 +21675,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "kat" = (
@@ -21813,6 +21915,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "kgc" = (
@@ -21940,9 +22045,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_hard)
 "kiT" = (
-/obj/structure/foamedmetal,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/engineering/engine_room/rust)
+/area/engineering/rust_office)
 "kiW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -22137,9 +22242,6 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "krk" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -22595,7 +22697,7 @@
 	dir = 5
 	},
 /obj/machinery/vending/hydronutrients/xenobotany,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "kDC" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -22612,7 +22714,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "kEf" = (
@@ -22940,9 +23044,16 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/template_noop)
+"kMl" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "kNe" = (
-/obj/effect/floor_decal/corner/mauve/full,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -12
@@ -22952,17 +23063,18 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "kNH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -23330,12 +23442,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "kXO" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "kXS" = (
 /obj/structure/disposalpipe/segment{
@@ -23623,16 +23731,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"lcG" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23919,7 +24017,10 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard/far)
 "llI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "lmf" = (
@@ -24069,8 +24170,7 @@
 	name = "External Blast Doors";
 	pixel_x = 7;
 	pixel_y = -18;
-	req_one_access = list(19,11);
-	dir = 2
+	req_one_access = list(19,11)
 	},
 /obj/machinery/light/small,
 /obj/structure/window/reinforced{
@@ -24148,7 +24248,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/obj/structure/table/reinforced,
+/obj/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "lss" = (
@@ -24690,7 +24793,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "lHx" = (
 /obj/machinery/recharge_station,
@@ -25014,13 +25117,13 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4
+	dir = 4;
+	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -25813,10 +25916,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "mgJ" = (
@@ -25942,13 +26041,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "mjW" = (
-/obj/structure/extinguisher_cabinet/south,
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled,
+/obj/structure/extinguisher_cabinet/east,
+/obj/machinery/cryopod/robot,
+/turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "mke" = (
 /obj/structure/cable/green{
@@ -26152,9 +26247,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
-	name = "airlock_horizon_deck_2_port_1";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_port_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
@@ -26940,6 +27035,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
+"mIk" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "mIN" = (
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
@@ -28174,7 +28275,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "nhF" = (
 /obj/structure/bed/stool/chair/padded/black,
@@ -28223,13 +28324,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -28412,6 +28513,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
+"nlQ" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/rust_office)
 "nlT" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -28649,9 +28753,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "ntn" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
@@ -28687,9 +28788,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nue" = (
@@ -29096,12 +29195,10 @@
 /turf/simulated/open,
 /area/operations/office)
 "nFm" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 8
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nFs" = (
@@ -29535,9 +29632,6 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29547,6 +29641,9 @@
 	},
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -29742,23 +29839,21 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_y = -7;
-	pixel_x = -20
+	pixel_x = -20;
+	pixel_y = -7
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = -20;
 	dir = 4;
+	pixel_x = -20;
 	pixel_y = 7
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_ai";
-	name = "airlock_horizon_deck_2_ai";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_ai"
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
@@ -29782,13 +29877,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "nZj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -30163,10 +30256,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ohc" = (
@@ -30463,9 +30552,6 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ool" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -30664,13 +30750,6 @@
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
-"osY" = (
-/obj/effect/map_effect/airlock/w_to_e{
-	name = "Deck 2 AI Internal Airlock (2101)";
-	radio_frequency = 2101
-	},
-/turf/simulated/wall/r_wall,
-/area/turret_protected/ai)
 "otf" = (
 /obj/machinery/turretid/stun{
 	check_synth = 1;
@@ -30901,16 +30980,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"oyK" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/lobby)
 "oyP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/east,
@@ -32009,9 +32078,9 @@
 "pae" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -32202,6 +32271,9 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"peL" = (
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "pfb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -33131,9 +33203,9 @@
 /area/engineering/atmos/storage)
 "pFS" = (
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -33895,9 +33967,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "pXV" = (
-/obj/structure/foamedmetal,
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
-/area/engineering/aft_airlock)
+/area/engineering/rust_office)
 "pYK" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -34059,9 +34131,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -34485,14 +34554,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
 "qmV" = (
-/obj/structure/platform_deco{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "qnb" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -34727,6 +34790,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
+"qtD" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "qtN" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -34763,18 +34836,16 @@
 	name = "AI Maintenance Blast Door"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_ai";
-	name = "airlock_horizon_deck_2_ai";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_ai"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -34909,12 +34980,12 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "qwD" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
@@ -34961,6 +35032,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"qxt" = (
+/turf/simulated/wall,
+/area/engineering/aft_airlock)
 "qxy" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -35024,14 +35098,14 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = 23;
-	pixel_y = -19;
-	dir = 1
+	pixel_y = -19
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_levi";
-	name = "airlock_horizon_deck_2_levi";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_levi"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -35260,6 +35334,10 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/operations/office)
+"qEY" = (
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "qFf" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -36580,6 +36658,15 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
+"rle" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel{
+	max_amount = 25
+	},
+/obj/item/stack/rods/full,
+/obj/item/stack/packageWrap,
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "rlf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/camera/network/reactor{
@@ -36695,6 +36782,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"rnF" = (
+/obj/item/modular_computer/console/preset/ai{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/cooled,
+/area/turret_protected/ai)
 "rnO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -36926,13 +37022,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "rtH" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/mauve/full,
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Maintenance Stairwell";
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rtI" = (
@@ -37474,13 +37569,12 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = -12;
-	pixel_y = 28;
-	dir = 2
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_levi";
-	name = "airlock_horizon_deck_2_levi";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_levi"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -37623,6 +37717,9 @@
 /area/engineering/engine_room)
 "rLn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "rLw" = (
@@ -37872,7 +37969,8 @@
 	name = "Xenobotany Maintenance";
 	req_access = list(52)
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "rRS" = (
 /obj/machinery/door/airlock/glass_service{
@@ -37894,6 +37992,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
+"rSl" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "rSv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -37992,17 +38096,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
 "rTS" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -38400,7 +38501,6 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "scN" = (
@@ -38902,13 +39002,13 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "ssh" = (
@@ -39392,11 +39492,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/machinery/power/apc/critical/north,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -39852,6 +39948,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"sVf" = (
+/obj/structure/table/standard,
+/obj/item/folder/yellow{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = -5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "sVl" = (
 /obj/structure/platform/ledge,
 /obj/structure/platform_deco/ledge{
@@ -40026,6 +40136,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_two/fore)
+"sZL" = (
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "sZT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -40094,13 +40208,11 @@
 /area/medical/exam)
 "tau" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -40460,11 +40572,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "tiI" = (
-/obj/structure/platform,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/platform_stairs/full/east_west_cap,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/obj/structure/platform/cutout{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "tiJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -40606,6 +40718,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -41006,18 +41122,18 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = -20
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
-	name = "airlock_horizon_deck_2_aft_indra";
-	frequency = 2003
+	name = "airlock_horizon_deck_2_aft_indra"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/aft_airlock)
@@ -41501,13 +41617,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -42005,14 +42120,14 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
-	name = "airlock_horizon_deck_2_aft_indra";
-	frequency = 2003
+	name = "airlock_horizon_deck_2_aft_indra"
 	},
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -42128,6 +42243,13 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
+"tWI" = (
+/obj/structure/table/steel,
+/obj/random/tool{
+	pixel_y = -4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "tXc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -42273,12 +42395,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "uaM" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "ubn" = (
@@ -42464,9 +42588,6 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ufC" = (
@@ -42593,6 +42714,30 @@
 /obj/structure/table/wood,
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
+	},
+/obj/item/storage/box/lights/colored/blue{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/storage/box/lights/colored/cyan{
+	pixel_y = 10;
+	pixel_x = -6
+	},
+/obj/item/storage/box/lights/colored/green{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/obj/item/storage/box/lights/colored/magenta{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/lights/colored/red{
+	pixel_y = 2;
+	pixel_x = 6
+	},
+/obj/item/storage/box/lights/colored/yellow{
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
@@ -43072,18 +43217,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "upv" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = 28;
-	dir = 8
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
-	name = "airlock_horizon_deck_2_starboard_aft";
-	frequency = 2001
+	name = "airlock_horizon_deck_2_starboard_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -43390,9 +43533,6 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/substation/engineering)
 "uxp" = (
-/obj/machinery/atmospherics/unary/heater{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -43509,6 +43649,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_room/rust)
+"uzQ" = (
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/rust_office)
 "uzU" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -43635,6 +43781,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
+"uEV" = (
+/obj/item/material/stool/chair/folding{
+	pixel_y = 4
+	},
+/obj/item/material/stool/chair/folding{
+	pixel_y = 10
+	},
+/obj/item/material/stool/chair/folding{
+	pixel_y = 16
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "uFc" = (
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/dark_green{
@@ -45582,6 +45740,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
+"vEO" = (
+/obj/item/modular_computer/console/preset/ai{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/cooled,
+/area/turret_protected/ai)
 "vES" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -47674,18 +47841,18 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = -20
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_levi";
-	name = "airlock_horizon_deck_2_levi";
-	frequency = 3002
+	name = "airlock_horizon_deck_2_levi"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
@@ -47773,6 +47940,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
+"wwO" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload)
 "wwR" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/warning{
@@ -47896,6 +48070,7 @@
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
 	},
+/obj/structure/platform/cutout,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "wzW" = (
@@ -49032,6 +49207,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
+"wZG" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/platform,
+/obj/structure/closet/hazmat/research,
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "wZJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -49040,14 +49222,13 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
-	name = "airlock_horizon_deck_2_aft_indra";
-	frequency = 2003
+	name = "airlock_horizon_deck_2_aft_indra"
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = 20;
-	dir = 2
+	pixel_y = 20
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -49465,12 +49646,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "xio" = (
-/obj/machinery/atmospherics/unary/freezer{
-	dir = 1;
-	icon_state = "freezer"
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
+	},
+/obj/machinery/atmospherics/unary/heater{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -49550,7 +49730,10 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "xkH" = (
-/turf/simulated/open,
+/obj/machinery/firealarm/south,
+/obj/machinery/mech_recharger,
+/mob/living/silicon/robot/shell,
+/turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "xkQ" = (
 /obj/structure/cable/green{
@@ -50190,6 +50373,15 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"xBf" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "xBv" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -51028,18 +51220,16 @@
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
 "xTr" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = 28;
-	dir = 8
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
-	name = "airlock_horizon_deck_2_aft_sm";
-	frequency = 2005
+	name = "airlock_horizon_deck_2_aft_sm"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -51632,15 +51822,11 @@
 	dir = 8;
 	name = "Trays to Scrubbers"
 	},
-/obj/structure/sink/kitchen{
-	dir = 4;
-	name = "Sterile Sink";
-	pixel_x = -20
-	},
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "yfo" = (
 /obj/machinery/door/firedoor,
@@ -70630,7 +70816,7 @@ ilT
 nge
 fKi
 xxi
-oyK
+dpG
 sYl
 oUt
 oUt
@@ -71468,7 +71654,7 @@ hGC
 tre
 qfC
 hnf
-dMA
+tre
 kgp
 piY
 bhj
@@ -73427,13 +73613,13 @@ qgN
 qgN
 qgN
 qgN
-bBO
-bBO
-bBO
-bBO
-bBO
-bBO
-bBO
+nlQ
+nlQ
+nlQ
+nlQ
+nlQ
+nlQ
+nlQ
 bBO
 tTg
 bBO
@@ -73628,14 +73814,14 @@ qgN
 qgN
 qgN
 qgN
-bBO
-bBO
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
+nlQ
+nlQ
+sZL
+tWI
+xBf
+hBk
+dId
+hui
 cQS
 tyZ
 cQS
@@ -73830,14 +74016,14 @@ qgN
 qgN
 qgN
 qgN
-bBO
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
+nlQ
+kiT
+qEY
+rle
+cVs
+aUy
+peL
+jRF
 cQS
 wZJ
 cQS
@@ -74032,15 +74218,15 @@ qgN
 qgN
 qgN
 qgN
-bBO
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-cQS
+nlQ
+uEV
+peL
+peL
+cIc
+aUy
+bxW
+qtD
+qxt
 cZq
 lqM
 tfr
@@ -74234,15 +74420,15 @@ qgN
 qgN
 qgN
 qgN
-bBO
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-cQS
+nlQ
+peL
+peL
+peL
+cIc
+iwt
+grq
+cXk
+cYs
 uaM
 llI
 rLn
@@ -74436,15 +74622,15 @@ qgN
 qgN
 qgN
 qgN
-bBO
+nlQ
 pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-cQS
+peL
+peL
+cuH
+mIk
+cIc
+kMl
+qxt
 qwq
 kga
 kDN
@@ -74638,17 +74824,17 @@ qgN
 qgN
 qgN
 qgN
-bBO
+nlQ
 pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-pXV
-cQS
+peL
+rSl
+sVf
+fbG
+fqd
+uzQ
+qxt
 dcX
-lbf
+aXO
 lbf
 nHY
 aQc
@@ -74841,7 +75027,7 @@ qgN
 qgN
 qgN
 fJv
-kiT
+seK
 seK
 seK
 seK
@@ -75043,7 +75229,7 @@ qgN
 qgN
 qgN
 fJv
-kiT
+seK
 seK
 pRf
 rwW
@@ -77284,9 +77470,9 @@ mRl
 uEq
 uEq
 kpC
-hst
+cyZ
 cRs
-osY
+cyZ
 sHR
 xcp
 ahm
@@ -77688,7 +77874,7 @@ pUT
 hst
 hst
 bkQ
-hst
+vEO
 eyY
 hst
 imA
@@ -78090,7 +78276,7 @@ uEq
 uEq
 uEq
 hst
-hst
+fcV
 aSV
 hst
 hst
@@ -78494,7 +78680,7 @@ hoe
 hoe
 hoe
 hst
-hst
+fcV
 aSV
 hst
 iXI
@@ -78900,7 +79086,7 @@ jTA
 hst
 hst
 juY
-hst
+rnF
 bkQ
 hst
 qvl
@@ -79311,7 +79497,7 @@ fDA
 gxa
 azO
 rtH
-xkH
+kXO
 mBB
 jwY
 hqi
@@ -79512,7 +79698,7 @@ dvf
 fmV
 bgN
 dpE
-kXO
+wwO
 xkH
 mBB
 bHL
@@ -79725,7 +79911,7 @@ weq
 sig
 ybp
 nnr
-lcG
+rnA
 kGX
 kGX
 kGX
@@ -84169,7 +84355,7 @@ pkV
 jMk
 rFn
 tiI
-rFn
+wZG
 iwo
 gqF
 gzU

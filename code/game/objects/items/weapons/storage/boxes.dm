@@ -1230,3 +1230,11 @@
 	. = ..()
 	make_exact_fit()
 
+/obj/item/storage/box/led_collars
+	name = "box of LED collars"
+	desc = "A box containing eight LED collars, usually worn around the neck of the voidsuit."
+	starts_with = list(/obj/item/clothing/accessory/led_collar = 8)
+
+/obj/item/storage/box/led_collars/fill()
+	..()
+	make_exact_fit()
