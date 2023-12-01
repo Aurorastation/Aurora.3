@@ -149,29 +149,41 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 	return 1
 
+/obj/item/device/uplink/hidden/proc/new_nanoui_item_data(var/datum/uplink_item/item){
+	var/tc_cost = item.telecrystal_cost(telecrystals)
+	var/bc_cost = item.bluecrystal_cost(bluecrystals)
+	var/can_buy = item.can_buy_telecrystals(src) || item.can_buy_bluecrystals(src)
+	var/newItem = list(
+		"name" = item.name,
+		"description" = replacetext(item.description(), "\n", "<br>"),
+		"can_buy" = can_buy,
+		"tc_cost" = tc_cost,
+		"bc_cost" = bc_cost,
+		"left" = item.items_left(src),
+		"ref" = "\ref[item]"
+	)
+	return newItem
+}
+
 /obj/item/device/uplink/hidden/proc/update_nano_data()
 	if(nanoui_menu == 0)
 		var/categories[0]
+		var/items[0]
 		for(var/datum/uplink_category/category in uplink.categories)
 			if(category.can_view(src))
 				categories[++categories.len] = list("name" = category.name, "ref" = "\ref[category]")
+				for(var/datum/uplink_item/item in category.items) {
+					if(item.can_view(src)) {
+						items[++items.len] = new_nanoui_item_data(item)
+					}
+				}
 		nanoui_data["categories"] = categories
+		nanoui_data["items"] = items
 	else if(nanoui_menu == 1)
 		var/items[0]
 		for(var/datum/uplink_item/item in category.items)
 			if(item.can_view(src))
-				var/tc_cost = item.telecrystal_cost(telecrystals)
-				var/bc_cost = item.bluecrystal_cost(bluecrystals)
-				var/can_buy = item.can_buy_telecrystals(src) || item.can_buy_bluecrystals(src)
-				items[++items.len] = list(
-					"name" = item.name,
-					"description" = replacetext(item.description(), "\n", "<br>"),
-					"can_buy" = can_buy,
-					"tc_cost" = tc_cost,
-					"bc_cost" = bc_cost,
-					"left" = item.items_left(src),
-					"ref" = "\ref[item]"
-				)
+				items[++items.len] = new_nanoui_item_data(item)
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
 		var/permanentData[0]
