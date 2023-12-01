@@ -15,7 +15,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/shuttle/konyang_pirate
 	name = "Repaired Shuttle"

@@ -207,7 +207,14 @@
 	items = list(/obj/item/reagent_containers/food/snacks/fish)
 	result = /obj/item/reagent_containers/food/snacks/soup/brudet
 
-// Europa
+// Europan food
+/singleton/recipe/chetroinuoc
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/nutriment/vanilla = 5, /singleton/reagent/nutriment/rice = 10)
+	fruit = list("soybeans" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/chetroinuoc
+
 
 /singleton/recipe/deepdive
 	fruit = list ("seaweed" = 1)
@@ -216,6 +223,7 @@
 		/obj/item/reagent_containers/food/snacks/fish,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/deepdive
 
 // Biesel
@@ -224,5 +232,6 @@
 	appliance = SAUCEPAN
 	fruit = list ("blue raspberry" = 1)
 	reagents = list(/singleton/reagent/drink/milk/cream = 5)
-	items = list(/obj/item/reagent_containers/food/snacks/chocolatebar/white)
+	items = list(/obj/item/reagent_containers/food/snacks/whitechocolate)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/bluemoon
