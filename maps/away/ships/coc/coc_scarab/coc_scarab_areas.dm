@@ -24,10 +24,6 @@
 	name = "Scarab Salvage Vessel - Armory"
 	icon_state = "armory"
 
-/area/coc_scarab/ammo
-	name = "Scarab Salvage Vessel - Ammunition Storage"
-	icon_state = "Tactical"
-
 /area/coc_scarab/grauwolf
 	name = "Scarab Salvage Vessel - Flak Battery"
 	icon_state = "thunder"
