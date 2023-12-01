@@ -15,7 +15,11 @@ var/list/global_huds
 	var/obj/screen/thermal
 	var/obj/screen/meson
 	var/obj/screen/science
-	var/obj/screen/holomap
+
+/datum/global_hud/Destroy(force)
+	SHOULD_CALL_PARENT(FALSE)
+	stack_trace("Someone is trying to delete a global_hud!")
+	return QDEL_HINT_LETMELIVE
 
 /datum/global_hud/Destroy(force)
 	SHOULD_CALL_PARENT(FALSE)
@@ -63,18 +67,6 @@ var/list/global_huds
 	thermal = setup_overlay("scanline", "#ff0000")
 	meson = setup_overlay("scanline", "#9fd800")
 	science = setup_overlay("scanline", "#d600d6")
-
-	// The holomap screen object is actually totally invisible.
-	// Station maps work by setting it as an images location before sending to client, not
-	// actually changing the icon or icon state of the screen object itself!
-	// Why do they work this way? I don't know really, that is how /vg/ designed them, but since they DO
-	// work this way, we can take advantage of their immutability by making them part of
-	// the global_hud (something we have and /vg/ doesn't) instead of an instance per mob.
-	holomap = new /obj/screen(globalscreen = TRUE)
-	holomap.name = "holomap"
-	holomap.icon = null
-	holomap.screen_loc = ui_holomap
-	holomap.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/obj/screen/O
 	var/i

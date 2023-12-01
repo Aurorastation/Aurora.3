@@ -23,7 +23,8 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	can_be_placed_into = null
-	flags = OPENCONTAINER | NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	unacidable = FALSE
 	fragile = FALSE
 	drop_sound = 'sound/items/drop/cloth.ogg'
@@ -160,7 +161,7 @@
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					return // we can only do one at a time
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
 						SPAN_DANGER("\The [user] smothers [target] with [src]!"),

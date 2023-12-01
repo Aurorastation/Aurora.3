@@ -18,7 +18,6 @@ SUBSYSTEM_DEF(misc_early)
 		global_hud.thermal,
 		global_hud.meson,
 		global_hud.science,
-		global_hud.holomap
 	)
 
 	// Populate global list of tips by category

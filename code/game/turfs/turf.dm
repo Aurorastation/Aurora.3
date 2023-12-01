@@ -93,7 +93,7 @@
 		// Hard-coding this for performance reasons.
 		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
 
-	if (A.flags & SPAWN_ROOF)
+	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -189,21 +189,21 @@
 
 	//First, check objects to block exit that are not on the border
 	for(var/obj/obstacle in mover.loc)
-		if(!(obstacle.flags & ON_BORDER) && (mover != obstacle) && (forget != obstacle))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
 			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
 				return 0
 
 	//Now, check objects to block exit that are on the border
 	for(var/obj/border_obstacle in mover.loc)
-		if((border_obstacle.flags & ON_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
+		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
 			if(!border_obstacle.CheckExit(mover, src))
 				mover.Collide(border_obstacle)
 				return 0
 
 	//Next, check objects to block entry that are on the border
 	for(var/obj/border_obstacle in src)
-		if(border_obstacle.flags & ON_BORDER)
+		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
 				mover.Collide(border_obstacle)
 				return 0
@@ -215,7 +215,7 @@
 
 	//Finally, check objects/mobs to block entry that are not on the border
 	for(var/atom/movable/obstacle in src)
-		if(!(obstacle.flags & ON_BORDER))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
 				mover.Collide(obstacle)
 				return 0
@@ -283,13 +283,13 @@ var/const/enterloopsanity = 100
 	..(AM, old_loc)
 
 	var/objects = 0
-	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
+	if(AM && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE) && AM.simulated)
 		for(var/atom/movable/oAM in range(1))
 			if(objects > enterloopsanity)
 				break
 			objects++
 
-			if (oAM.simulated && (oAM.flags & PROXMOVE))
+			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
@@ -302,7 +302,7 @@ var/const/enterloopsanity = 100
 	set waitfor = FALSE
 	sleep(0)
 	HasProximity(AM, TRUE)
-	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
+	if (!QDELETED(AM) && !QDELETED(src) && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 		AM.HasProximity(src, TRUE)
 
 /turf/proc/adjacent_fire_act(turf/simulated/floor/source, temperature, volume)
@@ -387,7 +387,7 @@ var/const/enterloopsanity = 100
 	if(density)
 		return 1
 	for(var/atom/A in src)
-		if(A.density && !(A.flags & ON_BORDER))
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 	return 0
 

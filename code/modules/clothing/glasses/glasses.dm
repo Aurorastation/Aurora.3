@@ -63,7 +63,7 @@ BLIND     // can't see anything
 	update_clothing_icon()
 
 /obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
-	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
+	if(stabbed && (body_parts_covered & EYES) && !(item_flags & ITEM_FLAG_THICK_MATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
 		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
@@ -124,7 +124,7 @@ BLIND     // can't see anything
 	toggleable = 1
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 	activated_color = LIGHT_COLOR_GREEN
 
 /obj/item/clothing/glasses/meson/Initialize()
@@ -217,7 +217,7 @@ BLIND     // can't see anything
 	)
 	toggleable = 1
 	unacidable = 1
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/science/Initialize()
 	. = ..()
@@ -261,7 +261,7 @@ BLIND     // can't see anything
 	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
 	icon_state = "plaingoggles"
 	item_state = "plaingoggles"
-	item_flags = AIRTIGHT|THICKMATERIAL
+	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_THICK_MATERIAL
 	unacidable = 1
 
 /obj/item/clothing/glasses/safety/prescription
@@ -505,7 +505,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
 	vision_flags = SEE_OBJS
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/material/aviator
 	name = "material aviators"
@@ -687,7 +687,7 @@ BLIND     // can't see anything
 	action_button_name = "Flip Welding Goggles"
 
 	var/up = 0
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	normal_layer = GLASSES_LAYER_ALT
@@ -730,7 +730,7 @@ BLIND     // can't see anything
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	canremove = FALSE
@@ -876,7 +876,7 @@ BLIND     // can't see anything
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
 	icon_state = "swatgoggles"
 	item_state = "swatgoggles"
-	item_flags = AIRTIGHT|THICKMATERIAL
+	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_THICK_MATERIAL
 
 /obj/item/clothing/glasses/sunglasses/sechud/head
 	name = "advanced aviators"
@@ -982,7 +982,7 @@ BLIND     // can't see anything
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	flash_protection = FLASH_PROTECTION_REDUCED
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/emp_act(severity)
 	if(istype(src.loc, /mob/living/carbon/human))
@@ -1017,15 +1017,14 @@ BLIND     // can't see anything
 	toggleable = 0
 	activation_sound = null
 	action_button_name = null
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/plain/monocle
 	name = "thermonocle"
 	desc = "A monocle thermal."
 	icon_state = "thermonocle"
 	item_state = "thermonocle"
-	flags = null //doesn't protect eyes because it's a monocle, duh
-	item_flags = null
+	item_flags = null //doesn't protect eyes because it's a monocle, duh
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/thermal/plain/jensen
@@ -1210,7 +1209,7 @@ BLIND     // can't see anything
 	item_state = "spiffygogs"
 	action_button_name = "Adjust Goggles"
 	var/up = 0
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/spiffygogs/attack_self()
 	toggle()
@@ -1227,14 +1226,14 @@ BLIND     // can't see anything
 			flags_inv |= HIDEEYES
 			body_parts_covered |= EYES
 			icon_state = initial(icon_state)
-			item_flags |= AIRTIGHT
+			item_flags |= ITEM_FLAG_AIRTIGHT
 			to_chat(usr, "You flip \the [src] down over your eyes.")
 		else
 			src.up = !src.up
 			flags_inv &= ~HIDEEYES
 			body_parts_covered &= ~EYES
 			icon_state = "[initial(icon_state)]up"
-			item_flags &= ~AIRTIGHT
+			item_flags &= ~ITEM_FLAG_AIRTIGHT
 			to_chat(usr, "You push \the [src] up off your eyes.")
 		update_clothing_icon()
 		usr.update_action_buttons()

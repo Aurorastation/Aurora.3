@@ -13,6 +13,9 @@
 /area/engineering/aft_airlock
 	name = "Engineering - Aft Service Airlock"
 
+/area/engineering/rust_office
+	name = "Engineering - INDRA Office"
+
 /area/engineering/engine_room/rust
 	name = "Engineering - INDRA Engine"
 
@@ -59,6 +62,7 @@
 
 /area/medical/ward/isolation
 	name = "Medical - Isolation Ward"
+	area_blurb = "This seldom-used ward somehow smells sterile and musty at the same time."
 
 /area/medical/emergency_storage
 	name = "Medical - Lower Deck Emergency Storage"
@@ -74,6 +78,7 @@
 
 /area/medical/smoking
 	name = "Medical - Smoking Lounge"
+	area_blurb = "The smell of cigarette smoke lingers within this room."
 
 /area/medical/washroom
 	name = "Medical - Washroom"
@@ -118,6 +123,7 @@
 
 /area/hangar/intrepid
 	name = "Intrepid Hangar"
+	area_blurb = "A big, open room, often housing the Horizon's largest shuttle, the Intrepid."
 
 /area/hangar/intrepid/interstitial
 	name = "Intrepid Hangar Access"
@@ -155,10 +161,12 @@
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
 	sound_env = LARGE_ENCLOSED
+	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
 
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"
+	area_blurb = "The scents of oil and machine lubricant fill the air in this workshop."
 
 /area/operations/lobby
 	name = "Operations Lobby"
@@ -329,7 +337,7 @@
 /area/horizon/maintenance
 	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
 	icon_state = "maintenance"
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
@@ -384,7 +392,7 @@
 // Stairwells
 /area/horizon/stairwell
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/horizon/stairwell/central
@@ -403,7 +411,7 @@
 // Crew Quarters
 /area/horizon/crew_quarters
 	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Cryogenics
@@ -482,7 +490,7 @@
 // Holodeck
 /area/horizon/holodeck_control
 	name = "Horizon - Holodeck Alpha"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/holodeck_control/beta
@@ -494,7 +502,7 @@
 	sound_env = LARGE_ENCLOSED
 	no_light_control = TRUE
 	dynamic_lighting = FALSE
-	flags = RAD_SHIELDED | NO_GHOST_TELEPORT_ACCESS
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/holodeck/alphadeck
@@ -658,13 +666,14 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria
 	name = "Horizon - Deck 3 Cafeteria"
 	icon_state = "cafeteria"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_blurb = "The smell of coffee wafts over from the cafe. Patience the tree stands proudly in the centre of the atrium."
 
 // Custodial
 /area/horizon/custodial
@@ -674,11 +683,13 @@
 	sound_env = LARGE_ENCLOSED
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_blurb = "A strong, concentrated smell of many cleaning supplies sits within this room."
 
 /area/horizon/custodial/disposals
 	name = "Horizon - Disposals and Recycling"
 	icon_state = "disposal"
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
+	area_blurb = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
 
 /area/horizon/custodial/auxiliary
 	name = "Horizon - Auxiliary Custodial Closet"
@@ -731,7 +742,7 @@
 /area/horizon/security/brig
 	name = "Horizon - Security - Brig"
 	icon_state = "brig"
-	flags = HIDE_FROM_HOLOMAP | PRISON
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PRISON
 	ambience = AMBIENCE_HIGHSEC
 
 /area/horizon/security/holding_cell_a
@@ -745,21 +756,21 @@
 /area/horizon/security/head_of_security
 	name = "Horizon - Security - Head of Security's Office"
 	icon_state = "head_quarters"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
 	sound_env = SMALL_ENCLOSED
 
 /area/horizon/security/warden
 	name = "Horizon - Security - Warden's Office"
 	icon_state = "Warden"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
 	sound_env = SMALL_ENCLOSED
 
 /area/horizon/security/armoury
 	name = "Horizon - Security - Armoury"
 	icon_state = "Warden"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	ambience = AMBIENCE_HIGHSEC
 	sound_env = LARGE_ENCLOSED
 
@@ -821,7 +832,8 @@
 	icon_state = "zta"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
-	flags = HIDE_FROM_HOLOMAP
+	area_blurb = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // Longbow
 /area/horizon/longbow
@@ -829,13 +841,13 @@
 	icon_state = "bridge_weapon"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/horizon/grauwolf
 	name = "Horizon - Grauwolf Weapon System"
 	icon_state = "bridge_weapon"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Weapon Systems End **********/
