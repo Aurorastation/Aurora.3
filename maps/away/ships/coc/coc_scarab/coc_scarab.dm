@@ -39,7 +39,12 @@
 		"scarab_nav1",
 		"scarab_nav2",
 		"scarab_nav3",
-		"scarab_nav4"
+		"scarab_nav4",
+		"scarab_dock1",
+		"scarab_dock2",
+		"scarab_dock3",
+		"scarab_dock4",
+		"scarab_dock5"
 	)
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("scarab_intrepid"),
@@ -71,6 +76,26 @@
 	name = "Scarab Salvage Vessel - Starboard"
 	landmark_tag = "scarab_nav4"
 
+/obj/effect/shuttle_landmark/coc_scarab/dock1
+	name = "Scarab Salvage Vessel - Port Dock #1"
+	landmark_tag = "scarab_dock1"
+
+/obj/effect/shuttle_landmark/coc_scarab/dock2
+	name = "Scarab Salvage Vessel - Port Dock #2"
+	landmark_tag = "scarab_dock2"
+
+/obj/effect/shuttle_landmark/coc_scarab/dock3
+	name = "Scarab Salvage Vessel - Starboard Dock #1"
+	landmark_tag = "scarab_dock3"
+
+/obj/effect/shuttle_landmark/coc_scarab/dock4
+	name = "Scarab Salvage Vessel - Starboard Dock #2"
+	landmark_tag = "scarab_dock4"
+
+/obj/effect/shuttle_landmark/coc_scarab/dock5
+	name = "Scarab Salvage Vessel - Starboard Dock #3"
+	landmark_tag = "scarab_dock5"
+
 /obj/effect/shuttle_landmark/coc_scarab/intrepid
 	name = "Scarab Salvage Vessel - Intrepid Dock"
 	landmark_tag = "scarab_intrepid"
@@ -88,7 +113,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = SOUTH
+	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester
