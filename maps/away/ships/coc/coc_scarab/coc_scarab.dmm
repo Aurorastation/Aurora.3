@@ -114,7 +114,7 @@
 /area/coc_scarab/medical)
 "aT" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/shuttle_landmark/coc_scarab/dock3{
+/obj/effect/shuttle_landmark/coc_scarab/dock4{
 	dir = 1
 	},
 /turf/template_noop,
@@ -3949,7 +3949,7 @@
 	density = 0;
 	icon_state = "railing0-0"
 	},
-/obj/effect/shuttle_landmark/coc_scarab/dock3{
+/obj/effect/shuttle_landmark/coc_scarab/dock5{
 	dir = 4
 	},
 /turf/template_noop,
