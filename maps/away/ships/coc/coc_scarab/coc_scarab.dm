@@ -2,10 +2,8 @@
 	name = "Scarab Salvage Ship"
 	description = "Scarab salvage ship."
 	suffixes = list("ships/coc/coc_scarab/coc_scarab.dmm")
-	//sectors = list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE)
-	//spawn_weight = 1
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE)
+	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_scarab"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_gas_harvester, /datum/shuttle/autodock/overmap/scarab_shuttle)
