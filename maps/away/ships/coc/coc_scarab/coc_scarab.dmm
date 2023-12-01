@@ -24,6 +24,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
 "am" = (
@@ -89,8 +90,10 @@
 "aT" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/coc_scarab/dock2{
+	dir = 8
 	},
 /turf/template_noop,
 /area/space)
@@ -713,21 +716,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "fp" = (
-/obj/structure/table/steel,
-/obj/machinery/recharger{
-	pixel_x = -6;
-	pixel_y = 10
-	},
-/obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 10
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
 "ft" = (
@@ -924,15 +923,14 @@
 /area/shuttle/scarab_harvester)
 "gK" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/railing/mapped{
-	dir = 1
+	density = 0;
+	icon_state = "railing0-0"
 	},
-/turf/simulated/floor/airless,
+/obj/effect/shuttle_landmark/coc_scarab/dock3{
+	dir = 4
+	},
+/turf/template_noop,
 /area/space)
 "gL" = (
 /obj/structure/railing/mapped{
@@ -961,6 +959,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
+"gY" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/coc_scarab/dock1,
+/turf/template_noop,
+/area/space)
 "hb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/cable{
@@ -1049,6 +1055,17 @@
 	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/engine)
+"id" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/template_noop,
+/area/space)
 "ie" = (
 /obj/machinery/vending/hydronutrients,
 /obj/machinery/light,
@@ -1300,16 +1317,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/hydroponics)
-"ko" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/space,
-/area/space)
 "kv" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -1365,13 +1372,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/thrust2)
-"ld" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/shuttle_landmark/coc_scarab/dock3{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "lg" = (
 /mob/living/heavy_vehicle/premade/light/salvage,
 /obj/machinery/light,
@@ -1564,11 +1564,11 @@
 /turf/simulated/floor/tiled,
 /area/coc_scarab/bunks)
 "mK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
@@ -2074,8 +2074,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/grauwolf)
 "qT" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
@@ -2114,15 +2114,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "rj" = (
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/template_noop,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "rk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2195,6 +2196,9 @@
 /area/space)
 "rP" = (
 /obj/effect/floor_decal/corner_wide/orange,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
 "rV" = (
@@ -2324,13 +2328,6 @@
 "sL" = (
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
-"sN" = (
-/obj/effect/shuttle_landmark/coc_scarab/intrepid{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
-/area/space)
 "sR" = (
 /obj/effect/shuttle_landmark/coc_scarab/nav4,
 /turf/template_noop,
@@ -2344,19 +2341,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "th" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/turf/template_noop,
+/area/space)
 "ti" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -2496,6 +2487,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
 "uL" = (
@@ -2541,6 +2533,20 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"uT" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/shuttle_landmark/coc_scarab/dock3{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
+"uV" = (
+/obj/effect/shuttle_landmark/coc_scarab/intrepid{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/template_noop,
 /area/space)
 "uW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -2727,6 +2733,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
+"wt" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/template_noop,
+/area/space)
 "ww" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2843,6 +2857,14 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
+"xH" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "xI" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3341,14 +3363,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
-"BU" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/shuttle_landmark/coc_scarab/dock3,
-/turf/template_noop,
-/area/space)
 "BV" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/armory)
@@ -3872,12 +3886,14 @@
 /turf/simulated/floor/airless,
 /area/space)
 "GK" = (
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space,
 /area/space)
 "GP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3970,14 +3986,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
-"Hy" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
-/turf/simulated/floor/airless,
-/area/space)
 "HD" = (
 /obj/structure/table/steel,
 /obj/item/material/knife/bayonet,
@@ -4217,14 +4225,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
-"JE" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/shuttle_landmark/coc_scarab/dock1,
-/turf/template_noop,
-/area/space)
 "JF" = (
 /obj/machinery/sleeper{
 	dir = 1
@@ -4365,6 +4365,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"La" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/coc_scarab/dock3,
+/turf/template_noop,
+/area/space)
 "Lc" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4574,16 +4582,6 @@
 "MT" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/bunks)
-"MU" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/coc_scarab/dock2{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
 "MV" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
@@ -4727,6 +4725,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"Oj" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "Oq" = (
 /obj/item/reagent_containers/blood/OMinus{
 	pixel_x = -7
@@ -6151,16 +6160,23 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/grauwolf)
 "Zb" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/table/steel,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/equipment)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -6187,17 +6203,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
-"Zu" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
-/obj/effect/shuttle_landmark/coc_scarab/dock3{
-	dir = 4
-	},
-/turf/template_noop,
 /area/space)
 "ZA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
@@ -30832,7 +30837,7 @@ cB
 cB
 cB
 cB
-BU
+La
 Er
 cB
 cB
@@ -31090,7 +31095,7 @@ cB
 cB
 cB
 px
-aT
+th
 cB
 cB
 cB
@@ -31103,7 +31108,7 @@ cB
 cB
 cB
 OB
-ld
+uT
 cB
 cB
 cB
@@ -31347,7 +31352,7 @@ cB
 cB
 cB
 OB
-aT
+th
 cB
 cB
 cB
@@ -31360,7 +31365,7 @@ cB
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -31604,7 +31609,7 @@ cB
 cB
 cB
 OB
-aT
+th
 cB
 cB
 cB
@@ -31617,7 +31622,7 @@ cB
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -31861,7 +31866,7 @@ cB
 cB
 cB
 OB
-aT
+th
 cB
 cB
 cB
@@ -31874,7 +31879,7 @@ cB
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -32131,7 +32136,7 @@ IR
 IR
 IR
 qs
-aT
+th
 cB
 cB
 cB
@@ -32388,7 +32393,7 @@ px
 px
 px
 qs
-aT
+th
 cB
 cB
 cB
@@ -32645,7 +32650,7 @@ gL
 GT
 Tx
 qs
-aT
+th
 cB
 cB
 cB
@@ -32902,7 +32907,7 @@ zU
 zU
 ru
 qs
-aT
+th
 cB
 cB
 cB
@@ -33159,7 +33164,7 @@ Rr
 HY
 Il
 SV
-aT
+th
 cB
 cB
 cB
@@ -33416,7 +33421,7 @@ zU
 bL
 RS
 qs
-aT
+th
 cB
 cB
 cB
@@ -33429,7 +33434,7 @@ cB
 cB
 cB
 OB
-Zu
+gK
 cB
 cB
 cB
@@ -37532,7 +37537,7 @@ Tu
 mS
 cv
 Tu
-th
+mS
 mS
 iG
 Qz
@@ -37789,7 +37794,7 @@ eN
 sL
 Wq
 Ev
-Vv
+sL
 ZI
 VS
 LE
@@ -38046,7 +38051,7 @@ gA
 sL
 sL
 Ev
-Vv
+sL
 GR
 VS
 Oq
@@ -38303,7 +38308,7 @@ Tw
 sL
 sL
 Ev
-Vv
+sL
 ws
 VS
 RA
@@ -38556,7 +38561,7 @@ vk
 AY
 RL
 ny
-fa
+Zb
 rP
 ak
 uJ
@@ -39844,8 +39849,8 @@ vZ
 pl
 lb
 lb
-gK
-Hy
+rj
+xH
 lb
 lb
 cB
@@ -40101,8 +40106,8 @@ vZ
 Qd
 lb
 lb
-gK
-Hy
+rj
+xH
 lb
 cB
 cB
@@ -40358,8 +40363,8 @@ vZ
 pl
 lb
 lb
-gK
-Hy
+rj
+xH
 lb
 cB
 cB
@@ -40615,8 +40620,8 @@ vZ
 Qd
 lb
 lb
-gK
-Hy
+rj
+xH
 lb
 cB
 cB
@@ -40872,7 +40877,7 @@ vZ
 pl
 lb
 lb
-gK
+rj
 Fq
 IR
 IR
@@ -41115,9 +41120,9 @@ Lg
 QK
 gc
 VK
-ko
-ko
-ko
+GK
+GK
+GK
 eY
 rL
 jq
@@ -41149,7 +41154,7 @@ od
 od
 od
 qs
-aT
+th
 cB
 cB
 cB
@@ -41371,7 +41376,7 @@ ey
 fU
 tF
 qs
-GK
+wt
 lb
 lb
 lb
@@ -41406,7 +41411,7 @@ lb
 lb
 lb
 Kk
-aT
+th
 cB
 cB
 cB
@@ -41628,7 +41633,7 @@ yu
 yu
 yu
 qs
-GK
+wt
 lb
 lb
 TU
@@ -41663,7 +41668,7 @@ eX
 eX
 lb
 Kk
-aT
+th
 cB
 cB
 cB
@@ -41885,7 +41890,7 @@ yu
 yu
 cB
 Kk
-GK
+wt
 lb
 lb
 bJ
@@ -41920,7 +41925,7 @@ vY
 IM
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -42142,7 +42147,7 @@ yu
 cB
 cB
 Kk
-GK
+wt
 Mt
 bJ
 bJ
@@ -42177,7 +42182,7 @@ ox
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -42399,7 +42404,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 bJ
 bJ
 bJ
@@ -42434,7 +42439,7 @@ JI
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -42656,7 +42661,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 pz
 Wa
 tO
@@ -42691,7 +42696,7 @@ AS
 wc
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -42913,7 +42918,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 pz
 ui
 il
@@ -43170,7 +43175,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 pz
 nZ
 il
@@ -43206,7 +43211,7 @@ ac
 od
 qs
 px
-sN
+uV
 cB
 cB
 cB
@@ -43427,7 +43432,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 bJ
 bJ
 ZT
@@ -43462,7 +43467,7 @@ NT
 XU
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -43684,7 +43689,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 QA
 bJ
 bJ
@@ -43719,7 +43724,7 @@ JI
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -43941,7 +43946,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 cB
 cB
 cB
@@ -43976,7 +43981,7 @@ JI
 cB
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -44198,7 +44203,7 @@ cB
 cB
 cB
 Kk
-GK
+wt
 cB
 cB
 cB
@@ -44233,7 +44238,7 @@ AS
 wc
 cB
 Kk
-aT
+th
 cB
 cB
 cB
@@ -44453,9 +44458,9 @@ cB
 cB
 cB
 cB
-JE
+gY
 qs
-GK
+wt
 cB
 cB
 cB
@@ -44490,7 +44495,7 @@ eX
 eX
 cB
 jk
-aT
+th
 cB
 cB
 cB
@@ -44712,7 +44717,7 @@ cB
 cB
 lM
 od
-rj
+Oj
 cB
 cB
 cB
@@ -44727,7 +44732,7 @@ cB
 cB
 cB
 cB
-MU
+aT
 tr
 cB
 cB
@@ -44747,7 +44752,7 @@ cB
 cB
 cB
 zW
-Zb
+id
 cB
 cB
 cB
