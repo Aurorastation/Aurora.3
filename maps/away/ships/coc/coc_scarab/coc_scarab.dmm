@@ -74,6 +74,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"at" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, medical"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/medical)
 "av" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -289,6 +295,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"cl" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, medical"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/medical)
 "cn" = (
 /obj/structure/railing/mapped{
 	density = 0;
@@ -346,6 +358,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
+"cw" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "cB" = (
 /turf/template_noop,
 /area/space)
@@ -562,6 +578,7 @@
 	pixel_y = -28;
 	pixel_x = -8
 	},
+/obj/effect/landmark/entry_point/starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "et" = (
@@ -686,6 +703,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
+"fg" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thruster"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust2)
 "fj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -1043,12 +1067,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
+"hJ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, crew quarters"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/bunks)
 "hN" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
+"hW" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/scarab_harvester)
 "ib" = (
 /obj/machinery/door/blast/regular{
@@ -1628,6 +1665,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
+"nJ" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "nP" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1711,6 +1752,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"ou" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "ox" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
@@ -1727,6 +1775,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"oG" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thruster"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/thrust1)
 "oK" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
 /turf/simulated/floor/plating,
@@ -1749,6 +1804,9 @@
 	},
 /obj/machinery/power/tracker,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, solars"
+	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/solars)
 "pa" = (
@@ -2017,6 +2075,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/scarab_harvester)
+"qF" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_bridge";
+	name = "Bridge Blast Door";
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/bridge)
 "qK" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2390,6 +2460,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/hydroponics)
+"tQ" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew quarters"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/bunks)
 "tZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3140,6 +3216,9 @@
 /area/coc_scarab/engine)
 "AA" = (
 /obj/structure/viewport,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, flak battery"
+	},
 /turf/simulated/floor/reinforced,
 /area/coc_scarab/grauwolf)
 "AD" = (
@@ -3272,6 +3351,12 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
+"Bu" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/scarab_harvester)
 "BL" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3589,6 +3674,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
+"Ez" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, flak battery"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/grauwolf)
 "EA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
@@ -4071,6 +4162,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine room"
+	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "IJ" = (
@@ -4478,6 +4572,9 @@
 	master_tag = "airlock_scarab_stbd"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, airlock"
+	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "Mo" = (
@@ -4781,6 +4878,12 @@
 	},
 /turf/template_noop,
 /area/space)
+"OE" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/scarab_harvester)
 "OM" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5411,6 +5514,9 @@
 	master_tag = "airlock_scarab_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "TC" = (
@@ -5583,6 +5689,12 @@
 	id = "scav_igni"
 	},
 /turf/simulated/floor/plating,
+/area/coc_scarab/engine)
+"Um" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engine room"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/engine)
 "Up" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -5958,6 +6070,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"Xt" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "Xz" = (
 /obj/machinery/light,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -6043,6 +6160,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
+/area/coc_scarab/hydroponics)
+"YA" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, hydroponics"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/hydroponics)
 "YD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -33605,7 +33728,7 @@ cB
 cB
 cB
 cB
-wI
+oG
 CP
 vK
 Dm
@@ -34418,7 +34541,7 @@ mM
 YY
 YY
 YY
-YY
+Ez
 YY
 YY
 YY
@@ -34669,7 +34792,7 @@ It
 It
 mM
 mM
-mM
+YA
 mM
 RU
 YY
@@ -35949,7 +36072,7 @@ ny
 VS
 VS
 VS
-VS
+cl
 VS
 VS
 mM
@@ -37511,7 +37634,7 @@ xO
 aG
 TN
 Bk
-Iw
+qF
 cB
 cB
 cB
@@ -39033,7 +39156,7 @@ ny
 VS
 VS
 VS
-VS
+at
 VS
 VS
 Up
@@ -39275,7 +39398,7 @@ Yk
 Hp
 Hp
 Hp
-Hp
+Um
 Hp
 Hp
 Hp
@@ -39818,7 +39941,7 @@ yU
 yU
 Kt
 Sf
-Je
+hJ
 cB
 cB
 cB
@@ -40587,7 +40710,7 @@ MT
 MT
 MT
 MT
-MT
+tQ
 MT
 MT
 cB
@@ -41315,7 +41438,7 @@ cB
 cB
 cB
 cB
-Ge
+fg
 wT
 lc
 Jg
@@ -42103,7 +42226,7 @@ bJ
 uL
 GD
 bJ
-bJ
+OE
 bJ
 bJ
 hN
@@ -42868,7 +42991,7 @@ cB
 cB
 Kk
 cn
-pz
+ou
 ui
 il
 BW
@@ -42880,12 +43003,12 @@ TS
 te
 oW
 ZA
-bJ
+Bu
 cB
 OB
 tr
 cB
-eX
+nJ
 HW
 En
 En
@@ -42896,7 +43019,7 @@ En
 SH
 ms
 Gt
-tZ
+Xt
 TZ
 TZ
 ac
@@ -43644,7 +43767,7 @@ bJ
 bJ
 bJ
 bJ
-bJ
+hW
 bJ
 bJ
 bJ
@@ -44433,7 +44556,7 @@ eX
 eX
 eX
 eX
-eX
+cw
 eX
 eX
 eX
