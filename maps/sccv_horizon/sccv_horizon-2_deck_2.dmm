@@ -24488,7 +24488,7 @@
 /obj/machinery/button/remote/airlock{
 	id = "xeno_entrance_ext";
 	name = "Xenobiology External Access Bolts";
-	pixel_y = -11;
+	pixel_y = -19;
 	req_access = list(55);
 	specialfunctions = 4;
 	pixel_x = 8
@@ -24501,7 +24501,7 @@
 	name = "Containment Blast Doors";
 	pixel_x = -8;
 	req_access = list(47);
-	pixel_y = -11
+	pixel_y = -19
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
