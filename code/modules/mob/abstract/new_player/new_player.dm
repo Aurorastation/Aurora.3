@@ -54,7 +54,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			for(var/mob/abstract/new_player/player in player_list)
 				if(!player.ready)
 					continue
-				for(var/special_role in player.client.prefs.be_special_role)
+				for(var/special_role in player?.client?.prefs?.be_special_role)
 					ready_special_roles[special_role] += 1
 
 			//Get the list of all antagonist types, if they require more than one person to spawn, check that there's at least one candidate and if so list the number of candidates for it
