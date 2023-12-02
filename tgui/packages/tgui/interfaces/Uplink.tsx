@@ -193,7 +193,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
         i.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
         i.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
     );
-
+  }
   // sort by item cost first
   data.items?.sort((a, b) => {
     const a_cost = Math.max(a.bc_cost, a.tc_cost, 0);
