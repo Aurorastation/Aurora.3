@@ -7,7 +7,6 @@
 	ship_cost = 1
 	id = "ipc_refugee_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ipc_refugee_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // REMOVE FOR FINAL PRODUCT
 
 /singleton/submap_archetype/ipc_refugee_ship
 	map = "IPC Refugee Ship"
@@ -114,7 +113,7 @@
 	dock_target = "ipc_refugee_shuttle"
 	landmark_transition = "nav_transit_ipc_refugee_shuttle"
 	range = 1
-	fuel_consumption = 4 // this thing is ancient, so not as efficient as other shuttles
+	fuel_consumption = 4 // very old, so not as efficient as other shuttles
 	logging_home_tag = "nav_hangar_ipc_refugee"
 	defer_initialisation = TRUE
 
