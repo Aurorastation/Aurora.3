@@ -5,7 +5,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
-	area_flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/ship/gadpathur_patrol/exterior
 	name = "Gadpathurian Corvette - Exterior"
@@ -13,6 +13,7 @@
 	area_flags = null
 	ambience = AMBIENCE_SPACE
 	sound_env = SPACE
+	has_gravity = FALSE
 
 /area/ship/gadpathur_patrol/cic
 	name = "Gadpathurian Corvette - Command Information Center"
