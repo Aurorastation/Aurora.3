@@ -35,7 +35,7 @@ type ItemData = {
 
 type ExploitData = {
   id: number;
-  nanoui_exploit_record: string;
+  tgui_exploit_record: string;
   name: string;
   sex: string;
   age: string;
@@ -334,8 +334,8 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
           </LabeledList.Item>
           <LabeledList.Item label="Acquired Information" />
         </LabeledList>
-        {exploit.nanoui_exploit_record
-          ? exploit.nanoui_exploit_record
+        {exploit.tgui_exploit_record
+          ? exploit.tgui_exploit_record
           : 'No additional information acquired.'}
       </Section>
     );
