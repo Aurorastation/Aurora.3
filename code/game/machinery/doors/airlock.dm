@@ -165,6 +165,8 @@
 	/// Structure example: "red" -> list(1, 2)
 	/// Uses standard access if the current level is not on the list.
 	var/list/access_override_by_level
+	/// Set to TRUE to make the access override use req_one_access instead.
+	var/access_override_req_one = FALSE
 
 /obj/machinery/door/airlock/Initialize(mapload, dir, populate_components, obj/structure/door_assembly/assembly = null)
 	var/on_admin_z = FALSE
