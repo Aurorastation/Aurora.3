@@ -116,6 +116,10 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "fn" = (
@@ -833,6 +837,16 @@
 "Ub" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_telecomms_outpost)
+"Uw" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
 "UK" = (
 /obj/structure/table/steel,
 /obj/machinery/door/window{
@@ -1325,7 +1339,7 @@ Oj
 qg
 Ef
 Dw
-fk
+Uw
 qg
 Oj
 wM
