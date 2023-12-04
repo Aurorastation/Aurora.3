@@ -20,7 +20,7 @@
 
 
 //Since we do not currently use some of the flags that TG uses, we have to perform a bit of an adaptation
-#if defined(UNIT_TEST)
+#if defined(UNIT_TEST) && !defined(OPENDREAM) && !defined(SPACEMAN_DMM)
 	#define CIBUILDING
 	#define TESTING
 #endif //UNIT_TEST
@@ -54,16 +54,16 @@
 //A warning on compile is treated as an error in the CI, therefore unlike TG we must avoid the warn if it's running in the CI
 #if defined(TESTING) && !defined(CIBUILDING) && !defined(OPENDREAM) && !defined(SPACEMAN_DMM)
 	#warn compiling in TESTING mode. testing() debug messages will be visible.
-#endif
+#endif //TESTING
 
 //CIBUILDING requires UNIT_TEST to be defined, if it isn't, define it here
 #if defined(CIBUILDING) && !defined(UNIT_TEST)
 	#define UNIT_TEST
-#endif
+#endif //CIBUILDING
 
 
 //Enable various trackings and debugs if we're running the unit tests
-#if defined(UNIT_TEST)
+#if defined(UNIT_TEST) && !defined(OPENDREAM) && !defined(SPACEMAN_DMM)
 
 	//Hard del testing defines, if you leave a reference, it will search for it
 	#define REFERENCE_TRACKING
