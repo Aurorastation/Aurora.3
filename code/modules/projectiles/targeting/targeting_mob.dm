@@ -1,5 +1,8 @@
 /mob/living
+	///The obj to overlay on the aim target
 	var/obj/aiming_overlay/aiming
+
+	///A list of mobs the target is being aimed at by
 	var/list/aimed_at_by
 
 /mob/verb/toggle_gun_mode()

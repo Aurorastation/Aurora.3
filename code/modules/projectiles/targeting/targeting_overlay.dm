@@ -35,8 +35,8 @@
 	///The time, relative to `world.time`, after which we can re-aim
 	var/aimcooldown
 
-/obj/aiming_overlay/New(newowner)
-	..()
+/obj/aiming_overlay/Initialize(mapload, newowner)
+	. = ..()
 	owner = newowner
 	loc = null
 	verbs.Cut()
