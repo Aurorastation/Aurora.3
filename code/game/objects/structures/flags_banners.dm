@@ -2274,6 +2274,192 @@
 /obj/structure/sign/flag/luna/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+//Persepolis
+
+/obj/item/flag/persepolis
+	name = "\improper Persepolis flag"
+	desc = "The flag of Persepolis. The colors are similar to the Presepolean sky during sunrise over the planet's oceans. The writing on the flag reads: Freedom and Justice."
+	flag_path = "persepolis"
+	flag_structure = /obj/structure/sign/flag/persepolis
+
+/obj/structure/sign/flag/persepolis
+	name = "\improper Persepolis flag"
+	desc = "The flag of Persepolis. The colors are similar to the Presepolean sky during sunrise over the planet's oceans. The writing on the flag reads: Freedom and Justice.."
+	flag_path = "persepolis"
+	icon_state = "persepolis"
+	flag_item = /obj/item/flag/persepolis
+
+/obj/item/flag/persepolis/l
+	name = "large Persepolis flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/persepolis/large
+
+/obj/structure/sign/flag/persepolis/large
+	icon_state = "persepolis_l"
+	flag_path = "persepolis"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/persepolis/l
+
+/obj/structure/sign/flag/persepolis/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/persepolis/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/persepolis/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/persepolis/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Damascus
+
+/obj/item/flag/damascus
+	name = "\improper Damascus flag"
+	desc = "The flag of Damascus. Popularized during the Elyran Revolution among protestors, the writing on the flag bears the famed slogan: At Any Price."
+	flag_path = "damascus"
+	flag_structure = /obj/structure/sign/flag/damascus
+
+/obj/structure/sign/flag/damascus
+	name = "\improper Damascus flag"
+	desc = "The flag of Damascus. Popularized during the Elyran Revolution among protestors, the writing on the flag bears the famed slogan: At Any Price."
+	flag_path = "damascus"
+	icon_state = "damascus"
+	flag_item = /obj/item/flag/damascus
+
+/obj/item/flag/damascus/l
+	name = "large Damascus flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/damascus/large
+
+/obj/structure/sign/flag/damascus/large
+	icon_state = "damascus_l"
+	flag_path = "damascus"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/damascus/l
+
+/obj/structure/sign/flag/damascus/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/damascus/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/damascus/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/damascus/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Medina
+/obj/item/flag/medina
+	name = "\improper Medina flag"
+	desc = "The flag of Medina. The colors represent wealth, progress, purity, and phoron."
+	flag_path = "medina"
+	flag_structure = /obj/structure/sign/flag/medina
+
+/obj/structure/sign/flag/medina
+	name = "\improper Medina flag"
+	desc = "The flag of Medina. The colors represent wealth, progress, purity, and phoron."
+	flag_path = "medina"
+	icon_state = "medina"
+	flag_item = /obj/item/flag/medina
+
+/obj/item/flag/medina/l
+	name = "large Medina flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/medina/large
+
+/obj/structure/sign/flag/medina/large
+	icon_state = "medina_l"
+	flag_path = "medina"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/medina/l
+
+/obj/structure/sign/flag/medina/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/medina/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/medina/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/medina/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Aemaq
+/obj/item/flag/aemaq
+	name = "\improper Aemaq flag"
+	desc = "The flag of Aemaq. The colors of the flag represent wealth, energy, the planet's oceans, and the pure hearts of the Aemaqans."
+	flag_path = "aemaq"
+	flag_structure = /obj/structure/sign/flag/aemaq
+
+/obj/structure/sign/flag/aemaq
+	name = "\improper Aemaq flag"
+	desc = "The flag of Aemaq. The colors of the flag represent wealth, energy, the planet's oceans, and the pure hearts of the Aemaqans."
+	flag_path = "aemaq"
+	icon_state = "aemaq"
+	flag_item = /obj/item/flag/aemaq
+
+/obj/item/flag/aemaq/l
+	name = "large Aemaq flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/aemaq/large
+
+/obj/structure/sign/flag/aemaq/large
+	icon_state = "aemaq_l"
+	flag_path = "aemaq"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/aemaq/l
+
+/obj/structure/sign/flag/aemaq/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/aemaq/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/aemaq/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/aemaq/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//New Suez
+/obj/item/flag/newsuez
+	name = "\improper New Suez flag"
+	desc = "The flag of New Suez. The moon of Persepolis is surrounded by the stars that represent the parties of the 2381 New Suez Accords."
+	flag_path = "newsuez"
+	flag_structure = /obj/structure/sign/flag/newsuez
+
+/obj/structure/sign/flag/newsuez
+	name = "\improper New Suez flag"
+	desc = "The flag of New Suez. The moon of Persepolis is surrounded by the stars that represent the parties of the 2381 New Suez Accords."
+	flag_path = "newsuez"
+	icon_state = "newsuez"
+	flag_item = /obj/item/flag/newsuez
+
+/obj/item/flag/newsuez/l
+	name = "large New Suez flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/newsuez/large
+
+/obj/structure/sign/flag/newsuez/large
+	icon_state = "newsuez_l"
+	flag_path = "newsuez"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/newsuez/l
+
+/obj/structure/sign/flag/newsuez/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/newsuez/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/newsuez/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/newsuez/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // Hive Zo'ra
 
