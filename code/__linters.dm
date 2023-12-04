@@ -9,8 +9,19 @@ Nothing should ever be included before this file.
 //Defines to extend SpacemanDMM code coverage
 #if defined(SPACEMAN_DMM)
 
+#define DEBUG
+#define TIMER_DEBUG
+#define TESTING
 #define UNIT_TEST
+#define ZASDBG
+#define DO_NOT_DEFER_ASSETS
+#define SQL_PREF_DEBUG
+#define REFERENCE_TRACKING
+#define REFERENCE_TRACKING_DEBUG
 #define MANUAL_UNIT_TEST
+#define AMAP
+#define ENABLE_SUNLIGHT
+#define AO_USE_LIGHTING_OPACITY
 
 #endif //SPACEMAN_DMM
 
@@ -21,14 +32,18 @@ Nothing should ever be included before this file.
 #include "___linters\odlint.dm"
 
 //Defines to extend OpenDream code coverage
+#define DEBUG
 #define TIMER_DEBUG
 #define TESTING
 #define UNIT_TEST
 #define ZASDBG
-#define GC_FAILURE_HARD_LOOKUP
 #define DO_NOT_DEFER_ASSETS
 #define SQL_PREF_DEBUG
+#define REFERENCE_TRACKING
 #define REFERENCE_TRACKING_DEBUG
 #define MANUAL_UNIT_TEST
+#define AMAP
+#define ENABLE_SUNLIGHT
+#define AO_USE_LIGHTING_OPACITY
 
 #endif //OPENDREAM

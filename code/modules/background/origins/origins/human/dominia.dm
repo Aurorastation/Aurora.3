@@ -20,7 +20,7 @@
 			Fisanduh due to its lack of nobility."
 	important_information = "Dominian primaries have unique expectations that, when broken, may result in administrative action or your character being extradited, executed by the Empire or worse. Make sure to read the Dominian pages thoroughly."
 	possible_accents = list(ACCENT_DOMINIA_HIGH)
-	possible_citizenships = CITIZENSHIP_DOMINIA
+	possible_citizenships = list(CITIZENSHIP_DOMINIA)
 	possible_religions = list(RELIGION_MOROZ)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
