@@ -11,28 +11,28 @@
 	simulated = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-	///Who are we currently targeting, if anyone?
+	///The `/mob/living` we are currently targeting, if any
 	var/mob/living/aiming_at
 
-	///What are we targeting with?
+	///The `/obj/item` we are using to target with, if any
 	var/obj/item/aiming_with
 
 	///Who do we belong to?
 	var/mob/living/owner
 
-	///Have we locked on?
+	///Boolean, if the target referred by `aiming_at` has been locked onto
 	var/locked = FALSE
 
-	///When -will- we lock on?
+	///The time, relative to `world.time`, at which the target referred by `aiming_at` will be locked onto
 	var/lock_time = 0
 
-	///Is our owner intending to take hostages?
+	///Boolean, if `TRUE` aiming is performed instead of shooting
 	var/active = TRUE
 
-	///Permission bitflags.
+	///A list of permissions granted to the target, see `code\__defines\targeting.dm`
 	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO
 
-	// How long untill we can re-aim?
+	///The time, relative to `world.time`, after which we can re-aim
 	var/aimcooldown
 
 /obj/aiming_overlay/New(newowner)

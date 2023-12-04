@@ -13,8 +13,10 @@
 /mob/living/proc/aim_at(atom/target, obj/item/with)
 	if(!ismob(target) || !istype(with) || incapacitated())
 		return FALSE
+
 	if(!aiming)
 		aiming = new(src)
+
 	face_atom(target)
 	aiming.aim_at(target, with)
 	return TRUE
@@ -33,12 +35,15 @@
 		return FALSE
 	if(!owner.canClick())
 		return FALSE
+
 	owner.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // Spam prevention, essentially.
 	owner.visible_message(
 		SPAN_DANGER("\The [owner] pulls the trigger reflexively!"),
 		SPAN_DANGER("You pull the trigger reflexively!")
 	)
+
 	G.Fire(aiming_at, owner)
+
 	cancel_aiming()
 	aim_cooldown(3)
 	toggle_active(FALSE)
