@@ -9,4 +9,4 @@
 			to_chat(A, "<span class='warning'><b>Ionospheric anomalies detected. Temporary telecommunication failure imminent. Please contact you-BZZT</b></span>")
 			to_chat(A, "<br>")
 	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
-		T.emp_act(1)
+		T.emp_act(EMP_HEAVY)

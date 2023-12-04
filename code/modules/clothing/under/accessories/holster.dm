@@ -93,9 +93,10 @@
 	holster(W, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
+	. = ..()
+
 	if (holstered)
 		holstered.emp_act(severity)
-	..()
 
 /obj/item/clothing/accessory/holster/examine(mob/user)
 	. = ..()

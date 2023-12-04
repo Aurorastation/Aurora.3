@@ -33,8 +33,9 @@
 	return hold.attackby(W, user)
 
 /obj/item/clothing/accessory/storage/emp_act(severity)
+	. = ..()
+
 	hold.emp_act(severity)
-	..()
 
 /obj/item/clothing/accessory/storage/attack_self(mob/user as mob)
 	if(length(hold.contents))

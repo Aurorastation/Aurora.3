@@ -221,7 +221,7 @@
 	firemodes = list()
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
-	..(max(severity, 2)) //so it doesn't EMP itself, I guess
+	. = ..()
 
 /obj/item/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"

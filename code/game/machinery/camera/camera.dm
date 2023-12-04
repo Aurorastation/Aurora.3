@@ -92,6 +92,8 @@
 	return
 
 /obj/machinery/camera/emp_act(severity)
+	. = ..()
+
 	if(!isEmpProof() && prob(100/severity))
 		if(!affected_by_emp_until || (world.time < affected_by_emp_until))
 			affected_by_emp_until = max(affected_by_emp_until, world.time + (90 SECONDS / severity))

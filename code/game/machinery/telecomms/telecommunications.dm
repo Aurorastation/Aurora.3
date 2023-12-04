@@ -136,8 +136,10 @@
 
 /obj/machinery/telecomms/emp_act(severity)
 	. = ..()
+
 	if(stat & EMPED || !prob(100/severity))
 		return
+
 	stat |= EMPED
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), (300 SECONDS) / severity)
 

@@ -152,12 +152,13 @@
 			L.disable_cloaking_device()
 
 /obj/item/device/flash/emp_act(severity)
+	. = ..()
+
 	var/mob/living/L = loc
 	if(!istype(L) || broken || burnout_check(L, intensity = 15 / severity))
 		return
 	to_chat(L, SPAN_WARNING("Your [src] goes off!"))
 	flash(L)
-	..()
 
 /obj/item/device/flash/synthetic
 	name = "synthetic flash"

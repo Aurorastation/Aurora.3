@@ -258,7 +258,8 @@
 	ripped = TRUE
 	if(rip_linked)
 		var/obj/item/stack/material/cloth/C = new(src.loc, flag_size ? 2 : 1)
-		user.put_in_hands(C)
+		if(user)
+			user.put_in_hands(C)
 	if(rip_linked && linked_flag)
 		linked_flag.rip(user, FALSE) // Prevents an infinite ripping loop.
 

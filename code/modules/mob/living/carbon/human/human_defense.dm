@@ -176,11 +176,13 @@ emp_act
 	return FALSE
 
 /mob/living/carbon/human/emp_act(severity)
+	. = ..()
+
 	if(species.handle_emp_act(src, severity))
 		return // blocks the EMP
+
 	for(var/obj/O in src)
 		O.emp_act(severity)
-	..()
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
