@@ -49,6 +49,23 @@
 				<li class="backend">Updated spacemandmm to 1.8 for the CI.</li>
 				<li class="backend">Extended OpenDream and SpacemanDMM linting coverage to the main defines used in the codebase.</li>
 				<li class="bugfix">Fixed a warning for path definition and an old reference to a renamed function in ZAS.</li>
+				<li class="refactor">EMPs are now consistent across the various objects.</li>
+				<li class="refactor">EMPs damage is now standarized with EMP_HEAVY and EMP_LIGHT.</li>
+				<li class="backend">Updated DCS part that deals with unique signals.</li>
+				<li class="rscadd">Added DCS signals COMSIG_ATOM_PRE_EMP_ACT and COMSIG_ATOM_EMP_ACT for EMP events.</li>
+				<li class="backend">Added datum component for EMP protection handling.</li>
+				<li class="rscadd">EMP explosions (empulse) are now tridimensional, spreading across the decks/zlevels of the same map.</li>
+				<li class="rscadd">EMP explosions (empulse) behave properly as a sphere between zlevels, with 9 meters being the currently assumed floor height.</li>
+				<li class="bugfix">empulse now respects the tick limit, avoiding the server lagging to death on large or expensive EMPs.</li>
+				<li class="backend">ELEMENT_DETACH flag was renamed to ELEMENT_DETACH_ON_HOST_DESTROY, as per TG updated name.</li>
+				<li class="backend">EMPs now rise signals of the events through DCS.</li>
+				<li class="backend">(Nearly) all emp_act now calls the parent first, properly and consistently handling signals.</li>
+				<li class="rscadd">The spiral_range search function was ported over from TG, it is used by empulse.</li>
+				<li class="refactor">All emp_act now calls the parent.</li>
+				<li class="refactor">All emp_act now uses the defined damage, instead of the magic numbers.</li>
+				<li class="refactor">EMP magic number 3 do not exist anymore, standarized everything that used it back into EMP_LIGHT.</li>
+				<li class="refactor">Some function substitution for EMP that was not meant to behave like an EMP for other objects.</li>
+				<li class="rscadd">The empulse function can now exclude types, in addition to objects.</li>
 			</ul>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">
