@@ -672,4 +672,4 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_idris
 	id = access_idris
 	desc = "Idris Vault Ship"
-  	access_type = ACCESS_TYPE_CENTCOM
+	access_type = ACCESS_TYPE_CENTCOM
