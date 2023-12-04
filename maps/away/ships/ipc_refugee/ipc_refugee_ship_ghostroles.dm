@@ -1,3 +1,4 @@
+// Human Refugee
 /datum/ghostspawner/human/refugee_crew
 	short_name = "refugee_crew"
 	name = "Human Refugee"
@@ -39,7 +40,7 @@
 /datum/outfit/admin/refugee_crew/get_id_access()
 	return list(access_external_airlocks)
 
-// IPC REFUGEE
+// IPC Refugee
 /datum/ghostspawner/human/refugee_crew/ipc
 	short_name = "refugee_crew_ipc"
 	name = "IPC Refugee"

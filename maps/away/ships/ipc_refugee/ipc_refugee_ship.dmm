@@ -836,10 +836,6 @@
 /obj/structure/curtain/medical,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
-"gM" = (
-/obj/effect/decal/cleanable/floor_damage/tiled_broken2,
-/turf/template_noop,
-/area/space)
 "gR" = (
 /obj/structure/lattice,
 /obj/item/reagent_containers/glass/bucket{
@@ -1422,10 +1418,6 @@
 /area/ship/ipc_refugee/forehall)
 "lL" = (
 /obj/structure/lattice,
-/turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_a)
-"lN" = (
-/obj/structure/curtain/black,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "lO" = (
@@ -2392,10 +2384,6 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
-"ti" = (
-/obj/effect/decal/cleanable/floor_damage/tiled_broken1,
-/turf/template_noop,
-/area/space)
 "tk" = (
 /obj/structure/curtain{
 	color = "#854636"
@@ -2474,10 +2462,10 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/forehall)
 "tR" = (
-/obj/structure/bed/stool/chair{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "tV" = (
@@ -3439,7 +3427,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/wood{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4043,10 +4031,8 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "Fr" = (
-/obj/structure/curtain/open{
-	color = "#222222"
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/open/bed,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "Fs" = (
@@ -4056,10 +4042,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/atmos)
-"Fw" = (
-/obj/effect/decal/cleanable/floor_damage/tiled_broken0,
-/turf/template_noop,
-/area/space)
 "Fz" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/decal/cleanable/blood/drip/oil,
@@ -6171,8 +6153,12 @@
 	pixel_y = -3;
 	pixel_x = -6
 	},
-/obj/structure/curtain/open/bed,
-/obj/item/paper/ipc_refugee_ship/overloaders,
+/obj/item/paper/ipc_refugee_ship/overloaders{
+	layer = 3.3
+	},
+/obj/structure/curtain{
+	color = "#854636"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_b)
 "Yl" = (
@@ -37419,7 +37405,7 @@ Ns
 am
 uH
 CW
-lN
+Zf
 Ki
 OE
 cb
@@ -37678,7 +37664,7 @@ Np
 uq
 QK
 Fr
-lN
+Zf
 Ns
 FC
 FC
@@ -39721,9 +39707,9 @@ Ik
 Ik
 Ik
 FC
-Fw
-ti
-gM
+Ik
+Ik
+Ik
 CJ
 FC
 Ns

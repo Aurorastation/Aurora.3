@@ -45,7 +45,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/ipc_refugee_ship/New()
-	designation = "[pick("HELP", "PLS NO MORE PIRATES", "Need Fuel, Air, n' Repairs", "Spare Change?", "Fix Me", "Need Directions, Starmap Broken", "KONYANG HERE WE COME", "Can't Have Sh!t", "010100110100111101010011", "How's My Flying", "Ignore The Bullet Holes", "(insert designation)", "Press Any Key to Start", "Don't Tell Mom I'm In Burzsia", "SNAFU", "FUBAR")]"
+	designation = "[pick("HELP", "PLS NO MORE PIRATES", "Need Fuel, Air, n' Repairs", "Spare Change?", "Fix Me", "Need Directions, Starmap Broken", "KONYANG HERE WE COME", "Can't Have Sh!t", "01010011 01001111 01010011", "How's My Flying", "Ignore The Bullet Holes", "(insert designation)", "Press Any Key to Start", "Don't Tell Mom I'm In Burzsia", "SNAFU", "FUBAR")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/ipc_refugee_ship/get_skybox_representation()
@@ -133,8 +133,7 @@
 
 
 
-// custom stuff for sovl
-
+// custom stuff
 /obj/structure/closet/crate/trashcart/shark
   name = "DO NOT OPEN!!!"
   desc = "A large, heavy, metal trashcart with wheels. This one looks particularly beat up, and seems to rattle on occassion...?"
@@ -181,7 +180,7 @@
 		"
 
 /obj/item/paper/ipc_refugee_ship/wishlist
-	name = "DEAR GOD OR SANTA OR RICH PEOPLE"
+	name = "DEAR GOD OR RICH PEOPLE"
 	desc = "A crinkly handwritten note."
 	info = "\
 		WISHLIST <br>\
@@ -191,7 +190,7 @@
 		- MORE FUEL <br>\
 		- AIR <br>\
 		- A LOT OF AIR <br>\
-		- I MEAN A LOOOOT OF AIR <br>\
+		- SERIOUSLY A LOOOOT OF AIR <br>\
 		- FOOD? MAYBE <br>\
 		- OVERLOADERS <br>\
 		- HIGH CAPACITY POWER CELLS <br>\
@@ -214,12 +213,12 @@
 		"
 
 /obj/item/paper/ipc_refugee_ship/overloaders
-	name = "THIS SHIT IS WHAT KILLED GLORSH"
+	name = "OVERLOADERS!"
 	desc = "A handwritten note."
 	info = "\
-		YEAH THAT'S RIGHT, WE FINALLY FOUND SOME OVERLOADERS! <br>\
+		YEAH THAT'S RIGHT, OVERLOADERS! <br>\
 		<br>\
-		You guys don't know how lucky this was, I just was picking through some trash on the last stop we made, and there was this crate with a canvas thrown over it just FILLED with these shits! <br>\
+		You guys don't know how lucky this was, I was just picking through some trash on the last stop we made, and there was this crate with a canvas thrown over it just filled with the things! <br>\
 		<br>\
 		Sure, they're not labeled, but I'm at least 70% they're perfectly fine, and those are some pretty good odds when we're talking free overloaders! <br>\
 		"
