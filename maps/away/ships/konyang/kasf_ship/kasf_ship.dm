@@ -88,7 +88,7 @@
 	name = "KASF Shuttle"
 	class = "KASFV"
 	designation = "Kuoyu"
-	desc = "Somewhat bulky by modern standards, the aging Stalwart-class transport is a vessel being phased out of service in Xanu fleets to make way for newer, more efficient transports. Though considered obsolete compared to it's successor shuttles, this transport is still reliable enough that it's seen extensive use by Konyang's Aerospace Forces in recent years."
+	desc = "Somewhat bulky by modern standards, the aging Stalwart-class transport is a vessel being phased out of service in Xanu fleets to make way for newer, more efficient transports. Though considered obsolete compared to its successor shuttles, this transport is still reliable enough that it's seen extensive use by Konyang's Aerospace Forces in recent years."
 	shuttle = "KASF Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
