@@ -2634,3 +2634,208 @@
 	flag_path = "raskara"
 	flag_item = /obj/item/flag/raskara
 	stand_icon = "wood_stand"
+
+// Federal Technocracy of Galatea
+
+/obj/item/flag/galatea_government
+	name = "\improper Federal Technocracy of Galatea flag"
+	desc = "The flag of the Federal Technocracy of Galatea."
+	flag_path = "galatea_government"
+	flag_structure = /obj/structure/sign/flag/galatea_government
+
+/obj/structure/sign/flag/galatea_government
+	name = "\improper Federal Technocracy of Galatea flag"
+	desc = "The flag of the Federal Technocracy of Galatea."
+	flag_path = "galatea_government"
+	icon_state = "galatea_government"
+	flag_item = /obj/item/flag/galatea_government
+
+/obj/structure/sign/flag/galatea_government/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/galatea_government/l
+	name = "large Federal Technocracy of Galatea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/galatea_government/large
+
+/obj/structure/sign/flag/galatea_government/large
+	icon_state = "galatea_government_l"
+	flag_path = "galatea_government"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/galatea_government/l
+
+/obj/structure/sign/flag/galatea_government/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/galatea_government/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/galatea_government/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/galatea_government/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Galatea
+
+/obj/item/flag/galatea
+	name = "\improper Galatea flag"
+	desc = "The flag of Galatea, the premier member-state of the Federal Technocracy of Galatea."
+	flag_path = "galatea"
+	flag_structure = /obj/structure/sign/flag/galatea
+
+/obj/structure/sign/flag/galatea
+	name = "\improper Galatea flag"
+	desc = "The flag of Galatea, the premier member-state of the Federal Technocracy of Galatea."
+	flag_path = "galatea"
+	icon_state = "galatea"
+	flag_item = /obj/item/flag/galatea
+
+/obj/structure/sign/flag/galatea/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/galatea/l
+	name = "large Galatea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/galatea/large
+
+/obj/structure/sign/flag/galatea/large
+	icon_state = "galatea_l"
+	flag_path = "galatea"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/galatea/l
+
+/obj/structure/sign/flag/galatea/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/galatea/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/galatea/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/galatea/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Tsukuyomi
+
+/obj/item/flag/tsukuyomi
+	name = "\improper Tsukuyomi flag"
+	desc = "The flag of Tsukuyomi, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "tsukuyomi"
+	flag_structure = /obj/structure/sign/flag/tsukuyomi
+
+/obj/structure/sign/flag/tsukuyomi
+	name = "\improper Tsukuyomi flag"
+	desc = "The flag of Tsukuyomi, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "tsukuyomi"
+	icon_state = "tsukuyomi"
+	flag_item = /obj/item/flag/tsukuyomi
+
+/obj/structure/sign/flag/tsukuyomi/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/tsukuyomi/l
+	name = "large Tsukuyomi flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/tsukuyomi/large
+
+/obj/structure/sign/flag/tsukuyomi/large
+	icon_state = "tsukuyomi_l"
+	flag_path = "tsukuyomi"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/tsukuyomi/l
+
+/obj/structure/sign/flag/tsukuyomi/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/tsukuyomi/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/tsukuyomi/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/tsukuyomi/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Svarog
+
+/obj/item/flag/svarog
+	name = "\improper Svarog flag"
+	desc = "The flag of Svarog, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "svarog"
+	flag_structure = /obj/structure/sign/flag/svarog
+
+/obj/structure/sign/flag/svarog
+	name = "\improper Svarog flag"
+	desc = "The flag of Svarog, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "svarog"
+	icon_state = "svarog"
+	flag_item = /obj/item/flag/svarog
+
+/obj/structure/sign/flag/svarog/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/svarog/l
+	name = "large Svarog flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/svarog/large
+
+/obj/structure/sign/flag/svarog/large
+	icon_state = "svarog_l"
+	flag_path = "svarog"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/svarog/l
+
+/obj/structure/sign/flag/svarog/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/svarog/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/svarog/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/svarog/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Empyrean
+
+/obj/item/flag/empyrean
+	name = "\improper Empyrean flag"
+	desc = "The flag of Empyrean, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "empyrean"
+	flag_structure = /obj/structure/sign/flag/empyrean
+
+/obj/structure/sign/flag/empyrean
+	name = "\improper Empyrean flag"
+	desc = "The flag of Empyrean, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "empyrean"
+	icon_state = "empyrean"
+	flag_item = /obj/item/flag/empyrean
+
+/obj/structure/sign/flag/empyrean/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/empyrean/l
+	name = "large Empyrean flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/empyrean/large
+
+/obj/structure/sign/flag/empyrean/large
+	icon_state = "empyrean_l"
+	flag_path = "empyrean"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/empyrean/l
+
+/obj/structure/sign/flag/empyrean/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/empyrean/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/empyrean/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/empyrean/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
