@@ -27,7 +27,7 @@
 	var/lock_time = 0
 
 	///Boolean, if `TRUE` aiming is performed instead of shooting
-	var/active = TRUE
+	var/active = FALSE
 
 	///A list of permissions granted to the target, see `code\__defines\targeting.dm`
 	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO
@@ -35,11 +35,31 @@
 	///The time, relative to `world.time`, after which we can re-aim
 	var/aimcooldown
 
-/obj/aiming_overlay/Initialize(mapload, newowner)
+/obj/aiming_overlay/Initialize(mapload, ...)
 	. = ..()
-	owner = newowner
+
+	if(!isliving(loc))
+		stack_trace("Trying to create an aiming overlay with a location that is not /mob/living!")
+		return INITIALIZE_HINT_QDEL
+
+	owner = loc
 	loc = null
 	verbs.Cut()
+
+/obj/aiming_overlay/Destroy()
+	cancel_aiming(TRUE)
+
+	toggle_active(FALSE)
+	if(owner?.aiming == src)
+		owner.aiming = null
+
+	owner = null
+
+	//Since cancel_aiming() might early return if aiming_at *OR* aiming_with are not set, we clear the refs here
+	aiming_at = null
+	aiming_with = null
+
+	. = ..()
 
 /obj/aiming_overlay/proc/toggle_permission(perm)
 
@@ -95,16 +115,11 @@
 		to_chat(aiming_at, "<span class='[use_span]'>You are [message].</span>")
 
 /obj/aiming_overlay/process()
-	if(!owner)
+	if(QDELETED(owner) || QDELETED(aiming_at) || QDELETED(aiming_with))
 		qdel(src)
 		return
 	..()
 	update_aiming()
-
-/obj/aiming_overlay/Destroy()
-	cancel_aiming(TRUE)
-	owner = null
-	return ..()
 
 /obj/aiming_overlay/proc/update_aiming_deferred()
 	set waitfor = 0
@@ -113,11 +128,11 @@
 
 /obj/aiming_overlay/proc/update_aiming()
 
-	if(!owner)
+	if(QDELETED(owner))
 		qdel(src)
 		return
 
-	if(!aiming_at)
+	if(QDELETED(aiming_at))
 		cancel_aiming()
 		return
 
@@ -153,6 +168,10 @@
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(mob/target, obj/thing)
+
+	if(QDELETED(target))
+		return
+
 	if (aimcooldown > world.time)
 		return
 
