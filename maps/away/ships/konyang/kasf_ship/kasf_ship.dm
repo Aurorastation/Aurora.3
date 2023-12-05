@@ -15,7 +15,7 @@
 /obj/effect/overmap/visitable/ship/kasf_corvette
 	name = "KASF Corvette"
 	class = "KASFV"
-	desc = "An older design of patrol corvette that saw it's fair share of service in it's golden days among the Xanu fleets, the Sai-class corvette would be considered obsolete by modern standards were it not retrofitted with newer weaponry, sensors, and other ship systems. In recent decades this class of ship has largely been mothballed by Xanu, but a large number were reactivated and donated when Konyang declared independence from Sol and joined the Coalition of Colonies. Now it serves an important role in the KASF, commonly seen combatting pirates and controlling the flow of refugees from the Wildlands."
+	desc = "An older design of patrol corvette that saw its fair share of service in its golden days among the Xanu fleets, the Sai-class corvette would be considered obsolete by modern standards were it not retrofitted with newer weaponry, sensors, and other ship systems. In recent decades this class of ship has largely been mothballed by Xanu, but a large number were reactivated and donated when Konyang declared independence from Sol and joined the Coalition of Colonies. Now it serves an important role in the KASF, commonly seen combatting pirates and controlling the flow of refugees from the Wildlands."
 	icon_state = "xansan"
 	moving_state = "xansan_moving"
 	colors = list("#8492fd", "#4d61fc")
