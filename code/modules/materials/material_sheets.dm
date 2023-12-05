@@ -110,6 +110,28 @@
 	amount = max_amount
 	update_icon()
 
+/obj/item/stack/material/aluminium
+	name = "aluminium"
+	icon_state = "sheet-metal"
+	default_type = MATERIAL_ALUMINIUM
+	apply_colour = TRUE
+
+/obj/item/stack/material/aluminium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/lead
+	name = "lead"
+	icon_state = "sheet-silver"
+	default_type = MATERIAL_LEAD
+	apply_colour = TRUE
+
+/obj/item/stack/material/lead/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/sandstone
 	name = "sandstone brick"
 	icon_state = "sheet-sandstone"

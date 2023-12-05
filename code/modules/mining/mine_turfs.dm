@@ -504,7 +504,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_BAUXITE = 6,
+		ORE_GALENA = 4
 	)
 	var/mineralChance = 55
 
@@ -517,6 +519,8 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
 		ORE_SILVER = 2,
+		ORE_BAUXITE = 6,
+		ORE_GALENA = 4,
 		ORE_PHORON = 5
 	)
 
@@ -545,7 +549,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 1
 	)
 	mineralChance = 55
 
@@ -557,7 +563,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 1
 	)
 
 /turf/simulated/mineral/random/high_chance/exoplanet
@@ -576,7 +584,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 1,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 3,
-		ORE_SILVER = 3
+		ORE_SILVER = 3,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 2
 	)
 	mineralChance = 75
 
@@ -589,7 +599,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 3,
 		ORE_SILVER = 3,
-		ORE_PHORON = 2
+		ORE_PHORON = 2,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 2
 	)
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
@@ -856,6 +868,8 @@ var/list/asteroid_floor_smooth = list(
 					ore += /obj/item/ore/gold
 				if(ORE_SILVER)
 					ore += /obj/item/ore/silver
+				if(ORE_LEAD)
+					ore += /obj/item/ore/lead
 				if(ORE_DIAMOND)
 					ore += /obj/item/ore/diamond
 				if(ORE_URANIUM)
@@ -866,6 +880,8 @@ var/list/asteroid_floor_smooth = list(
 					ore += /obj/item/ore/osmium
 				if(ORE_HYDROGEN)
 					ore += /obj/item/ore/hydrogen
+				if(ORE_ALUMINIUM)
+					ore += /obj/item/ore/aluminium
 				else
 					if(prob(25))
 						switch(rand(1,5))

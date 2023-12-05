@@ -70,7 +70,8 @@
 			ORE_IRON = list(2, 4),
 			ORE_GOLD = list(0, 2),
 			ORE_SILVER = list(0, 2),
-			ORE_URANIUM = list(0, 2)
+			ORE_URANIUM = list(0, 2),
+			ORE_BAUXITE = list(1, 3)
 		),
 		RARE_ORES = list(
 			ORE_GOLD = list(1, 3),

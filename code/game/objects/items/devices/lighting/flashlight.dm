@@ -343,7 +343,7 @@
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
+	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 
