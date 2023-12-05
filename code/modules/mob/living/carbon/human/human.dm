@@ -490,24 +490,19 @@
 		var/emp_damage
 		switch(shock_damage)
 			if(-INFINITY to 5)
-				emp_damage = 0
-			if(6 to 19)
-				emp_damage = 3
-			if(20 to 49)
-				emp_damage = 2
+				emp_damage = FALSE
+			if(6 to 49)
+				emp_damage = EMP_LIGHT
 			else
-				emp_damage = 1
+				emp_damage = EMP_HEAVY
 
 		if(emp_damage)
 			for(var/obj/item/organ/O in affecting.internal_organs)
 				O.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting.implants)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 
 		apply_damage(shock_damage, DAMAGE_BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4

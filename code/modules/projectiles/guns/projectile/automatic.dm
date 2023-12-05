@@ -147,6 +147,31 @@
 		icon_state = "wt550"
 	return
 
+/obj/item/gun/projectile/automatic/konyang_pirate
+	name = "pirate smg"
+	desc = "A hacked together SMG, made out of salvage metal and a lot of creativity."
+	desc_extended = "Konyang's pirates have to go by somehow. They usually salvage and collect old metal and weapon's parts, pile them up in their hideout and get really creative. It's not advisable to use one, except you're desperate. Or a pirate."
+	icon = 'icons/obj/guns/pirate_smg.dmi'
+	icon_state = "pirate_smg"
+	item_state = "pirate_smg"
+	w_class = ITEMSIZE_NORMAL
+	caliber = "10mm"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_OCLOTHING
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/smg10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/smg10mm)
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
+/obj/item/gun/projectile/automatic/konyang_pirate/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "pirate_smg" : "pirate_smg-empty"
+
 //Ballistic rifles, go.
 
 /obj/item/gun/projectile/automatic/rifle
@@ -680,6 +705,62 @@
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
+/obj/item/gun/projectile/automatic/rifle/konyang/k556
+	name = "konyang assault rifle"
+	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
+	desc_extended = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k556rifle"
+	item_state = "k556rifle"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_NORMAL
+	ammo_type = "/obj/item/ammo_casing/a556"
+	handle_casings = EJECT_CASINGS
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/a556/k556
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/k556)
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/konyang/k556/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k556rifle" : "k556rifle-e"
+
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47
+	name = "konyang assault carbine"
+	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
+	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
+	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k47"
+	item_state = "k47"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = "/obj/item/ammo_casing/a556"
+	handle_casings = EJECT_CASINGS
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/konyang47
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine/konyang47)
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k47" : "k47-e"
+
+/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle
+	name = "re-bored rifle"
+	desc = "A wooden rifle, repaired and re-bored to actually work again. Fires eight rounds of .308 in semi-auto."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "poacher"
+	item_state = "poacher"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	load_method = SINGLE_CASING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = /obj/item/ammo_casing/vintage
+	handle_casings = EJECT_CASINGS
+	caliber = "30-06 govt"
+	is_wieldable = TRUE
+	max_shells = 8
+
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
@@ -731,3 +812,30 @@
 		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1), dispersion=list(0, 10))
 		)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/konyang
+	name = "magazine-fed shotgun"
+	desc = "A compact semi-automatic shotgun, fed by a magazine. Unsuspectic, but powerful and not to be underestimated. Takes standard 12g shotgun ammo."
+	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Showstopper\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
+	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by the Commandos of Konyang's Special Forces."
+	icon = 'icons/obj/guns/mag_shotgun.dmi'
+	icon_state = "mshotgun"
+	item_state = "mshotgun"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	handle_casings = DELETE_CASINGS
+	max_shells = 9
+	auto_eject = 0
+	caliber = "shotgun"
+	magazine_type = /obj/item/ammo_magazine/konyang_shotgun
+	allowed_magazines = list(/obj/item/ammo_magazine/konyang_shotgun)
+	is_wieldable = TRUE
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY)
+		)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/konyang/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"

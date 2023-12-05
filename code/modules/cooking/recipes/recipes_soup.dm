@@ -57,11 +57,11 @@
 	reagents = list(/singleton/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/tomato
 
-/singleton/recipe/bluespacetomatosoup
+/singleton/recipe/spiralsoup
 	appliance = SAUCEPAN | POT
-	fruit = list("bluespacetomato" = 2)
-	reagents = list(/singleton/reagent/water = 10)
-	result = /obj/item/reagent_containers/food/snacks/soup/bluespace
+	fruit = list("bluespacetomato" = 1, "icechili" = 1 )
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/drink/milk/cream = 5)
+	result = /obj/item/reagent_containers/food/snacks/soup/spiralsoup
 
 /singleton/recipe/misosoup
 	appliance = POT
@@ -86,6 +86,15 @@
 	fruit = list("whitebeet" = 1, "cabbage" = 1)
 	reagents = list(/singleton/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
+
+/singleton/recipe/krakensoup
+	appliance = SAUCEPAN | POT
+	fruit = list("pumpkin" = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/squidmeat)
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/spacespice = 2)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/soup/krakensoup
+
 
 // Stews
 /singleton/recipe/stew

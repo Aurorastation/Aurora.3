@@ -338,7 +338,8 @@
 		choice.ask_for_input(user)
 
 /obj/item/device/electronic_assembly/emp_act(severity)
-	..()
+	. = ..()
+
 	for(var/atom/movable/AM in contents)
 		AM.emp_act(severity)
 

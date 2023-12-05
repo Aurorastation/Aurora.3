@@ -74,6 +74,7 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/under/chameleon/changeling/emp_act(severity) //As these are purely organic, EMP does nothing to them.
+	. = ..()
 	return
 
 /obj/item/clothing/under/chameleon/changeling/verb/shred() //Remove individual pieces if needed.
@@ -101,6 +102,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/head/chameleon/changeling/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/item/clothing/head/chameleon/changeling/verb/shred() //The copypasta is real.
@@ -127,6 +130,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/suit/chameleon/changeling/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/item/clothing/suit/chameleon/changeling/verb/shred()
@@ -153,6 +158,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/shoes/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/shoes/chameleon/changeling/verb/shred()
@@ -179,6 +186,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/storage/backpack/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/storage/backpack/chameleon/changeling/verb/shred()
@@ -208,6 +217,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/gloves/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/gloves/chameleon/changeling/verb/shred()
@@ -235,6 +246,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/mask/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/mask/chameleon/changeling/verb/shred()
@@ -262,6 +275,8 @@
 
 
 /obj/item/clothing/glasses/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/glasses/chameleon/changeling/verb/shred()
@@ -288,6 +303,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/storage/belt/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/storage/belt/chameleon/changeling/verb/shred()

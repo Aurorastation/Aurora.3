@@ -34,6 +34,8 @@
 	return dat
 
 /obj/item/implant/integrated_circuit/emp_act(severity)
+	. = ..()
+
 	IC.emp_act(severity)
 
 /obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent)

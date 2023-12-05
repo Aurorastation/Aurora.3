@@ -72,8 +72,10 @@
 	hold.attackby(W, user)
 
 /obj/item/clothing/head/helmet/emp_act(severity)
-	if(has_storage) hold.emp_act(severity)
-	return ..()
+	. =  ..()
+
+	if(has_storage)
+		hold.emp_act(severity)
 
 /obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	if(has_storage) hold.hear_talk(M, msg, verb, speaking)

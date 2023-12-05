@@ -40,7 +40,7 @@
 		U.hidden_uplink.uplink_owner = H.mind
 		U.hidden_uplink.telecrystals = uplink_uses
 		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
-		U.hidden_uplink.nanoui_menu = 1
+		U.hidden_uplink.tgui_menu = 1
 
 /datum/outfit/admin/syndicate/get_id_access()
 	return get_syndicate_access(id_access)

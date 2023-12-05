@@ -95,10 +95,13 @@
 	return
 
 /obj/machinery/shield/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			qdel(src)
-		if(2)
+
+		if(EMP_LIGHT)
 			if(prob(50))
 				qdel(src)
 
@@ -256,12 +259,14 @@
 	return
 
 /obj/machinery/shieldgen/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			src.health /= 2 //cut health in half
 			malfunction = TRUE
 			locked = pick(0,1)
-		if(2)
+		if(EMP_LIGHT)
 			if(prob(50))
 				src.health *= 0.3 //chop off a third of the health
 				malfunction = TRUE

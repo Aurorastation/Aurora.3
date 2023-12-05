@@ -150,8 +150,9 @@
 			charging = null
 
 /obj/machinery/recharger/emp_act(severity)
+	. = ..()
+
 	if(stat & (NOPOWER|BROKEN) || !anchored)
-		..(severity)
 		return
 
 	if(istype(charging,  /obj/item/gun/energy))
@@ -163,7 +164,6 @@
 		var/obj/item/melee/baton/B = charging
 		if(B.bcell)
 			B.bcell.charge = 0
-	..(severity)
 
 /obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
