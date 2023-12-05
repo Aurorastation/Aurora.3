@@ -159,3 +159,13 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("dry mush" = 2, "something savoury" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/qlguabi
+	name = "qlguabi"
+	desc = "An old dish from Aweji's terraforming days, made by blending a large amount of Guami fruit with Dyn juice into a gelatin-like concotion, traditionally with a sweet, hardened Dyn syrup drizzled on top. You will find many booths selling it at the Aweijiin Bazaar. Despite being considered a sweet side dish in Skrell culture, in other cultures it is often considered a dessert due it's sweet and light nature."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi'
+	icon_state = "qlguabi"
+	trash = /obj/item/trash/plate
+	filling_color = "#97eaff7a"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/gelatin = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetened mint" = 5))

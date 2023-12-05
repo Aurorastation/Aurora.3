@@ -199,4 +199,6 @@
 	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
 	icon_state = "shakshouka"
 	trash = /obj/item/trash/shakshouka
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("zesty tomatoes" = 4))
 	filling_color = "#BB2912"

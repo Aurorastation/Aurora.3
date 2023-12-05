@@ -657,3 +657,13 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_golden_deep
 	id = access_golden_deep
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_konyang_police = 218
+/datum/access/access_konyang_police
+	id = access_konyang_police
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_konyang_vendors = 219
+/datum/access/access_konyang_vendors
+	id = access_konyang_vendors
+	access_type = ACCESS_TYPE_CENTCOM

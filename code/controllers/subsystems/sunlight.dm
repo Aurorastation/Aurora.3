@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(sunlight)
 	init_order = SS_INIT_SUNLIGHT
 
 	var/list/light_points = list()
-	var/config.sun_target_z = 7
+	var/config/sun_target_z = 7
 
 	var/list/presets
 
