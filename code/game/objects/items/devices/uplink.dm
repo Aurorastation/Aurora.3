@@ -21,12 +21,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/list/ItemsCategory
 	/// List of references with an associated item.
 	var/list/ItemsReference
-	/// List of items for NanoUI use.
-	var/list/nanoui_items
+	/// List of items for TGUI use.
+	var/list/tgui_items
 	/// The current menu we are in.
-	var/nanoui_menu = 0
-	/// Additional data for NanoUI use.
-	var/list/nanoui_data = list()
+	var/tgui_menu = 0
+	/// Additional data for TGUI use.
+	var/list/tgui_data = list()
 	// Assoc list of item to times bought; shared/referenced by child uplinks
 	var/list/purchase_log = list()
 	/// Mind of the uplink's owner.
@@ -75,8 +75,8 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		if(!istype(loc, /obj/item))
 			qdel(src)
 	..()
-	nanoui_data = list()
-	update_nano_data()
+	tgui_data = list()
+	update_tgui_data()
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
@@ -111,9 +111,9 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	data["welcome"] = welcome
 	data["telecrystals"] = telecrystals
 	data["bluecrystals"] = bluecrystals
-	data["menu"] = nanoui_menu
-	update_nano_data()
-	data += nanoui_data
+	data["menu"] = tgui_menu
+	update_tgui_data()
+	data += tgui_data
 	return data
 
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
@@ -131,9 +131,9 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		toggle()
 		SStgui.close_uis(src)
 	else if(action == "return")
-		nanoui_menu = round(nanoui_menu/10)
+		tgui_menu = round(tgui_menu/10)
 	else if(action == "menu")
-		nanoui_menu = text2num(params["menu"])
+		tgui_menu = text2num(params["menu"])
 		if(params["id"])
 			exploit_id = params["id"]
 		if(params["category"])
@@ -142,86 +142,96 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		var/list/params_webint = list("location" = "contract_details", "contract" = params["contract_interact"])
 		usr.client.process_webint_link("interface/login/sso_server", list2params(params_webint))
 	if(action == "contract_page")
-		nanoui_data["contracts_current_page"] = text2num(params["contract_page"])
+		tgui_data["contracts_current_page"] = text2num(params["contract_page"])
 	if(action == "contract_view")
-		nanoui_data["contracts_view"] = text2num(params["contract_view"])
-		nanoui_data["contracts_current_page"] = 1
+		tgui_data["contracts_view"] = text2num(params["contract_view"])
+		tgui_data["contracts_current_page"] = 1
 
 	return 1
 
-/obj/item/device/uplink/hidden/proc/update_nano_data()
-	if(nanoui_menu == 0)
-		var/categories[0]
+/obj/item/device/uplink/hidden/proc/new_tgui_item_data(var/datum/uplink_item/item)
+	var/tc_cost = item.telecrystal_cost(telecrystals)
+	var/bc_cost = item.bluecrystal_cost(bluecrystals)
+	var/can_buy = item.can_buy_telecrystals(src) || item.can_buy_bluecrystals(src)
+	var/newItem = list(
+		"name" = item.name,
+		"description" = replacetext(item.description(), "\n", "<br>"),
+		"can_buy" = can_buy,
+		"tc_cost" = tc_cost,
+		"bc_cost" = bc_cost,
+		"left" = item.items_left(src),
+		"ref" = "\ref[item]"
+	)
+	return newItem
+
+/obj/item/device/uplink/hidden/proc/update_tgui_data()
+	if(tgui_menu == 0)
+		var/list/categories = list()
+		var/list/items = list()
 		for(var/datum/uplink_category/category in uplink.categories)
 			if(category.can_view(src))
 				categories[++categories.len] = list("name" = category.name, "ref" = "\ref[category]")
-		nanoui_data["categories"] = categories
-	else if(nanoui_menu == 1)
+				for(var/datum/uplink_item/item in category.items)
+					if(item.can_view(src))
+						items[++items.len] = new_tgui_item_data(item)
+
+		tgui_data["categories"] = categories
+		tgui_data["items"] = items
+	else if(tgui_menu == 1)
 		var/items[0]
 		for(var/datum/uplink_item/item in category.items)
 			if(item.can_view(src))
-				var/tc_cost = item.telecrystal_cost(telecrystals)
-				var/bc_cost = item.bluecrystal_cost(bluecrystals)
-				var/can_buy = item.can_buy_telecrystals(src) || item.can_buy_bluecrystals(src)
-				items[++items.len] = list(
-					"name" = item.name,
-					"description" = replacetext(item.description(), "\n", "<br>"),
-					"can_buy" = can_buy,
-					"tc_cost" = tc_cost,
-					"bc_cost" = bc_cost,
-					"left" = item.items_left(src),
-					"ref" = "\ref[item]"
-				)
-		nanoui_data["items"] = items
-	else if(nanoui_menu == 2)
+				items[++items.len] = new_tgui_item_data(item)
+		tgui_data["items"] = items
+	else if(tgui_menu == 2)
 		var/permanentData[0]
 		for(var/datum/record/general/locked/record in SSrecords.records_locked)
 			permanentData[++permanentData.len] = list("name" = record.name,"id" = record.id, "has_exploitables" = !!record.exploit_record)
-		nanoui_data["exploit_records"] = permanentData
-	else if(nanoui_menu == 21)
-		nanoui_data["exploit_exists"] = 0
+		tgui_data["exploit_records"] = permanentData
+	else if(tgui_menu == 21)
+		tgui_data["exploit_exists"] = 0
 
 		for(var/datum/record/general/locked/L in SSrecords.records_locked)
 			if(L.id == exploit_id)
-				nanoui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
+				tgui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
 												// We trade off being able to automatically add shit for more control over what gets passed to json
 												// and if it's sanitized for html.
-				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
-				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>") // change line breaks into <br>
-				nanoui_data["exploit"]["name"] = html_encode(L.name)
-				nanoui_data["exploit"]["sex"] = html_encode(L.sex)
-				nanoui_data["exploit"]["age"] = html_encode(L.age)
-				nanoui_data["exploit"]["species"] = html_encode(L.species)
-				nanoui_data["exploit"]["rank"] = html_encode(L.rank)
-				nanoui_data["exploit"]["citizenship"] = html_encode(L.citizenship)
-				nanoui_data["exploit"]["employer"] = html_encode(L.employer)
-				nanoui_data["exploit"]["religion"] = html_encode(L.religion)
-				nanoui_data["exploit"]["fingerprint"] = html_encode(L.fingerprint)
+				tgui_data["exploit"]["tgui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
+				tgui_data["exploit"]["tgui_exploit_record"] = replacetext(tgui_data["exploit"]["tgui_exploit_record"], "\n", "<br>") // change line breaks into <br>
+				tgui_data["exploit"]["name"] = html_encode(L.name)
+				tgui_data["exploit"]["sex"] = html_encode(L.sex)
+				tgui_data["exploit"]["age"] = html_encode(L.age)
+				tgui_data["exploit"]["species"] = html_encode(L.species)
+				tgui_data["exploit"]["rank"] = html_encode(L.rank)
+				tgui_data["exploit"]["citizenship"] = html_encode(L.citizenship)
+				tgui_data["exploit"]["employer"] = html_encode(L.employer)
+				tgui_data["exploit"]["religion"] = html_encode(L.religion)
+				tgui_data["exploit"]["fingerprint"] = html_encode(L.fingerprint)
 
-				nanoui_data["exploit_exists"] = 1
+				tgui_data["exploit_exists"] = 1
 				break
 
-	else if(nanoui_menu == 3)
-		nanoui_data["contracts_found"] = 0
+	else if(tgui_menu == 3)
+		tgui_data["contracts_found"] = 0
 
 		if(establish_db_connection(dbcon))
-			nanoui_data["contracts"] = list()
+			tgui_data["contracts"] = list()
 
-			if (!nanoui_data["contracts_current_page"])
-				nanoui_data["contracts_current_page"] = 1
+			if (!tgui_data["contracts_current_page"])
+				tgui_data["contracts_current_page"] = 1
 
-			if (!nanoui_data["contracts_view"])
-				nanoui_data["contracts_view"] = 1
+			if (!tgui_data["contracts_view"])
+				tgui_data["contracts_view"] = 1
 
 			var/query_details[0]
 
-			switch (nanoui_data["contracts_view"])
+			switch (tgui_data["contracts_view"])
 				if (1)
 					query_details["status"] = "open"
 				if (2)
 					query_details["status"] = "closed"
 				else
-					nanoui_data["contracts_view"] = 1
+					tgui_data["contracts_view"] = 1
 					query_details["status"] = "open"
 
 			var/DBQuery/index_query = dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status:")
@@ -246,12 +256,12 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 				for (var/a in contracts_pages)
 
-				nanoui_data["contracts_pages"] = contracts_pages
+				tgui_data["contracts_pages"] = contracts_pages
 
-				if (nanoui_data["contracts_current_page"] > pages)
+				if (tgui_data["contracts_current_page"] > pages)
 					return
 
-				query_details["offset"] = (nanoui_data["contracts_current_page"] - 1) * 10
+				query_details["offset"] = (tgui_data["contracts_current_page"] - 1) * 10
 
 				var/DBQuery/list_query = dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status: LIMIT 10 OFFSET :offset:")
 				list_query.Execute(query_details)
@@ -262,21 +272,21 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 											"contractee" = list_query.item[2],
 											"title" = list_query.item[3])))
 
-				nanoui_data["contracts"] = contracts
+				tgui_data["contracts"] = contracts
 
-				nanoui_data["contracts_found"] = 1
+				tgui_data["contracts_found"] = 1
 
-	if(nanoui_menu == 31)
-		nanoui_data["contracts_found"] = 0
+	if(tgui_menu == 31)
+		tgui_data["contracts_found"] = 0
 
 		if (config.sql_enabled && establish_db_connection(dbcon))
-			nanoui_data["contracts"] = list()
+			tgui_data["contracts"] = list()
 
-			if (!nanoui_data["contracts_current_page"])
-				nanoui_data["contracts_current_page"] = 1
+			if (!tgui_data["contracts_current_page"])
+				tgui_data["contracts_current_page"] = 1
 
-			if (!nanoui_data["contracts_view"])
-				nanoui_data["contracts_view"] = 1
+			if (!tgui_data["contracts_view"])
+				tgui_data["contracts_view"] = 1
 
 			var/query_details[0]
 			query_details["contract_id"] = exploit_id
@@ -285,7 +295,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 			select_query.Execute(query_details)
 
 			if (select_query.NextRow())
-				nanoui_data["contracts_found"] = 1
+				tgui_data["contracts_found"] = 1
 
 				var/contract[0]
 				contract["id"] = select_query.item[1]
@@ -305,7 +315,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				contract["description"] = replacetext(contract["description"], ascii2text(13), "")
 				contract["reward_other"] = select_query.item[6]
 
-				nanoui_data["contract"] = contract
+				tgui_data["contract"] = contract
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
@@ -366,7 +376,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	hidden_uplink = new(src, mind)
 	hidden_uplink.telecrystals = 0
 	hidden_uplink.bluecrystals = 0
-	hidden_uplink.nanoui_menu = 3
+	hidden_uplink.tgui_menu = 3
 
 /obj/item/device/contract_uplink/attack_self(mob/user as mob)
 	if (hidden_uplink)
@@ -423,7 +433,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
 	else
 		hidden_uplink.bluecrystals = DEFAULT_BLUECRYSTAL_AMOUNT
-	hidden_uplink.nanoui_menu = 1
+	hidden_uplink.tgui_menu = 1
 
 /obj/item/device/special_uplink/attack_self(mob/user as mob)
 	if(hidden_uplink)

@@ -49,8 +49,9 @@
 	return
 
 /obj/machinery/portable_atmospherics/powered/pump/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
 
 	if(prob(50/severity))
@@ -63,7 +64,6 @@
 	update_icon()
 	SStgui.update_uis(src)
 
-	..(severity)
 
 /obj/machinery/portable_atmospherics/powered/pump/process()
 	..()

@@ -38,6 +38,12 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
+/obj/item/ammo_magazine/c45/revolver
+	name = "speed loader (.45)"
+	icon_state = "a454"
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+
 // End of Revolvos //
 
 // Pistols and handguns //
@@ -299,6 +305,16 @@
 	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 50
 
+/obj/item/ammo_magazine/smg10mm
+	name = "smg magazine (10mm)"
+	desc = "A detachable magazine for the improvised konyanger pirate SMG, made from scrap metal."
+	icon_state = "10mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/smg10mm
+	caliber = "10mm"
+	max_ammo = 20
+	multiple_sprites = 1
+
 // End of SMGs and PDWs //
 
 // Rifles and bigger calibers //
@@ -332,6 +348,10 @@
 	icon_state = "5.56AP"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
+/obj/item/ammo_magazine/a556/k556
+	name = "konyang rifle magazine"
+	icon_state = "k556rifle_mag"
+
 /obj/item/ammo_magazine/a556/carbine
 	name = "carbine magazine (5.56mm)"
 	icon_state = "5.56c"
@@ -362,6 +382,10 @@
 	name = "carbine magazine (5.56mm blank)"
 	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/blank
+
+/obj/item/ammo_magazine/a556/carbine/konyang47
+	name = "konyang carbine magazine"
+	icon_state = "k47_mag"
 
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"
@@ -650,4 +674,14 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/konyang_shotgun
+	name = "konyang shotgun magazine"
+	icon_state = "konyang_shotgun"
+	caliber = "shotgun"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 9
 	multiple_sprites = 1

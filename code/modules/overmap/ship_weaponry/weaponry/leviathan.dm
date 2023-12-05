@@ -288,6 +288,8 @@
 	return
 
 /obj/machinery/leviathan_safeguard/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/machinery/leviathan_safeguard/Destroy()
@@ -359,6 +361,8 @@
 	return
 
 /obj/machinery/leviathan_button/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/machinery/leviathan_button/proc/open()

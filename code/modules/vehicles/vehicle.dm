@@ -151,8 +151,11 @@
 	return
 
 /obj/vehicle/emp_act(severity)
+	. = ..()
+
 	if(organic)
 		return
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)

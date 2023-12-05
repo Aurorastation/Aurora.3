@@ -47,10 +47,12 @@
 	return
 
 /obj/machinery/mass_driver/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
 		return
+
 	drive()
-	..(severity)
 
 /obj/machinery/mass_driver/attackby(obj/item/W, mob/user)
 

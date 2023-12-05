@@ -252,8 +252,9 @@
 	return FALSE
 
 /mob/living/carbon/slime/emp_act(severity)
+	. = ..()
+
 	powerlevel = 0 // oh no, the power!
-	..()
 
 /mob/living/carbon/slime/ex_act(severity)
 	..()

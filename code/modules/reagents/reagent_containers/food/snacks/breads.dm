@@ -385,6 +385,20 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/notellabread
+	name = "notella bread slice"
+	desc = "A slice of bread covered with delicious chocolate-hazelnut spread."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "chocobread"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	filling_color = "#4b270f"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 5))
+	bitesize = 2
+
 /obj/item/reagent_containers/food/snacks/egginthebasket
 	name = "egg in the basket"
 	desc = "Egg in the basket, also known as <i>egg in a hole</i>, or <i>bullseye egg</i>, or <i>egg in a nest</i>, or <i>framed egg</i>, or..."
@@ -536,3 +550,52 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 4))
 	bitesize = 2
 
+
+//pita (these are all kept under 'bread' for icon and code simplification reasons. Plus, this way people don't have to chase these down all over the various categories they would otherwise belong in.)
+/obj/item/reagent_containers/food/snacks/pita
+	name = "pita"
+	desc = "A plain, fluffy, pocket-shaped flatbread to put things in or dip into various dishes and dips."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "pita"
+	item_state = "pita"
+	contained_sprite = TRUE
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 3))
+	filling_color = "#d8af79"
+
+/obj/item/reagent_containers/food/snacks/pita/hummus
+	name = "hummus pita"
+	desc = "Pita bread stuffed to the brim with Hummus. Just as it should be."
+	icon_state = "pita_hummus"
+	filling_color = "#ffe4c1"
+
+/obj/item/reagent_containers/food/snacks/pita/sabich
+	name = "sabich"
+	desc = "The 'ch' is pronounced like the j in 'juanita' or 'mojito'. This Israeli dish is fried eggplants and egg in a Pita, with Hummus, Tahini, Salad, or other sides."
+	icon_state = "sabich"
+	reagents_to_add = list(/singleton/reagent/nutriment = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("eggplant" = 5, "eggs" = 4, "pita bread" = 2))
+
+/obj/item/reagent_containers/food/snacks/pita/falafel
+	name = "falafel"
+	desc = "Falafel balls in a fluffy pita with some hummus, chips, and/or salad - popular, beloved, cheap street food. Originates in the middle east, also common in Elyra."
+	icon_state = "falafel"
+	filling_color = "#443011"
+	reagents_to_add = list(/singleton/reagent/nutriment = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3, "hummus" = 2, "pita bread" = 2))
+
+/obj/item/reagent_containers/food/snacks/pita/tuna
+	name = "tuna salad pita"
+	desc = "It's kind of like a tuna sandwich except... Not."
+	icon_state = "tunapita"
+	filling_color = "#e7dac9"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein/seafood = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("mayonnaise" = 3,"pita bread" = 2), /singleton/reagent/nutriment/protein/seafood = list("tuna" = 5))
+
+/obj/item/reagent_containers/food/snacks/pita/chocolate
+	name = "chocolate pita"
+	desc = "Fluffy dough filled with a creamy chocolate spread, what's not to love? This is the sort of meal kids of Middle Eastern or Elyran heritage might occasionaly take to school with them."
+	icon_state = "chocolatepita"
+	filling_color = "#311909"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/choconutspread = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 8, "pita bread" = 5, "childhood" = 3))

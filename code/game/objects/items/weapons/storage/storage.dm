@@ -749,10 +749,11 @@
 	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
 /obj/item/storage/emp_act(severity)
+	. = ..()
+
 	if(!istype(src.loc, /mob/living))
 		for(var/obj/O in contents)
 			O.emp_act(severity)
-	..()
 
 /obj/item/storage/attack_self(mob/user as mob)
 	//Clicking on itself will empty it, if it has the verb to do that.

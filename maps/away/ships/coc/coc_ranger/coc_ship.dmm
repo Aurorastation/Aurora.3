@@ -4510,7 +4510,7 @@
 /area/ship/ranger_corvette/crew)
 "slH" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/telecomms/allinone/ship/coalition_navy,
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)

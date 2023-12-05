@@ -208,6 +208,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(S.name in job.blacklisted_species)
 			return FALSE
 
+	if(job.blacklisted_citizenship)
+		var/datum/citizenship/C = SSrecords.citizenships[client.prefs.citizenship]
+		if(C.name in job.blacklisted_citizenship)
+			return FALSE
+
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
 	if (!(job.type in faction_allowed_roles))
