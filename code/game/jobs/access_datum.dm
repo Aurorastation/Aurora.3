@@ -673,3 +673,23 @@ var/const/access_kataphract_knight = 114
 	id = access_idris
 	desc = "Idris Vault Ship"
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_coalition = 221
+/datum/access/access_coalition
+	id = access_coalition
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_coalition_navy = 222
+/datum/access/access_coalition_navy
+	id = access_coalition_navy
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_gadpathur_navy = 223
+/datum/access/access_gadpathur_navy
+	id = access_gadpathur_navy
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_gadpathur_navy_officer = 224
+/datum/access/access_gadpathur_navy_officer
+	id = access_gadpathur_navy_officer
+	access_type = ACCESS_TYPE_CENTCOM

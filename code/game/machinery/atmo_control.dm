@@ -226,6 +226,15 @@
 	icon_screen = "engi"
 	density = FALSE
 
+/obj/machinery/computer/general_air_control/large_tank_control/terminal
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "tank"
+	icon_keyboard = "atmos_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/general_air_control/large_tank_control/ui_data(mob/user)
 	. = ..()
 	var/list/data = .

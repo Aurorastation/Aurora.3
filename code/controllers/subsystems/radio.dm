@@ -199,6 +199,8 @@ SUBSYSTEM_DEF(radio)
 			return "hailradio"
 		if(EXP_FREQ)
 			return "expradio"
+		if (COAL_FREQ) // Coalition navy (rangers, xanu, gadpathur, etc)
+			return "coalitionradio"
 
 	if(DEPT_FREQS_ASSOC[fstr])
 		return "deptradio"
