@@ -753,9 +753,7 @@
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	//Try to apply the damage
-	var/success = FALSE
-	success += L.apply_damage(60, DAMAGE_TOXIN, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
-	success += L.apply_damage(60, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	var/success = L.apply_damage(60, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 
 	//If successfully applied, give the message
 	if(success)
@@ -778,7 +776,11 @@
 		//If it's a human and not an IPC, apply an infection
 		//We are returning early before this step in case something isn't a human, so this should be fine not to catch borgs/bot/exosuits/whatever
 		if(!isipc(L))
+
 			organ.germ_level += INFECTION_LEVEL_THREE
+
+			//Add some fertilizer to poison the target whole, not only the external organ (leg/foot)
+			L.reagents.add_reagent(/singleton/reagent/toxin/fertilizer, 10)
 
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)
