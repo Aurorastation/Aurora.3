@@ -298,7 +298,7 @@
 /obj/item/pen/crayon
 	name = "crayon"
 	desc = "A colourful crayon. Please refrain from eating it or putting it in your nose."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonred"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'

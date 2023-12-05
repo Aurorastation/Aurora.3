@@ -444,6 +444,8 @@
 	return I
 
 /obj/item/clothing/gloves/emp_act(severity)
+	. = ..()
+
 	if(cell)
 		//why is this not part of the powercell code?
 		cell.charge -= 1000 / severity
@@ -451,7 +453,6 @@
 			cell.charge = 0
 	if(ring)
 		ring.emp_act(severity)
-	..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
@@ -995,7 +996,7 @@
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 
 /obj/item/clothing/suit/return_own_image()
 	var/image/our_image
@@ -1071,7 +1072,7 @@
 	//Also used by rolling/unrolling.
 	var/worn_state = null
 	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)

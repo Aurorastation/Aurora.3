@@ -102,6 +102,7 @@
 		return
 
 /obj/item/clothing/wrists/watch/emp_act(severity)
+	. = ..()
+
 	if(prob(50/severity))
 		wired = FALSE
-	..()

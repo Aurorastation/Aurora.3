@@ -174,6 +174,8 @@
 	return 0
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)

@@ -18,6 +18,12 @@
 
 	var/storage_cost
 
+	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_x_dimension = 32
+
+	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_y_dimension = 32
+
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
@@ -247,7 +253,7 @@
 		src.loc = null
 
 	if(!QDELETED(action))
-		QDEL_NULL(action) /// /mob/living/proc/handle_actions() creates it, for ungodly reasons
+		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
 	action = null
 
 	if(!QDELETED(hidden_uplink))
@@ -255,7 +261,7 @@
 	hidden_uplink = null
 
 	master = null
-	return ..()
+	. = ..()
 
 /obj/item/update_icon()
 	. = ..()

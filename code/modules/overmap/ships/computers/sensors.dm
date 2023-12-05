@@ -529,8 +529,11 @@
 	change_power_consumption(1500 * (range**2), POWER_USE_ACTIVE)
 
 /obj/machinery/shipsensors/emp_act(severity)
+	. = ..()
+
 	if(!use_power)
 		return
+
 	take_damage(20/severity)
 	toggle()
 

@@ -178,12 +178,16 @@
 
 /obj/machinery/computer/slot_machine/emp_act(severity)
 	. = ..()
+
 	if(stat & (NOPOWER|BROKEN))
 		return
+
 	if(prob(15 * severity))
 		return
+
 	if(prob(1)) // :^)
 		emagged = TRUE
+
 	var/severity_ascending = 4 - severity
 	money = max(rand(money - (200 * severity_ascending), money + (200 * severity_ascending)), 0)
 	balance = max(rand(balance - (50 * severity_ascending), balance + (50 * severity_ascending)), 0)

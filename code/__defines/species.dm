@@ -1,5 +1,6 @@
 #define SPECIES_HUMAN				"Human"
 #define SPECIES_HUMAN_OFFWORLD		"Off-Worlder Human"
+#define SPECIES_HUMAN_VATGROWN		"Vat-Grown Human"
 
 #define SPECIES_UNATHI				"Unathi"
 
