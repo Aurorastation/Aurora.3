@@ -36,6 +36,8 @@
 #define MATERIAL_GRAPHITE                   "graphite"
 #define MATERIAL_DEUTERIUM					"deuterium"
 #define MATERIAL_SUPERMATTER				"supermatter"
+#define MATERIAL_ALUMINIUM					"aluminium"
+#define MATERIAL_LEAD						"lead"
 
 // Leathers and related.
 #define MATERIAL_RESIN                   "resin"

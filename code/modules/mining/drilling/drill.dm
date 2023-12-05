@@ -32,7 +32,9 @@
 		ORE_GOLD = /obj/item/ore/gold,
 		ORE_DIAMOND = /obj/item/ore/diamond,
 		ORE_PLATINUM = /obj/item/ore/osmium,
-		ORE_HYDROGEN = /obj/item/ore/hydrogen
+		ORE_HYDROGEN = /obj/item/ore/hydrogen,
+		ORE_BAUXITE = /obj/item/ore/aluminium,
+		ORE_GALENA = /obj/item/ore/lead
 	)
 
 	//Upgrades
