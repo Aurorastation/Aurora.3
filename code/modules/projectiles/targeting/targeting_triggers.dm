@@ -11,8 +11,6 @@
 				AO.update_aiming_deferred()
 
 /mob/living/proc/aim_at(atom/target, obj/item/with)
-	if(QDELETED(target))
-		return FALSE
 
 	if(!ismob(target) || !istype(with) || incapacitated())
 		return FALSE
