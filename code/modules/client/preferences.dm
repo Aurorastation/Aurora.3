@@ -368,7 +368,8 @@ var/list/preferences_datums = list()
 		if (!config.sql_saves)
 			return 0
 		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored", "Permanently Delete Character", "No", "Yes") == "Yes")
-			delete_character_sql(usr.client)
+			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
+				delete_character_sql(usr.client)
 	else
 		return 0
 
