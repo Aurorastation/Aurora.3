@@ -27,7 +27,7 @@
 	var/lock_time = 0
 
 	///Boolean, if `TRUE` aiming is performed instead of shooting
-	var/active = TRUE
+	var/active = FALSE
 
 	///A list of permissions granted to the target, see `code\__defines\targeting.dm`
 	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO
@@ -35,9 +35,9 @@
 	///The time, relative to `world.time`, after which we can re-aim
 	var/aimcooldown
 
-/obj/aiming_overlay/Initialize(mapload, newowner)
+/obj/aiming_overlay/Initialize(mapload, ...)
 	. = ..()
-	owner = newowner
+	owner = loc
 	loc = null
 	verbs.Cut()
 
