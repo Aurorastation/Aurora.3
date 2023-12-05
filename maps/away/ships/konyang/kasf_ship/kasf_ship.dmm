@@ -354,7 +354,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/kasf_corvette/engie)
 "cq" = (
 /obj/structure/table/rack,
@@ -1307,7 +1307,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/kasf_corvette/engie)
 "ij" = (
 /obj/structure/window/reinforced{
@@ -1978,7 +1978,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/starboardwep)
 "mH" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -2006,7 +2006,7 @@
 "mT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/portwep)
 "mW" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -2505,7 +2505,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/kasf_corvette/atmos)
 "qf" = (
 /obj/structure/lattice/catwalk,
@@ -3389,7 +3389,7 @@
 /obj/machinery/shipsensors/weak{
 	pixel_y = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/kasf_corvette/atmos)
 "vg" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -3751,7 +3751,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/kasf_corvette/atmos)
 "xR" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -5322,7 +5322,7 @@
 /obj/machinery/iff_beacon{
 	pixel_y = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/kasf_corvette/engie)
 "FZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5469,7 +5469,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/portwep)
 "Hd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -8559,7 +8559,7 @@
 "ZH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/starboardwep)
 "ZI" = (
 /obj/effect/shuttle_landmark/kasf_corvette/nav4,
