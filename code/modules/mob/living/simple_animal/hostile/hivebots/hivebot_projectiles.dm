@@ -1,7 +1,7 @@
 /obj/item/projectile/bullet/pistol/hivebotspike
 	name = "spike"
 	damage = 10
-	armor_penetration = 20
+	armor_penetration = 30
 	sharp = 1
 	embed = 0
 
