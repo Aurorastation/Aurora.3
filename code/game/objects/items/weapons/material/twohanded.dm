@@ -264,7 +264,7 @@
 	return ..()
 
 /obj/item/material/twohanded/spear/examine(mob/user)
-	..(user)
+	. = ..()
 	if(explosive)
 		to_chat(user, "It has \the [explosive] strapped to it.")
 
@@ -351,7 +351,7 @@
 	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	force_unwielded = 10
 	force_wielded = 20
@@ -472,8 +472,9 @@
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/examine(mob/user)
-	if(..(user, 1))
+/obj/item/material/twohanded/chainsaw/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
 		if(powered)
 			to_chat(user, SPAN_NOTICE("It is currently powered on."))
@@ -514,7 +515,7 @@
 				PowerUp(user)
 			else
 				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
-				if(!do_after(user, 2 SECONDS, act_target = user))
+				if(!do_after(user, 2 SECONDS))
 					break
 
 /obj/item/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)

@@ -546,9 +546,9 @@
 /obj/machinery/light/skrell,
 /obj/structure/closet/skrell,
 /obj/item/clothing/under/syndicate,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/ears/skrell/chain/bluejewels,
@@ -606,9 +606,9 @@
 "fTp" = (
 /obj/structure/closet/skrell,
 /obj/item/clothing/under/syndicate,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/ears/skrell/chain,
@@ -689,8 +689,8 @@
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = "208"
 	},
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/produce{
 	layer = 2.99;
 	pixel_x = 3;

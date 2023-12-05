@@ -1,7 +1,7 @@
 /atom
 	layer = 2
 	var/level = 2
-	var/flags = 0
+	var/atom_flags = 0
 	var/init_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -86,6 +86,10 @@
 		return 0
 	return -1
 
+/// Primarily used on machinery, when this returns TRUE, equipment that helps with vision, such as prescription glasses for nearsighted characters, have an effect despite the client eye not being on the mob
+/atom/proc/grants_equipment_vision(var/mob/user)
+	return
+
 /atom/proc/additional_sight_flags()
 	return 0
 
@@ -103,17 +107,36 @@
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
 /atom/proc/is_open_container()
-	return flags & OPENCONTAINER
+	return atom_flags & ATOM_FLAG_OPEN_CONTAINER
+
+/atom/proc/is_pour_container()
+	return atom_flags & ATOM_FLAG_POUR_CONTAINER
 
 /atom/proc/CheckExit()
 	return 1
 
-// If you want to use this, the atom must have the PROXMOVE flag and the moving atom must also have the PROXMOVE flag currently to help with lag. -ComicIronic
+// If you want to use this, the atom must have the MOVABLE_FLAG_PROXMOVE flag and the moving atom must also have the MOVABLE_FLAG_PROXMOVE flag currently to help with lag. -ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
+/**
+ * React to an EMP of the given severity
+ *
+ * Default behaviour is to send the [COMSIG_ATOM_PRE_EMP_ACT] and [COMSIG_ATOM_EMP_ACT] signal
+ *
+ * * severity - The severity of the EMP pulse (how strong it is), defines in `code\__defines\empulse.dm`
+ *
+ * Returns the protection value
+ */
 /atom/proc/emp_act(var/severity)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+
+	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_PRE_EMP_ACT, severity)
+
+	RETURN_TYPE(protection)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
+	return protection // Pass the protection value collected here upwards
 
 /atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
@@ -237,8 +260,10 @@
 	return found
 
 // Examination code for all atoms.
-/atom/proc/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
-	var/f_name = "\a [src][infix]."
+// Returns TRUE, the caller always expects TRUE
+// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
+/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
+	var/f_name = "\a [src]. [infix]"
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = "some "
@@ -269,10 +294,10 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-	return distance == -1 || (get_dist(src, user) <= distance)
+	return TRUE
 
 // Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
+/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
@@ -298,7 +323,7 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-	return distance == -1 || (get_dist(src, user) <= distance)
+	return TRUE
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
 /atom/Topic(href, href_list)
@@ -307,7 +332,7 @@
 		return
 
 	if(href_list["examine_fluff"])
-		examine_fluff(usr)
+		examinate(usr, src, show_extended = TRUE)
 
 	var/client/usr_client = usr.client
 	var/list/paramslist = list()
@@ -341,6 +366,7 @@
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
+	var/old_dir = dir
 	dir = new_dir
 
 	// Lighting.
@@ -350,6 +376,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
+		dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
@@ -517,7 +544,7 @@
 // Returns 1 if made bloody, returns 0 otherwise.
 /atom/proc/add_blood(mob/living/carbon/human/M)
 
-	if(flags & NOBLOODY)
+	if(atom_flags & ATOM_FLAG_NO_BLOOD)
 		return 0
 
 	if(!blood_DNA || !istype(blood_DNA, /list))	// If our list of DNA doesn't exist yet (or isn't a list), initialise it.
@@ -706,6 +733,12 @@
 
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
+
+/atom/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/atom/proc/get_standard_pixel_y()
+	return initial(pixel_y)
 
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return

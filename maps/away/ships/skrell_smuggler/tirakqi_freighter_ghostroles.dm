@@ -70,9 +70,9 @@
 		/obj/item/clothing/shoes/cowboy,
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/winter,
-		/obj/item/clothing/shoes/hitops/black,
-		/obj/item/clothing/shoes/black,
-		/obj/item/clothing/shoes/brown
+		/obj/item/clothing/shoes/sneakers/hitops/black,
+		/obj/item/clothing/shoes/sneakers/black,
+		/obj/item/clothing/shoes/sneakers/brown
 	)
 
 	back = /obj/item/storage/backpack/satchel

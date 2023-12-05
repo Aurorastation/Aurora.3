@@ -21,7 +21,7 @@
 	icon = 'icons/turf/smooth/riveted.dmi'
 	icon_state = "riveted"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy."
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/riveted,
 		/obj/machinery/door/airlock/centcom,
@@ -42,7 +42,7 @@
 	icon_state = "map_readable"//the best approximation of the ingame gunmetal blended wall sprite for example
 	desc = "It's a wall. It appears to be composed of a highly durable alloy and plated with steel."
 	color = COLOR_WALL_GUNMETAL
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/steel,
 		/obj/structure/window_frame,
@@ -54,7 +54,7 @@
 	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "map-shuttle"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy."
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/darkshuttlewall,
 		/turf/unsimulated/wall/riveted,
@@ -68,3 +68,21 @@
 	icon_state = "door_closed"
 	name = "airlock"
 	desc = "It opens and closes."
+
+/turf/unsimulated/wall/konyang
+	name = "wall"
+	icon = 'icons/turf/smooth/building-konyang.dmi'
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door,
+		/obj/machinery/door/airlock
+	)
+	smoothing_flags = SMOOTH_MORE
+	icon_state = "map_white"
+

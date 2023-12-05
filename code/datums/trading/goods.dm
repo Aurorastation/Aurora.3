@@ -157,9 +157,9 @@
 		/obj/item/clothing/shoes/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/lightrig               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
+		/obj/item/clothing/shoes/combat                   = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/galoshes/syndie          = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/sneakers/black/bst              = TRADER_BLACKLIST
 	)
 
 /datum/trader/clothingshop/hatglovesaccessories

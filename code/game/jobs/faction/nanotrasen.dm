@@ -26,6 +26,10 @@
 		)
 	)
 
+	titles_to_loadout = list(
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/nanotrasen
+	)
+
 
 	allowed_role_types = NT_ROLES
 
@@ -46,3 +50,11 @@
 						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
 
 	return objective
+
+/datum/outfit/job/visitor/nanotrasen
+	name = "Off-Duty Crew Member - NanoTrasen"
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt

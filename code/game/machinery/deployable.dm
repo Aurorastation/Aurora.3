@@ -254,6 +254,8 @@ for reference:
 			return
 
 /obj/machinery/deployable/barrier/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(prob(50/severity))
@@ -317,7 +319,7 @@ for reference:
 
 /obj/item/deployable_kit/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
-	if(do_after(user, assembly_time))
+	if(do_after(user, assembly_time, src, DO_REPAIR_CONSTRUCT))
 		assemble_kit(user)
 		qdel(src)
 
@@ -330,8 +332,9 @@ for reference:
 /obj/item/deployable_kit/legion_barrier
 	name = "legion barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
+	item_state = "barrier_kit"
 	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
@@ -383,8 +386,9 @@ for reference:
 /obj/item/deployable_kit/remote_mech
 	name = "mech control centre assembly kit"
 	desc = "A quick assembly kit to put together a mech control centre."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
+	item_state = "barrier_kit"
 	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS

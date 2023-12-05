@@ -183,7 +183,8 @@
 		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the fax","req"=1,"type"="senderkey"),
 		"title" = list("name"="title","desc"="The message title that should be sent","req"=1,"type"="str"),
 		"body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
-		"target" = list("name"="target","desc"="The target faxmachines the fax should be sent to","req"=1,"type"="lst")
+		"target" = list("name"="target","desc"="The target faxmachines the fax should be sent to","req"=1,"type"="lst"),
+		"stamptext" = list("name"="stamptext","desc"="Who/What entity stamped the fax. To complete the Sentence: This paper has been stamped ...","req"=0,"type"="str")
 		)
 
 /datum/topic_command/send_fax/run_command(queryparams)
@@ -194,6 +195,7 @@
 	var/faxtitle = sanitizeSafe(queryparams["title"]) //Title of the report
 	var/faxbody = sanitize(queryparams["body"],max_length=0) //Body of the report
 	var/faxannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 0 - Dont announce, 1 - Announce, 2 - Only if pda not linked
+	var/stamptext = sanitize(queryparams["stamptext"])
 
 	if(!targetlist || targetlist.len < 1)
 		statuscode = 400
@@ -207,7 +209,7 @@
 	//Send the fax
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
 		if (F.department in targetlist)
-			sendresult = send_fax(F, faxtitle, faxbody, senderkey)
+			sendresult = send_fax(F, faxtitle, faxbody, senderkey, stamptext)
 			if (sendresult == 1)
 				sendsuccess.Add(F.department)
 				if(!LAZYLEN(F.alert_pdas))
@@ -233,7 +235,7 @@
 	data = responselist
 	return TRUE
 
-/datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey)
+/datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey, stamptext)
 	// Create the reply message
 	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
 	P.name = "[current_map.boss_name] - [title]"
@@ -247,7 +249,10 @@
 		P.stamped = new
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
-	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+	if(stamptext)
+		P.stamps += "<HR><i>This paper has been stamped [stamptext].</i>"
+	else
+		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(F.receivefax(P))
 		log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")

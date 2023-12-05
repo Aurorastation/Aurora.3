@@ -1,8 +1,9 @@
 /obj/item/reagent_containers/chem_disp_cartridge
 	name = "chemical dispenser cartridge"
 	desc = "This goes in a chemical dispenser."
+	icon = 'icons/obj/item/reagent_containers/cartridge.dmi'
 	icon_state = "cartridge"
-
+	contained_sprite = TRUE
 	filling_states = "20;40;60;80;100"
 	w_class = ITEMSIZE_NORMAL
 
@@ -34,7 +35,7 @@
 	cut_overlays()
 
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
@@ -44,7 +45,7 @@
 		add_overlay(lid)
 
 /obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It has a capacity of [volume] units.")
 	if(reagents.total_volume <= 0)
 		to_chat(user, "It is empty.")
@@ -85,10 +86,10 @@
 	..()
 	if (is_open_container())
 		to_chat(usr, "<span class = 'notice'>You put the cap on \the [src].</span>")
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
 		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/W as obj, mob/user as mob)

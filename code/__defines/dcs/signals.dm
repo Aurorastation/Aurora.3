@@ -26,7 +26,7 @@
 /// fires on the target datum when an element is attached to it (/datum/element)
 #define COMSIG_ELEMENT_ATTACH "element_attach"
 /// fires on the target datum when an element is attached to it  (/datum/element)
-#define COMSIG_ELEMENT_DETACH "element_detach"
+#define COMSIG_ELEMENT_DETACH_ON_HOST_DESTROY "ELEMENT_DETACH_ON_HOST_DESTROY"
 
 // /atom signals
 
@@ -52,14 +52,23 @@
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
+#define COMSIG_MOB_EXAMINATE "mob_examinate"
 #define COMSIG_MOB_FACEDIR "mob_facedir"
 #define COMSIG_MOB_POINT "mob_point"
+#define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 ///from base of /mob/Login(): ()
 #define COMSIG_MOB_LOGIN "mob_login"
 ///from base of /mob/Logout(): ()
 #define COMSIG_MOB_LOGOUT "mob_logout"
 /// from mob/get_status_tab_items(): (list/items)
 #define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
+///from /mob/living/carbon/human/proc/force_say(): ()
+#define COMSIG_HUMAN_FORCESAY "human_forcesay"
+
+/// Sent from /proc/do_after if someone starts a do_after action bar.
+#define COMSIG_DO_AFTER_BEGAN "mob_do_after_began"
+/// Sent from /proc/do_after once a do_after action completes, whether via the bar filling or via interruption.
+#define COMSIG_DO_AFTER_ENDED "mob_do_after_ended"
 
 // /obj signals
 /// when a hood is unequipped

@@ -37,7 +37,7 @@
 		add_overlay("sheater-open")
 
 /obj/machinery/space_heater/examine(mob/user)
-	..(user)
+	. = ..()
 
 	to_chat(user, "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"].")
 	if(panel_open)
@@ -52,12 +52,13 @@
 	return FALSE
 
 /obj/machinery/space_heater/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	if(cell)
 		cell.emp_act(severity)
-	..(severity)
 
 /obj/machinery/space_heater/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/cell))
@@ -202,3 +203,10 @@
 			active = FALSE
 			power_change()
 		update_icon()
+
+/obj/machinery/space_heater/stationary//For mounting on walls in planetary buildings and stuff.
+	name = "stationary air conditioning unit"
+	desc = "A stationary air conditioning unit. It can heat or cool a room to your liking."
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	density = FALSE

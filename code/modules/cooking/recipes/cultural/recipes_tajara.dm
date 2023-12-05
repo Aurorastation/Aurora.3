@@ -71,6 +71,16 @@
 			return ..()
 	return FALSE
 
+/singleton/recipe/fermented_worm_sandwich
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/fermented_worm
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/fermented_worm_sandwich
+
 /singleton/recipe/earthenroot_mash
 	appliance = MIX
 	fruit = list("earthenroot" = 1)
@@ -240,7 +250,7 @@
 	fruit = list("nifberries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/creamice
 
-/singleton/recipe/stuffed_eartenroot
+/singleton/recipe/stuffed_earthenroot
 	appliance = OVEN
 	fruit = list("earthenroot" = 1)
 	items = list(
@@ -250,6 +260,26 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/stuffed_earthenroot
+
+/singleton/recipe/lardwich
+	items = list(
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/spreads/lard
+	)
+	result = /obj/item/reagent_containers/food/snacks/lardwich
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/scoutration
+	appliance = OVEN
+	fruit = list("nifberries" = 2)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/reagent_containers/food/snacks/explorer_ration
 
 // Tajaran Seafood
 /singleton/recipe/spicy_clams
@@ -270,16 +300,6 @@
 	reagents = list(/singleton/reagent/water = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/clam_pasta
-
-/singleton/recipe/fermented_worm_sandwich
-	appliance = MIX
-	items = list(
-		/obj/item/reagent_containers/food/snacks/hardbread_slice,
-		/obj/item/reagent_containers/food/snacks/hardbread_slice,
-		/obj/item/reagent_containers/food/snacks/fermented_worm
-	)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/fermented_worm_sandwich
 
 /singleton/recipe/tajfishsoup
 	appliance = POT | SAUCEPAN
@@ -302,17 +322,6 @@
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/tajcandy
-
-/singleton/recipe/scoutration
-	appliance = OVEN
-	fruit = list("nifberries" = 2)
-	reagents = list(/singleton/reagent/sodiumchloride = 1)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/adhomai,
-		/obj/item/reagent_containers/food/snacks/meat/adhomai
-	)
-	result = /obj/item/reagent_containers/food/snacks/explorer_ration
 
 // Tajaran Dips
 /singleton/recipe/sarmikhir

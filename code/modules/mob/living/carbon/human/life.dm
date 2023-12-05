@@ -268,11 +268,11 @@
 	/** breathing **/
 
 /mob/living/carbon/human/handle_chemical_smoke(var/datum/gas_mixture/environment)
-	if(wear_mask && (wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
-	if(glasses && (glasses.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(glasses && (glasses.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
-	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(head && (head.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
 	..()
 
@@ -285,7 +285,7 @@
 			if(!rig.offline && (rig.air_supply && internal == rig.air_supply))
 				rig_supply = rig.air_supply
 
-		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & AIRTIGHT)) || (head && (head.item_flags & AIRTIGHT)))))
+		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)) || (head && (head.item_flags & ITEM_FLAG_AIRTIGHT)))))
 			internal = null
 
 		if(internal)
@@ -1347,8 +1347,8 @@
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \
-	   || BITTEST(hud_updateflag,  IMPCHEM_HUD) \
-	   || BITTEST(hud_updateflag, IMPTRACK_HUD))
+		|| BITTEST(hud_updateflag,  IMPCHEM_HUD) \
+		|| BITTEST(hud_updateflag, IMPTRACK_HUD))
 
 		var/image/holder1 = hud_list[IMPTRACK_HUD]
 		var/image/holder2 = hud_list[IMPLOYAL_HUD]
@@ -1361,7 +1361,7 @@
 			if(I.implanted)
 				if(istype(I,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/implant/mindshield))
+				if(istype(I,/obj/item/implant/mindshield) && !istype(I,/obj/item/implant/mindshield/loyalty))
 					holder2.icon_state = "hud_imp_loyal"
 				if(istype(I,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"
@@ -1398,12 +1398,14 @@
 /mob/living/carbon/human/handle_vision()
 	if(client)
 		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+	var/machine_has_equipment_vision = FALSE
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
 			set_sight(sight, viewflags)
+		machine_has_equipment_vision = machine.grants_equipment_vision(src)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)
@@ -1411,14 +1413,14 @@
 		var/isRemoteObserve = 0
 		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
 			isRemoteObserve = 1
-		if(HAS_FLAG(mutations, mRemote) && remoteview_target)
+		if(remoteview_target)
 			if(remoteview_target.stat==CONSCIOUS)
 				isRemoteObserve = 1
 		if(!isRemoteObserve && client && !client.adminobs)
 			remoteview_target = null
 			reset_view(null, 0)
 
-	update_equipment_vision()
+	update_equipment_vision(machine_has_equipment_vision)
 	species.handle_vision(src)
 
 /mob/living/carbon/human/handle_hearing()

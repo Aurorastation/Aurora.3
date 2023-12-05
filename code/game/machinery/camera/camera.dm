@@ -65,10 +65,15 @@
 	SSmachinery.all_cameras -= src
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
-		qdel(assembly)
-		assembly = null
-	qdel(wires)
-	wires = null
+		QDEL_NULL(assembly)
+
+	cancelCameraAlarm(force = TRUE)
+
+	QDEL_NULL(wires)
+
+	cameranet.remove_source(src)
+	cameranet.cameras -= src
+
 	return ..()
 
 /obj/machinery/camera/set_pixel_offsets()
@@ -87,6 +92,8 @@
 	return
 
 /obj/machinery/camera/emp_act(severity)
+	. = ..()
+
 	if(!isEmpProof() && prob(100/severity))
 		if(!affected_by_emp_until || (world.time < affected_by_emp_until))
 			affected_by_emp_until = max(affected_by_emp_until, world.time + (90 SECONDS / severity))
@@ -285,6 +292,9 @@
 	if(isXRay()) return SEE_TURFS|SEE_MOBS|SEE_OBJS
 	return 0
 
+/obj/machinery/camera/grants_equipment_vision(mob/user)
+	return can_use()
+
 //This might be redundant, because of check_eye()
 /obj/machinery/camera/proc/kick_viewers()
 	for(var/mob/O in player_list)
@@ -307,8 +317,8 @@
 	alarm_on = 1
 	camera_alarm.triggerAlarm(loc, src, duration)
 
-/obj/machinery/camera/proc/cancelCameraAlarm()
-	if(wires.IsIndexCut(CAMERA_WIRE_ALARM))
+/obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
+	if(wires.IsIndexCut(CAMERA_WIRE_ALARM) && !force)
 		return
 
 	alarm_on = 0

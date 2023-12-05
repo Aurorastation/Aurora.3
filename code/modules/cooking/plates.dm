@@ -16,7 +16,7 @@ Plates that can hold your cooking stuff
 	fragile = 3
 	shatter_material = DEFAULT_TABLE_MATERIAL // Slight typecasting abuse here, gets converted to a material in Initialize().
 	can_be_placed_into = list()
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
 
 /obj/item/reagent_containers/bowl/examine(mob/user, distance)
@@ -101,7 +101,7 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate
 	name = "plate"
 	desc = "A plate for dishing up the finest of cuisine."
-	flags = null
+	atom_flags = 0
 	icon_state = "plate"
 	var/obj/item/holding
 
@@ -146,13 +146,13 @@ Plates that can hold your cooking stuff
 		return
 
 /obj/item/reagent_containers/bowl/plate/attack_self(mob/user)
-    if(!user.get_inactive_hand())
-        var/obj/item/reagent_containers/food/snacks/F = holding
-        user.put_in_hands(F)
-        holding = null
-        update_icon()
-        to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
-        return
+	if(!user.get_inactive_hand())
+		var/obj/item/reagent_containers/food/snacks/F = holding
+		user.put_in_hands(F)
+		holding = null
+		update_icon()
+		to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
+		return
 
 /obj/item/reagent_containers/bowl/plate/attack(mob/living/M, mob/living/user, target_zone)
 	if(istype(holding, /obj/item/reagent_containers/food/snacks))
@@ -177,3 +177,9 @@ Plates that can hold your cooking stuff
 		holding.update_icon() // Just to be safe.
 		LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
 	set_overlays(O)
+
+/obj/item/reagent_containers/bowl/zhukamir
+	name = "\improper Zhukamir cauldron"
+	desc = "A small ornamental cauldron used as an altar by the worshippers of Zhukamir, the Ma'ta'ke deity of agriculture and cooking."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "zhukamir"

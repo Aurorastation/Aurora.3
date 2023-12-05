@@ -8,7 +8,7 @@
 	blood_overlay_type = "armor"
 	w_class = ITEMSIZE_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
 
 /obj/item/clothing/suit/armor/carrier/officer
@@ -271,16 +271,6 @@
 	item_state = "modular_pouch_l"
 	slots = 3
 
-/obj/item/clothing/accessory/holster/modular
-	name = "plate carrier holster"
-	desc = "A special holster with rigging able to attach to modern modular plate carriers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "modular_holster"
-	item_state = "modular_holster"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_POCKETS
-	flippable = FALSE
-
 /obj/item/clothing/accessory/armor_plate/heavy/sec
 	name = "heavy corporate armor plate"
 	desc = "A heavy and stylish armor plate with blue highlights. That prevents teamkills, right?"
@@ -398,7 +388,10 @@
 	var/shading_state = "flagpatch"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
+	flippable = TRUE
+
+/obj/item/clothing/accessory/flagpatch/flip_message(mob/user)
+	to_chat(user, "You change \the [src] to be on your [src.flipped ? "shoulder" : "chest"].")
 
 /obj/item/clothing/accessory/flagpatch/Initialize()
 	. = ..()
@@ -498,7 +491,7 @@
 /obj/item/clothing/accessory/flagpatch/pluto
 	name = "pluto flagpatch"
 	desc = "A flagpatch representing Pluto. As loyalty to the party is very important on the communist planet, \
-    these patches have become a popular way for Plutonians to display their affiliation with their home."
+	these patches have become a popular way for Plutonians to display their affiliation with their home."
 	icon_state = "flagpatch_pluto"
 	item_state = "flagpatch_pluto"
 
@@ -527,6 +520,12 @@
 	Venusian flag retains solidarity among Cythereans and Jintarians both."
 	icon_state = "flagpatch_venus"
 	item_state = "flagpatch_venus"
+
+/obj/item/clothing/accessory/flagpatch/luna
+	name = "luna flagpatch"
+	desc = "A flagpatch representing Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	icon_state = "flagpatch_luna"
+	item_state = "flagpatch_luna"
 
 /obj/item/clothing/accessory/flagpatch/coalition
 	name = "coalition flagpatch"

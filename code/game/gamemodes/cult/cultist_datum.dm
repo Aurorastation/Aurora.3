@@ -30,7 +30,7 @@
 			to_chat(H, SPAN_WARNING("This rune is already memorized!"))
 			return
 		H.visible_message("<b>[H]</b> bends over and runs their hands across \the [src].", SPAN_NOTICE("You bend over and run your hands across the patterns of the rune, slowly memorizing it."))
-		if(!do_after(H, 10 SECONDS, TRUE))
+		if(!do_after(H, 10 SECONDS))
 			return
 		LAZYSET(C.memorized_runes, R.rune.name, R.rune.type)
 		to_chat(H, SPAN_NOTICE("You memorize the [R.rune.name]! You will now be able to scribe it at will."))
@@ -56,7 +56,7 @@
 		to_chat(usr, SPAN_WARNING("You have no runes memorized!"))
 		return
 
-	var/chosen_rune = input("Choose a rune to forget.") as null|anything in C.memorized_runes
+	var/chosen_rune = tgui_input_list(usr, "Choose a rune to forget.", "Cultist Memory", C.memorized_runes)
 	if(!chosen_rune)
 		return
 	LAZYREMOVE(C.memorized_runes, chosen_rune)
@@ -80,7 +80,7 @@
 		to_chat(usr, SPAN_WARNING("You are in no shape to do this."))
 		return
 
-	var/chosen_rune = input("Choose a rune to scribe.") as null|anything in C.memorized_runes
+	var/chosen_rune = tgui_input_list(usr, "Choose a rune to scribe.", "Cultist Memory", C.memorized_runes)
 	if(!chosen_rune)
 		return
 

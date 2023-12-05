@@ -95,8 +95,6 @@
 		sync_organ_dna()
 	make_blood()
 
-	available_maneuvers = species.maneuvers.Copy()
-
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
@@ -492,24 +490,19 @@
 		var/emp_damage
 		switch(shock_damage)
 			if(-INFINITY to 5)
-				emp_damage = 0
-			if(6 to 19)
-				emp_damage = 3
-			if(20 to 49)
-				emp_damage = 2
+				emp_damage = FALSE
+			if(6 to 49)
+				emp_damage = EMP_LIGHT
 			else
-				emp_damage = 1
+				emp_damage = EMP_HEAVY
 
 		if(emp_damage)
 			for(var/obj/item/organ/O in affecting.internal_organs)
 				O.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting.implants)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 
 		apply_damage(shock_damage, DAMAGE_BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
@@ -568,7 +561,7 @@
 			if(perpname)
 				var/datum/record/general/R = SSrecords.find_record("name", perpname)
 				if(istype(R) && istype(R.security))
-					var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", ) in list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel")
+					var/setcriminal = tgui_input_list(usr, "Specify a new criminal status for this person.", "Security HUD", list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel"))
 					if(hasHUD(usr, "security"))
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal
@@ -666,10 +659,10 @@
 
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R))
-				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel")
+				var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel"), R.physical_status)
 
 				if(hasHUD(usr,"medical"))
-					if(setmedical != "Cancel")
+					if(!isnull(setmedical) && setmedical != "Cancel")
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
@@ -768,19 +761,19 @@
 		var/obj/item/I = locate(href_list["lookitem"])
 		if(!I)
 			return
-		src.examinate(I)
+		examinate(src, I)
 
 	if (href_list["lookitem_desc_only"])
 		var/obj/item/I = locate(href_list["lookitem_desc_only"])
 		if(!I)
 			return
-		usr.examinate(I, 1)
+		examinate(usr, I)
 
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
 		if(!M)
 			return
-		src.examinate(M)
+		examinate(src, M)
 
 	if (href_list["flavor_change"])
 		if(src != usr)
@@ -856,14 +849,19 @@
 	if(is_berserk())
 		if(!silent)
 			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
-		return 0
+		return FALSE
 
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
-		return 0
+		return FALSE
 
-	return 1
+	if(lobotomized)
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
+		return FALSE
+
+	return TRUE
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
@@ -1436,6 +1434,11 @@
 	if(species.holder_type)
 		holder_type = species.holder_type
 
+	//Clear out the manouvers of the previous specie and add the one of the current specie
+	available_maneuvers = null
+	if(species?.maneuvers)
+		available_maneuvers = species.maneuvers.Copy()
+
 	icon_state = lowertext(species.name)
 
 	species.create_organs(src)
@@ -1477,6 +1480,8 @@
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
+	if(typing_indicator)
+		adjust_typing_indicator_offsets(typing_indicator)
 
 	fill_out_culture_data()
 
@@ -1492,6 +1497,8 @@
 
 	if(client)
 		client.init_verbs()
+
+	update_emotes()
 
 	if(species)
 		return TRUE
@@ -1617,9 +1624,9 @@
 	)
 	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		var/injection_modifier = BASE_INJECTION_MOD
-		if(C.item_flags & INJECTIONPORT)
+		if(C.item_flags & ITEM_FLAG_INJECTION_PORT)
 			injection_modifier = SUIT_INJECTION_MOD
-		else if(C.item_flags & THICKMATERIAL)
+		else if(C.item_flags & ITEM_FLAG_THICK_MATERIAL)
 			injection_modifier = INJECTION_FAIL
 		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
 			continue
@@ -1644,7 +1651,7 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
-		if(C.item_flags & SHOWFLAVORTEXT)
+		if(C.item_flags & ITEM_FLAG_SHOW_FLAVOR_TEXT)
 			continue
 
 		if(C.body_parts_covered & HEAD)
@@ -1699,7 +1706,7 @@
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
-	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
+	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP)))
 		return 0
 	. = ..(slipped_on,stun_duration)
 
@@ -1733,7 +1740,7 @@
 		var/obj/item/organ/external/current_limb = organs_by_name[limb]
 		if(current_limb && current_limb.dislocated == 2)
 			limbs |= limb
-	var/choice = input(usr,"Which joint do you wish to relocate?") as null|anything in limbs
+	var/choice = tgui_input_list(usr, "Which joint do you wish to relocate?", "Relocate Joint", limbs)
 
 	if(!choice)
 		return
@@ -1822,7 +1829,7 @@
 
 	if(stat)
 		return
-	var/datum/category_group/underwear/UWC = input(usr, "Choose underwear:", "Show/hide underwear") as null|anything in global_underwear.categories
+	var/datum/category_group/underwear/UWC = tgui_input_list(usr, "Choose underwear.", "Show/Hide Underwear", global_underwear.categories)
 	if(!UWC)
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]

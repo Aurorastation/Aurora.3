@@ -129,7 +129,7 @@
 			to_chat(user, SPAN_WARNING("You ran out of points!"))
 			return
 
-		var/new_power = input(user, "Choose a psionic power to add.", "Psionics") as null|anything in available_psionics
+		var/new_power = tgui_input_list(user, "Choose a psionic power to add.", "Psionics", available_psionics)
 		if(new_power)
 			var/singleton/psionic_power/P = GET_SINGLETON(psionic_map[new_power])
 			if(istype(P))

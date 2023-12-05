@@ -97,17 +97,18 @@
 	return
 
 /mob/living/silicon/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			src.take_organ_damage(0, 20, emp = TRUE)
 			Stun(rand(5, 10))
-		if(2)
+		if(EMP_LIGHT)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
 	flash_act(affect_silicon = TRUE)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
-	..()
 
 /mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
@@ -226,7 +227,7 @@
 	return
 
 /mob/living/silicon/proc/toggle_sensor_mode()
-	var/sensor_type = input(src, "Please select sensor type.", "Sensor Integration") in list("Security", "Medical", "Disable")
+	var/sensor_type = tgui_input_list(src, "Please select sensor type.", "Sensor Integration", list("Security", "Medical", "Disable"))
 	switch(sensor_type)
 		if("Security")
 			sensor_mode = SEC_HUD
@@ -378,4 +379,4 @@
 	return common_radio
 
 /mob/living/silicon/get_speech_bubble_state_modifier()
-	return "synth"
+	return "robot"

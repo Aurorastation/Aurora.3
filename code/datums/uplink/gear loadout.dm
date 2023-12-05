@@ -94,12 +94,12 @@
 /datum/uplink_item/item/gear_loadout/einstein
 	name = "Einstein Engines Assets (Group)"
 	desc = "A crate containing gear for a group. The voidsuits and hardsuit are only usable by humans."
-	path = /obj/structure/closet/crate/secure/gear_loadout/einstein
+	path = /obj/structure/closet/crate/gear_loadout/einstein
 
 /datum/uplink_item/item/gear_loadout/einstein_single
 	name = "Einstein Engines Assets (Single)"
 	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
-	path = /obj/structure/closet/crate/secure/gear_loadout/einstein/single
+	path = /obj/structure/closet/crate/gear_loadout/einstein/single
 	telecrystal_cost = 10
 
 /datum/uplink_item/item/gear_loadout/izweski
@@ -145,3 +145,15 @@
 	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Tajara."
 	path = /obj/structure/closet/crate/secure/gear_loadout/pvsm/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/nanotrasen
+	name = "NanoTrasen Assets (Group)"
+	desc = "A crate containing gear for a group. The hardsuits are are only usable by humans and skrell."
+	path = /obj/structure/closet/crate/gear_loadout/nanotrasen
+	telecrystal_cost = 50
+
+/datum/uplink_item/item/gear_loadout/nanotrasen_single
+	name = "NanoTrasen Assets (Single)"
+	desc = "A crate containing gear for a single individual. The hardsuit is only usable by humans and skrell."
+	path = /obj/structure/closet/crate/gear_loadout/nanotrasen/single
+	telecrystal_cost = 15

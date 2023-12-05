@@ -7,18 +7,15 @@
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
-	icon = 'icons/obj/syringe.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	contained_sprite = TRUE
 	item_state = "hypo"
 	icon_state = "hypo"
 	amount_per_transfer_from_this = 5
 	unacidable = 1
 	volume = 15
 	possible_transfer_amounts = list(5, 10, 15)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -44,6 +41,7 @@
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
+	item_state = "cmo_hypo"
 	volume = 30
 	possible_transfer_amounts = list(5, 10, 15, 30)
 	time = 0
@@ -71,7 +69,7 @@
 	icon_state = "[initial(icon_state)]_[rounded_vol]"
 
 	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "[initial(icon_state)][volume]")
+		filling = image(icon, src, "[initial(icon_state)][volume]")
 
 		filling.icon_state = "[initial(icon_state)][rounded_vol]"
 
@@ -131,7 +129,7 @@
 		name = "[name] ([name_label])"
 		verbs += /atom/proc/remove_label
 	if(reagents_to_add)
-		flags = 0
+		atom_flags = 0
 		spent = FALSE
 	update_icon()
 
@@ -159,7 +157,7 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
@@ -169,7 +167,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
 	. = ..()
@@ -190,7 +188,7 @@
 	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
-	..(user)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It is currently loaded."))
 	else
@@ -217,12 +215,12 @@
 	name_label = "coagzolug"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
-	flags = 0
+	atom_flags = 0
 	reagents_to_add = list(/singleton/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin
 	name_label = "hyronalin"
-	flags = 0
+	atom_flags = 0
 	reagents_to_add = list(/singleton/reagent/hyronalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone

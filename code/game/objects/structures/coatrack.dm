@@ -23,7 +23,7 @@
 	if(hat)
 		remove_hat(user)
 	add_fingerprint(user)
-	return	
+	return
 
 /obj/structure/coatrack/proc/remove_coat(mob/user as mob)
 	user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
@@ -118,12 +118,12 @@
 		coat_icon_file = T.icon
 
 	var/icon/coat_icon = new(coat_icon_file, coat_icon_state)
-			
+
 	coat_icon.Blend(coat_outline, ICON_OVERLAY)
 	coat_icon.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0)) //Slice the coat in half.
 	var/image/coat_image = image(coat_icon)
 	if(T.color)
-		coat_image.color = T.color	
+		coat_image.color = T.color
 
 	if(T.build_from_parts)
 		var/icon/overlay_icon = new(coat_icon_file, "[coat_icon_state]_[T.worn_overlay]")
@@ -135,4 +135,4 @@
 
 	M.Translate(-1, 5) // Stick it on the coat rack.
 	coat_image.transform = M
-	add_overlay(coat_image)		
+	add_overlay(coat_image)

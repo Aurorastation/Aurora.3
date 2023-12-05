@@ -107,7 +107,7 @@
 	desc = "Use this to send crates and closets to cargo telepads."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "rcs"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	throwforce = 10
 	throw_speed = 2
@@ -122,7 +122,7 @@
 	var/teleporting = 0
 
 /obj/item/rcs/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "There are [rcharges] charge\s left.")
 
 /obj/item/rcs/process()

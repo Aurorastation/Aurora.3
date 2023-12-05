@@ -75,3 +75,6 @@
 	var/list/obj/aura/auras //Basically a catch-all aura/force-field thing.
 
 	var/named = FALSE //Affects renaming animals and monkey species. Set to TRUE for animals with unique names, such as station pets. Doesn't affect any other mob.
+
+	///what icon the mob uses for speechbubbles
+	var/bubble_icon = "default"

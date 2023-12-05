@@ -164,7 +164,7 @@
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
 			if ("text")
-				var/new_sign = input(usr, "Please input the new character signature.", "New signature", html2pencode(pref.signature)) as null|text
+				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(pref.signature))
 				if (!new_sign)
 					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signature)
@@ -178,7 +178,7 @@
 
 				return TOPIC_REFRESH
 			if ("font")
-				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New")
+				var/new_font = tgui_input_list(usr, "Please select the font to use.", "New Font", list("Verdana", "Times New Roman", "Courier New"))
 				if (!new_font)
 					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signfont)

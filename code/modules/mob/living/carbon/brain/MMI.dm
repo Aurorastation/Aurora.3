@@ -21,8 +21,13 @@
 
 	var/cradle_state = STATE_EMPTY
 	var/can_be_ipc = FALSE
-	var/mob/living/carbon/brain/brainmob = null	//The current occupant.
-	var/obj/item/organ/internal/brain/brainobj = null	//The current brain organ.
+
+	///The current occupant
+	var/mob/living/carbon/brain/brainmob = null
+
+	///The current brain organ
+	var/obj/item/organ/internal/brain/brainobj = null
+
 	var/braintype = null
 
 	var/static/list/valid_braintype = list("Skrell", "Vaurca")
@@ -224,6 +229,13 @@
 		borg.mmi = null
 	if(brainmob)
 		QDEL_NULL(brainmob)
+
+	//Technically since we haven't created the brain it isn't our responsibility to QDEL it
+	//But since I don't see any scenario in which a deletion would want to leave the brain
+	//without taking it out / move it itself, this will do
+	if(brainobj)
+		QDEL_NULL(brainobj)
+
 	return ..()
 
 /obj/item/device/mmi/radio_enabled
@@ -266,17 +278,16 @@
 	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_listening() ? "now" : "no longer"] receiving broadcast."))
 
 /obj/item/device/mmi/emp_act(severity)
+	. = ..()
+
 	if(!brainmob)
 		return
-	else
-		switch(severity)
-			if(1)
-				brainmob.emp_damage += rand(20,30)
-			if(2)
-				brainmob.emp_damage += rand(10,20)
-			if(3)
-				brainmob.emp_damage += rand(0,10)
-	..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			brainmob.emp_damage += rand(20,30)
+		if(EMP_LIGHT)
+			brainmob.emp_damage += rand(10,20)
 
 /obj/item/device/mmi/digital/Initialize(mapload, ...)
 	. = ..()

@@ -39,5 +39,7 @@
   "world_modules_customitems_log":"modules/customitems.log",
   "world_modules_exoplanets_log":"modules/exoplanets.log",
   "world_modules_sectors_log":"modules/sectors.log",
-  "world_modules_ruins_log":"modules/ruins.log"
+  "world_modules_ruins_log":"modules/ruins.log",
+  "world_subsystems_zas":"subsystems/zas.log",
+  "world_subsystems_zas_debug":"subsystems/zas.log"
 }

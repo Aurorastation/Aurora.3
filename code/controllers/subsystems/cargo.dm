@@ -4,9 +4,7 @@
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
-var/datum/controller/subsystem/cargo/SScargo
-
-/datum/controller/subsystem/cargo
+SUBSYSTEM_DEF(cargo)
 	name = "Cargo"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
@@ -89,12 +87,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	spawner.start()
 	qdel(spawner)
 	..()
-
-/datum/controller/subsystem/cargo/New()
-	NEW_SS_GLOBAL(SScargo)
-
-
-
 
 /*
 	Loading Data

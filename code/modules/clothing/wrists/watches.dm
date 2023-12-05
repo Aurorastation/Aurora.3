@@ -43,9 +43,9 @@
 /obj/item/clothing/wrists/watch/spy/checktime()
 	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
 
-/obj/item/clothing/wrists/watch/examine(mob/user)
-	..()
-	if (get_dist(src, user) <= 1)
+/obj/item/clothing/wrists/watch/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance <= 1)
 		checktime()
 
 /obj/item/clothing/wrists/watch/verb/checktime()
@@ -102,6 +102,7 @@
 		return
 
 /obj/item/clothing/wrists/watch/emp_act(severity)
+	. = ..()
+
 	if(prob(50/severity))
 		wired = FALSE
-	..()

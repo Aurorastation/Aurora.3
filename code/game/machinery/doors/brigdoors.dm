@@ -59,7 +59,7 @@
 /obj/machinery/door_timer/examine(mob/user)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))	return
-	
+
 	if(src.timing)
 		var/second = round(timeleft() % 60)
 		var/minute = round((timeleft() - second) / 60)

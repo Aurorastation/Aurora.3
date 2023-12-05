@@ -207,3 +207,10 @@
 	name = "full reinforced borosilicate window spawner with firedoor"
 	icon_state = "full_brwindow-f"
 	spawn_firedoor = TRUE
+
+//For smoothing into material colored walls, like wood
+/obj/effect/map_effect/window_spawner/full/wood
+	name = "full wooden window spawner"
+	icon_state = "full_rwindow"
+	frame_path = /obj/structure/window_frame/wood
+	window_path = /obj/structure/window/full/reinforced

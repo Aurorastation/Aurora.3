@@ -435,8 +435,8 @@
 /obj/structure/closet{
 	name = "disguise equipment"
 	},
-/obj/item/clothing/shoes/black,
-/obj/item/clothing/shoes/black,
+/obj/item/clothing/shoes/sneakers/black,
+/obj/item/clothing/shoes/sneakers/black,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/beret/corporate/zeng,

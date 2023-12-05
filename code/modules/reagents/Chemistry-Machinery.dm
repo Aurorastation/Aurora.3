@@ -1,5 +1,5 @@
 // Update asset_cache.dm if you change these.
-#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6") //list of available bottle sprites
+#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
 
 #define CHEMMASTER_BOTTLE_SOUND playsound(src, 'sound/items/pickup/bottle.ogg', 75, 1)
 #define CHEMMASTER_DISPENSE_SOUND playsound(src, 'sound/machines/reagent_dispense.ogg', 75, 1)
@@ -29,7 +29,7 @@
 	var/bottlesprite = "bottle-1" //yes, strings
 	var/pillsprite = "pill1"
 	var/max_pill_count = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/datum/asset/spritesheet/chem_master/chem_asset
 	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
 	var/datum/tgui/ui = null
@@ -261,7 +261,7 @@
 			return TRUE
 
 		if (action == "createpill_multiple")
-			count = input("Select the number of pills to make.", "Max [max_pill_count]", pillamount) as num
+			count = tgui_input_number(usr, "Select the number of pills to make.", src.name, pillamount, max_pill_count, 1)
 			count = Clamp(count, 1, max_pill_count)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
@@ -270,7 +270,7 @@
 		var/amount_per_pill = reagents.total_volume/count
 		if (amount_per_pill > 60) amount_per_pill = 60
 
-		var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
+		var/name = tgui_input_text(usr, "Name your pill.", src.name, "[reagents.get_primary_reagent_name()] ([amount_per_pill] units)", MAX_NAME_LEN)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE
@@ -325,7 +325,7 @@
 /obj/machinery/reagentgrinder
 
 	name = "All-In-One Grinder"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "juicer1"
 	layer = 2.99
 	density = 0

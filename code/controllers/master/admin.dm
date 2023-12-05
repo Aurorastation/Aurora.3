@@ -67,7 +67,7 @@
 // Subsystems that cmd_ss_panic can hard-restart.
 // *MUST* have New() use NEW_SS_GLOBAL.
 var/list/panic_targets = list(
-	"Garbage" = /datum/controller/subsystem/garbage_collector,
+	"Garbage" = /datum/controller/subsystem/garbage,
 	"Air" = /datum/controller/subsystem/air,
 	"Explosives" = /datum/controller/subsystem/explosives,
 	"Game Ticker" = /datum/controller/subsystem/ticker,

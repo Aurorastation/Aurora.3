@@ -20,9 +20,9 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/card/id/syndicate/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(user == registered_user)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
 
@@ -145,7 +145,7 @@
 	else if(href_list["set"])
 		switch(href_list["set"])
 			if("Age")
-				var/new_age = input(user,"What age would you like to put on this card?","Agent Card Age", age) as null|num
+				var/new_age = tgui_input_number(user, "What age would you like to put on this card?", "Agent Card Age", age, 1000, 0)
 				if(!isnull(new_age) && CanUseTopic(user, state))
 					if(new_age < 0)
 						age = initial(age)
@@ -154,14 +154,14 @@
 					to_chat(user, "<span class='notice'>Age has been set to '[age]'.</span>")
 					. = 1
 			if("Appearance")
-				var/datum/card_state/choice = input(user, "Select the appearance for this card.", "Agent Card Appearance") as null|anything in id_card_states()
+				var/datum/card_state/choice = tgui_input_list(user, "Select the appearance for this card.", "Agent Card Appearance", id_card_states(), icon_state)
 				if(choice && CanUseTopic(user, state))
 					src.icon_state = choice.icon_state
 					src.item_state = choice.item_state
 					to_chat(usr, "<span class='notice'>Appearance changed to [choice].</span>")
 					. = 1
 			if("Assignment")
-				var/new_job = sanitize(input(user,"What assignment would you like to put on this card?\nChanging assignment will not grant or remove any access levels.","Agent Card Assignment", assignment) as null|text)
+				var/new_job = tgui_input_text(user, "What assignment would you like to put on this card? Changing assignment will not grant or remove any access levels.", "Agent Card Assignment", assignment)
 				if(!isnull(new_job) && CanUseTopic(user, state))
 					src.assignment = new_job
 					to_chat(user, "<span class='notice'>Occupation changed to '[new_job]'.</span>")

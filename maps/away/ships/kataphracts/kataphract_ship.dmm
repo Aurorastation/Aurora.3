@@ -505,9 +505,9 @@
 	pixel_x = 32
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/shoes/sandals/caligae/socks,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
@@ -2829,9 +2829,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/dorms)
-"ge" = (
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "gf" = (
@@ -6338,17 +6335,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
-"nl" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "kataphract_shuttle_in";
-	locked = 1;
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "nm" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -8773,12 +8759,12 @@
 /obj/structure/table/rack,
 /obj/item/material/twohanded/pike/flag/hegemony,
 /obj/item/material/twohanded/pike/flag/hegemony,
-/obj/item/shield/energy/hegemony,
-/obj/item/shield/energy/hegemony,
-/obj/item/shield/energy/hegemony,
-/obj/item/shield/energy/hegemony,
-/obj/item/shield/energy/hegemony,
-/obj/item/shield/energy/hegemony,
+/obj/item/shield/energy/hegemony/kataphract,
+/obj/item/shield/energy/hegemony/kataphract,
+/obj/item/shield/energy/hegemony/kataphract,
+/obj/item/shield/energy/hegemony/kataphract,
+/obj/item/shield/energy/hegemony/kataphract,
+/obj/item/shield/energy/hegemony/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "Jr" = (
@@ -10353,8 +10339,8 @@
 /area/kataphract_chapter/cic)
 "YE" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/shoes/sandals/caligae/socks,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
@@ -20448,7 +20434,7 @@ fZ
 mR
 fZ
 mR
-ge
+hG
 fK
 tu
 yM
@@ -20605,11 +20591,11 @@ eQ
 cf
 fK
 ga
-ge
-ge
-ge
-ge
-ge
+hG
+hG
+hG
+hG
+hG
 hF
 fK
 tu
@@ -20767,11 +20753,11 @@ eR
 ft
 fK
 gb
-ge
+hG
 pH
 pH
-ge
-ge
+hG
+hG
 Gk
 fK
 tu
@@ -20933,7 +20919,7 @@ gD
 hd
 hg
 pH
-ge
+hG
 hH
 fK
 tu
@@ -21095,7 +21081,7 @@ gE
 he
 hl
 pH
-ge
+hG
 fZ
 fK
 ou
@@ -21252,12 +21238,12 @@ cf
 eU
 cf
 hI
-ge
+hG
 gF
 NJ
 YT
 pH
-ge
+hG
 kE
 fK
 ou
@@ -21419,7 +21405,7 @@ gG
 hg
 Ew
 pH
-ge
+hG
 hH
 fK
 ou
@@ -21577,11 +21563,11 @@ eU
 cf
 fK
 gg
-ge
+hG
 pH
 pH
-ge
-ge
+hG
+hG
 hF
 fK
 lb
@@ -21738,12 +21724,12 @@ cg
 eU
 fv
 fK
-ge
-ge
-ge
-ge
-ge
-ge
+hG
+hG
+hG
+hG
+hG
+hG
 hG
 fK
 lb
@@ -21924,7 +21910,7 @@ GO
 aq
 bn
 lq
-nl
+af
 Re
 hK
 TP

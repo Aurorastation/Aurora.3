@@ -115,7 +115,7 @@
 /obj/machinery/sleeper/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Sleeper", "Sleeper", 1200, 800)
+		ui = new(user, src, "Sleeper", "Sleeper", 450, 500)
 		ui.open()
 
 /obj/machinery/sleeper/ui_data(mob/user)
@@ -291,18 +291,18 @@
 	if(user == occupant)
 		go_out()
 
-/obj/machinery/sleeper/emp_act(var/severity)
+/obj/machinery/sleeper/emp_act(severity)
+	. = ..()
+
 	if(filtering)
 		toggle_filter()
 
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
 
 	if(occupant)
 		go_out()
 
-	..(severity)
 
 /obj/machinery/sleeper/proc/toggle_filter()
 	if(!occupant || !beaker)
@@ -335,7 +335,7 @@
 		else
 			visible_message("\The [user] starts putting [M] into \the [src].")
 
-	if(do_after(user, 20))
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(occupant)
 			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 			return

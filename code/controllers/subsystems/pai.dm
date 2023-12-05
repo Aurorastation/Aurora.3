@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/pai/SSpai
-
-/datum/controller/subsystem/pai
+SUBSYSTEM_DEF(pai)
 	name = "pAI"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -15,8 +13,7 @@
 
 	var/askDelay = 1 MINUTE
 
-/datum/controller/subsystem/pai/New()
-	NEW_SS_GLOBAL(SSpai)
+/datum/controller/subsystem/pai/PreInit()
 	LAZYINITLIST(pai_software_by_key)
 	LAZYINITLIST(default_pai_software)
 
@@ -25,10 +22,10 @@
 	default_pai_software = SSpai.default_pai_software
 
 /datum/controller/subsystem/pai/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/pai/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 
 /datum/controller/subsystem/pai/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

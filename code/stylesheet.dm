@@ -48,6 +48,7 @@ em						{font-style: normal;font-weight: bold;}
 /* Radio Channels */
 .comradio				{color: #193A7A;}
 .syndradio				{color: #6D3F40;}
+.coalitionradio			{color: #0091CE;}
 .bluespaceradio			{color: #1883A3;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
@@ -85,6 +86,7 @@ h1.alert, h2.alert		{color: #000000;}
 .rose					{color: #ff5050;}
 .info					{color: #0000CC;}
 .notice					{color: #000099;}
+.hear					{color: #000099; font-style: italic;}
 .subtle					{color: #000099; font-size: 75%; font-style: italic;}
 .alium					{color: #00ff00;}
 .cult					{color: #800080; font-weight: bold; font-style: italic;}

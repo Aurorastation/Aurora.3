@@ -5,7 +5,9 @@
 // Reminder: frequencies should only be odd numbers
 
 // Public frequencies (no encryption key required), see range above
+#define EXP_FREQ	1445
 #define BOT_FREQ	1447
+#define INT_FREQ	1449
 #define PEN_FREQ	1451
 #define PUB_FREQ	1459
 #define ENT_FREQ	1461
@@ -16,9 +18,11 @@
 // Department / private frequencies
 
 #define SYND_FREQ 1213
+#define COAL_FREQ 1217
 #define BLSP_FREQ 1253
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
+#define JOCK_FREQ 1259
 #define RAID_FREQ 1277
 #define DTH_FREQ 1341
 #define AI_FREQ 1343
@@ -47,16 +51,20 @@ var/list/radiochannels = list(
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,
+	"Coalition Navy"= COAL_FREQ,
 	"Ninja"			= NINJ_FREQ,
 	"Bluespace"		= BLSP_FREQ,
 	"Burglar"		= BURG_FREQ,
+	"Jockey"		= JOCK_FREQ,
 	"Raider"		= RAID_FREQ,
 	"Operations" 	= SUP_FREQ,
 	"Service" 		= SRV_FREQ,
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
-	"Security (I)"	= SEC_I_FREQ
+	"Security (I)"	= SEC_I_FREQ,
+	"Interrogation" = INT_FREQ,
+	"Expeditionary" = EXP_FREQ
 )
 
 var/list/reverseradiochannels = list(
@@ -71,9 +79,11 @@ var/list/reverseradiochannels = list(
 	"[ERT_FREQ]"	= "Response Team",
 	"[DTH_FREQ]"	= "Special Ops",
 	"[SYND_FREQ]"	= "Mercenary",
+	"[COAL_FREQ]"	= "Coalition Navy",
 	"[NINJ_FREQ]"	= "Ninja",
 	"[BLSP_FREQ]"	= "Bluespace",
 	"[BURG_FREQ]"	= "Burglar",
+	"[JOCK_FREQ]"	= "Jockey",
 	"[RAID_FREQ]"	= "Raider",
 	"[SUP_FREQ]"	= "Operations",
 	"[SRV_FREQ]"	= "Service",

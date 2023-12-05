@@ -167,7 +167,7 @@
 		/obj/item/clothing/glasses/night                          = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses/sunglasses/sechud/tactical     = TRADER_THIS_TYPE,
 		/obj/item/clothing/gloves/swat                            = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/swat                             = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/combat                             = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/shield/riot/tact                         = TRADER_THIS_TYPE,

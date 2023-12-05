@@ -5,7 +5,8 @@
 	icon_state = "metal_canister"
 	item_state = "metal_canister"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT | OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 8
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
@@ -22,9 +23,9 @@
 /obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/O, mob/user)
 	if(O.isscrewdriver())
 		if(is_open_container())
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
-			flags |= OPENCONTAINER
+			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		to_chat(user, SPAN_NOTICE("Using \the [O], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
 		return TRUE
 
@@ -48,15 +49,16 @@
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
 	else
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
 
-/obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
-	if(!..(user, 2))
+/obj/item/reagent_containers/extinguisher_refill/examine(mob/user, distance) //Copied from inhalers.
+	. = ..()
+	if(!distance <= 2)
 		return
 
 	if(is_open_container())
@@ -77,7 +79,7 @@
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
-	flags &= ~OPENCONTAINER
+	atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/extinguisher
 	name = "fire extinguisher"
@@ -86,7 +88,7 @@
 	icon_state = "fire_extinguisher0"
 	item_state = "fire_extinguisher"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 10
 	w_class = ITEMSIZE_HUGE
 	throw_speed = 2
@@ -111,7 +113,7 @@
 	icon_state = "miniFE0"
 	item_state = "miniFE"
 	hitsound = null	//it is much lighter, after all.
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	throwforce = 2
 	w_class = ITEMSIZE_SMALL
 	force = 2.0
@@ -126,8 +128,9 @@
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
-/obj/item/extinguisher/examine(mob/user)
-	if(..(user, 0))
+/obj/item/extinguisher/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
 		to_chat(user,"The safety is [safety ? "on" : "off"].")
 	return

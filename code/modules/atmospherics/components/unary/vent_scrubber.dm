@@ -146,7 +146,15 @@
 		"filter_co2" = (GAS_CO2 in scrubbing_gas),
 		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
 		"filter_n2o" = (GAS_N2O in scrubbing_gas),
-		"filter_h2" = (GAS_HYDROGEN in scrubbing_gas),
+		"filter_h" = (GAS_HYDROGEN in scrubbing_gas),
+		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
+		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
+		"filter_he" = (GAS_HELIUM in scrubbing_gas),
+		"filter_b" = (GAS_BORON in scrubbing_gas),
+		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
+		"filter_no2" = (GAS_NO2 in scrubbing_gas),
+		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
+		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -271,10 +279,50 @@
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += GAS_N2O
 
-	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
+	if(!isnull(signal.data["h_scrub"]) && text2num(signal.data["h_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
 		toggle += GAS_HYDROGEN
-	else if(signal.data["toggle_h2_scrub"])
+	else if(signal.data["toggle_h_scrub"])
 		toggle += GAS_HYDROGEN
+
+	if(!isnull(signal.data["2h_scrub"]) && text2num(signal.data["2h_scrub"]) != (GAS_DEUTERIUM in scrubbing_gas))
+		toggle += GAS_DEUTERIUM
+	else if(signal.data["toggle_2h_scrub"])
+		toggle += GAS_DEUTERIUM
+
+	if(!isnull(signal.data["3h_scrub"]) && text2num(signal.data["3h_scrub"]) != (GAS_TRITIUM in scrubbing_gas))
+		toggle += GAS_TRITIUM
+	else if(signal.data["toggle_3h_scrub"])
+		toggle += GAS_TRITIUM
+
+	if(!isnull(signal.data["he_scrub"]) && text2num(signal.data["he_scrub"]) != (GAS_HELIUM in scrubbing_gas))
+		toggle += GAS_HELIUM
+	else if(signal.data["toggle_he_scrub"])
+		toggle += GAS_HELIUM
+
+	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_BORON in scrubbing_gas))
+		toggle += GAS_BORON
+	else if(signal.data["toggle_b_scrub"])
+		toggle += GAS_BORON
+
+	if(!isnull(signal.data["so2_scrub"]) && text2num(signal.data["so2_scrub"]) != (GAS_SULFUR in scrubbing_gas))
+		toggle += GAS_SULFUR
+	else if(signal.data["toggle_so2_scrub"])
+		toggle += GAS_SULFUR
+
+	if(!isnull(signal.data["no2_scrub"]) && text2num(signal.data["no2_scrub"]) != (GAS_NO2 in scrubbing_gas))
+		toggle += GAS_NO2
+	else if(signal.data["toggle_no2_scrub"])
+		toggle += GAS_NO2
+
+	if(!isnull(signal.data["cl_scrub"]) && text2num(signal.data["cl_scrub"]) != (GAS_CHLORINE in scrubbing_gas))
+		toggle += GAS_CHLORINE
+	else if(signal.data["toggle_cl_scrub"])
+		toggle += GAS_CHLORINE
+
+	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_STEAM in scrubbing_gas))
+		toggle += GAS_STEAM
+	else if(signal.data["toggle_h2o_scrub"])
+		toggle += GAS_STEAM
 
 	scrubbing_gas ^= toggle
 
@@ -342,8 +390,8 @@
 		welded = !welded
 		update_icon()
 		user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-							 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-										 "You hear welding.")
+								SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+								"You hear welding.")
 		return TRUE
 
 	if(istype(W, /obj/item/melee/arm_blade))
@@ -369,8 +417,9 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
 	else
 		to_chat(user, "You are too far away to read the gauge.")

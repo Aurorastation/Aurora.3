@@ -4,7 +4,7 @@
 	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = 0
@@ -182,9 +182,9 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/device/electronic_assembly/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
+/obj/item/device/electronic_assembly/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			IC.external_examine(user)
 		if(opened)
@@ -329,7 +329,7 @@
 
 	var/obj/item/integrated_circuit/input/choice
 	if(available_inputs)
-		var/selection = input(user, "What do you want to interact with?", "Interaction") as null|anything in input_selection
+		var/selection = tgui_input_list(user, "What do you want to interact with?", "Interaction", input_selection)
 		if(selection)
 			var/index = input_selection.Find(selection)
 			choice = available_inputs[index]
@@ -338,7 +338,8 @@
 		choice.ask_for_input(user)
 
 /obj/item/device/electronic_assembly/emp_act(severity)
-	..()
+	. = ..()
+
 	for(var/atom/movable/AM in contents)
 		AM.emp_act(severity)
 

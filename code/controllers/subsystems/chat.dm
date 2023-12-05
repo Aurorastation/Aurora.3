@@ -5,9 +5,7 @@ var/regex/is_http_protocol = regex("^https?://")
  * SPDX-License-Identifier: MIT
  */
 
-var/datum/controller/subsystem/chat/SSchat
-
-/datum/controller/subsystem/chat
+SUBSYSTEM_DEF(chat)
 	name = "Chat"
 	flags = SS_TICKER
 	wait = 1

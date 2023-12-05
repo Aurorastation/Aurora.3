@@ -63,7 +63,7 @@
 				to_chat(usr, "You plug \the [src] into your maintenace port.")
 			else
 				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over_object]'s chassis.") // The age old question of "where do I put it in!?"
-				if(do_after(usr, 50))
+				if(do_after(usr, 5 SECONDS))
 					plug(over_object)
 					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.")
 

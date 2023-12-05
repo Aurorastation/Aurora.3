@@ -9,7 +9,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	var/active = 0.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	throwforce = 10.0
 	throw_speed = 2
@@ -92,10 +92,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/cloaking_device/emp_act(severity)
+	. = ..()
+
 	deactivate()
 	if (cell)
 		cell.emp_act(severity)
-	..()
 
 /obj/item/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)
@@ -138,7 +139,7 @@
 	..()
 
 /obj/item/cloaking_device/examine(mob/user)
-	..()
+	. = ..()
 	if (!cell)
 		to_chat(user, "It needs a power cell to function.")
 	else

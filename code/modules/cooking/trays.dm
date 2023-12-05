@@ -1,13 +1,13 @@
 /*
- * Trays - Nanako, ported by Jade
- */
- //Use tray on an item to load it.
- //To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
- //Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
+* Trays - Nanako, ported by Jade
+*/
+//Use tray on an item to load it.
+//To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
+//Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
 
 /obj/item/tray
 	name = "tray"
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
@@ -15,7 +15,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
 	recyclable = TRUE
 	hitsound = /singleton/sound_category/bottle_hit_broken
@@ -215,7 +215,7 @@
 	icon_state = "l_plate"
 	throwforce = 4
 	force = 3
-	flags = null
+	atom_flags = 0
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
 	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass

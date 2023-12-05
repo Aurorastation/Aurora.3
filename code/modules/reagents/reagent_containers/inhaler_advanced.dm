@@ -4,15 +4,16 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge
 	name = "small inhaler cartridge"
 	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough aerosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	item_state = "pi_cart_small"
 	icon_state = "pi_cart_small"
+	contained_sprite = TRUE
 	volume = 15
 	w_class = ITEMSIZE_TINY
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
@@ -27,12 +28,14 @@
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 
 	if(reagents.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/syringe.dmi', "[initial(icon_state)][rounded_vol]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[initial(icon_state)][rounded_vol]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/reagent_containers/personal_inhaler_cartridge/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if (distance > 2)
 		return
 
 	if(is_open_container())
@@ -50,7 +53,7 @@
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
 	else
@@ -60,7 +63,7 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		return
 	. = ..()
 
@@ -87,9 +90,10 @@
 /obj/item/personal_inhaler
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	item_state = "pi"
 	icon_state = "pi"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/obj/item/reagent_containers/stored_cartridge
@@ -97,8 +101,9 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/personal_inhaler/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/personal_inhaler/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if(stored_cartridge)
 		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
@@ -160,7 +165,7 @@
 		user.visible_message("<span class='notice'>[user] sticks \the [src] in their mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in your mouth and press the injection button.</span>")
 	else
 		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
-		if (!do_after(user, 1 SECONDS, act_target = M))
+		if (!do_after(user, 1 SECONDS, M))
 			to_chat(user,"<span class='notice'>You and \the [M] need to be standing still in order to inject \the [src].</span>")
 			return
 
@@ -214,7 +219,7 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/hyperzine, 30)
-	flags ^= OPENCONTAINER
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return
 
@@ -224,6 +229,6 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
-	flags ^= OPENCONTAINER
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return

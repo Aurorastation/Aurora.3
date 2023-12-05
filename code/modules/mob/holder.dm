@@ -53,8 +53,8 @@ var/list/holder_mob_icon_cache = list()
 	return ..()
 
 /obj/item/holder/examine(mob/user)
-	if (contained)
-		contained.examine(user)
+	if(contained)
+		return contained.examine(user)
 
 /obj/item/holder/attack_self()
 	for(var/mob/M in contents)

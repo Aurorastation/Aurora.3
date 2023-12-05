@@ -76,7 +76,7 @@
 	if(SA.caliber == weapon.get_caliber())
 		if(SA.can_be_loaded())
 			visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
-			if(do_after(H, weapon.load_time))
+			if(do_after(H, weapon.load_time, src, DO_UNIQUE))
 				if(weapon.load_ammunition(SA, H))
 					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
 					playsound(src, 'sound/weapons/ammo_load.ogg')

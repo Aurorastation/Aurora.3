@@ -166,11 +166,12 @@
 /datum/gear/uniform/pants/New()
 	..()
 	var/list/pants = list()
+
+	// Pants
 	pants["jeans"] = /obj/item/clothing/under/pants/jeans
 	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
-	pants["must hang jeans"] = /obj/item/clothing/under/pants/mustang
+	pants["mustang jeans"] = /obj/item/clothing/under/pants/mustang
 	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
-	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
 	pants["white pants"] = /obj/item/clothing/under/pants/white
 	pants["black pants"] = /obj/item/clothing/under/pants/black
 	pants["red pants"] = /obj/item/clothing/under/pants/red
@@ -187,13 +188,6 @@
 	pants["ripped jeans"] = /obj/item/clothing/under/pants/ripped
 	pants["black ripped jeans"] = /obj/item/clothing/under/pants/blackripped
 
-	// Athletic Shorts
-	pants["black athletic shorts"] = /obj/item/clothing/under/shorts/athletic/black
-	pants["red athletic shorts"] = /obj/item/clothing/under/shorts/athletic/red
-	pants["green athletic shorts"] = /obj/item/clothing/under/shorts/athletic/green
-	pants["grey athletic shorts"] = /obj/item/clothing/under/shorts/athletic/grey
-	pants["SCC-branded athletic shorts"] = /obj/item/clothing/under/shorts/athletic/scc
-
 	// Shorts
 	pants["black shorts"] = /obj/item/clothing/under/shorts/black
 	pants["black short shorts"] = /obj/item/clothing/under/shorts/black/short
@@ -207,30 +201,43 @@
 	pants["classic jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/classic/short
 	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
 	pants["mustang jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/short
-	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
-	pants["young folks jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks/short
 	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
 	pants["black jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/black/short
 	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
 	pants["grey jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/grey/short
+
+	// Athletic Shorts
+	pants["black athletic shorts"] = /obj/item/clothing/under/shorts/athletic/black
+	pants["red athletic shorts"] = /obj/item/clothing/under/shorts/athletic/red
+	pants["green athletic shorts"] = /obj/item/clothing/under/shorts/athletic/green
+	pants["grey athletic shorts"] = /obj/item/clothing/under/shorts/athletic/grey
+	pants["SCC-branded athletic shorts"] = /obj/item/clothing/under/shorts/athletic/scc
+
 	gear_tweaks += new /datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants
-	display_name = "pants and shorts selection (recolourable)"
-	description = "A selection of recolourable pants and shorts."
+	display_name = "pants and shorts selection (colourable)"
+	description = "A selection of colourable pants and shorts."
 	path = /obj/item/clothing/under/pants/dress
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/colorpants/New()
 	..()
 	var/list/colorpants = list()
+
+	// Pants
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
 	colorpants["dress pants, with belt"] = /obj/item/clothing/under/pants/dress/belt
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
-	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
-	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/mustang/colourable
-	colorpants["athletic shorts"] = /obj/item/clothing/under/shorts/athletic/colourable
 	colorpants["flared pants"] = /obj/item/clothing/under/pants/flared
+	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/mustang/colourable
+	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
+
+	// Shorts
+	colorpants["shorts"] = /obj/item/clothing/under/shorts/colourable
+	colorpants["short shorts"] = /obj/item/clothing/under/shorts/colourable/short
+	colorpants["athletic shorts"] = /obj/item/clothing/under/shorts/athletic/colourable
+
 	gear_tweaks += new /datum/gear_tweak/path(colorpants)
 
 /datum/gear/uniform/turtleneck

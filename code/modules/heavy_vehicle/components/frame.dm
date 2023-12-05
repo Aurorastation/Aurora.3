@@ -118,7 +118,7 @@
 			is_reinforced = 0
 			return
 
-		var/to_remove = input("Which component would you like to remove") as null|anything in list(arms, body, legs, head)
+		var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", list(arms, body, legs, head))
 
 		if(!to_remove)
 			to_chat(user, SPAN_WARNING("There are no components to remove.."))

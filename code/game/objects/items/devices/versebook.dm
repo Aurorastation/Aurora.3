@@ -34,7 +34,7 @@
 	var/q // recycled from tip of the day code. it just works!(TM)
 	q = pick(randomquip)
 
-	if(do_after(user, 25))
+	if(do_after(user, 2.5 SECONDS))
 		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
 	reading = FALSE
 

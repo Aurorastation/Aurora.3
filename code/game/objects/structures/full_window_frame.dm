@@ -9,7 +9,7 @@
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
@@ -140,6 +140,9 @@
 	if(istype(W))
 		W.hitby(AM)
 
+/obj/structure/window_frame/wood
+	color = "#8f5847"
+
 /obj/structure/window_frame/unanchored // Used during in-game construction.
 	should_check_mapload = FALSE // No glass.
 	anchored = FALSE
@@ -150,7 +153,7 @@
 /obj/structure/window_frame/shuttle
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	color = null
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle,
 		/turf/simulated/wall/shuttle/cardinal,

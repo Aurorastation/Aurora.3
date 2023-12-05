@@ -2,7 +2,7 @@
 	name = "mining satchel"
 	desc = "This little bugger can be used to store and transport ores."
 	desc_info = "You can attach a warp extraction pack to it, then click on an ore box that has a warp extraction beacon signaller attached to it to link them. Then ore put into this will be bluespace teleported into the ore box."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/storage/bags.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	max_storage_space = 100
@@ -11,9 +11,9 @@
 	var/linked_beacon = FALSE // can't hold an actual beacon beclause storage code a shit
 	var/linked_beacon_uses = 3 // to hold the amount of uses the beacon had, storage code a shit.
 
-/obj/item/storage/bag/ore/examine(mob/user)
-	..()
-	if(user.Adjacent(src) && linked_beacon)
+/obj/item/storage/bag/ore/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent && linked_beacon)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside.")))
 
 /obj/item/storage/bag/ore/drone

@@ -46,7 +46,7 @@
 		if(GET_Z(L) != GET_Z(user))
 			continue
 		mob_choices += L
-	var/choice = input(user, "Decide who to track.", "Nlom Eyes") as null|anything in mob_choices
+	var/choice = tgui_input_list(user, "Decide who to track.", "Nlom Eyes", mob_choices)
 	if(choice)
 		tracked = choice
 		tracking = TRUE

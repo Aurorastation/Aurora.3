@@ -111,7 +111,7 @@
 			D.master_matrix.apply_upgrades(D)
 
 /obj/machinery/recharge_station/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")
 
 /obj/machinery/recharge_station/proc/chargepercentage()
@@ -125,12 +125,13 @@
 	go_out()
 
 /obj/machinery/recharge_station/emp_act(severity)
+	. = ..()
+
 	if(occupant)
 		occupant.emp_act(severity)
 		go_out()
 	if(cell)
 		cell.emp_act(severity)
-	..(severity)
 
 /obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(!occupant)

@@ -90,3 +90,9 @@
 
 /proc/cmp_ruincost_priority(datum/map_template/ruin/A, datum/map_template/ruin/B)
 	return initial(A.spawn_cost) - initial(B.spawn_cost)
+
+/proc/cmp_fusion_reaction_asc(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
+	return A.priority - B.priority
+
+/proc/cmp_fusion_reaction_des(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
+	return B.priority - A.priority

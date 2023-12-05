@@ -1384,7 +1384,7 @@
 /area/overgrown_mining_station)
 "WN" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/drinks/flask/shiny,
+/obj/item/reagent_containers/food/drinks/flask,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Xd" = (

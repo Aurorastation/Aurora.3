@@ -558,7 +558,7 @@
 /area/headmaster_ship/hangar)
 "bK" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/cosmonaut/commissar,
 /obj/item/clothing/head/tajaran/cosmonaut_commissar,
 /obj/item/clothing/accessory/holster/hip,
@@ -1546,7 +1546,7 @@
 /area/headmaster_ship/engine)
 "eB" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/cosmonaut,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/device/radio/headset/ship,
@@ -1929,7 +1929,7 @@
 /area/headmaster_ship/barracks)
 "fZ" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/cosmonaut,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/device/radio/headset/ship,
@@ -4103,7 +4103,7 @@
 /area/headmaster_ship/mess_hall)
 "nE" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/cosmonaut/captain,
 /obj/item/clothing/head/tajaran/orbital_captain,
 /obj/item/clothing/accessory/holster/hip,
@@ -5940,8 +5940,8 @@
 	pixel_x = 3;
 	pixel_y = -11
 	},
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,

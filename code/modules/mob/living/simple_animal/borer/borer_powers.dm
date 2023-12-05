@@ -60,7 +60,7 @@
 		to_chat(src, SPAN_NOTICE("There are no viable hosts within range."))
 		return
 
-	var/mob/living/carbon/M = input(src,"Who do you wish to infest?") in null|choices
+	var/mob/living/carbon/M = tgui_input_list(src,"Who do you wish to infest?", "Infest", choices)
 	if(M)
 		do_infest(M)
 
@@ -226,7 +226,7 @@
 		return
 
 	var/list/choices = list("Inaprovaline" = /singleton/reagent/inaprovaline, "Bicaridine" = /singleton/reagent/bicaridine, "Kelotane" = /singleton/reagent/kelotane, "Dylovene" = /singleton/reagent/dylovene, "Hyperzine" = /singleton/reagent/hyperzine, "Peridaxon" = /singleton/reagent/peridaxon, "Mortaphenyl" = /singleton/reagent/mortaphenyl, "Neurapan" = /singleton/reagent/mental/neurapan)
-	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in choices
+	var/chem = tgui_input_list(src, "Select a chemical to secrete.", "Chemicals", choices)
 
 	if(!chem || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
 		return
@@ -256,7 +256,7 @@
 		if(C.stat != 2)
 			choices += C
 
-	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
+	var/mob/living/carbon/M = tgui_input_list(src, "Who do you wish to dominate?", "Paralyze Victim", choices)
 	if(M)
 		do_paralyze(M)
 

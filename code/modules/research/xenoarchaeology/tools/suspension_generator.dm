@@ -169,9 +169,8 @@
 
 /obj/effect/suspension_field/examine(mob/user)
 	. = ..()
-	if(.)
-		to_chat(user, SPAN_NOTICE("You can see something floating inside it:"))
-		to_chat(user, SPAN_NOTICE(english_list(contents)))
+	to_chat(user, SPAN_NOTICE("You can see something floating inside it:"))
+	to_chat(user, SPAN_NOTICE(english_list(contents)))
 
 /obj/effect/suspension_field/Initialize()
 	. = ..()

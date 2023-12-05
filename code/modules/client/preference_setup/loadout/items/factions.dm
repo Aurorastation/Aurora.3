@@ -56,7 +56,7 @@
 	display_name = "idris custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/idris/alt
 	slot = slot_w_uniform
-	cost = 0
+	cost = 1
 	faction = "Idris Incorporated"
 	allowed_roles = list("Janitor")
 
@@ -595,7 +595,7 @@
 	display_name = "nanotrasen custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/alt
 	slot = slot_w_uniform
-	cost = 0
+	cost = 1
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor")
 

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "s-casing"
 	randpixel = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
 	w_class = ITEMSIZE_TINY
@@ -79,7 +79,7 @@
 		icon_state = spent_icon
 
 /obj/item/ammo_casing/examine(mob/user)
-	..()
+	. = ..()
 	if (!BB)
 		to_chat(user, "This one is spent.")
 
@@ -94,7 +94,7 @@
 	desc = "A magazine for some kind of gun."
 	icon_state = "357"
 	icon = 'icons/obj/ammo.dmi'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "box"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
@@ -182,7 +182,7 @@
 		recyclable = FALSE
 
 /obj/item/ammo_magazine/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
 
 //magazine icon state caching (caching lists are in SSicon_cache)

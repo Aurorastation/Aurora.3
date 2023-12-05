@@ -83,7 +83,7 @@
 			else
 				var/mob/M = I.loc
 				if(M.stat == DEAD)
-					if(M.timeofdeath + 6000 < world.time)
+					if(M.timeofdeath + I.lifespan_postmortem < world.time)
 						continue
 				var/turf/IT = get_turf(M)
 				if(!IT)

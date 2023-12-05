@@ -2,7 +2,7 @@
 	var/const/enterBelt		= 45
 	var/const/radIntervall 	= 5	// 20 ticks
 	var/const/leaveBelt		= 145
-	var/const/revokeAccess	= 200
+	var/const/revokeAccess	= 220
 	has_skybox_image = TRUE
 	startWhen				= 2
 	announceWhen			= 1
@@ -58,7 +58,7 @@
 
 /datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
 	for(var/area/A in all_areas)
-		if(A.flags & RAD_SHIELDED)
+		if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 			continue
 		if(turnOn)
 			A.radiation_active = TRUE

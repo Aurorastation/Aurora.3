@@ -39,8 +39,7 @@
 	var/list/transplant_data
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
-	var/list/trace_chemicals = list() // traces of chemicals in the organ,
-									  // links chemical IDs to number of ticks for which they'll stay in the blood
+	var/list/trace_chemicals = list() // traces of chemicals in the organ, links chemical IDs to number of ticks for which they'll stay in the blood
 
 	//DNA stuff.
 	var/datum/dna/dna
@@ -212,7 +211,7 @@
 	return
 
 /obj/item/organ/examine(mob/user)
-	..(user)
+	. = ..()
 	if(status & ORGAN_DEAD)
 		to_chat(user, "<span class='notice'>The decay has set in.</span>")
 
@@ -389,7 +388,9 @@
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
 
-/obj/item/organ/emp_act(var/severity)
+/obj/item/organ/emp_act(severity)
+	. = ..()
+
 	if(!(status & ORGAN_ASSISTED))
 		return
 
@@ -399,12 +400,10 @@
 		organ_fragility = 1
 
 	switch (severity)
-		if (1.0)
+		if (EMP_HEAVY)
 			take_surge_damage(15 * emp_coeff * organ_fragility)
-		if (2.0)
+		if (EMP_LIGHT)
 			take_surge_damage(8 * emp_coeff * organ_fragility)
-		if(3.0)
-			take_surge_damage(4 * emp_coeff * organ_fragility)
 
 	return TRUE
 

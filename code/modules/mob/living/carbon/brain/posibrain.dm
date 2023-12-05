@@ -64,7 +64,7 @@
 	return src
 
 /obj/item/device/mmi/digital/posibrain/update_name()
-	var/new_name = input(brainmob, "Choose your name.", "Name Selection", brainmob.real_name) as text
+	var/new_name = tgui_input_text(brainmob, "Choose your name.", "Name Selection", brainmob.real_name, MAX_NAME_LEN)
 	if(new_name)
 		brainmob.real_name = new_name
 		brainmob.name = new_name
@@ -92,7 +92,7 @@
 		msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	msg += "</span><span class='info'>*---------*</span>"
 	to_chat(user, msg)
-	return
+	return TRUE
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)
@@ -107,14 +107,13 @@
 	return
 
 /obj/item/device/mmi/digital/posibrain/emp_act(severity)
+	. = ..()
+
 	if(!brainmob)
 		return
-	else
-		switch(severity)
-			if(1)
-				brainmob.emp_damage += rand(20,30)
-			if(2)
-				brainmob.emp_damage += rand(10,20)
-			if(3)
-				brainmob.emp_damage += rand(0,10)
-	..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			brainmob.emp_damage += rand(20,30)
+		if(EMP_LIGHT)
+			brainmob.emp_damage += rand(10,20)

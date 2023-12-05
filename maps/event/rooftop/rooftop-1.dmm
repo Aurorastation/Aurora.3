@@ -1364,10 +1364,10 @@
 	layer = 2.99;
 	pixel_y = 6
 	},
-/obj/item/storage/lockbox/cciaa/fib{
+/obj/item/storage/lockbox/cciaa/bssb{
 	pixel_y = -1
 	},
-/obj/item/storage/lockbox/cciaa/fib{
+/obj/item/storage/lockbox/cciaa/bssb{
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner/blue/full{
@@ -2931,8 +2931,8 @@
 "qj" = (
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
@@ -2940,8 +2940,8 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.01;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
@@ -2949,8 +2949,8 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;
@@ -3125,61 +3125,61 @@
 	},
 /area/city/mendell/interior)
 "rm" = (
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/hitops/black,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "ro" = (
@@ -6050,7 +6050,7 @@
 "IG" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/reagent_containers/food/drinks/golden_cup,
+/obj/item/reagent_containers/food/drinks/trophy/gold_cup,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "IH" = (
@@ -6510,7 +6510,7 @@
 /area/city/mendell/interior)
 "Lv" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
@@ -8021,7 +8021,7 @@
 "Tb" = (
 /obj/effect/decal/fake_object{
 	desc = "A crate of military supplies.";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "dropcrate";
 	layer = 3.02;
 	name = "metal crate";
@@ -8118,7 +8118,7 @@
 /area/shuttle/city)
 "TD" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_y = 7
 	},
 /turf/simulated/floor/marble/dark,
@@ -8141,30 +8141,30 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},

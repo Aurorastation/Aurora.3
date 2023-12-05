@@ -43,7 +43,7 @@
 		/obj/item/clothing/gloves/yellow = 1,
 		/obj/item/clothing/gloves/yellow/specialu = 1,
 		/obj/item/clothing/gloves/yellow/specialt = 1,
-		/obj/item/clothing/shoes/brown = 1,
+		/obj/item/clothing/shoes/sneakers/brown = 1,
 		/obj/item/device/radio/headset/heads/ce = 1,
 		/obj/item/device/radio/headset/heads/ce/alt = 1,
 		/obj/item/clothing/suit/storage/hazardvest/ce = 1,

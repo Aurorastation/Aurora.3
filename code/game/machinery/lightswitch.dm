@@ -37,8 +37,9 @@
 	else if (light_range)
 		set_light(FALSE)
 
-/obj/machinery/light_switch/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/light_switch/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A light switch. It is [on? "on" : "off"].")
 
 /obj/machinery/light_switch/attack_hand(mob/user)
@@ -72,8 +73,9 @@
 		update_icon()
 
 /obj/machinery/light_switch/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	power_change()
-	..(severity)

@@ -42,9 +42,16 @@
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
+	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
 
 //Only override this proc
+/datum/job/proc/pre_spawn(mob/abstract/new_player/player)
+	return
+
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
+
+/datum/job/proc/on_despawn(mob/living/carbon/human/H)
+	return
 
 /datum/job/proc/announce(mob/living/carbon/human/H)
 
@@ -96,6 +103,7 @@
 			if(ECONOMICALLY_UNDERPAID)		econ_status = 0.75
 			if(ECONOMICALLY_POOR)			econ_status = 0.50
 			if(ECONOMICALLY_DESTITUTE)		econ_status = 0.25
+			if(ECONOMICALLY_RUINED)			econ_status = 0.01
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
@@ -211,7 +219,7 @@
 	uniform = /obj/item/clothing/under/color/grey
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	headset = /obj/item/device/radio/headset
 	bowman = /obj/item/device/radio/headset/alt

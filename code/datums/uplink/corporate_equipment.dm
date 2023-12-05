@@ -26,5 +26,12 @@
 	name = "Banshee Infiltration Suit"
 	telecrystal_cost = 5
 	bluecrystal_cost = 5
-	path = /obj/structure/closet/crate/gear_loadout/einstein
-	desc = "A full spaceworthy kit of an Einstein Engines Banshee-type infiltration suit. Only wearable by Humans and Humanoid IPCs. This voidsuit is just as armoured as a mercenary voidsuit, being a bit worse than heavy armour.."
+	path = /obj/structure/closet/crate/gear_loadout/einstein/suit
+	desc = "A full spaceworthy kit of an Einstein Engines Banshee-type infiltration suit. Only wearable by Humans and Humanoid IPCs. This voidsuit is just as armoured as a mercenary voidsuit, being a bit worse than heavy armour."
+
+/datum/uplink_item/item/corporate_equipment/suit/nanotrasen
+	name = "NanoTrasen Military-Grade Suit"
+	telecrystal_cost = 8
+	bluecrystal_cost = 8
+	path = /obj/structure/closet/crate/gear_loadout/nanotrasen/suit
+	desc = "A full spaceworthy kit of a NanoTrasen Corporation military-grade hardsuit. Only wearable by Humans, Skrell, and Humanoid IPCs. This is a hardsuit, being mostly equivalent to heavy armor."

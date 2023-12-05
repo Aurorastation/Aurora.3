@@ -2,7 +2,7 @@
 	display_name = "dionae sol passcard"
 	description = "A passport issued to Dionae citizens of the Sol Alliance who have completed their assigned contract."
 	path = /obj/item/clothing/accessory/badge/passcard/sol_diona
-	cost = 0
+	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
@@ -128,7 +128,7 @@
 	path = /obj/item/clothing/accessory/badge/passport/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	cost = 0
+	cost = 1
 	flags = GEAR_NO_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 

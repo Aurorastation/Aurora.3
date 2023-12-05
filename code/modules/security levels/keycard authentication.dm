@@ -127,7 +127,7 @@
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
 	var/distress_message
 	if(event == "Distress Beacon" && user)
-		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+		distress_message = tgui_input_text(user, "Enter a distress message that other vessels will receive.", "Distress Beacon", "", MAX_MESSAGE_LEN)
 		if(distress_message)
 			become_hearing_sensitive()
 			user.say(distress_message)
@@ -189,7 +189,7 @@
 				if(!linked.levi_safeguard.opened)
 					linked.levi_safeguard.open()
 					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
-												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
+													hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 		if("Emergency Evacuation")
 			call_shuttle_proc(user, TRANSFER_EMERGENCY)
 

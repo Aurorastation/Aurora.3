@@ -65,9 +65,10 @@
 	return src.alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
+	. = ..()
+
 	if(prob(50/severity))
 		alarm(rand(30/severity, 60/severity))
-	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W, /obj/item/forensics))
@@ -224,7 +225,8 @@
 	update_icon()
 
 	if(isContactLevel(z))
-		set_security_level(security_level ? get_security_level() : "green")
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (security_level ? get_security_level() : "green"))
+
 	soundloop = new(src, FALSE)
 
 	var/area/A = get_area(src)

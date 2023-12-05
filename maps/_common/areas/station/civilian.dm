@@ -2,7 +2,7 @@
 /area/crew_quarters
 	name = "Dormitories"
 	icon_state = "Sleep"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
@@ -104,7 +104,7 @@
 	name = "Bar - Sublevel"
 	icon_state = "red"
 	sound_env = TUNNEL_ENCLOSED
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/crew_quarters/theatre
 	name = "Theatre"
@@ -112,10 +112,10 @@
 	sound_env = LARGE_SOFTFLOOR
 
 /area/library
- 	name = "Library"
- 	icon_state = "library"
- 	sound_env = LARGE_SOFTFLOOR
- 	station_area = 1
+	name = "Library"
+	icon_state = "library"
+	sound_env = LARGE_SOFTFLOOR
+	station_area = 1
 
 /area/chapel
 	station_area = 1

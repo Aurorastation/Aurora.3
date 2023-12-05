@@ -349,11 +349,11 @@
 /area/adhomai_archeology)
 "U" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,

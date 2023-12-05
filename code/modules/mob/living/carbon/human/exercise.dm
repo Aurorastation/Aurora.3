@@ -41,13 +41,13 @@ Exercise Verbs
 			stop_pushups()
 			return
 		animate(src, pixel_y = target_y, time = 0.8 SECONDS, easing = QUAD_EASING) //down to the floor
-		if(!lying || !do_after(src, 0.6 SECONDS, needhand = TRUE, display_progress = FALSE))
+		if(!lying || !do_after(src, 0.6 SECONDS, do_flags = DO_EXERCISE))
 			visible_message(SPAN_NOTICE("[src] stops doing pushups."), SPAN_NOTICE("You stop doing pushups."), SPAN_NOTICE("You hear movements."))
 			animate(src, pixel_y = 0, time = 0.2 SECONDS, easing = QUAD_EASING)
 			stop_pushups()
 			return
 		animate(src, pixel_y = 0, time = 0.8 SECONDS, easing = QUAD_EASING) //back up
-		if(!lying || !do_after(src, 0.6 SECONDS, needhand = TRUE, display_progress = FALSE))
+		if(!lying || !do_after(src, 0.6 SECONDS, do_flags = DO_EXERCISE))
 			visible_message(SPAN_NOTICE("[src] stops doing pushups."), SPAN_NOTICE("You stop doing pushups."), SPAN_NOTICE("You hear movements."))
 			animate(src, pixel_y = 0, time = 0.2 SECONDS, easing = QUAD_EASING)
 			stop_pushups()

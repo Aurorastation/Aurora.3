@@ -20,7 +20,7 @@ Class Vars:
 		B - This holds the second zone with which the first zone equalizes.
 
 		direct - This counts the number of direct (i.e. with no doors) connections on this edge.
-		         Any value of this is sufficient to make the zones mergeable.
+				Any value of this is sufficient to make the zones mergeable.
 
 	connection_edge/unsimulated
 

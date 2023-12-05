@@ -21,6 +21,11 @@
 #define SPAN_SUBTLE(X) ("<span class='subtle'>" + X + "</span>")
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
 #define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
+#define SPAN_HEAR(X) ("<span class='hear'>" + X + "</span>")
+
+#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
+#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
+#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
 
 #define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
 

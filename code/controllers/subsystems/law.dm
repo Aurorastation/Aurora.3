@@ -1,6 +1,4 @@
-/var/global/datum/controller/subsystem/law/SSlaw
-
-/datum/controller/subsystem/law
+SUBSYSTEM_DEF(law)
 	name = "Law"
 	flags = SS_NO_FIRE
 
@@ -8,9 +6,6 @@
 	var/list/low_severity = list()
 	var/list/med_severity = list()
 	var/list/high_severity = list()
-
-/datum/controller/subsystem/law/New()
-	NEW_SS_GLOBAL(SSlaw)
 
 /datum/controller/subsystem/law/Initialize(timeofday)
 	if(config.sql_enabled)

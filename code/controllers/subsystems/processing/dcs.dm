@@ -1,13 +1,8 @@
-/var/datum/controller/subsystem/processing/dcs/SSdcs
-
-/datum/controller/subsystem/processing/dcs
+PROCESSING_SUBSYSTEM_DEF(dcs)
 	name = "Datum Component System"
 	flags = SS_NO_INIT
 
 	var/list/elements_by_type = list()
-
-/datum/controller/subsystem/processing/dcs/New()
-	NEW_SS_GLOBAL(SSdcs)
 
 /datum/controller/subsystem/processing/dcs/Recover()
 	comp_lookup = SSdcs.comp_lookup
@@ -27,6 +22,8 @@
 		return
 	. = elements_by_type[element_id] = new eletype
 
+///Temporary compatibility to not rewrite the proc, it is being ported already in another PR
+#define REF(k) ref(##k)
 /****
 	* Generates an id for bespoke elements when given the argument list
 	* Generating the id here is a bit complex because we need to support named arguments
@@ -36,23 +33,37 @@
 /datum/controller/subsystem/processing/dcs/proc/GetIdFromArguments(list/arguments)
 	var/datum/element/eletype = arguments[1]
 	var/list/fullid = list("[eletype]")
-	var/list/named_arguments = list()
-	for(var/i in initial(eletype.id_arg_index) to length(arguments))
+	var/list/named_arguments
+	for(var/i in initial(eletype.argument_hash_start_idx) to length(arguments))
 		var/key = arguments[i]
-		var/value
+
 		if(istext(key))
-			value = arguments[key]
-		if(!(istext(key) || isnum(key)))
-			key = ref(key)
-		key = "[key]" // Key is stringified so numbers dont break things
-		if(!isnull(value))
-			if(!(istext(value) || isnum(value)))
-				value = ref(value)
-			named_arguments["[key]"] = value
+			var/value = arguments[key]
+			if (isnull(value))
+				fullid += key
+			else
+				if (!istext(value) && !isnum(value))
+					//One day we will complete the port with everything. For now, this pieces remains commented as a reference.
+					//Also hello, programmer 9 years from now that is reading this.
+					// if(PERFORM_ALL_TESTS(dcs_check_list_arguments) && islist(value))
+					// 	add_to_arguments_that_are_lists(value, eletype)
+					value = REF(value)
+
+				if (!named_arguments)
+					named_arguments = list()
+
+				named_arguments[key] = value
+			continue
+
+		if (isnum(key))
+			fullid += key
 		else
-			fullid += "[key]"
+			// if(PERFORM_ALL_TESTS(dcs_check_list_arguments) && islist(key))
+			// 	add_to_arguments_that_are_lists(key, eletype)
+			fullid += REF(key)
 
 	if(length(named_arguments))
 		named_arguments = sortList(named_arguments)
 		fullid += named_arguments
 	return list2params(fullid)
+#undef REF

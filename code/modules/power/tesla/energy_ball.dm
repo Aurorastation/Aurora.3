@@ -70,7 +70,7 @@
 		..()
 
 /obj/singularity/energy_ball/examine(mob/user)
-	..()
+	. = ..()
 	if(orbiting_balls.len)
 		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
 
@@ -430,7 +430,7 @@
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
 			if(stun_mobs)
-				S.emp_act(2)
+				S.emp_act(EMP_LIGHT)
 			tesla_zap(S, 7, power / 1.5, explosive, stun_mobs) // metallic folks bounce it further
 		else
 			tesla_zap(closest_mob, 5, power / 1.5, explosive, stun_mobs)
