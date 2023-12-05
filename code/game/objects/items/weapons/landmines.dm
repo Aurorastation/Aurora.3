@@ -315,7 +315,7 @@
  */
 /obj/item/landmine/standstill/proc/late_trigger(mob/living/victim)
 	if(!deactivated)
-		for(var/mob/living/person_in_range in range(world.view, src))
+		for(var/mob/living/person_in_range in get_hearers_in_LOS(world.view, src))
 			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
 
 		explosion(loc, 2, 5, 7, world.view)
@@ -350,8 +350,8 @@
 	desc_info = "This device can be fitted with a signaler device for remotely actuated detonations, or can be activated with the press of a button directly above it."
 	icon = 'icons/obj/item/landmine/claymore.dmi'
 	icon_state = "m20"
-	var/datum/wires/landmine/claymore/trigger_wire = null
-	var/obj/item/device/assembly/signaler/signaler = null
+	var/datum/wires/landmine/claymore/trigger_wire
+	var/obj/item/device/assembly/signaler/signaler
 
 /obj/item/landmine/claymore/Initialize(mapload, ...)
 	. = ..()
