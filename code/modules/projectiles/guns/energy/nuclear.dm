@@ -193,7 +193,7 @@
 
 	offhand_accuracy = 6 // same as firing it in your main hand
 
-	projectile_type = /obj/item/projectile/beam/pistol/scc/weak
+	projectile_type = /obj/item/projectile/beam/pistol/scc
 	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 4)
 
 	firemodes = list(
@@ -214,7 +214,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 8
 	fire_delay = 5
-	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc
+	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc/weak
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
 	can_switch_modes = 1
 
@@ -224,7 +224,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol/scc, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol/scc/weak, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
 		)
 
 /obj/item/gun/energy/gun/skrell
