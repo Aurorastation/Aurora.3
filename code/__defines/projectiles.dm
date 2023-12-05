@@ -39,12 +39,11 @@
 //Caliber Defines
 
 //Sol Bloc
-
 ///Sol Generic Pistol (Security, Civilian)
 #define CALIBER_PISTOL_GENERIC_SOL "9mm Pistol"
 
 ///Sol Military Pistol
-#define CALIBER_PISTOL_MILITARY_SOL "5.7mm Pistol"
+#define CALIBER_PISTOL_MILITARY_SOL "4.6mm Pistol"
 
 ///Sol Assault Rifle/Light Machine Gun
 #define CALIBER_RIFLE_ASSAULT_SOL "5.5mm Rifle"
@@ -56,12 +55,11 @@
 #define CALIBER_RIFLE_AT_SOL "12mm Rifle"
 
 // Coalition Bloc
-
 ///Coalition Generic Pistol (Security, Civilian)
 #define CALIBER_PISTOL_GENERIC_COC "10mm Pistol"
 
 ///Coalition Military Pistol
-#define CALIBER_PISTOL_MILITARY_COC "4.6mm Caseless Pistol"
+#define CALIBER_PISTOL_MILITARY_COC "5mm Caseless Pistol"
 
 ///Coalition Assault Rifle/Light Machine Gun
 #define CALIBER_RIFLE_ASSAULT_COC "6.5mm Caseless Rifle"
@@ -73,7 +71,6 @@
 #define CALIBER_RIFLE_AT_COC "15mm Caseless Rifle"
 
 //Bizarre/Vintage Bloc
-
 ///Caliber used by older revolvers
 #define CALIBER_PISTOL_MAGNUM ".357 Magnum"
 
@@ -94,7 +91,7 @@
 #define CALIBER_PISTOL_FLECHETTE "4mm Pistol"
 
 ///Civilian Shotgun
-#define CALIBER_SHOTGUN_CIVILIAN "15.5mm Shell"
+#define CALIBER_SHOTGUN_CIVILIAN "15mm Shell"
 
 ///Military Shotgun
-#define CALIBER_SHOTGUN_MILITARY "18.5mm Shell"
+#define CALIBER_SHOTGUN_MILITARY "20mm Shell"
