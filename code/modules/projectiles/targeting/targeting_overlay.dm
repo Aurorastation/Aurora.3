@@ -37,6 +37,11 @@
 
 /obj/aiming_overlay/Initialize(mapload, ...)
 	. = ..()
+
+	if(!isliving(loc))
+		stack_trace("Trying to create an aiming overlay with a location that is not /mob/living!")
+		return INITIALIZE_HINT_QDEL
+
 	owner = loc
 	loc = null
 	verbs.Cut()
