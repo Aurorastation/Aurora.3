@@ -143,6 +143,10 @@
 	else
 		H.unholster(usr)
 
+/*###################
+	Holster Subtypes
+###################*/
+
 /obj/item/clothing/accessory/holster/armpit
 	name = "black armpit holster"
 	desc = "A worn-out handgun holster. Mostly seen in cheesy cop flicks, used to keep the actor's face in the shot."
@@ -189,7 +193,17 @@
 	icon_state = "holster_brown_thigh"
 	item_state = "holster_brown_thigh"
 
-/********** Utility Holsters Start **********/
+/obj/item/clothing/accessory/holster/modular
+	name = "plate carrier holster"
+	desc = "A special holster with rigging able to attach to modern modular plate carriers."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "modular_holster"
+	item_state = "modular_holster"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	flippable = FALSE
+
+/*##### Utility Holsters Start #####*/
 // Utility Holster
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
