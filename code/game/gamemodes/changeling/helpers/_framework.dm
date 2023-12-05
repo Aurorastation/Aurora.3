@@ -97,7 +97,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H))
-		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
+		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages, H.height, H.gender, H.pronouns, H.accent)
 		absorbDNA(newDNA)
 		changeling.mimiced_accent = H.accent
 
@@ -209,14 +209,20 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/speciesName
 	var/list/languages
 	var/height
+	var/gender
+	var/pronouns
+	var/accent
 
-/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, newHeight)
+/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, var/newHeight, var/newGender, var/newPronouns, var/newAccent)
 	..()
 	name = newName
 	dna = newDNA
 	speciesName = newSpecies
 	languages = newLanguages
 	height = newHeight
+	gender = newGender
+	pronouns = newPronouns
+	accent = newAccent
 
 //Helper for stingcode
 

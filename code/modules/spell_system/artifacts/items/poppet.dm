@@ -123,6 +123,8 @@
 		H.throw_at(get_edge_target_turf(H,pick(alldirs)), 5, 1)
 
 /obj/item/poppet/emp_act(severity)
+	. = ..()
+
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
 		H.emp_act(severity)

@@ -13,6 +13,9 @@
 /area/engineering/aft_airlock
 	name = "Engineering - Aft Service Airlock"
 
+/area/engineering/rust_office
+	name = "Engineering - INDRA Office"
+
 /area/engineering/engine_room/rust
 	name = "Engineering - INDRA Engine"
 

@@ -264,6 +264,37 @@
 	name = "protein bar wrapper"
 	icon_state = "proteinbar"
 
+/obj/item/trash/leaf
+	name = "dirty leaf"
+	icon_state = "leaf"
+	desc = "Is... Is that a big old leaf with... are those beans on it? Why?! What kind of situation would lead to this?!"
+
+/obj/item/trash/north60squidempty
+	name = "empty platter"
+	icon_state = "north60squidempty"
+	desc = "A deep dish meant to hold a pool of sauce and seafood, but now it only holds delicious memories. Trash it."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/triolade
+	name = "empty dessert dish"
+	icon_state = "triolade"
+
+/obj/item/trash/board
+	name = "dirty board"
+	icon_state = "board"
+
+/obj/item/trash/icecreamcup
+	name = "empty ice cream cup"
+	icon_state = "icecreamcup"
+	desc = "Oh look, it's one of those prank fake melted ice cream cu- oh, nope. it's real. eugh. Do... Do you have a napkin?"
+
+/obj/item/trash/purplebowl
+	name = "empty bowl"
+	icon_state = "purplebowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
 /obj/item/trash/deepdive
 	name = "empty deepdive dish"
 	icon_state = "deepdive"
@@ -279,3 +310,10 @@
 /obj/item/trash/shakshouka
 	name = "empty shakshouka pan"
 	icon_state = "shakshouka"
+	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/stick
+	name = "candy stick"
+	icon_state = "rock_candy"

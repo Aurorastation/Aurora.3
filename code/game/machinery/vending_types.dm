@@ -324,7 +324,7 @@
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
 		/obj/item/storage/box/pineapple = 4,
 		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
-		/obj/item/reagent_containers/food/snacks/chocolatebar/white/wrapped = 6,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 6,
 		/obj/item/storage/box/fancy/cookiesnack = 6,
 		/obj/item/storage/box/fancy/gum = 4,
 		/obj/item/storage/box/fancy/vkrexitaffy = 5,
@@ -351,7 +351,8 @@
 		/obj/item/reagent_containers/food/snacks/koisbar = 4
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/snacks/cookie = 6
+		/obj/item/reagent_containers/food/snacks/cookie = 6,
+		/obj/item/storage/box/fancy/food/pralinebox = 2
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/snacks/candy = 15,
@@ -364,7 +365,7 @@
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
 		/obj/item/storage/box/pineapple = 20,
 		/obj/item/reagent_containers/food/snacks/chocolatebar = 12,
-		/obj/item/reagent_containers/food/snacks/chocolatebar/white/wrapped = 12,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 12,
 		/obj/item/storage/box/fancy/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/storage/box/fancy/admints = 12,
