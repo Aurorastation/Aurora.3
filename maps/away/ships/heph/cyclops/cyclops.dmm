@@ -28,6 +28,11 @@
 	name = "airlock_cyclops_starboard"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	layer = 3.1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ap" = (
@@ -3021,6 +3026,11 @@
 	master_tag = "airlock_cyclops_dock";
 	name = "airlock_cyclops_dock"
 	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	layer = 3.1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "DJ" = (
@@ -3961,6 +3971,11 @@
 	name = "airlock_shuttle_cyclops";
 	req_one_access = list(216);
 	shuttle_tag = "Cyclops Shuttle"
+	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	layer = 3.1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
