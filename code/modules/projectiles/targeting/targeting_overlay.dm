@@ -41,6 +41,21 @@
 	loc = null
 	verbs.Cut()
 
+/obj/aiming_overlay/Destroy()
+	cancel_aiming(TRUE)
+
+	toggle_active(FALSE)
+	if(owner?.aiming == src)
+		owner.aiming = null
+
+	owner = null
+
+	//Since cancel_aiming() might early return if aiming_at *OR* aiming_with are not set, we clear the refs here
+	aiming_at = null
+	aiming_with = null
+
+	. = ..()
+
 /obj/aiming_overlay/proc/toggle_permission(perm)
 
 	if(target_permissions & perm)
@@ -95,16 +110,11 @@
 		to_chat(aiming_at, "<span class='[use_span]'>You are [message].</span>")
 
 /obj/aiming_overlay/process()
-	if(!owner)
+	if(QDELETED(owner) || QDELETED(aiming_at) || QDELETED(aiming_with))
 		qdel(src)
 		return
 	..()
 	update_aiming()
-
-/obj/aiming_overlay/Destroy()
-	cancel_aiming(TRUE)
-	owner = null
-	return ..()
 
 /obj/aiming_overlay/proc/update_aiming_deferred()
 	set waitfor = 0
@@ -113,11 +123,11 @@
 
 /obj/aiming_overlay/proc/update_aiming()
 
-	if(!owner)
+	if(QDELETED(owner))
 		qdel(src)
 		return
 
-	if(!aiming_at)
+	if(QDELETED(aiming_at))
 		cancel_aiming()
 		return
 
@@ -153,6 +163,10 @@
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(mob/target, obj/thing)
+
+	if(QDELETED(target))
+		return
+
 	if (aimcooldown > world.time)
 		return
 
