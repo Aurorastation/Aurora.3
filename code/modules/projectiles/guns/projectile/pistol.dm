@@ -90,15 +90,15 @@
 		icon_state = "coltauto-e"
 
 /obj/item/gun/projectile/sec
-	name = "\improper .45 pistol"
+	name = "\improper NanoTrasen Mk58 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
-	magazine_type = /obj/item/ammo_magazine/c45m/rubber
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
-	caliber = ".45"
+	magazine_type = /obj/item/ammo_magazine/pistol/mk58/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/mk58)
+	caliber = CALIBER_PISTOL_GENERIC_COC
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -114,14 +114,14 @@
 		icon_state = "secgun-e"
 
 /obj/item/gun/projectile/sec/lethal
-	magazine_type = /obj/item/ammo_magazine/c45m
+	magazine_type = /obj/item/ammo_magazine/pistol/mk58
 
 /obj/item/gun/projectile/sec/flash
 	name = ".45 signal pistol"
-	magazine_type = /obj/item/ammo_magazine/c45m/flash
+	magazine_type = /obj/item/ammo_magazine/pistol/mk58/flash
 
 /obj/item/gun/projectile/sec/wood
-	name = "custom .45 pistol"
+	name = "custom NanoTrasen Mk58 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun_wood.dmi'
@@ -382,9 +382,9 @@
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL_GENERIC_COC
 	w_class = ITEMSIZE_SMALL
-	ammo_type = /obj/item/ammo_casing/c10mm
+	ammo_type = /obj/item/ammo_casing/pistol/coc/civilian
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)

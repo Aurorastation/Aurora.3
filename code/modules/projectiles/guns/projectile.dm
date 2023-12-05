@@ -109,7 +109,8 @@
 	return TRUE
 
 /obj/item/gun/projectile/proc/process_chambered()
-	if (!chambered) return
+	if(!chambered)
+		return
 
 	// Aurora forensics port, gunpowder residue.
 	if(chambered.leaves_residue)
@@ -120,6 +121,10 @@
 			else
 				var/obj/item/clothing/G = H.gloves
 				LAZYDISTINCTADD(G.gunshot_residue, chambered.caliber)
+
+	if(chambered.is_caseless)
+		QDEL_NULL(chambered)
+		return
 
 	switch(handle_casings)
 		if(DELETE_CASINGS)

@@ -35,3 +35,66 @@
 #define ROF_SUPERHEAVY 12
 #define ROF_UNWIELDY 16
 #define ROF_SPECIAL 40
+
+//Caliber Defines
+
+//Sol Bloc
+
+///Sol Generic Pistol (Security, Civilian)
+#define CALIBER_PISTOL_GENERIC_SOL "9mm Pistol"
+
+///Sol Military Pistol
+#define CALIBER_PISTOL_MILITARY_SOL "5.7mm Pistol"
+
+///Sol Assault Rifle/Light Machine Gun
+#define CALIBER_RIFLE_ASSAULT_SOL "5.5mm Rifle"
+
+///Sol Battle Rifle/Medium Machine Gun
+#define CALIBER_RIFLE_BATTLE_SOL "7.6mm Rifle"
+
+///Sol Heavy Machine Gun/AT Rifle
+#define CALIBER_RIFLE_AT_SOL "12mm Rifle"
+
+// Coalition Bloc
+
+///Coalition Generic Pistol (Security, Civilian)
+#define CALIBER_PISTOL_GENERIC_COC "10mm Pistol"
+
+///Coalition Military Pistol
+#define CALIBER_PISTOL_MILITARY_COC "4.6mm Caseless Pistol"
+
+///Coalition Assault Rifle/Light Machine Gun
+#define CALIBER_RIFLE_ASSAULT_COC "6.5mm Caseless Rifle"
+
+///Coalition Battle Rifle/Medium Machine Gun
+#define CALIBER_RIFLE_BATTLE_COC "10mm Caseless Rifle"
+
+///Coalition Heavy Machine Gun/AT Rifle
+#define CALIBER_RIFLE_AT_COC "15mm Caseless Rifle"
+
+//Bizarre/Vintage Bloc
+
+///Caliber used by older revolvers
+#define CALIBER_PISTOL_MAGNUM ".357 Magnum"
+
+///Caliber used by the Derringer pocket revolver
+#define CALIBER_PISTOL_SPECIAL ".38 Special"
+
+///Caliber used by the lever action rifle
+#define CALIBER_RIFLE_GOVT ".40-75 Govt."
+
+///Caliber used by the Springfield
+#define CALIBER_RIFLE_SPRINGFIELD ".30-06 Springfield"
+
+///Caliber used by the Musket
+#define CALIBER_MUSKET "ball"
+
+//Other calibers
+///Exclusively used by Science's Experimental SMG
+#define CALIBER_PISTOL_FLECHETTE "4mm Pistol"
+
+///Civilian Shotgun
+#define CALIBER_SHOTGUN_CIVILIAN "15.5mm Shell"
+
+///Military Shotgun
+#define CALIBER_SHOTGUN_MILITARY "18.5mm Shell"

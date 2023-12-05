@@ -9,7 +9,8 @@
 	throwforce = 1
 	w_class = ITEMSIZE_TINY
 
-	var/leaves_residue = 1
+	var/leaves_residue = TRUE
+	var/is_caseless = FALSE
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called
@@ -119,6 +120,13 @@
 	var/insert_sound = /singleton/sound_category/metal_slide_reload //sound it plays when it gets inserted into a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
+	/// If this and ammo_band_icon aren't null, run update_ammo_band(). Is the color of the band, such as green on AP.
+	var/ammo_band_color
+	/// If this and ammo_band_color aren't null, run update_ammo_band() Is the greyscale icon used for the ammo band.
+	var/ammo_band_icon
+	/// Is the greyscale icon used for the ammo band when it's empty of bullets.
+	var/ammo_band_icon_empty
+
 /obj/item/ammo_magazine/Initialize()
 	. = ..()
 	if(multiple_sprites)
@@ -131,6 +139,9 @@
 		for(var/i in 1 to initial_ammo)
 			stored_ammo += new ammo_type(src)
 	update_icon()
+
+	if(ammo_band_color && ammo_band_icon)
+		update_ammo_band()
 
 /obj/item/ammo_magazine/Destroy()
 	QDEL_NULL_LIST(stored_ammo)
@@ -180,6 +191,16 @@
 		recyclable = TRUE
 	else
 		recyclable = FALSE
+
+/obj/item/ammo_magazine/proc/update_ammo_band()
+	overlays.Cut()
+	var/band_icon = ammo_band_icon
+	if(!stored_ammo)
+		band_icon = ammo_band_icon_empty
+	var/image/ammo_band_image = image(icon, src, band_icon)
+	ammo_band_image.color = ammo_band_color
+	ammo_band_image.appearance_flags = RESET_COLOR|KEEP_APART
+	overlays += ammo_band_image
 
 /obj/item/ammo_magazine/examine(mob/user)
 	. = ..()
