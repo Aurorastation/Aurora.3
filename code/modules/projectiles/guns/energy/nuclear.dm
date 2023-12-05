@@ -210,6 +210,8 @@
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 
 /obj/item/gun/energy/gun/skrell/emp_act(severity)
+	. = ..()
+
 	return //Fuck robots.
 
 /obj/item/gun/energy/gun/skrell/pistol

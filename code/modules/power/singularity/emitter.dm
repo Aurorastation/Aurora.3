@@ -111,7 +111,9 @@
 		return TRUE
 
 
-/obj/machinery/power/emitter/emp_act()
+/obj/machinery/power/emitter/emp_act(severity)
+	. = ..()
+
 	activate(null)
 	return TRUE
 

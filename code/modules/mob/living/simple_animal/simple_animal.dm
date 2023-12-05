@@ -920,18 +920,16 @@
 		return FALSE
 
 /mob/living/simple_animal/emp_act(severity)
+	. = ..()
+
 	if(!isSynthetic())
 		return
 
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(20, 25))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(10, 15))
-		if(3)
-			adjustFireLoss(rand(5, 10))
-		if(4)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment

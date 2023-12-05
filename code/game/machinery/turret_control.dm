@@ -272,6 +272,8 @@
 		set_light(1.5, 1,"#003300")
 
 /obj/machinery/turretid/emp_act(severity)
+	. = ..()
+
 	if(enabled)
 		//if the turret is on, the EMP no matter how severe disables the turret for a while
 		//and scrambles its settings, with a slight chance of having an emag effect
@@ -290,4 +292,3 @@
 				enabled=1
 				updateTurrets()
 
-	..()

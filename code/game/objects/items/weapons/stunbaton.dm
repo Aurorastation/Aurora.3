@@ -198,9 +198,10 @@
 	return 1
 
 /obj/item/melee/baton/emp_act(severity)
+	. = ..()
+
 	if(bcell)
 		bcell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
-	..()
 
 //secborg stun baton module
 

@@ -444,6 +444,8 @@
 	return I
 
 /obj/item/clothing/gloves/emp_act(severity)
+	. = ..()
+
 	if(cell)
 		//why is this not part of the powercell code?
 		cell.charge -= 1000 / severity
@@ -451,7 +453,6 @@
 			cell.charge = 0
 	if(ring)
 		ring.emp_act(severity)
-	..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)

@@ -35,6 +35,63 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">04 December 2023</h2>
+			<h3 class="author">Alberyk, KingOfThePing, TheStryker, TheLancer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added some Konyang related guns.</li>
+			</ul>
+			<h3 class="author">CampinKiller24 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the new Elyran flags.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Updated spacemandmm to 1.8 for the CI.</li>
+				<li class="backend">Extended OpenDream and SpacemanDMM linting coverage to the main defines used in the codebase.</li>
+				<li class="bugfix">Fixed a warning for path definition and an old reference to a renamed function in ZAS.</li>
+				<li class="refactor">EMPs are now consistent across the various objects.</li>
+				<li class="refactor">EMPs damage is now standarized with EMP_HEAVY and EMP_LIGHT.</li>
+				<li class="backend">Updated DCS part that deals with unique signals.</li>
+				<li class="rscadd">Added DCS signals COMSIG_ATOM_PRE_EMP_ACT and COMSIG_ATOM_EMP_ACT for EMP events.</li>
+				<li class="backend">Added datum component for EMP protection handling.</li>
+				<li class="rscadd">EMP explosions (empulse) are now tridimensional, spreading across the decks/zlevels of the same map.</li>
+				<li class="rscadd">EMP explosions (empulse) behave properly as a sphere between zlevels, with 9 meters being the currently assumed floor height.</li>
+				<li class="bugfix">empulse now respects the tick limit, avoiding the server lagging to death on large or expensive EMPs.</li>
+				<li class="backend">ELEMENT_DETACH flag was renamed to ELEMENT_DETACH_ON_HOST_DESTROY, as per TG updated name.</li>
+				<li class="backend">EMPs now rise signals of the events through DCS.</li>
+				<li class="backend">(Nearly) all emp_act now calls the parent first, properly and consistently handling signals.</li>
+				<li class="rscadd">The spiral_range search function was ported over from TG, it is used by empulse.</li>
+				<li class="refactor">All emp_act now calls the parent.</li>
+				<li class="refactor">All emp_act now uses the defined damage, instead of the magic numbers.</li>
+				<li class="refactor">EMP magic number 3 do not exist anymore, standarized everything that used it back into EMP_LIGHT.</li>
+				<li class="refactor">Some function substitution for EMP that was not meant to behave like an EMP for other objects.</li>
+				<li class="rscadd">The empulse function can now exclude types, in addition to objects.</li>
+				<li class="bugfix">Fixed a possible runtime issue that prevented the return hint from being returned to SSgarbage if the variable was empty.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moved some lights in Hydroponics.</li>
+				<li class="maptweak">Added Hydroponics access to the back door of the Kitchen Freezer.</li>
+				<li class="maptweak">Added a welding fuel tank to Hydroponics.</li>
+				<li class="maptweak">Added a ChemMaster and some beakers to Xenobiology</li>
+				<li class="maptweak">Placed another table in Xenobotany.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Protohumans ordered from cargo are now a distinct species and use a new icon.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds an Air Konyang passenger vessel.</li>
+				<li class="rscadd">Adds a wrecked Idris vault ship.</li>
+			</ul>
+
+			<h2 class="date">02 December 2023</h2>
+			<h3 class="author">GeneralCamo, Joan updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ported new cult blade icons from /tg/station.</li>
+			</ul>
+
 			<h2 class="date">01 December 2023</h2>
 			<h3 class="author">AlaunusLux updated:</h3>
 			<ul class="changes bgimages16">
@@ -60,6 +117,7 @@
 			<ul class="changes bgimages16">
 				<li class="rscadd">Added a Dominian Noble origin. You must now pick it to play a Dominian noble, and Dominian nobles are forced to have the HMR accent and the Dominian citizenship. This is to match new Dominian lore updates.</li>
 				<li class="rscadd">Removed the HMR accent from all other Dominian origins.</li>
+				<li class="bugfix">Fixes dominian noble citizenships showing up as E.</li>
 			</ul>
 			<h3 class="author">RustingWithYou updated:</h3>
 			<ul class="changes bgimages16">

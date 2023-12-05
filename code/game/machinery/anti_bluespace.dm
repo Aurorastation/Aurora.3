@@ -36,7 +36,7 @@ var/global/list/bluespace_inhibitors
 /obj/machinery/anti_bluespace/emag_act()
 	spark(src, 3)
 	playsound(src, /singleton/sound_category/spark_sound, 50, 1)
-	emp_act(1)
+	emp_act(EMP_HEAVY)
 	return TRUE
 
 /obj/machinery/anti_bluespace/process()
@@ -99,9 +99,11 @@ var/global/list/bluespace_inhibitors
 	return
 
 /obj/machinery/anti_bluespace/emp_act(severity)
+	. = ..()
+
 	//THIS WILL BE FUN.
 	if(stat & BROKEN)
-		return 0
+		return
 
 	var/area/temp_area = get_area(src)
 	if(temp_area)

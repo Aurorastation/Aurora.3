@@ -119,6 +119,8 @@ var/list/GPS_list = list()
 		R.client.screen -= compass
 
 /obj/item/device/gps/emp_act(severity)
+	. = ..()
+
 	emped = TRUE
 	addtimer(CALLBACK(src, PROC_REF(post_emp)), 30 SECONDS)
 	update_icon()
