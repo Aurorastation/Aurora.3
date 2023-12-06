@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Reduced the passive power drain of exosuits/mechas because of their chassis to 10% of the current amount."
+  - tweak: "Reduced the active power drain of exosuits/mechas because of their arms and legs to roughly 50% of the current amount."
