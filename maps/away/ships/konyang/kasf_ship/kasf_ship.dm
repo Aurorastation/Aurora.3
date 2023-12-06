@@ -7,6 +7,7 @@
 	ship_cost = 1
 	id = "kasf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kasf_shuttle)
+
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/kasf_corvette
@@ -83,6 +84,21 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_kasf_corvette"
 	base_turf = /turf/space/transit/north
+
+/obj/effect/shuttle_landmark/kasf_corvette/starboard_dock
+	name = "KASF Starboard Dock"
+	landmark_tag = "nav_kasf_dock_starboard"
+	docking_controller = "airlock_kasf_dock_starboard"
+	base_area = /area/space
+	base_turf = /turf/space
+
+/obj/effect/shuttle_landmark/kasf_corvette/port_dock
+	name = "KASF Port Dock"
+	landmark_tag = "nav_kasf_dock_port"
+	docking_controller = "airlock_kasf_dock_port"
+	base_area = /area/space
+	base_turf = /turf/space
+
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/kasf_shuttle

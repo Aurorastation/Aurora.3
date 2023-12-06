@@ -152,6 +152,9 @@
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "bp" = (
@@ -182,12 +185,8 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/hangar)
 "by" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port thrusters"
-	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/portthrust)
 "bz" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -320,6 +319,15 @@
 	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/forehall)
+"cf" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "ci" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -572,24 +580,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/starboardthrust)
 "dK" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "kasf_port_airlock_out"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
 	},
-/obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "kasf_port_airlock";
-	command = "cycle_exterior"
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
 	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, airlock"
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "dP" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -887,6 +886,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/armory)
+"fB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "fD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/orange{
@@ -918,6 +924,18 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
+"fK" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 25
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "fL" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -946,17 +964,16 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "kasf_starboard_airlock_in"
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
 	},
 /obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "kasf_starboard_airlock";
-	command = "cycle_interior"
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/mainhall)
@@ -1125,8 +1142,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardthrust)
 "gP" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardthrust)
 "gU" = (
@@ -1436,12 +1455,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/mess)
 "iZ" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard thrusters"
-	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/starboardthrust)
 "jd" = (
 /obj/structure/table/steel,
@@ -1490,8 +1505,23 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
 "jk" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = -26;
+	req_access = list(218)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "jl" = (
@@ -1510,6 +1540,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/engie)
+"jx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/kasf_corvette/portthrust)
+"jG" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/porthangarfoyer)
 "jH" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Hangar Foyer";
@@ -1631,24 +1674,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
 "kK" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "kasf_starboard_airlock_out"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
 	},
-/obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "kasf_starboard_airlock";
-	command = "cycle_exterior"
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
 	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, airlock"
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "kP" = (
 /obj/machinery/computer/ship/helm{
@@ -1662,17 +1696,28 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "kT" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/structure/sign/directions/prop{
-	pixel_y = 28;
-	dir = 1
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
-/obj/structure/closet/crate,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
+"kW" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thrusters"
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/kasf_corvette/portthrust)
 "kY" = (
 /obj/structure/window/reinforced,
 /obj/machinery/light/small/emergency{
@@ -1741,8 +1786,23 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
 "lC" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = -26;
+	req_access = list(218)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
 "lG" = (
@@ -1904,6 +1964,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/dorm)
+"mp" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = -23;
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
+/turf/simulated/floor/plating,
+/area/ship/kasf_corvette/porthangarfoyer)
 "mt" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -2456,10 +2531,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
 "pR" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -32
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "pT" = (
@@ -2508,12 +2588,28 @@
 /turf/simulated/floor/airless,
 /area/ship/kasf_corvette/atmos)
 "qf" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
 	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
+"qk" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "ql" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -2762,9 +2858,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/brig)
 "rl" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/starboardthrust)
 "ru" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -2869,8 +2966,10 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/kasf_shuttle)
 "rQ" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardthrust)
 "rR" = (
@@ -2931,6 +3030,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/hangar)
+"se" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/porthangarfoyer)
 "sk" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3272,6 +3380,20 @@
 	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardhangarfoyer)
+"uo" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "uy" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -3295,9 +3417,9 @@
 "uE" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
-	dir = 8
+	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/space)
 "uH" = (
 /obj/machinery/door/firedoor/noid,
@@ -3584,6 +3706,21 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/starboardwep)
+"wC" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = -23;
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
+/turf/simulated/floor/plating,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "wE" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange{
@@ -3885,6 +4022,21 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
+"yn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "yp" = (
 /obj/effect/floor_decal/spline/plain/blue,
 /obj/effect/floor_decal/spline/plain/blue{
@@ -3927,6 +4079,28 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/portthrust)
+"yA" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
+/obj/effect/shuttle_landmark/kasf_corvette/starboard_dock{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = -28;
+	req_access = list(218)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "yC" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -4026,8 +4200,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
 "ze" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/portthrust)
 "zg" = (
@@ -4083,9 +4259,6 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
 "zu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -4129,6 +4302,13 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/cic)
+"zH" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/kasf_corvette/starboardthrust)
 "zJ" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/engie)
@@ -4251,8 +4431,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
 "Av" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/portthrust)
 "Aw" = (
@@ -4263,15 +4445,19 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardwep)
 "Ax" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 8
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/structure/sign/directions/prop{
-	pixel_y = 28;
-	dir = 1
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/obj/structure/closet/crate,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "AB" = (
@@ -4498,9 +4684,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
 "BJ" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/portthrust)
 "BK" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4956,6 +5143,25 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardwep)
+"Em" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, airlock"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
+	},
+/obj/machinery/access_button{
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/mainhall)
 "Eo" = (
 /obj/machinery/door/window/eastright{
 	dir = 1
@@ -4980,13 +5186,16 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/portwep)
 "Et" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -32
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardhangarfoyer)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "Ey" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
@@ -5029,28 +5238,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
 "EQ" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1379;
-	dir = 4;
-	id_tag = "kasf_starboard_airlock_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = -25;
-	pixel_x = 6;
-	id_tag = "kasf_starboard_airlock";
-	tag_airpump = "kasf_starboard_airlock_pump";
-	tag_chamber_sensor = "kasf_starboard_airlock_sensor";
-	tag_exterior_door = "kasf_starboard_airlock_out";
-	tag_interior_door = "kasf_starboard_airlock_in"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_y = -25;
-	pixel_x = -6;
-	id_tag = "kasf_starboard_airlock_sensor"
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "EV" = (
@@ -5099,6 +5292,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/porthangarfoyer)
+"Fd" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 25
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
+/turf/simulated/floor/plating,
 /area/ship/kasf_corvette/porthangarfoyer)
 "Fs" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -5423,15 +5630,29 @@
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)
 "GG" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardthrust)
+"GL" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 25
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
+/turf/simulated/floor/plating,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "GX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -5514,6 +5735,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
+"Hv" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "Hz" = (
 /obj/machinery/light,
 /obj/structure/sign/electricshock{
@@ -5525,6 +5755,9 @@
 "HA" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -5626,6 +5859,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/medbay)
+"Ia" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 25
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "Ie" = (
 /obj/machinery/vending/engineering{
 	req_access = null
@@ -5688,6 +5933,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/brig)
+"Io" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "Iq" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -5708,21 +5967,20 @@
 /area/ship/kasf_corvette/hangar)
 "Ir" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "kasf_port_airlock_in"
-	},
 /obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "kasf_port_airlock";
-	command = "cycle_interior"
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/mainhall)
@@ -6114,6 +6372,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
+"KO" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/reinforced,
+/area/ship/kasf_corvette/starboardthrust)
 "KP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6227,28 +6489,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/portthrust)
 "Lm" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1379;
-	dir = 8;
-	id_tag = "kasf_port_airlock_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = -25;
-	pixel_x = -6;
-	id_tag = "kasf_port_airlock";
-	tag_airpump = "kasf_port_airlock_pump";
-	tag_chamber_sensor = "kasf_port_airlock_sensor";
-	tag_exterior_door = "kasf_port_airlock_out";
-	tag_interior_door = "kasf_port_airlock_in"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_y = -25;
-	pixel_x = 6;
-	id_tag = "kasf_port_airlock_sensor"
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "Lq" = (
@@ -6447,6 +6693,21 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/cryo)
+"Mr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/snacks/seaweed,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/porthangarfoyer)
 "Ms" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Reactor Compartment";
@@ -6832,10 +7093,35 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
+"OW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/kasf_corvette/starboardthrust)
 "OY" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/portwep)
+"OZ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = -28;
+	req_access = list(218)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/porthangarfoyer)
 "Pa" = (
 /obj/effect/floor_decal/corner_wide/dark_blue,
 /obj/structure/cable{
@@ -6945,6 +7231,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
+"PP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "PR" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -7027,6 +7325,12 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/sign/directions/prop{
+	pixel_y = -4;
+	dir = 1;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "Qs" = (
@@ -7042,6 +7346,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/dorm)
+"QA" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28;
+	req_access = list(218)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "QG" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -7087,18 +7410,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "QQ" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = 10;
-	pixel_y = -7
-	},
-/obj/item/mop,
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/porthangarfoyer)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/reinforced,
+/area/ship/kasf_corvette/portthrust)
 "QS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -7265,17 +7579,12 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/closet/crate/freezer/rations,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 10;
+	pixel_y = -7
+	},
+/obj/item/mop,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
 "RJ" = (
@@ -7443,6 +7752,12 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/sign/directions/prop{
+	pixel_y = -4;
+	dir = 1;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
 "SF" = (
@@ -7595,11 +7910,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "Tv" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
 "TD" = (
 /obj/machinery/light/small/emergency{
@@ -7609,14 +7929,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
 "TG" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
 "TL" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
@@ -7765,9 +8085,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
 "UZ" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -8055,17 +8372,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/crate/freezer/rations,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/snacks/seaweed,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
-/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "Xl" = (
@@ -8140,6 +8447,31 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/cryo)
+"Xw" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_port";
+	name = "airlock_kasf_port";
+	frequency = 2501
+	},
+/obj/machinery/access_button{
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/mainhall)
+"Xx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/kasf_corvette/portthrust)
 "XA" = (
 /obj/structure/bed/stool/chair/sofa/right/beige,
 /obj/machinery/light{
@@ -8263,6 +8595,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"XV" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_kasf_starboard";
+	name = "airlock_kasf_starboard";
+	frequency = 2502
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/turf/simulated/floor,
+/area/ship/kasf_corvette/mainhall)
 "XW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
@@ -8340,6 +8684,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardwep)
+"Yy" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/kasf_corvette/starboardthrust)
 "YF" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -8506,6 +8854,28 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/dorm)
+"Zr" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
+/obj/effect/shuttle_landmark/kasf_corvette/port_dock{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28;
+	req_access = list(218)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/porthangarfoyer)
 "Zu" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -34196,7 +34566,7 @@ Is
 Is
 Is
 Is
-Is
+ZC
 Is
 Is
 Is
@@ -35975,7 +36345,7 @@ Is
 Is
 Is
 Is
-ZC
+Is
 Is
 Is
 Is
@@ -38529,7 +38899,6 @@ Is
 Is
 Is
 Is
-Is
 uW
 uW
 Is
@@ -38546,9 +38915,10 @@ Is
 Is
 Is
 Is
-Is
-Is
-Is
+DN
+QA
+yA
+DN
 Is
 Is
 Is
@@ -38786,8 +39156,8 @@ Is
 Is
 Is
 Is
-Is
 DH
+uW
 uW
 uW
 uW
@@ -38801,19 +39171,19 @@ uW
 Is
 Is
 Is
-Is
 DN
 DN
-DN
+GL
+wC
 Tt
 DN
 DN
 DN
-Is
-Is
-Is
-Is
-Is
+DN
+OL
+OL
+fB
+fB
 zJ
 zJ
 Ie
@@ -39043,8 +39413,8 @@ Is
 Is
 Is
 Is
-Is
 fv
+KO
 rl
 UZ
 Ds
@@ -39062,15 +39432,15 @@ DN
 DN
 Ax
 jk
-Et
+DN
 pR
 Xc
+yn
 DN
 DN
-DN
-uE
-fv
-uE
+Sw
+Em
+Sw
 zJ
 XH
 jq
@@ -39300,8 +39670,8 @@ Is
 Is
 Is
 Is
-Is
 OL
+zH
 iZ
 gP
 dG
@@ -39318,16 +39688,16 @@ sk
 he
 bn
 UG
+Hv
 Qq
-Qq
-Qq
+cf
 ip
 ZD
 ga
 DN
-Sw
+XV
 kK
-Sw
+Et
 zJ
 QP
 an
@@ -39557,9 +39927,9 @@ Is
 Is
 Is
 Is
-Is
 OL
-rl
+KO
+Yy
 rQ
 Ug
 nJ
@@ -39582,9 +39952,9 @@ qD
 xf
 sR
 DN
-Sw
+fK
 EQ
-Sw
+Io
 zJ
 zJ
 Xt
@@ -39814,9 +40184,9 @@ Is
 Is
 Is
 Is
-Is
 fv
-rl
+KO
+OW
 GG
 HH
 xs
@@ -40071,7 +40441,6 @@ Is
 Is
 Is
 Is
-Is
 DH
 uW
 uW
@@ -40083,10 +40452,11 @@ uW
 uW
 uW
 uW
+uW
 Is
 Is
 Is
-Is
+DN
 DN
 DN
 Li
@@ -40098,7 +40468,7 @@ fE
 jH
 ax
 oh
-nZ
+PP
 Cr
 UP
 Qa
@@ -40328,9 +40698,9 @@ Is
 Is
 Is
 Is
+uW
+uW
 Is
-uW
-uW
 Is
 Tb
 OL
@@ -43412,9 +43782,9 @@ Is
 Is
 Is
 Is
+Cb
+Cb
 Is
-Cb
-Cb
 Is
 Tb
 OL
@@ -43669,7 +44039,6 @@ Is
 Is
 Is
 Is
-Is
 DH
 Cb
 Cb
@@ -43681,10 +44050,11 @@ Cb
 Cb
 Cb
 Cb
+Cb
 Is
 Is
 Is
-Is
+uI
 uI
 uI
 IK
@@ -43926,8 +44296,8 @@ Is
 Is
 Is
 Is
-Is
 fv
+QQ
 BJ
 TG
 bG
@@ -44183,9 +44553,9 @@ Is
 Is
 Is
 Is
-Is
 OL
-BJ
+QQ
+jx
 ze
 yy
 mW
@@ -44208,9 +44578,9 @@ zn
 SH
 eS
 uI
-Sw
+Ia
 Lm
-Sw
+uo
 ns
 ns
 yd
@@ -44440,8 +44810,8 @@ Is
 Is
 Is
 Is
-Is
 OL
+kW
 by
 Av
 Ma
@@ -44458,16 +44828,16 @@ ob
 Ns
 HA
 gI
+se
 Sx
-Sx
-Sx
+jG
 cU
 PE
 Ea
 uI
-Sw
+qk
 dK
-Sw
+qf
 ns
 Nx
 fD
@@ -44697,9 +45067,9 @@ Is
 Is
 Is
 Is
-Is
 fv
-BJ
+QQ
+Xx
 zu
 XN
 Eq
@@ -44716,15 +45086,15 @@ uI
 uI
 kT
 lC
-QQ
+uI
 Tv
 RB
+Mr
 uI
 uI
-uI
-qf
-fv
-qf
+Sw
+Xw
+Sw
 ns
 qp
 wE
@@ -44954,8 +45324,8 @@ Is
 Is
 Is
 Is
-Is
 DH
+Cb
 Cb
 Cb
 Cb
@@ -44969,19 +45339,19 @@ Cb
 Is
 Is
 Is
-Is
 uI
 uI
-uI
+Fd
+mp
 dC
 uI
 uI
 uI
-Is
-Is
-Is
-Is
-Is
+uI
+OL
+OL
+uE
+uE
 ns
 ns
 Ey
@@ -45211,7 +45581,6 @@ Is
 Is
 Is
 Is
-Is
 Cb
 Cb
 Is
@@ -45228,9 +45597,10 @@ Is
 Is
 Is
 Is
-Is
-Is
-Is
+uI
+Zr
+OZ
+uI
 Is
 Is
 Is
@@ -47797,7 +48167,7 @@ Is
 Is
 Is
 Is
-Lw
+Is
 Is
 Is
 Is
@@ -49359,7 +49729,7 @@ Is
 Is
 Is
 Is
-Is
+Lw
 Is
 Is
 Is
