@@ -1509,7 +1509,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_kasf_dock_starboard";
@@ -1522,6 +1521,7 @@
 	pixel_y = -26;
 	req_access = list(218)
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "jl" = (
@@ -1700,7 +1700,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
@@ -1709,6 +1708,7 @@
 	master_tag = "airlock_kasf_dock_port";
 	name = "airlock_kasf_dock_port"
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
 "kW" = (
@@ -1790,7 +1790,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_kasf_dock_port";
@@ -1803,6 +1802,7 @@
 	pixel_y = -26;
 	req_access = list(218)
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
 "lG" = (
@@ -1965,17 +1965,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/dorm)
 "mp" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
 /obj/machinery/airlock_sensor{
 	pixel_y = -23;
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_kasf_dock_port";
-	master_tag = "airlock_kasf_dock_port";
-	name = "airlock_kasf_dock_port"
 	},
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -3707,17 +3707,17 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/starboardwep)
 "wC" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
 /obj/machinery/airlock_sensor{
 	pixel_y = -23;
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_kasf_dock_starboard";
-	master_tag = "airlock_kasf_dock_starboard";
-	name = "airlock_kasf_dock_starboard"
 	},
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -4081,23 +4081,29 @@
 /area/ship/kasf_corvette/portthrust)
 "yA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/shuttle_landmark/kasf_corvette/starboard_dock{
+	dir = 4
+	},
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_kasf_dock_starboard";
 	master_tag = "airlock_kasf_dock_starboard";
 	name = "airlock_kasf_dock_starboard"
-	},
-/obj/effect/shuttle_landmark/kasf_corvette/starboard_dock{
-	dir = 4
 	},
 /obj/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = -28;
 	req_access = list(218)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = -32;
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -4449,7 +4455,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -4458,6 +4463,7 @@
 	master_tag = "airlock_kasf_dock_starboard";
 	name = "airlock_kasf_dock_starboard"
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "AB" = (
@@ -4532,6 +4538,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/washroom)
+"AW" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/minitree,
+/turf/simulated/floor/tiled/dark,
+/area/ship/kasf_corvette/mainhall)
 "AX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -5294,16 +5307,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
 "Fd" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_port";
+	master_tag = "airlock_kasf_dock_port";
+	name = "airlock_kasf_dock_port"
+	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_kasf_dock_port";
-	master_tag = "airlock_kasf_dock_port";
-	name = "airlock_kasf_dock_port"
 	},
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -5640,16 +5653,16 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardthrust)
 "GL" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_kasf_dock_starboard";
+	master_tag = "airlock_kasf_dock_starboard";
+	name = "airlock_kasf_dock_starboard"
+	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_kasf_dock_starboard";
-	master_tag = "airlock_kasf_dock_starboard";
-	name = "airlock_kasf_dock_starboard"
 	},
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -7108,7 +7121,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_kasf_dock_port";
 	master_tag = "airlock_kasf_dock_port";
@@ -7119,6 +7131,13 @@
 	pixel_x = 12;
 	pixel_y = -28;
 	req_access = list(218)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = -32;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -7351,7 +7370,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_kasf_dock_starboard";
 	master_tag = "airlock_kasf_dock_starboard";
@@ -7362,6 +7380,13 @@
 	pixel_x = -12;
 	pixel_y = 28;
 	req_access = list(218)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = 32;
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
@@ -8856,23 +8881,29 @@
 /area/ship/kasf_corvette/dorm)
 "Zr" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/shuttle_landmark/kasf_corvette/port_dock{
+	dir = 8
+	},
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_kasf_dock_port";
 	master_tag = "airlock_kasf_dock_port";
 	name = "airlock_kasf_dock_port"
-	},
-/obj/effect/shuttle_landmark/kasf_corvette/port_dock{
-	dir = 8
 	},
 /obj/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28;
 	req_access = list(218)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = 32;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -42273,7 +42304,7 @@ yl
 yx
 lW
 AX
-Ak
+AW
 DI
 XT
 Ta

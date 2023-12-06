@@ -41,7 +41,9 @@
 		"nav_kasf_corvette_1",
 		"nav_kasf_corvette_2",
 		"nav_kasf_corvette_3",
-		"nav_kasf_corvette_4"
+		"nav_kasf_corvette_4",
+		"nav_kasf_dock_starboard",
+		"nav_kasf_dock_port"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -89,15 +91,15 @@
 	name = "KASF Starboard Dock"
 	landmark_tag = "nav_kasf_dock_starboard"
 	docking_controller = "airlock_kasf_dock_starboard"
-	base_area = /area/space
 	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/kasf_corvette/port_dock
 	name = "KASF Port Dock"
 	landmark_tag = "nav_kasf_dock_port"
 	docking_controller = "airlock_kasf_dock_port"
-	base_area = /area/space
 	base_turf = /turf/space
+	base_area = /area/space
 
 
 //shuttle stuff
