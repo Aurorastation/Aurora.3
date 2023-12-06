@@ -39,5 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - maptweak: "Adds more folders, clipboards and pens to the Bridge Helm area"
-  - maptweak: "Moves the Captains Rubber stamp to be by their fax machine, and gives the Captain a "DENIED" stamp."
+  - maptweak: "Moves the Captains Rubber stamp to be by their fax machine, and gives the Captain a DENIED stamp."
   - maptweak: "Makes the command conference room radiation proof."
