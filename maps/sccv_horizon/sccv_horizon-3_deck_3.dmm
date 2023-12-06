@@ -6563,6 +6563,11 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/reinforced/wood,
+/obj/item/aicard,
+/obj/item/stamp/denied{
+	pixel_x = -8
+	},
+/obj/item/stamp/captain,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "fll" = (
@@ -12799,7 +12804,6 @@
 /area/bridge/aibunker)
 "jOz" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/stamp/captain,
 /obj/item/paper/monitorkey,
 /obj/machinery/case_button/shuttle{
 	pixel_x = 37;
@@ -14621,9 +14625,31 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/device/taperecorder,
+/obj/item/device/taperecorder{
+	pixel_x = -9;
+	pixel_y = -5
+	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
+	},
+/obj/item/clipboard{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/pen/red{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/pen/blue{
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -15839,7 +15865,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/aicard,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
@@ -15848,6 +15873,25 @@
 	layer = 2.7
 	},
 /obj/structure/table/reinforced,
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/pen/red{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/pen/blue{
+	pixel_x = 5
+	},
+/obj/item/clipboard{
+	pixel_x = -8;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mbm" = (
