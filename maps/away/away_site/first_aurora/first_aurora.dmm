@@ -643,7 +643,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
 "cn" = (
-/obj/item/gun/projectile/sec/flash{
+/obj/item/gun/projectile/mk58/flash{
 	jam_chance = 50
 	},
 /turf/simulated/floor/tiled/airless,

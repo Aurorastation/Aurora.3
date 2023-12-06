@@ -89,7 +89,7 @@
 /area/casino/casino_bridge)
 "av" = (
 /obj/structure/table/steel,
-/obj/item/gun/projectile/colt,
+/obj/item/gun/projectile/pattern5,
 /obj/machinery/button/remote/blast_door{
 	id = "casino_bridge";
 	name = "Bridge lockdown";

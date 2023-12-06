@@ -8940,10 +8940,10 @@
 	name = "Weaponry (.45 Pistol)"
 	},
 /obj/effect/decal/warning_stripes,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arF" = (

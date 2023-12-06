@@ -79,7 +79,7 @@
 	uniform = /obj/item/clothing/under/tajaran/army_commissar
 	head = /obj/item/clothing/head/tajaran/army_commissar
 	suit = null
-	belt = /obj/item/gun/projectile/deagle/adhomai
+	belt = /obj/item/gun/projectile/naltor
 	belt_contents = null
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(

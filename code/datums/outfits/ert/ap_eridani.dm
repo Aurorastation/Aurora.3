@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security/pmc/epmc
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/projectile/automatic/x9 = 1)
+	accessory_contents = list(/obj/item/gun/projectile/automatic/Mk58 = 1)
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	mask = /obj/item/clothing/mask/gas/tactical

@@ -1679,7 +1679,7 @@
 /obj/item/gun/energy/blaster,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
-/obj/item/gun/projectile/colt,
+/obj/item/gun/projectile/pattern5,
 /obj/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 4

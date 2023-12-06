@@ -62,7 +62,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
-		/obj/item/gun/projectile/automatic/x9 = 1,
+		/obj/item/gun/projectile/automatic/Mk58 = 1,
 		/obj/item/ammo_magazine/c45m/auto = 1,
 		/obj/item/crowbar/red = 1,
 		/obj/item/plastique = 1,
@@ -440,8 +440,8 @@
 		/obj/item/gun/energy/rifle/icelance,
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
-		/obj/item/gun/projectile/colt,
-		/obj/item/gun/projectile/colt/super,
+		/obj/item/gun/projectile/pattern5,
+		/obj/item/gun/projectile/pattern5/super,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 

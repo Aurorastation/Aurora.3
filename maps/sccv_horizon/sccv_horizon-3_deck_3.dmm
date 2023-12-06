@@ -6018,8 +6018,8 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Energy Carbines and .45 Pistols)"
 	},
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
@@ -25262,12 +25262,12 @@
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/everyman,
+/obj/item/gun/projectile/everyman,
+/obj/item/gun/projectile/everyman,
+/obj/item/gun/projectile/everyman,
+/obj/item/gun/projectile/everyman,
+/obj/item/gun/projectile/everyman,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},

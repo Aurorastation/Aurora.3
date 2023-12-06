@@ -146,7 +146,7 @@
 /datum/uplink_item/item/visible_weapons/colt
 	name = "Vintage .45 Pistol"
 	telecrystal_cost = 2
-	path = /obj/item/gun/projectile/colt
+	path = /obj/item/gun/projectile/pattern5
 
 /datum/uplink_item/item/visible_weapons/suppressed_pistol
 	name = "Suppressed .45 Pistol"
@@ -263,7 +263,7 @@
 /datum/uplink_item/item/visible_weapons/deagle
 	name = ".50 Pistol"
 	telecrystal_cost = 5
-	path = /obj/item/gun/projectile/deagle/adhomai
+	path = /obj/item/gun/projectile/naltor
 
 /datum/uplink_item/item/visible_weapons/psionic_jumpstarter
 	name = "Psionic Jumpstarter"

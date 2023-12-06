@@ -2946,6 +2946,7 @@
 #include "code\modules\projectiles\ammunition\boxes.dm"
 #include "code\modules\projectiles\ammunition\bullets.dm"
 #include "code\modules\projectiles\ammunition\projectile\pistol.dm"
+#include "code\modules\projectiles\ammunition\projectile\rifle.dm"
 #include "code\modules\projectiles\guns\alien.dm"
 #include "code\modules\projectiles\guns\bang.dm"
 #include "code\modules\projectiles\guns\energy.dm"

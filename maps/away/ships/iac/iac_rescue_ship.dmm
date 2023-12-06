@@ -728,8 +728,8 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/gun/projectile/sec/wood,
-/obj/item/gun/projectile/sec/wood,
+/obj/item/gun/projectile/mk58/wood,
+/obj/item/gun/projectile/mk58/wood,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,

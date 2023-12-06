@@ -77,6 +77,9 @@
 ///Caliber used by the Derringer pocket revolver
 #define CALIBER_PISTOL_SPECIAL ".38 Special"
 
+///Caliber used by the Desert Eagle
+#define CALIBER_PISTOL_50AE ".50 Action Express"
+
 ///Caliber used by the lever action rifle
 #define CALIBER_RIFLE_GOVT ".40-75 Govt."
 
@@ -95,3 +98,6 @@
 
 ///Military Shotgun
 #define CALIBER_SHOTGUN_MILITARY "20mm Shell"
+
+///Heavy Pistol
+#define CALIBER_PISTOL_HEAVY "12mm Pistol"

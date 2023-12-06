@@ -42,7 +42,7 @@
 	backpack_contents = list(
 						/obj/item/book/manual/pra_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1,
-						/obj/item/gun/projectile/deagle/adhomai = 1,
+						/obj/item/gun/projectile/naltor = 1,
 						/obj/item/clothing/accessory/holster/hip/brown = 1,
 						/obj/item/clothing/head/tajaran/cosmonaut_commissar = 1
 						)

@@ -295,7 +295,7 @@
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
-		/obj/item/gun/projectile/sec,
+		/obj/item/gun/projectile/mk58,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
 		/obj/item/material/knife/trench,

@@ -3029,7 +3029,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(150)
 	},
-/obj/item/gun/projectile/colt/detective,
+/obj/item/gun/projectile/pattern5/detective,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
 	icon_state = "spline_fancy"
@@ -7570,7 +7570,7 @@
 	icon_state = "spline_fancy"
 	},
 /obj/structure/closet/cabinet,
-/obj/item/gun/projectile/automatic/x9,
+/obj/item/gun/projectile/automatic/Mk58,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Pc" = (

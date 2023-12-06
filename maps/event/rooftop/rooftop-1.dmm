@@ -5395,9 +5395,9 @@
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/gun/projectile/automatic/wt550/lethal,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},

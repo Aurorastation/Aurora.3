@@ -74,7 +74,7 @@
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/firstaid/regular = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/gun/projectile/automatic/x9 = 1
+		/obj/item/gun/projectile/automatic/Mk58 = 1
 	)
 
 	belt_contents = list(

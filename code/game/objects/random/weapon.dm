@@ -26,8 +26,8 @@
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	problist = list(
-		/obj/item/gun/projectile/sec = 3,
-		/obj/item/gun/projectile/sec/wood = 1
+		/obj/item/gun/projectile/mk58 = 3,
+		/obj/item/gun/projectile/mk58/wood = 1
 	)
 
 /obj/random/ammo
@@ -134,12 +134,12 @@
 	icon_state = "random"
 	has_postspawn = TRUE
 	spawnlist = list(
-		/obj/item/gun/projectile/leyon,
+		/obj/item/gun/projectile/everyman,
 		/obj/item/gun/energy/blaster,
 		/obj/item/gun/energy/pistol,
 		/obj/item/gun/projectile/revolver/detective,
-		/obj/item/gun/projectile/sec/lethal,
-		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/mk58/lethal,
+		/obj/item/gun/projectile/pattern5,
 		/obj/item/gun/projectile/pistol,
 		/obj/item/gun/projectile/pistol/detective,
 		/obj/item/gun/projectile/pistol/adhomai,
@@ -147,7 +147,7 @@
 		/obj/item/gun/energy/blaster/revolver,
 		/obj/item/gun/projectile/revolver/lemat,
 		/obj/item/gun/projectile/tanto,
-		/obj/item/gun/projectile/automatic/x9,
+		/obj/item/gun/projectile/automatic/Mk58,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/gun/energy/retro,
 	)
@@ -206,7 +206,7 @@
 		/obj/item/gun/energy/rifle/laser,
 		/obj/item/gun/energy/gun,
 		/obj/item/gun/custom_ka/frame04/illegal,
-		/obj/item/gun/projectile/automatic/lebman,
+		/obj/item/gun/projectile/automatic/pattern6,
 		/obj/item/gun/projectile/pistol/super_heavy,
 		/obj/item/gun/projectile/deagle,
 		/obj/item/gun/custom_ka/frame01/illegal

@@ -86,7 +86,7 @@
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
 	accessory = /obj/item/clothing/accessory/hadii_pin
-	belt = /obj/item/gun/projectile/deagle/adhomai
+	belt = /obj/item/gun/projectile/naltor
 	belt_contents = null
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(

@@ -26,7 +26,7 @@
 
 
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
-	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+	accessory_contents = list(/obj/item/gun/projectile/mk58/lethal = 1)
 
 /datum/outfit/admin/ert/elyran_trooper/get_id_access()
 	return get_distress_access()

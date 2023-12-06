@@ -166,7 +166,7 @@
 	if(H && H.w_uniform)
 
 		var/obj/item/clothing/accessory/holster/hip/holster = new(H)
-		var/obj/item/gun/projectile/automatic/x9/weapon = new(H)
+		var/obj/item/gun/projectile/automatic/Mk58/weapon = new(H)
 		holster.contents += weapon
 		holster.holstered = weapon
 		var/obj/item/clothing/under/rank/U = H.w_uniform
@@ -205,7 +205,7 @@
 	id = /obj/item/card/id/ccia/bssb
 
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+	accessory_contents = list(/obj/item/gun/projectile/mk58/lethal = 1)
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,

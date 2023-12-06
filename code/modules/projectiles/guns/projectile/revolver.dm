@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver
-	name = "revolver"
+	name = "Mark II ZI revolver"
 	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
@@ -41,7 +41,7 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "automatic revolver"
+	name = "\improper Hammerhead autorevolver"
 	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon = 'icons/obj/guns/autorevolver.dmi'
 	icon_state = "autorevolver"

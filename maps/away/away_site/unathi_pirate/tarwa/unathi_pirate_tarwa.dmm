@@ -316,7 +316,7 @@
 /area/tarwa_ship/crew)
 "du" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/colt,
+/obj/item/gun/projectile/pattern5,
 /obj/item/clothing/suit/armor/unathi,
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,

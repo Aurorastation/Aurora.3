@@ -187,7 +187,7 @@
 		/obj/item/reagent_containers/inhaler/space_drugs = 3,
 		/obj/item/reagent_containers/inhaler/hyperzine = 2,
 		/obj/item/reagent_containers/inhaler/soporific = 1,
-		/obj/item/gun/projectile/leyon = 1,
+		/obj/item/gun/projectile/everyman = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -350,7 +350,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	glasses = /obj/item/clothing/glasses/sunglasses
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+	accessory_contents = list(/obj/item/gun/projectile/mk58/lethal = 1)
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
@@ -427,7 +427,7 @@
 		/obj/item/gun/energy/rifle/icelance,
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
-		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/pattern5,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 

@@ -341,9 +341,9 @@
 	name = "Pistols .45";
 	req_access = list(216)
 	},
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
@@ -3608,8 +3608,8 @@
 	name = "Automatic .45s";
 	req_access = list(216)
 	},
-/obj/item/gun/projectile/automatic/x9,
-/obj/item/gun/projectile/automatic/x9,
+/obj/item/gun/projectile/automatic/Mk58,
+/obj/item/gun/projectile/automatic/Mk58,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -4210,8 +4210,8 @@
 	name = "Anti-Piracy Locker";
 	req_access = list(216)
 	},
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /obj/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(216)

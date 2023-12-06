@@ -6955,7 +6955,7 @@
 /area/ship/dominian_unathi/gun)
 "ZO" = (
 /obj/structure/table/steel,
-/obj/item/gun/projectile/colt/super,
+/obj/item/gun/projectile/pattern5/super,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},

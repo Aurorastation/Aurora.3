@@ -9,7 +9,7 @@
 	l_hand = /obj/item/clothing/suit/space/void/freelancer
 	r_hand = /obj/item/clothing/head/helmet/space/void/freelancer
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/projectile/colt)
+	accessory_contents = list(/obj/item/gun/projectile/pattern5)
 	id = /obj/item/card/id/syndicate
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	l_pocket = /obj/item/tank/emergency_oxygen/double
@@ -86,7 +86,7 @@
 		/obj/item/landmine/frag = 1,
 		/obj/item/landmine/emp = 1,
 		/obj/item/storage/belt/utility/very_full = 1,
-		/obj/item/gun/projectile/colt = 1
+		/obj/item/gun/projectile/pattern5 = 1
 	)
 
 	belt_contents = list(

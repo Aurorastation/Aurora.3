@@ -1,14 +1,14 @@
-/obj/item/gun/projectile/colt
-	name = ".45 combat pistol"
+/obj/item/gun/projectile/pattern5
+	name = "\improper CAISC Pattern 5 pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
-	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	desc_extended = "The Pattern 5 pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a smaller, but faster 4.7mm round intended for use against armoured targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
-	magazine_type = /obj/item/ammo_magazine/c45m
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	magazine_type = /obj/item/ammo_magazine/pistol/pattern5
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/pattern5)
 	icon = 'icons/obj/guns/colt.dmi'
 	icon_state = "colt"
 	item_state = "colt"
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_MILITARY_SOL
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -16,17 +16,17 @@
 	load_method = MAGAZINE
 	fire_delay = ROF_PISTOL
 
-/obj/item/gun/projectile/colt/update_icon()
+/obj/item/gun/projectile/pattern5/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "colt"
 	else
 		icon_state = "colt-e"
 
-/obj/item/gun/projectile/colt/detective
+/obj/item/gun/projectile/pattern5/detective
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
-/obj/item/gun/projectile/colt/detective/verb/rename_gun()
+/obj/item/gun/projectile/pattern5/detective/verb/rename_gun()
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun. If you're the detective."
@@ -45,29 +45,29 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
-/obj/item/gun/projectile/colt/super
-	name = "ornamental .45 combat pistol"
+/obj/item/gun/projectile/pattern5/super
+	name = "ornamental CAISC Pattern 5 pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
-	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a smaller, but faster 4.7mm round intended for use against armoured targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
-	magazine_type = /obj/item/ammo_magazine/c45m/stendo
+	magazine_type = /obj/item/ammo_magazine/pistol/pattern5/extended
 	icon = 'icons/obj/guns/coltsuper.dmi'
 	icon_state = "coltsuper"
 	item_state = "coltsuper"
 
-/obj/item/gun/projectile/colt/super/update_icon()
+/obj/item/gun/projectile/pattern5/super/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "coltsuper"
 	else
 		icon_state = "coltsuper-e"
 
-/obj/item/gun/projectile/automatic/lebman
-	name = "automatic .45 combat pistol"
+/obj/item/gun/projectile/automatic/pattern6
+	name = "\improper CAISC Pattern 6 machine pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
-	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
-	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
-	magazine_type = /obj/item/ammo_magazine/c45m/lebman
+	desc_extended = "The Pattern 6 machine pistol is the standard-issue personal defense weapon for the Civil Guard, San Colette’s local military force. Modified from the Pattern 5, the Pattern 6 is given a sturdier frame designed to allow controlled automatic fire. \
+	The P6 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
+	magazine_type = /obj/item/ammo_magazine/pistol/pattern5/pattern6
 	icon = 'icons/obj/guns/coltauto.dmi'
 	icon_state = "coltauto"
 	item_state = "coltauto"
@@ -79,25 +79,25 @@
 	max_shells = 18
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c45
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	ammo_type = /obj/item/ammo_casing/pistol/sol/military
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/pattern5)
 
-/obj/item/gun/projectile/automatic/lebman/update_icon()
+/obj/item/gun/projectile/automatic/pattern6/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "coltauto"
 	else
 		icon_state = "coltauto-e"
 
-/obj/item/gun/projectile/sec
-	name = "\improper NanoTrasen Mk58 pistol"
+/obj/item/gun/projectile/mk58
+	name = "\improper NT Mk58 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
-	magazine_type = /obj/item/ammo_magazine/pistol/mk58/rubber
-	allowed_magazines = list(/obj/item/ammo_magazine/pistol/mk58)
+	magazine_type = /obj/item/ammo_magazine/pistol/c10mm/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/c10mm)
 	caliber = CALIBER_PISTOL_GENERIC_COC
 	accuracy = 1
 	offhand_accuracy = 1
@@ -106,37 +106,37 @@
 	load_method = MAGAZINE
 	fire_delay = ROF_PISTOL
 
-/obj/item/gun/projectile/sec/update_icon()
+/obj/item/gun/projectile/mk58/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "secgun"
 	else
 		icon_state = "secgun-e"
 
-/obj/item/gun/projectile/sec/lethal
-	magazine_type = /obj/item/ammo_magazine/pistol/mk58
+/obj/item/gun/projectile/mk58/lethal
+	magazine_type = /obj/item/ammo_magazine/pistol/c10mm
 
-/obj/item/gun/projectile/sec/flash
+/obj/item/gun/projectile/mk58/flash
 	name = ".45 signal pistol"
-	magazine_type = /obj/item/ammo_magazine/pistol/mk58/flash
+	magazine_type = /obj/item/ammo_magazine/pistol/c10mm/flash
 
-/obj/item/gun/projectile/sec/wood
-	name = "custom NanoTrasen Mk58 pistol"
+/obj/item/gun/projectile/mk58/wood
+	name = "custom NT Mk58 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
 
-/obj/item/gun/projectile/sec/wood/update_icon()
+/obj/item/gun/projectile/mk58/wood/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "secgunwood"
 	else
 		icon_state = "secgunwood-e"
 
-/obj/item/gun/projectile/automatic/x9
-	name = "automatic .45 pistol"
+/obj/item/gun/projectile/automatic/Mk58
+	name = "\improper NT Mk58-A machine pistol"
 	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
@@ -152,14 +152,14 @@
 	max_shells = 16
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45m/auto
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	ammo_type = /obj/item/ammo_casing/pistol/coc/civilian
+	magazine_type = /obj/item/ammo_magazine/pistol/c10mm/auto
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/c10mm)
 	multi_aim = 1
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-/obj/item/gun/projectile/automatic/x9/update_icon()
+/obj/item/gun/projectile/automatic/Mk58/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "secgunauto"
@@ -167,10 +167,10 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
+	name = "\improper NT Tanto Mk2 machine pistol"
 	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
 	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
 	and sturdier barrel with heatshield to better take advantage of the higher capacity."
-	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
 	item_state = "c05r"
@@ -198,7 +198,7 @@
 		icon_state = "c05r-e"
 
 /obj/item/gun/projectile/silenced
-	name = "suppressed pistol"
+	name = "\improper Mrrazhakulii suppressed pistol"
 	desc = "A small, quiet, easily concealable gun."
 	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a suppressor integrated as part of its barrel. \
 		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
@@ -227,30 +227,38 @@
 		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/gun/projectile/deagle
-	name = ".50 magnum pistol"
-	desc = "A very robust handgun."
+	name = "\improper Desert Eagle pistol"
+	desc = "An antique handgun, designed to use .50 AE rounds."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
 	force = 10
 	accuracy = 1
-	caliber = ".50"
+	caliber = CALIBER_PISTOL_50AE
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a50
-	allowed_magazines = list(/obj/item/ammo_magazine/a50)
-	auto_eject = 1
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	magazine_type = /obj/item/ammo_magazine/pistol/desert_eagle
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/desert_eagle)
+	auto_eject = FALSE
 	fire_delay = ROF_RIFLE
 
 /obj/item/gun/projectile/deagle/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "[initial(icon_state)]"
+		if(ammo_magazine.stored_ammo.len)
+			icon_state = "[initial(icon_state)]"
+		else
+			icon_state = "[initial(icon_state)]-em"
 	else
 		icon_state = "[initial(icon_state)]-e"
 
-/obj/item/gun/projectile/deagle/adhomai
-	name = "adhomian heavy pistol"
+/obj/item/gun/projectile/deagle/gold
+	name = "gold-plated Desert Eagle pistol"
+	desc = "An antique handgun, designed to use .50 AE rounds. The gold plating provides no tactical advantage whatsoever."
+	icon_state = "deagleg"
+	item_state = "deagleg"
+
+/obj/item/gun/projectile/naltor
+	name = "\improper Nal'tor model heavy pistol"
 	desc = "A bulky handgun used by republican commissars and high-ranking members of the Hadiist Party."
 	icon = 'icons/obj/guns/adhomian_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
@@ -258,6 +266,21 @@
 	desc_extended = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
 	single factory in Nal'tor is allowed to fabricate it, with its design being kept as a state secret. Because of its rarity and status, the Adhomai Heavy Pistol was a sought after \
 	war trophy by royalist and rebels forces."
+	force = 10
+	accuracy = 1
+	caliber = CALIBER_PISTOL_HEAVY
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/pistol/heavy
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/heavy)
+	auto_eject = FALSE
+	fire_delay = ROF_RIFLE
+
+/obj/item/gun/projectile/naltor/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
@@ -286,7 +309,7 @@
 		icon_state = "gyropistol"
 
 /obj/item/gun/projectile/pistol
-	name = "9mm pistol"
+	name = "\improper ZI Moonlight pistol"
 	desc = "An extremely popular compact handgun, used throughout human space."
 	desc_extended = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
@@ -295,14 +318,14 @@
 	w_class = ITEMSIZE_SMALL
 	accuracy = 1
 	offhand_accuracy = 2
-	caliber = "9mm"
+	caliber =  CALIBER_PISTOL_GENERIC_SOL
 	suppressed = FALSE
 	can_suppress = TRUE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mm
-	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
+	magazine_type = /obj/item/ammo_magazine/pistol/s9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/s9mm)
 	fire_delay = ROF_PISTOL
 	suppressor_x_offset = 5
 
@@ -310,15 +333,23 @@
 	name = "9mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
-/obj/item/gun/projectile/pistol/detective
+/obj/item/gun/projectile/pistol/coc
+	name = "\improper ZI/dNA Moonlight pistol"
+	desc = "An extremely popular compact handgun, used throughout human space. This one is a licensed-built version by dNA defense and aerospace, re-chambered to accept 10mm bullets."
+	caliber =  CALIBER_PISTOL_GENERIC_COC
+	magazine_type = /obj/item/ammo_magazine/pistol/c10mm
+
+/obj/item/gun/projectile/mk58/detective
+	name = "\improper NT Mk21 Blackjack compact pistol"
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip."
-	desc_extended = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
-	name = "compact 9mm pistol"
-	magazine_type = /obj/item/ammo_magazine/mc9mm
+	desc_extended = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 10mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 10mm in such a small package can be unpleasant for the average shooter."
+	magazine_type = /obj/item/ammo_magazine/pistol/c10mm
 	icon = 'icons/obj/guns/detgun.dmi'
 	icon_state = "detgun"
 	item_state = "detgun"
 	can_suppress = FALSE
+	accuracy = 1
+	offhand_accuracy = 2
 
 /obj/item/gun/projectile/pistol/detective/update_icon()
 	..()
@@ -357,7 +388,7 @@
 	max_shells = 1 //literally just a barrel
 
 	var/global/list/ammo_types = list(
-		/obj/item/ammo_casing/a357              = ".357",
+		/obj/item/ammo_casing/a357              = CALIBER_PISTOL_MAGNUM,
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
@@ -374,8 +405,8 @@
 	caliber = initial(ammo.caliber)
 	. = ..()
 
-/obj/item/gun/projectile/leyon
-	name = "10mm pistol"
+/obj/item/gun/projectile/everyman
+	name = "\improper Mk1 \"Everyman\" pistol"
 	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, \
 	stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most \
 	common weapons found in the Orion Spur."
@@ -392,7 +423,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	fire_delay = ROF_PISTOL
 
-/obj/item/gun/projectile/leyon/update_icon()
+/obj/item/gun/projectile/everyman/update_icon()
 	..()
 	if(loaded.len)
 		icon_state = "leyon"
@@ -400,7 +431,7 @@
 		icon_state = "leyon-e"
 
 /obj/item/gun/projectile/pistol/sol
-	name = "solarian service pistol"
+	name = "\improper M8 pistol"
 	desc = "Manufactured by Zavodskoi Interstellar and based off of a full-sized variant of their 9mm design, the compact M8 is the standard service pistol of the Solarian Armed Forces."
 	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8"
@@ -408,6 +439,7 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 9
 	suppressor_y_offset = 3
+	magazine_type = /obj/item/ammo_magazine/pistol/s9mm/full
 
 /obj/item/gun/projectile/pistol/sol/update_icon()
 	..()
@@ -417,7 +449,7 @@
 		icon_state = "m8-empty"
 
 /obj/item/gun/projectile/pistol/adhomai
-	name = "adhomian service pistol"
+	name = "\improper Adar'Mazy pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon = 'icons/obj/guns/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
@@ -434,12 +466,12 @@
 		icon_state = "adhomian_pistol-e"
 
 /obj/item/gun/projectile/pistol/super_heavy
-	name = "super-heavy pistol"
+	name = "\improper KA 2557 super-heavy pistol"
 	desc = "A big, bulky, and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
 	desc_extended = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
-	It is chambered in the newly developed .599 Kumar Super rifle cartridge. Despite designed for rifle use, the newly developed propellants allows this cartridge for use in the Kumar Arms 2557, upping the stopping power significantly. \
-	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolving bolt system with an electromagnetic striker, allowing for hammerless actuation. It has a revolutinary blowback system to ensure accuracy at the cost of fire rate."
+	It is chambered in the newly developed 12mm AT Rifle cartridge, by Kumar Arms. Despite designed for rifle use, the newly developed propellants allows this cartridge for use in the Kumar Arms 2557, upping the stopping power significantly. \
+	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolving bolt system with an electromagnetic striker, allowing for hammerless actuation. It has a revolutionary blowback system to ensure accuracy at the cost of fire rate."
 	icon = 'icons/obj/item/gun/projectile/pistol/k_arms.dmi'
 	icon_state = "k2557-loaded"
 	item_state = "k2557-loaded"
@@ -451,7 +483,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	is_wieldable = TRUE
 	fire_sound = 'sound/weapons/gunshot/k2557-shot.ogg'
-	caliber = ".599 Kumar Super"
+	caliber = CALIBER_RIFLE_AT_SOL
 	ammo_type = /obj/item/ammo_casing/kumar_super
 	magazine_type = /obj/item/ammo_magazine/super_heavy
 	allowed_magazines = list(/obj/item/ammo_magazine/super_heavy)
@@ -501,15 +533,15 @@
 					RH.take_damage(30)
 
 /obj/item/gun/projectile/xanupistol
-	name = "\improper Xanan service pistol"
+	name = "dNAC-5 pistol"
 	desc = "A sleek metal-framed semi-automatic pistol, produced by d.N.A Defense for the All-Xanu Armed Forces."
-	desc_extended = "The dNAC-4.6 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 4.6x30mm rounds with less weight but better armor penetration than the 9mm pistols it replaced, the dNAC-4.6 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for police forces, military units, and other entities across the Coalition of Colonies and beyond."
-	magazine_type = /obj/item/ammo_magazine/c46m
-	allowed_magazines = list(/obj/item/ammo_magazine/c46m, /obj/item/ammo_magazine/c46m/extended)
+	desc_extended = "The dNAC-5 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 5.0x30mm rounds with less weight but better armor penetration than the 10mm pistols it replaced, the dNAC-5 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for  military units, private mercenary groups, and other entities across the Coalition of Colonies and beyond."
+	magazine_type = /obj/item/ammo_magazine/pistol/c5mm
+	allowed_magazines = /obj/item/ammo_magazine/pistol/c5mm
 	icon = 'icons/obj/guns/xanu_pistol.dmi'
 	icon_state = "xanu_pistol"
 	item_state = "xanu_pistol"
-	caliber = "4.6mm"
+	caliber = CALIBER_PISTOL_MILITARY_COC
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)

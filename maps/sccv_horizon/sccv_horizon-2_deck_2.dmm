@@ -39161,12 +39161,12 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (SMGs and Pistols)"
 	},
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /obj/item/gun/projectile/automatic/wt550,
 /obj/item/gun/projectile/automatic/wt550,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/mk58,
+/obj/item/gun/projectile/mk58,
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/machinery/light{
