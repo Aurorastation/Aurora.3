@@ -172,7 +172,18 @@ default behaviour is:
 
 				now_pushing = FALSE
 
+/**
+ * Checks if two mobs can swap with each other based on the density
+ *
+ * Returns `TRUE` if the density allows them to swap, `FALSE` otherwise
+ *
+ * swapper - A `/mob`, the one trying to perform the swap
+ * swapee - A `/mob`, the one the `swapper` is trying to swap with
+ */
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	var/turf/T = get_turf(swapper)
 
 	if(!T)
