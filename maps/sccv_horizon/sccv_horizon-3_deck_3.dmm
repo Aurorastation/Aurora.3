@@ -6563,7 +6563,6 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/reinforced/wood,
-/obj/item/aicard,
 /obj/item/stamp/denied{
 	pixel_x = -8
 	},
@@ -15512,6 +15511,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
+/obj/item/aicard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "lIN" = (
