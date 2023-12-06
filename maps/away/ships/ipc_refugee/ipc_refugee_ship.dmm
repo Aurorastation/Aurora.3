@@ -2584,7 +2584,6 @@
 /area/ship/ipc_refugee/engie)
 "uw" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/ipc_refugee/engie)
 "uA" = (
@@ -3383,6 +3382,12 @@
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/white/airless,
 /area/ship/ipc_refugee/forehall)
+"AF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#BCA77E"
+	},
+/area/ship/ipc_refugee/atmos)
 "AG" = (
 /obj/structure/girder,
 /turf/simulated/floor/tiled/full,
@@ -4844,12 +4849,10 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/bridge)
 "MX" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard thrusters"
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#BCA77E"
 	},
-/turf/simulated/floor/reinforced/airless,
 /area/ship/ipc_refugee/engie)
 "Nd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4959,6 +4962,13 @@
 "Ov" = (
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/atmos)
+"OC" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/ipc_refugee/engie)
 "OE" = (
 /obj/structure/lattice,
 /obj/structure/table/steel,
@@ -38403,7 +38413,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+nS
 nS
 nS
 nS
@@ -38660,7 +38670,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+OC
 MX
 iU
 NZ
@@ -38917,8 +38927,8 @@ Ik
 Ik
 Ik
 Ik
-Ik
 uw
+MX
 XH
 FH
 ul
@@ -39174,7 +39184,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+nS
 nS
 nS
 nS
@@ -41744,7 +41754,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+JJ
 JJ
 JJ
 JJ
@@ -42001,8 +42011,8 @@ Ik
 Ik
 Ik
 Ik
-Ik
 EZ
+AF
 KW
 Fs
 lg
@@ -42258,8 +42268,8 @@ Ik
 Ik
 Ik
 Ik
-Ik
 pW
+AF
 ZV
 eG
 qb
@@ -42515,7 +42525,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+JJ
 JJ
 JJ
 JJ
