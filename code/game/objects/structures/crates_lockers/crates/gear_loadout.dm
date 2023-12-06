@@ -49,7 +49,7 @@
 	new /obj/item/clothing/suit/space/void/coalition(src)
 	new /obj/item/clothing/suit/space/void/coalition(src)
 	new /obj/item/clothing/suit/space/void/coalition(src)
-	new /obj/item/gun/projectile/revolver/mateba(src)
+	new /obj/item/gun/projectile/revolver/hammerhead(src)
 	new /obj/item/ammo_magazine/a454(src)
 	new /obj/item/ammo_magazine/a454(src)
 	new /obj/item/gun/energy/retro(src)

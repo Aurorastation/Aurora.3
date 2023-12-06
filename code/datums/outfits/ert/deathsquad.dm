@@ -48,7 +48,7 @@
 	if(syndie)
 		weapon = new /obj/item/gun/projectile/silenced(H)
 	else
-		weapon = new /obj/item/gun/projectile/revolver/mateba(H)
+		weapon = new /obj/item/gun/projectile/revolver/hammerhead(H)
 
 	if(weapon)
 		hold.contents += weapon

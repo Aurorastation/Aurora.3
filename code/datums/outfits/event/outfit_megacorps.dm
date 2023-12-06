@@ -146,7 +146,7 @@
 	r_pocket = /obj/item/melee/energy/sword
 	l_hand = /obj/item/gun/energy/rifle/pulse
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/projectile/revolver/mateba = 1)
+	accessory_contents = list(/obj/item/gun/projectile/revolver/hammerhead = 1)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/a454 = 2,

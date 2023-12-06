@@ -83,6 +83,13 @@
 	icon_state = "9x19p_highcap"
 	max_ammo = 30
 
+/obj/item/ammo_magazine/pistol/speedloader/s9mm
+	name = "speedloader (9mm)"
+	icon_state = "a454"
+	caliber = CALIBER_PISTOL_GENERIC_SOL
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+	max_ammo = 6
+
 //Coalition Military (caseless 5mm)
 /obj/item/ammo_casing/pistol/coc/military
 	name = "\improper 5mm caseless bullet"
@@ -162,3 +169,46 @@
 	caliber = CALIBER_PISTOL_HEAVY
 	max_ammo = 7
 	ammo_type = /obj/item/ammo_casing/pistol/heavy
+
+/obj/item/ammo_magazine/pistol/speedloader/heavy
+	name = "speedloader (12mm)"
+	icon_state = "a454"
+	insert_sound = /singleton/sound_category/revolver_reload
+	ammo_type = /obj/item/ammo_casing/pistol/heavy
+	matter = list(DEFAULT_WALL_MATERIAL = 1260)
+	max_ammo = 7
+	multiple_sprites = 1
+
+//.357 Magnum
+/obj/item/ammo_casing/pistol/revolver
+	name = "\improper .357 Magnum bullet casing"
+	desc = "A .357 Magnum bullet casing."
+	caliber = CALIBER_PISTOL_MAGNUM
+	projectile_type = /obj/item/projectile/bullet/pistol/revolver
+
+/obj/item/ammo_magazine/pistol/speedloader/revolver
+	name = "speed loader (.357)"
+	icon_state = "T38"
+	caliber = CALIBER_PISTOL_MAGNUM
+	insert_sound = /singleton/sound_category/revolver_reload
+	ammo_type = /obj/item/ammo_casing/pistol/revolver
+	matter = list(DEFAULT_WALL_MATERIAL = 1260)
+	max_ammo = 8
+	multiple_sprites = 1
+
+//.38 Special
+/obj/item/ammo_casing/pistol/revolver/special
+	name = "\improper .38 Special bullet casing"
+	desc = "A .38 Special bullet casing."
+	caliber = CALIBER_PISTOL_SPECIAL
+	projectile_type = /obj/item/projectile/bullet/pistol/revolver/pocket
+
+/obj/item/ammo_magazine/pistol/speedloader/special
+	name = "speed loader (.38 Special)"
+	icon_state = "38"
+	caliber = CALIBER_PISTOL_SPECIAL
+	insert_sound = /singleton/sound_category/revolver_reload
+	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	ammo_type = /obj/item/ammo_casing/pistol/revolver/special
+	max_ammo = 6
+	multiple_sprites = 1

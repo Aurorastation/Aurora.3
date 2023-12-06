@@ -164,7 +164,7 @@
 /area/template_noop)
 "nB" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/gun/projectile/revolver/mateba,
+/obj/item/gun/projectile/revolver/hammerhead,
 /obj/item/ammo_casing/a454{
 	projectile_type = null
 	},

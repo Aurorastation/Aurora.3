@@ -12,7 +12,7 @@
 	belt = /obj/item/storage/belt/security/tactical
 	r_pocket = /obj/item/clothing/mask/gas/tactical
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/projectile/revolver/mateba = 1)
+	accessory_contents = list(/obj/item/gun/projectile/revolver/hammerhead = 1)
 	back = null
 
 	backpack_contents = null

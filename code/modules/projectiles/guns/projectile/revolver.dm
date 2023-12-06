@@ -6,12 +6,12 @@
 	item_state = "revolver"
 	accuracy = 1
 	offhand_accuracy = 1
-	caliber = "357"
+	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 8
-	ammo_type = /obj/item/ammo_casing/a357
-	magazine_type = /obj/item/ammo_magazine/a357
+	ammo_type = /obj/item/ammo_casing/pistol/revolver
+	magazine_type = /obj/item/ammo_magazine/pistol/speedloader/revolver
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	empty_sound = /singleton/sound_category/out_of_ammo_revolver
 	fire_delay = ROF_RIFLE
@@ -40,28 +40,27 @@
 	chamber_offset = 0
 	return ..()
 
-/obj/item/gun/projectile/revolver/mateba
-	name = "\improper Hammerhead autorevolver"
-	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
+/obj/item/gun/projectile/revolver/hammerhead
+	name = "\improper Hammerhead 12mm autorevolver"
+	desc = "The Hammerhead autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch, being chambered in 12mm."
 	icon = 'icons/obj/guns/autorevolver.dmi'
 	icon_state = "autorevolver"
 	item_state = "autorevolver"
 	max_shells = 7
 	accuracy = 2
-	caliber = "454"
+	caliber = CALIBER_PISTOL_HEAVY
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_mateba.ogg'
-	ammo_type = /obj/item/ammo_casing/a454
-	magazine_type = /obj/item/ammo_magazine/a454
+	ammo_type = /obj/item/ammo_casing/pistol/heavy
+	magazine_type = /obj/item/ammo_magazine/pistol/speedloader/heavy
 
-/obj/item/gun/projectile/revolver/mateba/captain
-	name = "\improper SCC command autorevolver"
-	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
+/obj/item/gun/projectile/revolver/hammerhead/captain
+	name = "\improper ZI 12mm autorevolver"
+	desc = "A ludicrously powerful 12mm autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
 	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
-	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
-	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
-	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
-	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
+	desc_extended = "A Necropolis Industries design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
+	revolver was never designed with practicality in mind. Revived by Zavodskoi Interstellar in 2464 for issue to high-ranking SCC officials, the 12mm rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
+	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of practicality: they buy it due to having too much money and wanting a revolver large enough for their ego."
 	icon = 'icons/obj/guns/captain_revolver.dmi'
 	icon_state = "captain_revolver"
 	item_state = "captain_revolver"
@@ -75,7 +74,7 @@
 	recoil = 10
 	recoil_wielded = 5
 
-/obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
+/obj/item/gun/projectile/revolver/hammerhead/captain/handle_post_fire(mob/user)
 	..()
 	if(wielded)
 		return
@@ -88,7 +87,7 @@
 				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
-	name = "antique revolver"
+	name = "antique Magnum revolver"
 	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
@@ -98,8 +97,8 @@
 	caliber = "38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	ammo_type = /obj/item/ammo_casing/c38
-	magazine_type = /obj/item/ammo_magazine/c38
+	ammo_type = /obj/item/ammo_casing/pistol/revolver/special
+	magazine_type = /obj/item/ammo_magazine/pistol/speedloader/special
 	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
@@ -258,11 +257,11 @@
 	icon = 'icons/obj/guns/adhomian_revolver.dmi'
 	icon_state = "adhomian_revolver"
 	item_state = "adhomian_revolver"
-	caliber = "38"
+	caliber = CALIBER_PISTOL_SPECIAL
 	max_shells = 7
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	ammo_type = /obj/item/ammo_casing/c38
+	ammo_type = /obj/item/ammo_casing/pistol/revolver/special
 	magazine_type = null
 	fire_delay = ROF_PISTOL
 
@@ -277,11 +276,11 @@
 	icon_state = "knifegun"
 	item_state = "knifegun"
 	max_shells = 6
-	caliber = "38"
+	caliber = CALIBER_PISTOL_SPECIAL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	ammo_type = /obj/item/ammo_casing/c38
-	magazine_type = /obj/item/ammo_magazine/c38
+	ammo_type = /obj/item/ammo_casing/pistol/revolver/special
+	magazine_type = /obj/item/ammo_magazine/pistol/speedloader/special
 	force = 15
 	sharp = TRUE
 	edge = TRUE
@@ -301,9 +300,9 @@
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "38_revolver"
 	item_state = "38_revolver"
-	caliber = "38"
-	ammo_type = /obj/item/ammo_casing/c38
-	magazine_type = /obj/item/ammo_magazine/c38
+	caliber = CALIBER_PISTOL_SPECIAL
+	ammo_type = /obj/item/ammo_casing/pistol/revolver/special
+	magazine_type = /obj/item/ammo_magazine/pistol/speedloader/special
 	max_shells = 6
 
 /obj/item/gun/projectile/revolver/konyang/pirate/update_icon()
@@ -314,16 +313,16 @@
 		icon_state = "38_revolver-e"
 
 /obj/item/gun/projectile/revolver/konyang/police
-	name = "police service revolver"
-	desc = "A compact and reliable .45 caliber revolver. This one has Konyang National Police markings as well as a lanyard attached to it."
-	desc_extended = "The Nam-Kawada model .45 caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
+	name = "Nam-Kawada 9mm service revolver"
+	desc = "A compact and reliable 9mm caliber revolver. This one has Konyang National Police markings as well as a lanyard attached to it."
+	desc_extended = "The Nam-Kawada model 9mm caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
 	The original design was first introduced in 2307 due to a growing need to arm the nascent Konyang National Police (then known as the Suwon Colonial Constabulary) in the face of both wildlife and the occasional criminal activity.\
 	The lack of a need for an upgrade, as well as institutional attachment to the design, has led to its continued use for almost two centuries."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "police_gun"
 	item_state = "police_gun"
 	w_class = ITEMSIZE_NORMAL
-	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45/revolver
-	magazine_type = /obj/item/ammo_magazine/c45/revolver
+	caliber = CALIBER_PISTOL_GENERIC_SOL
+	ammo_type = /obj/item/ammo_casing/pistol/sol/civilian
+	magazine_type = /obj/item/ammo_magazine/pistol/speedloader/s9mm
 	max_shells = 6

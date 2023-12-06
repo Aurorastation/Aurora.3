@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/pattern5
-	name = "\improper CAISC Pattern 5 pistol"
+	name = "\improper CAISC 4.6mm pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
 	desc_extended = "The Pattern 5 pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a smaller, but faster 4.7mm round intended for use against armoured targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -46,7 +46,7 @@
 		return 1
 
 /obj/item/gun/projectile/pattern5/super
-	name = "ornamental CAISC Pattern 5 pistol"
+	name = "ornamental CAISC 4.6mm pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a smaller, but faster 4.7mm round intended for use against armoured targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -63,7 +63,7 @@
 		icon_state = "coltsuper-e"
 
 /obj/item/gun/projectile/automatic/pattern6
-	name = "\improper CAISC Pattern 6 machine pistol"
+	name = "\improper CAISC 4.6mm machine pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
 	desc_extended = "The Pattern 6 machine pistol is the standard-issue personal defense weapon for the Civil Guard, San Colette’s local military force. Modified from the Pattern 5, the Pattern 6 is given a sturdier frame designed to allow controlled automatic fire. \
 	The P6 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -90,7 +90,7 @@
 		icon_state = "coltauto-e"
 
 /obj/item/gun/projectile/mk58
-	name = "\improper NT Mk58 pistol"
+	name = "\improper NT 10mm pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
@@ -121,7 +121,7 @@
 	magazine_type = /obj/item/ammo_magazine/pistol/c10mm/flash
 
 /obj/item/gun/projectile/mk58/wood
-	name = "custom NT Mk58 pistol"
+	name = "custom NT 10mm pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun_wood.dmi'
@@ -136,7 +136,7 @@
 		icon_state = "secgunwood-e"
 
 /obj/item/gun/projectile/automatic/Mk58
-	name = "\improper NT Mk58-A machine pistol"
+	name = "\improper NT 10mm machine pistol"
 	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
@@ -167,7 +167,7 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	name = "\improper NT Tanto Mk2 machine pistol"
+	name = "\improper NT 10mm machine pistol"
 	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
 	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
 	and sturdier barrel with heatshield to better take advantage of the higher capacity."
@@ -198,7 +198,7 @@
 		icon_state = "c05r-e"
 
 /obj/item/gun/projectile/silenced
-	name = "\improper Mrrazhakulii suppressed pistol"
+	name = "\improper 10mm suppressed pistol"
 	desc = "A small, quiet, easily concealable gun."
 	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a suppressor integrated as part of its barrel. \
 		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
@@ -244,21 +244,12 @@
 /obj/item/gun/projectile/deagle/update_icon()
 	..()
 	if(ammo_magazine)
-		if(ammo_magazine.stored_ammo.len)
-			icon_state = "[initial(icon_state)]"
-		else
-			icon_state = "[initial(icon_state)]-em"
+		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-e"
 
-/obj/item/gun/projectile/deagle/gold
-	name = "gold-plated Desert Eagle pistol"
-	desc = "An antique handgun, designed to use .50 AE rounds. The gold plating provides no tactical advantage whatsoever."
-	icon_state = "deagleg"
-	item_state = "deagleg"
-
 /obj/item/gun/projectile/naltor
-	name = "\improper Nal'tor model heavy pistol"
+	name = "\improper Nal'tor 12mm pistol"
 	desc = "A bulky handgun used by republican commissars and high-ranking members of the Hadiist Party."
 	icon = 'icons/obj/guns/adhomian_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
@@ -309,7 +300,7 @@
 		icon_state = "gyropistol"
 
 /obj/item/gun/projectile/pistol
-	name = "\improper ZI Moonlight pistol"
+	name = "\improper ZI 9mm pistol"
 	desc = "An extremely popular compact handgun, used throughout human space."
 	desc_extended = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
@@ -334,7 +325,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
 /obj/item/gun/projectile/pistol/coc
-	name = "\improper ZI/dNA Moonlight pistol"
+	name = "\improper ZI/dNA 10mm pistol"
 	desc = "An extremely popular compact handgun, used throughout human space. This one is a licensed-built version by dNA defense and aerospace, re-chambered to accept 10mm bullets."
 	caliber =  CALIBER_PISTOL_GENERIC_COC
 	magazine_type = /obj/item/ammo_magazine/pistol/c10mm
@@ -406,7 +397,7 @@
 	. = ..()
 
 /obj/item/gun/projectile/everyman
-	name = "\improper Mk1 \"Everyman\" pistol"
+	name = "\improper NT 10mm pistol"
 	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, \
 	stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most \
 	common weapons found in the Orion Spur."
