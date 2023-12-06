@@ -281,7 +281,7 @@
 		//Because mobs can bump and swap with one another, and we use forcemove that doesn't call Crossed/Uncrossed/Entered/Exited, we have to
 		//keep looking if the victim is still on the mine, and otherwise explode the mine
 		START_PROCESSING(SSfast_process, src)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), triggerer, "You get a dreadful feeling from your [pick("right", "left")] foot...", "Dread", list("Mom..."))
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), triggerer, "You feel your [pick("right", "left")] foot step down on a button with a click..., Uh..., Oh...", "Dread", list("Mom..."))
 
 		playsound_allinrange(src, sound('sound/weapons/empty/empty6.ogg'))
 

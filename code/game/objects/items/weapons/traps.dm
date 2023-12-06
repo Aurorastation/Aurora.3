@@ -777,6 +777,12 @@
 		//We are returning early before this step in case something isn't a human, so this should be fine not to catch borgs/bot/exosuits/whatever
 		if(!isipc(L))
 
+			//If it's a Vaurca, there's a chance the spear wouldn't go in deep enough to apply an infection
+			//You're still damaged by falling on it though, which happens above, but at least you're spared the infection
+			//Glory to your carapace
+			if(isvaurca(L) && prob(50))
+				return
+
 			organ.germ_level += INFECTION_LEVEL_THREE
 
 			//Add some fertilizer to poison the target whole, not only the external organ (leg/foot)
