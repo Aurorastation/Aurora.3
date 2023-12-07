@@ -26,11 +26,19 @@
 	/// Example of an appropriate way to set this: list("red" = list(1, 2))
 	/// Alternatively, for a door that is free access on a certain code: list("green" = null)
 	var/list/access_by_level
-	/// Set to TRUE to make the level-based access use req_one_access instead.
-	var/access_override_req_one = FALSE
+	/// As above, but with req_one_access. Note that only one of these lists should ever be set.
+	var/list/req_one_access_by_level
 
 /obj/effect/map_effect/door_helper/level_access/modify_door(obj/machinery/door/D)
+	if(length(access_by_level) && length(req_one_access_by_level))
+		crash_with("Airlock access level modifier at [x] [y] [z] spawned with both access lists set.")
 	if(isairlock(D))
 		var/obj/machinery/door/airlock/A = D
-		A.access_override_by_level = access_by_level
-		A.access_override_req_one = access_override_req_one
+		A.access_by_level = access_by_level
+		A.req_one_access_by_level = req_one_access_by_level
+
+/obj/effect/map_effect/door_helper/level_access/test1
+	access_by_level = list("green" = list(access_security))
+
+/obj/effect/map_effect/door_helper/level_access/test2
+	req_one_access_by_level = list("green" = list(access_security, access_heads))

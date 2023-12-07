@@ -164,9 +164,9 @@
 	/// Override access by code level. This is an associative list that should only be set through /obj/effect/map_effect/door_helper/level_access.
 	/// Structure example: "red" -> list(1, 2)
 	/// Uses standard access if the current level is not on the list.
-	var/list/access_override_by_level
-	/// Set to TRUE to make the access override use req_one_access instead.
-	var/access_override_req_one = FALSE
+	var/list/access_by_level
+	/// As above, but with req_one_access. Note that only one of these lists should ever be set.
+	var/list/req_one_access_by_level
 
 /obj/machinery/door/airlock/Initialize(mapload, dir, populate_components, obj/structure/door_assembly/assembly = null)
 	var/on_admin_z = FALSE
@@ -2066,7 +2066,7 @@ About the new airlock wires panel:
 		to_chat(user, bracer.health)
 	if(p_open)
 		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
-	if(islist(access_override_by_level))
+	if(islist(access_by_level) || islist(req_one_access_by_level))
 		to_chat(user, SPAN_NOTICE("This airlock changes access requirements depending on the level."))
 
 /obj/machinery/door/airlock/emag_act(var/remaining_charges)
