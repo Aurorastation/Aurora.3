@@ -10,8 +10,6 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "burszia_station_areas.dm"
-#include "burzsia_station.dm"
 #include "code\__linters.dm"
 #include "code\_compile_options.dm"
 #include "code\global.dm"
@@ -3665,6 +3663,8 @@
 #include "maps\event\code\event.dm"
 #include "maps\event\generic_dock\code\generic_dock.dm"
 #include "maps\event\generic_dock\code\generic_dock_areas.dm"
+#include "maps\event\burzsia_station\burzsia_station.dm"
+#include "maps\event\burzsia_station\burszia_station_areas.dm"
 #include "maps\event\halloween\halloween.dm"
 #include "maps\event\halloween\halloweenareas.dm"
 #include "maps\event\idris_cruise\code\idris_cruise.dm"
