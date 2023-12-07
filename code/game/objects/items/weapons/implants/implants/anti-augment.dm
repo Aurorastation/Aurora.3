@@ -23,15 +23,14 @@
 	return TRUE
 
 /obj/item/implant/anti_augment/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1.0)
+		if(EMP_HEAVY)
 			if (prob(75))
 				qdel(src)
-		if(2.0)
+		if(EMP_LIGHT)
 			if (prob(50))
-				qdel(src)
-		if(3.0)
-			if (prob(25))
 				qdel(src)
 	return
 

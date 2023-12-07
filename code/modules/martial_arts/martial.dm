@@ -100,7 +100,7 @@
 	var/damage_flags = attack.damage_flags()
 	var/armor_penetration = attack.armor_penetration
 
-	real_damage += attack.get_unarmed_damage(A)
+	real_damage += attack.get_unarmed_damage(A, D)
 	real_damage *= D.damage_multiplier
 	rand_damage *= D.damage_multiplier
 
@@ -136,6 +136,33 @@
 	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = armor_penetration)
 
 	return 1
+
+/datum/martial_art/proc/heavy_vehicle_basic_hit(var/mob/living/carbon/human/A, var/mob/living/heavy_vehicle/D)
+	if(!istype(D))
+		crash_with("The target is not an heavy_vehicle")
+		return
+
+	var/hit_zone = A.zone_sel.selecting
+	//var/obj/item/mech_component/affecting = D.zoneToComponent(hit_zone)
+
+	var/rand_damage = rand(1, 5)
+
+	var/datum/unarmed_attack/attack = A.get_unarmed_attack(src, hit_zone)
+	var/hit_dam_type = attack.damage_type
+	var/damage_flags = attack.damage_flags()
+	var/armor_penetration = attack.armor_penetration
+
+	var/real_damage = rand_damage
+	real_damage += attack.get_unarmed_damage(A, D)
+
+	attack.show_attack(A, D, hit_zone, rand_damage)
+
+	var/miss_type = 1 //For now, mechs can't parry
+	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = armor_penetration)
+
+	return TRUE
+
 
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)

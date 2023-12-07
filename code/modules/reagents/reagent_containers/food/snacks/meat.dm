@@ -203,7 +203,7 @@
 	icon_state = "vannameat"
 	item_state = "vannameat"
 	contained_sprite = TRUE
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/mindbreaker = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
@@ -220,7 +220,7 @@
 	icon_state = "hugemushroomslice"
 	filling_color = "#E0D7C5"
 
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/psilocybin = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drugs/psilocybin = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("raw" = 2, "mushroom" = 2))
 	bitesize = 6
 
@@ -303,9 +303,9 @@
 			icon_state = "steak_40"
 		if(41 to 60)
 			icon_state = "steak_60"
-		if(61 to 75)
+		if(61 to 80) //this was originally set to 75 but this resulted in a weird situation that prevented the steak_75 image from showing up. this is my fix.
 			icon_state = "steak_75"
-		if(76 to INFINITY)
+		if(81 to INFINITY)
 			icon_state = "steak"
 
 /obj/item/reagent_containers/food/snacks/meatsteak/grilled

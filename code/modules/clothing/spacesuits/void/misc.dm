@@ -78,6 +78,52 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
+/obj/item/clothing/head/helmet/space/void/xanu
+	name = "\improper Xanan eagle voidsuit helmet"
+	desc = "An advanced voidsuit helmet, designed specifically for the All-Xanu Armed Forces as a major upgrade to the iconic vulture voidsuit. Its armor has been upgraded, but it feels no heavier than a vulture."
+	desc_extended = "The dNAXS-24 \"Eagle\" suit was commissioned by the All-Xanu Armed Forces as an upgrade to the aging vulture voidsuit in 2437. Having met all the requirements set out and more, the suit has been adopted by the majority of the Xanan armed forces, with only the National Militia still using the older vulture suits regularly. Despite the upgrades however, these suits have rarely been exported out of Xanu, due to its high cost."
+	icon = 'icons/obj/clothing/voidsuit/xanu.dmi'
+	icon_state = "xanu_void_helmet"
+	item_state = "xanu_void_helmet"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+	light_overlay = "helmet_light_xanu_voidsuit"
+	brightness_on = 6
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/xanu
+	name = "\improper Xanan eagle voidsuit"
+	desc = "An advanced voidsuit, designed specifically for the All-Xanu Armed Forces as a major upgrade to the iconic vulture voidsuit. Its armor has been upgraded, but it feels no heavier than a vulture."
+	desc_extended = "The dNAXS-24 \"Eagle\" suit was commissioned by the All-Xanu Armed Forces as an upgrade to the aging vulture voidsuit in 2437. Having met all the requirements set out and more, the suit has been adopted by the majority of the Xanan armed forces, with only the National Militia still using the older vulture suits regularly. Despite the upgrades however, these suits have rarely been exported out of Xanu, due to its high cost."
+	icon = 'icons/obj/clothing/voidsuit/xanu.dmi'
+	icon_state = "xanu_voidsuit"
+	item_state = "xanu_voidsuit"
+	contained_sprite = TRUE
+	slowdown = 1
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/cruiser
 	name = "cruiser voidsuit helmet"
@@ -910,3 +956,27 @@
 	item_state = "gadpathur_vulture"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/sol/konyang
+	name = "konyang aerospace forces voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been painted in the colors of the Konyang Armed Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_helmet"
+	item_state = "konyang_helmet"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = "ipc"
+
+
+/obj/item/clothing/suit/space/void/sol/konyang
+	name = "konyang aerospace forces voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military.This one has been painted in the colors of the Konyang Armed Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_suit"
+	item_state = "konyang_suit"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = "ipc"
+

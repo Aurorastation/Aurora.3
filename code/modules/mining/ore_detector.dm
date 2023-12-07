@@ -130,7 +130,9 @@
 				M.client.images += ore_ping
 			ore_pings += ore_ping
 
-/obj/item/ore_detector/emp_act()
+/obj/item/ore_detector/emp_act(severity)
+	. = ..()
+
 	deactivate()
 
 /obj/item/ore_detector/proc/activate(var/mob/user)

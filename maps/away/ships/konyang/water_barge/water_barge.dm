@@ -1,12 +1,14 @@
 /datum/map_template/ruin/away_site/water_barge
 	name = "Water Barge"
 	description = "A PACHROM transport barge, exporting water."
-	suffixes = list("ships/konyang/air_konyang/air_konyang.dmm")
+	suffixes = list("ships/konyang/water_barge/water_barge.dmm")
 	sectors = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "water_barge"
-	shuttles_to_initialise = list()
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/water_barge_shuttle)
+
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/water_barge
 	map = "Water Barge"
@@ -29,7 +31,9 @@
 	vessel_mass = 8000 //big boy
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	initial_restricted_waypoints = list()
+	initial_restricted_waypoints = list(
+		"Water Barge Shuttle" = list("nav_water_barge_hangar")
+	)
 	initial_generic_waypoints = list(
 		"water_barge_nav1",
 		"water_barge_nav2",

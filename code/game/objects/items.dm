@@ -18,6 +18,12 @@
 
 	var/storage_cost
 
+	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_x_dimension = 32
+
+	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_y_dimension = 32
+
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
@@ -227,14 +233,14 @@
 
 	// Its vital that if you make new power tools or new recipies that you include this
 
-/obj/item/Initialize()
+/obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
 				AddComponent(/datum/component/armor, armor)
 				break
-	if(flags & HELDMAPTEXT)
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		set_initial_maptext()
 		check_maptext()
 
@@ -247,7 +253,7 @@
 		src.loc = null
 
 	if(!QDELETED(action))
-		QDEL_NULL(action) /// /mob/living/proc/handle_actions() creates it, for ungodly reasons
+		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
 	action = null
 
 	if(!QDELETED(hidden_uplink))
@@ -255,7 +261,7 @@
 	hidden_uplink = null
 
 	master = null
-	return ..()
+	. = ..()
 
 /obj/item/update_icon()
 	. = ..()
@@ -520,7 +526,7 @@
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0
-	if(flags & HELDMAPTEXT)
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		addtimer(CALLBACK(src, PROC_REF(check_maptext)), 1) // invoke async does not work here
 	do_pickup_animation(user)
 
@@ -710,7 +716,7 @@ var/list/global/slot_flags_enumeration = list(
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
-	if(flags & HELDMAPTEXT)
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
 
 //This proc is executed when someone clicks the on-screen UI button. To make the UI button show, set the 'icon_action_button' to the icon_state of the image of the button in screen1_action.dmi
@@ -784,7 +790,7 @@ var/list/global/slot_flags_enumeration = list(
 	M.eye_blurry += rand(3,4)
 
 /obj/item/proc/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
-	if((item_flags & THICKMATERIAL) && (body_parts_covered & EYES))
+	if((item_flags & ITEM_FLAG_THICK_MATERIAL) && (body_parts_covered & EYES))
 		return TRUE
 	return FALSE
 
@@ -1177,12 +1183,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/throw_at()
 	..()
-	if(flags & HELDMAPTEXT)
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
 
 /obj/item/dropped(var/mob/user)
 	..()
-	if(flags & HELDMAPTEXT)
+	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
 
 // used to check whether the item is capable of popping things like balloons, inflatable barriers, or cutting police tape.

@@ -103,11 +103,12 @@
 		update_icon()
 
 /obj/machinery/cell_charger/emp_act(severity)
+	. = ..()
+
 	if(INOPERABLE(src))
 		return
 	if(charging)
 		charging.emp_act(severity)
-	..(severity)
 
 /obj/machinery/cell_charger/power_change()
 	if(..() && charging && anchored)

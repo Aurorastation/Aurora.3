@@ -32,6 +32,10 @@ var/list/admin_verbs_admin = list(
 	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
 	/client/proc/view_signal_log,		/*allows admins to check the log of signaler uses*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
 //	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage */
@@ -207,6 +211,10 @@ var/list/admin_verbs_debug = list(
 	/client/proc/Jump,
 	/client/proc/jumptomob,
 	/client/proc/jumptocoord,
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
@@ -297,6 +305,10 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_cciaa_say,
 	/datum/admins/proc/access_news_network,
 	/client/proc/jumptocoord,
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/colorooc,
 	/client/proc/add_client_color,
 	/datum/admins/proc/force_mode_latespawn,
@@ -440,6 +452,10 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_admin_pm_context,
 	/client/proc/cmd_admin_pm_panel,	//admin-pm list
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/cmd_dev_say,
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,

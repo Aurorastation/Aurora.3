@@ -3,48 +3,48 @@
 - '!html/changelogs/*.yml'
 
 Database:
-- SQL/*
+- SQL/**
 
 '🗺️ Mapping - Aurora':
-- maps/aurora/*
+- maps/aurora/**
 
 '🗺️ Mapping - Away Ship/Away Site':
-- maps/away/*
+- maps/away/**
 
 '🗺️ Mapping - Dungeon':
-- maps/dungeon_spawns/*
+- maps/dungeon_spawns/**
 
 '🗺️ Mapping - Event':
-- maps/event/*
+- maps/event/**
 
 '🗺️ Mapping - Random Ruins':
-- maps/random_ruins/*
+- maps/random_ruins/**
 
 '🗺️ Mapping - Runtime':
-- maps/runtime/*
+- maps/runtime/**
 
 '🗺️ Mapping - Horizon':
-- maps/sccv_horizon/*
+- maps/sccv_horizon/**
 
 '🗺️ Mapping - Templates':
-- maps/templates/*
+- maps/templates/**
 
 Sounds:
-- sound/*
+- sound/**
 
 TGUI:
-- tgui/*
+- tgui/**
 
 Tools:
-- tools/*
-- .github/*
+- tools/**
+- .github/**
 
 # File Type Rules
 Javascript:
-- '*.js'
+- '**/*.js'
 
 Python:
-- '*.py'
+- '**/*.py'
 
 Sprites:
-- '*.dmi'
+- '**/*.dmi'

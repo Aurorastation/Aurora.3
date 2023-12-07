@@ -47,26 +47,29 @@
 		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/I
 	if(icon_override)
 		I = icon_override
-	else if(istype(M) && (M.species.bodytype in sprite_sheets))
-		I = sprite_sheets[M.species.bodytype]
+	else if(istype(H) && (H.species.bodytype in sprite_sheets))
+		I = sprite_sheets[H.species.bodytype]
 		accessory_mob_overlay = null // reset the overlay
 	else if(contained_sprite)
 		I = icon
+		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
 	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if(contained_sprite)
-				tmp_icon_state = "[src.item_state][WORN_UNDER]"
+				auto_adapt_species(H)
+				tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
 			else if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
-			tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			auto_adapt_species(H)
+			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 		if(build_from_parts)
 			accessory_mob_overlay.cut_overlays()
@@ -86,6 +89,7 @@
 	if(user)
 		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
+	update_light()
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
@@ -97,6 +101,17 @@
 		src.add_fingerprint(user)
 	else
 		src.forceMove(get_turf(src))
+	update_light()
+
+/obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
+	update_light()
+
+/obj/item/clothing/accessory/get_light_atom()
+	if(isclothing(loc))
+		if(ismob(loc.loc))
+			return loc.loc
+		return loc
+	return ..()
 
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/I, mob/user)
@@ -1135,6 +1150,8 @@
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
 
 /obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")
@@ -1341,3 +1358,31 @@
 /obj/item/clothing/accessory/pronoun/ask
 	name = "please ask! pronouns pin"
 	desc = "A pin asking others to ask for their pronouns."
+
+/obj/item/clothing/accessory/led_collar
+	name = "\improper LED collar"
+	desc = "A collar, usually worn around the neck of a voidsuit, that allows others to easily identify the wearer."
+	icon = 'icons/clothing/accessories/led_collar.dmi'
+	icon_state = "led_collar"
+	item_state = "led_collar"
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_UTILITY_MINOR
+
+/obj/item/clothing/accessory/led_collar/Initialize()
+	. = ..()
+	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
+	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+
+/obj/item/clothing/accessory/led_collar/attack_self(mob/user)
+	. = ..()
+	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
+	if(new_color)
+		color = new_color
+		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+
+/obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+	var/image/I = ..()
+	I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	I.appearance_flags |= KEEP_APART
+	return I

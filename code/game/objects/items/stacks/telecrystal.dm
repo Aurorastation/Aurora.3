@@ -9,7 +9,7 @@
 	icon_state = "telecrystal"
 	w_class = ITEMSIZE_TINY
 	max_amount = 50
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
 	icon_has_variants = TRUE
 	var/crystal_type = CRYSTAL_TYPE_TELECRYSTAL
@@ -38,7 +38,7 @@
 				I.hidden_uplink.telecrystals += amount
 			else if(crystal_type == CRYSTAL_TYPE_BLUECRYSTAL)
 				I.hidden_uplink.bluecrystals += amount
-			I.hidden_uplink.update_nano_data()
+			I.hidden_uplink.update_tgui_data()
 			SSnanoui.update_uis(I.hidden_uplink)
 			use(amount)
 			to_chat(user, SPAN_NOTICE("You slot \the [src] into \the [I] and charge its internal uplink."))

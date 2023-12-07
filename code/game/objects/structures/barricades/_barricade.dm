@@ -5,7 +5,7 @@
 	density = TRUE
 	throwpass = TRUE //You can throw objects over this, despite its density.
 	layer = BELOW_OBJ_LAYER
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
 	var/stack_amount = 5 //The amount of stack dropped when disassembled at full health

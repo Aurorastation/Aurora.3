@@ -42,7 +42,7 @@ var/global/list/default_interrogation_channels = list(
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "walkietalkie"
 	item_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
@@ -541,11 +541,12 @@ var/global/list/default_interrogation_channels = list(
 	else return
 
 /obj/item/device/radio/emp_act(severity)
+	. = ..()
+
 	set_broadcasting(FALSE)
 	set_listening(FALSE)
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
-	..()
 
 //
 // Vesselbound Synthetic Radio

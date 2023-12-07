@@ -1523,12 +1523,6 @@
 /obj/machinery/ringer_button,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
-"JH" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "Kb" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -30940,7 +30934,7 @@ cJ
 cJ
 cJ
 cJ
-JH
+Bd
 Bd
 Wi
 cJ

@@ -71,14 +71,16 @@
 	return ..()
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover, /obj/machinery/iv_drip))
+		return FALSE
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/iv_drip/Crossed(var/mob/H)
 	if(ishuman(H))
 		var/mob/living/carbon/human/M = H
-		if(M.shoes?.item_flags & LIGHTSTEP)
+		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.incapacitated())
 			return

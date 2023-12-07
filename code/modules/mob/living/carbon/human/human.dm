@@ -95,8 +95,6 @@
 		sync_organ_dna()
 	make_blood()
 
-	available_maneuvers = species.maneuvers.Copy()
-
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
@@ -492,24 +490,19 @@
 		var/emp_damage
 		switch(shock_damage)
 			if(-INFINITY to 5)
-				emp_damage = 0
-			if(6 to 19)
-				emp_damage = 3
-			if(20 to 49)
-				emp_damage = 2
+				emp_damage = FALSE
+			if(6 to 49)
+				emp_damage = EMP_LIGHT
 			else
-				emp_damage = 1
+				emp_damage = EMP_HEAVY
 
 		if(emp_damage)
 			for(var/obj/item/organ/O in affecting.internal_organs)
 				O.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting.implants)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 
 		apply_damage(shock_damage, DAMAGE_BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
@@ -669,7 +662,7 @@
 				var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel"), R.physical_status)
 
 				if(hasHUD(usr,"medical"))
-					if(setmedical != "Cancel")
+					if(!isnull(setmedical) && setmedical != "Cancel")
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
@@ -1441,6 +1434,11 @@
 	if(species.holder_type)
 		holder_type = species.holder_type
 
+	//Clear out the manouvers of the previous specie and add the one of the current specie
+	available_maneuvers = null
+	if(species?.maneuvers)
+		available_maneuvers = species.maneuvers.Copy()
+
 	icon_state = lowertext(species.name)
 
 	species.create_organs(src)
@@ -1626,9 +1624,9 @@
 	)
 	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		var/injection_modifier = BASE_INJECTION_MOD
-		if(C.item_flags & INJECTIONPORT)
+		if(C.item_flags & ITEM_FLAG_INJECTION_PORT)
 			injection_modifier = SUIT_INJECTION_MOD
-		else if(C.item_flags & THICKMATERIAL)
+		else if(C.item_flags & ITEM_FLAG_THICK_MATERIAL)
 			injection_modifier = INJECTION_FAIL
 		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
 			continue
@@ -1653,7 +1651,7 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
-		if(C.item_flags & SHOWFLAVORTEXT)
+		if(C.item_flags & ITEM_FLAG_SHOW_FLAVOR_TEXT)
 			continue
 
 		if(C.body_parts_covered & HEAD)
@@ -1708,7 +1706,7 @@
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
-	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
+	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP)))
 		return 0
 	. = ..(slipped_on,stun_duration)
 

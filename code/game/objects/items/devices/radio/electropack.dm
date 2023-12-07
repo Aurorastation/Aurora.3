@@ -3,7 +3,7 @@
 	desc = "Dance my monkeys! DANCE!!!"
 	icon_state = "electropack0"
 	item_state = "electropack"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_HUGE
 

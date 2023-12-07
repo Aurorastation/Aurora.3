@@ -108,7 +108,7 @@
 		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
 		rag = R
 		rag.forceMove(src)
-		flags &= ~OPENCONTAINER
+		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/remove_rag(mob/user)
@@ -116,14 +116,14 @@
 		return
 	user.put_in_hands(rag)
 	rag = null
-	flags |= (initial(flags) & OPENCONTAINER)
+	atom_flags |= (initial(atom_flags) & ATOM_FLAG_OPEN_CONTAINER)
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/delete_rag()
 	if(!rag)
 		return
 	QDEL_NULL(rag)
-	flags |= (initial(flags) & OPENCONTAINER)
+	atom_flags |= (initial(atom_flags) & ATOM_FLAG_OPEN_CONTAINER)
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/open(mob/user)
@@ -275,7 +275,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/victorygin = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whiskey
-	name = "Mu Cephei Special Reserve"
+	name = "Mu Cephei Special Reserve Whiskey"
 	desc = "An okayish single-malt whiskey. This one is produced mainly in New Valletta on Callisto and is fairly famous among Cythereans, too. It's great to get you \
 	in the right mindset for your tenth night out clubbing in a row!"
 	desc_extended = DRINK_FLUFF_GETMORE
@@ -293,7 +293,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/fireball = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka
-	name = "Martian 50% Premium"
+	name = "Martian 50% Premium Vodka"
 	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka (imports of Martian soil may have stopped). Made by Silverport, drunk by Zavodskoi."
 	desc_extended = DRINK_FLUFF_SILVERPORT
 	icon_state = "vodkabottle"
@@ -342,7 +342,7 @@
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/champagne = 100)
-	flags = 0 // starts closed
+	atom_flags = 0 // starts closed
 	///Used for sabrage; increases the chance of success per 1 force of the attacking sharp item
 	var/sabrage_success_percentile = 5
 	///Whether this bottle was a victim of a successful sabrage attempt
@@ -423,7 +423,7 @@
 								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
 								"You can hear a pop.")
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
 	///Type of cork to fire away
@@ -459,6 +459,16 @@
 
 /obj/item/trash/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
+
+/obj/item/reagent_containers/food/drinks/bottle/fernet
+	name = "\improper Mictlan Armago Fernet"
+	desc = "An herbal, bitter liqueur, created using a heavily-guarded family recipe from the Armago family that includes a unique medley of herbs, roots, and spices."
+	desc_extended = "While the exact ingredients remain confidential, rumors speak of saffron, aged myrrh, and a mysterious herb known only to the elders of the family. Whatever the composition, each bottle \
+	is an homage to the multi-generational lineage of the Armago family, with roots back to Chile on Earth. The fernet undergoes a traditional pot-still distillation method, using several goes to evolve the flavor and \
+	ensure purity and potency. The liqueur is then aged in charred oak barrels, lending a smoky flavor. Despite its handcrafted nature, it is a ubiquitous spirit on Mictlan, often being consumed as part of an ever-evolving \
+	range of cocktails and drinks, to add that touch of spice to a drink."
+	icon_state = "fernetbottle"
+	reagents_to_add = list(/singleton/reagent/alcohol/fernet = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
 	name = "Getmore's Bold Peppermint"
@@ -535,6 +545,14 @@
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/rose_wine
+	name = "\improper Coral Twilight Rose"
+	desc = "A blended fragrant rose wine with a coral hue from the shores of Silversun. High-quality and fruity."
+	desc_extended = DRINK_FLUFF_SILVERPORT
+	icon_state = "rosewine"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/singleton/reagent/alcohol/wine/rose = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "\improper Chip Getmore's Velvet"
 	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
@@ -575,6 +593,22 @@
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/applejack
+	name = "\improper Arvani Special Reserve Applejack"
+	desc = "Smooth distilled applejack liquor From Biesel. Stronger and more flavorful than traditional hard cider."
+	desc_extended = DRINK_FLUFF_ZENGHU
+	icon_state = "applejackbottle"
+	center_of_mass = list("x"=16, "y"=7)
+	reagents_to_add = list(/singleton/reagent/alcohol/applejack = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/triplesec
+	name = "\improper Fleur de Majestueux Triple Sec"
+	desc = "A fruity Xanu liqueur made from orange peels. Best mixed as part of cocktails."
+	desc_extended = DRINK_FLUFF_ZENGHU
+	icon_state = "triplesecbottle"
+	center_of_mass = list("x"=16, "y"=7)
+	reagents_to_add = list(/singleton/reagent/alcohol/triplesec = 100)
+
 // Soda
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
@@ -584,7 +618,7 @@
 	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 30
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	reagents_to_add = list(/singleton/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
@@ -623,7 +657,7 @@
 	icon_state = "beer"
 	volume = 30
 	smash_duration = 1
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	rag_underlay = "rag_small"
 	center_of_mass = list("x"=16, "y"=8)
 
@@ -878,6 +912,18 @@
 	icon_state = "algaewinebottle"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/algae = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
+	name = "\improper Assunzioni Sera Stellata di Dalyan wine"
+	desc = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione. The standard liturgical wine of choice for upper-echelon priests and clergy of Luceism, although drinking it outside of holy celebrations is hardly sacrilegious."
+	desc_extended = "Rather than rely on technology alone, Assunzioni winemakers sought to incorporate millennia-old traditions into making a wine suitable for the clergy. With the blessing of the church, \
+	and with aid from Zeng-Hu, artisans crafted a technique of 'soleato', drying grapes under the light of electrically-amplified warding spheres, engineered to produce immense heat. The dried grapes are then \
+	pressed, fermented, and aged in Malagan oak barrels for several years. The resulting wine is exceptionally full-bodied and complex, with notes of dried fruit and tobacco. The drying technique has given it the \
+	preemptive blessing of the Luceian Church, and as such wines made using this technique, even of other varietals, are certified for usage in religious communions. Wine such as this is exported to other worlds \
+	at great cost, rivalling other wines in the Spur in their rarity and prestige."
+	icon_state = "assunzionewine"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/wine/assunzione = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/kvass
 	name = "Neubach Original kvass"

@@ -32,13 +32,13 @@
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
 	. = ..()
 	cup = new(src)
-	flags ^= OPENCONTAINER
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
 	if(cup)
 		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
 		user.put_in_hands(cup)
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		cup = null
 		update_icon()
 
@@ -52,7 +52,7 @@
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
 		user.drop_from_inventory(W, src)
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 		cup = W
 		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
 		update_icon()

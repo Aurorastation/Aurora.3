@@ -53,6 +53,8 @@ var/list/preferences_datums = list()
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
+	///Suit sensors setting in the loadout.
+	var/sensor_setting
 	var/h_style = "Bedhead 2"				//Hair type
 	var/tail_style = null
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
@@ -159,7 +161,7 @@ var/list/preferences_datums = list()
 
 	// SPAAAACE
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
-	var/clientfps = 40
+	var/clientfps = 100
 	var/floating_chat_color
 	var/speech_bubble_type = "default"
 

@@ -55,12 +55,15 @@
 		global_announcer.autosay(death_message, "[mobname]'s Death Alarm", channel)
 
 /obj/item/implant/death_alarm/emp_act(severity)			//for some reason alarms stop going off in case they are emp'd, even without this
+	. = ..()
+
 	if (malfunction)		//so I'm just going to add a meltdown chance here
 		return
+
 	malfunction = MALFUNCTION_TEMPORARY
 
 	activate("emp")	//let's shout that this dude is dead
-	if(severity == 1)
+	if(severity == EMP_HEAVY)
 		if(prob(40))	//small chance of obvious meltdown
 			meltdown()
 		else if (prob(60))	//but more likely it will just quietly die

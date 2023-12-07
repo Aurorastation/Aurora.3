@@ -269,6 +269,8 @@
 		fried = TRUE
 
 /obj/item/nralakktag/emp_act(severity)
+	. = ..()
+
 	unclamp()
 
 /obj/item/nralakktag/emag_act(var/remaining_charges, var/mob/user)

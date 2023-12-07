@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3
 	throwforce = 10
 	throw_speed = 1
