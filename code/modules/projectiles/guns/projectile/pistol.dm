@@ -331,7 +331,7 @@
 	magazine_type = /obj/item/ammo_magazine/pistol/c10mm
 
 /obj/item/gun/projectile/mk58/detective
-	name = "\improper NT Mk21 Blackjack compact pistol"
+	name = "\improper NT 10mm compact pistol"
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip."
 	desc_extended = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 10mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 10mm in such a small package can be unpleasant for the average shooter."
 	magazine_type = /obj/item/ammo_magazine/pistol/c10mm
@@ -422,7 +422,7 @@
 		icon_state = "leyon-e"
 
 /obj/item/gun/projectile/pistol/sol
-	name = "\improper M8 pistol"
+	name = "\improper Solarian 9mm pistol"
 	desc = "Manufactured by Zavodskoi Interstellar and based off of a full-sized variant of their 9mm design, the compact M8 is the standard service pistol of the Solarian Armed Forces."
 	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8"
@@ -440,7 +440,7 @@
 		icon_state = "m8-empty"
 
 /obj/item/gun/projectile/pistol/adhomai
-	name = "\improper Adar'Mazy pistol"
+	name = "\improper PRA 10mm pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon = 'icons/obj/guns/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
@@ -457,7 +457,7 @@
 		icon_state = "adhomian_pistol-e"
 
 /obj/item/gun/projectile/pistol/super_heavy
-	name = "\improper KA 2557 super-heavy pistol"
+	name = "\improper KA 12mm AT super-heavy pistol"
 	desc = "A big, bulky, and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
 	desc_extended = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
@@ -524,7 +524,7 @@
 					RH.take_damage(30)
 
 /obj/item/gun/projectile/xanupistol
-	name = "dNAC-5 pistol"
+	name = "\improper Xanan 5mm pistol"
 	desc = "A sleek metal-framed semi-automatic pistol, produced by d.N.A Defense for the All-Xanu Armed Forces."
 	desc_extended = "The dNAC-5 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 5.0x30mm rounds with less weight but better armor penetration than the 10mm pistols it replaced, the dNAC-5 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for  military units, private mercenary groups, and other entities across the Coalition of Colonies and beyond."
 	magazine_type = /obj/item/ammo_magazine/pistol/c5mm
