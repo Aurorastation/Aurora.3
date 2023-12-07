@@ -82,6 +82,8 @@
 		return ..(Proj)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))

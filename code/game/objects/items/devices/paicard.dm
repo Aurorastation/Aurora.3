@@ -429,6 +429,8 @@
 		M.show_message(SPAN_NOTICE("\The [src] flashes a message across its screen, \"Additional personalities available for download.\""), 3, SPAN_NOTICE("\The [src] bleeps electronically."), 2)
 
 /obj/item/device/paicard/emp_act(severity)
+	. = ..()
+
 	for(var/mob/M in src)
 		M.emp_act(severity)
 

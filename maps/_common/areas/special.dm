@@ -5,7 +5,7 @@
 	name = "CentComm Solitary Confinement"
 	icon_state = "brig"
 	centcomm_area = 1
-	flags = PRISON
+	area_flags = AREA_FLAG_PRISON
 
 /area/centcom
 	name = "Centcom"
@@ -79,7 +79,7 @@
 /area/centcom/legion
 	name = "BLV The Tower - Deck 1"
 	icon_state = "blvtower"
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/centcom/legion/hangar5
 	name = "BLV The Tower - Hangar 5"
@@ -98,7 +98,7 @@
 	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/merchant_station/warehouse
@@ -114,7 +114,7 @@
 	requires_power = FALSE
 	no_light_control = TRUE
 	centcomm_area = TRUE
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/antag/mercenary
 	name = "Mercenary Barracks"
@@ -131,6 +131,10 @@
 /area/antag/burglar
 	name = "Burglar Hideout"
 	icon_state = "burglar"
+
+/area/antag/jockey
+	name = "Jockey Workshop"
+	icon_state = "jockey"
 
 /area/antag/loner
 	name = "Loner Basement"
@@ -151,7 +155,7 @@
 	sound_env = ARENA
 	no_light_control = 1
 	centcomm_area = 1
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/tdome/tdome1
 	name = "Thunderdome (Team 1)"
@@ -174,31 +178,31 @@
 /area/dungeon/crashed_ship
 	name = "Derelict Ship"
 	icon_state = "yellow"
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 /area/dungeon/tomb
 	name = "Burial Chamber"
 	icon_state = "yellow"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 
 /area/dungeon/syndie_listening_post
 	name = "Abandoned Listening Post"
 	icon_state = "red"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/anomaly_outpost
 	name = "Xenoarchaeological Outpost"
 	icon_state = "anomaly"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/sol_outpost
 	name = "Solarian Outpost"
 	icon_state = "red"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
@@ -210,12 +214,12 @@
 /area/dungeon/skrell_ship
 	name = "Crashed Skrell Ship"
 	icon_state = "purple"
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 /area/dungeon/bluespace_outpost
 	name = "Bluespace Outpost"
 	icon_state = "purple"
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 //Away ships, third party ships, etc. Mostly for the ships that are expected to move on the overmap and/or have ghost roles.
 /area/ship
@@ -224,4 +228,4 @@
 	requires_power = 0
 	sound_env = STANDARD_STATION
 	no_light_control = 1
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF

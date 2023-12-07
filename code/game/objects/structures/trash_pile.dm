@@ -179,6 +179,7 @@
 		/obj/item/clothing/under/tactical = 1,
 		/obj/item/clothing/suit/armor/material/makeshift/plasteel = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
+		/obj/item/clothing/accessory/led_collar = 1,
 		/obj/item/spacecash/c100 = 1,
 		/obj/item/spacecash/c200 = 1,
 	)

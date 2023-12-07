@@ -15,7 +15,7 @@
 
 /area/turret_protected
 	station_area = 1
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload
 	name = "AI Upload Chamber"

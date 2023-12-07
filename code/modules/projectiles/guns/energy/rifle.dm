@@ -212,7 +212,7 @@
 	w_class = ITEMSIZE_LARGE
 	accuracy = 1
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 4
@@ -221,7 +221,7 @@
 	firemodes = list()
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
-	..(max(severity, 2)) //so it doesn't EMP itself, I guess
+	. = ..()
 
 /obj/item/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"

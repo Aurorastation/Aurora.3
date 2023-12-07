@@ -500,8 +500,8 @@
 	desc = "A loose pieces of clothing, commonly worn by medical patients."
 	icon_state = "medicalgown"
 	item_state = "medicalgown"
-	has_sensor = 2
-	sensor_mode = 3
+	has_sensor = SUIT_LOCKED_SENSORS
+	sensor_mode = SUIT_SENSOR_TRACKING
 
 /obj/item/clothing/under/medical_gown/white
 	icon_state = "whitemedicalgown"
@@ -687,3 +687,30 @@
 	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders. This one is emblazoned with red, marking the wearer as a lieutenant."
 	icon_state = "konyang_police_lieutenant"
 	item_state = "konyang_police_lieutenant"
+
+/obj/item/clothing/under/konyang/pirate
+	name = "ragged konyanger clothing"
+	desc = "A grey shirt and dark shorts in a Konyang style, accentuated with a red scarf. The clothes are dirty, torn, and ragged - evidently not well-maintained by their owner."
+	icon = 'icons/clothing/under/uniforms/konyang_pirates.dmi'
+	icon_state = "pirate"
+	item_state = "pirate"
+
+/obj/item/clothing/under/konyang/pirate/tanktop
+	name = "disheveled konyanger clothing"
+	desc = "A dark yellow outfit in a Konyang style, with the sleeves cut off. It is stained with dirt, grease and a splatter of what looks like blood."
+	icon_state = "pirate1"
+	item_state = "pirate1"
+
+/obj/item/clothing/under/rank/konyang/krc
+	name = "konyang robotics company uniform"
+	desc = "A blue button-up shirt and brown trousers, with a red and white-striped tie. On the shirt, the logo of the Konyang Robotics Company is clearly displayed."
+	icon_state = "krc"
+	item_state = "krc"
+	armor = null
+
+/obj/item/clothing/under/rank/konyang/pachrom
+	name = "PACHROM uniform"
+	desc = "A well-worn and practical dark yellow jumpsuit, with the logo of PACHROM - a prominent Konyang corporation - emblazoned on the left arm."
+	icon_state = "pachrom"
+	item_state = "pachrom"
+	armor = null

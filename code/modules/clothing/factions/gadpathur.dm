@@ -159,3 +159,14 @@
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "gadpathur_tag"
 	w_class = ITEMSIZE_SMALL
+
+/obj/item/clothing/mask/breath/gadpathur
+	name = "gadpathurian rebreather"
+	desc = "A sturdy-looking rebreather with a canvas scarf wrapped around it. Boring, but sturdy-looking."
+	desc_extended = "A common sight on Gadpathur, the Type 2308 (its year of creation) rebreather is typically worn with an oxygen tank or filtration\
+	module to combat more minor contaminants found on Gadpathur. Not intended for use in seriously contaminated zones."
+	icon = 'icons/clothing/masks/gadpathur_breath.dmi'
+	icon_state = "gadpathur_breath"
+	item_state = "gadpathur_breath"
+	adjustable = FALSE
+	contained_sprite = TRUE

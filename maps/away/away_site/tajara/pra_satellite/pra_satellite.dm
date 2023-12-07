@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "pra_satellite"
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/pra_satellite
 	map = "hadiist satellite"
 	descriptor = "A People's Republic of Adhomai satellite used to survey the system."
@@ -48,7 +50,7 @@
 /area/pra_satellite
 	name = "Hadiist Satellite"
 	icon_state = "research"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	requires_power = TRUE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE

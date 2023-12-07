@@ -53,6 +53,11 @@
 	desc = "A 9mm flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
+/obj/item/ammo_casing/c45/revolver
+	desc = "A .45 revolver bullet casing."
+	max_stack = 6
+	projectile_type = /obj/item/projectile/bullet/pistol/revolver
+
 /obj/item/ammo_casing/c9mm/rubber
 	desc = "A 9mm rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
@@ -98,6 +103,17 @@
 	caliber = "12mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	max_stack = 7
+
+/obj/item/ammo_casing/smg10mm
+	desc  = "A 10mm bullet casing."
+	caliber = "10mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+
+/obj/item/ammo_casing/c46mm
+	desc = "A 4.6mm bullet casing."
+	caliber = "4.6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 15
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
@@ -166,7 +182,11 @@
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
-	if(prob(100/severity)) BB = null
+	. = ..()
+
+	if(prob(100/severity))
+		BB = null
+
 	update_icon()
 
 //Does not stun, only blinds, but has area of effect.
@@ -261,6 +281,15 @@
 /obj/item/ammo_casing/a556/blank
 	desc = "A 5.56mm blank casing."
 	projectile_type = /obj/item/projectile/bullet/blank
+
+/obj/item/ammo_casing/a65
+	desc = "A 6.5mm bullet casing."
+	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
+	caliber = "a65"
+	projectile_type = /obj/item/projectile/bullet/rifle/a65
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 7
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"

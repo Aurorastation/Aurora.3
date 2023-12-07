@@ -22,7 +22,7 @@
 	opacity = FALSE
 	density = FALSE
 	anchored = FALSE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5
 	throwforce = 10
 	throw_speed = 1

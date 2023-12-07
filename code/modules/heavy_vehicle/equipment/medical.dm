@@ -311,10 +311,7 @@
 			add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new(user.loc)
-	R.color = "#eeffe8"
-	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
-
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user.loc, internal_bodyscanner.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
 	if(ishuman(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(R)
 	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))

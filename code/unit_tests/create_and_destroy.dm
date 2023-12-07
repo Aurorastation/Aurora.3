@@ -1,6 +1,7 @@
 ///Delete one of every type, sleep a while, then check to see if anything has gone fucky
 /datum/unit_test/create_and_destroy
 	name = "Create and Destroy Test"
+	groups = list("create and destroy")
 	var/result = null
 
 // var/datum/running_create_and_destroy = FALSE
@@ -100,7 +101,10 @@
 		//Temporary exclusion while matt fixes it
 		/obj/item/projectile/beam/psi_lightning/wide,
 		/obj/effect/fusion_particle_catcher,
-		/obj/item/fuel_assembly
+		/obj/item/fuel_assembly,
+
+		//The location needs to be the mob, otherwise it stacktrace
+		/obj/aiming_overlay,
 
 	)
 

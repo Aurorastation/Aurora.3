@@ -9,7 +9,7 @@
 	species_restricted = null
 	force = 5
 	overshoes = 1
-	item_flags = THICKMATERIAL|AIRTIGHT|INJECTIONPORT
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT
 	var/magpulse = 0
 	var/icon_base = "magboots"
 	var/slowdown_active = 3
@@ -43,7 +43,7 @@
 
 /obj/item/clothing/shoes/magboots/attack_self(mob/user)
 	if(magpulse)
-		item_flags &= ~NOSLIP
+		item_flags &= ~ITEM_FLAG_NO_SLIP
 		magpulse = 0
 		set_slowdown()
 		force = 3
@@ -52,7 +52,7 @@
 			item_state = icon_state
 		to_chat(user, "You disable the mag-pulse traction system.")
 	else
-		item_flags |= NOSLIP
+		item_flags |= ITEM_FLAG_NO_SLIP
 		magpulse = 1
 		set_slowdown()
 		force = 5
@@ -108,7 +108,7 @@
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	. = ..()
 	var/state = "disabled"
-	if(item_flags & NOSLIP)
+	if(item_flags & ITEM_FLAG_NO_SLIP)
 		state = "enabled"
 	to_chat(user, "Its mag-pulse traction system appears to be [state].")
 

@@ -48,6 +48,7 @@ em						{font-style: normal;font-weight: bold;}
 /* Radio Channels */
 .comradio				{color: #193A7A;}
 .syndradio				{color: #6D3F40;}
+.coalitionradio			{color: #0091CE;}
 .bluespaceradio			{color: #1883A3;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}

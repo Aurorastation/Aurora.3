@@ -17,17 +17,17 @@
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
-	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
+	var/title = tgui_input_text(user, "Enter your announcement title.", "Announcement Title", encode = FALSE)
 	if(!title)
 		return
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|message)
+	var/message = tgui_input_text(user, "Enter your announcement message.", "Announcement Title", multiline = TRUE, encode = FALSE)
 	if(!message)
 		return
-	return list("title" = title, "message" = message)
+	return list("title" = strip_html_readd_newlines(title), "message" = strip_html_readd_newlines(message))
 
 /datum/uplink_item/abstract/announcements/fake_centcom/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
-	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1)
-	return 1
+	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1, msg_sanitized=TRUE)
+	return TRUE
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival
 	name = "Crew Arrival Announcement/Records"

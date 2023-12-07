@@ -25,6 +25,24 @@
 	welded_file = 'icons/obj/doors/basic/double/generic/welded.dmi'
 	emag_file = 'icons/obj/doors/basic/double/generic/emag.dmi'
 
+	var/list/vision_blockers
+
+/obj/machinery/door/airlock/multi_tile/Initialize(mapload, d, populate_components, obj/structure/door_assembly/DA)
+	. = ..()
+	if(visible && !glass)
+		for(var/turf/turf in locs)
+			var/obj/effect/turf_vision_blocker/vision_blocker = new /obj/effect/turf_vision_blocker(turf)
+			LAZYADD(vision_blockers, vision_blocker)
+
+/obj/machinery/door/airlock/multi_tile/Destroy()
+	QDEL_NULL_LIST(vision_blockers)
+	return ..()
+
+/obj/machinery/door/airlock/multi_tile/set_opacity(var/new_opacity)
+	. = ..()
+	for(var/obj/effect/turf_vision_blocker/vision_blocker in vision_blockers)
+		vision_blocker.set_opacity(new_opacity)
+
 /obj/machinery/door/airlock/multi_tile/glass
 	name = "glass airlock"
 	opacity = 0
@@ -71,3 +89,26 @@
 
 	open_sound = 'sound/machines/firewideopen.ogg'
 	close_sound = 'sound/machines/firewideclose.ogg'
+
+	var/list/vision_blockers
+
+/obj/machinery/door/firedoor/multi_tile/Initialize(mapload)
+	. = ..()
+	if(visible && !glass)
+		for(var/turf/turf in locs)
+			var/obj/effect/turf_vision_blocker/vision_blocker = new /obj/effect/turf_vision_blocker(turf)
+			LAZYADD(vision_blockers, vision_blocker)
+
+/obj/machinery/door/firedoor/multi_tile/Destroy()
+	QDEL_NULL_LIST(vision_blockers)
+	return ..()
+
+/obj/machinery/door/firedoor/multi_tile/set_opacity(var/new_opacity)
+	. = ..()
+	for(var/obj/effect/turf_vision_blocker/vision_blocker in vision_blockers)
+		vision_blocker.set_opacity(new_opacity)
+
+
+/obj/effect/turf_vision_blocker
+	name = "turf vision blocker"
+	opacity = FALSE

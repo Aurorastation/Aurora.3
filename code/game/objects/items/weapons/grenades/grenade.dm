@@ -11,7 +11,7 @@
 	item_state = "grenade"
 	throw_speed = 4
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	contained_sprite = 1
 	var/active = 0

@@ -123,7 +123,7 @@
 				F.coolant = ATM_CO2
 				continue
 			if(OPT_HYDROGEN)
-				F.coolant = ATM_H2
+				F.coolant = ATM_H
 				continue
 			if(OPT_NITROGEN)
 				F.coolant = ATM_N2

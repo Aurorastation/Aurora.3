@@ -86,7 +86,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/singleton/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/drugs/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"
@@ -251,7 +251,7 @@
 
 /datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
 	..()
-	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages)
+	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages, target.height, target.gender, target.pronouns, target.accent)
 	owner.absorbDNA(newDNA)
 
 //Boosts the range of your next sting attack by 1

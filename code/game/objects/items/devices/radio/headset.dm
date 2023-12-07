@@ -202,7 +202,7 @@
 	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
 	icon_state = "earset"
 	item_state = "earset"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/wrist
@@ -652,7 +652,7 @@
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/syndicate
@@ -678,6 +678,12 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/burglar
+
+/obj/item/device/radio/headset/jockey
+	icon_state = "syn_headset"
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+	ks1type = /obj/item/device/encryptionkey/jockey
 
 /obj/item/device/radio/headset/ninja
 	icon_state = "syn_headset"
@@ -716,6 +722,10 @@
 
 	if (use_common)
 		set_frequency(PUB_FREQ)
+
+/obj/item/device/radio/headset/ship/coalition_navy
+	icon_state = "coal_headset"
+	ks1type = /obj/item/device/encryptionkey/ship/coal_navy
 
 /obj/item/device/radio/headset/ship/common
 	use_common = TRUE

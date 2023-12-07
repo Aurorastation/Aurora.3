@@ -384,6 +384,8 @@ This function restores all organs.
 
 
 /mob/living/carbon/human/proc/get_organ(var/zone, var/allow_no_result = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/obj/item/organ)
 	if(!zone)
 		if(allow_no_result)
 			return

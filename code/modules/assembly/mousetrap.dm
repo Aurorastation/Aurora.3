@@ -88,7 +88,7 @@
 			triggered(AM)
 		else if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(!(H.shoes?.item_flags & LIGHTSTEP))
+			if(!(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP))
 				triggered(H)
 				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
 		else if(isliving(AM))

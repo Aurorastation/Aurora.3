@@ -13,8 +13,9 @@
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Coalition Ranger"
-	special_role = "Coalition Ranger"
+	assigned_role = "Frontier Ranger"
+	special_role = "Frontier Ranger"
+	faction = "Frontier Protection Bureau"
 	respawn_flag = null
 
 
@@ -27,7 +28,7 @@
 
 	id = /obj/item/card/id/ranger_ship
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
@@ -51,8 +52,8 @@
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Coalition Ranger Leader"
-	special_role = "Coalition Ranger Leader"
+	assigned_role = "Frontier Ranger Leader"
+	special_role = "Frontier Ranger Leader"
 
 
 /datum/outfit/admin/ranger/captain
@@ -62,4 +63,4 @@
 
 /obj/item/card/id/ranger_ship
 	name = "ranger ship id"
-	access = list(access_external_airlocks)
+	access = list(access_external_airlocks, access_coalition, access_coalition_navy)

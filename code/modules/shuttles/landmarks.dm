@@ -47,9 +47,10 @@
 	if(!docking_controller)
 		return
 	var/docking_tag = docking_controller
-	docking_controller = SSshuttle.docking_registry[docking_tag]
 	if(!istype(docking_controller))
-		LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+		docking_controller = SSshuttle.docking_registry[docking_tag]
+		if(!istype(docking_controller))
+			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/forceMove()
 	var/obj/effect/overmap/visitable/map_origin = map_sectors["[z]"]

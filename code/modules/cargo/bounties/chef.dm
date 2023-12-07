@@ -65,7 +65,9 @@
 			/obj/item/reagent_containers/food/snacks/amanita_pie,
 			/obj/item/reagent_containers/food/snacks/plump_pie,
 			/obj/item/reagent_containers/food/snacks/xemeatpie,
-			/obj/item/reagent_containers/food/snacks/cherrypie)
+			/obj/item/reagent_containers/food/snacks/cherrypie,
+			/obj/item/reagent_containers/food/snacks/sliceable/keylimepie,
+			/obj/item/reagent_containers/food/snacks/sliceable/giffypie)
 
 /datum/bounty/item/chef/salad
 	name = "Salad"
@@ -138,7 +140,7 @@
 	required_count = 8
 	random_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/muffin,
-			/obj/item/reagent_containers/food/snacks/nt_muffin,
+			/obj/item/reagent_containers/food/snacks/burger/nt_muffin,
 			/obj/item/reagent_containers/food/snacks/berrymuffin)
 
 /datum/bounty/item/chef/chawanmush
@@ -203,7 +205,8 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/boiledspaghetti,
 				/obj/item/reagent_containers/food/snacks/pastatomato,
-				/obj/item/reagent_containers/food/snacks/meatballspaghetti)
+				/obj/item/reagent_containers/food/snacks/meatballspaghetti,
+				/obj/item/reagent_containers/food/snacks/spaghettibolognese)
 
 /datum/bounty/item/chef/dumplings
 	name = "Meat Buns or Momo"
@@ -261,7 +264,8 @@
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/lortl,
 			/obj/item/reagent_containers/food/snacks/soup/qilvo,
 			/obj/item/reagent_containers/food/snacks/soup/zantiri,
-			/obj/item/reagent_containers/food/snacks/xuqqil)
+			/obj/item/reagent_containers/food/snacks/xuqqil,
+			/obj/item/reagent_containers/food/snacks/qlguabi)
 
 /datum/bounty/item/chef/curry
 	name = "Curry"
@@ -289,3 +293,48 @@
 	reward_low = 3700
 	reward_high = 4600
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/reubensandwich)
+
+/datum/bounty/item/chef/ravioli
+	name = "Ravioli"
+	description = "Somehow, %PERSONNAME has never had Ravioli before, so we've decided to do a themed office lunch. Send us some, please."
+	reward_low = 2800
+	reward_high = 3800
+	required_count = 4
+	random_count = 1
+	wanted_types = list(
+	/obj/item/reagent_containers/food/snacks/ravioli
+	)
+
+/datum/bounty/item/chef/ramen
+	name = "Ramen Bowl"
+	description = "%PERSONNAME thinks that Ramen is the instant, pre-packaged kind you get from machines and has never had the 'real' kind. We've allocated some morale funds to educate them, please send some good examples."
+	reward_low = 3000
+	reward_high = 3900
+	required_count = 3
+	random_count = 1
+	wanted_types = list(
+	/obj/item/reagent_containers/food/snacks/ramenbowl
+	)
+
+/datum/bounty/item/chef/matsuul
+	name = "Matsuul"
+	description = "After some incidents, we're running a workshop on collaborating in a multi-species workplace. We need a meal that represents collaboration between different species and cultures."
+	reward_low = 3000
+	reward_high = 3900
+	required_count = 3
+	random_count = 1
+	wanted_types = list(
+	/obj/item/reagent_containers/food/snacks/ramenbowl
+	)
+/datum/bounty/item/chef/roulades
+	name = "Roulades"
+	description = "%BOSSNAME is retiring after many beloved years in the company and we need some tasty treats for the retirement party we're throwing them."
+	reward_low = 2600
+	reward_high = 3500
+	required_count = 2
+	random_count = 1
+	wanted_types = list(
+	/obj/item/reagent_containers/food/snacks/sliceable/chocolateroulade,
+	/obj/item/reagent_containers/food/snacks/sliceable/ylpharoulade,
+	/obj/item/reagent_containers/food/snacks/sliceable/koisroulade
+	)

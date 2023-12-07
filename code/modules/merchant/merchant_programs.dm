@@ -20,6 +20,10 @@
 	var/temp
 	var/bank = 0 //A straight up money till
 
+/datum/computer_file/program/merchant/Destroy()
+	pad = null
+	. = ..()
+
 /datum/computer_file/program/merchant/proc/get_merchant(var/num)
 	if(num > SStrade.traders.len)
 		num = SStrade.traders.len

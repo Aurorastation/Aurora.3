@@ -83,7 +83,7 @@
 /datum/reagents/proc/process_reactions()
 	if(!my_atom?.loc)
 		return FALSE
-	if(my_atom.flags & NOREACT)
+	if(my_atom.atom_flags & ATOM_FLAG_NO_REACT)
 		return FALSE
 
 	var/reaction_occured

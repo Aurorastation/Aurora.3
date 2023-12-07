@@ -350,6 +350,12 @@
 	path = /obj/item/organ/internal/augment/venomous_rest
 	cost = 1
 
+/datum/gear/augment/autakh/ethanol_burner
+	display_name = "integrated ethanol burner"
+	description = "An augment spearheaded by the Dreg Aut'akh beneath Eridani, and perfected by the Razortails on Biesel, this burner lets Unathi consume ethanol with no health complications."
+	path = /obj/item/organ/internal/augment/ethanol_burner
+	cost = 1
+
 /datum/gear/augment/autakh/eyes
 	display_name = "eye augment selection"
 	description = "A selection of au'takh eye augments."
@@ -431,3 +437,26 @@
 	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/hegemony_passport
+	display_name = "hegemony passport"
+	path = /obj/item/clothing/accessory/badge/passport/hegemony
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/hegemony_passcards
+	display_name = "hegemony passcard selection"
+	path = /obj/item/clothing/accessory/badge/passcard/hegemony
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/hegemony_passcards/New()
+	..()
+	var/list/cards = list()
+	cards["hegemony passcard"] = /obj/item/clothing/accessory/badge/passcard/hegemony
+	cards["ouerea passcard"] = /obj/item/clothing/accessory/badge/passcard/ouerea
+	gear_tweaks += new /datum/gear_tweak/path(cards)

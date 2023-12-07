@@ -82,9 +82,9 @@
 	if(user != src)
 		set_intent(user.a_intent)
 		if(user.zone_sel)
-			zone_sel.set_selected_zone(user.zone_sel.selecting)
+			zone_sel.set_selected_zone(user.zone_sel.selecting, user)
 		else
-			zone_sel.set_selected_zone("chest")
+			zone_sel.set_selected_zone("chest", user)
 
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
@@ -480,7 +480,7 @@
 
 /mob/living/heavy_vehicle/attack_hand(var/mob/user)
 	// Drag the pilot out if possible.
-	if(user.a_intent == I_HURT || user.a_intent == I_GRAB)
+	if(user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))
 			to_chat(user, "<span class='warning'>There is nobody inside \the [src].</span>")
 		else if(!hatch_closed)
@@ -489,6 +489,11 @@
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
 				user.visible_message("<span class='danger'>\The [user] drags \the [pilot] out of \the [src]!</span>")
 				eject(pilot, silent=1)
+
+		return
+
+	if(user.a_intent == I_HURT)
+		attack_generic(user)
 		return
 
 	// Otherwise toggle the hatch.
@@ -500,6 +505,20 @@
 	hud_open.update_icon()
 	update_icon()
 	return
+
+/mob/living/heavy_vehicle/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+	if(!(user in pilots))
+		. = ..()
+
+		var/mob/living/carbon/human/H = user
+
+		if(!istype(H))
+			return
+
+		var/datum/martial_art/attacker_style = H.primary_martial_art
+		if(attacker_style && attacker_style.harm_act(H, src))
+			return TRUE
+
 
 
 /mob/living/heavy_vehicle/proc/attack_self(var/mob/user)
