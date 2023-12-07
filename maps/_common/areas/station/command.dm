@@ -56,6 +56,13 @@
 	area_blurb = "test"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
+/area/bridge/cciaroom/lounge
+	name = "Command - Human Resources Lounge"
+	icon_state = "hrlounge"
+	sound_env = SMALL_SOFTFLOOR
+	area_blurb = "test"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
 /area/bridge/selfdestruct
 	name = "Command - Station Authentication Terminal Safe"
 	icon_state = "bridge"
