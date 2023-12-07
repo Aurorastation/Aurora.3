@@ -5094,22 +5094,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"dYR" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, representatives office"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/lawoffice/representative_two)
 "dZt" = (
 /obj/structure/sink{
 	dir = 4;
@@ -8761,6 +8745,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"gmx" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, representatives office"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/lawoffice/representative_two)
 "gmF" = (
 /obj/machinery/alarm/east,
 /obj/structure/flora/pottedplant{
@@ -51418,7 +51418,7 @@ slo
 uFD
 uFD
 pxR
-dYR
+gmx
 hfB
 bJM
 oDy
