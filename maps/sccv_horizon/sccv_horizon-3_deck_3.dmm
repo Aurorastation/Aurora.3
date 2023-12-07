@@ -98,7 +98,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "sbridgedoor";
+	id_tag = "command_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -1135,6 +1135,7 @@
 /obj/structure/platform_deco{
 	icon_state = "ledge_deco"
 	},
+/obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aPq" = (
@@ -2704,7 +2705,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "";
+	id_tag = "bridge_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -4994,6 +4995,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "dSF" = (
@@ -5079,7 +5083,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "sbridgedoor";
+	id_tag = "command_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -7478,6 +7482,13 @@
 	pixel_y = 33;
 	pixel_x = 31
 	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	pixel_x = 26;
+	name = "Command Foyer Doors";
+	id = "command_foyer";
+	pixel_y = -3
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "fxk" = (
@@ -9187,6 +9198,14 @@
 /area/horizon/exterior)
 "gCH" = (
 /obj/structure/bed/stool/chair/office/bridge,
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	id = "bridge_foyer";
+	name = "Bridge Bolt Control";
+	pixel_x = 27;
+	pixel_y = -7;
+	req_access = list(19)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "gDa" = (
@@ -13221,7 +13240,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "sbridgedoor";
+	id_tag = "command_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -13357,6 +13376,9 @@
 	dir = 9
 	},
 /obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -18517,13 +18539,19 @@
 	pixel_y = -5
 	},
 /obj/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the office door.";
+	desc = "A remote control-switch for the command foyer doors.";
 	dir = 1;
-	id = "hopdoor";
-	name = "Office Door Control";
+	id = "command_foyer";
+	name = "Bridge Door Control";
 	pixel_x = -39;
 	pixel_y = 8;
 	req_access = list(57)
+	},
+/obj/machinery/computer/security/telescreen{
+	name = "Access Monitor";
+	network = list("XO_Office");
+	pixel_y = 24;
+	pixel_x = -32
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -20253,7 +20281,7 @@
 "oeb" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "sbridgedoor";
+	id_tag = "command_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -22328,6 +22356,10 @@
 /obj/random/junk,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
+"pKC" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
 "pKI" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -23869,7 +23901,7 @@
 "qSd" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "";
+	id_tag = "bridge_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -25244,6 +25276,11 @@
 	dir = 10
 	},
 /obj/machinery/light/floor,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - XO Line";
+	dir = 1;
+	network = list("Command","XO_Office")
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/upperdeck)
 "rQI" = (
@@ -27473,8 +27510,9 @@
 	},
 /obj/machinery/light,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Captain's Office Waiting Area";
-	dir = 1
+	c_tag = "Bridge - Captains Office Waiting Area";
+	dir = 1;
+	network = list("Command","Capt_Office")
 	},
 /turf/simulated/floor/wood,
 /area/bridge)
@@ -27626,7 +27664,7 @@
 "tzE" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "";
+	id_tag = "bridge_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -30113,11 +30151,6 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Command Entrance";
-	dir = 1;
-	network = list("Third Deck","Command")
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "vlj" = (
@@ -31570,9 +31603,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/effect/map_effect/door_helper/level_access{
-	dir = 1
-	},
+/obj/effect/map_effect/door_helper/level_access/command_stairwell,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "wmE" = (
@@ -32552,7 +32583,11 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Command Entrance";
+	dir = 1;
+	network = list("Third Deck","Command","XO_Office","Capt_Office")
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "wUu" = (
@@ -33963,7 +33998,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
-	id_tag = "";
+	id_tag = "bridge_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
@@ -55657,7 +55692,7 @@ ujy
 rMV
 rMV
 hmp
-dHs
+pKC
 hij
 hij
 hij

@@ -49,4 +49,12 @@
     "blue" = list(19,38),
     "red" = list(19,38),
     "delta" = list(19,38)
-)
+	)
+
+/obj/effect/map_effect/door_helper/level_access/command_stairwell
+	access_by_level = list(
+	"green" = list(19,28,38),
+	"blue" = list(19,38),
+	"red" = list(19,38),
+	"delta" = list(19,38)
+	)
