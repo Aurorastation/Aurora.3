@@ -6,7 +6,7 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -72,8 +72,10 @@
 	hold.attackby(W, user)
 
 /obj/item/clothing/head/helmet/emp_act(severity)
-	if(has_storage) hold.emp_act(severity)
-	return ..()
+	. =  ..()
+
+	if(has_storage)
+		hold.emp_act(severity)
 
 /obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	if(has_storage) hold.hear_talk(M, msg, verb, speaking)

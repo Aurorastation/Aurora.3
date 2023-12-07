@@ -248,17 +248,17 @@ There are several things that need to be remembered:
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
-	var/image/standing_image = overlays_raw[DAMAGE_LAYER]
-	if(standing_image)
+
+	var/list/ovr
+	if(overlays_raw[DAMAGE_LAYER])
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
 				continue
 			var/bandage_level = O.bandage_level()
 			if(bandage_level)
-				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
+				LAZYADD(ovr, image(bandage_icon, "[O.icon_name][bandage_level]"))
 
-		overlays_raw[DAMAGE_LAYER] = standing_image
-
+	overlays_raw[BANDAGE_LAYER] = ovr
 	if(update_icons)
 		update_icon()
 

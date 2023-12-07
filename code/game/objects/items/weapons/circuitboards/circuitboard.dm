@@ -12,7 +12,7 @@
 	item_state = "electronic"
 	origin_tech = list(TECH_DATA = 2)
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5
 	throwforce = 5
 	throw_speed = 3

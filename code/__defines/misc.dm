@@ -142,13 +142,13 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
-#define SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE        	 BITFLAG(4)
-#define NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
-#define NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
+#define AREA_FLAG_SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
+#define AREA_FLAG_HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
+#define AREA_FLAG_FIRING_RANGE        	 BITFLAG(4)
+#define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
+#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -477,8 +477,7 @@ example:
 #define CONTAINER_EMPTY		0
 #define CONTAINER_SINGLE	1
 #define CONTAINER_MANY		2
-//Misc text define. Does 4 spaces. Used as a makeshift tabulator.
-#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+
 #define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
 
 // check_items/check_reagents/check_fruits return values
@@ -499,10 +498,15 @@ example:
 #define HABITABILITY_BAD  3
 
 //Map template flags
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1 // Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2 // Makes it ignore away site budget and just spawn (only for away sites)
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   4 // if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
+/// Lets multiple copies of the template to be spawned
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1
+/// Makes it ignore away site budget and just spawn (works only for away sites)
+/// A site needs to be set to spawn in current sector to be considered still
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2
+/// if it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   4
+/// if it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RUINS         8
 
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet

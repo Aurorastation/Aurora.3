@@ -111,7 +111,8 @@
 	return servo_cost
 
 /obj/item/organ/internal/cell/emp_act(severity)
-	..()
+	. = ..()
+
 	if(cell)
 		cell.emp_act(severity)
 

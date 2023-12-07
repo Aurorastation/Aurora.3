@@ -4,6 +4,10 @@
 /obj/item/reagent_containers/food/snacks
 	var/tmp/list/cooked
 
+//similar process for food containers that you can create via a cooking process
+/obj/item/storage/box/fancy/food
+	var/tmp/list/cooked
+
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
 	name = "cooker"

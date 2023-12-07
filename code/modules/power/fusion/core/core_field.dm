@@ -2,6 +2,7 @@
 #define FUSION_INSTABILITY_DIVISOR 50000
 #define FUSION_RUPTURE_THRESHOLD   10000
 #define FUSION_REACTANT_CAP        10000
+#define FUSION_WARNING_DELAY 20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -18,6 +19,7 @@
 	var/field_strength = 0.01
 	var/tick_instability = 0
 	var/percent_unstable = 0
+	var/percent_unstable_archive = 0
 
 	var/obj/machinery/power/fusion_core/owned_core
 	var/list/reactants = list()
@@ -44,6 +46,14 @@
 	particles = new/particles/fusion
 
 	var/animating_ripple = FALSE
+
+	var/obj/item/device/radio/radio
+	var/safe_alert = "NOTICE: INDRA reactor stabilizing."
+	var/safe_warned = FALSE
+	var/public_alert = FALSE
+	var/warning_alert = "WARNING: INDRA reactor destabilizing!"
+	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
+	var/lastwarning = 0
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -112,6 +122,7 @@
 /obj/effect/fusion_em_field/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(update_light_colors)), 10 SECONDS, TIMER_LOOP)
+	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
 /obj/effect/fusion_em_field/proc/update_light_colors()
 	var/use_range
@@ -202,6 +213,11 @@
 			radiation += radiate
 
 	check_instability()
+
+	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
+		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
+			warning()
+
 	Radiate()
 	if(radiation)
 		SSradiation.radiate(src, round(radiation*0.001))
@@ -209,6 +225,7 @@
 
 /obj/effect/fusion_em_field/proc/check_instability()
 	if(tick_instability > 0)
+		percent_unstable_archive = percent_unstable
 		percent_unstable += (tick_instability*size)/FUSION_INSTABILITY_DIVISOR
 		tick_instability = 0
 		UpdateVisuals()
@@ -270,6 +287,47 @@
 					Radiate()
 			Ripple(wave_size, ripple_radius)
 	return
+
+/obj/effect/fusion_em_field/proc/warning()
+	var/unstable = round(percent_unstable * 100)
+	var/alert_msg = " Instability at [unstable]%."
+
+	if(percent_unstable > 0.5)
+		if(percent_unstable >= percent_unstable_archive)
+			if(percent_unstable < 0.7)
+				alert_msg = warning_alert + alert_msg
+				lastwarning = world.timeofday
+				safe_warned = FALSE
+			else if(percent_unstable < 0.9)
+				alert_msg = emergency_alert + alert_msg
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
+			else if(percent_unstable > 0.9)
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
+				alert_msg = emergency_alert + alert_msg
+			else
+				alert_msg = null
+		else if(!safe_warned)
+			safe_warned = TRUE
+			alert_msg = safe_alert
+			lastwarning = world.timeofday
+		else
+			alert_msg = null
+	else
+		alert_msg = null
+	if(alert_msg)
+		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
+
+		if((percent_unstable > 0.9) && !public_alert)
+			alert_msg = null
+			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
+			public_alert = TRUE
+			for(var/mob/M in player_list)
+				var/turf/T = get_turf(M)
+				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
+					sound_to(M, 'sound/effects/nuclearsiren.ogg')
+		else if(safe_warned && public_alert)
+			radio.autosay(alert_msg, "INDRA Reactor Monitor")
+			public_alert = FALSE
 
 /obj/effect/fusion_em_field/proc/Ripple(_size, _radius)
 	if(!animating_ripple)
@@ -366,7 +424,6 @@
 
 /obj/effect/fusion_em_field/proc/Radiate()
 	if(istype(loc, /turf))
-		var/empsev = max(1, min(3, Ceil(size/2)))
 		for(var/atom/movable/AM in range(max(1,Floor(size/2)), loc))
 
 			if(AM == src || AM == owned_core || !AM.simulated)
@@ -382,7 +439,7 @@
 
 			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"))
 			tick_instability += rand(30,50)
-			AM.emp_act(empsev)
+			AM.emp_act(EMP_LIGHT)
 
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()
@@ -524,6 +581,7 @@
 	set_light(0)
 	RadiateAll()
 	QDEL_NULL_LIST(particle_catchers)
+	QDEL_NULL(radio)
 	if(owned_core)
 		owned_core.owned_field = null
 		owned_core = null

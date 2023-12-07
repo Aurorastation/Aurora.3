@@ -10,8 +10,11 @@
 	health = 200
 
 /obj/structure/closet/emp_act(severity)
+	. = ..()
+
 	if(!secure)
 		return
+
 	for(var/obj/O in src)
 		O.emp_act(severity)
 	if(!broken)
@@ -24,7 +27,6 @@
 			else
 				req_access = list()
 				req_access += pick(get_all_station_access())
-	..()
 
 /obj/structure/closet/proc/togglelock(mob/user as mob, silent)
 	if(use_check_and_message(user))

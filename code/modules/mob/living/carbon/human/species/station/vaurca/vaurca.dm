@@ -129,7 +129,8 @@
 		)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/hivenet_recieve
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
 	)
 
 	default_h_style = "Classic Antennae"

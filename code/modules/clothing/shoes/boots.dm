@@ -141,7 +141,7 @@
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_MINOR
 	)
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.35
 	can_hold_knife = TRUE
 	build_from_parts = TRUE

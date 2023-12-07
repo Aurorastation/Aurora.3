@@ -168,6 +168,7 @@
 #define BP_AUG_FUEL_CELL       "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER    "integrated air analyzer"
 #define BP_AUG_LANGUAGE        "integrated language processor"
+#define BP_AUG_ETHANOL_BURNER  "integrated ethanol burner"
 #define BP_AUG_PSI             "psionic receiver"
 #define BP_AUG_CALF_OVERRIDE   "calf overdrive"
 #define BP_AUG_MEMORY          "memory inhibitor"
@@ -218,6 +219,7 @@
 #define APPEARANCE_ALL						65535
 #define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 #define APPEARANCE_PLASTICSURGERY 			(APPEARANCE_ALL & ~APPEARANCE_RACE)
+#define APPEARANCE_SURGERYKIT				(APPEARANCE_PLASTICSURGERY & ~APPEARANCE_LANGUAGE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions

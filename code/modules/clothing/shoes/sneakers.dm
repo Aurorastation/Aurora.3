@@ -89,7 +89,7 @@
 	item_state = "black"
 
 /obj/item/clothing/shoes/sneakers/black/noslip
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 
 /obj/item/clothing/shoes/sneakers/rainbow
 	name = "rainbow shoes"

@@ -92,6 +92,7 @@
 	if(user)
 		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
+	update_light()
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
@@ -103,6 +104,17 @@
 		src.add_fingerprint(user)
 	else
 		src.forceMove(get_turf(src))
+	update_light()
+
+/obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
+	update_light()
+
+/obj/item/clothing/accessory/get_light_atom()
+	if(isclothing(loc))
+		if(ismob(loc.loc))
+			return loc.loc
+		return loc
+	return ..()
 
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/I, mob/user)
@@ -1349,3 +1361,31 @@
 /obj/item/clothing/accessory/pronoun/ask
 	name = "please ask! pronouns pin"
 	desc = "A pin asking others to ask for their pronouns."
+
+/obj/item/clothing/accessory/led_collar
+	name = "\improper LED collar"
+	desc = "A collar, usually worn around the neck of a voidsuit, that allows others to easily identify the wearer."
+	icon = 'icons/clothing/accessories/led_collar.dmi'
+	icon_state = "led_collar"
+	item_state = "led_collar"
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_UTILITY_MINOR
+
+/obj/item/clothing/accessory/led_collar/Initialize()
+	. = ..()
+	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
+	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+
+/obj/item/clothing/accessory/led_collar/attack_self(mob/user)
+	. = ..()
+	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
+	if(new_color)
+		color = new_color
+		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+
+/obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+	var/image/I = ..()
+	I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	I.appearance_flags |= KEEP_APART
+	return I

@@ -15,6 +15,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	human_mob_list -= src
 	delete_inventory()
 
+/mob/living/carbon/human/vatgrown/Initialize(mapload)
+	. = ..(mapload, SPECIES_HUMAN_VATGROWN)
+	mob_thinks = FALSE
+
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, SPECIES_SKRELL)

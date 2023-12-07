@@ -9,28 +9,25 @@
 	book_name = "book of the eternal"
 	book_sprite = "eternal"
 
-/datum/religion/ksshr
-	name = RELIGION_KSSHR
-	description = "The Ksshr, also known as the Enlightened, is a religious sect on Xrim known for their complete rejection of The First Consciousness, instead of being an agnostic \
-	sect that centers around working together to create a better future, as well as the advancement of technology and understanding how the universe works. The Ksshr faith is the \
-	primary religion of Xrim, with most of its inhabitants considering themselves a part of the religion. The Nralakk Federation does encourage practicing the faith amongst the \
-	population so long as they continue to reject The First Consciousness, as well as stay away from the teachings of the Shrkh."
-	book_name = "ksshr codex"
-	book_sprite = "holybook"
+/datum/religion/eternal/ichor
+	name = RELIGION_ETERNAL_ICHOR
+	description = "A more 'new age' belief, Ichor Eternal is considerably different than its other counterparts. Often referred to as Blood Eternal, for those not really aware of its motifs, \
+	it puts emphasis on the need to explore and utilize the Dionae's genetic learning abilities to truly ascend to the Eternal's reality and reach the Eternal's Embrace. Led by Seasoned Song-minded \
+	Argus Rationing Knowledge of Embodied Sanguis - also the Director of the Ichor Genetic Learning Organisation (or merely Iglo) - since the early 2440s CE. Though it relies on some elements of \
+	Orthodox Eternal, it doesn't place as much focus on learning through regular methods, but instead acquiring knowledge through regular intake of DNA which can easily be obtained from blood donations. \
+	Though some may elect to gain knowledge through scholarly application, sometimes necessary for one to find occupation within the greater Orion Spur, many rely on their genetic learning abilities to \
+	gain experiences, knowledge and skills so upon death they may gain entry into the Eternal's Embrace."
+	book_name = "book of sanguis"
 
-/datum/religion/shrkh
-	name = RELIGION_SHRKH
-	description = "The Shrkh, or 'Scorned' as they call themselves, continue to follow the age-old tradition of worshipping Glorsh-Omega. They believe that Glorsh-Omega planted them \
-	on the planet intentionally, granting them a blissful haven via the use of technology. Once the prominent and only religion on the planet, Shrkh-ism was quickly displaced when \
-	Skrell explorers crashlanded and their memories, thoughts, emotions, everything was consumed, and doubt was first seeded in the minds of all Dionae on Xrim. The premise \
-	behind the religion itself is simple; revere, help sustain and maintain synthetic life. As synthetic life brought dionae into this haven, so too shall it be preserved. In the \
-	minds of the Shrkh worshippers, the Skrell that brought Ksshr to the planet were misguided. To the Shrkh, the X'Lu'oa was something that never happened, a myth made up by \
-	the Federation to indoctrinate its population into its anti-synthetic and authoritarian beliefs. \
-	\
-	Note that due to their beliefs, those that are openly members of the faith are barred from command, machinist, and chaplain positions. They are also completely barred from \
-	working for Zeng-Hu due to the megacorporations ties with the Federation."
-	book_name = "shrkh codex"
-	book_sprite = "holybook"
+/datum/religion/eternal/iron
+	name = RELIGION_ETERNAL_IRON
+	description = "Though within the Iron Eternal there exists two different interpretations, such as the Scorned and Enlightened versions, it is \
+	followed predominately by those originating from the Covenant of Xrim, and those that are supportive of technology and synthetics. It follows the same basic doctrine of Orthodox Eternal, \
+	however, with the primary difference being that they view the Eternal as existing within the material universe, and upon the death of a Dionae their memories and experiences are lost. \
+	Dionae must utilize machinery and technology to reach their full potential, with some devout followers even fusing with special machinery that provides improved data processing abilities, \
+	retention of data and enhancement of existing biological functions. This is often hailed as allowing easier transfer of knowledge in life and in death, simply exchanging pieces of machinery \
+	with one another to spread experiences and skills."
+	book_name = "book of iron"
 
 /datum/religion/mada
 	name = RELIGION_MADA

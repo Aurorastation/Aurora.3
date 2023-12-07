@@ -117,7 +117,7 @@
 
 	var/obj/item/M = new augment_type(owner)
 	M.canremove = FALSE
-	M.item_flags |= NOMOVE
+	M.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.equip_to_slot(M, aug_slot)
 	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
 	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
@@ -311,10 +311,12 @@
 		return
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
-	..()
+	. = ..()
+
 	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
 	if(!E)
 		return
+
 	E.take_damage(5)
 
 /obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
@@ -425,6 +427,10 @@
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
 
+/obj/item/organ/internal/augment/ethanol_burner
+	name = "integrated ethanol burner"
+	organ_tag = BP_AUG_ETHANOL_BURNER
+
 // Geeves!
 /obj/item/organ/internal/augment/language
 	name = "language processor"
@@ -449,9 +455,11 @@
 
 /obj/item/organ/internal/augment/language/emp_act()
 	. = ..()
+
 	for(var/language in added_languages)
 		if(prob(25))
 			owner.remove_language(language)
+
 	owner.set_default_language(pick(owner.languages))
 
 /obj/item/organ/internal/augment/language/klax
@@ -578,7 +586,8 @@
 	return TRUE
 
 /obj/item/organ/internal/augment/memory_inhibitor/emp_act(severity)
-	..()
+	. = ..()
+
 	if(prob(25))
 		do_broken_act()
 
@@ -654,10 +663,12 @@
 	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
-	..()
+	. = ..()
+
 	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
 	if(!E)
 		return
+
 	E.take_damage(5)
 
 /obj/item/organ/internal/augment/sightlights

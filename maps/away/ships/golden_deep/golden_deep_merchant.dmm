@@ -2138,7 +2138,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
 "vK" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor/gold,
@@ -2229,7 +2229,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/custodial)
 "wH" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/gold,
