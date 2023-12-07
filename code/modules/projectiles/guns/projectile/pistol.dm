@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/pattern5
-	name = "\improper CAISC 4.6mm pistol"
+	name = "\improper San Colettian 4.6mm pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
 	desc_extended = "The Pattern 5 pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a smaller, but faster 4.7mm round intended for use against armoured targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -46,7 +46,7 @@
 		return 1
 
 /obj/item/gun/projectile/pattern5/super
-	name = "ornamental CAISC 4.6mm pistol"
+	name = "ornamental San Colettian 4.6mm pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a smaller, but faster 4.7mm round intended for use against armoured targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -63,7 +63,7 @@
 		icon_state = "coltsuper-e"
 
 /obj/item/gun/projectile/automatic/pattern6
-	name = "\improper CAISC 4.6mm machine pistol"
+	name = "\improper San Colettian 4.6mm machine pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
 	desc_extended = "The Pattern 6 machine pistol is the standard-issue personal defense weapon for the Civil Guard, San Colette’s local military force. Modified from the Pattern 5, the Pattern 6 is given a sturdier frame designed to allow controlled automatic fire. \
 	The P6 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
