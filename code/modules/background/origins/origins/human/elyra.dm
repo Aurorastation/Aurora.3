@@ -54,6 +54,13 @@
 	possible_citizenships = list(CITIZENSHIP_ELYRA, CITIZENSHIP_ELYRA_NCP)
 	possible_religions = RELIGIONS_ELYRA
 
+/singleton/origin_item/origin/bursa
+	name = "Bursa"
+	desc = "The only habitable planet in the Alaz-Khan star system, Bursa is an arctic world primarily fueled by mining and industry, known for its strong emphasis on community ties and patriotism. In recent years the planet was a victim of attacks by the Lii’dra, leaving thousands dead and many more scarred by the events."
+	possible_accents = list(ACCENT_BURSA)
+	possible_citizenships = list(CITIZENSHIP_ELYRA, CITIZENSHIP_ELYRA_NCP)
+	possible_religions = RELIGIONS_ELYRA
+
 /singleton/origin_item/origin/other_elyran
 	name = "Other Elyran"
 	desc = "The Republic controls many worlds, from mostly-barren mining colonies on asteroids to the frigid climate of Bursa to the bustling capital of Persepolis. The citizens of these worlds and colonies are unified by their loyalty to the Republic and Elyra's unique culture, which has been influenced by its roots upon Earth."
