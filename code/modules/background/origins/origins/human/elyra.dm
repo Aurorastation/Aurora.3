@@ -8,6 +8,7 @@
 		/singleton/origin_item/origin/medina,
 		/singleton/origin_item/origin/aemaq,
 		/singleton/origin_item/origin/new_suez,
+		/singleton/origin_item/origin/bursa,
 		/singleton/origin_item/origin/other_elyran
 	)
 
