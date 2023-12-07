@@ -51318,6 +51318,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xWb" = (
