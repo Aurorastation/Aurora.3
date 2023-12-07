@@ -53,7 +53,7 @@
 	desc = "A set of specialized tools that functions as both the ordinary crowbar, but is additionally capable of brute forcing bolted doors without power."
 	icon = 'icons/obj/item/tools/jawsoflife.dmi'
 	icon_state = "jawspry"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	force = 0
 	sharp = FALSE
 	edge = FALSE

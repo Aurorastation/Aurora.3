@@ -62,15 +62,18 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		..()
 
 /obj/item/implant/chem/emp_act(severity)
+	. = ..()
+
 	if (malfunction)
 		return
+
 	malfunction = MALFUNCTION_TEMPORARY
 
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			if(prob(60))
 				activate(20)
-		if(2)
+		if(EMP_LIGHT)
 			if(prob(30))
 				activate(5)
 

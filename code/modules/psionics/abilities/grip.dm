@@ -18,10 +18,12 @@
 	var/mob/living/victim
 
 /obj/item/spell/grip/Destroy()
-	victim.SetStunned(0)
-	victim.update_canmove()
+	if(victim)
+		victim.SetStunned(0)
+		victim.update_canmove()
 	victim = null
-	return ..()
+
+	. = ..()
 
 /obj/item/spell/grip/on_use_cast(mob/user, bypass_psi_check)
 	if(!victim)

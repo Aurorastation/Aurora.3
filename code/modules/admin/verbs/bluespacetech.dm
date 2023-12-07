@@ -463,7 +463,7 @@
 	name = "bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	canremove = 0
 
 /obj/item/clothing/shoes/sneakers/black/bst/attack_hand()

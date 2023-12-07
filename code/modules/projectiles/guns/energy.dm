@@ -46,8 +46,9 @@
 	if(.)
 		update_icon()
 
-/obj/item/gun/energy/emp_act(var/severity)
-	..()
+/obj/item/gun/energy/emp_act(severity)
+	. = ..()
+
 	disable_cell_temp(severity)
 	queue_icon_update()
 

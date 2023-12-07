@@ -172,6 +172,8 @@
 		update_held_icon()
 
 /obj/item/technomancer_core/emp_act()
+	. = ..()
+
 	set_appearance_to(type)
 
 // This is what is clicked on to place a spell in the user's hands.

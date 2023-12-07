@@ -23,6 +23,10 @@
 #define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 #define SPAN_HEAR(X) ("<span class='hear'>" + X + "</span>")
 
+#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
+#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
+#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
+
 #define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
 
 #define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
@@ -139,6 +143,9 @@
 #define isdatum(target) istype(target, /datum)
 #define isitem(D) istype(D, /obj/item)
 #define islist(D) istype(D, /list)
+
+/// Semantic define for a 0 int intended for use as a bitfield
+#define EMPTY_BITFIELD 0
 
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
 #define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}

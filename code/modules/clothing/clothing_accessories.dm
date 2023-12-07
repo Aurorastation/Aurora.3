@@ -97,6 +97,16 @@
 		for(var/obj/item/clothing/accessory/A in accessories)
 			to_chat(user, SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it."))
 
+/obj/item/clothing/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		bling.on_clothing_change(user)
+
+/obj/item/clothing/dropped(mob/user)
+	. = ..()
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		bling.on_clothing_change(user)
+
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
 	for(var/obj/item/clothing/accessory/bling in accessories)
@@ -154,7 +164,8 @@
 		verbs -= /obj/item/clothing/proc/removetie_verb
 
 /obj/item/clothing/emp_act(severity)
+	. = ..()
+
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.emp_act(severity)
-	..()

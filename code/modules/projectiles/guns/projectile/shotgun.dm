@@ -4,6 +4,7 @@
 	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
 	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
 	into the shotgun, then pump the shotgun to chamber a fresh round."
+	accuracy = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -48,10 +49,11 @@
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
+	accuracy = 0
 	max_shells = 4
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
@@ -112,6 +114,7 @@
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	accuracy = 2
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
@@ -140,7 +143,7 @@
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
 	slot_flags = SLOT_BACK
@@ -183,6 +186,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	w_class = ITEMSIZE_NORMAL
 	force = 5
@@ -198,6 +202,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet

@@ -47,7 +47,7 @@
 		//IPCs leak oil
 		to_chat(src, SPAN_WARNING("[T] is not a creature you can drain useful blood from."))
 		return
-	if(T.head && (T.head.item_flags & AIRTIGHT))
+	if(T.head && (T.head.item_flags & ITEM_FLAG_AIRTIGHT))
 		to_chat(src, SPAN_WARNING("[T]'s headgear is blocking the way to the neck."))
 		return
 	var/obj/item/blocked = check_mouth_coverage()

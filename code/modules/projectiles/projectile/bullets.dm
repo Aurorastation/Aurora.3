@@ -92,11 +92,21 @@
 		if(target_mob.lying && target_mob != original && prob(prone_chance))
 			continue
 
-		//pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
-		//whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
+		// pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
+		// whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		if (..()) hits++
+		// relatively hacky way of basing a shotgun pellet's likelihood of hitting on the first pellet of the burst while not affecting shrapnel explosions.
+		if (base_spread > 0)
+			if (i == 1)
+				if (..())
+					hits++
+				else
+					return 0
+			else if (..(target_mob, distance, -100))
+				hits++
+		else if (..())
+			hits++
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
 	pellets -= hits //each hit reduces the number of pellets left
@@ -122,11 +132,11 @@
 	name = "rubber ball"
 	icon_state = "pellets"
 	damage = 2
-	agony = 45
+	agony = 50
 	embed = FALSE
 	var/balls = 4
 	///projectile will lose a fragment each time it travels this distance. Can be a non-integer.
-	var/range_step = 2
+	var/range_step = 3
 	var/base_spread = 90
 	var/spread_step = 10
 

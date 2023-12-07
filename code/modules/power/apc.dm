@@ -1158,6 +1158,7 @@
 	data["power_cell_charge"] = cell?.percent()
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
+	data["is_AI"] = isAI(user)
 	data["total_load"] = round(lastused_total)
 	data["total_charging"] = round(lastused_charging)
 	data["is_operating"] = operating
@@ -1529,6 +1530,8 @@
 
 // damage and destruction acts
 /obj/machinery/power/apc/emp_act(severity)
+	. = ..()
+
 	if(cell)
 		cell.emp_act(severity)
 
@@ -1539,7 +1542,6 @@
 	update_icon()
 
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), 600)
-	..()
 
 /obj/machinery/power/apc/proc/post_emp_act()
 	update_channels()

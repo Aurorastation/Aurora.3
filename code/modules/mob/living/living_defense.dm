@@ -113,10 +113,11 @@
 	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
+	. = ..()
+
 	var/list/L = src.get_contents()
 	for(var/obj/O in L)
 		O.emp_act(severity)
-	..()
 
 /mob/living/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(is_blind() && !(override_blindness_check || affect_silicon))

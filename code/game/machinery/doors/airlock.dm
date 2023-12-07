@@ -214,8 +214,6 @@
 	if (glass)
 		paintable |= AIRLOCK_PAINTABLE_WINDOW
 		window_material = SSmaterials.get_material_by_name(init_material_window)
-		if (!window_color)
-			window_color = window_material.icon_colour
 		opacity = FALSE
 	update_icon()
 
@@ -409,6 +407,8 @@
 	return
 
 /obj/machinery/door/airlock/centcom/emp_act()
+	. = ..()
+
 	return
 
 /obj/machinery/door/airlock/glass_centcom
@@ -447,6 +447,8 @@
 	return
 
 /obj/machinery/door/airlock/glass_centcom/emp_act()
+	. = ..()
+
 	return
 
 /obj/machinery/door/airlock/proc/paint_airlock(paint_color)
@@ -460,8 +462,6 @@
 /obj/machinery/door/airlock/proc/paint_window(paint_color)
 	if (paint_color)
 		window_color = paint_color
-	else if (window_material?.icon_colour)
-		window_color = window_material.icon_colour
 	else
 		window_color = GLASS_COLOR
 	update_icon()
@@ -2021,11 +2021,12 @@ About the new airlock wires panel:
 		electronics.one_access = 1
 
 /obj/machinery/door/airlock/emp_act(var/severity)
+	. = ..()
+
 	if(prob(40/severity))
 		var/duration = SecondsToTicks(30 / severity)
 		if(electrified_until > -1 && (duration + world.time) > electrified_until)
 			electrify(duration)
-	..()
 
 /obj/machinery/door/airlock/power_change() //putting this is obj/machinery/door itself makes non-airlock doors turn invisible for some reason
 	..()

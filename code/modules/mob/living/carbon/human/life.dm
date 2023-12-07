@@ -268,11 +268,11 @@
 	/** breathing **/
 
 /mob/living/carbon/human/handle_chemical_smoke(var/datum/gas_mixture/environment)
-	if(wear_mask && (wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
-	if(glasses && (glasses.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(glasses && (glasses.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
-	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(head && (head.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
 	..()
 
@@ -285,7 +285,7 @@
 			if(!rig.offline && (rig.air_supply && internal == rig.air_supply))
 				rig_supply = rig.air_supply
 
-		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & AIRTIGHT)) || (head && (head.item_flags & AIRTIGHT)))))
+		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)) || (head && (head.item_flags & ITEM_FLAG_AIRTIGHT)))))
 			internal = null
 
 		if(internal)
