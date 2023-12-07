@@ -7055,12 +7055,12 @@
 	pixel_x = 4;
 	pixel_y = -24
 	},
-/obj/item/gun/projectile/pistol,
-/obj/item/gun/projectile/pistol,
-/obj/item/gun/projectile/pistol,
-/obj/item/gun/projectile/pistol,
-/obj/item/gun/projectile/pistol,
-/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
