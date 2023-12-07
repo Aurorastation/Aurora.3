@@ -95,7 +95,7 @@
 	icon_state = "red2"
 
 /area/burszia_station/arrivalshall
-	name = Arrivals Hallway"
+	name = "Arrivals Hallway"
 	icon_state = "blue-red-d"
 
 /area/burszia_station/custodial
