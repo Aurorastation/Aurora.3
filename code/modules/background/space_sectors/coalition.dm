@@ -65,6 +65,8 @@
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
+	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
+	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'//placeholder
 	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
