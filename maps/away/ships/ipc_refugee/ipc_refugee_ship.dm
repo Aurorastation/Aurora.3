@@ -7,6 +7,8 @@
 	ship_cost = 1
 	id = "ipc_refugee_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ipc_refugee_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/ipc_refugee_ship
 	map = "IPC Refugee Ship"
