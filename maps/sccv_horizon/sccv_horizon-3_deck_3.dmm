@@ -99,9 +99,11 @@
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "sbridgedoor";
-	name = "Bridge"
+	name = "Bridge";
+	req_one_access = list(19,38)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "adi" = (
@@ -5078,13 +5080,15 @@
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "sbridgedoor";
-	name = "Bridge"
+	name = "Bridge";
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "securitycommandshutter";
 	name = "Security Checkpoint External Shutter"
 	},
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "dYO" = (
@@ -13218,7 +13222,8 @@
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "sbridgedoor";
-	name = "Bridge"
+	name = "Bridge";
+	req_one_access = list(19,38)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters/open{
@@ -13229,6 +13234,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "jvo" = (
@@ -20248,7 +20254,8 @@
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "sbridgedoor";
-	name = "Bridge"
+	name = "Bridge";
+	req_one_access = list(19,38)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -20256,6 +20263,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "oeg" = (
@@ -31561,6 +31569,9 @@
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
+	},
+/obj/effect/map_effect/door_helper/level_access{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)

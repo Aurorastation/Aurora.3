@@ -42,3 +42,11 @@
 
 /obj/effect/map_effect/door_helper/level_access/test2
 	req_one_access_by_level = list("green" = list(access_security, access_heads))
+
+/obj/effect/map_effect/door_helper/level_access/command_foyer
+	access_by_level = list(
+    "green",
+    "blue" = list(19,38),
+    "red" = list(19,38),
+    "delta" = list(19,38)
+)
