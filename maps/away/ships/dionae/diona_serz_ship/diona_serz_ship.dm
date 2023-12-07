@@ -8,6 +8,8 @@
 	id = "diona_serz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_serz_ship_shuttle)
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/diona_serz_ship
 	map = "Serz Clan Ship"
 	descriptor = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
@@ -77,8 +79,8 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_serz_ship/New()
-    designation = "[pick("Trawler", "Floating Spear ", "Harpoon")]"
-    ..()
+	designation = "[pick("Trawler", "Floating Spear ", "Harpoon")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/diona_serz_ship/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "diona")

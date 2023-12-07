@@ -26,7 +26,7 @@
 		icon_state = pick(src.random_icon_states)
 	. = ..()
 	if (!mapload && ROUND_IS_STARTED)
-		SSfeedback.IncrementSimpleStat("messes_made")
+		SSstatistics.IncrementSimpleStat("messes_made")
 
 	var/turf/T = get_turf(src)
 	if(!T?.is_space())

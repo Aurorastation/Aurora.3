@@ -21,8 +21,9 @@
 /obj/item/tank/oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/oxygen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 10)
+/obj/item/tank/oxygen/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 10)
 		to_chat(user, text("<span class='warning'>The meter on \the [src] indicates you are almost out of oxygen!</span>"))
 
 /obj/item/tank/oxygen/yellow
@@ -75,8 +76,9 @@
 /obj/item/tank/air/adjust_initial_gas()
 	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
-/obj/item/tank/air/examine(mob/user)
-	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
+/obj/item/tank/air/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
 		to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
 
 /*
@@ -88,7 +90,7 @@
 	icon_state = "phoron"
 	item_state = "phoron"
 	gauge_icon = null
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = null	//they have no straps!
 
 /obj/item/tank/phoron/adjust_initial_gas()
@@ -117,7 +119,7 @@
 	desc = "Contains gaseous hydrogen. Do not inhale. Warning: extremely flammable."
 	icon_state = "hydrogen"
 	item_state = "hydrogen"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/tank/hydrogen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_HYDROGEN, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
@@ -136,7 +138,7 @@
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"
 	gauge_cap = 4
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	force = 4.0
@@ -146,8 +148,9 @@
 /obj/item/tank/emergency_oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/emergency_oxygen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
+/obj/item/tank/emergency_oxygen/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
 		to_chat(user, text("<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>"))
 
 /obj/item/tank/emergency_oxygen/engi

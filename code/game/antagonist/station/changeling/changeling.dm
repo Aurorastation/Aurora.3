@@ -88,7 +88,7 @@
 					if(player.current.client.prefs.organ_data["torso"] == "cyborg") // Full synthetic.
 						return 0
 					return 1
- 	return 0
+	return 0
 
 /datum/antagonist/changeling/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	. = ..()

@@ -114,7 +114,7 @@
 	else if(choices.len == 1)
 		choice = choices[1]
 	else
-		choice = input("What kind of evidence are you looking for?","Evidence Collection") as null|anything in choices
+		choice = tgui_input_list(usr, "What kind of evidence are you looking for?", "Evidence Collection", choices)
 
 	if(!choice)
 		return

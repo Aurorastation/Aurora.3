@@ -100,9 +100,9 @@
  * Balloons
  */
 
- #define BALLOON_NORMAL	0
- #define BALLOON_BLOW	1
- #define BALLOON_BURST	2
+#define BALLOON_NORMAL	0
+#define BALLOON_BLOW	1
+#define BALLOON_BURST	2
 
 /obj/item/toy/balloon
 	name = "balloon"
@@ -409,8 +409,9 @@
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
-/obj/item/toy/crossbow/examine(mob/user)
-	if(..(user, 2) && dart_count)
+/obj/item/toy/crossbow/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2 && dart_count)
 		to_chat(user, "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>")
 
 /obj/item/toy/crossbow/attackby(obj/item/I, mob/user)
@@ -570,7 +571,7 @@
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = /singleton/sound_category/sword_pickup_sound
 	equip_sound = /singleton/sound_category/sword_equip_sound
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
 	throwforce = 5
@@ -601,7 +602,7 @@
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/human/M = H
-		if(M.shoes?.item_flags & LIGHTSTEP)
+		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.m_intent == M_RUN)
 			to_chat(M, SPAN_WARNING("You step on the snap pop!"))
@@ -628,7 +629,7 @@
  * Water flower
  */
 
- //moved to spray.dm
+//moved to spray.dm
 
 /*
  * Bosun's whistle

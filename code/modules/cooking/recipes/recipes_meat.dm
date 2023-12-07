@@ -69,6 +69,20 @@
 	result = /obj/item/reagent_containers/food/snacks/sausage
 	result_quantity = 2
 
+/singleton/recipe/hotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/hotdog
+
+/singleton/recipe/classichotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat/corgi
+	)
+	result = /obj/item/reagent_containers/food/snacks/classichotdog
+
 /singleton/recipe/pepperoni
 	appliance = SKILLET
 	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
@@ -87,14 +101,6 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
 
-/singleton/recipe/fishandchips
-	appliance = SKILLET
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/fish
-	)
-	result = /obj/item/reagent_containers/food/snacks/fishandchips
-
 /singleton/recipe/lasagna
 	appliance = OVEN
 	fruit = list("tomato" = 2, "eggplant" = 1)
@@ -106,3 +112,12 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/lasagna
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/donerkebab
+	fruit = list("tomato" = 1, "cabbage" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/cutlet
+	)
+	result = /obj/item/reagent_containers/food/snacks/donerkebab

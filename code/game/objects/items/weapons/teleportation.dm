@@ -32,7 +32,7 @@
 	var/frequency = 1451
 	var/broadcasting = null
 	var/listening = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	throw_speed = 4
@@ -99,8 +99,8 @@ Frequency:
 						continue
 					else
 						var/mob/M = W.loc
-						if (M.stat == 2)
-							if (M.timeofdeath + 6000 < world.time)
+						if (M.stat == DEAD)
+							if (M.timeofdeath + W.lifespan_postmortem < world.time)
 								continue
 
 					var/turf/tr = get_turf(W)
@@ -146,7 +146,7 @@ Frequency:
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
@@ -239,7 +239,7 @@ Frequency:
 				else
 					teleport_options["[A.name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
-		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
+		var/teleport_choice = tgui_input_list(user, "Please select a teleporter to lock in on.", "Hand Teleporter", teleport_options)
 		if(!teleport_choice)
 			return
 		var/old_pad = linked_pad
@@ -266,7 +266,7 @@ Frequency:
 	desc_antag = "Click a closet with this to install. Step into the closet and close the door to teleport to the linked closet. It has a one minute cooldown after a batch teleport."
 	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 400)

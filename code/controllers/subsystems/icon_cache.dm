@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/icon_cache/SSicon_cache
-
-/datum/controller/subsystem/icon_cache
+SUBSYSTEM_DEF(icon_cache)
 	name = "Icon Cache"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MISC_FIRST
@@ -24,6 +22,8 @@
 	var/list/furniture_cache = list()
 	var/list/floor_light_cache = list()
 	var/list/ashtray_cache = list()
+
+	var/list/airlock_icon_cache = list()
 
 	var/list/uristrunes = list()
 
@@ -68,9 +68,6 @@
 	var/list/crayon_cache = list()
 
 	var/list/istate_cache = list()
-
-/datum/controller/subsystem/icon_cache/New()
-	NEW_SS_GLOBAL(SSicon_cache)
 
 /datum/controller/subsystem/icon_cache/Initialize()
 	build_dust_cache()

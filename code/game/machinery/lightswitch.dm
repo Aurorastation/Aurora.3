@@ -4,7 +4,7 @@
 /obj/machinery/light_switch
 	name = "light switch"
 	desc = "It turns lights on and off. What are you, simple?"
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "light-p"
 	anchored = 1.0
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -37,8 +37,9 @@
 	else if (light_range)
 		set_light(FALSE)
 
-/obj/machinery/light_switch/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/light_switch/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A light switch. It is [on? "on" : "off"].")
 
 /obj/machinery/light_switch/attack_hand(mob/user)

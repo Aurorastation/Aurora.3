@@ -12,7 +12,7 @@
 	item_state = "electronic"
 	origin_tech = list(TECH_DATA = 2)
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5
 	throwforce = 5
 	throw_speed = 3
@@ -23,7 +23,7 @@
 	var/contain_parts = 1
 
 /obj/item/circuitboard/examine(mob/user)
-	..()
+	. = ..()
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]")))

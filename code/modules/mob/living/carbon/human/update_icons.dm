@@ -90,18 +90,22 @@ There are several things that need to be remembered:
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 #define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
-/proc/overlay_image(icon,icon_state,color,flags)
+/proc/overlay_image(icon, icon_state,color, flags, layer)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
 	ret.appearance_flags = PIXEL_SCALE | flags
+	if(layer)
+		ret.layer = layer
 	return ret
 
 /mob/living/carbon/human
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
+#define UPDATE_ICON_IGNORE_DIRECTION_UPDATE -1
+
 // Updates overlays from overlays_raw.
-/mob/living/carbon/human/update_icon()
+/mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
 	if (QDELING(src))
 		return	// No point.
 
@@ -133,14 +137,28 @@ There are several things that need to be remembered:
 
 		add_overlay(ovr)
 
-	if (lying_prev != lying || size_multiplier != 1)
+	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
 			var/matrix/M = matrix()
-			M.Turn(90)
+
+			switch(src.dir)
+				if(SOUTH,EAST)
+					M.Turn(90)
+				else
+					M.Turn(-90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			animate(src, transform = M, time = ANIM_LYING_TIME)
+			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
+
+			if(istype(src.l_hand, /obj/item/gun) && lying)
+				HeldObjectDirTransform(slot_l_hand, src.dir)
+			if(istype(src.r_hand, /obj/item/gun) && lying)
+				HeldObjectDirTransform(slot_r_hand, src.dir)
+
 		else
+			update_inv_l_hand(FALSE)
+			update_inv_r_hand(FALSE)
+			update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
@@ -148,6 +166,37 @@ There are several things that need to be remembered:
 
 	compile_overlays()
 	lying_prev = lying
+
+/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
+	var/layer = null
+	if(hand == slot_r_hand)
+		update_inv_r_hand(FALSE)
+		layer = R_HAND_LAYER
+	else
+		update_inv_l_hand(FALSE)
+		layer = L_HAND_LAYER
+
+	switch(direction)
+		if(EAST)
+			TransformLayerIcon(layer, -90)
+		if(WEST)
+			TransformLayerIcon(layer, 90)
+		if(NORTH)
+			TransformLayerIcon(layer, 0)
+		if(SOUTH)
+			TransformLayerIcon(layer, 180)
+
+
+/mob/living/carbon/human/proc/TransformLayerIcon(var/layer, var/rotation = 0)
+	var/image/item_image = overlays_raw[layer]
+	var/matrix/item_transform = matrix()
+	item_transform.Turn(rotation)
+
+	animate(item_image, transform = item_transform)
+	overlays_raw[layer] = item_image
+	update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
+
+#undef UPDATE_ICON_IGNORE_DIRECTION_UPDATE
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
@@ -199,17 +248,17 @@ There are several things that need to be remembered:
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
-	var/image/standing_image = overlays_raw[DAMAGE_LAYER]
-	if(standing_image)
+
+	var/list/ovr
+	if(overlays_raw[DAMAGE_LAYER])
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
 				continue
 			var/bandage_level = O.bandage_level()
 			if(bandage_level)
-				standing_image += image(bandage_icon, "[O.icon_name][bandage_level]")
+				LAZYADD(ovr, image(bandage_icon, "[O.icon_name][bandage_level]"))
 
-		overlays_raw[DAMAGE_LAYER] = standing_image
-
+	overlays_raw[BANDAGE_LAYER] = ovr
 	if(update_icons)
 		update_icon()
 
@@ -386,6 +435,7 @@ There are several things that need to be remembered:
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
 		face_standing = new /icon(species.canvas_icon, "blank")
+
 		// Beard.
 		if(f_style)
 			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
@@ -405,9 +455,10 @@ There are several things that need to be remembered:
 				if(hair_style.do_colouration)
 					if(g_style)
 						var/datum/sprite_accessory/gradient_style = hair_gradient_styles_list[g_style]
-						grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
-						grad_s.Blend(hair_s, ICON_AND)
-						grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
+						if(gradient_style && gradient_style.species_allowed && (species.type in gradient_style.species_allowed))
+							grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
+							grad_s.Blend(hair_s, ICON_AND)
+							grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
 					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
 					if(!isnull(grad_s))
 						var/icon/grad_s_final = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
@@ -1132,7 +1183,7 @@ There are several things that need to be remembered:
 			else
 				mob_icon = l_hand.icon
 			l_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
+			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				mob_state = l_hand.item_state_slots[slot_l_hand_str]
@@ -1150,7 +1201,7 @@ There are several things that need to be remembered:
 		overlays_raw[L_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon()
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
@@ -1168,7 +1219,7 @@ There are several things that need to be remembered:
 			else
 				mob_icon = r_hand.icon
 			r_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
+			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				mob_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1186,7 +1237,7 @@ There are several things that need to be remembered:
 		overlays_raw[R_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon()
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELING(src))
@@ -1425,6 +1476,8 @@ There are several things that need to be remembered:
 //Drawcheck functions
 //These functions check if an item should be drawn, or if its covered up by something else
 /mob/living/carbon/human/proc/check_draw_gloves()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!gloves)
 		return FALSE
 	else if (gloves.flags_inv & ALWAYSDRAW)
@@ -1435,6 +1488,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_right_ear()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!r_ear)
 		return FALSE
 	else if (r_ear.flags_inv & ALWAYSDRAW)
@@ -1445,6 +1500,8 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/proc/check_draw_left_ear()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!l_ear)
 		return FALSE
 	else if (l_ear.flags_inv & ALWAYSDRAW)
@@ -1454,6 +1511,8 @@ There are several things that need to be remembered:
 	return TRUE
 
 /mob/living/carbon/human/proc/check_draw_glasses()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!glasses)
 		return FALSE
 	else if (glasses.flags_inv & ALWAYSDRAW)
@@ -1465,6 +1524,8 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/proc/check_draw_mask()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!wear_mask)
 		return FALSE
 	else if (wear_mask.flags_inv & ALWAYSDRAW)
@@ -1475,6 +1536,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_shoes()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!shoes)
 		return FALSE
 	else if (shoes.flags_inv & ALWAYSDRAW)
@@ -1485,6 +1548,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_underclothing()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!w_uniform)
 		return FALSE
 	else if (w_uniform.flags_inv & ALWAYSDRAW)
@@ -1495,6 +1560,8 @@ There are several things that need to be remembered:
 		return TRUE
 
 /mob/living/carbon/human/proc/check_draw_wrists()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	if (!wrists)
 		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)

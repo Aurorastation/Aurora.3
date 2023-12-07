@@ -180,6 +180,16 @@
 /datum/language/proc/handle_message_mode(var/message_mode)
 	return list(src, message_mode)
 
+/**
+ * Checks if a language with special physical requirements can be spoken by a mob
+ * Returns `TRUE` if allowed to, `FALSE` otherwise
+ *
+ * * speaker - A `mob` to check for the ability to speak the language
+ */
+/datum/language/proc/check_speech_restrict(mob/speaker)
+	SHOULD_NOT_SLEEP(TRUE)
+	return TRUE
+
 // Language handling.
 /mob/proc/add_language(var/language)
 	var/datum/language/new_language
@@ -210,7 +220,7 @@
 
 // Can we speak this language, as opposed to just understanding it?
 /mob/proc/can_speak(datum/language/speaking)
-	return (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages))
+	return (speaking.check_speech_restrict(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
 
 /mob/proc/get_language_prefix()
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
@@ -251,8 +261,10 @@
 		if(!(L.flags & NONGLOBAL))
 			if(L == default_language)
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a><br/>[L.desc]<br/><br/>"
-			else
+			else if(can_speak(L))
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - <a href='byond://?src=\ref[src];default_lang=\ref[L]'>set default</a><br/>[L.desc]<br/><br/>"
+			else
+				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - cannot speak!<br/>[L.desc]<br/><br/>"
 			if(L.written_style)
 				dat += "You can write in this language on papers by writing \[lang=[L.key]\]YourTextHere\[/lang\].<br/><br/>"
 

@@ -264,7 +264,7 @@
 
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.can_examine())
-		user.examinate(src)
+		examinate(user, src)
 
 /*
 	Ctrl click
@@ -345,7 +345,7 @@
 	var/dy = A.y - y
 
 	var/direction
-	if (loc == A.loc && A.flags & ON_BORDER)
+	if (loc == A.loc && A.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 		direction = A.dir
 	else if (!dx && !dy)
 		return

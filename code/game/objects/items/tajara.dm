@@ -32,7 +32,7 @@
 	desc_extended = "Imported from the New Kingdom of Adhomai."
 	icon_state = "nkapacket"
 	item_state = "Fpacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai/menthol
 
 /obj/item/tajcard
 	name = "collectable tajaran card"
@@ -237,7 +237,7 @@
 		protection = !protection
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		update_icon()
-	
+
 /obj/item/stack/dice/tajara
 	name = "adhomian dice"
 	desc = "An adhomian dice made out of wood. Commonly used to play Suns and Moon."

@@ -341,6 +341,11 @@
 	name = "central command internal affairs radio headset"
 	ks2type = /obj/item/device/encryptionkey/ccia
 
+/obj/item/device/radio/headset/ert/ccia/alt
+	name = "central command internal affairs bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
+
 /obj/item/device/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
 	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Operations" = 0, "Service" = 0)
@@ -351,10 +356,10 @@
 /obj/item/storage/lockbox/cciaa
 	req_access = list(access_cent_ccia)
 	name = "CCIA agent briefcase"
-	desc = "A smart looking briefcase with a NT logo on the side"
+	desc = "A smart looking briefcase with an SCC logo on the side"
 	storage_slots = 8
 	max_storage_space = 16
 
-/obj/item/storage/lockbox/cciaa/fib
-	name = "FIB agent briefcase"
+/obj/item/storage/lockbox/cciaa/bssb
+	name = "BSSB agent briefcase"
 	desc = "A smart looking ID locked briefcase."

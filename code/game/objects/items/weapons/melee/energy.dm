@@ -6,7 +6,7 @@
 	sharp = 0
 	edge = FALSE
 	armor_penetration = 20
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0//No embedding pls
 	var/base_reflectchance = 40
 	var/base_block_chance = 25
@@ -141,7 +141,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
@@ -189,7 +190,8 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_NORMAL
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
@@ -236,7 +238,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
 	edge = TRUE
@@ -402,7 +404,7 @@
 	throw_speed = 1
 	throw_range = 1
 	w_class = ITEMSIZE_LARGE//So you can't hide it in your pocket or some such.
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
 	base_reflectchance = 140

@@ -104,7 +104,7 @@
 		report.update_icon()
 		if(report.info)
 			to_chat(user, report.info)
-	print(report)
+	print(report, user)
 
 /obj/machinery/microscope/proc/remove_sample(var/mob/living/remover)
 	if(!istype(remover) || remover.incapacitated() || !Adjacent(remover))

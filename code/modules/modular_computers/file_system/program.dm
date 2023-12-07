@@ -49,13 +49,15 @@
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	computer.idle_threads -= src
-	computer.enabled_services -= src
-	computer = null
+	if(computer)
+		computer.idle_threads -= src
+		computer.enabled_services -= src
+		computer = null
 	. = ..()
 
 /datum/computer_file/program/ui_host()
-	return computer.ui_host()
+	if(computer)
+		return computer.ui_host()
 
 /datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -235,6 +237,11 @@
 		return NM.check_eye(user)
 	else
 		return -1
+
+/// Relays the call to nano module, if we have one
+/datum/computer_file/program/proc/grants_equipment_vision(var/mob/user)
+	if(NM)
+		return NM.grants_equipment_vision(user)
 
 /datum/computer_file/program/proc/message_dead(var/message)
 	for(var/mob/M in player_list)

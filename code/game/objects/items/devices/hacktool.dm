@@ -62,7 +62,7 @@
 		return FALSE
 	if(istype(target, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/door = target
-		if(door.hackProof)
+		if(door.hack_proof)
 			to_chat(user, SPAN_WARNING("Hacking [target] is beyond the capabilities of this device!"))
 			return FALSE
 	var/found = known_targets.Find(target)
@@ -75,7 +75,7 @@
 	current_hacks += target
 
 	// On average hackin takes ~10 seconds. Fairly small random span to avoid people simply aborting and trying again
-	var/hack_result = do_after(user, hack_time + rand(-3 SECONDS, 3 SECONDS), use_user_turf = (allow_movement ? -1 : FALSE))
+	var/hack_result = do_after(user, hack_time + rand(-3 SECONDS, 3 SECONDS), do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS)
 	is_hacking = FALSE
 	current_hacks -= target
 

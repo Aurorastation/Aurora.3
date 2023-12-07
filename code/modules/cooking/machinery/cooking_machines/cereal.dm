@@ -1,7 +1,7 @@
 /obj/machinery/appliance/mixer/cereal
 	name = "cereal maker"
 	desc = "Now with Dann O's available!"
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "cereal_off"
 	cook_type = "cerealized"
 	on_icon = "cereal_on"

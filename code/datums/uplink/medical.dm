@@ -10,7 +10,7 @@
 	path = /obj/item/storage/box/sinpockets
 
 /datum/uplink_item/item/medical/lunchbox
-	name = "Syndicate Lunchbox"
+	name = "Tactical Lunchbox"
 	bluecrystal_cost = 1
 	path = /obj/item/storage/toolbox/lunchbox/syndicate/filled
 
@@ -73,9 +73,10 @@
 	bluecrystal_cost = 1
 	path = /obj/item/storage/firstaid/regular
 
-/datum/uplink_item/item/medical/firstaid
+/datum/uplink_item/item/medical/firstaid/free
 	name = "Standard First-Aid Kit (Free)"
 	telecrystal_cost = 0
+	bluecrystal_cost = 0
 	item_limit = 1
 	path = /obj/item/storage/firstaid/regular
 	desc = "You can claim this first-aid kit only once."

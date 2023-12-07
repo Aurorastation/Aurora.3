@@ -13,6 +13,6 @@
 
 	INVOKE_ASYNC(over, TYPE_PROC_REF(/atom, MouseDrop_T), src, usr, src_location, over_location, src_control, over_control, params)
 
-// receive a mousedrop
+///Receive a mousedrop
 /atom/proc/MouseDrop_T(atom/dropping, mob/user, src_location, over_location, src_control, over_control, params)
 	return

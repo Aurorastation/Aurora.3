@@ -101,14 +101,14 @@
 
 //calculates the fraction of the sunlight that the panel receives
 /obj/machinery/power/solar/proc/update_solar_exposure()
-	if(!sun)
+	if(!SSsun)
 		return
 	if(obscured)
 		sunfrac = 0
 		return
 
 	//find the smaller angle between the direction the panel is facing and the direction of the sun (the sign is not important here)
-	var/p_angle = min(abs(adir - sun.angle), 360 - abs(adir - sun.angle))
+	var/p_angle = min(abs(adir - SSsun.angle), 360 - abs(adir - SSsun.angle))
 
 	if(p_angle > 90)			// if facing more than 90deg from sun, zero output
 		sunfrac = 0
@@ -118,7 +118,7 @@
 	//isn't the power received from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
 /obj/machinery/power/solar/process()
-	if(stat & BROKEN || !control || !sun)
+	if(stat & BROKEN || !control || !SSsun)
 		return PROCESS_KILL
 
 	if(powernet && powernet == control.powernet)
@@ -174,8 +174,8 @@
 	var/turf/T = null
 
 	for(var/i = 1 to 20)		// 20 steps is enough
-		ax += sun.dx	// do step
-		ay += sun.dy
+		ax += SSsun.dx	// do step
+		ay += SSsun.dy
 
 		T = locate( round(ax,0.5),round(ay,0.5),z)
 
@@ -269,7 +269,7 @@
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "computer"
 	light_color = LIGHT_COLOR_YELLOW
 	anchored = 1
@@ -299,12 +299,12 @@
 
 /obj/machinery/power/solar_control/disconnect_from_network()
 	..()
-	sun.solars -= src
+	SSsun.solars -= src
 
 /obj/machinery/power/solar_control/connect_to_network()
 	var/to_return = ..()
 	if(powernet) //if connected and not already in solar_list...
-		sun.solars |= src //... add it
+		SSsun.solars |= src //... add it
 	return to_return
 
 //search for unconnected panels and trackers in the computer powernet and connect them
@@ -334,7 +334,7 @@
 				cdir = targetdir //...the current direction is the targetted one (and rotates panels to it)
 		if(2) // auto-tracking
 			if(connected_tracker)
-				connected_tracker.modify_angle(sun.angle)
+				connected_tracker.modify_angle(SSsun.angle)
 
 	set_panels(cdir)
 	updateDialog()
@@ -352,7 +352,7 @@
 /obj/machinery/power/solar_control/interact(mob/user)
 
 	var/t = "<B><span class='highlight'>Generated power</span></B> : [round(lastgen)] W<BR>"
-	t += "<B><span class='highlight'>Star Orientation</span></B>: [sun.angle]&deg ([angle2text(sun.angle)])<BR>"
+	t += "<B><span class='highlight'>Star Orientation</span></B>: [SSsun.angle]&deg ([angle2text(SSsun.angle)])<BR>"
 	t += "<B><span class='highlight'>Array Orientation</span></B>: [rate_control(src,"cdir","[cdir]&deg",1,15)] ([angle2text(cdir)])<BR>"
 	t += "<B><span class='highlight'>Tracking:</span></B><div class='statusDisplay'>"
 	switch(track)
@@ -382,7 +382,7 @@
 /obj/machinery/power/solar_control/attackby(var/obj/I, user as mob)
 	if(I.isscrewdriver())
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
@@ -454,7 +454,7 @@
 		track = text2num(href_list["track"])
 		if(track == 2)
 			if(connected_tracker)
-				connected_tracker.modify_angle(sun.angle)
+				connected_tracker.modify_angle(SSsun.angle)
 				set_panels(cdir)
 		else if (track == 1) //begin manual tracking
 			src.targetdir = src.cdir
@@ -464,7 +464,7 @@
 	if(href_list["search_connected"])
 		src.search_for_connected()
 		if(connected_tracker && track == 2)
-			connected_tracker.modify_angle(sun.angle)
+			connected_tracker.modify_angle(SSsun.angle)
 		src.set_panels(cdir)
 
 	interact(usr)
@@ -522,7 +522,7 @@
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
 	search_for_connected()
 	if(connected_tracker && track == 2)
-		connected_tracker.modify_angle(sun.angle)
+		connected_tracker.modify_angle(SSsun.angle)
 	set_panels(cdir)
 
 /obj/machinery/power/solar_control/update_icon()

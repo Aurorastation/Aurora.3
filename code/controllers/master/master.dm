@@ -1,17 +1,16 @@
- /**
-  * StonedMC
-  *
-  * Designed to properly split up a given tick among subsystems
-  * Note: if you read parts of this code and think "why is it doing it that way"
-  * Odds are, there is a reason
-  *
- **/
 var/datum/controller/master/Master = new()
 
 //current tick limit, assigned by the queue controller before running a subsystem.
 //used by check_tick as well so that the procs subsystems call can obey that SS's tick limits
 var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
+/**
+ * StonedMC
+ *
+ * Designed to properly split up a given tick among subsystems
+ * Note: if you read parts of this code and think "why is it doing it that way"
+ * Odds are, there is a reason
+ */
 /datum/controller/master
 	name = "Master"
 
@@ -126,9 +125,15 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			if(2)
 				msg = "The [BadBoy.name] subsystem was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
 				FireHim = TRUE
+
+			//If we are running a REFERENCE_TRACKING with hard lookups, this is expected and we do not want the master controller
+			//to stop the garbage collector from working
+			#if !defined(GC_FAILURE_HARD_LOOKUP)
 			if(3)
 				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
 				BadBoy.flags |= SS_NO_FIRE
+			#endif
+
 		if(msg)
 			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)
 			log_subsystem_mastercontroller(msg)
@@ -220,7 +225,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 #endif
 
 	world.TgsInitializationComplete()
-	world.tick_lag = config.Ticklag
+	world.change_tick_lag(config.Ticklag)
 
 	var/initialized_tod = REALTIMEOFDAY
 

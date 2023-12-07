@@ -43,7 +43,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -115,7 +115,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/medical
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -143,7 +143,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/surgeon
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
@@ -178,7 +178,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/chemist
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
 	headset = /obj/item/device/radio/headset/headset_med
@@ -231,7 +231,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/psych
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
 	headset = /obj/item/device/radio/headset/headset_med
@@ -355,7 +355,7 @@
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
-	shoes = /obj/item/clothing/shoes/medical
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
@@ -392,7 +392,7 @@
 /datum/outfit/job/intern_med/pharmacist
 	name = "Pharmacy Intern"
 
-	shoes = /obj/item/clothing/shoes/chemist
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel/pharm
@@ -402,7 +402,7 @@
 /datum/outfit/job/intern_med/surgeon
 	name = "Resident Surgeon"
 
-	shoes = /obj/item/clothing/shoes/surgeon
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 /datum/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
@@ -411,7 +411,7 @@
 /datum/outfit/job/intern_med/psychiatrist
 	name = "Resident Psychiatrist"
 
-	shoes = /obj/item/clothing/shoes/psych
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
 	backpack = /obj/item/storage/backpack/psychiatrist
 	satchel = /obj/item/storage/backpack/satchel/psych

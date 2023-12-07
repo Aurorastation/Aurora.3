@@ -23,7 +23,7 @@
 				to_chat(user, SPAN_WARNING("You need one plank of wood to repair [src]."))
 				return
 			visible_message(SPAN_NOTICE("[user] begins to repair [src]."))
-			if(do_after(user, 2 SECONDS, act_target = src) && (health < maxhealth))
+			if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && (health < maxhealth))
 				if(D.use(1))
 					update_health(-0.5*maxhealth)
 					update_damage_state()

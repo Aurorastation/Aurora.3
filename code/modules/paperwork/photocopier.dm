@@ -183,6 +183,7 @@
 	info += copied
 	info += "</font>"//</font>
 	pname = copy.name // -- Doohl
+	c.desc = copy.desc
 	if(istype(copy, /obj/item/paper/business_card))
 		c.color = copy.color
 	else
@@ -219,7 +220,7 @@
 			var/obj/machinery/photocopier/T = target
 			flick(T.print_animation, target)
 			--T.toner
-		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
+		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay, , user = usr)
 	return c
 
 /proc/photocopy(var/obj/machinery/target, var/obj/item/photo/photocopy, var/toner)

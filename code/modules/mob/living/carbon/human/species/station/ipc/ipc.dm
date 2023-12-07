@@ -131,12 +131,11 @@
 		/singleton/origin_item/culture/ipc_tau_ceti,
 		/singleton/origin_item/culture/golden_deep,
 		/singleton/origin_item/culture/megacorporate,
-		/singleton/origin_item/culture/scrapper,
-		/singleton/origin_item/culture/orepit_trinary
+		/singleton/origin_item/culture/scrapper
 	)
 
 	alterable_internal_organs = list()
-	possible_speech_bubble_types = list("synth", "normal")
+	possible_speech_bubble_types = list("robot", "default")
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15

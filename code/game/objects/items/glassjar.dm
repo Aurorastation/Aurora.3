@@ -15,12 +15,12 @@
 	name = "glass jar"
 	desc = "A glass jar. Does not contain brain submerged in formaldehyde."
 	desc_info = "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "jar_lid"
 	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/contains = JAR_NOTHING // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling, 4 = gumballs, 5 = holder
 	var/list/contained = list()
 	drop_sound = 'sound/items/drop/glass.ogg'

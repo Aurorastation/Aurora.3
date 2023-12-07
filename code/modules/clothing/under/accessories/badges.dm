@@ -158,25 +158,41 @@
 	..()
 
 /obj/item/clothing/accessory/badge/officer
-	name = "officer's badge"
-	desc = "A bronze corporate security badge. Stamped with the words 'Security Officer.'"
+	name = "security officer's badge"
+	desc = "A bronze security badge."
 	icon_state = "bronzebadge"
 	overlay_state = "bronzebadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
-	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
+	desc = "A silver security badge."
 	icon_state = "silverbadge"
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/hos
-	name = "commander's badge"
-	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
+	name = "head of security's badge"
+	desc = "An immaculately polished gold security badge."
 	icon_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
+
+/obj/item/clothing/accessory/badge/bssb
+	name = "\improper BSSB agent's badge"
+	desc = "A silver badge, set in purple leather, denoting the wearer as an agent of the Biesel Security Services Bureau."
+	desc_extended = "The overseeing authority of the domestic agencies that operate within the Republic of Biesel. In reality, the Biesel Security Services Bureau has become incredibly important to the enforcement of the Republic's laws. The BSSB was founded with the goal of monitoring the planetary policing forces within the Republic of Biesel and stepping in when needed. Most of the BSSB was sponsored by NanoTrasen, with even its headquarters having been constructed by the megacorporation. The agency quickly found its footing within the Republic and found itself being labelled as Biesel's most skilled law enforcement agency despite the accusation of bribery on behalf of NanoTrasen. Today, the BSSB has become an easily recognisable organization with several action movies and novels produced within the Republic of Biesel making it a centrepiece of the Republic's image. It is headed by Director Clarrise Lyon."
+	icon_state = "badge_round_bssb"
+	overlay_state = "badge_round_bssb"
+	slot_flags = SLOT_TIE
+	contained_sprite = TRUE
+	icon = 'icons/clothing/accessories/bssb_badge.dmi'
+
+/obj/item/clothing/accessory/badge/bssb/senior
+	name = "\improper BSSB senior agent's badge"
+	desc = "A golden badge, set in purple leather, denoting the wearer as a senior agent of the Biesel Security Services Bureau."
+	icon_state = "badge_round_bssb_sen"
+	overlay_state = "badge_round_bssb_sen"
 
 /obj/item/clothing/accessory/badge/sol_visa
 	name = "\improper ASSN visa recommendation slip"
@@ -261,11 +277,11 @@
 	badge_string = null
 
 /obj/item/clothing/accessory/badge/trinary
-    name = "trinary perfection brooch"
-    desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
-    icon_state = "trinary_badge"
-    overlay_state = "trinary_badge"
-    badge_string = null
+	name = "trinary perfection brooch"
+	desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
+	icon_state = "trinary_badge"
+	overlay_state = "trinary_badge"
+	badge_string = null
 
 // passcards
 
@@ -292,7 +308,7 @@
 	name = "synthetic residence card"
 	desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things."
 	desc_extended = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
-    is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
+	is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
 	icon_state = "passcard_ceti_m"
 	item_state = "passcard_ceti_m"
 
@@ -467,6 +483,27 @@
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 
+/obj/item/clothing/accessory/badge/passcard/hegemony
+	name = "hegemony passcard"
+	desc = "A passcard issued to citizens of the Izweski Hegemony."
+	desc_extended = "As the feudal citizenship standards of the Hegemony have changed to deal with the realities of an interstellar empire, human-inspired passcards have become a quick and easy method of identification for Unathi travelling abroad. This passcard is the most common design, seen throughout Hegemony space."
+	icon_state = "passcard_hegemony"
+	item_state = "passcard_hegemony"
+
+/obj/item/clothing/accessory/badge/passcard/ouerea
+	name = "ouerean passcard"
+	desc = "A passcard issued to residents of the planet Ouerea."
+	desc_extended = "Though not a fully independent state, the people of Ouerea have managed to win a great deal of autonomy from the Izweski Hegemony, which is reflected in the passcards that citizens of the Confederation carry."
+	icon_state = "passcard_ouerea"
+	item_state = "passcard_ouerea"
+
+/obj/item/clothing/accessory/badge/passcard/tret
+	name = "tret passcard"
+	desc = "A passcard issued to residents of the planet Tret."
+	desc_extended = "In recognition of the K'lax Hive's unique status and needs, the Hegemony has issued custom passcards for the planet Tret, for easy identification of K'laxan Vaurcae abroad. Many K'lax do not carry these, though those working in the Hegemony are likely to."
+	icon_state = "passcard_tret"
+	item_state = "passcard_tret"
+
 // Work Visa
 /obj/item/clothing/accessory/badge/passcard/workvisa
 	name = "republic of biesel work visa"
@@ -558,6 +595,12 @@
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
+
+/obj/item/clothing/accessory/badge/passport/hegemony
+	name = "hegemony passport"
+	desc = "A passport issued to a citizen of the Izweski Hegemony."
+	icon_state = "passport_hegemony"
+	item_state = "passport_hegemony"
 
 #undef CANT_OPEN
 #undef CLOSED

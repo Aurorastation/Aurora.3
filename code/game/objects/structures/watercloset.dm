@@ -68,11 +68,11 @@
 				if(open && !swirlie)
 					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
 					swirlie = GM
-					if(do_after(user, 30, 5, 0))
+					if(do_after(user, 30, GM, do_flags = DO_UNIQUE))
 						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), SPAN_NOTICE("You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
-						SSfeedback.IncrementSimpleStat("swirlies")
+						SSstatistics.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
 					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
@@ -410,7 +410,7 @@
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in view(1)
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	var/N = tgui_input_list(usr, "Set the amount to transfer from this.", "[src]", possible_transfer_amounts)
 	if (N)
 		amount_per_transfer_from_this = N
 
@@ -476,7 +476,7 @@
 
 				RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
-									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
+										SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -501,7 +501,7 @@
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent(/singleton/reagent/water, trans)
 				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."),
-									 SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+										SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
 					to_chat(usr, SPAN_WARNING("\The [S] is already empty."))
@@ -510,7 +510,7 @@
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
 				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."),
-									 SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+										SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
 	else if (istype(O, /obj/item/melee/baton))

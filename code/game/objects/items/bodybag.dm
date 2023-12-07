@@ -74,7 +74,7 @@
 
 /obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
 	if (W.ispen())
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
+		var/t = tgui_input_text(user, "What would you like the label to be?", name)
 		if (user.get_active_hand() != W)
 			return TRUE
 		if (!in_range(src, user) && src.loc != user)
@@ -234,10 +234,10 @@
 		return airtank
 	..()
 
-/obj/structure/closet/body_bag/cryobag/examine(mob/user)
+/obj/structure/closet/body_bag/cryobag/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	to_chat(user,"The stasis meter shows '[stasis_power]x'.")
-	if(Adjacent(user) && length(contents)) //The bag's rather thick and opaque from a distance.
+	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
 		to_chat(user, "<span class='info'>You peer into \the [src].</span>")
 		for(var/mob/living/L in contents)
 			L.examine(arglist(args))

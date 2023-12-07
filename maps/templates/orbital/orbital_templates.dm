@@ -14,6 +14,10 @@
 	name = "Powerloader Mecha Drop"
 	mappaths = list("maps/templates/orbital/powerloader-mecha.dmm")
 
+/datum/map_template/mecha/miner
+	name = "Miner Mecha Drop"
+	mappaths = list("maps/templates/orbital/miner-mecha.dmm")
+
 /datum/map_template/armory
 	name = "Armory Drop"
 	mappaths = list("maps/templates/orbital/mini-armory.dmm")

@@ -19,7 +19,7 @@
 /datum/outfit/admin/ee_crewman
 	name = "Einstein Engines Crewman"
 
-	uniform = /obj/item/clothing/under/rank/engineer/heph
+	uniform = /obj/item/clothing/under/rank/einstein
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/utility/full
@@ -55,7 +55,7 @@
 /datum/outfit/admin/ee_research_officer
 	name = "Einstein Engines Research Officer"
 
-	uniform = /obj/item/clothing/under/rank/engineer/heph
+	uniform = /obj/item/clothing/under/rank/einstein
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel/leather
 	glasses = /obj/item/clothing/glasses/sunglasses

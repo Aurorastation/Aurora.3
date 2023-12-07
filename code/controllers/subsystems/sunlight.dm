@@ -1,19 +1,14 @@
 #ifdef ENABLE_SUNLIGHT
 
-/var/datum/controller/subsystem/sunlight/SSsunlight
-
-/datum/controller/subsystem/sunlight
+SUBSYSTEM_DEF(sunlight)
 	name = "Sunlight"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_SUNLIGHT
 
 	var/list/light_points = list()
-	var/config.sun_target_z = 7
+	var/config/sun_target_z = 7
 
 	var/list/presets
-
-/datum/controller/subsystem/sunlight/New()
-	NEW_SS_GLOBAL(SSsunlight)
 
 /datum/controller/subsystem/sunlight/stat_entry(msg)
 	msg = "A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]"

@@ -4,9 +4,7 @@
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
-var/datum/controller/subsystem/cargo/SScargo
-
-/datum/controller/subsystem/cargo
+SUBSYSTEM_DEF(cargo)
 	name = "Cargo"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
@@ -90,12 +88,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	qdel(spawner)
 	..()
 
-/datum/controller/subsystem/cargo/New()
-	NEW_SS_GLOBAL(SScargo)
-
-
-
-
 /*
 	Loading Data
 */
@@ -170,6 +162,11 @@ var/datum/controller/subsystem/cargo/SScargo
 //Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()
 	var/list/cargoconfig = list()
+
+	if(!(rustg_file_exists("config/cargo.json") == "true"))
+		log_config("The file config/cargo.json was not found, cargo items will not be loaded.")
+		return
+
 	try
 		cargoconfig = json_decode(return_file_text("config/cargo.json"))
 	catch(var/exception/ej)

@@ -23,7 +23,8 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	can_be_placed_into = null
-	flags = OPENCONTAINER | NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	unacidable = FALSE
 	fragile = FALSE
 	drop_sound = 'sound/items/drop/cloth.ogg'
@@ -155,12 +156,12 @@
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
 					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
-					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
+											SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					return // we can only do one at a time
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
 						SPAN_DANGER("\The [user] smothers [target] with [src]!"),

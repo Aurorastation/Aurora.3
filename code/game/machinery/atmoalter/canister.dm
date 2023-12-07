@@ -10,8 +10,7 @@
 	icon_state = "yellow"
 	density = 1
 	var/health = 100.0
-	flags = CONDUCT
-	obj_flags = OBJ_FLAG_SIGNALER
+	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
@@ -37,6 +36,10 @@
 	canister_color = "redws"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/nitrogen
 	name = "Canister: \[N2\]"
 	icon_state = "red"
@@ -52,8 +55,16 @@
 	canister_color = "blue"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
+	. = ..()
+	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)\]"
+
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
+	. = ..()
+	src.air_contents.temperature = 80
 
 /obj/machinery/portable_atmospherics/canister/phoron
 	name = "Canister \[Phoron\]"
@@ -61,11 +72,19 @@
 	canister_color = "orange"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/phoron/Initialize()
+	. = ..()
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/phoron_scarce // replacing on-station canisters with this for scarcity - full-capacity canisters are staying to avoid mapping errors in future
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
 	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/phoron_scarce/Initialize()
+	. = ..()
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure()/2) // half of the default value
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	name = "Canister \[CO2\]"
@@ -79,6 +98,30 @@
 	canister_color = "purple"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/helium
+	name = "\improper Canister \[He\]"
+	icon_state = "green"
+	canister_color = "green"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/helium/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_HELIUM, MolesForPressure())
+
+/obj/machinery/portable_atmospherics/canister/boron
+	name = "\improper Boron \[Bo\]"
+	icon_state = "yellow"
+	canister_color = "yellow"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/boron/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
 	icon_state = "grey"
@@ -88,7 +131,7 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 3 * ONE_ATMOSPHERE
 
-/obj/machinery/portable_atmospherics/canister/empty/
+/obj/machinery/portable_atmospherics/canister/empty
 	start_pressure = 0
 	can_label = 1
 
@@ -310,7 +353,7 @@ update_flag
 	if(istype(W, /obj/item/mecha_equipment/clamp))
 		return
 	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
-		if(W.flags & NOBLUDGEON)
+		if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
 		user.do_attack_animation(src, W)
@@ -418,7 +461,7 @@ update_flag
 					"\[Hydrogen\]" = "purple",
 					"\[CAUTION\]" = "yellow"
 				)
-				var/label = input("Choose canister label", "Gas canister") as null|anything in colors
+				var/label = tgui_input_list(usr, "Choose canister label.", "Gas Canister", colors)
 				if (label)
 					src.canister_color = colors[label]
 					src.icon_state = colors[label]
@@ -432,35 +475,6 @@ update_flag
 	valve_open = !valve_open
 	if(valve_open)
 		log_open_userless("a signaler")
-
-/obj/machinery/portable_atmospherics/canister/phoron/Initialize()
-	. = ..()
-
-	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
-
-/obj/machinery/portable_atmospherics/canister/phoron_scarce/Initialize()
-	. = ..()
-
-	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure()/2) // half of the default value
-
-/obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
-	. = ..()
-
-	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
-
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
-	. = ..()
-	src.air_contents.temperature = 80
-
-/obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
-	. = ..()
-
-	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
-
-/obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
-	. = ..()
-
-	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
@@ -494,3 +508,15 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
+
+/obj/machinery/portable_atmospherics/canister/chlorine
+	name = "Canister: \[Cl2\]"
+	icon_state = "poisonous"
+	canister_color = "poisonous"
+	desc = "A canister of Chlorine, with a warning label for poisonous gasses."
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/chlorine/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())

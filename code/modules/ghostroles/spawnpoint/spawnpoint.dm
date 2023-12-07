@@ -91,10 +91,10 @@
 	return data
 
 /obj/effect/ghostspawpoint/ui_state(mob/user)
-    return observer_state
+	return observer_state
 
 /obj/effect/ghostspawpoint/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /obj/effect/ghostspawpoint/proc/is_available()
 	return TRUE

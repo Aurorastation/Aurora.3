@@ -238,7 +238,7 @@
 /area/nka_base)
 "pB" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
@@ -564,7 +564,7 @@
 /area/nka_base)
 "Ec" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
@@ -596,7 +596,7 @@
 /area/nka_base)
 "Et" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
@@ -793,7 +793,7 @@
 /area/nka_base)
 "VN" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform/commander,
 /obj/item/clothing/head/tajaran/nka_cap/commander,
 /obj/item/ammo_magazine/c38,

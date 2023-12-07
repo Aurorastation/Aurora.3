@@ -177,25 +177,6 @@
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)
 
-/obj/item/gun/energy/hegemonyrifle
-	name = "hegemony energy rifle"
-	desc = "An upgraded variant of the standard laser rifle. It does not have a stun setting."
-	desc_extended = "The Zkrehk-Guild Heavy Beamgun, an energy-based rifle designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
-	icon = 'icons/obj/guns/hegemony_rifle.dmi'
-	icon_state = "hegemonyrifle"
-	item_state = "hegemonyrifle"
-	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/laser1.ogg'
-	slot_flags = SLOT_BELT|SLOT_BACK
-	max_shots = 15
-	can_switch_modes = FALSE
-	can_turret = TRUE
-	turret_is_lethal = TRUE
-	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
-	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
-	is_wieldable = TRUE
-	modifystate = "hegemonyrifle"
-
 /obj/item/gun/energy/repeater
 	name = "energy repeater"
 	desc = "A Stellar Corporate Conglomerate created energy repeater, extremely lightweight. It has three settings: Single, Three-Burst, and Full-Auto."
@@ -289,3 +270,28 @@
 		)
 
 	has_item_ratio = FALSE
+
+/obj/item/gun/energy/psipistol
+	name = "psionic pistol"
+	desc = "A pistol that utilises psionics. It's made from a lightweight alloy."
+	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Psi Pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically, enabling the weapon to be used entirely one-handed."
+	icon = 'icons/obj/guns/psi_pistol.dmi'
+	icon_state = "psipistolstun100"
+	item_state = "psipistolstun100"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	pin = /obj/item/device/firing_pin/psionic
+	max_shots = 8
+	fire_delay = 4
+	can_turret = FALSE
+	secondary_projectile_type = /obj/item/projectile/energy/blaster/skrell
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
+	can_switch_modes = 1
+	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
+	modifystate = "psipistolstun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun/skrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
+		list(mode_name="ion", projectile_type=/obj/item/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
+		)

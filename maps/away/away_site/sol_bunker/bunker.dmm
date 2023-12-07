@@ -1,4 +1,32 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"ab" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"ac" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"ad" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
 "aj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -134,7 +162,8 @@
 /area/derelict)
 "hS" = (
 /obj/machinery/door/airlock/centcom{
-	opacity = 1
+	opacity = 1;
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -809,7 +838,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "Lu" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/derelict)
 "LH" = (
@@ -848,7 +879,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "ML" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "Nf" = (
@@ -972,7 +1005,9 @@
 /turf/simulated/floor/wood/airless,
 /area/derelict)
 "SI" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "SW" = (
@@ -34135,14 +34170,14 @@ ML
 gd
 Mf
 gd
-hS
+aa
 Fn
 li
 fJ
 fJ
 Oi
 XK
-hS
+ab
 gd
 gd
 Bq
@@ -34392,14 +34427,14 @@ ML
 Mf
 gd
 Mf
-hS
+ac
 li
 Xd
 fJ
 fJ
 TN
 Xd
-hS
+ad
 gd
 sJ
 gd

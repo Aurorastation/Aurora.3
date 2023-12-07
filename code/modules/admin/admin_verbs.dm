@@ -32,6 +32,10 @@ var/list/admin_verbs_admin = list(
 	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
 	/client/proc/view_signal_log,		/*allows admins to check the log of signaler uses*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
 //	/client/proc/sendmob,				/*sends a mob somewhere*/ -Removed due to it needing two sorting procs to work, which were executed every time an admin right-clicked. ~Errorage */
@@ -207,6 +211,10 @@ var/list/admin_verbs_debug = list(
 	/client/proc/Jump,
 	/client/proc/jumptomob,
 	/client/proc/jumptocoord,
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
@@ -297,6 +305,10 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_cciaa_say,
 	/datum/admins/proc/access_news_network,
 	/client/proc/jumptocoord,
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/colorooc,
 	/client/proc/add_client_color,
 	/datum/admins/proc/force_mode_latespawn,
@@ -440,6 +452,10 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_admin_pm_context,
 	/client/proc/cmd_admin_pm_panel,	//admin-pm list
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
+	/client/proc/jumptozlevel,
+	/client/proc/jumptoshuttle,
+	/client/proc/jumptoship,
+	/client/proc/jumptosector,
 	/client/proc/cmd_dev_say,
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,
@@ -694,7 +710,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/turf/epicenter = mob.loc
 	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
-	var/choice = input("What size explosion would you like to produce?") in choices
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
 	switch(choice)
 		if(null)
 			return 0
@@ -705,10 +721,10 @@ var/list/admin_verbs_cciaa = list(
 		if("Big Bomb")
 			explosion(epicenter, 3, 5, 7, 5)
 		if("Custom Bomb")
-			var/devastation_range = input("Devastation range (in tiles):") as num
-			var/heavy_impact_range = input("Heavy impact range (in tiles):") as num
-			var/light_impact_range = input("Light impact range (in tiles):") as num
-			var/flash_range = input("Flash range (in tiles):") as num
+			var/devastation_range = tgui_input_number(usr, "Set the devastation range (in tiles).", "Devastation")
+			var/heavy_impact_range = tgui_input_number(usr, "Set the heavy impact range (in tiles).", "Heavy")
+			var/light_impact_range = tgui_input_number(usr, "Set the light impact range (in tiles).", "Light")
+			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
 	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -846,7 +862,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in human_mob_list
+	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", human_mob_list)
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
@@ -860,7 +876,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in human_mob_list
+	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", human_mob_list)
 	if(!H) return
 
 	if(!H.client)
@@ -881,9 +897,11 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Sets the station security level"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN))	return
-	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red", "yellow", "delta")-get_security_level())
-	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
+	if(!check_rights(R_ADMIN))
+		return
+	var/sec_level = tgui_input_list(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
+	var/msg = tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No"))
+	if(msg == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
 
@@ -980,7 +998,7 @@ var/list/admin_verbs_cciaa = list(
 		if (!jobs.len)
 			to_chat(usr, SPAN_NOTICE("There are no fully staffed jobs."))
 			return
-		var/job = input("Please select job slot to free", "Free job slot") as null|anything in jobs
+		var/job = tgui_input_list(usr, "Please select a job slot to free.", "Free Job Slot", jobs)
 		if (job)
 			var/datum/job/J = SSjobs.GetJob(job)
 			if(istype(J))
@@ -1108,7 +1126,7 @@ var/list/admin_verbs_cciaa = list(
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/mob/living/silicon/ai/target = input("Choose the AI to force-wipe:", "AI Termination") as null|anything in ai_list
+	var/mob/living/silicon/ai/target = tgui_input_list(usr, "Choose the AI to force-wipe.", "AI Termination", ai_list)
 
 	if (!target || alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
 		return
@@ -1258,7 +1276,7 @@ var/list/admin_verbs_cciaa = list(
 		return
 
 	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
-	SSpersist_config.forced_awaymission = mission_name
+	SSpersistent_configuration.forced_awaymission = mission_name
 
 	if(!mission_name)
 		log_and_message_admins("reset the forced away mission.")

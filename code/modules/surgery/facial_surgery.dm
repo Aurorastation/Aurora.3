@@ -220,7 +220,7 @@
 		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting [target]'s synthetic face.", \
-							 SPAN_NOTICE("You successfully adjust [target]'s appearance."))
+								SPAN_NOTICE("You successfully adjust [target]'s appearance."))
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 	if(getName)

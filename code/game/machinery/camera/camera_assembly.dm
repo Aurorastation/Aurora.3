@@ -106,9 +106,10 @@
 				C.c_tag = input
 
 				for(var/i = 5; i >= 0; i -= 1)
-					var/direct = input(user, "Direction?", "Assembling Camera", null) in list("LEAVE IT", "NORTH", "EAST", "SOUTH", "WEST" )
-					if(direct != "LEAVE IT")
+					var/direct = tgui_input_list(user, "Direction?", "Assembling Camera", list("Confirm", "NORTH", "EAST", "SOUTH", "WEST"))
+					if(direct != "Confirm")
 						C.dir = text2dir(direct)
+						C.set_pixel_offsets()
 					if(i != 0)
 						var/confirm = alert(user, "Is this what you want? Chances Remaining: [i]", "Confirmation", "Yes", "No")
 						if(confirm == "Yes")

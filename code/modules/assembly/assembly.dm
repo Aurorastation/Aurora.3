@@ -3,7 +3,7 @@
 	desc = "A small electronic device that should never exist."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = ""
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	recyclable = TRUE
@@ -92,9 +92,9 @@
 	return
 
 
-/obj/item/device/assembly/examine(mob/user)
+/obj/item/device/assembly/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(. && (in_range(src, user) || loc == user))
+	if(distance <= 1 || loc == user)
 		if(secured)
 			to_chat(user, "\The [src] is ready!")
 		else

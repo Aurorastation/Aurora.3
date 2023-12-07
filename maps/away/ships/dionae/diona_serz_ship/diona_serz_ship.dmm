@@ -1,4 +1,34 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/engine)
+"ab" = (
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/engine)
+"ac" = (
+/obj/machinery/door/airlock/diona{
+	dir = 1
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/hall)
+"ad" = (
+/obj/machinery/door/airlock/diona{
+	dir = 1
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/hall)
+"ae" = (
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/diona_serz_ship_shuttle)
 "af" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/diona/airless,
@@ -60,7 +90,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "ca" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "cj" = (
@@ -119,7 +151,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "eo" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 1
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "eO" = (
@@ -587,7 +621,9 @@
 /turf/simulated/wall/diona,
 /area/ship/diona_serz_ship/engine)
 "zm" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
 	},
@@ -685,7 +721,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "Dh" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "Du" = (
@@ -721,7 +759,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/heavycontainment)
 "Em" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 1
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "EF" = (
@@ -733,7 +773,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/heavycontainment)
 "Fd" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "Fh" = (
@@ -771,7 +813,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "GG" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona,
 /area/ship/diona_serz_ship/dock)
 "GT" = (
@@ -852,7 +896,8 @@
 /area/ship/diona_serz_ship/hall)
 "Ko" = (
 /obj/machinery/door/airlock/diona/external{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/diona/airless,
@@ -946,7 +991,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
 "Nt" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 1
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/heavycontainment)
 "NU" = (
@@ -954,7 +1001,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "Oo" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
 	},
@@ -966,7 +1015,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "OK" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
@@ -987,7 +1038,9 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "PQ" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 1
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/lightcontainment)
 "PU" = (
@@ -1219,7 +1272,9 @@
 /turf/simulated/floor/ice,
 /area/ship/diona_serz_ship/lightcontainment)
 "Wg" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
 "Wp" = (
@@ -36110,8 +36165,8 @@ Jd
 Jd
 Jd
 Jd
-ca
-ca
+aa
+ab
 Jd
 Lw
 kB
@@ -37625,7 +37680,7 @@ jz
 BV
 Zw
 pw
-Wg
+ac
 YM
 Gh
 Gh
@@ -37648,7 +37703,7 @@ YM
 Gh
 Gh
 YM
-Wg
+ad
 Sa
 LE
 Sa
@@ -42765,7 +42820,7 @@ kB
 yR
 yR
 yR
-Dh
+ae
 Oo
 yR
 yR

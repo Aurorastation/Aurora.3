@@ -27,7 +27,7 @@
 
 	head = /obj/item/clothing/head/flatcap/bartender
 	uniform = /obj/item/clothing/under/rank/bartender
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	suit = /obj/item/clothing/suit/storage/bartender
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
@@ -74,7 +74,7 @@
 	uniform = /obj/item/clothing/under/rank/chef/nt
 	suit = /obj/item/clothing/suit/chef_jacket/nt
 	head = /obj/item/clothing/head/chefhat/nt
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -123,7 +123,7 @@
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	head = /obj/item/clothing/head/bandana/hydro/nt
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -175,7 +175,7 @@
 
 	uniform = /obj/item/clothing/under/rank/janitor
 	head = /obj/item/clothing/head/softcap/nt/custodian
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/janitor
@@ -221,7 +221,7 @@
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
@@ -246,7 +246,7 @@
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
@@ -281,7 +281,7 @@
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/librarian
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
 
@@ -346,7 +346,7 @@
 	name = "Chaplain"
 	jobtype = /datum/job/chaplain
 	uniform = /obj/item/clothing/under/rank/chaplain
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
@@ -427,7 +427,7 @@
 	jobtype = /datum/job/operations_manager
 
 	uniform = /obj/item/clothing/under/rank/operations_manager
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -476,7 +476,7 @@
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician
 	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
@@ -517,7 +517,7 @@
 
 	uniform = /obj/item/clothing/under/rank/miner
 	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	l_hand = /obj/item/coin/mining
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/miner
@@ -572,7 +572,7 @@
 
 	uniform = /obj/item/clothing/under/rank/machinist
 	suit = /obj/item/clothing/suit/storage/machinist
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility
 

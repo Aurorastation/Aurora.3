@@ -64,4 +64,4 @@
 	var/removable = TRUE            // Determines if a circuit is removable from the assembly.
 	var/displayed_name = ""
 	var/allow_multitool = TRUE      // Allows additional multitool functionality
-	                                // Used as a global var, (Do not set manually in children).
+									// Used as a global var, (Do not set manually in children).

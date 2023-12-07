@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 //ghost roles
 
@@ -45,7 +45,7 @@
 	uniform = /obj/item/clothing/under/tajaran/ala
 	head = /obj/item/clothing/head/beret/tajaran/dpra/alt
 	back = /obj/item/storage/backpack/rucksack
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	l_ear = null
 

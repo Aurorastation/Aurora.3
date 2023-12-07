@@ -11,6 +11,10 @@
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
 
+/// Occupation preferences.
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
+
 // Invisibility constants.
 #define INVISIBILITY_LIGHTING		20
 #define INVISIBILITY_LEVEL_ONE		35
@@ -43,29 +47,29 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY     0x8
-#define CHAT_OOC        0x10
-#define CHAT_DEAD       0x20
-#define CHAT_GHOSTEARS  0x40
-#define CHAT_GHOSTSIGHT 0x80
-#define CHAT_PRAYER     0x100
-#define CHAT_RADIO      0x200
-#define CHAT_ATTACKLOGS 0x400
-#define CHAT_DEBUGLOGS  0x800
-#define CHAT_LOOC       0x1000
-#define CHAT_GHOSTRADIO 0x2000
-#define SHOW_TYPING     0x4000
-#define CHAT_NOICONS    0x8000
-#define CHAT_GHOSTLOOC	0x10000
+#define SOUND_LOBBY				0x8
+#define CHAT_OOC				0x10
+#define CHAT_DEAD				0x20
+#define CHAT_GHOSTEARS			0x40
+#define CHAT_GHOSTSIGHT			0x80
+#define CHAT_PRAYER				0x100
+#define CHAT_RADIO				0x200
+#define CHAT_ATTACKLOGS			0x400
+#define CHAT_DEBUGLOGS			0x800
+#define CHAT_LOOC				0x1000
+#define CHAT_GHOSTRADIO			0x2000
+#define HIDE_TYPING_INDICATOR	0x4000
+#define CHAT_NOICONS			0x8000
+#define CHAT_GHOSTLOOC			0x10000
 
 // 0x1 is free.
 // 0x2 is free.
-#define PROGRESS_BARS  0x4
-#define PARALLAX_IS_STATIC 0x8
-#define FLOATING_MESSAGES 0x10
-#define HOTKEY_DEFAULT 0x20
-#define FULLSCREEN_MODE 0x40
-#define ACCENT_TAG_TEXT 0x80
+#define PROGRESS_BARS				0x4
+#define PARALLAX_IS_STATIC			0x8
+#define FLOATING_MESSAGES			0x10
+#define HOTKEY_DEFAULT				0x20
+#define FULLSCREEN_MODE				0x40
+#define ACCENT_TAG_TEXT				0x80
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
@@ -138,13 +142,13 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
-#define SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE        	 BITFLAG(4)
-#define NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
-#define NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
+#define AREA_FLAG_SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
+#define AREA_FLAG_HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
+#define AREA_FLAG_FIRING_RANGE        	 BITFLAG(4)
+#define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
+#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -164,6 +168,8 @@
 #define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
+#define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
+#define DEFAULT_TABLE_FLIP_WEIGHT 22
 #define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"
@@ -277,10 +283,10 @@
 
 //supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
 #define RANGE_TURFS(RADIUS, CENTER) \
-  block( \
-    locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-    locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-  )
+	block( \
+		locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
+		locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
+	)
 
 #define get_turf(A) (get_step(A, 0))
 #define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
@@ -379,7 +385,7 @@
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
 // The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
-#define DEFAULT_WALL_OFFSET 28
+#define DEFAULT_WALL_OFFSET 22 // Don't touch this unless you're going to work with walls in a major way.
 
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
@@ -387,10 +393,10 @@
 
 /*
 Define for getting a bitfield of adjacent turfs that meet a condition.
- ORIGIN is the object to step from, VAR is the var to write the bitfield to
- TVAR is the temporary turf variable to use, FUNC is the condition to check.
- FUNC generally should reference TVAR.
- example:
+ORIGIN is the object to step from, VAR is the var to write the bitfield to
+TVAR is the temporary turf variable to use, FUNC is the condition to check.
+FUNC generally should reference TVAR.
+example:
 	var/turf/T
 	var/result = 0
 	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
@@ -471,8 +477,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define CONTAINER_EMPTY		0
 #define CONTAINER_SINGLE	1
 #define CONTAINER_MANY		2
-//Misc text define. Does 4 spaces. Used as a makeshift tabulator.
-#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+
 #define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
 
 // check_items/check_reagents/check_fruits return values
@@ -493,10 +498,15 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define HABITABILITY_BAD  3
 
 //Map template flags
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1 // Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2 // Makes it ignore away site budget and just spawn (only for away sites)
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   4 // if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
+/// Lets multiple copies of the template to be spawned
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1
+/// Makes it ignore away site budget and just spawn (works only for away sites)
+/// A site needs to be set to spawn in current sector to be considered still
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2
+/// if it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   4
+/// if it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RUINS         8
 
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
@@ -523,3 +533,6 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TRANSFER_EMERGENCY "emergency transfer"
 #define TRANSFER_JUMP "bluespace jump"
 #define TRANSFER_CREW "crew transfer"
+
+/// Gyrotron power usage modifier.
+#define GYRO_POWER 25000

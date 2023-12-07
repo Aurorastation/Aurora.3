@@ -197,7 +197,7 @@
 	if(size) // defined size means we're hoisting and it'll take time
 		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
 
-	if (do_after(user, (1 SECONDS) * size / 4, act_target = src))
+	if (do_after(user, (1 SECONDS) * size / 4, src))
 		. = move_dir(movedir)
 
 	if(.)

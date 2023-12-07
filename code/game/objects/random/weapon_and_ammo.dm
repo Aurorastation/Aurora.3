@@ -18,6 +18,7 @@
 		/obj/item/gun/projectile/revolver/derringer = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 1,
+		/obj/item/gun/projectile/shotgun/pump/lever_action = 0.5,
 		/obj/item/gun/launcher/harpoon = 1
 		)
 
@@ -143,7 +144,8 @@
 				/obj/item/grenade/smokebomb,
 				/obj/item/grenade/flashbang,
 				/obj/item/grenade/empgrenade,
-				/obj/item/grenade/chem_grenade/incendiary
+				/obj/item/grenade/chem_grenade/incendiary,
+				/obj/item/grenade/stinger
 				)
 			var/obj/item/storage/bag/plasticbag/bag = new /obj/item/storage/bag/plasticbag(spawned.loc)
 			for(var/i in 1 to 7)

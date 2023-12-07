@@ -135,7 +135,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			if(user.a_intent != I_HELP)
 				return
 
-			if(W.flags & CONDUCT)
+			if(W.obj_flags & OBJ_FLAG_CONDUCTABLE)
 				shock(user, 50, 0.7)
 
 		if(d1 == 12 || d2 == 12)
@@ -482,12 +482,14 @@ By design, d1 is the smallest direction and d2 is the highest
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	recyclable = TRUE
-	flags = HELDMAPTEXT|CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	var/static/list/possible_cable_coil_colours = list(
 		"Yellow" = COLOR_YELLOW,
 		"Green" = COLOR_LIME,
@@ -633,7 +635,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/item/stack/cable_coil/proc/choose_cable_color(var/user)
-	var/selected_type = input("Pick a new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
+	var/selected_type = tgui_input_list(user, "Pick a new colour.", "Cable Colour", possible_cable_coil_colours)
 	set_cable_color(selected_type, user)
 
 /obj/item/stack/cable_coil/proc/set_cable_color(selected_color, var/user)
@@ -656,7 +658,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		slot_flags = SLOT_BELT
 
 /obj/item/stack/cable_coil/examine(mob/user)
-	..()
+	. = ..()
 	if(!uses_charge)
 		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 	else
@@ -1077,10 +1079,10 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/mob/living/M = buckled
 		if(M != user)
 			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
-								 SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
+									SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
 			if(do_mob(user, M, 100))
 				user.visible_message(SPAN_NOTICE("[user] unties the noose over [M]'s neck!"),\
-									 SPAN_NOTICE("You untie the noose over [M]'s neck!"))
+										SPAN_NOTICE("You untie the noose over [M]'s neck!"))
 			else
 				return
 		else
@@ -1127,7 +1129,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-		SSfeedback.IncrementSimpleStat("hangings")
+		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
 	else
 		M.visible_message(\
@@ -1140,7 +1142,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
 					SPAN_DANGER("[user] ties \the [src] over your neck!"))
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-				SSfeedback.IncrementSimpleStat("hangings")
+				SSstatistics.IncrementSimpleStat("hangings")
 				return TRUE
 			else
 				user.visible_message(\

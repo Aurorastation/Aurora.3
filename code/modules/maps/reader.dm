@@ -307,7 +307,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	//since we've switched off autoinitialisation, record atoms to initialise later
 	var/list/atoms_to_initialise = list()
 	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin()
+	SSatoms.map_loader_begin(text_ref(src))
 
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
@@ -355,7 +355,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	for(index in 1 to first_turf_index-1)
 		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
 	//Restore initialization to the previous value
-	SSatoms.map_loader_stop()
+	SSatoms.map_loader_stop(text_ref(src))
 
 	var/datum/grid_load_metadata/M = new
 	M.atoms_to_initialise = atoms_to_initialise
@@ -381,9 +381,9 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
 	if(TICK_CHECK)
-		SSatoms.map_loader_stop()
+		SSatoms.map_loader_stop(text_ref(src))
 		stoplag()
-		SSatoms.map_loader_begin()
+		SSatoms.map_loader_begin(text_ref(src))
 
 /dmm_suite/proc/create_atom(path, crds)
 	// Doing this async is impossible, as we must return the ref.

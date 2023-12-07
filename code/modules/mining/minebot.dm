@@ -1,5 +1,5 @@
 /mob/living/silicon/robot/drone/mining
-	name = "NT-MD-000"
+	name = "Autonomous Mining Drone"
 	desc_flavor = "It's a small mining drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Automated Pickaxe!'<br><br><b>OOC Info:</b><br><br>Mining drones are player-controlled synthetics which are lawed to serve the crew and excavate for ore.<br><br>They hold a wide array of tools to explore mining sites and extract ore. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a mining drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with mining or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon_state = "miningdrone"
 	mod_type = "Mining"

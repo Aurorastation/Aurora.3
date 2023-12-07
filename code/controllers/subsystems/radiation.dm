@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/radiation/SSradiation
-
-/datum/controller/subsystem/radiation
+SUBSYSTEM_DEF(radiation)
 	name = "Radiation"
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_RADIATION
@@ -13,9 +11,6 @@ var/datum/controller/subsystem/radiation/SSradiation
 	var/list/current_sources   = list()
 	var/list/current_res_cache = list()
 	var/list/listeners         = list()
-
-/datum/controller/subsystem/radiation/New()
-	NEW_SS_GLOBAL(SSradiation)
 
 /datum/controller/subsystem/radiation/fire(resumed = FALSE)
 	if (!resumed)
@@ -76,7 +71,7 @@ var/datum/controller/subsystem/radiation/SSradiation
 			continue // Radiation is not multi-z
 		if(source.respect_maint)
 			var/area/A = T.loc
-			if(A.flags & RAD_SHIELDED)
+			if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 				continue // In shielded area
 
 		var/dist = get_dist(source.source_turf, T)

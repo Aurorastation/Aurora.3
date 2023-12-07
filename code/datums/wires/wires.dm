@@ -159,7 +159,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 					holder.add_hiddenprint(L)
 				else
 					to_chat(L, SPAN_WARNING("You need a multitool!"))
-			
+
 
 		// Update Window
 			Interact(usr)

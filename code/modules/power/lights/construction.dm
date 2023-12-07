@@ -2,7 +2,7 @@
 /obj/machinery/light_construct
 	name = "light fixture frame"
 	desc = "A light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -28,25 +28,24 @@
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/light_construct/examine(mob/user)
-	if(!..(user, 2))
-		return
+/obj/machinery/light_construct/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
+		switch(stage)
+			if(1)
+				to_chat(user, SPAN_NOTICE("It's an empty frame."))
+			if(2)
+				to_chat(user, SPAN_NOTICE("It's wired."))
+			if(3)
+				to_chat(user, SPAN_NOTICE("The casing is closed."))
 
-	switch(stage)
-		if(1)
-			to_chat(user, SPAN_NOTICE("It's an empty frame."))
-		if(2)
-			to_chat(user, SPAN_NOTICE("It's wired."))
-		if(3)
-			to_chat(user, SPAN_NOTICE("The casing is closed."))
-
-	if (cell_connectors)
-		if (cell)
-			to_chat(user, SPAN_NOTICE("You see [cell] inside the casing."))
+		if (cell_connectors)
+			if (cell)
+				to_chat(user, SPAN_NOTICE("You see [cell] inside the casing."))
+			else
+				to_chat(user, SPAN_NOTICE("The casing has no power cell installed."))
 		else
-			to_chat(user, SPAN_NOTICE("The casing has no power cell installed."))
-	else
-		to_chat(user, SPAN_WARNING("This casing doesn't support a backup power cell."))
+			to_chat(user, SPAN_WARNING("This casing doesn't support a backup power cell."))
 
 /obj/machinery/light_construct/attackby(obj/item/W, mob/living/user)
 	add_fingerprint(user)
@@ -185,7 +184,7 @@
 /obj/machinery/light_construct/small
 	name = "small light fixture frame"
 	desc = "A small light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "bulb-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -196,7 +195,7 @@
 /obj/machinery/light_construct/spot
 	name = "spotlight fixture frame"
 	desc = "A spotlight fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "slight-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -207,7 +206,7 @@
 /obj/machinery/light_construct/small/floor
 	name = "small floor light fixture frame"
 	desc = "A small floor light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floor-construct-stage1"
 	anchored = TRUE
 	layer = 2.5
@@ -218,7 +217,7 @@
 /obj/machinery/light_construct/floor
 	name = "floor light fixture frame"
 	desc = "A floor light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
 	anchored = TRUE
 	layer = 2.5

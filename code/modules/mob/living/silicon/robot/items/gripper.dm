@@ -6,7 +6,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
 
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 	//Has a list of items that it can hold.
 	var/list/can_hold = list(
@@ -36,7 +36,7 @@
 	var/force_holder
 
 /obj/item/gripper/examine(var/mob/user)
-	..()
+	. = ..()
 	if(wrapped)
 		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
 

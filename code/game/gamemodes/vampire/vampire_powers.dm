@@ -47,7 +47,7 @@
 		//IPCs leak oil
 		to_chat(src, SPAN_WARNING("[T] is not a creature you can drain useful blood from."))
 		return
-	if(T.head && (T.head.item_flags & AIRTIGHT))
+	if(T.head && (T.head.item_flags & ITEM_FLAG_AIRTIGHT))
 		to_chat(src, SPAN_WARNING("[T]'s headgear is blocking the way to the neck."))
 		return
 	var/obj/item/blocked = check_mouth_coverage()
@@ -219,7 +219,7 @@
 		to_chat(src, SPAN_WARNING("No suitable targets."))
 		return
 
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
+	var/mob/living/carbon/human/T = tgui_input_list(src, "Select Victim", "Hypnotise", victims)
 	if(!vampire_can_affect_target(T))
 		return
 	if(vampire.status & VAMP_HYPNOTIZING)
@@ -379,6 +379,7 @@
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
+		CHECK_TICK
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 	vampire.use_blood(90)
@@ -587,7 +588,7 @@
 
 	log_and_message_admins("activated blood heal.")
 
-	while(do_after(src, 20, 0))
+	while(do_after(src, 2 SECONDS, do_flags = DO_UNIQUE & ~DO_USER_SAME_HAND))
 		if(!(vampire.status & VAMP_HEALING))
 			to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 			break

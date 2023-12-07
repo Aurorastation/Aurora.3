@@ -761,15 +761,15 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "messy hair"
 
-/datum/sprite_accessory/hair/messy2
-	name = "Messy 2"
-	icon_state = "hair_messy2"
+/datum/sprite_accessory/hair/messy_alt
+	name = "Messy, Alt"
+	icon_state = "hair_messy_alt"
 	length = 2
 	chatname = "messy hair"
 
-/datum/sprite_accessory/hair/messy3
-	name = "Messy 3"
-	icon_state = "hair_messy3"
+/datum/sprite_accessory/hair/messy_alt_rounded
+	name = "Messy, Alt (Rounded)"
+	icon_state = "hair_messy_alt_rounded"
 	length = 2
 	chatname = "messy hair"
 
@@ -1196,6 +1196,18 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/poofy2
 	name = "Poofy 2"
 	icon_state = "hair_poofy2"
+	length = 2
+	chatname = "poofy hair"
+
+/datum/sprite_accessory/hair/poofy3
+	name = "Poofy 3"
+	icon_state = "hair_poofy3"
+	length = 2
+	chatname = "poofy hair"
+
+/datum/sprite_accessory/hair/poofy4
+	name = "Poofy 4"
+	icon_state = "hair_poofy4"
 	length = 2
 	chatname = "poofy hair"
 
@@ -1737,11 +1749,11 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "fringe"
 
-/datum/sprite_accessory/hair/balding/messy4
-	name = "Messy 4"
-	icon_state = "hair_messy4"
-	length = 1
-	chatname = "messy hair"
+/datum/sprite_accessory/hair/balding/poofy5
+	name = "Poofy 5"
+	icon_state = "hair_poofy5"
+	length = 2
+	chatname = "poofy hair"
 
 /datum/sprite_accessory/hair/balding/nia2
 	name = "Nia 2"
@@ -2224,12 +2236,6 @@ Follow by example and make good judgement based on length which list to include 
 	length = 5
 	chatname = "horns"
 
-/datum/sprite_accessory/hair/una_aquaticfrill/una_elvis
-	name = "Elvis Sideburns"
-	icon_state = "unathi_elvis"
-	length = 0
-	chatname = "sideburns"
-
 /datum/sprite_accessory/hair/una_aquaticfrill/una_hornadorns
 	name = "Unathi Horn Adorns"
 	icon_state = "unathi_hornadorns"
@@ -2487,6 +2493,50 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "styrahornbusted"
 	length = 2
 	chatname = "horn stub"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/finhawk
+	name = "Unathi Mohawk Fin"
+	icon_state = "fin_hawk"
+	length = 0
+	chatname = "fin"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/big
+	name = "Unathi Big Frills"
+	icon_state = "big_frills"
+	length = 0
+	chatname = "frills"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/quintuple
+	name = "Unathi Quintuple Horns"
+	icon_state = "quintuple_horns"
+	length = 5
+	chatname = "horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/curved
+	name = "Unathi Curved-Up Horns"
+	icon_state = "curved_up"
+	length = 5
+	chatname = "horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/curved/down
+	name = "Unathi Curved-Down Horns"
+	icon_state = "curved_down"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/samurai
+	name = "Unathi Samurai Horns"
+	icon_state = "samurai"
+	length = 5
+	chatname = "horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/headspikes
+	name = "Unathi Head Spikes"
+	icon_state = "head_spikes"
+	length = 5
+	chatname = "spiked horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/headspikes/overgrown
+	name = "Unathi Overgrown Head Spikes"
+	icon_state = "overgrown_head_spikes"
 
 //skrell tentacles
 
@@ -3892,22 +3942,6 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Unathi Big Horns"
 	icon_state = "facial_bighorn"
 
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bob
-	name = "Bob"
-	icon_state = "facial_bob"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bobcurl
-	name = "Bobcurl"
-	icon_state = "facial_bobcurl"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_buzzcut
-	name = "Buzzcut"
-	icon_state = "facial_buzzcut"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_buzzcut2
-	name = "Buzzcut 2"
-	icon_state = "facial_buzzcut2"
-
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_chinhorn
 	name = "Unathi Chin Horn"
 	icon_state = "facial_chinhorns"
@@ -3983,10 +4017,6 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_sidefrills
 	name = "Unathi Side Frills"
 	icon_state = "facial_sidefrills"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_spiky
-	name = "Spiky"
-	icon_state = "facial_spiky"
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_horns
 	name = "Unathi Horns"
@@ -4858,30 +4888,43 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Chest Wires"
 	icon_state = "chest_wires"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b
-	name = "Mecha Eye (Blue, Right)"
-	icon_state = "mecha_eye_b_r"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye
+	name = "Mecha Eye (Faceplate, Right)"
+	icon_state = "mecha_eye_r"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l
+	name = "Mecha Eye (Faceplate, Left)"
+	icon_state = "mecha_eye_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay
+	name = "Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_eyeoverlay_r"
 	body_parts = list(BP_HEAD)
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_b_l
-	name = "Mecha Eye (Blue, Left)"
-	icon_state = "mecha_eye_b_l"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l
+	name = "Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_eyeoverlay_l"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_r_l
-	name = "Mecha Eye (Red, Left)"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l
+	name = "Mecha Eye (Faceplate, Right, Large)"
 	icon_state = "mecha_eye_r_l"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_r_r
-	name = "Mecha Eye (Red, Right)"
-	icon_state = "mecha_eye_r_r"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l
+	name = "Mecha Eye (Faceplate, Left, Large)"
+	icon_state = "mecha_eye_l_l"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_y_l
-	name = "Mecha Eye (Yellow, Left)"
-	icon_state = "mecha_eye_y_l"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay_l
+	name = "Mecha Eye (Overlay, Right, Large)"
+	icon_state = "mecha_eyeoverlay_r_l"
+	body_parts = list(BP_HEAD)
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_y_r
-	name = "Mecha Eye (Yellow, Right)"
-	icon_state = "mecha_eye_y_r"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_l_r
+	name = "Mecha Eye (Overlay, Left, Large)"
+	icon_state = "mecha_eyeoverlay_l_l"
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mandible
 	name = "Mecha Mandibles"
@@ -5783,7 +5826,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Tattoo (Koi, L. Arm)"
 	body_parts = list(BP_L_ARM)
 
-/datum/sprite_accessory/marking/tat_koiright_arm
+/datum/sprite_accessory/marking/tat_koi/right_arm
 	name = "Tattoo (Koi, R. Arm)"
 	body_parts = list(BP_R_ARM)
 

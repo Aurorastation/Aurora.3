@@ -381,7 +381,7 @@
 				possible_entry_points = sortList(possible_entry_points)
 			if(istype(linked.targeting, /obj/effect/overmap/event))
 				possible_entry_points += SHIP_HAZARD_TARGET
-			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
+			var/targeted_landmark = tgui_input_list(user, "Select an entry point.", "Leviathan Control", possible_entry_points)
 			if(!targeted_landmark && length(possible_entry_points))
 				return
 			var/obj/effect/landmark

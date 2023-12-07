@@ -33,7 +33,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return
 
 /atom/movable/attackby(obj/item/W, mob/user)
-	if(!(W.flags & NOBLUDGEON))
+	if(!(W.item_flags & ITEM_FLAG_NO_BLUDGEON))
 		visible_message("<span class='danger'>[src] has been hit by [user] with [W].</span>")
 
 /mob/living/attackby(obj/item/I, mob/user)
@@ -56,7 +56,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return I.attack(src, user, selected_zone)
 
 /mob/living/carbon/human/attackby(obj/item/I, mob/user)
-	if(user == src && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
+	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
@@ -86,7 +86,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
 /obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = BP_CHEST)
-	if(flags & NOBLUDGEON)
+	if(item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return 0
 
 	if(M == user && user.a_intent != I_HURT)

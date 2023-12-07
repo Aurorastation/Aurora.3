@@ -1,6 +1,7 @@
 /// Tests that all subsystems that need to properly initialize.
 /datum/unit_test/subsystem_init
 	name = "Controller Subsystem Init"
+	groups = list("generic")
 
 /datum/unit_test/subsystem_init/start_test()
 	for(var/datum/controller/subsystem/subsystem as anything in Master.subsystems)

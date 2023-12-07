@@ -1,3 +1,7 @@
+/turf/simulated/wall/diona
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "diona"
+
 /turf/simulated/wall/diona/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, "biomass")

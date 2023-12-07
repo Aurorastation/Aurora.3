@@ -72,7 +72,7 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	belt = /obj/item/melee/energy/sword/hegemony
-	shoes = /obj/item/clothing/shoes/caligae
+	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id/distress/kataphract
 	back = /obj/item/storage/backpack/satchel/hegemony
 

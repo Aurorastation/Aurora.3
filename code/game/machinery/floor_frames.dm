@@ -3,7 +3,7 @@
 	desc = "Used for building machines."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/build_machine_type
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
@@ -51,7 +51,7 @@
 /obj/item/floor_frame/light
 	name = "floor light fixture frame"
 	desc = "Used for building lights."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
 	build_machine_type = /obj/machinery/light_construct/floor
 	reverse = 1

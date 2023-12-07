@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/stickyban/SSstickyban
-
-/datum/controller/subsystem/stickyban
+SUBSYSTEM_DEF(stickyban)
 	name = "PRISM"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -9,9 +7,6 @@
 	var/list/dbcache = list()
 	var/list/confirmed_exempt = list()
 	var/dbcacheexpire = 0
-
-/datum/controller/subsystem/stickyban/New()
-	NEW_SS_GLOBAL(SSstickyban)
 
 /datum/controller/subsystem/stickyban/Initialize(timeofday)
 	var/list/bannedkeys = sticky_banned_ckeys()

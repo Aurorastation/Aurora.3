@@ -97,7 +97,7 @@
 		reagents.add_reagent(refill_reagent, refill_rate)
 
 /obj/item/mop/advanced/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>."))
 
 /obj/item/mop/advanced/Destroy()

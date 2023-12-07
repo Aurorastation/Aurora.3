@@ -69,8 +69,8 @@
 			habitability_class = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/Initialize()
-  . = ..()
-  update_icon()
+	. = ..()
+	update_icon()
 
 /obj/effect/overmap/visitable/sector/exoplanet/update_icon()
 	icon_state = "globe[rand(1,3)]"
@@ -309,7 +309,7 @@
 			// Ruins check - try to avoid blowing up ruins with our LZ
 			// We do this until we run out of attempts
 			for(var/turf/check in block_to_check)
-				if(!istype(get_area(check), /area/exoplanet) || check.flags & TURF_NORUINS)
+				if(!istype(get_area(check), /area/exoplanet) || check.turf_flags & TURF_NORUINS)
 					valid = FALSE
 					break
 			// Landability check - try to find an already-open space for an LZ
