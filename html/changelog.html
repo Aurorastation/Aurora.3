@@ -35,6 +35,27 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">06 December 2023</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced the passive power drain of exosuits/mechas because of their chassis to 10% of the current amount.</li>
+				<li class="tweak">Reduced the active power drain of exosuits/mechas because of their arms and legs to roughly 50% of the current amount.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a new kind of energy pistol, using the SCC Repeater lethal shot.</li>
+				<li class="rscadd">Adds a new projectile for this pistol. It has less AP than the original SCC beam.</li>
+				<li class="tweak">Swaps the XO, HoS and Captains disruptors for the new pistol.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Suit sensors are now tiered based on alert level.</li>
+				<li class="balance">Suit sensors are now only installed on job uniforms.</li>
+				<li class="balance">Suit sensors are no longer able to be installed on PDAs and Tablets.</li>
+				<li class="rscadd">You are now able to set your suit sensors on the character creation menu.</li>
+				<li class="bugfix">Fixes the weird imbalance with the character creation menu.</li>
+			</ul>
+
 			<h2 class="date">05 December 2023</h2>
 			<h3 class="author">AlaunusLux updated:</h3>
 			<ul class="changes bgimages16">
@@ -44,6 +65,12 @@
 			<ul class="changes bgimages16">
 				<li class="rscadd">Added plate carrier holsters to the security officers locker, they can be attached to the plate carrier if another accessory is removed from it (eg the pouches).</li>
 				<li class="refactor">Moved the modular plate carrier holster back into the holster files, some comments cleanup inside it.</li>
+				<li class="bugfix">Solved aiming not being toggleable.</li>
+				<li class="bugfix">Solved inability to fire weapons.</li>
+				<li class="bugfix">Solved a runtime if the target were to be deleted while aimed at, and the aimer were to try to change the aiming setting.</li>
+				<li class="bugfix">Solved a softlock caused by the above runtime that would prevent you from firing.</li>
+				<li class="bugfix">Solved references not being cleared correctly on some deletion combinations.</li>
+				<li class="bugfix">Solved some conditions considering things being GCd as still valid to be processed, when they aren&#x27;t.</li>
 			</ul>
 			<h3 class="author">Furrycactus updated:</h3>
 			<ul class="changes bgimages16">
