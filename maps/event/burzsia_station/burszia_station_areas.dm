@@ -24,12 +24,12 @@
 
 /area/burszia_station/opshall
 	name = "Operations Hallway"
-	icon_state = "brown"
+	icon_state = "dark"
 	ambience = AMBIENCE_ENGINEERING
 
 /area/burszia_station/atmos
 	name = "Atmospherics"
-	icon_state = "orange"
+	icon_state = "engineering"
 	ambience = AMBIENCE_ATMOS
 
 /area/burszia_station/medbay
@@ -38,7 +38,7 @@
 
 /area/burszia_station/mechbay
 	name = "Robotics Bay"
-	icon_state = "orange"
+	icon_state = "machinist_workshop"
 
 /area/burszia_station/security
 	name = "Security"
@@ -46,7 +46,7 @@
 
 /area/burszia_station/operations
 	name = "Operations Office"
-	icon_state = "brown"
+	icon_state = "quartoffice"
 
 /area/burszia_station/mining
 	name = "Mining"
@@ -56,7 +56,7 @@
 
 /area/burszia_station/sorting
 	name = "Sorting Room"
-	icon_state = "brown2"
+	icon_state = "quartloading"
 
 /area/burszia_station/shopette
 	name = "Shopette"
