@@ -4,7 +4,6 @@
 	requires_power = FALSE
 
 /area/shuttle/goon_ship
-	flags = HIDE_FROM_HOLOMAP
 	icon_state = "red"
 	requires_power = TRUE
 
