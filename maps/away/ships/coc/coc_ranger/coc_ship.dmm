@@ -2358,6 +2358,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
+"jRF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
 "jVf" = (
 /obj/structure/closet/crate{
 	anchored = 1;
@@ -2579,6 +2589,13 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/gunnery)
+"lgK" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/foyer)
 "lhJ" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
@@ -3901,9 +3918,6 @@
 /area/ship/ranger_corvette/gunnery)
 "qtV" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/mob/living/bot/medbot{
-	req_one_access = null
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5071,16 +5085,6 @@
 "tWh" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engine1)
-"tWE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/foyer)
 "tXd" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71
@@ -5605,13 +5609,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
-"vOv" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
@@ -38741,8 +38738,8 @@ wUT
 wUT
 wUT
 wUT
-vOv
-tWE
+lgK
+jRF
 oUC
 tmL
 iwS
