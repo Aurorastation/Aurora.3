@@ -61,6 +61,8 @@
 	possible_accents = list(ACCENT_BURSA)
 	possible_citizenships = list(CITIZENSHIP_ELYRA, CITIZENSHIP_ELYRA_NCP)
 	possible_religions = RELIGIONS_ELYRA
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
 /singleton/origin_item/origin/other_elyran
 	name = "Other Elyran"
