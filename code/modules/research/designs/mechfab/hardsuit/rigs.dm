@@ -48,9 +48,9 @@
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 12500, MATERIAL_SILVER = 3500, MATERIAL_GOLD = 3500, MATERIAL_URANIUM = 5550, MATERIAL_DIAMOND = 7500)
 
-/datum/design/rig/hacker
+/datum/design/rig/hacker/machinist
 	name = "Cybersuit Control Module Assembly"
 	desc = "An assembly for an advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
-	build_path = /obj/item/rig_assembly/combat/illegal/hacker
+	build_path = /obj/item/rig_assembly/combat/illegal/hacker/machinist
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 12500, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 3500, MATERIAL_URANIUM = 5550)

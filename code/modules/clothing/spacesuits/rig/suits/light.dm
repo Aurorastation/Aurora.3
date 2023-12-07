@@ -100,7 +100,10 @@
 		/obj/item/rig_module/fabricator/energy_net
 		)
 
-
+// Unlocked Version of the Cybersuit for the Machinist construction purposes.
+/obj/item/rig/light/hacker/machinist
+	req_access = list(access_robotics)
+	initial_modules = list(/obj/item/rig_module/ai_container)
 /obj/item/rig/light/ninja
 	name = "stealth suit control module"
 	suit_type = "stealth suit"

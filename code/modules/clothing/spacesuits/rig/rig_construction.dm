@@ -154,6 +154,15 @@
 	board_type = /obj/item/circuitboard/rig_assembly/illegal/hacker
 	target_board_type = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker
 
+/obj/item/rig_assembly/combat/illegal/hacker/machinist
+	name = "cybersuit control module assembly"
+	desc = "The assembly frame for an advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	icon_base = "hacker"
+	icon_state = "hacker1"
+	rig_type = /obj/item/rig/light/hacker/machinist
+	board_type = /obj/item/circuitboard/rig_assembly/illegal/hacker
+	target_board_type = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker
+
 /obj/item/rig_assembly/combat/illegal/stealth
 	name = "stealth suit control module assembly"
 	desc = "The assembly frame for a highly advanced and expensive suit designed for covert operations."
