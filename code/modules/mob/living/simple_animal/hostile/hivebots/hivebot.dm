@@ -9,7 +9,7 @@
 	maxHealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	armor_penetration = 30
+	armor_penetration = 40
 	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
