@@ -1194,19 +1194,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
-"eq" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(217)
-	},
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/point_verdant/interior/police)
 "et" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -2012,9 +1999,9 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(217)
 	},
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/gun/projectile/revolver/konyang/police,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "hX" = (
@@ -4905,12 +4892,13 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(217)
 	},
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
 /obj/random/dirt_75,
+/obj/item/gun/projectile/revolver/konyang/police,
+/obj/item/gun/projectile/revolver/konyang/police,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
+/obj/item/ammo_magazine/c45/revolver,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "tT" = (
@@ -5004,6 +4992,9 @@
 /area/point_verdant/interior/tunnels)
 "uj" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/head/konyang/police/lieutenant,
+/obj/item/clothing/under/rank/konyang/police/lieutenant,
+/obj/item/clothing/shoes/jackboots,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "um" = (
@@ -22092,7 +22083,7 @@ rf
 rf
 rf
 Ir
-eq
+tS
 ch
 mO
 mO
