@@ -7,7 +7,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/sol/battle
 	magazine_type = /obj/item/ammo_magazine/boltaction
 	max_shells = 5
 
