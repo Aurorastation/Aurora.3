@@ -5097,7 +5097,7 @@
 "dYR" = (
 /obj/structure/sign/flag/scc/unmovable,
 /turf/simulated/wall/r_wall,
-/area/bridge/controlroom)
+/area/horizon/hallway/deck_three/primary/central)
 "dZt" = (
 /obj/structure/sink{
 	dir = 4;
@@ -8750,21 +8750,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "gmx" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, representatives office"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/lawoffice/representative_two)
+/obj/item/clothing/accessory/armor_plate/scc,
+/turf/simulated/wall/r_wall,
+/area/bridge/bridge_crew)
 "gmF" = (
 /obj/machinery/alarm/east,
 /obj/structure/flora/pottedplant{
@@ -13156,7 +13144,7 @@
 "jnZ" = (
 /obj/structure/sign/flag/scc/unmovable,
 /turf/simulated/wall/r_wall,
-/area/horizon/hallway/deck_three/primary/central)
+/area/bridge/controlroom)
 "jok" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/fancy/donut,
@@ -20052,9 +20040,21 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "nYD" = (
-/obj/item/clothing/accessory/armor_plate/scc,
-/turf/simulated/wall/r_wall,
-/area/bridge/bridge_crew)
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, representatives office"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/lawoffice/representative_two)
 "nYE" = (
 /obj/machinery/vending/zora,
 /obj/machinery/alarm/east,
@@ -24486,12 +24486,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
-"rqN" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, telecomms"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "rqU" = (
 /obj/structure/platform/cutout{
 	dir = 8
@@ -25905,7 +25899,8 @@
 	dir = 9
 	},
 /obj/machinery/light/small/emergency{
-	dir = 4
+	dir = 8;
+	pixel_x = 16
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
@@ -26605,6 +26600,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/port)
 "sJA" = (
@@ -51414,7 +51410,7 @@ slo
 uFD
 uFD
 pxR
-gmx
+nYD
 hfB
 bJM
 oDy
@@ -52368,7 +52364,7 @@ wGH
 wGH
 wGH
 wGH
-rqN
+wGH
 abZ
 fmB
 fHi
@@ -53845,7 +53841,7 @@ vIv
 vIv
 sGJ
 tYp
-dYR
+jnZ
 mcd
 olJ
 jmA
@@ -54653,7 +54649,7 @@ wAf
 gKI
 iwW
 jDJ
-dYR
+jnZ
 vCY
 qaE
 aGi
@@ -55242,7 +55238,7 @@ dla
 wTy
 wdy
 eSk
-jnZ
+dYR
 aFm
 tHx
 agT
@@ -55661,7 +55657,7 @@ soE
 soE
 bMe
 soE
-nYD
+gmx
 wcf
 wcf
 oKR
@@ -58889,7 +58885,7 @@ cPq
 ojS
 gaZ
 cPq
-cPq
+mKC
 fFz
 dSF
 dSF
@@ -59085,13 +59081,13 @@ dhB
 aeV
 asU
 cPq
-cPq
+ohD
 cPq
 cPq
 ojS
 gaZ
 cPq
-cPq
+mKC
 slH
 dSF
 dSF
@@ -59293,7 +59289,7 @@ cPq
 ojS
 gaZ
 cPq
-cPq
+mKC
 slH
 dSF
 dSF
@@ -59489,13 +59485,13 @@ xjl
 feb
 gqH
 cPq
-cPq
+ohD
 cPq
 cPq
 ojS
 tiw
 cPq
-cPq
+mKC
 slH
 dSF
 dSF
@@ -59893,7 +59889,7 @@ yfg
 jOn
 asU
 cPq
-cPq
+ohD
 cPq
 cPq
 cPq
