@@ -3959,7 +3959,7 @@
 	dir = 1;
 	pixel_y = -19;
 	pixel_x = 5;
-	child_names_txt = "IPC Refugee Shuttle Airlock";
+	child_names_txt = "Decrepit Cargo Tug Airlock";
 	child_tags_txt = "ipc_refugee_shuttle";
 	frequency = 1380;
 	id_tag = "ipc_refugee_shuttle"
