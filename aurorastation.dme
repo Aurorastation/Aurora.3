@@ -3721,6 +3721,7 @@
 #include "maps\random_ruins\exoplanets\konyang\landing_zone.dm"
 #include "maps\random_ruins\exoplanets\konyang\pirate_moonshine.dm"
 #include "maps\random_ruins\exoplanets\konyang\pirate_outpost.dm"
+#include "maps\random_ruins\exoplanets\konyang\telecomms_outpost.dm"
 #include "maps\random_ruins\exoplanets\konyang\village.dm"
 #include "maps\random_ruins\exoplanets\lava\lava.dm"
 #include "maps\random_ruins\exoplanets\raskara\pra_exploration_drone.dm"
