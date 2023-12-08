@@ -2155,7 +2155,9 @@
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/atmos)
 "qF" = (
-/turf/simulated/floor/foamedmetal,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/girder,
+/turf/simulated/floor/airless,
 /area/ship/ipc_refugee/engie)
 "qG" = (
 /obj/item/material/shard/shrapnel{
@@ -38252,7 +38254,7 @@ YJ
 gR
 vr
 rN
-qF
+YJ
 nS
 CJ
 Og
