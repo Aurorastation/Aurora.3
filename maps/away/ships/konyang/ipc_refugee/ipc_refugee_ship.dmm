@@ -1401,6 +1401,10 @@
 /obj/effect/decal/cleanable/floor_damage/broken1,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
+"lp" = (
+/obj/structure/girder,
+/turf/simulated/floor/airless,
+/area/ship/ipc_refugee/cargopod_b)
 "lq" = (
 /obj/machinery/power/apc/west{
 	req_access = null
@@ -3417,7 +3421,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ipc_refugee/bridge)
 "zW" = (
 /obj/structure/lattice,
@@ -3489,7 +3493,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ipc_refugee/bridge)
 "Ax" = (
 /obj/effect/floor_decal/corner_wide/brown{
@@ -6191,7 +6195,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ipc_refugee/bridge)
 "VW" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -6685,7 +6689,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ipc_refugee/bridge)
 "Zq" = (
 /obj/item/storage/toolbox/syndicate{
@@ -6693,7 +6697,7 @@
 	pixel_y = -4
 	},
 /obj/effect/decal/cleanable/floor_damage/broken6,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/ship/ipc_refugee/engie)
 "Zx" = (
 /obj/structure/inflatable/wall,
@@ -42621,7 +42625,7 @@ Xi
 Ik
 Ik
 fC
-BC
+lp
 uN
 XE
 uN
