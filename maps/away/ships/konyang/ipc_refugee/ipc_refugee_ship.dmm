@@ -758,7 +758,7 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/full/airless,
 /area/ship/ipc_refugee/forehall)
 "fM" = (
 /obj/structure/cable{
