@@ -76,73 +76,44 @@
 			for(var/material in I.matter)
 				recipe.resources[material] = I.matter[material]*1.25 // More expensive to produce than they are to recycle.
 		qdel(I)
+	SSmaterials.autolathe_categories |= "All"
+	SSmaterials.autolathe_categories = sort_list(SSmaterials.autolathe_categories, GLOBAL_PROC_REF(cmp_text_asc))
 
-/obj/machinery/autolathe/interact(mob/user)
-	if(..() || (disabled && !panel_open))
-		to_chat(user, SPAN_DANGER("\The [src] is disabled!"))
-		return
+/obj/machinery/autolathe/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Autolathe", capitalize_first_letters(name))
+		ui.open()
 
-	if(shocked)
-		shock(user, 50)
-
-	var/dat = "<center>"
-
-	if(!disabled)
-		dat += "<table width = '100%'>"
-		var/material_top = "<tr>"
-		var/material_bottom = "<tr>"
-
-		for(var/material in stored_material)
-			material_top += "<td width = '25%' align = center><b>[capitalize_first_letters(material)]</b></td>"
-			material_bottom += "<td width = '25%' align = center>[stored_material[material]]<b>/[storage_capacity[material]]</b></td>"
-
-		dat += "[material_top]</tr>[material_bottom]</tr></table><hr>"
-		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a></h3></center><table width = '100%'>"
-
-		var/index = 0
-		for(var/recipe in SSmaterials.autolathe_recipes)
-			var/datum/autolathe/recipe/R = recipe
-			index++
-			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
-				continue
-			var/can_make = TRUE
-			var/material_string = ""
-			var/multiplier_string = ""
-			var/max_sheets
-			var/comma
-			if(!R.resources || !R.resources.len)
-				material_string = "No resources required.</td>"
-			else
-				//Make sure it's buildable and list requires resources.
-				for(var/material in R.resources)
-					var/sheets = round(stored_material[material]/round(R.resources[material]*mat_efficiency))
-					if(isnull(max_sheets) || max_sheets > sheets)
-						max_sheets = sheets
-					if(!isnull(stored_material[material]) && stored_material[material] < round(R.resources[material]*mat_efficiency))
-						can_make = FALSE
-					if(!comma)
-						comma = TRUE
-					else
-						material_string += ", "
-					material_string += "[round(R.resources[material] * mat_efficiency)] [material]"
-				material_string += "<br></td>"
-				//Build list of multipliers for sheets.
-				if(R.is_stack)
-					if(max_sheets)
-						var/obj/item/stack/R_stack = R.path
-						max_sheets = min(max_sheets, initial(R_stack.max_amount))
-						multiplier_string += "<br>"
-						for(var/i = 5; i < max_sheets; i *= 2) //5,10,20,40...
-							multiplier_string += "<a href='?src=\ref[src];make=[index];multiplier=[i]'>\[x[i]\]</a>"
-						multiplier_string += "<a href='?src=\ref[src];make=[index];multiplier=[max_sheets]'>\[x[max_sheets]\]</a>"
-
-			dat += "<tr class='build'><td width = 40%>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : "<div class='no-build'>"][R.name][can_make ? "</a>" : "</div>"]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
-		dat += "</table><hr>"
-
-	var/datum/browser/autolathe_win = new(user, "autolathe", "<center>Autolathe Control Panel</center>")
-	autolathe_win.set_content(dat)
-	autolathe_win.add_stylesheet("misc", 'html/browser/misc.css')
-	autolathe_win.open()
+/obj/machinery/autolathe/ui_data(mob/user)
+	. = ..()
+	var/list/data = list()
+	data["disabled"] = disabled
+	data["material_efficiency"] = mat_efficiency
+	data["materials"] = list()
+	data["categories"] = SSmaterials.autolathe_categories
+	for(var/material in stored_material)
+		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
+	data["recipes"] = list()
+	for(var/recipe in SSmaterials.autolathe_recipes)
+		var/datum/autolathe/recipe/R = recipe
+		if(R.hidden && !hacked)
+			continue
+		var/list/recipe_data = list()
+		recipe_data["name"] = R.name
+		var/list/resources = list()
+		for(var/resource in R.resources)
+			resources += list("material" = resource, "amount" = R.resources[resource] * mat_efficiency)
+			recipe_data["sheets"] = stored_material[resource]/round(R.resources[resource]*mat_efficiency)
+			recipe_data["can_make"] = !isnull(stored_material[resource]) && stored_material[resource] < round(R.resources[resource]*mat_efficiency)
+		recipe_data["category"] = R.category
+		recipe_data["resources"] = resources
+		recipe_data["max_sheets"] = null
+		if(R.is_stack)
+			var/obj/item/stack/R_stack = R.path
+			recipe_data["max_sheets"] = initial(R_stack.max_amount)
+		data["recipes"] += list(recipe_data)
+	return data
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user)
 	if(busy)
@@ -150,7 +121,7 @@
 		return TRUE
 
 	if(default_deconstruction_screwdriver(user, O))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		return TRUE
 	if(default_deconstruction_crowbar(user, O))
 		return TRUE
@@ -176,38 +147,27 @@
 		return FALSE
 
 	load_lathe(O, user)
-
-	updateUsrDialog()
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
 	user.set_machine(src)
-	interact(user)
+	ui_interact(user)
 
-/obj/machinery/autolathe/Topic(href, href_list)
-	if(..())
+/obj/machinery/autolathe/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	var/list/categories = SSmaterials.autolathe_categories + "All"
-
-	if(href_list["change_category"])
-		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Autolathe", categories)
-		if(!choice)
-			return
-		show_category = choice
-		updateUsrDialog()
-		return
-
 	if(busy)
 		to_chat(usr, SPAN_WARNING("The autolathe is busy. Please wait for the completion of previous operation."))
 		return
 
-	if(href_list["make"] && SSmaterials.autolathe_recipes)
-		var/index = text2num(href_list["make"])
-		var/multiplier = text2num(href_list["multiplier"])
+	if(action == "make" && SSmaterials.autolathe_recipes)
+		var/index = text2num(params["make"])
+		var/multiplier = text2num(params["multiplier"])
 		build_item = null
 
 		if(index > 0 && index <= length(SSmaterials.autolathe_recipes))
@@ -259,7 +219,7 @@
 		cut_overlay("process")
 		I.update_icon()
 
-	updateUsrDialog()
+	return TRUE
 
 /obj/machinery/autolathe/update_icon()
 	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
