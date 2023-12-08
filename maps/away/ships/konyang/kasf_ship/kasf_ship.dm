@@ -42,6 +42,8 @@
 		"nav_kasf_corvette_2",
 		"nav_kasf_corvette_3",
 		"nav_kasf_corvette_4",
+		"nav_kasf_corvette_5",
+		"nav_kasf_corvette_6",
 		"nav_kasf_dock_starboard",
 		"nav_kasf_dock_port"
 	)
@@ -79,6 +81,18 @@
 /obj/effect/shuttle_landmark/kasf_corvette/nav4
 	name = "Aft Navpoint"
 	landmark_tag = "nav_kasf_corvette_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/kasf_corvette/nav5
+	name = "Far Port Navpoint"
+	landmark_tag = "nav_kasf_corvette_5"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/kasf_corvette/nav6
+	name = "Far Starboard Navpoint"
+	landmark_tag = "nav_kasf_corvette_6"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
