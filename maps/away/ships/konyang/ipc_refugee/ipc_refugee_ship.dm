@@ -40,7 +40,11 @@
 		"nav_ipc_refugee_ship_1",
 		"nav_ipc_refugee_ship_2",
 		"nav_ipc_refugee_ship_3",
-		"nav_ipc_refugee_ship_4"
+		"nav_ipc_refugee_ship_4",
+		"nav_ipc_refugee_ship_5",
+		"nav_ipc_refugee_ship_6",
+		"nav_refugee_dock_starboard",
+		"nav_refugee_dock_port"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -79,10 +83,36 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
+/obj/effect/shuttle_landmark/ipc_refugee_ship/nav5
+	name = "Far Port Navpoint"
+	landmark_tag = "nav_ipc_refugee_ship_5"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ipc_refugee_ship/nav6
+	name = "Far Starboard Navpoint"
+	landmark_tag = "nav_ipc_refugee_ship_6"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
 /obj/effect/shuttle_landmark/ipc_refugee_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ipc_refugee_ship"
 	base_turf = /turf/space/transit/north
+
+/obj/effect/shuttle_landmark/ipc_refugee_ship/starboard_dock
+	name = "Decrepit Freighter Starboard Dock"
+	landmark_tag = "nav_refugee_dock_starboard"
+	docking_controller = "airlock_refugee_dock_starboard"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ipc_refugee_ship/port_dock
+	name = "Decrepit Freighter Port Dock"
+	landmark_tag = "nav_refugee_dock_port"
+	docking_controller = "airlock_refugee_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/overmap/visitable/ship/landable/ipc_refugee_shuttle
 	name = "Decrepit Cargo Tug"
