@@ -1902,12 +1902,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/bridge)
 "oA" = (
-/obj/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ipc_refugee_shuttle)

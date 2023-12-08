@@ -18,8 +18,8 @@
 	name = "IPC Refugee Ship"
 	class = "ICV"
 	desc = "The Akers-class freighter is an ancient design, dating back nearly two hundred years. It was considered a reliable freighter for its time, but is completely obsolete by modern standards, making it a rare sight outside of ship graveyards. Scans indicate this vessel in particular to be exceptionally run down, bearing severe structural damage across the whole ship. Damage appears to be from a mix of both meteors and ballistic armaments. Despite this, power signatures seem to indicate the vessel is still somehow operable."
-	icon_state = "tramp"
-	moving_state = "tramp_moving"
+	icon_state = "freighter"
+	moving_state = "freighter_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
 	scanimage = "tramp_freighter.png"
 	designer = "ERROR"
@@ -33,7 +33,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"IPC Refugee Shuttle" = list("nav_hangar_ipc_refugee")
+		"Decrepit Cargo Tug" = list("nav_hangar_ipc_refugee")
 	)
 
 	initial_generic_waypoints = list(
@@ -85,11 +85,11 @@
 	base_turf = /turf/space/transit/north
 
 /obj/effect/overmap/visitable/ship/landable/ipc_refugee_shuttle
-	name = "IPC Refugee Shuttle"
+	name = "Decrepit Cargo Tug"
 	class = "ICV"
 	designation = "Last Hope"
 	desc = "The Stout-class is a small utility craft designed to latch to the cargo pods of the Akers-class freighter and pull them out to steer them into station dock, or vice versa. Like the freighter it belongs to, this cargo tug is an ancient design, dating back perhaps two hundred years. It's an inefficient, clunky, and obsolete design compared to modern equivalents, but it's still an operable craft."
-	shuttle = "IPC Refugee Shuttle"
+	shuttle = "Decrepit Cargo Tug"
 	icon_state = "pod"
 	moving_state = "pod_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
@@ -105,10 +105,10 @@
 
 /obj/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "IPC Refugee Shuttle"
+	shuttle_tag = "Decrepit Cargo Tug"
 
 /datum/shuttle/autodock/overmap/ipc_refugee_shuttle
-	name = "IPC Refugee Shuttle"
+	name = "Decrepit Cargo Tug"
 	move_time = 40
 	shuttle_area = list(/area/shuttle/ipc_refugee_shuttle)
 	current_location = "nav_hangar_ipc_refugee"
