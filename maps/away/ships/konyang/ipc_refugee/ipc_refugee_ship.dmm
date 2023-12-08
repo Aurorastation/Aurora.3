@@ -21,20 +21,25 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/dock)
 "al" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/structure/barricade/wooden,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "am" = (
-/obj/structure/trash_pile,
+/obj/structure/barricade/wooden{
+	dir = 1;
+	pixel_y = 22
+	},
 /obj/machinery/light_construct/small{
 	dir = 8;
 	pixel_x = -12
 	},
-/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "at" = (
@@ -69,13 +74,11 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/forehall)
 "aD" = (
-/obj/structure/barricade/wooden,
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
 	},
-/obj/structure/lattice,
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "aR" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -87,8 +90,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "bl" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light_construct/small{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "bm" = (
@@ -100,31 +108,10 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/mainhall)
 "bn" = (
-/obj/machinery/light/small/red{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1379;
-	dir = 8;
-	id_tag = "ipc_refugee_port_airlock_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = -25;
-	pixel_x = -6;
-	id_tag = "ipc_refugee_port_airlock";
-	tag_airpump = "ipc_refugee_port_airlock_pump";
-	tag_chamber_sensor = "ipc_refugee_port_airlock_sensor";
-	tag_exterior_door = "ipc_refugee_port_airlock_out";
-	tag_interior_door = "ipc_refugee_port_airlock_in"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_y = -25;
-	pixel_x = 6;
-	id_tag = "ipc_refugee_port_airlock_sensor"
-	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
 /turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_b)
+/area/ship/ipc_refugee/cargopod_a)
 "bp" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -147,10 +134,6 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
@@ -238,6 +221,23 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_b)
+"bS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -25
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
 "bV" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor,
@@ -304,14 +304,6 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small/red{
-	dir = 1
-	},
-/obj/machinery/button/remote/blast_door{
-	pixel_y = -18;
-	id = "cargo_pod_a_shutters";
-	name = "Cargo Pod A Blast Doors"
-	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "cP" = (
@@ -640,10 +632,13 @@
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/mainhall)
 "fb" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "fc" = (
@@ -793,6 +788,24 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/ipc_refugee/engie)
+"fT" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/broken_electronics{
+	pixel_y = -6;
+	pixel_x = -9
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "fY" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -858,6 +871,7 @@
 	identifier = "refugee_crew_ipc";
 	name = "igs - ipc refugee"
 	},
+/obj/effect/decal/cleanable/floor_damage/wood_broken0,
 /turf/simulated/floor/wood,
 /area/ship/ipc_refugee/cargopod_b)
 "gU" = (
@@ -1013,9 +1027,10 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ipc_refugee_shuttle)
 "ik" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "il" = (
@@ -1084,18 +1099,19 @@
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/bridge)
 "iY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb,
-/obj/structure/sign/poster{
-	pixel_y = 32
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
-/obj/structure/trash_pile,
-/obj/machinery/light_construct/small{
-	dir = 8;
-	pixel_x = -12
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
 /turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_b)
+/area/ship/ipc_refugee/cargopod_a)
 "jb" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1326,6 +1342,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/engie)
+"kX" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
 "la" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1379,13 +1402,21 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "lq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/power/apc/west{
+	req_access = null
 	},
-/obj/effect/decal/cleanable/blood/drip/oil,
-/obj/item/device/assembly/mousetrap/armed,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ipc_refugee/cargopod_a)
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/table/rack,
+/obj/random/powercell,
+/obj/random/powercell,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "ls" = (
 /obj/machinery/computer/ship/engines,
 /obj/machinery/alarm/west{
@@ -1508,6 +1539,20 @@
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
+"mj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "mB" = (
 /turf/simulated/wall,
 /area/ship/ipc_refugee/cargopod_a)
@@ -1695,6 +1740,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/cargopod_b)
+"nZ" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/template_noop,
+/area/space)
 "ob" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
@@ -1960,6 +2010,15 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
+"py" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/machinery/light_construct/small{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
 "pz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pen{
@@ -1970,15 +2029,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/bridge)
 "pK" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
 	},
-/obj/structure/table/rack,
-/obj/random/powercell,
-/obj/random/powercell,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
+/obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
+	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "pL" = (
@@ -2030,10 +2090,19 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/random/tool{
+	pixel_x = 11;
+	pixel_y = 18
+	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/mainhall)
 "qr" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "qs" = (
@@ -2051,6 +2120,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ipc_refugee/cargopod_b)
+"qw" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_b)
 "qx" = (
@@ -2091,6 +2169,10 @@
 /obj/structure/table/standard,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/item/reagent_containers/inhaler/space_drugs{
+	pixel_y = 4;
+	pixel_x = -2
 	},
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/forehall)
@@ -2552,18 +2634,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "ipc_refugee_port_airlock";
-	command = "cycle_interior"
-	},
 /obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "ipc_refugee_port_airlock_in"
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_b)
@@ -2643,9 +2724,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "uH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/poster{
-	pixel_x = -32
+/obj/structure/table/standard,
+/obj/item/stack/cable_coil{
+	amount = 2;
+	icon_state = "coil2"
+	},
+/obj/item/gun/custom_ka/frame01{
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
@@ -3074,6 +3162,7 @@
 /obj/item/clothing/gloves/brown,
 /obj/item/clothing/shoes/workboots/brown,
 /obj/item/clothing/shoes/workboots/brown,
+/obj/effect/decal/cleanable/floor_damage/wood_broken7,
 /turf/simulated/floor/wood,
 /area/ship/ipc_refugee/cargopod_b)
 "xO" = (
@@ -3508,6 +3597,23 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/bridge)
+"Bl" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/random/tool{
+	pixel_x = 11;
+	pixel_y = -11
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
 "Bq" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -3660,6 +3766,13 @@
 /obj/effect/decal/cleanable/floor_damage/broken5,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/ship/ipc_refugee/atmos)
+"Cj" = (
+/obj/machinery/light_construct/small{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "Co" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3676,15 +3789,25 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/ipc_refugee/forehall)
 "Cp" = (
-/obj/machinery/power/apc/west{
-	req_access = null
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -18;
+	id = "cargo_pod_a_shutters";
+	name = "Cargo Pod A Blast Doors"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/emergency{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/item/trash/can{
+	pixel_y = -10;
+	pixel_x = -10
 	},
 /turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_b)
+/area/ship/ipc_refugee/cargopod_a)
 "Cx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/hatch{
@@ -3704,6 +3827,18 @@
 /obj/random/soap,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
+"CD" = (
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/trash_pile,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "CI" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3809,6 +3944,13 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/atmos)
+"Dm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ipc_refugee/cargopod_b)
 "Dp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -3840,12 +3982,20 @@
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/cargopod_b)
 "Ds" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/item/material/shard,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
+"Du" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
-/obj/item/device/assembly/mousetrap/armed,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ipc_refugee/cargopod_b)
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
 "DE" = (
 /obj/structure/lattice,
 /obj/item/stack/material/steel,
@@ -3929,18 +4079,17 @@
 /area/shuttle/ipc_refugee_shuttle)
 "Ee" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "ipc_refugee_port_airlock";
-	command = "cycle_exterior"
-	},
 /obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "ipc_refugee_port_airlock_out"
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_b)
@@ -3956,6 +4105,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/random/junk,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "Ek" = (
@@ -4009,18 +4159,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "ipc_refugee_starboard_airlock";
-	command = "cycle_interior"
-	},
 /obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "ipc_refugee_starboard_airlock_in"
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
@@ -4132,6 +4281,11 @@
 /obj/effect/decal/cleanable/floor_damage/burned4,
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/forehall)
+"FQ" = (
+/obj/structure/grille/broken,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "FR" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -4243,6 +4397,19 @@
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor,
 /area/shuttle/ipc_refugee_shuttle)
+"Hd" = (
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -18;
+	id = "cargo_pod_b_shutters";
+	name = "Cargo Pod B Blast Doors"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/closet/crate/trashcart,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "He" = (
 /obj/effect/floor_decal/corner_wide/brown,
 /turf/simulated/floor/tiled,
@@ -4258,6 +4425,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
+"Hk" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "Hl" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/structure/cable{
@@ -4353,12 +4526,16 @@
 /turf/template_noop,
 /area/space)
 "Is" = (
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/lattice/catwalk/indoor,
+/obj/random/powercell,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
 /turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_b)
+/area/ship/ipc_refugee/cargopod_a)
 "Ix" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
@@ -4424,6 +4601,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/ship/ipc_refugee/dock)
+"IN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
+	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "IP" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -4568,6 +4762,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/ship/ipc_refugee/mainhall)
+"JX" = (
+/obj/structure/barricade/wooden,
+/obj/structure/lattice,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/structure/girder,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/ipc_refugee/cargopod_b)
 "JY" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -4615,12 +4819,15 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "Ko" = (
-/obj/machinery/light_construct/small{
-	dir = 4;
-	pixel_x = 12
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/random/tech_supply,
+/obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_a)
+/area/ship/ipc_refugee/cargopod_b)
 "Kr" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
@@ -4678,28 +4885,28 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/atmos)
 "Lc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
 	},
-/obj/structure/barricade/metal/wired,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ipc_refugee/cargopod_a)
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_b)
 "LD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/access_button{
-	pixel_y = -25;
-	frequency = 1379;
-	master_tag = "ipc_refugee_starboard_airlock";
-	command = "cycle_exterior"
-	},
 /obj/machinery/door/airlock/external{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "door_locked";
-	locked = 1;
-	id_tag = "ipc_refugee_starboard_airlock_out"
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
@@ -4779,10 +4986,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/bridge)
 "LO" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/random/junk,
 /obj/machinery/light_construct/small{
 	dir = 4;
 	pixel_x = 12
@@ -4796,6 +5000,7 @@
 	identifier = "refugee_crew_ipc";
 	name = "igs - ipc refugee"
 	},
+/obj/effect/decal/cleanable/floor_damage/wood_broken1,
 /turf/simulated/floor/wood,
 /area/ship/ipc_refugee/cargopod_b)
 "LX" = (
@@ -4808,24 +5013,23 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/forehall)
 "LY" = (
-/obj/random/junk,
-/obj/machinery/light_construct/small{
-	dir = 4;
-	pixel_x = 12
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_a)
+/area/ship/ipc_refugee/cargopod_b)
 "LZ" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "Mb" = (
-/obj/machinery/alarm/west{
-	req_one_access = null
-	},
-/turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_b)
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ipc_refugee/cargopod_a)
 "Mh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4962,13 +5166,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ipc_refugee_shuttle)
 "Np" = (
-/obj/structure/table/standard,
-/obj/item/stack/cable_coil{
-	amount = 2;
-	icon_state = "coil2"
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
 	},
-/obj/item/gun/custom_ka/frame01{
-	pixel_y = 6
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
@@ -5126,6 +5331,18 @@
 /obj/random/junk,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
+"PO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
 "PS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5151,7 +5368,14 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/largecrate,
+/obj/random/powercell{
+	pixel_x = -1;
+	pixel_y = 10
+	},
+/obj/item/inflatable/door/torn{
+	pixel_y = -15;
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/mainhall)
 "PY" = (
@@ -5328,10 +5552,12 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "RA" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ipc_refugee/cargopod_a)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/item/device/assembly/mousetrap/armed,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ipc_refugee/cargopod_b)
 "RD" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/dark/full,
@@ -5375,8 +5601,20 @@
 /turf/space,
 /area/ship/ipc_refugee/forehall)
 "Sz" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/junk,
+/obj/machinery/airlock_sensor{
+	pixel_y = -25
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3451;
+	master_tag = "airlock_refugee_ship_starboard";
+	name = "airlock_refugee_ship_starboard"
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
@@ -5431,12 +5669,10 @@
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/forehall)
 "SK" = (
-/obj/structure/barricade/wooden{
-	dir = 1;
-	pixel_y = 22
-	},
-/turf/simulated/floor,
-/area/ship/ipc_refugee/cargopod_a)
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "SM" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -5471,30 +5707,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/ship/ipc_refugee/forehall)
 "Tb" = (
-/obj/machinery/light/small/red{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1379;
-	dir = 4;
-	id_tag = "ipc_refugee_starboard_airlock_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = -25;
-	pixel_x = 6;
-	id_tag = "ipc_refugee_starboard_airlock";
-	tag_airpump = "ipc_refugee_starboard_airlock_pump";
-	tag_chamber_sensor = "ipc_refugee_starboard_airlock_sensor";
-	tag_exterior_door = "ipc_refugee_starboard_airlock_out";
-	tag_interior_door = "ipc_refugee_starboard_airlock_in"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_y = -25;
-	pixel_x = -6;
-	id_tag = "ipc_refugee_starboard_airlock_sensor"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/item/device/assembly/mousetrap/armed,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ipc_refugee/cargopod_a)
 "Te" = (
 /obj/effect/floor_decal/corner_wide/brown{
@@ -5840,12 +6058,29 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "Vd" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/barricade/metal{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/turf/simulated/floor,
+/area/ship/ipc_refugee/cargopod_a)
+"Vf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 3452;
+	master_tag = "airlock_refugee_ship_port";
+	name = "airlock_refugee_ship_port"
+	},
+/turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "Vh" = (
 /obj/machinery/door/airlock/freezer{
@@ -5869,14 +6104,6 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small/red{
-	dir = 1
-	},
-/obj/machinery/button/remote/blast_door{
-	pixel_y = -18;
-	id = "cargo_pod_b_shutters";
-	name = "Cargo Pod B Blast Doors"
-	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "Vt" = (
@@ -6416,6 +6643,14 @@
 "YZ" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
+/area/ship/ipc_refugee/cargopod_a)
+"Zb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/barricade/metal/wired,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -29028,7 +29263,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+Hk
 Ik
 Ik
 Ik
@@ -32663,7 +32898,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+Hk
 Ik
 Ik
 Ik
@@ -32848,7 +33083,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+Hk
 Ik
 Ik
 Ik
@@ -34169,7 +34404,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+TY
 Ik
 Ik
 Ik
@@ -34426,7 +34661,7 @@ Ik
 Ik
 Ik
 Ik
-TY
+Ik
 Ik
 Ik
 Ik
@@ -36480,11 +36715,11 @@ Ik
 Ik
 Ik
 Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+Ns
+Ns
+LD
+Ns
+Ns
 Ik
 Ik
 Ik
@@ -36734,17 +36969,17 @@ Ik
 Ik
 Ik
 Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+SK
+FC
+SK
+Ns
+Du
+Np
+Sz
+Ns
+SK
+FC
+SK
 Ik
 Ik
 Ik
@@ -36988,23 +37223,23 @@ Ik
 Ik
 Ik
 Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+hc
+Tw
+mB
+cb
+dc
+cb
 Ns
-LD
+iY
+Is
+bS
 Ns
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+cb
+DG
+cb
+cb
+cb
+cb
 Ik
 Ik
 Ik
@@ -37245,22 +37480,22 @@ Ik
 Ik
 Ik
 Ik
-hc
-Tw
 mB
-cb
-dc
-cb
-cb
+mB
+zD
+Zf
+VH
+fQ
 Ns
-Tb
 Ns
-cb
-cb
-DG
-cb
-cb
-cb
+EJ
+Ns
+Ns
+PO
+bn
+Zf
+Ki
+OE
 cb
 Ik
 Ik
@@ -37502,23 +37737,23 @@ dB
 rN
 nS
 Ik
-mB
-mB
-zD
-Zf
-VH
-fQ
+Ns
+sW
+EA
+BT
+uq
+TR
 bs
-Ns
-EJ
-Ns
+Zb
+Tb
+Mb
 am
 uH
 CW
+QK
+Fr
 Zf
-Ki
-OE
-cb
+Ns
 Ik
 Ik
 Ik
@@ -37760,21 +37995,21 @@ ky
 nS
 FC
 Ns
-sW
-EA
-BT
-uq
-TR
-ik
-Lc
-lq
-RA
-SK
-Np
-uq
 QK
-Fr
 Zf
+mB
+sn
+Qe
+YW
+aR
+cP
+BR
+uq
+Hf
+XG
+PJ
+TR
+xW
 Ns
 FC
 FC
@@ -38016,23 +38251,23 @@ rN
 qF
 nS
 CJ
-Ns
-QK
-Zf
-mB
-sn
-Qe
-YW
-aR
-cP
-BR
-uq
-Hf
-XG
-PJ
-TR
-xW
-Ns
+Og
+dG
+qK
+Iz
+gf
+Ws
+UU
+fc
+mb
+AS
+vF
+gW
+Iz
+Iz
+VA
+rJ
+Og
 CJ
 yG
 CJ
@@ -38274,21 +38509,21 @@ qF
 nS
 FC
 Og
-dG
-qK
-Iz
-gf
-Ws
-UU
-fc
-mb
-AS
-vF
-gW
-Iz
-Iz
-VA
-rJ
+xS
+fn
+PS
+vU
+Xm
+nj
+uB
+sA
+Qx
+kK
+hy
+fH
+UZ
+fk
+WM
 Og
 lh
 FC
@@ -38530,23 +38765,23 @@ nS
 nS
 nS
 Ik
-Og
-xS
-fn
-PS
-vU
-Xm
-nj
-uB
-sA
-Qx
-kK
-hy
-fH
-UZ
-fk
-WM
-Og
+Ns
+CC
+gy
+Hq
+QK
+Uw
+XG
+qO
+Bs
+dF
+SG
+uq
+mX
+ps
+xW
+WJ
+Ns
 Ik
 Ik
 BV
@@ -38788,22 +39023,22 @@ nS
 Ik
 Ik
 Ns
-CC
-gy
-Hq
-QK
-Uw
-XG
-qO
-Bs
-dF
-SG
+WF
+lL
 uq
-mX
-ps
-xW
-WJ
-Ns
+Tv
+xQ
+bl
+SH
+el
+hX
+py
+ES
+WR
+nl
+rh
+mB
+YZ
 Ik
 Kr
 vO
@@ -39044,23 +39279,23 @@ nS
 Ik
 Ik
 Ik
-Ns
-WF
-lL
-uq
-Tv
-xQ
-Sz
-SH
-el
-hX
-bl
-ES
-WR
-nl
-rh
+cb
+Uj
+qT
+Df
 mB
-YZ
+Ei
+Ns
+Ns
+Yr
+Ns
+Ns
+KQ
+ye
+Rw
+MJ
+th
+Kv
 Ik
 tl
 vO
@@ -39302,22 +39537,22 @@ Ik
 Ik
 Ik
 cb
-Uj
-qT
-Df
-mB
-Ei
-LY
+cb
+cb
+cb
+cb
+cb
 Ns
-Yr
+ik
+Bl
+Vd
 Ns
-Ko
-KQ
-ye
-Rw
-MJ
-th
-Kv
+cb
+cb
+cb
+cb
+gp
+NI
 Ik
 vO
 vO
@@ -39558,23 +39793,23 @@ Kr
 Ik
 Ik
 Ik
-cb
-cb
-cb
-cb
-cb
-cb
-cb
+Ik
+FC
+Ik
+SK
+FC
+SK
 Ns
+kX
 cN
+Cp
 Ns
-cb
-cb
-cb
-cb
-cb
-gp
-NI
+SK
+FC
+SK
+Tn
+FC
+Ik
 Ik
 vO
 vO
@@ -39819,16 +40054,16 @@ Ik
 FC
 Ik
 Ik
-Ik
-CJ
 FC
+Ik
+Ns
 Ns
 Yr
 Ns
-FC
-CJ
+Ns
 Ik
-Tn
+FC
+Ik
 Ik
 cL
 Ik
@@ -41360,16 +41595,16 @@ Ik
 Ik
 FC
 Ik
-bq
-Tn
-CJ
-FC
+Ik
+Ds
+Ik
+fC
 fC
 GD
 fC
-FC
-CJ
+fC
 Ik
+FC
 Ik
 Ik
 FC
@@ -41614,23 +41849,23 @@ Kr
 Ik
 Ik
 Ik
-ZH
-mM
-nX
-Cb
-Cb
-Cb
-Cb
+Ik
+FC
+bq
+SK
+FC
+nZ
 fC
+Ko
 Vo
+Hd
 fC
-Cb
-Cb
-Cb
-Cb
-Cb
-Cb
-Cb
+nZ
+FC
+SK
+Ik
+FC
+Ik
 Ik
 Rs
 Rs
@@ -41871,22 +42106,22 @@ MA
 Ik
 Ik
 Ik
-sd
-wv
-bV
-PA
-Bi
-Cp
-pK
+ZH
+mM
+nX
+Cb
+Cb
+Cb
 fC
-GD
+qr
+fT
+LY
 fC
-iY
-Mb
-VW
-er
-eq
-AK
+Cb
+Cb
+Cb
+Cb
+Cb
 Cb
 Ik
 Rs
@@ -42128,23 +42363,23 @@ By
 Ik
 Ik
 Ik
+sd
+wv
+bV
+PA
+Bi
+lq
 fC
-BC
-uN
-XE
-uN
-xg
-fb
-vY
-xU
-Pe
-HY
-tR
-HY
-yb
-ec
-ma
 fC
+GD
+fC
+fC
+CD
+VW
+er
+eq
+AK
+Cb
 Ik
 MA
 Rs
@@ -42386,21 +42621,21 @@ Xi
 Ik
 Ik
 fC
-kt
-ZU
-wL
-Wd
+BC
+uN
+XE
+uN
+xg
+al
+vY
+xU
+Pe
+Cj
+tR
 HY
-SP
-qv
-Ah
-dC
-wP
-Fi
-vX
-Wd
-Ac
-HY
+yb
+ec
+ma
 fC
 Ik
 Kr
@@ -42642,23 +42877,23 @@ qx
 qx
 JJ
 Ik
-iq
-IQ
-Qf
-bR
-xt
-Dc
-Jw
-oT
-yQ
-lZ
-Bc
-ZF
-bR
-kN
-Re
-Dc
-iq
+fC
+kt
+ZU
+wL
+Wd
+HY
+SP
+qv
+Ah
+dC
+wP
+Fi
+vX
+Wd
+Ac
+HY
+fC
 Ik
 Ik
 BV
@@ -42900,21 +43135,21 @@ EK
 JJ
 FC
 iq
-oK
-nC
-oh
-JQ
-ts
-Zk
-xm
-Rt
-wE
-IB
-Mh
-YI
-kL
-HO
-Yf
+IQ
+Qf
+bR
+xt
+Dc
+Jw
+oT
+yQ
+lZ
+Bc
+ZF
+bR
+kN
+Re
+Dc
 iq
 FC
 FC
@@ -43156,23 +43391,23 @@ JJ
 EK
 JJ
 CJ
-fC
-gS
-wC
-uN
-kn
-BC
-TA
-xv
-Tg
-XB
-CU
-ln
-CX
-uN
-uN
-nA
-fC
+iq
+oK
+nC
+oh
+JQ
+ts
+Zk
+xm
+Rt
+wE
+IB
+Mh
+YI
+kL
+HO
+Yf
+iq
 CJ
 CJ
 CJ
@@ -43414,22 +43649,22 @@ EK
 JJ
 FC
 fC
-ui
-SW
-Uc
-LZ
-tk
-Is
-al
-Ds
-Vd
-qr
-ZU
-bV
-sd
-Ek
-Dr
+gS
+wC
 uN
+kn
+BC
+TA
+xv
+Tg
+XB
+CU
+ln
+CX
+uN
+uN
+nA
+fC
 FC
 FC
 FC
@@ -43670,23 +43905,23 @@ JJ
 JJ
 JJ
 Ik
-Cb
-Ih
-xN
-CO
-LV
+fC
+ui
+SW
+Uc
+LZ
 tk
 LO
-fC
-uk
-fC
+Dm
+RA
+qw
 aD
-XU
+ZU
+bV
 sd
-PT
-Al
-sd
-ZM
+Ek
+Dr
+uN
 Ik
 Ik
 Ik
@@ -43928,22 +44163,22 @@ Ik
 Ik
 Ik
 Cb
-Cb
-Cb
-Cb
-rM
-Cb
-Cb
+Ih
+xN
+CO
+LV
+tk
 fC
-bn
 fC
-Cb
-qe
-dX
-ob
-Ql
-yw
-yw
+uk
+fC
+JX
+XU
+sd
+PT
+Al
+sd
+ZM
 Ik
 Ik
 Ik
@@ -44184,23 +44419,23 @@ Ik
 Ik
 Ik
 Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+Cb
+Cb
+Cb
+Cb
+rM
+Cb
 fC
-Ee
+mj
+Lc
+IN
 fC
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+qe
+dX
+ob
+Ql
+yw
+yw
 Ik
 Ik
 Ik
@@ -44444,17 +44679,17 @@ Ik
 Ik
 Ik
 Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+SK
+FC
+SK
+fC
+fb
+pK
+Vf
+fC
+SK
+FC
+FQ
 Ik
 Ik
 Ik
@@ -44704,11 +44939,11 @@ Ik
 Ik
 Ik
 Ik
-Ik
-Ik
-Ik
-Ik
-Ik
+fC
+fC
+Ee
+fC
+fC
 Ik
 Ik
 Ik
@@ -46762,7 +46997,7 @@ Ik
 Ik
 Ik
 Ik
-hr
+Ik
 Ik
 Ik
 Ik
@@ -47019,7 +47254,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+hr
 Ik
 Ik
 Ik
@@ -48525,7 +48760,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+Hk
 Ik
 Ik
 Ik
@@ -49363,7 +49598,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+Hk
 Ik
 Ik
 Ik
@@ -51644,7 +51879,7 @@ Ik
 Ik
 Ik
 Ik
-Ik
+Hk
 Ik
 Ik
 Ik
