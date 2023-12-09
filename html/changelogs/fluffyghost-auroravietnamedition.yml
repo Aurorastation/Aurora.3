@@ -1,0 +1,56 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: FluffyGhost
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - backend: "Added get_turfs_in_cone(), to acquire turfs within a cone."
+  - rscadd: "Added napalm grenades, not as classy as an airstrike, but still pretty effective all the same."
+  - rscadd: "Added punji traps, gives a severe infection upon falling in one, can be hidden, can be engraved with a message."
+  - rscadd: "Added standstill mines, if walked over, they activate and wait for the victim to move out of them, can be disarmed with the bomb kit, pretty powerful explosion if you mess up."
+  - rscadd: "Added claymore mines, project pellets in a 60 degrees radius on each side from the direction they're aiming at, remotely activated via a signaler or by directly touching them."
+  - rscadd: "Reworked flamethrowers, now they light up on fire the turfs in a 30 degrees cone from each side of the clicked target, pressure effects excluded."
+  - rscadd: "Added the napalm grenades, punji traps, standstill mines, claymore mines and the flamethrower to the antag uplink."
+  - backend: "DMDoced some variables for the uplink."
+  - backend: "DMDoced some variables for the pellet bullets, and minor refactor of its attack_mob function."
+  - backend: "Refactored how mines work, added some documentation and sectioned them up to be more clear what is what."
+  - backend: "Moved landmines and traps sprites in a more congenial location."
+  - bugfix: "Fixed a runtime error when the uplink UI is opened without a category being selected."
+  - bugfix: "Fixed a runtime error with borgs being destroyed and their HUD refreshing."
+  - imageadd: "Added sprites for the punji trap, by Tomixcomics."
+  - imageadd: "Added sprites for the standstill mine, by Tomixcomics."
+  - imageadd: "Added sprites for the claymore mine, from CM."
