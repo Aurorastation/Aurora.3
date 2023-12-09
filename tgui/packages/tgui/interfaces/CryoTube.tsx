@@ -2,6 +2,33 @@ import { Fragment } from 'inferno';
 import { Window } from '../layouts';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from '../components';
+import { BooleanLike } from 'common/react';
+
+export type CryoData = {
+  isOperating: BooleanLike;
+  hasOccupant: BooleanLike;
+  cellTemperature: number;
+  cellTemperatureStatus: string;
+  occupant: Occupant[];
+  isBeakerLoaded: BooleanLike;
+  currentStasisMult: number;
+  fastStasisMult: number;
+  slowStasisMult: number;
+};
+
+type Occupant = {
+  name: string;
+  stat: number;
+  bruteLoss: string;
+  cloneLoss: string;
+  bodyTemperature: number;
+  brainActivity: number;
+  pulse: number;
+  cryostasis: number;
+  bloodPressure: number;
+  bloodPressureLevel: number;
+  bloodOxygenation: number;
+};
 
 const damageTypes = [
   {
@@ -31,7 +58,7 @@ const progressClass = (value) => {
 };
 
 export const CryoTube = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<CryoData>(context);
   return (
     <Window resizable theme="zenghu">
       <Window.Content className="Layout__content--flexColumn">
@@ -42,18 +69,7 @@ export const CryoTube = (props, context) => {
 };
 
 export const CryoContent = (props, context) => {
-  const { act, data } = useBackend(context);
-  const {
-    isOperating,
-    hasOccupant,
-    occupant = [],
-    cellTemperature,
-    cellTemperatureStatus,
-    isBeakerLoaded,
-    currentStasisMult,
-    slowStasisMult,
-    fastStasisMult,
-  } = data;
+  const { act, data } = useBackend<CryoData>(context);
   return (
     <Fragment>
       <Section
