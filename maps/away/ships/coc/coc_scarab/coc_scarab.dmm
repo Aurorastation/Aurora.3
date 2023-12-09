@@ -135,6 +135,16 @@
 /obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/tiled,
 /area/coc_scarab/bunks)
+"bf" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "bg" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -427,6 +437,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
+"dh" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/engistorage)
 "di" = (
 /obj/item/storage/box/masks{
 	pixel_x = 4;
@@ -671,23 +687,6 @@
 /obj/effect/shuttle_landmark/coc_scarab/nav2,
 /turf/template_noop,
 /area/space)
-"eV" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled,
-/area/coc_scarab/armory)
 "eX" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
@@ -781,7 +780,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "ft" = (
 /obj/machinery/light{
 	dir = 8
@@ -967,7 +966,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "gE" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -1460,7 +1459,7 @@
 	pixel_x = -8
 	},
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "kw" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2158,7 +2157,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "qd" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2193,7 +2192,7 @@
 	pixel_y = -25
 	},
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "qp" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2318,6 +2317,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
+"qX" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Mass Driver"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/coc_scarab/medical)
 "qZ" = (
 /obj/machinery/conveyor{
 	id = "scarab_miner";
@@ -2435,7 +2453,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "rV" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2498,7 +2516,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "sq" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -2549,7 +2567,7 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "sR" = (
 /obj/effect/shuttle_landmark/coc_scarab/nav4,
 /turf/template_noop,
@@ -3113,7 +3131,7 @@
 	master_tag = "airlock_scarab_port"
 	},
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "xV" = (
 /obj/machinery/light{
 	dir = 4
@@ -3383,12 +3401,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
-"At" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/coc_scarab/ammo)
-"Au" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/coc_scarab/massdriver)
+"Ak" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/armory)
 "Av" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -3655,23 +3684,6 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/coc_scarab/thrust2)
-"Cv" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/coc_scarab/bunks)
 "Cw" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -3886,7 +3898,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "En" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
@@ -3916,8 +3928,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/door/airlock/hatch{
+	dir = 8;
+	name = "Engineering Storage"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Ex" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
@@ -3949,9 +3965,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "EI" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -3964,8 +3977,29 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Mass Driver"
+	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/medical)
+"EJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bunks)
 "EN" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -28;
@@ -4128,16 +4162,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/bunks)
-"FY" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/coc_scarab/hydroponics)
 "Ge" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
@@ -4193,7 +4217,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "GA" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4269,7 +4293,7 @@
 /obj/machinery/autolathe,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "GT" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4560,6 +4584,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
+"Jl" = (
+/obj/structure/sign/flag/scarab/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/armory)
 "Jq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4573,7 +4603,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Js" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4609,12 +4639,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
-"JC" = (
-/obj/structure/sign/flag/scarab/large/south{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/coc_scarab/armory)
 "JF" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable,
@@ -4946,7 +4970,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "MC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 5
@@ -5346,6 +5370,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"Pp" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/massdriver)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
@@ -5353,7 +5380,7 @@
 "Pv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Pw" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
@@ -5384,7 +5411,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "PS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
@@ -5416,6 +5443,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 8;
+	name = "Equipment Storage"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
@@ -5633,7 +5664,7 @@
 	pixel_x = 8
 	},
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Rk" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -5786,7 +5817,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Se" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -5925,7 +5956,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Tu" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5945,7 +5976,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "Tx" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -5978,7 +6009,7 @@
 	name = "port, airlock"
 	},
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "TC" = (
 /obj/machinery/door/airlock/external{
 	dir = 4;
@@ -6161,6 +6192,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/hydroponics)
+"Uw" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/ammo)
 "UB" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable/green{
@@ -6487,7 +6521,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "WU" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -6779,7 +6813,7 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
-/area/coc_scarab/equipment)
+/area/coc_scarab/engistorage)
 "ZG" = (
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/dark,
@@ -6826,6 +6860,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
+"ZN" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/engistorage)
 "ZO" = (
 /turf/simulated/floor/plating,
 /area/coc_scarab/thrust2)
@@ -35522,9 +35559,9 @@ lb
 Hm
 Zp
 oc
-Au
+Pp
 ak
-Au
+Pp
 mM
 Uv
 tM
@@ -35779,9 +35816,9 @@ lb
 lb
 lb
 lb
-Au
+Pp
 uK
-Au
+Pp
 mM
 RU
 tM
@@ -36035,10 +36072,10 @@ KF
 ny
 lb
 lb
-Au
-Au
+Pp
+Pp
 xC
-Au
+Pp
 mM
 gu
 Ql
@@ -36290,9 +36327,9 @@ ny
 zZ
 oa
 ny
-Au
-Au
-Au
+Pp
+Pp
+Pp
 Ou
 ty
 nd
@@ -36547,9 +36584,9 @@ ny
 Re
 Re
 ny
-Au
-Au
-Au
+Pp
+Pp
+Pp
 mJ
 GQ
 Vb
@@ -36558,10 +36595,10 @@ co
 zk
 zk
 Vr
-At
-At
+Uw
+Uw
 Gk
-At
+Uw
 BV
 BV
 BV
@@ -36811,14 +36848,14 @@ VS
 VS
 EI
 mM
-FY
+bf
 zk
 zk
 DF
-At
+Uw
 cu
 nD
-At
+Uw
 EN
 mE
 Zb
@@ -37072,13 +37109,13 @@ iD
 sI
 tP
 DF
-At
+Uw
 YD
 OQ
 hI
 Ea
 qK
-JC
+Jl
 ab
 ab
 ab
@@ -37329,10 +37366,10 @@ iu
 MW
 Fs
 DF
-At
+Uw
 zd
 fc
-At
+Uw
 Ac
 iA
 bR
@@ -37580,17 +37617,17 @@ bt
 da
 bt
 VS
-EI
+qX
 mM
 YM
 GA
 kk
 eD
-At
+Uw
 MZ
 rV
-At
-eV
+Uw
+Ak
 cK
 Xz
 ab
@@ -37843,10 +37880,10 @@ mM
 Kv
 VM
 mM
-At
-At
+Uw
+Uw
 FE
-At
+Uw
 lu
 BV
 BV
@@ -38339,13 +38376,13 @@ zs
 gU
 uI
 Cb
-ny
-ny
-ny
+ZN
+ZN
+ZN
 Ev
-ny
-ny
-ny
+ZN
+ZN
+ZN
 VS
 LE
 xh
@@ -38596,12 +38633,12 @@ Eq
 PU
 kj
 Ry
-ny
+ZN
 gA
 Gv
 Em
 Jq
-pa
+dh
 GR
 VS
 Oq
@@ -38853,7 +38890,7 @@ Sj
 hb
 uI
 Ot
-ny
+ZN
 Mv
 Tn
 Pv
@@ -39110,13 +39147,13 @@ Eq
 vk
 AY
 RL
-ny
+ZN
 Tw
 rP
-ny
+ZN
 qc
 kv
-ny
+ZN
 VS
 VS
 VS
@@ -39367,13 +39404,13 @@ si
 Oe
 oX
 QO
-ny
+ZN
 WQ
 fp
-ny
+ZN
 ZD
 ql
-ny
+ZN
 VS
 VS
 Vi
@@ -39624,13 +39661,13 @@ TL
 Bn
 RT
 cc
-ny
-ny
-ny
-ny
+ZN
+ZN
+ZN
+ZN
 xT
 Sc
-ny
+ZN
 VS
 Vi
 Vi
@@ -39881,13 +39918,13 @@ Hp
 Hp
 Hp
 Hp
-ny
+ZN
 lb
 lb
-ny
+ZN
 TB
 Rj
-ny
+ZN
 lb
 lb
 lb
@@ -40157,7 +40194,7 @@ ws
 Uk
 Rg
 MT
-Cv
+EJ
 JM
 Ku
 Fe
