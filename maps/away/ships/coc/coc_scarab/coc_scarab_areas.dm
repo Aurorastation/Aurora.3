@@ -6,6 +6,7 @@
 	no_light_control = 1
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	has_gravity = FALSE
 
 /area/coc_scarab/bridge
 	name = "Scarab Salvage Vessel - Bridge"
@@ -23,6 +24,10 @@
 	name = "Scarab Salvage Vessel - Armory"
 	icon_state = "armory"
 
+/area/coc_scarab/ammo
+	name = "Scarab Salvage Vessel - Ammunition Storage"
+	icon_state = "Tactical"
+
 /area/coc_scarab/grauwolf
 	name = "Scarab Salvage Vessel - Flak Battery"
 	icon_state = "thunder"
@@ -35,9 +40,17 @@
 	name = "Scarab Salvage Vessel - Infirmary"
 	icon_state = "medbay"
 
+/area/coc_scarab/massdriver
+	name = "Scarab Salvage Vessel - Mass Driver"
+	icon_state = "morgue"
+
 /area/coc_scarab/equipment
 	name = "Scarab Salvage Vessel - Equipment Storage"
 	icon_state = "storage"
+
+/area/coc_scarab/engistorage
+	name = "Scarab Salvage Vessel - Engineering Storage"
+	icon_state = "engineering_storage"
 
 /area/coc_scarab/engine
 	name = "Scarab Salvage Vessel - Engine Room"
@@ -58,7 +71,9 @@
 /area/shuttle/scarab_harvester
 	name = "Scarab Gas Harvester"
 	requires_power = TRUE
+	has_gravity = FALSE
 
 /area/shuttle/coc_scarab
 	name = "Scarab Shuttle"
 	requires_power = TRUE
+	has_gravity = FALSE
