@@ -51,6 +51,26 @@
 				<li class="tweak">Tweaked formatting of the ready screen in statpanel a bit to increase visual clarity.</li>
 				<li class="bugfix">Fixed flesh golems detonating the server.</li>
 				<li class="bugfix">Fixed a runtime with RIGs and the statpanel action tab when there&#x27;s no client in the wearer of the RIG.</li>
+				<li class="rscadd">increased the scrubbing and venting speed of the scrubbers.</li>
+				<li class="backend">DMDoced the swap_density_check function, minor refactor.</li>
+				<li class="bugfix">Fixed a runtime error encountered in the wild with mob swaps.</li>
+				<li class="rscdel">Removed a collision handling of the coat hanger, that was violating the purity of checks.</li>
+				<li class="backend">Added get_turfs_in_cone(), to acquire turfs within a cone.</li>
+				<li class="rscadd">Added napalm grenades, not as classy as an airstrike, but still pretty effective all the same.</li>
+				<li class="rscadd">Added punji traps, gives a severe infection upon falling in one, can be hidden, can be engraved with a message.</li>
+				<li class="rscadd">Added standstill mines, if walked over, they activate and wait for the victim to move out of them, can be disarmed with the bomb kit, pretty powerful explosion if you mess up.</li>
+				<li class="rscadd">Added claymore mines, project pellets in a 60 degrees radius on each side from the direction they&#x27;re aiming at, remotely activated via a signaler or by directly touching them.</li>
+				<li class="rscadd">Reworked flamethrowers, now they light up on fire the turfs in a 30 degrees cone from each side of the clicked target, pressure effects excluded.</li>
+				<li class="rscadd">Added the napalm grenades, punji traps, standstill mines, claymore mines and the flamethrower to the antag uplink.</li>
+				<li class="backend">DMDoced some variables for the uplink.</li>
+				<li class="backend">DMDoced some variables for the pellet bullets, and minor refactor of its attack_mob function.</li>
+				<li class="backend">Refactored how mines work, added some documentation and sectioned them up to be more clear what is what.</li>
+				<li class="backend">Moved landmines and traps sprites in a more congenial location.</li>
+				<li class="bugfix">Fixed a runtime error when the uplink UI is opened without a category being selected.</li>
+				<li class="bugfix">Fixed a runtime error with borgs being destroyed and their HUD refreshing.</li>
+				<li class="imageadd">Added sprites for the punji trap, by Tomixcomics.</li>
+				<li class="imageadd">Added sprites for the standstill mine, by Tomixcomics.</li>
+				<li class="imageadd">Added sprites for the claymore mine, from CM.</li>
 			</ul>
 			<h3 class="author">SimpleMaroon updated:</h3>
 			<ul class="changes bgimages16">
