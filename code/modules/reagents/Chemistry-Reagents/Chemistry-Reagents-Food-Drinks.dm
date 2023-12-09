@@ -4999,14 +4999,14 @@
 
 /singleton/reagent/alcohol/new_horizons
 	name = "New Horizons"
-	color = "#a0a1da"
-	description = "In-house celebratory cocktail of the SCCV Horizon herself. Intended for ship-wide celebrations but can happily be poured any day of the week."
+	color = "#1d3fbb"
+	description = "In-house celebratory cocktail of the SCCV Horizon herself, served in an immensely intricate Horizon-shaped glass. Intended for ship-wide celebrations but can happily be poured any day of the week."
 	strength = 30
 	taste_description = "the celebration of new horizons"
 
 	glass_icon_state = "horizon_glass"
 	glass_name = "glass of New Horizons"
-	glass_desc = "In-house celebratory cocktail of the SCCV Horizon herself. Intended for ship-wide celebrations but can happily be poured any day of the week."
+	glass_desc = "In-house celebratory cocktail of the SCCV Horizon herself, served in an immensely intricate Horizon-shaped glass. Intended for ship-wide celebrations but can happily be poured any day of the week."
 
 /singleton/reagent/alcohol/espratini
 	name = "Espratini"
@@ -5034,23 +5034,12 @@
 	name = "Weeping Stars"
 	color = "#6f488f"
 	description = "A sparkling, violet drink that almost takes the coloration of tears in its void."
-	strength = 45
+	strength = 35
 	taste_description = "sparkly violet cranberry juice"
 
 	glass_icon_state = "weeping_stars_glass"
 	glass_name = "glass of Weeping Stars"
 	glass_desc = "A sparkling, violet drink that almost takes the coloration of tears in its void."
-
-/singleton/reagent/alcohol/ovanstad
-	name = "Ovanstad"
-	color = "#dfae76"
-	description = "A cocktail that mixes Virklunder beer with a splash of tequila and lemon juice. Not the most normal combination, but native New Gibsonites swear by it."
-	strength = 25
-	taste_description = "notes of citrus, fruit, and hops"
-
-	glass_icon_state = "ovanstad_glass"
-	glass_name = "glass of Ovanstad"
-	glass_desc = "A cocktail that mixes Virklunder beer with a splash of tequila and lemon juice. Not the most normal combination, but native New Gibsonites swear by it."
 
 /singleton/reagent/alcohol/verdant
 	name = "Verdant Green"
@@ -5059,7 +5048,7 @@
 	strength = 20
 	taste_description = "refreshing minty tea with a kick"
 
-	glass_icon_state = "verdant_green_glass"
+	glass_icon_state = "verdant_glass"
 	glass_name = "glass of Verdant Green"
 	glass_desc = "A refreshing, light drink that mixes soju with green tea and a splash of mint. Popular on Konyang."
 

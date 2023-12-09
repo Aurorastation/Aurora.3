@@ -3082,13 +3082,6 @@
     required_reagents = list(/singleton/reagent/alcohol/cremeyvette = 1, /singleton/reagent/drink/cranberryjuice = 1, /singleton/reagent/alcohol/champagne = 1)
     result_amount = 3
 
-/datum/chemical_reaction/drink/ovanstad
-    name = "Ovanstad"
-    id = "ovanstad"
-    result = /singleton/reagent/alcohol/ovanstad
-    required_reagents = list(/singleton/reagent/alcohol/beer = 1, /singleton/reagent/drink/syrup_vanilla = 0.5, /singleton/reagent/drink/ice = 1)
-    result_amount = 3
-
 /datum/chemical_reaction/drink/verdant
     name = "Verdant Green"
     id = "verdant"
