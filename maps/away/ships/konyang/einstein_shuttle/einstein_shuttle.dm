@@ -1,8 +1,8 @@
 /datum/map_template/ruin/away_site/einstein_shuttle
-	name = "clear sector"
+	name = "Einstein Engines Shuttle"
 	id = "einstein_shuttle"
-	description = "An empty sector."
-	suffixes = list("away_site/konyang/einstein_shuttle/einstein_shuttle.dmm")
+	description = "An Einstein Engines transport shuttle."
+	suffixes = list("ships/konyang/einstein_shuttle/einstein_shuttle.dmm")
 	spawn_weight = 1
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/einstein_shuttle)
@@ -11,8 +11,8 @@
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/einstein_shuttle
-	map = "clear sector"
-	descriptor = "An empty sector."
+	map = "Einstein Engines Shuttle"
+	descriptor = "An Einstein Engines transport shuttle."
 
 /obj/effect/overmap/visitable/sector/einstein_shuttle
 	name = "empty sector"
@@ -30,7 +30,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/einstein_shuttle/helm
 	name = "Einstein Shuttle - Helm"

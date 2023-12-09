@@ -600,6 +600,19 @@
 	condiment_icon_state = "pbjar"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/nutriment/choconutspread
+	name = "Choco-Nut Spread"
+	description = "Creamy chocolate spread with a nutty undertone."
+	reagent_state = LIQUID
+	nutriment_factor = 5
+	color = "#2c1000"
+	taste_description = "nutty chocolate"
+	taste_mult = 2
+	condiment_name = "notella jar"
+	condiment_desc = "Humans insist this chocolatey spread might be the best thing they've ever created."
+	condiment_icon_state = "notellajar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /singleton/reagent/nutriment/groundpeanuts
 	name = "Ground Roasted Peanuts"
 	description = "Roughly ground roasted peanuts."
@@ -867,7 +880,7 @@
 			if(I.body_parts_covered & EYES)
 				eyes_covered |= EYES_PROTECTED
 				eye_protection = I.name
-			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
+			if((I.body_parts_covered & FACE) && !(I.item_flags & ITEM_FLAG_FLEXIBLE_MATERIAL))
 				mouth_covered = 1
 				face_protection = I.name
 
@@ -5590,6 +5603,8 @@
 	description = "The extract from vanilla beans..."
 	color = "#e8efe5"
 	taste_description = "vanilla"
+	condiment_desc = "A cute little bottle holding great and intense powers within. The power of Vanilla extract."
+	condiment_icon_state = "vanilla"
 
 /singleton/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"

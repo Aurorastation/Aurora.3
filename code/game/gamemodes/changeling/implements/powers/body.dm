@@ -42,6 +42,7 @@
 	if(ishuman(src))
 		src.visible_message("<span class='warning'>[src] transforms!</span>")
 		var/mob/living/carbon/human/H = src
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 
@@ -50,6 +51,10 @@
 		H.sync_organ_dna()
 		H.flavor_text = ""
 		H.height = chosen_dna.height
+		H.gender = chosen_dna.gender
+		H.pronouns = chosen_dna.pronouns
+		if(!changeling.mimicing)
+			changeling.mimiced_accent = chosen_dna.accent
 		domutcheck(H, null) //donut check heh heh heh - Geeves
 		H.UpdateAppearance()
 
@@ -408,22 +413,6 @@
 	feedback_add_details("changeling_powers", "RR")
 	return TRUE
 
-/mob/proc/changeling_mimic_accent()
-	set category = "Changeling"
-	set name = "Mimic Accent"
-	set desc = "Shape our vocal glands to mimic any accent we choose."
-
-	var/datum/changeling/changeling = changeling_power()
-	if(!changeling)
-		return
-
-	var/chosen_accent = tgui_input_list(src, "Choose an accent to mimic.", "Accent Mimicry", SSrecords.accents)
-	if(!chosen_accent)
-		return
-
-	changeling.mimiced_accent = chosen_accent
-	to_chat(src, SPAN_NOTICE("We have chosen to mimic the [chosen_accent] accent."))
-
 // Fake Voice
 /mob/proc/changeling_mimicvoice()
 	set category = "Changeling"
@@ -435,7 +424,9 @@
 		return
 
 	if(changeling.mimicing)
+		var/datum/absorbed_dna/current_dna = changeling.GetDNA(real_name)
 		changeling.mimicing = ""
+		changeling.mimiced_accent = current_dna.accent
 		to_chat(src, "<span class='notice'>We return our vocal glands to their original form.</span>")
 		return
 
@@ -443,9 +434,14 @@
 	if(!mimic_voice)
 		return
 
-	changeling.mimicing = mimic_voice
+	var/chosen_accent = tgui_input_list(src, "Choose an accent to mimic.", "Accent Mimicry", SSrecords.accents)
+	if(!chosen_accent)
+		return
 
-	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, this will stop us from regenerating chemicals while active.</span>")
+	changeling.mimicing = mimic_voice
+	changeling.mimiced_accent = chosen_accent
+
+	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, using the <b>[chosen_accent]</b> accent. This will stop us from regenerating chemicals while active.</span>")
 	to_chat(src, "<span class='notice'>Use this power again to return to our original voice and reproduce chemicals again.</span>")
 
 	feedback_add_details("changeling_powers","MV")

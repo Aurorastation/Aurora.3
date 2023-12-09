@@ -303,9 +303,9 @@
 			icon_state = "steak_40"
 		if(41 to 60)
 			icon_state = "steak_60"
-		if(61 to 75)
+		if(61 to 80) //this was originally set to 75 but this resulted in a weird situation that prevented the steak_75 image from showing up. this is my fix.
 			icon_state = "steak_75"
-		if(76 to INFINITY)
+		if(81 to INFINITY)
 			icon_state = "steak"
 
 /obj/item/reagent_containers/food/snacks/meatsteak/grilled

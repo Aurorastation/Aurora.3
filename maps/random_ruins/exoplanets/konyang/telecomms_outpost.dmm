@@ -1,0 +1,2654 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ae" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/highsecurity,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"an" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -4
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"av" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"bn" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"bT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"bU" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"bY" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/ramen,
+/obj/item/trash/seaweed,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"cT" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"dc" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"de" = (
+/obj/machinery/door/airlock/highsecurity,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"dt" = (
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"dM" = (
+/obj/effect/decal/road_marking/thin,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"dO" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"ec" = (
+/obj/effect/decal/fake_object{
+	icon_state = "comm_server";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "telecommunications server"
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"eD" = (
+/turf/simulated/wall/concrete,
+/area/konyang_telecomms_outpost)
+"eZ" = (
+/obj/structure/automobile{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"fk" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"fn" = (
+/obj/machinery/door/window/eastright,
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"fp" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"fv" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"fC" = (
+/obj/effect/decal/road_marking/thin,
+/obj/structure/automobile,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"gA" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"gN" = (
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"hq" = (
+/obj/machinery/door/airlock/multi_tile,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"if" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"iM" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/effect/decal/fake_object{
+	icon_state = "comm_server";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "telecommunications server"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"jY" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"kl" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = -20;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"ku" = (
+/obj/structure/bed/stool/padded/brown,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"kS" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"lh" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_garage";
+	name = "Garage"
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"lK" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"mt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/firefighter,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"mU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"nR" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"nX" = (
+/obj/structure/bed/stool/padded/brown{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"ok" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "konyang_telecom";
+	name = "Main Gate";
+	pixel_y = 22;
+	req_access = null
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"oX" = (
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"pw" = (
+/obj/effect/decal/road_marking/thin,
+/obj/machinery/mech_recharger/automobile,
+/obj/vehicle/bike/speeder{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"pN" = (
+/obj/structure/bed/padded{
+	pixel_y = 4
+	},
+/obj/item/bedsheet/black{
+	pixel_y = 4
+	},
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_telecomms";
+	identifier = "konyang_telecomms"
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"qg" = (
+/turf/simulated/wall,
+/area/konyang_telecomms_outpost)
+"qu" = (
+/obj/structure/mirror{
+	pixel_y = 31
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"qP" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"qQ" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "konyang_garage";
+	name = "Garage";
+	pixel_y = 22;
+	req_access = null
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"rs" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 18;
+	pixel_x = 1
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"rE" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/effect/decal/fake_object{
+	icon_state = "comm_server";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "telecommunications server"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"sB" = (
+/obj/effect/decal/fake_object{
+	icon_state = "processor";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "input processor"
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"sH" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/konyang_telecomms_outpost)
+"tv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"tz" = (
+/obj/structure/sign/flag/konyang/large/south,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"uh" = (
+/turf/simulated/wall/wood,
+/area/konyang_telecomms_outpost)
+"vu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/cooled,
+/area/konyang_telecomms_outpost)
+"wc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"wj" = (
+/obj/effect/decal/road_marking/thin,
+/obj/machinery/mech_recharger/automobile,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"wz" = (
+/obj/machinery/photocopier,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"wG" = (
+/obj/structure/chainlink_fence,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"wM" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"wS" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"wV" = (
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"xB" = (
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"yA" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board,
+/obj/item/material/hatchet/butch,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"ze" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_telecom";
+	name = "Main Gate"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"zh" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"zH" = (
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"zM" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"zO" = (
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"zP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/cooled,
+/area/konyang_telecomms_outpost)
+"zQ" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/device/radio/phone{
+	pixel_y = 10;
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"zX" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/effect/decal/fake_object{
+	icon_state = "comm_server";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "telecommunications server"
+	},
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Ai" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"Ak" = (
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Ay" = (
+/obj/structure/table/steel,
+/obj/machinery/photocopier/faxmachine{
+	department = "Konyang Telecomms Relay"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Ba" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Bn" = (
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"BC" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"Dw" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/device/radio,
+/obj/item/device/radio,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"DG" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"DK" = (
+/obj/effect/decal/fake_object{
+	icon_state = "broadcaster";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "broadcast relay"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Ef" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/clothing/head/welding,
+/obj/item/storage/toolbox/electrical,
+/obj/item/clothing/gloves/yellow,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Eh" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"Et" = (
+/obj/effect/decal/fake_object{
+	icon_state = "broadcast receiver";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "broadcast reciever"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Ex" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"EB" = (
+/obj/structure/sign/flag/konyang/large/south,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"EU" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"Fh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"GY" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/effect/decal/fake_object{
+	icon_state = "comm_server";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "telecommunications server"
+	},
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Hi" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"Hj" = (
+/obj/structure/chainlink_fence,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"Hp" = (
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"IA" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Kw" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"KH" = (
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"LH" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"LW" = (
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/random/soap,
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"Nh" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	layer = 2.7;
+	name = "AC unit"
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"Nm" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/konyang_telecomms_outpost)
+"Nr" = (
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Nv" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/lino/diamond,
+/area/konyang_telecomms_outpost)
+"NW" = (
+/obj/effect/decal/road_marking/thin,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"Oj" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"Pu" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/obj/item/stamp/denied,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"PB" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/device/radio/phone{
+	pixel_y = 10;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"PY" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Qe" = (
+/obj/structure/chainlink_fence,
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"Qg" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	layer = 4.1;
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"Qk" = (
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"QE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"QJ" = (
+/obj/structure/closet/cabinet,
+/obj/item/flame/lighter/random,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"QR" = (
+/obj/effect/decal/fake_object{
+	icon_state = "hub";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "comm hub"
+	},
+/turf/simulated/floor/bluegrid/cooled,
+/area/konyang_telecomms_outpost)
+"QT" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower,
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"RJ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"St" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"Sv" = (
+/obj/random/dirt_75,
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"SW" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"TE" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"TS" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Ub" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"Uw" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"UK" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/stamp,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"UW" = (
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/large/combat,
+/obj/item/storage/firstaid/large/combat,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Vi" = (
+/obj/effect/decal/road_marking/thin,
+/obj/machinery/mech_recharger/automobile,
+/obj/vehicle/bike/speeder{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"VM" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"VX" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"VY" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Wd" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"WZ" = (
+/obj/structure/table/wood,
+/obj/item/toy/comic/inspector,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"Xc" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "konyang_telecom";
+	name = "Main Gate"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"Xd" = (
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/konyang_telecomms_outpost)
+"Xw" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_telecomms_outpost)
+"XU" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "konyang_telecom";
+	name = "Main Gate";
+	req_access = null;
+	pixel_x = -25
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"Yh" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray,
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"YL" = (
+/obj/structure/table/wood,
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	layer = 6.1;
+	name = "expensive flatscreen holovision";
+	pixel_y = 15
+	},
+/turf/simulated/floor/wood,
+/area/konyang_telecomms_outpost)
+"YY" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/head/helmet/konyang,
+/obj/item/clothing/head/helmet/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"Zj" = (
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/turf/simulated/floor/tiled/white,
+/area/konyang_telecomms_outpost)
+"ZM" = (
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+
+(1,1,1) = {"
+Oj
+Oj
+Oj
+wM
+wM
+wM
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+"}
+(2,1,1) = {"
+wM
+wM
+wM
+wM
+eD
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+fv
+eD
+Oj
+"}
+(3,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+Oj
+wM
+wM
+Oj
+Oj
+Oj
+wM
+wM
+wM
+Oj
+wM
+wM
+wM
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+Oj
+fp
+Oj
+"}
+(4,1,1) = {"
+Oj
+wM
+wM
+Oj
+Hj
+Oj
+eD
+bT
+QE
+lK
+KH
+fC
+RJ
+oX
+KH
+dM
+eD
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+wM
+wM
+Oj
+fp
+Oj
+"}
+(5,1,1) = {"
+Oj
+wM
+wM
+zM
+wG
+Oj
+eD
+mt
+KH
+SW
+KH
+wj
+KH
+Vi
+KH
+oX
+eD
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+wM
+wM
+wM
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+wM
+wM
+Oj
+wM
+Oj
+fp
+Oj
+"}
+(6,1,1) = {"
+zM
+wM
+wM
+wM
+Hj
+wM
+eD
+tv
+KH
+SW
+KH
+KH
+KH
+KH
+KH
+KH
+lh
+Ub
+Ub
+Ub
+Ub
+Oj
+wM
+wM
+wM
+wM
+wM
+qg
+qg
+qg
+qg
+qg
+Oj
+wM
+wM
+wM
+wM
+Oj
+fp
+Oj
+"}
+(7,1,1) = {"
+Oj
+wM
+wM
+wM
+fp
+wM
+eD
+tv
+KH
+SW
+KH
+eZ
+KH
+KH
+KH
+KH
+lh
+Ub
+Ub
+Ai
+Ub
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+qg
+UW
+YY
+fk
+qg
+Oj
+Oj
+wM
+wM
+Oj
+Oj
+fp
+Oj
+"}
+(8,1,1) = {"
+Oj
+wM
+wM
+wM
+fp
+wM
+eD
+mU
+KH
+SW
+KH
+wj
+KH
+pw
+KH
+oX
+eD
+qQ
+Oj
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+de
+Bn
+Bn
+ZM
+qg
+Oj
+Oj
+zM
+wM
+wM
+Oj
+fp
+Oj
+"}
+(9,1,1) = {"
+Oj
+wM
+wM
+wM
+fp
+wM
+eD
+jY
+wc
+dO
+KH
+oX
+Fh
+oX
+KH
+NW
+eD
+Oj
+Oj
+Ub
+Ub
+zM
+Oj
+wM
+wM
+Oj
+Oj
+qg
+Ef
+Dw
+Uw
+qg
+Oj
+wM
+wM
+wM
+wM
+wM
+fp
+Oj
+"}
+(10,1,1) = {"
+Oj
+wM
+wM
+wM
+fp
+wM
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+wM
+wM
+Ub
+Ub
+zM
+wM
+wM
+wM
+wM
+Oj
+qg
+qg
+qg
+qg
+qg
+Oj
+wM
+wM
+wM
+Oj
+wM
+fp
+Oj
+"}
+(11,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+wM
+wM
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+wM
+Ub
+Ub
+Oj
+wM
+zM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+fp
+Oj
+"}
+(12,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+wM
+wM
+Oj
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+wM
+Ub
+Ub
+wM
+wM
+wM
+Oj
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+fp
+Oj
+"}
+(13,1,1) = {"
+wM
+wM
+wM
+Oj
+fp
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Ub
+Ub
+Oj
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+fp
+Oj
+"}
+(14,1,1) = {"
+wM
+wM
+wM
+Oj
+Qe
+Oj
+wM
+wM
+wM
+wM
+Oj
+Oj
+wM
+wM
+wM
+Oj
+wM
+wM
+Oj
+Ub
+Ub
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+Oj
+zM
+Oj
+Oj
+Oj
+wM
+wM
+wM
+wM
+Oj
+fp
+Oj
+"}
+(15,1,1) = {"
+Oj
+wM
+wM
+Oj
+Hj
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+Ub
+Ai
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+Oj
+Oj
+Oj
+qg
+eD
+eD
+eD
+eD
+eD
+eD
+fp
+Oj
+"}
+(16,1,1) = {"
+wM
+wM
+wM
+Oj
+fp
+Oj
+Oj
+Oj
+Oj
+Oj
+wM
+wM
+wM
+Oj
+Oj
+wM
+Oj
+Oj
+Oj
+Ub
+Ub
+Oj
+wM
+wM
+wM
+wM
+Oj
+eD
+eD
+eD
+eD
+qg
+Nh
+Et
+Nh
+Et
+Nh
+eD
+fp
+Oj
+"}
+(17,1,1) = {"
+wM
+wM
+wM
+Oj
+Wd
+Ub
+Ub
+Ub
+Oj
+Oj
+Oj
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+Oj
+Ub
+Ub
+Oj
+wM
+wM
+wM
+wM
+Oj
+eD
+TS
+Ay
+Ex
+qg
+ec
+dt
+dt
+dt
+ec
+eD
+fp
+Oj
+"}
+(18,1,1) = {"
+wM
+wM
+Oj
+zO
+eD
+eD
+eD
+eD
+Ub
+Ub
+Oj
+Oj
+Oj
+wM
+wM
+wM
+wM
+wM
+Oj
+Ub
+Ub
+Oj
+wM
+wM
+wM
+wM
+tz
+eD
+cT
+PY
+Ex
+qg
+sB
+dt
+QR
+dt
+sB
+eD
+fp
+Oj
+"}
+(19,1,1) = {"
+wM
+Oj
+Ub
+Ub
+ze
+XU
+Ub
+Xc
+Ub
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Ub
+Ub
+Oj
+Oj
+Oj
+Oj
+wM
+Oj
+eD
+zQ
+qP
+if
+qg
+rE
+gA
+fn
+gA
+zX
+eD
+fp
+Oj
+"}
+(20,1,1) = {"
+Ub
+Ub
+Ub
+Ub
+ze
+Ub
+Ub
+Xc
+Ub
+Ai
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+hq
+Bn
+Bn
+Ex
+ae
+zP
+zP
+zP
+zP
+zP
+eD
+fp
+Oj
+"}
+(21,1,1) = {"
+Ub
+Ub
+Ub
+Ub
+ze
+Ub
+Ub
+Xc
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+Bn
+Bn
+Bn
+Ex
+ae
+vu
+vu
+vu
+vu
+vu
+eD
+fp
+Oj
+"}
+(22,1,1) = {"
+Ub
+Ub
+Ub
+Ub
+ze
+Ub
+Ub
+Xc
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Ub
+Ub
+wM
+wM
+wM
+tz
+eD
+PB
+zh
+if
+qg
+iM
+Ba
+Ak
+Ba
+GY
+eD
+fp
+Oj
+"}
+(23,1,1) = {"
+Oj
+Ub
+Ub
+zO
+eD
+UK
+Pu
+eD
+Oj
+Oj
+Oj
+Oj
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+Ub
+Ub
+Oj
+wM
+wM
+Oj
+eD
+bU
+PY
+Ex
+qg
+sB
+dt
+QR
+dt
+sB
+eD
+fp
+Oj
+"}
+(24,1,1) = {"
+Oj
+Oj
+Oj
+EB
+eD
+ok
+Bn
+eD
+Oj
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+zM
+Oj
+wM
+VX
+wM
+Ub
+Ub
+wM
+wM
+wM
+Oj
+eD
+IA
+wz
+Ex
+qg
+ec
+dt
+dt
+dt
+ec
+eD
+fp
+Oj
+"}
+(25,1,1) = {"
+wM
+wM
+Oj
+Oj
+eD
+Bn
+Bn
+eD
+Oj
+zM
+Oj
+Oj
+wM
+wM
+wM
+wM
+wM
+VX
+wM
+wM
+wM
+Ub
+Ub
+wM
+wM
+wM
+Oj
+eD
+eD
+eD
+eD
+qg
+Nh
+DK
+Nh
+DK
+Nh
+eD
+fp
+Oj
+"}
+(26,1,1) = {"
+wM
+Oj
+Oj
+Oj
+eD
+VY
+Bn
+Nr
+Oj
+wM
+wM
+wM
+Oj
+Oj
+Oj
+Oj
+Oj
+wM
+wM
+wM
+wM
+Ai
+Ub
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+qg
+qg
+qg
+qg
+qg
+qg
+eD
+fp
+Oj
+"}
+(27,1,1) = {"
+wM
+wM
+wM
+Oj
+eD
+eD
+eD
+eD
+Oj
+Oj
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+Oj
+wM
+wM
+wM
+Ub
+Ub
+wM
+wM
+Oj
+wM
+Oj
+wM
+Oj
+wM
+wM
+wM
+wM
+Oj
+wM
+wM
+Oj
+fp
+Oj
+"}
+(28,1,1) = {"
+wM
+wM
+wM
+Oj
+fp
+Oj
+Oj
+wM
+wM
+wM
+uh
+wS
+Hi
+xB
+an
+yA
+uh
+Oj
+wM
+wM
+wM
+Ub
+Ub
+wM
+wM
+wM
+wM
+Oj
+bn
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+wM
+wM
+fp
+Oj
+"}
+(29,1,1) = {"
+wM
+Oj
+wM
+Oj
+fp
+Oj
+wM
+wM
+Oj
+Oj
+uh
+Hp
+Hp
+Hp
+Hp
+Hp
+uh
+zM
+wM
+Oj
+wM
+Ub
+Ub
+wM
+wM
+Oj
+sH
+sH
+Oj
+Oj
+sH
+sH
+sH
+sH
+sH
+sH
+wM
+wM
+fp
+Oj
+"}
+(30,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+uh
+uh
+uh
+uh
+uh
+Nv
+Hp
+Hp
+Hp
+DG
+uh
+Oj
+wM
+wM
+wM
+Ub
+Ub
+wM
+wM
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+wM
+wM
+fp
+Oj
+"}
+(31,1,1) = {"
+wM
+wM
+wM
+wM
+Qe
+Oj
+uh
+pN
+Qg
+pN
+uh
+rs
+Hp
+Hp
+Hp
+Hp
+uh
+Oj
+Oj
+wM
+Oj
+Ub
+Ub
+wM
+wM
+sH
+sH
+sH
+Xd
+sH
+sH
+sH
+Nm
+sH
+sH
+Oj
+Oj
+wM
+fp
+Oj
+"}
+(32,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+uh
+dc
+gN
+gN
+VM
+gN
+gN
+gN
+gN
+gN
+uh
+Oj
+Oj
+wM
+Oj
+Ub
+Ub
+wM
+Oj
+sH
+sH
+Nm
+sH
+sH
+Nm
+sH
+sH
+sH
+sH
+sH
+sH
+wM
+fp
+Oj
+"}
+(33,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+uh
+QJ
+Qk
+kS
+uh
+ku
+TE
+Yh
+nX
+gN
+VM
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+wM
+Xw
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+wM
+fp
+Oj
+"}
+(34,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+uh
+uh
+uh
+uh
+uh
+ku
+kl
+WZ
+nX
+gN
+VM
+Ub
+Ub
+Ub
+Ub
+Ub
+Ub
+wM
+zM
+zM
+sH
+sH
+sH
+sH
+sH
+Xd
+sH
+sH
+sH
+sH
+sH
+wM
+fp
+Oj
+"}
+(35,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+uh
+QT
+St
+Sv
+uh
+dc
+gN
+gN
+gN
+zH
+uh
+Oj
+wM
+wM
+Oj
+Oj
+Oj
+wM
+wM
+Oj
+Oj
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+Oj
+Oj
+wM
+fp
+Oj
+"}
+(36,1,1) = {"
+wM
+wM
+wM
+wM
+fp
+Oj
+uh
+qu
+St
+wV
+VM
+gN
+gN
+gN
+YL
+Eh
+uh
+Oj
+Oj
+wM
+wM
+Oj
+wM
+wM
+wM
+wM
+sH
+sH
+Nm
+sH
+sH
+sH
+sH
+Nm
+Xd
+Oj
+wM
+wM
+fp
+Oj
+"}
+(37,1,1) = {"
+wM
+wM
+wM
+wM
+Qe
+Oj
+uh
+Kw
+Zj
+LW
+uh
+bY
+EU
+gN
+nR
+LH
+uh
+zM
+Oj
+wM
+wM
+wM
+wM
+Oj
+wM
+wM
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+sH
+Oj
+wM
+fp
+Oj
+"}
+(38,1,1) = {"
+wM
+wM
+wM
+Oj
+fp
+Oj
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+wM
+Oj
+sH
+sH
+sH
+sH
+wM
+wM
+sH
+sH
+sH
+Xw
+Oj
+wM
+fp
+Oj
+"}
+(39,1,1) = {"
+wM
+wM
+Oj
+Oj
+eD
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+BC
+av
+av
+av
+av
+av
+av
+av
+av
+av
+av
+av
+av
+av
+av
+av
+BC
+eD
+Oj
+"}
+(40,1,1) = {"
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+"}

@@ -4,7 +4,7 @@
 	var/turf/source_turf		// Location of the radiation source.
 	var/rad_power				// Strength of the radiation being emitted.
 	var/decay = TRUE			// True for automatic decay.  False if owner promises to handle it (i.e. supermatter)
-	var/respect_maint = FALSE	// True for not affecting RAD_SHIELDED areas.
+	var/respect_maint = FALSE	// True for not affecting AREA_FLAG_RAD_SHIELDED areas.
 	var/flat = FALSE			// True for power falloff with distance.
 	var/range					// Cached maximum range, used for quick checks against mobs.
 

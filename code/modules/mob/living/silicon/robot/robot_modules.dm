@@ -16,7 +16,7 @@ var/global/list/robot_modules = list(
 	icon_state = "std_mod"
 	w_class = ITEMSIZE_IMMENSE
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/channels = list()
 	var/networks = list()
 	var/languages = list( // Any listed language will be understandable. Any set to TRUE will be speakable
@@ -102,6 +102,8 @@ var/global/list/robot_modules = list(
 	return ..()
 
 /obj/item/robot_module/emp_act(severity)
+	. = ..()
+
 	if(modules)
 		for(var/obj/O in modules)
 			O.emp_act(severity)
@@ -110,8 +112,6 @@ var/global/list/robot_modules = list(
 	if(synths)
 		for(var/datum/matter_synth/S in synths)
 			S.emp_act(severity)
-	..()
-	return
 
 /obj/item/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
 	var/obj/item/extinguisher/E = locate() in modules

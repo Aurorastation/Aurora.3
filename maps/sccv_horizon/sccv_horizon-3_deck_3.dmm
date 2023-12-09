@@ -375,8 +375,7 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/directions/cryo{
-	pixel_y = 29;
-	dir = 2
+	pixel_y = 29
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
@@ -421,9 +420,9 @@
 /area/horizon/cafeteria)
 "ajW" = (
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -875,13 +874,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_2";
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
-	name = "airlock_horizon_dock_deck_3_port_2";
-	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	name = "airlock_horizon_dock_deck_3_port_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -890,15 +887,14 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = -22;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -2272,9 +2268,9 @@
 "bOz" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -2630,19 +2626,17 @@
 /area/bridge/minibar)
 "ceE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -3539,9 +3533,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -3921,9 +3915,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -4404,9 +4398,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -4596,18 +4590,15 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "dSv" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -4765,9 +4756,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -5242,13 +5233,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "enU" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -5898,15 +5887,15 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
+	dir = 4;
 	pixel_x = 12;
-	pixel_y = 28;
-	dir = 4
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -6084,13 +6073,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -6361,18 +6349,15 @@
 /area/bridge/controlroom)
 "ffL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = -24;
-	dir = 2
+	pixel_x = -24
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -7319,9 +7304,9 @@
 "fKs" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -7366,9 +7351,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -8491,9 +8476,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -8523,14 +8508,13 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = 24;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -8740,19 +8724,17 @@
 /area/horizon/crew_armoury/foyer)
 "gMl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = 28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -8859,9 +8841,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -10160,23 +10142,21 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "hNX" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
 	dir = 8;
+	pixel_x = 20;
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_2";
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
-	name = "airlock_horizon_dock_deck_3_port_2";
-	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	name = "airlock_horizon_dock_deck_3_port_2"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -10227,19 +10207,17 @@
 /area/horizon/crew_armoury)
 "hOD" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -10803,15 +10781,15 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8
+	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -11213,14 +11191,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
 "iEF" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -11386,18 +11362,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "iJS" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -11629,9 +11602,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -11831,19 +11804,19 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
 	dir = 8;
+	pixel_x = 20;
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -13088,9 +13061,9 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -13351,13 +13324,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "kmt" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -13417,9 +13388,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -14409,13 +14380,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
 "kYO" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -15724,9 +15693,9 @@
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -15903,6 +15872,7 @@
 /obj/item/storage/box/cell/high,
 /obj/item/storage/box/flares,
 /obj/item/storage/box/flares,
+/obj/item/storage/box/led_collars,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -16340,18 +16310,15 @@
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/port_2{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -17421,9 +17388,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -17894,8 +17861,8 @@
 	pixel_y = 2
 	},
 /obj/random/softcap{
-	pixel_y = 9;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
@@ -18154,13 +18121,13 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
+	dir = 8;
+	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -18656,19 +18623,17 @@
 /area/horizon/longbow)
 "obP" = (
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_2,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -18921,9 +18886,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_4";
 	master_tag = "airlock_horizon_dock_deck_3_port_4";
-	name = "airlock_horizon_dock_deck_3_port_4";
-	landmark_tag = "nav_horizon_dock_deck_3_port_4"
+	name = "airlock_horizon_dock_deck_3_port_4"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -19744,18 +19709,15 @@
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_3{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -19799,18 +19761,18 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "oSO" = (
 /obj/machinery/light,
-/obj/machinery/washing_machine,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
+/obj/structure/closet/athletic_mixed,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "oTm" = (
@@ -20008,9 +19970,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -20086,6 +20048,7 @@
 	c_tag = "Third Deck - Locker Room";
 	dir = 1
 	},
+/obj/machinery/washing_machine,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "pdq" = (
@@ -20329,18 +20292,16 @@
 /area/horizon/security/evidence_storage)
 "pwL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -20528,9 +20489,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -20818,20 +20779,16 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "pVj" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = 0;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -22298,19 +22255,19 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
 	dir = 8;
+	pixel_x = 20;
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -22733,9 +22690,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -23000,9 +22957,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -23221,19 +23178,17 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "rQB" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -24727,13 +24682,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -24893,14 +24847,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "tcb" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -24934,15 +24886,15 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_5";
 	master_tag = "airlock_horizon_dock_deck_3_port_5";
-	name = "airlock_horizon_dock_deck_3_port_5";
-	landmark_tag = "nav_horizon_dock_deck_3_port_5"
+	name = "airlock_horizon_dock_deck_3_port_5"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
+	dir = 4;
 	pixel_x = 12;
-	pixel_y = -28;
-	dir = 4
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -25370,19 +25322,19 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
 	dir = 8;
+	pixel_x = 20;
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_3";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_3";
-	name = "airlock_horizon_dock_deck_3_starboard_3";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_3"
+	name = "airlock_horizon_dock_deck_3_starboard_3"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -25663,23 +25615,19 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "tFM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -27363,17 +27311,14 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "uRU" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -27878,13 +27823,13 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8
+	dir = 8;
+	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -28609,19 +28554,17 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "vNF" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_2";
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
-	name = "airlock_horizon_dock_deck_3_port_2";
-	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	name = "airlock_horizon_dock_deck_3_port_2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = 28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -28939,15 +28882,15 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = -12;
-	pixel_y = 28;
-	dir = 8
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -29240,19 +29183,17 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "wmW" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = 28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
+	name = "airlock_horizon_dock_deck_3_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -29447,9 +29388,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
-	name = "airlock_horizon_deck_3_fore_starboard_1";
-	frequency = 1002
+	name = "airlock_horizon_deck_3_fore_starboard_1"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -30462,38 +30403,31 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_2";
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
-	name = "airlock_horizon_dock_deck_3_port_2";
-	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	name = "airlock_horizon_dock_deck_3_port_2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "xek" = (
-/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1{
-	dir = 2
-	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/effect/shuttle_landmark/horizon/dock/deck_3/port_1,
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_2";
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
-	name = "airlock_horizon_dock_deck_3_port_2";
-	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	name = "airlock_horizon_dock_deck_3_port_2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -30570,13 +30504,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_port_2";
 	master_tag = "airlock_horizon_dock_deck_3_port_2";
-	name = "airlock_horizon_dock_deck_3_port_2";
-	landmark_tag = "nav_horizon_dock_deck_3_port_2"
+	name = "airlock_horizon_dock_deck_3_port_2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -31331,9 +31263,9 @@
 "xNi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_1";
 	master_tag = "airlock_horizon_dock_deck_3_starboard_1";
-	name = "airlock_horizon_dock_deck_3_starboard_1";
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"
+	name = "airlock_horizon_dock_deck_3_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)

@@ -34,7 +34,7 @@
 	item_state = "surgical"
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
@@ -56,7 +56,7 @@
 	item_state = "cloth"
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
@@ -73,7 +73,7 @@
 	item_state = "dust"
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
@@ -105,7 +105,7 @@
 	item_state = "trinary_mask"
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	down_body_parts_covered = null
 	adjustable = TRUE
 
@@ -202,7 +202,7 @@
 	contained_sprite = TRUE
 	icon_state = "pioneer_scarf"
 	item_state = "pioneer_scarf"
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 

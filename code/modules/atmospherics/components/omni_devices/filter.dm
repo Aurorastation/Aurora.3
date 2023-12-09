@@ -48,7 +48,7 @@
 					input = P
 				if(ATM_OUTPUT)
 					output = P
-				if(ATM_O2 to ATM_H2)
+				if(ATM_O2 to ATM_H2O)
 					active_filters += P
 
 /obj/machinery/atmospherics/omni/filter/error_check()
@@ -126,7 +126,7 @@
 			if(ATM_OUTPUT)
 				output = 1
 				filter = 0
-			if(ATM_O2 to ATM_H2)
+			if(ATM_O2 to ATM_H2O)
 				f_type = mode_send_switch(P.mode)
 
 		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
@@ -155,8 +155,24 @@
 			return "Phoron" //*cough* Plasma *cough*
 		if(ATM_N2O)
 			return "Nitrous Oxide"
-		if(ATM_H2)
+		if(ATM_H)
 			return "Hydrogen"
+		if(ATM_2H)
+			return "Deuterium"
+		if(ATM_3H)
+			return "Tritium"
+		if(ATM_HE)
+			return "Helium"
+		if(ATM_B)
+			return "Boron"
+		if(ATM_SO2)
+			return "Sulfur Dioxide"
+		if(ATM_NO2)
+			return "Nitrogen Dioxide"
+		if(ATM_CL2)
+			return "Chlorine"
+		if(ATM_H2O)
+			return "Steam"
 		else
 			return null
 
@@ -182,7 +198,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen")
+				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Boron", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Steam")
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 
 	update_icon()
@@ -202,7 +218,23 @@
 		if("Nitrous Oxide")
 			return ATM_N2O
 		if("Hydrogen")
-			return ATM_H2
+			return ATM_H
+		if("Deuterium")
+			return ATM_2H
+		if("Tritium")
+			return ATM_3H
+		if("Helium")
+			return ATM_HE
+		if("Boron")
+			return ATM_B
+		if("Sulfur Dioxide")
+			return ATM_SO2
+		if("Nitrogen Dioxide")
+			return ATM_NO2
+		if("Chlorine")
+			return ATM_CL2
+		if("Steam")
+			return ATM_H2O
 		if("in")
 			return ATM_INPUT
 		if("out")

@@ -5,7 +5,7 @@
 	desc = "Used for repairing or building APCs"
 	icon = 'icons/obj/apc_repair.dmi'
 	icon_state = "apc_frame"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/frame/apc/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.iswrench())

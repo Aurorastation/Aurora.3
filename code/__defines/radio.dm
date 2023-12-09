@@ -18,6 +18,7 @@
 // Department / private frequencies
 
 #define SYND_FREQ 1213
+#define COAL_FREQ 1217
 #define BLSP_FREQ 1253
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
@@ -50,6 +51,7 @@ var/list/radiochannels = list(
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,
+	"Coalition Navy"= COAL_FREQ,
 	"Ninja"			= NINJ_FREQ,
 	"Bluespace"		= BLSP_FREQ,
 	"Burglar"		= BURG_FREQ,
@@ -77,6 +79,7 @@ var/list/reverseradiochannels = list(
 	"[ERT_FREQ]"	= "Response Team",
 	"[DTH_FREQ]"	= "Special Ops",
 	"[SYND_FREQ]"	= "Mercenary",
+	"[COAL_FREQ]"	= "Coalition Navy",
 	"[NINJ_FREQ]"	= "Ninja",
 	"[BLSP_FREQ]"	= "Bluespace",
 	"[BURG_FREQ]"	= "Burglar",
