@@ -109,6 +109,25 @@
 	},
 /turf/template_noop,
 /area/space)
+"aV" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Mass Driver"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/coc_scarab/medical)
 "aX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 6
@@ -135,16 +154,6 @@
 /obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/tiled,
 /area/coc_scarab/bunks)
-"bf" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/coc_scarab/hydroponics)
 "bg" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -437,12 +446,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
-"dh" = (
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/coc_scarab/engistorage)
 "di" = (
 /obj/item/storage/box/masks{
 	pixel_x = 4;
@@ -767,6 +770,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
+"fo" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/ammo)
 "fp" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -1268,6 +1274,20 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
+"iY" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/ammo)
 "ja" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/white/diagonal,
@@ -1412,6 +1432,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/bunks)
+"kd" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/engistorage)
 "kf" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1819,8 +1842,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
-/area/coc_scarab/ammo)
+/area/coc_scarab/armory)
 "nJ" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
@@ -2317,25 +2343,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
-"qX" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	name = "Mass Driver"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/coc_scarab/medical)
 "qZ" = (
 /obj/machinery/conveyor{
 	id = "scarab_miner";
@@ -3401,23 +3408,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
-"Ak" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled,
-/area/coc_scarab/armory)
 "Av" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -3584,6 +3574,12 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/scarab_harvester)
+"BJ" = (
+/obj/structure/sign/flag/scarab/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/coc_scarab/armory)
 "BL" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3934,6 +3930,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/engistorage)
+"Ew" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/bunks)
 "Ex" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
@@ -3983,23 +3996,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/medical)
-"EJ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/coc_scarab/bunks)
 "EN" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -28;
@@ -4584,12 +4580,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
-"Jl" = (
-/obj/structure/sign/flag/scarab/large/south{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/coc_scarab/armory)
 "Jq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5370,9 +5360,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
-"Pp" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/coc_scarab/massdriver)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
@@ -5855,6 +5842,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/hydroponics)
+"Sw" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/coc_scarab/massdriver)
 "Sy" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
@@ -6192,9 +6182,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/hydroponics)
-"Uw" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/coc_scarab/ammo)
 "UB" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable/green{
@@ -6629,6 +6616,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
+"XS" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/engistorage)
 "XU" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -6710,6 +6703,16 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"YL" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/coc_scarab/hydroponics)
 "YM" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/item/reagent_containers/glass/bucket,
@@ -6860,9 +6863,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
-"ZN" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/coc_scarab/engistorage)
 "ZO" = (
 /turf/simulated/floor/plating,
 /area/coc_scarab/thrust2)
@@ -35559,9 +35559,9 @@ lb
 Hm
 Zp
 oc
-Pp
+Sw
 ak
-Pp
+Sw
 mM
 Uv
 tM
@@ -35816,9 +35816,9 @@ lb
 lb
 lb
 lb
-Pp
+Sw
 uK
-Pp
+Sw
 mM
 RU
 tM
@@ -36072,10 +36072,10 @@ KF
 ny
 lb
 lb
-Pp
-Pp
+Sw
+Sw
 xC
-Pp
+Sw
 mM
 gu
 Ql
@@ -36327,9 +36327,9 @@ ny
 zZ
 oa
 ny
-Pp
-Pp
-Pp
+Sw
+Sw
+Sw
 Ou
 ty
 nd
@@ -36584,9 +36584,9 @@ ny
 Re
 Re
 ny
-Pp
-Pp
-Pp
+Sw
+Sw
+Sw
 mJ
 GQ
 Vb
@@ -36595,16 +36595,16 @@ co
 zk
 zk
 Vr
-Uw
-Uw
+fo
+fo
 Gk
-Uw
+fo
 BV
 BV
 BV
 ab
 lb
-cB
+lb
 cB
 cB
 cB
@@ -36848,14 +36848,14 @@ VS
 VS
 EI
 mM
-bf
+YL
 zk
 zk
 DF
-Uw
+fo
 cu
-nD
-Uw
+iY
+fo
 EN
 mE
 Zb
@@ -37109,13 +37109,13 @@ iD
 sI
 tP
 DF
-Uw
+fo
 YD
 OQ
 hI
 Ea
 qK
-Jl
+BJ
 ab
 ab
 ab
@@ -37366,10 +37366,10 @@ iu
 MW
 Fs
 DF
-Uw
+fo
 zd
 fc
-Uw
+fo
 Ac
 iA
 bR
@@ -37617,17 +37617,17 @@ bt
 da
 bt
 VS
-qX
+aV
 mM
 YM
 GA
 kk
 eD
-Uw
+fo
 MZ
 rV
-Uw
-Ak
+fo
+nD
 cK
 Xz
 ab
@@ -37880,10 +37880,10 @@ mM
 Kv
 VM
 mM
-Uw
-Uw
+fo
+fo
 FE
-Uw
+fo
 lu
 BV
 BV
@@ -38376,13 +38376,13 @@ zs
 gU
 uI
 Cb
-ZN
-ZN
-ZN
+kd
+kd
+kd
 Ev
-ZN
-ZN
-ZN
+kd
+kd
+kd
 VS
 LE
 xh
@@ -38633,12 +38633,12 @@ Eq
 PU
 kj
 Ry
-ZN
+kd
 gA
 Gv
 Em
 Jq
-dh
+XS
 GR
 VS
 Oq
@@ -38890,7 +38890,7 @@ Sj
 hb
 uI
 Ot
-ZN
+kd
 Mv
 Tn
 Pv
@@ -39147,13 +39147,13 @@ Eq
 vk
 AY
 RL
-ZN
+kd
 Tw
 rP
-ZN
+kd
 qc
 kv
-ZN
+kd
 VS
 VS
 VS
@@ -39404,13 +39404,13 @@ si
 Oe
 oX
 QO
-ZN
+kd
 WQ
 fp
-ZN
+kd
 ZD
 ql
-ZN
+kd
 VS
 VS
 Vi
@@ -39661,13 +39661,13 @@ TL
 Bn
 RT
 cc
-ZN
-ZN
-ZN
-ZN
+kd
+kd
+kd
+kd
 xT
 Sc
-ZN
+kd
 VS
 Vi
 Vi
@@ -39918,13 +39918,13 @@ Hp
 Hp
 Hp
 Hp
-ZN
+kd
 lb
 lb
-ZN
+kd
 TB
 Rj
-ZN
+kd
 lb
 lb
 lb
@@ -40194,7 +40194,7 @@ ws
 Uk
 Rg
 MT
-EJ
+Ew
 JM
 Ku
 Fe
