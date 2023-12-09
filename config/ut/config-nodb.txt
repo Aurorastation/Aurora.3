@@ -366,9 +366,6 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## able to use the more powerful debug options.
 #DEBUG_PARANOID
 
-## Uncomment to allow aliens to spawn.
-#ALIENS_ALLOWED
-
 ## Uncomment to allow xenos to spawn.
 #NINJAS_ALLOWED
 

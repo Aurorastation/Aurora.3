@@ -311,7 +311,6 @@ var/list/gamemode_cache = list()
 	// 15, 45, 70 minutes respectively
 	var/list/event_delay_upper = list(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
 
-	var/aliens_allowed = 0
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
 	var/ooc_allowed = 1
@@ -657,9 +656,6 @@ var/list/gamemode_cache = list()
 
 				if ("traitor_scaling")
 					config.traitor_scaling = 1
-
-				if ("aliens_allowed")
-					config.aliens_allowed = 1
 
 				if ("ninjas_allowed")
 					config.ninjas_allowed = 1
