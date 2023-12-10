@@ -215,6 +215,10 @@
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 
+/obj/item/trash/cookietray
+	name = "empty cookie tray"
+	icon_state = "cookietray_0"
+
 /obj/item/trash/candybowl
 	name = "empty candy bowl"
 	icon_state = "candy_bowl"

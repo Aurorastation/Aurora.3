@@ -78,3 +78,74 @@
 	desc = "A seemingly hand designed, heated cobblestone pathway."
 	icon = 'icons/holidays/christmas/cobblestone.dmi'
 	icon_state = "cobble"
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread
+	name = "Gingerbread Man"
+	desc = "Run run run, as fast as you can.. You can't catch me.. I'm the Gingerbread man!"
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "gingerbread_man"
+
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread/cane
+	name = "Gingerbread Cane"
+	desc = "For when Gingy' breaks his legs."
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "gingerbread_cane"
+
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread/snowflake
+	name = "Gingerbread Snowflake"
+	desc = "For when the gingerbreadmans uncle disagrees with him at Christmas dinner."
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "gingerbread_snowflake"
+
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread/tree
+	name = "Gingerbread Tree"
+	desc = "You stole Gingy's tree? Really? How rude."
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "gingerbread_tree"
+
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread/bell
+	name = "Gingerbread Bell"
+	desc = "A gingerbread bell that has no relation to the Gingerbread man whatsoever..why is there a crack in it?"
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "gingerbread_bell"
+
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread/horizon
+	name = "Gingerbread Starship"
+	desc = "A.. wait a minute- This is the Horizon! But in Cookie form! Yummy!"
+	desc_extended = "A cookie of the SCCV Horizon.. Will I get in trouble for eating it?"
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "gingerbread_horizon"
+/obj/random/item/reagent_containers/food/snacks/cookie/gingerbread/random
+	name = "Random Gingerbread Cookie"
+	problist = list(
+		/obj/item/reagent_containers/food/snacks/cookie/gingerbread = 1,
+		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/cane = 1,
+		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/snowflake = 1,
+		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/tree = 1,
+		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/bell = 1,
+		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/horizon = 1
+	)
+
+// christmas cookies tray
+/obj/item/reagent_containers/food/snacks/chipplate/christmas_cookies
+	name = "tray of christmas gingerbread cookies"
+	desc = "A tray full of traditional Christmas cookies!"
+	icon = 'icons/holidays/christmas/christmascookies.dmi'
+	icon_state = "cookietray_100"
+	trash = /obj/item/trash/cookietray
+	vendingobject = /obj/random/item/reagent_containers/food/snacks/cookie/gingerbread/random
+	reagent_data = list(/singleton/reagent/nutriment = list("cookie" = 1))
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	unitname = "gingerbread"
+	filling_color = "#FCA03D"
+
+/obj/item/reagent_containers/food/snacks/chipplate/christmas_cookies/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 5)
+			icon_state = "cookietray_25"
+		if(6 to 10)
+			icon_state = "cookietray_50"
+		if(11 to 15)
+			icon_state = "cookietray_75"
+		if(16 to INFINITY)
+			icon_state = "cookietray_100"
