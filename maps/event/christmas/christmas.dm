@@ -30,26 +30,37 @@
 
 // Pine Trees
 /obj/structure/flora/tree/pine_tree/main
-name = "Pine Tree"
-desc = "A tall snow covered pine tree."
-icon = 'icons/obj/flora/pinetrees.dmi'
-icon_state = "pine_1"
-density = 1
+	name = "Pine Tree"
+	desc = "A tall snow covered pine tree."
+	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon_state = "pine_1"
 
 /obj/structure/flora/tree/pine_tree/main/treetwo
-name = "Pine Tree"
-desc = "A tall snow covered pine tree."
-icon = 'icons/obj/flora/pinetrees.dmi'
-icon_state = "pine_2"
+	name = "Pine Tree"
+	desc = "A tall snow covered pine tree."
+	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon_state = "pine_2"
 
 /obj/structure/flora/tree/pine_tree/main/treethree
-name = "Pine Tree"
-desc = "A tall snow covered pine tree."
-con = 'icons/obj/flora/pinetrees.dmi'
-icon_state = "pine_3"
+	name = "Pine Tree"
+	desc = "A tall snow covered pine tree."
+	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon_state = "pine_3"
 
 /obj/structure/flora/tree/pine_tree/main/christmas
-name = "Christmas Tree"
-desc = "A tall, full tree covered in magical lights!"
-icon = 'icons/obj/flora/pinetrees.dmi'
-icon_state = "pine_c"
+	name = "Christmas Tree"
+	desc = "A tall, full tree covered in magical lights!"
+	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon_state = "pine_c"
+
+// lightpost port - sorta
+/obj/structure/lightpost
+	name = "lightpost"
+	desc = "A homely lightpost."
+	icon = 'icons/holidays/christmas/lightpost.dmi'
+	icon_state = "lamppost"
+	anchored = TRUE
+	density = TRUE
+	light_power = 6
+	light_range = 6
+	light_color = LIGHT_COLOR_WARM
