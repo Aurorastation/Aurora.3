@@ -39,6 +39,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Liidra zombies now speak Liidraic by default."
+  - bugfix: "Fixed a runtime that prevented the Liidra zombies from speaking in the hivenet."
   - rscadd: "Liidra zombies now see in the dark, like their Vaurca counterparts."
   - backend: "Refactored set_default_language into a proc, updated the verbs that interact with it."
   - backend: "Minor refactor of the set default language verb."
