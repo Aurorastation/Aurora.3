@@ -67,7 +67,7 @@
 /datum/outfit/job/representative/consular/izweski
 	name = "Izweski Hegemony Consular Officer"
 
-	uniform = /obj/item/clothing/under/unathi
+	uniform = /obj/item/clothing/under/unathi/consular
 	backpack_contents = list(/obj/item/device/camera = 1)
 	belt = /obj/item/gun/energy/pistol/hegemony
 

@@ -248,6 +248,7 @@
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"
 	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
+	has_sensor = SUIT_HAS_SENSORS
 	icon_state = "pra_consular"
 	item_state = "pra_consular"
 

@@ -8,6 +8,7 @@
 /obj/item/clothing/under/gearharness
 	name = "gear harness"
 	desc = "Tight fitting gear harness."
+	has_sensor = SUIT_HAS_SENSORS
 	icon_state = "harness"
 	worn_state = "harness"
 	item_state = "w_suit"
@@ -365,6 +366,7 @@
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
 	desc = "A navy suit and red tie, intended for the station's finest."
+	has_sensor = SUIT_HAS_SENSORS
 	icon_state = "navy_suit"
 	item_state = "bl_suit"
 	worn_state = "navy_suit"
@@ -372,6 +374,7 @@
 /obj/item/clothing/under/suit_jacket/burgundy
 	name = "burgundy suit"
 	desc = "A burgundy suit and black tie. Somewhat formal."
+	has_sensor = SUIT_HAS_SENSORS
 	icon_state = "burgundy_suit"
 	item_state = "r_suit"
 	worn_state = "burgundy_suit"

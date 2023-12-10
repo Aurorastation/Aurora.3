@@ -70,7 +70,7 @@
 /datum/outfit/job/representative/consular/nralakk
 	name = "Nralakk Consular Officer"
 
-	uniform = /obj/item/clothing/under/skrell
+	uniform = /obj/item/clothing/under/skrell/consular
 	backpack_contents = list(
 		/obj/item/device/camera = 1
 	)

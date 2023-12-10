@@ -7,6 +7,9 @@
 	item_state = "tunic"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/unathi/consular
+	has_sensor = SUIT_HAS_SENSORS
+
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"
 	desc = "A striking, modern dress typically worn by Moghean women of high birth."

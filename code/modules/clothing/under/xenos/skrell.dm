@@ -6,6 +6,9 @@
 	item_state = "skrell_formal"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/skrell/consular
+	has_sensor = SUIT_HAS_SENSORS
+
 /obj/item/clothing/under/skrell/qeblak
 	name = "qeblak ceremonial garment"
 	desc = "A traditional garment worn by Qeblak Star Keepers"
