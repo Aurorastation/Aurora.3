@@ -3500,14 +3500,10 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "cJU" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "XO"
 	},
-/obj/machinery/keycard_auth{
-	pixel_x = 53;
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hop/xo)
 "cLV" = (
 /obj/structure/flora/ausbushes/brflowers,
@@ -4789,6 +4785,10 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
+	},
+/obj/machinery/keycard_auth{
+	pixel_x = 1;
+	pixel_y = -26
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -23688,6 +23688,11 @@
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/machinery/alarm/north{
+	pixel_y = -7;
+	pixel_x = -1;
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "qGX" = (
@@ -31066,11 +31071,6 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
-	},
-/obj/machinery/alarm/north{
-	pixel_y = 0;
-	dir = 8;
-	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -53604,7 +53604,7 @@ gpe
 lwT
 wIr
 mVT
-cJU
+iYj
 iYj
 dMl
 asO
@@ -54008,7 +54008,7 @@ meU
 hRz
 vIv
 vIv
-vIv
+cJU
 sGJ
 tYp
 rqN
