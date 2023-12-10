@@ -64,3 +64,10 @@
 	light_power = 6
 	light_range = 6
 	light_color = LIGHT_COLOR_WARM
+
+// Pathway for the event
+/turf/simulated/floor/cobble
+	name = "Cobblestone Pathway"
+	desc = "A seemingly hand designed, heated cobblestone pathway."
+	icon = 'icons/holidays/christmas/cobblepath'
+	icon_tate = "cobblepath"
