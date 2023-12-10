@@ -3661,6 +3661,7 @@
 #include "maps\away\ships\yacht\yacht_areas.dm"
 #include "maps\away_sites_testing\away_sites_testing.dm"
 #include "maps\event\christmas\christmas.dm"
+#include "maps\event\christmas\christmasareas.dm"
 #include "maps\event\code\event.dm"
 #include "maps\event\generic_dock\code\generic_dock.dm"
 #include "maps\event\generic_dock\code\generic_dock_areas.dm"

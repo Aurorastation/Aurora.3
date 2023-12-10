@@ -53,17 +53,24 @@
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_c"
 
-// lightpost port - sorta
+// lightpost
 /obj/structure/lightpost
 	name = "lightpost"
 	desc = "A homely lightpost."
 	icon = 'icons/holidays/christmas/lightpost.dmi'
-	icon_state = "lamppost"
+	icon_state = "wreath_lamp"
 	anchored = TRUE
 	density = TRUE
 	light_power = 6
 	light_range = 6
 	light_color = LIGHT_COLOR_WARM
+
+// Big ass christmas tree
+/obj/structure/flora/tree/pine_tree/grandchristmas
+	name = "Grand Christmas Tree"
+	desc = "A grand christmas tree, you can't help but feel joy!"
+	icon = 'icons/holidays/christmas/grandtree.dmi'
+	icon_state ="grandtree_scc"
 
 // Pathway for the event
 /turf/simulated/floor/cobble
