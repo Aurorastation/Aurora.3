@@ -53,14 +53,14 @@
 	name = "Command - Human Resources Meeting Room"
 	icon_state = "hr"
 	sound_env = MEDIUM_SOFTFLOOR
-	area_blurb = "test"
+	area_blurb = "You feel severe existential dread when you enter this room.."
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/cciaroom/lounge
 	name = "Command - Human Resources Lounge"
 	icon_state = "hrlounge"
 	sound_env = SMALL_SOFTFLOOR
-	area_blurb = "test"
+	area_blurb = "A place that worsens the slightest anxieties surrounding meetings with your bosses boss."
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/selfdestruct
