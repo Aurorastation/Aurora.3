@@ -82,7 +82,7 @@
 
 /obj/machinery/power/apc/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
@@ -101,7 +101,7 @@
 
 /obj/machinery/power/apc/critical/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/low
 	cell_type = /obj/item/cell
@@ -120,7 +120,7 @@
 
 /obj/machinery/power/apc/low/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
@@ -139,7 +139,7 @@
 
 /obj/machinery/power/apc/high/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
@@ -160,7 +160,7 @@
 
 /obj/machinery/power/apc/isolation/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
@@ -180,7 +180,7 @@
 
 /obj/machinery/power/apc/vault/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
@@ -201,7 +201,7 @@
 
 /obj/machinery/power/apc/intrepid/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
@@ -222,7 +222,7 @@
 
 /obj/machinery/power/apc/canary/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
@@ -243,7 +243,7 @@
 
 /obj/machinery/power/apc/mining_shuttle/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
@@ -269,7 +269,7 @@
 
 /obj/machinery/power/apc/canary/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 
 /obj/machinery/power/apc/super
@@ -289,7 +289,7 @@
 
 /obj/machinery/power/apc/super/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/super/critical
 	is_critical = TRUE
@@ -308,7 +308,7 @@
 
 /obj/machinery/power/apc/super/critical/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
@@ -327,7 +327,7 @@
 
 /obj/machinery/power/apc/hyper/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc/empty
 	start_charge = 0
@@ -346,7 +346,7 @@
 
 /obj/machinery/power/apc/empty/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -8
 
 /obj/machinery/power/apc
 	name = "area power controller"
@@ -480,7 +480,7 @@
 
 /obj/machinery/power/apc/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 12 : -(12)))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(0)) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(8)) : 0)
 
 /obj/machinery/power/apc/Destroy()
 	update()
