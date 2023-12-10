@@ -15,8 +15,8 @@
 /obj/item/clothing/under/shorts/colourable
 	name = "shorts"
 	desc = "A pair of cotton shorts."
-	icon_state = "shorts_recolourable"
-	item_state = "shorts_recolourable"
+	icon_state = "shorts_colourable"
+	item_state = "shorts_colourable"
 
 /obj/item/clothing/under/shorts/colourable/short
 	name = "short shorts"

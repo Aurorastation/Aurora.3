@@ -17,7 +17,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	icon_state = null
 	item_state = "glass_empty"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
 	var/shaken = 0
@@ -52,17 +52,17 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/items/soda_open.ogg', rand(10,50), 1)
 	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop.")
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	shaken = 0
 
 /obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
-	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
+	if(force && !(atom_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return 0
 
@@ -223,7 +223,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	and 'Martian Water' has become a prized collector's item."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi' // it's no soda, but shows up in vending machines nonetheless
 	icon_state = "smallbottle"
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	center_of_mass = list("x"=16, "y"=8)
 	drop_sound = 'sound/items/drop/disk.ogg'
 	pickup_sound = 'sound/items/pickup/disk.ogg'
@@ -350,7 +350,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		if(cap)
 			to_chat(user, SPAN_NOTICE("You remove \the [src]'s [cap]."))
 			user.put_in_hands(cap)
-			flags |= OPENCONTAINER
+			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 			cap = null
 			playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 			update_icon()
@@ -380,7 +380,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
 		user.drop_from_inventory(W, src)
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 		cap = W
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()

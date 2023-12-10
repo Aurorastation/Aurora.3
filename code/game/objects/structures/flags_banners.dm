@@ -258,7 +258,8 @@
 	ripped = TRUE
 	if(rip_linked)
 		var/obj/item/stack/material/cloth/C = new(src.loc, flag_size ? 2 : 1)
-		user.put_in_hands(C)
+		if(user)
+			user.put_in_hands(C)
 	if(rip_linked && linked_flag)
 		linked_flag.rip(user, FALSE) // Prevents an infinite ripping loop.
 
@@ -2236,6 +2237,231 @@
 /obj/structure/sign/flag/silversun/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Luna
+
+/obj/item/flag/luna
+	name = "\improper Lunan flag"
+	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	flag_path = "luna"
+	flag_structure = /obj/structure/sign/flag/luna
+
+/obj/structure/sign/flag/luna
+	name = "\improper Lunan flag"
+	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	flag_path = "luna"
+	icon_state = "luna"
+	flag_item = /obj/item/flag/luna
+
+/obj/item/flag/luna/l
+	name = "large Lunan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/luna/large
+
+/obj/structure/sign/flag/luna/large
+	icon_state = "luna_l"
+	flag_path = "luna"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/luna/l
+
+/obj/structure/sign/flag/luna/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/luna/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/luna/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/luna/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Persepolis
+
+/obj/item/flag/persepolis
+	name = "\improper Persepolis flag"
+	desc = "The flag of Persepolis. The colors are similar to the Presepolean sky during sunrise over the planet's oceans. The writing on the flag reads: Freedom and Justice."
+	flag_path = "persepolis"
+	flag_structure = /obj/structure/sign/flag/persepolis
+
+/obj/structure/sign/flag/persepolis
+	name = "\improper Persepolis flag"
+	desc = "The flag of Persepolis. The colors are similar to the Presepolean sky during sunrise over the planet's oceans. The writing on the flag reads: Freedom and Justice.."
+	flag_path = "persepolis"
+	icon_state = "persepolis"
+	flag_item = /obj/item/flag/persepolis
+
+/obj/item/flag/persepolis/l
+	name = "large Persepolis flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/persepolis/large
+
+/obj/structure/sign/flag/persepolis/large
+	icon_state = "persepolis_l"
+	flag_path = "persepolis"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/persepolis/l
+
+/obj/structure/sign/flag/persepolis/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/persepolis/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/persepolis/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/persepolis/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Damascus
+
+/obj/item/flag/damascus
+	name = "\improper Damascus flag"
+	desc = "The flag of Damascus. Popularized during the Elyran Revolution among protestors, the writing on the flag bears the famed slogan: At Any Price."
+	flag_path = "damascus"
+	flag_structure = /obj/structure/sign/flag/damascus
+
+/obj/structure/sign/flag/damascus
+	name = "\improper Damascus flag"
+	desc = "The flag of Damascus. Popularized during the Elyran Revolution among protestors, the writing on the flag bears the famed slogan: At Any Price."
+	flag_path = "damascus"
+	icon_state = "damascus"
+	flag_item = /obj/item/flag/damascus
+
+/obj/item/flag/damascus/l
+	name = "large Damascus flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/damascus/large
+
+/obj/structure/sign/flag/damascus/large
+	icon_state = "damascus_l"
+	flag_path = "damascus"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/damascus/l
+
+/obj/structure/sign/flag/damascus/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/damascus/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/damascus/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/damascus/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Medina
+/obj/item/flag/medina
+	name = "\improper Medina flag"
+	desc = "The flag of Medina. The colors represent wealth, progress, purity, and phoron."
+	flag_path = "medina"
+	flag_structure = /obj/structure/sign/flag/medina
+
+/obj/structure/sign/flag/medina
+	name = "\improper Medina flag"
+	desc = "The flag of Medina. The colors represent wealth, progress, purity, and phoron."
+	flag_path = "medina"
+	icon_state = "medina"
+	flag_item = /obj/item/flag/medina
+
+/obj/item/flag/medina/l
+	name = "large Medina flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/medina/large
+
+/obj/structure/sign/flag/medina/large
+	icon_state = "medina_l"
+	flag_path = "medina"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/medina/l
+
+/obj/structure/sign/flag/medina/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/medina/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/medina/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/medina/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//Aemaq
+/obj/item/flag/aemaq
+	name = "\improper Aemaq flag"
+	desc = "The flag of Aemaq. The colors of the flag represent wealth, energy, the planet's oceans, and the pure hearts of the Aemaqans."
+	flag_path = "aemaq"
+	flag_structure = /obj/structure/sign/flag/aemaq
+
+/obj/structure/sign/flag/aemaq
+	name = "\improper Aemaq flag"
+	desc = "The flag of Aemaq. The colors of the flag represent wealth, energy, the planet's oceans, and the pure hearts of the Aemaqans."
+	flag_path = "aemaq"
+	icon_state = "aemaq"
+	flag_item = /obj/item/flag/aemaq
+
+/obj/item/flag/aemaq/l
+	name = "large Aemaq flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/aemaq/large
+
+/obj/structure/sign/flag/aemaq/large
+	icon_state = "aemaq_l"
+	flag_path = "aemaq"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/aemaq/l
+
+/obj/structure/sign/flag/aemaq/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/aemaq/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/aemaq/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/aemaq/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//New Suez
+/obj/item/flag/newsuez
+	name = "\improper New Suez flag"
+	desc = "The flag of New Suez. The moon of Persepolis is surrounded by the stars that represent the parties of the 2381 New Suez Accords."
+	flag_path = "newsuez"
+	flag_structure = /obj/structure/sign/flag/newsuez
+
+/obj/structure/sign/flag/newsuez
+	name = "\improper New Suez flag"
+	desc = "The flag of New Suez. The moon of Persepolis is surrounded by the stars that represent the parties of the 2381 New Suez Accords."
+	flag_path = "newsuez"
+	icon_state = "newsuez"
+	flag_item = /obj/item/flag/newsuez
+
+/obj/item/flag/newsuez/l
+	name = "large New Suez flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/newsuez/large
+
+/obj/structure/sign/flag/newsuez/large
+	icon_state = "newsuez_l"
+	flag_path = "newsuez"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/newsuez/l
+
+/obj/structure/sign/flag/newsuez/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/newsuez/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/newsuez/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/newsuez/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Hive Zo'ra
 
 /obj/item/flag/zora
@@ -2595,3 +2821,208 @@
 	flag_path = "raskara"
 	flag_item = /obj/item/flag/raskara
 	stand_icon = "wood_stand"
+
+// Federal Technocracy of Galatea
+
+/obj/item/flag/galatea_government
+	name = "\improper Federal Technocracy of Galatea flag"
+	desc = "The flag of the Federal Technocracy of Galatea."
+	flag_path = "galatea_government"
+	flag_structure = /obj/structure/sign/flag/galatea_government
+
+/obj/structure/sign/flag/galatea_government
+	name = "\improper Federal Technocracy of Galatea flag"
+	desc = "The flag of the Federal Technocracy of Galatea."
+	flag_path = "galatea_government"
+	icon_state = "galatea_government"
+	flag_item = /obj/item/flag/galatea_government
+
+/obj/structure/sign/flag/galatea_government/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/galatea_government/l
+	name = "large Federal Technocracy of Galatea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/galatea_government/large
+
+/obj/structure/sign/flag/galatea_government/large
+	icon_state = "galatea_government_l"
+	flag_path = "galatea_government"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/galatea_government/l
+
+/obj/structure/sign/flag/galatea_government/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/galatea_government/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/galatea_government/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/galatea_government/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Galatea
+
+/obj/item/flag/galatea
+	name = "\improper Galatea flag"
+	desc = "The flag of Galatea, the premier member-state of the Federal Technocracy of Galatea."
+	flag_path = "galatea"
+	flag_structure = /obj/structure/sign/flag/galatea
+
+/obj/structure/sign/flag/galatea
+	name = "\improper Galatea flag"
+	desc = "The flag of Galatea, the premier member-state of the Federal Technocracy of Galatea."
+	flag_path = "galatea"
+	icon_state = "galatea"
+	flag_item = /obj/item/flag/galatea
+
+/obj/structure/sign/flag/galatea/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/galatea/l
+	name = "large Galatea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/galatea/large
+
+/obj/structure/sign/flag/galatea/large
+	icon_state = "galatea_l"
+	flag_path = "galatea"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/galatea/l
+
+/obj/structure/sign/flag/galatea/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/galatea/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/galatea/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/galatea/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Tsukuyomi
+
+/obj/item/flag/tsukuyomi
+	name = "\improper Tsukuyomi flag"
+	desc = "The flag of Tsukuyomi, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "tsukuyomi"
+	flag_structure = /obj/structure/sign/flag/tsukuyomi
+
+/obj/structure/sign/flag/tsukuyomi
+	name = "\improper Tsukuyomi flag"
+	desc = "The flag of Tsukuyomi, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "tsukuyomi"
+	icon_state = "tsukuyomi"
+	flag_item = /obj/item/flag/tsukuyomi
+
+/obj/structure/sign/flag/tsukuyomi/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/tsukuyomi/l
+	name = "large Tsukuyomi flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/tsukuyomi/large
+
+/obj/structure/sign/flag/tsukuyomi/large
+	icon_state = "tsukuyomi_l"
+	flag_path = "tsukuyomi"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/tsukuyomi/l
+
+/obj/structure/sign/flag/tsukuyomi/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/tsukuyomi/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/tsukuyomi/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/tsukuyomi/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Svarog
+
+/obj/item/flag/svarog
+	name = "\improper Svarog flag"
+	desc = "The flag of Svarog, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "svarog"
+	flag_structure = /obj/structure/sign/flag/svarog
+
+/obj/structure/sign/flag/svarog
+	name = "\improper Svarog flag"
+	desc = "The flag of Svarog, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "svarog"
+	icon_state = "svarog"
+	flag_item = /obj/item/flag/svarog
+
+/obj/structure/sign/flag/svarog/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/svarog/l
+	name = "large Svarog flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/svarog/large
+
+/obj/structure/sign/flag/svarog/large
+	icon_state = "svarog_l"
+	flag_path = "svarog"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/svarog/l
+
+/obj/structure/sign/flag/svarog/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/svarog/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/svarog/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/svarog/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Empyrean
+
+/obj/item/flag/empyrean
+	name = "\improper Empyrean flag"
+	desc = "The flag of Empyrean, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "empyrean"
+	flag_structure = /obj/structure/sign/flag/empyrean
+
+/obj/structure/sign/flag/empyrean
+	name = "\improper Empyrean flag"
+	desc = "The flag of Empyrean, a member-state of the Federal Technocracy of Galatea."
+	flag_path = "empyrean"
+	icon_state = "empyrean"
+	flag_item = /obj/item/flag/empyrean
+
+/obj/structure/sign/flag/empyrean/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/empyrean/l
+	name = "large Empyrean flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/empyrean/large
+
+/obj/structure/sign/flag/empyrean/large
+	icon_state = "empyrean_l"
+	flag_path = "empyrean"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/empyrean/l
+
+/obj/structure/sign/flag/empyrean/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/empyrean/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/empyrean/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/empyrean/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)

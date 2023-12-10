@@ -53,6 +53,11 @@
 	desc = "A 9mm flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
+/obj/item/ammo_casing/c45/revolver
+	desc = "A .45 revolver bullet casing."
+	max_stack = 6
+	projectile_type = /obj/item/projectile/bullet/pistol/revolver
+
 /obj/item/ammo_casing/c9mm/rubber
 	desc = "A 9mm rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
@@ -98,6 +103,11 @@
 	caliber = "12mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	max_stack = 7
+
+/obj/item/ammo_casing/smg10mm
+	desc  = "A 10mm bullet casing."
+	caliber = "10mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
 
 /obj/item/ammo_casing/c46mm
 	desc = "A 4.6mm bullet casing."
@@ -172,7 +182,11 @@
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
-	if(prob(100/severity)) BB = null
+	. = ..()
+
+	if(prob(100/severity))
+		BB = null
+
 	update_icon()
 
 //Does not stun, only blinds, but has area of effect.

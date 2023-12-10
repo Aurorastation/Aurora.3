@@ -27,7 +27,7 @@ Contains helper procs for airflow, handled in /connection_group.
 
 /mob/living/carbon/human/airflow_stun()
 	if(shoes)
-		if(shoes.item_flags & NOSLIP) return 0
+		if(shoes.item_flags & ITEM_FLAG_NO_SLIP) return 0
 	..()
 
 /atom/movable/proc/check_airflow_movable(n)
@@ -74,7 +74,7 @@ Contains helper procs for airflow, handled in /connection_group.
 	if(buckled_to)
 		return 0
 	var/obj/item/shoes = get_equipped_item(slot_shoes)
-	if(istype(shoes) && (shoes.item_flags & NOSLIP))
+	if(istype(shoes) && (shoes.item_flags & ITEM_FLAG_NO_SLIP))
 		return 0
 	return 1
 

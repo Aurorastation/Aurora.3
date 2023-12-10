@@ -80,7 +80,7 @@
 		return
 	if(fragile && (speed >= fragile))
 		shatter()
-	if(flags && NOREACT)
+	if(atom_flags && ATOM_FLAG_NO_REACT)
 		return
 	if(!reagents)
 		return
@@ -99,7 +99,7 @@
 		var/obj/item/reagent_containers/food/snacks/dipped = W
 		dipped.attempt_apply_coating(src, user)
 		return
-	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
+	if(!(W.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
 		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
@@ -129,9 +129,9 @@
 	if(standard_splash_obj(user, target))
 		return
 
-	if(istype(target, /obj/))
-		var/obj/O = target
-		if(!(O.flags & NOBLUDGEON) && reagents)
+	if(istype(target, /obj/item))
+		var/obj/item/O = target
+		if(!(O.item_flags & ITEM_FLAG_NO_BLUDGEON) && reagents)
 			reagents.apply_force(O.force)
 	return ..()
 

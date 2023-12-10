@@ -54,6 +54,51 @@
 	else if(dx < 0)
 		. += 360
 
+/**
+ * Gets all turfs inside a cone, return a `/list` of `/turf` that are inside the cone
+ *
+ * * source - The source from which to calculate the cone from, an `/atom`
+ * * middle_angle - The angle that is considered the middle, if not specific (eg. from a click), you can use `dir2angle(dir)` to convert the direction of the atom to an angle
+ * * distance - How far to take turfs from
+ * * angle_spread - How much degrees does the cone spread, from the `middle_angle`
+ *
+ */
+/proc/get_turfs_in_cone(atom/source, middle_angle, distance, angle_spread)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(!source)
+		crash_with("Source not specified")
+
+	if(isnull(middle_angle) || middle_angle < 0)
+		crash_with("middle_angle not specified, or invalid")
+
+	if(isnull(distance))
+		crash_with("Distance not specified")
+
+	if(angle_spread < 0)
+		crash_with("angle_spread cannot be negative")
+
+	var/list/turf/turfs_in_cone = list()
+	RETURN_TYPE(turfs_in_cone)
+
+	var/angle_left = (middle_angle - angle_spread + 360) % 360
+	var/angle_right = (middle_angle + angle_spread) % 360
+
+	for(var/turf/turf in range(distance, source))
+		var/angle_between_source_and_target = Get_Angle(source, turf)
+
+		// Ensure correct handling of angles spanning the 0-degree mark
+		if(angle_left <= angle_right)
+			if((angle_between_source_and_target >= angle_left) && (angle_between_source_and_target <= angle_right))
+				turfs_in_cone += turf
+		else
+			if((angle_between_source_and_target >= angle_left) || (angle_between_source_and_target <= angle_right))
+				turfs_in_cone += turf
+
+	return turfs_in_cone
+
+
 /proc/get_projectile_angle(atom/source, atom/target)
 	var/sx = source.x * world.icon_size
 	var/sy = source.y * world.icon_size
@@ -1017,7 +1062,6 @@ var/list/wall_items = typecacheof(list(
 	/obj/structure/mirror,
 	/obj/structure/fireaxecabinet,
 	/obj/machinery/computer/security/telescreen/entertainment,
-	/obj/machinery/station_map,
 	/obj/structure/sign
 ))
 

@@ -96,8 +96,9 @@
 			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
+	. = ..()
+
 	griefProtection()
-	..()
 
 /obj/machinery/r_n_d/server/ex_act(severity)
 	griefProtection()

@@ -8,7 +8,7 @@
 	var/place_verb = "into"
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
 	volume = 80//Maximum units of reagents
-	flags = OPENCONTAINER | NOREACT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 	var/list/insertable = list(
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/holder,
@@ -204,7 +204,7 @@
 	volume = 30
 	force = 11
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = OPENCONTAINER // Will still react
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = SKILLET
 
 /obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
@@ -225,7 +225,7 @@
 	slot_flags = SLOT_HEAD
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = OPENCONTAINER // Will still react
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = SAUCEPAN
 
 /obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
@@ -246,7 +246,7 @@
 	volume = 180
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = OPENCONTAINER // Will still react
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = POT
 	w_class = ITEMSIZE_LARGE
 
@@ -292,7 +292,7 @@
 	drop_sound = /singleton/sound_category/generic_drop_sound
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
 	appliancetype = MIX
-	flags = OPENCONTAINER // Will still react
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 

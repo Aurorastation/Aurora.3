@@ -1828,6 +1828,13 @@
 	required_reagents = list(/singleton/reagent/nutriment/groundpeanuts = 5, /singleton/reagent/sugar = 1, /singleton/reagent/sodiumchloride = 1)
 	result_amount = 5
 
+/datum/chemical_reaction/choconutspread //Nutella? I hardly know 'er! Seriously though if hazelnuts or ground agghrash are ever added to the game please update this. peanuts are a placeholder.
+	name = "Choco-Nut Spread"
+	id = "choconutspread"
+	result = /singleton/reagent/nutriment/choconutspread
+	required_reagents = list(/singleton/reagent/nutriment/groundpeanuts = 1, /singleton/reagent/sugar = 2, /singleton/reagent/nutriment/coco = 1, /singleton/reagent/drink/milk/soymilk = 1)
+	result_amount = 5
+
 /datum/chemical_reaction/mayonnaise
 	name = "Mayonnaise"
 	id = "mayonnaise"

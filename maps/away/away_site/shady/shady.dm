@@ -7,6 +7,8 @@
 	spawn_cost = 1
 	id = "shady"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/shady
 	map = "shady asteroid"
 	descriptor = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
@@ -17,7 +19,7 @@
 	icon_state = "object"
 
 /area/hideout
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	name = "hideout outpost"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE

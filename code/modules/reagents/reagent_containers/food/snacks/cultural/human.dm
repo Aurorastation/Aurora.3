@@ -194,7 +194,7 @@
 /obj/item/reagent_containers/food/snacks/crabmeat
 	name = "crab legs"
 	desc = "... Coffee? Is that you?"
-	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "crabmeat"
 	bitesize = 1
 
@@ -369,3 +369,51 @@
 	icon_state = "brudet"
 	reagent_data = list(/singleton/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/chetroinuoc
+	name = "che troi nuoc"
+	desc = "Traditional solarian dessert from New Hai Phong, these triangular sweet rice dumplings are filled with beans."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "chetroinuoc3"
+	trash = /obj/item/trash/leaf
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/rice = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet rice" = 4, "beans" = 2))
+	bitesize = 2
+	filling_color = "#bb9b9b"
+
+/obj/item/reagent_containers/food/snacks/chetroinuoc/update_icon()
+	var/percent_chetroinuoc = round((reagents.total_volume / 12) * 100)
+	switch(percent_chetroinuoc)
+		if(0 to 33)
+			icon_state = "chetroinuoc1"
+		if(34 to 66)
+			icon_state = "chetroinuoc2"
+		if(67 to INFINITY)
+			icon_state = "chetroinuoc3"
+// Europa
+
+/obj/item/reagent_containers/food/snacks/deepdive
+	name = "deep dive"
+	desc = "A traditional savory stacked layer dish from Europa, made of fish pastes, cream cheese, seaweed on top, and occasionaly some sauce, served in a transparent deep dish."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "deepdive"
+	trash = /obj/item/trash/deepdive
+	filling_color = "#006666"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 3, /singleton/reagent/nutriment/protein/seafood = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("nori" = 3, "cream cheese" = 2))
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+// Biesel
+
+/obj/item/reagent_containers/food/snacks/bluemoon
+	name = "blue moon"
+	desc = "This way of serving a white chocolate-raspberry mousse was originally made popular in Mendell's Vega De Rosa district in the 24th century and has since gained popularity around Tau Ceti."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "bluemoon"
+	trash = /obj/item/trash/bluemoon
+	filling_color = "#4377E2"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("blue raspberry" = 5, "white chocolate" = 3))
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

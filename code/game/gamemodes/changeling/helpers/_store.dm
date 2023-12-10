@@ -30,15 +30,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_absorb_dna
 
-// Accent Mimicry
-
-/datum/power/changeling/mimic_accent
-	name = "Mimic Accent"
-	desc = "Allows us to shape our vocal glands to adopt a specific accent."
-	helptext = "Allows you to pick any accent from the list of all accents. Be mindful that you need to match the correct accent to pretend to be your victim."
-	genomecost = 0
-	verbpath = /mob/proc/changeling_mimic_accent
-
 //Transformation
 
 /datum/power/changeling/transform
@@ -63,9 +54,16 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/fakedeath
 	name = "Regenerative Stasis"
 	desc = "We fake our own death, imperceptible to even the best of doctors. We can choose when to re-animate."
-	helptext = "Can be used before or after death. Duration varies greatly."
+	helptext = "Can only be used before death. CAN ONLY BE USED ONCE."
 	genomecost = 0
 	verbpath = /mob/proc/changeling_fakedeath
+
+/datum/power/changeling/emergency_transform
+	name = "Emergency Transform"
+	desc = "If circumstances are dire enough, we can detach our head to transform into a lesser form to escape and regenerate later."
+	helptext = "Can be used before or after death."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_emergency_transform
 
 //Hivemind
 

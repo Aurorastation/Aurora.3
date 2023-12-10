@@ -53,6 +53,8 @@ var/list/preferences_datums = list()
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
+	///Suit sensors setting in the loadout.
+	var/sensor_setting
 	var/h_style = "Bedhead 2"				//Hair type
 	var/tail_style = null
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
@@ -245,7 +247,7 @@ var/list/preferences_datums = list()
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
 		if (config.sql_saves)
-			dat += " - <a href='?src=\ref[src];delete=1'>Delete slot</a>"
+			dat += " - <a href='?src=\ref[src];delete=1'>Permanently delete slot</a>"
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -367,8 +369,9 @@ var/list/preferences_datums = list()
 	else if(href_list["delete"])
 		if (!config.sql_saves)
 			return 0
-		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to delete the loaded character?", "Delete Character", "No", "Yes") == "Yes")
-			delete_character_sql(usr.client)
+		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
+			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
+				delete_character_sql(usr.client)
 	else
 		return 0
 

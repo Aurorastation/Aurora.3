@@ -58,6 +58,8 @@
 		"Librarian" = /datum/outfit/job/librarian/idris,
 		"Curator" = /datum/outfit/job/librarian/idris/curator,
 		"Tech Support" = /datum/outfit/job/librarian/idris/tech_support,
+		"Corporate Reporter" = /datum/outfit/job/journalist/idris,
+		"Chaplain" = /datum/outfit/job/chaplain/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris,
 		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris
 	)
@@ -198,6 +200,27 @@
 	r_hand = /obj/item/storage/bag/circuits/basic
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+
+/datum/outfit/job/chaplain/idris
+	name = "Chaplain - Idris"
+
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/datum/outfit/job/journalist/idris
+	name = "Corporate Reporter - Idris"
+
+	uniform = /obj/item/clothing/under/librarian/idris
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"

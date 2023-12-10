@@ -489,6 +489,14 @@
 	illustration = "grenade"
 	starts_with = list(/obj/item/grenade/frag = 5)
 
+/obj/item/storage/box/grenades/napalm
+	name = "box of napalm grenades"
+	desc = "A box containing 3 napalm grenades."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/napalm = 3)
+
 /obj/item/storage/box/cardox
 	name = "box of cardox grenades"
 	desc = "A box containing 5 experimental cardox grenades."
@@ -1230,3 +1238,28 @@
 	. = ..()
 	make_exact_fit()
 
+/obj/item/storage/box/led_collars
+	name = "box of LED collars"
+	desc = "A box containing eight LED collars, usually worn around the neck of the voidsuit."
+	starts_with = list(/obj/item/clothing/accessory/led_collar = 8)
+
+/obj/item/storage/box/led_collars/fill()
+	..()
+	make_exact_fit()
+/obj/item/storage/box/traps/punji
+	name = "box of punji traps"
+	desc = "A box containing 5 punji traps."
+	starts_with = list(/obj/item/trap/punji = 5)
+
+/obj/item/storage/box/landmines/standstill
+	name = "box of standstill landmines"
+	desc = "A box containing 5 standstill landmines."
+	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/claymore
+	name = "box of claymore landmines"
+	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
+	starts_with = list(
+		/obj/item/landmine/claymore = 5,
+		/obj/item/device/assembly/signaler = 6
+		)
