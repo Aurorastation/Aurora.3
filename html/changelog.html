@@ -35,6 +35,101 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">10 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed pushups.</li>
+				<li class="bugfix">Fixed contamination message on inspect, that said it was phoron even if that was not necessarily the case.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds more folders, clipboards and pens to the Bridge Helm area</li>
+				<li class="maptweak">Moves the Captains Rubber stamp to be by their fax machine, and gives the Captain a DENIED stamp.</li>
+				<li class="maptweak">Makes the command conference room radiation proof.</li>
+			</ul>
+			<h3 class="author">RustingWithYOu updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a sector menu HUD for Haneunim.</li>
+			</ul>
+
+			<h2 class="date">09 December 2023</h2>
+			<h3 class="author">4000daniel1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed not being able to move around the edges of the asteroid on the asteroid lair away site.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a warning that characters can not be restored when deleting a character</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a runtime with doafter with mousedrops on chairs.</li>
+				<li class="rscadd">Added a group antagonists ready counter, it lists how many people are ready for antagonists that require more than one person to roll.</li>
+				<li class="tweak">Tweaked formatting of the ready screen in statpanel a bit to increase visual clarity.</li>
+				<li class="bugfix">Fixed flesh golems detonating the server.</li>
+				<li class="bugfix">Fixed a runtime with RIGs and the statpanel action tab when there&#x27;s no client in the wearer of the RIG.</li>
+				<li class="rscadd">increased the scrubbing and venting speed of the scrubbers.</li>
+				<li class="backend">DMDoced the swap_density_check function, minor refactor.</li>
+				<li class="bugfix">Fixed a runtime error encountered in the wild with mob swaps.</li>
+				<li class="rscdel">Removed a collision handling of the coat hanger, that was violating the purity of checks.</li>
+				<li class="backend">Added get_turfs_in_cone(), to acquire turfs within a cone.</li>
+				<li class="rscadd">Added napalm grenades, not as classy as an airstrike, but still pretty effective all the same.</li>
+				<li class="rscadd">Added punji traps, gives a severe infection upon falling in one, can be hidden, can be engraved with a message.</li>
+				<li class="rscadd">Added standstill mines, if walked over, they activate and wait for the victim to move out of them, can be disarmed with the bomb kit, pretty powerful explosion if you mess up.</li>
+				<li class="rscadd">Added claymore mines, project pellets in a 60 degrees radius on each side from the direction they&#x27;re aiming at, remotely activated via a signaler or by directly touching them.</li>
+				<li class="rscadd">Reworked flamethrowers, now they light up on fire the turfs in a 30 degrees cone from each side of the clicked target, pressure effects excluded.</li>
+				<li class="rscadd">Added the napalm grenades, punji traps, standstill mines, claymore mines and the flamethrower to the antag uplink.</li>
+				<li class="backend">DMDoced some variables for the uplink.</li>
+				<li class="backend">DMDoced some variables for the pellet bullets, and minor refactor of its attack_mob function.</li>
+				<li class="backend">Refactored how mines work, added some documentation and sectioned them up to be more clear what is what.</li>
+				<li class="backend">Moved landmines and traps sprites in a more congenial location.</li>
+				<li class="bugfix">Fixed a runtime error when the uplink UI is opened without a category being selected.</li>
+				<li class="bugfix">Fixed a runtime error with borgs being destroyed and their HUD refreshing.</li>
+				<li class="imageadd">Added sprites for the punji trap, by Tomixcomics.</li>
+				<li class="imageadd">Added sprites for the standstill mine, by Tomixcomics.</li>
+				<li class="imageadd">Added sprites for the claymore mine, from CM.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Orion Express and Idris Incorporated Chaplains receiving the default NanoTrasen backpacks and ID.</li>
+				<li class="rscadd">Added flags and banners for the Federal Technocracy of Galatea, Galatea, Tsukuyomi, Svarog, and Empyrean to the loadout.</li>
+				<li class="bugfix">Removes two pixels on the male torso sprite that were sticking out from Xion and Zeng-Hu prosthetic limbs.</li>
+			</ul>
+
+			<h2 class="date">08 December 2023</h2>
+			<h3 class="author">4000daniel1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new away site; the asteroid lair.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes wrong frequency on Intrepid hangar dock.</li>
+				<li class="maptweak">Moves the docking controllers of Intrepid hangar and Canary hangar closer to their respective shuttles.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Additional debugs and diagnostics are now enabled when the CI is running.</li>
+				<li class="backend">In case of an harddel, the CI stops to locate where the reference was left now.</li>
+				<li class="backend">If the codebase is being built in an unsupported environment (eg. without build.bat or VSC), an error is thrown to the compiler.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Updates the airlocks on the Cyclops ship and Wisp shuttle to use the new airlock markers.</li>
+				<li class="maptweak">Fixes access on a small handful of Air Alarms and APCs.</li>
+				<li class="maptweak">Adds Filter Ports, K&#x27;laxan Hive Cloaks, Hephaestus Guild Cloaks, and Legbraces to the crew wardrobes for Vaurca, Unathi, and Off-Worlders.</li>
+				<li class="maptweak">Adds Portable Suit Cooler units on the voidsuit racks, and a recharger in the crew quarters for IPCs.</li>
+				<li class="maptweak">Adds a Phoron canister to the Engineering compartment so the Wisp shuttle&#x27;s tank can be refilled if needed.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the third party ranger ship wiring and other various bugs.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a telecomms outpost away site on Konyang.</li>
+				<li class="bugfix">All Unathi plants should now properly display in seed vendors.</li>
+			</ul>
+
 			<h2 class="date">07 December 2023</h2>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">
@@ -52,12 +147,17 @@
 			<h3 class="author">RustingWithYou updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Alters Bulwark resistances to make them better fit their lore role as tough and heavy labor bugs.</li>
+				<li class="rscadd">Adds relevant Konyang guns to Konyang away sites.</li>
 			</ul>
 			<h3 class="author">Sniblet updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Panotoxin now works as described.</li>
 				<li class="tweak">Changed how panotoxin is described. It now causes agonizing, life-changing, life-threatening pain in small doses.</li>
 				<li class="tweak">Syringe (drugs) spawns now contain much less panotoxin. Otherwise they would just kill you.</li>
+			</ul>
+			<h3 class="author">arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fixed an issue that prevented characters from being saved.</li>
 			</ul>
 
 			<h2 class="date">06 December 2023</h2>

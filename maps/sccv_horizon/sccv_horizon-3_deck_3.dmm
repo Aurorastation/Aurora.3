@@ -15815,9 +15815,31 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/device/taperecorder,
+/obj/item/device/taperecorder{
+	pixel_x = -9;
+	pixel_y = -5
+	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
+	},
+/obj/item/clipboard{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/pen/red{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/pen/blue{
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -16747,6 +16769,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
+/obj/item/aicard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "lIN" = (
@@ -17123,7 +17146,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/aicard,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
@@ -17132,6 +17154,25 @@
 	layer = 2.7
 	},
 /obj/structure/table/reinforced,
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/folder/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/pen/red{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/pen/blue{
+	pixel_x = 5
+	},
+/obj/item/clipboard{
+	pixel_x = -8;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "mbm" = (
