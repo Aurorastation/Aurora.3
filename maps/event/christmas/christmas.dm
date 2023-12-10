@@ -69,5 +69,5 @@
 /turf/simulated/floor/cobble
 	name = "Cobblestone Pathway"
 	desc = "A seemingly hand designed, heated cobblestone pathway."
-	icon = 'icons/holidays/christmas/cobblepath'
-	icon_tate = "cobblepath"
+	icon = 'icons/holidays/christmas/cobblestone.dmi'
+	icon_state = "cobble"
