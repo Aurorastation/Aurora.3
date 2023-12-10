@@ -1530,6 +1530,8 @@
 
 // damage and destruction acts
 /obj/machinery/power/apc/emp_act(severity)
+	. = ..()
+
 	if(cell)
 		cell.emp_act(severity)
 
@@ -1540,7 +1542,6 @@
 	update_icon()
 
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), 600)
-	..()
 
 /obj/machinery/power/apc/proc/post_emp_act()
 	update_channels()

@@ -39,7 +39,7 @@
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
 	max_damage = 150
-	power_use = 2000
+	power_use = 1000
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
@@ -51,7 +51,7 @@
 	max_damage = 150
 	move_delay = 4
 	turn_delay = 4
-	power_use = 2000
+	power_use = 1000
 	trample_damage = 10
 
 /obj/item/mech_component/sensors/ripley
@@ -74,7 +74,7 @@
 	exosuit_desc_string = "an industrial rollcage"
 	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically. This variant has an extra compartment for a copilot, but has no sealed atmosphere."
 	max_damage = 200
-	power_use = 5000
+	power_use = 500
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()

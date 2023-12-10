@@ -222,6 +222,8 @@
 	var/nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/cheese
 	var/avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/cheese
 	var/chiptrans = /obj/item/reagent_containers/food/snacks/chip/cheese
+	var/pitatrans = /obj/item/reagent_containers/food/snacks/pita
+
 	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
 	icon_state = "dip_cheese"
 	trash = /obj/item/trash/dipbowl
@@ -297,6 +299,7 @@
 	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/hummus
 	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
 	chiptrans = /obj/item/reagent_containers/food/snacks/chip/hummus
+	pitatrans = /obj/item/reagent_containers/food/snacks/pita/hummus
 	icon_state = "hummus"
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 20, "garlic" = 5))

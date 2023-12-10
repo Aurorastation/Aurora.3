@@ -101,6 +101,11 @@
 	contained_sprite = TRUE
 	flags_inv = BLOCKHEADHAIR
 
+/obj/item/clothing/head/surgery/generic
+	icon = 'icons/clothing/head/generic_surgeon_cap.dmi'
+	icon_state = "surgcap_generic"
+	item_state = "surgcap_generic"
+
 /obj/item/clothing/head/surgery/zeng
 	icon_state = "surgcap_zeng"
 	item_state = "surgcap_zeng"

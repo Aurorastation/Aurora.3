@@ -17,7 +17,7 @@
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/device/megaphone/command(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
 	// uniform briefcases
@@ -69,7 +69,7 @@
 	new /obj/item/device/radio/headset/heads/xo/alt(src)
 	new /obj/item/device/megaphone/command(src)
 	new /obj/item/storage/box/goldstar(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
@@ -126,7 +126,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/breath_analyzer(src)
 	new /obj/item/crowbar/red(src)
@@ -265,6 +265,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/modular(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 

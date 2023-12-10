@@ -26,7 +26,9 @@
 	color = new_colour
 	return color != last_colour
 
-/obj/item/mech_component/emp_act(var/severity)
+/obj/item/mech_component/emp_act(severity)
+	. = ..()
+
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
 		thing.emp_act(severity)

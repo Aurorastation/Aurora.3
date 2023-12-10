@@ -6,6 +6,7 @@
 	no_light_control = 1
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink wafts notably through the air."
 
 /area/bridge/minibar
 	name = "Command Break Room"
@@ -18,7 +19,7 @@
 /area/bridge/aibunker
 	name = "Command - Bunker"
 	icon_state = "ai_foyer"
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/bridge/centcom_meetingroom
 	name = "Level A Meeting Room"
@@ -41,6 +42,7 @@
 	icon_state = "bridge"
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
+	area_blurb = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
 
 /area/bridge/selfdestruct
 	name = "Command - Station Authentication Terminal Safe"
@@ -48,7 +50,8 @@
 
 /area/bridge/controlroom // Horizon.
 	name = "Command - Control Room"
-	flags = RAD_SHIELDED
+	area_blurb = "The full expanse of space lies beyond a thick pane of glass, all that protects you from a cold death. The computers all hum with various displays and holographic signs, overwhelming if you were not used to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"

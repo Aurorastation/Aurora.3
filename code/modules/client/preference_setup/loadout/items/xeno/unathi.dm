@@ -454,7 +454,7 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/augment/accessory/hegemony_passcards/New()
+/datum/gear/accessory/hegemony_passcards/New()
 	..()
 	var/list/cards = list()
 	cards["hegemony passcard"] = /obj/item/clothing/accessory/badge/passcard/hegemony

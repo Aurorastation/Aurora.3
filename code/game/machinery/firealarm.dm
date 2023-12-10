@@ -65,9 +65,10 @@
 	return src.alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
+	. = ..()
+
 	if(prob(50/severity))
 		alarm(rand(30/severity, 60/severity))
-	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W, /obj/item/forensics))

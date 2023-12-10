@@ -44,6 +44,9 @@
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
 
+/obj/item/device/encryptionkey/ship/coal_navy
+	additional_channels = list(CHANNEL_COALITION_NAVY = TRUE)
+
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_MERCENARY = TRUE, CHANNEL_HAILING = TRUE)

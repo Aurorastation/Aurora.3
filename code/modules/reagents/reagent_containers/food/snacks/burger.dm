@@ -169,7 +169,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 25))
 	bitesize = 10
 
-/obj/item/reagent_containers/food/snacks/nt_muffin
+/obj/item/reagent_containers/food/snacks/burger/nt_muffin
 	name = "\improper NtMuffin"
 	desc = "A NanoTrasen sponsered biscuit with egg, cheese, and sausage."
 	icon_state = "nt_muffin"
@@ -208,3 +208,14 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/sloppyjoe
+	name = "sloppy joe"
+	desc = "Yum yum! Hope you brought a napkin!... or ten."
+	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
+	icon_state = "sloppyjoe"
+	item_state = "burger" // Don't touch this unless you know what you're doing
+	filling_color = "#7e4118"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("barbecue sauce" = 5, "bun" = 5), /singleton/reagent/nutriment/protein = list("ground beef" = 5))
+	bitesize = 2

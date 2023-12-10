@@ -47,7 +47,7 @@
 	starts_with = list(/obj/item/reagent_containers/pill/skrell_nootropic = 7)
 
 /obj/item/reagent_containers/glass/beaker/vial/random
-	flags = 0
+	atom_flags = 0
 	var/list/random_reagent_list = list(list(/singleton/reagent/water = 15) = 1, list(/singleton/reagent/spacecleaner = 15) = 1)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin
@@ -65,7 +65,7 @@
 /obj/item/reagent_containers/glass/beaker/vial/random/Initialize()
 	. = ..()
 	if(is_open_container())
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 
 	var/list/picked_reagents = pickweight(random_reagent_list)
 	for(var/reagent in picked_reagents)
@@ -81,34 +81,34 @@
 
 
 /obj/item/reagent_containers/glass/beaker/vial/venenum
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/glass/beaker/vial/venenum/Initialize()
 	. = ..()
 	if(is_open_container())
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	reagents.add_reagent(/singleton/reagent/venenum,volume)
 	desc = "Contains venenum."
 	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/vial/nerveworm_eggs
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/glass/beaker/vial/nerveworm_eggs/Initialize()
 	. = ..()
 	if(is_open_container())
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	reagents.add_reagent(/singleton/reagent/toxin/nerveworm_eggs, 2)
 	desc = "<b>BIOHAZARDOUS! - Nerve Fluke eggs.</b> Purchased from <i>SciSupply Eridani</i>, recently incorporated into <i>Zeng-Hu Pharmaceuticals' Keiretsu</i>!"
 	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs/Initialize()
 	. = ..()
 	if(is_open_container())
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	reagents.add_reagent(/singleton/reagent/toxin/heartworm_eggs, 2)
 	desc = "<b>BIOHAZARDOUS! - Heart Fluke eggs.</b> Purchased from <i>SciSupply Eridani</i>, recently incorporated into <i>Zeng-Hu Pharmaceuticals' Keiretsu</i>!"
 	update_icon()

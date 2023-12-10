@@ -88,7 +88,7 @@ var/list/banned_ruin_ids = list()
 		valid = TRUE
 		for(var/turf/check_turf in ruin.get_affected_turfs(choice, TRUE))
 			var/area/check_area = get_area(check_turf)
-			if(!istype(check_area, filter_area) || check_turf.flags & TURF_NORUINS)
+			if(!istype(check_area, filter_area) || check_turf.turf_flags & TURF_NORUINS)
 				valid = FALSE
 				break
 

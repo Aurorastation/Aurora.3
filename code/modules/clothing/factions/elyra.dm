@@ -87,7 +87,9 @@
 	update_clothing_icon()
 	user.update_action_buttons()
 
-/obj/item/clothing/under/elyra_holo/emp_act()
+/obj/item/clothing/under/elyra_holo/emp_act(severity)
+	. = ..()
+
 	if(clothing_mode && icon_state != initial(icon_state))
 		clothing_mode = 0
 		transform_holoclothing_appearance()
