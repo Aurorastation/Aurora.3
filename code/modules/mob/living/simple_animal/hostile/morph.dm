@@ -32,7 +32,6 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	stop_sight_update = TRUE
 

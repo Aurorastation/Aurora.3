@@ -15,7 +15,6 @@
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
 	turns_per_move = 10
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	meat_amount = 5
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
