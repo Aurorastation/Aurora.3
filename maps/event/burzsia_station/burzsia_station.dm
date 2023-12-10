@@ -1,4 +1,4 @@
-/datum/map/event/burszia_station
+/datum/map/event/burzsia_station
 	name = "HICS Etna"
 	full_name = "HICS Etna"
 	path = "event/burzsia_station"
