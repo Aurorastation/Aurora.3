@@ -206,7 +206,7 @@
 
 /obj/machinery/light/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
-	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -2) : 0
 
 /obj/machinery/light/small/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)

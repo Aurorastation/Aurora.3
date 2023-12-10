@@ -80,7 +80,7 @@ pixel_y = 21;
 
 #define PRESET_SOUTH \
 dir = SOUTH; \
-pixel_y = -6;
+pixel_y = -3;
 
 #define PRESET_WEST \
 dir = WEST; \
