@@ -5,7 +5,7 @@
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
 	lobby_transitions = FALSE
 
-	allowed_jobs = list(/datum/job/visitor)
+	allowed_jobs = list(/datum/job/visitor, /datum/job/xo, /datum/job/captain, /datum/job/chief_engineer, /datum/job/consular, /datum/job/cmo, /datum/job/hos, /datum/job/representative, /datum/job/operations_manager, /datum/job/rd)
 
 	station_levels = list(1)
 	admin_levels = list()
