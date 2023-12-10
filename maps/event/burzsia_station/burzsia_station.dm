@@ -1,6 +1,6 @@
 /datum/map/event/burzsia_station
 	name = "HICS Etna"
-	full_name = "Hephaestus Industries Command Station Etna"
+	full_name = "HICS Etna"
 	path = "event/burzsia_station"
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
 	lobby_transitions = FALSE

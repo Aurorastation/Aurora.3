@@ -6743,7 +6743,7 @@
 	pixel_y = 15;
 	pixel_x = -9;
 	name = "sycamore-class exosuit miniature";
-	desc = "A miniature representation of a Sycamore or "Syc"-class exosuit produced by Hephaestus Industries.";
+	desc = "A miniature representation of a Sycamore or Syc-class exosuit produced by Hephaestus Industries.";
 	anchored = 1
 	},
 /obj/item/toy/mech/fireripley{
