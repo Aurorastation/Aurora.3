@@ -12,6 +12,7 @@
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
+	sealed_levels = list(1)
 
 	station_name = "Hephaestus Industries Command Station Etna"
 	station_short = "HICS Etna"
