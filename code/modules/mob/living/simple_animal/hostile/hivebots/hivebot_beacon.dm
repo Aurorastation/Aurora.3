@@ -154,7 +154,9 @@
 	else
 		..(Proj)
 
-/mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
+/mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
+	. = ..()
+
 	if(activated != -1)
 		LoseTarget()
 		change_stance(HOSTILE_STANCE_TIRED)

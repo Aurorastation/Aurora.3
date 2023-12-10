@@ -253,7 +253,7 @@
 		src.loc = null
 
 	if(!QDELETED(action))
-		QDEL_NULL(action) /// /mob/living/proc/handle_actions() creates it, for ungodly reasons
+		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
 	action = null
 
 	if(!QDELETED(hidden_uplink))
@@ -261,7 +261,7 @@
 	hidden_uplink = null
 
 	master = null
-	return ..()
+	. = ..()
 
 /obj/item/update_icon()
 	. = ..()

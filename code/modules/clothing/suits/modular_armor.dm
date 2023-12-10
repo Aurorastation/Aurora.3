@@ -271,16 +271,6 @@
 	item_state = "modular_pouch_l"
 	slots = 3
 
-/obj/item/clothing/accessory/holster/modular
-	name = "plate carrier holster"
-	desc = "A special holster with rigging able to attach to modern modular plate carriers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "modular_holster"
-	item_state = "modular_holster"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_POCKETS
-	flippable = FALSE
-
 /obj/item/clothing/accessory/armor_plate/heavy/sec
 	name = "heavy corporate armor plate"
 	desc = "A heavy and stylish armor plate with blue highlights. That prevents teamkills, right?"

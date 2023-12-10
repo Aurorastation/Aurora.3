@@ -24,6 +24,11 @@ var/list/mimic_defines = list(
 	"ZM_NO_OCCLUDE"
 )
 
+//EMP protection
+#define EMP_PROTECT_SELF (1<<0)
+#define EMP_PROTECT_CONTENTS (1<<1)
+#define EMP_PROTECT_WIRES (1<<2)
+
 // Flags bitmask
 
 /// If a dense atom (potentially) only blocks movements from a given direction, i.e. window panes

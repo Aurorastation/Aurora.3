@@ -35,6 +35,193 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">10 December 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes ghosts not being able to see computer UIs.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed pushups.</li>
+				<li class="bugfix">Fixed contamination message on inspect, that said it was phoron even if that was not necessarily the case.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds more folders, clipboards and pens to the Bridge Helm area</li>
+				<li class="maptweak">Moves the Captains Rubber stamp to be by their fax machine, and gives the Captain a DENIED stamp.</li>
+				<li class="maptweak">Makes the command conference room radiation proof.</li>
+			</ul>
+			<h3 class="author">RustingWithYOu updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a sector menu HUD for Haneunim.</li>
+			</ul>
+
+			<h2 class="date">09 December 2023</h2>
+			<h3 class="author">4000daniel1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed not being able to move around the edges of the asteroid on the asteroid lair away site.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a warning that characters can not be restored when deleting a character</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a runtime with doafter with mousedrops on chairs.</li>
+				<li class="rscadd">Added a group antagonists ready counter, it lists how many people are ready for antagonists that require more than one person to roll.</li>
+				<li class="tweak">Tweaked formatting of the ready screen in statpanel a bit to increase visual clarity.</li>
+				<li class="bugfix">Fixed flesh golems detonating the server.</li>
+				<li class="bugfix">Fixed a runtime with RIGs and the statpanel action tab when there&#x27;s no client in the wearer of the RIG.</li>
+				<li class="rscadd">increased the scrubbing and venting speed of the scrubbers.</li>
+				<li class="backend">DMDoced the swap_density_check function, minor refactor.</li>
+				<li class="bugfix">Fixed a runtime error encountered in the wild with mob swaps.</li>
+				<li class="rscdel">Removed a collision handling of the coat hanger, that was violating the purity of checks.</li>
+				<li class="backend">Added get_turfs_in_cone(), to acquire turfs within a cone.</li>
+				<li class="rscadd">Added napalm grenades, not as classy as an airstrike, but still pretty effective all the same.</li>
+				<li class="rscadd">Added punji traps, gives a severe infection upon falling in one, can be hidden, can be engraved with a message.</li>
+				<li class="rscadd">Added standstill mines, if walked over, they activate and wait for the victim to move out of them, can be disarmed with the bomb kit, pretty powerful explosion if you mess up.</li>
+				<li class="rscadd">Added claymore mines, project pellets in a 60 degrees radius on each side from the direction they&#x27;re aiming at, remotely activated via a signaler or by directly touching them.</li>
+				<li class="rscadd">Reworked flamethrowers, now they light up on fire the turfs in a 30 degrees cone from each side of the clicked target, pressure effects excluded.</li>
+				<li class="rscadd">Added the napalm grenades, punji traps, standstill mines, claymore mines and the flamethrower to the antag uplink.</li>
+				<li class="backend">DMDoced some variables for the uplink.</li>
+				<li class="backend">DMDoced some variables for the pellet bullets, and minor refactor of its attack_mob function.</li>
+				<li class="backend">Refactored how mines work, added some documentation and sectioned them up to be more clear what is what.</li>
+				<li class="backend">Moved landmines and traps sprites in a more congenial location.</li>
+				<li class="bugfix">Fixed a runtime error when the uplink UI is opened without a category being selected.</li>
+				<li class="bugfix">Fixed a runtime error with borgs being destroyed and their HUD refreshing.</li>
+				<li class="imageadd">Added sprites for the punji trap, by Tomixcomics.</li>
+				<li class="imageadd">Added sprites for the standstill mine, by Tomixcomics.</li>
+				<li class="imageadd">Added sprites for the claymore mine, from CM.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Orion Express and Idris Incorporated Chaplains receiving the default NanoTrasen backpacks and ID.</li>
+				<li class="rscadd">Added flags and banners for the Federal Technocracy of Galatea, Galatea, Tsukuyomi, Svarog, and Empyrean to the loadout.</li>
+				<li class="bugfix">Removes two pixels on the male torso sprite that were sticking out from Xion and Zeng-Hu prosthetic limbs.</li>
+			</ul>
+
+			<h2 class="date">08 December 2023</h2>
+			<h3 class="author">4000daniel1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new away site; the asteroid lair.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes wrong frequency on Intrepid hangar dock.</li>
+				<li class="maptweak">Moves the docking controllers of Intrepid hangar and Canary hangar closer to their respective shuttles.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Additional debugs and diagnostics are now enabled when the CI is running.</li>
+				<li class="backend">In case of an harddel, the CI stops to locate where the reference was left now.</li>
+				<li class="backend">If the codebase is being built in an unsupported environment (eg. without build.bat or VSC), an error is thrown to the compiler.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Updates the airlocks on the Cyclops ship and Wisp shuttle to use the new airlock markers.</li>
+				<li class="maptweak">Fixes access on a small handful of Air Alarms and APCs.</li>
+				<li class="maptweak">Adds Filter Ports, K&#x27;laxan Hive Cloaks, Hephaestus Guild Cloaks, and Legbraces to the crew wardrobes for Vaurca, Unathi, and Off-Worlders.</li>
+				<li class="maptweak">Adds Portable Suit Cooler units on the voidsuit racks, and a recharger in the crew quarters for IPCs.</li>
+				<li class="maptweak">Adds a Phoron canister to the Engineering compartment so the Wisp shuttle&#x27;s tank can be refilled if needed.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the third party ranger ship wiring and other various bugs.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a telecomms outpost away site on Konyang.</li>
+				<li class="bugfix">All Unathi plants should now properly display in seed vendors.</li>
+			</ul>
+
+			<h2 class="date">07 December 2023</h2>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Hivebots now require some means of accessing the armory to spawn. This can include having a conscious AI, warden, or any command position.</li>
+			</ul>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Lowers damage values and armor penetration on the spectral eel and space carp. Makes spectral eels slightly slower.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a changelog editing system that should cause fewer conflicts and more accurate timestamps.</li>
+				<li class="rscdel">Killed innocent kittens.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Alters Bulwark resistances to make them better fit their lore role as tough and heavy labor bugs.</li>
+				<li class="rscadd">Adds relevant Konyang guns to Konyang away sites.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Panotoxin now works as described.</li>
+				<li class="tweak">Changed how panotoxin is described. It now causes agonizing, life-changing, life-threatening pain in small doses.</li>
+				<li class="tweak">Syringe (drugs) spawns now contain much less panotoxin. Otherwise they would just kill you.</li>
+			</ul>
+			<h3 class="author">arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fixed an issue that prevented characters from being saved.</li>
+			</ul>
+
+			<h2 class="date">06 December 2023</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced the passive power drain of exosuits/mechas because of their chassis to 10% of the current amount.</li>
+				<li class="tweak">Reduced the active power drain of exosuits/mechas because of their arms and legs to roughly 50% of the current amount.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a new kind of energy pistol, using the SCC Repeater lethal shot.</li>
+				<li class="rscadd">Adds a new projectile for this pistol. It has less AP than the original SCC beam.</li>
+				<li class="tweak">Swaps the XO, HoS and Captains disruptors for the new pistol.</li>
+				<li class="bugfix">Fixes the SCC Pistol right hand, and left hand sprite</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Suit sensors are now tiered based on alert level.</li>
+				<li class="balance">Suit sensors are now only installed on job uniforms.</li>
+				<li class="balance">Suit sensors are no longer able to be installed on PDAs and Tablets.</li>
+				<li class="rscadd">You are now able to set your suit sensors on the character creation menu.</li>
+				<li class="bugfix">Fixes the weird imbalance with the character creation menu.</li>
+			</ul>
+
+			<h2 class="date">05 December 2023</h2>
+			<h3 class="author">AlaunusLux updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a search feature to Traitor Uplink.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added plate carrier holsters to the security officers locker, they can be attached to the plate carrier if another accessory is removed from it (eg the pouches).</li>
+				<li class="refactor">Moved the modular plate carrier holster back into the holster files, some comments cleanup inside it.</li>
+				<li class="bugfix">Solved aiming not being toggleable.</li>
+				<li class="bugfix">Solved inability to fire weapons.</li>
+				<li class="bugfix">Solved a runtime if the target were to be deleted while aimed at, and the aimer were to try to change the aiming setting.</li>
+				<li class="bugfix">Solved a softlock caused by the above runtime that would prevent you from firing.</li>
+				<li class="bugfix">Solved references not being cleared correctly on some deletion combinations.</li>
+				<li class="bugfix">Solved some conditions considering things being GCd as still valid to be processed, when they aren&#x27;t.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Updated some atmos equipment to properly recognise the majority of the new gasses. They can now be individually filtered, most importantly.</li>
+				<li class="imageadd">Added new canister sprites for the majority of the new gasses.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored aim mode.</li>
+				<li class="bugfix">Examining things no longer triggers aim mode.</li>
+				<li class="tweak">Aim toggling now uses balloon alerts instead of chat notifications.</li>
+				<li class="bugfix">Fixed the aim mode icon not changing when toggling aiming.</li>
+				<li class="tweak">Blindness now cancels aim mode.</li>
+				<li class="rscadd">Added a Gadpathurian navy corvette, spawning in the Weeping Stars and Liberty&#x27;s Cradle.</li>
+				<li class="rscadd">Added a Coalition Navy radio channel, meant to be a secure channel for the Coalition&#x27;s various naval factions to coordinate together. This has been added for the Gadpathurian navy corvette, and the Frontier Ranger gunboat.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Adds framework for multiple consular and liason slots.</li>
+			</ul>
+
 			<h2 class="date">04 December 2023</h2>
 			<h3 class="author">Alberyk, KingOfThePing, TheStryker, TheLancer updated:</h3>
 			<ul class="changes bgimages16">
@@ -49,10 +236,41 @@
 				<li class="backend">Updated spacemandmm to 1.8 for the CI.</li>
 				<li class="backend">Extended OpenDream and SpacemanDMM linting coverage to the main defines used in the codebase.</li>
 				<li class="bugfix">Fixed a warning for path definition and an old reference to a renamed function in ZAS.</li>
+				<li class="refactor">EMPs are now consistent across the various objects.</li>
+				<li class="refactor">EMPs damage is now standarized with EMP_HEAVY and EMP_LIGHT.</li>
+				<li class="backend">Updated DCS part that deals with unique signals.</li>
+				<li class="rscadd">Added DCS signals COMSIG_ATOM_PRE_EMP_ACT and COMSIG_ATOM_EMP_ACT for EMP events.</li>
+				<li class="backend">Added datum component for EMP protection handling.</li>
+				<li class="rscadd">EMP explosions (empulse) are now tridimensional, spreading across the decks/zlevels of the same map.</li>
+				<li class="rscadd">EMP explosions (empulse) behave properly as a sphere between zlevels, with 9 meters being the currently assumed floor height.</li>
+				<li class="bugfix">empulse now respects the tick limit, avoiding the server lagging to death on large or expensive EMPs.</li>
+				<li class="backend">ELEMENT_DETACH flag was renamed to ELEMENT_DETACH_ON_HOST_DESTROY, as per TG updated name.</li>
+				<li class="backend">EMPs now rise signals of the events through DCS.</li>
+				<li class="backend">(Nearly) all emp_act now calls the parent first, properly and consistently handling signals.</li>
+				<li class="rscadd">The spiral_range search function was ported over from TG, it is used by empulse.</li>
+				<li class="refactor">All emp_act now calls the parent.</li>
+				<li class="refactor">All emp_act now uses the defined damage, instead of the magic numbers.</li>
+				<li class="refactor">EMP magic number 3 do not exist anymore, standarized everything that used it back into EMP_LIGHT.</li>
+				<li class="refactor">Some function substitution for EMP that was not meant to behave like an EMP for other objects.</li>
+				<li class="rscadd">The empulse function can now exclude types, in addition to objects.</li>
+				<li class="bugfix">Fixed a possible runtime issue that prevented the return hint from being returned to SSgarbage if the variable was empty.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moved some lights in Hydroponics.</li>
+				<li class="maptweak">Added Hydroponics access to the back door of the Kitchen Freezer.</li>
+				<li class="maptweak">Added a welding fuel tank to Hydroponics.</li>
+				<li class="maptweak">Added a ChemMaster and some beakers to Xenobiology</li>
+				<li class="maptweak">Placed another table in Xenobotany.</li>
 			</ul>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Protohumans ordered from cargo are now a distinct species and use a new icon.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds an Air Konyang passenger vessel.</li>
+				<li class="rscadd">Adds a wrecked Idris vault ship.</li>
 			</ul>
 
 			<h2 class="date">02 December 2023</h2>

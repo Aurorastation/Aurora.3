@@ -802,7 +802,10 @@
 
 /obj/item/rig/dropped(var/mob/user)
 	..()
-	SSstatpanels.set_action_tabs(user.client, user)
+
+	if(user.client)
+		SSstatpanels.set_action_tabs(user.client, user)
+
 	null_wearer(user)
 
 
@@ -810,18 +813,20 @@
 /obj/item/rig/proc/malfunction()
 	return 0
 
-/obj/item/rig/emp_act(severity_class)
+/obj/item/rig/emp_act(severity)
+	. = ..()
+
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.
 		malfunctioning += 10
 		if(malfunction_delay <= 0)
-			malfunction_delay = max(malfunction_delay, round(30/severity_class))
+			malfunction_delay = max(malfunction_delay, round(30/severity))
 
 	//drain some charge
-	if(cell) cell.emp_act((severity_class + 15)*1+(0.1*emp_protection))
+	if(cell) cell.powerdrain((severity + 15)*1+(0.1*emp_protection))
 
 	//possibly damage some modules
-	take_hit((100/severity_class), "electrical pulse", 1)
+	take_hit((100/severity), "electrical pulse", 1)
 
 /obj/item/rig/proc/shock(mob/user)
 	var/touchy = pick(BP_CHEST,BP_HEAD,BP_GROIN)

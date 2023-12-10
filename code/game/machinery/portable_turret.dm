@@ -459,6 +459,8 @@
 	take_damage(damage)
 
 /obj/machinery/porta_turret/emp_act(severity)
+	. = ..()
+
 	if(enabled)
 		//if the turret is on, the EMP no matter how severe disables the turret for a while
 		//and scrambles its settings, with a slight chance of having an emag effect
@@ -473,7 +475,6 @@
 		enabled = FALSE
 		addtimer(CALLBACK(src, PROC_REF(post_emp_act)), rand(60, 600))
 
-	..()
 
 /obj/machinery/porta_turret/proc/post_emp_act()
 	enabled = TRUE

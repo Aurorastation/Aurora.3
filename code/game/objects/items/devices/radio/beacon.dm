@@ -66,4 +66,6 @@ var/global/list/teleportbeacons = list()
 	return
 
 /obj/item/device/radio/beacon/fixed/emp_act(severity)
+	. = ..()
+
 	return

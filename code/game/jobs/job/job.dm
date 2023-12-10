@@ -42,9 +42,16 @@
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
+	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
 
 //Only override this proc
+/datum/job/proc/pre_spawn(mob/abstract/new_player/player)
+	return
+
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
+
+/datum/job/proc/on_despawn(mob/living/carbon/human/H)
+	return
 
 /datum/job/proc/announce(mob/living/carbon/human/H)
 

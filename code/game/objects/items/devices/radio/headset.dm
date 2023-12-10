@@ -723,6 +723,10 @@
 	if (use_common)
 		set_frequency(PUB_FREQ)
 
+/obj/item/device/radio/headset/ship/coalition_navy
+	icon_state = "coal_headset"
+	ks1type = /obj/item/device/encryptionkey/ship/coal_navy
+
 /obj/item/device/radio/headset/ship/common
 	use_common = TRUE
 	ks1type = /obj/item/device/encryptionkey/ship/common

@@ -186,6 +186,7 @@ Class Procs:
 	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)
+	. = ..()
 	if(use_power && stat == 0)
 		use_power_oneoff(7500/severity)
 
@@ -197,7 +198,6 @@ Class Procs:
 		pulse2.set_dir(pick(cardinal))
 
 		QDEL_IN(pulse2, 10)
-	..()
 
 /obj/machinery/ex_act(severity)
 	switch(severity)

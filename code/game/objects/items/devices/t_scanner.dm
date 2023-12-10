@@ -29,7 +29,9 @@
 /obj/item/device/t_scanner/update_icon()
 	icon_state = "t-ray[on]"
 
-/obj/item/device/t_scanner/emp_act()
+/obj/item/device/t_scanner/emp_act(severity)
+	. = ..()
+
 	audible_message(src, SPAN_NOTICE("\The [src] buzzes oddly."))
 	set_active(FALSE)
 
