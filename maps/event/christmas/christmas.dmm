@@ -570,6 +570,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/helm)
+"Sb" = (
+/obj/structure/flora/tree/pine_tree/grandchristmas,
+/turf/simulated/floor/snow,
+/area/bridge/helm)
 "St" = (
 /obj/structure/platform{
 	color = "#824B28"
@@ -10632,7 +10636,7 @@ Ne
 ld
 ld
 ld
-ld
+Sb
 ld
 ld
 ld
