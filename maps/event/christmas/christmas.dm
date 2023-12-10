@@ -63,14 +63,14 @@
 	density = TRUE
 	light_power = 6
 	light_range = 6
-	light_color = LIGHT_COLOR_WARM
+	light_color = LIGHT_COLOUR_WARM
 
 // Big ass christmas tree
 /obj/structure/flora/tree/pine_tree/grandchristmas
 	name = "Grand Christmas Tree"
 	desc = "A grand christmas tree, you can't help but feel joy!"
 	icon = 'icons/holidays/christmas/grandtree.dmi'
-	icon_state ="grandtree_scc"
+	icon_state = "grandtree"
 
 // Pathway for the event
 /turf/simulated/floor/cobble
