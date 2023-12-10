@@ -3667,7 +3667,7 @@
 #include "maps\event\generic_dock\code\generic_dock.dm"
 #include "maps\event\generic_dock\code\generic_dock_areas.dm"
 #include "maps\event\burzsia_station\burzsia_station.dm"
-#include "maps\event\burzsia_station\burzsia_station_areas.dm"
+#include "maps\event\burzsia_station\burszia_station_areas.dm"
 #include "maps\event\halloween\halloween.dm"
 #include "maps\event\halloween\halloweenareas.dm"
 #include "maps\event\idris_cruise\code\idris_cruise.dm"
