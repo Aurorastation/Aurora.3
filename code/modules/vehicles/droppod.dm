@@ -157,7 +157,7 @@
 		load(user)
 		launchinterface()
 
-/obj/attack_ghost(mob/user)
+/obj/vehicle/droppod/attack_ghost(mob/user)
 	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
 		..()
 	else // normal ghosts cannot use this
