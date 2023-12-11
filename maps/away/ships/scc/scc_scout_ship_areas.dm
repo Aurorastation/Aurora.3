@@ -57,6 +57,7 @@
 
 /area/shuttle/scc_scout_ship_shuttle
 	name = "SCC Scout Ship Shuttle (abstract/base)"
+	requires_power = TRUE
 
 /area/shuttle/scc_scout_ship_shuttle/cockpit
 	name = "Cockpit"

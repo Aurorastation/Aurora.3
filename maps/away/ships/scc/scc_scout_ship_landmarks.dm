@@ -2,8 +2,8 @@
 // --------------------- base type
 
 /obj/effect/shuttle_landmark/scc_scout_ship
-	base_area = /area/ship/scc_scout_ship
-	base_turf = /turf/simulated/floor/plating
+	base_area = /area/space
+	base_turf = /turf/space
 
 // --------------------- shuttle
 
@@ -15,6 +15,7 @@
 /obj/effect/shuttle_landmark/scc_scout_ship/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_scc_scout_shuttle_transit"
+	base_turf = /turf/space/transit
 
 // --------------------- docks
 
@@ -32,7 +33,6 @@
 	name = "Dock, Aft"
 	landmark_tag = "nav_scc_scout_dock_aft"
 	docking_controller = "airlock_scc_scout_dock_aft"
-	base_turf = /turf/space/transit
 
 // --------------------- catwalk
 

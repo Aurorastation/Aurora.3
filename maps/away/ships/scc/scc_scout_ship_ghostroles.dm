@@ -1,25 +1,9 @@
 
 // ---------------------- spawners
-// /datum/ghostspawner/human/scc_scout_ship_crew
-// 	short_name = "scc_scout_ship_crew"
-// 	name = "SCCV XYZ Scout Ship Crew"
-// 	desc = "SCCV XYZ Scout Ship Crew desc"
-// 	tags = list("External")
-
-// 	spawnpoints = list("scc_scout_ship_crew")
-// 	max_count = 0
-
-// 	outfit = /datum/outfit/admin/scc_scout_ship_crew
-// 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
-// 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-// 	assigned_role = "SCCV XYZ Crew"
-// 	special_role = "SCCV XYZ Crew"
-// 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/captain
 	short_name = "scc_scout_ship_captain"
-	name = "SCCV XYZ Scout Ship Captain"
+	name = "SCC Scout Ship Captain"
 	desc = "You are the captain. Pilot the ship, lead your crew, start expeditions, explore worlds."
 	tags = list("External")
 
@@ -30,14 +14,14 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SCCV XYZ Captain"
-	special_role = "SCCV XYZ Captain"
+	assigned_role = "SCC Scout Ship Captain"
+	special_role = "SCC Scout Ship Captain"
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/orion
 	short_name = "scc_scout_ship_orion"
-	name = "SCCV XYZ Scout Ship Orion Express Crewman"
-	desc = "You are a Orion Express crewman. Be the ship's mechanist, or a cargo and fuel technician, or a miner, or a chef, or a general crewman/assistant who knows a tiny bit of everything."
+	name = "SCC Scout Ship Orion Express Crew"
+	desc = "You are a Orion Express crew. Be the ship's mechanist, cargo and fuel technician, miner, chef, or a general crew/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_orion")
@@ -47,14 +31,14 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SCCV XYZ Crewman (Orion)"
-	special_role = "SCCV XYZ Crewman (Orion)"
+	assigned_role = "SCC Scout Ship Crew (Orion)"
+	special_role = "SCC Scout Ship Crew (Orion)"
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/heph
 	short_name = "scc_scout_ship_heph"
-	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
-	desc = "You are a Hephaestus Industries crewman. Be the ship's engineer, or a cargo and fuel technician, or a miner, or a general crewman/assistant who knows a tiny bit of everything."
+	name = "SCC Scout Ship Hephaestus Crew"
+	desc = "You are a Hephaestus Industries crew. Be the ship's engineer, cargo and fuel technician, a miner, or a general crew/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_heph")
@@ -64,14 +48,14 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SCCV XYZ Crewman (Heph)"
-	special_role = "SCCV XYZ Crewman (Heph)"
+	assigned_role = "SCC Scout Ship Crew (Heph)"
+	special_role = "SCC Scout Ship Crew (Heph)"
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/zeng
 	short_name = "scc_scout_ship_zeng"
-	name = "SCCV XYZ Scout Ship Zeng-Hu Crewman"
-	desc = "You are a Zeng-Hu Pharmaceuticals crewman. Be the ship's scientist, or a archeologist, or a physician, or a surgeon, or a general crewman/assistant who knows a tiny bit of everything."
+	name = "SCC Scout Ship Zeng-Hu Crew"
+	desc = "You are a Zeng-Hu Pharmaceuticals crew. Be the ship's scientist, archeologist, physician, surgeon, or a general crew/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zeng")
@@ -81,14 +65,14 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SCCV XYZ Crewman (Zeng-Hu)"
-	special_role = "SCCV XYZ Crewman (Zeng-Hu)"
+	assigned_role = "SCC Scout Ship Crew (Zeng-Hu)"
+	special_role = "SCC Scout Ship Crew (Zeng-Hu)"
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/nanotrasen
 	short_name = "scc_scout_ship_nanotrasen"
-	name = "SCCV XYZ Scout Ship NanoTrasen Crewman"
-	desc = "You are a NanoTrasen Corporation crewman. Be the ship's physician, or a surgeon, or a scientist, or a archeologist, or a general crewman/assistant who knows a tiny bit of everything."
+	name = "SCC Scout Ship NanoTrasen Crew"
+	desc = "You are a NanoTrasen Corporation crew. Be the ship's physician, surgeon, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_nanotrasen")
@@ -98,14 +82,14 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SCCV XYZ Crewman (NanoTrasen)"
-	special_role = "SCCV XYZ Crewman (NanoTrasen)"
+	assigned_role = "SCC Scout Ship Crew (NanoTrasen)"
+	special_role = "SCC Scout Ship Crew (NanoTrasen)"
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew/zavod
 	short_name = "scc_scout_ship_zavod"
-	name = "SCCV XYZ Scout Ship Zavod Crewman"
-	desc = "You are a Zavodskoi Interstellar crewman. Be the ship's engineer, or a scientist, or a archeologist, or a general crewman/assistant who knows a tiny bit of everything."
+	name = "SCC Scout Ship Zavod Crew"
+	desc = "You are a Zavodskoi Interstellar crew. Be the ship's engineer, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zavod")
@@ -115,14 +99,14 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SCCV XYZ Crewman (Zavod)"
-	special_role = "SCCV XYZ Crewman (Zavod)"
+	assigned_role = "SCC Scout Ship Crew (Zavod)"
+	special_role = "SCC Scout Ship Crew (Zavod)"
 	respawn_flag = null
 
 // ---------------------- outfits
 
 /datum/outfit/admin/scc_scout_ship_crew
-	name = "SCCV XYZ Scout Ship Base Crew Uniform"
+	name = "SCC Scout Ship Base Crew Uniform"
 
 	id = /obj/item/card/id/orion_ship
 	uniform = list(/obj/item/clothing/under/color/black, /obj/item/clothing/under/color/grey, /obj/item/clothing/under/color/white)
@@ -154,10 +138,10 @@
 		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack)
 
 /datum/outfit/admin/scc_scout_ship_crew/get_id_access()
-	return list(access_external_airlocks)
+	return list(access_external_airlocks, access_maint_tunnels, access_security, access_medical, access_engine, access_research, access_cargo)
 
 /datum/outfit/admin/scc_scout_ship_crew/captain
-	name = "SCCV XYZ Scout Ship Captain"
+	name = "SCC Scout Ship Captain"
 
 	id = /obj/item/card/id/gold
 	uniform = /obj/item/clothing/under/rank/captain/white
@@ -172,8 +156,11 @@
 		/obj/item/implant/mindshield
 	)
 
+/datum/outfit/admin/scc_scout_ship_crew/get_id_access()
+	return list(access_external_airlocks, access_maint_tunnels, access_security, access_medical, access_engine, access_research, access_cargo, access_heads, access_captain)
+
 /datum/outfit/admin/scc_scout_ship_crew/orion
-	name = "SCCV XYZ Scout Ship Orion Express Crewman"
+	name = "SCC Scout Ship Orion Crew"
 
 	id = /obj/item/card/id/orion
 	uniform = list(/obj/item/clothing/under/color/white, /obj/item/clothing/under/color/black, /obj/item/clothing/under/service_overalls)
@@ -182,7 +169,7 @@
 	accessory = /obj/item/clothing/accessory/pin/corporate/orion
 
 /datum/outfit/admin/scc_scout_ship_crew/heph
-	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
+	name = "SCC Scout Ship Hephaestus Crew"
 
 	id = /obj/item/card/id/hephaestus
 	uniform = list(/obj/item/clothing/under/color/brown, /obj/item/clothing/under/color/green, /obj/item/clothing/under/service_overalls)
@@ -191,7 +178,7 @@
 	accessory = /obj/item/clothing/accessory/pin/corporate/heph
 
 /datum/outfit/admin/scc_scout_ship_crew/zeng
-	name = "SCCV XYZ Scout Ship Zeng-Hu Crewman"
+	name = "SCC Scout Ship Zeng-Hu Crew"
 
 	id = /obj/item/card/id/zeng_hu
 	uniform = list(/obj/item/clothing/under/color/purple, /obj/item/clothing/under/color/white, /obj/item/clothing/under/rank/medical/surgeon/zeng)
@@ -200,7 +187,7 @@
 	accessory = /obj/item/clothing/accessory/pin/corporate/zeng
 
 /datum/outfit/admin/scc_scout_ship_crew/nanotrasen
-	name = "SCCV XYZ Scout Ship NanoTrasen Crewman"
+	name = "SCC Scout Ship NanoTrasen Crew"
 
 	id = /obj/item/card/id
 	uniform = list(/obj/item/clothing/under/color/blue, /obj/item/clothing/under/color/lightblue, /obj/item/clothing/under/rank/medical/surgeon)
@@ -209,7 +196,7 @@
 	accessory = /obj/item/clothing/accessory/pin/corporate
 
 /datum/outfit/admin/scc_scout_ship_crew/zavod
-	name = "SCCV XYZ Scout Ship Zavodskoi Crewman"
+	name = "SCC Scout Ship Zavodskoi Crew"
 
 	id = /obj/item/card/id/zavodskoi
 	uniform = list(/obj/item/clothing/under/color/red, /obj/item/clothing/under/color/brown, /obj/item/clothing/under/rank/medical/surgeon/zavod)

@@ -13,7 +13,7 @@
 	map = "SCC Scout Ship"
 	descriptor = "SCCV XYZ Desc."
 
-// ship stuff
+// ship
 
 /obj/effect/overmap/visitable/ship/scc_scout_ship
 	name = "SCC Scout Ship"
@@ -21,10 +21,11 @@
 	desc = "SCCV XYZ Desc."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#c3c7eb", "#a0a8ec")
-	designer = ""
+	colors = list("#cfd4ff", "#78adf8")
+	designer = "Hephaestus Industries"
 	volume = "42 meters length, 48 meters beam/width, 23 meters vertical height"
-	drive = "???"
+	drive = "First-Gen Warp Capable, Hybrid Phoron Bluespace Drive"
+	propulsion = "Superheated Composite Gas Thrust"
 	weapons = "Flak battery"
 	sizeclass = "Serendipity-class Scout Ship"
 	shiptype = "Multi-purpose scout"
@@ -53,16 +54,10 @@
 	)
 
 /obj/effect/overmap/visitable/ship/scc_scout_ship/New()
-	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Hailstorm", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper")]"
+	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
 	..()
 
-// /obj/effect/overmap/visitable/ship/freebooter_ship/get_skybox_representation()
-// 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tramp_freighter")
-// 	skybox_image.pixel_x = rand(0,64)
-// 	skybox_image.pixel_y = rand(128,256)
-// 	return skybox_image
-
-// shuttle stuff
+// shuttle
 
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle
 	name = "SCC Scout Shuttle"
@@ -71,15 +66,21 @@
 	shuttle = "SCC Scout Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#9dc04c", "#52c24c")
+	colors = list("#cfd4ff", "#78adf8")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
+/obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "intrepid")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/New()
-	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Hailstorm", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper")]"
+	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Nocturnal Emission", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scc_scout_shuttle
