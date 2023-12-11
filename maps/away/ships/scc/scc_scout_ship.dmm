@@ -440,6 +440,7 @@
 /obj/item/clothing/accessory/storage/overalls/engineer,
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/heph,
+/obj/item/crowbar,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "cr" = (
@@ -570,8 +571,8 @@
 /area/ship/scc_scout_ship/maint_atmos)
 "dk" = (
 /obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/mining,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "dm" = (
@@ -679,7 +680,6 @@
 "dS" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -881,6 +881,7 @@
 /obj/item/clothing/head/sidecap/zavod,
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/zavod,
+/obj/item/crowbar,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "fd" = (
@@ -2136,7 +2137,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/tank/phoron/shuttle,
 /obj/item/stack/material/phoron/full,
-/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle{
+	pixel_x = -5
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
@@ -2417,6 +2420,11 @@
 	icon_state = "0-2"
 	},
 /obj/structure/closet/crate/weld,
+/obj/item/clothing/head/welding,
+/obj/item/weldingtool/emergency,
+/obj/item/weldingtool,
+/obj/item/weldingtool/largetank,
+/obj/item/clothing/glasses/welding,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
 "oG" = (
@@ -2883,6 +2891,7 @@
 /obj/item/clothing/accessory/storage/overalls/engineer,
 /obj/item/clothing/suit/storage/hooded/wintercoat/orion,
 /obj/item/storage/backpack/messenger/orion,
+/obj/item/crowbar/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "rG" = (
@@ -3438,8 +3447,8 @@
 /area/space)
 "vt" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/mining,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/mining,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "vv" = (
@@ -4525,6 +4534,7 @@
 /obj/item/flame/lighter/zippo/nt,
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/nt,
+/obj/item/crowbar/rescue_axe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "DI" = (
@@ -6032,13 +6042,13 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/smes/buildable/substation,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
 	name = "HIGH VOLTAGE";
 	pixel_y = 28
 	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
 "Pn" = (
@@ -44159,14 +44169,14 @@ pP
 mr
 hD
 Si
-vt
+dk
 Si
 NJ
 cW
 cW
 hD
 Si
-dk
+vt
 dC
 tw
 Xp
