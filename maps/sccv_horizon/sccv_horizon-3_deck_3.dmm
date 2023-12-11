@@ -9772,6 +9772,14 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"gVG" = (
+/obj/machinery/power/apc/low/east{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = -7
+	},
+/turf/simulated/wall/r_wall,
+/area/lawoffice/consular_two)
 "gVY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -24703,6 +24711,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Deck 3 Command Subgrid";
+	name_tag = "Deck 3 Command Subgrid"
+	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "rtf" = (
@@ -25140,15 +25152,14 @@
 /area/horizon/hallway/deck_three/primary/central)
 "rIE" = (
 /obj/structure/cable/green,
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - Deck 3 Command Subgrid";
-	name_tag = "Deck 3 Command Subgrid"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/power/apc/south{
+	pixel_y = -11
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -29246,11 +29257,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "uBr" = (
-/obj/machinery/power/apc/low/east{
-	dir = 2;
-	pixel_x = 32;
-	pixel_y = -7
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -55818,7 +55824,7 @@ rMV
 rMV
 hmp
 pKC
-hij
+gVG
 hij
 hij
 hij
