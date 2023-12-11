@@ -4238,6 +4238,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
+"doY" = (
+/obj/structure/noticeboard,
+/turf/simulated/wall/r_wall,
+/area/lawoffice/consular_two)
 "dpE" = (
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4;
@@ -14250,7 +14254,6 @@
 /obj/item/clipboard,
 /obj/item/pen/multi,
 /obj/item/device/camera,
-/obj/structure/closet/lawcloset,
 /obj/item/stamp/denied,
 /obj/item/stamp{
 	layer = 3.1;
@@ -27794,7 +27797,7 @@
 	dir = 1;
 	id_tag = "bridge_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor{
@@ -33327,6 +33330,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/horizon/cafeteria)
+"xrO" = (
+/obj/structure/noticeboard,
+/turf/simulated/wall/r_wall,
+/area/lawoffice/consular)
 "xrV" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -54809,7 +54816,7 @@ xii
 jJH
 kqb
 krt
-ecZ
+xrO
 kqe
 mhs
 jCG
@@ -56425,7 +56432,7 @@ ooI
 lfv
 lfv
 pja
-hij
+doY
 kNL
 xyc
 saT
