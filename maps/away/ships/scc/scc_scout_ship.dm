@@ -19,8 +19,8 @@
 	name = "SCC Scout Ship"
 	class = "SCCV"
 	desc = "A small ship commonly fielded by the Stellar Corporate Conglomerate, the Serendipity-class, Hephaestus-designed and produced. It is supposed to be a small platform, entirely self-sufficient general-purpose scouting and surveying ship, the Serendipity is equipped with both a bluespace and a warp drive and two different engines."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "corvette"
+	moving_state = "corvette_moving"
 	colors = list("#cfd4ff", "#78adf8")
 	designer = "Hephaestus Industries"
 	volume = "42 meters length, 48 meters beam/width, 23 meters vertical height"
