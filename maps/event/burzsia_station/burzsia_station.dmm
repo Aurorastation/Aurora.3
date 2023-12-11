@@ -1391,10 +1391,6 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
-"de" = (
-/obj/machinery/telecomms/allinone,
-/turf/simulated/floor/bluegrid/cooled,
-/area/burzsia_station/atmos)
 "dg" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3750,6 +3746,10 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/burzsia_station/command)
+"jo" = (
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/bluegrid/cooled,
+/area/burzsia_station/atmos)
 "jp" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -31588,7 +31588,7 @@ lp
 db
 db
 db
-de
+jo
 db
 db
 db

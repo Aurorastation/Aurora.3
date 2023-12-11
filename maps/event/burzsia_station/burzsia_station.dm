@@ -14,7 +14,7 @@
 	accessible_z_levels = list(1)
 	sealed_levels = list(1)
 
-	station_name = "Hephaestus Industries Command Station Etna"
+	station_name = "HICS Etna"
 	station_short = "HICS Etna"
 	dock_name = "Burzsia I"
 	boss_name = "Hephaestus Industries"
