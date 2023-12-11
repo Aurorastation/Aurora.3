@@ -387,6 +387,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 9
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "cE" = (
@@ -1512,7 +1513,6 @@
 /area/shuttle/scarab_harvester)
 "kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "kD" = (
@@ -2760,7 +2760,6 @@
 /area/coc_scarab/engine)
 "uI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "uJ" = (
@@ -2841,6 +2840,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "vm" = (
@@ -3510,11 +3510,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/coc_scarab/mess)
-"AX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/coc_scarab/engine)
 "AY" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
@@ -4020,6 +4015,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "EG" = (
@@ -4249,7 +4245,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Gv" = (
@@ -4605,7 +4600,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Jc" = (
@@ -4921,7 +4915,6 @@
 	pixel_y = 26;
 	specialfunctions = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "LE" = (
@@ -5300,6 +5293,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Ou" = (
@@ -5501,6 +5495,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Qb" = (
@@ -5788,6 +5783,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "RA" = (
@@ -5822,10 +5818,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "RL" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
@@ -6253,7 +6247,6 @@
 	pixel_x = 23;
 	id = "scav_igni"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Um" = (
@@ -6601,6 +6594,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/engistorage)
 "WU" = (
@@ -37436,10 +37431,10 @@ oE
 cM
 Hp
 LD
-Be
+Eq
 Gu
 Ul
-fC
+RL
 Rb
 Eq
 Ps
@@ -38725,7 +38720,7 @@ ua
 ua
 Vl
 SZ
-Eq
+Be
 PU
 kj
 Ry
@@ -38981,8 +38976,8 @@ dy
 Sj
 Sj
 SR
-AX
-AX
+Sj
+Sj
 hb
 uI
 Ot
@@ -39239,10 +39234,10 @@ ww
 ww
 ww
 et
-Eq
+Be
 vk
 AY
-RL
+Ps
 kd
 Tw
 rP
@@ -39492,7 +39487,7 @@ oE
 cM
 DI
 ZS
-Be
+Eq
 Eq
 Eq
 cs
@@ -39748,8 +39743,8 @@ lb
 oE
 cM
 DI
-fC
-Be
+RL
+Eq
 AI
 Eq
 yw
