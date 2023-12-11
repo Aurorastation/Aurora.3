@@ -1391,6 +1391,10 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
+"de" = (
+/obj/machinery/telecomms/allinone,
+/turf/simulated/floor/bluegrid/cooled,
+/area/burzsia_station/atmos)
 "dg" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -31380,9 +31384,9 @@ lp
 lp
 lp
 lp
-lp
-lp
-lp
+db
+db
+db
 lp
 lp
 lp
@@ -31584,7 +31588,7 @@ lp
 db
 db
 db
-db
+de
 db
 db
 db
