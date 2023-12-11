@@ -18,7 +18,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/item/storage/bag/inflatable{
-	pixel_y = 3
+	pixel_y = 5
 	},
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/storage/toolbox/mechanical,
@@ -1886,11 +1886,17 @@
 "lK" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/suit/space/anomaly{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/helmet/space/anomaly,
 /obj/item/clothing/glasses/science,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/suit/space/anomaly{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/helmet/space/anomaly,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -2377,6 +2383,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/weapon,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "oF" = (
@@ -3123,6 +3130,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
+"tw" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship/eva)
 "tA" = (
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_orion";
@@ -5212,7 +5225,8 @@
 /turf/space/transit,
 /area/space)
 "Jh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "Js" = (
@@ -5451,8 +5465,8 @@
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Lg" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/scc_scout_ship/eva)
 "Lh" = (
@@ -5713,8 +5727,27 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/structure/closet/crate,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/large,
+/obj/item/clothing/suit/space/emergency{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/obj/item/clothing/head/helmet/space/emergency{
+	pixel_x = 6
+	},
+/obj/item/clothing/suit/space/emergency{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/clothing/head/helmet/space/emergency{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_x = 4;
+	pixel_y = -6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/scc_scout_ship/eva)
 "Nw" = (
@@ -5730,6 +5763,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Ny" = (
@@ -6151,8 +6185,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "Rb" = (
@@ -7019,6 +7051,23 @@
 /obj/effect/shuttle_landmark/scc_scout_ship/space/aft_port,
 /turf/template_noop,
 /area/space)
+"WP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "WR" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown{
@@ -7190,6 +7239,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/weapon,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "XH" = (
@@ -7524,7 +7574,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "ZT" = (
-/obj/structure/bed/stool/chair/padded/brown,
+/obj/structure/bed/stool/chair/padded/orange,
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship/quarters)
 
@@ -41311,7 +41361,7 @@ rS
 LT
 Zc
 qJ
-rW
+WP
 FF
 dQ
 sN
@@ -43349,7 +43399,7 @@ QC
 II
 kX
 Xp
-Jh
+OK
 Jh
 bx
 Xu
@@ -44123,7 +44173,7 @@ hD
 Si
 dk
 dC
-OK
+tw
 Xp
 Xp
 Xp
