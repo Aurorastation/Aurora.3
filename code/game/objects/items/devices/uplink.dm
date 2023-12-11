@@ -64,8 +64,13 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	name = "hidden uplink"
 	desc = "There is something wrong if you're examining this."
 	var/active = 0
-	var/datum/uplink_category/category 	= 0		// The current category we are in
-	var/exploit_id								// Id of the current exploit record we are viewing
+
+	/// The current category we are in, the open category
+	var/datum/uplink_category/category
+
+	/// ID of the current exploit record we are viewing
+	var/exploit_id
+
 	var/pda_code = ""
 
 
@@ -179,7 +184,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		tgui_data["items"] = items
 	else if(tgui_menu == 1)
 		var/items[0]
-		for(var/datum/uplink_item/item in category.items)
+		for(var/datum/uplink_item/item in category?.items)
 			if(item.can_view(src))
 				items[++items.len] = new_tgui_item_data(item)
 		tgui_data["items"] = items

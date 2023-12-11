@@ -289,9 +289,17 @@
 "pB" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/weapon,
-/obj/random/civgun/rifle,
-/obj/random/civgun/rifle,
-/obj/random/civgun/rifle,
+/obj/item/gun/projectile/automatic/konyang_pirate,
+/obj/item/gun/projectile/automatic/konyang_pirate,
+/obj/item/gun/projectile/revolver/konyang/pirate,
+/obj/item/gun/projectile/revolver/konyang/pirate,
+/obj/item/gun/projectile/revolver/konyang/pirate,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/smg10mm,
+/obj/item/ammo_magazine/smg10mm,
+/obj/item/ammo_magazine/smg10mm,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "pG" = (
@@ -698,9 +706,8 @@
 "Wn" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/weapon,
-/obj/random/civgun,
-/obj/random/civgun,
-/obj/random/civgun,
+/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle,
+/obj/item/ammo_magazine/c762,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "Wp" = (

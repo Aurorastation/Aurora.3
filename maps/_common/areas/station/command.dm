@@ -43,6 +43,7 @@
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 	area_blurb = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/selfdestruct
 	name = "Command - Station Authentication Terminal Safe"
