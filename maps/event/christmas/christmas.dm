@@ -83,6 +83,9 @@
 	desc = "Run run run, as fast as you can.. You can't catch me.. I'm the Gingerbread man!"
 	icon = 'icons/holidays/christmas/christmascookies.dmi'
 	icon_state = "gingerbread_man"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cookie" = 2))
+	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/cookie/gingerbread/cane
 	name = "Gingerbread Cane"
@@ -114,8 +117,10 @@
 	desc_extended = "A cookie of the SCCV Horizon.. Will I get in trouble for eating it?"
 	icon = 'icons/holidays/christmas/christmascookies.dmi'
 	icon_state = "gingerbread_horizon"
-/obj/random/item/reagent_containers/food/snacks/cookie/gingerbread/random
+/obj/item/reagent_containers/food/snacks/cookie/gingerbread/random
 	name = "Random Gingerbread Cookie"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cookie" = 2))
 	problist = list(
 		/obj/item/reagent_containers/food/snacks/cookie/gingerbread = 1,
 		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/cane = 1,
@@ -132,11 +137,12 @@
 	icon = 'icons/holidays/christmas/christmascookies.dmi'
 	icon_state = "cookietray_100"
 	trash = /obj/item/trash/cookietray
-	vendingobject = /obj/random/item/reagent_containers/food/snacks/cookie/gingerbread/random
+	vendingobject = /obj/item/reagent_containers/food/snacks/cookie/gingerbread/random
 	reagent_data = list(/singleton/reagent/nutriment = list("cookie" = 1))
 	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
-	unitname = "gingerbread"
+	unitname = "gingerbread cookie"
 	filling_color = "#FCA03D"
 
 /obj/item/reagent_containers/food/snacks/chipplate/christmas_cookies/update_icon()
@@ -149,3 +155,10 @@
 			icon_state = "cookietray_75"
 		if(16 to INFINITY)
 			icon_state = "cookietray_100"
+
+// EGGNOGG
+/obj/structure/reagent_dispensers/keg/eggnog
+	name = "Chilled Barrel of Eggnog"
+	desc = "A chilled barrel of eggnog."
+	icon_state = "woodkeg"
+	reagents_to_add = list(/singleton/reagent/alcohol/eggnog = 1000)
