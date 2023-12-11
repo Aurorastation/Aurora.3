@@ -571,8 +571,8 @@
 /area/ship/scc_scout_ship/maint_atmos)
 "dk" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/mining,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/mining,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "dm" = (
@@ -3447,8 +3447,8 @@
 /area/space)
 "vt" = (
 /obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/mining,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "vv" = (
@@ -44169,14 +44169,14 @@ pP
 mr
 hD
 Si
-dk
+vt
 Si
 NJ
 cW
 cW
 hD
 Si
-vt
+dk
 dC
 tw
 Xp
