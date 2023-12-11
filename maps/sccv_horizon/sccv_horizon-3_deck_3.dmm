@@ -7393,9 +7393,6 @@
 /area/bridge/controlroom)
 "fum" = (
 /obj/machinery/computer/telecomms/traffic,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "fuG" = (
@@ -19692,9 +19689,14 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/alarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
+	},
+/obj/machinery/computer/security/telescreen{
+	name = "Telecommunications Cameras";
+	network = list("Tcomsat");
+	pixel_x = 32;
+	pixel_y = -4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
@@ -22701,6 +22703,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "pVr" = (
@@ -23629,10 +23634,6 @@
 /obj/machinery/photocopier,
 /obj/machinery/light{
 	dir = 8
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Consular Office Alpha";
-	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -26577,12 +26578,6 @@
 /obj/machinery/computer/message_monitor,
 /obj/machinery/light{
 	dir = 8
-	},
-/obj/machinery/computer/security/telescreen{
-	name = "Telecommunications Cameras";
-	network = list("Tcomsat");
-	pixel_x = -32;
-	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
