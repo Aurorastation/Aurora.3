@@ -46,6 +46,7 @@
 /obj/effect/map_effect/door_helper/level_access/command_foyer
 	access_by_level = list(
 	"green",
+	"yellow" = list(19,38),
 	"blue" = list(19,38),
 	"red" = list(19,38),
 	"delta" = list(19,38)
