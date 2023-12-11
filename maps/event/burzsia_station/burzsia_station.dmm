@@ -578,6 +578,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/burzsia_station/securityhall)
+"be" = (
+/obj/machinery/telecomms/server/presets/command,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "bf" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -1132,6 +1136,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/medbay)
+"cD" = (
+/obj/machinery/telecomms/server/presets/security,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "cE" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -1544,6 +1552,11 @@
 	},
 /turf/simulated/floor,
 /area/burzsia_station/mechbay)
+"dA" = (
+/obj/machinery/computer/telecomms/traffic,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "dB" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -3746,10 +3759,6 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/burzsia_station/command)
-"jo" = (
-/obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/bluegrid/cooled,
-/area/burzsia_station/atmos)
 "jp" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -4432,6 +4441,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/lifts)
+"lm" = (
+/obj/machinery/telecomms/server/presets/science,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "lo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6117,6 +6130,10 @@
 /obj/item/material/stool/chair/wheelchair,
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/medbay)
+"pk" = (
+/obj/machinery/telecomms/processor/preset_two,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "po" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/bed/handrail{
@@ -6962,6 +6979,10 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sscrepoffice)
+"rX" = (
+/obj/machinery/telecomms/server/presets/supply,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "rY" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -9052,6 +9073,10 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/orange,
 /area/burzsia_station/command)
+"wZ" = (
+/obj/machinery/telecomms/processor/preset_one,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "xa" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
@@ -11341,6 +11366,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_station/arrivals)
+"Dn" = (
+/obj/machinery/telecomms/server/presets/common,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Dp" = (
 /obj/structure/sign/kiddieplaque/janitor{
 	pixel_x = -32
@@ -11581,6 +11610,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/medbay)
+"DU" = (
+/obj/machinery/telecomms/bus/preset_one,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "DV" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
@@ -12087,6 +12120,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/burzsia_station/rechall)
+"Er" = (
+/obj/machinery/computer/telecomms/server{
+	network = "tcommsat"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Es" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -12226,6 +12266,10 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
+"EO" = (
+/obj/machinery/telecomms/server/presets/medical,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "EQ" = (
 /obj/structure/largecrate/animal/pig,
 /obj/effect/floor_decal/industrial/warning{
@@ -12541,6 +12585,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/gym)
+"FP" = (
+/obj/machinery/blackbox_recorder,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "FQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -12850,6 +12898,10 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_station/bardiner)
+"GN" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "GO" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -13162,6 +13214,9 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/bardiner)
+"HJ" = (
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "HK" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
 /turf/simulated/floor/carpet/darkblue,
@@ -13873,6 +13928,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/primaryhall)
+"JJ" = (
+/obj/machinery/computer/robotics{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "JK" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -14833,6 +14894,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/burzsia_station/afthall)
+"Mr" = (
+/obj/machinery/telecomms/server/presets/engineering,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Ms" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -15680,6 +15745,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/burzsia_station/primaryhall)
+"On" = (
+/obj/item/modular_computer/console/preset/research{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Oo" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -16175,6 +16246,10 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
+"PC" = (
+/obj/machinery/telecomms/bus/preset_two,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -17290,6 +17365,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/arrivalshall)
+"Sx" = (
+/obj/machinery/iff_beacon/horizon,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "SB" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 1
@@ -17915,6 +17994,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/burzsia_station/mechbay)
+"Ua" = (
+/obj/machinery/telecomms/allinone/ship/station_relay,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Ub" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -17946,6 +18029,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/burzsia_station/atmos)
+"Ue" = (
+/obj/machinery/computer/telecomms/monitor{
+	network = "tcommsat"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
 /area/burzsia_station/atmos)
 "Uf" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -18887,6 +18977,11 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/lifts)
+"WH" = (
+/obj/machinery/computer/message_monitor,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "WI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19049,6 +19144,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/operations)
+"Xf" = (
+/obj/machinery/telecomms/broadcaster/preset_right,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Xh" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -19513,6 +19612,10 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
+"Yy" = (
+/obj/machinery/telecomms/server/presets/service,
+/turf/unsimulated/floor,
+/area/burzsia_station/atmos)
 "Yz" = (
 /obj/structure/table/steel,
 /obj/item/device/taperecorder,
@@ -30570,14 +30673,14 @@ lp
 lp
 lp
 lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
+db
+db
+db
+db
+db
+db
+db
+db
 lp
 lp
 lp
@@ -30773,14 +30876,14 @@ lp
 lp
 lp
 lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
+db
+Dn
+Yy
+cD
+Mr
+FP
+Xf
+db
 lp
 lp
 lp
@@ -30976,14 +31079,14 @@ lp
 lp
 lp
 lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
+db
+wZ
+DU
+pk
+PC
+HJ
+Ua
+db
 lp
 lp
 lp
@@ -31179,14 +31282,14 @@ lp
 lp
 lp
 lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
+db
+be
+rX
+EO
+lm
+HJ
+Sx
+db
 lp
 lp
 lp
@@ -31382,14 +31485,14 @@ lp
 lp
 lp
 lp
-lp
-lp
 db
+GN
+GN
+GN
+GN
+GN
+GN
 db
-db
-lp
-lp
-lp
 lp
 lp
 lp
@@ -31586,12 +31689,12 @@ lp
 lp
 lp
 db
-db
-db
-jo
-db
-db
-db
+WH
+JJ
+dA
+Ue
+Er
+On
 db
 lp
 lp
