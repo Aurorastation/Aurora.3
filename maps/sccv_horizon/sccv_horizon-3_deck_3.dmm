@@ -4776,7 +4776,6 @@
 /obj/item/device/eftpos{
 	eftpos_name = "HoP EFTPOS scanner"
 	},
-/obj/structure/closet/secure_closet/xo2,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -19789,12 +19788,6 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
-"nLh" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/controlroom)
 "nLA" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
@@ -21210,7 +21203,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/alarm/north,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -22349,11 +22341,11 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/operations/office_aux)
 "pBH" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
 "pBP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -54635,7 +54627,7 @@ tli
 bsg
 glt
 tzE
-nLh
+pBH
 kSF
 gyt
 wRl
@@ -65329,7 +65321,7 @@ wGH
 rAd
 bEW
 kMe
-pBH
+dSF
 dSF
 dSF
 dSF
