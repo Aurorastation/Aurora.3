@@ -26529,12 +26529,10 @@
 	pixel_y = 6
 	},
 /obj/item/ladder_mobile,
-/obj/item/paper/fluff/bunker{
-	name = "Evacuation Route Instructions"
-	},
 /obj/item/clothing/glasses/welding/emergency{
 	pixel_y = -6
 	},
+/obj/item/paper/fluff/bridge,
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "sBl" = (
