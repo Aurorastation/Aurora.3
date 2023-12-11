@@ -546,7 +546,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "dc" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, hydroponics"
 	},
@@ -629,7 +629,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
 "dG" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -678,7 +678,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "dS" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1354,7 +1354,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "hz" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -1572,7 +1572,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "jV" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2511,7 +2511,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "pf" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/effect/shuttle_landmark/scc_scout_ship/catwalk/fore_port{
 	dir = 1
@@ -2613,7 +2613,7 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "pJ" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "pP" = (
@@ -2648,12 +2648,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "pU" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/space/dynamic,
-/area/ship/scc_scout_ship/exterior)
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/mining,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship/engineering_cargo)
 "pX" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -2820,8 +2819,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "qY" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -3429,7 +3427,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "vk" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3445,12 +3443,6 @@
 /obj/effect/shuttle_landmark/scc_scout_ship/space/port_far,
 /turf/template_noop,
 /area/space)
-"vt" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/mining,
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/ship/scc_scout_ship/engineering_cargo)
 "vv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -4120,7 +4112,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "zI" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4237,7 +4229,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Bm" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
@@ -4574,7 +4566,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "DR" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -4607,7 +4599,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "Ep" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
@@ -4790,7 +4782,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "FL" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -4951,7 +4943,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Hc" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -6083,11 +6075,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "PJ" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -6245,7 +6237,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "RB" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -6557,7 +6549,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
 "TQ" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
 	},
@@ -7434,7 +7426,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/eva)
 "YQ" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
@@ -7448,7 +7440,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/hydroponics)
 "YZ" = (
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/lattice/catwalk,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
@@ -36471,7 +36463,7 @@ qC
 qC
 dm
 Px
-pU
+qY
 dm
 EZ
 nE
@@ -36708,18 +36700,18 @@ Xj
 Xj
 Xj
 zI
-pU
-pU
-pU
-pU
-pU
+qY
+qY
+qY
+qY
+qY
 pJ
 dS
 pJ
 Px
 Px
 Px
-pU
+qY
 YQ
 pJ
 dm
@@ -38005,7 +37997,7 @@ vf
 vN
 vN
 Px
-pU
+qY
 dm
 mE
 Nt
@@ -38024,19 +38016,19 @@ gf
 eG
 JP
 yH
-pU
-pU
+qY
+qY
 pJ
-pU
-pU
-pU
-pU
+qY
+qY
+qY
+qY
 hz
-pU
+qY
 pJ
 pJ
 qY
-pU
+qY
 pJ
 pJ
 DR
@@ -44169,7 +44161,7 @@ pP
 mr
 hD
 Si
-vt
+pU
 Si
 NJ
 cW
@@ -44198,10 +44190,10 @@ pJ
 pJ
 pJ
 pJ
-pU
+qY
 pJ
-pU
-pU
+qY
+qY
 pJ
 YZ
 Xj
