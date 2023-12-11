@@ -941,9 +941,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/largecrate/animal/hakhma,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "gv" = (
 /obj/structure/bed/handrail{
@@ -2321,6 +2319,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
+"qN" = (
+/turf/simulated/floor/grass,
+/area/coc_scarab/hydroponics)
 "qQ" = (
 /obj/machinery/vending/hydroseeds,
 /obj/machinery/light{
@@ -2676,7 +2677,8 @@
 /turf/simulated/floor/plating,
 /area/coc_scarab/thrust2)
 "tM" = (
-/turf/simulated/floor/tiled/dark,
+/mob/living/simple_animal/hakhma,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "tO" = (
 /obj/structure/bed/handrail{
@@ -3625,8 +3627,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "BM" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -4951,6 +4953,13 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
+"LM" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 15
+	},
+/turf/simulated/floor/lino,
+/area/coc_scarab/mess)
 "LX" = (
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
@@ -5549,7 +5558,7 @@
 /area/shuttle/coc_scarab)
 "Ql" = (
 /obj/machinery/door/window/eastleft,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "Qo" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -5854,9 +5863,8 @@
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "RU" = (
-/obj/structure/largecrate/animal/hakhma,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "RW" = (
 /obj/machinery/light{
@@ -5918,8 +5926,9 @@
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "So" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
+/mob/living/simple_animal/hakhma,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "Sw" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -6257,12 +6266,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/mess)
 "Uv" = (
-/obj/structure/largecrate/animal/hakhma,
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/mob/living/simple_animal/hakhma,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "UB" = (
 /obj/machinery/door/airlock/external,
@@ -6741,9 +6750,8 @@
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Yz" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "YA" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -6906,7 +6914,8 @@
 /area/coc_scarab/engistorage)
 "ZG" = (
 /obj/machinery/door/window/eastright,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "ZH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -35137,7 +35146,7 @@ ZI
 bT
 kD
 lb
-lb
+YA
 mM
 mM
 YY
@@ -35394,8 +35403,8 @@ ZI
 Hm
 mM
 mM
-YA
 mM
+qN
 RU
 YY
 KT
@@ -35651,8 +35660,8 @@ ak
 Sw
 mM
 Uv
-tM
-tM
+RU
+RU
 Yz
 YY
 qS
@@ -35909,7 +35918,7 @@ Sw
 mM
 RU
 tM
-tM
+qN
 So
 YY
 Vo
@@ -39506,7 +39515,7 @@ Vi
 VS
 Up
 El
-AR
+LM
 Bd
 Im
 Hq
