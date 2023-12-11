@@ -390,6 +390,9 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "cj" = (
@@ -1939,6 +1942,9 @@
 /obj/item/clothing/suit/space/void/medical,
 /obj/item/clothing/head/helmet/space/void/medical,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "lW" = (
@@ -2775,8 +2781,8 @@
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "qM" = (
 /obj/item/device/taperecorder{
-	pixel_x = -2;
-	pixel_y = -1
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /obj/item/pen/multi{
 	pixel_y = 0;
@@ -3431,11 +3437,11 @@
 /turf/template_noop,
 /area/space)
 "vt" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/scc_scout_ship/eva)
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/mining,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship/engineering_cargo)
 "vv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -4860,6 +4866,7 @@
 /obj/machinery/firealarm/north,
 /obj/machinery/atmospherics/portables_connector,
 /obj/random/dirt_75,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Gt" = (
@@ -5442,14 +5449,12 @@
 /area/ship/scc_scout_ship/eva)
 "KQ" = (
 /obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	icon_state = 'fax';
-	icon = 'icons/obj/library.dmi';
-	name = "fax machine";
-	desc = "This one is broken. Really should get it fixed, huh."
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
+	},
+/obj/machinery/photocopier/faxmachine{
+	department = "SCC Scout Ship Captain's Quarters";
+	req_one_access = list(20)
 	},
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/quarters)
@@ -6296,12 +6301,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
-"Se" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/mining,
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/ship/scc_scout_ship/engineering_cargo)
 "Si" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
@@ -41876,7 +41875,7 @@ Ut
 fZ
 yF
 yF
-QV
+OF
 mA
 lc
 gb
@@ -42367,7 +42366,7 @@ cW
 am
 Xp
 ch
-vt
+Lh
 MW
 KM
 yM
@@ -44160,7 +44159,7 @@ pP
 mr
 hD
 Si
-Se
+vt
 Si
 NJ
 cW

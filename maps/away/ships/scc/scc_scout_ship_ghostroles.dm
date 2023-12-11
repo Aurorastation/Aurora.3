@@ -1,6 +1,10 @@
 
 // ---------------------- spawners
 
+/datum/ghostspawner/human/scc_scout_ship_crew
+	short_name = "base/abstract spawner type"
+	name = "base/abstract spawner type"
+
 /datum/ghostspawner/human/scc_scout_ship_crew/captain
 	short_name = "scc_scout_ship_captain"
 	name = "SCC Scout Ship Captain"

@@ -8,6 +8,7 @@
 	id = "scc_scout_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scc_scout_shuttle)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/scc_scout_ship
 	map = "SCC Scout Ship"
