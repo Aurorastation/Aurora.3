@@ -32,12 +32,10 @@
 	icon_state = "engineering"
 	ambience = AMBIENCE_ATMOS
 
-/area/burzsia_station/atmos/tcomms
+/area/burzsia_station/tcomms
 	name = "Telecommunications"
-	icon_state = "tcomms"
-	ambience = AMBIENCE_ATMOS
-	use_power = FALSE
-
+	icon_state = "dark160"
+	requires_power = FALSE
 
 /area/burzsia_station/medbay
 	name = "Medbay"

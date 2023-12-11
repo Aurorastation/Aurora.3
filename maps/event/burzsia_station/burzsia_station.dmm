@@ -581,7 +581,7 @@
 "be" = (
 /obj/machinery/telecomms/server/presets/command,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "bf" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -1139,7 +1139,7 @@
 "cD" = (
 /obj/machinery/telecomms/server/presets/security,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "cE" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -1556,7 +1556,7 @@
 /obj/machinery/computer/telecomms/traffic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "dB" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -3236,6 +3236,9 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
+"hP" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/burzsia_station/atmos/tcomms)
 "hQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4444,7 +4447,7 @@
 "lm" = (
 /obj/machinery/telecomms/server/presets/science,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "lo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6133,7 +6136,7 @@
 "pk" = (
 /obj/machinery/telecomms/processor/preset_two,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "po" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/bed/handrail{
@@ -6982,7 +6985,7 @@
 "rX" = (
 /obj/machinery/telecomms/server/presets/supply,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "rY" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -9076,7 +9079,7 @@
 "wZ" = (
 /obj/machinery/telecomms/processor/preset_one,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "xa" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
@@ -11369,7 +11372,7 @@
 "Dn" = (
 /obj/machinery/telecomms/server/presets/common,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Dp" = (
 /obj/structure/sign/kiddieplaque/janitor{
 	pixel_x = -32
@@ -11613,7 +11616,7 @@
 "DU" = (
 /obj/machinery/telecomms/bus/preset_one,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "DV" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
@@ -12126,7 +12129,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Es" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -12269,7 +12272,7 @@
 "EO" = (
 /obj/machinery/telecomms/server/presets/medical,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "EQ" = (
 /obj/structure/largecrate/animal/pig,
 /obj/effect/floor_decal/industrial/warning{
@@ -12588,7 +12591,7 @@
 "FP" = (
 /obj/machinery/blackbox_recorder,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "FQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -12901,7 +12904,7 @@
 "GN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "GO" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -13216,7 +13219,7 @@
 /area/burzsia_station/bardiner)
 "HJ" = (
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "HK" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
 /turf/simulated/floor/carpet/darkblue,
@@ -13933,7 +13936,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "JK" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -14897,7 +14900,7 @@
 "Mr" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Ms" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -15750,7 +15753,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Oo" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -16249,7 +16252,7 @@
 "PC" = (
 /obj/machinery/telecomms/bus/preset_two,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -17368,7 +17371,7 @@
 "Sx" = (
 /obj/machinery/iff_beacon/horizon,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "SB" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 1
@@ -17997,7 +18000,7 @@
 "Ua" = (
 /obj/machinery/telecomms/allinone/ship/station_relay,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Ub" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -18036,7 +18039,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Uf" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/hologram/holopad,
@@ -18981,7 +18984,7 @@
 /obj/machinery/computer/message_monitor,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "WI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19147,7 +19150,7 @@
 "Xf" = (
 /obj/machinery/telecomms/broadcaster/preset_right,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Xh" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -19615,7 +19618,7 @@
 "Yy" = (
 /obj/machinery/telecomms/server/presets/service,
 /turf/unsimulated/floor,
-/area/burzsia_station/atmos)
+/area/burzsia_station/atmos/tcomms)
 "Yz" = (
 /obj/structure/table/steel,
 /obj/item/device/taperecorder,
@@ -30673,14 +30676,14 @@ lp
 lp
 lp
 lp
-db
-db
-db
-db
-db
-db
-db
-db
+hP
+hP
+hP
+hP
+hP
+hP
+hP
+hP
 lp
 lp
 lp
@@ -30876,14 +30879,14 @@ lp
 lp
 lp
 lp
-db
+hP
 Dn
 Yy
 cD
 Mr
 FP
 Xf
-db
+hP
 lp
 lp
 lp
@@ -31079,14 +31082,14 @@ lp
 lp
 lp
 lp
-db
+hP
 wZ
 DU
 pk
 PC
 HJ
 Ua
-db
+hP
 lp
 lp
 lp
@@ -31282,14 +31285,14 @@ lp
 lp
 lp
 lp
-db
+hP
 be
 rX
 EO
 lm
 HJ
 Sx
-db
+hP
 lp
 lp
 lp
@@ -31485,14 +31488,14 @@ lp
 lp
 lp
 lp
-db
+hP
 GN
 GN
 GN
 GN
 GN
 GN
-db
+hP
 lp
 lp
 lp
@@ -31688,14 +31691,14 @@ lp
 lp
 lp
 lp
-db
+hP
 WH
 JJ
 dA
 Ue
 Er
 On
-db
+hP
 lp
 lp
 lp
