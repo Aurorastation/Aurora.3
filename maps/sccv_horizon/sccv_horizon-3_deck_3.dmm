@@ -7025,9 +7025,6 @@
 	dir = 1;
 	pixel_y = 9
 	},
-/obj/machinery/door/window/eastleft{
-	dir = 2
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -8832,7 +8829,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "gpe" = (
-/obj/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -11261,6 +11257,8 @@
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge/upperdeck)
 "hRV" = (
@@ -20678,9 +20676,6 @@
 /area/horizon/maintenance/deck_three/aft/starboard)
 "onM" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -21596,6 +21591,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/requests_console/north{
+	announcementConsole = 1;
+	department = "Bridge";
+	departmentType = 5;
+	name = "Bridge Requests Console";
+	pixel_y = 35;
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "oTL" = (
@@ -22041,7 +22044,6 @@
 /turf/simulated/floor/plating,
 /area/medical/smoking)
 "pnN" = (
-/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/bridge/upperdeck)
 "poJ" = (
@@ -23247,7 +23249,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled,
 /area/lawoffice/consular)
 "qqN" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -29011,13 +29013,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "urM" = (
-/obj/machinery/door/window/eastleft{
-	dir = 2
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/bridge/upperdeck)
 "utH" = (
@@ -30842,7 +30840,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled,
 /area/lawoffice/consular)
 "vFO" = (
 /obj/machinery/atmospherics/unary/vent_pump/aux{
