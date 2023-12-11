@@ -36,7 +36,7 @@
 	name = "Telecommunications"
 	icon_state = "tcomms"
 	ambience = AMBIENCE_ATMOS
-	use_power = off
+	use_power = FALSE
 
 
 /area/burzsia_station/medbay
