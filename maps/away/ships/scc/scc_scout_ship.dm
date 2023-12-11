@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/scc_scout_ship
 	name = "SCC Scout Ship"
-	description = "SCCV XYZ Desc."
+	description = "A small ship commonly fielded by the Stellar Corporate Conglomerate, the Serendipity-class, Hephaestus-designed and produced. It is supposed to be a small platform, entirely self-sufficient general-purpose scouting and surveying ship, the Serendipity is equipped with both a bluespace and a warp drive and two different engines."
 	suffixes = list("ships/scc/scc_scout_ship.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
@@ -11,14 +11,14 @@
 
 /singleton/submap_archetype/scc_scout_ship
 	map = "SCC Scout Ship"
-	descriptor = "SCCV XYZ Desc."
+	descriptor = "A small ship commonly fielded by the Stellar Corporate Conglomerate, the Serendipity-class, Hephaestus-designed and produced. It is supposed to be a small platform, entirely self-sufficient general-purpose scouting and surveying ship, the Serendipity is equipped with both a bluespace and a warp drive and two different engines."
 
 // ship
 
 /obj/effect/overmap/visitable/ship/scc_scout_ship
 	name = "SCC Scout Ship"
 	class = "SCCV"
-	desc = "SCCV XYZ Desc."
+	desc = "A small ship commonly fielded by the Stellar Corporate Conglomerate, the Serendipity-class, Hephaestus-designed and produced. It is supposed to be a small platform, entirely self-sufficient general-purpose scouting and surveying ship, the Serendipity is equipped with both a bluespace and a warp drive and two different engines."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#cfd4ff", "#78adf8")
@@ -62,16 +62,20 @@
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle
 	name = "SCC Scout Shuttle"
 	class = "SCCV"
-	desc = "SCC Shuttle Desc."
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one appears to be a bit of an older model, perhaps a prototype."
 	shuttle = "SCC Scout Shuttle"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "intrepid"
+	moving_state = "intrepid_moving"
 	colors = list("#cfd4ff", "#78adf8")
-	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
 	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+	designer = "Hephaestus Industries"
+	volume = "17 meters length, 24 meters beam/width, 6 meters vertical height"
+	sizeclass = "Pathfinder Exploration Shuttle"
+	shiptype = "Field expeditions and private research uses"
 
 /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "intrepid")
