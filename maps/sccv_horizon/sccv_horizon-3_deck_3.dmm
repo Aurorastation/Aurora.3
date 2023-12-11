@@ -1234,13 +1234,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
-"aTj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/map_effect/door_helper/level_access/command_stairwell,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "aTZ" = (
 /obj/machinery/door/airlock/command{
 	id_tag = "rep_office_a";
@@ -14299,7 +14292,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "bridgeconf"
+	},
 /turf/simulated/floor,
 /area/bridge/meeting_room)
 "kfc" = (
@@ -15900,9 +15895,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	icon_state = "1-4"
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -22120,7 +22112,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "bridgeconf"
+	},
 /turf/simulated/floor,
 /area/bridge/meeting_room)
 "ptf" = (
@@ -22257,6 +22251,12 @@
 /obj/structure/railing/mapped,
 /obj/structure/platform{
 	dir = 1
+	},
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "bridge_foyer";
+	name = "Bridge";
+	req_one_access = list(19)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -22564,7 +22564,9 @@
 /area/bridge)
 "pPR" = (
 /obj/structure/cable/green,
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "bridgeconf"
+	},
 /turf/simulated/floor,
 /area/bridge/meeting_room)
 "pRj" = (
@@ -25344,7 +25346,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green,
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "bridgeconf"
+	},
 /turf/simulated/floor,
 /area/bridge/meeting_room)
 "rPW" = (
@@ -30368,10 +30372,6 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
-"vqs" = (
-/obj/structure/noticeboard,
-/turf/simulated/wall/r_wall,
-/area/lawoffice/consular_two)
 "vrD" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -31702,7 +31702,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/effect/map_effect/door_helper/level_access/command_stairwell,
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "wmE" = (
@@ -33165,6 +33165,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
+"xml" = (
+/obj/structure/noticeboard,
+/turf/simulated/wall/r_wall,
+/area/lawoffice/consular_two)
 "xmD" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -56422,7 +56426,7 @@ ooI
 lfv
 lfv
 pja
-vqs
+xml
 kNL
 xyc
 saT
@@ -58054,7 +58058,7 @@ fJy
 fJy
 fJy
 fJy
-aTj
+fJy
 fJy
 fJy
 fJy
