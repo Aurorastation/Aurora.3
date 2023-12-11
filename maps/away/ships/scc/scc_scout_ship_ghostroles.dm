@@ -1,11 +1,7 @@
 
 // ---------------------- spawners
 
-/datum/ghostspawner/human/scc_scout_ship_crew
-	short_name = "base/abstract spawner type"
-	name = "base/abstract spawner type"
-
-/datum/ghostspawner/human/scc_scout_ship_crew/captain
+/datum/ghostspawner/human/scc_scout_ship_crew_captain
 	short_name = "scc_scout_ship_captain"
 	name = "SCC Scout Ship Captain"
 	desc = "You are the captain. Pilot the ship, lead your crew, start expeditions, explore worlds."
@@ -23,7 +19,7 @@
 	special_role = "SCC Scout Ship Captain"
 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/orion
+/datum/ghostspawner/human/scc_scout_ship_crew_orion
 	short_name = "scc_scout_ship_orion"
 	name = "SCC Scout Ship Orion Express Crew"
 	desc = "You are a Orion Express crew member. Be the ship's mechanist, cargo and fuel technician, miner, chef, or a general crew/assistant who knows a tiny bit of everything."
@@ -49,7 +45,7 @@
 	special_role = "SCC Scout Ship Crew (Orion)"
 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/heph
+/datum/ghostspawner/human/scc_scout_ship_crew_heph
 	short_name = "scc_scout_ship_heph"
 	name = "SCC Scout Ship Hephaestus Crew"
 	desc = "You are a Hephaestus Industries crew member. Be the ship's engineer, cargo and fuel technician, a miner, or a general crew/assistant who knows a tiny bit of everything."
@@ -75,7 +71,7 @@
 	special_role = "SCC Scout Ship Crew (Heph)"
 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/zeng
+/datum/ghostspawner/human/scc_scout_ship_crew_zeng
 	short_name = "scc_scout_ship_zeng"
 	name = "SCC Scout Ship Zeng-Hu Crew"
 	desc = "You are a Zeng-Hu Pharmaceuticals crew member. Be the ship's scientist, archeologist, physician, surgeon, or a general crew/assistant who knows a tiny bit of everything."
@@ -99,7 +95,7 @@
 	special_role = "SCC Scout Ship Crew (Zeng-Hu)"
 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/nanotrasen
+/datum/ghostspawner/human/scc_scout_ship_crew_nanotrasen
 	short_name = "scc_scout_ship_nanotrasen"
 	name = "SCC Scout Ship NanoTrasen Crew"
 	desc = "You are a NanoTrasen Corporation crew member. Be the ship's physician, surgeon, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
@@ -125,7 +121,7 @@
 	special_role = "SCC Scout Ship Crew (NanoTrasen)"
 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/zavod
+/datum/ghostspawner/human/scc_scout_ship_crew_zavod
 	short_name = "scc_scout_ship_zavod"
 	name = "SCC Scout Ship Zavod Crew"
 	desc = "You are a Zavodskoi Interstellar crew member. Be the ship's engineer, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
