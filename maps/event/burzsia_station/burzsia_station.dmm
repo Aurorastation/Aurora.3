@@ -1399,6 +1399,10 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
+"dd" = (
+/obj/machinery/blackbox_recorder,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "dg" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1553,7 +1557,9 @@
 /turf/simulated/floor,
 /area/burzsia_station/mechbay)
 "dA" = (
-/obj/machinery/iff_beacon/horizon,
+/obj/item/modular_computer/console/preset/research{
+	dir = 1
+	},
 /turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "dB" = (
@@ -3236,11 +3242,7 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
 "hP" = (
-/obj/machinery/computer/telecomms/monitor{
-	network = "tcommsat"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/burzsia_station/tcomms)
 "hQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -4107,10 +4109,6 @@
 	temperature = 303.15
 	},
 /area/burzsia_station/pool)
-"kl" = (
-/obj/machinery/telecomms/bus/preset_two,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "kn" = (
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4453,10 +4451,6 @@
 /area/burzsia_station/lifts)
 "lm" = (
 /obj/machinery/telecomms/server/presets/command,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
-"ln" = (
-/obj/machinery/telecomms/allinone/ship/station_relay,
 /turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "lo" = (
@@ -5536,6 +5530,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/burzsia_station/mining)
+"nD" = (
+/obj/machinery/telecomms/bus/preset_two,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "nE" = (
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
@@ -6777,8 +6775,8 @@
 /obj/item/toy/mech/ripley{
 	pixel_y = 15;
 	pixel_x = -9;
-	name = "sycamore-class exosuit miniature";
-	desc = "A miniature representation of a Sycamore or Syc-class exosuit produced by Hephaestus Industries.";
+	name = "yagatan-class exosuit miniature";
+	desc = "A miniature representation of a Yatagan-class exosuit produced by Hephaestus Industries.";
 	anchored = 1
 	},
 /obj/item/toy/mech/fireripley{
@@ -7255,6 +7253,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/operations)
+"sz" = (
+/obj/machinery/iff_beacon/horizon,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "sA" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1;
@@ -9411,6 +9413,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/shopette)
+"xO" = (
+/obj/machinery/telecomms/server/presets/supply,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "xP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -10428,6 +10434,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
+"Aw" = (
+/obj/machinery/computer/telecomms/server{
+	network = "tcommsat"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "Ax" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -11076,10 +11089,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
-"Cw" = (
-/obj/machinery/telecomms/bus/preset_one,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "Cx" = (
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled,
@@ -12223,6 +12232,9 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
+"EF" = (
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "EG" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -12450,10 +12462,6 @@
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled,
 /area/burzsia_station/rechall)
-"Ft" = (
-/obj/machinery/blackbox_recorder,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "Fu" = (
 /obj/structure/sign/staff_only{
 	pixel_x = 32
@@ -12739,6 +12747,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/primaryhall)
+"Gp" = (
+/obj/machinery/telecomms/server/presets/science,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "Gq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -12920,7 +12932,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_station/bardiner)
 "GN" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/telecomms/broadcaster/preset_right,
 /turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "GO" = (
@@ -13236,7 +13248,7 @@
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/bardiner)
 "HJ" = (
-/obj/machinery/telecomms/server/presets/supply,
+/obj/machinery/telecomms/bus/preset_one,
 /turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "HK" = (
@@ -13951,6 +13963,7 @@
 /turf/simulated/floor/tiled,
 /area/burzsia_station/primaryhall)
 "JJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "JK" = (
@@ -15333,12 +15346,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/primaryhall)
-"Nv" = (
-/obj/item/modular_computer/console/preset/research{
-	dir = 1
-	},
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "Nw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -16752,10 +16759,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/burzsia_station/medbay)
-"QG" = (
-/obj/machinery/telecomms/broadcaster/preset_right,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "QH" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -17277,6 +17280,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/pool)
+"Sb" = (
+/obj/machinery/telecomms/allinone/ship/station_relay,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "Sc" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -17867,6 +17874,13 @@
 /obj/item/trash/tray,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_station/arrivals)
+"TJ" = (
+/obj/machinery/computer/telecomms/monitor{
+	network = "tcommsat"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/burzsia_station/tcomms)
 "TK" = (
 /obj/structure/table/steel,
 /obj/item/folder/sec{
@@ -19004,7 +19018,8 @@
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/lifts)
 "WH" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/telecomms/server/presets/engineering,
+/turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "WI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -19126,10 +19141,6 @@
 	},
 /turf/space,
 /area/space)
-"WY" = (
-/obj/machinery/telecomms/server/presets/science,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "Xb" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
@@ -19869,13 +19880,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
-"YW" = (
-/obj/machinery/computer/telecomms/server{
-	network = "tcommsat"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "YX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -20097,10 +20101,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/mechbay)
-"ZA" = (
-/obj/machinery/telecomms/server/presets/engineering,
-/turf/unsimulated/floor,
-/area/burzsia_station/tcomms)
 "ZC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -30712,17 +30712,17 @@ lp
 lp
 lp
 lp
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+hP
+hP
+hP
+hP
+hP
+hP
+hP
+hP
+hP
+hP
+hP
 lp
 lp
 lp
@@ -30915,17 +30915,17 @@ lp
 lp
 lp
 lp
-WH
+hP
 Dn
 Yy
 cD
 Mr
 FP
 Xf
-ZA
-Ft
-QG
 WH
+dd
+GN
+hP
 lp
 lp
 lp
@@ -31118,17 +31118,17 @@ lp
 lp
 lp
 lp
-WH
+hP
 wZ
 DU
 pk
 PC
-Cw
+HJ
 Ua
-kl
-JJ
-ln
-WH
+nD
+EF
+Sb
+hP
 lp
 lp
 lp
@@ -31321,17 +31321,17 @@ lp
 lp
 lp
 lp
-WH
+hP
 be
 rX
 EO
 lm
-HJ
+xO
 Sx
-WY
-JJ
-dA
-WH
+Gp
+EF
+sz
+hP
 lp
 lp
 lp
@@ -31524,17 +31524,17 @@ lp
 lp
 lp
 lp
-WH
-GN
-GN
-GN
-GN
-GN
-GN
-GN
-GN
-GN
-WH
+hP
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+hP
 lp
 lp
 lp
@@ -31727,17 +31727,17 @@ lp
 lp
 lp
 lp
-WH
-GN
-GN
-GN
+hP
+JJ
+JJ
+JJ
 Ue
 Er
 On
+TJ
+Aw
+dA
 hP
-YW
-Nv
-WH
 lp
 lp
 lp
@@ -31939,8 +31939,8 @@ mn
 mn
 db
 db
-WH
-WH
+hP
+hP
 lp
 lp
 lp
