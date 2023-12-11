@@ -9,7 +9,7 @@ export type CryoData = {
   hasOccupant: BooleanLike;
   cellTemperature: number;
   cellTemperatureStatus: string;
-  occupant: Occupant[];
+  occupant: Occupant;
   isBeakerLoaded: BooleanLike;
   currentStasisMult: number;
   fastStasisMult: number;
@@ -108,7 +108,7 @@ export const CryoContent = (props, context) => {
             <LabeledList.Item
               label="Pulse Rate"
               color={progressClass(data.occupant.brainActivity)}>
-              <AnimatedNumber value={data.occupant.Pulse}> BPM</AnimatedNumber>
+              {data.occupant.pulse} BPM
             </LabeledList.Item>
             <LabeledList.Item
               label="Blood Pressure"
@@ -141,7 +141,7 @@ export const CryoContent = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Divider />
             {damageTypes.map((damageType) => (
-              <LabeledList.Item key={damageType.id} label={damageType.label}>
+              <LabeledList.Item key={damageType.label} label={damageType.label}>
                 <ProgressBar
                   value={data.occupant[damageType.type] / 100}
                   ranges={{ bad: [0.01, Infinity] }}>
@@ -181,7 +181,9 @@ export const CryoContent = (props, context) => {
               {data.isOperating ? 'On' : 'Off'}
             </Button>
           </LabeledList.Item>
-          <LabeledList.Item label="Temperature" color={cellTemperatureStatus}>
+          <LabeledList.Item
+            label="Temperature"
+            color={data.cellTemperatureStatus}>
             <AnimatedNumber value={data.cellTemperature} /> K
           </LabeledList.Item>
           <LabeledList.Item label="Beaker">

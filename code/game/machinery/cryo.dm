@@ -160,7 +160,7 @@
 		occupantData["bruteLoss"] = occupant.getBruteLoss()
 		occupantData["cloneLoss"] = occupant.getCloneLoss()
 		occupantData["bodyTemperature"] = occupant.bodytemperature
-		occupantData["brainActivity"] = occupant.get_brain_status()
+		occupantData["brainActivity"] = occupant.get_brain_result()
 		occupantData["pulse"] = text2num(pulse_result)
 		occupantData["cryostasis"] = occupant.stasis_value
 		occupantData["bloodPressure"] = occupant.get_blood_pressure()
