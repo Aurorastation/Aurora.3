@@ -4715,14 +4715,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/power/apc/south{
-	is_critical = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/power/apc/south{
+	is_critical = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -5982,6 +5982,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -7923,6 +7926,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "fKs" = (
@@ -18192,6 +18198,7 @@
 /obj/item/storage/secure/briefcase{
 	pixel_x = -5
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/crew_quarters/captain)
 "mKb" = (
@@ -19782,6 +19789,12 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"nLh" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
 "nLA" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
@@ -21598,6 +21611,9 @@
 	name = "Bridge Requests Console";
 	pixel_y = 35;
 	pixel_x = -2
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -23906,6 +23922,9 @@
 "qMd" = (
 /obj/structure/fireaxecabinet/north{
 	pixel_y = 30
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -54616,7 +54635,7 @@ tli
 bsg
 glt
 tzE
-lxj
+nLh
 kSF
 gyt
 wRl

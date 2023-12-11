@@ -746,6 +746,7 @@
 		equipment, if necessary.</li></ol></font></font>"
 
 // Used in the bridge on the SCCV Horizon
+/obj/item/paper/fluff/bridge
 	name = "bridge evacuation route instructions"
 	desc = "A paper. It has evacuation route instructions printed on it."
 	info = "<font face=\"Verdana\"><center>SCCV Horizon Command <br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
