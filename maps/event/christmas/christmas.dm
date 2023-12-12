@@ -117,18 +117,11 @@
 	desc_extended = "A cookie of the SCCV Horizon.. Will I get in trouble for eating it?"
 	icon = 'icons/holidays/christmas/christmascookies.dmi'
 	icon_state = "gingerbread_horizon"
+
 /obj/item/reagent_containers/food/snacks/cookie/gingerbread/random
 	name = "Random Gingerbread Cookie"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("cookie" = 2))
-	problist = list(
-		/obj/item/reagent_containers/food/snacks/cookie/gingerbread = 1,
-		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/cane = 1,
-		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/snowflake = 1,
-		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/tree = 1,
-		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/bell = 1,
-		/obj/item/reagent_containers/food/snacks/cookie/gingerbread/horizon = 1
-	)
 
 // christmas cookies tray
 /obj/item/reagent_containers/food/snacks/chipplate/christmas_cookies

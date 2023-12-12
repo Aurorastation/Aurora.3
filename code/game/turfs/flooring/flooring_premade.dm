@@ -400,6 +400,9 @@
 	icon_state = "snow0"
 	does_footprint = TRUE
 	footprint_color = COLOR_SNOW
+	light_power = 1
+	light_color = LIGHT_COLOUR_WARM
+	light_range = 2
 	track_distance = 4
 
 /turf/simulated/floor/plating/snow
