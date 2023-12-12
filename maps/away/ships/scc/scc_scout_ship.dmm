@@ -906,6 +906,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/item/device/flashlight/lantern{
+	pixel_x = 7;
+	pixel_y = -9
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "fq" = (
@@ -2154,6 +2158,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koiswaffles,
 /obj/item/reagent_containers/food/snacks/koiskebab3,
 /obj/item/reagent_containers/food/snacks/phoroncandy,
 /obj/random/dirt_75,
@@ -2788,15 +2793,15 @@
 	pixel_x = -10;
 	pixel_y = 4
 	},
+/obj/item/folder/blue{
+	pixel_y = 11;
+	pixel_x = 4
+	},
+/obj/structure/table/reinforced/steel,
 /obj/item/pen/multi{
 	pixel_y = 0;
 	pixel_x = 5
 	},
-/obj/item/folder/blue{
-	pixel_y = 15;
-	pixel_x = 4
-	},
-/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/bridge)
 "qO" = (
@@ -3221,6 +3226,10 @@
 /obj/machinery/light/small/emergency,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/cell_charger{
+	pixel_y = 0
+	},
+/obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
 "tX" = (
@@ -5238,8 +5247,8 @@
 "Jb" = (
 /obj/random/dirt_75,
 /obj/random/tech_supply{
-	pixel_x = -8;
-	pixel_y = 3
+	pixel_x = -5;
+	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
@@ -6257,10 +6266,15 @@
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "RQ" = (
 /obj/item/book/manual/wiki/security_space_law{
-	pixel_x = -3;
-	pixel_y = 4
+	pixel_x = -1;
+	pixel_y = 0
 	},
 /obj/structure/table/reinforced/steel,
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = 8;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/bridge)
 "RZ" = (
@@ -6402,7 +6416,10 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north,
-/obj/random/tech_supply,
+/obj/random/tech_supply{
+	pixel_y = 0;
+	pixel_x = 3
+	},
 /obj/random/tech_supply{
 	pixel_x = -5;
 	pixel_y = 2
@@ -7169,11 +7186,6 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/machinery/button/distress{
-	pixel_x = -6;
-	pixel_y = -3;
-	dir = 1
-	},
 /obj/machinery/recharger{
 	pixel_y = 9;
 	pixel_x = -5
