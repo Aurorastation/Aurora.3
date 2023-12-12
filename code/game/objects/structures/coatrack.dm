@@ -57,22 +57,6 @@
 	else
 		return ..()
 
-/obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!coat && (istype(mover, /obj/item/clothing/suit/storage/toggle) || istype(mover, /obj/item/clothing/accessory/poncho)))
-		src.visible_message("[mover] lands on \the [src].")
-		coat = mover
-		coat.forceMove(src)
-		update_icon()
-		return 0
-	else if(!hat && istype(mover, /obj/item/clothing/head))
-		src.visible_message("[mover] lands on \the [src].")
-		hat = mover
-		hat.forceMove(src)
-		update_icon()
-		return 0
-	else
-		return 1
-
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
 	if(coat)

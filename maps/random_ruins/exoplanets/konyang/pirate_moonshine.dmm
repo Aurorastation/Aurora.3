@@ -82,10 +82,19 @@
 /area/konyang_pirate_moonshine)
 "t" = (
 /obj/structure/closet/crate/secure/weapon/alt,
-/obj/random/civgun,
-/obj/random/civgun,
-/obj/random/civgun/rifle,
 /obj/machinery/light,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/smg10mm,
+/obj/item/ammo_magazine/smg10mm,
+/obj/item/ammo_magazine/smg10mm,
+/obj/item/gun/projectile/automatic/konyang_pirate,
+/obj/item/gun/projectile/automatic/konyang_pirate,
+/obj/item/gun/projectile/revolver/konyang/pirate,
+/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle,
+/obj/item/gun/projectile/revolver/konyang/pirate,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "v" = (

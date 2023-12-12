@@ -48,3 +48,22 @@
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
 	path = /obj/item/trap/sharpened
+
+/datum/uplink_item/item/stealthy_weapons/punji_trap
+	name = "Punji Trap"
+	desc = "A box with 5 punji traps."
+	telecrystal_cost = 2
+	bluecrystal_cost = 2
+	path = /obj/item/storage/box/traps/punji
+
+/datum/uplink_item/item/stealthy_weapons/standstill_landmines
+	name = "Standstill Landmines"
+	desc = "A box with 5 standstill landmines."
+	telecrystal_cost = 5
+	path = /obj/item/storage/box/landmines/standstill
+
+/datum/uplink_item/item/stealthy_weapons/claymore_mines
+	name = "Claymore Mines"
+	desc = "A box with 5 claymore miners, relative detonators (signalers), and a spare one for you to trigger them all."
+	telecrystal_cost = 8
+	path = /obj/item/storage/box/landmines/claymore

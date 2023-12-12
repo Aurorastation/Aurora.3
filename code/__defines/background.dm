@@ -110,6 +110,7 @@
 #define ACCENT_AEMAQ "Aemaq"
 #define ACCENT_NEWSUEZ "New Suez"
 #define ACCENT_DAMASCUS "Damascus II"
+#define ACCENT_BURSA "Bursa"
 #define ACCENT_ANTILLIA "Port Antillia"
 #define ACCENT_XANU "Xanu"
 #define ACCENT_SANCOLETTE "San Colette"
