@@ -7337,6 +7337,12 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -7700,9 +7706,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/civilian_east)
@@ -11927,6 +11930,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "izo" = (
@@ -24093,7 +24097,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/area/engineering/break_room)
 "rdE" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -24163,9 +24167,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "rgZ" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -54559,7 +54560,7 @@ iib
 aMn
 guz
 mZm
-fpr
+xJx
 czo
 dEE
 qLy
