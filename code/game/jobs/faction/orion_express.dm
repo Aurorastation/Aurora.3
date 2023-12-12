@@ -47,6 +47,7 @@
 		"Curator" = /datum/outfit/job/librarian/orion/curator,
 		"Tech Support" = /datum/outfit/job/librarian/orion/tech_support,
 		"Corporate Reporter" = /datum/outfit/job/journalist/orion,
+		"Chaplain" = /datum/outfit/job/chaplain/orion,
 		"Corporate Liaison" = /datum/outfit/job/representative/orion,
 		"Off-Duty Crew Member" = /datum/outfit/job/visitor/orion
 	)
@@ -188,6 +189,15 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
+/datum/outfit/job/chaplain/orion
+	name = "Chaplain - Orion Express"
+
+	id = /obj/item/card/id/orion
+
+	backpack_faction = /obj/item/storage/backpack/orion
+	satchel_faction = /obj/item/storage/backpack/satchel/orion
+	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
+	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
 /datum/outfit/job/visitor/orion
 	name = "Off-Duty Crew Member - Orion Express"
