@@ -22,6 +22,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/helm)
+"aS" = (
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/bridge/helm)
 "bb" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/coatrack,
@@ -287,6 +293,9 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "fR" = (
@@ -367,6 +376,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "hj" = (
@@ -451,6 +461,9 @@
 	pixel_x = -9;
 	pixel_y = 16
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "iR" = (
@@ -504,6 +517,12 @@
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/carpet,
 /area/bridge/helm)
+"jE" = (
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/bridge/helm)
 "jU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -533,6 +552,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bridge/helm)
+"kj" = (
+/obj/effect/mist,
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/bridge/helm)
 "kr" = (
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/wood/walnut,
@@ -551,6 +577,9 @@
 /area/bridge/helm)
 "kM" = (
 /obj/structure/bed/stool/chair/sofa/left/black,
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "kR" = (
@@ -559,6 +588,13 @@
 	pixel_x = 31
 	},
 /turf/simulated/floor/carpet,
+/area/bridge/helm)
+"kU" = (
+/obj/structure/bed/stool/padded,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "la" = (
 /obj/structure/platform_stairs/full/east_west_cap,
@@ -570,6 +606,16 @@
 /area/bridge/helm)
 "ld" = (
 /turf/simulated/floor/snow,
+/area/bridge/helm)
+"lh" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/effect/mist,
+/turf/simulated/floor/beach/water/pool,
 /area/bridge/helm)
 "li" = (
 /obj/structure/table/standard,
@@ -598,6 +644,12 @@
 "lO" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
+/area/bridge/helm)
+"lZ" = (
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "mc" = (
 /obj/structure/bookcase/libraryspawn/fiction,
@@ -674,6 +726,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
+/area/bridge/helm)
+"nh" = (
+/obj/structure/bed/stool/chair/sofa/left/black,
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "ni" = (
 /obj/machinery/vending/medical{
@@ -893,6 +955,12 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
+"qP" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/bridge/helm)
 "qR" = (
 /obj/machinery/door/airlock/freezer,
 /turf/simulated/floor/tiled/white,
@@ -919,6 +987,13 @@
 	color = "#824B28"
 	},
 /turf/simulated/floor/wood/walnut,
+/area/bridge/helm)
+"rw" = (
+/obj/structure/table/stone/marble,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/helm)
 "rE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -962,6 +1037,14 @@
 "sn" = (
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/marble/dark,
+/area/bridge/helm)
+"sA" = (
+/obj/structure/table/wood,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "sJ" = (
 /obj/structure/platform{
@@ -1068,6 +1151,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/helm)
+"uv" = (
+/obj/structure/platform_deco,
+/obj/structure/platform_deco{
+	dir = 1
+	},
+/obj/effect/mist,
+/turf/simulated/floor/beach/water/pool,
+/area/bridge/helm)
 "uA" = (
 /obj/structure/platform{
 	color = "#824B28"
@@ -1150,6 +1241,12 @@
 "wv" = (
 /obj/machinery/vending/dinnerware/bar{
 	pixel_x = 3
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/helm)
@@ -1259,6 +1356,16 @@
 	dir = 5
 	},
 /turf/simulated/floor/wood,
+/area/bridge/helm)
+"xJ" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/helm)
 "xL" = (
 /obj/structure/platform{
@@ -1401,6 +1508,15 @@
 "zs" = (
 /obj/machinery/bodyscanner,
 /turf/simulated/floor/carpet/rubber,
+/area/bridge/helm)
+"zw" = (
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "zA" = (
 /obj/machinery/chem_master,
@@ -1563,6 +1679,9 @@
 	pixel_x = -3;
 	pixel_y = 16
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/helm)
 "CX" = (
@@ -1596,6 +1715,9 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
+/area/bridge/helm)
+"DO" = (
+/turf/simulated/floor/beach/water/pool,
 /area/bridge/helm)
 "DR" = (
 /obj/structure/railing/fence,
@@ -1670,7 +1792,16 @@
 /area/bridge/helm)
 "FQ" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
 /turf/simulated/floor/wood/walnut,
+/area/bridge/helm)
+"Ga" = (
+/obj/structure/platform_stairs{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/bridge/helm)
 "Gb" = (
 /turf/simulated/wall/wood,
@@ -1770,6 +1901,9 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/helm)
 "GV" = (
@@ -1832,6 +1966,12 @@
 	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/bridge/helm)
+"Hk" = (
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "Hp" = (
 /obj/machinery/door/airlock/freezer,
@@ -1972,6 +2112,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "JC" = (
@@ -1984,6 +2125,19 @@
 "JG" = (
 /obj/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
+/area/bridge/helm)
+"JH" = (
+/obj/machinery/vending/boozeomat{
+	opacity = 1;
+	req_access = null
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
 /area/bridge/helm)
 "JK" = (
 /obj/structure/bed/stool/chair/sofa/left/black{
@@ -2013,6 +2167,9 @@
 /area/bridge/helm)
 "Ka" = (
 /obj/structure/bed/stool/chair/padded/black,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "Kb" = (
@@ -2072,6 +2229,19 @@
 /obj/item/storage/box/fancy/tray,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
+/area/bridge/helm)
+"Ld" = (
+/obj/structure/table/stone/marble,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/bridge/helm)
+"Li" = (
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
 /area/bridge/helm)
 "Lo" = (
 /turf/simulated/floor/wood/walnut,
@@ -2152,6 +2322,22 @@
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
+"MK" = (
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/obj/structure/platform/cutout,
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/bridge/helm)
+"MN" = (
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/bridge/helm)
 "MQ" = (
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/carpet/red,
@@ -2215,6 +2401,10 @@
 /obj/structure/sign/christmas/tinsel,
 /turf/simulated/wall/wood,
 /area/bridge/helm)
+"Ox" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/wall/wood,
+/area/bridge/helm)
 "OA" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
@@ -2271,9 +2461,29 @@
 	},
 /turf/simulated/floor/concrete,
 /area/bridge/helm)
+"Pj" = (
+/obj/structure/bed/stool/chair/sofa/right/black,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/bridge/helm)
 "Pz" = (
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood/walnut,
+/area/bridge/helm)
+"PD" = (
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/effect/mist,
+/turf/simulated/floor/beach/water/pool,
 /area/bridge/helm)
 "PG" = (
 /obj/structure/bed/roller,
@@ -2309,6 +2519,13 @@
 	color = "#824B28"
 	},
 /turf/simulated/floor/carpet/red,
+/area/bridge/helm)
+"Qx" = (
+/obj/structure/table/stone/marble,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
 /area/bridge/helm)
 "QC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2377,6 +2594,13 @@
 	},
 /obj/structure/lightpost,
 /turf/simulated/floor/concrete,
+/area/bridge/helm)
+"RE" = (
+/obj/structure/bed/stool/chair/padded/black,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "RR" = (
 /obj/structure/railing/fence{
@@ -2563,6 +2787,7 @@
 /area/bridge/helm)
 "VK" = (
 /obj/structure/bookcase/libraryspawn/fiction,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "VM" = (
@@ -2617,6 +2842,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
+/area/bridge/helm)
+"Wy" = (
+/obj/structure/table/wood,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/wood/walnut,
 /area/bridge/helm)
 "WG" = (
 /obj/structure/bed/stool/padded,
@@ -2717,6 +2950,29 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/bridge/helm)
+"YU" = (
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/bridge/helm)
+"YW" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/bridge/helm)
 "YY" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner_wide/green{
@@ -2735,6 +2991,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
+/area/bridge/helm)
+"Zl" = (
+/obj/machinery/appliance/cooker/fryer,
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/helm)
 "Zp" = (
 /obj/structure/platform{
@@ -2759,6 +3022,16 @@
 	amount = 6
 	},
 /turf/simulated/floor/tiled/white,
+/area/bridge/helm)
+"Zu" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/structure/sign/christmas/lights{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/bridge/helm)
 "ZL" = (
 /obj/machinery/smartfridge/secure/medbay,
@@ -7543,11 +7816,11 @@ ld
 ld
 ld
 ld
+Ib
 ld
 ld
 ld
-ld
-ld
+Ib
 ld
 ld
 ld
@@ -7670,11 +7943,11 @@ ld
 ld
 ld
 ld
+Ib
 ld
 ld
 ld
-ld
-ld
+Ib
 ld
 ld
 ld
@@ -7795,13 +8068,13 @@ ld
 ld
 ld
 ld
+xc
+ld
+Ib
 ld
 ld
 ld
-ld
-ld
-ld
-ld
+Ib
 ld
 ld
 ld
@@ -7924,11 +8197,11 @@ ld
 ld
 ld
 ld
+Ib
 ld
 ld
 ld
-ld
-ld
+Ib
 ld
 ld
 TH
@@ -8022,10 +8295,10 @@ ld
 ld
 ok
 Yp
-zr
-Uk
-Kr
-kr
+JH
+aS
+Qx
+kU
 Lo
 wA
 wA
@@ -8051,11 +8324,11 @@ ld
 ld
 ld
 ld
+Ib
 ld
 ld
 ld
-xc
-ld
+Ib
 ld
 ld
 ld
@@ -8178,11 +8451,11 @@ ld
 xc
 ld
 ld
-ld
+Ib
 NV
 NV
 NV
-ld
+Ib
 ld
 xc
 ld
@@ -8305,11 +8578,11 @@ ld
 ld
 ld
 ld
-ld
+Ib
 NV
 NV
 NV
-ld
+Ib
 ld
 ld
 ld
@@ -8404,13 +8677,13 @@ ld
 ok
 Yp
 wv
-Uk
-Uk
+Li
+Li
+lZ
 Lo
 Lo
-Lo
-Lo
-Lo
+lZ
+lZ
 rK
 Lo
 Lo
@@ -8432,11 +8705,11 @@ ld
 ld
 ld
 ld
-ld
+Ib
 NV
 NV
 NV
-ld
+Ib
 ld
 ld
 ld
@@ -8559,11 +8832,11 @@ ld
 ld
 ld
 ld
-ld
+Ib
 NV
 jn
 NV
-ld
+Ib
 ld
 ld
 ld
@@ -8657,12 +8930,12 @@ ld
 ld
 ok
 Gb
-FQ
+Pj
+ig
+ig
+ig
 Lo
-Lo
-Lo
-Lo
-Lo
+Pz
 Gb
 mc
 Ex
@@ -8686,15 +8959,15 @@ ld
 ld
 xc
 ld
-ld
+Ib
 NV
 NV
 NV
+Ib
 ld
 ld
 ld
-ld
-ld
+xc
 ld
 ld
 ld
@@ -8789,7 +9062,7 @@ xf
 xf
 xf
 Lo
-Lo
+Pz
 Gb
 Ql
 Hs
@@ -8911,7 +9184,7 @@ xc
 ld
 ok
 Gb
-xf
+jE
 xf
 xf
 xf
@@ -8944,7 +9217,7 @@ NV
 NV
 NV
 NV
-NV
+Ib
 ld
 ld
 ld
@@ -9038,7 +9311,7 @@ ld
 ld
 ok
 Gb
-xf
+jE
 xf
 fv
 xf
@@ -9071,7 +9344,7 @@ NV
 NV
 NV
 NV
-NV
+Ib
 ld
 ld
 ld
@@ -9165,7 +9438,7 @@ ld
 ld
 ok
 Gb
-xf
+jE
 xf
 xf
 xf
@@ -9198,7 +9471,7 @@ NV
 NV
 NV
 NV
-NV
+Ib
 ld
 ld
 ld
@@ -9419,12 +9692,12 @@ hf
 hf
 VQ
 Gb
-kM
-Lo
+nh
+lZ
 Lo
 Lo
 Ka
-mX
+Wy
 Gb
 Mv
 Js
@@ -9571,7 +9844,7 @@ DR
 iR
 ld
 ld
-ld
+xc
 ld
 ld
 ld
@@ -9584,7 +9857,7 @@ ld
 ld
 ld
 ld
-ld
+xc
 ld
 ld
 ld
@@ -9676,14 +9949,14 @@ mH
 CL
 IB
 Lo
-Lo
+Pz
 Gb
-Lo
-Lo
-Ka
-mX
-Gb
+zw
 ig
+RE
+sA
+Gb
+zw
 ig
 ig
 Lo
@@ -9810,7 +10083,7 @@ Lo
 Lo
 Jw
 Gb
-Lo
+Hk
 Lo
 Lo
 Lo
@@ -9952,7 +10225,7 @@ ld
 ld
 ld
 ld
-ld
+xc
 ld
 ld
 ld
@@ -10057,14 +10330,14 @@ CL
 CL
 CL
 Lo
-Lo
+Pz
 Gb
+Hk
 Lo
-Lo
-Lo
-Lo
+lZ
+lZ
 rK
-Lo
+lZ
 Lo
 Lo
 Lo
@@ -10186,8 +10459,8 @@ Gb
 Gb
 Gb
 Gb
-Lo
-Lo
+Hk
+Pz
 Gb
 Gb
 Gb
@@ -10309,15 +10582,15 @@ ol
 ol
 ol
 ol
-BE
-bj
+Zu
+YW
 GR
-xZ
+rw
 Lo
 Lo
 fJ
 fJ
-Lo
+YU
 Gb
 JC
 Qf
@@ -10436,7 +10709,7 @@ dx
 CI
 pf
 ol
-CL
+MN
 CL
 CL
 CL
@@ -10444,7 +10717,7 @@ Lo
 Lo
 mX
 mX
-Lo
+Pz
 Gb
 en
 Ib
@@ -10456,7 +10729,7 @@ ld
 al
 ld
 ld
-ld
+xc
 ld
 ld
 xc
@@ -10571,7 +10844,7 @@ Lo
 Lo
 SV
 SV
-Lo
+Pz
 Gb
 gP
 Ib
@@ -10690,15 +10963,15 @@ ct
 pf
 pf
 ol
-Mi
-Vj
+xJ
+Zl
+Ld
 xZ
-xZ
 Lo
 Lo
 Lo
 Lo
-Lo
+lZ
 MJ
 eW
 Ib
@@ -10711,7 +10984,7 @@ al
 ld
 ld
 ld
-ld
+fa
 ld
 ld
 ld
@@ -11096,7 +11369,7 @@ ld
 ld
 ld
 ld
-ld
+xc
 ld
 ld
 Ib
@@ -11219,7 +11492,7 @@ ld
 ld
 ld
 ld
-ld
+xc
 ld
 ld
 ld
@@ -11586,8 +11859,8 @@ nr
 fj
 fj
 mH
-te
-te
+CL
+CL
 Gb
 te
 te
@@ -11600,7 +11873,7 @@ pl
 ld
 ld
 ld
-ld
+xc
 ld
 ld
 ld
@@ -11713,9 +11986,9 @@ Gv
 QM
 QM
 Nz
-te
-te
-ow
+CL
+CL
+Gb
 te
 te
 te
@@ -11840,8 +12113,8 @@ Gv
 QM
 sc
 nD
-te
-te
+CL
+CL
 Gb
 te
 te
@@ -11966,9 +12239,9 @@ Gb
 tO
 Zp
 Ir
-te
-te
-te
+CL
+CL
+CL
 Gb
 te
 te
@@ -12094,7 +12367,7 @@ Gb
 Gb
 Gb
 Gb
-Gb
+Ox
 Gb
 Gb
 te
@@ -12216,14 +12489,14 @@ ld
 ld
 ld
 ld
-Gb
-nr
-fj
-fj
-mH
 te
 te
-Gb
+te
+te
+te
+te
+te
+te
 te
 te
 te
@@ -12343,14 +12616,14 @@ ld
 ld
 ld
 ld
-Gb
-Gv
-QM
-QM
-Nz
 te
 te
-ow
+te
+te
+te
+te
+te
+te
 te
 te
 te
@@ -12470,14 +12743,14 @@ ld
 ld
 ld
 ld
-Gb
-Gv
-QM
-sc
-nD
 te
 te
-Gb
+te
+te
+te
+te
+te
+te
 te
 te
 te
@@ -12598,12 +12871,12 @@ ld
 ld
 ld
 Gb
-tO
-Zp
-Ir
-te
-te
-te
+Gb
+Gb
+Gb
+Gb
+ow
+Gb
 Gb
 te
 te
@@ -12725,12 +12998,12 @@ ld
 ld
 ld
 Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
+nr
+fj
+PD
+CL
+CL
+CL
 Gb
 te
 te
@@ -12852,12 +13125,12 @@ ld
 ld
 ld
 Gb
-nr
-fj
-fj
-mH
-te
-te
+Gv
+QM
+kj
+MK
+CL
+CL
 Gb
 te
 te
@@ -12981,11 +13254,11 @@ ld
 Gb
 Gv
 QM
-QM
-Nz
-te
-te
-ow
+uv
+qP
+CL
+CL
+Gb
 te
 te
 pd
@@ -13106,12 +13379,12 @@ ld
 ld
 ld
 Gb
-Gv
-QM
-sc
-nD
-te
-te
+tO
+Zp
+Zp
+lh
+CL
+CL
 Gb
 te
 te
@@ -13230,15 +13503,15 @@ ld
 ld
 ld
 ld
-ld
-ld
 Gb
-tO
-Zp
-Ir
-te
-te
-te
+Gb
+Gb
+Gb
+Gb
+Gb
+Gb
+Gb
+Gb
 Gb
 te
 te
@@ -13357,16 +13630,16 @@ ld
 ld
 ld
 ld
-ld
-ld
 Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
+DO
+DO
+DO
+DO
+DO
+DO
+CL
+CL
+Bz
 te
 te
 ow
@@ -13484,16 +13757,16 @@ ld
 ld
 ld
 ld
-ld
-ld
 Gb
-nr
-fj
-fj
-mH
-te
-te
-Gb
+DO
+DO
+DO
+DO
+DO
+Ga
+CL
+CL
+Bz
 te
 te
 pd
@@ -13611,15 +13884,15 @@ ld
 ld
 ld
 ld
-ld
-ld
 Gb
-Gv
-QM
-QM
-Nz
-te
-te
+DO
+DO
+DO
+DO
+DO
+Ga
+CL
+CL
 ow
 te
 te
@@ -13738,16 +14011,16 @@ ld
 ld
 ld
 ld
-ld
-ld
 Gb
-Gv
-QM
-sc
-nD
-te
-te
-Gb
+DO
+DO
+DO
+DO
+DO
+Ga
+CL
+CL
+Bz
 te
 te
 pd
@@ -13865,16 +14138,16 @@ ld
 ld
 ld
 ld
-ld
-ld
 Gb
-tO
-Zp
-Ir
-te
-te
-te
-Gb
+DO
+DO
+DO
+DO
+DO
+DO
+CL
+CL
+Bz
 te
 te
 pd
@@ -13992,8 +14265,8 @@ ld
 ld
 ld
 ld
-ld
-ld
+Gb
+Gb
 Gb
 Gb
 Gb
