@@ -1374,8 +1374,9 @@
 /area/burzsia_station/arrivals)
 "cZ" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/landmark/start{
-	name = "Etna Clerk"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_bartender";
+	name = "igs - etna_bartender"
 	},
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/bardiner)
@@ -1546,6 +1547,10 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
 /obj/item/device/integrated_electronics/wirer{
 	pixel_x = -6;
 	pixel_y = 3
@@ -2161,12 +2166,6 @@
 /area/burzsia_station/primaryhall)
 "eV" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/fake_object{
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open";
-	name = "elevator door"
-	},
 /obj/item/mop{
 	pixel_x = -3;
 	pixel_y = -2
@@ -2709,11 +2708,12 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/stationobjs.dmi';
+	icon = 'icons/obj/machinery/button.dmi';
 	icon_state = "doorctrl0";
 	name = "Cargo Processing Shutter Control";
 	pixel_x = -24;
-	pixel_y = 6
+	pixel_y = 6;
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/operations)
@@ -2900,14 +2900,8 @@
 /area/burzsia_station/sorting)
 "gV" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/fake_object{
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open";
-	name = "elevator door"
-	},
 /turf/simulated/floor/tiled/full,
-/area/burzsia_station/lifts)
+/area/burzsia_station/securityhall)
 "gW" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -3592,8 +3586,9 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/effect/landmark/start{
-	name = "Etna Security Officer"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_security";
+	name = "igs - etna_security"
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
@@ -3649,8 +3644,9 @@
 	pixel_y = -2
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/unsimulated/floor{
+/turf/simulated/floor/plating{
 	icon_state = "elevatorshaft";
+	icon = 'icons/turf/flooring/tiles.dmi';
 	name = "elevator machinery"
 	},
 /area/burzsia_station/lifts)
@@ -4088,9 +4084,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/burzsia_station/atmos)
 "kg" = (
-/turf/unsimulated/wall/fakepdoor{
-	name = "docking umbilical F-1 blast doors"
-	},
+/obj/machinery/door/blast/odin,
+/turf/simulated/floor/tiled/dark,
 /area/burzsia_station/arrivals)
 "kh" = (
 /obj/structure/closet/crate/secure/phoron,
@@ -4272,7 +4267,6 @@
 "kR" = (
 /obj/structure/closet/crate/extinguisher_cartridges,
 /obj/machinery/conveyor{
-	icon_state = "conveyor-1";
 	id = "hephev_cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -4745,13 +4739,11 @@
 /turf/simulated/floor/tiled,
 /area/burzsia_station/afthall)
 "lX" = (
-/turf/unsimulated/wall/fakepdoor{
-	icon_state = "shutter1";
-	name = "shutter";
-	opacity = 0;
-	permit_ao = 0;
-	dir = 8
+/obj/machinery/door/blast/shutters{
+	dir = 8;
+	id = "etna_workshop"
 	},
+/turf/simulated/floor/tiled,
 /area/burzsia_station/mechbay)
 "lY" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -4759,7 +4751,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/stationobjs.dmi';
+	icon = 'icons/obj/machinery/button.dmi';
 	icon_state = "doorctrl0";
 	name = "Hangar Shutter Control";
 	pixel_x = 7;
@@ -5209,8 +5201,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "Etna Security Officer"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_security";
+	name = "igs - etna_security"
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
@@ -5260,12 +5253,13 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/stationobjs.dmi';
+	icon = 'icons/obj/machinery/button.dmi';
 	icon_state = "doorctrl0";
 	name = "Cargo Processing Shutter Control";
 	pixel_x = 24;
 	pixel_y = 6;
-	layer = 3.1
+	layer = 3.1;
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
@@ -6215,8 +6209,9 @@
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/landmark/start{
-	name = "Conglomerate Liaison"
+/obj/effect/ghostspawpoint{
+	identifier = "scc_goon";
+	name = "igs - scc_goon"
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sscrepoffice)
@@ -6483,8 +6478,9 @@
 /area/burzsia_station/arrivals)
 "qy" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/landmark/start{
-	name = "Hephaestus Liaison"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_suit";
+	name = "igs - etna_suit"
 	},
 /turf/simulated/floor/carpet/orange,
 /area/burzsia_station/command)
@@ -6762,8 +6758,7 @@
 /area/burzsia_station/medbay)
 "rt" = (
 /obj/machinery/door/airlock/highsecurity{
-	dir = 4;
-	req_one_access = list(101)
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/mechbay)
@@ -6977,6 +6972,12 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "etna_workshop";
+	name = "Shutter Control";
+	pixel_x = 19
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/mechbay)
@@ -7467,8 +7468,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/landmark/start{
-	name = "Physician"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_med";
+	name = "igs - etna_med"
 	},
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/medbay)
@@ -7520,13 +7522,10 @@
 /turf/simulated/floor/tiled/full,
 /area/burzsia_station/command)
 "to" = (
-/turf/unsimulated/wall/fakepdoor{
-	icon_state = "shutter1";
-	name = "shutter";
-	opacity = 0;
-	permit_ao = 0;
+/obj/machinery/door/blast/shutters{
 	dir = 4
 	},
+/turf/simulated/floor/tiled,
 /area/burzsia_station/operations)
 "tr" = (
 /obj/structure/closet/crate/solar,
@@ -8148,12 +8147,15 @@
 	icon_state = "custodial_door"
 	},
 /obj/effect/decal/fake_object{
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open";
-	name = "elevator door"
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi';
+	icon_state = "grey_glass";
+	name = "elevator door";
+	dir = 8;
+	pixel_y = -16;
+	pixel_x = -16;
+	density = 1
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/burzsia_station/lifts)
 "vo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8889,8 +8891,9 @@
 /area/burzsia_station/bardiner)
 "wy" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/effect/landmark/start{
-	name = "Etna Security Officer"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_security";
+	name = "igs - etna_security"
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
@@ -9613,7 +9616,6 @@
 /area/burzsia_station/mining)
 "ym" = (
 /obj/machinery/conveyor{
-	icon_state = "conveyor-1";
 	id = "hephev_cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -9681,7 +9683,7 @@
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/stationobjs.dmi';
+	icon = 'icons/obj/machinery/button.dmi';
 	icon_state = "doorctrl0";
 	name = "Cargo Processing Shutter Control";
 	pixel_y = 26
@@ -9790,7 +9792,6 @@
 "yN" = (
 /obj/item/stack/material/silver/full,
 /obj/machinery/conveyor{
-	icon_state = "conveyor-1";
 	id = "hephev_cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -11251,7 +11252,7 @@
 	pixel_x = -8
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/stationobjs.dmi';
+	icon = 'icons/obj/machinery/button.dmi';
 	icon_state = "doorctrl0";
 	name = "Hangar Shutter Control";
 	pixel_x = 7;
@@ -11430,8 +11431,9 @@
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/landmark/start{
-	name = "Hephaestus Liaison"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_suit";
+	name = "igs - etna_suit"
 	},
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/hephrepoffice)
@@ -12319,21 +12321,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
-"EW" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "o_door_half_open";
-	name = "elevator door"
-	},
-/obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
-	},
-/turf/simulated/floor/tiled/full,
-/area/burzsia_station/lifts)
 "EY" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -12384,8 +12371,9 @@
 /obj/structure/sign/staff_only{
 	pixel_x = 32
 	},
-/obj/effect/landmark/start{
-	name = "Etna Clerk"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_clerk";
+	name = "igs - etna_clerk"
 	},
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/shopette)
@@ -13879,15 +13867,15 @@
 	pixel_x = -5;
 	pixel_y = 7
 	},
-/obj/item/stamp{
-	pixel_x = -5;
-	pixel_y = 2
-	},
 /obj/item/material/ashtray/bronze{
 	pixel_x = 5;
 	pixel_y = -4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/stamp/hephaestus{
+	pixel_x = -5;
+	pixel_y = 2
+	},
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/hephrepoffice)
 "Jz" = (
@@ -14165,9 +14153,6 @@
 /turf/simulated/floor/tiled,
 /area/burzsia_station/arrivalshall)
 "Km" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1;
 	layer = 2.02
@@ -14219,7 +14204,8 @@
 	},
 /obj/machinery/conveyor{
 	dir = 9;
-	id = "hephev_cargo"
+	id = "hephev_cargo";
+	reversed = 1
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
@@ -14968,8 +14954,9 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/landmark/start{
-	name = "Etna Bartender"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_bartender";
+	name = "igs - etna_bartender"
 	},
 /turf/simulated/floor/marble/dark,
 /area/burzsia_station/bardiner)
@@ -15217,6 +15204,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/south,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/lifts)
 "MZ" = (
@@ -15375,8 +15363,9 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/effect/landmark/start{
-	name = "Etna Machinist"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_machinist";
+	name = "igs - etna_machinist"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/burzsia_station/mechbay)
@@ -15783,9 +15772,6 @@
 /turf/unsimulated/floor,
 /area/burzsia_station/tcomms)
 "Oo" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/light/floor{
 	dir = 4
@@ -16323,12 +16309,8 @@
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
 "PJ" = (
-/turf/unsimulated/wall/fakepdoor{
-	icon_state = "shutter1";
-	name = "shutter";
-	opacity = 0;
-	permit_ao = 0
-	},
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
 "PK" = (
 /obj/machinery/door/firedoor,
@@ -17004,8 +16986,9 @@
 	dir = 10;
 	pixel_y = 0
 	},
-/obj/effect/landmark/start{
-	name = "Etna Security Officer"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_security";
+	name = "igs - etna_security"
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/security)
@@ -17368,15 +17351,6 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/burzsia_station/karaoke)
-"St" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark/start{
-	name = "Physician"
-	},
-/turf/simulated/floor/tiled/white,
-/area/burzsia_station/medbay)
 "Su" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -18024,13 +17998,8 @@
 /turf/simulated/floor/plating,
 /area/burzsia_station/mining)
 "TX" = (
-/turf/unsimulated/wall/fakepdoor{
-	icon_state = "shutter1";
-	name = "shutter";
-	opacity = 0;
-	permit_ao = 0;
-	dir = 1
-	},
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/plating,
 /area/burzsia_station/mining)
 "TZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -18380,18 +18349,20 @@
 /area/burzsia_station/bardiner)
 "UU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_closed";
-	name = "elevator door"
-	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
 	layer = 4
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi';
+	icon_state = "grey_glass";
+	name = "elevator door";
+	dir = 8;
+	pixel_y = -16;
+	pixel_x = -16;
+	density = 1
+	},
+/turf/simulated/floor/tiled,
 /area/burzsia_station/lifts)
 "UV" = (
 /obj/effect/floor_decal/corner/blue{
@@ -18420,14 +18391,17 @@
 /turf/simulated/floor/plating,
 /area/burzsia_station/mining)
 "UY" = (
-/obj/effect/decal/fake_object{
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open";
-	name = "elevator door"
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi';
+	icon_state = "grey_glass";
+	name = "elevator door";
+	dir = 8;
+	pixel_y = -16;
+	pixel_x = -16;
+	density = 1
+	},
+/turf/simulated/floor/tiled,
 /area/burzsia_station/lifts)
 "UZ" = (
 /obj/effect/floor_decal/corner/beige{
@@ -18628,6 +18602,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/lifts)
 "VA" = (
@@ -19035,8 +19010,9 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/effect/landmark/start{
-	name = "Etna Clerk"
+/obj/effect/ghostspawpoint{
+	identifier = "etna_clerk";
+	name = "igs - etna_clerk"
 	},
 /turf/simulated/floor/tiled/full,
 /area/burzsia_station/primaryhall)
@@ -19197,11 +19173,12 @@
 "Xi" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/fake_object{
-	density = 1;
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_closed";
-	name = "VIP elevator door"
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi';
+	icon_state = "grey_glass";
+	name = "VIP elevator door";
+	pixel_x = -16;
+	pixel_y = -16;
+	density = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/burzsia_station/securityhall)
@@ -19705,16 +19682,17 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/item/stamp{
-	pixel_x = -5;
-	pixel_y = -1
-	},
 /obj/structure/table/standard,
 /obj/structure/sign/flag/scc/large/north{
 	pixel_y = 32
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/item/stamp/xo{
+	pixel_x = -5;
+	pixel_y = -1;
+	name = "SCC Rubber Stamp"
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sscrepoffice)
@@ -19892,7 +19870,8 @@
 	},
 /obj/machinery/conveyor{
 	dir = 9;
-	id = "hephev_cargo"
+	id = "hephev_cargo";
+	reversed = 1
 	},
 /turf/simulated/floor/tiled,
 /area/burzsia_station/sorting)
@@ -37998,7 +37977,7 @@ JC
 CM
 Tn
 SH
-St
+ka
 vA
 oW
 lV
@@ -39056,13 +39035,13 @@ cQ
 cQ
 im
 Js
-UY
-UY
+yL
+yL
 Js
 im
 Js
-UY
-UY
+yL
+yL
 Js
 im
 im
@@ -39265,7 +39244,7 @@ im
 im
 im
 UU
-EW
+UU
 im
 im
 im
@@ -41294,8 +41273,8 @@ vm
 im
 im
 im
-gV
-gV
+UY
+UY
 im
 im
 im
@@ -41493,12 +41472,12 @@ cQ
 im
 Js
 eV
-gV
+yL
 Js
 im
 Js
-UY
-UY
+yL
+yL
 Js
 im
 cQ
@@ -44095,7 +44074,7 @@ xL
 jF
 Ec
 Ti
-Xi
+gV
 Xi
 PW
 jj
@@ -44298,7 +44277,7 @@ xL
 jF
 yF
 VR
-Xi
+gV
 Xi
 tE
 gA
@@ -51849,7 +51828,7 @@ lp
 Kc
 Kc
 nq
-AL
+kg
 AL
 AL
 kg
