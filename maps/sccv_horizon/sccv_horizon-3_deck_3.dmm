@@ -92,14 +92,14 @@
 "acV" = (
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,78)
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "adi" = (
@@ -4985,18 +4985,18 @@
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "command_foyer";
-	name = "Bridge";
-	req_one_access = list(19,38)
-	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "securitycommandshutter";
 	name = "Security Checkpoint External Shutter"
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "command_foyer";
+	name = "Bridge";
+	req_one_access = list(19,38,78)
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "dYO" = (
@@ -13120,12 +13120,6 @@
 "juN" = (
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
-/obj/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "command_foyer";
-	name = "Bridge";
-	req_one_access = list(19,38)
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -13136,6 +13130,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "command_foyer";
+	name = "Bridge";
+	req_one_access = list(19,38,78)
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "jvo" = (
@@ -20140,12 +20140,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "oeb" = (
-/obj/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "command_foyer";
-	name = "Bridge";
-	req_one_access = list(19,38)
-	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -20153,6 +20147,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "command_foyer";
+	name = "Bridge";
+	req_one_access = list(19,38,78)
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "oeg" = (
@@ -26597,7 +26597,7 @@
 "sKC" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Bridge Defense Equipment";
-	req_access = list(19,38);
+	req_access = null;
 	req_one_access = list(19,38)
 	},
 /obj/item/gun/energy/gun,
@@ -28581,7 +28581,7 @@
 "ugJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Bridge Defense Armor";
-	req_access = list(19,38);
+	req_access = null;
 	req_one_access = list(19,38)
 	},
 /obj/item/clothing/head/helmet/security/generic,
