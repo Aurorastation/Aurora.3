@@ -48,7 +48,7 @@
 	if(!source.loc)
 		// It's an announcer message, just send it to the horizon's receiver
 		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
-			if(R.z in current_map.station_levels)
+			if((R.z in current_map.station_levels) && R.use_power && R.operable())
 				R.receive_signal(src)
 				return TRUE
 
@@ -60,6 +60,9 @@
 	for(var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
 		t_range = R.receive_range(src)
 		if(t_range <= -1)
+			continue
+
+		if(!R.operable() || !R.use_power)
 			continue
 
 		if(t_range < closest_range)

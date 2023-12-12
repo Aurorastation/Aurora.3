@@ -456,14 +456,17 @@ var/global/list/default_interrogation_channels = list(
 	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, speaking, message, say_verb)
 
 	// All radios attempt to use the subspace system
-	. = signal.send_to_receivers()
+	var/reached_receiver = signal.send_to_receivers()
 
 	// If it's subspace only, that's all we can do
 	if(subspace_transmission)
 		return
 
-	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
-	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
+	if(reached_receiver)
+		// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
+		addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
+	else
+		backup_transmission(signal)
 
 /obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Shortwave radios now instantly broadcast their non-subspace message if a working receiver could not be found."
