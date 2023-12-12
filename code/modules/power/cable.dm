@@ -1124,35 +1124,42 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	add_fingerprint(user)
 
-	if(M == user && buckle(M))
+	if(M == user && buckle(M, user))
 		M.visible_message(\
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
 		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
+
 	else
-		M.visible_message(\
-			SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),\
-			SPAN_DANGER("[user] ties \the [src] over your neck!"))
+		M.visible_message(SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),
+							SPAN_DANGER("[user] ties \the [src] over your neck!"))
+
 		to_chat(user, SPAN_NOTICE("It will take 20 seconds and you have to stand still."))
+
 		if(do_after(user, 200))
-			if(buckle(M))
-				M.visible_message(\
-					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
-					SPAN_DANGER("[user] ties \the [src] over your neck!"))
+			if(buckle(M, user))
+				M.visible_message(SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),
+									SPAN_DANGER("[user] ties \the [src] over your neck!"))
+
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+
 				SSstatistics.IncrementSimpleStat("hangings")
+
 				return TRUE
+
 			else
-				user.visible_message(\
-					SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),\
-					SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+				user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
+										SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
 				return FALSE
+
 		else
-			user.visible_message(\
-				SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),\
-				SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
+			user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
+									SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
 			return FALSE
 
 /obj/structure/noose/process(mob/living/carbon/human/M, mob/user)
