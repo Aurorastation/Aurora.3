@@ -16298,6 +16298,13 @@
 	},
 /turf/simulated/floor,
 /area/burzsia_station/mechbay)
+"PH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ecd{
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled,
+/area/burzsia_station/sorting)
 "PI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -34745,7 +34752,7 @@ nl
 nl
 DR
 lB
-lB
+PH
 XN
 Ia
 Ia
@@ -34947,8 +34954,8 @@ zz
 zz
 gz
 NF
-zz
-zz
+lB
+lB
 XN
 Ia
 Ia
@@ -35150,8 +35157,8 @@ zz
 zz
 zz
 zz
-lB
-lB
+zz
+zz
 XN
 EC
 FK
