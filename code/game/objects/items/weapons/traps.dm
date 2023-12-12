@@ -783,10 +783,7 @@
 			if(isvaurca(L) && prob(50))
 				return
 
-			organ.germ_level += INFECTION_LEVEL_ONE
-
-			//Add some fertilizer to poison the target whole, not only the external organ (leg/foot)
-			L.reagents.add_reagent(/singleton/reagent/toxin/fertilizer, 10)
+			organ.germ_level += INFECTION_LEVEL_THREE
 
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)
