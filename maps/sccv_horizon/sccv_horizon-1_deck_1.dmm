@@ -175,9 +175,8 @@
 	frequency = 1380;
 	id_tag = "intrepid_dock";
 	name = "\improper Intrepid docking port controller";
-	req_one_access = list(74);
-	dir = 2;
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = list(74)
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
@@ -753,6 +752,10 @@
 	icon_state = "8,13"
 	},
 /area/shuttle/intrepid/quarters)
+"aFa" = (
+/obj/structure/closet/secure_closet/package_courier,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "aFf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3730,7 +3733,6 @@
 	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 2;
 	frequency = 1386;
 	id_tag = "canary_dock";
 	name = "\improper Canary docking port controller";
@@ -9330,8 +9332,8 @@
 	no_cargo = 1
 	},
 /obj/item/stack/material/steel/full{
-	pixel_y = 15;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 15
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -15089,6 +15091,7 @@
 /area/engineering/atmos/propulsion/starboard)
 "kzD" = (
 /obj/machinery/alarm/east,
+/obj/structure/closet/secure_closet/package_courier,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "kzJ" = (
@@ -47333,7 +47336,7 @@ rot
 qdE
 iNW
 kzD
-nCV
+aFa
 iNW
 qdE
 gkr
