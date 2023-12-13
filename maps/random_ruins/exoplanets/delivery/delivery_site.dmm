@@ -7,7 +7,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "aR" = (
 /obj/effect/landmark/clear,
@@ -21,37 +21,37 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bi" = (
 /obj/effect/landmark/clear,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bk" = (
 /obj/effect/landmark/clear,
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bA" = (
 /obj/structure/cargo_receptacle,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bE" = (
 /obj/effect/landmark/clear,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bP" = (
 /obj/effect/landmark/clear,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/concrete,
+/turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bQ" = (
 /obj/effect/landmark/clear,
