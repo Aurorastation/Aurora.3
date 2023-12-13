@@ -35,7 +35,8 @@
 	var/package_amount = rand(2, 4)
 	for(var/i = 1 to package_amount)
 		var/turf/random_turf = pick_n_take(warehouse_turfs)
-		new /obj/item/cargo_package(random_turf, src)
+		if(random_turf)
+			new /obj/item/cargo_package(random_turf, src)
 
 /obj/structure/cargo_receptacle/attackby(obj/item/item, mob/user)
 	if(istype(item, /obj/item/cargo_package))
