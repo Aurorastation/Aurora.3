@@ -14,13 +14,13 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/ointment,
-/obj/item/stack/medical/ointment,
 /obj/item/stack/medical/splint/full,
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
 /turf/unsimulated/floor/concrete,
 /area/template_noop)
 "bi" = (
