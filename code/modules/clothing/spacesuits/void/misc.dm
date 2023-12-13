@@ -1003,3 +1003,25 @@
 	icon_auto_adapt = TRUE
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
+
+/obj/item/clothing/head/helmet/space/void/tcaf
+	name = "tau ceti armed forces voidsuit helmet"
+	desc = "A Zavodskoi-designed armored voidsuit helmet, painted in the colors of the Republic of Biesel. Commonly seen in use by personnel of the Tau Ceti Armed Forces."
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
+	icon_state = "tcaf_helmet"
+	item_state = "tcaf_helmet"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+	icon_auto_adapt = TRUE
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
+	brightness_on = 6
+	siemens_coefficient = 0.35
