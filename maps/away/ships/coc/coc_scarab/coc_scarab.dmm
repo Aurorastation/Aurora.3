@@ -1263,6 +1263,15 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /turf/simulated/floor/lino,
 /area/coc_scarab/mess)
+"iS" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/space/dynamic,
+/area/coc_scarab/solars)
 "iU" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -2397,7 +2406,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "rj" = (
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
 /turf/space/dynamic,
 /area/space)
 "rk" = (
@@ -2647,12 +2660,8 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/scarab_harvester)
 "tr" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
-/turf/space/dynamic,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/airless,
 /area/space)
 "ty" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4372,12 +4381,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_scarab/grauwolf)
-"Hg" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/space/dynamic,
-/area/coc_scarab/solars)
 "Hm" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -4594,10 +4597,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
 "IR" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "IU" = (
@@ -6362,9 +6362,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Vi" = (
-/obj/structure/lattice,
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/space/dynamic,
-/area/space)
+/area/coc_scarab/solars)
 "Vl" = (
 /turf/simulated/wall/r_wall,
 /area/coc_scarab/engine)
@@ -6441,14 +6443,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "VK" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/space/dynamic,
-/area/coc_scarab/solars)
+/area/space)
 "VM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -30721,7 +30721,7 @@ cB
 cB
 cB
 px
-tr
+rj
 cB
 cB
 cB
@@ -30978,7 +30978,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -31235,7 +31235,7 @@ cB
 cB
 kV
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -31492,7 +31492,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -31505,7 +31505,7 @@ cB
 cB
 cB
 sd
-IR
+VK
 cB
 cB
 cB
@@ -31749,7 +31749,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -32006,7 +32006,7 @@ cB
 cB
 kV
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -32019,7 +32019,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -32263,7 +32263,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -32276,7 +32276,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 kV
 cB
 cB
@@ -32520,7 +32520,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -32533,7 +32533,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -32778,19 +32778,19 @@ cB
 kV
 Kk
 px
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
 px
-tr
+rj
 cB
 cB
 cB
@@ -33047,7 +33047,7 @@ px
 px
 px
 px
-tr
+rj
 kV
 cB
 cB
@@ -33283,13 +33283,13 @@ cB
 cB
 cB
 sd
-IR
-IR
-IR
-IR
-IR
-IR
-IR
+VK
+VK
+VK
+VK
+VK
+VK
+VK
 px
 px
 Bm
@@ -33304,7 +33304,7 @@ gL
 GT
 Tx
 px
-tr
+rj
 cB
 cB
 cB
@@ -33546,8 +33546,8 @@ jO
 jO
 jO
 jO
-Vi
-Vi
+IR
+IR
 px
 ec
 bL
@@ -33561,7 +33561,7 @@ zU
 zU
 ru
 px
-tr
+rj
 cB
 cB
 cB
@@ -33804,7 +33804,7 @@ dt
 Cm
 jO
 jO
-Vi
+IR
 px
 Il
 bH
@@ -33818,7 +33818,7 @@ Rr
 HY
 Il
 SV
-tr
+rj
 kV
 cB
 cB
@@ -34061,7 +34061,7 @@ PS
 jG
 jO
 jO
-Vi
+IR
 px
 bU
 Rr
@@ -34075,7 +34075,7 @@ zU
 bL
 RS
 px
-tr
+rj
 cB
 cB
 cB
@@ -34333,27 +34333,27 @@ re
 Uh
 px
 px
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-rj
-IR
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+tr
+VK
 px
 px
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
 Er
 cB
 cB
@@ -34599,19 +34599,19 @@ px
 px
 px
 px
-rj
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
 tr
+px
+px
+px
+px
+px
+px
+px
+px
+px
+px
+px
+rj
 cB
 cB
 cB
@@ -34868,7 +34868,7 @@ lb
 lb
 lb
 lb
-tr
+rj
 cB
 cB
 cB
@@ -37134,7 +37134,7 @@ cB
 cB
 cB
 lb
-VK
+iS
 YF
 UN
 cR
@@ -37650,7 +37650,7 @@ cB
 lb
 Qe
 YF
-Hg
+Vi
 cR
 Qe
 YF
@@ -41533,24 +41533,24 @@ lb
 lb
 ML
 Fq
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
+VK
 Er
 cB
 kV
@@ -41773,7 +41773,7 @@ dS
 Lg
 QK
 gc
-IR
+VK
 Lc
 Lc
 Lc
@@ -41808,7 +41808,7 @@ od
 od
 od
 px
-tr
+rj
 cB
 cB
 cB
@@ -42046,7 +42046,7 @@ lb
 lb
 lb
 Kk
-tr
+rj
 lb
 lb
 lb
@@ -42065,7 +42065,7 @@ lb
 lb
 lb
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -42285,7 +42285,7 @@ dG
 HL
 yu
 yu
-Vi
+IR
 px
 cn
 lb
@@ -42303,7 +42303,7 @@ Oy
 lb
 lb
 Kk
-tr
+rj
 lb
 eX
 eX
@@ -42322,7 +42322,7 @@ eX
 eX
 lb
 Kk
-tr
+rj
 cB
 kV
 cB
@@ -42560,7 +42560,7 @@ bp
 bJ
 lb
 Kk
-tr
+rj
 lb
 wY
 BN
@@ -42579,7 +42579,7 @@ vY
 IM
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -42817,7 +42817,7 @@ gf
 fz
 cB
 Kk
-tr
+rj
 cB
 wY
 wb
@@ -42836,7 +42836,7 @@ ox
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -43074,7 +43074,7 @@ ml
 fz
 cB
 Kk
-tr
+rj
 cB
 wY
 ZZ
@@ -43093,7 +43093,7 @@ JI
 cB
 cB
 Kk
-tr
+rj
 cB
 kV
 cB
@@ -43331,7 +43331,7 @@ MN
 bJ
 cB
 Kk
-tr
+rj
 cB
 eX
 Oi
@@ -43350,7 +43350,7 @@ AS
 wc
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -43588,7 +43588,7 @@ ZA
 Bu
 cB
 Kk
-tr
+rj
 cB
 nJ
 HW
@@ -43605,7 +43605,7 @@ Xt
 TZ
 TZ
 ac
-IR
+VK
 px
 px
 px
@@ -43845,7 +43845,7 @@ MN
 bJ
 cB
 Kk
-tr
+rj
 cB
 eX
 Se
@@ -44102,7 +44102,7 @@ ml
 fz
 cB
 Kk
-tr
+rj
 cB
 eX
 lB
@@ -44121,7 +44121,7 @@ NT
 XU
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -44359,7 +44359,7 @@ zm
 fz
 cB
 Kk
-tr
+rj
 cB
 wY
 wb
@@ -44378,7 +44378,7 @@ JI
 cB
 cB
 Kk
-tr
+rj
 cB
 kV
 cB
@@ -44616,7 +44616,7 @@ tq
 bJ
 cB
 Kk
-tr
+rj
 cB
 wY
 wb
@@ -44635,7 +44635,7 @@ JI
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -44873,7 +44873,7 @@ pZ
 cB
 cB
 Kk
-tr
+rj
 cB
 wY
 pA
@@ -44892,7 +44892,7 @@ kE
 lX
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -45114,7 +45114,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 cB
 cB
@@ -45130,7 +45130,7 @@ cB
 cB
 cB
 Kk
-tr
+rj
 cB
 eX
 eX
@@ -45149,7 +45149,7 @@ eX
 eX
 cB
 jk
-tr
+rj
 cB
 kV
 cB
@@ -45387,7 +45387,7 @@ cB
 cB
 cB
 bO
-tr
+rj
 cB
 cB
 cB
