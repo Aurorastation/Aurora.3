@@ -800,6 +800,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/ringer/north,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aCw" = (
@@ -14824,6 +14825,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/ringer/south,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "kAB" = (
@@ -16351,7 +16353,7 @@
 /obj/random/plushie{
 	layer = 2.8
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/ringer/north,
 /turf/simulated/floor/wood,
 /area/bridge/upperdeck)
 "lzD" = (
@@ -23816,6 +23818,10 @@
 	pixel_x = 10;
 	pixel_y = 6
 	},
+/obj/item/pinpointer{
+	pixel_x = 7;
+	pixel_y = -7
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "qSd" = (
@@ -29742,6 +29748,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/full,
 /area/bridge/upperdeck)
 "uZD" = (
