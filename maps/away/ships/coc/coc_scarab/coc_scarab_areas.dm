@@ -1,9 +1,9 @@
 /area/coc_scarab
 	name = "Scarab Salvage Vessel"
 	icon_state = "blue"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 1
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	has_gravity = FALSE

@@ -42,10 +42,10 @@
 		"scarab_dock2",
 		"scarab_dock3",
 		"scarab_dock4",
-		"scarab_dock5"
+		"scarab_dock5",
+		"scarab_dock6"
 	)
 	initial_restricted_waypoints = list(
-		"Intrepid" = list("scarab_intrepid"),
 		"Scarab Shuttle" = list("nav_scarab_start"),
 		"Scarab Gas Harvester" = list("nav_scarab_harvester_start")
 	)
@@ -94,9 +94,9 @@
 	name = "Scarab Salvage Vessel - Starboard Dock #3"
 	landmark_tag = "scarab_dock5"
 
-/obj/effect/shuttle_landmark/coc_scarab/intrepid
-	name = "Scarab Salvage Vessel - Intrepid Dock"
-	landmark_tag = "scarab_intrepid"
+/obj/effect/shuttle_landmark/coc_scarab/dock6
+	name = "Scarab Salvage Vessel - Port Dock #3"
+	landmark_tag = "scarab_dock6"
 
 //Shuttles
 /obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester
