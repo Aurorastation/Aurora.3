@@ -8,7 +8,6 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
-	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
@@ -40,10 +39,13 @@
 		var/mob/living/carbon/human/courier = loc
 		courier.update_inv_back()
 
-/obj/item/cargo_backpack/get_mob_overlay(var/mob/living/carbon/human/courier, var/mob_icon, var/mob_state, var/slot)
+/obj/item/cargo_backpack/get_mob_overlay(mob/living/carbon/human/courier, var/mob_icon, var/mob_state, var/slot, var/main_call = TRUE)
 	var/image/mob_overlay = ..()
-	mob_overlay.layer = courier.layer + 0.01 // we want the tall backpack to render over hair and helmets
-	mob_overlay.appearance_flags |= KEEP_APART
+	if(main_call)
+		var/image/north_overlay = get_mob_overlay(courier, mob_icon, mob_state + "_over", slot, FALSE)
+		north_overlay.layer = courier.layer + 0.01 // we want the tall backpack to render over hair and helmets
+		north_overlay.appearance_flags |= KEEP_APART
+		mob_overlay.add_overlay(north_overlay)
 	return mob_overlay
 
 /obj/item/cargo_backpack/attack_hand(mob/living/carbon/human/user)

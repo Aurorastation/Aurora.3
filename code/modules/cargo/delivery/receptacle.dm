@@ -79,7 +79,7 @@
 			//create a transaction log entry
 			var/datum/transaction/transaction = new()
 			transaction.target_name = "Successful Delivery"
-			transaction.purpose = "5% Tip for completed Courier Duty"
+			transaction.purpose = "2% Tip for completed Courier Duty"
 			transaction.amount = "[tip_amount]"
 			transaction.date = worlddate2text()
 			transaction.time = worldtime2text()
