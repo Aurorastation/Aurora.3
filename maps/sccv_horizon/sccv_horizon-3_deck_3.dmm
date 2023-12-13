@@ -93,12 +93,15 @@
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
+/obj/effect/map_effect/door_helper/level_access/command_foyer{
+	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	access_by_level = null
+	},
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -2268,8 +2271,7 @@
 /obj/machinery/door/airlock/command{
 	dir = 4;
 	name = "Captain's Office";
-	req_access = list(20);
-	id_tag = "capoffice"
+	req_access = list(20)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
@@ -4836,6 +4838,7 @@
 	name = "Consular Office B";
 	req_access = list(72)
 	},
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
 /area/lawoffice/consular_two)
 "dRP" = (
@@ -4990,12 +4993,15 @@
 	id = "securitycommandshutter";
 	name = "Security Checkpoint External Shutter"
 	},
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_one_access = list(19,38,72)
+	},
+/obj/effect/map_effect/door_helper/level_access/command_foyer{
+	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -13129,12 +13135,15 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
+/obj/effect/map_effect/door_helper/level_access/command_foyer{
+	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	access_by_level = null
+	},
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -17329,7 +17338,7 @@
 	dir = 4;
 	id_tag = "hra_room";
 	name = "Human Resources Meeting Room";
-	req_one_access = list(19,38,72)
+	req_one_access = s
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -20146,12 +20155,15 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_one_access = list(19,38,72)
+	},
+/obj/effect/map_effect/door_helper/level_access/command_foyer{
+	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -26331,6 +26343,7 @@
 	pixel_y = -6
 	},
 /obj/item/paper/fluff/bridge,
+/obj/item/crowbar/red,
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "sBl" = (
