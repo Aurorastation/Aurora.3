@@ -18,7 +18,10 @@
 	var/amount = 1
 	var/max_amount //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
 	var/stacktype //determines whether different stack types can merge
-	var/build_type = null //used when directly applied to a turf
+
+	///Used when directly applied to a turf to behave as a different `/obj/item/stack/tile` than it's actual type
+	var/obj/item/stack/tile/build_type = null
+
 	var/uses_charge = 0
 	var/list/charge_costs = null
 	var/list/datum/matter_synth/synths = null
