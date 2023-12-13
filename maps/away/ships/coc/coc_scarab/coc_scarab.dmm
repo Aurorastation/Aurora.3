@@ -108,7 +108,7 @@
 /obj/effect/shuttle_landmark/coc_scarab/dock4{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "aV" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -265,7 +265,7 @@
 /obj/effect/shuttle_landmark/coc_scarab/dock2{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "bR" = (
 /turf/simulated/floor/tiled,
@@ -319,7 +319,7 @@
 	icon_state = "railing0-0"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "co" = (
 /obj/machinery/biogenerator{
@@ -429,7 +429,7 @@
 /area/coc_scarab/mess)
 "cR" = (
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/coc_scarab/solars)
 "cV" = (
 /obj/structure/railing/mapped{
@@ -475,7 +475,7 @@
 	name = "Fuel Line Merge"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless,
+/turf/space/dynamic,
 /area/space)
 "dt" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -525,7 +525,7 @@
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/coc_scarab/dock3,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -1323,7 +1323,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "jq" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1614,7 +1614,7 @@
 /obj/effect/shuttle_landmark/coc_scarab/dock6{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "lu" = (
 /obj/structure/cable/green{
@@ -1661,7 +1661,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "lO" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -1678,7 +1678,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "lX" = (
 /obj/structure/railing/mapped{
@@ -2082,7 +2082,7 @@
 /area/coc_scarab/bunks)
 "px" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "py" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -2397,12 +2397,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "rj" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
-/turf/template_noop,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/space/dynamic,
 /area/space)
 "rk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2503,7 +2499,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "sg" = (
 /obj/machinery/light{
@@ -2605,7 +2601,7 @@
 /turf/template_noop,
 /area/space)
 "sV" = (
-/turf/template_noop,
+/turf/space/dynamic,
 /area/coc_scarab/solars)
 "te" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -2618,7 +2614,7 @@
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/coc_scarab/dock1,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "ti" = (
 /obj/structure/cable/yellow{
@@ -2656,7 +2652,7 @@
 	density = 0;
 	icon_state = "railing0-0"
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "ty" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -3237,7 +3233,7 @@
 	density = 0;
 	icon_state = "railing0-0"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "yu" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -3410,7 +3406,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "zZ" = (
 /obj/effect/map_effect/marker/airlock{
@@ -3961,7 +3957,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "Ev" = (
 /obj/structure/cable/green{
@@ -4315,7 +4311,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "GP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4376,6 +4372,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_scarab/grauwolf)
+"Hg" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/space/dynamic,
+/area/coc_scarab/solars)
 "Hm" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -4596,7 +4598,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "IU" = (
 /turf/simulated/floor/reinforced/airless,
@@ -4717,7 +4719,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "Kl" = (
 /obj/structure/table/reinforced/steel,
@@ -4855,7 +4857,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "Lf" = (
 /obj/structure/dispenser/oxygen,
@@ -5960,7 +5962,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "SX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
@@ -6361,8 +6363,8 @@
 /area/space)
 "Vi" = (
 /obj/structure/lattice,
-/turf/template_noop,
-/area/coc_scarab/medical)
+/turf/space/dynamic,
+/area/space)
 "Vl" = (
 /turf/simulated/wall/r_wall,
 /area/coc_scarab/engine)
@@ -6439,12 +6441,14 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "VK" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/turf/space,
-/area/space)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/space/dynamic,
+/area/coc_scarab/solars)
 "VM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -30717,7 +30721,7 @@ cB
 cB
 cB
 px
-rj
+tr
 cB
 cB
 cB
@@ -30973,8 +30977,8 @@ cB
 cB
 cB
 cB
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -31230,8 +31234,8 @@ cB
 cB
 cB
 kV
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -31487,8 +31491,8 @@ cB
 cB
 cB
 cB
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -31744,8 +31748,8 @@ cB
 cB
 cB
 cB
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -31757,7 +31761,7 @@ cB
 cB
 cB
 cB
-OB
+Kk
 aT
 cB
 cB
@@ -32001,8 +32005,8 @@ cB
 cB
 cB
 kV
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -32015,7 +32019,7 @@ cB
 cB
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -32258,8 +32262,8 @@ cB
 cB
 cB
 cB
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -32272,7 +32276,7 @@ cB
 cB
 cB
 Kk
-rj
+tr
 kV
 cB
 cB
@@ -32515,8 +32519,8 @@ cB
 cB
 cB
 cB
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -32529,7 +32533,7 @@ cB
 cB
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -32772,7 +32776,7 @@ cB
 cB
 cB
 kV
-OB
+Kk
 px
 IR
 IR
@@ -32785,8 +32789,8 @@ IR
 IR
 IR
 IR
-qs
-rj
+px
+tr
 cB
 cB
 cB
@@ -33029,7 +33033,7 @@ cB
 cB
 cB
 cB
-OB
+Kk
 px
 px
 px
@@ -33042,8 +33046,8 @@ px
 px
 px
 px
-qs
-rj
+px
+tr
 kV
 cB
 cB
@@ -33299,8 +33303,8 @@ cV
 gL
 GT
 Tx
-qs
-rj
+px
+tr
 cB
 cB
 cB
@@ -33542,8 +33546,8 @@ jO
 jO
 jO
 jO
-lb
-lb
+Vi
+Vi
 px
 ec
 bL
@@ -33556,8 +33560,8 @@ zU
 zU
 zU
 ru
-qs
-rj
+px
+tr
 cB
 cB
 cB
@@ -33800,7 +33804,7 @@ dt
 Cm
 jO
 jO
-lb
+Vi
 px
 Il
 bH
@@ -33814,7 +33818,7 @@ Rr
 HY
 Il
 SV
-rj
+tr
 kV
 cB
 cB
@@ -34057,7 +34061,7 @@ PS
 jG
 jO
 jO
-lb
+Vi
 px
 bU
 Rr
@@ -34070,8 +34074,8 @@ zU
 zU
 bL
 RS
-qs
-rj
+px
+tr
 cB
 cB
 cB
@@ -34327,7 +34331,7 @@ re
 by
 re
 Uh
-qs
+px
 px
 IR
 IR
@@ -34338,7 +34342,7 @@ IR
 IR
 IR
 IR
-ZI
+rj
 IR
 px
 px
@@ -34584,29 +34588,29 @@ qs
 qs
 qs
 qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-ZI
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
-qs
+px
+px
+px
+px
+px
+px
+px
+px
+px
+px
+px
+rj
+px
+px
+px
+px
+px
+px
+px
+px
+px
+px
+px
 tr
 cB
 cB
@@ -34845,8 +34849,8 @@ vZ
 Qd
 lb
 lb
-qs
-qs
+px
+px
 lb
 Dj
 Lo
@@ -35102,8 +35106,8 @@ vZ
 pl
 lb
 lb
-qs
-qs
+px
+px
 lb
 bT
 It
@@ -35359,8 +35363,8 @@ vZ
 Qd
 lb
 lb
-qs
-qs
+px
+px
 lb
 bT
 It
@@ -35616,8 +35620,8 @@ vZ
 pl
 lb
 lb
-qs
-qs
+px
+px
 lb
 Hm
 Zp
@@ -35873,8 +35877,8 @@ vZ
 Qd
 lb
 lb
-qs
-qs
+px
+px
 lb
 lb
 lb
@@ -37130,7 +37134,7 @@ cB
 cB
 cB
 lb
-Qe
+VK
 YF
 UN
 cR
@@ -37646,7 +37650,7 @@ cB
 lb
 Qe
 YF
-UN
+Hg
 cR
 Qe
 YF
@@ -39476,9 +39480,9 @@ ql
 kd
 VS
 VS
-Vi
-Vi
-Vi
+lb
+lb
+lb
 VS
 Up
 El
@@ -39732,11 +39736,11 @@ xT
 Sc
 kd
 VS
-Vi
-Vi
-Vi
-Vi
-Vi
+lb
+lb
+lb
+lb
+lb
 Up
 Up
 Up
@@ -41546,7 +41550,7 @@ IR
 IR
 IR
 IR
-VK
+IR
 Er
 cB
 kV
@@ -41769,7 +41773,7 @@ dS
 Lg
 QK
 gc
-VK
+IR
 Lc
 Lc
 Lc
@@ -41803,8 +41807,8 @@ od
 od
 od
 od
-qs
-rj
+px
+tr
 cB
 cB
 cB
@@ -42024,8 +42028,8 @@ in
 lc
 lc
 yu
-qs
-qs
+px
+px
 cn
 lb
 lb
@@ -42041,7 +42045,7 @@ lb
 lb
 lb
 lb
-OB
+Kk
 tr
 lb
 lb
@@ -42061,7 +42065,7 @@ lb
 lb
 lb
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -42281,8 +42285,8 @@ dG
 HL
 yu
 yu
-lb
-qs
+Vi
+px
 cn
 lb
 lb
@@ -42298,7 +42302,7 @@ EO
 Oy
 lb
 lb
-OB
+Kk
 tr
 lb
 eX
@@ -42318,7 +42322,7 @@ eX
 eX
 lb
 Kk
-rj
+tr
 cB
 kV
 cB
@@ -42555,7 +42559,7 @@ Rn
 bp
 bJ
 lb
-OB
+Kk
 tr
 lb
 wY
@@ -42575,7 +42579,7 @@ vY
 IM
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -42812,7 +42816,7 @@ LI
 gf
 fz
 cB
-OB
+Kk
 tr
 cB
 wY
@@ -42832,7 +42836,7 @@ ox
 cB
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -43069,7 +43073,7 @@ RM
 ml
 fz
 cB
-OB
+Kk
 tr
 cB
 wY
@@ -43089,7 +43093,7 @@ JI
 cB
 cB
 Kk
-rj
+tr
 cB
 kV
 cB
@@ -43326,7 +43330,7 @@ RM
 MN
 bJ
 cB
-OB
+Kk
 tr
 cB
 eX
@@ -43346,7 +43350,7 @@ AS
 wc
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -43583,7 +43587,7 @@ oW
 ZA
 Bu
 cB
-OB
+Kk
 tr
 cB
 nJ
@@ -43601,8 +43605,8 @@ Xt
 TZ
 TZ
 ac
-VK
-qs
+IR
+px
 px
 px
 cB
@@ -43840,7 +43844,7 @@ RM
 MN
 bJ
 cB
-OB
+Kk
 tr
 cB
 eX
@@ -43858,8 +43862,8 @@ tZ
 TZ
 TZ
 ac
-od
-qs
+lM
+px
 px
 lt
 cB
@@ -44097,7 +44101,7 @@ RM
 ml
 fz
 cB
-OB
+Kk
 tr
 cB
 eX
@@ -44117,7 +44121,7 @@ NT
 XU
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -44354,7 +44358,7 @@ wn
 zm
 fz
 cB
-OB
+Kk
 tr
 cB
 wY
@@ -44374,7 +44378,7 @@ JI
 cB
 cB
 Kk
-rj
+tr
 cB
 kV
 cB
@@ -44611,7 +44615,7 @@ Rn
 tq
 bJ
 cB
-OB
+Kk
 tr
 cB
 wY
@@ -44631,7 +44635,7 @@ JI
 cB
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -44868,7 +44872,7 @@ Bo
 pZ
 cB
 cB
-OB
+Kk
 tr
 cB
 wY
@@ -44888,7 +44892,7 @@ kE
 lX
 cB
 Kk
-rj
+tr
 cB
 cB
 cB
@@ -45109,8 +45113,8 @@ cB
 cB
 cB
 cB
-OB
-rj
+Kk
+tr
 cB
 cB
 cB
@@ -45125,7 +45129,7 @@ cB
 cB
 cB
 cB
-OB
+Kk
 tr
 cB
 eX
@@ -45145,7 +45149,7 @@ eX
 eX
 cB
 jk
-rj
+tr
 cB
 kV
 cB
@@ -45366,7 +45370,7 @@ cB
 cB
 cB
 th
-qs
+px
 cn
 cB
 cB
@@ -45623,7 +45627,7 @@ cB
 cB
 cB
 lM
-od
+lM
 GK
 cB
 cB
