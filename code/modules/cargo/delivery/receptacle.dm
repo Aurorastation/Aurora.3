@@ -14,9 +14,12 @@
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
 
-	var/turf/current_turf = get_turf(loc)
-	var/obj/effect/overmap/visitable/my_sector = map_sectors["[current_turf.z]"]
-	delivery_sector = my_sector.name
+	if(current_map.use_overmap)
+		var/turf/current_turf = get_turf(loc)
+		var/obj/effect/overmap/visitable/my_sector = map_sectors["[current_turf.z]"]
+		delivery_sector = my_sector.name
+	else
+		delivery_sector = "Unknown"
 
 	var/list/warehouse_turfs = list()
 	for(var/area_path in typesof(current_map.warehouse_basearea))
