@@ -990,15 +990,25 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_out";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 6
 	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "gm" = (
@@ -1199,8 +1209,23 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner_wide/red/diagonal,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/turf/simulated/floor,
 /area/hegemony_ship/docking_port)
 "hL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1652,6 +1677,13 @@
 	frequency = 1385;
 	id_tag = "hegemony_shuttle_pump_in"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "ly" = (
@@ -1684,10 +1716,13 @@
 	frequency = 1385;
 	layer = 2.8
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "hegemony_shuttle_exterior_sensor";
-	pixel_y = 30
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/hegemony)
@@ -1940,6 +1975,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113)
 	},
+/obj/item/gun/energy/rifle/hegemony,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/armory)
 "mX" = (
@@ -2905,27 +2941,23 @@
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "sI" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_out";
-	dir = 4
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1385;
-	master_tag = "hegemony_shuttle";
-	name = "exterior access button";
-	pixel_x = -9;
-	pixel_y = -23;
-	dir = 8
-	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, airlock"
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
 	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "sJ" = (
@@ -3752,13 +3784,17 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/effect/shuttle_landmark/hegemony_shuttle/dock,
-/obj/machinery/door/window{
+/obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/hegemony_shuttle/dock{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -3788,22 +3824,6 @@
 	icon_state = "map_scrubber_on"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/airlock_sensor/airlock_interior{
-	dir = 4;
-	pixel_x = -23;
-	pixel_y = 5;
-	id_tag = "hegemony_shuttle_interior_sensor";
-	frequency = 1385
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "hegemony_shuttle";
-	name = "interior access button";
-	pixel_x = -24;
-	pixel_y = -5;
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "xF" = (
@@ -3840,11 +3860,16 @@
 	dir = 10
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_in";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "xL" = (
@@ -4318,8 +4343,8 @@
 "Af" = (
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/rig/unathi/fancy,
 /obj/structure/sign/flag/hegemony/large/north,
+/obj/item/rig/unathi/fancy/equipped,
 /turf/simulated/floor,
 /area/hegemony_ship/armory)
 "Ai" = (
@@ -4524,11 +4549,10 @@
 /area/hegemony_ship/engineering)
 "Bh" = (
 /obj/machinery/light,
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "hegemony_dock_doors";
-	dir = 4
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -4681,8 +4705,18 @@
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "Cr" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/hegemony_ship)
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor,
+/area/hegemony_ship/docking_port)
 "Cw" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard 2"
@@ -5181,11 +5215,21 @@
 "FO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_in";
 	dir = 4
 	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = -28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "FQ" = (
@@ -5360,6 +5404,13 @@
 	dir = 4;
 	frequency = 1385;
 	id_tag = "hegemony_shuttle_pump_in"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
@@ -5962,11 +6013,12 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "JX" = (
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/tiled,
+/area/hegemony_ship/docking_port)
 "Kd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6078,18 +6130,27 @@
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "KN" = (
-/obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1385;
-	id_tag = "hegemony_shuttle_dock";
-	req_one_access = list(113);
-	tag_door = "hegemony_dock_doors";
-	pixel_y = 25
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/turf/simulated/floor,
 /area/hegemony_ship/docking_port)
 "KR" = (
 /obj/structure/sign/radiation,
@@ -6789,9 +6850,19 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "OF" = (
-/obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = -28
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -6816,11 +6887,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "hegemony_dock_doors";
-	dir = 4
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -7043,11 +7113,16 @@
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "hegemony_shuttle_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "Qv" = (
@@ -7169,9 +7244,16 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
 "RG" = (
-/obj/structure/window/reinforced,
-/turf/template_noop,
-/area/space)
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_hegemony_corvette_shuttle";
+	master_tag = "airlock_hegemony_dock";
+	name = "airlock_hegemony_dock"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/hegemony_ship/docking_port)
 "RI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -7239,24 +7321,25 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	id_tag = "hegemony_shuttle";
-	master_tag = "hegemony_shuttle";
-	pixel_y = 25;
-	tag_interior_door = "hegemony_shuttle_in";
-	tag_exterior_door = "hegemony_shuttle_out";
-	tag_interior_sensor = "hegemony_shuttle_interior_sensor";
-	tag_exterior_sensor = "hegemony_shuttle_exterior_sensor";
-	tag_chamber_sensor = "hegemony_shuttle_chamber_sensor";
-	tag_airpump = "hegemony_shuttle_pump_in";
-	frequency = 1385
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "hegemony_shuttle_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hegemony_shuttle";
+	name = "airlock_hegemony_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Hegemony Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "Se" = (
@@ -8163,8 +8246,14 @@
 /turf/simulated/floor,
 /area/space)
 "XU" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/hegemony_ship/aux_cic)
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship/docking_port)
 "XX" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -19144,7 +19233,7 @@ wQ
 wQ
 wQ
 wQ
-Cr
+wQ
 wQ
 wQ
 Ev
@@ -20768,7 +20857,7 @@ lU
 eq
 VW
 lU
-XU
+lU
 Xa
 Xa
 Xa
@@ -21916,8 +22005,8 @@ yW
 Rw
 Rw
 om
-Rw
-Rw
+JX
+XU
 bk
 iO
 WH
@@ -22078,7 +22167,7 @@ yW
 oP
 bk
 KN
-Rw
+Cr
 bk
 bk
 cF
@@ -22240,7 +22329,7 @@ yW
 bk
 bk
 hK
-Rw
+RG
 bk
 bk
 lP
@@ -22562,10 +22651,10 @@ aJ
 aJ
 aJ
 aJ
-RG
+bk
 xu
 OF
-JX
+bk
 aJ
 aJ
 aJ
