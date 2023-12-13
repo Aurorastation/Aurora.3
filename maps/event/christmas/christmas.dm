@@ -61,9 +61,9 @@
 	icon_state = "wreath_lamp"
 	anchored = TRUE
 	density = TRUE
-	light_power = 6
+	light_power = 0.8
 	light_range = 6
-	light_color = LIGHT_COLOUR_WARM
+	light_color = LIGHT_COLOR_CHRISTMAS
 
 // Big ass christmas tree
 /obj/structure/flora/tree/pine_tree/grandchristmas

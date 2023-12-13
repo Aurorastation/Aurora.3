@@ -97,7 +97,7 @@
 #define LIGHT_COLOUR_WARM             "#FFFEE0" // Warm yellowish light bulbs
 #define LIGHT_COLOR_DECAYED			  "#fabd6d" // Amberish decayed light bulbs
 #define LIGHT_COLOR_DYING			  "#fa826d" // Reddish decayed light bulbs
-
+#define LIGHT_COLOR_CHRISTMAS		  "#f8b577" // Cozy warmth for streeth lamps
 #define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN) // List of standard light colors used for randomized lighting and selectable printed lights.
 
 #define LIGHT_MODE_RED      "red"
