@@ -1209,8 +1209,6 @@ window "tgui_say"
 		type = MAIN
 		pos = 848,500
 		size = 380x30
-		anchor1 = 50,50
-		anchor2 = 50,50
 		is-visible = false
 		saved-params = ""
 		statusbar = false
