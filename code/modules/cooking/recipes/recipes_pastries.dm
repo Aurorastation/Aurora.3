@@ -194,6 +194,19 @@
 	fruit = list("apple" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/apple
 
+/singleton/recipe/cake/notellacheesecake
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/choconutspread = 15, /singleton/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack,
+		/obj/item/reagent_containers/food/snacks/cookiesnack //Oreo cookies aren't a thing in the game yet but if/when they're made, please replace this with them!
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/notellacheesecake
+
 //Predesigned pies
 //=======================
 /singleton/recipe/berryclafoutis

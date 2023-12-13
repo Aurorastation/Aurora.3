@@ -2407,6 +2407,28 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
+/singleton/reagent/drink/notellamilkshake
+	name = "Notella Milkshake"
+	description = "An intensely sweet chocolatey concoction with whipped cream on top."
+	color = "#6d4124"
+	taste_description = "overwhelmingly sweet chocolate"
+
+	glass_icon_state = "notellamilkshake"
+	glass_name = "glass of notella milkshake"
+	glass_desc = "Oh look, it's that thing you actually want to get but probably shouldn't."
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/notellahotchocolate
+	name = "Notella Hot Chocolate"
+	description = "It's like a cup of hot chocolate except... More everything."
+	color = "#63432e"
+	taste_description = "hazelnutty, creamy chocolate"
+
+	glass_icon_state = "notellahotchocolate"
+	glass_name = "glass of notella hot chocolate"
+	glass_desc = "A very chocolatey drink for the days so rough, so cold, or so celebratory that a regular hot hcocolate just won't cut it. It has marshmallows!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
 /singleton/reagent/drink/toothpaste
 	name = "Toothpaste"
 	description = "A paste commonly used in oral hygiene."
@@ -2420,6 +2442,7 @@
 	glass_name = "glass of toothpaste"
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
+
 
 /singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 

@@ -3012,6 +3012,21 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 1
 
+/datum/chemical_reaction/drink/notellashake
+	name = "notella milkshake"
+	id = "notellamilkshake"
+	result = /singleton/reagent/drink/notellamilkshake
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/nutriment/choconutspread = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/notellahotchocolate
+	name = "notella hot chocolate"
+	id = "notellahotchocolate"
+	result = /singleton/reagent/drink/notellahotchocolate
+	required_reagents = list(/singleton/reagent/drink/milk = 2, /singleton/reagent/nutriment/choconutspread = 2, /singleton/reagent/drink/milk/cream = 2)
+	result_amount = 6
+
+
 // Synnono Meme Drinks
 //==============================
 // Organized here because why not.
