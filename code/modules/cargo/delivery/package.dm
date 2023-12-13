@@ -32,7 +32,7 @@
 /obj/item/cargo_package/examine(mob/user, distance)
 	. = ..()
 	to_chat(user, SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_point_sector]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>"))
-	to_chat(user, SPAN_NOTICE("The price tag on the package reads: <b>电[pay_amount]</b>"))
+	to_chat(user, SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>"))
 
 /obj/item/cargo_package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
 	if(!ishuman(user))
