@@ -98,7 +98,8 @@
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_access = list(19,38,72);
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -2268,8 +2269,7 @@
 /obj/machinery/door/airlock/command{
 	dir = 4;
 	name = "Captain's Office";
-	req_access = list(20);
-	id_tag = "capoffice"
+	req_access = list(20)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
@@ -4995,7 +4995,8 @@
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_access = list(19,38,72);
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -13134,7 +13135,8 @@
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_access = list(19,38,72);
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -20151,7 +20153,8 @@
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
-	req_one_access = list(19,38,78)
+	req_access = list(19,38,72);
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -26331,6 +26334,7 @@
 	pixel_y = -6
 	},
 /obj/item/paper/fluff/bridge,
+/obj/item/crowbar/red,
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "sBl" = (
