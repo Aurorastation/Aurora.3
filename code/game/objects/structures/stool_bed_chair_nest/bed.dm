@@ -206,7 +206,7 @@
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
-				if(buckle(affecting))
+				if(buckle(affecting, user))
 					affecting.visible_message(\
 						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
 						SPAN_DANGER("You are buckled to [src] by [user.name]!"),\

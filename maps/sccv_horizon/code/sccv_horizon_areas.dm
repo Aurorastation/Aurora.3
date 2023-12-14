@@ -260,6 +260,10 @@
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
 
+/area/bridge/supply
+	name = "Bridge Supply Closet"
+	icon_state = "bridge_crew"
+
 //Crew quarters
 
 /area/crew_quarters/lounge

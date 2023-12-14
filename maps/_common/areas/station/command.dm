@@ -8,6 +8,10 @@
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink wafts notably through the air."
 
+/area/bridge/upperdeck
+	name = "Command Atrium Upper Deck"
+	icon_state = "bridge"
+
 /area/bridge/minibar
 	name = "Command Break Room"
 	icon_state = "bridge"
@@ -43,6 +47,20 @@
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 	area_blurb = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/bridge/cciaroom
+	name = "Command - Human Resources Meeting Room"
+	icon_state = "hr"
+	sound_env = MEDIUM_SOFTFLOOR
+	area_blurb = "You feel severe existential dread when you enter this room.."
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/bridge/cciaroom/lounge
+	name = "Command - Human Resources Lounge"
+	icon_state = "hrlounge"
+	sound_env = SMALL_SOFTFLOOR
+	area_blurb = "A place that worsens the slightest anxieties surrounding meetings with your bosses boss."
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/selfdestruct

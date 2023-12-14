@@ -25,7 +25,8 @@
 	var/apply_thermal_conductivity
 	var/apply_heat_capacity
 
-	var/build_type      // Unbuildable if not set. Must be /obj/item/stack.
+	///The type of floor that can make this, if it's not set (`null`), this flooring is unbuildable
+	var/obj/item/stack/build_type      // Unbuildable if not set. Must be /obj/item/stack.
 	var/build_cost = 1  // Stack units.
 	var/build_time = 0  // BYOND ticks.
 

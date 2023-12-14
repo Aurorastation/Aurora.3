@@ -77,7 +77,6 @@
 	emote_see = list("shakes its head")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_amount = 30
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
@@ -262,7 +261,6 @@
 	emote_see = list("shakes its head", "stomps its feet")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
@@ -331,7 +329,6 @@
 	emote_see = list("shakes its head")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_amount = 50
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
