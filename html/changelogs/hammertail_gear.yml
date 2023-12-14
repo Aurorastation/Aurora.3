@@ -1,0 +1,7 @@
+author: Dessysalta (sprites), Sparky_hotdog (code)
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a Hammertail Smiths jumpsuit."
+  - rscadd: "Adds new Hammertail Smiths gear crates to the uplink."
