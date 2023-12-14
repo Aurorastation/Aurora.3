@@ -2,7 +2,7 @@
 	name = "COC Survey Ship"
 	description = "Coalition science ship."
 	suffixes = list("ships/coc/coc_surveyor/coc_surveyor.dmm")
-	sectors = list(ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	sectors = list(SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_BADLANDS, SECTOR_LIBERTYS_CRADLE, SECTOR_COALITION, ALL_VOID_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_surveyor"

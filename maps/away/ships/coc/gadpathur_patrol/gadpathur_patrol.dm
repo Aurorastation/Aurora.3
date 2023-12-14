@@ -2,8 +2,8 @@
 	name = "Gadpathurian Patrol Corvette"
 	description = "Gadpathur navy patrol ship."
 	suffixes = list("ships/coc/gadpathur_patrol/gadpathur_patrol.dmm")
-	sectors = list(ALL_COALITION_SECTORS) //NOTE: Gadpathur patrols all of the Coalition, however, they are intentionally -not- present in Haneunim. Konyang and Gadpathur are not friendly as of the Amor Patriae arc.
-	spawn_weight = 10000
+	sectors = list(SECTOR_WEEPING_STARS, SECTOR_COALITION, SECTOR_LIBERTYS_CRADLE, SECTOR_ARUSHA) //NOTE: Gadpathur patrols all of the Coalition, however, they are intentionally -not- present in Haneunim. Konyang and Gadpathur are not friendly as of the Amor Patriae arc.
+	spawn_weight = 1
 	ship_cost = 1
 	id = "gadpathur_patroller"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/gadpathur_shuttle)
