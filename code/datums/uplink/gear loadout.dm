@@ -161,10 +161,10 @@
 /datum/uplink_item/item/gear_loadout/hammertail
 	name = "NanoTrasen Assets (Group)"
 	desc = "A crate containing gear for a group. The hardsuits are are only usable by humans and skrell."
-	path = /obj/structure/closet/crate/gear_loadout/hammertail
+	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail
 
 /datum/uplink_item/item/gear_loadout/hammertail_single
 	name = "NanoTrasen Assets (Single)"
 	desc = "A crate containing gear for a single individual. The hardsuit is only usable by humans and skrell."
-	path = /obj/structure/closet/crate/gear_loadout/hammertail/single
+	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail/single
 	telecrystal_cost = 10

@@ -807,6 +807,7 @@
 	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/shield/riot/tact(src)
 
+
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/fill()
 	new /obj/item/clothing/under/syndicate/hammertail(src) //6 outfits
 	new /obj/item/clothing/under/syndicate/hammertail(src)
