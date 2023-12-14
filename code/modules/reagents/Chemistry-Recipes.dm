@@ -3026,6 +3026,89 @@
 	required_reagents = list(/singleton/reagent/drink/milk = 2, /singleton/reagent/nutriment/choconutspread = 2, /singleton/reagent/drink/milk/cream = 2)
 	result_amount = 6
 
+/datum/chemical_reaction/drink/drink/mimosa
+	name = "Mimosa"
+	id = "mimosa"
+	result = /singleton/reagent/alcohol/mimosa
+	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/drink/orangejuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/lights_edge
+	name = "Light's Edge"
+	id = "lights_edge"
+	result = /singleton/reagent/alcohol/lights_edge
+	required_reagents = list(/singleton/reagent/alcohol/wine/assunzione = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/rose_tinted_glasses
+	name = "Rose Tinted Glasses"
+	id = "rose_tinted_glasses"
+	result = /singleton/reagent/alcohol/rose_tinted_glasses
+	required_reagents = list(/singleton/reagent/alcohol/wine/rose = 1, /singleton/reagent/drink/sodawater = 1, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/twisted_lime
+	name = "Twisted Lime"
+	id = "twisted_lime"
+	result = /singleton/reagent/alcohol/twisted_lime
+	required_reagents = list(/singleton/reagent/alcohol/fernet = 1, /singleton/reagent/alcohol/ale = 1, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/cinnamon_orchard
+	name = "Cinnamon Orchard"
+	id = "cinnamon_orchard"
+	result = /singleton/reagent/alcohol/cinnamon_orchard
+	required_reagents = list(/singleton/reagent/alcohol/fireball = 1, /singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/harvest_moon
+	name = "Harvest Moon"
+	id = "harvest_moon"
+	result = /singleton/reagent/alcohol/harvest_moon
+	required_reagents = list(/singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/syrup_pumpkin = 0.5, /singleton/reagent/drink/sodawater = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/new_horizons
+	name = "New Horizons"
+	id = "new_horizons"
+	result = /singleton/reagent/alcohol/new_horizons
+	required_reagents = list(/singleton/reagent/alcohol/patron = 1, /singleton/reagent/alcohol/cremeyvette = 1, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/espratini
+	name = "Espratini"
+	id = "espratini"
+	result = /singleton/reagent/alcohol/espratini
+	required_reagents = list(/singleton/reagent/alcohol/coffee/kahlua = 1, /singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/alcohol/vodka = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/pretty_in_pink
+	name = "Pretty in Pink"
+	id = "pretty_in_pink"
+	result = /singleton/reagent/alcohol/pretty_in_pink
+	required_reagents = list(/singleton/reagent/alcohol/wine/rose = 1, /singleton/reagent/drink/lemonade/pink = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/weeping_stars
+	name = "Weeping Stars"
+	id = "weeping_stars"
+	result = /singleton/reagent/alcohol/weeping_stars
+	required_reagents = list(/singleton/reagent/alcohol/cremeyvette = 1, /singleton/reagent/drink/cranberryjuice = 1, /singleton/reagent/alcohol/champagne = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/verdant
+	name = "Verdant Green"
+	id = "verdant"
+	result = /singleton/reagent/alcohol/verdant
+	required_reagents = list(/singleton/reagent/alcohol/soju = 1, /singleton/reagent/drink/tea/greentea = 1, /singleton/reagent/drink/mintsyrup = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/lemonlimebitters
+	name = "Lemon Lime & Bitters"
+	id = "lemonlimebitters"
+	result = /singleton/reagent/drink/lemonlimebitters
+	required_reagents = list(/singleton/reagent/drink/lemonade = 1, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/alcohol/bitters = 1)
+	result_amount = 3
 
 // Synnono Meme Drinks
 //==============================
