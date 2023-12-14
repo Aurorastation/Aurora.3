@@ -74,7 +74,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
-	vision_restriction = TINT_MODERATE
+	vision_restriction = TINT_NONE
 	offline_vision_restriction = TINT_BLIND
 	slowdown = 4
 	offline_slowdown = 8
