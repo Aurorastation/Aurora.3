@@ -275,3 +275,30 @@
 	icon_state = state_base
 	if(playing)
 		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole/christmas
+	name = "audioconsole"
+	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
+	icon = 'icons/obj/audioconsole.dmi'
+	icon_state = "audioconsole-nopower"
+	state_base = "audioconsole"
+	anchored = TRUE
+	tracks = list(
+		new/datum/track("Biesel Bells", 'sound/music/christmas/BieselBells.ogg'),
+		new/datum/track("Old Sol Nick", 'sound/music/christmas/oldsolnick.ogg'),
+		new/datum/track("Corporate Hoiday", 'sound/music/christmas/corporateholiday.ogg'),
+		new/datum/track("Deck The Horizon", 'sound/music/christmas/deckthehorizon.ogg'),
+		new/datum/track("Snowfields", 'sound/music/christmas/snowfields.ogg'),
+		new/datum/track("A Coalitioners Christmas", 'sound/music/christmas/acoalitionerschristmas.ogg')
+	)
+
+/obj/machinery/media/jukebox/audioconsole/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole/christmas/wall
+	icon = 'icons/obj/audioconsole_wall.dmi'
+	density = FALSE
+	anchored = TRUE

@@ -214,3 +214,7 @@
 #define AMBIENCE_KONYANG_WATER list(\
 	'sound/ambience/konyang/konyang-water.ogg'\
 	)
+
+#define AMBIENCE_CHRISTMAS list(\
+	'sound/ambience/christmas/tundra0.ogg'\
+	)

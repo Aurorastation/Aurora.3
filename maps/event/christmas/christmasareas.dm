@@ -1,4 +1,66 @@
 // Christmas Areas
 /area/christmas
+	name = "Mountain Range"
+	icon = 'icons/turf/areas.dmi'
+	icon_state = "mountain"
+	requires_power = 0
+/area/christmas/chalet
+	name = "Christmas Chalet"
+	icon_state = "bluenew"
+
+/area/christms/wilderness
+	name = "Mountain Wilderness"
+	icon_state = "white"
+	ambience = AMBIENCE_CHRISTMAS
+
+/area/christmas/village
 	name = "Christmas Village"
-	area_blurb = "You smell gingerbread and other sweets in the air, the night sky dances with Christmas lights. You feel nothing but the joy of the Holiday spirit!"
+	icon_state = "village"
+
+/area/christmas/bar
+	name = "Village Bar"
+	icon_state = "bar"
+
+/area/christmas/kitchen
+	name = "Village Kitchen"
+	icon_state = "cafeteria"
+
+/area/christmas/garage
+	name = "Snowmobile Garage"
+	icon_state = "garage"
+
+/area/christmas/cabin
+	name = "Christmas Cabin"
+	icon_state = "sleep"
+
+/area/christmas/shuttle
+	name = "Crew Shuttle"
+	icon_state = "shuttlegrn"
+
+/area/christmas/theater
+	name = "Christmas Theatre"
+	icon_state = "Theatre"
+
+/area/christmas/cave
+	name = "Hidden Cave"
+	icon_state = "mining"
+
+/area/christmas/medical
+	name = "Village Doctor"
+	icon_state = "medbay"
+
+/area/christmas/administration
+	name = "Village Police"
+	icon_state = "armory"
+
+/area/christmas/sauna
+	name = "Village Sauna"
+	icon_state = "fitness_pool"
+
+/area/christmas/snowballarena
+	name = "Snowball Arena"
+	icon_state = "Tactical"
+
+/area/christmas/campfire
+	name = "Campfire"
+	icon_state = "fire"
