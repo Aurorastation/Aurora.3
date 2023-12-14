@@ -62,22 +62,35 @@
 
 	return 0
 
-//For projectiles that actually represent clouds of projectiles
+/**
+ * # Pellet projectiles
+ *
+ * For projectiles that actually represent clouds of projectiles
+ */
 /obj/item/projectile/bullet/pellet
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
 	icon_state = "pellets"
 	damage = 20
-	var/pellets = 4			//number of pellets
-	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
-	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
-	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
+
+	///Number of pellets that will be ejected from this bullet
+	var/pellets = 4
+
+	///The projectile will lose a pellet each time it travels this distance. Can be a non-integer.
+	var/range_step = 2
+
+	///Lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
+	var/base_spread = 90
+
+	///Higher means the pellets spread more across body parts with distance
+	var/spread_step = 10
 
 /obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
 	return max(pellets - pellet_loss, 1)
 
 /obj/item/projectile/bullet/pellet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
-	if (pellets < 0) return 1
+	if (pellets < 0)
+		return TRUE
 
 	var/total_pellets = get_pellets(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
@@ -111,8 +124,8 @@
 
 	pellets -= hits //each hit reduces the number of pellets left
 	if (hits >= total_pellets || pellets <= 0)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/projectile/bullet/pellet/get_structure_damage()
 	var/distance = get_dist(loc, starting)

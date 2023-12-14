@@ -4,7 +4,9 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	/////// START LOGGING SETTINGS ///////
+	/*#############################################
+				START LOGGING SETTINGS
+	#############################################*/
 
 
 	/**
@@ -50,7 +52,7 @@ var/list/gamemode_cache = list()
 	"log_manifest" = TRUE,	// Manifest
 	"log_asset" = FALSE,	// log asset caching
 
-	//// SUBSYSTEMS ////
+	/*#### SUBSYSTEMS ####*/
 
 	"log_subsystems" = TRUE,	// General Subsystems
 	"log_subsystems_chemistry" = TRUE,	// SSChemistry
@@ -65,7 +67,7 @@ var/list/gamemode_cache = list()
 	"log_subsystems_zas" = FALSE, // ZAS
 	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 
-	//// MODULES ////
+	/*#### MODULES ####*/
 
 	"log_modules_ghostroles" = TRUE,	// Ghost Roles
 	"log_modules_customitems" = TRUE,	// Custom Items
@@ -104,7 +106,7 @@ var/list/gamemode_cache = list()
 	"world_paper_log" = "world_paper.log",
 	"world_manifest_log" = "world_manifest.log",
 
-	//// SUBSYSTEMS ////
+	/*#### SUBSYSTEMS ####*/
 
 	"world_subsystems_log" = "subsystems/world_subsystems.log",
 	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
@@ -119,7 +121,7 @@ var/list/gamemode_cache = list()
 	"world_subsystems_zas" = "subsystems/zas.log",
 	"world_subsystems_zas_debug" = "subsystems/zas.log",
 
-	//// MODULES ////
+	/*#### MODULES ####*/
 
 	"world_modules_ghostroles_log" = "modules/ghostroles.log",
 	"world_modules_customitems_log" = "modules/customitems.log",
@@ -129,7 +131,37 @@ var/list/gamemode_cache = list()
 	)
 
 
-	/////// END LOGGING SETTINGS ///////
+	/*#############################################
+				END LOGGING SETTINGS
+	#############################################*/
+
+	/*#############################################
+				START AWAY SITES SETTINGS
+	#############################################*/
+
+	var/list/awaysites = list(
+		"enable_loading" = TRUE, //If the away sites should be loaded or not
+		"guaranteed_sites" = list(), //Config-specified guaranteed away sites
+		"away_site_budget" = null, //The budget for away sites, overrides the map-defined one if set to a number
+		"away_ship_budget" = null, //The budget for ships, overrides the map-defined one if set to a number
+	)
+
+	/*#############################################
+				END AWAY SITES SETTINGS
+	#############################################*/
+
+	/*#############################################
+				START EXOPLANET SETTINGS
+	#############################################*/
+
+	var/list/exoplanets = list(
+		"enable_loading" = TRUE, //If the exoplanets should be generated or not
+		"exoplanets_budget" = null, //The budget for exoplanets, overrides the map-defined one if set to a number
+	)
+
+	/*#############################################
+				END AWAY SITES SETTINGS
+	#############################################*/
 
 	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 0					// for sql switching
@@ -311,7 +343,6 @@ var/list/gamemode_cache = list()
 	// 15, 45, 70 minutes respectively
 	var/list/event_delay_upper = list(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
 
-	var/aliens_allowed = 0
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
 	var/ooc_allowed = 1
@@ -657,9 +688,6 @@ var/list/gamemode_cache = list()
 
 				if ("traitor_scaling")
 					config.traitor_scaling = 1
-
-				if ("aliens_allowed")
-					config.aliens_allowed = 1
 
 				if ("ninjas_allowed")
 					config.ninjas_allowed = 1
@@ -1155,17 +1183,46 @@ var/list/gamemode_cache = list()
 				else
 					log_config("Unknown setting in discord configuration: '[name]'")
 	load_logging_config()
+	load_away_sites_config()
+	load_exoplanets_config()
 
 /datum/configuration/proc/save_logging_config()
 	rustg_file_write(json_encode(config.logsettings), "config/logging.json")
 	rustg_file_write(json_encode(config.logfiles), "config/logging_files.json")
 
+/*#############################################
+	JSON loading configs functions section
+#############################################*/
+
+///Load the LOGGING configuration
 /datum/configuration/proc/load_logging_config()
 	try
-		src.logsettings = json_decode(rustg_file_read("config/logging.json"))
-		src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
+		if((rustg_file_exists("config/logging.json") == "true"))
+			src.logsettings = json_decode(rustg_file_read("config/logging.json"))
+
+		if((rustg_file_exists("config/logging_files.json") == "true"))
+			src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
+
 	catch(var/exception/e)
 		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")
+
+///Load the AWAY SITES configuration
+/datum/configuration/proc/load_away_sites_config()
+	try
+		if((rustg_file_exists("config/away_sites.json") == "true"))
+			src.awaysites = json_decode(rustg_file_read("config/away_sites.json"))
+
+	catch(var/exception/e)
+		WARNING("Unable to read or restore away sites config from the configuration file. Exception: [json_encode(e)]")
+
+///Load the EXOPLANETS configuration
+/datum/configuration/proc/load_exoplanets_config()
+	try
+		if((rustg_file_exists("config/exoplanets.json") == "true"))
+			src.exoplanets = json_decode(rustg_file_read("config/exoplanets.json"))
+
+	catch(var/exception/e)
+		WARNING("Unable to read or restore exoplanets config from the configuration file. Exception: [json_encode(e)]")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up

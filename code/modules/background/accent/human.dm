@@ -386,6 +386,13 @@
 	tag_icon = "newsuez"
 	text_tag = "NSZ"
 
+/datum/accent/bursa
+	name = ACCENT_BURSA
+	description = "The Bursan accent is characterized by its soft and slightly lisping intonations, compared to the throatier sounds of most other Elyran accents. \
+	Across the wider Republic of Elyra, the Bursan accent is usually stereotyped as belonging to a country bumpkin or a career soldier."
+	tag_icon = "bursa"
+	text_tag = "BUR"
+
 /datum/accent/damascus
 	name = ACCENT_DAMASCUS
 	description = "One of the most venerable of all Elyra's linguistic variations, the Damascene accent is famous across the Serene Republic for its scholarly, almost archaic air. Drawing more heavily from Arabic influence \

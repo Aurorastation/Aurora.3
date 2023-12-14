@@ -16,7 +16,7 @@
 
 /obj/effect/overmap/visitable/sector/goon
 	name = "asteroid lair"
-	desc = "Scans reveal that there appears to be a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the outer layer. Upon further examination, it appears it is wanted in the Coalition of Colonies for piracy and kidnapping. Extreme caution is advised."
+	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer.  Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. Extreme caution is advised."
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_goon_1",
