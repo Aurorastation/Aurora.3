@@ -159,7 +159,7 @@
 	telecrystal_cost = 15
 
 /datum/uplink_item/item/gear_loadout/hammertail
-	name = "Hammertail Smiths Assets(Group)"
+	name = "Hammertail Smiths Assets (Group)"
 	desc = "A crate containing gear for a group. The voidsuits are are only usable by humans."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail
 
