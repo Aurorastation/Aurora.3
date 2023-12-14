@@ -548,7 +548,6 @@
 		return 1
 
 	if(!H.druggy)
-		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8))
 		if(H.seer)
 			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
 			if(R && R.type == /datum/rune/see_invisible)
