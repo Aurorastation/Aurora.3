@@ -974,10 +974,10 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/sol_visa = 6)
 
 /obj/item/storage/box/ceti_visa
-	name = "TCFL recruitment papers box"
-	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Foreign Legion."
+	name = "TCAF recruitment papers box"
+	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Armed Forces."
 	illustration = "paper"
-	starts_with = list(/obj/item/clothing/accessory/badge/tcfl_papers = 6)
+	starts_with = list(/obj/item/clothing/accessory/badge/tcaf_papers = 6)
 
 /obj/item/storage/box/hadii_card
 	name = "honorary party member card box"
@@ -1009,11 +1009,11 @@
 	illustration = "paper"
 	starts_with = list(/obj/item/book/manual/dominia_honor = 6)
 
-/obj/item/storage/box/tcfl_pamphlet
-	name = "tau ceti foreign legion pamphlets box"
-	desc = "A box full of tau ceti foreign legion pamphlets."
+/obj/item/storage/box/tcaf_pamphlet
+	name = "tau ceti armed forces pamphlets box"
+	desc = "A box full of tau ceti armed forces pamphlets."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/tcfl_pamphlet = 6)
+	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
 
 /obj/item/storage/box/sharps
 	name = "sharps disposal box"
