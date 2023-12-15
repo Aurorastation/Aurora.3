@@ -404,6 +404,7 @@
 	light_color = LIGHT_COLOUR_WARM
 	light_range = 2
 	track_distance = 4
+	footstep_sound = /singleton/sound_category/snow_footstep
 
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/flooring/snow.dmi'

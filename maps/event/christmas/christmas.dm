@@ -15,7 +15,6 @@
 	accessible_z_levels = list(1)
 	overmap_z = 0
 
-
 	station_name = "to be done"
 	station_short = "to be done"
 	dock_name = "to be done"
