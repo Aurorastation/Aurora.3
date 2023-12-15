@@ -28,6 +28,12 @@
 	tag_icon = "dionae_ironsong"
 	text_tag = "INS"
 
+/datum/accent/laboursong
+	name = ACCENT_LABOURSONG
+	description = "An accent unique to Dionae of the Narrows penal vessel. The accent has developed as a result of Narrows dionae restricting their pitch to their octave rank, giving it a very rigid and dull, mono-octave sound, where pronunciation is slow and deliberate. When multiple Narrows dionae come together and speak or sing at once, the accent shines, with beautiful harmonies sounding during their worksongs."
+	tag_icon = "dionae_laboursong"
+	text_tag = "LBS"
+
 //Human Influenced Accents
 
 /datum/accent/meadowsong
