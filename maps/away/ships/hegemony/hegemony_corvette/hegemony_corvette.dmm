@@ -994,10 +994,9 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -1674,10 +1673,9 @@
 	id_tag = "hegemony_shuttle_pump_in"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /turf/simulated/floor,
@@ -1714,10 +1712,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /turf/simulated/floor/airless,
@@ -2950,10 +2947,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -3862,10 +3858,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -5237,10 +5232,9 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -5423,10 +5417,9 @@
 	id_tag = "hegemony_shuttle_pump_in"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /turf/simulated/floor,
@@ -7113,12 +7106,6 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Qu" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1385;
-	id_tag = "hegemony_shuttle_chamber_sensor";
-	pixel_y = -23;
-	dir = 1
-	},
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = -32
 	},
@@ -7126,13 +7113,13 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/light,
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "Qv" = (
@@ -7343,10 +7330,9 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_hegemony_shuttle";
 	name = "airlock_hegemony_shuttle";
-	req_one_access = null;
+	req_one_access = list(113);
 	shuttle_tag = "Hegemony Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
