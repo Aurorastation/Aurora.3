@@ -352,6 +352,12 @@
 	},
 /turf/template_noop,
 /area/space)
+"cz" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/heph_security)
 "cA" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -601,6 +607,12 @@
 "ew" = (
 /turf/simulated/wall/shuttle/raider,
 /area/heph_security_ship/kitchen)
+"ex" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, rotary cannon"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/heph_security_ship/francisca)
 "ez" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
@@ -654,6 +666,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
+"eQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "heph_lockdown";
+	name = "blast door"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, medical"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/medbay)
 "eR" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -732,6 +755,17 @@
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
+"fo" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "heph_lockdown";
+	name = "blast door"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, captain's quarters"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/captain)
 "fx" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -874,6 +908,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
+"gI" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engineering"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/heph_security_ship/engineering)
 "gO" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1763,10 +1803,16 @@
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "nc" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "heph_lockdown";
+	name = "blast door"
 	},
-/area/space)
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, crew bunks"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/crew)
 "np" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -2100,6 +2146,9 @@
 /area/shuttle/heph_security)
 "pv" = (
 /obj/structure/viewport,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, flak battery"
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/grauwolf)
 "pw" = (
@@ -2382,6 +2431,9 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/shuttle_landmark/heph_security/dock{
 	dir = 8
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, dock"
 	},
 /turf/simulated/floor,
 /area/heph_security_ship)
@@ -2715,6 +2767,9 @@
 	shuttle_tag = "Hephaestus Security Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "tO" = (
@@ -2773,6 +2828,12 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
+"tZ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, freezer"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/heph_security_ship/kitchen)
 "ue" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -2884,6 +2945,14 @@
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/grauwolf)
+"uN" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thruster"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/thrusterport)
 "vi" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -3328,6 +3397,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
+"yM" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, flak battery"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/heph_security_ship/grauwolf)
 "yP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9;
@@ -3660,6 +3735,12 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
+"Cx" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/heph_security)
 "CE" = (
 /turf/template_noop,
 /area/space)
@@ -3943,6 +4024,17 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
+"FK" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "heph_lockdown";
+	name = "blast door"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, kitchen"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/kitchen)
 "FQ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
@@ -4018,6 +4110,14 @@
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
+"Gf" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thruster"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/thrusterstarb)
 "Gj" = (
 /obj/structure/table/glass,
 /obj/machinery/chemical_dispenser/coffee/full,
@@ -4208,6 +4308,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/heph_security_ship/bathroom)
+"HR" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, kitchen"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/heph_security_ship/kitchen)
 "HT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet/north,
@@ -5772,6 +5878,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
+"Uy" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "heph_shuttle_shutters"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "fore"
+	},
+/turf/simulated/floor,
+/area/shuttle/heph_security)
 "Uz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -5892,6 +6008,12 @@
 "VE" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/heph_security_ship/armory)
+"VF" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, atmospherics"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/heph_security_ship/atmos)
 "VG" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -5969,6 +6091,12 @@
 	dir = 1
 	},
 /turf/simulated/floor,
+/area/heph_security_ship/bridge)
+"Wj" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, CIC"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/heph_security_ship/bridge)
 "Wl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6333,9 +6461,11 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "Zn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/template_noop,
-/area/space)
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, rotary cannon"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/heph_security_ship/francisca)
 "Zs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
@@ -22410,7 +22540,7 @@ CE
 CE
 CE
 CE
-Zn
+CE
 CE
 CE
 CE
@@ -24723,7 +24853,7 @@ CE
 CE
 CE
 CE
-nc
+CE
 CE
 CE
 CE
@@ -34331,10 +34461,10 @@ tC
 ed
 Vt
 Hn
-Hn
+nc
 bu
 Kt
-Kt
+fo
 Kt
 OC
 Ag
@@ -34596,7 +34726,7 @@ qp
 OC
 af
 af
-af
+FK
 af
 af
 OC
@@ -34838,7 +34968,7 @@ Ro
 YO
 ed
 ed
-JH
+VF
 JH
 Sw
 NG
@@ -34859,7 +34989,7 @@ Gp
 OC
 OC
 ew
-ew
+tZ
 ew
 ew
 OC
@@ -35119,7 +35249,7 @@ ez
 ez
 Bm
 KO
-OC
+HR
 CQ
 CE
 CE
@@ -35602,7 +35732,7 @@ CE
 CE
 CE
 Ag
-fd
+Gf
 kd
 mv
 AT
@@ -35634,7 +35764,7 @@ Ql
 Ql
 Ql
 Ql
-Ql
+yM
 Ql
 Ql
 Ql
@@ -37658,7 +37788,7 @@ EJ
 EJ
 EJ
 Zb
-Zb
+cz
 Zb
 Zb
 Ie
@@ -38678,7 +38808,7 @@ CE
 CE
 CE
 CE
-sx
+Uy
 uJ
 hJ
 OK
@@ -38718,7 +38848,7 @@ aj
 Ns
 tn
 BA
-tn
+Wj
 CQ
 CE
 CE
@@ -39457,7 +39587,7 @@ EJ
 EJ
 EJ
 Zb
-Zb
+Cx
 Zb
 Zb
 Kq
@@ -41289,7 +41419,7 @@ oS
 la
 mP
 oA
-Sq
+Zn
 Ag
 pD
 Lv
@@ -41513,7 +41643,7 @@ CE
 CE
 CE
 Ag
-VK
+uN
 SO
 Nm
 dE
@@ -42314,7 +42444,7 @@ Sq
 bH
 bH
 bH
-bH
+ex
 Sq
 Sq
 Ag
@@ -42550,7 +42680,7 @@ qP
 pD
 Ag
 Zc
-Zc
+gI
 Zc
 lm
 rl
@@ -42813,7 +42943,7 @@ Ag
 rl
 rl
 Sh
-Sh
+eQ
 Sh
 rl
 rl
