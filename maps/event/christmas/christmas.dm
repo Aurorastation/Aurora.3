@@ -8,10 +8,13 @@
 	force_spawnpoint = TRUE
 
 	station_levels = list(1)
+	sealed_levels = list(1)
 	admin_levels = list(0)
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
+	overmap_z = 0
+
 
 	station_name = "to be done"
 	station_short = "to be done"
