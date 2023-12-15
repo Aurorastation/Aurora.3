@@ -1,8 +1,0 @@
-author: kermit, Caelphon
-
-delete-after: True
-
-changes:
-  - tweak: "Restructures and brings the Narrows origin up to date with the latest lore expansion."
-  - rscadd: "Adds a Narrows accent - Laboursong. Accent icon by Cael."
-  - rscadd: "Adds a Narrows 'stimulant' for dionae use - Diesel (2 parts Uranium, 2 parts Robust Harvest, 1 part Welding Fuel, 3 parts Caramel; heat to 895K using pyrosilicate)."
