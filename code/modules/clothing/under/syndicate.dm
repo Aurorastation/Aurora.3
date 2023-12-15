@@ -4,7 +4,7 @@
 	icon_state = "syndicate"
 	item_state = "bl_suit"
 	worn_state = "syndicate"
-	has_sensor = 0
+	has_sensor = SUIT_NO_SENSORS
 	armor = list(
 		melee = ARMOR_MELEE_MINOR
 		)
