@@ -127,3 +127,17 @@
 	h_back = /obj/item/mecha_equipment/quick_enter
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
+
+/mob/living/heavy_vehicle/premade/light/salvage
+	name = "exo-stellar salvage exosuit"
+	desc = "An exosuit designed for zero-gravity salvage and recon."
+	e_color = COLOR_BROWN_ORANGE
+	e_arms = /obj/item/mech_component/manipulators/ripley
+	e_head = /obj/item/mech_component/sensors/light
+	e_legs = /obj/item/mech_component/propulsion/hover
+
+	h_head = /obj/item/mecha_equipment/light
+	h_back = /obj/item/mecha_equipment/autolathe
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/plasmacutter
+	h_r_hand = /obj/item/mecha_equipment/clamp
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher

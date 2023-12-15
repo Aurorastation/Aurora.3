@@ -3026,3 +3026,43 @@
 
 /obj/structure/sign/flag/empyrean/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+//Scarab Fleet
+/obj/item/flag/scarab
+	name = "\improper Scarab Fleet flag"
+	desc = "The flag of the Scarab Fleet."
+	flag_path = "scarab"
+	flag_structure = /obj/structure/sign/flag/scarab
+
+/obj/structure/sign/flag/scarab
+	name = "\improper Scarab Fleet flag"
+	desc = "The flag of the Scarab Fleet."
+	flag_path = "scarab"
+	icon_state = "scarab"
+	flag_item = /obj/item/flag/scarab
+
+/obj/structure/sign/flag/scarab/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/scarab/l
+	name = "large Scarab Fleet flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/scarab/large
+
+/obj/structure/sign/flag/scarab/large
+	icon_state = "scarab_l"
+	flag_path = "scarab"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/scarab/l
+
+/obj/structure/sign/flag/scarab/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/scarab/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/scarab/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
