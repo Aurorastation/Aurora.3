@@ -8,7 +8,7 @@
 	force_spawnpoint = TRUE
 
 	station_levels = list(1)
-	admin_levels = list()
+	admin_levels = list(0)
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)

@@ -21,7 +21,7 @@
 	starlight_color = "#615bff"
 	starlight_power = 2
 	starlight_range = 4
-	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
+	sector_welcome_message = 'sound/music/christmas/merrystart.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 

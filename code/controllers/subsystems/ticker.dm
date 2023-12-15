@@ -602,7 +602,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(SSatlas.current_sector.sector_welcome_message)
 		sound_to(world, sound(SSatlas.current_sector.sector_welcome_message))
 	else
-		sound_to(world, sound('sound/christmas/merrystart.ogg'))
+		sound_to(world, sound('sound/AI/welcome.ogg'))
 	//Holiday Round-start stuff	~Carn
 	Holiday_Game_Start()
 
