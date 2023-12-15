@@ -38,12 +38,12 @@
 
 /obj/effect/landmark/exoplanet_spawn/plant/do_spawn(var/obj/effect/overmap/visitable/sector/exoplanet/planet)
 	if(LAZYLEN(planet.small_flora_types))
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), pick(planet.small_flora_types, 1))
+		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), pick(planet.small_flora_types), TRUE)
 
 /obj/effect/landmark/exoplanet_spawn/large_plant
 	name = "spawn exoplanet large plant"
 
 /obj/effect/landmark/exoplanet_spawn/large_plant/do_spawn(var/obj/effect/overmap/visitable/sector/exoplanet/planet)
 	if(LAZYLEN(planet.big_flora_types))
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), pick(planet.big_flora_types, 1))
+		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), pick(planet.big_flora_types), TRUE)
 

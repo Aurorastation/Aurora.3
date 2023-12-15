@@ -25,7 +25,7 @@
 			/obj/structure/flora/bush = 2,
 			/obj/effect/floor_decal/snowrocks = 1,
 			/obj/effect/floor_decal/snowdrift/random = 1,
-			/obj/effect/landmark/exoplanet_spawn/plant = 1
+			/obj/effect/landmark/exoplanet_spawn/plant = 2
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/hostile/retaliate/samak = 1,
@@ -52,13 +52,13 @@
 			/obj/structure/flora/rock/snow = 1,
 			/obj/structure/flora/tree/dead = 2,
 			/obj/structure/flora/tree/pine = 4,
-			/obj/effect/landmark/exoplanet_spawn/large_plant = 1
+			/obj/effect/landmark/exoplanet_spawn/large_plant = 3
 		),
 		SMALL_FLORA = list(
 			/obj/structure/flora/bush = 3,
 			/obj/effect/floor_decal/snowrocks = 1,
 			/obj/effect/floor_decal/snowdrift/random = 1,
-			/obj/effect/landmark/exoplanet_spawn/plant = 2
+			/obj/effect/landmark/exoplanet_spawn/plant = 3
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/hostile/retaliate/samak = 1,
@@ -82,7 +82,7 @@
 		),
 		SMALL_FLORA = list(
 			/obj/structure/flora/bush/adhomai = 3,
-			/obj/effect/floor_decal/snowdrift/random = 1.
+			/obj/effect/floor_decal/snowdrift/random = 1,
 			/obj/effect/landmark/exoplanet_spawn/plant = 2
 		),
 		WILDLIFE = list(

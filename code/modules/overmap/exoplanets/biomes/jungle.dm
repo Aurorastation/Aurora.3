@@ -17,7 +17,7 @@
 			/obj/structure/flora/bush/jungle/random = 3,
 			/obj/structure/flora/bush/jungle/b/random = 3,
 			/obj/structure/flora/bush/jungle/c/random = 3,
-			/obj/effect/landmark/exoplanet_spawn/plant = 1
+			/obj/effect/landmark/exoplanet_spawn/plant = 3
 		),
 		GRASSES = list(
 			/obj/structure/flora/grass/junglegrass/random = 4,
@@ -43,7 +43,7 @@
 			/obj/structure/flora/bush/jungle/random = 3,
 			/obj/structure/flora/bush/jungle/b/random = 3,
 			/obj/structure/flora/bush/jungle/c/random = 3,
-			/obj/effect/landmark/exoplanet_spawn/plant = 1
+			/obj/effect/landmark/exoplanet_spawn/plant = 3
 		),
 		GRASSES = list(
 			/obj/structure/flora/grass/junglegrass/random = 4,

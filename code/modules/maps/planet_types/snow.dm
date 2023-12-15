@@ -14,6 +14,8 @@
 	possible_themes = list(/datum/exoplanet_theme/snow)
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
+	ruin_planet_type = PLANET_SNOW
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/generate_atmosphere()
 	..()

@@ -35,8 +35,8 @@
 	var/list/actors = list() //things that appear in engravings on xenoarch finds.
 	var/list/species = list() //list of names to use for simple animals
 
-	var/flora_diversity = 4
-	var/has_trees = TRUE
+	var/flora_diversity = 0
+	var/has_trees = FALSE
 	var/list/small_flora_types = list()
 	var/list/big_flora_types = list()
 
@@ -440,10 +440,6 @@
 	if(colors.len)
 		return MixColors(colors)
 
-/obj/effect/landmark/exoplanet_spawn
-	name = "exoplanet spawner"
-	delete_me = TRUE
-
 /obj/effect/landmark/exoplanet_spawn/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -453,5 +449,5 @@
 	if (istype(E))
 		do_spawn(E)
 
-/obj/effect/landmark/exoplanet_spawn/proc/do_spawn()
+/obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
 	return

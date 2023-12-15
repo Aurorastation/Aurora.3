@@ -57,6 +57,8 @@
 	health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
 	pixel_y = rand(-5,5)
+	waterlevel = 100
+	nutrilevel = 100
 	check_health()
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/remove_dead()
