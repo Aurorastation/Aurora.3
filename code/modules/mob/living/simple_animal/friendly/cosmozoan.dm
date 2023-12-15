@@ -31,7 +31,6 @@
 	minbodytemp = 0
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/cosmozoan/Initialize()

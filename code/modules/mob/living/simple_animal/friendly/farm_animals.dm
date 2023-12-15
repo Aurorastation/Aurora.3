@@ -12,7 +12,6 @@
 	emote_see = list("shakes its head", "stamps a foot", "glares around")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	mob_size = 4.5//weight based on Chanthangi goats
@@ -89,7 +88,6 @@
 	emote_see = list("shakes its head")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 40 //Cows are huge, should be worth a lot of meat
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
@@ -134,7 +132,6 @@
 	emote_see = list("sways its tail")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/pig
 	meat_amount = 20
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
