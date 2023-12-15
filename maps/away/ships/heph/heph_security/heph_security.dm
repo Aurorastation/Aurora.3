@@ -109,7 +109,8 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/hephsec_shuttle/transit
+/obj/effect/shuttle_landmark/hephsec_shuttle_transit
 	name = "In transit"
 	landmark_tag = "hephsec_shuttle_transit"
 	base_turf = /turf/space/transit/north
+	base_area = /area/space

@@ -352,11 +352,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"cr" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "cA" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -3568,7 +3563,7 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "Bu" = (
-/obj/effect/shuttle_landmark/hephsec_shuttle/transit,
+/obj/effect/shuttle_landmark/hephsec_shuttle_transit,
 /turf/space/transit/north,
 /area/space)
 "BA" = (
@@ -39987,7 +39982,7 @@ cq
 jQ
 KK
 jQ
-cr
+Ag
 qo
 gS
 bz
