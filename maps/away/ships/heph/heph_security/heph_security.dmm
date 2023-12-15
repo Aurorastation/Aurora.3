@@ -927,12 +927,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "hephsec_shuttle";
-	master_tag = s;
+	master_tag = "heph_security_dock";
 	name = "heph_security_dock"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor,
 /area/heph_security_ship/dock)
 "hh" = (
