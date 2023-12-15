@@ -7,6 +7,8 @@
 	weather = "Global full-atmosphere hydrological weather system. Barely-habitable ambient low temperatures. Frequently dangerous, unpredictable meteorological upsets"
 	surfacewater = "Majority frozen, 70% surface water"
 	planetary_area = /area/exoplanet/snow
+	flora_diversity = 4
+	has_trees = TRUE
 	rock_colors = list(COLOR_DARK_BLUE_GRAY, COLOR_GUNMETAL, COLOR_GRAY80, COLOR_DARK_GRAY)
 	plant_colors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
 	possible_themes = list(/datum/exoplanet_theme/snow)
