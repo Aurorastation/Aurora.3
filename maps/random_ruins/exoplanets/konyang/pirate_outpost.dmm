@@ -11,6 +11,13 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/konyang_pirate)
+"aJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/konyang_pirate)
 "cD" = (
 /obj/structure/bed/chair,
 /obj/item/bedsheet/random,
@@ -102,7 +109,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
@@ -152,6 +160,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
 "hZ" = (
@@ -194,7 +203,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
@@ -221,6 +231,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = 32
+	},
+/obj/structure/bed/handrail{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
@@ -344,7 +357,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/rust,
@@ -479,6 +493,10 @@
 "zU" = (
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
+"zY" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/rust,
+/area/shuttle/konyang_pirate)
 "AV" = (
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
@@ -519,11 +537,15 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
 "Ex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
@@ -550,7 +572,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -581,7 +604,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/rust,
@@ -599,6 +623,9 @@
 /area/konyang_pirate_outpost)
 "Hz" = (
 /obj/effect/landmark/scorcher,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/konyang_pirate)
 "HN" = (
@@ -690,7 +717,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/tiled/rust,
@@ -711,7 +739,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -769,7 +798,8 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -787,7 +817,11 @@
 	master_tag = "airlock_konyang_pirate";
 	name = "airlock_konyang_pirate";
 	req_one_access = null;
-	shuttle_tag = "Konyang Pirate Shuttle"
+	shuttle_tag = "Konyang Pirate Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/konyang_pirate)
@@ -807,6 +841,13 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
+"TH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/konyang_pirate)
 "Uc" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
@@ -1497,7 +1538,7 @@ Hz
 FU
 fb
 FO
-FO
+TH
 Ex
 oL
 oL
@@ -1661,7 +1702,7 @@ lE
 dL
 Ik
 dL
-dL
+zY
 qM
 aD
 wK
@@ -1757,7 +1798,7 @@ QB
 FU
 Lo
 iy
-FO
+aJ
 lc
 kv
 mu
