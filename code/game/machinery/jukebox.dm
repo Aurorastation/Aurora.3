@@ -289,8 +289,9 @@
 		new/datum/track("Corporate Hoiday", 'sound/music/christmas/corporateholiday.ogg'),
 		new/datum/track("Deck The Horizon", 'sound/music/christmas/deckthehorizon.ogg'),
 		new/datum/track("Snowfields", 'sound/music/christmas/snowfields.ogg'),
-		new/datum/track("A Coalitioners Christmas", 'sound/music/christmas/acoalitionerschristmas.ogg')
-	)
+		new/datum/track("A Coalitioners Christmas", 'sound/music/christmas/acoalitionerschristmas.ogg'),
+		new/datum/track("An Idris Christmas", 'sound/music/christmas/anidrischristmas.ogg')
+		)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
 	cut_overlays()

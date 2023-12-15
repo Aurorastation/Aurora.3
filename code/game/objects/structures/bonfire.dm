@@ -385,3 +385,46 @@ var/global/list/total_active_bonfires = list()
 	return TRUE
 
 #undef MAX_ACTIVE_BONFIRE_LIMIT
+
+/obj/structure/bonfire/fireplace/christmas
+	name = "Grand Fireplace"
+	desc = "A large stone brick fireplace."
+	icon = 'icons/holidays/christmas/grandefireplace.dmi'
+	icon_state = "fireplace_c"
+	pixel_x = -16
+	safe = TRUE
+	density = TRUE
+	burn_out = FALSE
+
+/obj/structure/bonfire/fireplace/christmas/New(var/newloc, var/material_name)
+	..()
+	fuel = 2000	//don't start with fuel
+	if(!material_name)
+		material_name = MATERIAL_MARBLE
+	material = SSmaterials.get_material_by_name(material_name)
+	if(!material)
+		qdel(src)
+		return
+	name = "[material.display_name] fireplace"
+
+/obj/structure/bonfire/fireplace/update_icon()
+	cut_overlays()
+	if(on_fire)
+		switch(fuel)
+			if(0 to 250)
+				add_overlay("fireplace_c_fire0")
+			if(250 to 2000)
+				add_overlay("fireplace_c_fire1")
+		add_overlay("fireplace_c_glow")
+
+/obj/structure/bonfire/fireplace/christmas/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(!istype(mover) || mover.checkpass(PASSTABLE))
+		return TRUE
+	if(get_dir(loc, target) == NORTH)
+		return !density
+	return TRUE
+
+/obj/structure/bonfire/fireplace/christmas/CheckExit(atom/movable/O, turf/target)
+	if(get_dir(loc, target) == NORTH)
+		return !density
+	return TRUE

@@ -8,9 +8,9 @@
 	name = "Christmas Chalet"
 	icon_state = "bluenew"
 
-/area/christms/wilderness
+/area/christmas/wilderness
 	name = "Mountain Wilderness"
-	icon_state = "white"
+	icon_state = "wilderness"
 	ambience = AMBIENCE_CHRISTMAS
 
 /area/christmas/village

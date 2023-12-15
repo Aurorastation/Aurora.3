@@ -2,7 +2,7 @@
 	name = "Christmas Chalet"
 	full_name = "Xanan Christmas Village and Chalet"
 	path = "event/christmas"
-	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi')
+	lobby_icons = list('icons/misc/titlescreens/christmas/christmas.dmi')
 	lobby_transitions = FALSE
 	allowed_jobs = list(/datum/job/visitor)
 	force_spawnpoint = TRUE
@@ -130,7 +130,7 @@
 	icon = 'icons/holidays/christmas/christmascookies.dmi'
 	icon_state = "cookietray_100"
 	trash = /obj/item/trash/cookietray
-	vendingobject = /obj/item/reagent_containers/food/snacks/cookie/gingerbread/random
+	vendingobject = /obj/item/reagent_containers/food/snacks/cookie/gingerbread
 	reagent_data = list(/singleton/reagent/nutriment = list("cookie" = 1))
 	bitesize = 1
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/sugar = 3)
@@ -155,3 +155,14 @@
 	desc = "A chilled barrel of eggnog."
 	icon_state = "woodkeg"
 	reagents_to_add = list(/singleton/reagent/alcohol/eggnog = 1000)
+
+// Snowman Statue
+/obj/structue/snowman
+	name = "Jolly Snowman"
+	desc = "A well crafted snowman. It lt looks very happy!"
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "snowman_hat"
+	light_color = "#FAA019"
+	light_power = 0.4
+	light_range = 2
+	anchored = TRUE

@@ -51,10 +51,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/obj/screen/cinematic = null
 
 	var/list/possible_lobby_tracks = list(
-		'sound/music/space.ogg',
-		'sound/music/traitor.ogg',
-		'sound/music/title2.ogg',
-		'sound/music/clouds.s3m'
+		'sound/music/christmas/awonderfulyear.ogg',
+		'sound/music/christmas/corporateholiday.ogg',
+		'sound/music/christmas/anidrischristmas.ogg'
 	)
 
 	var/lobby_ready = FALSE
@@ -603,7 +602,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(SSatlas.current_sector.sector_welcome_message)
 		sound_to(world, sound(SSatlas.current_sector.sector_welcome_message))
 	else
-		sound_to(world, sound('sound/AI/welcome.ogg'))
+		sound_to(world, sound('sound/christmas/merrystart.ogg'))
 	//Holiday Round-start stuff	~Carn
 	Holiday_Game_Start()
 
