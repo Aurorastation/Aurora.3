@@ -15,6 +15,7 @@
 		if(color == "RANDOM")
 			color = get_random_colour(0,75,190)
 		S.set_trait(TRAIT_PLANT_COLOUR,color)
+		adapt_seed(S)
 		small_flora_types += S
 	if(has_trees)
 		var/tree_diversity = max(1, flora_diversity/2)
@@ -31,6 +32,7 @@
 				color = get_random_colour(0,75,190)
 			S.set_trait(TRAIT_LEAVES_COLOUR,color)
 			S.chems[/singleton/reagent/woodpulp] = list(1)
+			adapt_seed(S)
 			big_flora_types += S
 
 /obj/effect/landmark/exoplanet_spawn/plant
