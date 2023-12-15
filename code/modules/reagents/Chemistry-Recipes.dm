@@ -890,6 +890,14 @@
 	required_temperature_min = T0C + 200
 	result_amount = 3
 
+/datum/chemical_reaction/dionae_stimulant
+	name = "Diesel"
+	id = "dionae_stimulant"
+	result = /singleton/reagent/drugs/dionae_stimulant
+	required_reagents = list(/singleton/reagent/uranium = 2, /singleton/reagent/toxin/fertilizer/robustharvest = 2, /singleton/reagent/nutriment/caramel = 3, /singleton/reagent/fuel = 1)
+	required_temperature_min = T0C + 621 //Mix reactants with 10u salt, then pour 30u of solution in one go into 30u of pyrosilicate. Pyrosilicate will be consumed; salt must be separated.
+	result_amount = 3
+
 /* Solidification */
 
 /datum/chemical_reaction/phoronsolidification
