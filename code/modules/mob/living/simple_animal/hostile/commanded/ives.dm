@@ -20,7 +20,6 @@
 
 	speak_chance = 1
 	turns_per_move = 7
-	see_in_dark = 6
 
 	speak = list("Rawr!", "Gawrgle!", "Bizzbop!", "Bweeewoooo!")
 	speak_emote = list("roars pitifully", "squeals out a mechanical attempt at a growl")

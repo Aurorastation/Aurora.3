@@ -137,14 +137,8 @@
 		to_chat(src, msg)
 	return
 
-// Show a message to all mobs and objects in sight of this one
-// This would be for visible actions by the src mob
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it

@@ -19,7 +19,6 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
-	see_in_dark = 5
 	mob_size = 3.5
 	max_nutrition = 70	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 8
