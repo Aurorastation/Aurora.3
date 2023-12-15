@@ -4,7 +4,7 @@
 	desc = "Crew a Hephaestus asset protection vessel. Ensure the company's operations in the sector stay secure and profitable."
 	tags = list("External")
 
-	welcome_message = ""
+	welcome_message = "You are an asset protection agent for Hephaestus Industries, assigned to keeping the company's assets in this sector in one piece. Follow your leader's orders, and make sure nothing impacts the bottom line. Remember, you are not SCC/Horizon crew. While you can help them with problems if they ask you are under no obligation to, and you hsoud not be showing up uncalled for to act as Security+ for the Horizon."
 
 	spawnpoints = list("hephsec")
 	max_count = 4
@@ -60,7 +60,7 @@
 	name = "Hephaestus Asset Protection Squad Leader"
 	short_name = "hephsec_boss"
 	desc = "Command a Hephaestus asset protection vessel. Ensure that your crew keeps the company's investments in the sector safe, secure and profitable. Keep an eye out for any unions."
-	welcome_message = ""
+	welcome_message = "You are the leader of a Hephaestus Industries asset protection squad, assigned to keeping the company's assets in this sector in one piece. Keep your team in line, and make sure nothing impacts the bottom line. Remember, you are not SCC/Horizon crew. While you can help them with problems if they ask you are under no obligation to, and you hsoud not be showing up uncalled for to act as Security+ for the Horizon."
 	spawnpoints = list("hephsec_boss")
 
 	outfit = /datum/outfit/admin/heph_security/captain
