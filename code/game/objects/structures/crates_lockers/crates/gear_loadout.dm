@@ -809,45 +809,23 @@
 
 
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/fill()
-	new /obj/item/clothing/under/syndicate/hammertail(src) //6 outfits
-	new /obj/item/clothing/under/syndicate/hammertail(src)
-	new /obj/item/clothing/under/syndicate/hammertail(src)
-	new /obj/item/clothing/under/syndicate/hammertail(src)
-	new /obj/item/clothing/under/syndicate/hammertail(src)
-	new /obj/item/clothing/under/syndicate/hammertail(src)
-	new /obj/item/clothing/head/helmet/space/void/merc(src) //4 voidsuits w/helmets
-	new /obj/item/clothing/head/helmet/space/void/merc(src)
-	new /obj/item/clothing/head/helmet/space/void/merc(src)
-	new /obj/item/clothing/head/helmet/space/void/merc(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
-	new /obj/item/melee/energy/sword(src) //4 e-swords
-	new /obj/item/melee/energy/sword(src)
-	new /obj/item/melee/energy/sword(src)
-	new /obj/item/melee/energy/sword(src)
-	new /obj/item/gun/projectile/pistol/super_heavy(src) //4 heavy pistols w/spare magazines
-	new /obj/item/gun/projectile/pistol/super_heavy(src)
-	new /obj/item/gun/projectile/pistol/super_heavy(src)
-	new /obj/item/gun/projectile/pistol/super_heavy(src)
-	new /obj/item/ammo_magazine/super_heavy(src)
-	new /obj/item/ammo_magazine/super_heavy(src)
-	new /obj/item/ammo_magazine/super_heavy(src)
-	new /obj/item/ammo_magazine/super_heavy(src)
-	new /obj/item/gun/projectile/gauss(src) //4 tungsten slug guns w/spare magazines
-	new /obj/item/gun/projectile/gauss(src)
-	new /obj/item/gun/projectile/gauss(src)
-	new /obj/item/gun/projectile/gauss(src)
-	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/gun/projectile/automatic/rifle/sts35(src) //2 assault rifles w/spare magazines
-	new /obj/item/gun/projectile/automatic/rifle/sts35(src)
-	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/ammo_magazine/c762(src)
+	var/i
+	for(i=0, i<6, i++) //6 outfits
+		new /obj/item/clothing/under/syndicate/hammertail(src)
+	for(i=0, i<4, i++) //4 voidsuits w/helmets
+		new /obj/item/clothing/head/helmet/space/void/merc(src)
+		new /obj/item/clothing/suit/space/void/merc(src)
+	for(i=0, i<4, i++) //4 e-swords
+		new /obj/item/melee/energy/sword(src)
+	for(i=0, i<4, i++) //4 heavy pistols w/spare magazines
+		new /obj/item/gun/projectile/pistol/super_heavy(src)
+		new /obj/item/ammo_magazine/super_heavy(src)
+	for(i=0, i<4, i++) //4 tungsten slug guns w/spare magazines
+		new /obj/item/gun/projectile/gauss(src)
+		new /obj/item/ammo_magazine/gauss(src)
+	for(i=0, i<2, i++) //2 assault rifles w/spare magazines
+		new /obj/item/gun/projectile/automatic/rifle/sts35(src)
+		new /obj/item/ammo_magazine/c762(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/single/fill()
 	new /obj/item/clothing/under/syndicate/hammertail(src) //1 outfit
