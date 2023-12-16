@@ -2660,7 +2660,6 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "sh" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/clothing/suit/storage/toggle/corp/heph,
 /obj/item/clothing/head/beret/corporate/heph,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2673,6 +2672,7 @@
 	},
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/under/rank/captain/hephaestus,
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
 "sw" = (
