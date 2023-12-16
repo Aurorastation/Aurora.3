@@ -123,6 +123,7 @@
 	if(isrobot(src.loc.loc)) // for things inside a robot's module
 		var/mob/living/silicon/robot/R = src.loc.loc
 		return R.cell
+
 	if(backcharger)
 		return backcharger.powersupply
 	if(rigcharger && rigcharger.holder)
