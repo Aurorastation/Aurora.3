@@ -5218,7 +5218,7 @@
 	},
 /obj/item/clothing/head/dominia/fleet/officer,
 /obj/item/shield/energy/dominia,
-/obj/item/gun/projectile/automatic/rifle/dom,
+/obj/item/gun/projectile/automatic/rifle/dominia,
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "FO" = (
