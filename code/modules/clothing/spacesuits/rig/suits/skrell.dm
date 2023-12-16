@@ -39,7 +39,8 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/actuators/combat
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
@@ -81,7 +82,8 @@
 		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/teleporter/skrell
+		/obj/item/rig_module/teleporter/skrell,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL

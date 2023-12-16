@@ -878,3 +878,32 @@ var/global/list/lattice_users = list()
 		previous_turf = T
 		sleep(1)
 	return TRUE
+
+/obj/item/rig_module/recharger
+	name = "weapon recharge module"
+	desc = "A specialised power cable designed to connect an energy weapon to a hardsuit's power supply."
+	toggleable = TRUE
+	icon_state = "powersink"
+	interface_name = "integrated weapon recharger"
+	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
+	category = MODULE_LIGHT_COMBAT
+	usable = FALSE
+	disruptive = FALSE
+	confined_use = TRUE
+	var/obj/item/gun/energy/connected //the gun charging off our hardsuit
+
+/obj/item/rig_module/recharger/activate(mob/user)
+	if (!..())
+		return FALSE
+	if(!connected)
+		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
+		return FALSE
+	to_chat(user, SPAN_NOTICE("\The [connected] is now connected to your hardsuit power supply. Deactivate this module to disconnect it."))
+	return TRUE
+
+/obj/item/rig_module/recharger/deactivate(mob/user)
+	if (!..())
+		return FALSE
+	if(connected)
+		connected.disconnect()
+	return TRUE

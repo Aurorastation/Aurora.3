@@ -32,6 +32,8 @@
 	/// Multiplies by charge cost to determine how much charge should be returned
 	var/recharge_multiplier = 1
 	var/charge_tick = 0
+	var/obj/item/rig_module/recharger/rigcharger
+	var/obj/item/recharger_backpack/backcharger
 
 	//vars passed to turrets
 	var/can_turret = 0						//1 allows you to attach the gun on a turret
@@ -82,6 +84,8 @@
 	update_maptext()
 
 /obj/item/gun/energy/Destroy()
+	if(rigcharger || backcharger)
+		disconnect()
 	QDEL_NULL(power_supply)
 	return ..()
 
@@ -119,6 +123,12 @@
 	if(isrobot(src.loc.loc)) // for things inside a robot's module
 		var/mob/living/silicon/robot/R = src.loc.loc
 		return R.cell
+	if(backcharger)
+		return backcharger.powersupply
+	if(rigcharger && rigcharger.holder)
+		var/obj/item/rig/suit = rigcharger.holder
+		if(!suit.offline)
+			return suit.cell
 	if(istype(src.loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = src.loc
 		if(module.holder && module.holder.wearer)
@@ -131,6 +141,71 @@
 		return loc.get_cell()
 
 	return null
+
+/obj/item/gun/energy/proc/connect(obj/item/recharger)
+	if(istype(recharger, /obj/item/rig_module/recharger))
+		var/obj/item/rig_module/recharger/rigcharge = recharger
+		if(backcharger)
+			to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [backcharger]!"))
+			return
+		if(!rigcharge.holder || !rigcharge.holder.wearer)
+			to_chat(usr, SPAN_WARNING("\The [rigcharge] must be installed and actives!"))
+			return
+		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [recharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		rigcharge.connected = src
+		rigcharger = rigcharge
+		self_recharge = TRUE
+		use_external_power = TRUE
+	if(istype(recharger, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/back_charge = recharger
+		if(rigcharger)
+			to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [rigcharger]!"))
+			return
+		if(!ismob(loc))
+			to_chat(usr, SPAN_WARNING("\The [back_charge] must be worn on the back before a weapon can be connected!"))
+			return
+		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [recharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		back_charge.connect(src)
+		backcharger = back_charge
+		self_recharge = TRUE
+		use_external_power = TRUE
+
+/obj/item/gun/energy/proc/disconnect()
+	if(rigcharger)
+		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [rigcharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		if(rigcharger.active)
+			rigcharger.deactivate()
+		rigcharger.connected = null
+		rigcharger = null
+		self_recharge = initial(self_recharge)
+		use_external_power = initial(use_external_power)
+	if(backcharger)
+		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [backcharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		backcharger.connected = null
+		backcharger = null
+		self_recharge = initial(self_recharge)
+		use_external_power = initial(use_external_power)
+
+/obj/item/gun/energy/MouseDrop(atom/over)
+	. = ..()
+	if(istype(over, /obj/item/rig))
+		var/obj/item/rig/rig = over
+		var/obj/item/rig_module/recharger/recharger = locate() in rig.installed_modules
+		if(recharger)
+			connect(recharger)
+	if(istype(over, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack = over
+		connect(recharger_backpack)
+
+
+/obj/item/gun/energy/dropped(mob/living/user)
+	. = ..()
+	if(rigcharger || backcharger)
+		disconnect()
 
 /obj/item/gun/energy/examine(mob/user, distance, is_adjacent)
 	. = ..()
