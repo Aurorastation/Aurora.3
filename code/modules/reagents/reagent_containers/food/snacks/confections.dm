@@ -145,6 +145,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	filling_color = "#d4b28b"
 	bitesize = 2
+
 /obj/item/reagent_containers/food/snacks/crepe/chocolate
 	name = "chocolate crepe"
 	desc = "A very thin pancake with some notella spread in it."
