@@ -167,3 +167,17 @@
 	light_power = 0.4
 	light_range = 2
 	anchored = TRUE
+
+// Blackbag item
+/obj/item/clothing/mask/headbag
+    name = "Black Bag"
+    desc = "A bag to put over someones head to celebrate a bag party"
+    icon = 'icons/obj/clothing/masks.dmi'
+    icon_state = "balaclava_black"
+    item_state = "balaclava_black"
+    flags_inv = HIDEFACE|BLOCKHAIR
+    body_parts_covered = FACE|HEAD
+    w_class = ITEMSIZE_SMALL
+    tint = TINT_BLIND
+    drop_sound = 'sound/items/drop/gloves.ogg'
+    pickup_sound = 'sound/items/pickup/gloves.ogg'
