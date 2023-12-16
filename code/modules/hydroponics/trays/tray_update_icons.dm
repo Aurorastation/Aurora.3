@@ -69,7 +69,7 @@
 
 	if(seed && seed.get_trait(TRAIT_LARGE))
 		density = 1
-		opacity = 1
+		opacity = TRUE
 	else
 		density = FALSE
 		opacity = FALSE
