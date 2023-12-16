@@ -154,12 +154,15 @@
 	SHOULD_NOT_SLEEP(TRUE)
 	if(istype(recharger, /obj/item/rig_module/recharger))
 		var/obj/item/rig_module/recharger/rigcharge = recharger
+
 		if(backcharger)
 			to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [backcharger]!"))
 			return
+
 		if(!rigcharge.holder || !rigcharge.holder.wearer)
 			to_chat(usr, SPAN_WARNING("\The [rigcharge] must be installed and actives!"))
 			return
+
 		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [recharger]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 		rigcharge.connected = src
@@ -169,12 +172,15 @@
 
 	if(istype(recharger, /obj/item/recharger_backpack))
 		var/obj/item/recharger_backpack/back_charge = recharger
+
 		if(rigcharger)
 			to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [rigcharger]!"))
 			return
+
 		if(!ismob(loc))
 			to_chat(usr, SPAN_WARNING("\The [back_charge] must be worn on the back before a weapon can be connected!"))
 			return
+
 		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [recharger]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 		back_charge.connect(src)
@@ -191,6 +197,7 @@
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 		if(rigcharger.active)
 			rigcharger.deactivate()
+
 		rigcharger.connected = null
 		rigcharger = null
 		self_recharge = initial(self_recharge)
@@ -206,19 +213,21 @@
 
 /obj/item/gun/energy/MouseDrop(atom/over)
 	. = ..()
+
 	if(istype(over, /obj/item/rig))
 		var/obj/item/rig/rig = over
 		var/obj/item/rig_module/recharger/recharger = locate() in rig.installed_modules
 		if(recharger)
 			connect(recharger)
 
-	if(istype(over, /obj/item/recharger_backpack))
+	else if(istype(over, /obj/item/recharger_backpack))
 		var/obj/item/recharger_backpack = over
 		connect(recharger_backpack)
 
 
 /obj/item/gun/energy/dropped(mob/living/user)
 	. = ..()
+
 	if(rigcharger || backcharger)
 		disconnect()
 

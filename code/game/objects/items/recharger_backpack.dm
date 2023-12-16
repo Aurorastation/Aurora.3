@@ -14,6 +14,7 @@
 
 /obj/item/recharger_backpack/Initialize()
 	. = ..()
+	//To update the icon based on the power cell charge we spawn with
 	update_icon()
 
 /obj/item/recharger_backpack/examine(mob/user)
@@ -28,18 +29,20 @@
 		user.drop_from_inventory(I, src)
 		powersupply = I
 		update_icon()
-		return
+
 	else if(istype(I, /obj/item/screwdriver) && powersupply)
 		to_chat(user, SPAN_NOTICE("You remove \the [powersupply] from \the [src]'s power socket"))
 		powersupply.forceMove(get_turf(src))
 		user.put_in_hands(powersupply)
 		powersupply = null
 		update_icon()
-		return
+
 	else if(istype(I, /obj/item/gun/energy))
 		connect(I)
 
-	return ..()
+	else
+		. = ..()
+
 
 /obj/item/recharger_backpack/proc/connect(obj/item/gun/energy/newgun)
 	if(connected)
@@ -51,16 +54,10 @@
 /obj/item/recharger_backpack/verb/disconnect()
 	set name = "Disconnect Energy Weapon"
 	set category = "Object"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
-		user = usr
-	else
-		return
-	if(!user)
-		return
 	if(!connected)
 		to_chat(usr, SPAN_WARNING("\The [src] has no energy weapon connected!"))
 		return
+
 	connected.disconnect()
 
 /obj/item/recharger_backpack/update_icon()
@@ -69,6 +66,7 @@
 		icon_state = "recharger_backpack"
 		item_state = "recharger_backpack"
 		set_light(0)
+
 	else
 		var/current_charge = powersupply.percent()
 		switch(current_charge)
@@ -90,11 +88,13 @@
 				set_light(0)
 
 /obj/item/recharger_backpack/Destroy()
-	. = ..()
 	if(connected)
 		connected.disconnect()
+
 	if(powersupply)
 		QDEL_NULL(powersupply)
+
+	. = ..()
 
 /obj/item/recharger_backpack/high/Initialize()
 	. = ..()
