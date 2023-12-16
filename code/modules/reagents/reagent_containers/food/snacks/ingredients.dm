@@ -231,3 +231,21 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/snowball
+    name = "snowball"
+    desc = "A snowball. Throw it! Or eat it. But something tells you that Vaurca shouldn't eat this. Nor should you, honestly."
+    icon = 'icons/holidays/christmas/christmascookies.dmi'
+    icon_state = "snowball"
+    item_state = "snowball"
+    filling_color = "#ffffff"
+    throw_speed = 1
+    throw_range = 10
+    reagents_to_add = list(/singleton/reagent/water = 3, /singleton/reagent/nutriment/egg = 1) // I'm adding nutriment because you CANNOT CHANGE THE TASTE OF WATER, also egg to not kill unathi, vaurca begone
+    reagent_data = list(/singleton/reagent/water = 0, /singleton/reagent/nutriment/egg = list("crunchy water" = 20)) // OVERPOWERING the taste of water with crunch
+    bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/snowball/throw_impact(atom/hit_atom)
+    ..()
+    src.visible_message(SPAN_WARNING("\The [src] crumples back into a fine powder!"))
+    qdel(src)

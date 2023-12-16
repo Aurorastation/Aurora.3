@@ -406,6 +406,14 @@
 	track_distance = 4
 	footstep_sound = /singleton/sound_category/snow_footstep
 
+/turf/simulated/floor/snow/attack_hand(var/mob/user)
+	var/mob/living/carbon/human/H = user
+	playsound(src, 'sound/items/drop/food.ogg') // REPLACE THIS WITH SNOWBALL MAKE
+	H.setClickCooldown(3 SECONDS)
+	if(do_after(H, 3 SECONDS))
+		var/obj/item/reagent_containers/food/snacks/snowball/snowball = new(get_turf(H))
+		H.put_in_active_hand(snowball)
+
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snowplating"
