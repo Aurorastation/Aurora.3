@@ -80,6 +80,6 @@
 	anchored = 1
 
 /obj/structure/snowball_pile/attack_hand(var/mob/user)
-    var/mob/living/carbon/human/H = user
-    var/obj/item/reagent_containers/food/snacks/snowball/snowball = new(get_turf(H))
-    H.put_in_active_hand(snowball)
+	var/mob/living/carbon/human/H = user
+	var/obj/item/reagent_containers/food/snacks/snowball/snowball = new(get_turf(H))
+	H.put_in_active_hand(snowball)
