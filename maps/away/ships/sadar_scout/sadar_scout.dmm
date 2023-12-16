@@ -4298,11 +4298,6 @@
 /obj/structure/lattice,
 /turf/space,
 /area/ship/sadar_scout/exterior)
-"FY" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/ship/sadar_scout/exterior)
 "Ga" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -36660,7 +36655,7 @@ jg
 Wo
 jb
 kF
-FY
+ro
 dG
 dG
 dG
