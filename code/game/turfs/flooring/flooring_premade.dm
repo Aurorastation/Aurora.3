@@ -408,7 +408,7 @@
 
 /turf/simulated/floor/snow/attack_hand(var/mob/user)
 	var/mob/living/carbon/human/H = user
-	playsound(src, 'sound/items/drop/food.ogg') // REPLACE THIS WITH SNOWBALL MAKE
+	playsound(src, 'sound/items/drop/snowballmake.ogg') // REPLACE THIS WITH SNOWBALL MAKE
 	H.setClickCooldown(3 SECONDS)
 	if(do_after(H, 3 SECONDS))
 		var/obj/item/reagent_containers/food/snacks/snowball/snowball = new(get_turf(H))

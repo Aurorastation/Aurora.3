@@ -14,12 +14,12 @@
 	player_levels = list(1)
 	accessible_z_levels = list(1)
 
-	station_name = "to be done"
-	station_short = "to be done"
-	dock_name = "to be done"
-	dock_short = "to be done"
-	boss_name = "to be done"
-	boss_short = "to be done"
+	station_name = ""
+	station_short = ""
+	dock_name = ""
+	dock_short = ""
+	boss_name = "Stellar Corporate Conglomerate"
+	boss_short = "SCC"
 	company_name = "Stellar Corporate Conglomerate"
 	company_short = "SCC"
 
