@@ -417,7 +417,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/cake/notellacheesecake
 	name = "notella cheesecake"
-	desc = "An elaborate layer cheesecake made with chocolate hazelnut spread. You gain calories just by looking at it for too long."
+	desc = "An elaborate layered cheesecake made with chocolate hazelnut spread. You gain calories just by looking at it for too long."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "notellacheesecake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/notellacheesecake_slice
