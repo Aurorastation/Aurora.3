@@ -68,7 +68,7 @@
 			add_overlay("over_harvest3")
 
 	if(seed && seed.get_trait(TRAIT_LARGE))
-		density = 1
+		density = TRUE
 		opacity = TRUE
 	else
 		density = FALSE
