@@ -14,10 +14,10 @@
 	player_levels = list(1)
 	accessible_z_levels = list(1)
 
-	station_name = ""
-	station_short = ""
-	dock_name = ""
-	dock_short = ""
+	station_name = "Snowscape Sanctuary Ski Resort"
+	station_short = "Snowscape"
+	dock_name = "Platform A"
+	dock_short = "Plat. A"
 	boss_name = "Stellar Corporate Conglomerate"
 	boss_short = "SCC"
 	company_name = "Stellar Corporate Conglomerate"

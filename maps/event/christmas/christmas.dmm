@@ -23,6 +23,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/christmas/bar)
+"ai" = (
+/obj/item/modular_computer/console/preset/research{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "ak" = (
 /obj/machinery/vending/dinnerware/bar,
 /obj/structure/sign/christmas/lights{
@@ -214,6 +220,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/christmas/kitchen)
+"bk" = (
+/obj/machinery/telecomms/processor/preset_one,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "bm" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -336,6 +346,10 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/christmas/chalet)
+"ca" = (
+/obj/structure/flora/rock/snow,
+/turf/simulated/floor/snow,
+/area/christmas/snowballarena)
 "cb" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -405,6 +419,10 @@
 /obj/structure/railing/fence,
 /turf/simulated/floor/concrete,
 /area/christmas/village)
+"cs" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "ct" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer,
@@ -439,6 +457,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
+/obj/machinery/disposal/small/south,
 /turf/simulated/floor/wood,
 /area/christmas/bar)
 "cH" = (
@@ -518,6 +537,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/christmas/administration)
+"cO" = (
+/obj/structure/flora/tree/pine_tree/main,
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/cobble,
+/area/christmas/wilderness)
 "cQ" = (
 /obj/structure/window/reinforced,
 /obj/effect/landmark/force_spawnpoint{
@@ -533,6 +557,10 @@
 /obj/random/gift,
 /turf/simulated/floor/carpet,
 /area/christmas/bar)
+"cZ" = (
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/cobble,
+/area/christmas/wilderness)
 "de" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/snow,
@@ -1321,6 +1349,12 @@
 "ge" = (
 /turf/simulated/floor/tiled/steel,
 /area/christmas/garage)
+"gf" = (
+/obj/machinery/computer/robotics{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "gg" = (
 /obj/structure/bed/stool/wood,
 /obj/structure/platform{
@@ -1365,6 +1399,13 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
+/turf/simulated/floor/tiled/white,
+/area/christmas/medical)
+"gj" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/tiled/white,
 /area/christmas/medical)
 "gk" = (
@@ -1430,6 +1471,10 @@
 	},
 /obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/carpet/rubber,
+/area/christmas/sauna)
+"gH" = (
+/obj/machinery/disposal/small/east,
+/turf/simulated/floor/wood,
 /area/christmas/sauna)
 "gI" = (
 /obj/structure/table/reinforced/wood,
@@ -1844,6 +1889,10 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/freezer,
 /area/christmas/cabin)
+"iD" = (
+/obj/machinery/telecomms/bus/preset_four,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "iE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -2268,6 +2317,10 @@
 /obj/machinery/light/floor,
 /turf/simulated/floor/shuttle/black,
 /area/christmas/shuttle)
+"kg" = (
+/obj/machinery/telecomms/processor/preset_two,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "kh" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -2485,6 +2538,7 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights,
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/carpet,
 /area/christmas/bar)
 "lk" = (
@@ -2503,6 +2557,11 @@
 	},
 /turf/simulated/floor/concrete,
 /area/christmas/village)
+"lp" = (
+/obj/structure/flora/tree/pine_tree/main,
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/snow,
+/area/christmas/snowballarena)
 "ls" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Equipment"
@@ -2577,6 +2636,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/christmas/bar)
+"lP" = (
+/obj/structure/flora/rock/snow,
+/turf/simulated/floor/snow,
+/area/christmas/cave)
 "lR" = (
 /obj/structure/platform_deco,
 /turf/simulated/floor/snow,
@@ -2716,6 +2779,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/christmas/sauna)
+"mS" = (
+/obj/machinery/blackbox_recorder,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "mT" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -2842,6 +2909,10 @@
 /obj/structure/platform/cutout,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/christmas/shuttle)
+"nm" = (
+/obj/effect/floor_decal/snowdrift/large/random,
+/turf/simulated/floor/snow,
+/area/christmas/snowballarena)
 "nn" = (
 /obj/structure/platform{
 	color = "#824B28";
@@ -2955,6 +3026,13 @@
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/snow,
 /area/christmas/village)
+"nU" = (
+/obj/machinery/computer/telecomms/monitor{
+	network = "tcommsat"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "nV" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -2977,6 +3055,13 @@
 	dir = 5
 	},
 /turf/simulated/floor/wood,
+/area/christmas/bar)
+"oe" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/obj/machinery/disposal/small/west,
+/turf/simulated/floor/wood/walnut,
 /area/christmas/bar)
 "of" = (
 /obj/item/stack/material/wood/branch/full,
@@ -3100,9 +3185,8 @@
 /area/christmas/chalet)
 "pa" = (
 /obj/structure/flora/tree/pine_tree/main,
-/obj/structure/flora/tree/pine_tree/main,
 /turf/simulated/floor/snow,
-/area/christmas/wilderness)
+/area/christmas/snowballarena)
 "pb" = (
 /obj/structure/table/rack,
 /obj/item/device/flashlight/lantern,
@@ -3209,10 +3293,9 @@
 /turf/simulated/floor/carpet,
 /area/christmas/village)
 "pu" = (
-/obj/machinery/door/blast/shutters,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/steel,
-/area/christmas/garage)
+/obj/machinery/disposal/small/south,
+/turf/simulated/floor/wood,
+/area/christmas/sauna)
 "pw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -3270,8 +3353,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/christmas/sauna)
 "pT" = (
-/obj/item/stack/material/wood/log/full,
-/turf/simulated/floor/snow,
+/obj/machinery/telecomms/processor/preset_four,
+/turf/unsimulated/floor,
 /area/christmas/wilderness)
 "pW" = (
 /obj/structure/railing/fence{
@@ -3321,6 +3404,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/christmas/sauna)
+"qf" = (
+/obj/machinery/computer/telecomms/server{
+	network = "tcommsat"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "qh" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /obj/effect/map_effect/window_spawner/full/wood,
@@ -3386,6 +3476,13 @@
 /obj/structure/casino/bj_table/bj_right,
 /turf/simulated/floor/carpet/red,
 /area/christmas/bar)
+"qB" = (
+/obj/structure/sign/christmas/lights{
+	dir = 4
+	},
+/obj/machinery/disposal/small/west,
+/turf/simulated/floor/wood/walnut,
+/area/christmas/chalet)
 "qC" = (
 /turf/simulated/floor/ice{
 	light_color = "#D6DCE3";
@@ -3534,6 +3631,16 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/christmas/bar)
+"rA" = (
+/mob/living/simple_animal/penguin/emperor,
+/obj/effect/floor_decal/snow/corner{
+	dir = 5
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 8
+	},
+/turf/simulated/floor/cobble,
+/area/christmas/snowballarena)
 "rD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -3574,6 +3681,10 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/christmas/shuttle)
+"rL" = (
+/obj/machinery/telecomms/bus/preset_two,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "rN" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/xmasgift/large,
@@ -3583,6 +3694,10 @@
 /obj/item/xmasgift/large,
 /turf/simulated/floor/wood,
 /area/christmas/bar)
+"rP" = (
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/cobble,
+/area/christmas/snowballarena)
 "rS" = (
 /obj/machinery/media/jukebox/audioconsole/christmas/wall{
 	pixel_y = 49;
@@ -3781,6 +3896,9 @@
 "te" = (
 /turf/simulated/floor/wood,
 /area/christmas/sauna)
+"tg" = (
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "th" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green{
@@ -3807,6 +3925,10 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/christmas/shuttle)
+"tj" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/cobble,
+/area/christmas/wilderness)
 "tk" = (
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/carpet/red,
@@ -3908,6 +4030,10 @@
 /obj/structure/flora/grass/both,
 /turf/simulated/mineral,
 /area/christmas/wilderness)
+"tT" = (
+/mob/living/simple_animal/penguin,
+/turf/simulated/floor/snow,
+/area/christmas/snowballarena)
 "tU" = (
 /turf/simulated/wall/wood,
 /area/christmas/kitchen)
@@ -4344,6 +4470,7 @@
 /obj/machinery/door/window{
 	dir = 8
 	},
+/obj/machinery/disposal/small/south,
 /turf/simulated/floor/carpet/red,
 /area/christmas/sauna)
 "wF" = (
@@ -4648,6 +4775,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/christmas/bar)
+"ym" = (
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/structure/flora/rock/snow,
+/turf/simulated/floor/snow,
+/area/christmas/village)
+"yn" = (
+/obj/machinery/telecomms/server/presets/engineering,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "yo" = (
 /obj/structure/flora/tree/pine_tree/main/christmas{
 	pixel_x = -32;
@@ -4682,6 +4820,10 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/christmas/bar)
+"yr" = (
+/obj/machinery/telecomms/server/presets/science,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "yt" = (
 /obj/structure/sign/christmas/lights{
 	dir = 8
@@ -4944,6 +5086,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/christmas/sauna)
+"zR" = (
+/obj/machinery/telecomms/hub/preset,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "zS" = (
 /obj/structure/platform{
 	color = "#824B28"
@@ -5030,6 +5176,10 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/bar)
+"Aq" = (
+/obj/machinery/telecomms/message_server,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Av" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/map_effect/perma_light/brighter,
@@ -5075,6 +5225,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/chalet)
 "AO" = (
@@ -5101,6 +5252,12 @@
 	light_range = 2
 	},
 /area/christmas/wilderness)
+"AW" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/sign/christmas/lights,
+/obj/machinery/disposal/small/north,
+/turf/simulated/floor/wood,
+/area/christmas/bar)
 "AY" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/random/gift,
@@ -5253,6 +5410,10 @@
 /mob/living/simple_animal/penguin/baby,
 /turf/simulated/floor/snow,
 /area/christmas/village)
+"BJ" = (
+/obj/machinery/telecomms/server/presets/common,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "BO" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5316,6 +5477,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/cabin)
 "Ci" = (
@@ -5710,6 +5872,7 @@
 /area/christmas/village)
 "Ev" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/bar)
 "Ew" = (
@@ -5820,6 +5983,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/christmas/bar)
+"Fj" = (
+/obj/machinery/telecomms/broadcaster/preset_right,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Fk" = (
 /obj/structure/flora/log_bench,
 /turf/simulated/floor/snow,
@@ -6338,6 +6505,10 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/cabin)
+"HD" = (
+/obj/machinery/telecomms/server/presets/unused,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "HE" = (
 /obj/structure/curtain/black,
 /obj/structure/railing/fence{
@@ -6368,14 +6539,14 @@
 /turf/simulated/floor/wood,
 /area/christmas/sauna)
 "HK" = (
-/obj/machinery/door/blast/shutters{
-	id = "admin"
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/platform{
 	dir = 4;
 	layer = 3;
 	density = 0
+	},
+/obj/machinery/door/blast/shutters{
+	id = "bay2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/christmas/garage)
@@ -6453,6 +6624,11 @@
 /obj/structure/bed/stool/chair/padded/black,
 /turf/simulated/floor/carpet/red,
 /area/christmas/bar)
+"Ik" = (
+/obj/machinery/computer/telecomms/traffic,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Il" = (
 /obj/structure/platform_stairs/full{
 	dir = 4
@@ -6533,6 +6709,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/christmas/chalet)
+"IF" = (
+/obj/machinery/telecomms/bus/preset_three,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "IG" = (
 /obj/structure/sign/christmas/lights,
 /obj/effect/map_effect/perma_light/brighter,
@@ -6615,6 +6795,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/christmas/cabin)
+"Je" = (
+/obj/machinery/telecomms/receiver/preset_right,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Jf" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder{
@@ -6656,6 +6840,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
+/obj/machinery/disposal/small/east,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/bar)
 "Jl" = (
@@ -7003,6 +7188,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/christmas/chalet)
+"Le" = (
+/obj/machinery/telecomms/allinone/ship/station_relay,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Li" = (
 /obj/structure/sign/christmas/lights{
 	dir = 4
@@ -7183,6 +7372,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/christmas/administration)
+"LO" = (
+/obj/machinery/telecomms/server/presets/command,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "LQ" = (
 /obj/structure/platform{
 	color = "#824B28";
@@ -7279,6 +7472,12 @@
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood,
 /area/christmas/sauna)
+"Ml" = (
+/obj/vehicle/bike/snow{
+	dir = 4
+	},
+/turf/simulated/floor/snow,
+/area/christmas/village)
 "Mn" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken0,
 /turf/simulated/floor/wood,
@@ -7469,10 +7668,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/christmas/administration)
 "Ns" = (
-/obj/machinery/media/jukebox/audioconsole/christmas{
-	layer = 3.1
-	},
-/turf/simulated/floor/snow,
+/turf/unsimulated/wall/riveted,
 /area/christmas/wilderness)
 "Nt" = (
 /obj/structure/flora/grass/green,
@@ -7614,6 +7810,10 @@
 	},
 /turf/simulated/floor/carpet/brown,
 /area/christmas/chalet)
+"NS" = (
+/obj/machinery/telecomms/bus/preset_one,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "NT" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer,
@@ -7705,12 +7905,9 @@
 /turf/simulated/floor/carpet/red,
 /area/christmas/bar)
 "OD" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/platform{
-	dir = 4;
-	layer = 3;
-	density = 0
+/obj/machinery/door/blast/shutters{
+	id = "bay1"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/christmas/garage)
@@ -7995,6 +8192,10 @@
 /obj/effect/mist,
 /turf/simulated/floor/beach/water/pool,
 /area/christmas/chalet)
+"Qq" = (
+/obj/machinery/ntnet_relay,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Qr" = (
 /obj/item/stack/material/wood/log/full,
 /turf/simulated/floor/snow,
@@ -8179,12 +8380,23 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/carpet/brown,
 /area/christmas/chalet)
+"Rt" = (
+/obj/machinery/disposal/small/west,
+/turf/simulated/floor/wood,
+/area/christmas/sauna)
 "Ru" = (
 /obj/structure/sign/christmas/lights{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/christmas/theater)
+"Rw" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/disposal/small/south,
+/turf/simulated/floor/tiled/steel,
+/area/christmas/garage)
 "Ry" = (
 /obj/structure/platform{
 	color = "#824B28";
@@ -8586,6 +8798,7 @@
 /obj/structure/sign/christmas/lights{
 	dir = 8
 	},
+/obj/machinery/disposal/small/east,
 /turf/simulated/floor/wood/walnut,
 /area/christmas/bar)
 "Ty" = (
@@ -8945,6 +9158,16 @@
 	},
 /turf/simulated/floor/carpet,
 /area/christmas/kitchen)
+"UN" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	dir = 1
+	},
+/obj/machinery/disposal/small/south,
+/turf/simulated/floor/wood,
+/area/christmas/bar)
 "UO" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -9014,6 +9237,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/christmas/sauna)
+"Vo" = (
+/obj/machinery/telecomms/server/presets/security,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
+"Vt" = (
+/obj/machinery/iff_beacon/horizon,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Vv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/sign/christmas/lights,
@@ -9071,6 +9302,10 @@
 /obj/structure/sign/christmas/tinsel/red,
 /turf/simulated/wall/wood,
 /area/christmas/bar)
+"VT" = (
+/obj/machinery/telecomms/server/presets/service,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "VV" = (
 /obj/machinery/door/airlock/medical{
 	dir = 1;
@@ -9325,6 +9560,10 @@
 	},
 /turf/simulated/floor/concrete,
 /area/christmas/village)
+"XP" = (
+/obj/machinery/telecomms/processor/preset_three,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "XT" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -9365,6 +9604,15 @@
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/freezer,
 /area/christmas/chalet)
+"Yh" = (
+/obj/machinery/computer/message_monitor,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
+"Yi" = (
+/obj/machinery/telecomms/server/presets/medical,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "Yj" = (
 /obj/structure/platform{
 	color = "#824B28"
@@ -9424,6 +9672,10 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/christmas/shuttle)
+"YJ" = (
+/obj/machinery/telecomms/server/presets/supply,
+/turf/unsimulated/floor,
+/area/christmas/wilderness)
 "YN" = (
 /obj/structure/platform,
 /obj/structure/platform{
@@ -11833,7 +12085,7 @@ rq
 rq
 EH
 EH
-Ns
+EH
 EH
 of
 EH
@@ -13626,7 +13878,7 @@ kr
 kr
 kr
 pw
-mE
+oe
 Zt
 Zt
 Zt
@@ -15666,16 +15918,16 @@ Ib
 Jb
 Jb
 Jb
-Jb
-Jb
-Jb
-UY
-Jb
-wx
+fd
 Jb
 Jb
 Jb
 fd
+Ml
+Jb
+Jb
+Jb
+ja
 Jb
 Jb
 Jb
@@ -15791,19 +16043,19 @@ Sb
 Sb
 Ib
 Jb
-Jb
-UY
-wx
-Jb
-Jb
-Jb
-Jb
-Jb
-UY
-Jb
-Jb
-fd
-Jb
+zz
+zz
+fC
+zz
+zz
+my
+zz
+Hb
+Hb
+zz
+zz
+Hb
+zz
 Kv
 Jb
 Jb
@@ -15917,21 +16169,21 @@ Sb
 Sb
 Sb
 Ib
-Jb
-Jb
-Jb
-Jb
-Jb
-UY
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-fd
-ly
-Jb
+zz
+zz
+Hb
+Hb
+zz
+zz
+zz
+zz
+zz
+hY
+Hb
+Hb
+zz
+lp
+zz
 Jb
 Jb
 UY
@@ -16044,21 +16296,21 @@ QS
 Sb
 Sb
 QS
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
+zz
+Hb
+my
+gK
+TJ
+TJ
+zz
+gK
+zz
+zz
+zz
+Hb
+Hb
+zz
+zz
 Jb
 Jb
 Jb
@@ -16171,21 +16423,21 @@ Ib
 Sb
 Sb
 Ib
-pz
-Jb
-fd
-Jb
-Jb
-Jb
-fd
-Jb
-UY
-fd
-fd
-fd
-fd
-Jb
-Jb
+tT
+zz
+my
+zz
+tr
+OX
+tr
+TJ
+zz
+zz
+Ln
+Hb
+Hb
+zz
+zz
 Kv
 Jb
 Jb
@@ -16298,21 +16550,21 @@ Ib
 Sb
 Sb
 Ib
-Jb
-Jb
-fd
-Jb
-UY
-Jb
-fd
-Jb
-fd
-fd
-Jb
-Jb
-Jb
-UY
-Jb
+zz
+gK
+TJ
+kI
+zz
+zz
+zz
+zz
+uu
+ca
+zz
+zz
+Hb
+pa
+zz
 Jb
 Jb
 UY
@@ -16425,21 +16677,21 @@ mp
 Sb
 Sb
 Ib
-Jb
-UY
-fd
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+Fc
+zz
+zz
+my
+zz
+zz
+FL
+zz
+zz
+zz
+zz
+zz
+zz
 Jb
 Jb
 Jb
@@ -16552,21 +16804,21 @@ Ib
 Sb
 Sb
 Ib
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-ly
-Jb
-Jb
-UY
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+Fc
+nm
+zz
+zz
+rA
+zz
+FL
+gK
+zz
+zz
+TJ
+zz
+zz
 Jb
 Jb
 Jb
@@ -16679,21 +16931,21 @@ Ib
 Sb
 Sb
 Ib
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+Fc
+Hb
+ca
+zz
+gK
+zz
+zz
+my
+zz
+zz
+TJ
+zz
+zz
 UY
 Jb
 ec
@@ -16780,7 +17032,7 @@ Lz
 wy
 bS
 ez
-bh
+qB
 bh
 Dv
 bh
@@ -16800,27 +17052,27 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 QS
 Sb
 Sb
 QS
-Jb
-ly
-Jb
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-UY
-Jb
-Jb
-Jb
-UY
-Jb
+zz
+zz
+zz
+Ve
+rP
+zz
+zz
+zz
+TJ
+TJ
+zz
+zz
+TJ
+pa
+zz
 Jb
 Jb
 aI
@@ -16923,7 +17175,7 @@ Jb
 wx
 Jb
 Jb
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -16933,21 +17185,21 @@ Ib
 Sb
 Sb
 Ib
-Jb
-Jb
-Jb
-Jb
-Jb
-ly
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+cv
+zG
+zz
+TJ
+uu
+TJ
+TJ
+zz
+ca
+zz
+zz
+zz
+zz
 UY
 Jb
 aI
@@ -17060,21 +17312,21 @@ Ib
 Sb
 Sb
 Ib
-Jb
-Jb
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-UY
-Jb
-Jb
-Jb
-Jb
-fd
-Jb
+zz
+my
+zz
+Hb
+gK
+TJ
+zz
+IK
+IK
+zz
+zz
+zz
+Hb
+Hb
+zz
 Jb
 Jb
 aI
@@ -17187,21 +17439,21 @@ mp
 Sb
 Sb
 Ib
-Jb
-Jb
-Jb
-Jb
-Jb
-UY
-Jb
-Jb
-Jb
-fd
-Jb
-UY
-Jb
-Jb
-Jb
+zz
+zz
+Hb
+zz
+IK
+IK
+IK
+zz
+zz
+Hb
+zz
+zz
+vo
+zz
+zz
 Jb
 Jb
 ec
@@ -17314,21 +17566,21 @@ Ib
 Sb
 Sb
 Ib
-Jb
-UY
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+zz
+gK
+Hb
+Hb
+Hb
+Hb
+Hb
+zz
+my
+zz
+vo
+zz
+zz
 Jb
 Jb
 aI
@@ -17417,7 +17669,7 @@ ez
 ez
 ez
 ez
-bh
+qB
 uH
 SF
 HF
@@ -17429,33 +17681,33 @@ tn
 sD
 Jb
 Jb
-Jb
+Eu
 wx
 Jb
 Jb
 Jb
 UY
 Jb
-Jb
+Eu
 Ib
 Sb
 Sb
 Ib
-Jb
-Jb
-fd
-Jb
-Jb
-fd
-Jb
-Jb
-UY
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+zz
+QK
+zz
+zz
+zz
+Hb
+zz
+zz
+my
+zz
+zz
+zz
+zz
 Jb
 UY
 aI
@@ -17568,21 +17820,21 @@ QS
 Sb
 Sb
 QS
-Jb
-ly
-Jb
-Jb
-Jb
-fd
-UY
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-UY
-Jb
+zz
+zz
+TJ
+Hb
+zz
+zz
+my
+zz
+zz
+zz
+zz
+zz
+FL
+pa
+zz
 Jb
 Jb
 aI
@@ -17663,7 +17915,7 @@ Iz
 Iz
 Iz
 Iz
-Iz
+ym
 Iz
 Iz
 Iz
@@ -17696,19 +17948,19 @@ Sb
 Sb
 Ib
 Jb
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
-fd
-Jb
-Jb
-UY
-Jb
-Jb
-fd
+TJ
+zz
+TJ
+TJ
+TJ
+zz
+zz
+IK
+IK
+zz
+zz
+my
+Hb
 fd
 Jb
 Jb
@@ -17783,7 +18035,7 @@ EH
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -17824,18 +18076,18 @@ Sb
 Ib
 Ib
 Jb
-Jb
-Jb
-ly
-fd
-Jb
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+lp
+Hb
+zz
+Hb
+zz
+zz
+zz
+zz
+zz
+zz
 Jb
 UY
 Jb
@@ -17935,7 +18187,7 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 Jb
 UY
@@ -17951,18 +18203,18 @@ Sb
 Sb
 Ib
 Jb
-fd
-fd
-Jb
-Jb
-Jb
-Jb
-Jb
-fd
-fd
-Jb
-Jb
-fd
+Hb
+Hb
+zz
+zz
+zz
+zz
+zz
+Hb
+Hb
+zz
+zz
+Hb
 Jb
 Jb
 Jb
@@ -18042,7 +18294,7 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -18078,18 +18330,18 @@ Sb
 Sb
 Ib
 Jb
-fd
-Jb
-Jb
-fd
-Jb
-Jb
-Jb
-UY
-Jb
-Jb
-Jb
-Jb
+Hb
+zz
+zz
+Hb
+zz
+zz
+zz
+pa
+zz
+zz
+zz
+zz
 Jb
 Jb
 Jb
@@ -18194,7 +18446,7 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -18743,7 +18995,7 @@ Ea
 Fi
 EM
 nV
-Vv
+AW
 eL
 Mz
 ZI
@@ -18918,7 +19170,7 @@ FU
 Is
 qP
 te
-te
+Rt
 qr
 EO
 sR
@@ -18926,7 +19178,7 @@ FU
 Is
 qP
 te
-te
+Rt
 qr
 EO
 Gn
@@ -19632,7 +19884,7 @@ Ea
 Fi
 Ud
 nV
-Vv
+AW
 eL
 IR
 RF
@@ -19678,7 +19930,7 @@ EO
 sR
 gg
 MD
-te
+gH
 qP
 te
 Zn
@@ -19686,7 +19938,7 @@ EO
 sR
 gg
 MD
-te
+gH
 qP
 te
 Zn
@@ -19962,7 +20214,7 @@ DO
 QN
 Ll
 om
-te
+pu
 kb
 QM
 QM
@@ -20179,7 +20431,7 @@ EH
 rq
 EH
 EH
-EH
+Si
 EH
 EH
 EO
@@ -20343,7 +20595,7 @@ DO
 Dd
 Ll
 om
-te
+pu
 Gv
 QM
 QM
@@ -20375,7 +20627,7 @@ dD
 dD
 XB
 ec
-ew
+UN
 hQ
 hQ
 hQ
@@ -20571,7 +20823,7 @@ EH
 EH
 EH
 EH
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -20821,7 +21073,7 @@ EH
 rq
 EH
 EH
-EH
+Si
 EH
 of
 Jb
@@ -21961,14 +22213,14 @@ EH
 EH
 EH
 LG
-EH
+Si
 EH
 EH
 XV
 EH
 EH
 Jb
-Jb
+Eu
 kk
 tV
 tV
@@ -22049,7 +22301,7 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 fd
 Jb
@@ -22172,7 +22424,7 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 fd
 Jb
@@ -22209,12 +22461,12 @@ Oq
 EH
 EH
 EH
+Si
 EH
 EH
 EH
 EH
-EH
-EH
+Si
 EH
 EH
 EH
@@ -22297,12 +22549,12 @@ iR
 Jb
 fd
 Jb
+Eu
 Jb
 Jb
 Jb
 Jb
-Jb
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -22560,7 +22812,7 @@ Jb
 dN
 Jb
 Jb
-Jb
+Eu
 EH
 EH
 EH
@@ -22600,7 +22852,7 @@ EH
 rq
 EH
 EH
-EH
+Si
 EH
 Jb
 Jb
@@ -22717,7 +22969,7 @@ Oq
 EH
 of
 EH
-EH
+Si
 EH
 qC
 qC
@@ -22732,7 +22984,7 @@ Jb
 Jb
 Jb
 Jb
-Jb
+Eu
 Jb
 Jb
 Jb
@@ -22934,7 +23186,7 @@ zr
 zr
 mZ
 zr
-pu
+OD
 ek
 EH
 rq
@@ -23034,7 +23286,7 @@ kh
 hT
 dQ
 ax
-kh
+gj
 hT
 Yo
 eZ
@@ -23173,7 +23425,7 @@ Jb
 Jb
 cJ
 OJ
-fM
+Rw
 ge
 ge
 ge
@@ -23191,7 +23443,7 @@ OS
 OJ
 Yx
 EH
-EH
+Si
 EH
 EH
 EH
@@ -23239,21 +23491,21 @@ EH
 Jb
 Jb
 Jb
-Jb
-Jb
-Jb
-UY
-Jb
-Jb
-yF
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
-Jb
+zz
+zz
+zz
+Hb
+zz
+zz
+zz
+Hb
+SI
+zz
+zz
+zz
+QK
+zz
+zz
 Jb
 Jb
 Jb
@@ -23324,7 +23576,7 @@ EH
 EH
 EH
 EH
-EH
+Si
 EH
 EH
 EH
@@ -23366,21 +23618,21 @@ EH
 XV
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+zz
+fC
+zz
+zz
+my
+zz
+Hb
+Hb
+zz
+zz
+Hb
+zz
+zz
 Jb
 Jb
 Jb
@@ -23493,21 +23745,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-rq
-EH
-EH
-Jb
-Jb
+zz
+zz
+Hb
+Hb
+OX
+OX
+zz
+zz
+zz
+hY
+Hb
+Hb
+zz
+zz
+zz
 nS
 Jb
 Jb
@@ -23620,21 +23872,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-XV
-EH
-DD
-rq
-EH
-EH
-fd
-Jb
+zz
+Hb
+my
+zz
+fH
+TJ
+zz
+gK
+zz
+zz
+zz
+Hb
+Hb
+Hb
+zz
 Qr
 Jb
 Jb
@@ -23747,21 +23999,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+my
+zz
+tr
+OX
+tr
+TJ
+zz
+zz
+Ln
+Hb
+Hb
+zz
+zz
 Jb
 Jb
 Jb
@@ -23874,21 +24126,21 @@ EH
 EH
 EH
 XV
-EH
-EH
-EH
-rq
-EH
-EH
-EH
-EH
-EH
-rq
-EH
-EH
-EH
-fd
-UY
+zz
+gK
+TJ
+kI
+zz
+zz
+zz
+zz
+uu
+zz
+zz
+zz
+Hb
+Hb
+pa
 Jb
 Jb
 Jb
@@ -24001,21 +24253,21 @@ XV
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-XV
-EH
-EH
-EH
-EH
-EH
-fd
-Jb
+zz
+zz
+OX
+OX
+zz
+zz
+zz
+my
+OX
+OX
+TJ
+TJ
+zz
+Hb
+zz
 Jb
 Jb
 Jb
@@ -24081,11 +24333,11 @@ KE
 mt
 EH
 EH
+Si
 EH
 EH
 EH
-EH
-EH
+Si
 EH
 EH
 EH
@@ -24128,21 +24380,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-XV
-EH
-EH
-EH
-EH
-EH
-EH
-ld
-EH
-EH
-EH
-Jb
-fd
+zz
+zz
+zz
+zz
+OX
+zz
+TJ
+zz
+zz
+gK
+zz
+Pe
+TJ
+zz
+Hb
 Jb
 Jb
 Jb
@@ -24255,21 +24507,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+zz
+Hb
+zz
+Fg
+rS
+zz
+zz
+my
+zz
+FL
+TJ
+zz
+zz
 Jb
 Jb
 au
@@ -24380,23 +24632,23 @@ XV
 EH
 EH
 EH
+Si
 EH
-EH
-EH
-EH
-EH
-pT
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-fd
+zz
+zz
+zz
+Ve
+TJ
+zz
+IK
+zz
+TJ
+TJ
+zz
+FL
+TJ
+zz
+Hb
 Jb
 Jb
 au
@@ -24509,21 +24761,21 @@ EH
 EH
 XV
 EH
-EH
-EH
-EH
-EH
-pa
-XV
-EH
-EH
-EH
-rq
-EH
-EH
-EH
-Jb
-fd
+zz
+zz
+cv
+zG
+zz
+TJ
+uu
+TJ
+cv
+IK
+zz
+zz
+zz
+zz
+Hb
 Jb
 Jb
 au
@@ -24625,32 +24877,32 @@ EH
 EH
 EH
 EH
+Si
+EH
+EH
+EH
+EH
+Si
 EH
 EH
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-XV
-Jb
-fd
+zz
+my
+zz
+Hb
+gK
+TJ
+zz
+zz
+zz
+zz
+zz
+zz
+Hb
+zz
+Hb
 Jb
 Jb
 au
@@ -24697,7 +24949,7 @@ EH
 EH
 sy
 OJ
-fM
+Rw
 ge
 ge
 ge
@@ -24763,21 +25015,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-EH
-rq
-rq
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-ly
-Jb
+zz
+zz
+Hb
+zz
+IK
+IK
+IK
+zz
+zz
+Hb
+zz
+zz
+vo
+lp
+zz
 Jb
 Jb
 au
@@ -24890,21 +25142,21 @@ EH
 EH
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-XV
-XV
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+zz
+zz
+Hb
+Hb
+Hb
+Hb
+Hb
+zz
+my
+zz
+vo
+zz
+zz
 Jb
 Jb
 Jb
@@ -25014,24 +25266,24 @@ Gi
 Gi
 EH
 EH
+Si
 EH
 EH
-EH
-EH
-XV
-EH
-EH
-EH
-EH
-EH
-EH
-XV
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+zz
+QK
+zz
+zz
+zz
+Hb
+zz
+zz
+my
+zz
+zz
+zz
+zz
 Jb
 fd
 Jb
@@ -25144,21 +25396,21 @@ EH
 EH
 EH
 EH
-rq
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-XV
-Jb
-Jb
+Hb
+zz
+TJ
+Hb
+zz
+zz
+my
+zz
+zz
+zz
+zz
+zz
+FL
+zz
+zz
 Jb
 fd
 Jb
@@ -25271,21 +25523,21 @@ EH
 Bt
 rq
 rq
-EH
-EH
-EH
-EH
-rq
-EH
-XV
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+TJ
+zz
+TJ
+TJ
+TJ
+zz
+zz
+IK
+IK
+zz
+zz
+my
+zz
+zz
 Jb
 yF
 Jb
@@ -25398,21 +25650,21 @@ EH
 rq
 EH
 EH
-rq
-XV
-EH
-EH
-EH
-XV
-EH
-XV
-EH
-EH
-EH
-rq
-rq
-Jb
-Jb
+Hb
+pa
+zz
+zz
+zz
+pa
+zz
+pa
+zz
+zz
+zz
+Hb
+Hb
+zz
+zz
 Jb
 Jb
 fd
@@ -25521,25 +25773,25 @@ ki
 ki
 Gi
 EH
-rq
 EH
 EH
 EH
 EH
-rq
-rq
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-rq
-EH
-rq
-Jb
-Jb
+zz
+Hb
+Hb
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+Hb
+zz
+Hb
+zz
+zz
 Jb
 fd
 Jb
@@ -25643,7 +25895,7 @@ ki
 ki
 ki
 Gi
-ki
+lP
 Gi
 ki
 Gi
@@ -25652,21 +25904,21 @@ EH
 EH
 EH
 EH
-EH
-XV
-rq
-rq
-rq
-rq
-rq
-rq
-rq
-EH
-EH
-rq
-EH
-Jb
-Jb
+zz
+pa
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+zz
+zz
+Hb
+zz
+zz
+zz
 Jb
 fd
 Jb
@@ -25779,21 +26031,21 @@ EH
 EH
 EH
 EH
-EH
-XV
-EH
-EH
-EH
-rq
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+pa
+zz
+zz
+zz
+Hb
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
 fd
 Jb
 Jb
@@ -25906,21 +26158,21 @@ EH
 rq
 EH
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-rq
-EH
-EH
-EH
-XV
-Jb
-Jb
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+Hb
+zz
+zz
+zz
+pa
+zz
+zz
 Jb
 Jb
 Jb
@@ -26033,21 +26285,21 @@ Gi
 rq
 rq
 EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
+zz
 Jb
 Jb
 au
@@ -26160,21 +26412,21 @@ Gi
 EH
 rq
 EH
-EH
-EH
-EH
-rq
-EH
-EH
-EH
-XV
-XV
-EH
-EH
-EH
-EH
-Jb
-Jb
+zz
+zz
+zz
+Hb
+zz
+zz
+zz
+pa
+pa
+zz
+zz
+zz
+zz
+zz
+zz
 Jb
 Jb
 au
@@ -26593,7 +26845,7 @@ hY
 zz
 zz
 zz
-zz
+TJ
 zz
 EH
 EH
@@ -26721,7 +26973,7 @@ zz
 zz
 zz
 zz
-zz
+TJ
 EH
 EH
 EH
@@ -26849,7 +27101,7 @@ zz
 zz
 zz
 zz
-EH
+jL
 EH
 EH
 EH
@@ -27358,9 +27610,9 @@ EH
 EH
 rq
 EH
+jL
 EH
-EH
-EH
+jL
 EH
 EH
 EH
@@ -27743,7 +27995,7 @@ EH
 EH
 EH
 rq
-ld
+cO
 EH
 EH
 EH
@@ -27870,7 +28122,7 @@ EH
 EH
 aH
 EH
-rq
+cZ
 EH
 EH
 EH
@@ -28509,7 +28761,7 @@ EH
 EH
 EH
 EH
-EH
+jL
 qC
 qC
 iU
@@ -28634,7 +28886,7 @@ EH
 yY
 EH
 EH
-EH
+jL
 EH
 EH
 qC
@@ -29017,7 +29269,7 @@ EH
 EH
 EH
 EH
-EH
+jL
 qC
 Az
 qC
@@ -29270,7 +29522,7 @@ aH
 EH
 rq
 EH
-EH
+jL
 EH
 EH
 qC
@@ -29525,7 +29777,7 @@ EH
 yY
 rq
 EH
-EH
+jL
 EH
 EH
 EH
@@ -29654,10 +29906,10 @@ EH
 EH
 EH
 EH
-rq
+Ai
 EH
 EH
-Az
+qC
 qC
 rq
 rq
@@ -29782,7 +30034,7 @@ EH
 EH
 EH
 EH
-rq
+EH
 EH
 EH
 qC
@@ -29906,11 +30158,11 @@ ld
 EH
 EH
 EH
+Ai
 EH
+tj
 EH
-yY
-rq
-rq
+Ai
 EH
 EH
 EH
@@ -30035,7 +30287,7 @@ EH
 EH
 EH
 yY
-yY
+EH
 EH
 EH
 EH
@@ -30162,9 +30414,9 @@ yY
 bA
 rq
 EH
-EH
+Ai
 rq
-ld
+rq
 EH
 EH
 yY
@@ -31856,17 +32108,17 @@ Oq
 Tc
 "}
 (176,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
 Oq
 Oq
 Oq
@@ -31983,17 +32235,17 @@ Oq
 Tc
 "}
 (177,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+XP
+IF
+Aq
+BJ
+VT
+Vo
+yn
+mS
+Fj
+Ns
 Oq
 Oq
 Oq
@@ -32103,24 +32355,24 @@ EH
 tn
 iz
 tn
-mU
+uK
 tn
 iz
 Oq
 Tc
 "}
 (178,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+Qq
+Je
+zR
+bk
+NS
+kg
+rL
+tg
+Le
+Ns
 Oq
 Oq
 Oq
@@ -32237,17 +32489,17 @@ Oq
 Tc
 "}
 (179,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+pT
+iD
+HD
+LO
+YJ
+Yi
+yr
+tg
+Vt
+Ns
 Oq
 Oq
 Oq
@@ -32364,17 +32616,17 @@ Oq
 Tc
 "}
 (180,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+cs
+cs
+cs
+cs
+cs
+cs
+cs
+cs
+cs
+Ns
 Oq
 Oq
 Oq
@@ -32491,17 +32743,17 @@ Oq
 Tc
 "}
 (181,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+cs
+cs
+cs
+Yh
+gf
+Ik
+nU
+qf
+ai
+Ns
 Oq
 Oq
 Oq
@@ -32618,17 +32870,17 @@ Oq
 Tc
 "}
 (182,1,1) = {"
-Tc
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
-Oq
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
+Ns
 Oq
 Oq
 Oq
