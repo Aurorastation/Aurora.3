@@ -7,7 +7,9 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
+	///Power cell used to recharge the gun. Empty by default.
 	var/obj/item/cell/powersupply
+	///The gun we're currently recharging. Connection handled in connect() and /obj/item/gun/energy/connect()
 	var/obj/item/gun/energy/connected
 
 /obj/item/recharger_backpack/Initialize()
@@ -27,16 +29,15 @@
 		powersupply = I
 		update_icon()
 		return
-	if(istype(I, /obj/item/screwdriver) && powersupply)
+	else if(istype(I, /obj/item/screwdriver) && powersupply)
 		to_chat(user, SPAN_NOTICE("You remove \the [powersupply] from \the [src]'s power socket"))
 		powersupply.forceMove(get_turf(src))
 		user.put_in_hands(powersupply)
 		powersupply = null
 		update_icon()
 		return
-	if(istype(I, /obj/item/gun/energy))
+	else if(istype(I, /obj/item/gun/energy))
 		connect(I)
-		return
 
 	return ..()
 
@@ -44,6 +45,7 @@
 	if(connected)
 		to_chat(usr, SPAN_WARNING("\The [src] already has an energy weapon connected!"))
 		return
+
 	connected = newgun
 
 /obj/item/recharger_backpack/verb/disconnect()
@@ -94,5 +96,6 @@
 	if(powersupply)
 		QDEL_NULL(powersupply)
 
-/obj/item/recharger_backpack/high
-	powersupply = /obj/item/cell/high
+/obj/item/recharger_backpack/high/Initialize()
+	. = ..()
+	powersupply = new /obj/item/cell/high(src)

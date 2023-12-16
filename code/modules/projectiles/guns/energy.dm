@@ -32,6 +32,8 @@
 	/// Multiplies by charge cost to determine how much charge should be returned
 	var/recharge_multiplier = 1
 	var/charge_tick = 0
+
+	/// External power sources for the gun. Checked by get_external_power_supply()
 	var/obj/item/rig_module/recharger/rigcharger
 	var/obj/item/recharger_backpack/backcharger
 
@@ -143,7 +145,13 @@
 
 	return null
 
+/**
+* Connects the energy gun to an external power supply
+*
+* * recharger - the power supply in question. Can either be /obj/item/rig_modue/recharger or /obj/item/recharger_backpack.
+*/
 /obj/item/gun/energy/proc/connect(obj/item/recharger)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(istype(recharger, /obj/item/rig_module/recharger))
 		var/obj/item/rig_module/recharger/rigcharge = recharger
 		if(backcharger)
@@ -158,6 +166,7 @@
 		rigcharger = rigcharge
 		self_recharge = TRUE
 		use_external_power = TRUE
+
 	if(istype(recharger, /obj/item/recharger_backpack))
 		var/obj/item/recharger_backpack/back_charge = recharger
 		if(rigcharger)
@@ -173,7 +182,10 @@
 		self_recharge = TRUE
 		use_external_power = TRUE
 
+
+///Disconnects the energy gun from its external power source if none exists.
 /obj/item/gun/energy/proc/disconnect()
+	SHOULD_NOT_SLEEP(TRUE)
 	if(rigcharger)
 		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [rigcharger]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
@@ -183,6 +195,7 @@
 		rigcharger = null
 		self_recharge = initial(self_recharge)
 		use_external_power = initial(use_external_power)
+
 	if(backcharger)
 		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [backcharger]."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
@@ -198,6 +211,7 @@
 		var/obj/item/rig_module/recharger/recharger = locate() in rig.installed_modules
 		if(recharger)
 			connect(recharger)
+
 	if(istype(over, /obj/item/recharger_backpack))
 		var/obj/item/recharger_backpack = over
 		connect(recharger_backpack)
