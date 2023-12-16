@@ -71,7 +71,7 @@
 		density = 1
 		opacity = 1
 	else
-		density = 0
+		density = FALSE
 		opacity = FALSE
 
 	// Update bioluminescence.
