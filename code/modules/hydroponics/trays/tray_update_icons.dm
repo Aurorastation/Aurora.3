@@ -72,7 +72,7 @@
 		opacity = 1
 	else
 		density = 0
-		opacity = 0
+		opacity = FALSE
 
 	// Update bioluminescence.
 	if(seed && seed.get_trait(TRAIT_BIOLUM))
