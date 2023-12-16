@@ -1005,6 +1005,7 @@
 #include "code\game\objects\items\devices\hacktool.dm"
 #include "code\game\objects\items\devices\hearing_aid.dm"
 #include "code\game\objects\items\devices\holowarrant.dm"
+#include "code\game\objects\items\devices\identityscanner.dm"
 #include "code\game\objects\items\devices\laserpointer.dm"
 #include "code\game\objects\items\devices\lightmeter.dm"
 #include "code\game\objects\items\devices\lightreplacer.dm"
