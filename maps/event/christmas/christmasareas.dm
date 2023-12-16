@@ -11,7 +11,7 @@
 /area/christmas/chalet
 	name = "Christmas Chalet"
 	icon_state = "bluenew"
-
+	area_blurb = "As you enter this large mansion you can't help but feel a wave of Christmas joy wash over you. Your nose fills with the smell of gingerbread, and your ears rejoice in excitement as the sound of classic songs fill your ears."
 /area/christmas/wilderness
 	name = "Mountain Wilderness"
 	icon_state = "wilderness"
@@ -20,7 +20,7 @@
 /area/christmas/village
 	name = "Christmas Village"
 	icon_state = "village"
-
+	area_blurb = "Stepping off of the platform, you notice a large village that seems to have been meticulously crafted just for you. The wind carries the smell of the holiday season to you, pies, treats and holiday dinners... How joyful!"
 /area/christmas/bar
 	name = "Village Bar"
 	icon_state = "bar"
@@ -32,7 +32,7 @@
 /area/christmas/garage
 	name = "Snowmobile Garage"
 	icon_state = "garage"
-
+	area_blurb = "This area smells of motor oil and nutmeg. Weird combination.."
 /area/christmas/cabin
 	name = "Christmas Cabin"
 	icon_state = "sleep"
@@ -40,7 +40,7 @@
 /area/christmas/shuttle
 	name = "Crew Shuttle"
 	icon_state = "shuttlegrn"
-
+	area_blurb = "You rub your eyes.. You're aboard the SCCV Blixen. Merry Christmas!"
 /area/christmas/theater
 	name = "Christmas Theatre"
 	icon_state = "Theatre"
@@ -48,7 +48,7 @@
 /area/christmas/cave
 	name = "Hidden Cave"
 	icon_state = "mining"
-
+	area_blurb = "You smell fire and smoke coming from within..."
 /area/christmas/medical
 	name = "Village Doctor"
 	icon_state = "medbay"
@@ -64,7 +64,7 @@
 /area/christmas/snowballarena
 	name = "Snowball Arena"
 	icon_state = "Tactical"
-
+	area_blurb = "The landscape is covered in footprints, piles of snow and wooden walls to help defend your fortress. Have fun!"
 /area/christmas/campfire
 	name = "Campfire"
 	icon_state = "fire"
