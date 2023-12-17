@@ -94,7 +94,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -5001,7 +5001,7 @@
 	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
@@ -11774,6 +11774,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "ivg" = (
@@ -13137,7 +13138,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72), "blue" = list(19,38,72), "red" = list(19,38,72), "delta" = list(19,38,72));
+	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -19794,10 +19795,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/chamber)
 "nRe" = (
-/obj/machinery/suit_cycler/captain,
-/obj/item/clothing/suit/space/void/captain,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/clothing/head/helmet/space/void/captain,
+/obj/machinery/suit_cycler/captain/prepared,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
