@@ -329,7 +329,7 @@
 	"Resident Physician" = list(
 		SPECIES_HUMAN = 28,
 		SPECIES_SKRELL = 58,
-		SPECIES_SKRELL_AXIORI = 28
+		SPECIES_SKRELL_AXIORI = 58
 	),
 	"Resident Surgeon" = list(
 		SPECIES_HUMAN = 28,
