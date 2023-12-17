@@ -13,7 +13,6 @@ export class TguiSay extends Component<{}, State> {
     historyCounter: 0,
     innerRef: createRef(),
     lightMode: false,
-    availableChannels: CHANNELS,
     maxLength: 1024,
     radioPrefix: '',
     tempHistory: '',
@@ -45,11 +44,10 @@ export class TguiSay extends Component<{}, State> {
       maxLength,
       radioPrefix,
       value,
-      availableChannels,
     } = this.fields;
     const { buttonContent, channel, edited, size } = this.state;
 
-    const theme = getTheme(lightMode, radioPrefix, channel, availableChannels);
+    const theme = getTheme(lightMode, radioPrefix, channel);
 
     return (
       <div className={getCss('modal', theme, size)} $HasKeyedChildren>
