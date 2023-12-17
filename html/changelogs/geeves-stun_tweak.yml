@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes:
-  - tweak: "CULT: Adjusted stun/incapacitation runes to be blockable by flssh-resistant eyewear. Talismans are blocked by sunglasses, while larger runes are only blocked by welding goggles or voidsuits."
-  - tweak: "CULT: Stun/Incapitation runes now flash borgs as well, and the stuns last for longer, especially for the non-talisman variant."
+  - tweak: "CULT: Adjusted stun/incapacitation runes to be blockable by flash-resistant eyewear. Talismans are blocked by sunglasses, while larger runes are only blocked by welding goggles or voidsuits."
+  - tweak: "CULT: Stun/Incapacitation runes now flash borgs as well, and the stuns last for longer, especially for the non-talisman variant."
