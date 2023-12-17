@@ -42,7 +42,6 @@
 
 	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 	see_invisible = SEE_INVISIBLE_OBSERVER
-	see_in_dark = 100
 	add_verb(src, /mob/abstract/observer/proc/dead_tele)
 
 	set_stat(DEAD)
@@ -873,12 +872,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(on_restricted_level())
 		//On the restricted level they have the same sight as the mob
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(2)
 		set_see_invisible(SEE_INVISIBLE_OBSERVER)
 	else
 		//Outside of the restrcited level, they have enhanced vision
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(100)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 		if (!seedarkness)

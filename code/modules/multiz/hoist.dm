@@ -54,7 +54,7 @@
 		AM.forceMove(get_turf(source_hook))
 	hoistee = AM
 	if(ismob(AM))
-		source_hook.buckle(AM)
+		source_hook.buckle(AM, user)
 		if(issilicon(AM))
 			AM.anchored = TRUE
 	source_hook.layer = AM.layer + 0.1

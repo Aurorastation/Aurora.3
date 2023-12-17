@@ -37,7 +37,6 @@
 	name = "carnivorous aquatic creature"
 	desc = "A threatening-looking aquatic creature with a mouth full of densely-packed, razor sharp teeth."
 	emote_see = list("swishes around elegantly", "floats threateningly")
-	see_in_dark = 6
 	mob_size = MOB_LARGE
 	icon_state = "thresher"
 	icon_living = "thresher"
