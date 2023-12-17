@@ -26,8 +26,9 @@
 	back = /obj/item/storage/backpack/industrial
 	accessory = /obj/item/clothing/accessory/badge/passcard/scarab
 	r_pocket = /obj/item/wrench
-	l_pocket = /obj/item/storage/pill_bottle/rmt
+	l_ear = /obj/item/device/radio/headset/ship
 	belt = /obj/item/storage/belt/utility/full
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/pill_bottle/rmt = 1)
 
 /datum/outfit/admin/scarab/get_id_access()
 	return list(access_external_airlocks)
