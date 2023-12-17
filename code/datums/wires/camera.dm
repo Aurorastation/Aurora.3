@@ -1,6 +1,7 @@
 // Wires for cameras.
 
 /datum/wires/camera
+	proper_name = "Camera"
 	holder_type = /obj/machinery/camera
 
 /datum/wires/camera/New(atom/holder)

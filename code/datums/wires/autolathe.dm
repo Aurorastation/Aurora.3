@@ -1,4 +1,5 @@
 /datum/wires/autolathe
+	proper_name = "Autolathe"
 	holder_type = /obj/machinery/autolathe
 
 /datum/wires/autolathe/New(atom/holder)
@@ -11,12 +12,10 @@
 
 /datum/wires/autolathe/get_status()
 	var/obj/machinery/autolathe/A = holder
-
-	var/list/text = list()
+	. = ..()
 	. += "\The [A] [A.disabled ? "is dead quiet" : "has a soft electric whirr"]."
 	. += "\The [A] [A.shocked ? "is making sparking noises" : "is cycling normally"]."
 	. += "\The [A] [A.hacked ? "rarely" : "occasionally"] makes a beep boop noise.<BR>"
-	return text
 
 /datum/wires/autolathe/interactable(mob/user)
 	if(!..())

@@ -1,4 +1,5 @@
 /datum/wires/radio
+	proper_name = "Radio"
 	holder_type = /obj/item/device/radio
 
 /datum/wires/radio/New()

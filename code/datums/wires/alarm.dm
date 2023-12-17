@@ -1,4 +1,5 @@
 /datum/wires/alarm
+	proper_name = "Air Alarm"
 	holder_type = /obj/machinery/alarm
 
 /datum/wires/airalarm/New(atom/holder)

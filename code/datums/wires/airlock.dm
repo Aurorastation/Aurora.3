@@ -1,6 +1,7 @@
 // Wires for airlocks
 
 /datum/wires/airlock
+	proper_name = "Airlock"
 	holder_type = /obj/machinery/door/airlock
 
 /datum/wires/airlock/New(atom/holder)

@@ -1,4 +1,5 @@
 /datum/wires/iff
+	proper_name = "IFF Beacon"
 	holder_type = /obj/machinery/iff_beacon
 
 /datum/wires/iff/New()

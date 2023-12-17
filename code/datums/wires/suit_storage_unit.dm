@@ -1,4 +1,5 @@
 /datum/wires/suit_storage_unit
+	proper_name = "Suit Storage Unit"
 	holder_type = /obj/machinery/suit_cycler
 
 /datum/wires/suit_storage_unit/New()

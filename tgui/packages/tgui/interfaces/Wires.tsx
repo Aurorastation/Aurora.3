@@ -9,6 +9,7 @@ type Data = {
   proper_name: string;
   wires: Wire[];
   status: string[];
+  tamper_resistance: BooleanLike;
 };
 
 type Wire = {
@@ -60,48 +61,57 @@ const WireMap = (props, context) => {
   const { wires } = data;
 
   return (
-    <LabeledList>
-      {wires.map((wire) => (
-        <LabeledList.Item
-          key={wire.color}
-          className="candystripe"
-          label={capitalize(wire.color)}
-          labelColor={wire.color}
-          color={wire.color}
-          buttons={
-            <>
-              <Button
-                color={wire.color}
-                content={wire.cut ? 'Mend' : 'Cut'}
-                onClick={() =>
-                  act('cut', {
-                    wire: wire.color,
-                  })
-                }
-              />
-              <Button
-                color={wire.color}
-                content="Pulse"
-                onClick={() =>
-                  act('pulse', {
-                    wire: wire.color,
-                  })
-                }
-              />
-              <Button
-                color={wire.color}
-                content={wire.attached ? 'Detach' : 'Attach'}
-                onClick={() =>
-                  act('attach', {
-                    wire: wire.color,
-                  })
-                }
-              />
-            </>
-          }>
-          {!!wire.wire && <i>({wire.wire})</i>}
-        </LabeledList.Item>
-      ))}
-    </LabeledList>
+    <>
+      <LabeledList>
+        {wires.map((wire) => (
+          <LabeledList.Item
+            key={wire.color}
+            className="candystripe"
+            label={capitalize(wire.color)}
+            labelColor={wire.color}
+            color={wire.color}
+            buttons={
+              <>
+                <Button
+                  color={wire.color}
+                  content={wire.cut ? 'Mend' : 'Cut'}
+                  onClick={() =>
+                    act('cut', {
+                      wire: wire.color,
+                    })
+                  }
+                />
+                <Button
+                  color={wire.color}
+                  content="Pulse"
+                  onClick={() =>
+                    act('pulse', {
+                      wire: wire.color,
+                    })
+                  }
+                />
+                <Button
+                  color={wire.color}
+                  content={wire.attached ? 'Detach' : 'Attach'}
+                  onClick={() =>
+                    act('attach', {
+                      wire: wire.color,
+                    })
+                  }
+                />
+              </>
+            }>
+            {!!wire.wire && <i>({wire.wire})</i>}
+          </LabeledList.Item>
+        ))}
+      </LabeledList>
+      {data.tamper_resistance ? (
+        <NoticeBox>
+          These wires have a tamper-resistant mechanism installed.
+        </NoticeBox>
+      ) : (
+        ''
+      )}
+    </>
   );
 };

@@ -344,6 +344,7 @@ var/global/list/wire_name_directory = list()
 			if(I?.iswirecutter())
 				cut_color(target_wire, source = L)
 				holder.add_hiddenprint(L)
+				I.play_tool_sound(target, volume)
 				. = TRUE
 			else
 				to_chat(L, SPAN_WARNING("You need wirecutters!"))

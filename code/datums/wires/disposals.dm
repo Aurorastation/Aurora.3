@@ -1,4 +1,5 @@
 /datum/wires/disposal
+	proper_name = "Disposals"
 	random = TRUE
 	holder_type = /obj/machinery/disposal
 

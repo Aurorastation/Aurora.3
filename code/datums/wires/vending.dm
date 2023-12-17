@@ -1,4 +1,5 @@
 /datum/wires/vending
+	proper_name = "Vending Machine"
 	holder_type = /obj/machinery/vending
 
 /datum/wires/vending/New()

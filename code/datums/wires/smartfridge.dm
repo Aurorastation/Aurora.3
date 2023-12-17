@@ -1,4 +1,5 @@
 /datum/wires/smartfridge
+	proper_name = "SmartFridge"
 	holder_type = /obj/machinery/smartfridge
 
 /datum/wires/smartfridge/New()

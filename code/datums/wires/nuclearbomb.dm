@@ -1,4 +1,5 @@
 /datum/wires/nuclearbomb
+	proper_name = "Nuclear Fission Device"
 	holder_type = /obj/machinery/nuclearbomb
 	random = 1
 

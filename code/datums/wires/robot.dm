@@ -1,4 +1,5 @@
 /datum/wires/robot
+	proper_name = "Synthetic"
 	random = TRUE
 	holder_type = /mob/living/silicon/robot
 

@@ -235,7 +235,7 @@
 				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
 				shut_up = TRUE
 		if(shoot_inventory)
-			if(wires.is_cut(VENDING_WIRE_THROW))
+			if(wires.is_cut(WIRE_THROW))
 				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
 				return TRUE
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))

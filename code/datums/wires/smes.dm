@@ -1,4 +1,5 @@
 /datum/wires/smes
+	proper_name = "SMES"
 	holder_type = /obj/machinery/power/smes/buildable
 
 /datum/wires/smes/New()

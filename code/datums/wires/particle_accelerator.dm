@@ -1,4 +1,5 @@
 /datum/wires/particle_acc/control_box
+	proper_name = "Particle Accelerator"
 	holder_type = /obj/machinery/particle_accelerator/control_box
 
 /datum/wires/particle_acc/control_box/New()
