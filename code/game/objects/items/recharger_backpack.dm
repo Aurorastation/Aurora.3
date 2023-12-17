@@ -98,3 +98,9 @@
 /obj/item/recharger_backpack/high/Initialize()
 	. = ..()
 	powersupply = new /obj/item/cell/high(src)
+	update_icon()
+
+/obj/item/recharger_backpack/get_cell()
+	if(powersupply)
+		return powersupply
+	return ..()
