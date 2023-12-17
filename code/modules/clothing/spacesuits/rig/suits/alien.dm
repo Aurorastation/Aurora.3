@@ -91,7 +91,7 @@
 	vision_restriction = TINT_NONE
 	offline_vision_restriction = TINT_BLIND
 	slowdown = 4
-	offline_slowdown = 8
+	offline_slowdown = 3
 	siemens_coefficient = 0.1
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 	glove_type = /obj/item/clothing/gloves/powerfist
