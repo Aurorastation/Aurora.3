@@ -35,6 +35,138 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">17 December 2023</h2>
+			<h3 class="author">HanSolo1519 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Fixes stray pixel on Basket of Chips sprite.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Adjust the spawns for the Gadpathur, COC ranger and COC surveyor ship to not spawn in places where it doesn&#x27;t make sense.</li>
+			</ul>
+
+			<h2 class="date">16 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Updated source.fixAll.eslint to the new setting following VSC format on save new infrastructure.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds an equipped variant of the breacher suit to the Hegemony corvette.</li>
+				<li class="tweak">Adds a power fist to the breacher suit.</li>
+				<li class="maptweak">Fixes the Hegemony corvette shuttle dock.</li>
+				<li class="bugfix">Fixes several bugs with the Konyang pirate shuttle.</li>
+			</ul>
+
+			<h2 class="date">15 December 2023</h2>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Gets rid of fertilizer injection and slightly lowers damage on punji traps.</li>
+			</ul>
+			<h3 class="author">LynxSolstice updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Added a suit cycler to the Tramp Freight off-ship map since it was missing one.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Scarab salvage vessel.</li>
+				<li class="rscadd">Adds Scarab Fleet flags.</li>
+			</ul>
+			<h3 class="author">kermit, Caelphon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Restructures and brings the Narrows origin up to date with the latest lore expansion.</li>
+				<li class="rscadd">Adds a Narrows accent - Laboursong. Accent icon by Cael.</li>
+				<li class="rscadd">Adds a Narrows &#x27;stimulant&#x27; for dionae use - Diesel (2 parts Uranium, 2 parts Robust Harvest, 1 part Welding Fuel, 3 parts Caramel; heat to 895K using pyrosilicate).</li>
+			</ul>
+
+			<h2 class="date">13 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed floors and carpets building a different thing than what they were supposed to.</li>
+				<li class="backend">Some minor refactor for the type path of some variables.</li>
+				<li class="bugfix">Fixed nooses being untiable.</li>
+				<li class="bugfix">Fixed traps failing to buckle mobs.</li>
+				<li class="bugfix">Fixed buckle() failing if the mob is not lying and no user is passed for the action.</li>
+				<li class="backend">DMDoc&#x27;d and minor refactor of buckle().</li>
+				<li class="backend">DMDoc&#x27;d do_mob() and added a stack_trace when it&#x27;s called without either needed parameters.</li>
+				<li class="backend">DMDoc&#x27;d visible_message(), it is kind of a mess so it doesn&#x27;t have 100% coverage, probably will need to be refactored sooner or later.</li>
+				<li class="bugfix">Fixed book penning, title and content being mangled, newlines.</li>
+				<li class="backend">Books now support multilines writing, ported books to new sanitization procs and penning UIs to TGUI.</li>
+				<li class="bugfix">Fixed ritual dagger sprite.</li>
+				<li class="refactor">The ritual dagger sprite is now a contained sprite, with a dedicated file under the correct path equal to the code path.</li>
+				<li class="bugfix">Liidra zombies now speak Liidraic by default.</li>
+				<li class="bugfix">Fixed a runtime that prevented the Liidra zombies from speaking in the hivenet.</li>
+				<li class="rscadd">Liidra zombies now see in the dark, like their Vaurca counterparts.</li>
+				<li class="backend">Refactored set_default_language into a proc, updated the verbs that interact with it.</li>
+				<li class="backend">Minor refactor of the set default language verb.</li>
+				<li class="backend">DMDoc&#x27;d add_language and minor refactor of it.</li>
+				<li class="backend">Removed see_in_dark related things, set it as per TG, we rely on the lighting plane only now.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moves Telecommunications to be closer to D3 Engineering. Part one of a two part command remap.</li>
+				<li class="maptweak">Remaps the entirety of Command. Seriously, everything is changed.</li>
+				<li class="maptweak">Makes Command Semi-Public access on Green Alert</li>
+				<li class="maptweak">Added Dual Consular</li>
+				<li class="maptweak">Added Dual Representatives</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes pixel offsets of wall-mounted objects such as APCs, air alarms, and small (bulb) lights.</li>
+				<li class="rscadd">Added the following new cocktails: Light&#x27;s Edge, Rose Tinted Glasses, Twisted Lime, Cinnamon Orchard, Harvest Moon, New Horizons, Espratini, Lemon Lime and Bitters, Pretty in Pink, Weeping Stars, and Verdant Green.</li>
+				<li class="imageadd">Changed the sprites and colors of some preexisting drinks.</li>
+				<li class="tweak">Changed the name of Ganymede Dark Blend to Ganymede Dark Espresso to make it easier to understand on the coffee dispenser.</li>
+			</ul>
+
+			<h2 class="date">12 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Added the ability to configure if away sites and exoplanets are loaded/generated, budgets, and other settings regarding them.</li>
+				<li class="refactor">Minor refactor of some comments.</li>
+				<li class="bugfix">Resolved an exception for exoplanets generation when archetypes are exhausted.</li>
+				<li class="rscdel">Removed the toggle aliens verb and config, aliens (xenomorphs) were removed and that setting/verb did nothing.</li>
+				<li class="bugfix">Fixed unusual containers spawning as anchored to the ground.</li>
+				<li class="backend">Unusual container Initialize now respects the parameters hierarchy.</li>
+			</ul>
+
+			<h2 class="date">11 December 2023</h2>
+			<h3 class="author">Lavillastrangiato updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Bursan accent and origin for Elyran humans and IPCs.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The leviathan key can now be worn around the neck.</li>
+				<li class="tweak">Restyled the record console to be a lot less annoying to use.</li>
+				<li class="bugfix">Fixed the record notes warning. Unfilled records will now have an S with a strikethrough as an icon.</li>
+				<li class="bugfix">Fixed the security console not showing incidents.</li>
+			</ul>
+			<h3 class="author">kermit updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The Gadpathurians have conceded that not EVERY sector of the Weeping Stars requires a patrol ship to be present. (Spawnrate for the Gadpathurian patrol ship is now 1 instead of 10000)</li>
+			</ul>
+
+			<h2 class="date">10 December 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes ghosts not being able to see computer UIs.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed pushups.</li>
+				<li class="bugfix">Fixed contamination message on inspect, that said it was phoron even if that was not necessarily the case.</li>
+			</ul>
+			<h3 class="author">ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds more folders, clipboards and pens to the Bridge Helm area</li>
+				<li class="maptweak">Moves the Captains Rubber stamp to be by their fax machine, and gives the Captain a DENIED stamp.</li>
+				<li class="maptweak">Makes the command conference room radiation proof.</li>
+			</ul>
+			<h3 class="author">RustingWithYOu updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a sector menu HUD for Haneunim.</li>
+			</ul>
+
 			<h2 class="date">09 December 2023</h2>
 			<h3 class="author">4000daniel1 updated:</h3>
 			<ul class="changes bgimages16">

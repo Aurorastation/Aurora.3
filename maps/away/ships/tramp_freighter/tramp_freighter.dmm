@@ -3831,6 +3831,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/suit_cycler{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "Wm" = (

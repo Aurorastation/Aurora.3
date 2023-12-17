@@ -61,8 +61,9 @@
 		return TRUE
 
 /obj/machinery/computer/shuttle_control/explore/terminal
+	name = "shuttle control terminal"
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
-	icon_screen = "mass_driver"
+	icon_screen = "helm"
 	icon_keyboard = "tech_key"
 	is_connected = TRUE
 	has_off_keyboards = TRUE

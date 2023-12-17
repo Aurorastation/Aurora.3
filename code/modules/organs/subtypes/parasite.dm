@@ -230,7 +230,11 @@
 				owner.remove_language(L.name)
 			owner.add_language(LANGUAGE_VAURCA)
 			owner.add_language(LANGUAGE_LIIDRA)
+			owner.set_default_language(LANGUAGE_LIIDRA)
 			removed_langs = TRUE
+
+		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		owner.add_client_color(/datum/client_color/vaurca)
 
 		if(prob(10))
 			if(owner.can_feel_pain())

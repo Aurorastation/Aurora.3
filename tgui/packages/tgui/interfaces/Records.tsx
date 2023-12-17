@@ -1,7 +1,7 @@
 import { capitalize } from '../../common/string';
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NoticeBox, Section, Stack, Tabs } from '../components';
+import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
 import { NtosWindow } from '../layouts';
 import { Dropdown } from '../components/Dropdown';
 
@@ -52,7 +52,16 @@ type Security = {
   notes: string;
   criminal: string;
   crimes: string;
-  incidents: string[];
+  incidents: Incident[];
+};
+
+type Incident = {
+  charges: string[];
+  datetime: string;
+  fine: number;
+  brig_sentence: number;
+  id: string;
+  notes: string;
 };
 
 type Medical = {
@@ -79,39 +88,20 @@ export const Records = (props, context) => {
   );
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow resizable width={900} height={900}>
       <NtosWindow.Content scrollable>
-        <Section
-          title="Records"
-          buttons={
-            <>
-              <Input
-                autoFocus
-                autoSelect
-                placeholder="Search by name or DNA"
-                width="40vw"
-                maxLength={512}
-                onInput={(e, value) => {
-                  setSearchTerm(value);
-                }}
-                value={searchTerm}
-              />
-              <Button
-                content={data.authenticated ? 'Logout' : 'Login'}
-                icon="exclamation"
-                color={data.authenticated ? 'red' : 'green'}
-                onClick={() => act(data.authenticated ? 'logout' : 'login')}
-              />
-            </>
-          }>
-          {!data.authenticated ? (
-            <NoticeBox color="white">
-              Please log in to continue to the database.
-            </NoticeBox>
-          ) : (
-            <RecordsView />
-          )}
-        </Section>
+        {!data.authenticated ? (
+          <NoticeBox color="white">
+            <Button
+              content={'Please log in to continue to the database.'}
+              icon="unlock"
+              color={'green'}
+              onClick={() => act('login')}
+            />{' '}
+          </NoticeBox>
+        ) : (
+          <RecordsView />
+        )}
       </NtosWindow.Content>
     </NtosWindow>
   );
@@ -122,63 +112,12 @@ export const RecordsView = (props, context) => {
   const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
 
   return (
-    <Section>
-      <Tabs>
-        {data.available_types & 7 ? (
-          <Tabs.Tab
-            selected={recordTab === 'All'}
-            onClick={() => setRecordTab('All')}>
-            All
-          </Tabs.Tab>
-        ) : (
-          ''
-        )}
-        {data.available_types & 8 ? (
-          <Tabs.Tab
-            selected={recordTab === 'All (Locked)'}
-            onClick={() => setRecordTab('All (Locked)')}>
-            All (Locked)
-          </Tabs.Tab>
-        ) : (
-          ''
-        )}
-        {data.active ? (
-          <>
-            {data.available_types & 1 ? (
-              <Tabs.Tab
-                selected={recordTab === 'General'}
-                onClick={() => setRecordTab('General')}>
-                General - #{data.active.id}
-              </Tabs.Tab>
-            ) : (
-              ''
-            )}{' '}
-            {data.available_types & 4 ? (
-              <Tabs.Tab
-                selected={recordTab === 'Security'}
-                onClick={() => setRecordTab('Security')}>
-                Security - #{data.active.id}
-              </Tabs.Tab>
-            ) : (
-              ''
-            )}{' '}
-            {data.available_types & 2 ? (
-              <Tabs.Tab
-                selected={recordTab === 'Medical'}
-                onClick={() => setRecordTab('Medical')}>
-                Medical - #{data.active.id}
-              </Tabs.Tab>
-            ) : (
-              ''
-            )}
-          </>
-        ) : (
-          ''
-        )}
-      </Tabs>
-      {recordTab === 'All' ? <ListAllRecords /> : ''}
-      {recordTab !== 'All' && data.active ? <ListActive /> : ''}
-    </Section>
+    <Stack>
+      <Stack.Item width={'300px'}>
+        <ListAllRecords />
+      </Stack.Item>
+      <Stack.Item grow>{data.active ? <ListActive /> : ''}</Stack.Item>
+    </Stack>
   );
 };
 
@@ -192,8 +131,29 @@ export const ListAllRecords = (props, context) => {
   );
 
   return (
-    <Section>
-      <Stack vertical>
+    <Section
+      title="Records"
+      fill
+      buttons={
+        <Tooltip content="Search by name or DNA.">
+          <Input
+            autoFocus
+            autoSelect
+            maxLength={512}
+            onInput={(e, value) => {
+              setSearchTerm(value);
+            }}
+            value={searchTerm}
+          />
+          <Button
+            icon={data.authenticated ? 'lock' : 'unlock'}
+            tooltip="Log Out"
+            color={data.authenticated ? 'red' : 'green'}
+            onClick={() => act(data.authenticated ? 'logout' : 'login')}
+          />
+        </Tooltip>
+      }>
+      <Tabs vertical>
         {data.allrecords
           .filter(
             (record) =>
@@ -202,17 +162,18 @@ export const ListAllRecords = (props, context) => {
               record.dna.toLowerCase().indexOf(searchTerm) > -1
           )
           .map((record) => (
-            <Stack.Item key={record.name}>
-              <Button
-                content={
-                  record.id + ': ' + record.name + ' (' + record.rank + ')'
-                }
-                icon={record.has_notes ? 'align-justify' : ''}
-                onClick={() => act('setactive', { setactive: record.id })}
-              />
-            </Stack.Item>
+            <Tabs.Tab
+              key={record.id}
+              icon={
+                record.has_notes !== 'No notes found.'
+                  ? 'align-justify'
+                  : 'strikethrough'
+              }
+              onClick={() => act('setactive', { setactive: record.id })}>
+              {record.id + ': ' + record.name + ' (' + record.rank + ')'}
+            </Tabs.Tab>
           ))}
-      </Stack>
+      </Tabs>
     </Section>
   );
 };
@@ -282,28 +243,79 @@ export const ListActive = (props, context) => {
 
   return (
     <Section
+      fill
       title={data.active.name}
       buttons={
         <Button content="Print" icon="print" onClick={() => act('print')} />
       }>
+      <Tabs>
+        {data.available_types & 8 ? (
+          <Tabs.Tab
+            selected={recordTab === 'All (Locked)'}
+            onClick={() => setRecordTab('All (Locked)')}>
+            All (Locked)
+          </Tabs.Tab>
+        ) : (
+          ''
+        )}
+        {data.active ? (
+          <>
+            {data.available_types & 1 ? (
+              <Tabs.Tab
+                selected={recordTab === 'General'}
+                onClick={() => setRecordTab('General')}>
+                General - #{data.active.id}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}{' '}
+            {data.available_types & 4 ? (
+              <Tabs.Tab
+                selected={recordTab === 'Security'}
+                onClick={() => setRecordTab('Security')}>
+                Security - #{data.active.id}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}{' '}
+            {data.available_types & 2 ? (
+              <Tabs.Tab
+                selected={recordTab === 'Medical'}
+                onClick={() => setRecordTab('Medical')}>
+                Medical - #{data.active.id}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}
+          </>
+        ) : (
+          ''
+        )}
+      </Tabs>
       <Box
         as="img"
         m={0}
         src={`data:image/jpeg;base64,${data.front}`}
-        width="10%"
-        height="10%"
+        width="30%"
+        height="30%"
         style={{
           '-ms-interpolation-mode': 'nearest-neighbor',
+          'pointer-events': 'none',
+          'width': `${64}px`,
+          'height': `${64}px`,
         }}
       />
       <Box
         as="img"
         m={0}
         src={`data:image/jpeg;base64,${data.side}`}
-        width="10%"
-        height="10%"
+        width="30%"
+        height="30%"
         style={{
           '-ms-interpolation-mode': 'nearest-neighbor',
+          'pointer-events': 'none',
+          'width': `${64}px`,
+          'height': `${64}px`,
         }}
       />
       <LabeledList>
@@ -702,8 +714,24 @@ export const ListActive = (props, context) => {
           <Section title="Incidents">
             {data.active.security.incidents &&
             data.active.security.incidents.length
-              ? data.active.security.incidents.map((line) => (
-                <Box key={line}>{line}</Box>
+              ? data.active.security.incidents.map((incident) => (
+                <Box backgroundColor="#223449" key={incident.id}>
+                  <Collapsible title={incident.datetime}>
+                    <Box fontSize={1.3} bold color="red">
+                      {incident.charges.toLocaleString()}
+                    </Box>
+                    <Box color="red">
+                      {incident.fine
+                        ? 'Fined ' + incident.fine + '电.'
+                        : 'Sentenced to ' +
+                        incident.brig_sentence +
+                        ' minutes of brig time.'}
+                    </Box>
+                    <br />
+                    <br />
+                    {incident.notes}
+                  </Collapsible>
+                </Box>
               ))
               : 'No incidents on record.'}
           </Section>

@@ -27,7 +27,6 @@
 	show_stat_health = TRUE
 	faction = "cult"
 	supernatural = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_ONE
 	blood_type = "#000000"
 
