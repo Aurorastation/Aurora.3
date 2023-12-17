@@ -43,7 +43,6 @@
 	else
 		. = ..()
 
-
 /obj/item/recharger_backpack/proc/connect(obj/item/gun/energy/newgun)
 	if(connected)
 		to_chat(usr, SPAN_WARNING("\The [src] already has an energy weapon connected!"))
