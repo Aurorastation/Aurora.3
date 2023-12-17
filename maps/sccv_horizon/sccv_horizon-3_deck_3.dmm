@@ -14250,7 +14250,7 @@
 "kiq" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/stasis,
-/obj/item/book/manual/tcfl_pamphlet,
+/obj/item/book/manual/tcaf_pamphlet,
 /obj/item/book/manual/psych,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/book/manual/wiki/station_procedure,
