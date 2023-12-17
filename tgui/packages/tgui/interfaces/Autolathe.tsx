@@ -26,6 +26,8 @@ type Recipe = {
   max_sheets: number;
   sheets: number;
   can_make: BooleanLike;
+  recipe: string;
+  hidden: BooleanLike;
 };
 
 type Resource = {
@@ -106,11 +108,6 @@ export const CategoryData = (props, context) => {
     `searchTerm`,
     ``
   );
-  const [recipeSelected, selectRecipe] = useLocalState<string>(
-    context,
-    `recipeSelected`,
-    ``
-  );
   const [amount, setAmount] = useLocalState(context, 'amount', 1);
 
   return (
@@ -144,40 +141,17 @@ export const CategoryData = (props, context) => {
               <Table.Row>
                 <Table.Cell py={0.25}>
                   <Button
-                    content={<Box bold>{capitalizeAll(recipe.name)}</Box>}
+                    content={
+                      <Box bold color={recipe.hidden ? 'red' : ''}>
+                        {capitalizeAll(recipe.name)}
+                      </Box>
+                    }
                     disabled={recipe.can_make}
-                    color={recipeSelected === recipe.name ? 'good' : ''}
-                    onClick={() => selectRecipe(recipe.name)}
+                    color="transparent"
+                    onClick={() =>
+                      act('make', { multiplier: 1, recipe: recipe.recipe })
+                    }
                   />
-                  &nbsp;
-                  {recipeSelected === recipe.name ? (
-                    !recipe.can_make ? (
-                      <>
-                        <Button content="[1x]" />
-                        <Button content="[5x]" />
-                        <Button content="[10x]" />
-                        {recipe.max_sheets ? (
-                          <Button
-                            content={
-                              <Box>
-                                [
-                                {recipe.sheets > recipe.max_sheets
-                                  ? round(recipe.sheets, 1)
-                                  : round(recipe.max_sheets, 1)}
-                                x]
-                              </Box>
-                            }
-                          />
-                        ) : (
-                          ''
-                        )}
-                      </>
-                    ) : (
-                      ''
-                    )
-                  ) : (
-                    ''
-                  )}
                 </Table.Cell>
                 <Table.Cell>
                   <Box>

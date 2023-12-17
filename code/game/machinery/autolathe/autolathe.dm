@@ -21,7 +21,7 @@
 	var/disabled = FALSE
 	var/shocked = FALSE
 	var/busy = FALSE
-	var/datum/autolathe/recipe/build_item
+	var/singleton/autolathe_recipe/build_item
 
 	var/mat_efficiency = 1
 	var/build_time = 50
@@ -60,14 +60,11 @@
 	return ..()
 
 /obj/machinery/autolathe/proc/populate_lathe_recipes()
-	if(SSmaterials.autolathe_recipes && SSmaterials.autolathe_categories)
+	if(SSmaterials.autolathe_categories)
 		return
 
-	SSmaterials.autolathe_recipes = list()
 	SSmaterials.autolathe_categories = list()
-	for(var/R in subtypesof(/datum/autolathe/recipe))
-		var/datum/autolathe/recipe/recipe = new R
-		SSmaterials.autolathe_recipes += recipe
+	for(var/singleton/autolathe_recipe/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
 		SSmaterials.autolathe_categories |= recipe.category
 
 		var/obj/item/I = new recipe.path
@@ -95,12 +92,14 @@
 	for(var/material in stored_material)
 		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
-	for(var/recipe in SSmaterials.autolathe_recipes)
-		var/datum/autolathe/recipe/R = recipe
+	for(var/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
+		var/singleton/autolathe_recipe/R = recipe
 		if(R.hidden && !hacked)
 			continue
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name
+		recipe_data["recipe"] = R.type
+		recipe_data["hidden"] = R.hidden
 		var/list/resources = list()
 		for(var/resource in R.resources)
 			resources += list("material" = resource, "amount" = R.resources[resource] * mat_efficiency)
@@ -135,7 +134,7 @@
 		//Don't eat multitools or wirecutters used on an open lathe.
 		if(O.ismultitool() || O.iswirecutter())
 			if(panel_open)
-				wires.Interact(user)
+				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 			return TRUE
@@ -161,17 +160,18 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
+	playsound(src, /singleton/sound_category/keyboard_sound)
+
 	if(busy)
 		to_chat(usr, SPAN_WARNING("The autolathe is busy. Please wait for the completion of previous operation."))
 		return
 
-	if(action == "make" && SSmaterials.autolathe_recipes)
-		var/index = text2num(params["make"])
+	if(action == "make")
 		var/multiplier = text2num(params["multiplier"])
-		build_item = null
-
-		if(index > 0 && index <= length(SSmaterials.autolathe_recipes))
-			build_item = SSmaterials.autolathe_recipes[index]
+		var/singleton/autolathe_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
+		if(!istype(R))
+			CRASH("Unknown recipe given! [R], param is [params["recipe"]].")
+		build_item = R
 
 		//Exploit detection, not sure if necessary after rewrite.
 		if(!build_item || multiplier < 0 || multiplier > 100)
