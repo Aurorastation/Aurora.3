@@ -17,7 +17,7 @@
 	emp_protection = 100
 	slowdown = -1
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	offline_slowdown = 0
 	offline_vision_restriction = 0
 	max_pressure_protection = LIGHT_RIG_MAX_PRESSURE
@@ -74,14 +74,14 @@
 /obj/item/clothing/head/lightrig/hacker
 	name = "HUD"
 	siemens_coefficient = 0.4
-	flags = 0
+	item_flags = 0
 
 /obj/item/clothing/suit/lightrig/hacker
 	siemens_coefficient = 0.4
 
 /obj/item/clothing/shoes/lightrig/hacker
 	siemens_coefficient = 0.4
-	flags = NOSLIP //All the other rigs have magboots anyways, hopefully gives the hacker suit something more going for it.
+	item_flags = ITEM_FLAG_NO_SLIP //All the other rigs have magboots anyways, hopefully gives the hacker suit something more going for it.
 
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0

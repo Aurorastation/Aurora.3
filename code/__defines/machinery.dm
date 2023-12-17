@@ -105,8 +105,12 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 /*
  *	Atmospherics Machinery.
 */
-#define MAX_SIPHON_FLOWRATE   2500 // L/s. This can be used to balance how fast a room is siphoned. Anything higher than CELL_VOLUME has no effect.
-#define MAX_SCRUBBER_FLOWRATE 200  // L/s. Max flow rate when scrubbing from a turf.
+
+///Maximum flowrate, in L/s, that the scrubbers use when siphoning. Anything higher than `CELL_VOLUME` has no effect.
+#define MAX_SIPHON_FLOWRATE   5000
+
+///Maximum flowrate, in L/s, that the scrubbers use when scrubbing from a turf.
+#define MAX_SCRUBBER_FLOWRATE 400
 
 #define ATMOS_PUMP_MAX_PRESSURE 15000
 

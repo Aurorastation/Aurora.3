@@ -44,11 +44,37 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
 		. += "Players: [length(player_list)] Players Ready: [SSticker.total_players_ready]"
 		if(LAZYLEN(SSticker.ready_player_jobs))
+			. += ""
+			. += ""
+			. += "Group antagonists ready:"
+
+			var/list/ready_special_roles = list()
+
+			//Get the list of all the players, if they are ready, get their special roles (aka antagonists) preferences and count them up in a list
+			for(var/mob/abstract/new_player/player in player_list)
+				if(!player.ready)
+					continue
+				for(var/special_role in player?.client?.prefs?.be_special_role)
+					ready_special_roles[special_role] += 1
+
+			//Get the list of all antagonist types, if they require more than one person to spawn, check that there's at least one candidate and if so list the number of candidates for it
+			for(var/antag_type in all_antag_types)
+				var/datum/antagonist/possible_antag_type = all_antag_types[antag_type]
+
+				if(possible_antag_type.initial_spawn_req > 1)
+					if(ready_special_roles[possible_antag_type.role_type])
+						. += "[possible_antag_type.role_text_plural]: [ready_special_roles[possible_antag_type.role_type]]"
+
+
+			. += ""
+			. += ""
+			. += "Characters ready:"
 			for(var/dept in SSticker.ready_player_jobs)
 				if(LAZYLEN(SSticker.ready_player_jobs[dept]))
 					. += "[uppertext(dept)]"
 				for(var/char in SSticker.ready_player_jobs[dept])
 					. += "[copytext_char(char, 1, 18)]: [SSticker.ready_player_jobs[dept][char]]"
+
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0
@@ -206,6 +232,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(job.blacklisted_species) // check for restricted species
 		var/datum/species/S = all_species[client.prefs.species]
 		if(S.name in job.blacklisted_species)
+			return FALSE
+
+	if(job.blacklisted_citizenship)
+		var/datum/citizenship/C = SSrecords.citizenships[client.prefs.citizenship]
+		if(C.name in job.blacklisted_citizenship)
 			return FALSE
 
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction

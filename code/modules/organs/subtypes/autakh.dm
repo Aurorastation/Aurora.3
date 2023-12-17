@@ -92,7 +92,8 @@
 			suffered_revelation = TRUE
 
 /obj/item/organ/internal/anchor/emp_act(severity)
-	..()
+	. = ..()
+
 	revelation()
 
 /obj/item/organ/internal/anchor/proc/revelation()
@@ -225,7 +226,8 @@
 	warning_level = 0
 
 /obj/item/organ/internal/augment/eye_flashlight/emp_act(severity)
-	..()
+	. = ..()
+
 	turn_off()
 
 /obj/item/organ/internal/augment/eye_flashlight/proc/add_warning()

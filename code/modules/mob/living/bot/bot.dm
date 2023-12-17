@@ -181,12 +181,13 @@
 	return FALSE
 
 /mob/living/bot/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			death()
 		else
 			turn_off()
-	..()
 
 /mob/living/bot/proc/turn_on()
 	if(stat)

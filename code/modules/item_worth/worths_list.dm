@@ -343,6 +343,7 @@ var/list/worths = list(
 					/obj/item/grenade/anti_photon = 200,
 					/obj/item/grenade/empgrenade = 180,
 					/obj/item/grenade/frag = 300,
+					/obj/item/grenade/napalm = 800,
 					/obj/item/grenade/spawnergrenade/vaurca = 700,
 					/obj/item/grenade/spawnergrenade/manhacks = 600,
 					/obj/item/grenade/spawnergrenade/spesscarp = 350,

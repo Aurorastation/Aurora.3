@@ -825,7 +825,9 @@ var/global/list/golem_types = list(
 
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
-		H.gib()
+		//This is because otherwise the removal of vital organs in the gibbing will call death again, which calls this again, creating a neverending
+		//server death loop
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 1 SECONDS)
 
 /datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))

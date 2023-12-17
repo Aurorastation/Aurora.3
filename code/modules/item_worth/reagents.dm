@@ -765,22 +765,22 @@
 /singleton/reagent/polysomnine/beer2
 	value = 2.2
 
-/singleton/reagent/space_drugs
+/singleton/reagent/drugs/mms
 	value = 2.8
 
-/singleton/reagent/serotrotium
+/singleton/reagent/drugs/serotrotium
 	value = 2.5
 
-/singleton/reagent/cryptobiolin
+/singleton/reagent/drugs/cryptobiolin
 	value = 2
 
-/singleton/reagent/impedrezene
+/singleton/reagent/drugs/impedrezene
 	value = 1.8
 
-/singleton/reagent/mindbreaker
+/singleton/reagent/drugs/mindbreaker
 	value = 0.6
 
-/singleton/reagent/psilocybin
+/singleton/reagent/drugs/psilocybin
 	value = 0.7
 
 /singleton/reagent/aslimetoxin
@@ -813,5 +813,5 @@
 /singleton/reagent/toxin/undead
 	value = 300
 
-/singleton/reagent/ambrosia_extract
+/singleton/reagent/drugs/ambrosia_extract
 	value = 2.8

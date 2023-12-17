@@ -8,6 +8,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tarwa_shuttle)
 	id = "tarwa_conglomerate"
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/tramp_freighter
 	map = "Tarwa Conglomerate Ship"
 	descriptor = "Ship with pirate lizards, pirate plants"

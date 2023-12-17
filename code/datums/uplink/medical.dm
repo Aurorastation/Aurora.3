@@ -10,7 +10,7 @@
 	path = /obj/item/storage/box/sinpockets
 
 /datum/uplink_item/item/medical/lunchbox
-	name = "Syndicate Lunchbox"
+	name = "Tactical Lunchbox"
 	bluecrystal_cost = 1
 	path = /obj/item/storage/toolbox/lunchbox/syndicate/filled
 

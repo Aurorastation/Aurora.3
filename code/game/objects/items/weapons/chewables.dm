@@ -32,7 +32,7 @@
 /obj/item/clothing/mask/chewable/Initialize()
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 	. = ..()
-	flags |= NOREACT // so it doesn't react until you light it
+	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
 	if(wrapped)
 		slot_flags = null
 		update_icon()
@@ -158,6 +158,19 @@
 		/singleton/reagent/toxin/tobacco/sweet = 1,
 		/singleton/reagent/drink/dynjuice = 1
 	)
+
+/obj/item/clothing/mask/chewable/oracle
+	name = "chewing oracle"
+	desc = "A chewy wad of oracle. Cut in long strands."
+	throw_speed = 0.5
+	icon_state = "chew"
+	type_butt = /obj/item/trash/spitwad
+	w_class = ITEMSIZE_TINY
+	slot_flags = SLOT_EARS | SLOT_MASK
+	chem_volume = 50
+	chewtime = 300
+	brand = "oracle"
+	reagents_to_add = list(/singleton/reagent/toxin/oracle = 2)
 
 /obj/item/clothing/mask/chewable/candy
 	name = "wad"

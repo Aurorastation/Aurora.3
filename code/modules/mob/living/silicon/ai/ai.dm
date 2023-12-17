@@ -267,7 +267,10 @@ var/list/ai_verbs_default = list(
 		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
 
 /mob/living/silicon/ai/proc/setup_icon()
-	var/datum/custom_synth/sprite = robot_custom_icons[name]
+	var/datum/custom_synth/sprite = null
+	if(robot_custom_icons)
+		sprite = robot_custom_icons[name]
+
 	if(istype(sprite) && sprite.synthckey == ckey)
 		custom_sprite = TRUE
 		icon = CUSTOM_ITEM_SYNTH
@@ -492,10 +495,12 @@ var/list/ai_verbs_default = list(
 	return 0
 
 /mob/living/silicon/ai/emp_act(severity)
-	if (prob(30))
+	. = ..()
+
+	if(prob(30))
 		view_core()
+
 	icon_state = "ai-fuzz"
-	..()
 
 /mob/living/silicon/ai/Topic(href, href_list)
 	if(usr != src)

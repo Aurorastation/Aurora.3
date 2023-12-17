@@ -291,18 +291,18 @@
 	if(user == occupant)
 		go_out()
 
-/obj/machinery/sleeper/emp_act(var/severity)
+/obj/machinery/sleeper/emp_act(severity)
+	. = ..()
+
 	if(filtering)
 		toggle_filter()
 
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
 
 	if(occupant)
 		go_out()
 
-	..(severity)
 
 /obj/machinery/sleeper/proc/toggle_filter()
 	if(!occupant || !beaker)

@@ -24,4 +24,4 @@
 /datum/event/communications_blackout/start()
 	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.z in affecting_z)
-			T.emp_act(1)
+			T.emp_act(EMP_HEAVY)

@@ -28,6 +28,28 @@
 	tag_icon = "dionae_ironsong"
 	text_tag = "INS"
 
+/datum/accent/laboursong
+	name = ACCENT_LABOURSONG
+	description = "An accent unique to Dionae of the Narrows penal vessel. The accent has developed as a result of Narrows dionae restricting their pitch to their octave rank, giving it a very rigid and dull, mono-octave sound, where pronunciation is slow and deliberate. When multiple Narrows dionae come together and speak or sing at once, the accent shines, with beautiful harmonies sounding during their worksongs."
+	tag_icon = "dionae_laboursong"
+	text_tag = "LBS"
+
+//Human Influenced Accents
+
+/datum/accent/meadowsong
+	name = ACCENT_MEADOWSONG
+	description = "Influenced by the people of Mictlan, Meadowsong is found only among the Primitive Sirens. It's often considered an even more musical accent than most, with a near-constant sing-song inflection."
+	tag_icon = "dionae_meadow"
+	text_tag = "MWS"
+
+//Vaurca Influenced Accents
+
+/datum/accent/pestsong
+	name = ACCENT_PESTSONG
+	description = "Unique to those known as the Pests of Titan Prime, this accent is influenced by the buzzing and clacking noises of Vaurca, and as such tends to sound much harsher to the ears than many other Dionae accents."
+	tag_icon = "dionae_pest"
+	text_tag = "PTS"
+
 //Unathi Influenced Accents
 /datum/accent/sandsong
 	name = ACCENT_SANDSONG

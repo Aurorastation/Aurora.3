@@ -77,7 +77,7 @@
 
 /obj/item/organ/internal/parasite/kois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "kois-on"
 	dead_icon = "kois-off"
 
@@ -149,7 +149,7 @@
 
 /obj/item/organ/internal/parasite/blackkois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "black-on"
 	dead_icon = "black-off"
 	subtle = 1
@@ -230,7 +230,11 @@
 				owner.remove_language(L.name)
 			owner.add_language(LANGUAGE_VAURCA)
 			owner.add_language(LANGUAGE_LIIDRA)
+			owner.set_default_language(LANGUAGE_LIIDRA)
 			removed_langs = TRUE
+
+		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		owner.add_client_color(/datum/client_color/vaurca)
 
 		if(prob(10))
 			if(owner.can_feel_pain())
@@ -439,7 +443,7 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~5 minutes
@@ -490,7 +494,11 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(BP_IS_ROBOTIC(heart))
+		recession = 10
+		return
+
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~7.5 minutes

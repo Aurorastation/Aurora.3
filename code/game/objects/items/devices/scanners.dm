@@ -12,7 +12,7 @@ BREATH ANALYZER
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	icon_state = "health"
 	item_state = "healthanalyzer"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL
@@ -199,7 +199,7 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
 
 		var/blood_volume_string = "<span class='scan_green'>\>[BLOOD_VOLUME_SAFE]%</span>"
-		switch(H.get_blood_oxygenation())
+		switch(H.get_blood_volume())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				blood_volume_string = "<span class='scan_notice'>\<[BLOOD_VOLUME_SAFE]%</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)
@@ -373,7 +373,7 @@ BREATH ANALYZER
 	item_state = "analyzer"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
@@ -407,7 +407,8 @@ BREATH ANALYZER
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT | OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
@@ -480,7 +481,7 @@ BREATH ANALYZER
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
 	throw_speed = 4
@@ -521,7 +522,7 @@ BREATH ANALYZER
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
@@ -562,7 +563,7 @@ BREATH ANALYZER
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	throwforce = 0
@@ -584,7 +585,7 @@ BREATH ANALYZER
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 0
 	throw_speed = 3
@@ -718,10 +719,7 @@ BREATH ANALYZER
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new(user.loc)
-	R.color = "#eeffe8"
-	R.set_content_unsafe("Scan ([M.name])", connected.format_occupant_data(get_occupant_data(M)))
-
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

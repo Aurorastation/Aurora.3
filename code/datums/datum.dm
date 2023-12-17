@@ -2,7 +2,14 @@
 	var/tmp/list/active_timers
 	var/tmp/datum/weakref/weakref
 	var/tmp/isprocessing = 0
-	var/tmp/gcDestroyed //Time when this object was destroyed.
+
+	/**
+	 * Tick count time when this object was destroyed.
+	 *
+	 * If this is non zero then the object has been garbage collected and is awaiting either
+	 * a hard del by the GC subsystme, or to be autocollected (if it has no references)
+	 */
+	var/tmp/gcDestroyed
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
@@ -22,11 +29,20 @@
 	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
 	var/cached_ref
 
+#ifdef REFERENCE_TRACKING
+	var/running_find_references
+	var/last_find_references = 0
+	#ifdef REFERENCE_TRACKING_DEBUG
+	///Stores info about where refs are found, used for sanity checks and testing
+	var/list/found_refs
+	#endif
+#endif
+
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
-	SHOULD_CALL_PARENT(1)
+	SHOULD_CALL_PARENT(TRUE)
 
 	weakref = null
 	destroyed_event.raise_event(src)
@@ -45,6 +61,12 @@
 
 	// Handle components & signals
 	signal_enabled = FALSE
+
+	#ifdef REFERENCE_TRACKING
+	#ifdef REFERENCE_TRACKING_DEBUG
+	found_refs = null
+	#endif
+	#endif
 
 	var/list/dc = datum_components
 	if(dc)

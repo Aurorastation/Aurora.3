@@ -31,7 +31,6 @@
 	tameable = FALSE
 	flying = TRUE
 	smart_melee = FALSE
-	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
@@ -174,6 +173,8 @@
 	return 0
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)

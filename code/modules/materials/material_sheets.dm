@@ -42,7 +42,7 @@
 		pickup_sound = material.pickup_sound
 
 	if(material.conductive)
-		flags |= CONDUCT
+		obj_flags |= OBJ_FLAG_CONDUCTABLE
 
 	matter = material.get_matter()
 

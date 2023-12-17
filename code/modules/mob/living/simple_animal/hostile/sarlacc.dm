@@ -92,7 +92,6 @@
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
-	see_in_dark = 8
 	health = 100
 	maxHealth = 100
 	gender = NEUTER
@@ -313,7 +312,6 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	universal_speak = 1
@@ -396,7 +394,7 @@
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		if(L.reagents)
-			var/madhouse = pick(/singleton/reagent/psilocybin,/singleton/reagent/mindbreaker,/singleton/reagent/impedrezene,/singleton/reagent/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
+			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent(madhouse, 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")

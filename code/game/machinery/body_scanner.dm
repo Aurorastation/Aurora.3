@@ -240,6 +240,7 @@
 
 /obj/machinery/body_scanconsole
 	name = "body scanner console"
+	var/tgui_name = "Zeng-Hu Pharmaceuticals Body Scanner"
 	desc = "An advanced control panel that can be used to interface with a connected body scanner."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
@@ -260,6 +261,10 @@
 	var/list/connected_displays = list()
 	var/list/data = list()
 	var/scan_data
+
+	var/has_detailed_view = TRUE
+	var/has_print_and_eject = TRUE
+	var/no_scan_message = "No diagnostics profile installed for this species."
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
@@ -310,10 +315,7 @@
 	switch(action)
 		// shouldn't be reachable if occupant is invalid
 		if("print")
-			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan
-			R.color = "#eeffe8"
-			R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
-
+			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant])", connected.occupant)
 			print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
 		if("eject")
@@ -328,24 +330,39 @@
 	return !!length(connected_displays)
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
-	if(!connected)
+	if(!get_connected())
 		to_chat(usr, SPAN_WARNING("[icon2html(src, usr)]Error: No body scanner detected."))
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "BodyScanner", "Zeng-Hu Pharmaceuticals Body Scanner", 450, 500)
+		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
 		ui.open()
 
 /obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
 	connected_displays -= display
 	destroyed_event.unregister(display, src, PROC_REF(remove_display))
 
+/obj/machinery/body_scanconsole/proc/get_connected()
+	if(connected)
+		return connected
+	return null
+
+/obj/machinery/body_scanconsole/proc/get_occupant()
+	if(connected)
+		return connected.occupant
+	return null
+
+/obj/machinery/body_scanconsole/proc/check_species()
+	if(connected)
+		return connected.check_species()
+	return FALSE
+
 /obj/machinery/body_scanconsole/ui_data(mob/user)
 	var/list/data = list(
 		"noscan" = null,
 		"nocons" = null,
 		"occupied" = null,
-		"invalid" = null,
+		"invalid" = TRUE,
 		"ipc" = null,
 		"stationtime" = null,
 		"stat" = null,
@@ -377,17 +394,18 @@
 		"bodyparts" = list(),
 		"organs" = list(),
 		"missingparts" = list(),
-		"hasmissing" = null
+		"hasmissing" = null,
+		"has_detailed_view" = has_detailed_view,
+		"has_print_and_eject" = has_print_and_eject,
+		"no_scan_message" = no_scan_message
 	)
 
-	var/mob/living/carbon/human/occupant
-	if (connected)
-		occupant = connected.occupant
-
-		data["noscan"] = !!connected.check_species()
-		data["nocons"] = !connected
-		data["occupied"] = !!connected.occupant
-		data["invalid"] = !!connected.check_species()
+	var/mob/living/carbon/human/occupant = get_occupant()
+	if(occupant)
+		data["noscan"] = !!check_species()
+		data["nocons"] = !get_connected()
+		data["occupied"] = !!occupant
+		data["invalid"] = !!check_species()
 		data["ipc"] = occupant && isipc(occupant)
 
 	if (!data["invalid"])
@@ -839,3 +857,44 @@
 	dat += "</font></font>"
 
 	return dat
+
+/// an embedded bodyscanner belonging to a patient monitoring console
+/obj/machinery/body_scanconsole/embedded
+	name = "embedded bodyscanner"
+	tgui_name = "Zeng-Hu Pharmaceuticals Surgical Theater"
+	has_detailed_view = FALSE
+	has_print_and_eject = FALSE
+	no_scan_message = "No matching body scanner primer has been added to the monitoring console."
+
+	var/obj/machinery/computer/operating/monitor_console
+
+/obj/machinery/body_scanconsole/embedded/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+	. = ..()
+	monitor_console = loc
+
+/obj/machinery/body_scanconsole/embedded/Destroy()
+	monitor_console = null
+	return ..()
+
+/obj/machinery/body_scanconsole/embedded/ui_state(mob/user)
+	return human_adjacent_loc_state
+
+/obj/machinery/body_scanconsole/embedded/get_connected()
+	if(monitor_console)
+		return monitor_console
+	return null
+
+/obj/machinery/body_scanconsole/embedded/get_occupant()
+	if(monitor_console?.table)
+		return monitor_console.table.occupant
+	return null
+
+// if our primer has a scan target, that means it was validated by a bodyscanner
+/obj/machinery/body_scanconsole/embedded/check_species()
+	var/atom/occupant = get_occupant()
+	if(!occupant)
+		return TRUE
+	if(monitor_console?.primer)
+		var/atom/primer_scan_target = monitor_console.primer.scan_target?.resolve()
+		return primer_scan_target != occupant
+	return TRUE

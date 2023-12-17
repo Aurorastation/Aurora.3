@@ -30,7 +30,6 @@
 	attacktext = "punished"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0

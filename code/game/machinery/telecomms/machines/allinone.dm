@@ -66,6 +66,14 @@
 			assign_away_freq(linked.name)
 		)
 
+/obj/machinery/telecomms/allinone/ship/coalition_navy
+	name = "coalition navy telecommunications mainframe"
+	desc = "A compact machine used for portable subspace telecommuniations processing. This one also has encryption codes for Coalition navy vessels."
+
+/obj/machinery/telecomms/allinone/ship/coalition_navy/LateInitialize()
+	. = ..()
+	freq_listening += COAL_FREQ
+
 //This goes on the station map so away ships can maintain radio contact.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
@@ -85,3 +93,5 @@
 		freq_listening |= AWAY_FREQS_ASSIGNED[ch]
 	freq_listening |= AWAY_FREQS_UNASSIGNED
 	freq_listening |= ANTAG_FREQS
+
+/obj/machinery/telecomms/allinone/ship

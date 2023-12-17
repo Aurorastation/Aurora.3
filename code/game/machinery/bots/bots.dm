@@ -119,6 +119,8 @@
 	return
 
 /obj/machinery/bot/emp_act(severity)
+	. = ..()
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)
@@ -201,7 +203,7 @@
 		return 1
 
 	for(var/obj/O in B)
-		if(O.density && !istype(O, /obj/machinery/door) && !(O.flags & ON_BORDER))
+		if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 
 	return 0

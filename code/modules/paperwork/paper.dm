@@ -45,12 +45,16 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_change_icon_state = TRUE
+	var/set_unsafe_on_init = FALSE
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
 	if (text || title)
-		set_content(title, text ? text : info)
+		if(set_unsafe_on_init)
+			set_content_unsafe(title, text ? text : info)
+		else
+			set_content(title, text ? text : info)
 	else
 		updateinfolinks()
 		if (mapload)
@@ -704,6 +708,13 @@
 
 /obj/item/paper/medscan
 	icon_state = "medscan"
+	color = "#eeffe8"
+	set_unsafe_on_init = TRUE
+	var/datum/weakref/scan_target
+
+/obj/item/paper/medscan/Initialize(mapload, text, title, var/atom/set_scan_target)
+	. = ..()
+	scan_target = WEAKREF(set_scan_target)
 
 //
 // Fluff Papers
@@ -730,6 +741,15 @@
 	name = "bunker evacuation route instructions"
 	desc = "A paper. It has evacuation route instructions printed on it."
 	info = "<font face=\"Verdana\"><center>SCCV Horizon Command Bunker<br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
+		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
+		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
+		equipment, if necessary.</li></ol></font></font>"
+
+// Used in the bridge on the SCCV Horizon
+/obj/item/paper/fluff/bridge
+	name = "bridge evacuation route instructions"
+	desc = "A paper. It has evacuation route instructions printed on it."
+	info = "<font face=\"Verdana\"><center>SCCV Horizon Command <br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"

@@ -79,7 +79,8 @@ dir = NORTH; \
 pixel_y = 21;
 
 #define PRESET_SOUTH \
-dir = SOUTH;
+dir = SOUTH; \
+pixel_y = -3;
 
 #define PRESET_WEST \
 dir = WEST; \
@@ -152,6 +153,13 @@ pixel_x = 10;
 	var/report_danger_level = 1
 
 	var/global/image/alarm_overlay
+
+	//Used to cache the previous gas mixture result, and evaluate if we can skip processing or not
+	var/previous_environment_group_multiplier = null
+	var/previous_environment_temperature = null
+	var/previous_environment_total_moles = null
+	var/previous_environment_volume = null
+	var/list/previous_environment_gas = list()
 
 /obj/machinery/alarm/north
 	PRESET_NORTH
@@ -325,7 +333,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : 0) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -6) : 0)
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -360,6 +368,27 @@ pixel_x = 10;
 	if(!istype(location))	return//returns if loc is not simulated
 
 	var/datum/gas_mixture/environment = location.return_air()
+
+	var/is_same_environment = TRUE
+	for(var/k in environment.gas)
+		if(environment.gas[k] != previous_environment_gas[k])
+			is_same_environment = FALSE
+			previous_environment_gas = environment.gas.Copy()
+			break
+	if(is_same_environment)
+		if(	(environment.temperature != previous_environment_temperature) ||\
+			(environment.group_multiplier != previous_environment_group_multiplier) ||\
+			(environment.total_moles != previous_environment_total_moles) ||\
+			(environment.volume != previous_environment_volume)
+		)
+			is_same_environment = FALSE
+			previous_environment_group_multiplier = environment.group_multiplier
+			previous_environment_temperature = environment.temperature
+			previous_environment_total_moles = environment.total_moles
+			previous_environment_volume = environment.volume
+
+	if(is_same_environment)
+		return
 
 	//Handle temperature adjustment here.
 	handle_heating_cooling(environment)
@@ -779,7 +808,7 @@ pixel_x = 10;
 		var/list/selected = TLV["temperature"]
 		var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
 		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-		var/input_temperature = tgui_input_number(usr, "What temperature would you like the system to mantain?", "Thermostat Controls", target_temperature - T0C, max_temperature - T0C, min_temperature - T0C)
+		var/input_temperature = tgui_input_number(usr, "What temperature would you like the system to mantain?", "Thermostat Controls", target_temperature - T0C, max_temperature, min_temperature)
 		if(isnum(input_temperature))
 			var/temp = Clamp(input_temperature, min_temperature, max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)

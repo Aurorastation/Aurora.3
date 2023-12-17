@@ -109,6 +109,15 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	. += "<br><center><b>Native Database Notes</b></center>"
 	. += "<br><small>[desc]</small>"
 
+/obj/effect/overmap/visitable/ship/get_tooltip_description()
+	var/description = "<ul>"
+	description += "<li><b>Manufacturer:</b> [designer]</li>"
+	description += "<li><b>Class Designation:</b> [sizeclass]</li>"
+	description += "<li><b>Designated Purpose:</b> [shiptype]</li>"
+	description += "<li><b>Weapons Estimation:</b> [weapons]</li>"
+	description += "</ul>"
+	return description
+
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()
 	return round(get_total_thrust()/get_vessel_mass(), SHIP_MOVE_RESOLUTION)
