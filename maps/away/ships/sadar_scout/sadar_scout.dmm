@@ -1776,6 +1776,10 @@
 "nl" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "sadar_co2_blast"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "nq" = (
@@ -2644,10 +2648,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/atmos)
 "tH" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/francisca/flipped{
-	pixel_x = -32;
+/obj/machinery/ship_weapon/francisca{
 	pixel_y = -160;
+	pixel_x = -32;
+	dir = 8;
 	weapon_id = "Raiding Skiff Francisca Rotary Gun"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -2662,6 +2666,7 @@
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_shuttle_shutters"
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/shuttle/sadar_shuttle)
 "tI" = (
@@ -2669,9 +2674,14 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/extinguisher_cabinet/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_y = 28;
+	name = "CO2 Tank Shutters";
+	id = "sadar_co2_blast"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "tR" = (
@@ -2843,6 +2853,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/thrusters)
 "vi" = (
@@ -3430,7 +3441,8 @@
 /area/ship/sadar_scout/eva)
 "za" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/ammunition_loader/francisca/flipped{
+/obj/machinery/ammunition_loader/francisca{
+	dir = 8;
 	weapon_id = "Raiding Skiff Francisca Rotary Gun"
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4142,6 +4154,10 @@
 "Eq" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "sadar_co2_blast"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "Es" = (
@@ -5418,7 +5434,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sadar_scout/mainhall)
+/area/ship/sadar_scout/forehall)
 "OQ" = (
 /obj/machinery/vending/engineering{
 	req_access = null
@@ -5829,7 +5845,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/sadar_scout/eva)
+/area/ship/sadar_scout/cic)
 "RF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -6300,6 +6316,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sadar_shuttle)
+"UT" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 9
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sadar_scout/forehall)
 "UX" = (
 /obj/structure/closet/secure_closet/freezer/fridge{
 	anchored = 1
@@ -6336,6 +6364,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/thrusters)
 "Ve" = (
@@ -38186,10 +38215,10 @@ Vj
 Vj
 oi
 ds
-Ea
-Ea
+cT
+cT
 RE
-Ea
+cT
 ds
 ds
 ds
@@ -38454,7 +38483,7 @@ ro
 ro
 jt
 ro
-iG
+Zv
 NX
 Zv
 Zv
@@ -38711,7 +38740,7 @@ tt
 iG
 iG
 yU
-iG
+Zv
 WT
 cQ
 rj
@@ -38968,7 +38997,7 @@ To
 iG
 Ch
 qf
-iG
+Zv
 Ld
 al
 Hn
@@ -39225,7 +39254,7 @@ cp
 iG
 az
 Au
-iG
+Zv
 nv
 QU
 Mt
@@ -39482,9 +39511,9 @@ Da
 iG
 iG
 zD
-iG
-iG
-iG
+Zv
+Zv
+Zv
 Zv
 Zv
 Cu
@@ -39741,9 +39770,9 @@ cS
 vK
 Bg
 vi
-iG
+sv
 fX
-DS
+UT
 Bb
 Yz
 TA
@@ -40255,7 +40284,7 @@ wK
 oh
 iG
 iG
-iG
+Rq
 Rq
 Rq
 xN
