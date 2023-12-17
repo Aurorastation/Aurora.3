@@ -13,7 +13,6 @@
 	emote_hear = list("chitters")
 	speak_chance = 5
 	turns_per_move = 5
-	see_in_dark = 10
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	organ_names = list("thorax", "legs", "head")

@@ -48,7 +48,6 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/carp/update_icon()
@@ -291,5 +290,4 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING

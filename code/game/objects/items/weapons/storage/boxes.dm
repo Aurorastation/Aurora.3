@@ -489,6 +489,14 @@
 	illustration = "grenade"
 	starts_with = list(/obj/item/grenade/frag = 5)
 
+/obj/item/storage/box/grenades/napalm
+	name = "box of napalm grenades"
+	desc = "A box containing 3 napalm grenades."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/napalm = 3)
+
 /obj/item/storage/box/cardox
 	name = "box of cardox grenades"
 	desc = "A box containing 5 experimental cardox grenades."
@@ -966,10 +974,10 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/sol_visa = 6)
 
 /obj/item/storage/box/ceti_visa
-	name = "TCFL recruitment papers box"
-	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Foreign Legion."
+	name = "TCAF recruitment papers box"
+	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Armed Forces."
 	illustration = "paper"
-	starts_with = list(/obj/item/clothing/accessory/badge/tcfl_papers = 6)
+	starts_with = list(/obj/item/clothing/accessory/badge/tcaf_papers = 6)
 
 /obj/item/storage/box/hadii_card
 	name = "honorary party member card box"
@@ -1001,11 +1009,11 @@
 	illustration = "paper"
 	starts_with = list(/obj/item/book/manual/dominia_honor = 6)
 
-/obj/item/storage/box/tcfl_pamphlet
-	name = "tau ceti foreign legion pamphlets box"
-	desc = "A box full of tau ceti foreign legion pamphlets."
+/obj/item/storage/box/tcaf_pamphlet
+	name = "tau ceti armed forces pamphlets box"
+	desc = "A box full of tau ceti armed forces pamphlets."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/tcfl_pamphlet = 6)
+	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
 
 /obj/item/storage/box/sharps
 	name = "sharps disposal box"
@@ -1238,3 +1246,20 @@
 /obj/item/storage/box/led_collars/fill()
 	..()
 	make_exact_fit()
+/obj/item/storage/box/traps/punji
+	name = "box of punji traps"
+	desc = "A box containing 5 punji traps."
+	starts_with = list(/obj/item/trap/punji = 5)
+
+/obj/item/storage/box/landmines/standstill
+	name = "box of standstill landmines"
+	desc = "A box containing 5 standstill landmines."
+	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/claymore
+	name = "box of claymore landmines"
+	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
+	starts_with = list(
+		/obj/item/landmine/claymore = 5,
+		/obj/item/device/assembly/signaler = 6
+		)

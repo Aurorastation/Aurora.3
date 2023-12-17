@@ -186,6 +186,12 @@
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	banners["banner, Orion Express"] = /obj/item/flag/orion_express
 	banners["banner, Imperial Frontier"] = /obj/item/flag/imperial_frontier
+	banners["banner, Scarab Fleet"] = /obj/item/flag/scarab
+	banners["banner, Federal Technocracy of Galatea"] = /obj/item/flag/galatea_government
+	banners["banner, Galatea"] = /obj/item/flag/galatea
+	banners["banner, Tsukuyomi"] = /obj/item/flag/tsukuyomi
+	banners["banner, Svarog"] = /obj/item/flag/svarog
+	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -263,6 +269,12 @@
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	flags["flag, Orion Express"] = /obj/item/flag/orion_express/l
 	flags["flag, Imperial Frontier"] = /obj/item/flag/imperial_frontier/l
+	flags["flag, Scarab Fleet"] = /obj/item/flag/scarab/l
+	flags["flag, Federal Technocracy of Galatea"] = /obj/item/flag/galatea_government/l
+	flags["flag, Galatea"] = /obj/item/flag/galatea/l
+	flags["flag, Tsukuyomi"] = /obj/item/flag/tsukuyomi/l
+	flags["flag, Svarog"] = /obj/item/flag/svarog/l
+	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

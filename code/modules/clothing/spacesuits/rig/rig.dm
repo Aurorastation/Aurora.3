@@ -802,7 +802,10 @@
 
 /obj/item/rig/dropped(var/mob/user)
 	..()
-	SSstatpanels.set_action_tabs(user.client, user)
+
+	if(user.client)
+		SSstatpanels.set_action_tabs(user.client, user)
+
 	null_wearer(user)
 
 

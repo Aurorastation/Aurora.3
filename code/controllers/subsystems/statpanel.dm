@@ -116,6 +116,9 @@ SUBSYSTEM_DEF(statpanels)
 
 /// Set up the various action tabs.
 /datum/controller/subsystem/statpanels/proc/set_action_tabs(client/target, mob/target_mob)
+	if(!target)
+		return
+
 	var/list/actions = target_mob.get_actions_for_statpanel()
 	target.spell_tabs.Cut()
 

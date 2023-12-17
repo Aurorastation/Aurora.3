@@ -139,13 +139,23 @@
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/lawoffice/consular
-	name = "Consular Office"
+	name = "Consular Office A"
 	icon_state = "law_con"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
+/area/lawoffice/consular_two
+	name = "Consular Office B"
+	icon_state = "law_con_b"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
 /area/lawoffice/representative
-	name = "Representative Office"
+	name = "Representative Office A"
 	icon_state = "law_rep"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/lawoffice/representative_two
+	name = "Representative Office B"
+	icon_state = "law_rep_b"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/quartermaster
