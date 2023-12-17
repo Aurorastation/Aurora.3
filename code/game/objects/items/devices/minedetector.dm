@@ -1,5 +1,5 @@
 /obj/item/device/mine_detector
-	name = "Mine Detector"
+	name = "mine detector"
 	desc = "A device capable of detecting mines and traps in a range."
 
 	///The types that are detected by this device
@@ -96,7 +96,7 @@
 #############*/
 
 /obj/item/device/mine_detector/advanced
-	name = "Advanced Mine Detector"
+	name = "advanced mine detector"
 	desc = "A device capable of detecting mines and traps in a range. This one is more advanced, featuring automatic scanning as well as a broader detection angle."
 	detection_angle = 45
 	can_scan_automatically = TRUE
