@@ -11,6 +11,7 @@
 		WIRE_COOLING,
 		WIRE_HEATING
 	)
+	..()
 
 /datum/wires/vending/blueprint
 	cares_about_holder = FALSE

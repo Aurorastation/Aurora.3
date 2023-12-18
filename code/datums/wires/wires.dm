@@ -30,6 +30,7 @@ var/global/list/wire_name_directory = list()
 
 /datum/wires/New(atom/holder)
 	..()
+	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(holder, holder_type) && cares_about_holder)
 		CRASH("Wire holder is not of the expected type!")
 
