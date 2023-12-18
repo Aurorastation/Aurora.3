@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixes a number of bugs with the Scarab ship."
+  - bugfix: "Fixes non-functional airlocks and fuel tank controls on the Scarab ship."
+  - maptweak: "Adds telecomms and headsets to the Scarab ship, along with more grates for navigation."
