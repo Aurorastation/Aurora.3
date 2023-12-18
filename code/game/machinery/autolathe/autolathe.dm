@@ -238,7 +238,6 @@
 			autolathe_flags |= AUTOLATHE_BUSY
 			update_use_power(POWER_USE_ACTIVE)
 	else if(!currently_printing && (autolathe_flags & AUTOLATHE_BUSY))
-		visible_message(SPAN_NOTICE("\The [src] beeps twice and returns to standby mode, indicating that its queue has been cleared."))
 		autolathe_flags &= ~(AUTOLATHE_BUSY|AUTOLATHE_STARTED)
 		update_use_power(POWER_USE_IDLE)
 
