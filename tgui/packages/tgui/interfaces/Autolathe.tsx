@@ -2,15 +2,18 @@ import { round } from '../../common/math';
 import { BooleanLike } from '../../common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, ProgressBar, Section, Stack, Table, Tabs } from '../components';
+import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack, Table, Tabs } from '../components';
 import { Window } from '../layouts';
 
 export type AutolatheData = {
   disabled: BooleanLike;
   material_efficiency: number;
+  build_time: number;
   materials: Material[];
   recipes: Recipe[];
   categories: string[];
+  queue: QueueItem[];
+  currently_printing: string;
 };
 
 type Material = {
@@ -22,7 +25,7 @@ type Material = {
 type Recipe = {
   name: string;
   category: string;
-  resources: Resource;
+  resources: string;
   max_sheets: number;
   sheets: number;
   can_make: BooleanLike;
@@ -30,9 +33,13 @@ type Recipe = {
   hidden: BooleanLike;
 };
 
-type Resource = {
-  material: string;
-  amount: number;
+type QueueItem = {
+  ref: string;
+  order: string;
+  path: string;
+  multiplier: number;
+  build_time: number;
+  progress: number;
 };
 
 export const Autolathe = (props, context) => {
@@ -40,7 +47,7 @@ export const Autolathe = (props, context) => {
   const [tab, setTab] = useLocalState(context, 'tab', 'All');
 
   return (
-    <Window resizable theme="hephaestus" width="700" height="700">
+    <Window resizable theme="hephaestus" width="1000" height="700">
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -48,7 +55,7 @@ export const Autolathe = (props, context) => {
               <LabeledList>
                 {data.materials.map((material) => (
                   <LabeledList.Item
-                    key={material}
+                    key={material.material}
                     label={
                       <Box bold fontSize={1.4}>
                         {capitalizeAll(material.material)}
@@ -69,7 +76,7 @@ export const Autolathe = (props, context) => {
                       value={round(material.stored, 1)}
                       maxValue={material.max_capacity}
                       minValue={0}>
-                      {material.stored}/{material.max_capacity}
+                      {material.stored} / {material.max_capacity}
                     </ProgressBar>
                   </LabeledList.Item>
                 ))}
@@ -92,6 +99,9 @@ export const Autolathe = (props, context) => {
             </Stack.Item>
             <Stack.Item grow>
               {tab ? <CategoryData /> : 'No category selected.'}
+            </Stack.Item>
+            <Stack.Item grow>
+              <QueueData />
             </Stack.Item>
           </Stack>
         </Stack>
@@ -119,7 +129,6 @@ export const CategoryData = (props, context) => {
           autoFocus
           autoSelect
           placeholder="Search by name"
-          width="40vw"
           maxLength={512}
           onInput={(e, value) => {
             setSearchTerm(value);
@@ -152,12 +161,59 @@ export const CategoryData = (props, context) => {
                       act('make', { multiplier: 1, recipe: recipe.recipe })
                     }
                   />
+                  {recipe.max_sheets ? (
+                    <>
+                      {' '}
+                      <Button
+                        content={
+                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                            [x5]
+                          </Box>
+                        }
+                        disabled={recipe.can_make}
+                        color="transparent"
+                        onClick={() =>
+                          act('make', { multiplier: 5, recipe: recipe.recipe })
+                        }
+                      />
+                      <Button
+                        content={
+                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                            [x10]
+                          </Box>
+                        }
+                        disabled={recipe.can_make}
+                        color="transparent"
+                        onClick={() =>
+                          act('make', { multiplier: 10, recipe: recipe.recipe })
+                        }
+                      />
+                      <Button
+                        content={
+                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                            [x{recipe.max_sheets}]
+                          </Box>
+                        }
+                        disabled={recipe.can_make}
+                        color="transparent"
+                        onClick={() =>
+                          act('make', {
+                            multiplier: recipe.max_sheets,
+                            recipe: recipe.recipe,
+                          })
+                        }
+                      />
+                    </>
+                  ) : (
+                    ''
+                  )}
                 </Table.Cell>
-                <Table.Cell>
-                  <Box>
-                    {round(recipe.resources.amount, 0.1)}{' '}
-                    {recipe.resources.material}
-                  </Box>
+                <Table.Cell collapsing>
+                  <Button
+                    color="transparent"
+                    tooltip={recipe.resources}
+                    icon="question"
+                  />
                 </Table.Cell>
               </Table.Row>
             ) : (
@@ -165,6 +221,47 @@ export const CategoryData = (props, context) => {
             )
           )}
       </Table>
+    </Section>
+  );
+};
+
+export const QueueData = (props, context) => {
+  const { act, data } = useBackend<AutolatheData>(context);
+
+  return (
+    <Section fill title="Queue">
+      <LabeledList>
+        {data.queue && data.queue.length ? (
+          data.queue.map((queue_item) => (
+            <LabeledList.Item
+              key={queue_item.ref}
+              label={capitalizeAll(queue_item.order)}>
+              <ProgressBar
+                minValue={0}
+                maxValue={queue_item.build_time}
+                value={queue_item.progress}
+                ranges={{
+                  good: [queue_item.build_time * 0.5, queue_item.build_time],
+                  average: [
+                    queue_item.build_time * 0.25,
+                    queue_item.build_time * 0.5,
+                  ],
+                  bad: [0, queue_item.build_time * 0.25],
+                }}>
+                {round(queue_item.progress, 1)} / {queue_item.build_time}
+                <Button
+                  icon="cancel"
+                  color="transparent"
+                  disabled={queue_item.ref === data.currently_printing}
+                  onClick={() => act('remove', { ref: queue_item.ref })}
+                />
+              </ProgressBar>
+            </LabeledList.Item>
+          ))
+        ) : (
+          <NoticeBox>The queue is empty.</NoticeBox>
+        )}
+      </LabeledList>
     </Section>
   );
 };
