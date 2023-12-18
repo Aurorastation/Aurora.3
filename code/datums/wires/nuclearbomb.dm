@@ -10,6 +10,7 @@
 	)
 	/// Listen, Derek. I know you're a surgeon, but...
 	add_duds(2)
+	..()
 
 /datum/wires/nuclearbomb/interactable(mob/user)
 	if(!..())

@@ -8,6 +8,7 @@
 		WIRE_POWER, WIRE_HACK
 	)
 	add_duds(4)
+	..()
 
 /datum/wires/tag_scanner/get_status()
 	var/obj/item/ipc_tag_scanner/S = holder
