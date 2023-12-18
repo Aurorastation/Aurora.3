@@ -119,6 +119,9 @@
 	///How much clothing is slowing you down. Negative values speeds you up
 	var/slowdown = 0
 
+	/// A list of slowdown slots. Determines whether slowdown should be applied depending on which slot the item is being worn on
+	var/list/slowdown_slots = null
+
 	///Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/slowdown_accessory = 0
 

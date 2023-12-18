@@ -35,6 +35,7 @@
 	permeability_coefficient = 0.1
 	unacidable = 1
 	slowdown = 1 // All rigs by default should have slowdown.
+	slowdown_slots = list(slot_back)
 
 	var/has_sealed_state = FALSE
 	var/has_hidden_jumpsuit = FALSE

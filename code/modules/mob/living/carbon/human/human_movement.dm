@@ -52,13 +52,21 @@
 
 	tally = max(-2, tally + move_delay_mod)
 
-	var/obj/item/AH = get_active_hand()
-	if(istype(AH))
-		tally += AH.slowdown
+	var/list/carried_items = list()
 
+	var/obj/item/AH = get_active_hand()
+	if(istype(AH) && AH.slowdown)
+		carried_items += AH
 	var/obj/item/IH = get_inactive_hand()
-	if(istype(IH))
-		tally += IH.slowdown
+	if(istype(IH) && IH.slowdown)
+		carried_items += IH
+
+	for(var/obj/item/carried_item in carried_items)
+		if(carried_item.slowdown_slots)
+			var/current_slot = carried_item.get_equip_slot()
+			if(!(current_slot in carried_item.slowdown_slots))
+				continue
+		tally += carried_item.slowdown
 
 	if(isitem(pulling))
 		var/obj/item/P = pulling
@@ -186,9 +194,14 @@
 	return (shoes && shoes.negates_gravity())
 
 /mob/living/carbon/human/proc/ClothesSlowdown()
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
-		. += I.slowdown
-		. += I.slowdown_accessory
+	for(var/obj/item/worn_item in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
+		if(worn_item.slowdown || worn_item.slowdown_accessory)
+			if(worn_item.slowdown_slots)
+				var/current_slot = worn_item.get_equip_slot()
+				if(!(current_slot in worn_item.slowdown_slots))
+					continue
+			. += worn_item.slowdown
+			. += worn_item.slowdown_accessory
 
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()
