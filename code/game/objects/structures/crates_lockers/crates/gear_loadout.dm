@@ -294,7 +294,6 @@
 /obj/structure/closet/crate/gear_loadout/zenghu/fill()
 	new /obj/item/clothing/head/helmet/space/void/zenghu(src)
 	new /obj/item/clothing/suit/space/void/zenghu(src)
-	new /obj/item/voidsuit_modkit/zeng_skrell(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
 
@@ -308,7 +307,6 @@
 	new /obj/item/clothing/suit/space/void/hephaestus(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/voidsuit_modkit/heph_unathi(src)
 
 /obj/structure/closet/crate/gear_loadout/einstein/suit/fill()
 	new /obj/item/clothing/head/helmet/space/void/einstein(src)
