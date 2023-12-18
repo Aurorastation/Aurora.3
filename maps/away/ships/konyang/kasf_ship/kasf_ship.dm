@@ -7,7 +7,7 @@
 	ship_cost = 1
 	id = "kasf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kasf_shuttle)
-
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/kasf_corvette
@@ -145,7 +145,7 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kasf_shuttle)
 	current_location = "nav_hangar_kasf"
-	dock_target = "kasf_shuttle"
+	dock_target = "airlock_kasf_shuttle"
 	landmark_transition = "nav_transit_kasf_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -157,7 +157,7 @@
 	landmark_tag = "nav_hangar_kasf"
 	docking_controller = "kasf_shuttle_dock"
 	base_area = /area/ship/kasf_corvette/hangar
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/simulated/floor
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/kasf_shuttle/transit

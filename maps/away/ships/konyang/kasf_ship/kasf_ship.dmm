@@ -104,9 +104,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "kasf_shuttle_pump_out_internal"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -386,8 +391,7 @@
 /area/ship/kasf_corvette/armory)
 "cA" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
+/obj/machinery/door/blast/regular/open{
 	id = "kasf_shuttle_shutters"
 	},
 /turf/simulated/floor,
@@ -1008,15 +1012,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "gc" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "kasf_shuttle_pump_out_internal"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/structure/bed/handrail{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
@@ -1288,10 +1297,6 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/atmos)
 "hL" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "kasf_shuttle_pump_out_internal"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -1301,9 +1306,16 @@
 /obj/machinery/airlock_sensor{
 	dir = 4;
 	pixel_y = -6;
-	pixel_x = -24;
-	id_tag = "kasf_shuttle_sensor";
-	frequency = 1380
+	pixel_x = -24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
@@ -1914,20 +1926,11 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/machinery/computer/shuttle_control/explore/kasf_shuttle{
-	dir = 4
-	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 6;
-	frequency = 1380;
-	child_names_txt = "KASF Shuttle Airlock";
-	child_tags_txt = "kasf_shuttle";
-	id_tag = "kasf_shuttle";
-	pixel_y = -30;
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -2273,16 +2276,25 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardthrust)
 "nP" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "kasf_shuttle_out"
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = -22;
+	pixel_y = -22
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
 "nQ" = (
@@ -2980,8 +2992,9 @@
 /area/ship/kasf_corvette/hangar)
 "rP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id = "kasf_shuttle_shutters"
+/obj/machinery/door/blast/regular/open{
+	id = "kasf_shuttle_shutters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/kasf_shuttle)
@@ -3182,23 +3195,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_x = -6;
-	pixel_y = -18;
-	dir = 1;
-	frequency = 1380;
-	id_tag = "kasf_shuttle_interior_sensor"
-	},
-/obj/machinery/access_button{
-	pixel_x = -6;
-	pixel_y = -25;
-	dir = 1;
-	frequency = 1380;
-	master_tag = "kasf_shuttle";
-	command = "cycle_interior"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	dir = 1;
+	pixel_y = -18;
+	pixel_x = -6
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -3670,9 +3681,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "kasf_shuttle_pump"
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -4650,11 +4666,17 @@
 /area/ship/kasf_corvette/engie)
 "Br" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4;
-	id_tag = "kasf_shuttle_pump_out_external";
-	frequency = 1380
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/kasf_shuttle)
 "Bs" = (
@@ -4755,6 +4777,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
+"BT" = (
+/obj/machinery/airlock_sensor/airlock_interior{
+	dir = 1;
+	pixel_y = -18;
+	pixel_x = -6
+	},
+/turf/template_noop,
+/area/space)
 "BV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5036,11 +5066,6 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/mainhall)
 "DJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "kasf_shuttle_pump"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
@@ -5049,6 +5074,16 @@
 	},
 /obj/structure/bed/handrail{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
@@ -6962,11 +6997,17 @@
 /area/ship/kasf_corvette/mainhall)
 "ND" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8;
-	id_tag = "kasf_shuttle_pump_out_external";
-	frequency = 1380
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/kasf_shuttle)
 "NI" = (
@@ -7112,11 +7153,12 @@
 /area/ship/kasf_corvette/armory)
 "OS" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id = "kasf_shuttle_shutters"
-	},
 /obj/effect/landmark/entry_point/south{
 	name = "fore, cockpit"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "kasf_shuttle_shutters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/kasf_shuttle)
@@ -7515,27 +7557,25 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/access_button{
-	dir = 4;
-	pixel_y = 2;
-	pixel_x = -22;
-	frequency = 1380;
-	master_tag = "kasf_shuttle";
-	command = "cycle_exterior"
-	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 10;
-	dir = 4;
-	frequency = 1380;
-	id_tag = "kasf_shuttle_exterior_sensor"
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
 /obj/effect/landmark/entry_point/north{
 	name = "aft, airlock"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 4;
+	pixel_y = -1;
+	pixel_x = -21
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/kasf_shuttle)
@@ -7548,11 +7588,6 @@
 /turf/simulated/floor/grass,
 /area/ship/kasf_corvette/mess)
 "Re" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "kasf_shuttle_pump"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -7562,18 +7597,18 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	pixel_y = 26;
-	frequency = 1380;
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
-	id_tag = "kasf_shuttle";
-	master_tag = "kasf_shuttle";
-	tag_airpump = "kasf_shuttle_pump";
-	tag_chamber_sensor = "kasf_shuttle_sensor";
-	tag_exterior_door = "kasf_shuttle_out";
-	tag_exterior_sensor = "kasf_shuttle_exterior_sensor";
-	tag_interior_door = "kasf_shuttle_in";
-	tag_interior_sensor = "kasf_shuttle_interior_sensor"
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
@@ -8434,9 +8469,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "Xl" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
@@ -8448,6 +8480,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/computer/shuttle_control/explore/kasf_shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -8795,17 +8830,26 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/hangar)
 "YN" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
-	id_tag = "kasf_shuttle_in";
-	frequency = 1380
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 26;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kasf_shuttle";
+	name = "airlock_kasf_shuttle";
+	req_one_access = list(218);
+	shuttle_tag = "KASF Shuttle"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
 "YV" = (
@@ -44122,7 +44166,7 @@ Cb
 Cb
 Is
 Is
-Is
+BT
 uI
 uI
 uI
