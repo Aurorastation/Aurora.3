@@ -197,7 +197,9 @@
 
 /datum/wires/airlock/get_wire_diagram(var/mob/user)
 	var/dat = ""
-	for(var/color in wires)
+	for(var/color in colors)
+		if(is_dud_color(color))
+			continue
 		dat += "<font color='[color]'>[capitalize(color)]</font>: [get_wire(color)]<br>"
 
 	var/datum/browser/wire_win = new(user, "airlockwires", "Airlock Wires", 450, 500)

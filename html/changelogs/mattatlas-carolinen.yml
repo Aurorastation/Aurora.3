@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "The autolathe interface is now a TGUI. A queueing system and a search bar have also been added."
   - rscadd: "Turned the wires panel into a TGUI. Some hacking may be slightly more difficult as the dud wire logic has been reworked - more items should have more dud wires."
+  - rscadd: "Holding blueprints in hand while looking at a wires panel will now reveal what each wire does. Doesn't work on randomized wires."

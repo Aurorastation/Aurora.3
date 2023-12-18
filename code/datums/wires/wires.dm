@@ -283,7 +283,7 @@ var/global/list/wire_name_directory = list()
 /datum/wires/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "Wires", "[holder.name] Wires")
+		ui = new(user, src, "Wires", "[capitalize(holder.name)] Wires")
 		ui.open()
 
 /datum/wires/ui_data(mob/user)

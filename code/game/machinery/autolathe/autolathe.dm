@@ -296,7 +296,7 @@
 		man_rating += M.rating
 
 	storage_capacity[DEFAULT_WALL_MATERIAL] = mb_rating * 25000
-	storage_capacity["glass"] = mb_rating * 12500
+	storage_capacity[MATERIAL_GLASS] = mb_rating * 12500
 	build_time = 50 / man_rating
 	mat_efficiency = 1.1 - man_rating * 0.1 // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 
@@ -381,10 +381,15 @@
 
 /// Queue items are needed so that the queue knows exactly what it's doing.
 /datum/autolathe_queue_item
+	/// The recipe singleton. We need to know exactly what we're making.
 	var/singleton/autolathe_recipe/recipe
+	/// Multiplier, used to know how many sheets we are printing. Note that this is specifically for sheets.
 	var/multiplier = 1
+	/// The materials used for this order.
 	var/list/materials_used = list()
+	/// How much time it takes to build this order. 50 for an un-upgraded autolathe.
 	var/build_time = 0
+	/// Current progress on this queue item.
 	var/progress = 0
 
 /datum/autolathe_queue_item/Destroy()
