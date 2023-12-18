@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the armor value display for some items, such as hardsuit components, being calculated incorrectly. (Only affects the examine TGUI, not actual armor values)"
