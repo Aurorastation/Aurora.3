@@ -45,16 +45,30 @@
 	vision_restriction = 0
 	slowdown = 4
 	vision_restriction = TINT_NONE
+	glove_type = /obj/item/clothing/gloves/powerfist
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
-/obj/item/rig/unathi/fancy/ninja
+/obj/item/rig/unathi/fancy/equipped
+	req_access = list(access_kataphract)
+	initial_modules = list(
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/chem_dispenser/combat
+	)
 
+/obj/item/rig/unathi/fancy/ninja
+	req_access = list(access_syndicate)
 	initial_modules = list(
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/device/drill,
-		/obj/item/rig_module/device/door_hack
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/mounted/energy_blade
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY

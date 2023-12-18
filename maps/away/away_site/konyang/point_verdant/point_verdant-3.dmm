@@ -62,6 +62,12 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
+"aB" = (
+/obj/structure/bed/stool/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "aE" = (
 /obj/machinery/mecha_part_fabricator,
 /obj/random/dirt_75,
@@ -168,6 +174,11 @@
 "bF" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/tailor)
+"bI" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "bM" = (
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 5
@@ -215,6 +226,10 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "ca" = (
@@ -383,6 +398,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"dT" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "eb" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -489,6 +508,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "eR" = (
@@ -789,6 +809,9 @@
 "hw" = (
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"hC" = (
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "hE" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8;
@@ -801,6 +824,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "hL" = (
@@ -974,7 +998,7 @@
 	pixel_x = 31;
 	pixel_y = 10
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "jN" = (
 /turf/simulated/floor/wood,
@@ -1147,6 +1171,7 @@
 	pixel_x = 5;
 	pixel_y = 8
 	},
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "mx" = (
@@ -1355,10 +1380,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"pL" = (
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/cans/koispunch{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior)
 "pN" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
+"pR" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "qa" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
@@ -1499,6 +1537,50 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"rC" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/food/drinks/chaitea{
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/chaitea{
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/chaitea{
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/chaitea{
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/chaitea{
+	pixel_y = -1;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/greentea{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/food/drinks/greentea{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/food/drinks/greentea{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/food/drinks/greentea{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/food/drinks/greentea{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "rH" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -1538,6 +1620,18 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"si" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack/cafe_table,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "sI" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -1608,6 +1702,10 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/restaurant)
+"tH" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior)
 "tN" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -1753,6 +1851,40 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"vJ" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/food/drinks/cans/starkist{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/cans/lemon_lime{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/starkist{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/cans/starkist{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/cans/starkist{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/cans/starkist{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/cans/lemon_lime{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/lemon_lime{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/lemon_lime{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/lemon_lime{
+	pixel_x = 6
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior)
 "vL" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -1833,6 +1965,10 @@
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/interior)
+"wA" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "wD" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10;
@@ -1874,7 +2010,9 @@
 	dir = 1;
 	pixel_y = 24
 	},
-/turf/simulated/floor/wood,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "wQ" = (
 /obj/structure/rod_railing{
@@ -2032,6 +2170,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior/hotel)
+"yJ" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "yN" = (
 /obj/structure/table/wood,
 /obj/machinery/light_switch{
@@ -2337,6 +2481,7 @@
 /obj/structure/toilet{
 	pixel_x = -8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior)
 "BN" = (
@@ -2618,6 +2763,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
 "Em" = (
@@ -2647,6 +2793,11 @@
 "Ey" = (
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"ED" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "EE" = (
 /obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_y = 7;
@@ -2694,6 +2845,15 @@
 /obj/structure/rope_post,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"Fb" = (
+/obj/structure/ledge/roof{
+	dir = 9
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "Fs" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
@@ -2848,6 +3008,10 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Hk" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Ht" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -2880,6 +3044,11 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
+/area/point_verdant/interior)
+"HG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior)
 "HJ" = (
 /obj/structure/rod_railing{
@@ -3119,14 +3288,13 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "Kq" = (
-/obj/structure/sink/kitchen{
-	name = "sink";
-	dir = 8;
-	pixel_x = 19
+/obj/structure/sink{
+	pixel_y = 27
 	},
 /obj/machinery/light/small{
-	dir = 1
+	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior)
 "Kv" = (
@@ -3191,6 +3359,13 @@
 /obj/structure/ledge/quarter,
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"Lq" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Lt" = (
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/roofing_tiles,
@@ -3231,6 +3406,10 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "Ma" = (
@@ -3575,7 +3754,39 @@
 /area/point_verdant/outdoors)
 "PV" = (
 /obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/wood,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = -5
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = 9
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = -5
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = -5
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = -5
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = -5
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = 9
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = 9
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = 9
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = 9
+	},
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "PZ" = (
 /turf/simulated/floor/tiled/freezer,
@@ -3595,6 +3806,10 @@
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet,
 /area/point_verdant/interior/hotel)
 "Qi" = (
@@ -3635,6 +3850,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Qn" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Qq" = (
 /obj/structure/table/wood,
 /obj/item/device/taperecorder,
@@ -3726,6 +3945,10 @@
 "Sk" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_vendor";
+	identifier = "konyang_vendor"
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
 "Sn" = (
@@ -3877,6 +4100,14 @@
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"TF" = (
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind{
+	pixel_x = -6
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "TH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -4219,6 +4450,38 @@
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"Xx" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/snacks/tuna{
+	pixel_x = 6
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Xz" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -4375,6 +4638,13 @@
 "YR" = (
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
+"YW" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/obj/structure/ledge/roof/corner,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "Zg" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -25132,8 +25402,8 @@ Cw
 Gg
 BH
 Gg
-lp
-lp
+dT
+Lq
 pC
 Ey
 mB
@@ -25390,7 +25660,7 @@ Gg
 Kq
 jK
 lp
-lp
+si
 pC
 Ey
 mB
@@ -25647,7 +25917,7 @@ Gg
 Gg
 Gg
 lp
-lp
+aB
 pC
 Ey
 mB
@@ -25898,11 +26168,11 @@ Ey
 mB
 Ml
 Gg
-lp
-qY
-qY
-qY
-lp
+ED
+bC
+bC
+bC
+ir
 lp
 lp
 Gg
@@ -26156,12 +26426,12 @@ mB
 Ml
 Gg
 wO
+HG
+TF
+pL
+pR
 lp
-lp
-lp
-lp
-lp
-lp
+Hk
 pC
 Ey
 mB
@@ -26413,12 +26683,12 @@ mB
 Ml
 Gg
 PV
-lp
-lp
-lp
-lp
-lp
-lp
+tH
+pR
+tH
+hC
+yJ
+wA
 pC
 Ey
 mB
@@ -26669,13 +26939,13 @@ Ey
 mB
 Ml
 Gg
-PV
-lp
-lp
-lp
-lp
-lp
-lp
+Xx
+tH
+rC
+vJ
+Qn
+bI
+wA
 pC
 Ey
 mB
@@ -37464,17 +37734,17 @@ FM
 Jb
 Hf
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vf
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+gh
 Cw
 Cw
 Cw
@@ -37721,17 +37991,17 @@ fU
 Hf
 Hf
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+Fb
+wJ
+wJ
+wJ
+wJ
+wJ
+wJ
+wJ
+NL
+Ml
 Cw
 Cw
 Cw
@@ -37978,17 +38248,17 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -38235,17 +38505,17 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+gn
+DB
+DB
+GF
+MN
+mB
+Ml
 Cw
 Cw
 Cw
@@ -38492,17 +38762,17 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+gn
+DD
+Xn
+DD
+MN
+mB
+Ml
 Cw
 Cw
 Cw
@@ -38749,17 +39019,17 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+gn
+Ur
+Ur
+tO
+MN
+mB
+Ml
 Cw
 Cw
 Cw
@@ -39006,17 +39276,17 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+ST
+jf
+jf
+YW
+se
+se
+se
+GX
+mB
+Ml
 Cw
 Cw
 Cw
@@ -39263,17 +39533,17 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+AH
+fb
+fb
+DM
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -39523,14 +39793,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -39780,14 +40050,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -40037,14 +40307,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -40294,14 +40564,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -40551,14 +40821,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+ST
+jf
+jf
+jf
+jf
+lV
+Ml
 Cw
 Cw
 Cw
@@ -40808,14 +41078,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+AH
+fb
+fb
+fb
+fb
+fb
+fb
+nI
 Cw
 Cw
 Cw

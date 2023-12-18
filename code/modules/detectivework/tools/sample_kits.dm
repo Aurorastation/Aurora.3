@@ -162,7 +162,7 @@
 	desc_info = "Click drag it on to an object to collect evidence. Alternatively click on non-help intent."
 	icon_state = "m_glass"
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/evidence_type = "fiber"
 	var/evidence_path = /obj/item/sample/fibers
 

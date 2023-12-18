@@ -3,7 +3,7 @@
 	desc = "It's a sticker."
 	icon = 'icons/obj/sticker.dmi'
 	icon_state = "sticker"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_TINY
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_DIR
 

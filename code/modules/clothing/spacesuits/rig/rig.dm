@@ -91,7 +91,7 @@
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust the AIRTIGHT flag on components. Otherwise it should leave them untouched.
+	var/airtight = 1 //If set, will adjust the ITEM_FLAG_AIRTIGHT flag on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
@@ -225,7 +225,7 @@
 		if(airtight)
 			piece.max_pressure_protection = initial(piece.max_pressure_protection)
 			piece.min_pressure_protection = initial(piece.min_pressure_protection)
-			piece.item_flags &= ~AIRTIGHT
+			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/proc/toggle_seals(var/mob/initiator,var/instant)
@@ -381,11 +381,11 @@
 		if(canremove)
 			piece.max_pressure_protection = initial(piece.max_pressure_protection)
 			piece.min_pressure_protection = initial(piece.min_pressure_protection)
-			piece.item_flags &= ~AIRTIGHT
+			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 		else
 			piece.max_pressure_protection = max_pressure_protection
 			piece.min_pressure_protection = min_pressure_protection
-			piece.item_flags |= AIRTIGHT
+			piece.item_flags |= ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/process()
@@ -802,7 +802,10 @@
 
 /obj/item/rig/dropped(var/mob/user)
 	..()
-	SSstatpanels.set_action_tabs(user.client, user)
+
+	if(user.client)
+		SSstatpanels.set_action_tabs(user.client, user)
+
 	null_wearer(user)
 
 
@@ -810,18 +813,20 @@
 /obj/item/rig/proc/malfunction()
 	return 0
 
-/obj/item/rig/emp_act(severity_class)
+/obj/item/rig/emp_act(severity)
+	. = ..()
+
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.
 		malfunctioning += 10
 		if(malfunction_delay <= 0)
-			malfunction_delay = max(malfunction_delay, round(30/severity_class))
+			malfunction_delay = max(malfunction_delay, round(30/severity))
 
 	//drain some charge
-	if(cell) cell.emp_act((severity_class + 15)*1+(0.1*emp_protection))
+	if(cell) cell.powerdrain((severity + 15)*1+(0.1*emp_protection))
 
 	//possibly damage some modules
-	take_hit((100/severity_class), "electrical pulse", 1)
+	take_hit((100/severity), "electrical pulse", 1)
 
 /obj/item/rig/proc/shock(mob/user)
 	var/touchy = pick(BP_CHEST,BP_HEAD,BP_GROIN)

@@ -205,34 +205,34 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/badge/tcfl_papers
-	name = "\improper TCFL enlistment"
-	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
+/obj/item/clothing/accessory/badge/tcaf_papers
+	name = "\improper TCAF enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Armed Forces. Go Biesel!"
 	icon_state = "tc-visa"
 	overlay_state = "tc-visa"
 	slot_flags = SLOT_TIE
-	badge_string = "Tau Ceti Foreign Legion Recruit"
+	badge_string = "Tau Ceti Armed Forces Recruit"
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service
-	name = "\improper TCFL service card"
-	desc = "A small card identifying one as a current member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service
+	name = "\improper TCAF service card"
+	desc = "A small card identifying one as a current member of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Service Member"
+	badge_string = "Tau Ceti Armed Forces Service Member"
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
-	name = "\improper TCFL veteran's service card"
-	desc = "A small card identifying one as a former member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
+	name = "\improper TCAF veteran's service card"
+	desc = "A small card identifying one as a former member of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Veteran"
+	badge_string = "Tau Ceti Armed Forces Veteran"
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
-	name = "\improper TCFL reservist's service card"
-	desc = "A small card identifying one as a current reservist of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
+	name = "\improper TCAF reservist's service card"
+	desc = "A small card identifying one as a current reservist of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Reservist"
+	badge_string = "Tau Ceti Armed Forces Reservist"
 
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
@@ -483,6 +483,27 @@
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 
+/obj/item/clothing/accessory/badge/passcard/hegemony
+	name = "hegemony passcard"
+	desc = "A passcard issued to citizens of the Izweski Hegemony."
+	desc_extended = "As the feudal citizenship standards of the Hegemony have changed to deal with the realities of an interstellar empire, human-inspired passcards have become a quick and easy method of identification for Unathi travelling abroad. This passcard is the most common design, seen throughout Hegemony space."
+	icon_state = "passcard_hegemony"
+	item_state = "passcard_hegemony"
+
+/obj/item/clothing/accessory/badge/passcard/ouerea
+	name = "ouerean passcard"
+	desc = "A passcard issued to residents of the planet Ouerea."
+	desc_extended = "Though not a fully independent state, the people of Ouerea have managed to win a great deal of autonomy from the Izweski Hegemony, which is reflected in the passcards that citizens of the Confederation carry."
+	icon_state = "passcard_ouerea"
+	item_state = "passcard_ouerea"
+
+/obj/item/clothing/accessory/badge/passcard/tret
+	name = "tret passcard"
+	desc = "A passcard issued to residents of the planet Tret."
+	desc_extended = "In recognition of the K'lax Hive's unique status and needs, the Hegemony has issued custom passcards for the planet Tret, for easy identification of K'laxan Vaurcae abroad. Many K'lax do not carry these, though those working in the Hegemony are likely to."
+	icon_state = "passcard_tret"
+	item_state = "passcard_tret"
+
 // Work Visa
 /obj/item/clothing/accessory/badge/passcard/workvisa
 	name = "republic of biesel work visa"
@@ -574,6 +595,12 @@
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
+
+/obj/item/clothing/accessory/badge/passport/hegemony
+	name = "hegemony passport"
+	desc = "A passport issued to a citizen of the Izweski Hegemony."
+	icon_state = "passport_hegemony"
+	item_state = "passport_hegemony"
 
 #undef CANT_OPEN
 #undef CLOSED

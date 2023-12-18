@@ -890,6 +890,14 @@
 	required_temperature_min = T0C + 200
 	result_amount = 3
 
+/datum/chemical_reaction/dionae_stimulant
+	name = "Diesel"
+	id = "dionae_stimulant"
+	result = /singleton/reagent/drugs/dionae_stimulant
+	required_reagents = list(/singleton/reagent/uranium = 2, /singleton/reagent/toxin/fertilizer/robustharvest = 2, /singleton/reagent/nutriment/caramel = 3, /singleton/reagent/fuel = 1)
+	required_temperature_min = T0C + 621 //Mix reactants with 10u salt, then pour 30u of solution in one go into 30u of pyrosilicate. Pyrosilicate will be consumed; salt must be separated.
+	result_amount = 3
+
 /* Solidification */
 
 /datum/chemical_reaction/phoronsolidification
@@ -1826,6 +1834,13 @@
 	id = "peanutbutter"
 	result = /singleton/reagent/nutriment/peanutbutter
 	required_reagents = list(/singleton/reagent/nutriment/groundpeanuts = 5, /singleton/reagent/sugar = 1, /singleton/reagent/sodiumchloride = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/choconutspread //Nutella? I hardly know 'er! Seriously though if hazelnuts or ground agghrash are ever added to the game please update this. peanuts are a placeholder.
+	name = "Choco-Nut Spread"
+	id = "choconutspread"
+	result = /singleton/reagent/nutriment/choconutspread
+	required_reagents = list(/singleton/reagent/nutriment/groundpeanuts = 1, /singleton/reagent/sugar = 2, /singleton/reagent/nutriment/coco = 1, /singleton/reagent/drink/milk/soymilk = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/mayonnaise
@@ -3004,6 +3019,90 @@
 	required_reagents = list(/singleton/reagent/drink/milk/adhomai = 1)
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 1
+
+/datum/chemical_reaction/drink/drink/mimosa
+	name = "Mimosa"
+	id = "mimosa"
+	result = /singleton/reagent/alcohol/mimosa
+	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/drink/orangejuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/lights_edge
+	name = "Light's Edge"
+	id = "lights_edge"
+	result = /singleton/reagent/alcohol/lights_edge
+	required_reagents = list(/singleton/reagent/alcohol/wine/assunzione = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/rose_tinted_glasses
+	name = "Rose Tinted Glasses"
+	id = "rose_tinted_glasses"
+	result = /singleton/reagent/alcohol/rose_tinted_glasses
+	required_reagents = list(/singleton/reagent/alcohol/wine/rose = 1, /singleton/reagent/drink/sodawater = 1, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/twisted_lime
+	name = "Twisted Lime"
+	id = "twisted_lime"
+	result = /singleton/reagent/alcohol/twisted_lime
+	required_reagents = list(/singleton/reagent/alcohol/fernet = 1, /singleton/reagent/alcohol/ale = 1, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/cinnamon_orchard
+	name = "Cinnamon Orchard"
+	id = "cinnamon_orchard"
+	result = /singleton/reagent/alcohol/cinnamon_orchard
+	required_reagents = list(/singleton/reagent/alcohol/fireball = 1, /singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/harvest_moon
+	name = "Harvest Moon"
+	id = "harvest_moon"
+	result = /singleton/reagent/alcohol/harvest_moon
+	required_reagents = list(/singleton/reagent/alcohol/applejack = 1, /singleton/reagent/drink/syrup_pumpkin = 0.5, /singleton/reagent/drink/sodawater = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/new_horizons
+	name = "New Horizons"
+	id = "new_horizons"
+	result = /singleton/reagent/alcohol/new_horizons
+	required_reagents = list(/singleton/reagent/alcohol/patron = 1, /singleton/reagent/alcohol/cremeyvette = 1, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/espratini
+	name = "Espratini"
+	id = "espratini"
+	result = /singleton/reagent/alcohol/espratini
+	required_reagents = list(/singleton/reagent/alcohol/coffee/kahlua = 1, /singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/alcohol/vodka = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/pretty_in_pink
+	name = "Pretty in Pink"
+	id = "pretty_in_pink"
+	result = /singleton/reagent/alcohol/pretty_in_pink
+	required_reagents = list(/singleton/reagent/alcohol/wine/rose = 1, /singleton/reagent/drink/lemonade/pink = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/weeping_stars
+	name = "Weeping Stars"
+	id = "weeping_stars"
+	result = /singleton/reagent/alcohol/weeping_stars
+	required_reagents = list(/singleton/reagent/alcohol/cremeyvette = 1, /singleton/reagent/drink/cranberryjuice = 1, /singleton/reagent/alcohol/champagne = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/verdant
+	name = "Verdant Green"
+	id = "verdant"
+	result = /singleton/reagent/alcohol/verdant
+	required_reagents = list(/singleton/reagent/alcohol/soju = 1, /singleton/reagent/drink/tea/greentea = 1, /singleton/reagent/drink/mintsyrup = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/lemonlimebitters
+	name = "Lemon Lime & Bitters"
+	id = "lemonlimebitters"
+	result = /singleton/reagent/drink/lemonlimebitters
+	required_reagents = list(/singleton/reagent/drink/lemonade = 1, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/alcohol/bitters = 1)
+	result_amount = 3
 
 // Synnono Meme Drinks
 //==============================

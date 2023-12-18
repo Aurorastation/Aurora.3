@@ -320,7 +320,7 @@
 	edge = TRUE
 	anchored = 0
 	armor_penetration = 40
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0
 	self_recharge = 1
 	recharge_time = 2

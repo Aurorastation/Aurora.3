@@ -56,7 +56,6 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	psi_pingable = FALSE
@@ -229,6 +228,8 @@
 
 //ion rifle!
 /mob/living/simple_animal/hostile/icarus_drone/emp_act(severity)
+	. = ..()
+
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE

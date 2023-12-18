@@ -101,7 +101,10 @@
 		//Temporary exclusion while matt fixes it
 		/obj/item/projectile/beam/psi_lightning/wide,
 		/obj/effect/fusion_particle_catcher,
-		/obj/item/fuel_assembly
+		/obj/item/fuel_assembly,
+
+		//The location needs to be the mob, otherwise it stacktrace
+		/obj/aiming_overlay,
 
 	)
 

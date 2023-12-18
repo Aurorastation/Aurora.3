@@ -82,7 +82,7 @@
 	)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una", "taj")
-	item_flags = THICKMATERIAL | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_AIRTIGHT
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 	permeability_coefficient = 0

@@ -12,7 +12,7 @@
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // Smalls
 /area/outpost

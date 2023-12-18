@@ -104,7 +104,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_TINY
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE
@@ -277,7 +278,7 @@
 	magpulse = 1
 	slowdown = 3
 	action_button_name = null
-	item_flags = THICKMATERIAL|AIRTIGHT|INJECTIONPORT|NOSLIP
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
 	canremove = FALSE
 
 /obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
@@ -367,7 +368,7 @@
 /obj/item/clothing/mask/gas/vaurca/tactical
 	name = "tactical garment"
 	desc = "A tactical mandible garment with state of the art air filtration."
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | FLEXIBLEMATERIAL | THICKMATERIAL
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_FLEXIBLE_MATERIAL | ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
@@ -400,7 +401,8 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = TRUE

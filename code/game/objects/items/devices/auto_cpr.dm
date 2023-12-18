@@ -252,6 +252,8 @@
 	..()
 
 /obj/item/auto_cpr/emp_act(severity)
+	. = ..()
+
 	epp_off()
 	cpr_mode = FALSE
 	if(battery)

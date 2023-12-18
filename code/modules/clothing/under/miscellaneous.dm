@@ -500,8 +500,8 @@
 	desc = "A loose pieces of clothing, commonly worn by medical patients."
 	icon_state = "medicalgown"
 	item_state = "medicalgown"
-	has_sensor = 2
-	sensor_mode = 3
+	has_sensor = SUIT_LOCKED_SENSORS
+	sensor_mode = SUIT_SENSOR_TRACKING
 
 /obj/item/clothing/under/medical_gown/white
 	icon_state = "whitemedicalgown"
@@ -694,12 +694,14 @@
 	icon = 'icons/clothing/under/uniforms/konyang_pirates.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
+	armor = null
 
 /obj/item/clothing/under/konyang/pirate/tanktop
 	name = "disheveled konyanger clothing"
 	desc = "A dark yellow outfit in a Konyang style, with the sleeves cut off. It is stained with dirt, grease and a splatter of what looks like blood."
 	icon_state = "pirate1"
 	item_state = "pirate1"
+	armor = null
 
 /obj/item/clothing/under/rank/konyang/krc
 	name = "konyang robotics company uniform"

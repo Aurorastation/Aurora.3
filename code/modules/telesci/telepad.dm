@@ -107,7 +107,7 @@
 	desc = "Use this to send crates and closets to cargo telepads."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "rcs"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	throwforce = 10
 	throw_speed = 2

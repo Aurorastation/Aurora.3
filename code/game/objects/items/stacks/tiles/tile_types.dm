@@ -23,6 +23,8 @@
 	randpixel = 7
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
+	item_flags = 0
+	obj_flags = 0
 
 /obj/item/stack/tile/New()
 	..()
@@ -40,7 +42,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = 0
 	origin_tech = list(TECH_BIO = 1)
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
@@ -57,7 +58,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = 0
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
@@ -108,7 +108,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = 0
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
@@ -177,7 +176,6 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	flags = 0
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
@@ -200,7 +198,7 @@
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/stack/tile/circuit_green
 	name = "circuit tile"
@@ -212,7 +210,7 @@
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /*
  * Floors
@@ -228,7 +226,7 @@
 	throwforce = 6
 	throw_speed = 5
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/stack/tile/floor/full_stack/Initialize(mapload)
 	. = ..()

@@ -7,7 +7,7 @@
 	icon_state = ""
 	item_state = "kineticgun"
 	contained_sprite = 1
-	flags =  CONDUCT
+	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEMSIZE_NORMAL
@@ -108,8 +108,10 @@
 	return 1
 
 /obj/item/gun/custom_ka/emp_act(severity)
-	is_emped = 1
-	return 1
+	. = ..()
+
+	is_emped = TRUE
+	return TRUE
 
 /obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
