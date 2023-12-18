@@ -28,7 +28,7 @@
 	exosuit_desc_string = "aerodynamic electromechanic legs"
 	icon_state = "light_legs"
 	move_delay = 2
-	turn_delay = 3
+	turn_delay = 2
 	max_damage = 100
 	power_use = 1500
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
