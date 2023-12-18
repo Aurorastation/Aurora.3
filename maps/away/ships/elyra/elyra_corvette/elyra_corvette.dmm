@@ -32,16 +32,22 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardwep)
 "ag" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump_out_internal"
-	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
@@ -93,31 +99,26 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
 "ap" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump_out_internal"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	pixel_y = 24;
-	frequency = 1380;
-	cycle_to_external_air = 1;
-	id_tag = "elyran_shuttle";
-	master_tag = "elyran_shuttle";
-	tag_airpump = "elyran_shuttle_pump";
-	tag_chamber_sensor = "elyran_shuttle_sensor";
-	tag_exterior_door = "elyran_shuttle_out";
-	tag_exterior_sensor = "elyran_shuttle_exterior_sensor";
-	tag_interior_door = "elyran_shuttle_in";
-	tag_interior_sensor = "elyran_shuttle_interior_sensor";
-	req_access = list(207)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	layer = 2.71
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
@@ -1675,11 +1676,6 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/porthallway)
 "ix" = (
-/obj/machinery/door/airlock/external{
-	id_tag = "elyran_shuttle_out";
-	icon_state = "door_locked";
-	frequency = 1380
-	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 1
@@ -1690,6 +1686,20 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -22;
+	dir = 4;
+	pixel_y = 30
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
@@ -2187,24 +2197,26 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -24;
-	pixel_y = -6;
-	dir = 4;
-	frequency = 1380;
-	id_tag = "elyran_shuttle_sensor"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	pixel_y = -6;
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
 "lQ" = (
@@ -2816,16 +2828,20 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	layer = 2.71
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
@@ -3499,28 +3515,25 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	dir = 4;
-	pixel_y = 10;
-	frequency = 1380
-	},
-/obj/machinery/access_button{
-	pixel_y = 2;
-	pixel_x = -22;
-	dir = 4;
-	name = "exterior access button";
-	frequency = 1380;
-	master_tag = "elyran_shuttle";
-	req_access = list(207);
-	command = "cycle_exterior"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = -21;
+	pixel_y = 8;
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
@@ -5018,26 +5031,23 @@
 	pixel_x = 10;
 	pixel_y = 32
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_x = -6;
-	pixel_y = 32;
-	frequency = 1380;
-	id_tag = "elyran_shuttle_interior_sensor"
-	},
-/obj/machinery/access_button{
-	pixel_x = -6;
-	pixel_y = 27;
-	name = "interior access button";
-	frequency = 1380;
-	command = "cycle_interior";
-	master_tag = "elyran_shuttle";
-	req_access = list(207)
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_y = 32;
+	pixel_x = -6
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
@@ -5403,11 +5413,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
 "ES" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump_out_external";
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
@@ -5415,7 +5420,18 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 6
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/elyran_shuttle)
 "ET" = (
@@ -5892,16 +5908,20 @@
 /turf/template_noop,
 /area/space)
 "HN" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump"
-	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
+	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
 "HP" = (
@@ -8078,16 +8098,22 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/starboardhallway)
 "SU" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump_out_internal"
-	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
+	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
 "SX" = (
@@ -8440,16 +8466,24 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "elyran_shuttle_in"
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 26;
+	pixel_y = -4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
+	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
 "Vj" = (
@@ -9105,11 +9139,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardthrust)
 "YZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "elyran_shuttle_pump_out_external";
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
@@ -9117,7 +9146,18 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_elyran_shuttle";
+	name = "airlock_elyran_shuttle";
+	req_one_access = list(207);
+	shuttle_tag = "Elyran Naval Shuttle"
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/elyran_shuttle)
 "Zb" = (

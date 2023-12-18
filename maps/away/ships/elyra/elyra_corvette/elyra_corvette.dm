@@ -128,7 +128,7 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/elyran_shuttle)
 	current_location = "nav_hangar_elyra"
-	dock_target = "elyran_shuttle"
+	dock_target = "airlock_elyran_shuttle"
 	landmark_transition = "nav_transit_elyran_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -140,7 +140,7 @@
 	landmark_tag = "nav_hangar_elyra"
 	docking_controller = "elyran_shuttle_dock"
 	base_area = /area/ship/elyran_corvette/hangar
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/simulated/floor
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/elyran_shuttle/transit
