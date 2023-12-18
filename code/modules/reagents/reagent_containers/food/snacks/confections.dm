@@ -147,7 +147,7 @@
 	bitesize = 2
 /obj/item/reagent_containers/food/snacks/crepe/chocolate
 	name = "chocolate crepe"
-	desc = "A very thin pancake with some notella spread in it."
+	desc = "A very thin pancake with some NTella spread in it."
 	icon_state = "chocolatecrepe"
 	filling_color = "#3d2313"
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/choconutspread = 4)

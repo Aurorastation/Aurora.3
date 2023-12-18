@@ -135,10 +135,10 @@
 /singleton/reagent/drink/milkshake
 	value = 0.12
 
-/singleton/reagent/drink/notellamilkshake
+/singleton/reagent/drink/NTellamilkshake
 	value = 0.14
 
-/singleton/reagent/drink/notellahotchocolate
+/singleton/reagent/drink/NTellahotchocolate
 	value = 0.13
 
 /singleton/reagent/drink/rewriter
