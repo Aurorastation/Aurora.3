@@ -47,7 +47,6 @@
 		return
 	scribe_rune_to_turf(user, target)
 
-
 /obj/item/book/tome/attack_self(mob/living/user)
 	if(!ishuman(user))
 		return
