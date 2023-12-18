@@ -250,10 +250,10 @@
 	master_tag = "scarab_shuttle";
 	shuttle_tag = "Scarab Shuttle"
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/machinery/access_button{
+	pixel_x = 8;
 	pixel_y = 28;
-	dir = 4;
-	pixel_x = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
@@ -614,11 +614,6 @@
 	master_tag = "scarab_shuttle";
 	shuttle_tag = "Scarab Shuttle"
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 4;
-	pixel_y = -28;
-	pixel_x = -8
-	},
 /obj/effect/landmark/entry_point/starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
@@ -684,8 +679,6 @@
 /area/shuttle/coc_scarab)
 "eN" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -1012,7 +1005,8 @@
 "gS" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
-	id_tag = "scarab_thrust2"
+	id_tag = "scarab_thrust2";
+	frequency = 1339
 	},
 /obj/machinery/light{
 	dir = 4
@@ -1089,11 +1083,6 @@
 	master_tag = "airlock_scarab_stbd"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_y = -28;
-	dir = 4;
-	pixel_x = 8
-	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "hF" = (
@@ -1446,6 +1435,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/bunks)
+"kc" = (
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "scarab_harvester";
+	name = "airlock_scarab_harvester";
+	shuttle_tag = "Scarab Gas Harvester"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scarab_harvester)
 "kd" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/engistorage)
@@ -1501,25 +1507,17 @@
 	master_tag = "airlock_scarab_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_y = -28;
-	dir = 4;
-	pixel_x = -8
-	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
 "kw" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
 /obj/machinery/alarm/east{
 	req_one_access = null
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -2870,13 +2868,13 @@
 	shuttle_tag = "Scarab Gas Harvester"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_y = 28;
-	dir = 4;
-	pixel_x = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
+	},
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 28;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -3126,7 +3124,8 @@
 "xs" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
-	id_tag = "scarab_thrust1"
+	id_tag = "scarab_thrust1";
+	frequency = 1336
 	},
 /obj/machinery/light{
 	dir = 4
@@ -3250,6 +3249,9 @@
 "yL" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
+	},
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
@@ -3678,8 +3680,6 @@
 /obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester,
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -3723,7 +3723,8 @@
 /area/shuttle/coc_scarab)
 "Cs" = (
 /obj/machinery/air_sensor{
-	id_tag = "scarab_thrust2_sensor"
+	id_tag = "scarab_thrust2_sensor";
+	frequency = 1339
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/coc_scarab/thrust2)
@@ -4165,9 +4166,10 @@
 "FF" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 8;
-	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "scarab_thrust1";
 	sensors = list("scarab_thrust1_sensor"="Tank");
-	output_tag = "scarab_thrust1"
+	name = "Carbon Dioxide Supply Monitor";
+	frequency = 1336
 	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust1)
@@ -4613,9 +4615,10 @@
 "Jg" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 8;
-	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "scarab_thrust2";
 	sensors = list("scarab_thrust2_sensor"="Tank");
-	output_tag = "scarab_thrust2"
+	name = "Carbon Dioxide Supply Monitor";
+	frequency = 1339
 	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust2)
@@ -4802,11 +4805,6 @@
 	master_tag = "airlock_scarab_stbd"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 4;
-	pixel_y = -28;
-	pixel_x = -8
-	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "KR" = (
@@ -5147,7 +5145,8 @@
 /area/coc_scarab/mess)
 "NR" = (
 /obj/machinery/air_sensor{
-	id_tag = "scarab_thrust1_sensor"
+	id_tag = "scarab_thrust1_sensor";
+	frequency = 1336
 	},
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5396,10 +5395,10 @@
 /obj/machinery/power/apc/high/west{
 	req_access = null
 	},
-/obj/structure/cable,
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "Pb" = (
@@ -5683,10 +5682,7 @@
 /area/coc_scarab/equipment)
 "Rf" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	dir = 1
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -5712,11 +5708,6 @@
 	master_tag = "airlock_scarab_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 8;
-	pixel_y = -28;
-	pixel_x = 8
-	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
 "Rk" = (
@@ -5734,11 +5725,6 @@
 	shuttle_tag = "Scarab Gas Harvester"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 4;
-	pixel_y = -28;
-	pixel_x = -8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
 	},
@@ -5921,6 +5907,15 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
+"SD" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/coc_scarab/engine)
 "SH" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -6819,6 +6814,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = -28
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "ZD" = (
@@ -6856,8 +6854,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -37118,7 +37114,7 @@ UN
 lU
 fD
 GW
-DI
+SD
 Ix
 nV
 iU
@@ -42519,7 +42515,7 @@ lb
 TU
 bJ
 XM
-XM
+kc
 dv
 MD
 lb

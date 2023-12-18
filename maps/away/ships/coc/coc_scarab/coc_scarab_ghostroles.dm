@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/coc_scarab
 	short_name = "coc_scarab"
 	name = "Scarab Salvager"
-	desc = "Crew a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. Characters in this role must have a name and background appropriate to the Scarab Fleet."
+	desc = "Crew a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. OOC Note: Characters must have names and backgrounds consistent with the Scarab Fleet. This is enforcable by admin action."
 	tags = list("External")
 	spawnpoints = list("coc_scarab")
 	welcome_message = "You are a crewman aboard a small retrofitted salvage vessel sent out by the Scarab Fleet. Harvest resources to keep the fleet moving and keep yourself and your crew alive."
@@ -39,6 +39,6 @@
 	max_count = 1
 	assigned_role = "Scarab Salvager Captain"
 	special_role = "Scarab Salvager Captain"
-	desc = "Command a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. Characters in this role must have a name and background appropriate to the Scarab Fleet."
+	desc = "Command a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. OOC Note: Characters must have names and backgrounds consistent with the Scarab Fleet. This is enforcable by admin action"
 	welcome_message = "You are the captain of a small retrofitted salvage vessel sent out by the Scarab Fleet. Harvest resources to keep the fleet moving and keep yourself and your crew alive."
 
