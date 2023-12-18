@@ -1,6 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Divider, ProgressBar, Section, Table } from '../components';
-import { capitalize } from '../../common/string';
+import { Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type CargoPackData = {
