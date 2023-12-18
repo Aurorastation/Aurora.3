@@ -227,6 +227,7 @@
 				return
 			stored_material[material] += order.materials_used[material]
 		print_queue -= order
+		qdel(order)
 		. = TRUE
 
 /obj/machinery/autolathe/process()
@@ -273,7 +274,7 @@
 		S.amount = currently_printing.multiplier
 
 	print_queue -= currently_printing
-	currently_printing = null
+	QDEL_NULL(currently_printing)
 	cut_overlay("process")
 	I.update_icon()
 	autolathe_flags &= ~(AUTOLATHE_BUSY|AUTOLATHE_STARTED)
@@ -385,6 +386,10 @@
 	var/list/materials_used = list()
 	var/build_time = 0
 	var/progress = 0
+
+/datum/autolathe_queue_item/Destroy()
+	recipe = null
+	return ..()
 
 #undef NO_SPACE
 #undef FILL_COMPLETELY
