@@ -49,7 +49,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/elyran_corvette/New()
-	designation = "[pick("Persepolis", "Damascus", "Medina", "Aemaq", "New Suez", "Bursa", "Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann")]"
+	designation = "[pick("Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann", "Sari", "Rushdie", "Al-Laylat", "Ataturk", "Republican Glory", "Pilgrimage")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/elyran_corvette/get_skybox_representation()
