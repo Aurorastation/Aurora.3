@@ -2,13 +2,12 @@
 	name = "Elyran Corvette"
 	description = "One of the first vessels from Elyra's recent military modernization efforts to enter active service, the Sahin-class has taken great strides in improved quality and survivability from previous designs and is on track to become the backbone of the Elyran Republic's border control efforts. Equipped and crewed to handle anti-piracy operations, border patrols, and even to assist with disaster relief, this vessel follows the Elyran Armed Force's doctrine of versatility and is capable of striking out on its own for weeks at a time without resupply if required."
 	suffixes = list("ships/elyra/elyra_corvette/elyra_corvette.dmm")
-	// sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
-	sectors = list(ALL_POSSIBLE_SECTORS) // CHANGE THIS FOR FINAL PRODUCT
+	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "elyran_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/elyran_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // REMOVE THIS FOR FINAL PRODUCT
+
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/elyran_corvette
