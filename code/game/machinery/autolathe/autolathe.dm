@@ -277,7 +277,6 @@
 	QDEL_NULL(currently_printing)
 	cut_overlay("process")
 	I.update_icon()
-	autolathe_flags &= ~(AUTOLATHE_BUSY|AUTOLATHE_STARTED)
 	update_use_power(POWER_USE_IDLE)
 
 	return TRUE
