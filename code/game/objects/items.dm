@@ -340,14 +340,16 @@
 	//things outside its range ~Nanako
 
 	. = ..(user, distance, "", "It is a [size] item.")
-	if(length(armor))
+	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+	if(armor_component)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
+		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		var/list/armor_details = list()
-		for(var/armor_type in armor)
-			armor_details[armor_type] = armor[armor_type]
+		for(var/armor_type in armor_component.armor_values)
+			armor_details[armor_type] = armor_component.armor_values[armor_type]
 		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
 		AV.ui_interact(usr)
 	return ..()
