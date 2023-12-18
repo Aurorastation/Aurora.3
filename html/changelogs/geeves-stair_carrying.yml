@@ -3,5 +3,6 @@ author: Geeves
 delete-after: True
 
 changes:
-  - bugfix: "Fixed fireman carrying up and down stairs."
-  - bugfix: "Fixed lifting someone into a fireman carry being instant, but lowered the time to 1 second from 3 seconds."
+  - bugfix: "Fixed grabbing / fireman carrying up and down stairs."
+  - bugfix: "Fixed lifting someone into a fireman carry being instant."
+  - tweak: "Lowered fireman carrying time to 1 second from 3 seconds."
