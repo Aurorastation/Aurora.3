@@ -15,7 +15,7 @@
 	. = ..()
 	. += "\The [A] [A.disabled ? "is dead quiet" : "has a soft electric whirr"]."
 	. += "\The [A] [A.shocked ? "is making sparking noises" : "is cycling normally"]."
-	. += "\The [A] [A.hacked ? "rarely" : "occasionally"] makes a beep boop noise.<BR>"
+	. += "\The [A] [A.hacked ? "rarely" : "occasionally"] makes a beep boop noise."
 
 /datum/wires/autolathe/interactable(mob/user)
 	if(!..())
