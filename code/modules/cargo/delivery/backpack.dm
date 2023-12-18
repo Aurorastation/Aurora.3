@@ -14,14 +14,33 @@
 	var/list/contained_packages
 
 /obj/item/cargo_backpack/Destroy()
-	QDEL_NULL(contained_packages)
+	QDEL_NULL_LIST(contained_packages)
 	return ..()
 
 /obj/item/cargo_backpack/examine(mob/user, distance)
 	. = ..()
 	if(length(contained_packages))
-		for(var/obj/item/cargo_package/package in contained_packages)
-			to_chat(user, SPAN_NOTICE(" - SITE: <b>[package.delivery_point_sector]</b> | COORD: <b>[package.delivery_point_coordinates]</b> | ID: <b>[package.delivery_point_id]</b>"))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=\ref[src];show_package_data=1>\[Show Package Data\]</a>")))
+
+/obj/item/cargo_backpack/Topic(href, href_list)
+	if(href_list["show_package_data"])
+		ui_interact(usr)
+	return ..()
+
+/obj/item/cargo_backpack/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CargoPack", "Cargo Pack", 500, 115)
+		ui.open()
+
+/obj/item/cargo_backpack/ui_data(mob/user)
+	var/list/data = list()
+
+	data["cargo_pack_details"] = list()
+	for(var/obj/item/cargo_package/package in contained_packages)
+		data["cargo_pack_details"] += list(list("package_id"= ref(package), "delivery_point_sector" = package.delivery_point_sector, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
+
+	return data
 
 /obj/item/cargo_backpack/proc/update_state()
 	if(LAZYLEN(contained_packages))

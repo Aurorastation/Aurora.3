@@ -36,7 +36,6 @@
 
 /obj/item/cargo_package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
 	if(!ishuman(user))
-		to_chat(user, SPAN_WARNING("\The [src] is way too heavy for you to pick up!"))
 		return FALSE
 
 	if(user.species.mob_size < 12)
