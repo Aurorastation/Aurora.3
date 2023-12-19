@@ -267,7 +267,7 @@
 	icon_state = "tile_white"
 	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
-/obj/item/stack/tile/FLOOR_FLOATellow
+/obj/item/stack/tile/floor_yellow
 	name = "yellow floor tile"
 	singular_name = "yellow floor tile"
 	color = COLOR_BROWN
