@@ -1,8 +1,6 @@
  /obj/item/pen/typewriter
 	name = "National Typist 'Adhomai Electric' experimental integrated typewriter pen"
 	desc = "A mechanical pen that writes on paper inside a typewriter. How did you even get this?"
-	colour = "black"
-	cursive = FALSE
 
 /obj/item/portable_typewriter
 	name = "portable typewriter"
