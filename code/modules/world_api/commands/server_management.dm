@@ -24,7 +24,7 @@
 			response = "Orders have been placed. Use force parameter to overwrite."
 	return TRUE
 
-// Update discord_bot's channels.
+// Update SSdiscord's channels.
 /datum/topic_command/update_bot_channels
 	name = "update_bot_channels"
 	description = "Tells the ingame instance of the Discord bot to update its cached channels list."
@@ -32,12 +32,12 @@
 /datum/topic_command/update_bot_channels/run_command()
 	data = null
 
-	if (!discord_bot)
+	if (!SSdiscord)
 		statuscode = 404
 		response = "Ingame Discord bot not initialized."
 		return 1
 
-	switch (discord_bot.update_channels())
+	switch (SSdiscord.update_channels())
 		if (1)
 			statuscode = 404
 			response = "Ingame Discord bot is not active."

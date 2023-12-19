@@ -16,13 +16,13 @@ SUBSYSTEM_DEF(docs)
 /datum/controller/subsystem/docs/Initialize(timeofday)
 	//Load in the docs config
 	if(config.docs_load_docs_from == "sql")
-		log_subsystem_documents("SSdocs: Attempting to Load from SQL")
+		log_subsystem_documents("Attempting to Load from SQL")
 		load_from_sql()
 	else if(config.docs_load_docs_from == "json")
-		log_subsystem_documents("SSdocs: Attempting to Load from JSON")
+		log_subsystem_documents("Attempting to Load from JSON")
 		load_from_json()
 	else
-		log_config("SSdocs: invalid load option specified in config")
+		log_config("invalid load option specified in config")
 		log_subsystem_documents("invalid load option specified in config")
 
 	..()
