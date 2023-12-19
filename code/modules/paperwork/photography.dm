@@ -17,6 +17,11 @@
 	item_state = "electropack"
 	w_class = ITEMSIZE_TINY
 
+/obj/item/device/camera_film/taj_film
+	name = "film canister"
+	icon = 'icons/obj/tajara_items.dmi'
+	desc = "A rolle of 35mm film intended for cameras of Tajaran make."
+	icon_state = "taj_film"
 
 /********
 * photo *
@@ -137,12 +142,14 @@ var/global/photo_count = 0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	var/black_white = FALSE
 	var/pictures_max = 10
 	var/pictures_left = 10
 	var/on = 1
 	var/icon_on = "camera"
 	var/icon_off = "camera_off"
 	var/size = 3
+	var/photo_sound = /singleton/sound_category/print_sound
 
 /obj/item/device/camera/examine(mob/user, distance, is_adjacent)
 	. = ..()
@@ -209,7 +216,7 @@ var/global/photo_count = 0
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
-	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
+	playsound(loc, photo_sound, 75, 1, -3)
 
 	pictures_left--
 	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
@@ -267,6 +274,9 @@ var/global/photo_count = 0
 	p.icon = ic
 	p.tiny = pc
 	p.img = photoimage
+	if(black_white)
+		p.img.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
+		p.tiny.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
 	p.picture_desc = mobs
 	p.pixel_x = rand(-10, 10)
 	p.pixel_y = rand(-10, 10)
@@ -296,3 +306,14 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
+
+/obj/item/device/camera/adhomai
+	name = "adhomian camera"
+	icon = 'icons/obj/tajara_items.dmi'
+	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
+	icon_state = "taj_camera_on"
+	item_state = "taj_camera"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
+	photo_sound = 'sound/items/camerabulb.ogg'
+	black_white = TRUE
