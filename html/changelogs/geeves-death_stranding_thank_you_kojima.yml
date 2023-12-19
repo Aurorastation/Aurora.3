@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the Orion Express Courier System, a new gameplay loop for Hangar Techs. Orion Express packages will now spawn in the hangar that are linked to delivery points on exoplanets, delivering these packages will provide the cargo department with some funds, depending on the package."
