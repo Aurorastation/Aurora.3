@@ -3,10 +3,14 @@
 #define CHAN_ANNOUNCE	"channel_announce"
 #define CHAN_INVITE		"channel_invite"
 
-#define SEND_OK			0
-#define SEND_TIMEOUT	1
-#define ERROR_PROC		2
-#define ERROR_HTTP		4
+#define SEND_OK			1
+#define SEND_TIMEOUT	2
+#define ERROR_PROC		4
+#define ERROR_HTTP		8
+
+//ToDos:
+// At some point the subsystem processing should be used instead of the addtimer´s
+// But that requires a larger overhaul of this subsystem (and ideally a http subsystem to delegate the queueing/processing of the http requests to)
 
 SUBSYSTEM_DEF(discord)
 	name = "Discord"
