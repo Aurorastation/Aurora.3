@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(docs)
 		log_subsystem_documents("Attempting to Load from JSON")
 		load_from_json()
 	else
-		log_config("invalid load option specified in config")
+		log_config("SSdocs: invalid load option specified in config")
 		log_subsystem_documents("invalid load option specified in config")
 
 	..()
