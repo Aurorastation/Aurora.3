@@ -11,7 +11,6 @@
 	light_power = -100 //eats all light
 	unacidable = 1 //Don't comment this out.
 	appearance_flags = NO_CLIENT_COLOR
-	obj_flags = OBJ_FLAG_DANGEROUS_POSSESSION
 
 	var/current_size = 1
 	var/allowed_size = 1

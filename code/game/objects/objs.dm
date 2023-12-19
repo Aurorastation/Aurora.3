@@ -32,12 +32,6 @@
 
 	var/surgerysound
 
-/obj/vv_edit_var(vname, vval)
-	if(vname == NAMEOF(src, obj_flags))
-		if ((obj_flags & OBJ_FLAG_DANGEROUS_POSSESSION) && !(vval & OBJ_FLAG_DANGEROUS_POSSESSION))
-			return FALSE
-	return ..()
-
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()

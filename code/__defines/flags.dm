@@ -66,8 +66,6 @@ var/list/mimic_defines = list(
 /// Object moves with shuttle transition even if turf below is a background turf.
 #define OBJ_FLAG_MOVES_UNSUPPORTED FLAG(4)
 #define OBJ_FLAG_CONDUCTABLE FLAG(5)
-/// Admin possession yes/no.
-#define OBJ_FLAG_DANGEROUS_POSSESSION FLAG(6)
 
 // Item flags
 /// When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
