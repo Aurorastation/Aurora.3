@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds an Elyran Navy corvette to the Badlands and Elyran sectors."
+  - rscdel: "Removes the old Elyran strike craft."

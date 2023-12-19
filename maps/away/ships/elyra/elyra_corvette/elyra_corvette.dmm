@@ -705,17 +705,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/elyran_corvette/portwep)
-"dr" = (
-/obj/item/modular_computer/console/preset/civilian,
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/elyran_corvette/cic)
 "dE" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
@@ -1209,7 +1198,7 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/elyran_corvette/prayerhall)
 "fX" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1444,9 +1433,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/prayerhall)
 "ho" = (
-/obj/machinery/computer/ship/navigation,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -1635,10 +1626,12 @@
 /area/ship/elyran_corvette/hangar)
 "ij" = (
 /obj/structure/railing/mapped{
-	dir = 4
+	dir = 4;
+	pixel_x = 2
 	},
 /obj/structure/railing/mapped{
-	dir = 8
+	dir = 8;
+	pixel_x = -2
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2381,10 +2374,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: MUNITIONS BAY sign";
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardwep)
@@ -2646,13 +2635,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/elyran_corvette/engineering)
-"oi" = (
-/obj/machinery/computer/ship/navigation,
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/elyran_corvette/cic)
 "ol" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -3000,6 +2982,10 @@
 	req_access = list(207);
 	name = "Starboard Armament"
 	},
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: MUNITIONS BAY sign";
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardwep)
 "qB" = (
@@ -3124,6 +3110,10 @@
 /obj/machinery/door/airlock/highsecurity{
 	req_access = list(207);
 	name = "Port Armament"
+	},
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: MUNITIONS BAY sign";
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/portwep)
@@ -3592,7 +3582,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "uf" = (
@@ -3722,10 +3714,12 @@
 /area/ship/elyran_corvette/mainhallway)
 "uO" = (
 /obj/structure/railing/mapped{
-	dir = 4
+	dir = 4;
+	pixel_x = 2
 	},
 /obj/structure/railing/mapped{
-	dir = 8
+	dir = 8;
+	pixel_x = -2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3763,7 +3757,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/obj/machinery/computer/ship/sensors{
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4565,9 +4559,11 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/elyran_shuttle)
 "zK" = (
-/obj/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -5014,10 +5010,10 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/portthrust)
 "Cj" = (
-/obj/machinery/computer/ship/engines,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Cm" = (
@@ -5630,10 +5626,6 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: MUNITIONS BAY sign";
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -5652,7 +5644,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
 "Gv" = (
-/obj/machinery/computer/ship/navigation,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -5660,6 +5651,7 @@
 	pixel_x = 4;
 	pixel_y = 28
 	},
+/obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Gw" = (
@@ -5674,9 +5666,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/engineering)
 "GD" = (
-/obj/machinery/computer/ship/targeting,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -6133,10 +6127,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: MUNITIONS BAY sign";
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/portwep)
@@ -6223,6 +6213,9 @@
 	},
 /obj/item/flame/lighter/zippo{
 	layer = 2.99
+	},
+/obj/structure/sign/crush{
+	pixel_x = -32
 	},
 /turf/simulated/floor,
 /area/ship/elyran_corvette/hangar)
@@ -8166,19 +8159,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/portwep)
-"Tv" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 10
-	},
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: MUNITIONS BAY sign";
-	pixel_y = -32
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ship/elyran_corvette/mainhallway)
 "Tw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -8828,6 +8808,9 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled{
 	start_pressure = 10000
 	},
+/obj/structure/sign/crush{
+	pixel_x = 32
+	},
 /turf/simulated/floor,
 /area/ship/elyran_corvette/hangar)
 "Xv" = (
@@ -9243,12 +9226,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)
 "Zz" = (
-/obj/machinery/computer/ship/engines{
-	dir = 4
-	},
 /obj/machinery/alarm/west{
 	req_access = list(207);
 	req_one_access = null
+	},
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/elyran_shuttle)
@@ -39707,7 +39690,7 @@ tW
 Oi
 gW
 id
-Tv
+xk
 FD
 FD
 FD
@@ -43034,7 +43017,7 @@ gU
 Gx
 ui
 Nf
-dr
+Gv
 xm
 xD
 un
@@ -43291,7 +43274,7 @@ Fl
 JX
 ts
 Nf
-oi
+Cj
 NX
 Sq
 jA

@@ -29,6 +29,7 @@
 /area/ship/elyran_corvette/brig
 	name = "Elyran Corvette - Brig"
 	ambience = AMBIENCE_GENERIC
+	sound_env = SMALL_ENCLOSED
 
 /area/ship/elyran_corvette/hangar
 	name = "Elyran Corvette - Hangar"
