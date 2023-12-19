@@ -8,8 +8,6 @@
 #define ERROR_PROC		2
 #define ERROR_HTTP		4
 
-//TODO: Update forbidden_varedit_object_types
-
 SUBSYSTEM_DEF(discord)
 	name = "Discord"
 	init_order = SS_INIT_MISC_FIRST
