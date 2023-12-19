@@ -21,7 +21,7 @@
 	if(!D)
 		return
 
-	var/static/list/blacklist = list(/datum/configuration, /datum/controller/subsystem/discord)
+	var/static/list/blacklist = list(/datum/configuration)
 	if(is_type_in_list(D,blacklist))
 		return
 
