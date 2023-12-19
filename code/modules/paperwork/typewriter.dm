@@ -21,13 +21,13 @@
 	var/obj/item/paper/stored_paper = null
 	var/obj/item/pen/pen
 
-/obj/item/portable_typewriter/New()
-	..()
-	if(isnull(src.pen))
-		src.pen = new /obj/item/pen/typewriter(src)
+/obj/item/portable_typewriter/Initialize()
+	. = ..()
+	if(!pen))
+		pen = new /obj/item/pen/typewriter(src)
 
 /obj/item/portable_typewriter/attack_self(mob/user)
-	if(isnull(stored_paper))
+	if(!stored_paper)
 		to_chat(usr, "<span class='alert'>\The [src] has no paper fed for typing!</span>")
 	else
 		src.stored_paper.attackby(src.pen, user)
