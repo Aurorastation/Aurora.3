@@ -478,6 +478,8 @@ var/list/gamemode_cache = list()
 	var/asset_cdn_webroot = ""
 	var/asset_cdn_url = null
 
+GENERAL_PROTECT_DATUM(/datum/configuration)
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)

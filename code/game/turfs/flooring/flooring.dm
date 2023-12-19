@@ -217,7 +217,7 @@
 /singleton/flooring/tiling/yellow
 	name = "floor"
 	icon_base = "tiled_light"
-	build_type = /obj/item/stack/tile/floor_yellow
+	build_type = /obj/item/stack/tile/FLOOR_FLOATellow
 
 /singleton/flooring/tiling/dark
 	desc = "How ominous."

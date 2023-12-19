@@ -1,6 +1,7 @@
 var/global/narsie_behaviour = "CultStation13"
 var/global/narsie_cometh = 0
 var/global/list/narsie_list = list()
+
 /obj/singularity/narsie //Moving narsie to its own file for the sake of being clearer
 	name = "Nar-Sie"
 	desc = "Your mind begins to bubble and ooze as it tries to comprehend what it sees."

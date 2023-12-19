@@ -121,6 +121,8 @@
 		CHECK_TICK
 		if(x in view_variables_hide_vars)
 			continue
+		if(!D.can_vv_get(x))
+			continue
 		variables += x
 	variables = sortList(variables)
 	for(var/x in variables)

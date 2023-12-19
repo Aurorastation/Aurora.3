@@ -415,6 +415,9 @@ var/list/VVdynamic_lock = list(
 		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
 		return
 
+	if(!O.can_vv_get(param_var_name))
+		return
+
 	var/class
 	var/variable
 	var/var_value
