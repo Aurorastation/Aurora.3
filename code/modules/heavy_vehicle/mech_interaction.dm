@@ -283,7 +283,7 @@
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
 
-	var/do_strafe = user.facing_dir != null && (legs.turn_delay <= legs.move_delay)
+	var/do_strafe = !isnull(user.facing_dir) && (legs.turn_delay <= legs.move_delay)
 	if(!do_strafe && dir != direction)
 		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
