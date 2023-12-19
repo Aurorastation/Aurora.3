@@ -32476,7 +32476,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Command Entrance";
 	dir = 1;
-	network = list("Third  Deck","Command","XO_Office","Capt_Office")
+	network = list("Third Deck","Command","XO_Office","Capt_Office")
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
