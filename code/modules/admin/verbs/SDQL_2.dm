@@ -24,10 +24,10 @@
 	Ok. What if you want to get every machine in the SSmachine process list? Looping through world is kinda
 	slow.
 
-	"SELECT * IN SSmachines.machinery"
+	"SELECT * IN SSmachinery.machinery"
 
 	Here "*" as type functions as a wildcard.
-	We know everything in the global SSmachines.machinery list is a machine.
+	We know everything in the global SSmachinery.machinery list is a machine.
 
 	You can specify "IN <expression>" to return a list to operate on.
 	This can be any list that you can wizard together from global variables and global proc calls.
@@ -36,9 +36,9 @@
 	So yeah SDQL is unironically better than VV for complex single-object operations.
 
 	You can of course combine these.
-	"SELECT * IN SSmachines.machinery WHERE z == 4"
-	"SELECT * IN SSmachines.machinery WHERE stat & 2" // (2 is NOPOWER, can't use defines from SDQL. Sorry!)
-	"SELECT * IN SSmachines.machinery WHERE stat & 2 && z == 4"
+	"SELECT * IN SSmachinery.machinery WHERE z == 4"
+	"SELECT * IN SSmachinery.machinery WHERE stat & 2" // (2 is NOPOWER, can't use defines from SDQL. Sorry!)
+	"SELECT * IN SSmachinery.machinery WHERE stat & 2 && z == 4"
 
 	The possibilities are endless (just don't crash the server, ok?).
 
@@ -67,29 +67,29 @@
 	Oh yeah you'd rather not delete all the spiders in maintenace. Only that one room the spiders were
 	spawned in.
 
-	"DELETE /mob/living/carbon/superior_animal/giant_spider WHERE loc.loc == marked"
+	"DELETE /mob/living/simple_animal/hostile/giant_spider WHERE loc.loc == marked"
 
 	Here I used VV to mark the area they were in, and since loc.loc = area, voila.
 	Only the spiders in a specific area are gone.
 
 	Or you know if you want to catch spiders that crawled into lockers too (how even?)
 
-	"DELETE /mob/living/carbon/superior_animal/giant_spider WHERE global.get_area(src) == marked"
+	"DELETE /mob/living/carbon/hostile/giant_spider WHERE global.get_area(src) == marked"
 
 	What else can you do?
 
 	Well suppose you'd rather gib those spiders instead of simply flat deleting them...
 
-	"CALL gib() ON /mob/living/carbon/superior_animal/giant_spider WHERE global.get_area(src) == marked"
+	"CALL gib() ON /mob/living/carbon/hostile/giant_spider WHERE global.get_area(src) == marked"
 
 	Or you can have some fun..
 
-	"CALL forceMove(marked) ON /mob/living/carbon/superior_animal"
+	"CALL forceMove(marked) ON /mob/living/carbon/hostile"
 
 	You can also run multiple queries sequentially:
 
-	"CALL forceMove(marked) ON /mob/living/carbon/superior_animal; CALL gib() ON
-	/mob/living/carbon/superior_animal"
+	"CALL forceMove(marked) ON /mob/living/carbon/hostile; CALL gib() ON
+	/mob/living/carbon/hostile"
 
 	And finally, you can directly modify variables on objects.
 
