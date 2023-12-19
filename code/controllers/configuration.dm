@@ -1167,21 +1167,19 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 		else if (type == "discord")
 			// Ideally, this would never happen. But just in case.
-			if (!discord_bot)
+			if (!SSdiscord)
 				LOG_DEBUG("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
 				return
 
 			switch (name)
 				if ("token")
-					discord_bot.auth_token = value
+					SSdiscord.auth_token = value
 				if ("active")
-					discord_bot.active = 1
-				if ("robust_debug")
-					discord_bot.robust_debug = 1
+					SSdiscord.active = TRUE
 				if ("subscriber")
-					discord_bot.subscriber_role = value
+					SSdiscord.subscriber_role = value
 				if ("alert_visibility")
-					discord_bot.alert_visibility = 1
+					SSdiscord.alert_visibility = TRUE
 				else
 					log_config("Unknown setting in discord configuration: '[name]'")
 	load_logging_config()

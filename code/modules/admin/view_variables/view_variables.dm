@@ -21,8 +21,8 @@
 	if(!D)
 		return
 
-	var/static/list/blacklist = list(/datum/configuration)
-	if(blacklist[D.type])
+	var/static/list/blacklist = list(/datum/configuration, /datum/controller/subsystem/discord)
+	if(is_type_in_list(D,blacklist))
 		return
 
 	var/icon/sprite

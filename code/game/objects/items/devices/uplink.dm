@@ -409,7 +409,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		return
 
 	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
-	discord_bot.send_to_cciaa("Announcer - Fake announcement:`[title]` - `[message]`, sent by [user]!")
+	SSdiscord.send_to_cciaa("Announcer - Fake announcement:`[title]` - `[message]`, sent by [user]!")
 	qdel(src)
 
 /obj/item/device/special_uplink

@@ -43,7 +43,7 @@
 
 			to_chat(C, msg_cciaa)
 
-	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [Sender]! Gamemode: [SSticker.mode]")
+	SSdiscord.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [Sender]! Gamemode: [SSticker.mode]")
 
 	var/discord_msg = "[cciaa_present] agents online."
 	if (cciaa_present)
@@ -52,7 +52,7 @@
 		else
 			discord_msg += " [cciaa_afk] AFK."
 
-	discord_bot.send_to_cciaa(discord_msg)
+	SSdiscord.send_to_cciaa(discord_msg)
 	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[Sender]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
 
 /proc/Syndicate_announce(var/msg, var/mob/Sender)
