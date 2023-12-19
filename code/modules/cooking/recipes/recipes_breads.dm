@@ -216,13 +216,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
 
-/singleton/recipe/notellabread
+/singleton/recipe/NTellabread
 	appliance = MIX
 	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
-	result = /obj/item/reagent_containers/food/snacks/notellabread
+	result = /obj/item/reagent_containers/food/snacks/NTellabread
 
 /singleton/recipe/slimetoast
 	appliance = SKILLET

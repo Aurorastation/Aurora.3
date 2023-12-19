@@ -231,3 +231,14 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/plaincrepe
+	name = "plain crepe"
+	desc = "A very thin type of pancake, typically used to wrap sweet things for desserts or, more controversially, savory things."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "plaincrepe"
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 2))
+	center_of_mass = list("x"=16, "y"=16)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	filling_color = "#caa178"
