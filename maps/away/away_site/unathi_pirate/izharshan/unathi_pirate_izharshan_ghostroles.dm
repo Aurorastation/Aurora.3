@@ -18,6 +18,8 @@
 
 	uses_species_whitelist = FALSE
 
+	has_idris_account = FALSE
+
 /datum/ghostspawner/human/izharshan/captain
 	short_name = "izharshan_captain"
 	name = "Izharshan Captain"

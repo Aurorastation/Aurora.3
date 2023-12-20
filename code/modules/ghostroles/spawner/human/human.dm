@@ -28,6 +28,10 @@
 
 	mob_name = null
 
+	var/has_idris_account = TRUE
+	var/idris_account_min = 100
+	var/idris_account_max = 500
+
 //Return a error message if the user CANT spawn. Otherwise FALSE
 /datum/ghostspawner/human/cant_spawn(mob/user)
 	//If whitelist is required, check if user can spawn in ANY of the possible species
@@ -136,6 +140,20 @@
 	if(!age)
 		age = rand(35, 50)
 	M.age = Clamp(age, 21, 65)
+
+	if(has_idris_account)
+		var/datum/money_account/money_account = SSeconomy.create_account(M.real_name, rand(idris_account_min, idris_account_max), null, FALSE)
+		if(M.mind)
+			var/remembered_info = ""
+			remembered_info += "<b>Your account number is:</b> #[money_account.account_number]<br>"
+			remembered_info += "<b>Your account pin is:</b> [money_account.remote_access_pin]<br>"
+			remembered_info += "<b>Your account funds are:</b> [money_account.money]电<br>"
+
+			if(money_account.transactions.len)
+				var/datum/transaction/transaction = money_account.transactions[1]
+				remembered_info += "<b>Your account was created:</b> [transaction.time], [transaction.date] at [transaction.source_terminal]<br>"
+			M.mind.store_memory(remembered_info)
+			M.mind.initial_account = money_account
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
