@@ -5066,6 +5066,19 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/table/stone/marble,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_x = -12;
+	pixel_y = 2
+	},
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
 "Ix" = (
