@@ -149,7 +149,7 @@
 	else if (!opened)
 		icon_state = "typewriter_case_closed"
 
-/obj/item/typewriter_case/MouseDrop(mob/user as mob)
+/obj/item/typewriter_case/attack_self(mob/user)
 	if(use_check_and_message(user))
 		return
 	if(((user.contents.Find(src) || in_range(src, user))))
@@ -163,6 +163,9 @@
 		else if (!opened)
 			to_chat(user, SPAN_ALERT("\The [src] is currently closed!"))
 	return
+
+/obj/item/typewriter_case/MouseDrop(mob/user as mob)
+	attack_self(user)
 
 /obj/item/typewriter_case/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/portable_typewriter))
