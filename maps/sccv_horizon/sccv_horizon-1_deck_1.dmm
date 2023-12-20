@@ -5613,6 +5613,7 @@
 	c_tag = "Mining - Suit Storage";
 	dir = 1
 	},
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
 "dWL" = (
@@ -25632,6 +25633,7 @@
 	name = "Tools Access";
 	req_access = list(48)
 	},
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/refinery)
 "rRE" = (
@@ -28760,6 +28762,11 @@
 /obj/machinery/alarm/west{
 	pixel_y = 14
 	},
+/obj/item/storage/firstaid/regular,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (

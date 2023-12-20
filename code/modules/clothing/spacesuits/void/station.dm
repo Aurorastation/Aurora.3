@@ -51,7 +51,7 @@
 		slot_r_hand_str = "mining_helm"
 	)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_MINOR,
 		bomb = ARMOR_BOMB_RESISTANT,
@@ -71,7 +71,7 @@
 	item_state = "rig-mining"
 	icon_state = "rig-mining"
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_MINOR,
 		bomb = ARMOR_BOMB_RESISTANT,
