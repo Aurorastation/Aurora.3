@@ -35,6 +35,8 @@
 		qdel(pen)
 		pen = null
 
+	return ..()
+
 /obj/item/portable_typewriter/attack_self(mob/user)
 	if(!stored_paper)
 		to_chat(user, SPAN_ALERT ("\The [src] has no paper fed for typing!"))
@@ -137,6 +139,12 @@
 	if(!machine)
 		machine = new /obj/item/portable_typewriter(src)
 
+/obj/item/portable_typewriter/Destroy()
+	if(machine)
+		qdel(machine)
+		machine = null
+	return ..()
+	
 /obj/item/typewriter_case/AltClick(mob/user)
 	if(!Adjacent(user))
 		return
