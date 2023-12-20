@@ -215,7 +215,7 @@ var/global/photo_count = 0
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
-	playsound(loc, photo_sound, 75, 1, -3)
+	do_photo_sound()
 
 	pictures_left--
 	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
@@ -317,7 +317,6 @@ var/global/photo_count = 0
 	item_state = "taj_camera"
 	contained_sprite = TRUE
 	slot_flags = SLOT_MASK
-	photo_sound = 'sound/items/camerabulb.ogg'
 	black_white = TRUE
 	icon_on = "taj_camera_on"
 	icon_off = "taj_camera_off"
