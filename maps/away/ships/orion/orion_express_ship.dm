@@ -7,20 +7,80 @@
 	ship_cost = 1
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-	unit_test_groups = list(3)
 
 /singleton/submap_archetype/orion_express_ship
 	map = "Orion Express Mobile Station"
 	descriptor = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
-
 //areas
-/area/ship/orion_express_ship
-	name = "Orion Express Mobile Station"
+/area/ship/orion
+	name = "Orion Express Courier Ship"
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
+	base_turf = /turf/space
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/shuttle/orion_express_shuttle
-	name = "Orion Express Shuttle"
+/area/ship/orion/engie
+	name = "Engineering"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/ship/orion/atmos
+	name = "Atmospherics"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/ship/orion/cargo
+	name = "Cargo Bay"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/mainhall
+	name = "Main Hallway"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/forehall
+	name = "Lobby"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/crew
+	name = "Crew Quarters"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/captain
+	name = "Captain's Office"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/bridge
+	name = "Platform Command Center"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/comms
+	name = "Telecommunications"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/ship/orion/forehall
+	name = "Cafeteria"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/shop
+	name = "Commissary"
+	ambience = AMBIENCE_GENERIC
+
+/area/ship/orion/thruster1
+	name = "Thruster Pod 1"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/ship/orion/thruster2
+	name = "Thruster Pod 2"
+	ambience = AMBIENCE_MAINTENANCE
+
+// Shuttle
+/area/shuttle/orion_shuttle
+	requires_power = TRUE
+	name = "Orion Courier Shuttle"
 	icon_state = "shuttle2"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
 
 //ship stuff
 
@@ -112,7 +172,7 @@
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/orion_express_shuttle)
+	shuttle_area = list(/area/shuttle/orion_shuttle)
 	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
@@ -125,7 +185,7 @@
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
 	docking_controller = "orion_traveler_n_port"
-	base_area = /area/ship/orion_express_ship
+	base_area = /area/ship/orion
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
