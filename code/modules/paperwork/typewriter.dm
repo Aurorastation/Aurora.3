@@ -26,6 +26,15 @@
 	if(!pen)
 		pen = new /obj/item/pen/typewriter(src)
 
+/obj/item/portable_typewriter/Destroy()
+	if(stored_paper)
+		qdel(stored_paper)
+		stored_paper = null
+	
+	if(pen)
+		qdel(pen)
+		pen = null
+
 /obj/item/portable_typewriter/attack_self(mob/user)
 	if(!stored_paper)
 		to_chat(user, SPAN_ALERT ("\The [src] has no paper fed for typing!"))
@@ -123,8 +132,8 @@
 	var/obj/item/portable_typewriter/machine
 	var/opened = FALSE
 
-/obj/item/typewriter_case/New()
-	..()
+/obj/item/typewriter_case/Initialize()
+	. = ..()
 	if(!machine)
 		machine = new /obj/item/portable_typewriter(src)
 
