@@ -21,6 +21,8 @@ var/datum/antagonist/raider/raiders
 
 	id_type = /obj/item/card/id/syndicate
 
+	has_idris_account = FALSE
+
 /datum/antagonist/raider/New()
 	..()
 	raiders = src

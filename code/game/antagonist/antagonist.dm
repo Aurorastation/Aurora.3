@@ -74,6 +74,10 @@
 	var/id_type = /obj/item/card/id
 	var/id_card // a reference to the id_card we spawned with
 
+	var/has_idris_account = TRUE
+	var/idris_account_min = 100
+	var/idris_account_max = 500
+
 
 /datum/antagonist/New()
 	..()

@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "A majority of antags now start with Idris bank accounts connected to their IDs."
+  - bugfix: "Fixed antagonist passport IDs changing into workplace IDs when the change machine is used."
