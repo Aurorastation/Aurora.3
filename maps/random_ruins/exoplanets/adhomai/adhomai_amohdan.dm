@@ -15,7 +15,7 @@
 	short_name = "adhomai_amohdan"
 	name = "Amohdan Swordsman"
 	desc = "Wander the land in search of a proper challenge as an Amohdan Swordsman. Live and die by the sword."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_amohdan")
 	max_count = 1

@@ -2,7 +2,7 @@
 	short_name = "peoples_station_crew"
 	name = "People's Space Station Crewmember"
 	desc = "Crew the People's Space Station."
-	tags = list("External")
+	tags = list("People's Space Station")
 
 	spawnpoints = list("peoples_station_crew")
 	req_perms = null
@@ -39,7 +39,7 @@
 	short_name = "peoples_station_captain"
 	name = "People's Space Station Captain"
 	desc = "Command the People's Space Station."
-	tags = list("External")
+	tags = list("People's Space Station")
 
 	spawnpoints = list("peoples_station_captain")
 	max_count = 1

@@ -4,7 +4,7 @@
 	short_name = "ranger"
 	name = "Coalition Ranger"
 	desc = "Crew the Ranger gunboat. Protect the interests of the Coalition of Colonies and your member-state."
-	tags = list("External")
+	tags = list("Coaliton Ranger")
 
 	spawnpoints = list("ranger")
 	max_count = 5

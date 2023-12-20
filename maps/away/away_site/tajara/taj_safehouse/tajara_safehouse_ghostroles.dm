@@ -2,7 +2,7 @@
 	short_name = "tajaran_migrant"
 	name = "Tajaran Migrant"
 	desc = "Survive and try to reach Tau Ceti."
-	tags = list("External")
+	tags = list("Tajaran Migrants")
 
 	spawnpoints = list("tajaran_migrant")
 	max_count = 4
@@ -52,7 +52,7 @@
 	short_name = "tajara_revolutionary_army_agent"
 	name = "Tajaran Revolutionary Army Agent"
 	desc = "Protect the Tajaran migrants."
-	tags = list("External")
+	tags = list("Tajaran Migrants")
 
 	spawnpoints = list("tajara_revolutionary_army_agent")
 	max_count = 2

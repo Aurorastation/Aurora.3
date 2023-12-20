@@ -3,7 +3,7 @@
 	short_name = "refugee_crew"
 	name = "Human Refugee"
 	desc = "You are a human from the Wildlands crewing a heavily run down freighter carrying a number of IPC refugees."
-	tags = list("External")
+	tags = list("IPC Refugees")
 
 	welcome_message = "You are a human from the Wildlands crewing a worn down freighter carrying a number of IPC refugees. The journey so far has been catastrophic at best, but you've been making the best of what you've got. Perhaps you've been angling to sell the IPCs off the entire time under the false pretense of leading them to freedom, or perhaps you're more sympathetic to their strife, truly dedicated to helping synthetics find a life of their own."
 

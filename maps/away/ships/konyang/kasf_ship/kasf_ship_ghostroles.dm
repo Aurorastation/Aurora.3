@@ -3,7 +3,7 @@
 	short_name = "kasf_crewman"
 	name = "KASF Crewman"
 	desc = "Crew the Konyang Aerospace Forces corvette, and assist in any ship operations as needed. Protect the Haneunim System from pirates and police the influx of refugees from the Human Wildlands in accordance to Konyang's strict immigration laws."
-	tags = list("External")
+	tags = list("Konyang Aerospace Force")
 	mob_name_prefix = "PO3. "
 
 	spawnpoints = list("kasf_crewman")
@@ -44,7 +44,7 @@
 	short_name = "kasf_engineer"
 	name = "KASF Engineer"
 	desc = "Crew the Konyang Aerospace Forces corvette, and maintain the ship. Protect the Haneunim System from pirates and police the influx of refugees from the Human Wildlands in accordance to Konyang's strict immigration laws."
-	tags = list("External")
+	tags = list("Konyang Aerospace Force")
 	mob_name_prefix = "PO1. "
 
 	spawnpoints = list("kasf_engineer")
@@ -63,7 +63,7 @@
 	short_name = "kasf_corpsman"
 	name = "KASF Corpsman"
 	desc = "Crew the Konyang Aerospace Forces corvette, and man the ship's medbay. Protect the Haneunim System from pirates and police the influx of refugees from the Human Wildlands in accordance to Konyang's strict immigration laws."
-	tags = list("External")
+	tags = list("Konyang Aerospace Force")
 	mob_name_prefix = "PO2. "
 
 	spawnpoints = list("kasf_corpsman")

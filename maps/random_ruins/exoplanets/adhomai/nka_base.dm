@@ -27,7 +27,7 @@
 	short_name = "nka_base_soldier"
 	name = "Imperial Adhomian Army Soldier"
 	desc = "Man the New Kingdom outpost in Adhomai."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("nka_base_soldier")
 	max_count = 3

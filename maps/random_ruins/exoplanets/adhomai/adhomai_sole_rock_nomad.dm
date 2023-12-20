@@ -16,7 +16,7 @@
 	short_name = "adhomai_rock_nomad"
 	name = "Rock Nomad"
 	desc = "As a Rock Nomad, roam Adhomai on your trusty climber."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_rock_nomad")
 	max_count = 1

@@ -2,7 +2,7 @@
 	short_name = "tirakqi_crew"
 	name = "Ti'Rakqi Qu'fup"
 	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets too close to the goods. Try to show some initiative!"
-	tags = list("External")
+	tags = list("Ti'Rakqi")
 
 	spawnpoints = list("tirakqi_crew")
 	max_count = 3
@@ -108,7 +108,7 @@
 	short_name = "tirakqi_captain"
 	name = "Ti'Rakqi Qu'oot"
 	desc = "Lead the Qu'fup under your command. Smuggle, cheat, lie, and profit. You've got a crew and a ship to maintain."
-	tags = list("External")
+	tags = list("Ti'Rakqi")
 
 	spawnpoints = list("tirakqi_captain")
 	max_count = 1
@@ -142,7 +142,7 @@
 	short_name = "tirakqi_medic"
 	name = "Ti'Rakqi Medic"
 	desc = "You're a trained doctor serving with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
-	tags = list("External")
+	tags = list("Ti'Rakqi")
 
 	spawnpoints = list("tirakqi_medic")
 	max_count = 1
@@ -169,7 +169,7 @@
 	short_name = "tirakqi_engineer"
 	name = "Ti'Rakqi Engineer"
 	desc = "You're a trained engineer serving with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."
-	tags = list("External")
+	tags = list("Ti'Rakqi")
 
 	spawnpoints = list("tirakqi_engineer")
 	max_count = 1

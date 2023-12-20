@@ -24,7 +24,7 @@
 	short_name = "silo_guard"
 	name = "Hadiist Missile Silo Guard"
 	desc = "Guard the Hadiist missile silo."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("silo_guard")
 	max_count = 1

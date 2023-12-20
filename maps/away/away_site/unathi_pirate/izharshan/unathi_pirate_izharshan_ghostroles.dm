@@ -2,7 +2,7 @@
 	short_name = "izharshan_crew"
 	name = "Izharshan Crewman"
 	desc = "Quartermaster, Vesselhide, Gunner or mere Crew, whatever your role is, you will obey your captain, for your pirate clan and fleet, the Izharshan. NOT AN ANTAGONIST! Do not act as such."
-	tags = list("External")
+	tags = list("Izharshan")
 
 	spawnpoints = list("izharshan_crew")
 	max_count = 3

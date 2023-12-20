@@ -24,7 +24,7 @@
 	short_name = "ala_base_soldier"
 	name = "Adhomai Liberation Army Soldier"
 	desc = "Man the Adhomai Liberation Army outpost in Adhomai."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("ala_base_soldier")
 	max_count = 3

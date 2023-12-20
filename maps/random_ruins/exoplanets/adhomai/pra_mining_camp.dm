@@ -24,7 +24,7 @@
 	short_name = "adhomai_pra_miner."
 	name = "Adhomai Corporate Miner"
 	desc = "Work for a mining joint operation between the PRA and NanoTrasen."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_pra_miner")
 	max_count = 3
@@ -58,7 +58,7 @@
 	short_name = "adhomai_pra_miner_teslabody."
 	name = "Tesla Rejuvenation Suit Mining Worker"
 	desc = "Work for a mining joint operation between the PRA and NanoTrasen as a Tajara grafted into a Tesla Rejuvenation Body."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_pra_miner_teslabody")
 	max_count = 1

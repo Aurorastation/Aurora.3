@@ -13,7 +13,7 @@
 	short_name = "nka_polar_explorer"
 	name = "New Kingdom Arctic Explorer"
 	desc = "Explore the north pole as part of the New Kingdom expedition."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("nka_polar_explorer")
@@ -53,7 +53,7 @@
 	short_name = "nka_polar_sailor"
 	name = "New Kingdom Arctic Sailor"
 	desc = "Defend the New Kingdom's Explorers as part of the expedition."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("nka_polar_sailor")

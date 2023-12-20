@@ -2,7 +2,7 @@
 	short_name = "database_freighter_crew"
 	name = "Database Freighter Surveyor"
 	desc = "Crew the Orbital Fleet Database Freighter and survey nearby planets."
-	tags = list("External")
+	tags = list("Database Freighter")
 
 	spawnpoints = list("database_freighter_crew")
 	max_count = 3
@@ -37,7 +37,7 @@
 	short_name = "database_freighter_captain"
 	name = "Database Head Surveyor"
 	desc = "Command the Orbital Fleet Database Freighter in its mission of surveying nearby planets."
-	tags = list("External")
+	tags = list("Database Freighter")
 
 	spawnpoints = list("database_freighter_captain")
 	max_count = 1

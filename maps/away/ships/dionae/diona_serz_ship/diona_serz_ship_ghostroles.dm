@@ -4,7 +4,7 @@
 	short_name = "serz_voidtamer"
 	name = "Serz Clan Voidtamer"
 	desc = "A Member of the Serz clan of Dionae voidtamers, a group known for selling products associated with space xenofauna as well as occasional live specimens. Generally will have apperances consistent with Unathi due to most of the clan members coming from in or around Moghes. (Info on the faction is located in the Dionae minor factions page.)"
-	tags = list("External")
+	tags = list("Serz Clan")
 
 	spawnpoints = list("serz_voidtamer")
 	max_count = 3

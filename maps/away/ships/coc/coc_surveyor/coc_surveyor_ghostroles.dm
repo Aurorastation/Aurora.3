@@ -2,7 +2,7 @@
 	short_name = "coc_surveyor"
 	name = "Coalition Surveyor"
 	desc = "Crew a Coalition of Colonies survey vessel and survey nearby planets and objects of interest."
-	tags = list("External")
+	tags = list("Coalition Surveyor")
 	spawnpoints = list("coc_surveyor")
 	welcome_message = "You are a crewmember on a pan-Coalition survey vessel. Analyse objects in the sector for potential scientific or mineral significance to the COC, and your member state. Characters should have backgrounds consistent with the Coalition of Colonies."
 

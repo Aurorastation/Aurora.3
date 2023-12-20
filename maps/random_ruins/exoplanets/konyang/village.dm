@@ -20,7 +20,7 @@
 	short_name = "konyang_villager"
 	name = "Konyang Villager"
 	desc = "Live your life in a rural Konyang village."
-	tags = list("External")
+	tags = list("Konyang")
 	welcome_message = "You are a villager in rural Konyang"
 
 	spawnpoints = list("konyang_villager")

@@ -4,7 +4,7 @@
 	short_name = "iac_volunteer"
 	name = "IAC Volunteer"
 	desc = "Crew the IAC Rescue Ship. Help those in need and respond to medical emergencies or distress calls. Try to raise funds and donations while staying out of trouble."
-	tags = list("External")
+	tags = list("IAC Rescue Ship")
 
 	spawnpoints = list("iac_volunteer")
 	max_count = 2

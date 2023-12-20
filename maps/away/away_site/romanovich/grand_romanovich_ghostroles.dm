@@ -2,7 +2,7 @@
 	short_name = "casino_host"
 	name = "Grand Romanovich Host"
 	desc = "Be the head for the Adhomian casino, the Grand Romanovich."
-	tags = list("External")
+	tags = list("Grand Romanovich")
 
 	spawnpoints = list("casino_host")
 	max_count = 1
@@ -37,7 +37,7 @@
 	short_name = "casino_staff"
 	name = "Grand Romanovich Staff"
 	desc = "Staff the Adhomian casino, the Grand Romanovich."
-	tags = list("External")
+	tags = list("Grand Romanovich")
 
 	spawnpoints = list("casino_staff")
 	max_count = 4
@@ -72,7 +72,7 @@
 	short_name = "casino_guard"
 	name = "Grand Romanovich Guard"
 	desc = "Guard the Adhomian casino, the Grand Romanovich."
-	tags = list("External")
+	tags = list("Grand Romanovich")
 
 	spawnpoints = list("casino_guard")
 	max_count = 4
@@ -121,7 +121,7 @@
 	short_name = "casino_patron"
 	name = "Grand Romanovich Patron"
 	desc = "Gamble in the Grand Romanovich."
-	tags = list("External")
+	tags = list("Grand Romanovich")
 
 	spawnpoints = list("casino_patron")
 	max_count = 4

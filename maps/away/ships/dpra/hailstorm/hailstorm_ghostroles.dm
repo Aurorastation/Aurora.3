@@ -2,7 +2,7 @@
 	short_name = "hailstorm_crew"
 	name = "Hailstorm Ship Crew"
 	desc = "Crew a People's Volunteer Spacer Militia ship."
-	tags = list("External")
+	tags = list("Hailstorm")
 
 	spawnpoints = list("hailstorm_crew")
 	max_count = 3
@@ -39,7 +39,7 @@
 	short_name = "hailstorm_captain"
 	name = "Hailstorm Ship Captain"
 	desc = "Command a People's Volunteer Spacer Militia ship."
-	tags = list("External")
+	tags = list("Hailstorm")
 
 	spawnpoints = list("hailstorm_captain")
 	max_count = 1
@@ -64,7 +64,7 @@
 	short_name = "hailstorm_advisor"
 	name = "Hailstorm ALA Advisor"
 	desc = "Help train and guide the crew of the Hailstorm as an advisor from the Adhomai Liberation Army."
-	tags = list("External")
+	tags = list("Hailstorm")
 
 	spawnpoints = list("hailstorm_advisor")
 	max_count = 1

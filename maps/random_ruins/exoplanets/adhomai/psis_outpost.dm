@@ -25,7 +25,7 @@
 	short_name = "psis_outpost"
 	name = "People's Strategic Intelligence Service Agent"
 	desc = "Man the People's Strategic Intelligence Service's outpost."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("psis_outpost")
 	max_count = 3

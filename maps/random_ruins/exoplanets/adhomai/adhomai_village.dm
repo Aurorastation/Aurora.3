@@ -24,7 +24,7 @@
 	short_name = "adhomai_village"
 	name = "Adhomian Villager"
 	desc = "Live your life in a tiny Adhomian village."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_village")
 	max_count = 4

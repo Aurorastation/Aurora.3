@@ -2,7 +2,7 @@
 	short_name = "tajaran_scrapper"
 	name = "Tajaran Scrapper"
 	desc = "Crew the Tajaran Scrapper ship."
-	tags = list("External")
+	tags = list("Tajaran Scrapper")
 
 	spawnpoints = list("tajaran_scrapper")
 	max_count = 3

@@ -2,7 +2,7 @@
 	short_name = "pra_cosmonaut"
 	name = "Kosmostrelki"
 	desc = "Protect the People's Republic of Adhomai's possessions on space."
-	tags = list("External")
+	tags = list("Kosmostrelki")
 
 	enabled = FALSE
 	spawnpoints = list("pra_cosmonaut")

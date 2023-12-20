@@ -3,7 +3,7 @@
 	short_name = "heg_crew"
 	name = "Hegemony Navy Crewman"
 	desc = "You are a sworn warrior of the Izweski Hegemony Navy, your life and honor pledged to Hegemon Not'zar. Abide by the Warrior's Code, and follow the orders of your superior officers. Remember, you serve the Izweski Hegemony."
-	tags = list("External")
+	tags = list("Hegemony Navy")
 	spawnpoints = list("hegemony_crew")
 	req_perms = null
 	max_count = 2

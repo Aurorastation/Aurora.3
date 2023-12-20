@@ -2,7 +2,7 @@
 	short_name = "rescuepodsurv"
 	name = "Rescue Pod Survivor"
 	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid in the sector."
-	tags = list("External")
+	tags = list("Rescue Pod")
 
 	enabled = FALSE
 	req_perms = null

@@ -2,7 +2,7 @@
 	short_name = "miners_guild"
 	name = "Unathi Guild Miner"
 	desc = "Crew a Miners' Guild outpost in the sector. Break rocks, earn your paycheck."
-	tags = list("External")
+	tags = list("Unathi Guild Miner")
 
 	spawnpoints = list("miners_guild")
 	max_count = 3

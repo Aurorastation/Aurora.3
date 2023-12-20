@@ -15,7 +15,7 @@
 	short_name = "adhomai_deserter"
 	name = "Liberation Army Deserter"
 	desc = "Survive as a deserter from the Adhomai Liberation Army."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_deserter")
 	max_count = 1

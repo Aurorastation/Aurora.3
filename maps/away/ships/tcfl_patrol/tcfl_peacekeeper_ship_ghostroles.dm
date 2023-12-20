@@ -4,7 +4,7 @@
 	short_name = "tcfl_peacekeeper"
 	name = "TCFL Peacekeeper"
 	desc = "Crew the Tau Ceti Foreign Legion Peacekeeping ship. Follow your Prefect's orders."
-	tags = list("External")
+	tags = list("TCFL Peacekeeper")
 	mob_name_prefix = "Lgn. "
 
 	spawnpoints = list("tcfl_peacekeeper")

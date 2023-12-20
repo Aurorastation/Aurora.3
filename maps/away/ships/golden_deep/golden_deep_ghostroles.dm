@@ -2,7 +2,7 @@
 	short_name = "golden_deep"
 	name = "Golden Deep Owned Synthetic"
 	desc = "You are an IPC, property of a merchant of the Golden Deep. Work hard, pay off the debt you owe to your 'employer', and maybe some day you too can acquire your freedom..."
-	tags = list("External")
+	tags = list("Golden Deep")
 	spawnpoints = list("golden_deep")
 	max_count = 3
 	uses_species_whitelist = FALSE

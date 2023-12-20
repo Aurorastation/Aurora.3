@@ -4,7 +4,7 @@
 	short_name = "tajaran_smuggler"
 	name = "Tajaran Smuggler"
 	desc = "Crew a Tajaran smuggling ship. Try to sell some of your illegally-acquired goods and make a profit."
-	tags = list("External")
+	tags = list("Tajaran Smuggler")
 
 	spawnpoints = list("tajaran_smuggler")
 	max_count = 2

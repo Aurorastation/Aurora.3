@@ -59,7 +59,7 @@
 	short_name = "okon_crew"
 	name = "Okon Crewmember"
 	desc = "Man the Okon 011 observation outpost on Raskara."
-	tags = list("External")
+	tags = list("Raskara")
 
 	spawnpoints = list("okon_crew")
 	max_count = 5

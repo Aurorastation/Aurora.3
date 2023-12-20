@@ -3,7 +3,7 @@
 	short_name = "cyclops_crew"
 	name = "Hephaestus Cyclops Mining Crew"
 	desc = "Crew the Hephaestus Mining Vessel."
-	tags = list("External")
+	tags = list("Hephaestus Cyclops")
 
 	welcome_message = "As a Hephaestus Cyclops Mining Crew, you are tasked with mining this sector's resources for Hephaestus Industries."
 

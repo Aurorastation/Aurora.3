@@ -2,7 +2,7 @@
 	short_name = "mining_jack."
 	name = "Tajaran Miner"
 	desc = "Crew the Tajaran Mining Jack."
-	tags = list("External")
+	tags = list("Mining Jack")
 
 	spawnpoints = list("tajara_mining_jack")
 	max_count = 3

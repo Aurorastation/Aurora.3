@@ -4,7 +4,7 @@
 	short_name = "rokz_voidtamer"
 	name = "Rokz Clan Voidtamer"
 	desc = "A Member of the Rokz clan of Dionae voidtamers, a group known for selling products associated with space xenofauna as well as occasional live specimens. Generally will have appearances consistent with Unathi due to most of the clan members coming from in or around Moghes. (Info on the faction is located in the Dionae minor factions page.)"
-	tags = list("External")
+	tags = list("Rokz Clan")
 
 	spawnpoints = list("rokz_voidtamer")
 	max_count = 3

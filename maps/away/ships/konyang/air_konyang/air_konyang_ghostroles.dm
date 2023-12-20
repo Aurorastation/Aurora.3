@@ -2,7 +2,7 @@
 	name = "Air Konyang Crew"
 	short_name = "air_konyang"
 	desc = "Crew an Air Konyang passenger liner."
-	tags = list("External")
+	tags = list("Air Konyang")
 	spawnpoints = list("air_konyang")
 	max_count = 2
 

@@ -24,7 +24,7 @@
 	short_name = "pra_base_soldier"
 	name = "Grand People's Army Soldier"
 	desc = "Man the People's Republic outpost in Adhomai."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("pra_base_soldier")
 	max_count = 3

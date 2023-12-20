@@ -2,7 +2,7 @@
 	short_name = "freighter_crew"
 	name = "Freighter Crewman"
 	desc = "Crew the tramp freighter. Be a tramp - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
-	tags = list("External")
+	tags = list("Tramp Freighter")
 
 	spawnpoints = list("freighter_crew")
 	max_count = 3

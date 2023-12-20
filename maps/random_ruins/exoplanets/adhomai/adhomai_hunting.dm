@@ -24,7 +24,7 @@
 	short_name = "adhomai_hunter"
 	name = "Adhomian Hunter"
 	desc = "Hunt the wild creatures of Adhomai."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_hunter")
 	max_count = 2
@@ -72,7 +72,7 @@
 	short_name = "matake_hunter"
 	name = "Mata'ke Priest-Hunter"
 	desc = "Hunt the wild creatures of Adhomai in the name of Mata'ke."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("matake_hunter")
 	max_count = 1

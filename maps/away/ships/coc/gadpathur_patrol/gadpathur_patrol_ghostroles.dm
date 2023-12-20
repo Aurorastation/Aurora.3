@@ -2,7 +2,7 @@
 	short_name = "gadpathur_patroller"
 	name = "Gadpathurian Patrol Corvette Security Cadre Member"
 	desc = "Crew a Gadpathurian patrol vessel, and ensure the Coalition and Gadpathur never again falls to its enemies."
-	tags = list("External")
+	tags = list("Gadpathur Patrol")
 	spawnpoints = list("gadpathur_patroller")
 	welcome_message = "You are a member of the cadre of the United Planetary Defense Council of Gadpathur. You have been assigned to a section leader, and have been ordered to patrol this sector. Ensure that pirates, Dominians, and especially Solarians do not threaten this area, but use caution; Gadpathur is not interested in starting a new Interstellar War... today. Characters must have names and physical characteristics typical of people from the modern-day Indian Subcontinent."
 

@@ -15,7 +15,7 @@
 	short_name = "adhomai_cavern_geist"
 	name = "Cavern Geist"
 	desc = "Terrorize the land as a feared cavern geist, the apex predator of Adhomai."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_cavern_geist")
 	max_count = 1

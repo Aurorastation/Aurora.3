@@ -119,7 +119,7 @@
 	short_name = "einstein_pilot"
 	name = "Einstein Engines Pilot"
 	desc = "Pilot an Einstein Engines shuttle near Konyang, carrying two mid-ranking corporate employees on a business trip."
-	tags = list("External")
+	tags = list("Einstein Engines Shuttle")
 
 	spawnpoints = list("einstein_pilot")
 	max_count = 1
@@ -156,7 +156,7 @@
 	short_name = "einstein_suit"
 	name = "Einstein Engines Corporate Representative"
 	desc = "You are a representative of minor importance working for Einstein Engines, one of the Spur's largest megacorporations. Currently, you are on a business trip via shuttle in the vicinity of Konyang."
-	tags = list("External")
+	tags = list("Einstein Engines Shuttle")
 
 	spawnpoints = list("einstein_suit")
 	max_count = 2

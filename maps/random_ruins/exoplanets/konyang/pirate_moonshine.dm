@@ -20,7 +20,7 @@
 	short_name = "konyang_moonshine"
 	name = "Konyang Pirate Moonshiner"
 	desc = "Be a pirate running a drug lab and moonshine operation in the jungles of Konyang - keep the operation going, make a profit, and live another day. NOT AN ANTAGONIST! Do not act as such!"
-	tags = list("External")
+	tags = list("Konyang")
 	welcome_message = "You are a pirate, distilling liquor and cooking narcotics out in the jungles of Konyang. Remember, you are not an antagonist and should not act as such - if you're unsure if something you'd like to do is toeing the line, you should ahelp first."
 
 	extra_languages = list(LANGUAGE_SOL_COMMON)

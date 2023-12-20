@@ -2,7 +2,7 @@
 	short_name = "fsf_navy_crewman"
 	name = "FSF Navy Crewman"
 	desc = "Crew the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
-	tags = list("External")
+	tags = list("Free Solarian Fleets Navy")
 	mob_name_prefix = "PO3. "
 
 	spawnpoints = list("fsf_navy_crewman")
@@ -41,7 +41,7 @@
 	short_name = "fsf_navy_officer"
 	name = "FSF Navy Officer"
 	desc = "Command the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
-	tags = list("External")
+	tags = list("Free Solarian Fleets Navy")
 	mob_name_prefix = "LT. "
 
 	spawnpoints = list("fsf_navy_officer")

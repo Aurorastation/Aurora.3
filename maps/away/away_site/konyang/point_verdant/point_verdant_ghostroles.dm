@@ -3,7 +3,7 @@
 	short_name = "konyang_zh"
 	name = "Zeng-Hu Pharmaceuticals Employee"
 	desc = "Represent the interests of Zeng-Hu Pharmaceuticals and the Stellar Corporate Conglomerate on Konyang."
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_zh")
 	max_count = 2
 	outfit = /datum/outfit/admin/konyang_zh
@@ -26,7 +26,7 @@
 	short_name = "konyang_ee"
 	name = "Einstein Engines Employee"
 	desc = "Represent the interests of Einstein Engines on Konyang. Cooperate with SCC personnel to solve the ongoing crisis while protecting company secrets."
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_ee")
 	max_count = 2
 	outfit = /datum/outfit/admin/konyang_ee
@@ -48,7 +48,7 @@
 	short_name = "konyang_cop"
 	name = "Point Verdant Patrolman"
 	desc = "Keep the peace on the streets of Aoyama. Look the other way if no one gets hurt."
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_cop")
 	max_count = 2
 	outfit = /datum/outfit/admin/konyang_cop
@@ -100,7 +100,7 @@
 	short_name = "konyang_goon"
 	name = "5-Cheung Thug"
 	desc = "Guard the hideout. Sell illicit goods and ingratiate yourself with the local community. Try not to get caught doing anything illegal."
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_goon")
 	max_count = 2
 	outfit = /datum/outfit/admin/konyang_goon
@@ -143,7 +143,7 @@
 	name = "Point Verdant Vendor"
 	desc = "Man the stores around Point Verdant. Sell goods to the visiting crewmembers. Try not to get shaken down by the local 5-Cheung thugs."
 	max_count = 4
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_vendor")
 	outfit = /datum/outfit/admin/konyang_vendor
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
@@ -167,7 +167,7 @@
 	name = "Konyang Robotics Company Doctor"
 	desc = "Man the KRC clinic. Offer repairs and assistance to any IPC that requires it. Call an actual doctor when the shell turns out to be a human"
 	max_count = 2
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_clinic")
 	outfit = /datum/outfit/admin/konyang_clinic
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
@@ -191,7 +191,7 @@
 	name = "Point Verdant Pharmacist"
 	desc = "Sell medicine out of the pharmacy. Forget to check for prescriptions. Negotiate with Zeng-Hu for your latest batch of supplies."
 	max_count = 1
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_pharm")
 	outfit = /datum/outfit/admin/konyang_pharm
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
@@ -214,7 +214,7 @@
 	name = "Point Verdant Bartender"
 	desc = "Sell alcohol to anyone willing to pay. Talk to policemen and 5-Cheung thugs alike. Try to keep the fighting out of the bar."
 	max_count = 1
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_bar")
 	outfit = /datum/outfit/admin/konyang_bar
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
@@ -234,7 +234,7 @@
 	name = "Point Verdant Utility Worker"
 	desc = "Maintain the infrastructure of Aoyama. Try to forget what exactly 5-Cheung was dumping in the sewers."
 	max_count = 2
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_utility")
 	outfit = /datum/outfit/admin/konyang_utility
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
@@ -258,7 +258,7 @@
 	name = "Gwok Group Employee"
 	desc = "Sell fast food and other Gwok-brand merchandise! Explain why the soft-serve machine is broken again."
 	max_count = 1
-	tags = list("External")
+	tags = list("Point Verdant")
 	spawnpoints = list("konyang_gwok")
 	outfit = /datum/outfit/admin/konyang_gwok
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)

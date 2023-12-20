@@ -3,7 +3,7 @@
 	name = "Unified Sadar Fleet Crewman"
 	desc = "Crew the Unified Sadar Fleet Scout vessel and be a scarab rogue! Take what you can, give nothing back! (OOC Note: All characters must be of Scarab origin and background, this is enforceable by admin/moderator action)"
 	welcome_message = "You are part of a small but tightly-knit crew onboard a scouting vessel of the Unified Sadar Fleet. Some may call you pirates, but truly your only goal is to keep you and your fleet of fellow outcasts supplied to survive no matter what it takes. The ends always justify the means, just don't be stupid. You've sworn to never abandon another Sadar in need, and it just so happens the fleet needs a whole lot of everything. (OOC Note: You are not an antagonist, any conflict must be escalated reasonably)"
-	tags = list("External")
+	tags = list("Unified Sadar Fleet")
 
 	spawnpoints = list("sadar_crew")
 	max_count = 4

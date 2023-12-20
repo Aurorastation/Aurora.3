@@ -2,7 +2,7 @@
 	short_name = "sfa_navy_crewman"
 	name = "SFA Navy Crewman"
 	desc = "Crew the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
-	tags = list("External")
+	tags = list("Southern Fleet Administration Corvette")
 	mob_name_prefix = "PO3. "
 
 	spawnpoints = list("sfa_navy_crewman")
@@ -42,7 +42,7 @@
 	short_name = "sfa_navy_officer"
 	name = "SFA Navy Officer"
 	desc = "Pilot and command a Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
-	tags = list("External")
+	tags = list("Southern Fleet Administration Corvette")
 	mob_name_prefix = "LT. "
 
 	spawnpoints = list("sfa_navy_officer")
@@ -81,7 +81,7 @@
 	short_name = "sfa_marine"
 	name = "SFA Marine"
 	desc = "Protect the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
-	tags = list("External")
+	tags = list("Southern Fleet Administration Corvette")
 	mob_name_prefix = "Pfc. "
 
 	spawnpoints = list("sfa_navy_crewman")

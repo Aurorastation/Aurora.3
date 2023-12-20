@@ -2,7 +2,7 @@
 	name = "Hephaestus Asset Protection Agent"
 	short_name = "hephsec"
 	desc = "Crew a Hephaestus asset protection vessel. Ensure the company's operations in the sector stay secure and profitable."
-	tags = list("External")
+	tags = list("Hephaestus Asset Protection")
 
 	welcome_message = "You are an asset protection agent for Hephaestus Industries, assigned to keeping the company's assets in this sector in one piece. Follow your leader's orders, and make sure nothing impacts the bottom line. Remember, you are not SCC/Horizon crew. While you can help them with problems if they ask you are under no obligation to, and you hsoud not be showing up uncalled for to act as Security+ for the Horizon."
 

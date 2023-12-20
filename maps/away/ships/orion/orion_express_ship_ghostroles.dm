@@ -4,7 +4,7 @@
 	short_name = "orion_express_courier"
 	name = "Orion Express Station Crew"
 	desc = "Crew the Orion Express mobile refueling station."
-	tags = list("External")
+	tags = list("Orion Express Mobile Station")
 
 	spawnpoints = list("orion_express_courier")
 	max_count = 3
@@ -68,7 +68,7 @@
 	short_name = "orion_express_captain"
 	name = "Orion Express Captain"
 	desc = "Pilot and command the Orion Express mobile refueling station."
-	tags = list("External")
+	tags = list("Orion Express Mobile Station")
 
 	spawnpoints = list("orion_express_captain")
 	max_count = 1

@@ -3,7 +3,7 @@
 	name = "Maintenance Drone"
 	desc = "Maintain and improve systems"
 	show_on_job_select = FALSE
-	tags = list("Simple Mobs")
+	tags = list("Drone")
 
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	jobban_job = "Cyborg"

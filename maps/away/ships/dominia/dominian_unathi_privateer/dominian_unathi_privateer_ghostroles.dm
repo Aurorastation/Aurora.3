@@ -2,7 +2,7 @@
 	short_name = "kazhkz_privateer"
 	name = "House Kazhkz Privateer"
 	desc = "You are a privateer of the Dominian Great House Kazhkz - sent into the Badlands to pillage and harass the enemies of the Empire and the Kazhkz-Han'san. Vessels of the Serene Republic of Elyra, the Coalition of Colonies, and the Izweski Hegemony are particularly prized targets by the Kazhkz. NOT AN ANTAGONIST! Do not act as such."
-	tags = list("External")
+	tags = list("Kazhkz Privateer")
 	mob_name_suffix = " Kazhkz"
 	mob_name_pick_message = "Pick an Unathi first name."
 	spawnpoints = list("kazhkz_privateer")
@@ -49,7 +49,7 @@
 	short_name = "kazhkz_privateer_captain"
 	name = "House Kazhkz Privateer Captain"
 	desc = "You are a captain of the Dominian Great House Kazhkz - placed in command of a vessel and sent into the Badlands to pillage and harass the enemies of the Empire and the Kazhkz-Han'san. Vessels of the Serene Republic of Elyra, the Coalition of Colonies, and the Izweski Hegemony are particularly prized targets by the Kazhkz. NOT AN ANTAGONIST! Do not act as such."
-	tags = list("External")
+	tags = list("Kazhkz Privateer")
 	mob_name_suffix = " Kazhkz"
 	mob_name_pick_message = "Pick an Unathi first name."
 	spawnpoints = list("kazhkz_privateer_captain")

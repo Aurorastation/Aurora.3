@@ -2,7 +2,7 @@
 	short_name = "kataphract_hop"
 	name = "Kataphract-Hopeful"
 	desc = "A Zo'saa (squire) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Listen to the Saa's (Knights). Remember, you serve the Izweski Hegemony."
-	tags = list("External")
+	tags = list("Unathi Kataphracts")
 
 	spawnpoints = list("kataphract")
 	req_perms = null

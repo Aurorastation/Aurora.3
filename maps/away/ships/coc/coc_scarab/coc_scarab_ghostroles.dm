@@ -2,7 +2,7 @@
 	short_name = "coc_scarab"
 	name = "Scarab Salvager"
 	desc = "Crew a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. Characters in this role must have a name and background appropriate to the Scarab Fleet."
-	tags = list("External")
+	tags = list("Scarab Salvager")
 	spawnpoints = list("coc_scarab")
 	welcome_message = "You are a crewman aboard a small retrofitted salvage vessel sent out by the Scarab Fleet. Harvest resources to keep the fleet moving and keep yourself and your crew alive."
 	max_count = 3

@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/visitor
 	short_name = "visitor"
 	name = "Visitor"
-	tags = list("External")
+	tags = list("Horizon")
 
 	enabled = FALSE
 	landmark_name = "JoinLate"

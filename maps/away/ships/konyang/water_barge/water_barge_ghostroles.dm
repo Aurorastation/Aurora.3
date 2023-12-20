@@ -2,7 +2,7 @@
 	name = "Water Barge Crew"
 	short_name = "water_barge"
 	desc = "Crew a PACHROM water transport barge."
-	tags = list("External")
+	tags = list("PACHROM Water Barge")
 	spawnpoints = list("water_barge")
 	max_count = 4
 

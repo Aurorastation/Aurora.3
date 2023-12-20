@@ -4,7 +4,7 @@
 	short_name = "imperial_fleet_voidsman"
 	name = "Imperial Fleet Voidsman"
 	desc = "You are an enlisted Ma’zal voidsman of the Imperial Fleet. Voidsmen are generally recruited from the Imperial Frontier and are eager to pay off their Mo’ri’zal (“Blood Debt,” the Empire’s form of taxation) via military service. Few serve more than a few tours of duty due to the lonely and hazardous nature of interstellar military service. You have been trained to obey your superior, and most Primaries, without question or delay. If the Ensign wills it, get it done. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
-	tags = list("External")
+	tags = list("Dominian Imperial Corvette")
 	mob_name_prefix = "VDSMN. " //Voidsman
 
 	spawnpoints = list("imperial_fleet_voidsman")

@@ -4,7 +4,7 @@
 	short_name = "elyran_naval_infantry"
 	name = "Elyran Naval Infantryman"
 	desc = "Crew the Elyran naval infantry interdiction craft. Follow your Ensign's orders. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
-	tags = list("External")
+	tags = list("Elyran Navy")
 	mob_name_prefix = "RFLMN. " //Rifleman
 
 	spawnpoints = list("elyran_naval_infantry")

@@ -2,7 +2,7 @@
 	short_name = "headmaster_kosmostrelki"
 	name = "Headmaster Ship Kosmostrelki"
 	desc = "Crew an Orbital Fleet ship."
-	tags = list("External")
+	tags = list("Kosmostrelki Ship")
 
 	spawnpoints = list("headmaster_kosmostrelki")
 	max_count = 4
@@ -38,7 +38,7 @@
 	short_name = "headmaster_captain"
 	name = "Headmaster Ship Captain"
 	desc = "Command an Orbital Fleet ship."
-	tags = list("External")
+	tags = list("Kosmostrelki Ship")
 
 	spawnpoints = list("headmaster_captain")
 	max_count = 1

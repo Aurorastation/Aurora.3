@@ -13,7 +13,7 @@
 	short_name = "adhomian_circus_crew"
 	name = "Adhomian Circus Crew"
 	desc = "Crew the circus, help its crew, and serve the circus-goers."
-	tags = list("External")
+	tags = list("Adhomian Circus")
 
 	spawnpoints = list("adhomian_circus_crew")
 	max_count = 2
@@ -40,7 +40,7 @@
 	short_name = "adhomian_circus_ringmaster"
 	name = "Adhomian Circus Ringmaster"
 	desc = "Be the master of ceremonies for the adhomian circus."
-	tags = list("External")
+	tags = list("Adhomian Circus")
 
 	spawnpoints = list("adhomian_circus_ringmaster")
 	max_count = 1
@@ -67,7 +67,7 @@
 	short_name = "adhomian_circus_strongman"
 	name = "Adhomian Circus Strongzhan"
 	desc = "Show the galaxy your might by performing feats of strength."
-	tags = list("External")
+	tags = list("Adhomian Circus")
 
 	spawnpoints = list("adhomian_circus_strongman")
 	max_count = 1
@@ -90,7 +90,7 @@
 	short_name = "adhomian_circus_tamer"
 	name = "Adhomian Circus Tamer"
 	desc = "Control Adhomian animals and make them do tricks."
-	tags = list("External")
+	tags = list("Adhomian Circus")
 
 	spawnpoints = list("adhomian_circus_tamer")
 	max_count = 1
@@ -115,7 +115,7 @@
 	short_name = "adhomian_circus_fortune_teller"
 	name = "Adhomian Circus Fortune Teller"
 	desc = "Read the future of the circus-goers."
-	tags = list("External")
+	tags = list("Adhomian Circus")
 
 	spawnpoints = list("adhomian_circus_fortune_teller")
 	max_count = 1
@@ -137,7 +137,7 @@
 	short_name = "adhomian_circus_clown"
 	name = "Adhomian Circus Clown"
 	desc = "Try to be funny (or annoying) as the circus clown."
-	tags = list("External")
+	tags = list("Adhomian Circus")
 
 	spawnpoints = list("adhomian_circus_clown")
 	max_count = 1

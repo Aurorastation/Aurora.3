@@ -20,7 +20,7 @@
 	short_name = "konyang_telecomms"
 	name = "Konyang Army Telecomm Operator"
 	desc = "Man a telecommunications relay on Konyang. (OOC Note: All characters must be of Konyang ethnic origin and background, this is enforceable by admin/moderator action.)"
-	tags = list("External")
+	tags = list("Konyang")
 	welcome_message = "You are a soldier of the Konyang Army, monitoring and operating a remote telecommunications relay."
 
 	spawnpoints = list("konyang_telecomms")

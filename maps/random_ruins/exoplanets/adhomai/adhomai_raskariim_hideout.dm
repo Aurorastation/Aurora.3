@@ -32,7 +32,7 @@
 	short_name = "raskariim_hideout"
 	name = "Raskariim"
 	desc = "Worship Raskara and live the cultist life in an abandoned house as your hideout."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("raskariim_hideout")
 	max_count = 3

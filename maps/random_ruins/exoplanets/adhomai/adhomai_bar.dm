@@ -24,7 +24,7 @@
 	short_name = "adhomai_bar_innkeeper"
 	name = "Adhomian Innkeeper"
 	desc = "Staff the Adhomian bar."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("adhomai_bar_innkeeper")
@@ -58,7 +58,7 @@
 	short_name = "adhomai_bar_server"
 	name = "Adhomian Inn Staff"
 	desc = "Serve the Adhomian bar patrons."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	spawnpoints = list("adhomai_bar_server")
 	max_count = 2
@@ -90,7 +90,7 @@
 	short_name = "adhomai_bar_patron"
 	name = "Adhomian Patron"
 	desc = "Drink, eat, and gamble at the Adhomian inn."
-	tags = list("External")
+	tags = list("Adhomai")
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("adhomai_bar_patron")

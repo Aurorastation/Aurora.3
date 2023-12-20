@@ -44,7 +44,7 @@
 	short_name = "burzsia_miner"
 	name = "Hephaestus Burzsia Miner"
 	desc = "Extract and process minerals in Burzsia for Hephaestus Industries."
-	tags = list("External")
+	tags = list("Burzsia")
 
 	spawnpoints = list("burzsia_miner")
 	max_count = 3

@@ -2,7 +2,7 @@
 	short_name = "merchantass"
 	name = "Merchants Assistant"
 	desc = "Assist the Merchant with their duties."
-	tags = list("External")
+	tags = list("Merchant")
 
 	enabled = FALSE
 	spawnpoints = list("MerchantAss")

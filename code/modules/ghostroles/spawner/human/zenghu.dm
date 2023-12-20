@@ -2,7 +2,7 @@
 	short_name = "zenghu"
 	name = "Zeng-Hu Survivor"
 	desc = "Survive whatever might lurk in the Zeng-Hu installation."
-	tags = list("External")
+	tags = list("Zeng-Hu Survivor")
 
 	enabled = FALSE
 	spawnpoints = list("zenghu")

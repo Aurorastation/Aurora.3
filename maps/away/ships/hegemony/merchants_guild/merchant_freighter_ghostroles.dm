@@ -2,7 +2,7 @@
 	short_name = "merchant_guildman"
 	name = "Merchants' Guild Freighter Crew"
 	desc = "You are an apprentice of the Unathi Merchants' Guild, assigned to crew a cargo freighter. Act with honor, but seek profit for your ship and your guild."
-	tags = list("External")
+	tags = list("Unathi Guild Merchant")
 	spawnpoints = list("merchant_guildman")
 	max_count = 3
 	uses_species_whitelist = FALSE

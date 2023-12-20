@@ -2,7 +2,7 @@
 	short_name = "nka_merchant_crew"
 	name = "New Kingdom Merchant Navy Crew"
 	desc = "Crew a Her Majesty's Mercantile Flotilla ship."
-	tags = list("External")
+	tags = list("NKA Merchant")
 
 	spawnpoints = list("nka_merchant_crew")
 	max_count = 3
