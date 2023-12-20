@@ -1,4 +1,4 @@
- /obj/item/pen/typewriter
+/obj/item/pen/typewriter
 	name = "National Typist 'Adhomai Electric' experimental integrated typewriter pen"
 	desc = "A mechanical pen that writes on paper inside a typewriter. How did you even get this?"
 
@@ -28,66 +28,72 @@
 
 /obj/item/portable_typewriter/attack_self(mob/user)
 	if(!stored_paper)
-		to_chat(usr, "<span class='alert'>\The [src] has no paper fed for typing!</span>")
+		to_chat(user, SPAN_ALERT ("\The [src] has no paper fed for typing!"))
 	else
-		src.stored_paper.attackby(src.pen, user)
+		stored_paper.attackby(pen, user)
 	. = ..()
+
+/obj/item/portable_typewriter/proc/get_signature(var/mob/user)
+	if (pen)
+		pen.get_signature(user)
 
 /obj/item/portable_typewriter/AltClick(mob/user)
 	if(!Adjacent(user))
 		return
 
-	else if(src.stored_paper)
-		var/obj/item/paper/paper = src.stored_paper
-		if(src.eject_paper(user.loc))
+	else if(stored_paper)
+		var/obj/item/paper/paper = stored_paper
+		if(eject_paper(user.loc))
 			user.put_in_hands(paper)
 	else
 		. = ..()
 
 /obj/item/portable_typewriter/MouseDrop(mob/user as mob)
-	if((user == usr && (!( usr.restrained() ) && (!( usr.stat ) && (usr.contents.Find(src) || in_range(src, usr))))))
+	if(use_check_and_message(user))
+		return
+	if(((user.contents.Find(src) || in_range(src, user))))
 		if(isnull(stored_paper))
-			to_chat(usr, "<span class='alert'>\The [src] has no paper fed for typing!</span>")
+			to_chat(user, SPAN_ALERT ("\The [src] has no paper fed for typing!"))
 		else
-			src.stored_paper.attackby(src.pen, user)
+			stored_paper.attackby(pen, user)
 	return
 
 /obj/item/portable_typewriter/update_icon()
-	if(src.stored_paper)
-		src.icon_state = "typewriter_[stored_paper.icon_state]"
+	if(stored_paper)
+		icon_state = "typewriter_[stored_paper.icon_state]"
 	else
-		src.icon_state = "typewriter"
+		icon_state = "typewriter"
 
 /obj/item/portable_typewriter/proc/eject_paper(atom/target, mob/user)
-	if(isnull(src.stored_paper))
+	if(!stored_paper)
 		return FALSE
-	to_chat(usr, "<span class='notice'>\The [src] ejects \the [src.stored_paper].</span>")
-	playsound(src.loc, 'sound/bureaucracy/paperfold.ogg', 60, 0)
-	src.stored_paper.forceMove(target)
-	src.stored_paper = null
-	src.update_icon()
+	to_chat(user, SPAN_ALERT ("\The [src] ejects \the [stored_paper]."))
+	playsound(loc, 'sound/bureaucracy/paperfold.ogg', 60, 0)
+	stored_paper.forceMove(target)
+	stored_paper = null
+	update_icon()
 	return TRUE
 
 /obj/item/portable_typewriter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/paper))
-		if(isnull(stored_paper))
+		if(!stored_paper)
 			if(W.icon_state == "scrap")
-				to_chat(usr, "<span class='alert'>\The [W] is too crumpled to feed correctly!</span>")
+				to_chat(user, SPAN_ALERT("\The [W] is too crumpled to feed correctly!"))
 				return
 			else
 				user.drop_item(W)
 				user.unEquip(W)
 				W.forceMove(src)
-				src.stored_paper = W
-				user.visible_message("<span class='notice'>[user] sucks up \the [W] into \the [src].</span>", "<span class='notice'>You suck up \the [W] into \the [src].</span>")
+				stored_paper = W
+				user.visible_message(SPAN_ALERT("\The [user] sucks up \the [W] into \the [src]."), SPAN_ALERT("You suck up \the [W] into \the [src]."))
 				src.update_icon()
 		else
-			to_chat(usr, "<span class='alert'>\The [src] already has a paper in it.</span>")
+			to_chat(user, SPAN_ALERT("\The [src] already has a paper in it."))
 		. = ..()
 
 /obj/item/portable_typewriter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	..()
-	user.visible_message("<span class='danger'>\The [src] shatters into metal pieces!</span>")
+	user.visible_message(SPAN_ALERT("\The [src] shatters into metal pieces!"))
 	M.Weaken(2)
 	playsound(loc, 'sound/effects/metalhit.ogg', 50, 1)
 	playsound(loc, 'sound/weapons/ring.ogg', 50, 1)
@@ -115,56 +121,58 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 	var/obj/item/portable_typewriter/machine
-	var/opened = 0
+	var/opened = FALSE
 
 /obj/item/typewriter_case/New()
 	..()
-	if(isnull(src.machine))
-		src.machine = new /obj/item/portable_typewriter(src)
+	if(!machine)
+		machine = new /obj/item/portable_typewriter(src)
 
 /obj/item/typewriter_case/AltClick(mob/user)
 	if(!Adjacent(user))
 		return
 
-	playsound(src.loc, 'sound/items/storage/briefcase.ogg', 50, 0, -5)
+	playsound(loc, 'sound/items/storage/briefcase.ogg', 50, 0, -5)
 
-	if(src.opened == 0)
-		src.opened = 1
-		src.update_icon()
-	else if(src.opened == 1)
-		src.opened = 0
-		src.update_icon()
+	if(!opened)
+		opened = TRUE
+		update_icon()
+	else
+		opened = FALSE
+		update_icon()
 
 /obj/item/typewriter_case/update_icon()
-	if(src.opened == 1 && src.machine != null)
-		src.icon_state = "typewriter_case_open"
-	else if (src.opened == 1 && src.machine == null)
-		src.icon_state = "typewriter_case_open_e"
-	else if (src.opened == 0)
-		src.icon_state = "typewriter_case_closed"
+	if(opened && machine)
+		icon_state = "typewriter_case_open"
+	else if (opened && !machine)
+		icon_state = "typewriter_case_open_e"
+	else if (!opened)
+		icon_state = "typewriter_case_closed"
 
 /obj/item/typewriter_case/MouseDrop(mob/user as mob)
-	if((user == usr && (!( usr.restrained() ) && (!( usr.stat ) && (usr.contents.Find(src) || in_range(src, usr))))))
-		if(src.opened == 1)
-			if(isnull(machine))
-				to_chat(usr, "<span class='alert'>\The [src] is currently empty!</span>")
+	if(use_check_and_message(user))
+		return
+	if(((user.contents.Find(src) || in_range(src, user))))
+		if(opened)
+			if(!machine)
+				to_chat(user, SPAN_ALERT("\The [src] is currently empty!"))
 			else
-				user.put_in_hands(src.machine)
-				src.machine = null
-				src.update_icon()
-		else if (src.opened == 0)
-			to_chat(usr, "<span class='alert'>\The [src] is currently closed!</span>")
+				user.put_in_hands(machine)
+				machine = null
+				update_icon()
+		else if (!opened)
+			to_chat(user, SPAN_ALERT("\The [src] is currently closed!"))
 	return
 
 /obj/item/typewriter_case/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/portable_typewriter))
-		if(isnull(machine))
+		if(!machine)
 			user.drop_item(W)
 			user.unEquip(W)
 			W.forceMove(src)
 			src.machine = W
-			user.visible_message("<span class='notice'>[user] places \the [W] into \the [src].</span>", "<span class='notice'>You store \the [W] in \the [src].</span>")
+			user.visible_message(SPAN_ALERT ("[user] places \the [W] into \the [src]."), SPAN_ALERT ("You store \the [W] in \the [src]."))
 			src.update_icon()
 		else
-			to_chat(usr, "<span class='alert'>\The [src] already has a typewriter in it!</span>")
+			to_chat(user, SPAN_ALERT("\The [src] already has a typewriter in it!"))
 		. = ..()

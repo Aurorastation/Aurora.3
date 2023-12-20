@@ -479,7 +479,6 @@
 		if(!i || !i.ispen())
 			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
-		var/obj/item/portable_typewriter/y
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
 		var/istypewriter = FALSE
@@ -495,12 +494,10 @@
 				c = src.loc
 				if(c.haspen)
 					i = c.haspen
-			else if (istype(src.loc, /obj/item/portable_typewriter))
-				y = src.loc
-				if(y.pen)
-					i = y.pen
-				else
-					return
+			else if(istype(i, /obj/item/portable_typewriter))
+				var/obj/item/portable_typewriterT = i
+				if(T.pen)
+					i = T.pen
 			else
 				return
 
