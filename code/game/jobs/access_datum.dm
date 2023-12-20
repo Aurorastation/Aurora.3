@@ -446,6 +446,12 @@ var/const/access_bridge_crew = 74
 	desc = "Ship Weapons"
 	region = ACCESS_REGION_SUPPLY
 
+/var/const/access_warehouse = 76
+/datum/access/access_warehouse
+	id = access_warehouse
+	desc = "Warehouse"
+	region = ACCESS_REGION_SUPPLY
+
 /******************
 * Central Command *
 ******************/

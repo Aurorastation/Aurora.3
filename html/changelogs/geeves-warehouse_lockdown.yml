@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "The warehouse is now access locked to the Ops Manager, Hangar Technician, Janitor, and First Responder roles. This means that Shaft Miners and Machinists no longer have access to it."
