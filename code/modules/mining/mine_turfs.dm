@@ -868,7 +868,7 @@ var/list/asteroid_floor_smooth = list(
 					ore += /obj/item/ore/gold
 				if(ORE_SILVER)
 					ore += /obj/item/ore/silver
-				if(ORE_LEAD)
+				if(ORE_GALENA)
 					ore += /obj/item/ore/lead
 				if(ORE_DIAMOND)
 					ore += /obj/item/ore/diamond
@@ -880,7 +880,7 @@ var/list/asteroid_floor_smooth = list(
 					ore += /obj/item/ore/osmium
 				if(ORE_HYDROGEN)
 					ore += /obj/item/ore/hydrogen
-				if(ORE_ALUMINIUM)
+				if(ORE_BAUXITE)
 					ore += /obj/item/ore/aluminium
 				else
 					if(prob(25))

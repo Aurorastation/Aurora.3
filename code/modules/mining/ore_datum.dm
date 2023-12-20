@@ -152,7 +152,7 @@ var/global/list/ore_data = list()
 	worth = 5
 
 /ore/lead
-	name = ORE_GELENA
+	name = ORE_GALENA
 	display_name = "galena"
 	smelts_to = MATERIAL_LEAD
 	ore = /obj/item/ore/lead
