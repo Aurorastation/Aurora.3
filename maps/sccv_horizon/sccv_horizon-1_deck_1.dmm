@@ -19497,6 +19497,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"nzG" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "nAn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -20761,6 +20765,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"owJ" = (
+/obj/structure/cargo_receptacle/horizon,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "owM" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "11,2"
@@ -45276,11 +45284,11 @@ lVt
 vtn
 fif
 qdE
-iBu
+owJ
 iJJ
 ccU
 kAn
-nCV
+nzG
 qdE
 iBu
 nCV
