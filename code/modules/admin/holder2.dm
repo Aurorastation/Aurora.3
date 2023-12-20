@@ -18,6 +18,15 @@ var/list/admin_datums = list()
 
 	var/list/watched_processes	// Processes marked to be shown in Status instead of just Processes.
 
+/datum/admins/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, rights))
+		return FALSE
+	if(var_name == NAMEOF(src, owner))
+		return FALSE
+	if(var_name == NAMEOF(src, original_mob))
+		return FALSE
+	return ..()
+
 /datum/admins/New(initial_rank = "Temporary Admin", initial_rights = 0, ckey)
 	if(!ckey)
 		log_world("ERROR: Admin datum created without a ckey argument. Datum has been deleted")

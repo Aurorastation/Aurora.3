@@ -32,6 +32,8 @@ SUBSYSTEM_DEF(statistics)
 
 	var/status_needs_update = FALSE
 
+GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
+
 /datum/controller/subsystem/statistics/Initialize(timeofday)
 	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
 		var/datum/statistic/S = new type
