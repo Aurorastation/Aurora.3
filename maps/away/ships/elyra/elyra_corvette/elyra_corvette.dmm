@@ -668,12 +668,6 @@
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
 "cY" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "elyra_co2_in_starboard";
-	name = "Carbon Dioxide Supply Monitor";
-	output_tag = "elyra_co2_out_starboard";
-	sensors = list("elyra_co2_sensor_starboard"="Tank")
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -685,6 +679,16 @@
 	pixel_x = -24;
 	dir = 8;
 	id = "eylra_co2_blast_port"
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	input_tag = "elyra_co2_in_port";
+	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "elyra_co2_out_port";
+	sensors = list("elyra_co2_sensor_port"="Tank")
+	},
+/obj/structure/railing/mapped{
+	dir = 4;
+	pixel_x = 2
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portthrust)
@@ -709,7 +713,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
 	frequency = 1441;
-	id_tag = "elyra_co2_out_starboard"
+	id_tag = "elyra_co2_out_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/elyran_corvette/portthrust)
@@ -1934,7 +1938,6 @@
 /area/ship/elyran_corvette/medbay)
 "kv" = (
 /obj/structure/table/steel,
-/obj/structure/railing/mapped,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/ears/earmuffs,
@@ -2046,7 +2049,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/dorm)
 "kR" = (
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -2176,6 +2178,10 @@
 /obj/structure/platform,
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 12
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
@@ -2989,14 +2995,13 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardwep)
 "qB" = (
-/obj/machinery/computer/ship/targeting{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3322,6 +3327,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 12
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
 "sB" = (
@@ -3408,13 +3417,13 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	id = "elyra_co2_in_port";
+	id = "elyra_co2_in_starboard";
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
 	pixel_y = 16;
 	frequency = 1441;
-	id_tag = "elyra_co2_sensor_port"
+	id_tag = "elyra_co2_sensor_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/elyran_corvette/starboardthrust)
@@ -3860,6 +3869,10 @@
 /obj/structure/platform,
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 12
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
@@ -5472,6 +5485,10 @@
 /area/ship/elyran_corvette/medbay)
 "Fc" = (
 /obj/structure/platform,
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 12
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
 "Fd" = (
@@ -5487,7 +5504,6 @@
 /turf/simulated/floor,
 /area/ship/elyran_corvette/porthallway)
 "Ff" = (
-/obj/structure/railing/mapped,
 /obj/structure/table/steel,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/head/hardhat,
@@ -5993,12 +6009,6 @@
 /turf/simulated/floor,
 /area/ship/elyran_corvette/engineering)
 "Ir" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = "elyra_co2_in_port";
-	name = "Carbon Dioxide Supply Monitor";
-	output_tag = "elyra_co2_out_port";
-	sensors = list("elyra_co2_sensor_port"="Tank")
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -6010,6 +6020,16 @@
 	pixel_x = 24;
 	dir = 4;
 	id = "eylra_co2_blast_starboard"
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	input_tag = "elyra_co2_in_starboard";
+	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "elyra_co2_out_starboard";
+	sensors = list("elyra_co2_sensor_starboard"="Tank")
+	},
+/obj/structure/railing/mapped{
+	dir = 8;
+	pixel_x = -2
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardthrust)
@@ -6147,6 +6167,10 @@
 /area/ship/elyran_corvette/hangar)
 "Je" = (
 /obj/structure/platform,
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 12
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
 "Jh" = (
@@ -6274,7 +6298,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/dorm)
 "JJ" = (
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -6619,7 +6642,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
 	frequency = 1441;
-	id_tag = "elyra_co2_out_port"
+	id_tag = "elyra_co2_out_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/elyran_corvette/starboardthrust)
@@ -6698,6 +6721,10 @@
 /obj/structure/platform,
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	pixel_y = 12
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
@@ -8363,13 +8390,13 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1441;
-	id = "elyra_co2_in_starboard";
+	id = "elyra_co2_in_port";
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
 	pixel_y = 16;
 	frequency = 1441;
-	id_tag = "elyra_co2_sensor_starboard"
+	id_tag = "elyra_co2_sensor_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/elyran_corvette/portthrust)
@@ -9213,14 +9240,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/hangar)
 "Zy" = (
-/obj/structure/railing/mapped,
-/obj/machinery/computer/ship/targeting{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
