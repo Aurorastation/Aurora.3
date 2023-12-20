@@ -149,7 +149,6 @@ var/global/photo_count = 0
 	var/icon_on = "camera"
 	var/icon_off = "camera_off"
 	var/size = 3
-	var/photo_sound = /singleton/sound_category/print_sound
 
 /obj/item/device/camera/examine(mob/user, distance, is_adjacent)
 	. = ..()
@@ -225,6 +224,9 @@ var/global/photo_count = 0
 	spawn(64)
 		icon_state = icon_on
 		on = 1
+
+/obj/item/device/camera/proc/do_photo_sound()
+	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
 
 /obj/item/device/camera/detective
 	name = "detectives camera"
@@ -317,3 +319,9 @@ var/global/photo_count = 0
 	slot_flags = SLOT_MASK
 	photo_sound = 'sound/items/camerabulb.ogg'
 	black_white = TRUE
+	icon_on = "taj_camera_on"
+	icon_off = "taj_camera_off"
+
+/obj/item/device/camera/adhomai/do_photo_sound()
+	flick("taj_camera_flash", src)
+	playsound(loc, 'sound/items/camerabulb.ogg', 75, 1, -3)

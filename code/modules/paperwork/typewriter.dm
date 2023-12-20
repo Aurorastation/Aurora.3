@@ -1,5 +1,5 @@
 /obj/item/pen/typewriter
-	name = "National Typist 'Adhomai Electric' experimental integrated typewriter pen"
+	name = "national typist 'Adhomai Electric' experimental integrated typewriter pen"
 	desc = "A mechanical pen that writes on paper inside a typewriter. How did you even get this?"
 
 /obj/item/portable_typewriter

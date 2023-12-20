@@ -476,6 +476,17 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+
+		if(!i && istype(loc, /obj/item/portable_typewriter))
+			var/obj/item/portable_typewriter/T = loc
+			if(T.pen)
+				i = T.pen
+
+		if(i && istype(i, /obj/item/portable_typewriter) || !i && istype(loc, /obj/item/portable_typewriter))
+			var/obj/item/portable_typewriter/T = i
+			if(T.pen)
+				i = T.pen
+
 		if(!i || !i.ispen())
 			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
@@ -490,14 +501,10 @@
 					i = m.device
 				else
 					return
-			else if(istype(src.loc, /obj/item/clipboard))
+			if(istype(src.loc, /obj/item/clipboard))
 				c = src.loc
 				if(c.haspen)
 					i = c.haspen
-			else if(istype(i, /obj/item/portable_typewriter))
-				var/obj/item/portable_typewriterT = i
-				if(T.pen)
-					i = T.pen
 			else
 				return
 
