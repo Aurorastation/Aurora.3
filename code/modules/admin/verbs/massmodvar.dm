@@ -28,10 +28,9 @@
 
 	var/list/locked = list("vars", "key", "ckey", "client")
 
-	for(var/p in forbidden_varedit_object_types)
-		if( istype(O,p) )
-			to_chat(usr, "<span class='danger'>It is forbidden to edit this object's variables.</span>")
-			return
+	if(!O.vv_edit_var(var_name))
+		to_chat(src, SPAN_WARNING("You cannot edit this variable."))
+		return
 
 	var/list/names = list()
 	for (var/V in O.vars)
