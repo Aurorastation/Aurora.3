@@ -23,7 +23,7 @@
 
 /obj/item/portable_typewriter/Initialize()
 	. = ..()
-	if(!pen))
+	if(!pen)
 		pen = new /obj/item/pen/typewriter(src)
 
 /obj/item/portable_typewriter/attack_self(mob/user)
