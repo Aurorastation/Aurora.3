@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Updated the ghost spawner UI to have a candystripe theme and also show a manifest for the currently active mobs."
