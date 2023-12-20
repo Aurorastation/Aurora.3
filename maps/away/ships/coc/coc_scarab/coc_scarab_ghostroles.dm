@@ -39,6 +39,6 @@
 	max_count = 1
 	assigned_role = "Scarab Salvager Captain"
 	special_role = "Scarab Salvager Captain"
-	desc = "Command a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. OOC Note: Characters must have names and backgrounds consistent with the Scarab Fleet. This is enforcable by admin action"
+	desc = "Command a salvage ship. Harvest valuable resources to take back to the wider Scarab Fleet. OOC Note: Characters must have names and backgrounds consistent with the Scarab Fleet. This is enforcable by admin action."
 	welcome_message = "You are the captain of a small retrofitted salvage vessel sent out by the Scarab Fleet. Harvest resources to keep the fleet moving and keep yourself and your crew alive."
 
