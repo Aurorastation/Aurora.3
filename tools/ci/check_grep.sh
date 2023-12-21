@@ -113,8 +113,8 @@ fi
 
 # Check that all the files in sound/ are referenced with static paths
 echo "Verifying sounds are referenced with static paths" >> code_error.log
-DYNAMIC_SOUNDS_REFERENCES=` grep -r --include \*.dm -E --regexp='"(sound\/.*)"' | wc -w`
-if [ $? -ne 0 ]; then
+DYNAMIC_SOUNDS_REFERENCES=`grep -r --include \*.dm -E --regexp='"(sound\/.*)"' | wc -w`
+if [ $DYNAMIC_SOUNDS_REFERENCES -ne '' ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: Found sound files referenced with dynamic paths:" >> code_error.log
 	echo $DYNAMIC_SOUNDS_REFERENCES >> code_error.log
