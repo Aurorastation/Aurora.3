@@ -3,7 +3,7 @@
 	short_name = "elyran_navy_crewman"
 	name = "Elyran Naval Infantryman"
 	desc = "Crew the Elyran Corvette, and serve as the frontline in any combat situations. Assist in any ship operations as needed. Ensure the integrity and safety of the Serene Republic of Elyra's borders."
-	tags = list("External")
+	tags = list("Elyran Corvette")
 	mob_name_prefix = "RFLMN. "
 
 	spawnpoints = list("elyran_navy_crewman")

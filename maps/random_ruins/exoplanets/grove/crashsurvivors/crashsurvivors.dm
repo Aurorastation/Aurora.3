@@ -4,7 +4,7 @@
 	short_name = "survivor"
 	name = "Survivor"
 	desc = "Well you've managed to survive the initial impact. Can you survive until rescue?"
-	tags = list("External")
+	tags = list("Crash Survivor")
 
 	spawnpoints = list("survivor")
 	max_count = 3

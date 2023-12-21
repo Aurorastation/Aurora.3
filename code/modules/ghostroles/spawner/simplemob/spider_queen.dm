@@ -2,7 +2,7 @@
 	short_name = "spiderqueen"
 	name = "Spider Queen"
 	desc = "Be a spooky giant spider."
-	tags = list("External")
+	tags = list("Spider Queen")
 	spawnpoints = list("spiderqueen")
 
 	max_count = 1
