@@ -180,7 +180,7 @@
 			user.unEquip(W)
 			W.forceMove(src)
 			src.machine = W
-			user.visible_message(SPAN_ALERT ("[user] places \the [W] into \the [src]."), SPAN_ALERT ("You store \the [W] in \the [src]."))
+			user.visible_message(SPAN_ALERT("[user] places \the [W] into \the [src]."), SPAN_ALERT ("You store \the [W] in \the [src]."))
 			src.update_icon()
 		else
 			to_chat(user, SPAN_ALERT("\The [src] already has a typewriter in it!"))
