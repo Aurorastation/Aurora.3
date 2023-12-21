@@ -38,6 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - backend: "Moved all filepaths for sounds to static links, with single quotes instead of doubles."
-  - bugfix: "Repathed wrong chainsaw sounds to the correct path."
-  - soundadd: "Added a missed sound that was forgotten when porting the overmap sensors, from Nebula."
+  - backend: "The CI now checks that all sounds are referenced with a static path."
