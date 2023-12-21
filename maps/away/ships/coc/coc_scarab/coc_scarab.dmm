@@ -73,14 +73,15 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/light,
 /obj/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "aE" = (
 /obj/structure/sign/flag/scarab{
@@ -262,7 +263,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/access_button{
 	pixel_x = 8;
@@ -697,10 +699,11 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/landmark/entry_point/starboard,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "et" = (
 /obj/structure/cable/yellow{
@@ -1043,7 +1046,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1080,7 +1084,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
@@ -1317,7 +1322,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -1623,7 +1629,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -1632,6 +1639,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -3056,12 +3066,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/light{
 	dir = 1
@@ -3132,7 +3138,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -4193,9 +4200,10 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "CP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
@@ -4809,13 +4817,15 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_y = -25
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = -20;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -5635,7 +5645,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -6060,9 +6071,14 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = -20;
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "Pm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -6280,9 +6296,10 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "QJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -6418,7 +6435,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
@@ -6881,7 +6899,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
@@ -7207,15 +7226,11 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "VK" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -7479,7 +7494,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "scarab_harvester";
 	name = "airlock_scarab_harvester";
-	shuttle_tag = "Scarab Gas Harvester"
+	shuttle_tag = "Scarab Gas Harvester";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8

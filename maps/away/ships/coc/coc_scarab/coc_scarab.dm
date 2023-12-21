@@ -132,6 +132,7 @@
 /obj/effect/shuttle_landmark/coc_scarab/harvester_start
 	name = "Scarab Salvage Vessel - Harvester Dock"
 	landmark_tag = "nav_scarab_harvester_start"
+	docking_controller = "scarab_harvester"
 
 /obj/effect/shuttle_landmark/coc_scarab/harvester_transit
 	name = "In transit"
@@ -171,6 +172,7 @@
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_start
 	name = "Scarab Salvage Vessel - Shuttle Dock"
 	landmark_tag = "nav_scarab_start"
+	docking_controller = "scarab_shuttle"
 
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_transit
 	name = "In transit"
