@@ -4,3 +4,5 @@ delete-after: True
 
 changes:
   - tweak: "The warehouse is now access locked to the Ops Manager, Hangar Technician, Janitor, and First Responder roles. This means that Shaft Miners and Machinists no longer have access to it."
+  - tweak: "Removed the Operations Lift, adjusted all the rooms it used to occupy."
+  - tweak: "Added a few more crates to the warehouse."
