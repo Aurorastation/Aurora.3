@@ -120,6 +120,7 @@
 #include "code\__defines\typeids.dm"
 #include "code\__defines\verbs.dm"
 #include "code\__defines\webhook.dm"
+#include "code\__defines\wires.dm"
 #include "code\__defines\xenoarch.dm"
 #include "code\__defines\ZAS.dm"
 #include "code\__defines\zcopy.dm"

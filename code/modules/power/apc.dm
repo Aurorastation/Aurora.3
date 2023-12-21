@@ -843,7 +843,7 @@
 		else if(hacker)
 			to_chat(user, SPAN_WARNING("Access denied."))
 		else
-			if(allowed(usr) && !isWireCut(APC_WIRE_IDSCAN))
+			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
 				locked = !locked
 				to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
 				update_icon()
@@ -1109,7 +1109,7 @@
 			user.visible_message(SPAN_WARNING("[user.name] slashes at the [name]!"), SPAN_NOTICE("You slash at the [name]!"))
 			playsound(loc, 'sound/weapons/slash.ogg', 100, 1)
 
-			var/allcut = wires.IsAllCut()
+			var/allcut = wires.is_all_cut()
 
 			if(beenhit >= pick(3, 4) && !wiresexposed)
 				wiresexposed = TRUE
@@ -1117,7 +1117,7 @@
 				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
 
 			else if(wiresexposed && !allcut)
-				wires.CutAll()
+				wires.cut_all()
 				update_icon()
 				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
 			else
@@ -1146,7 +1146,7 @@
 		return
 
 	if(wiresexposed && !isAI(user))
-		wires.Interact(user)
+		wires.interact(user)
 
 	return ui_interact(user)
 
@@ -1197,7 +1197,7 @@
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
-	return wires.IsIndexCut(wireIndex)
+	return wires.is_cut(wireIndex)
 
 /obj/machinery/power/apc/proc/can_use(mob/user, var/loud = 0) //used by attack_hand() and Topic()
 	if(inoperable())
