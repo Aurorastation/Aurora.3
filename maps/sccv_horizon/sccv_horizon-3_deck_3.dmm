@@ -27,19 +27,6 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
-"aby" = (
-/obj/structure/platform{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/bridge/meeting_room)
 "abD" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -3634,6 +3621,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
 "cPS" = (
@@ -6013,6 +6001,10 @@
 	dir = 8;
 	id = "hra_room_bd";
 	name = "Meeting Room Blast Door"
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "ccia_shutters";
+	name = "Safety Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/cciaroom)
@@ -8914,15 +8906,18 @@
 /turf/simulated/open,
 /area/engineering/break_room)
 "guY" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_one_access = list(11,24)
+/obj/structure/platform{
+	dir = 8
 	},
-/obj/machinery/door/firedoor{
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light/floor{
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/turf/simulated/floor/wood,
+/area/bridge/meeting_room)
 "gvC" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -11693,7 +11688,7 @@
 /area/crew_quarters/heads/cmo)
 "irh" = (
 /obj/machinery/papershredder,
-/obj/machinery/firealarm/west,
+/obj/machinery/newscaster/west,
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
 "irl" = (
@@ -15112,6 +15107,16 @@
 	},
 /turf/simulated/open,
 /area/hallway/medical/upper)
+"kJx" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "kJB" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -24305,8 +24310,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_y = -23
+/obj/machinery/button/remote/blast_door{
+	pixel_y = -18;
+	name = "External Shutters";
+	id = "ccia_shutters"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/cciaroom)
@@ -26834,16 +26841,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/medical/upper)
-"sQh" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "sQE" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/hud/health{
@@ -32532,6 +32529,16 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"wTa" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "wTc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -52306,7 +52313,7 @@ oNi
 kQW
 hbl
 pSD
-aby
+guY
 pSD
 tpv
 tJx
@@ -53658,7 +53665,7 @@ nJT
 tNk
 raP
 eoQ
-sQh
+wTa
 wxR
 qLy
 mCX
@@ -54265,7 +54272,7 @@ daf
 daf
 daf
 qLy
-guY
+kJx
 qLy
 uVX
 baO
