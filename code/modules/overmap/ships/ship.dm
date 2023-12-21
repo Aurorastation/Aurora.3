@@ -138,7 +138,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/get_speed_xy()
 	return list(round(speed[1], SHIP_MOVE_RESOLUTION), round(speed[2], SHIP_MOVE_RESOLUTION))
 
-/obj/effect/overmap/visitable/ship/proc/get_heading()
+/obj/effect/overmap/visitable/ship/get_heading()
 	var/res = 0
 	if(MOVING(speed[1]))
 		if(speed[1] > 0)
