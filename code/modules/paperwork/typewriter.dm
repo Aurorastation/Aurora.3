@@ -23,6 +23,7 @@
 
 /obj/item/portable_typewriter/Initialize()
 	. = ..()
+
 	if(!pen)
 		pen = new /obj/item/pen/typewriter(src)
 
