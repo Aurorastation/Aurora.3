@@ -3316,10 +3316,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "ojz" = (
-/obj/machinery/power/smes,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "okk" = (
