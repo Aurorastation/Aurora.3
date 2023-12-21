@@ -1412,10 +1412,6 @@
 		remoteview_target = null
 		reset_view(null, 0)
 
-	update_equipment_vision()
-	species.handle_vision(src)
-
-
 	update_equipment_vision(machine_has_equipment_vision)
 	species.handle_vision(src)
 
