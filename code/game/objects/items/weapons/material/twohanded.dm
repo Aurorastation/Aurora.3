@@ -405,7 +405,7 @@
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/saw/chainsawstart.ogg", 25, 0, 30)
+	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 25, 0, 30)
 	force_unwielded = 30
 	force = force_unwielded
 	force_wielded = 60
