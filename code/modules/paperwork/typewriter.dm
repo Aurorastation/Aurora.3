@@ -135,9 +135,7 @@
 		machine = new /obj/item/portable_typewriter(src)
 
 /obj/item/typewriter_case/Destroy()
-	if(machine)
-		qdel(machine)
-		machine = null
+	QDEL_NULL(machine)
 	return ..()
 
 /obj/item/typewriter_case/AltClick(mob/user)
