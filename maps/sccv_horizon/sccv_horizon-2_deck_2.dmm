@@ -1227,9 +1227,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_research{
 	dir = 1;
+	id_tag = "xeno_entrance_ext";
 	name = "Xenobiology";
-	req_access = list(55);
-	id_tag = "xeno_entrance_ext"
+	req_access = list(55)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -5221,12 +5221,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/button/remote/airlock{
+	dir = 4;
 	id = "xeno_entrance_int";
 	name = "Xenobiology Internal Access Bolts";
+	pixel_x = 21;
 	req_access = list(55);
-	specialfunctions = 4;
-	dir = 4;
-	pixel_x = 21
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -5785,15 +5785,15 @@
 /obj/machinery/power/apc/low/north,
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp{
-	pixel_y = 12;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 12
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
 /obj/machinery/reagentgrinder{
-	pixel_y = 7;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 7
 	},
 /obj/item/stack/material/phoron{
 	pixel_y = 8
@@ -6832,12 +6832,12 @@
 /area/rnd/telesci)
 "dfP" = (
 /obj/machinery/button/remote/airlock{
+	dir = 8;
 	id = "xeno_entrance_int";
 	name = "Xenobiology Internal Access Bolts";
+	pixel_x = -21;
 	req_access = list(55);
-	specialfunctions = 4;
-	dir = 8;
-	pixel_x = -21
+	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -7294,6 +7294,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
+"drn" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/door/window/southright{
+	name = "Warehouse Access";
+	req_one_access = list(26,67,76)
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "drw" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -7900,13 +7910,13 @@
 "dHO" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+	dir = 8;
+	layer = 2.5
 	},
 /obj/machinery/door/airlock/glass_research{
-	req_access = list(55);
+	dir = 8;
 	name = "Cell";
-	dir = 8
+	req_access = list(55)
 	},
 /obj/machinery/door/blast/regular/open{
 	fail_secure = 1;
@@ -14104,8 +14114,8 @@
 /area/hallway/primary/central_one)
 "gzU" = (
 /obj/machinery/computer/operating{
-	name = "Xenobiology Operating Computer";
-	dir = 8
+	dir = 8;
+	name = "Xenobiology Operating Computer"
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -22521,9 +22531,9 @@
 	dir = 8;
 	id = "xeno_entrance_ext";
 	name = "Xenobiology External Access Bolts";
+	pixel_x = -21;
 	req_access = list(55);
-	specialfunctions = 4;
-	pixel_x = -21
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -22715,6 +22725,10 @@
 "kEY" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/machinery/door/window/southleft{
+	name = "Warehouse Access";
+	req_one_access = list(26,67,76)
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -29928,6 +29942,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "oaQ" = (
@@ -29960,10 +29977,10 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	fail_secure = 1;
 	id = "xenobio";
-	name = "Cell Containment Blast Door";
-	dir = 2
+	name = "Cell Containment Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -30059,8 +30076,8 @@
 "ocU" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 1;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 1
 	},
 /obj/item/pen{
 	pixel_x = 6;
@@ -31216,6 +31233,9 @@
 "oDl" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -33807,8 +33827,8 @@
 	dir = 5
 	},
 /obj/machinery/smartfridge/secure/extract{
-	pixel_y = 32;
-	density = 0
+	density = 0;
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -36460,6 +36480,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"rht" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "rhz" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -38642,19 +38671,19 @@
 "sjV" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 4
+	dir = 4;
+	layer = 2.5
 	},
 /obj/machinery/door/airlock/glass_research{
-	req_access = list(55);
+	dir = 4;
 	name = "Cell";
-	dir = 4
+	req_access = list(55)
 	},
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	fail_secure = 1;
 	id = "xenobio";
-	name = "Cell Containment Blast Door";
-	dir = 2
+	name = "Cell Containment Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -39847,8 +39876,8 @@
 "sVf" = (
 /obj/structure/table/standard,
 /obj/item/folder/yellow{
-	pixel_y = 3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /obj/item/device/hand_labeler{
 	pixel_y = -5
@@ -40057,6 +40086,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -41263,9 +41295,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_research{
 	dir = 4;
+	id_tag = "xeno_entrance_int";
 	name = "Xenobiology";
-	req_access = list(55);
-	id_tag = "xeno_entrance_int"
+	req_access = list(55)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -42612,24 +42644,24 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/item/storage/box/lights/colored/blue{
-	pixel_y = 10;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 10
 	},
 /obj/item/storage/box/lights/colored/cyan{
-	pixel_y = 10;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 10
 	},
 /obj/item/storage/box/lights/colored/green{
-	pixel_y = 6;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /obj/item/storage/box/lights/colored/magenta{
 	pixel_x = -6;
 	pixel_y = 6
 	},
 /obj/item/storage/box/lights/colored/red{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/item/storage/box/lights/colored/yellow{
 	pixel_x = -6;
@@ -51400,12 +51432,12 @@
 	pixel_y = 1
 	},
 /obj/item/device/slime_scanner{
-	pixel_y = 4;
-	pixel_x = -11
+	pixel_x = -11;
+	pixel_y = 4
 	},
 /obj/item/device/slime_scanner{
-	pixel_y = 4;
-	pixel_x = -11
+	pixel_x = -11;
+	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -63876,7 +63908,7 @@ kRZ
 kEY
 lSK
 giP
-kRZ
+rht
 mUW
 kmc
 kmc
@@ -64075,10 +64107,10 @@ wPj
 hGE
 ciP
 kRZ
-kEY
+drn
 hUP
 nTB
-kRZ
+rht
 mGc
 rVg
 sTu
