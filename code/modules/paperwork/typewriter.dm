@@ -30,7 +30,7 @@
 	if(stored_paper)
 		qdel(stored_paper)
 		stored_paper = null
-	
+
 	if(pen)
 		qdel(pen)
 		pen = null
@@ -144,7 +144,7 @@
 		qdel(machine)
 		machine = null
 	return ..()
-	
+
 /obj/item/typewriter_case/AltClick(mob/user)
 	if(!Adjacent(user))
 		return
