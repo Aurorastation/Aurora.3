@@ -220,7 +220,7 @@ SUBSYSTEM_DEF(garbage)
 		D.gcDestroyed = GC_CURRENTLY_BEING_QDELETED
 		var/start_time = world.time
 		var/hint = D.Destroy(force) // Let our friend know they're about to get fucked up.
-		SEND_SIGNAL(D, COMSIG_PARENT_QDELETING, force) // Let the (remaining) components know about the result of Destroy
+		SEND_SIGNAL(D, COMSIG_QDELETING, force) // Let the (remaining) components know about the result of Destroy
 		if(world.time != start_time)
 			SSgarbage.sleptDestroy["[D.type]"]++
 		if(!D)

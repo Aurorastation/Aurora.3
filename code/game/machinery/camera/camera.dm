@@ -267,7 +267,7 @@
 //Used when someone breaks a camera
 /obj/machinery/camera/proc/destroy()
 	stat |= BROKEN
-	wires.RandomCutAll()
+	wires.cut_all()
 
 	kick_viewers()
 	triggerCameraAlarm()
@@ -318,7 +318,7 @@
 	camera_alarm.triggerAlarm(loc, src, duration)
 
 /obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
-	if(wires.IsIndexCut(CAMERA_WIRE_ALARM) && !force)
+	if(wires.is_cut(WIRE_ALARM) && !force)
 		return
 
 	alarm_on = 0
@@ -405,7 +405,7 @@
 		return
 
 	user.set_machine(src)
-	wires.Interact(user)
+	wires.interact(user)
 
 /obj/machinery/camera/proc/add_network(var/network_name)
 	add_networks(list(network_name))
@@ -468,7 +468,7 @@
 		return
 	if (stat & BROKEN) // Fix the camera
 		stat &= ~BROKEN
-	wires.CutAll()
-	wires.MendAll()
+	wires.cut_all(src)
+	wires.repair()
 	update_icon()
 	update_coverage()

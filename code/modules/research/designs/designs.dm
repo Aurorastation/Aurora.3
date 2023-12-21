@@ -53,8 +53,8 @@ other types of metals and chemistry for reagents).
 
 /datum/design/proc/AssembleDesignDesc()
 	if(!desc)
-		var/atom/build_item = build_path
-		desc = initial(build_item.desc)
+		var/atom/currently_printing = build_path
+		desc = initial(currently_printing.desc)
 
 //Returns a new instance of the item for this design
 //This is to allow additional initialization to be performed, including possibly additional contructor arguments.
