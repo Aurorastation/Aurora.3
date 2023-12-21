@@ -139,7 +139,7 @@
 	if(!machine)
 		machine = new /obj/item/portable_typewriter(src)
 
-/obj/item/portable_typewriter/Destroy()
+/obj/item/typewriter_case/Destroy()
 	if(machine)
 		qdel(machine)
 		machine = null
