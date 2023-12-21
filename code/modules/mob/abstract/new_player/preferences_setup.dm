@@ -227,7 +227,7 @@
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
-			SSatoms.ForceInitializeContents(mannequin)
+			SSatoms.CreateAtoms(list(mannequin))
 			mannequin.regenerate_icons()
 		else
 			mannequin.update_icon()

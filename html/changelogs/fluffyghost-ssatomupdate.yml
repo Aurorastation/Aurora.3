@@ -1,0 +1,52 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: FluffyGhost
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - backend: "Updated SSAtoms to TG's version."
+  - backend: "Added signals for initialization, repathed old signal_athom_x_act.dm to its updated home."
+  - backend: "Moved /atom initialization related procs in atom/atoms_initializing_EXPENSIVE.dm as per TG."
+  - backend: "Updated INITIALIZE_IMMEDIATE to work with the new subsystem."
+  - backend: "Adapted various procs and other subsystems to work with the new SSAtoms."
+  - backend: "Reordered some procs to set the initialization flag at the start, as that is the supposed behavior."
+  - backend: "Transformed the testing() proc to a macro, as per TG."
+  - backend: "Cleaned up some initializations a bit."
+  - backend: "Flagged organs for immediate initialization."
+  - backend: "Initialized variable is now flags_1, as per TG."
+  - backend: "The Initialized variable is now global for every subsytem."
+  - backend: "Various reordering and flags/defines additions."

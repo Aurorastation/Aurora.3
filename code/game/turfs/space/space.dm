@@ -27,15 +27,14 @@
 /turf/space/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
 	if(config.starlight && use_starlight && lighting_overlays_initialized)
 		update_starlight()
-
-	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-
-	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)

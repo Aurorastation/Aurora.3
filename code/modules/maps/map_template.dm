@@ -121,7 +121,7 @@
 			apcs += A
 		if(isnull(A))
 			atoms -= A
-		if(A.initialized)
+		if(A.flags_1 & INITIALIZED_1)
 			atoms -= A
 
 	var/notsuspended

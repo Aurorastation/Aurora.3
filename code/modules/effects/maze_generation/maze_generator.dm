@@ -51,7 +51,7 @@ do { \
 	run_generator()
 
 /obj/effect/mazegen/generator/Destroy()
-	LAZYREMOVE(SSatoms.late_misc_firers, src)
+	LAZYREMOVE(SSatoms.late_loaders, src)
 	return ..()
 
 // "Push" a turf to the working "stack"

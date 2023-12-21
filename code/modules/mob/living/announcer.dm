@@ -27,9 +27,10 @@
 /mob/living/announcer/Initialize()
 	// we specifically do not call parent Initialize here because this mob should not need it and its point is to be lightweight
 	SHOULD_CALL_PARENT(FALSE)
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-	initialized = TRUE
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	for(var/K in all_languages)
 		add_language(K)

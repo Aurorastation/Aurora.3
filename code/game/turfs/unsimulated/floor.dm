@@ -50,8 +50,11 @@
 /turf/unsimulated/mask/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 
-	initialized = TRUE
-	return
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/unsimulated/chasm_mask/New()
 	return
