@@ -27,13 +27,8 @@
 		pen = new /obj/item/pen/typewriter(src)
 
 /obj/item/portable_typewriter/Destroy()
-	if(stored_paper)
-		qdel(stored_paper)
-		stored_paper = null
-
-	if(pen)
-		qdel(pen)
-		pen = null
+	QDEL_NULL(stored_paper)
+	QDEL_NULL(pen)
 
 	return ..()
 
