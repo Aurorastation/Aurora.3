@@ -1,7 +1,0 @@
-author: steinersteinersteiner
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a line of code for Shumaila's hammer that caused it to be invisible."
-  - bugfix: "Fixed a typo for Dhrarmela's banner icon that caused it to be invisible."
