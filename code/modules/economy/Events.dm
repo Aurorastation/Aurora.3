@@ -8,6 +8,8 @@
 	var/datum/trade_destination/affected_dest
 
 /datum/event/economic_event/start()
+	..()
+
 	affected_dest = pickweight(weighted_randomevent_locations)
 	if(affected_dest.viable_random_events.len)
 		endWhen = rand(60,300)
@@ -93,6 +95,8 @@
 	SSnews.SubmitArticle(body, author, ch, null, 1)
 
 /datum/event/economic_event/end()
+	..()
+
 	for(var/good_type in dearer_goods)
 		affected_dest.temp_price_change[good_type] = 1
 	for(var/good_type in cheaper_goods)

@@ -8,6 +8,8 @@
 	announceWhen = rand(0,80)
 
 /datum/event/supply_drop/start()
+	..()
+
 	var/rarity = 4
 	var/quantity = rand(10,25)
 

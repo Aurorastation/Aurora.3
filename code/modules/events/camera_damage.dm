@@ -1,4 +1,6 @@
 /datum/event/camera_damage/start()
+	..()
+
 	var/obj/machinery/camera/C = acquire_random_camera()
 	if(!C)
 		return

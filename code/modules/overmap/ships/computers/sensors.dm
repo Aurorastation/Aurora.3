@@ -81,9 +81,9 @@
 		QDEL_NULL(sound_token)
 
 /obj/machinery/computer/ship/sensors/proc/display_message(var/message)
-	if(!HAS_FLAG(stat, NOPOWER))
+	if(NOT_FLAG(stat, NOPOWER))
 		playsound(src, 'sound/machines/triplebeep.ogg', 50)
-		visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"[message]\"</i>"))
+		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"))
 
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

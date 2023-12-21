@@ -3,4 +3,5 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Shuttles flying through overmap events now get a sensor console message about it."
+  - tweak: "Tuned up a lot of overmap event announcements, they will now announce to the appropriate ship. For shuttles, a small ping and a readout will come from the sensors console instead of a big announcement."
+  - bugfix: "Fixed a lot of events targetting the wrong ship, such as the ion storm one."
