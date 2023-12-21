@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "CULT: Examining the cult tome now gives you the option to read it, instead of it happening every time you go to use it."
+  - tweak: "CULT: Clicking on the floor with a cult rune will now let you scribe a rune there. As a side-effect, you can now scribe multiple runes at the same time."
