@@ -144,12 +144,8 @@
 
 	playsound(loc, 'sound/items/storage/briefcase.ogg', 50, 0, -5)
 
-	if(!opened)
-		opened = TRUE
-		update_icon()
-	else
-		opened = FALSE
-		update_icon()
+	opened = !opened
+	update_icon()
 
 /obj/item/typewriter_case/update_icon()
 	if(opened && machine)
