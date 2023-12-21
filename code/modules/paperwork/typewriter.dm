@@ -166,7 +166,7 @@
 				user.put_in_hands(machine)
 				machine = null
 				update_icon()
-		else if (!opened)
+		else
 			to_chat(user, SPAN_ALERT("\The [src] is currently closed!"))
 	return
 
