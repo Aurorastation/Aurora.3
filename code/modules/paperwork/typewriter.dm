@@ -59,7 +59,7 @@
 		return
 	if(((user.contents.Find(src) || in_range(src, user))))
 		if(isnull(stored_paper))
-			to_chat(user, SPAN_ALERT ("\The [src] has no paper fed for typing!"))
+			to_chat(user, SPAN_ALERT("\The [src] has no paper fed for typing!"))
 		else
 			stored_paper.attackby(pen, user)
 	return
