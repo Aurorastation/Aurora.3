@@ -1046,7 +1046,7 @@
 	new /obj/item/device/augment_implanter/hivenet_warfare(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/skrell
-	associated_hardsuit = /obj/item/rig/skrell/tup/modern/ninja
+	associated_hardsuit = /obj/item/rig/skrell/tup/ninja
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/skrell/fill()
 	new /obj/item/clothing/accessory/holster/hip(src)
