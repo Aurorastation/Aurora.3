@@ -4180,14 +4180,14 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "dpE" = (
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	dir = 4;
-	pixel_y = 6
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 4;
+	pixel_y = 3
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "dqe" = (
@@ -4855,6 +4855,9 @@
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 7
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "dSb" = (
@@ -5123,12 +5126,12 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "conferencesafetyshutters";
 	name = "Safety Shutter"
 	},
@@ -5158,14 +5161,12 @@
 /turf/simulated/wall/r_wall,
 /area/lawoffice/consular)
 "edo" = (
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	dir = 1;
-	pixel_y = 8
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/structure/table/stone/marble,
+/obj/machinery/vending/boozeomat{
+	req_access = null
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "edI" = (
@@ -5193,11 +5194,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/item/device/radio/intercom/west,
+/obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/disposal/small/east,
-/obj/item/device/radio/intercom/west,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "efd" = (
@@ -8538,12 +8539,12 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "conferencesafetyshutters";
 	name = "Safety Shutter"
 	},
@@ -8906,18 +8907,15 @@
 /turf/simulated/open,
 /area/engineering/break_room)
 "guY" = (
-/obj/structure/platform{
-	dir = 8
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/bridge/meeting_room)
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "gvC" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -11328,12 +11326,12 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -12
 	},
 /obj/machinery/newscaster/security_unit/west,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "icg" = (
@@ -15107,16 +15105,6 @@
 	},
 /turf/simulated/open,
 /area/hallway/medical/upper)
-"kJx" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "kJB" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -16437,13 +16425,13 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "conferencesafetyshutters";
 	name = "Safety Shutter"
 	},
@@ -21174,6 +21162,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/ward)
+"oIm" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "oIo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
@@ -22776,10 +22774,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "qcE" = (
@@ -22949,13 +22947,10 @@
 /area/tcommsat/chamber)
 "qkE" = (
 /obj/machinery/alarm/north,
-/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 7
-	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "qkW" = (
@@ -24457,12 +24452,12 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "conferencesafetyshutters";
 	name = "Safety Shutter"
 	},
@@ -25339,6 +25334,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"rRN" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/bridge/meeting_room)
 "rSL" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -30565,14 +30573,14 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "conferencesafetyshutters";
 	name = "Safety Shutter"
 	},
@@ -31326,7 +31334,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
@@ -32529,16 +32537,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"wTa" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "wTc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -33781,11 +33779,13 @@
 /turf/simulated/floor/tiled/full,
 /area/medical/washroom)
 "xPj" = (
-/obj/machinery/vending/boozeomat{
-	req_access = null
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
+	},
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 4;
+	pixel_y = 6
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
@@ -52313,7 +52313,7 @@ oNi
 kQW
 hbl
 pSD
-guY
+rRN
 pSD
 tpv
 tJx
@@ -53665,7 +53665,7 @@ nJT
 tNk
 raP
 eoQ
-wTa
+guY
 wxR
 qLy
 mCX
@@ -54272,7 +54272,7 @@ daf
 daf
 daf
 qLy
-kJx
+oIm
 qLy
 uVX
 baO
