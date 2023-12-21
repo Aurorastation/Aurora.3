@@ -22,19 +22,18 @@
 
 	var/qdeleted = FALSE
 
-	switch(result)
-		if (INITIALIZE_HINT_NORMAL)
-			// pass
-		if(INITIALIZE_HINT_LATELOAD)
-			if(arguments[1]) //mapload
-				late_loaders += A
+	if(result != INITIALIZE_HINT_NORMAL)
+		switch(result)
+			if(INITIALIZE_HINT_LATELOAD)
+				if(arguments[1]) //mapload
+					late_loaders += A
+				else
+					A.LateInitialize()
+			if(INITIALIZE_HINT_QDEL)
+				qdel(A)
+				qdeleted = TRUE
 			else
-				A.LateInitialize()
-		if(INITIALIZE_HINT_QDEL)
-			qdel(A)
-			qdeleted = TRUE
-		else
-			BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
+				BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
 
 	if(!A) //possible harddel
 		qdeleted = TRUE
