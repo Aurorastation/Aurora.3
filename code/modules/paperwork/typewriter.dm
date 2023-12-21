@@ -57,6 +57,7 @@
 /obj/item/portable_typewriter/MouseDrop(mob/user as mob)
 	if(use_check_and_message(user))
 		return
+
 	if(((user.contents.Find(src) || in_range(src, user))))
 		if(isnull(stored_paper))
 			to_chat(user, SPAN_ALERT("\The [src] has no paper fed for typing!"))
