@@ -9,6 +9,8 @@
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
 	possible_themes = list(/datum/exoplanet_theme/desert)
+	flora_diversity = 4
+	has_trees = FALSE
 	surface_color = "#d6cca4"
 	water_color = null
 	ruin_planet_type = PLANET_DESERT

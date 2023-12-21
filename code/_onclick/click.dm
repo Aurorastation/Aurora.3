@@ -120,6 +120,7 @@
 		return 1
 
 	if(in_throw_mode && (isturf(A) || isturf(A.loc)) && throw_item(A))
+		trigger_aiming(TARGET_CAN_CLICK)
 		throw_mode_off()
 		return TRUE
 
@@ -127,6 +128,7 @@
 
 	if(W == A) // Handle attack_self
 		W.attack_self(src)
+		trigger_aiming(TARGET_CAN_CLICK)
 		if(hand)
 			update_inv_l_hand(0)
 		else
@@ -149,6 +151,8 @@
 			if(ismob(A)) // No instant mob attacking
 				setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			UnarmedAttack(A, 1)
+
+		trigger_aiming(TARGET_CAN_CLICK)
 		return 1
 
 	if(!isturf(loc)) // This is going to stop you from telekinesing from inside a closet, but I don't shed many tears for that
@@ -168,12 +172,16 @@
 				if(ismob(A)) // No instant mob attacking
 					setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				UnarmedAttack(A, 1)
+
+			trigger_aiming(TARGET_CAN_CLICK)
 			return
 		else // non-adjacent click
 			if(W)
 				W.afterattack(A, src, 0, params) // 0: not Adjacent
 			else
 				RangedAttack(A, params)
+
+			trigger_aiming(TARGET_CAN_CLICK)
 	return 1
 
 /mob/proc/setClickCooldown(var/timeout)
@@ -264,7 +272,7 @@
 
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.can_examine())
-		user.examinate(src)
+		examinate(user, src)
 
 /*
 	Ctrl click
@@ -291,13 +299,10 @@
 
 /atom/proc/AltClick(var/mob/user)
 	var/turf/T = get_turf(src)
-	if(T && user.TurfAdjacent(T))
-		if(user.listed_turf == T)
-			user.listed_turf = null
-		else
-			user.listed_turf = T
-			user.client.statpanel = "Turf"
-	return 1
+	if(!T || !user.TurfAdjacent(T))
+		return FALSE
+	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
+		user.set_listed_turf(T)
 
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
@@ -348,7 +353,7 @@
 	var/dy = A.y - y
 
 	var/direction
-	if (loc == A.loc && A.flags & ON_BORDER)
+	if (loc == A.loc && A.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 		direction = A.dir
 	else if (!dx && !dy)
 		return
@@ -372,7 +377,7 @@ var/global/list/click_catchers
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"
 
 /obj/screen/click_catcher/Destroy()

@@ -220,7 +220,7 @@
 	icon_state = "crossbowframe[buildstate]"
 
 /obj/item/crossbowframe/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(buildstate)
 		if(1) to_chat(user, "It has a loose rod frame in place.")
 		if(2) to_chat(user, "It has a steel backbone welded in place.")
@@ -370,5 +370,4 @@
 
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
-	if(.)
-		to_chat(user, "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.")
+	to_chat(user, "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.")

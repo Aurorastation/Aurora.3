@@ -43,11 +43,11 @@
 	opacity = 0
 	density = 0
 	icon = 'icons/obj/hydroponics_growing.dmi'
-	icon_state = "bush4-1"
+	icon_state = ""
 	layer = 3
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 	var/health = 10
 	var/max_health = 100
@@ -100,18 +100,10 @@
 
 	name = seed.display_name
 	max_health = round(seed.get_trait(TRAIT_ENDURANCE)/2)
-	if(seed.get_trait(TRAIT_SPREAD)==2)
+	if(seed.get_trait(TRAIT_SPREAD)==GROWTH_VINES)
 		max_growth = VINE_GROWTH_STAGES
 		growth_threshold = max_health/VINE_GROWTH_STAGES
-		icon = 'icons/obj/hydroponics_vines.dmi'
-		growth_type = 2 // Vines by default.
-		if(seed.get_trait(TRAIT_CARNIVOROUS) == 2)
-			growth_type = 1 // WOOOORMS.
-		else if(!(seed.seed_noun in list(SEED_NOUN_SEEDS,SEED_NOUN_PITS)))
-			if(seed.seed_noun == SEED_NOUN_NODES)
-				growth_type = 3 // Biomass
-			else
-				growth_type = 4 // Mold
+		growth_type = seed.get_growth_type()
 	else
 		max_growth = seed.growth_stages
 		growth_threshold = max_health/seed.growth_stages
@@ -123,7 +115,7 @@
 
 	mature_time = world.time + seed.get_trait(TRAIT_MATURATION) + 15 //prevent vines from maturing until at least a few seconds after they've been created.
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
-	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
+	spread_distance = (growth_type ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
 	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 1)
 
@@ -140,7 +132,7 @@
 /obj/effect/plant/update_icon()
 	//TODO: should really be caching this.
 	refresh_icon()
-	if(growth_type == 0 && !floor)
+	if(!growth_type && !floor)
 		src.transform = null
 		var/matrix/M = matrix()
 		// should make the plant flush against the wall it's meant to be growing from.
@@ -172,6 +164,7 @@
 			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
+	overlays.Cut()
 	var/growth = 0
 	if(growth_threshold)
 		growth = min(max_growth,round(health/growth_threshold))
@@ -181,25 +174,17 @@
 			max_growth--
 		if(at_fringe >= (spread_distance-2))
 			max_growth--
-	max_growth = max(1,max_growth)
-	if(growth_type > 0)
-		switch(growth_type)
-			if(1)
-				icon_state = "worms"
-			if(2)
-				icon_state = "vines-[growth]"
-			if(3)
-				icon_state = "mass-[growth]"
-			if(4)
-				icon_state = "mold-[growth]"
-	else
-		icon_state = "[seed.get_trait(TRAIT_PLANT_ICON)]-[growth]"
 
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
-		opacity = 1
+		if(growth_type in list(GROWTH_VINES,GROWTH_BIOMASS))
+			opacity = 1
 		if(islist(seed.chems) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
+			opacity = 1
 			density = 1
+	if(seed.get_trait(TRAIT_LARGE))
+		density = 1
+		opacity = 1
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		density = 0
@@ -271,6 +256,17 @@
 		health -= damage
 	check_health()
 
+/obj/effect/plant/attack_hand(user)
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/H = user
+	playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+	var/damage = H.default_attack.get_unarmed_damage(H, src) ? H.default_attack.get_unarmed_damage(H, src) : 1
+	if(H.default_attack.edge || H.default_attack.sharp)
+		damage *= 2
+	health -= damage
+	check_health()
+
 /obj/effect/plant/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -284,7 +280,7 @@
 			if (prob(5))
 				die_off()
 				return
-		else
+
 	return
 
 /obj/effect/plant/proc/check_health()
@@ -293,3 +289,7 @@
 
 /obj/effect/plant/proc/is_mature()
 	return (health >= (max_health/3) && world.time > mature_time)
+
+
+#undef DEFAULT_SEED
+#undef VINE_GROWTH_STAGES

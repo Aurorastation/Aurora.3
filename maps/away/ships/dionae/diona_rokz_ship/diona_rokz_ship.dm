@@ -8,6 +8,8 @@
 	id = "diona_rokz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/diona_rokz_ship
 	map = "Rokz Clan Ship"
 	descriptor = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
@@ -47,8 +49,8 @@
 	name = "Rokz Clan Ship"
 	class = "RCS"
 	desc = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	icon_state = "diona"
-	moving_state = "diona_moving"
+	icon_state = "asteroid_cluster"
+	moving_state = "asteroid_cluster_moving"
 	colors = list("#5cc04c", "#78f898")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -71,8 +73,8 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/New()
-    designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
-    ..()
+	designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "diona")
@@ -81,7 +83,7 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav1
-	name = "Rokz Clan Ship - Port Airlock"
+	name = "Rokz Clan Ship - Starboard Airlock"
 	landmark_tag = "nav_diona_rokz_ship_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space

@@ -17,7 +17,7 @@
 	var/icon_selected = 0		//If icon selection has been completed yet
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
 	var/pitch_toggle = TRUE
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 	var/datum/effect_system/sparks/spark_system
 
 	// Wiring
@@ -169,7 +169,7 @@
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
 		else
 			camera.replace_networks(list(NETWORK_MERCENARY))
-		if(wires.IsIndexCut(BORG_WIRE_CAMERA))
+		if(wires.is_cut(WIRE_CAMERA))
 			camera.status = FALSE
 
 	init()
@@ -242,7 +242,7 @@
 		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
-		radio.recalculateChannels()
+		INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 	if(law_update)
 		var/new_ai = select_active_ai_with_fewest_borgs()
 		if(new_ai)
@@ -294,7 +294,7 @@
 		else
 			to_chat(src, SPAN_DANGER("Oops! Something went very wrong, your MMI was unable to receive your mind. You have been ghosted. Please make a bug report so we can fix this bug."))
 			ghostize()
-			log_debug("A borg has been destroyed, but its MMI lacked a brainmob, so the mind could not be transferred. Player: [ckey].")
+			LOG_DEBUG("A borg has been destroyed, but its MMI lacked a brainmob, so the mind could not be transferred. Player: [ckey].")
 		mmi = null
 	if(connected_ai)
 		connected_ai.connected_robots -= src
@@ -341,7 +341,7 @@
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
-	mod_type = input("Please, select a module!", "Robot", null, null) as null|anything in modules
+	mod_type = tgui_input_list(src, "Please, select a module!", "Robot", modules)
 
 	if(module)
 		selecting_module = FALSE
@@ -415,7 +415,7 @@
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
 	set name = "Show Crew Manifest"
-	SSrecords.open_manifest_vueui(usr)
+	SSrecords.open_manifest_tgui(usr)
 
 /mob/living/silicon/robot/proc/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
@@ -499,29 +499,13 @@
 		if(C.installed)
 			installed_components += V
 
-	var/toggle = input(src, "Which component do you want to toggle?", "Toggle Component") as null|anything in installed_components
+	var/toggle = tgui_input_list(src, "Which component do you want to toggle?", "Toggle Component", installed_components)
 	if(!toggle)
 		return
 
 	var/datum/robot_component/C = components[toggle]
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
-
-/mob/living/silicon/robot/verb/view_holomap()
-	set category = "Robot Commands"
-	set name = "View Holomap"
-	set desc = "View a virtual map of the surrounding area."
-
-	var/obj/machinery/station_map/mobile/holo_map_object
-	if(src.holo_map)
-		holo_map_object = src.holo_map.resolve()
-
-	// Not an else because weakref.resolve() can return false. Edge case
-	if(!holo_map_object)
-		holo_map_object = new(src)
-		src.holo_map = WEAKREF(holo_map)
-
-	holo_map_object.startWatching(src)
 
 /mob/living/silicon/robot/verb/rebuild_overlays()
 	set category = "Robot Commands"
@@ -555,39 +539,30 @@
 		set_light(0)
 	setup_eye_cache() //update eyes
 
-// this function displays jetpack pressure in the stat panel
-/mob/living/silicon/robot/proc/show_jetpack_pressure()
-	// if you have a jetpack, show the internal tank pressure
-	if(jetpack)
-		stat(null, "Internal Atmosphere Info: [jetpack.name]")
-		stat(null, "Tank Pressure: [jetpack.air_contents.return_pressure()]")
-
-// this function displays the cyborgs current cell charge in the stat panel
-/mob/living/silicon/robot/proc/show_cell_power()
-	if(cell)
-		stat(null, text("Charge Left: [round(cell.percent())]%"))
-		stat(null, text("Cell Rating: [round(cell.maxcharge)]")) // Round just in case we somehow get crazy values
-		stat(null, text("Power Cell Load: [round(used_power_this_tick)]W"))
-	else
-		stat(null, text("No Cell Inserted!"))
-
 /mob/living/silicon/robot/proc/show_access()
 	if(!module)
-		stat(null, text("Access type: assistant level access"))
+		. = "Access Type: Assistant Level"
 	else
-		stat(null, text("Access type: [module.all_access ? "all access" : "role specific"]"))
+		. = "Access Type: [module.all_access ? "All Access" : "Role Specific"]"
 
-// update the status screen display
-/mob/living/silicon/robot/Stat()
-	..()
-	if(statpanel("Status"))
-		show_cell_power()
-		show_access()
-		show_jetpack_pressure()
-		stat(null, text("Lights: [lights_on ? "ON" : "OFF"]"))
-		if(module)
-			for(var/datum/matter_synth/ms in module.synths)
-				stat("[ms.name]: [ms.energy]/[ms.max_energy_multiplied]")
+/mob/living/silicon/robot/get_status_tab_items()
+	. = ..()
+	if(cell)
+		. += "Charge Left: [round(cell.percent())]%"
+		. += "Cell Rating: [round(cell.maxcharge)]" // Round just in case we somehow get crazy values
+		. += "Power Cell Load: [round(used_power_this_tick)]W"
+	else
+		. += "No Cell Inserted!"
+
+	. += show_access()
+
+	if(jetpack)
+		. += "Internal Atmosphere Info: [jetpack.name]"
+		. += "Tank Pressure: [jetpack.air_contents.return_pressure()]"
+	. += "Lights: [lights_on ? "ON" : "OFF"]"
+	if(module)
+		for(var/datum/matter_synth/ms in module.synths)
+			. += "[ms.name]: [ms.energy]/[ms.max_energy_multiplied]"
 
 /mob/living/silicon/robot/restrained()
 	return FALSE
@@ -684,7 +659,7 @@
 						to_chat(user, SPAN_NOTICE("You close \the [src]'s maintenance hatch."))
 						opened = FALSE
 						handle_panel_overlay()
-				else if(wires_exposed && wires.IsAllCut())
+				else if(wires_exposed && wires.is_all_cut())
 					//Cell is out, wires are exposed, remove MMI, produce damaged chassis, baleet original mob.
 					if(!mmi)
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
@@ -705,7 +680,7 @@
 						if(C.installed == TRUE || C.installed == -1)
 							removable_components += V
 
-					var/remove = input(user, "Which component do you want to pry out?", "Remove Component") as null|anything in removable_components
+					var/remove = tgui_input_list(user, "Which component do you want to pry out?", "Remove Component", removable_components)
 					if(!remove)
 						return
 					var/datum/robot_component/C = components[remove]
@@ -767,7 +742,7 @@
 				handle_panel_overlay()
 		else if(W.iswirecutter() || W.ismultitool())
 			if(wires_exposed)
-				wires.Interact(user)
+				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 				return
@@ -925,10 +900,6 @@
 	if(..())
 		return TRUE
 	if(usr != src)
-		return TRUE
-
-	if(href_list["showalerts"])
-		subsystem_alarm_monitor()
 		return TRUE
 
 	if(href_list["mod"])
@@ -1096,7 +1067,7 @@
 	if(R)
 		R.UnlinkSelf()
 		to_chat(R, SPAN_NOTICE("Buffers flushed and reset. Camera system shutdown. All systems operational."))
-		src.verbs -= /mob/living/silicon/robot/proc/ResetSecurityCodes
+		remove_verb(src, /mob/living/silicon/robot/proc/ResetSecurityCodes)
 
 /mob/living/silicon/robot/proc/SetLockdown(var/state = TRUE)
 	// They stay locked down if their wire is cut.
@@ -1125,7 +1096,7 @@
 		return
 
 	if(icon_selected)
-		verbs -= /mob/living/silicon/robot/proc/choose_icon
+		remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 		return
 
 	if(length(module_sprites) == 1 || !client)
@@ -1155,7 +1126,7 @@
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	verbs -= /mob/living/silicon/robot/proc/choose_icon
+	remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 
 
@@ -1172,12 +1143,12 @@
 	return sensor_mode == MED_HUD
 
 /mob/living/silicon/robot/proc/add_robot_verbs()
-	src.verbs |= robot_verbs_default
-	src.verbs |= silicon_subsystems
+	add_verb(src, robot_verbs_default)
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/proc/remove_robot_verbs()
-	src.verbs -= robot_verbs_default
-	src.verbs -= silicon_subsystems
+	remove_verb(src, robot_verbs_default)
+	remove_verb(src, silicon_subsystems)
 
 // Uses power from cyborg's cell. Returns 1 on success or 0 on failure.
 // Properly converts using CELLRATE now! Amount is in Joules.
@@ -1304,3 +1275,8 @@
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
 		to_chat(src, SPAN_NOTICE("You are not injured enough to succumb to death!"))
+
+/mob/living/silicon/robot/GetIdCard()
+	return id_card
+
+#undef CYBORG_POWER_USAGE_MULTIPLIER

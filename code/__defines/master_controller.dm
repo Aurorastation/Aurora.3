@@ -14,12 +14,12 @@
 // For multi-step subsystems that want to split their tick into multiple parts.
 #define MC_SPLIT_TICK_INIT(phase_count) var/original_tick_limit = CURRENT_TICKLIMIT; var/split_tick_phases = ##phase_count
 #define MC_SPLIT_TICK \
-    if(split_tick_phases > 1){\
-        CURRENT_TICKLIMIT = ((original_tick_limit - world.tick_usage) / split_tick_phases) + world.tick_usage;\
-        --split_tick_phases;\
-    } else {\
-        CURRENT_TICKLIMIT = original_tick_limit;\
-    }
+	if(split_tick_phases > 1){\
+		CURRENT_TICKLIMIT = ((original_tick_limit - world.tick_usage) / split_tick_phases) + world.tick_usage;\
+		--split_tick_phases;\
+	} else {\
+		CURRENT_TICKLIMIT = original_tick_limit;\
+	}
 
 // Used to smooth out costs to try and avoid oscillation.
 #define MC_AVERAGE_FAST(average, current) (0.7 * (average) + 0.3 * (current))
@@ -31,6 +31,8 @@
 
 #define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
+#define MC_LOOP_RTN_NEWSTAGES 1
+#define MC_LOOP_RTN_GRACEFUL_EXIT 2
 
 //SubSystem flags (Please design any new flags so that the default is off, to make adding flags to subsystems easier)
 
@@ -81,9 +83,37 @@
 #define SS_SLEEPING 4	//fire() slept.
 #define SS_PAUSING 5 	//in the middle of pausing
 
+// Subsystem init stages
+#define INITSTAGE_EARLY 1 //! Early init stuff that doesn't need to wait for mapload
+#define INITSTAGE_MAIN 2 //! Main init stage
+#define INITSTAGE_MAX 2 //! Highest initstage.
+
 // Subsystem init-states, used for the initialization MC panel.
 #define SS_INITSTATE_NONE 0
 #define SS_INITSTATE_STARTED 1
 #define SS_INITSTATE_DONE 2
 
 #define SS_PRIORITY_DEFAULT 25
+
+#define SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/##X);\
+/datum/controller/subsystem/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/##X
+
+#define PROCESSING_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/processing/##X);\
+/datum/controller/subsystem/processing/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/processing/##X/fire() {..() /*just so it shows up on the profiler*/} \
+/datum/controller/subsystem/processing/##X
+
+#define MOB_AI_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/mob_ai/##X);\
+/datum/controller/subsystem/mob_ai/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/mob_ai/##X/fire() {..() /*just so it shows up on the profiler*/} \
+/datum/controller/subsystem/mob_ai/##X

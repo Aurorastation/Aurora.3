@@ -31,19 +31,20 @@
 	return src.attack_hand(user)
 
 /obj/machinery/computer/arcade/emp_act(severity)
+	. = ..()
+
 	if(stat & (NOPOWER|BROKEN))
-		..(severity)
 		return
+
 	var/num_of_prizes = 0
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			num_of_prizes = rand(1,4)
-		if(2)
+		if(EMP_LIGHT)
 			num_of_prizes = rand(0,2)
 	for(num_of_prizes; num_of_prizes > 0; num_of_prizes--)
 		new prize(src.loc)
 
-	..(severity)
 
 ///////////////////
 //  BATTLE HERE  //
@@ -99,7 +100,7 @@
 
 	dat += "</b></center>"
 
-	send_theme_resources(user)
+
 	var/datum/browser/arcade_win = new(user, "arcade", capitalize_first_letters(name))
 	arcade_win.set_content(dat)
 	arcade_win.open()

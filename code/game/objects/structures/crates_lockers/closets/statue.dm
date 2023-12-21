@@ -78,9 +78,9 @@
 	appearance_flags |= KEEP_TOGETHER
 	dir = L.dir
 	color = list(
-				    0.30, 0.3, 0.25,
-				    0.30, 0.3, 0.25,
-				    0.30, 0.3, 0.25
+					0.30, 0.3, 0.25,
+					0.30, 0.3, 0.25,
+					0.30, 0.3, 0.25
 				)
 	name = "statue of [L.name]"
 	desc = "An incredibly lifelike stone carving."

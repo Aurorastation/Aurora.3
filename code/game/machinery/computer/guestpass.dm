@@ -18,7 +18,7 @@
 		return temp_access
 
 /obj/item/card/id/guest/examine(mob/user)
-	..(user)
+	. = ..()
 	if(world.time > expiration_time)
 		to_chat(usr, "This pass expired at: [worldtime2text(expiration_time)].")
 	else
@@ -133,7 +133,7 @@
 				if(reas)
 					reason = reas
 			if("duration")
-				var/dur = input("Duration (in minutes) during which pass is valid (up to 60 minutes):", "Duration") as num|null
+				var/dur = tgui_input_number(usr, "Insert the duration (in minutes) during which this pass is valid (up to 60 minutes).", "Duration", 30, 60, 0)
 				if(dur)
 					if(dur > 0 && dur <= 60)
 						duration = dur

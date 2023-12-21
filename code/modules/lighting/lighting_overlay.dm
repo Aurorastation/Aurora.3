@@ -4,7 +4,7 @@
 	icon          = LIGHTING_ICON
 	icon_state    = LIGHTING_BASE_ICON_STATE
 	color         = LIGHTING_BASE_MATRIX
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer         = LIGHTING_LAYER
 	invisibility  = INVISIBILITY_LIGHTING
 	simulated     = 0
@@ -17,7 +17,8 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New()
+/atom/movable/lighting_overlay/Initialize(mapload, ...)
+	. = ..()
 	SSlighting.total_lighting_overlays++
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
@@ -58,18 +59,21 @@
 
 	// See LIGHTING_CORNER_DIAGONAL in lighting_corner.dm for why these values are what they are.
 	var/list/corners = T.corners
-	var/datum/lighting_corner/cr = dummy_lighting_corner
-	var/datum/lighting_corner/cg = dummy_lighting_corner
-	var/datum/lighting_corner/cb = dummy_lighting_corner
-	var/datum/lighting_corner/ca = dummy_lighting_corner
-	if (corners)
-		cr = corners[3] || dummy_lighting_corner
-		cg = corners[2] || dummy_lighting_corner
-		cb = corners[4] || dummy_lighting_corner
-		ca = corners[1] || dummy_lighting_corner
 
-	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
-	luminosity = max > LIGHTING_SOFT_THRESHOLD
+	//Local cache, because otherwise it accesses the global variable repeatedly, which is slower
+	var/dummy_lighting_corner_cache = dummy_lighting_corner
+
+	var/datum/lighting_corner/cr = dummy_lighting_corner_cache
+	var/datum/lighting_corner/cg = dummy_lighting_corner_cache
+	var/datum/lighting_corner/cb = dummy_lighting_corner_cache
+	var/datum/lighting_corner/ca = dummy_lighting_corner_cache
+	if (corners)
+		cr = corners[3] || dummy_lighting_corner_cache
+		cg = corners[2] || dummy_lighting_corner_cache
+		cb = corners[4] || dummy_lighting_corner_cache
+		ca = corners[1] || dummy_lighting_corner_cache
+
+	luminosity = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx) > LIGHTING_SOFT_THRESHOLD
 
 	var/rr = cr.cache_r
 	var/rg = cr.cache_g

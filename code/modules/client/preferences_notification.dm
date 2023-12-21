@@ -153,7 +153,7 @@
 		var/cciaa_actions = count_ccia_actions(user)
 		if (cciaa_actions)
 			new_notification("info", cciaa_actions)
-		
+
 		add_active_notifications(user)
 
 /datum/preferences/proc/add_active_notifications(var/client/user)
@@ -161,7 +161,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		log_error("Error initiatlizing database connection while getting notifications.")
+		log_world("ERROR: Error initiatlizing database connection while getting notifications.")
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery({"SELECT
@@ -187,12 +187,12 @@
 				panel_notification=1
 				notification_count++
 			if("admin")
-				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
+				SSdiscord.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immediately ack the notification
 				autoack=1
 			if("ccia")
-				discord_bot.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
+				SSdiscord.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immeidately ack the notification
 				autoack=1
@@ -215,7 +215,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		log_error("Error initiatlizing database connection while counting CCIA actions.")
+		log_world("ERROR: Error initiatlizing database connection while counting CCIA actions.")
 		return null
 
 	var/DBQuery/prep_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")

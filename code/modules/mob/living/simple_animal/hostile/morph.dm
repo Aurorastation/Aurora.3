@@ -32,7 +32,6 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	stop_sight_update = TRUE
 
@@ -57,8 +56,8 @@
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
-	verbs += /mob/living/proc/ventcrawl
-	verbs -= /mob/living/simple_animal/verb/change_name
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/simple_animal/verb/change_name)
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)
@@ -99,12 +98,11 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
 	if(morphed)
 		. = form.examine(user)
-		if(get_dist(src, user) > 2)
-			return
-		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
+		if(distance <= 2)
+			to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else
 		return ..()
 
@@ -125,7 +123,7 @@
 	if(A?.loc == src)
 		return FALSE
 	visible_message(SPAN_WARNING("\The [src] begins swallowing \the [A] whole!"), SPAN_NOTICE("You begin swallowing \the [A] whole."))
-	if(do_after(src, delay, act_target = A))
+	if(do_after(src, delay, A))
 		visible_message(SPAN_WARNING("\The [src] swallows \the [A] whole!"), SPAN_NOTICE("You swallow \the [A] whole."))
 		A.forceMove(src)
 		return TRUE

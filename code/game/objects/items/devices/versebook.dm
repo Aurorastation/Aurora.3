@@ -34,7 +34,7 @@
 	var/q // recycled from tip of the day code. it just works!(TM)
 	q = pick(randomquip)
 
-	if(do_after(user, 25))
+	if(do_after(user, 2.5 SECONDS))
 		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
 	reading = FALSE
 
@@ -81,6 +81,18 @@
 /obj/item/device/versebook/trinary/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/trinary.txt")
+
+/obj/item/device/versebook/templeist
+	name = "\improper The Voice of Temple (abdridged version)"
+	desc = "The holy text of the Lodge of Temple Architect, an order within the Trinary Perfection that seeks to attain its goals via technological advancement and scientific discovery."
+	desc_extended = "This book contains some of the words of Temple, a sacred AI within the Trinary Perfection and namesake of the Lodge of the Temple Architect. It also includes some teachings by leading members within the sect. Due to its recent establishment, this book is frequently changed and amended \
+	as new insights into their faith are realized."
+	icon_state = "templeistbook"
+	item_state = "trinary"
+
+/obj/item/device/versebook/templeist/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/templeist.txt")
 
 /obj/item/device/versebook/siakh
 	name = "\improper Writings of Judizah Si'akh"

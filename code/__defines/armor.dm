@@ -18,15 +18,16 @@
 #define  ARMOR_LASER_SMALL			25
 #define  ARMOR_LASER_KEVLAR			30
 #define  ARMOR_LASER_PISTOL			35
-#define  ARMOR_LASER_MEDIUM			40
-#define  ARMOR_LASER_RIFLE			45 //Used by security ablatives. Drops midlasers down to 13.5 damage.
-#define  ARMOR_LASER_MAJOR			55
+#define  ARMOR_LASER_MEDIUM			40 // Drops midlasers down to 22.5 damage.
+#define  ARMOR_LASER_RIFLE			45 // Drops midlasers down to 18 damage.
+#define  ARMOR_LASER_MAJOR			55 // Drops midlasers down to 9 damage.
 #define  ARMOR_LASER_AP				70
 #define  ARMOR_LASER_HEAVY			100
 
 #define  ARMOR_MELEE_MINOR			5
 #define  ARMOR_MELEE_SMALL			10
 #define  ARMOR_MELEE_KNIVES			15
+#define	 ARMOR_MELEE_MEDIUM			20
 #define  ARMOR_MELEE_KEVLAR			25
 #define  ARMOR_MELEE_RESISTANT		30
 #define  ARMOR_MELEE_MAJOR			50

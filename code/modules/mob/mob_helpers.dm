@@ -154,15 +154,12 @@
 /proc/iszombie(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		switch(H.get_species())
-			if(SPECIES_ZOMBIE)
-				return TRUE
-			if(SPECIES_ZOMBIE_TAJARA)
-				return TRUE
-			if(SPECIES_ZOMBIE_UNATHI)
-				return TRUE
-			if(SPECIES_ZOMBIE_SKRELL)
-				return TRUE
+
+		if(istype(H.get_species(TRUE), /datum/species/zombie))
+			return TRUE
+		else
+			return FALSE
+
 	return FALSE
 
 /proc/isundead(A)
@@ -739,6 +736,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	return 1
 
 /mob/living/carbon/human/proc/delayed_vomit()
+	if(QDELETED(src))
+		return
+
 	if(!check_has_mouth())
 		return
 	if(stat == DEAD)
@@ -753,9 +753,10 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		spawn(150)	//15 seconds until second warning
 			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				empty_stomach()
-				spawn(350)	//wait 35 seconds before next volley
-					lastpuke = 0
+				if(!QDELETED(src))
+					empty_stomach()
+					spawn(350)	//wait 35 seconds before next volley
+						lastpuke = 0
 
 /obj/proc/get_equip_slot()
 	//This function is called by an object which is somewhere on a humanoid mob
@@ -1070,20 +1071,20 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()
 	. = ..()
-	if (is_type_in_typecache(src, SSmob.mtl_synthetic))
+	if (is_type_in_typecache(src, SSmobs.mtl_synthetic))
 		. |= TYPE_SYNTHETIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_weird))
+	if (is_type_in_typecache(src, SSmobs.mtl_weird))
 		. |= TYPE_WEIRD
 
-	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
+	if (is_type_in_typecache(src, SSmobs.mtl_incorporeal))
 		. |= TYPE_INCORPOREAL
 
 	// If it's not TYPE_SYNTHETIC, TYPE_WEIRD or TYPE_INCORPOREAL, we can assume it's TYPE_ORGANIC.
 	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
+	if (is_type_in_typecache(src, SSmobs.mtl_humanoid))
 		. |= TYPE_HUMANOID
 
 #undef SAFE_PERP
@@ -1209,20 +1210,15 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
-				var/final_icon = a.tag_icon
-				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
+				var/final_icon = "accent-[a.tag_icon]"
 				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
 	resting = FALSE // ghosting sets resting to true
+	client.init_verbs()
 	return src
-
-/mob/proc/get_standard_pixel_x()
-	return initial(pixel_x)
-
-/mob/proc/get_standard_pixel_y()
-	return initial(pixel_y)
 
 /mob/proc/remove_nearsighted()
 	disabilities &= ~NEARSIGHTED
@@ -1250,8 +1246,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
 		var/obj/item/grab/G = thing
-		if(G.state >= GRAB_NECK)
-			return TRUE
+		if(istype(G))
+			if(G.state >= GRAB_NECK)
+				return TRUE
 	return FALSE
 
 /mob/get_cell()
@@ -1298,6 +1295,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 /mob/proc/get_talk_bubble()
 	return 'icons/mob/talk.dmi'
+
+/mob/proc/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+	return
 
 /datum/proc/get_client()
 	return null

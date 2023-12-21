@@ -16,7 +16,6 @@
 
 	speak_chance = 1
 	turns_per_move = 7
-	see_in_dark = 6
 
 	speak = list("Woof!", "Bark!", "AUUUUUU!","AwooOOOoo!")
 	speak_emote = list("barks", "woofs")
@@ -144,10 +143,10 @@
 	meat_amount = 3
 
 /mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(10, 15))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(5, 10))
-		if(3)
-			adjustFireLoss(rand(3, 5))

@@ -29,9 +29,9 @@ var/mob/living/next_point_time = 0
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
- - non-passive mob passes the passive version
- - passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
- - if si, the proc returns
+	- non-passive mob passes the passive version
+	- passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
+	- if si, the proc returns
 */
 /mob/living/proc/can_move_mob(var/mob/living/swapped, swapping = 0, passive = 0)
 	if(!swapped)
@@ -172,15 +172,33 @@ default behaviour is:
 
 				now_pushing = FALSE
 
+/**
+ * Checks if two mobs can swap with each other based on the density
+ *
+ * Returns `TRUE` if the density allows them to swap, `FALSE` otherwise
+ *
+ * swapper - A `/mob`, the one trying to perform the swap
+ * swapee - A `/mob`, the one the `swapper` is trying to swap with
+ */
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	var/turf/T = get_turf(swapper)
+
+	if(!T)
+		return FALSE
+
 	if(T.density)
-		return 1
+		return TRUE
+
 	for(var/atom/movable/A in T)
+
 		if(A == swapper)
 			continue
+
 		if(!A.CanPass(swapee, T, 1))
-			return 1
+			return TRUE
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
 	if(tmob.buckled_to || buckled_to)
@@ -477,6 +495,13 @@ default behaviour is:
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
+	hallucination = 0
+	silent = 0
+	dizziness = 0
+	drowsiness = 0
+	stuttering = 0
+	confused = 0
+	jitteriness = 0
 
 	// fix blindness and deafness
 	blinded = 0
@@ -589,8 +614,7 @@ default behaviour is:
 
 		if (!restrained())
 			var/diag = get_dir(src, pulling)
-			if ((diag - 1) & diag)
-			else
+			if (!((diag - 1) & diag))
 				diag = null
 			if ((get_dist(src, pulling) > 1 || diag))
 				if (isliving(pulling))
@@ -762,10 +786,11 @@ default behaviour is:
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
+			break
 
 	if(resisting)
 		visible_message(SPAN_WARNING("[src] resists!"))
-		setClickCooldown(25)
+		setClickCooldown(2.5 SECONDS)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -989,16 +1014,6 @@ default behaviour is:
 	update_icon()
 	return TRUE
 
-/mob/living/proc/apply_radiation_effects()
-	var/area/A = get_area(src)
-	if(!A)
-		return FALSE
-	if(isNotStationLevel(A.z))
-		return FALSE
-	if(A.flags & RAD_SHIELDED)
-		return FALSE
-	. = TRUE
-
 /mob/living/proc/needs_wheelchair()
 	return FALSE
 
@@ -1022,4 +1037,4 @@ default behaviour is:
 	return FALSE
 
 /mob/living/get_speech_bubble_state_modifier()
-	return isSynthetic() ? "synth" : ..()
+	return isSynthetic() ? "robot" : ..()

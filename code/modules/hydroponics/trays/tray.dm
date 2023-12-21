@@ -5,7 +5,7 @@
 	icon_state = "hydrotray3"
 	density = 1
 	anchored = 1
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	volume = 100
 
 	var/mechanical = 1         // Set to 0 to stop it from drawing the alert lights.
@@ -62,7 +62,7 @@
 		/singleton/reagent/toxin/plantbgone =	  3,
 		/singleton/reagent/cryoxadone =			 -3,
 		/singleton/reagent/radium =				  2,
-		/singleton/reagent/raskara_dust =		2.5
+		/singleton/reagent/drugs/raskara_dust =		2.5
 		)
 	var/global/list/nutrient_reagents = list(
 		/singleton/reagent/drink/milk =				 0.1,
@@ -198,7 +198,7 @@
 	..()
 	temp_chem_holder = new()
 	temp_chem_holder.create_reagents(10)
-	temp_chem_holder.flags |= OPENCONTAINER
+	temp_chem_holder.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	create_reagents(200)
 	if(mechanical)
 		connect()
@@ -231,7 +231,7 @@
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return TRUE
 	else
-		return FALSE
+		return !density
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_health()
 	if(seed && !dead && health <= 0)
@@ -411,7 +411,7 @@
 	if(usr.incapacitated())
 		return
 	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
+		var/new_light = tgui_input_list(usr, "Specify a light level.", "Set Light", list(0,1,2,3,4,5,6,7,8,9,10))
 		if(new_light)
 			tray_light = new_light
 			to_chat(usr, "You set the tray to a light level of [tray_light] lumens.")
@@ -622,9 +622,9 @@
 	else if(dead)
 		remove_dead(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/examine()
+/obj/machinery/portable_atmospherics/hydroponics/examine(mob/user, distance, is_adjacent)
 
-	..()
+	. = ..()
 
 	if(!seed)
 		to_chat(usr, "[src] is empty.")
@@ -632,7 +632,7 @@
 
 	to_chat(usr, "<span class='notice'>[seed.display_name] are growing here.</span>")
 
-	if(!Adjacent(usr))
+	if(!is_adjacent)
 		return
 
 	to_chat(usr, "Water: [round(waterlevel,0.1)]/100")

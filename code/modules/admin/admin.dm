@@ -106,18 +106,16 @@ var/global/enabled_spooking = 0
 		var/mob/living/psyker = M
 		if(psyker.psi)
 			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
-			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
 		body += "<table width = '100%'>"
-		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
-			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
-			var/faculty_rank = psyker.psi ? psyker.psi.get_rank(faculty) : 0
-			body += "<tr><td><b>[faculty_decl.name]</b></td>"
-			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
-				var/psi_title = psychic_ranks_to_strings[i]
-				if(i == faculty_rank)
-					psi_title = "<b>[psi_title]</b>"
-				body += "<td><a href='?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
-			body += "</tr>"
+		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX, PSI_RANK_LIMITLESS))
+			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
+			var/psi_title = psychic_ranks_to_strings[psi_rank]
+			if(psi_rank == owner_rank)
+				psi_title = "<b>[psi_title]</b>"
+			if(psi_rank != PSI_RANK_LIMITLESS)
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
+			else
+				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
 		body += "</table>"
 
 	if (M.client)
@@ -600,8 +598,8 @@ var/global/enabled_spooking = 0
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
 
-	send_theme_resources(usr)
-	usr << browse(enable_ui_theme(usr, dat), "window=admincaster_main;size=400x600")
+
+	usr << browse(dat, "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 
@@ -698,7 +696,7 @@ var/global/enabled_spooking = 0
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = input("Global message to send:", "Admin Announce", null, null) as message
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
 	if(message)
 		if(!check_rights(R_SERVER, 0))
 			message = sanitize(message, 500, extra = 0)
@@ -792,7 +790,7 @@ var/global/enabled_spooking = 0
 	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
 	post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
-	discord_bot.send_to_admins("[key_name(src)]" + long_message)
+	SSdiscord.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
 	log_admin("[key_name(usr)] toggled hub visibility.")
 	feedback_add_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
@@ -863,15 +861,6 @@ var/global/enabled_spooking = 0
 	log_admin("[key_name(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 	feedback_add_details("admin_verb","TR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/datum/admins/proc/toggle_aliens()
-	set category = "Server"
-	set desc="Toggle alien mobs"
-	set name="Toggle Aliens"
-	config.aliens_allowed = !config.aliens_allowed
-	log_admin("[key_name(usr)] toggled Aliens to [config.aliens_allowed].")
-	message_admins("[key_name_admin(usr)] toggled Aliens [config.aliens_allowed ? "on" : "off"].", 1)
-	feedback_add_details("admin_verb","TA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggle_space_ninja()
 	set category = "Server"
@@ -957,7 +946,7 @@ var/global/enabled_spooking = 0
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
-/proc/is_special_character(mob/M as mob) // returns 1 for specail characters and 2 for heroes of gamemode
+/proc/is_special_character(var/mob/M) // returns 1 for specail characters and 2 for heroes of gamemode
 	if(!SSticker.mode)
 		return 0
 	if (!istype(M))
@@ -1269,6 +1258,7 @@ var/global/enabled_spooking = 0
 	log_admin("[key_name(usr)] stuffed [frommob.ckey] into [tomob.name].")
 	feedback_add_details("admin_verb","CGD")
 	tomob.ckey = frommob.ckey
+	tomob.client.init_verbs()
 	qdel(frommob)
 	return 1
 
@@ -1287,7 +1277,7 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Mode has not started.")
 		return
 
-	var/antag_type = input("Choose a template.","Force Latespawn") as null|anything in all_antag_types
+	var/antag_type = tgui_input_list(usr, "Choose a template.", "Force Latespawn", all_antag_types)
 	if(!antag_type || !all_antag_types[antag_type])
 		to_chat(usr, "Aborting.")
 		return
@@ -1350,16 +1340,16 @@ var/global/enabled_spooking = 0
 /datum/admins/proc/ccannoucment()
 	set category = "Special Verbs"
 	set name = "Custom sound Command Announcment"
-	set desc = "Emulate announcement that looks and sounds like the real one"
+	set desc = "Emulate announcement that looks and sounds like the real one."
 	if(!check_rights(R_FUN))
 		return
 
-	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
+	var/title = tgui_input_text(usr, "Input the announcement's title.", "Custom Announcement")
 	if(!title)
 		return
 	if(!check_rights(R_SERVER,0))
 		title = sanitize(title, 255, extra = 0)
-	var/message = input("Announcement content:", "CAnnounce", null, null) as message
+	var/message = tgui_input_text("Input the announcement's content.", "CAnnounce", multiline = TRUE)
 	if(!message)
 		return
 	if(!check_rights(R_SERVER,0))
@@ -1371,7 +1361,7 @@ var/global/enabled_spooking = 0
 	sounds += "--LOCAL--"
 	sounds += sounds_cache
 
-	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+	var/melody = tgui_input_list(usr, "Select a sound from the server to play.", "Sound Selection", sounds)
 
 	if(melody == "--CANCEL--")
 		return
@@ -1383,3 +1373,7 @@ var/global/enabled_spooking = 0
 	command_announcement.Announce(message, title, new_sound = melody)
 	log_and_message_admins("made custom announcement with custom sound", usr)
 	feedback_add_details("admin_verb","ACS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
+	var/turf/T = get_turf(src)
+	return T ? "[area_name ? "[get_area_name(T, TRUE)] " : " "]([T.x],[T.y],[T.z])[admin_jump_ref ? " [ADMIN_JMP(T)]" : ""]" : "nonexistent location"

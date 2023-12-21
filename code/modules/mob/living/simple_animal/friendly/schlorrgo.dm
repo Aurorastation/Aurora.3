@@ -241,13 +241,13 @@
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 1)
 
 /mob/living/simple_animal/schlorrgo/cybernetic/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(10, 15))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(5, 10))
-		if(3)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/schlorrgo/cybernetic/check_wideness_change()
 	return
@@ -304,13 +304,13 @@
 		ranged = TRUE
 
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(10, 15))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(5, 10))
-		if(3)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/death(gibbed)
 	..(null, "dies!")
@@ -320,3 +320,10 @@
 		new /obj/effect/gibspawner/generic(T)
 		explosion(T, -1, 0, 2)
 		qdel(src)
+
+#undef EGG_SCHLORRGO
+#undef BABY_SCHLORRGO
+#undef NORMAL_SCHLORRGO
+#undef FAT_SCHLORRGO
+#undef WIDE_SCHLORRGO
+#undef COLOSSAL_SCHLORRGO

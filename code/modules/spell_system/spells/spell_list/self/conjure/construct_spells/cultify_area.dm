@@ -14,7 +14,7 @@
 
 	hud_state = "const_floor"
 
-	cast_sound = 'sound/items/welder.ogg'
+	cast_sound = 'sound/items/Welder.ogg'
 
 /spell/aoe_turf/cultify_area/cast(list/targets, mob/user)
 	for(var/turf/target in targets)

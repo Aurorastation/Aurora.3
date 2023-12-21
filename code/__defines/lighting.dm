@@ -145,3 +145,5 @@
 
 // If defined, integrate with the lighting engine and use its opacity value. Otherwise a simple turf opacity check is used. This may cause visual artifacts with opaque non-square movables.
 //#define AO_USE_LIGHTING_OPACITY
+
+#define MINIMUM_USEFUL_LIGHT_RANGE 1.4

@@ -23,17 +23,17 @@
 	var/list/resource_field = list()
 
 	var/ore_types = list(
-		MATERIAL_IRON = /obj/item/ore/iron,
-		MATERIAL_URANIUM = /obj/item/ore/uranium,
-		MATERIAL_GOLD = /obj/item/ore/gold,
-		MATERIAL_SILVER = /obj/item/ore/silver,
-		MATERIAL_DIAMOND = /obj/item/ore/diamond,
-		MATERIAL_PHORON = /obj/item/ore/phoron,
-		MATERIAL_OSMIUM = /obj/item/ore/osmium,
-		"hydrogen" = /obj/item/ore/hydrogen,
-		"silicates" = /obj/item/ore/glass,
-		"carbonaceous rock" = /obj/item/ore/coal
-		)
+		ORE_URANIUM = /obj/item/ore/uranium,
+		ORE_IRON = /obj/item/ore/iron,
+		ORE_COAL = /obj/item/ore/coal,
+		ORE_SAND = /obj/item/ore/glass,
+		ORE_PHORON = /obj/item/ore/phoron,
+		ORE_SILVER = /obj/item/ore/silver,
+		ORE_GOLD = /obj/item/ore/gold,
+		ORE_DIAMOND = /obj/item/ore/diamond,
+		ORE_PLATINUM = /obj/item/ore/osmium,
+		ORE_HYDROGEN = /obj/item/ore/hydrogen
+	)
 
 	//Upgrades
 	var/harvest_speed
@@ -107,6 +107,10 @@
 					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
+		var/turf/below_turf = GetBelow(T)
+		if(below_turf && !istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/exoplanet) && !istype(below_turf.loc, /area/template_noop))
+			system_error("Potential station breach below.")
+			return
 		T.ex_act(2.0)
 
 	//Dig out the tasty ores.
@@ -116,6 +120,8 @@
 		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 			if(length(resource_field))
 				harvesting = pick(resource_field)
@@ -161,6 +167,8 @@
 		if(!found_resource)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 	else
 		active = FALSE
@@ -168,8 +176,8 @@
 		system_error("Resource field depleted.")
 		update_icon()
 
-/obj/machinery/mining/drill/examine(mob/user)
-	..(user)
+/obj/machinery/mining/drill/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(need_player_check)
 		to_chat(user, SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"]."))
 	else
@@ -177,7 +185,7 @@
 	if(panel_open)
 		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
 	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%.")
-	if(user.Adjacent(src))
+	if(is_adjacent)
 		if(attached_satchel)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
 		if(current_error)
@@ -576,3 +584,7 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
+
+#undef DRILL_LIGHT_IDLE
+#undef DRILL_LIGHT_WARNING
+#undef DRILL_LIGHT_ACTIVE

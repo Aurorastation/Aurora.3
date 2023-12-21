@@ -8,10 +8,10 @@
 	var/obj/item/circuitboard/target_board_type = null
 	var/obj/item/rig/rig_type = /obj/item/rig
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	var/datum/construction/reversible/rig_assembly/construct
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/rig_assembly/examine(mob/user, distance)
 	. = ..()
@@ -72,6 +72,14 @@
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/eva
 	rig_type = /obj/item/rig/eva
 
+/obj/item/rig_assembly/eva/pilot
+	name = "pilot suit control module assembly"
+	desc = "The assembly frame for a light hardsuit that is designed for pilots."
+	icon_base = "eva"
+	icon_state = "eva1"
+	board_type = /obj/item/circuitboard/rig_assembly/civilian/eva/pilot
+	rig_type = /obj/item/rig/eva/pilot
+
 /obj/item/rig_assembly/industrial
 	name = "industrial suit control module assembly"
 	desc = "The assembly frame for a sturdy hardsuit used by construction crews and mining corporations."
@@ -79,6 +87,14 @@
 	icon_state = "industrial1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial
+
+/obj/item/rig_assembly/industrial/himeo
+	name = "himean industrial suit control module assembly"
+	desc = "The assembly frame for a rugged hardsuit used by Himean miners, engineers, and naval sappers."
+	icon_base = "himeo"
+	icon_state = "himeo1"
+	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
+	rig_type = /obj/item/rig/industrial/himeo
 
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"

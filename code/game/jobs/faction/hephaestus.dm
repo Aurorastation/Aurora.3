@@ -44,7 +44,9 @@
 		"Engineer" = /datum/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
 		"Engineering Apprentice" = /datum/outfit/job/intern_eng/hephaestus,
-		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
+		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/hephaestus,
+		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/hephaestus
 	)
 
 /datum/outfit/job/hangar_tech/hephaestus
@@ -116,6 +118,18 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
+/datum/outfit/job/intern_atmos/hephaestus
+	name = "Atmospherics Apprentice - Hephaestus"
+
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
+	head = /obj/item/clothing/head/beret/corporate/heph
+	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
 /datum/outfit/job/representative/hephaestus
 	name = "Hephaestus Corporate Liaison"
 
@@ -136,3 +150,13 @@
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/hephaestus = 1
 	)
+
+/datum/outfit/job/visitor/hephaestus
+	name = "Off-Duty Crew Member - Hephaestus"
+
+	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph

@@ -11,7 +11,7 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 	produces_heat = FALSE
-	overmap_range = 2
+	overmap_range = 3
 
 	var/away_aio = FALSE
 	var/list/recent_broadcasts
@@ -66,6 +66,14 @@
 			assign_away_freq(linked.name)
 		)
 
+/obj/machinery/telecomms/allinone/ship/coalition_navy
+	name = "coalition navy telecommunications mainframe"
+	desc = "A compact machine used for portable subspace telecommuniations processing. This one also has encryption codes for Coalition navy vessels."
+
+/obj/machinery/telecomms/allinone/ship/coalition_navy/LateInitialize()
+	. = ..()
+	freq_listening += COAL_FREQ
+
 //This goes on the station map so away ships can maintain radio contact.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
@@ -85,3 +93,5 @@
 		freq_listening |= AWAY_FREQS_ASSIGNED[ch]
 	freq_listening |= AWAY_FREQS_UNASSIGNED
 	freq_listening |= ANTAG_FREQS
+
+/obj/machinery/telecomms/allinone/ship

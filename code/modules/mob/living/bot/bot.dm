@@ -30,7 +30,7 @@
 	. = ..()
 	update_icon()
 	add_language(LANGUAGE_TCB)
-	set_default_language(all_languages[LANGUAGE_TCB])
+	default_language = all_languages[LANGUAGE_TCB]
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()
@@ -181,12 +181,13 @@
 	return FALSE
 
 /mob/living/bot/emp_act(severity)
+	. = ..()
+
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			death()
 		else
 			turn_off()
-	..()
 
 /mob/living/bot/proc/turn_on()
 	if(stat)

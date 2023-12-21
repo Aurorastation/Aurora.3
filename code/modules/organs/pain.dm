@@ -79,7 +79,7 @@
 				msg = "[burning ? species.organ_low_burn_message : species.organ_low_pain_message]"
 			if(11 to 60)
 				msg = "[burning ? species.organ_med_burn_message : species.organ_med_pain_message]"
-			if(70 to 10000)
+			if(61 to INFINITY)
 				msg = "[burning ? species.organ_high_burn_message : species.organ_high_pain_message]"
 		msg = replacetext(msg, "%PARTNAME%", damaged_organ.name)
 		custom_pain(msg, maxdam, prob(30), damaged_organ, TRUE)

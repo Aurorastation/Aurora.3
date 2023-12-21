@@ -1,10 +1,3 @@
-#define DNA_BLOCK_SIZE 3
-
-// Buffer datatype flags.
-#define DNA2_BUF_UI 1
-#define DNA2_BUF_UE 2
-#define DNA2_BUF_SE 4
-
 //list("data" = null, "owner" = null, "label" = null, "type" = null, "ue" = 0),
 /datum/dna2/record
 	var/datum/dna/dna = null
@@ -200,7 +193,6 @@
 				//SN src = null
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/computer/scan_consolenew
@@ -253,7 +245,6 @@
 				//SN src = null
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/computer/scan_consolenew/New()
@@ -304,17 +295,17 @@
 	if(!..())
 		ui_interact(user)
 
- /**
-  * The ui_interact proc is used to open and update Nano UIs
-  * If ui_interact is not used then the UI will not update correctly
-  * ui_interact is currently defined for /atom/movable (which is inherited by /obj and /mob)
-  *
-  * @param user /mob The mob who is interacting with this ui
-  * @param ui_key string A string key to use for this ui. Allows for multiple unique uis on one obj/mob (defaut value "main")
-  * @param ui /datum/nanoui This parameter is passed by the nanoui process() proc when updating an open ui
-  *
-  * @return nothing
-  */
+/**
+ * The ui_interact proc is used to open and update Nano UIs
+ * If ui_interact is not used then the UI will not update correctly
+ * ui_interact is currently defined for /atom/movable (which is inherited by /obj and /mob)
+ *
+ * @param user /mob The mob who is interacting with this ui
+ * @param ui_key string A string key to use for this ui. Allows for multiple unique uis on one obj/mob (defaut value "main")
+ * @param ui /datum/nanoui This parameter is passed by the nanoui process() proc when updating an open ui
+ *
+ * @return nothing
+ */
 /obj/machinery/computer/scan_consolenew/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if (!connected)
 		return

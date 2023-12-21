@@ -37,7 +37,7 @@
 		cut_overlays()
 		set_light(0)
 
-/obj/machinery/stargazer/Topic(href, href_list, datum/topic_state/state)
+/obj/machinery/stargazer/Topic(href, href_list, datum/ui_state/state)
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return TRUE
 	if(!isInSight(usr, src))

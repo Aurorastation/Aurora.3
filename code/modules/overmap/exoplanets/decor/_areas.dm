@@ -22,6 +22,9 @@
 	ambience = AMBIENCE_OTHERWORLDLY
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
 
+/area/exoplanet/barren/burzsia
+	name = "Burzsia Surface"
+
 /area/exoplanet/crystal
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_SPACE
@@ -42,6 +45,10 @@
 
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove
+
+/area/exoplanet/grass/konyang
+	name = "Konyang Wilderness"
+	base_turf = /turf/simulated/floor/exoplanet/konyang
 
 /area/exoplanet/lava
 	name = "\improper Planetary surface"

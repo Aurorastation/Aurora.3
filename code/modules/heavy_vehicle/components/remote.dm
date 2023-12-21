@@ -22,9 +22,9 @@
 	mech_remote_network = REMOTE_PRISON_MECH
 	hardpoint_lock = TRUE
 
-/obj/item/remote_mecha/penal/examine(mob/user)
+/obj/item/remote_mecha/penal/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(Adjacent(user))
+	if(is_adjacent)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("Applying \the [src] will additionally add the mech to the security penal network, where they can remotely monitor and shut it down.")))
 
 /obj/item/remote_mecha/ai

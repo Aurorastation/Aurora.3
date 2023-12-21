@@ -56,7 +56,6 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	psi_pingable = FALSE
@@ -100,7 +99,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/icarus_drone/examine(mob/user)
-	..()
+	. = ..()
 	if(malfunctioning)
 		if(hostile_drone)
 			to_chat(user, SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed."))
@@ -229,6 +228,8 @@
 
 //ion rifle!
 /mob/living/simple_animal/hostile/icarus_drone/emp_act(severity)
+	. = ..()
+
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE

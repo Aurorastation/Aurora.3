@@ -8,6 +8,8 @@
 	id = "tirakqi_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tirakqi_shuttle)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/tirakqi_freighter
 	map = "Ti'Rakqi Freighter"
 	descriptor = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
@@ -54,8 +56,8 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/New()
-    designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
-    ..()
+	designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "skrell_freighter")

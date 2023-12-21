@@ -1,5 +1,3 @@
-#define PROCESS_REACTION_ITER 5 //when processing a reaction, iterate this many times
-
 /datum/reagents
 	var/primary_reagent
 	var/list/reagent_volumes
@@ -85,7 +83,7 @@
 /datum/reagents/proc/process_reactions()
 	if(!my_atom?.loc)
 		return FALSE
-	if(my_atom.flags & NOREACT)
+	if(my_atom.atom_flags & ATOM_FLAG_NO_REACT)
 		return FALSE
 
 	var/reaction_occured

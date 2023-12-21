@@ -25,7 +25,7 @@
 		)
 	icon_state = "wrench"
 	item_state = "wrench"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -34,6 +34,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
+	surgerysound = 'sound/items/surgery/bonesetter.ogg'
 	drop_sound = 'sound/items/drop/wrench.ogg'
 	pickup_sound = 'sound/items/pickup/wrench.ogg'
 
@@ -53,7 +54,7 @@
 		)
 	icon_state = "screwdriver"
 	item_state = "screwdriver"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 8
 	throwforce = 5
@@ -62,7 +63,8 @@
 	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-	usesound = 'sound/items/screwdriver.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
+	surgerysound = 'sound/items/Screwdriver.ogg'
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
@@ -126,7 +128,7 @@
 		)
 	icon_state = "wirecutters"
 	item_state = "wirecutters"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 6
 	throw_speed = 2
@@ -137,7 +139,8 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
 	edge = TRUE
-	usesound = 'sound/items/wirecutter.ogg'
+	usesound = 'sound/items/Wirecutter.ogg'
+	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
@@ -215,11 +218,12 @@
 	item_state = "welder"
 	var/welding_state = "welding_sparks"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
-	usesound = 'sound/items/welder.ogg'
+	usesound = 'sound/items/Welder.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
@@ -335,8 +339,9 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user)
-	if(..(user, 0))
+/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
@@ -454,7 +459,7 @@
 				log_and_message_admins("is attempting to welderbomb", user)
 				to_chat(user, SPAN_ALERT("You start heating the fueltank..."))
 				tank.armed = 1
-				if(do_after(user, 100))
+				if(do_after(user, 10 SECONDS, O, DO_UNIQUE))
 					if(tank.defuse)
 						user.visible_message("[user] melts some of the framework on the [O]!", "You melt some of the framework!")
 						tank.defuse = 0
@@ -683,7 +688,7 @@
 		)
 	icon_state = "crowbar"
 	item_state = "crowbar"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -691,6 +696,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
+	surgerysound = 'sound/items/surgery/retractor.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
@@ -711,7 +717,7 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 12
 	throwforce = 12
-	flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_ENGINEERING = 2)
@@ -746,7 +752,7 @@
 		)
 	icon_state = "pipewrench"
 	item_state = "pipewrench"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
@@ -791,7 +797,7 @@
 
 /obj/item/combitool/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
 
 /obj/item/combitool/iswrench()
@@ -829,7 +835,7 @@
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -850,7 +856,7 @@
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings:")
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
@@ -902,7 +908,7 @@
 	desc = "Harvested from the finest NanoTrasen steel sheep."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "steel_wool"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/lit
 	matter = list(MATERIAL_STEEL = 40)
@@ -966,7 +972,7 @@
 		)
 	icon_state = "hammer"
 	item_state = "hammer"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 5

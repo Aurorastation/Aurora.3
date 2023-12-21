@@ -72,6 +72,7 @@
 /obj/item/clothing/head/helmet/pilot/verb/visor_toggled()
 	set name = "Toggle Visor"
 	set category = "Object"
+	set src in usr
 
 	var/mob/living/carbon/human/user = usr
 	if(!istype(user))
@@ -125,7 +126,7 @@
 	if(V)
 		ship_overlay.appearance = V.appearance
 		ship_overlay.dir = V.dir
-		ship_overlay.mouse_opacity = 0
+		ship_overlay.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	else
 		ship_overlay.icon = null
 		ship_overlay.icon_state = null

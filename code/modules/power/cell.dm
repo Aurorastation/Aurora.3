@@ -76,16 +76,15 @@
 		explode()
 		return 0
 
-	if(maxcharge < amount)	return 0
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
 	return amount_used
 
 
-/obj/item/cell/examine(mob/user)
+/obj/item/cell/examine(mob/user, distance, is_adjacent)
 	. = ..()
 
-	if(get_dist(src, user) > 1)
+	if(distance > 1)
 		return
 
 	if(maxcharge <= 2500)
@@ -169,6 +168,8 @@
 		rigged = 1 //broken batterys are dangerous
 
 /obj/item/cell/emp_act(severity)
+	. = ..()
+
 	//remove this once emp changes on dev are merged in
 	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
@@ -177,7 +178,22 @@
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
-	..()
+
+/**
+ * Drains a percentage of the power from the battery
+ *
+ * * divisor - The fraction to remove, after multiplication with `cell_emp_mult` if a robot, calculated as maxcharge / divisor
+ */
+/obj/item/cell/proc/powerdrain(divisor)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(isrobot(loc))
+		var/mob/living/silicon/robot/R = loc
+		divisor *= R.cell_emp_mult
+
+	charge -= maxcharge / divisor
+	if (charge < 0)
+		charge = 0
 
 /obj/item/cell/ex_act(severity)
 

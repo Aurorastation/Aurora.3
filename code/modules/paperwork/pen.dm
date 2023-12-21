@@ -168,7 +168,7 @@
  * Reagent Pens
  */
 /obj/item/pen/reagent
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 
@@ -214,7 +214,7 @@
 	colour = "green"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	reagents_to_add = list(/singleton/reagent/fluvectionem = 5)
- 
+
 /obj/item/pen/reagent/healing
 	icon_state = "pen_green"
 	colour = "green"
@@ -225,7 +225,7 @@
 	icon_state = "pen_blue"
 	colour = "blue"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/cryptobiolin = 10)
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/drugs/cryptobiolin = 10)
 
 /obj/item/pen/reagent/hyperzine
 	icon_state = "pen_yellow"
@@ -263,6 +263,7 @@
 /obj/item/pen/chameleon/verb/set_colour()
 	set name = "Change Pen Colour"
 	set category = "Object"
+	set src in usr
 
 	var/list/possible_colours = list ("Yellow", "Green", "Pink", "Blue", "Orange", "Cyan", "Red", "Invisible", "Black")
 	var/selected_type = input("Pick new colour.", "Pen Colour", null, null) as null|anything in possible_colours
@@ -297,7 +298,7 @@
 /obj/item/pen/crayon
 	name = "crayon"
 	desc = "A colourful crayon. Please refrain from eating it or putting it in your nose."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonred"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -335,7 +336,7 @@
 		if("Colour")
 			var/newcolour = input(user, "Which colour would you like to use?", "Colour Selector") as null|anything in list("black", "blue", "red", "green", "yellow")
 			if(newcolour)
-				colour = newcolour	
+				colour = newcolour
 				to_chat(user, SPAN_NOTICE("Your pen synthesizes [newcolour] ink."))
 				playsound(get_turf(src), 'sound/effects/pop.ogg', 50, 0)
 		if("Style")
@@ -347,5 +348,6 @@
 	user.drop_from_inventory(src)
 
 /obj/item/pen/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)

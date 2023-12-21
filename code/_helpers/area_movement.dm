@@ -27,7 +27,7 @@
 		if (T.y < ymin)
 			ymin = T.y
 
-	//log_debug("build_ordered_turf_list([DEBUG_REF(src)]): xmax=[xmax],xmin=[xmin],ymax=[ymax],ymin=[ymin],z=[z]")
+	//LOG_DEBUG("build_ordered_turf_list([DEBUG_REF(src)]): xmax=[xmax],xmin=[xmin],ymax=[ymax],ymin=[ymin],z=[z]")
 
 	ASSERT(xmax > xmin)
 	ASSERT(ymax > ymin)

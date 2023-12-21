@@ -210,9 +210,13 @@
 /obj/item/leviathan_key
 	name = "leviathan activation key"
 	desc = "A key made of hardlight used to activate the Leviathan. It is a software-controlled morphing key that uses self-replicating encryption: \
-			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology!"
+			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology! \
+			If you're vain, you could also probably wear it as a necklace."
 	icon = 'icons/obj/machinery/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "cannon_key"
+	item_state = "cannon_key"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
 
 /obj/item/leviathan_case
 	name = "leviathan key case"
@@ -288,6 +292,8 @@
 	return
 
 /obj/machinery/leviathan_safeguard/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/machinery/leviathan_safeguard/Destroy()
@@ -359,6 +365,8 @@
 	return
 
 /obj/machinery/leviathan_button/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/machinery/leviathan_button/proc/open()
@@ -381,7 +389,7 @@
 				possible_entry_points = sortList(possible_entry_points)
 			if(istype(linked.targeting, /obj/effect/overmap/event))
 				possible_entry_points += SHIP_HAZARD_TARGET
-			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
+			var/targeted_landmark = tgui_input_list(user, "Select an entry point.", "Leviathan Control", possible_entry_points)
 			if(!targeted_landmark && length(possible_entry_points))
 				return
 			var/obj/effect/landmark

@@ -6,7 +6,7 @@
 	item_state = "nothing"
 	layer = TURF_LAYER+0.2
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5.0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -25,9 +25,9 @@
 	camera = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_bug/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
+/obj/item/device/spy_bug/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user, "It's a tiny camera, microphone, and transmission device in a happy union.")
 		to_chat(user, "Needs to be both configured and brought in contact with monitor device to be fully functional.")
 
@@ -68,9 +68,9 @@
 	radio = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_monitor/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
+/obj/item/device/spy_monitor/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made.")
 
 /obj/item/device/spy_monitor/attack_self(mob/user)
@@ -104,7 +104,7 @@
 
 	operating = 1
 	while(selected_camera && Adjacent(user))
-		selected_camera = input("Select camera bug to view.") as null|anything in cameras
+		selected_camera = tgui_input_list(user, "Select camera bug to view.", "Spy Monitor", cameras)
 	selected_camera = null
 	operating = 0
 

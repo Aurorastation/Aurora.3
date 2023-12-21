@@ -26,7 +26,9 @@
 	color = new_colour
 	return color != last_colour
 
-/obj/item/mech_component/emp_act(var/severity)
+/obj/item/mech_component/emp_act(severity)
+	. = ..()
+
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
 		thing.emp_act(severity)
@@ -129,7 +131,7 @@
 		if(brute_damage)
 			repair_brute_damage(repair_value)
 			to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
-			playsound(user.loc, 'sound/items/welder.ogg', 25, 1)
+			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
 
 /obj/item/mech_component/proc/repair_burn_generic(var/obj/item/stack/cable_coil/CC, var/mob/user)
 	if(!istype(CC))

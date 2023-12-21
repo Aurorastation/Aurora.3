@@ -1,6 +1,10 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = DESC_PARENT
+	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
+	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
+	into the shotgun, then pump the shotgun to chamber a fresh round."
+	accuracy = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -34,7 +38,7 @@
 // called on a SUCCESSFUL saw-off.
 /obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
 	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
-	log_debug("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
+	LOG_DEBUG("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
@@ -45,10 +49,11 @@
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
+	accuracy = 0
 	max_shells = 4
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
@@ -60,6 +65,8 @@
 	var/recentpump = 0 // to prevent spammage
 	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
+	///Whether the item icon has a cycling animation
+	var/cycle_anim = TRUE
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -76,11 +83,13 @@
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	if(!wielded)
-		if(!do_after(M, 20, TRUE)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
+		if(!do_after(M, 2 SECONDS)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
 			return
 
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
+	if(cycle_anim)
+		flick("[icon_state]-cycling", src)
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
@@ -105,9 +114,11 @@
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	accuracy = 2
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
+	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "solarian combat shotgun"
@@ -117,11 +128,11 @@
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
-	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
@@ -132,7 +143,7 @@
 	max_shells = 2
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
 	slot_flags = SLOT_BACK
@@ -175,6 +186,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	w_class = ITEMSIZE_NORMAL
 	force = 5
@@ -190,6 +202,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	accuracy = 0
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet

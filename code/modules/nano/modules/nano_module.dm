@@ -12,11 +12,14 @@
 /datum/nano_module/ui_host()
 	return host ? host.ui_host() : src
 
-/datum/nano_module/proc/can_still_topic(var/datum/topic_state/state = default_state)
+/datum/nano_module/proc/can_still_topic(var/datum/ui_state/state = default_state)
 	return CanUseTopic(usr, state) == STATUS_INTERACTIVE
 
 /datum/nano_module/proc/check_eye(var/mob/user)
 	return -1
+
+/datum/nano_module/proc/grants_equipment_vision(var/mob/user)
+	return FALSE
 
 /datum/nano_module/proc/check_access(var/mob/user, var/access)
 	if(!access)

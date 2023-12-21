@@ -255,8 +255,6 @@
 	else
 		outputting = 0
 
-	SSvueui.check_uis_for_change(src)
-
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
 /obj/machinery/power/smes/proc/restore(var/percent_load)
@@ -282,7 +280,6 @@
 
 	if(clev != chargedisplay() ) //if needed updates the icons overlay
 		update_icon()
-	SSvueui.check_uis_for_change(src)
 	return
 
 //Will return 1 on failure
@@ -307,7 +304,7 @@
 			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			return 1
 	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
-	if(do_after(user, 50))
+	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
 		terminal.master = src
@@ -318,8 +315,7 @@
 /obj/machinery/power/smes/draw_power(var/amount)
 	if(terminal && terminal.powernet)
 		return terminal.powernet.draw_power(amount)
-	return 0
-
+	return FALSE
 
 /obj/machinery/power/smes/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -397,32 +393,29 @@
 		return 0
 	return 1
 
-/obj/machinery/power/smes/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	// this is the data that will be sent to the ui
-	data = list()
-	var/list/monitordata = ..()
-	if(monitordata)
-		data = monitordata
-	data["nameTag"] = name_tag
-	data["chargeTaken"] = round(input_taken)
+/obj/machinery/power/smes/ui_data(mob/user)
+	var/list/data = list()
+	data["name_tag"] = name_tag
+	data["charge_taken"] = round(input_taken)
 	data["charging"] = inputting
-	data["chargeAttempt"] = input_attempt
-	data["chargeLevel"] = input_level
-	data["chargeMax"] = input_level_max
-	data["outputLoad"] = round(output_used)
+	data["charge_attempt"] = input_attempt
+	data["charge_level"] = input_level
+	data["charge_max"] = input_level_max
+	data["output_load"] = round(output_used)
 	data["outputting"] = outputting
-	data["outputOnline"] = output_attempt
-	data["outputLevel"] = output_level
-	data["outputMax"] = output_level_max
+	data["output_attempt"] = output_attempt
+	data["output_level"] = output_level
+	data["output_max"] = output_level_max
 	data["time"] = time
-	data["chargeMode"] = charge_mode
-	data["storedCapacity"] = 0
+	data["wtime"] = world.time
+	data["charge_mode"] = charge_mode
+	data["stored_capacity"] = 0
 	if(capacity)
-		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
-	data["failTime"] = failure_timer * 2
+		data["stored_capacity"] = round(100.0*charge/capacity, 0.1)
+	data["fail_time"] = failure_timer * 2
 	return data
 
-/obj/machinery/power/smes/ui_interact(mob/user)
+/obj/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!can_function())
 		if(!terminal)
 			to_chat(user, SPAN_WARNING("\The [src] is lacking a terminal!"))
@@ -430,37 +423,41 @@
 		if(is_badly_damaged())
 			to_chat(user, SPAN_WARNING("\The [src] is too damaged to function!"))
 		return
-	// update the ui if it exists, returns null if no ui is passed/found
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		ui = new(user, src, "machinery-power-smes", 540, 420, "SMES Unit")
-		// open the new ui window
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SMES", name, 540, 420)
 		ui.open()
 
 /obj/machinery/power/smes/proc/Percentage()
 	return round(100.0*charge/capacity, 0.1)
 
-/obj/machinery/power/smes/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/power/smes/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if( href_list["cmode"] )
-		inputting(!input_attempt)
-		update_icon()
-	else if( href_list["online"] )
-		outputting(!output_attempt)
-		update_icon()
-	else if( href_list["reboot"] )
-		failure_timer = 0
-		update_icon()
-	else if( href_list["input"] )
-		input_level = clamp(href_list["input"], 0, input_level_max)	// clamp to range
-	else if( href_list["output"] )
-		output_level = clamp(href_list["output"], 0, output_level_max)	// clamp to range
+	switch(action)
+		if("cmode")
+			inputting(!input_attempt)
+			update_icon()
+			. = TRUE
+		if("online")
+			outputting(!output_attempt)
+			update_icon()
+			. = TRUE
+		if("reboot")
+			failure_timer = 0
+			update_icon()
+			. = TRUE
+		if("input")
+			input_level = clamp(params["input"], 0, input_level_max)	// clamp to range
+			. = TRUE
+		if("output")
+			output_level = clamp(params["output"], 0, output_level_max)	// clamp to range
+			. = TRUE
+
 	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
-	SSvueui.check_uis_for_change(src)
-	return 1
 
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
@@ -481,9 +478,9 @@
 		else if(prob(15)) //Power drain
 			small_spark.queue()
 			if(prob(50))
-				emp_act(1)
+				emp_act(EMP_HEAVY)
 			else
-				emp_act(2)
+				emp_act(EMP_LIGHT)
 		else if(prob(5)) //smoke only
 			var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 			smoke.set_up(3, 0, src.loc)
@@ -503,6 +500,8 @@
 		outputting = 0
 
 /obj/machinery/power/smes/emp_act(severity)
+	. = ..()
+
 	if(prob(50))
 		inputting(rand(0,1))
 		outputting(rand(0,1))
@@ -516,7 +515,6 @@
 	if(prob(50))
 		energy_fail(rand(0 + (severity * 30),30 + (severity * 30)))
 	update_icon()
-	..()
 
 
 /obj/machinery/power/smes/magical

@@ -17,6 +17,12 @@
 	icon_state = "idris_chef_hat"
 	item_state = "idris_chef_hat"
 
+/obj/item/clothing/head/chefhat/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_chef_hat"
+	item_state = "orion_chef_hat"
+
 
 /obj/item/clothing/head/hairnet
 	name = "hairnet"
@@ -95,6 +101,11 @@
 	contained_sprite = TRUE
 	flags_inv = BLOCKHEADHAIR
 
+/obj/item/clothing/head/surgery/generic
+	icon = 'icons/clothing/head/generic_surgeon_cap.dmi'
+	icon_state = "surgcap_generic"
+	item_state = "surgcap_generic"
+
 /obj/item/clothing/head/surgery/zeng
 	icon_state = "surgcap_zeng"
 	item_state = "surgcap_zeng"
@@ -117,28 +128,6 @@
 	icon_state = "surgcap_idris"
 	item_state = "surgcap_idris"
 
-//Detective
-
-/obj/item/clothing/head/det
-	name = "fedora"
-	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "brown_fedora"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
-	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
-	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR
-	)
-	siemens_coefficient = 0.75
-
-/obj/item/clothing/head/det/grey
-	icon_state = "grey_fedora"
-	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-
 /obj/item/clothing/head/warden
 	name = "warden hat"
 	desc = "A warden hat. For showing who is in charge of the brig."
@@ -151,7 +140,7 @@
 /obj/item/clothing/head/warden/zavod
 	icon_state = "zav_warden_hat"
 	item_state = "zav_warden_hat"
-	
+
 /obj/item/clothing/head/warden/zavod/alt
 	icon_state = "zav_warden_hat_alt"
 	item_state = "zav_warden_hat_alt"
@@ -191,6 +180,10 @@
 /obj/item/clothing/head/flatcap/bartender/idris
 	icon_state = "idris_bartender_flatcap"
 	item_state = "idris_bartender_flatcap"
+
+/obj/item/clothing/head/flatcap/bartender/orion
+	icon_state = "orion_bartender_flatcap"
+	item_state = "orion_bartender_flatcap"
 
 /obj/item/clothing/head/sidecap
 	name = "side cap"

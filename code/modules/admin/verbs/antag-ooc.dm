@@ -35,4 +35,4 @@
 		return
 
 	if (player_is_antag(src.mob.mind))
-		src.verbs += /client/proc/aooc
+		add_verb(src, /client/proc/aooc)

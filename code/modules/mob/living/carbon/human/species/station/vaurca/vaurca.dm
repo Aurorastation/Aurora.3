@@ -30,7 +30,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
-	darksight = 8 //USELESS
+	darksight = 8 //Allows you to see through black k'ois if the night vision is on
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_are_impermeable = TRUE
 
@@ -101,6 +101,8 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -109,9 +111,7 @@
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
-		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca
 	)
 
 	has_limbs = list(
@@ -128,6 +128,11 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
+	)
+
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -141,25 +146,23 @@
 
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
+	psi_deaf = TRUE
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
+	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
-
-/datum/species/bug/has_psi_potential()
-	return FALSE
 
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
@@ -168,3 +171,4 @@
 	if(I.w_class <= ITEMSIZE_SMALL)
 		return TRUE
 	return FALSE
+

@@ -164,9 +164,17 @@
 		set_color = COLOR_BLUE
 	else
 		set_color = COLOR_GREEN
+	var/beam_index = 1
+	var/elements_length = length(elements)
+	var/half_elements = elements_length / 2
 	for(var/beam in elements)
 		var/obj/effect/ebeam/B = beam
 		B.color = set_color
+		if(beam_index > half_elements)
+			B.alpha = clamp(255 - (40 * (elements_length - beam_index)), 0, 255)
+		else
+			B.alpha = clamp(255 - (40 * (beam_index - 1)), 0, 255)
+		beam_index++
 
 /datum/beam/power
 	var/obj/item/computer_hardware/tesla_link/charging_cable/owner
@@ -196,7 +204,7 @@
 	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
 
 /obj/effect/ebeam
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD

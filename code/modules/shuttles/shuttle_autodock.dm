@@ -4,7 +4,8 @@
 	var/in_use = null  //tells the controller whether this shuttle needs processing, also attempts to prevent double-use
 	var/last_dock_attempt_time = 0
 	var/current_dock_target
-	//ID of the controller on the shuttle
+
+	/// `id_tag`/`master_tag` of the docking controller of this shuttle.
 	var/dock_target = null
 
 	var/obj/effect/shuttle_landmark/next_location
@@ -190,3 +191,5 @@
 //Note that this is called when the shuttle leaves the WAIT_FINISHED state, the proc name is a little misleading
 /datum/shuttle/autodock/proc/arrived()
 	return	//do nothing for now
+
+#undef DOCK_ATTEMPT_TIMEOUT

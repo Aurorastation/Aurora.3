@@ -34,9 +34,9 @@
 	if (spikes < max_spikes)
 		addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
 
-/obj/item/gun/launcher/spikethrower/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/launcher/spikethrower/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
 	to_chat(user, "It has [spikes] spike\s remaining.")
 

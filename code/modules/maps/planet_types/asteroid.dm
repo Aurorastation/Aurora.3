@@ -14,7 +14,7 @@
 	place_near_main = list(1, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
-  	icon_state = "asteroid[rand(1,3)]"
+	icon_state = "asteroid[rand(1,3)]"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
 	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")

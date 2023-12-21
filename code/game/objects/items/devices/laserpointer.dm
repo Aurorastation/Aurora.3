@@ -87,7 +87,7 @@
 		var/obj/machinery/camera/C = target
 
 		if(prob(25))
-			C.emp_act(28)
+			C.emp_act(EMP_LIGHT)
 			selfmsg = "<span class='notice'>You hit the lens of \the [C] with \the [src], temporarily disabling the camera!</span>"
 
 			admin_attack_log(user, src,"hits the  camera with a laser pointer",  "EMPd a camera with a laser pointer")

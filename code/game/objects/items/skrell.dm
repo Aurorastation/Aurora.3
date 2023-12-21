@@ -16,7 +16,7 @@
 	pick_constellation()
 
 /obj/item/stellascope/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "\The [src] displays the \"[selected_constellation]\".")
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
@@ -93,7 +93,7 @@
 	return ..()
 
 /obj/item/skrell_projector/examine(mob/user)
-	..(user)
+	. = ..()
 	if(selected_world && working)
 		to_chat(user, "\The [src] displays a hologram of [selected_world].")
 
@@ -101,7 +101,7 @@
 	working = !working
 
 	if(working)
-		var/choice = input("You change the projector's hologram to display:","Change the projector's hologram.") as null|anything in worlds_selection
+		var/choice = tgui_input_list(user, "You change the projector's hologram to display:","Change the projector's hologram.", worlds_selection)
 		apply_world(choice)
 		START_PROCESSING(SSprocessing, src)
 	else
@@ -211,7 +211,7 @@
 				hologram_message = pick("Projected on the ceiling is a vista of the Kervasii World Amusement Park's floating islands.",
 										"You see massive resort buildings looming high over a crystal-clear ocean.",
 										"You hear light chittering as the projector switches to a depiction of a C'thuric research lab.")
-			
+
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
@@ -269,6 +269,8 @@
 		fried = TRUE
 
 /obj/item/nralakktag/emp_act(severity)
+	. = ..()
+
 	unclamp()
 
 /obj/item/nralakktag/emag_act(var/remaining_charges, var/mob/user)

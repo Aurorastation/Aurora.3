@@ -9,11 +9,11 @@
 	move_delay = 3
 	mob_offset_y = 7
 	load_offset_x = -13
-	vueui_template = "pussywagon"
+	tgui_template = "PussyWagon"
 	key_type = /obj/item/key/janicart
 
-/obj/vehicle/train/cargo/engine/pussywagon/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = ..()
+/obj/vehicle/train/cargo/engine/pussywagon/ui_data(mob/user)
+	var/list/data = ..()
 	data["has_proper_trolley"] = FALSE
 	if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 		data["has_proper_trolley"] = TRUE
@@ -30,19 +30,24 @@
 			data["max_bucket_capacity"] = B.volume
 	return data
 
-/obj/vehicle/train/cargo/engine/pussywagon/Topic(href, href_list, datum/topic_state/state)
+/obj/vehicle/train/cargo/engine/pussywagon/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
-		return TRUE
+		return
 
-	if(href_list["toggle_hoover"])
-		toggle_hoover(usr)
-	if(href_list["empty_hoover"])
-		var/obj/vehicle/train/cargo/trolley/pussywagon/PT = tow
-		PT.empty_hoover(usr)
-	if(href_list["toggle_mop"])
-		toggle_mop(usr)
-	SSvueui.check_uis_for_change(src)
+	switch(action)
+		if("toggle_hoover")
+			toggle_hoover(usr)
+			. = TRUE
+
+		if("empty_hoover")
+			var/obj/vehicle/train/cargo/trolley/pussywagon/PT = tow
+			PT.empty_hoover(usr)
+			. = TRUE
+
+		if("toggle_mop")
+			toggle_mop(usr)
+			. = TRUE
 
 /obj/vehicle/train/cargo/engine/pussywagon/CtrlClick(mob/user)
 	if(load && load != user)

@@ -101,12 +101,12 @@
 
 
 /*
-   ***Deprecated***
-   let this be handled at the hear_say or hear_radio proc
-   This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
-   robot_talk() proc.
-   There is no language handling build into it however there is at the /mob level so we accept the call
-   for it but just ignore it.
+	***Deprecated***
+	let this be handled at the hear_say or hear_radio proc
+	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
+	robot_talk() proc.
+	There is no language handling build into it however there is at the /mob level so we accept the call
+	for it but just ignore it.
 */
 
 /mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
@@ -235,11 +235,12 @@
 		if("whisper")
 			whisper(message, speaking, is_singing)
 			return TRUE
-		else if(message_mode)
-			var/obj/item/device/radio/R = get_radio()
-			if(R)
-				used_radios += R
-				R.talk_into(src, message, message_mode, verb, speaking)
+		else
+			if(message_mode)
+				var/obj/item/device/radio/R = get_radio()
+				if(R)
+					used_radios += R
+					R.talk_into(src, message, message_mode, verb, speaking)
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()

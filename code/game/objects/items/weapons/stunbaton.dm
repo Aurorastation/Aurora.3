@@ -59,10 +59,10 @@
 	else
 		set_light(0)
 
-/obj/item/melee/baton/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/melee/baton/examine(mob/user, distance)
+	. = ..()
+	if(!distance <= 1)
 		return
-
 	if(bcell)
 		to_chat(user, "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>")
 	else
@@ -198,9 +198,10 @@
 	return 1
 
 /obj/item/melee/baton/emp_act(severity)
+	. = ..()
+
 	if(bcell)
 		bcell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
-	..()
 
 //secborg stun baton module
 

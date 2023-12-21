@@ -226,7 +226,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	idle_power_usage = 10
 	active_power_usage = 100
 
-	// Note: actual logging has been moved to SSfeedback.
+	// Note: actual logging has been moved to SSstatistics.
 
 	//Only one can exist in the world!
 /obj/machinery/blackbox_recorder/Initialize()
@@ -241,3 +241,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	feedback_set_details("blackbox_destroyed","true")
 	feedback_set("blackbox_destroyed",1)
 	return ..()
+
+
+#undef MESSAGE_SERVER_SPAM_REJECT
+#undef MESSAGE_SERVER_DEFAULT_SPAM_LIMIT

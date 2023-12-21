@@ -36,7 +36,7 @@
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
 	changeling.use_charges(required_chems)
 	changeling.sting_range = 1
-	owner.verbs -= verb_path
+	remove_verb(owner, verb_path)
 	ADD_VERB_IN(owner, 10, verb_path)
 
 	if(stealthy)
@@ -86,7 +86,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/singleton/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/drugs/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"
@@ -174,7 +174,7 @@
 		var/datum/absorbed_dna/DNA = thing
 		names += "[DNA.name]"
 
-	var/S = input(src, "Select the target DNA:", "Target DNA") as null|anything in names
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		QDEL_NULL(changeling.prepared_sting)
 		to_chat(src, SPAN_NOTICE("With no DNA chosen, you unprepare the sting."))
@@ -251,7 +251,7 @@
 
 /datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
 	..()
-	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages)
+	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages, target.height, target.gender, target.pronouns, target.accent)
 	owner.absorbDNA(newDNA)
 
 //Boosts the range of your next sting attack by 1
@@ -271,7 +271,7 @@
 	changeling.use_charges(10)
 	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
-	src.verbs -= /mob/proc/changeling_boost_range
+	remove_verb(src, /mob/proc/changeling_boost_range)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_boost_range)
 	feedback_add_details("changeling_powers", "RS")
 	return TRUE

@@ -31,7 +31,6 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
@@ -69,7 +68,7 @@
 		var/obj/item/stack/material/P = A
 		if(P.material.name == MATERIAL_PHORON)
 			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
-			if(!do_after(src, 1 SECOND, act_target = P))
+			if(!do_after(src, 1 SECOND, P))
 				return
 			var/self_msg = "You consume \the [P][health < maxHealth ? ", healing yourself" : ""]."
 			adjustBruteLoss(-5 * P.amount)

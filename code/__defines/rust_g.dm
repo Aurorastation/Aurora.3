@@ -213,7 +213,7 @@
 	else
 		CRASH(output["content"])
 
-#define rustg_udp_send(addr, text) call(RUST_G, "udp_send")(addr, text)
+#define rustg_udp_send(addr, text) RUSTG_CALL(RUST_G, "udp_send")(addr, text)
 
 #define rustg_url_encode(text) RUSTG_CALL(RUST_G, "url_encode")("[text]")
 #define rustg_url_decode(text) RUSTG_CALL(RUST_G, "url_decode")(text)

@@ -7,6 +7,10 @@
 	var/list/valid_apcs
 	var/global/lightning_color
 
+/datum/event/electrical_storm/Destroy(force)
+	valid_apcs = null
+	. = ..()
+
 /datum/event/electrical_storm/get_skybox_image()
 	if(!lightning_color)
 		lightning_color = pick("#ffd98c", "#ebc7ff", "#bdfcff", "#bdd2ff", "#b0ffca", "#ff8178", "#ad74cc")
@@ -65,6 +69,8 @@
 			T.set_broken()
 
 /datum/event/electrical_storm/announce_end()
+	..()
+	valid_apcs = null
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
 			command_announcement.Announce("The [location_name()] has cleared the electrical storm. Please repair any electrical overloads.", "Electrical Storm Alert", zlevels = affecting_z)

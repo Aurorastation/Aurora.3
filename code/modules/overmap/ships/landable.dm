@@ -66,10 +66,16 @@
 	shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
 
+	var/obj/effect/overmap/visitable/mothership = map_sectors["[shuttle_datum.current_location.z]"]
+	if(mothership)
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in consoles)
+			sensor_console.datalink_add_ship_datalink(mothership)
+			break
+
 /obj/effect/shuttle_landmark/ship
 	name = "Open Space"
 	landmark_tag = "ship"
-	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	landmark_flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 	base_turf = /turf/space
 	var/shuttle_name
 	var/list/visitors // landmark -> visiting shuttle stationed there
@@ -90,7 +96,7 @@
 		return "Grappled by other shuttle; cannot manouver."
 
 /obj/effect/shuttle_landmark/visiting_shuttle
-	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	landmark_flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 	var/obj/effect/shuttle_landmark/ship/core_landmark
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Initialize(mapload, obj/effect/shuttle_landmark/ship/master, _name)

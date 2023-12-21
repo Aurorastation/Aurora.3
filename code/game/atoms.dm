@@ -1,7 +1,7 @@
 /atom
 	layer = 2
 	var/level = 2
-	var/flags = 0
+	var/atom_flags = 0
 	var/init_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -86,6 +86,10 @@
 		return 0
 	return -1
 
+/// Primarily used on machinery, when this returns TRUE, equipment that helps with vision, such as prescription glasses for nearsighted characters, have an effect despite the client eye not being on the mob
+/atom/proc/grants_equipment_vision(var/mob/user)
+	return
+
 /atom/proc/additional_sight_flags()
 	return 0
 
@@ -103,17 +107,36 @@
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
 /atom/proc/is_open_container()
-	return flags & OPENCONTAINER
+	return atom_flags & ATOM_FLAG_OPEN_CONTAINER
+
+/atom/proc/is_pour_container()
+	return atom_flags & ATOM_FLAG_POUR_CONTAINER
 
 /atom/proc/CheckExit()
 	return 1
 
-// If you want to use this, the atom must have the PROXMOVE flag and the moving atom must also have the PROXMOVE flag currently to help with lag. -ComicIronic
+// If you want to use this, the atom must have the MOVABLE_FLAG_PROXMOVE flag and the moving atom must also have the MOVABLE_FLAG_PROXMOVE flag currently to help with lag. -ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
+/**
+ * React to an EMP of the given severity
+ *
+ * Default behaviour is to send the [COMSIG_ATOM_PRE_EMP_ACT] and [COMSIG_ATOM_EMP_ACT] signal
+ *
+ * * severity - The severity of the EMP pulse (how strong it is), defines in `code\__defines\empulse.dm`
+ *
+ * Returns the protection value
+ */
 /atom/proc/emp_act(var/severity)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+
+	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_PRE_EMP_ACT, severity)
+
+	RETURN_TYPE(protection)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
+	return protection // Pass the protection value collected here upwards
 
 /atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
@@ -130,16 +153,16 @@
 		return 1
 	return
 
-// Helper for adding verbs with timers.
-/atom/proc/add_verb(the_verb, datum/callback/callback)
-	if (callback && !callback.Invoke())
-		return
 
-	verbs += the_verb
-
-// Checks if user can use this object. Set use_flags to customize what checks are done.
-// Returns 0 if they can use it, a value representing why they can't if not.
-// Flags are in "code/__defines/misc.dm".
+/**
+ * Checks if user can use this object. Set use_flags to customize what checks are done
+ * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ * See `code\__defines\misc.dm` for the list of flags and return codes
+ *
+ * * user - The `mob` to check against, if it can perform said use
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ * * show_messages - A boolean, to indicate if a feedback message should be shown, about the reason why someone can't use the atom
+ */
 /atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = USE_SUCCESS
 	if(NOT_FLAG(use_flags, USE_ALLOW_NONLIVING) && !isliving(user)) // No message for ghosts.
@@ -180,6 +203,14 @@
 			to_chat(user, SPAN_NOTICE("You need to be holding [src] to do that."))
 		return USE_FAIL_NOT_IN_USER
 
+/**
+ * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ * See `code\__defines\misc.dm` for the list of flags and return codes
+ *
+ * * user - The `mob` to check against, if it can perform said use
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ */
 /atom/proc/use_check_and_message(mob/user, use_flags = 0)
 	. = use_check(user, use_flags, TRUE)
 
@@ -229,8 +260,10 @@
 	return found
 
 // Examination code for all atoms.
-/atom/proc/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
-	var/f_name = "\a [src][infix]."
+// Returns TRUE, the caller always expects TRUE
+// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
+/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
+	var/f_name = "\a [src]. [infix]"
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = "some "
@@ -242,7 +275,9 @@
 			f_name += "oil-stained [name][infix]."
 
 	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object. It is a normal-sized item."
-	to_chat(user, desc)	// Object description.
+
+	if(src.desc)
+		to_chat(user, src.desc)	// Object description.
 
 	// Extra object descriptions examination code.
 	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
@@ -259,10 +294,10 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-	return distance == -1 || (get_dist(src, user) <= distance)
+	return TRUE
 
 // Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
+/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
@@ -288,7 +323,7 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-	return distance == -1 || (get_dist(src, user) <= distance)
+	return TRUE
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
 /atom/Topic(href, href_list)
@@ -297,7 +332,31 @@
 		return
 
 	if(href_list["examine_fluff"])
-		examine_fluff(usr)
+		examinate(usr, src, show_extended = TRUE)
+
+	var/client/usr_client = usr.client
+	var/list/paramslist = list()
+	if(href_list["statpanel_item_click"])
+		switch(href_list["statpanel_item_click"])
+			if("left")
+				paramslist[LEFT_CLICK] = "1"
+			if("right")
+				paramslist[RIGHT_CLICK] = "1"
+			if("middle")
+				paramslist[MIDDLE_CLICK] = "1"
+			else
+				return
+
+		if(href_list["statpanel_item_shiftclick"])
+			paramslist[SHIFT_CLICK] = "1"
+		if(href_list["statpanel_item_ctrlclick"])
+			paramslist[CTRL_CLICK] = "1"
+		if(href_list["statpanel_item_altclick"])
+			paramslist[ALT_CLICK] = "1"
+
+		var/mouseparams = list2params(paramslist)
+		usr_client.Click(src, loc, null, mouseparams)
+		return TRUE
 
 // Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
 // See code/modules/mob/mob_movement.dm for more.
@@ -307,6 +366,7 @@
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
+	var/old_dir = dir
 	dir = new_dir
 
 	// Lighting.
@@ -316,6 +376,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
+		dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
@@ -483,7 +544,7 @@
 // Returns 1 if made bloody, returns 0 otherwise.
 /atom/proc/add_blood(mob/living/carbon/human/M)
 
-	if(flags & NOBLOODY)
+	if(atom_flags & ATOM_FLAG_NO_BLOOD)
 		return 0
 
 	if(!blood_DNA || !istype(blood_DNA, /list))	// If our list of DNA doesn't exist yet (or isn't a list), initialise it.
@@ -567,12 +628,23 @@
 	else
 		return 0
 
-// Show a message to all mobs and objects in sight of this atom.
-// Use for objects performing visible actions.
-// The message is output to anyone who can see, e.g. "The [src] does something!"
-// "blind_message" (optional) is what blind people will hear e.g. "You hear something!"
-/atom/proc/visible_message(var/message, var/blind_message, var/range = world.view, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+
+/**
+ * Show a message to all mobs and objects in sight of this one, usually used for visible actions by the `src` mob
+ *
+ * _Implementations differs, basically this is a shitshow, check the params without assuming the order from this description_
+ *
+ * * message - The message output to anyone who can see, a string
+ * * self_message - A message to show to the `src` mob
+ * * blind_message - A message to show to mobs or movable atoms that are in view range but blind
+ * * range - The range that is considered for the view evaluation, defaults to `world.view`
+ * * show_observers - Boolean, if observers sees the message
+ * * intent_message - A message sent via `intent_message()`
+ * * intent_range - The range considered for the evaluation of the `intent_message`
+ */
+/atom/proc/visible_message(message, blind_message, range = world.view, intent_message = null, intent_range = 7)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/list/hearers = get_hearers_in_view(range, src)
 
 	for(var/atom/movable/AM as anything in hearers)
@@ -673,6 +745,12 @@
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
 
+/atom/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/atom/proc/get_standard_pixel_y()
+	return initial(pixel_y)
+
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return
 
@@ -697,7 +775,7 @@
 			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
 		else
 			bullet_mark.icon_state = "light_scorch"
-	
+
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)

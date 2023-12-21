@@ -18,7 +18,7 @@
 	density = 0
 	dir = NORTH
 	w_class = ITEMSIZE_NORMAL
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/obj/item/airlock_electronics/electronics = null
 
@@ -150,7 +150,7 @@
 
 			//Removing wire from the assembly. Step 5 undone.
 			if(W.iswirecutter() && !src.electronics)
-				playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 				if(W.use_tool(src, user, 40, volume = 50))
@@ -168,7 +168,7 @@
 			else if(istype(W, /obj/item/airlock_electronics) && W:icon_state != "door_electronics_smoked")
 				var/obj/item/airlock_electronics/EL = W
 				if(!EL.is_installed)
-					playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 					EL.is_installed = 1
 					if(do_after(user, 40))
@@ -271,7 +271,7 @@
 		if (obstacle == src)
 			continue
 
-		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && obstacle.dir == targetdir)
 			to_chat(usr, SPAN_WARNING("You can't turn the windoor assembly that way, there's already something there!"))
 			return
 

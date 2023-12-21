@@ -1,8 +1,8 @@
 var/list/forbidden_varedit_object_types = list(
 	/datum/admins,						//Admins editing their own admin-power object? Yup, sounds like a good idea.
 	/datum/controller/subsystem/statistics,	//Prevents people messing with feedback gathering
-	/datum/feedback_variable,			//Prevents people messing with feedback gathering
-	/datum/discord_bot					//Nope.jpg. Stop it.
+	/datum/controller/subsystem/discord, //Nope.jpg
+	/datum/feedback_variable			//Prevents people messing with feedback gathering
 )
 
 var/list/VVlocked = list("vars", "holder", "client", "virus", "viruses", "cuffed", "last_eaten", "unlock_content", "bound_x", "bound_y", "step_x", "step_y", "force_ending")
@@ -310,11 +310,10 @@ var/list/VVdynamic_lock = list(
 			mod_list(variable, O, original_name, objectvar)
 
 		if("restore to default")
-			new_var = initial(variable)
 			if(assoc)
-				L[assoc_key] = new_var
+				L[assoc_key] = variable
 			else
-				L[L.Find(variable)] = new_var
+				L[L.Find(variable)] = variable
 
 		if("edit referenced object")
 			modify_variables(variable)

@@ -12,7 +12,7 @@
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
-		if(genetic_damage > 100)
+		if(genetic_damage > 100 && !(HAS_FLAG(mutations, SKELETON))) //They need flesh to slough off
 			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), range = 5)
 			ChangeToSkeleton(FALSE)
 		else
@@ -218,6 +218,8 @@
 		var/obj/item/organ/internal/I = internal
 		if(amount <= 0)
 			break
+		if(BP_IS_ROBOTIC(I))
+			continue //Chems won't help, you need surgery to fix robot organs
 		if(heal)
 			if(I.damage < amount)
 				amount -= I.damage
@@ -279,7 +281,7 @@
 //Heals ONE external organ, organ gets randomly selected from damaged ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = TRUE)
+/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = FALSE)
 	var/list/obj/item/organ/external/parts = get_damaged_organs(brute, burn, prosthetic)
 	if(!length(parts))
 		return
@@ -360,7 +362,7 @@ This function restores the subjects blood to max.
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
 		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
-		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
+		vessel.add_reagent(/singleton/reagent/blood, species.blood_volume - total_blood, temperature = species.body_temperature)
 
 
 /*
@@ -382,6 +384,8 @@ This function restores all organs.
 
 
 /mob/living/carbon/human/proc/get_organ(var/zone, var/allow_no_result = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/obj/item/organ)
 	if(!zone)
 		if(allow_no_result)
 			return
@@ -417,8 +421,10 @@ This function restores all organs.
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
 		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
-				emote("scream")
+			if((damage > 25) || (damage > 50))
+				force_say()
+				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
+					emote("scream")
 		return ..()
 
 	if(!organ)
@@ -433,9 +439,11 @@ This function restores all organs.
 	if(!damage)
 		return FALSE
 
-	if(damage > 15 && prob(damage*4) && ORGAN_CAN_FEEL_PAIN(organ))
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
-			make_adrenaline(round(damage/10))
+	if(damage > 15 && ORGAN_CAN_FEEL_PAIN(organ))
+		force_say()
+		if(prob(damage*4))
+			if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
+				make_adrenaline(round(damage/10))
 
 	switch(damagetype)
 		if(DAMAGE_BRUTE)

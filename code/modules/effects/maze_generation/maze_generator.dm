@@ -17,7 +17,7 @@
 do { \
 	var/timer = start_watch(); \
 	proc2run ;\
-	log_debug("\[MAZE] Operation '[opname]' on maze at [##x],[##y],[##z] took [stop_watch(timer)]s"); \
+	LOG_DEBUG("\[MAZE] Operation '[opname]' on maze at [##x],[##y],[##z] took [stop_watch(timer)]s"); \
 } while (FALSE)
 
 
@@ -69,13 +69,13 @@ do { \
 	ASSERT(ISODD(mwidth))
 	ASSERT(ISODD(mheight))
 	var/total_time = start_watch()
-	log_debug("\[MAZE] Started generation on maze at [x],[y],[z] | [mwidth * mheight] turfs total")
+	LOG_DEBUG("\[MAZE] Started generation on maze at [x],[y],[z] | [mwidth * mheight] turfs total")
 	LOG_MAZE_PROGRESS(generate_path(), "Path Generation")
 	LOG_MAZE_PROGRESS(apply_helper_modules(FALSE), "Helper Modules")
 	if(length(loot_modules)) // Only bother with this if we have some
 		LOG_MAZE_PROGRESS(calculate_loot_spots(), "Loot Spot Calculation")
 		LOG_MAZE_PROGRESS(apply_loot_modules(), "Loot Modules")
-	log_debug("\[MAZE] Generation of maze at [x],[y],[z] complete within [stop_watch(total_time)]s")
+	LOG_DEBUG("\[MAZE] Generation of maze at [x],[y],[z] complete within [stop_watch(total_time)]s")
 	qdel(src)
 
 /obj/effect/mazegen/generator/proc/generate_path()

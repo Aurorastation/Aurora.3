@@ -16,7 +16,6 @@
 	emote_see = list("shakes their head", "shivers")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
@@ -27,7 +26,7 @@
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/holder/cat
-	mob_size = 2.5
+	mob_size = 3.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
 	max_nutrition = 60
@@ -156,11 +155,6 @@
 	. = ..()
 	handle_radiation_light()
 
-/mob/living/simple_animal/cat/apply_radiation_effects()
-	. = ..()
-	if(.)
-		apply_damage((rand(30,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
 	if (flee_target && !(flee_target.loc in view(src)))
@@ -251,10 +245,15 @@
 				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
 		else
 			if (prob(5))
-				visible_emote(pick("nuzzles [friend].",
-								   "brushes against [friend].",
-								   "rubs against [friend].",
-								   "purrs."),0)
+				var/emote = pick(
+								"nuzzles [friend].",
+								"brushes against [friend].",
+								"rubs against [friend].",
+								"purrs.",
+								)
+
+				visible_emote(emote, 0)
+
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
@@ -295,7 +294,7 @@
 	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
 
@@ -311,7 +310,7 @@
 	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
 
@@ -358,6 +357,6 @@
 	holder_type = /obj/item/holder/cat/crusher
 
 /mob/living/simple_animal/cat/crusher/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

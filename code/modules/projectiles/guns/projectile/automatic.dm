@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic
 	name = "prototype SMG"
-	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
+	desc = "A prototype version of a lightweight, fast-firing gun."
 	icon = 'icons/obj/guns/saber.dmi'
 	icon_state = "saber"	//ugly //yup
 	item_state = "saber"
@@ -16,6 +16,8 @@
 	burst_delay = 2
 	sel_mode = 1
 	fire_delay = ROF_SMG
+	can_suppress = TRUE
+	suppressor_x_offset = 8
 
 	firemodes = list(
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
@@ -28,7 +30,7 @@
 
 /obj/item/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
-	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
+	desc = "A lightweight, fast-firing gun. For when you want someone dead."
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
@@ -40,6 +42,9 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/mini_uzi/update_icon()
 	..()
@@ -47,7 +52,7 @@
 
 /obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
-	desc = "A conventional bullpup submachine gun with an extendable stock. Loads from 9mm magazines."
+	desc = "A conventional bullpup submachine gun with an extendable stock."
 	desc_extended = "The Colettish Armaments Model 25 SMG is a typical product of the San Colette Interstellar Armaments Company (CAISC). Rejected by the Solarian military due to competition with the Zavodskoi M470-L, the CA-M25 was repurposed \
 	into the Colettish Armaments Model 25 Export (CA-25E) and has found reasonable success in mercenary groups across the Orion Spur. Recently many have found their ways into the hands of violent non-state actors in the Corporate Reconstruction Zone, where \
 	they contribute to the further destabilization of the region. Curiously, these models typically have a filed-off serial number or no serial number at all."
@@ -65,6 +70,9 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 11
 
 /obj/item/gun/projectile/automatic/c20r/update_icon()
 	..()
@@ -76,18 +84,42 @@
 
 /obj/item/gun/projectile/automatic/c20r/sol
 	name = "solarian submachine gun"
-	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen. Chambered in 10mm."
+	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen."
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/c20r/sol/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
 
+/obj/item/gun/projectile/automatic/xanusmg
+	name = "\improper Xanan submachine gun"
+	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
+	desc_extended = "The dNAC-4.6 II submachine gun is a custom-made submachine gun for the All-Xanu Armed Forces, designed to use the same 4.6mm rounds as the dNAC-4.6 pistol. It mainly sees use as a personal defensive weapon for pilots and drivers, but has also been used aboard the spacefleet's vessels for close quarters combat."
+	magazine_type = /obj/item/ammo_magazine/c46m/extended
+	allowed_magazines = list(/obj/item/ammo_magazine/c46m/extended)
+	icon = 'icons/obj/guns/xanu_smg.dmi'
+	icon_state = "xanu_smg"
+	item_state = "xanu_smg"
+	caliber = "4.6mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = 1
+
+/obj/item/gun/projectile/automatic/xanusmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_smg" : "xanu_smg-e"
+
+
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
-	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use. Uses 9mm rounds."
+	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
 	icon = 'icons/obj/guns/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
@@ -100,6 +132,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
 
 /obj/item/gun/projectile/automatic/wt550/lethal
 	magazine_type = /obj/item/ammo_magazine/mc9mmt
@@ -111,6 +146,31 @@
 	else
 		icon_state = "wt550"
 	return
+
+/obj/item/gun/projectile/automatic/konyang_pirate
+	name = "pirate smg"
+	desc = "A hacked together SMG, made out of salvage metal and a lot of creativity."
+	desc_extended = "Konyang's pirates have to go by somehow. They usually salvage and collect old metal and weapon's parts, pile them up in their hideout and get really creative. It's not advisable to use one, except you're desperate. Or a pirate."
+	icon = 'icons/obj/guns/pirate_smg.dmi'
+	icon_state = "pirate_smg"
+	item_state = "pirate_smg"
+	w_class = ITEMSIZE_NORMAL
+	caliber = "10mm"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_OCLOTHING
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/smg10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/smg10mm)
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
+/obj/item/gun/projectile/automatic/konyang_pirate/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "pirate_smg" : "pirate_smg-empty"
 
 //Ballistic rifles, go.
 
@@ -133,6 +193,7 @@
 	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
+	can_suppress = FALSE
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
@@ -151,7 +212,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
-	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
+	desc = "A durable, rugged-looking automatic weapon of a make popular on the frontier worlds. It is unmarked."
 	desc_extended = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
@@ -167,7 +228,7 @@
 	desc = "A durable, rugged-looking automatic weapon that has been heavily modified. \
 	Key changes include significant shortening of the barrel and the addition of an improvised vertical foregrip, \
 	condensing heavy firepower into a relatively small and maneuverable package intended for close-in \
-	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles. Uses 7.62mm rounds."
+	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles."
 	desc_extended = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in many different versions and calibres; this one uses 7.62mm rounds. This example has been heavily modified and is illegal in some jurisdictions. \
 	Much of the barrel has been lopped off to decrease overall length, while a pistol grip from another STS35 has been clamped on below what remains of the handguard \
@@ -194,8 +255,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine
 	name = "ballistic carbine"
-	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \
-	capacity magazines. It is unmarked."
+	desc = "A durable, rugged-looking semi-automatic weapon of a make popular on the frontier worlds. Doesn't accept large-capacity magazines. It is unmarked."
 	desc_extended = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
 	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
 	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
@@ -218,7 +278,8 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
 	name = "bullpup carbine"
-	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
+	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, only capable of accepting smaller magazines. \
+	It also lacks the integrated grenade launcher and burst fire of the Bulldog."
 	desc_extended = "It makes you feel like a corporate goon when you hold it."
 	icon = 'icons/obj/guns/crew_rifle.dmi'
 	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
@@ -234,7 +295,7 @@
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "solarian assault rifle"
 	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. \
-	Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm."
+	Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come."
 	icon = 'icons/obj/guns/sol_rifle.dmi'
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
@@ -270,7 +331,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
-	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle. Uses 5.56mm rounds."
+	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
 	desc_extended = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
@@ -334,7 +395,7 @@
 		icon_state = "carbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
-	..()
+	. = ..()
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
@@ -514,7 +575,7 @@
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
-	desc = "An adhomian made submachine gun. Uses .45 rounds."
+	desc = "An Adhomian-made submachine gun."
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"
@@ -529,13 +590,17 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
 	fire_sound = 'sound/weapons/gunshot/gunshot_tommygun.ogg'
 
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
+
 /obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
 
 /obj/item/gun/projectile/automatic/tommygun/dom
 	name = "dominian submachine gun"
-	desc = "A .45 caliber submachine gun featuring a novel top loading configuration, used by the Empire of Dominia's armed forces."
+	desc = "A submachine gun featuring a novel top loading configuration, used by the Empire of Dominia's armed forces."
 	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. \
 	Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon."
 	icon = 'icons/obj/guns/dom_smg.dmi'
@@ -547,6 +612,26 @@
 /obj/item/gun/projectile/automatic/tommygun/dom/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "owen" : "owen-empty"
+
+/obj/item/gun/projectile/automatic/rifle/dnac
+	name = "dNAC-6.5 assault rifle"
+	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
+	icon = 'icons/obj/guns/xanu_rifle.dmi'
+	icon_state = "xanu_rifle"
+	item_state = "xanu_rifle"
+	magazine_type = /obj/item/ammo_magazine/a65
+	allowed_magazines = list(/obj/item/ammo_magazine/a65)
+	caliber = "a65"
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
+/obj/item/gun/projectile/automatic/rifle/dnac/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_rifle" : "xanu_rifle-empty"
 
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
@@ -565,6 +650,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	can_suppress = FALSE
 
 	firemodes = list(
 		list(mode_name="single coil", burst = 1),
@@ -589,6 +676,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	can_suppress = FALSE
+
 	is_wieldable = TRUE
 
 	firemodes = list(
@@ -609,12 +698,68 @@
 /obj/item/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
+/obj/item/gun/projectile/automatic/rifle/konyang/k556
+	name = "konyang assault rifle"
+	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
+	desc_extended = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k556rifle"
+	item_state = "k556rifle"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_NORMAL
+	ammo_type = "/obj/item/ammo_casing/a556"
+	handle_casings = EJECT_CASINGS
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/a556/k556
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/k556)
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/konyang/k556/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k556rifle" : "k556rifle-e"
+
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47
+	name = "konyang assault carbine"
+	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
+	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
+	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k47"
+	item_state = "k47"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = "/obj/item/ammo_casing/a556"
+	handle_casings = EJECT_CASINGS
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/konyang47
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine/konyang47)
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k47" : "k47-e"
+
+/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle
+	name = "re-bored rifle"
+	desc = "A wooden rifle, repaired and re-bored to actually work again. Fires eight rounds of .308 in semi-auto."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "poacher"
+	item_state = "poacher"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	load_method = SINGLE_CASING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = /obj/item/ammo_casing/vintage
+	handle_casings = EJECT_CASINGS
+	caliber = "30-06 govt"
+	is_wieldable = TRUE
+	max_shells = 8
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
@@ -648,3 +793,49 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan
+	name = "dNAC-12 combat shotgun"
+	desc = "A magazine-fed semi-automatic combat shotgun, designed by d.N.A Defense on Xanu Prime."
+	desc_extended = "The dNAC-12 combat shotgun was designed for the All-Xanu Grand Army and the All-Xanu National Militia for its law enforcement duties and military police. Due to its reliability, ease of use, and flexibility however, it has been adopted by the Air Corps and Spacefleet as well for defensive purposes."
+	icon = 'icons/obj/guns/xanu_shotgun.dmi'
+	icon_state = "xanu_shotgun"
+	item_state = "xanu_shotgun"
+	magazine_type = /obj/item/ammo_magazine/xanan_shotgun/shells
+	allowed_magazines = list(/obj/item/ammo_magazine/xanan_shotgun)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "xanu_shotgun" : "xanu_shotgun-empty"
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1), dispersion=list(0, 10))
+		)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/konyang
+	name = "magazine-fed shotgun"
+	desc = "A compact semi-automatic shotgun, fed by a magazine. Unsuspectic, but powerful and not to be underestimated. Takes standard 12g shotgun ammo."
+	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Showstopper\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
+	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by the Commandos of Konyang's Special Forces."
+	icon = 'icons/obj/guns/mag_shotgun.dmi'
+	icon_state = "mshotgun"
+	item_state = "mshotgun"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	handle_casings = DELETE_CASINGS
+	max_shells = 9
+	auto_eject = 0
+	caliber = "shotgun"
+	magazine_type = /obj/item/ammo_magazine/konyang_shotgun
+	allowed_magazines = list(/obj/item/ammo_magazine/konyang_shotgun)
+	is_wieldable = TRUE
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY)
+		)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/konyang/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"

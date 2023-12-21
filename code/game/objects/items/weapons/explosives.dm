@@ -5,7 +5,7 @@
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ILLEGAL = 2)
 	var/datum/wires/explosive/c4/wires = null
@@ -30,7 +30,7 @@
 		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
 		return TRUE
 	else if(I.iswirecutter() || I.ismultitool() || istype(I, /obj/item/device/assembly/signaler ))
-		wires.Interact(user)
+		wires.interact(user)
 		return TRUE
 	else
 		return ..()
@@ -51,7 +51,7 @@
 		return
 	to_chat(user, SPAN_NOTICE("Planting explosives..."))
 
-	if(do_after(user, 50, TRUE, target))
+	if(do_after(user, 5 SECONDS, target, DO_UNIQUE))
 		user.do_attack_animation(target)
 		deploy_c4(target, user)
 

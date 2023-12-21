@@ -8,13 +8,63 @@ Thumbs.db
 *.lk
 *.backup
 *.before
-data/
-cfg/
 build_log.txt
 
 __pycache__/
 *.py[cod]
 *$py.class
 /.atom-build.json
-.vscode/
+
+#VScode and relative exceptions
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 .vs/
+
+#Ignore compiled files and other files generated during compilation.
+*.mdme
+*.mdme.*
+*.dmb
+*.rsc
+*.m.dme
+*.test.dme
+*.lk
+*.int
+*.backup
+
+# auto-generated tag files
+tags
+
+# Installer logs
+pip-*.txt
+
+# dotenv
+.env
+
+# Windows shortcuts
+*.lnk
+
+# Thumbnails
+._*
+
+#Ignore byond config folder.
+cfg/
+/cfg/**/*
+
+#Ignore everything in datafolder and subdirectories
+data/
+/data/**/*
+/tmp/**/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pyenv
+.python-version
+
+define_sanity_output.txt
+tools/bootstrap/.cache/venv/

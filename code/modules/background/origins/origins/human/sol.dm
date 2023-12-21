@@ -1,6 +1,3 @@
-#define RELIGIONS_SOLARIAN list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_SHINTO, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY)
-#define CITIZENSHIPS_SOLARIAN list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
-
 /singleton/origin_item/culture/solarian
 	name = "Solarian"
 	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
@@ -23,7 +20,8 @@
 		/singleton/origin_item/origin/visegrad,
 		/singleton/origin_item/origin/mictlan,
 		/singleton/origin_item/origin/antillia,
-		/singleton/origin_item/origin/sancolette
+		/singleton/origin_item/origin/sancolette,
+		/singleton/origin_item/origin/ouerea_human
 	)
 
 /singleton/origin_item/origin/sol_system
@@ -101,7 +99,7 @@
 	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Referred to as Dregs by the Spur at large, the term has been co-opted by many as a badge of honor rather than a pejorative. Whether an individual was born outside the great Eridanian skyscrapers or sent there following the loss of their job, Dreg society is the polar opposite of their Suit counterpart. Without corporate control or any form of governance from the Eridanian state itself, the Dregs largely inhabit their own sprawling, slum-like conurbations all across the surface of Eridani's terrestrial worlds."
 	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ERIDANIDREG)
-	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
+	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_NO_ANIMAL_PROTEIN, TRAIT_ORIGIN_TOX_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
 	origin_traits_descriptions = list("get sick if they eat animal protein that isn't tofu or seafood", "have a higher resistance to toxins", "have a higher tolerance to recreative drugs")
@@ -160,7 +158,7 @@
 /singleton/origin_item/origin/mictlan
 	name = "Mictlan"
 	desc = "One of the worlds unlucky enough to be annexed into the Republic of Biesel's Corporate Reconstruction Zone following the Solarian Collapse, Mictlan has become the site of growing fighting and unrest directed at the Republic and its forces. Mictlaners now find themselves increasingly caught between Sol and Biesel, and the conflict on their planet shows no signs of deescalating."
-	important_information = "While Mictlan has been a beacon of multiculturalism among humans and aliens in the Orion Spur, many humans that have immigrated to the planet have been assimilated into Mictlan's culture and society. Because of this, <b>human characters born on Mictlan must have names and appearances consistent with the peoples of Central and South America.</b> Only characters native to Mictlan may take the Mictlan accent. This is enforceable by server moderators and admins."
+	important_information = "While Mictlan has been a beacon of multiculturalism among humans and aliens in the Orion Spur, many humans that have immigrated to the planet have been assimilated into Mictlan's culture and society. Because of this, <b>human characters born on Mictlan must have names and appearances consistent with the peoples of Mexico, Central America, and South America.</b> Only characters native to Mictlan may take the Mictlan accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
@@ -174,6 +172,8 @@
 	possible_accents = list(ACCENT_ANTILLIA)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/sancolette
 	name = "San Colette"
@@ -187,3 +187,16 @@
 	possible_accents = list(ACCENT_SANCOLETTE)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+
+/singleton/origin_item/origin/ouerea_human
+	name = "Ouerea"
+	desc = "The planet of Ouerea, in the Uueoa-Esa system, is unique among the human-populated worlds of the Spur. Human colonists originally came to Ouerea shortly after first contact was made with the Unathi race, who had recently established their own colony on the planet. \
+	As megacorporations began to set up operations on Ouerea, colonists came from across Alliance space to work and live there. Following the Alliance's withdrawal from the planet and the ceding of control to the Hegemony, many of the human colonists remained, having made Ouerea their home \
+	for decades. Through strife and revolution, the humans of Ouerea have persisted alongside their Skrell and Unathi neighbours, building a world that occupies a unique place among all three species. Many of the humans of Ouerea fought in the revolution of 2460 to abolish the Unathi feudal system on their world, \
+	and following their success human ideas of governance have played an important role in the establishment of the new and fragile Ouerean democracy. Humans born on Ouerea must be born on or after 2403."
+	important_information = "Despite being categorised as culturally Solarian, those humans who chose to remain on Ouerea have not been ruled by the Alliance directly in decades, and would be considered as Izweski Hegemony citizens if they have not emigrated elsewhere."
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_accents = list(ACCENT_OUEREA)
+	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")

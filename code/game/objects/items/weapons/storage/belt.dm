@@ -50,6 +50,7 @@
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
+	set src in usr
 
 	if(show_above_suit == -1)
 		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
@@ -385,7 +386,7 @@
 		)
 
 /obj/item/storage/belt/military/syndicate
-	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
+	desc = "A red military belt designed to be used by boarding parties and SWAT teams."
 	icon_state = "militarybelt_syndie"
 	item_state = "militarybelt_syndie"
 

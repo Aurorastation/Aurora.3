@@ -45,8 +45,8 @@
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, file2text(RULES_FILE)), "window=rules;size=640x500")
+
+	src << browse(file2text(RULES_FILE), "window=rules;size=640x500")
 #undef RULES_FILE
 
 /client/verb/hotkeys_help()
@@ -191,9 +191,9 @@ Any-Mode: (hotkey doesn't need to be on)
 	set desc = "Get a link to the Discord server."
 	set hidden = 1
 
-	if (discord_bot && discord_bot.active)
+	if (SSdiscord && SSdiscord.active)
 		if(alert("This will open Discord in your browser or directly. Are you sure?",, "Yes", "No") == "Yes")
-			var/url_link = discord_bot.retreive_invite()
+			var/url_link = SSdiscord.retreive_invite()
 			if (url_link)
 				send_link(src, url_link)
 			else

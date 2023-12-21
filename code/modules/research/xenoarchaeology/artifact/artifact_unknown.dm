@@ -1,24 +1,4 @@
 
-#define EFFECT_TOUCH 0
-#define EFFECT_AURA 1
-#define EFFECT_PULSE 2
-#define MAX_EFFECT 2
-
-#define TRIGGER_TOUCH 0
-#define TRIGGER_WATER 1
-#define TRIGGER_ACID 2
-#define TRIGGER_VOLATILE 3
-#define TRIGGER_TOXIN 4
-#define TRIGGER_FORCE 5
-#define TRIGGER_ENERGY 6
-#define TRIGGER_HEAT 7
-#define TRIGGER_COLD 8
-#define TRIGGER_PHORON 9
-#define TRIGGER_OXY 10
-#define TRIGGER_CO2 11
-#define TRIGGER_NITRO 12
-#define MAX_TRIGGER 12
-
 /obj/machinery/artifact
 	name = "alien artifact"
 	desc = "A large alien device."
@@ -227,7 +207,7 @@
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_VOLATILE)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/singleton/reagent/toxin, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/singleton/reagent/alcohol/neurotoxin, 1))
+		else if(W.reagents.has_reagent(/singleton/reagent/toxin, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/singleton/reagent/drugs/cryptobiolin, 1) || W.reagents.has_reagent(/singleton/reagent/drugs/impedrezene, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/singleton/reagent/alcohol/neurotoxin, 1))
 			if(my_effect.trigger == TRIGGER_TOXIN)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_TOXIN)
@@ -325,7 +305,7 @@
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
 
-/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely. 
+/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely.
 	if(!isrobot(user) || !Adjacent(user))
 		return
 	return ..()

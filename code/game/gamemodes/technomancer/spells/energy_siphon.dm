@@ -49,6 +49,7 @@
 
 
 /obj/item/spell/energy_siphon/on_ranged_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(istype(hit_atom, /atom/movable) && within_range(hit_atom, 4))
 		var/atom/movable/AM = hit_atom
 		populate_siphon_list(AM)

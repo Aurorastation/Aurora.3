@@ -110,7 +110,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if (use_check_and_message(user, flags) || user.blinded || inoperable() || !linked)
 		return -1
 	else
-		return 0
+		return SEE_THRU
 
 /obj/machinery/computer/ship/Destroy()
 	if(linked)

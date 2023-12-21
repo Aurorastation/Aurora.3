@@ -27,6 +27,7 @@ var/list/technomancer_belongings = list()
 	return ..()
 
 /obj/item/spell/track/on_use_cast(mob/user)
+	. = ..()
 	if(tracking)
 		tracking = 0
 		to_chat(user, "<span class='notice'>You stop tracking for \the [tracked]'s whereabouts.</span>")
@@ -44,7 +45,10 @@ var/list/technomancer_belongings = list()
 		if(L == user)
 			continue
 		mob_choices += L
-	var/choice = input(user,"Decide what or who to track.","Tracking") as null|anything in object_choices + mob_choices
+
+	var/list/all_choices = object_choices + mob_choices
+
+	var/choice = tgui_input_list(user, "Decide what or who to track.", "Tracking", all_choices)
 	if(choice)
 		tracked = choice
 		tracking = 1

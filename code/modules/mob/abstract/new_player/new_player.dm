@@ -27,31 +27,54 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	QDEL_NULL(late_choices_ui)
 	return ..()
 
-/mob/abstract/new_player/Stat()
-	..()
+/mob/abstract/new_player/get_status_tab_items()
+	. = ..()
 
-	if(statpanel("Lobby"))
-		stat("Game ID:", game_id)
+	if(!istype(SSticker))
+		return
 
-		if(!istype(SSticker))
-			return
+	if(SSticker.hide_mode == ROUNDTYPE_SECRET)
+		. += "Game Mode: Secret"
+	else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
+		. += "Game Mode: Mixed Secret"
+	else
+		. += "Game Mode: [master_mode]" // Old setting for showing the game mode
 
-		if(SSticker.hide_mode == ROUNDTYPE_SECRET)
-			stat("Game Mode:", "Secret")
-		else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
-			stat("Game Mode:", "Mixed Secret")
-		else
-			stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
+	if(SSticker.current_state == GAME_STATE_PREGAME)
+		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
+		. += "Players: [length(player_list)] Players Ready: [SSticker.total_players_ready]"
+		if(LAZYLEN(SSticker.ready_player_jobs))
+			. += ""
+			. += ""
+			. += "Group antagonists ready:"
 
-		if(SSticker.current_state == GAME_STATE_PREGAME)
-			stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
-			stat("Players: [length(player_list)]", "Players Ready: [SSticker.total_players_ready]")
-			if(LAZYLEN(SSticker.ready_player_jobs))
-				for(var/dept in SSticker.ready_player_jobs)
-					if(LAZYLEN(SSticker.ready_player_jobs[dept]))
-						stat(uppertext(dept), null)
-					for(var/char in SSticker.ready_player_jobs[dept])
-						stat("[copytext_char(char, 1, 18)]", "[SSticker.ready_player_jobs[dept][char]]")
+			var/list/ready_special_roles = list()
+
+			//Get the list of all the players, if they are ready, get their special roles (aka antagonists) preferences and count them up in a list
+			for(var/mob/abstract/new_player/player in player_list)
+				if(!player.ready)
+					continue
+				for(var/special_role in player?.client?.prefs?.be_special_role)
+					ready_special_roles[special_role] += 1
+
+			//Get the list of all antagonist types, if they require more than one person to spawn, check that there's at least one candidate and if so list the number of candidates for it
+			for(var/antag_type in all_antag_types)
+				var/datum/antagonist/possible_antag_type = all_antag_types[antag_type]
+
+				if(possible_antag_type.initial_spawn_req > 1)
+					if(ready_special_roles[possible_antag_type.role_type])
+						. += "[possible_antag_type.role_text_plural]: [ready_special_roles[possible_antag_type.role_type]]"
+
+
+			. += ""
+			. += ""
+			. += "Characters ready:"
+			for(var/dept in SSticker.ready_player_jobs)
+				if(LAZYLEN(SSticker.ready_player_jobs[dept]))
+					. += "[uppertext(dept)]"
+				for(var/char in SSticker.ready_player_jobs[dept])
+					. += "[copytext_char(char, 1, 18)]: [SSticker.ready_player_jobs[dept][char]]"
+
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0
@@ -108,7 +131,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!ROUND_IS_STARTED)
 			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
 			return
-		SSghostroles.vui_interact(src)
+		SSghostroles.ui_interact(usr)
 
 	if(href_list["SelectedJob"])
 
@@ -211,6 +234,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(S.name in job.blacklisted_species)
 			return FALSE
 
+	if(job.blacklisted_citizenship)
+		var/datum/citizenship/C = SSrecords.citizenships[client.prefs.citizenship]
+		if(C.name in job.blacklisted_citizenship)
+			return FALSE
+
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
 	if (!(job.type in faction_allowed_roles))
@@ -310,8 +338,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!istype(late_choices_ui))
 		late_choices_ui = new(src)
 	else // if the UI exists force refresh it
-		late_choices_ui.ui_refresh()
-	late_choices_ui.ui_open()
+		SStgui.update_uis(late_choices_ui)
+	late_choices_ui.ui_interact(src)
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1
@@ -379,10 +407,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	new_character.key = key		//Manually transfer the key to log them in
 
+	new_character.client.init_verbs()
+
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	SSrecords.open_manifest_vueui(src)
+	SSrecords.open_manifest_tgui(src)
 
 /mob/abstract/new_player/Move()
 	return TRUE

@@ -125,7 +125,7 @@
 
 			if(user.unEquip(system))
 				to_chat(user, "<span class='notice'>You install \the [system] in \the [src]'s [system_hardpoint].</span>")
-				playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+				playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			else return FALSE
 	var/obj/item/mecha_equipment/ME = system
 	if(istype(ME))
@@ -201,6 +201,6 @@
 		system.forceMove(get_turf(user))
 		user.put_in_hands(system)
 		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
-		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	return system

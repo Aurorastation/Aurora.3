@@ -143,6 +143,8 @@
 	O.add_ai_verbs()
 
 	O.rename_self("ai",1)
+
+	O.client.init_verbs()
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)
 	return O
@@ -170,7 +172,7 @@
 
 	O.gender = gender
 	O.set_invisibility(0)
-	
+
 	if(mind)		//TODO
 		mind.transfer_to(O)
 		if(O.mind.assigned_role == "Cyborg")
@@ -194,6 +196,8 @@
 
 	callHook("borgify", list(O))
 	O.Namepick()
+	if(O.client)
+		O.client.init_verbs()
 
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)
@@ -228,7 +232,7 @@
 		new_slime = new /mob/living/carbon/slime(loc)
 		if(adult)
 			new_slime.is_adult = 1
-		else
+
 	new_slime.key = key
 
 	to_chat(new_slime, "<B>You are now a slime. Skreee!</B>")

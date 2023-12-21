@@ -28,7 +28,7 @@
 
 /datum/outfit/admin/miners_guild
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
-	shoes = /obj/item/clothing/shoes/caligae
+	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/miner
 	back = /obj/item/storage/backpack/satchel/eng
 	l_ear = /obj/item/device/radio/headset/ship

@@ -16,6 +16,7 @@
 	aspect = ASPECT_TELE
 
 /obj/item/spell/apportation/on_ranged_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(istype(hit_atom, /atom/movable))
 		var/atom/movable/AM = hit_atom
 

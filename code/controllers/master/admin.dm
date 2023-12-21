@@ -67,7 +67,7 @@
 // Subsystems that cmd_ss_panic can hard-restart.
 // *MUST* have New() use NEW_SS_GLOBAL.
 var/list/panic_targets = list(
-	"Garbage" = /datum/controller/subsystem/garbage_collector,
+	"Garbage" = /datum/controller/subsystem/garbage,
 	"Air" = /datum/controller/subsystem/air,
 	"Explosives" = /datum/controller/subsystem/explosives,
 	"Game Ticker" = /datum/controller/subsystem/ticker,
@@ -100,7 +100,7 @@ var/list/panic_targets_data_loss = list(
 			return
 
 	log_and_message_admins(SPAN_DANGER("hard-restarted the [controller] subsystem."))
-	log_debug("SS PANIC: [controller] hard-restart by [usr]!")
+	LOG_DEBUG("SS PANIC: [controller] hard-restart by [usr]!")
 
 	// NEW_SS_GLOBAL will handle destruction of old controller & data transfer, just create a new one and add it to the MC.
 	var/ctype = panic_targets[controller]

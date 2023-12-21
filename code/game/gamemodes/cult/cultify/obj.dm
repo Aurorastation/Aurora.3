@@ -31,9 +31,9 @@
 	return B
 
 /obj/item/material/sword/cultify()
-	var/obj/item/melee/cultblade/CBT = new /obj/item/melee/cultblade(get_turf(src)) // AHAHAHAHAHAHAHA - Geeves
+	var/obj/item/melee/cultblade/A = new /obj/item/melee/cultblade(get_turf(src))
 	qdel(src)
-	return CBT
+	return A
 
 /obj/item/storage/backpack/cultify()
 	var/obj/item/storage/backpack/cultpack/CP = new /obj/item/storage/backpack/cultpack(get_turf(src))

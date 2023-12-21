@@ -23,6 +23,16 @@ var/global/list/default_medbay_channels = list(
 	num2text(MED_I_FREQ) = list(access_medical_equip)
 )
 
+var/global/list/default_expedition_channels = list(
+	num2text(PUB_FREQ) = list(),
+	num2text(EXP_FREQ) = list(),
+	num2text(HAIL_FREQ) = list()
+)
+
+var/global/list/default_interrogation_channels = list(
+	num2text(INT_FREQ) = list()
+)
+
 //
 // Radios
 //
@@ -32,7 +42,7 @@ var/global/list/default_medbay_channels = list(
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "walkietalkie"
 	item_state = "radio"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
@@ -187,7 +197,7 @@ var/global/list/default_medbay_channels = list(
 		return 0
 
 	if(b_stat)
-		wires.Interact(user)
+		wires.interact(user)
 
 	return ui_interact(user)
 
@@ -200,8 +210,8 @@ var/global/list/default_medbay_channels = list(
 	data["default_freq"] = format_frequency(default_frequency)
 	data["rawfreq"] = num2text(frequency)
 
-	data["mic_cut"] = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))
-	data["spk_cut"] = (wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
+	data["mic_cut"] = (wires.is_cut(WIRE_TRANSMIT) || wires.is_cut(WIRE_SIGNAL))
+	data["spk_cut"] = (wires.is_cut(WIRE_RECEIVE) || wires.is_cut(WIRE_SIGNAL))
 
 	var/list/chanlist = list_channels(user)
 	if(islist(chanlist) && chanlist.len)
@@ -276,7 +286,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/text_wires()
 	if (b_stat)
-		return wires.GetInteractWindow()
+		return wires.get_status()
 	return
 
 
@@ -403,7 +413,7 @@ var/global/list/default_medbay_channels = list(
 		return FALSE
 	if(!M || !message)
 		return FALSE
-	if(wires.IsIndexCut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
+	if(wires.is_cut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
 		return FALSE
 
 	if (iscarbon(M))
@@ -505,9 +515,9 @@ var/global/list/default_medbay_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 
-/obj/item/device/radio/examine(mob/user)
+/obj/item/device/radio/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(show_modify_on_examine && (in_range(src, user) || loc == user))
+	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
 			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
 		else
@@ -531,11 +541,12 @@ var/global/list/default_medbay_channels = list(
 	else return
 
 /obj/item/device/radio/emp_act(severity)
+	. = ..()
+
 	set_broadcasting(FALSE)
 	set_listening(FALSE)
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
-	..()
 
 //
 // Vesselbound Synthetic Radio

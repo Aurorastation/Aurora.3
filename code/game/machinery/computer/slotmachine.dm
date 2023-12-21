@@ -178,12 +178,16 @@
 
 /obj/machinery/computer/slot_machine/emp_act(severity)
 	. = ..()
+
 	if(stat & (NOPOWER|BROKEN))
 		return
+
 	if(prob(15 * severity))
 		return
+
 	if(prob(1)) // :^)
 		emagged = TRUE
+
 	var/severity_ascending = 4 - severity
 	money = max(rand(money - (200 * severity_ascending), money + (200 * severity_ascending)), 0)
 	balance = max(rand(balance - (50 * severity_ascending), balance + (50 * severity_ascending)), 0)
@@ -244,12 +248,15 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value, delay = 0) //value is 1 or 0 aka on or off
+/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value) //value is 1 or 0 aka on or off
 	for(var/list/reel in reels)
 		reels[reel] = value
 
-		if(delay)
-			sleep(delay)
+/obj/machinery/computer/slot_machine/proc/toggle_reel_spin_delay(value, delay = 0) //value is 1 or 0 aka on or off
+	toggle_reel_spin(value)
+
+	if(delay)
+		sleep(delay)
 
 /obj/machinery/computer/slot_machine/proc/randomize_reels()
 	for(var/reel in reels)

@@ -43,7 +43,7 @@
 	name = "Izharshan Crewman"
 
 	uniform = /obj/item/clothing/under/unathi/izharshan
-	shoes = /obj/item/clothing/shoes/caligae
+	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/storage/webbing
@@ -64,7 +64,7 @@
 	name = "Izharshan Captain"
 
 	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
-	gloves = /obj/item/clothing/gloves/orange/unathi.
+	gloves = /obj/item/clothing/gloves/orange/unathi
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
 	head = /obj/item/clothing/head/bandana/pirate

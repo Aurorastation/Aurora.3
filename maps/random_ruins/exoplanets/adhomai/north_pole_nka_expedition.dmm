@@ -83,7 +83,7 @@
 	dir = 1
 	},
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -349,11 +349,11 @@
 /area/adhomai_archeology)
 "U" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
@@ -383,7 +383,7 @@
 /area/adhomai_archeology)
 "Y" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 268.15
 	},

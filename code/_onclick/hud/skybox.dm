@@ -1,6 +1,6 @@
 /obj/skybox
 	name = "skybox"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = TRUE
 	simulated = FALSE
 	screen_loc = "CENTER:-224,CENTER:-224"
@@ -24,11 +24,6 @@
 			screen |= skybox
 		if(skybox)
 			skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
-
-/mob/LateLogin()
-	..()
-	if(client)
-		client.update_skybox(TRUE)
 
 /mob/Move()
 	var/old_z = GET_Z(src)

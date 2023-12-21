@@ -168,7 +168,7 @@
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return TRUE
 		else if(I.ismultitool() || I.iswirecutter() || issignaler(I))
-			wires.Interact(user)
+			wires.interact(user)
 			return TRUE
 
 	if(istype(I, /obj/item/melee/energy/blade))
@@ -1544,7 +1544,7 @@
 
 
 /proc/disposal_log(thing)
-	log_debug("\[[world.time]] Disposals: [thing]")
+	LOG_DEBUG("\[[world.time]] Disposals: [thing]")
 
 /obj/structure/disposaloutlet/proc/expel(var/obj/disposalholder/H)
 	set waitfor = FALSE

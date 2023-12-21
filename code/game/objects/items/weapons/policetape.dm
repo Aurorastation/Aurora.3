@@ -31,9 +31,9 @@ var/list/tape_roll_applications = list()
 	var/crumpled = 0
 	var/icon_base
 
-/obj/item/tape/examine(mob/user, distance)
+/obj/item/tape/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(LAZYLEN(crumplers) && Adjacent(user))
+	if(LAZYLEN(crumplers) && is_adjacent)
 		to_chat(user, SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)]."))
 
 /obj/item/taperoll/police

@@ -201,30 +201,29 @@ it should be avoided in favour of manual removal where possible
 	if (!target || !modifier_type)
 		return invalid_creation("No target and/or no modifier type was submitted")
 
-	switch (modifier_type)
-		if (MODIFIER_EQUIPMENT)
-			if (!istype(target, /mob))
-				return invalid_creation("Equipment type requires a mob target")
+	if(modifier_type != MODIFIER_CUSTOM)
+		switch (modifier_type)
+			if (MODIFIER_EQUIPMENT)
+				if (!istype(target, /mob))
+					return invalid_creation("Equipment type requires a mob target")
 
-			if (!source || !istype(source, /obj))
-				return invalid_creation("Equipment type requires an object source")
+				if (!source || !istype(source, /obj))
+					return invalid_creation("Equipment type requires an object source")
 
-			//TODO: Port equip slot var
-		if (MODIFIER_ITEM)
-			if (!source || !istype(source, /obj))
-				return invalid_creation("Item type requires a source")
+				//TODO: Port equip slot var
+			if (MODIFIER_ITEM)
+				if (!source || !istype(source, /obj))
+					return invalid_creation("Item type requires a source")
 
-		if (MODIFIER_AURA)
-			if (!source || !istype(source, /atom))
-				return invalid_creation("Aura type requires an atom source")
+			if (MODIFIER_AURA)
+				if (!source || !istype(source, /atom))
+					return invalid_creation("Aura type requires an atom source")
 
-		if (MODIFIER_TIMED)
-			if (!duration || duration <= 0)
-				return invalid_creation("Timed type requires a duration")
-		if (MODIFIER_CUSTOM)
-			//No code here, just to prevent else
-		else
-			return invalid_creation("Invalid or unrecognised modifier type")//Not a valid modifier type.
+			if (MODIFIER_TIMED)
+				if (!duration || duration <= 0)
+					return invalid_creation("Timed type requires a duration")
+			else
+				return invalid_creation("Invalid or unrecognised modifier type")//Not a valid modifier type.
 	return 1
 
 
@@ -314,7 +313,7 @@ it should be avoided in favour of manual removal where possible
 	return 0
 
 /datum/modifier/proc/invalid_creation(var/reason)
-	log_debug("ERROR: [src] MODIFIER CREATION FAILED on [target]: [reason]")
+	LOG_DEBUG("ERROR: [src] MODIFIER CREATION FAILED on [target]: [reason]")
 	qdel(src)
 	return 0
 

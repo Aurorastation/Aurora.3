@@ -103,7 +103,7 @@ You are expected to do your own escaping of the data, and expected to provide yo
 The duplicate_key arg can be true to automatically generate this part of the query
 	or set to a string that is appended to the end of the query
 Ignore_errors instructes mysql to continue inserting rows if some of them have errors.
-	 the erroneous row(s) aren't inserted and there isn't really any way to know why or why errored
+	the erroneous row(s) aren't inserted and there isn't really any way to know why or why errored
 Delayed insert mode was removed in mysql 7 and only works with MyISAM type tables,
 	It was included because it is still supported in mariadb.
 	It does not work with duplicate_key and the mysql server ignores it in those cases
@@ -193,10 +193,12 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 
 	var/error = ErrorMsg()
 	if (error)
-		log_debug("SQL Error: '[error]'",SEVERITY_ERROR)
+		log_sql("SQL Error: '[error]'")
+		log_sql(" - during query: [sql_query]")
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")
+			log_sql("MySQL connection drop detected, attempting to reconnect.")
 			message_admins("MySQL connection drop detected, attempting to reconnect.")
 			db_connection.Reconnect()
 
@@ -270,9 +272,9 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 /DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list)
 	if (!query_to_parse || !argument_list || !argument_list.len)
 #ifdef UNIT_TEST
-		log_error("SQL ARGPARSE: Invalid arguments sent.")
+		log_world("ERROR: SQL ARGPARSE: Invalid arguments sent.")
 #else
-		log_debug("SQL ARGPARSE: Invalid arguments sent.")
+		log_sql("ERROR: SQL ARGPARSE: Invalid arguments sent.")
 #endif
 		return null
 
@@ -297,9 +299,9 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 			cache[key] = "NULL"
 		else
 #ifdef UNIT_TEST
-			log_error("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			log_world("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #else
-			log_debug("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			log_sql("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #endif
 			return null
 
@@ -315,11 +317,11 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 					parsed += cache[curr_arg]
 				else
 #ifdef UNIT_TEST
-					log_error("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					log_error("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_world("ERROR: SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_world("ERROR: SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #else
-					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					log_debug("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_sql("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_sql("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #endif
 					return null
 

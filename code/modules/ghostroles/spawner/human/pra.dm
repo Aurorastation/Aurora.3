@@ -37,7 +37,7 @@
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	id = /obj/item/card/id/syndicate

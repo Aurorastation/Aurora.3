@@ -73,7 +73,6 @@
 	layer = MOB_LAYER
 
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	set_see_in_dark(8)
 	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 	drop_r_hand()
@@ -95,6 +94,14 @@
 
 	if(SSticker.mode)
 		SSticker.mode.check_win()
+
+	//This might seems like an useless computation to the programmer of the future, why would we do this?
+	//Easy! That's because otherwise, the hostile AI will keep us referenced, leading to an harddel
+	for(var/mob/living/simple_animal/hostile/hostile_in_sight in get_targets_in_LOS(world.view))
+		hostile_in_sight.targets.Remove(src)
+
+		if(hostile_in_sight.target_mob == src)
+			hostile_in_sight.target_mob = null
 
 	return 1
 

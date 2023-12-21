@@ -4,21 +4,165 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/log_ooc = 0						// log OOC channel
-	var/log_access = 0					// log login/logout
-	var/log_say = 0						// log client say
-	var/log_admin = 0					// log admin actions
-	var/log_signaler = 0				// log signaler actions
-	var/log_debug = 1					// log debug output
-	var/log_game = 0					// log game events
-	var/log_vote = 0					// log voting
-	var/log_whisper = 0					// log client whisper
-	var/log_emote = 0					// log emotes
-	var/log_attack = 0					// log attack messages
-	var/log_adminchat = 0				// log admin chat messages
-	var/log_pda = 0						// log NTIRC messages
-	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
-	var/log_runtime = 0					// logs world.log to a file
+	/*#############################################
+				START LOGGING SETTINGS
+	#############################################*/
+
+
+	/**
+	 * This is the nuclear option, this will make Hadii proud of you, and the players/other staff VERY VERY
+	 * ANGRY at you if you flip this on in production, also, everyone connected will be able to see the logs
+	 * so once again:
+	 *
+	 *		 NUCLEAR OPTION, TEST ENVIRONMENT/LOCAL INSTANCE/EVERYTHING IS FUCKED ONLY
+	 *
+	 * don't come cry to me if you fuck this up, but at least you can unfuck it just as easily. If the server survives.
+	*/
+	var/all_logs_to_chat = FALSE
+
+	var/condense_all_logs = TRUE
+
+	// Enable/Disable Logging
+	var/list/logsettings = list(
+	"log_access" = FALSE,	// log login/logout
+	"log_say" = FALSE,	// log client say
+	"log_signaler" = FALSE,	// log signaler actions
+	"log_debug" = TRUE,	// log debug output
+	"log_whisper" = FALSE,	// log client whisper
+	"log_attack" = FALSE,	// log attack messages
+	"log_hrefs" = FALSE,	// logs all links clicked in-game. Could be used for debugging and tracking down exploits
+	"log_runtime" = FALSE,	// logs world.log to a file
+	"log_asset" = FALSE,	// Asset loadings and changes
+	"log_job_debug" = FALSE,	// Jobs debugging
+	"log_signals" = FALSE,	// Signals
+	"log_admin" = TRUE,	// Admin actions
+	"log_adminchat" = TRUE,	// Admin chat
+	"log_suspicious_login" = TRUE,
+	"log_traitor" = TRUE,	// Antags
+	"log_uplink" = TRUE,	// Antag uplink
+	"log_game" = TRUE,	// General game events
+	"log_emote" = TRUE,	// Audible emotes (like ME/F4)
+	"log_ooc" = TRUE,	// OOC Chat
+	"log_prayer" = TRUE,	// Prays
+	"log_vote" = FALSE,	// OOC Votes, like transfer
+	"log_pda" = TRUE,	// PDA messages
+	"log_telecomms" = FALSE,	// Radiochat / telecommunications
+	"log_speech_indicators" = FALSE,	// Speech indicator
+	"log_tools" = FALSE,	// Tools
+	"log_manifest" = TRUE,	// Manifest
+	"log_asset" = FALSE,	// log asset caching
+
+	/*#### SUBSYSTEMS ####*/
+
+	"log_subsystems" = TRUE,	// General Subsystems
+	"log_subsystems_chemistry" = TRUE,	// SSChemistry
+	"log_subsystems_atlas" = TRUE,	// ATLAS
+	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
+	"log_subsystems_law" = TRUE,	// Law
+	"log_subsystems_cargo" = TRUE, // Cargo
+	"log_subsystems_documents" = TRUE, // Documents
+	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
+	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
+	"log_subsystems_tgui" = TRUE, // TGUI
+	"log_subsystems_zas" = FALSE, // ZAS
+	"log_subsystems_zas_debug" = FALSE, // ZAS debug
+
+	/*#### MODULES ####*/
+
+	"log_modules_ghostroles" = TRUE,	// Ghost Roles
+	"log_modules_customitems" = TRUE,	// Custom Items
+	"log_modules_exoplanets" = TRUE,	// Exoplanets
+	"log_modules_sectors" = TRUE,	// Overmap Sectors
+	"world_modules_ruins_log" = TRUE,	// Ruins
+
+	)
+
+	// Files to send the logs to
+	var/list/logfiles = list(
+	"world_asset_log" = "world_asset.log",
+	"config_error_log" = "config_error.log",
+	"filter_log" = "filter.log",
+	"lua_log" = "lua.log",
+	"world_map_error_log" = "world_map_error.log",
+	"perf_log" = "perf.log",
+	"world_qdel_log" = "world_qdel.log",
+	"query_debug_log" = "query_debug.log",
+	"world_runtime_log" = "world_runtime.log",
+	"sql_error_log" = "sql_error.log",
+	"world_game_log" = "world_game.log",
+	"world_job_debug_log" = "world_job_debug.log",
+	"signals_log" = "signals.log",
+	"world_suspicious_login_log" = "world_suspicious_login.log",
+	"world_uplink_log" = "world_uplink.log",
+	"world_attack_log" = "world_attack.log",
+	"combat_log" = "combat.log",
+	"world_pda_log" = "world_pda.log",
+	"world_telecomms_log" = "world_telecomms.log",
+	"world_speech_indicators_log" = "world_speech_indicators.log",
+	"world_tool_log" = "world_tool.log",
+	"world_href_log" = "href.log",
+	"garbage_collector_log" = "garbage_collector.log",
+	"harddel_log" = "harddel.log",
+	"world_paper_log" = "world_paper.log",
+	"world_manifest_log" = "world_manifest.log",
+
+	/*#### SUBSYSTEMS ####*/
+
+	"world_subsystems_log" = "subsystems/world_subsystems.log",
+	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
+	"world_subsystems_atlas_log" = "subsystems/atlas.log",
+	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
+	"world_subsystems_law_log" = "subsystems/law.log",
+	"world_subsystems_cargo_log" = "subsystems/cargo.log",
+	"world_subsystems_documents_log" = "subsystems/documents.log",
+	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
+	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
+	"world_subsystems_tgui" = "subsystems/tgui.log",
+	"world_subsystems_zas" = "subsystems/zas.log",
+	"world_subsystems_zas_debug" = "subsystems/zas.log",
+
+	/*#### MODULES ####*/
+
+	"world_modules_ghostroles_log" = "modules/ghostroles.log",
+	"world_modules_customitems_log" = "modules/customitems.log",
+	"world_modules_exoplanets_log" = "modules/exoplanets.log",
+	"world_modules_sectors_log" = "modules/sectors.log",
+	"world_modules_ruins_log" = "modules/ruins.log",
+	)
+
+
+	/*#############################################
+				END LOGGING SETTINGS
+	#############################################*/
+
+	/*#############################################
+				START AWAY SITES SETTINGS
+	#############################################*/
+
+	var/list/awaysites = list(
+		"enable_loading" = TRUE, //If the away sites should be loaded or not
+		"guaranteed_sites" = list(), //Config-specified guaranteed away sites
+		"away_site_budget" = null, //The budget for away sites, overrides the map-defined one if set to a number
+		"away_ship_budget" = null, //The budget for ships, overrides the map-defined one if set to a number
+	)
+
+	/*#############################################
+				END AWAY SITES SETTINGS
+	#############################################*/
+
+	/*#############################################
+				START EXOPLANET SETTINGS
+	#############################################*/
+
+	var/list/exoplanets = list(
+		"enable_loading" = TRUE, //If the exoplanets should be generated or not
+		"exoplanets_budget" = null, //The budget for exoplanets, overrides the map-defined one if set to a number
+	)
+
+	/*#############################################
+				END AWAY SITES SETTINGS
+	#############################################*/
+
 	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 0					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
@@ -45,7 +189,7 @@ var/list/gamemode_cache = list()
 	var/protect_roles_from_antagonist = 0// If security and such can be traitor/cult/other
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
-	var/Ticklag = 0.4
+	var/Ticklag = 0.33
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -104,13 +248,13 @@ var/list/gamemode_cache = list()
 	var/githuburl
 
 	//Alert level description
-	var/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
-	var/alert_desc_blue_upto = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
+	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
+	var/alert_desc_blue_upto = "The ship has received reliable information about possible hostile activity onboard. Security staff may have weapons visible, random searches are permitted."
 	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
-	var/alert_desc_yellow_to = "The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
-	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still, however, an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
-	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
+	var/alert_desc_yellow_to = "The ship is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
+	var/alert_desc_red_upto = "There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised."
+	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still, however, an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised."
+	var/alert_desc_delta = "The ship's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
 
 	var/forbid_singulo_possession = 0
 
@@ -148,6 +292,7 @@ var/list/gamemode_cache = list()
 	//Unversal modifiers
 	var/walk_speed = 0
 	var/walk_delay_multiplier = 1
+	var/lying_delay_multiplier = 4
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
 
@@ -198,7 +343,6 @@ var/list/gamemode_cache = list()
 	// 15, 45, 70 minutes respectively
 	var/list/event_delay_upper = list(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
 
-	var/aliens_allowed = 0
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
 	var/ooc_allowed = 1
@@ -260,6 +404,9 @@ var/list/gamemode_cache = list()
 	var/ipintel_save_good = 12
 	var/ipintel_save_bad = 1
 	var/ipintel_domain = "check.getipintel.net"
+
+	// BYOND Tracy
+	var/enable_byond_tracy = 0
 
 	// Access control/Panic bunker settings.
 	var/access_deny_new_players = 0
@@ -323,6 +470,14 @@ var/list/gamemode_cache = list()
 
 	var/current_space_sector
 
+	var/cache_assets = TRUE
+
+	var/asset_transport = "simple"
+
+	var/asset_simple_preload
+	var/asset_cdn_webroot = ""
+	var/asset_cdn_url = null
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -332,7 +487,7 @@ var/list/gamemode_cache = list()
 		if (M.config_tag)
 			gamemode_cache[M.config_tag] = M // So we don't instantiate them repeatedly.
 			if(!(M.config_tag in modes))		// ensure each mode is added only once
-				log_misc("Adding game mode [M.name] ([M.config_tag]) to configuration.")
+				LOG_DEBUG("Adding game mode [M.name] ([M.config_tag]) to configuration.")
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities_secret[M.config_tag] = M.probability
@@ -392,59 +547,11 @@ var/list/gamemode_cache = list()
 				if ("use_spreading_explosions")
 					use_spreading_explosions = 1
 
-				if ("log_ooc")
-					config.log_ooc = 1
-
-				if ("log_access")
-					config.log_access = 1
-
 				if ("sql_enabled")
 					config.sql_enabled = 1
 
-				if ("log_say")
-					config.log_say = 1
-
 				if ("debug_paranoid")
 					config.debugparanoid = 1
-
-				if ("log_admin")
-					config.log_admin = 1
-
-				if ("log_signaler")
-					config.log_signaler = 1
-
-				if ("log_debug")
-					config.log_debug = text2num(value)
-
-				if ("log_game")
-					config.log_game = 1
-
-				if ("log_vote")
-					config.log_vote = 1
-
-				if ("log_whisper")
-					config.log_whisper = 1
-
-				if ("log_attack")
-					config.log_attack = 1
-
-				if ("log_emote")
-					config.log_emote = 1
-
-				if ("log_adminchat")
-					config.log_adminchat = 1
-
-				if ("log_pda")
-					config.log_pda = 1
-
-				if ("log_world_output")
-					config.log_world_output = 1
-
-				if ("log_hrefs")
-					config.log_hrefs = 1
-
-				if ("log_runtime")
-					config.log_runtime = text2num(value)
 
 				if ("dungeon_chance")
 					config.dungeon_chance = text2num(value)
@@ -467,7 +574,7 @@ var/list/gamemode_cache = list()
 				if ("allow_admin_jump")
 					config.allow_admin_jump = 1
 
-				if("allow_admin_rev")
+				if ("allow_admin_rev")
 					config.allow_admin_rev = 1
 
 				if ("allow_admin_spawning")
@@ -509,7 +616,7 @@ var/list/gamemode_cache = list()
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
 
-				if("hacked_drones_limit")
+				if ("hacked_drones_limit")
 					config.hacked_drones_limit = text2num(value)
 
 				if ("servername")
@@ -582,9 +689,6 @@ var/list/gamemode_cache = list()
 				if ("traitor_scaling")
 					config.traitor_scaling = 1
 
-				if ("aliens_allowed")
-					config.aliens_allowed = 1
-
 				if ("ninjas_allowed")
 					config.ninjas_allowed = 1
 
@@ -612,9 +716,9 @@ var/list/gamemode_cache = list()
 							else if (prob_type == "ms")
 								config.probabilities_mixed_secret[prob_name] = prob_value
 						else
-							log_misc("Unknown game mode probability configuration definition: [prob_name].")
+							log_config("Unknown game mode probability configuration definition: [prob_name].")
 					else
-						log_misc("Incorrect probability configuration definition: [prob_name]  [prob_value].")
+						log_config("Incorrect probability configuration definition: [prob_name]  [prob_value].")
 
 				if("allow_random_events")
 					config.allow_random_events = 1
@@ -797,7 +901,6 @@ var/list/gamemode_cache = list()
 				if("aggressive_changelog")
 					config.aggressive_changelog = 1
 
-
 				if("sql_whitelists")
 					config.sql_whitelists = 1
 
@@ -854,12 +957,6 @@ var/list/gamemode_cache = list()
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
-				if("log_gelf_enabled")
-					config.log_gelf_enabled = text2num(value)
-
-				if("log_gelf_addr")
-					config.log_gelf_addr = value
-
 				if("ipintel_email")
 					if (value != "ch@nge.me")
 						ipintel_email = value
@@ -874,6 +971,9 @@ var/list/gamemode_cache = list()
 				if("ipintel_save_bad")
 					ipintel_save_bad = text2num(value)
 
+				if("enable_byond_tracy")
+					enable_byond_tracy = 1
+
 				if("access_deny_new_accounts")
 					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
 				if("access_deny_vms")
@@ -886,7 +986,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					log_debug("Fastboot is ENABLED.")
+					LOG_DEBUG("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -975,12 +1075,23 @@ var/list/gamemode_cache = list()
 				if("lore_summary")
 					lore_summary = value
 
+				if("cache_assets")
+					cache_assets = text2num(value)
+				if("asset_transport")
+					asset_transport = value
+				if("asset_simple_preload")
+					asset_simple_preload = TRUE
+				if("asset_cdn_webroot")
+					asset_cdn_webroot = (value[length(value)] != "/" ? (value + "/") : value)
+				if("asset_cdn_url")
+					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
+
 				else
-					log_misc("Unknown setting in configuration: '[name]'")
+					log_config("Unknown setting in configuration: '[name]'")
 
 		else if(type == "game_options")
 			if(!value)
-				log_misc("Unknown value for setting [name] in [filename].")
+				log_config("Unknown value for setting [name] in [filename].")
 			value = text2num(value)
 
 			switch(name)
@@ -1046,7 +1157,7 @@ var/list/gamemode_cache = list()
 					config.sun_target_z = value
 
 				else
-					log_misc("Unknown setting in configuration: '[name]'")
+					log_config("Unknown setting in configuration: '[name]'")
 
 		else if (type == "age_restrictions")
 			name = replacetext(name, "_", " ")
@@ -1054,23 +1165,62 @@ var/list/gamemode_cache = list()
 
 		else if (type == "discord")
 			// Ideally, this would never happen. But just in case.
-			if (!discord_bot)
-				log_debug("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
+			if (!SSdiscord)
+				LOG_DEBUG("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
 				return
 
 			switch (name)
 				if ("token")
-					discord_bot.auth_token = value
+					SSdiscord.auth_token = value
 				if ("active")
-					discord_bot.active = 1
-				if ("robust_debug")
-					discord_bot.robust_debug = 1
+					SSdiscord.active = TRUE
 				if ("subscriber")
-					discord_bot.subscriber_role = value
+					SSdiscord.subscriber_role = value
 				if ("alert_visibility")
-					discord_bot.alert_visibility = 1
+					SSdiscord.alert_visibility = TRUE
 				else
-					log_misc("Unknown setting in discord configuration: '[name]'")
+					log_config("Unknown setting in discord configuration: '[name]'")
+	load_logging_config()
+	load_away_sites_config()
+	load_exoplanets_config()
+
+/datum/configuration/proc/save_logging_config()
+	rustg_file_write(json_encode(config.logsettings), "config/logging.json")
+	rustg_file_write(json_encode(config.logfiles), "config/logging_files.json")
+
+/*#############################################
+	JSON loading configs functions section
+#############################################*/
+
+///Load the LOGGING configuration
+/datum/configuration/proc/load_logging_config()
+	try
+		if((rustg_file_exists("config/logging.json") == "true"))
+			src.logsettings = json_decode(rustg_file_read("config/logging.json"))
+
+		if((rustg_file_exists("config/logging_files.json") == "true"))
+			src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
+
+	catch(var/exception/e)
+		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")
+
+///Load the AWAY SITES configuration
+/datum/configuration/proc/load_away_sites_config()
+	try
+		if((rustg_file_exists("config/away_sites.json") == "true"))
+			src.awaysites = json_decode(rustg_file_read("config/away_sites.json"))
+
+	catch(var/exception/e)
+		WARNING("Unable to read or restore away sites config from the configuration file. Exception: [json_encode(e)]")
+
+///Load the EXOPLANETS configuration
+/datum/configuration/proc/load_exoplanets_config()
+	try
+		if((rustg_file_exists("config/exoplanets.json") == "true"))
+			src.exoplanets = json_decode(rustg_file_read("config/exoplanets.json"))
+
+	catch(var/exception/e)
+		WARNING("Unable to read or restore exoplanets config from the configuration file. Exception: [json_encode(e)]")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up
@@ -1082,7 +1232,7 @@ var/list/gamemode_cache = list()
 	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
-	log_debug("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
+	log_game("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
 
 	var/list/probabilities = config.probabilities_secret
 
@@ -1098,20 +1248,23 @@ var/list/gamemode_cache = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
 		if(!M)
-			log_debug("GAMEMODE: ERROR: [M] does not exist!")
+			log_config("GAMEMODE: ERROR: [M] does not exist!")
 			continue
 
 		var/can_start = M.can_start()
 		if(can_start != GAME_FAILURE_NONE)
-			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			#if !defined(UNIT_TEST) // Do not print this useless log during unit tests
+			log_game("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			#endif
+
 			continue
 
 		if(!probabilities[M.config_tag])
-			log_debug("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
+			log_config("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
 			continue
 
 		if(probabilities[M.config_tag] <= 0)
-			log_debug("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
+			log_config("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
 			continue
 
 		runnable_modes |= M
@@ -1119,9 +1272,15 @@ var/list/gamemode_cache = list()
 	return runnable_modes
 
 /datum/configuration/proc/post_load()
-	//apply a default value to config.python_path, if needed
+	// Apply a default value to config.python_path, if needed
 	if (!config.python_path)
 		if(world.system_type == UNIX)
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+	// If we are running the unit tests, turn every logging to on
+	#if defined(UNIT_TEST)
+	for(var/k in config.logsettings)
+		config.logsettings[k] = TRUE
+	#endif

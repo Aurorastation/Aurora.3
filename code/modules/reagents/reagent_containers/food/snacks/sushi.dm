@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/sushi
 	name = "sushi"
 	desc = "A small, neatly wrapped morsel. Itadakimasu!"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/sushi.dmi'
 	icon_state = "sushi_rice"
 	bitesize = 1
 	var/fish_type = "fish"
@@ -52,7 +52,7 @@
 /////////////
 /obj/item/reagent_containers/food/snacks/sashimi
 	name = "sashimi"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/sushi.dmi'
 	desc = "Thinly sliced raw fish. Tasty."
 	icon_state = "sashimi"
 	filling_color = "#FFDEFE"
@@ -109,7 +109,7 @@
 		return
 	. = ..()
 
- // Used for turning rice into sushi.
+// Used for turning rice into sushi.
 /obj/item/reagent_containers/food/snacks/boiledrice/attackby(var/obj/item/I, var/mob/user)
 	var/static/list/acceptable_types = list(
 		/obj/item/reagent_containers/food/snacks/sashimi = TRUE,

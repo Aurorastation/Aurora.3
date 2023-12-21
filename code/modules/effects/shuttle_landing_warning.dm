@@ -4,5 +4,5 @@
 	icon_state = "shuttle_warning"
 	anchored = TRUE
 	simulated = FALSE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer = INGAME_HUD_EFFECT_LAYER

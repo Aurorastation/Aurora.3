@@ -4,7 +4,7 @@
 		icon_state = "blank"
 		anchored = 1
 		layer = 99
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		unacidable = 1//Just to be sure.
 
 /obj/effect/beam
@@ -12,7 +12,7 @@
 	density = 0
 	unacidable = 1//Just to be sure.
 	var/def_zone
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE | PASSRAILING
 
 /var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
@@ -47,7 +47,7 @@
 	throwforce = 0.0
 	throw_speed = 1
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
@@ -61,7 +61,7 @@
 /obj/structure/spaceship
 	name = "Abandoned Shuttle"
 	desc = "An ancient and inoperable shuttle-craft"
-	icon = 'icons/obj/machinery/spaceship.dmi'
+	icon = 'icons/obj/machinery/SpaceShip.dmi'
 	anchored = 1
 	density = 1
 

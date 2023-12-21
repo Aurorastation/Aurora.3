@@ -53,7 +53,7 @@
 		/obj/item/device/camera                     = TRADER_BLACKLIST_SUB, // a lot of ai/drone/cyborg/fluff items
 		/obj/item/device/uv_light                   = TRADER_BLACKLIST, // CSI item
 		/obj/item/device/eftpos                     = TRADER_BLACKLIST,
-		/obj/item/device/nanoquikpay                = TRADER_BLACKLIST,
+		/obj/item/device/quikpay                = TRADER_BLACKLIST,
 		/obj/item/device/electronic_assembly        = TRADER_BLACKLIST_ALL, // Not a circuit trader
 		/obj/item/device/integrated_circuit_printer = TRADER_BLACKLIST_ALL, //Not a circuit trader
 		/obj/item/device/integrated_electronics     = TRADER_BLACKLIST_ALL, // Not a circuit trader
@@ -176,6 +176,5 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/polysomnine  = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE,
-		/obj/item/device/handheld_medical                      = TRADER_THIS_TYPE
+		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE
 	)

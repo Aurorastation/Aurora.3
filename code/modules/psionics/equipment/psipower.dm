@@ -1,7 +1,7 @@
 /obj/item/psychic_power
 	name = "psychic power"
 	icon = 'icons/obj/psychic_powers.dmi'
-	flags = 0
+	atom_flags = 0
 	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
@@ -54,3 +54,7 @@
 			host.drop_from_inventory(src)
 		else
 			qdel(src)
+
+/obj/item/psychic_power/damage_flags()
+	. = ..()
+	. |= DAMAGE_FLAG_PSIONIC

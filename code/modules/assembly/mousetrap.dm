@@ -8,13 +8,14 @@
 	icon_state = "mousetrap"
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
+	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	origin_tech = list(TECH_COMBAT = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
 /obj/item/device/assembly/mousetrap/examine(mob/user)
 	. = ..()
-	if(. && armed)
+	if(armed)
 		to_chat(user, "It looks like it's armed.")
 
 /obj/item/device/assembly/mousetrap/update_icon()
@@ -87,7 +88,7 @@
 			triggered(AM)
 		else if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(!(H.shoes?.item_flags & LIGHTSTEP))
+			if(!(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP))
 				triggered(H)
 				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
 		else if(isliving(AM))

@@ -5,7 +5,7 @@
 	icon_state = "ipc_tag_scanner"
 	item_state = "ipc_tag_scanner"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL
@@ -35,7 +35,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 		return
 	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [M] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [M] with \the [src]..."))
-	if(do_after(user, 50, TRUE, src))
+	if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
 		if(!isipc(M))
 			to_chat(user, SPAN_WARNING("You analyze \the [M], but find that they're not an IPC at all!"))
 			return
@@ -55,7 +55,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] [wires_exposed ? "exposes the wiring" : "closes the panel"] on \the [src]."), SPAN_WARNING("You [wires_exposed ? "expose the wiring" : "close the panel"] on \the [src]."), 3)
 	else if(W.iswirecutter() || W.ismultitool())
 		if(wires_exposed)
-			wires.Interact(user)
+			wires.interact(user)
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 	else

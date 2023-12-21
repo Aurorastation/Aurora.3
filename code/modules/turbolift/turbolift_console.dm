@@ -42,12 +42,12 @@
 	return attack_hand(user)
 
 /obj/structure/lift/attack_hand(var/mob/user)
-	return interact(user)
+	return ui_interact(user)
 
-/obj/structure/lift/interact(var/mob/user)
+/obj/structure/lift/ui_interact(var/mob/user)
 	if(!lift.is_functional())
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 // End base.
 
 // Button. No HTML interface, just calls the associated lift to its floor.
@@ -72,7 +72,7 @@
 	light_up = FALSE
 	update_icon()
 
-/obj/structure/lift/button/interact(var/mob/user)
+/obj/structure/lift/button/ui_interact(var/mob/user)
 	if(!..())
 		return
 	light_up()
@@ -105,62 +105,43 @@
 	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/lift/panel/attack_ghost(var/mob/user)
-	return interact(user)
+	return ui_interact(user)
 
-/obj/structure/lift/panel/interact(var/mob/user)
-	if(!..())
-		return
-	if(istype(user, /mob/living/heavy_vehicle)) // terrible, i know, but it shat out runtimes otherwise
-		user = usr
+/obj/structure/lift/panel/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurboLift", ui_x=280, ui_y=200)
+		ui.open()
 
-	var/dat = list()
-	dat += "<html><body><hr><b>Lift panel</b><hr>"
+/obj/structure/lift/panel/ui_data(mob/user)
+	var/list/data = list()
+	data["floors"] = lift.floors
+	data["currentFloor"] = lift.floors.Find(lift.current_floor)
+	data["doorsOpen"] = lift.doors_are_open()
+	return data
 
-	//the floors list stores levels in order of increasing Z
-	//therefore, to display upper levels at the top of the menu and
-	//lower levels at the bottom, we need to go through the list in reverse
-	for(var/i in lift.floors.len to 1 step -1)
-		var/datum/turbolift_floor/floor = lift.floors[i]
-		if(floor)
-			var/label = floor.label? floor.label : "Level #[i]"
-			dat += "<font color = '[(floor in lift.queued_floors) ? COLOR_YELLOW : COLOR_WHITE]'>"
-			dat += "<a href='?src=\ref[src];move_to_floor=["\ref[floor]"]'>[label]</a>: [floor.name]</font><br>"
-
-	dat += "<hr>"
-	if(lift.doors_are_open())
-		dat += "<a href='?src=\ref[src];close_doors=1'>Close Doors</a><br>"
-	else
-		dat += "<a href='?src=\ref[src];open_doors=1'>Open Doors</a><br>"
-	dat += "<a href='?src=\ref[src];emergency_stop=1'>Emergency Stop</a>"
-	dat += "<hr></body></html>"
-
-	var/datum/browser/popup = new(user, "turbolift_panel", "Lift Panel", 230, 260)
-	popup.set_content(jointext(dat, null))
-	popup.open()
-	return
-
-/obj/structure/lift/panel/Topic(href, href_list)
+/obj/structure/lift/panel/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
-	var/panel_interact
-	if(href_list["move_to_floor"])
-		lift.queue_move_to(locate(href_list["move_to_floor"]))
-		panel_interact = 1
-	if(href_list["open_doors"])
-		panel_interact = 1
-		lift.open_doors()
-	if(href_list["close_doors"])
-		panel_interact = 1
-		lift.close_doors()
-	if(href_list["emergency_stop"])
-		panel_interact = 1
-		lift.emergency_stop()
-
-	if(panel_interact)
+	if(action == "move_to_floor")
+		add_fingerprint(usr)
+		lift.queue_move_to(lift.floors[length(lift.floors) - text2num(params["floor"])])
 		pressed(usr)
-
-	return 0
+		return TRUE
+	if(action == "toggle_doors")
+		add_fingerprint(usr)
+		if(lift.doors_are_open())
+			lift.close_doors()
+		else
+			lift.open_doors()
+		pressed(usr)
+		return TRUE
+	if(action == "emergency_stop")
+		add_fingerprint(usr)
+		lift.emergency_stop()
+		pressed(usr)
+		return TRUE
 
 // End panel.

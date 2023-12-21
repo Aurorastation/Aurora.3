@@ -1,29 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "d" = (
 /obj/structure/table/rack,
 /obj/random/weapon_and_ammo{
-	chosen_rarity = Common
+	chosen_rarity = "Common"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "r" = (
 /obj/structure/table/rack,
 /obj/random/weapon_and_ammo{
-	chosen_rarity = Rare
+	chosen_rarity = "Rare"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "E" = (
 /obj/structure/table/rack,
@@ -43,10 +34,7 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "Y" = (
 /obj/structure/table/wood,
@@ -93,10 +81,7 @@
 	pixel_x = -2;
 	pixel_y = -9
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 
 (1,1,1) = {"

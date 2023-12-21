@@ -29,7 +29,9 @@
 /obj/item/device/t_scanner/update_icon()
 	icon_state = "t-ray[on]"
 
-/obj/item/device/t_scanner/emp_act()
+/obj/item/device/t_scanner/emp_act(severity)
+	. = ..()
+
 	audible_message(src, SPAN_NOTICE("\The [src] buzzes oddly."))
 	set_active(FALSE)
 
@@ -106,7 +108,7 @@
 			I.color = C.color
 
 		I.alpha = 100
-		I.mouse_opacity = 0
+		I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		. = I
 
 	// Add it to cache, cutting old entries if the list is too long

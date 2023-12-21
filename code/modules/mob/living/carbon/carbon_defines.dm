@@ -5,7 +5,7 @@
 	//stomach contents redefined at mob/living level, removed from here
 
 	var/analgesic = 0 // when this is set, the mob isn't affected by shock or pain
-					  // life should decrease this by 1 every tick
+					// life should decrease this by 1 every tick
 	// total amount of wounds on mob, used to spread out healing and the like over all wounds
 	var/number_wounds = 0
 	var/obj/item/handcuffed = null //Whether or not the mob is handcuffed
@@ -16,6 +16,8 @@
 	var/pose = null
 	var/list/chem_effects = list()
 	var/list/chem_doses = list()
+	/// For keeping count of misc values (amount of damage, number of ticks, etc)
+	var/list/chem_tracking = list()
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
@@ -41,3 +43,4 @@
 
 	var/list/stasis_sources = list()
 	var/stasis_value
+	var/pain_immune = FALSE //for special cases where something permanently removes a mob's ability to feel pain

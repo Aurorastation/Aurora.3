@@ -1,7 +1,7 @@
 // This is one of the first subsystems initialized by the MC.
 // Stuff that should be loaded before everything else that isn't significant enough to get its own SS goes here.
 
-/datum/controller/subsystem/misc_early
+SUBSYSTEM_DEF(misc_early)
 	name = "Early Miscellaneous Init"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
@@ -18,7 +18,6 @@
 		global_hud.thermal,
 		global_hud.meson,
 		global_hud.science,
-		global_hud.holomap
 	)
 
 	// Populate global list of tips by category
@@ -33,8 +32,8 @@
 
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
 	// before anyone has a chance to change it!
-	if (discord_bot)
-		discord_bot.alert_server_visibility()
+	if (SSdiscord)
+		SSdiscord.alert_server_visibility()
 
 	global_initialize_webhooks()
 

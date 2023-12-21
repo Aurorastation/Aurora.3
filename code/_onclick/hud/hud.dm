@@ -20,7 +20,6 @@ var/list/global_huds
 	var/obj/screen/thermal
 	var/obj/screen/meson
 	var/obj/screen/science
-	var/obj/screen/holomap
 
 /datum/global_hud/proc/setup_overlay(var/icon_state, var/color)
 	var/obj/screen/screen = new /obj/screen()
@@ -29,7 +28,7 @@ var/list/global_huds
 	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
 	screen.layer = SCREEN_LAYER
-	screen.mouse_opacity = 0
+	screen.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen.color = color
 
 	return screen
@@ -40,7 +39,7 @@ var/list/global_huds
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
-	druggy.mouse_opacity = 0
+	druggy.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	druggy.alpha = 127
 	druggy.blend_mode = BLEND_MULTIPLY
 
@@ -49,32 +48,20 @@ var/list/global_huds
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
 	blurry.layer = 17
-	blurry.mouse_opacity = 0
+	blurry.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	blurry.alpha = 100
 
 	vr_control = new /obj/screen()
 	vr_control.icon = 'icons/mob/screen/full.dmi'
 	vr_control.icon_state = "vr_control"
 	vr_control.screen_loc = "1,1"
-	vr_control.mouse_opacity = 0
+	vr_control.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vr_control.alpha = 120
 
 	nvg = setup_overlay("scanline", "#06ff00")
 	thermal = setup_overlay("scanline", "#ff0000")
 	meson = setup_overlay("scanline", "#9fd800")
 	science = setup_overlay("scanline", "#d600d6")
-
-	// The holomap screen object is actually totally invisible.
-	// Station maps work by setting it as an images location before sending to client, not
-	// actually changing the icon or icon state of the screen object itself!
-	// Why do they work this way? I don't know really, that is how /vg/ designed them, but since they DO
-	// work this way, we can take advantage of their immutability by making them part of
-	// the global_hud (something we have and /vg/ doesn't) instead of an instance per mob.
-	holomap = new /obj/screen()
-	holomap.name = "holomap"
-	holomap.icon = null
-	holomap.screen_loc = ui_holomap
-	holomap.mouse_opacity = 0
 
 	var/obj/screen/O
 	var/i
@@ -112,18 +99,18 @@ var/list/global_huds
 		O = vimpaired[i]
 		O.icon_state = "dither50"
 		O.layer = 17
-		O.mouse_opacity = 0
+		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 		O = darkMask[i]
 		O.icon_state = "dither50"
 		O.layer = 17
-		O.mouse_opacity = 0
+		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	for(i = 5, i <= 8, i++)
 		O = darkMask[i]
 		O.icon_state = "black"
 		O.layer = 17
-		O.mouse_opacity = 0
+		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /*
 	The hud datum

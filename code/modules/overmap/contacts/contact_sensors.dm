@@ -39,7 +39,9 @@
 
 /obj/machinery/computer/ship/sensors/process()
 	..()
+
 	update_sound()
+
 	if(!linked)
 		return
 
@@ -51,12 +53,13 @@
 		sensor_range = round(sensors.range,1)
 	var/datum/overmap_contact/self_record = contact_datums[linked]
 	self_record.update_marker_icon()
-	self_record.ping_radar(sensor_range)
 	self_record.show()
 
 	// Update our 'sensor range' (ie. overmap lighting)
 	if(!sensors || !sensors.use_power || (stat & (NOPOWER|BROKEN)))
-		datalink_remove_all_ships_datalink()
+		if(length(datalink_contacts))
+			var/remove_link = !sensors || HAS_FLAG(stat, BROKEN)
+			datalink_remove_all_ships_datalink(remove_link)
 		for(var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
 			if(record.effect == linked)
@@ -64,40 +67,27 @@
 			qdel(record) // Immediately cut records if power is lost.
 
 		objects_in_view.Cut()
-		return
+	else
+		self_record.ping_radar(sensor_range)
 
-	// What can we see?
-	var/list/objects_in_current_view = list()
+		// What can we see?
+		var/list/objects_in_current_view = list()
 
-	// Find all sectors with a tracker on their z-level. Only works on ships when they are in space.
-	for(var/obj/item/ship_tracker/tracker in trackers)
-		if(tracker.enabled)
-			var/obj/effect/overmap/visitable/tracked_effect = overmap_sectors["[GET_Z(tracker)]"]
-			if(tracked_effect && istype(tracked_effect) && tracked_effect != linked && tracked_effect.requires_contact)
-				objects_in_current_view[tracked_effect] = TRUE
-				objects_in_view[tracked_effect] = 100
+		// Find all sectors with a tracker on their z-level. Only works on ships when they are in space.
+		for(var/obj/item/ship_tracker/tracker in trackers)
+			if(tracker.enabled)
+				var/obj/effect/overmap/visitable/tracked_effect = overmap_sectors["[GET_Z(tracker)]"]
+				if(tracked_effect && istype(tracked_effect) && tracked_effect != linked && tracked_effect.requires_contact)
+					objects_in_current_view[tracked_effect] = TRUE
+					objects_in_view[tracked_effect] = 100
 
 
-	// Handle datalinked view
-	datalink_process()
+		// Handle datalinked view
+		datalink_process()
 
-	for(var/obj/effect/overmap/contact in view(sensor_range, linked))
-		if(contact == linked)
-			continue
-		if(!contact.requires_contact)	   // Only some effects require contact for visibility.
-			continue
+		var/turf/overmap_grid_turf = get_turf(linked)
 
-		objects_in_current_view[contact] = TRUE
-
-		if(contact.instant_contact)   // Instantly identify the object in range.
-			objects_in_view[contact] = 100
-		else if(!(contact in objects_in_view))
-			objects_in_view[contact] = 0
-
-	if(sensors.deep_scan_toggled)
-		for(var/obj/effect/overmap/contact in range(sensors.deep_scan_range, linked))
-			if(!contact.sensor_range_override)
-				continue
+		for(var/obj/effect/overmap/contact in view(sensor_range, overmap_grid_turf))
 			if(contact == linked)
 				continue
 			if(!contact.requires_contact)	   // Only some effects require contact for visibility.
@@ -110,58 +100,74 @@
 			else if(!(contact in objects_in_view))
 				objects_in_view[contact] = 0
 
-	for(var/obj/effect/overmap/contact in objects_in_view) //Update everything.
+		if(sensors.deep_scan_toggled)
+			for(var/obj/effect/overmap/contact in range(sensors.deep_scan_range, overmap_grid_turf))
+				if(!contact.sensor_range_override)
+					continue
+				if(contact == linked)
+					continue
+				if(!contact.requires_contact)	   // Only some effects require contact for visibility.
+					continue
 
-		// Are we already aware of this object?
-		var/datum/overmap_contact/record = contact_datums[contact]
+				objects_in_current_view[contact] = TRUE
 
-		// Fade out and remove anything that is out of range.
-		if(QDELETED(contact) || !objects_in_current_view[contact]) // Object has exited sensor range.
-			if(record)
-				animate(record.marker, alpha=0, 2 SECOND, 1, LINEAR_EASING)
-				QDEL_IN(record, 2 SECOND) // Need to restart the search if you've lost contact with the object.
-				if(contact.scannable)	  // Scannable objects are the only ones that give off notifications to prevent spam
-					visible_message(SPAN_NOTICE("\The [src] states, \"Contact lost with [record.name].\""))
-					playsound(loc, "sound/machines/sensors/contact_lost.ogg", 30, 1)
-			objects_in_view -= contact
-			continue
+				if(contact.instant_contact)   // Instantly identify the object in range.
+					objects_in_view[contact] = 100
+				else if(!(contact in objects_in_view))
+					objects_in_view[contact] = 0
 
-		// Generate contact information for this overmap object.
-		var/bearing = round(90 - Atan2(contact.x - linked.x, contact.y - linked.y),5)
-		if(bearing < 0)
-			bearing += 360
-		if(!record) // Begin attempting to identify ship.
-			// The chance of detection decreases with distance to the target ship.
-			if(contact.scannable && prob((SENSORS_DISTANCE_COEFFICIENT * contact.sensor_visibility)/max(get_dist(linked, contact), 0.5)))
-				var/bearing_variability = round(30/sensors.sensor_strength, 5)
-				var/bearing_estimate = round(rand(bearing-bearing_variability, bearing+bearing_variability), 5)
-				if(bearing_estimate < 0)
-					bearing_estimate += 360
-				// Give the player an idea of where the ship is in relation to the ship.
-				if(objects_in_view[contact] <= 0)
-					if(!muted)
-						visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Unknown contact designation '[contact.unknown_id]' detected nearby, bearing [bearing_estimate], error +/- [bearing_variability]. Beginning trace.\""))
-					objects_in_view[contact] = round(sensors.sensor_strength**2)
-				else
-					objects_in_view[contact] += round(sensors.sensor_strength**2)
-					if(!muted)
-						visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Contact '[contact.unknown_id]' tracing [objects_in_view[contact]]% complete, bearing [bearing_estimate], error +/- [bearing_variability].\""))
-				playsound(loc, "sound/machines/sensors/contactgeneric.ogg", 10, 1) //Let players know there's something nearby.
-			if(objects_in_view[contact] >= 100) // Identification complete.
-				record = new /datum/overmap_contact(src, contact)
-				contact_datums[contact] = record
-				if(contact.scannable)
-					playsound(loc, "sound/machines/sensors/newcontact.ogg", 30, 1)
-					visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""))
-				record.show()
-				animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
-			continue
-		// Update identification information for this record.
-		record.update_marker_icon()
+		for(var/obj/effect/overmap/contact in objects_in_view) //Update everything.
 
-		var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)),1)
-		if(!record.pinged)
-			addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
+			// Are we already aware of this object?
+			var/datum/overmap_contact/record = contact_datums[contact]
+
+			// Fade out and remove anything that is out of range.
+			if(QDELETED(contact) || !objects_in_current_view[contact]) // Object has exited sensor range.
+				if(record)
+					animate(record.marker, alpha=0, 2 SECOND, 1, LINEAR_EASING)
+					QDEL_IN(record, 2 SECOND) // Need to restart the search if you've lost contact with the object.
+					if(contact.scannable)	  // Scannable objects are the only ones that give off notifications to prevent spam
+						visible_message(SPAN_NOTICE("\The [src] states, \"Contact lost with [record.name].\""))
+						playsound(loc, "sound/machines/sensors/contact_lost.ogg", 30, 1)
+				objects_in_view -= contact
+				continue
+
+			// Generate contact information for this overmap object.
+			var/bearing = round(90 - Atan2(contact.x - linked.x, contact.y - linked.y),5)
+			if(bearing < 0)
+				bearing += 360
+			if(!record) // Begin attempting to identify ship.
+				// The chance of detection decreases with distance to the target ship.
+				if(contact.scannable && prob((SENSORS_DISTANCE_COEFFICIENT * contact.sensor_visibility)/max(get_dist(linked, contact), 0.5)))
+					var/bearing_variability = round(30/sensors.sensor_strength, 5)
+					var/bearing_estimate = round(rand(bearing-bearing_variability, bearing+bearing_variability), 5)
+					if(bearing_estimate < 0)
+						bearing_estimate += 360
+					// Give the player an idea of where the ship is in relation to the ship.
+					if(objects_in_view[contact] <= 0)
+						if(!muted)
+							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Unknown contact designation '[contact.unknown_id]' detected nearby, bearing [bearing_estimate], error +/- [bearing_variability]. Beginning trace.\""))
+						objects_in_view[contact] = round(sensors.sensor_strength**2)
+					else
+						objects_in_view[contact] += round(sensors.sensor_strength**2)
+						if(!muted)
+							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Contact '[contact.unknown_id]' tracing [objects_in_view[contact]]% complete, bearing [bearing_estimate], error +/- [bearing_variability].\""))
+					playsound(loc, "sound/machines/sensors/contactgeneric.ogg", 10, 1) //Let players know there's something nearby.
+				if(objects_in_view[contact] >= 100) // Identification complete.
+					record = new /datum/overmap_contact(src, contact)
+					contact_datums[contact] = record
+					if(contact.scannable)
+						playsound(loc, "sound/machines/sensors/newcontact.ogg", 30, 1)
+						visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""))
+					record.show()
+					animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
+				continue
+			// Update identification information for this record.
+			record.update_marker_icon()
+
+			var/time_delay = max((SENSOR_TIME_DELAY * get_dist(linked, contact)),1)
+			if(!record.pinged)
+				addtimer(CALLBACK(record, PROC_REF(ping)), time_delay)
 
 /obj/machinery/computer/ship/sensors/attackby(var/obj/item/I, var/mob/user)
 	. = ..()
@@ -271,12 +277,13 @@
 	datalink_ship.datalinked |= src.connected
 	src.connected.datalinked |= datalink_ship
 
-/obj/machinery/computer/ship/sensors/proc/datalink_remove_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship)
+/obj/machinery/computer/ship/sensors/proc/datalink_remove_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship, var/remove_link)
 	if(datalink_contacts[datalink_ship])
 		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
 			// Remove the two ships from each other's datalinked list
-			src.connected.datalinked -= datalink_ship
-			datalink_ship.datalinked -= src.connected
+			if(remove_link)
+				src.connected.datalinked -= datalink_ship
+				datalink_ship.datalinked -= src.connected
 
 			// Removes the ship contact itself from the contacts
 
@@ -294,14 +301,14 @@
 			datalink_contacts.Remove(datalink_ship)
 
 			// Recurse the function on the other ship's instance
-			sensor_console.datalink_remove_ship_datalink(src.connected)
+			sensor_console.datalink_remove_ship_datalink(src.connected, remove_link)
 		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was severed! Recalibrating...\""))
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink()
+/obj/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink(var/remove_link)
 	for(var/obj/effect/overmap/visitable/datalink_ship in linked.datalinked)
 		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
-			sensor_console.datalink_remove_ship_datalink(linked)
+			sensor_console.datalink_remove_ship_datalink(linked, remove_link)
 			break
 
 

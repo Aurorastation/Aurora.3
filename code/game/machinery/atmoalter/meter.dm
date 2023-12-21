@@ -62,10 +62,12 @@
 		)
 		radio_connection.post_signal(src, signal)
 
-/obj/machinery/meter/examine(mob/user)
+/obj/machinery/meter/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
 	var/t = "A gas flow meter. "
 
-	if(get_dist(user, src) > 3 && !(istype(user, /mob/living/silicon/ai) || istype(user, /mob/abstract)))
+	if(distance > 3 && !(istype(user, /mob/living/silicon/ai)))
 		t += "<span class='warning'>You are too far away to read it.</span>"
 
 	else if(stat & (NOPOWER|BROKEN))
@@ -85,7 +87,7 @@
 /obj/machinery/meter/Click()
 
 	if(istype(usr, /mob/living/silicon/ai)) // ghosts can call ..() for examine
-		usr.examinate(src)
+		examinate(usr, src)
 		return 1
 
 	return ..()

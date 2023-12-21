@@ -35,7 +35,7 @@
 	uniform = /obj/item/clothing/under/tajaran/ala/wraps
 	head = /obj/item/clothing/head/tajaran/ala_wraps
 
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	belt_contents = list(
 						/obj/item/gun/projectile/pistol/adhomai = 1,

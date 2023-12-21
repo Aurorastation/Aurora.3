@@ -17,8 +17,8 @@
 /datum/ship_engine/gas_thruster/get_thrust()
 	return nozzle.get_thrust()
 
-/datum/ship_engine/gas_thruster/burn()
-	return nozzle.burn()
+/datum/ship_engine/gas_thruster/burn(var/power_modifier = 1)
+	return nozzle.burn(power_modifier)
 
 /datum/ship_engine/gas_thruster/set_thrust_limit(var/new_limit)
 	nozzle.thrust_limit = new_limit
@@ -186,7 +186,7 @@
 		A = get_step(A, exhaust_dir)
 	return blockage
 
-/obj/machinery/atmospherics/unary/engine/proc/burn()
+/obj/machinery/atmospherics/unary/engine/proc/burn(var/power_modifier = 1)
 	if(!is_on())
 		return 0
 	if(!check_fuel() || (0 < use_power_oneoff(charge_per_burn)) || check_blockage())
@@ -194,11 +194,11 @@
 		update_use_power(POWER_USE_OFF)
 		return 0
 
-	var/datum/gas_mixture/removed = air_contents.remove_ratio(volume_per_burn * thrust_limit / air_contents.volume)
+	var/datum/gas_mixture/removed = air_contents.remove_ratio(volume_per_burn * thrust_limit * power_modifier / air_contents.volume)
 	if(!removed)
 		return 0
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit, 0, world.view * 4, 0.1, is_global = TRUE)
+	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit * power_modifier, 0, world.view * 4, 0.1, is_global = TRUE)
 	if(network)
 		network.update = 1
 

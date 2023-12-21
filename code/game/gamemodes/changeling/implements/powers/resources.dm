@@ -12,8 +12,7 @@
 
 //removes the need to breathe, removes effects of very low pressure
 /mob/proc/changeling_spaceadaption()
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
-	changeling.space_adapted = TRUE
+	ADD_TRAIT(src, TRAIT_PRESSURE_IMMUNITY, TRAIT_SOURCE_CHANGELING)
 	return TRUE
 
 /mob/proc/changeling_armor()
@@ -22,8 +21,7 @@
 
 //removes the need to breathe
 /mob/proc/changeling_nobreathing()
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
-	changeling.no_breathing = TRUE
+	ADD_TRAIT(src, TRAIT_NO_BREATHE, TRAIT_SOURCE_CHANGELING)
 	return TRUE
 
 // HIVE MIND UPLOAD/DOWNLOAD DNA
@@ -53,7 +51,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(src, "<span class='notice'>The airwaves already has all of our DNA.</span>")
 		return
 
-	var/S = input("Select a DNA to channel: ", "Channel DNA", null) as null|anything in names
+	var/S = tgui_input_list(usr, "Select a DNA to channel.", "Channel DNA", names)
 	if(!S)
 		return
 
@@ -85,7 +83,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(src, "<span class='notice'>There's no new DNA to absorb from the air.</span>")
 		return
 
-	var/S = input("Select a DNA absorb from the air: ", "Absorb DNA", null) as null|anything in names
+	var/S = tgui_input_list(src, "Select a DNA string to absorb.", "Absorb DNA", names)
 	if(!S)
 		return
 

@@ -7,7 +7,7 @@
 	desc = "Extracts information on wounds."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autopsy"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
@@ -17,8 +17,7 @@
 
 /datum/autopsy_data_scanner
 	var/weapon = null // this is the DEFINITE weapon type that was used
-	var/list/organs_scanned = list() // this maps a number of scanned organs to
-									 // the wounds to those organs with this data's weapon type
+	var/list/organs_scanned = list() // this maps a number of scanned organs to the wounds to those organs with this data's weapon type
 	var/organ_names = ""
 
 /datum/autopsy_data
@@ -66,9 +65,9 @@
 			chemtraces += V
 
 /obj/item/autopsy_scanner/verb/print_data()
-	set category = "Object"
-	set src in view(usr, 1)
 	set name = "Print Data"
+	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return

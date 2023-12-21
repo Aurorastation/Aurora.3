@@ -16,6 +16,7 @@
 	aspect = ASPECT_BIOMED
 
 /obj/item/spell/resurrect/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
+	. = ..()
 	if(isliving(hit_atom))
 		var/mob/living/L = hit_atom
 		if(L == user)

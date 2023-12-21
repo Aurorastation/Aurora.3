@@ -10,28 +10,28 @@
 // BEGIN RESEARCH DATUMS
 
 /datum/malf_research_ability/synthetic/reset_module
-	ability = new/datum/game_mode/malfunction/verb/reset_module()
+	ability = /datum/game_mode/malfunction/verb/reset_module
 	price = 100
-	next = new/datum/malf_research_ability/synthetic/infect_apc()
+	next = /datum/malf_research_ability/synthetic/infect_apc
 	name = "Reset Cyborg Module"
 
 
 /datum/malf_research_ability/synthetic/infect_apc
-	ability = new/datum/game_mode/malfunction/verb/infect_apc()
+	ability = /datum/game_mode/malfunction/verb/infect_apc
 	price = 500
-	next = new/datum/malf_research_ability/synthetic/overclock_borg()
+	next = /datum/malf_research_ability/synthetic/overclock_borg
 	name = "Infect APC"
 
 
 /datum/malf_research_ability/synthetic/overclock_borg
-	ability = new/datum/game_mode/malfunction/verb/overclock_borg()
+	ability = /datum/game_mode/malfunction/verb/overclock_borg
 	price = 1300
-	next = new/datum/malf_research_ability/synthetic/synthetic_takeover
+	next = /datum/malf_research_ability/synthetic/synthetic_takeover
 	name = "Overclock Cyborg"
 
 
 /datum/malf_research_ability/synthetic/synthetic_takeover
-	ability = new/datum/game_mode/malfunction/verb/synthetic_takeover()
+	ability = /datum/game_mode/malfunction/verb/synthetic_takeover
 	price = 4000
 	name = "Synthetic Takeover"
 
@@ -303,10 +303,10 @@
 			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
-						   	  	 "0101000100100100000100010010",\
-						      	 "0000010001001010100100111100",\
-						      	 "1010010011110000100101000100",\
-						      	 "0010010100010011010001001010")
+									"0101000100100100000100010010",\
+									"0000010001001010100100111100",\
+									"1010010011110000100101000100",\
+									"0010010100010011010001001010")
 				to_chat(target, temptxt)
 				sleep(5)
 			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")
