@@ -73,6 +73,7 @@
 /obj/item/portable_typewriter/proc/eject_paper(atom/target, mob/user)
 	if(!stored_paper)
 		return FALSE
+
 	to_chat(user, SPAN_ALERT ("\The [src] ejects \the [stored_paper]."))
 	playsound(loc, 'sound/bureaucracy/paperfold.ogg', 60, 0)
 	stored_paper.forceMove(target)
