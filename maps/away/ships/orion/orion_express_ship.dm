@@ -178,7 +178,7 @@
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_orion_express"
-	dock_target = "orion_express_shuttle"
+	dock_target = "orion_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar
