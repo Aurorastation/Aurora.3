@@ -2800,7 +2800,7 @@
 "mQF" = (
 /obj/machinery/door/airlock/service{
 	name = "Cargo Bay";
-	pixel_x = 3;
+	pixel_x = -15;
 	req_access = list(201);
 	dir = 1
 	},
@@ -3150,6 +3150,9 @@
 /turf/simulated/floor,
 /area/ship/orion/forehall)
 "oEN" = (
+/obj/structure/table/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "oIu" = (
@@ -4179,6 +4182,7 @@
 /area/space)
 "sSQ" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/autolathe,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "sTm" = (
@@ -4979,6 +4983,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
+/obj/machinery/vending/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "vVF" = (
