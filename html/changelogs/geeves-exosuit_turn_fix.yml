@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed strafing enabling you to ignore the turn delay of some exosuit propulsion systems, such as tracks. You can now only strafe is the turn delay is smaller or equal to the move delay."
+  - tweak: "Tweaked the turn delay of light exosuit propulsion legs to be the same as the move delay."
