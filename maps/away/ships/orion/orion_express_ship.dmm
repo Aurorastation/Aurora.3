@@ -1511,8 +1511,7 @@
 	command = "cycle_exterior";
 	master_tag = "orion_shuttle";
 	name = "exterior access button";
-	pixel_x = -32;
-	frequency = s
+	pixel_x = -32
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
