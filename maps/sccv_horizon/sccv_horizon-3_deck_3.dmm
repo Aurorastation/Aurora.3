@@ -20048,6 +20048,16 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"nZp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "nZt" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -33126,6 +33136,16 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
+"xoL" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "xpm" = (
 /obj/structure/platform/ledge{
 	dir = 1
