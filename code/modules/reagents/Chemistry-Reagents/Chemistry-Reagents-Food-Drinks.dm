@@ -2426,7 +2426,7 @@
 
 	glass_icon_state = "NTellahotchocolate"
 	glass_name = "glass of NTella hot chocolate"
-	glass_desc = "A very chocolatey drink for the days so rough, so cold, or so celebratory that a regular hot hcocolate just won't cut it. It has marshmallows!"
+	glass_desc = "A very chocolatey drink for the days so rough, so cold, or so celebratory that a regular hot chocolate just won't cut it. It has marshmallows!"
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /singleton/reagent/drink/toothpaste

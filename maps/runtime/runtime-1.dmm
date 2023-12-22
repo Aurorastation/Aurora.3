@@ -1564,6 +1564,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"oo" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/plating,
+/area/construction)
 "pv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1608,6 +1614,10 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"qH" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/plating,
+/area/construction)
 "sf" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
@@ -5955,8 +5965,8 @@ bJ
 bJ
 cM
 cU
-de
-de
+qH
+oo
 de
 de
 de
