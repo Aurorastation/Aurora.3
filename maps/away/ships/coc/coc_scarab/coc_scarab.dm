@@ -132,7 +132,6 @@
 /obj/effect/shuttle_landmark/coc_scarab/harvester_start
 	name = "Scarab Salvage Vessel - Harvester Dock"
 	landmark_tag = "nav_scarab_harvester_start"
-	docking_controller = "scarab_harvester"
 
 /obj/effect/shuttle_landmark/coc_scarab/harvester_transit
 	name = "In transit"
@@ -172,9 +171,18 @@
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_start
 	name = "Scarab Salvage Vessel - Shuttle Dock"
 	landmark_tag = "nav_scarab_start"
-	docking_controller = "scarab_shuttle"
 
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_scarab_transit"
 	base_turf = /turf/space/transit/north
+
+	// CUSTOM STUFF
+	// dimmed yellow lights
+/obj/machinery/light/floor/decayed
+	brightness_color = "#fabd6d"
+	randomize_color = FALSE
+	brightness_power = 0.3
+
+/obj/machinery/light/colored/decayed/dimmed
+	brightness_power = 0.2
