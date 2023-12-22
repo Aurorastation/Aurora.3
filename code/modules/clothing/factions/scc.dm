@@ -48,6 +48,7 @@
 	icon_state = "scc_coat"
 	item_state = "scc_coat"
 	contained_sprite = TRUE
+	opened = TRUE
 
 	allowed = list(
 		/obj/item/gun,
