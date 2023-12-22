@@ -8,7 +8,7 @@
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
 
-	unit_test_groups = list(2)
+	unit_test_groups = list(3)
 
 
 /singleton/submap_archetype/orion_express_ship
