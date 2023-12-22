@@ -97,6 +97,7 @@
 	volume = "51 meters length, 55 meters beam/width, 29 meters vertical height"
 	sizeclass = "Traveler-class Mobile Waystation"
 	shiptype = "Refuel, resupply and commercial logistics services"
+	drive = "Medium-Speed Warp Acceleration FTL Drive"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
