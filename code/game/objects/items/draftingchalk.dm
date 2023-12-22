@@ -20,7 +20,7 @@
 /obj/item/pen/drafting
 	name = "white drafting chalk"
 	desc = "A piece of white chalk for marking areas of floor."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "dchalk"
 	color = "#FFFFFF"
 	var/colorName = "whitec"
