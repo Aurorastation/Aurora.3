@@ -37,7 +37,7 @@
 	gloves = /obj/item/clothing/gloves/white
 	accessory = /obj/item/clothing/accessory/holster/waist
 	accessory_contents = list(/obj/item/gun/energy/repeater/pistol = 1)
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	head = /obj/item/clothing/head/beret/scc/alt
 	belt = /obj/item/melee/telebaton
 
