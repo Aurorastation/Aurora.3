@@ -16984,6 +16984,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"lUh" = (
+/obj/structure/stairs_lower/stairs_upper,
+/turf/simulated/wall,
+/area/operations/loading)
 "lUr" = (
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -47854,7 +47858,7 @@ lRO
 tRQ
 xGe
 dAZ
-gvZ
+lUh
 clf
 hRn
 gvZ
