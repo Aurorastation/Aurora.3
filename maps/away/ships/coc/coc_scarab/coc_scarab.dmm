@@ -132,7 +132,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/medical)
 "aX" = (
@@ -737,6 +739,7 @@
 	},
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle,
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "eH" = (
@@ -1122,6 +1125,7 @@
 	name = "Fuel to Thrusters";
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "gK" = (
@@ -1263,10 +1267,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/light/floor/decayed{
+/obj/machinery/light/floor{
 	dir = 8
 	},
-/obj/machinery/light/floor/decayed{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1522,14 +1526,17 @@
 /turf/simulated/floor/airless,
 /area/space)
 "iS" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/yellow{
+/obj/structure/cable/green{
+	d1 = 1;
 	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/space/dynamic,
-/area/coc_scarab/solars)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/plating,
+/area/coc_scarab/mess)
 "iU" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -1957,7 +1964,9 @@
 	name = "Armory";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/armory)
 "lB" = (
@@ -2831,10 +2840,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/floor/decayed{
+/obj/machinery/light/floor{
 	dir = 8
 	},
-/obj/machinery/light/floor/decayed{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2957,11 +2966,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light/floor/decayed{
-	dir = 4
-	},
-/obj/machinery/light/floor/decayed{
+/obj/machinery/light/floor{
 	dir = 8
+	},
+/obj/machinery/light/floor{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/solars)
@@ -4383,6 +4392,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "Cb" = (
@@ -4751,7 +4761,9 @@
 	dir = 8;
 	name = "Engineering Storage"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/engistorage)
 "Ew" = (
@@ -4832,7 +4844,9 @@
 	dir = 4;
 	name = "Mass Driver"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/massdriver)
 "EJ" = (
@@ -4988,7 +5002,9 @@
 	name = "Ammunition Storage";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/ammo)
 "FF" = (
@@ -5071,7 +5087,9 @@
 	name = "Flak Battery";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/ammo)
 "Gl" = (
@@ -5521,6 +5539,9 @@
 /obj/structure/flora/ausbushes/sparsegrass{
 	layer = 2
 	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
 /turf/simulated/floor/grass,
 /area/coc_scarab/hydroponics)
 "Ji" = (
@@ -5691,7 +5712,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/hydroponics)
 "KA" = (
@@ -6131,7 +6154,9 @@
 	dir = 4;
 	name = "Crew Quarters"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "Nd" = (
@@ -6515,13 +6540,13 @@
 /area/coc_scarab/engine)
 "PP" = (
 /obj/structure/table/rack,
-/obj/item/soap/plant,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
 	},
 /obj/machinery/alarm/south,
+/obj/random/soap,
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/washroom)
 "PR" = (
@@ -6582,7 +6607,9 @@
 	dir = 8;
 	name = "Equipment Storage"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
 "Qd" = (
@@ -7614,10 +7641,23 @@
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Vi" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/space/dynamic,
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/airless,
 /area/coc_scarab/solars)
 "Vl" = (
 /turf/simulated/wall/r_wall,
@@ -7639,7 +7679,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -7651,7 +7690,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/coc_scarab/mess)
 "Vr" = (
 /obj/machinery/seed_extractor,
@@ -7722,7 +7763,9 @@
 	dir = 2;
 	name = "Hydroponics"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/coc_scarab/hydroponics)
 "VN" = (
@@ -38480,7 +38523,7 @@ cB
 cB
 cB
 lb
-iS
+Qe
 YF
 UN
 cR
@@ -38996,7 +39039,7 @@ cB
 lb
 Qe
 YF
-Vi
+UN
 cR
 Qe
 YF
@@ -39556,7 +39599,7 @@ wr
 hL
 Vp
 Lt
-AU
+iS
 YV
 xO
 aG
@@ -40280,7 +40323,7 @@ cB
 cB
 lb
 Qe
-YF
+Vi
 UN
 cR
 Qe
