@@ -1,6 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - bugfix: "Crayons and drafting chalk are no longer invisible."
