@@ -210,7 +210,7 @@
 
 	if(nymph)
 		N.nymph_out(src, nymph)
-		to_chat(nymph_owner, SPAN_WARNING("The nymph attached to you as \a [name] unlatches its tendrils from your body and drops to the ground."))
+		to_chat(nymph_owner, SPAN_WARNING("The nymph attached to you as \a [name] unlatches its tendrils from your body."))
 		to_chat(nymph, SPAN_NOTICE("You tear your tendrils free of your host and drop to the ground."))
 
 	return TRUE
