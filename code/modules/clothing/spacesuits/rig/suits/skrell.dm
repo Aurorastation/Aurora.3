@@ -58,15 +58,6 @@
 	icon = 'icons/clothing/rig/tup.dmi'
 	icon_state = "tup_rig"
 	suit_type = "tup suit"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_STRONG,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-		)
 	emp_protection = 95
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/skrell/tup
@@ -108,6 +99,15 @@
 	desc = "This is the suit control module for the Tupkala RIG. It's one of the most advanced pieces of technology in the Spur."
 	icon_state = "tup2_rig"
 	helm_type = /obj/item/clothing/head/helmet/space/rig/skrell/tup/modern
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_STRONG,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+		)
 
 /obj/item/rig/skrell/tup/modern/equipped
 	req_access = list(access_skrell)
