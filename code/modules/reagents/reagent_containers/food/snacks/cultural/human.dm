@@ -415,6 +415,8 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment = 2, /singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("pillowy scallops" = 10, "salt" = 5), /singleton/reagent/nutriment = list("butter" = 10))
 
+//New Hai Phong
+
 /obj/item/reagent_containers/food/snacks/chetroinuoc
 	name = "che troi nuoc"
 	desc = "Traditional solarian dessert from New Hai Phong, these triangular sweet rice dumplings are filled with beans."
@@ -435,6 +437,7 @@
 			icon_state = "chetroinuoc2"
 		if(67 to INFINITY)
 			icon_state = "chetroinuoc3"
+
 // Europa
 
 /obj/item/reagent_containers/food/snacks/deepdive
@@ -467,16 +470,18 @@
 // Eridani
 
 /obj/item/reagent_containers/food/snacks/bowl
+	abstract_type = /obj/item/reagent_containers/food/snacks/bowl
 	name = "a bowl of item"
 	desc = "If you're seeing this, something has gone wrong D:"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "puffpuffbowl"
 	trash = /obj/item/trash/snack_bowl
 	var/vendingobject = /obj/item/reagent_containers/food/snacks/puffpuff
+	///This is the item itself that the bowl dispenses, as an obj. I have it set to puff puffs by default but if you reuse this code for a different food - change accordingly.
 	reagent_data = list(/singleton/reagent/nutriment = list("fried dough" = 10, "ginger" = 4))
 	bitesize = 4
 	reagents_to_add = list(/singleton/reagent/nutriment = 24)
-	var/unitname = "item"
+	var/unitname = "item" ///this is the NAME of the item the bowl dispenses, as it would show up in a sentence.
 
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs
 	name = "puff-puff bowl"
@@ -492,8 +497,8 @@
 	reagents.trans_to(returningitem, bitesize)
 	returningitem.bitesize = bitesize/2
 	user.put_in_hands(returningitem)
-	if (reagents?.total_volume)
-		to_chat(user, "You take \a [unitname] from the plate.")
+	if (reagents && reagents.total_volume)
+		to_chat(user, "You take a [unitname] from the plate.")
 	else
 		to_chat(user, "You take the last [unitname] from the plate.")
 		var/obj/waste = new trash(loc)
