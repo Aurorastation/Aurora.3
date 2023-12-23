@@ -482,7 +482,8 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("fried dough" = 10, "ginger" = 4))
 	bitesize = 4
 	reagents_to_add = list(/singleton/reagent/nutriment = 24)
-	var/unitname = "item" ///this is the NAME of the item the bowl dispenses, as it would show up in a sentence.
+	///The name of the item the bowl dispenses
+	var/unitname = "item"
 
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs
 	name = "puff-puff bowl"
