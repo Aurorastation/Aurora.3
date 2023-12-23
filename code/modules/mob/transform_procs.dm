@@ -106,16 +106,11 @@
 /mob/proc/AIize(move=1)
 	if(client)
 		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs)
-	var/mob/living/silicon/ai/O = new (loc, base_law_type,,1)//No MMI but safety is in effect.
-	O.set_invisibility(0)
-	O.ai_restore_power_routine = 0
 
-	if(mind)
-		mind.transfer_to(O)
-		O.mind.original = O
-	else
-		O.key = key
+	//The destination the mob will be spawned at
+	var/final_destination = loc
 
+	//If it's requested to move, select a location to spawn/move the mob to
 	if(move)
 		var/obj/loc_landmark
 		for(var/obj/effect/landmark/start/sloc in landmarks_list)
@@ -131,12 +126,23 @@
 						continue
 					loc_landmark = tripai
 		if (!loc_landmark)
-			to_chat(O, "Oh god sorry we can't find an unoccupied AI spawn location, so we're spawning you on top of someone.")
 			for(var/obj/effect/landmark/start/sloc in landmarks_list)
 				if (sloc.name == "AI")
 					loc_landmark = sloc
 
-		O.forceMove(loc_landmark.loc)
+		if(loc_landmark.loc)
+			final_destination = loc_landmark.loc
+
+
+	var/mob/living/silicon/ai/O = new (final_destination, base_law_type,,1)//No MMI but safety is in effect.
+	O.set_invisibility(0)
+	O.ai_restore_power_routine = 0
+
+	if(mind)
+		mind.transfer_to(O)
+		O.mind.original = O
+	else
+		O.key = key
 
 	O.on_mob_init()
 
