@@ -2418,6 +2418,41 @@
 	glass_desc = "Oh look, it's that thing you actually want to get but probably shouldn't."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
+/singleton/reagent/drink/shake_strawberry
+	name = "Strawberry Milkshake"
+	description = "Milkshake with a healthy heaping of strawberry syrup mixed in."
+	color = "#ff7575"
+	taste_description = "sugary strawberry"
+
+	glass_icon_state = "shake_strawberry"
+	glass_name = "glass of Strawberry Milkshake"
+	glass_desc = "A sweet, chilly milkshake with neon red syrup. So sweet you could pop!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_caramel
+	name = "Caramel Milkshake"
+	description = "Milkshake with a healthy heaping of caramel syrup mixed in."
+	color = "#d19d4e"
+	taste_description = "smooth caramel"
+
+	glass_icon_state = "shake_caramel"
+	glass_name = "glass of Caramel Milkshake"
+	glass_desc = "In case there wasn't enough sugar in your sugar."
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+
+/singleton/reagent/drink/shake_dirtberry
+	name = "Dirtberry Milkshake"
+	description = "Milkshake with a healthy heaping of dirtberry syrup mixed in."
+	color = "#92692c"
+	taste_description = "smooth dirtberries"
+
+	glass_icon_state = "shake_dirtberry"
+	glass_name = "glass of Dirtberry Milkshake"
+	glass_desc = "Don't let the name fool you, this dairy delight is smooth and sweet!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+
 /singleton/reagent/drink/NTellahotchocolate
 	name = "NTella Hot Chocolate"
 	description = "It's like a cup of hot chocolate except... More everything."
