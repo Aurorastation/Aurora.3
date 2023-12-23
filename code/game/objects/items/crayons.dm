@@ -1,3 +1,6 @@
+/obj/item/pen/crayon
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
+
 /obj/item/pen/crayon/red
 	icon_state = "crayonred"
 	colour = "#DA0000"

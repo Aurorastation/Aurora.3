@@ -74,7 +74,7 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -319,10 +319,15 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	alt_titles = list("First Responder Trainee", "Pharmacy Intern", "Resident Surgeon", "Resident Psychiatrist")
+	alt_titles = list("First Responder Trainee", "Pharmacy Intern", "Resident Physician", "Resident Surgeon", "Resident Psychiatrist")
 	alt_outfits = list("First Responder Trainee" = /datum/outfit/job/intern_med/medtech, "Pharmacy Intern" = /datum/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /datum/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /datum/outfit/job/intern_med/psychiatrist)
 	alt_ages = list("Pharmacy Intern" = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Resident Physician" = list(
+		SPECIES_HUMAN = 28,
 		SPECIES_SKRELL = 58,
 		SPECIES_SKRELL_AXIORI = 58
 	),

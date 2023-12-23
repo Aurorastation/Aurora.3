@@ -191,7 +191,7 @@
 	//Hacking init.
 	if(I.ismultitool() || I.iswirecutter())
 		if(panel_open)
-			wires.Interact(user)
+			wires.interact(user)
 		return
 
 	//Other interface stuff.
@@ -267,7 +267,7 @@
 	add_fingerprint(user)
 
 	if(panel_open)
-		wires.Interact(user)
+		wires.interact(user)
 		return
 
 	if(..() || stat & (BROKEN|NOPOWER))
