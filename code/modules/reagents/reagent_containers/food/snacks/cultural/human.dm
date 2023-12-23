@@ -476,6 +476,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "puffpuffbowl"
 	trash = /obj/item/trash/snack_bowl
+	///The item type that the bowl dispenses, an `/obj`
 	var/vendingobject = /obj/item/reagent_containers/food/snacks/puffpuff
 	///This is the item itself that the bowl dispenses, as an obj. I have it set to puff puffs by default but if you reuse this code for a different food - change accordingly.
 	reagent_data = list(/singleton/reagent/nutriment = list("fried dough" = 10, "ginger" = 4))
