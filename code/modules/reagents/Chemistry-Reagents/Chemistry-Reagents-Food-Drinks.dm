@@ -2452,7 +2452,6 @@
 	glass_desc = "Don't let the name fool you, this dairy delight is smooth and sweet!"
 	glass_center_of_mass = list("x"=16, "y"=7)
 
-
 /singleton/reagent/drink/NTellahotchocolate
 	name = "NTella Hot Chocolate"
 	description = "It's like a cup of hot chocolate except... More everything."
