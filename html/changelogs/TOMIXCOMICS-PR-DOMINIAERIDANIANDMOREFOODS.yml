@@ -40,6 +40,7 @@ delete-after: True
 changes:
   - rscadd: "Added several new foods for Dominia, Eridani, and Silversun."
   - rscadd: "Added three new kinds of milkshakes."
+  - tweak: "Changed some of the syrup colors to match the color they're supposed to have."
   - backend: "Added kitchen tag for blueberries."
   - backend: "Added correct cuisine category for che troi nuoc"
   - bugfix: "Fixed naming issue that was keeping NTella jar from showing up"

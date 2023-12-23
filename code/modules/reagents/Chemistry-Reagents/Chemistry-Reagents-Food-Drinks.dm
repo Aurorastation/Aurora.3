@@ -5718,7 +5718,7 @@
 	name = "Strawberry Syrup"
 	description = "Thick strawberry syrup used to flavor drinks."
 	taste_description = "strawberry"
-	color = "#f3e5ab"
+	color = "#b40000"
 	glass_name = "strawberry syrup"
 	glass_desc = "Thick strawberry syrup used to flavor drinks."
 //blueberry
@@ -5726,7 +5726,7 @@
 	name = "Blueberry Syrup"
 	description = "Thick blueberry syrup used to flavor drinks."
 	taste_description = "blueberry"
-	color = "#f3e5ab"
+	color = "#0a0094"
 	glass_name = "blueberry syrup"
 	glass_desc = "Thick blueberry syrup used to flavor drinks."
 //rasp
@@ -5734,7 +5734,7 @@
 	name = "Raspberry Syrup"
 	description = "Thick raspberry syrup used to flavor drinks."
 	taste_description = "raspberry"
-	color = "#f3e5ab"
+	color = "#ad0042"
 	glass_name = "raspberry syrup"
 	glass_desc = "Thick raspberry syrup used to flavor drinks."
 //black rasp
@@ -5742,7 +5742,7 @@
 	name = "Black Raspberry Syrup"
 	description = "Thick black raspberry syrup used to flavor drinks."
 	taste_description = "black raspberry"
-	color = "#f3e5ab"
+	color = "#1b1618"
 	glass_name = "black raspberry syrup"
 	glass_desc = "Thick black raspberry syrup used to flavor drinks."
 //blue rasp
@@ -5750,7 +5750,7 @@
 	name = "Blue Raspberry Syrup"
 	description = "Thick blue raspberry syrup used to flavor drinks."
 	taste_description = "blue raspberry"
-	color = "#f3e5ab"
+	color = "#21154d"
 	glass_name = "blue raspberry syrup"
 	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
 //glow
@@ -5782,7 +5782,7 @@
 	name = "Ylpha Berry Syrup"
 	description = "Thick ylpha berry syrup used to flavor drinks."
 	taste_description = "ylpha berry"
-	color = "#f3e5ab"
+	color = "#f3d1ab"
 	glass_name = "ylpha berry syrup"
 	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
 //dirt
@@ -5790,7 +5790,7 @@
 	name = "Dirt Berry Syrup"
 	description = "Thick dirt berry syrup used to flavor drinks."
 	taste_description = "dirt berry"
-	color = "#f3e5ab"
+	color = "#85572c"
 	glass_name = "dirt berry syrup"
 	glass_desc = "Thick dirt berry syrup used to flavor drinks."
 
