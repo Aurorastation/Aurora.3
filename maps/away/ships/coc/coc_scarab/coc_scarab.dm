@@ -177,8 +177,8 @@
 	landmark_tag = "nav_scarab_transit"
 	base_turf = /turf/space/transit/north
 
-	// CUSTOM STUFF
-	// dimmed yellow lights
+// CUSTOM STUFF
+// dimmed yellow lights
 /obj/machinery/light/floor/decayed
 	brightness_color = "#fabd6d"
 	randomize_color = FALSE
