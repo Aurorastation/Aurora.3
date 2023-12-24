@@ -65,7 +65,7 @@
 
 /obj/machinery/drone_fabricator/examine(mob/user)
 	. = ..()
-	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
+	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && GLOB.config.allow_drone_spawn && count_drones() < config.max_maint_drones)
 		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
 
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)

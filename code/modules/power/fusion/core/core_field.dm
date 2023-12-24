@@ -321,7 +321,7 @@
 			alert_msg = null
 			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
 			public_alert = TRUE
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				var/turf/T = get_turf(M)
 				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
 					sound_to(M, 'sound/effects/nuclearsiren.ogg')

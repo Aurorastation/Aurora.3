@@ -47,7 +47,7 @@
 					to_chat(user, "<span class='warning'>There are too many windows in this location.</span>")
 					return 1
 				directions-=win.dir
-				if(!(win.dir in cardinal))
+				if(!(win.dir in GLOB.cardinal))
 					to_chat(user, "<span class='warning'>Can't let you do that.</span>")
 					return 1
 

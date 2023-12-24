@@ -34,7 +34,7 @@
 
 /datum/job/merchant/New()
 	..()
-	if(prob(config.merchant_chance))
+	if(prob(GLOB.config.merchant_chance))
 		spawn_positions = 1
 		total_positions = 1
 

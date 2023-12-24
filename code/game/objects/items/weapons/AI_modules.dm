@@ -46,7 +46,7 @@ AI MODULES
 			if(comp.current.vr_mob)
 				to_chat(comp.current.vr_mob, "These are your laws now:")
 			comp.current.show_laws()
-			for(var/mob/living/silicon/robot/R in mob_list)
+			for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 				if(R.law_update && (R.connected_ai == comp.current))
 					to_chat(R, "These are your laws now:")
 					if(R.vr_mob)

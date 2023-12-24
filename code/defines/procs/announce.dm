@@ -43,7 +43,7 @@
 		message_title = sanitizeSafe(message_title)
 
 	var/msg = FormMessage(message, message_title)
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(!istype(M, /mob/abstract/new_player) && !isdeaf(M) && (GET_Z(M) in (zlevels | current_map.admin_levels)))
 			var/turf/T = get_turf(M)
 			if(T)

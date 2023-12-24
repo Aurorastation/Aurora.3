@@ -96,7 +96,7 @@
 	if(prob(flower_chance))
 		flower_color = get_random_colour(1)
 	. = ..(mapload)
-	//species = all_species[]
+	//species = GLOB.all_species[]
 	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
 	reagents = ingested
 	set_species(SPECIES_DIONA)
@@ -166,7 +166,7 @@
 		species.remove_inherent_verbs(src)
 		holder_type = null
 
-	species = all_species[new_species]
+	species = GLOB.all_species[new_species]
 	if(species.language)
 		add_language(species.language)
 

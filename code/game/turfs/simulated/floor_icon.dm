@@ -23,7 +23,7 @@
 		cut_overlays()
 		var/has_border = 0
 		//Check the cardinal turfs
-		for(var/step_dir in cardinal)
+		for(var/step_dir in GLOB.cardinal)
 			var/turf/simulated/floor/T = get_step(src, step_dir)
 			var/is_linked = flooring.symmetric_test_link(src, T)
 

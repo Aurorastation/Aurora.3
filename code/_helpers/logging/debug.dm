@@ -20,7 +20,7 @@
 /// Logging for loading and caching assets
 /proc/log_asset(text)
 	if(GLOB.config.logsettings["log_asset"])
-		WRITE_LOG(config.logfiles["world_asset_log"], "ASSET: [text]")
+		WRITE_LOG(GLOB.config.logfiles["world_asset_log"], "ASSET: [text]")
 
 /// Logging for config errors
 /// Rarely gets called; just here in case the config breaks.
@@ -33,25 +33,25 @@
 	#endif
 
 /proc/log_filter_raw(text)
-	WRITE_LOG(config.logfiles["filter_log"], "FILTER: [text]")
+	WRITE_LOG(GLOB.config.logfiles["filter_log"], "FILTER: [text]")
 
 /// Logging for job slot changes
 /proc/log_job_debug(text)
 	if (GLOB.config.logsettings["log_job_debug"])
-		WRITE_LOG(config.logfiles["world_job_debug_log"], "JOB: [text]")
+		WRITE_LOG(GLOB.config.logfiles["world_job_debug_log"], "JOB: [text]")
 
 /// Logging for lua scripting
 /proc/log_lua(text)
-	WRITE_LOG(config.logfiles["lua_log"], "LUA: [text]")
+	WRITE_LOG(GLOB.config.logfiles["lua_log"], "LUA: [text]")
 
 /// Logging for game performance
 /proc/log_perf(list/perf_info)
 	. = "[perf_info.Join(",")]\n"
-	WRITE_LOG_NO_FORMAT(config.logfiles["perf_log"], .)
+	WRITE_LOG_NO_FORMAT(GLOB.config.logfiles["perf_log"], .)
 
 /// Logging for SQL errors
 /proc/log_query_debug(text)
-	WRITE_LOG(config.logfiles["query_debug_log"], "SQL: [text]")
+	WRITE_LOG(GLOB.config.logfiles["query_debug_log"], "SQL: [text]")
 
 /* Log to the logfile only. */
 /proc/log_runtime(text)
@@ -59,15 +59,15 @@
 
 /proc/_log_signal(text)
 	if(GLOB.config.logsettings["log_signals"])
-		WRITE_LOG(config.logfiles["signals_log"], "SIGNAL: [text]")
+		WRITE_LOG(GLOB.config.logfiles["signals_log"], "SIGNAL: [text]")
 
 /// Logging for DB errors
 /proc/log_sql(text)
-	WRITE_LOG(config.logfiles["sql_error_log"], "SQL: [text]")
+	WRITE_LOG(GLOB.config.logfiles["sql_error_log"], "SQL: [text]")
 
 /// Logging for world/Topic
 /proc/_log_topic(text)
-	WRITE_LOG(config.logfiles["world_game_log"], "TOPIC: [text]")
+	WRITE_LOG(GLOB.config.logfiles["world_game_log"], "TOPIC: [text]")
 
 /// Log to both DD and the logfile.
 /proc/log_world(text)

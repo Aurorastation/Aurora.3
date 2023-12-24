@@ -104,7 +104,7 @@ SUBSYSTEM_DEF(docs)
 
 //Load the document data from SQL
 /datum/controller/subsystem/docs/proc/load_from_sql()
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_subsystem_documents("SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
@@ -112,7 +112,7 @@ SUBSYSTEM_DEF(docs)
 		reset_docs()
 
 		//Load the categories
-		var/DBQuery/document_query = dbcon.NewQuery("SELECT name, title, chance, content, tags FROM ss13_documents WHERE deleted_at IS NULL")
+		var/DBQuery/document_query = GLOB.dbcon.NewQuery("SELECT name, title, chance, content, tags FROM ss13_documents WHERE deleted_at IS NULL")
 		document_query.Execute()
 		while(document_query.NextRow())
 			CHECK_TICK

@@ -18,7 +18,7 @@
 	s["game_state"] = SSticker ? SSticker.current_state : 0
 	s["transferring"] = evacuation_controller?.is_evacuating()
 
-	s["players"] = clients.len
+	s["players"] = GLOB.clients.len
 	s["staff"] = staff.len
 
 	var/admin_count = 0
@@ -154,7 +154,7 @@
 
 /datum/topic_command/get_count_player/run_command(queryparams)
 	var/n = 0
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			n++
 
@@ -262,7 +262,7 @@
 
 	var/list/match = list()
 
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/strings = list(M.name, M.ckey)
 		if(M.mind)
 			strings += M.mind.assigned_role

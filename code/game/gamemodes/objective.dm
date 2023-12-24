@@ -241,7 +241,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		return 0
 	var/area/shuttle = locate(/area/shuttle/escape)
 	var/list/protected_mobs = list(/mob/living/silicon/ai, /mob/living/silicon/pai)
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player.type in protected_mobs)	continue
 		if (player.mind && (player.mind != owner))
 			if(player.stat != DEAD)			//they're not dead!
@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		return 0
 	var/area/shuttle = locate(/area/shuttle/escape)
 	var/protected_mobs[] = list(/mob/living/silicon/ai, /mob/living/silicon/pai, /mob/living/silicon/robot)
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player.type in protected_mobs)	continue
 		if (player.mind)
 			if (player.stat != 2)
@@ -278,7 +278,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	if(!evacuation_controller.round_over())
 		return 0
 
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player == owner.current)
 			continue
 		if(player.mind)
@@ -594,11 +594,11 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	target_amount = rand (lowbound,highbound)
 	var/n_p = 1 //autowin
 	if (SSticker.current_state == GAME_STATE_SETTING_UP)
-		for(var/mob/abstract/new_player/P in player_list)
+		for(var/mob/abstract/new_player/P in GLOB.player_list)
 			if(P.client && P.ready && P.mind!=owner)
 				n_p ++
 	else if (SSticker.current_state == GAME_STATE_PLAYING)
-		for(var/mob/living/carbon/human/P in player_list)
+		for(var/mob/living/carbon/human/P in GLOB.player_list)
 			var/datum/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
 			if(P.client && !changeling && P.mind != owner)
 				n_p ++
@@ -847,7 +847,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/cult/sacrifice/find_target()
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
-		for(var/mob/living/carbon/human/player in player_list)
+		for(var/mob/living/carbon/human/player in GLOB.player_list)
 			if(player.mind && !(player.mind in cult))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)

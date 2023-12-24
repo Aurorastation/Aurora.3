@@ -21,7 +21,7 @@
 		data = null
 		return TRUE
 
-	if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
+	if(G.has_enabled_antagHUD && GLOB.config.antag_hud_restricted && allow_antaghud == 0)
 		statuscode = 409
 		response = "Ghost has used Antag Hud - Respawn Aborted"
 		data = null

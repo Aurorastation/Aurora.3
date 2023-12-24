@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(ping)
 /datum/controller/subsystem/ping/fire(resumed = FALSE)
 	// Prepare the new batch of clients
 	if (!resumed)
-		src.currentrun = clients.Copy()
+		src.currentrun = GLOB.clients.Copy()
 
 	// De-reference the list for sanic speeds
 	var/list/currentrun = src.currentrun

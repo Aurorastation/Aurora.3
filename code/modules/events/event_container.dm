@@ -80,14 +80,14 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	var/last_time = last_event_time[EM]
 	if(last_time)
 		var/time_passed = world.time - last_time
-		var/weight_modifier = max(0, round((config.expected_round_length - time_passed) / 300))
+		var/weight_modifier = max(0, round((GLOB.config.expected_round_length - time_passed) / 300))
 		weight = weight - weight_modifier
 
 	return weight
 
 /datum/event_container/proc/set_event_delay()
 	// If the next event time has not yet been set and we have a custom first time start
-	if(next_event_time == 0 && config.event_first_run[severity])
+	if(next_event_time == 0 && GLOB.config.event_first_run[severity])
 		var/lower = config.event_first_run[severity]["lower"]
 		var/upper = config.event_first_run[severity]["upper"]
 		var/event_delay = rand(lower, upper)
@@ -108,7 +108,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 				playercount_modifier = 0.8
 		playercount_modifier = playercount_modifier * delay_modifier
 
-		var/event_delay = rand(config.event_delay_lower[severity], config.event_delay_upper[severity]) * playercount_modifier
+		var/event_delay = rand(GLOB.config.event_delay_lower[severity], config.event_delay_upper[severity]) * playercount_modifier
 		next_event_time = world.time + event_delay
 
 	LOG_DEBUG("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
@@ -137,7 +137,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	active_with_role["Janitor"] = 0
 	active_with_role["Gardener"] = 0
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(!M.mind || !M.client || M.client.is_afk(10 MINUTES)) // longer than 10 minutes AFK counts them as inactive
 			continue
 

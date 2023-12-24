@@ -248,7 +248,7 @@ SUBSYSTEM_DEF(atlas)
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)
-		if (known_maps[config.override_map])
+		if (known_maps[GLOB.config.override_map])
 			. = config.override_map
 			log_subsystem_atlas("Using configured map.")
 		else
@@ -311,8 +311,8 @@ SUBSYSTEM_DEF(atlas)
 	. = current_map.station_name
 
 	var/sname
-	if (GLOB.config && config.server_name)
-		sname = "[config.server_name]: [.]"
+	if (GLOB.config && GLOB.config.server_name)
+		sname = "[GLOB.config.server_name]: [.]"
 	else
 		sname = .
 

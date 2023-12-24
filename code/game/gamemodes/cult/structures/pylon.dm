@@ -88,7 +88,7 @@
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
 /obj/structure/cult/pylon/proc/reconsider_interval()
 	var/mindist = INFINITY
-	for(var/mob/living/L in player_list)
+	for(var/mob/living/L in GLOB.player_list)
 		if(L.z != z)
 			continue
 		if(L.stat == DEAD)

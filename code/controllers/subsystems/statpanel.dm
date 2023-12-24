@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(statpanels)
 		if(eta_status)
 			global_data += eta_status
 
-		src.currentrun = clients.Copy()
+		src.currentrun = GLOB.clients.Copy()
 		mc_data = null
 
 	var/list/currentrun = src.currentrun

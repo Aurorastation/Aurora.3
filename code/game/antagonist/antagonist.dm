@@ -114,7 +114,7 @@
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
-		else if(establish_db_connection(dbcon) && required_age && required_age > player.current.client?.player_age)
+		else if(establish_db_connection(GLOB.dbcon) && required_age && required_age > player.current.client?.player_age)
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Their playtime age is too low!")
 		else
 			candidates += player

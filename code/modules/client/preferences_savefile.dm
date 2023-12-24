@@ -106,7 +106,7 @@
 	return S
 
 /datum/preferences/proc/sanitize_preferences()
-	player_setup.sanitize_setup(config.sql_saves)
+	player_setup.sanitize_setup(GLOB.config.sql_saves)
 	return 1
 
 /datum/preferences/proc/update_setup(var/savefile/preferences, var/savefile/character)

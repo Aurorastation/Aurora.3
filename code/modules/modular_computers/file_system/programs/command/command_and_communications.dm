@@ -333,7 +333,7 @@ Command action procs
 		return FALSE
 
 	if(world.time < config.time_to_call_emergency_shuttle)
-		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
+		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((GLOB.config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
 		return FALSE
 
 	if(evacuation_controller.is_on_cooldown()) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE

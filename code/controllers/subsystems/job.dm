@@ -57,7 +57,7 @@ SUBSYSTEM_DEF(jobs)
 		if(!length(bitflag_to_job["[job.department_flag]"]))
 			bitflag_to_job["[job.department_flag]"] = list()
 		bitflag_to_job["[job.department_flag]"]["[job.flag]"] = job
-		if (GLOB.config && config.use_age_restriction_for_jobs)
+		if (GLOB.config && GLOB.config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
 	return TRUE
@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(jobs)
 			. += player
 
 /datum/controller/subsystem/jobs/proc/ResetOccupations()
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if((player) && (player.mind))
 			player.mind.assigned_role = null
 			player.mind.special_role = null
@@ -218,7 +218,7 @@ SUBSYSTEM_DEF(jobs)
 				break
 
 	//Get the players who are ready
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player.ready && player.mind && !player.mind.assigned_role)
 			unassigned += player
 
@@ -555,7 +555,7 @@ SUBSYSTEM_DEF(jobs)
 		var/level3 = 0 //low
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
-		for(var/mob/abstract/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in GLOB.player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
 			if(jobban_isbanned(player, job.title))
@@ -619,10 +619,10 @@ SUBSYSTEM_DEF(jobs)
 				spawnpos.after_join(H)
 			else
 				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
-				H.forceMove(pick(latejoin))
+				H.forceMove(pick(GLOB.latejoin))
 				. = "is inbound from the [current_map.dock_name]"
 		else
-			H.forceMove(pick(latejoin))
+			H.forceMove(pick(GLOB.latejoin))
 			. = "is inbound from the [current_map.dock_name]"
 
 	H.mind.selected_faction = SSjobs.GetFaction(H)

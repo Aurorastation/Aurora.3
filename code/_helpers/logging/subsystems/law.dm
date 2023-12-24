@@ -3,5 +3,5 @@
 	LOG_GITHUB_DEBUG("SSLaw: [text]")
 #else
 	if (GLOB.config?.logsettings["log_subsystems_law"])
-		WRITE_LOG(config.logfiles["world_subsystems_law_log"], "SSLaw: [text]")
+		WRITE_LOG(GLOB.config.logfiles["world_subsystems_law_log"], "SSLaw: [text]")
 #endif

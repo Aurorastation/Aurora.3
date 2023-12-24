@@ -39,7 +39,7 @@
 				var/mob/living/carbon/human/H = L
 
 				if(!H.client && H.mind) //Don't force the dead person to come back if they don't want to.
-					for(var/mob/abstract/observer/ghost in player_list)
+					for(var/mob/abstract/observer/ghost in GLOB.player_list)
 						if(ghost.mind == H.mind)
 							sound_to(ghost, 'sound/effects/psi/power_feedback.ogg')
 							to_chat(ghost, "The Technomancer [user.real_name] is trying to revive you. Re-enter your body if you want to be revived!")

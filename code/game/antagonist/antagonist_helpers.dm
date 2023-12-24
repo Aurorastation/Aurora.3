@@ -4,7 +4,7 @@
 	if(jobban_isbanned(player.current, bantype))
 		return FALSE
 	if(!ignore_role)
-		if(establish_db_connection(dbcon)) //no database, no age restriction
+		if(establish_db_connection(GLOB.dbcon)) //no database, no age restriction
 			if(required_age && required_age > player.current.client.player_age)
 				return FALSE
 		if(player.assigned_role in restricted_jobs)

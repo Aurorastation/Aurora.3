@@ -80,8 +80,8 @@
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
 	if(!T)
-		if(length(latejoin))
-			T = pick(latejoin)			//Safety in case we cannot find the body's position
+		if(length(GLOB.latejoin))
+			T = pick(GLOB.latejoin)			//Safety in case we cannot find the body's position
 		else if(current_map.force_spawnpoint && length(force_spawnpoints["Anyone"]))
 			T = pick(force_spawnpoints["Anyone"])
 		else
@@ -110,7 +110,7 @@
 /mob/abstract/observer/Topic(href, href_list)
 	if (href_list["track"])
 		if(istype(href_list["track"],/mob))
-			var/mob/target = locate(href_list["track"]) in mob_list
+			var/mob/target = locate(href_list["track"]) in GLOB.mob_list
 			if(target)
 				ManualFollow(target)
 		else
@@ -259,7 +259,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 					return
 				src.client.admin_ghost()
 		else
-			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
+			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [GLOB.config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
 		if(response != "Ghost")
 			return
 		resting = 1
@@ -648,7 +648,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Write in blood"
 	set desc = "If the round is sufficiently spooky, write a short message in blood on the floor or a wall. Remember, no IC in OOC or OOC in IC."
 
-	if(!(config.cult_ghostwriter))
+	if(!(GLOB.config.cult_ghostwriter))
 		to_chat(src, "<span class='warning'>That verb is not currently permitted.</span>")
 		return
 
@@ -886,7 +886,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	updateghostimages()
 
 /proc/updateallghostimages()
-	for (var/mob/abstract/observer/O in player_list)
+	for (var/mob/abstract/observer/O in GLOB.player_list)
 		O.updateghostimages()
 
 /mob/abstract/observer/proc/updateghostimages()

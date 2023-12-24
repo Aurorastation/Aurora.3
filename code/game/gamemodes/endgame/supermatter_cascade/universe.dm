@@ -42,7 +42,7 @@ var/global/universe_has_ended = 0
 
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		M.flash_act()
 
 	if(evacuation_controller.cancel_evacuation())
@@ -133,7 +133,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/PlayerSet()
-	for(var/datum/mind/M in player_list)
+	for(var/datum/mind/M in GLOB.player_list)
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)

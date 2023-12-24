@@ -48,7 +48,7 @@ var/global/datum/getrev/revdata = new()
 	if(revdata.revision)
 		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
 		if(GLOB.config.githuburl)
-			to_chat(src, "<a href='[config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
+			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
 		else
 			to_chat(src, revdata.revision)
 	else
@@ -107,7 +107,7 @@ var/global/datum/getrev/revdata = new()
 	. += "<br>\tAuthor: [html_encode(tm.author)]"
 
 	if (GLOB.config.githuburl)
-		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
+		. += "<br>\t<a href='[GLOB.config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
 
 	. += "</p>"
 

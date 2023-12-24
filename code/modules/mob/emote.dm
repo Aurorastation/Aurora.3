@@ -38,7 +38,7 @@
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if (!M.client || isnewplayer(M))
 			continue
 		if(get_turf(M) in messageturfs)

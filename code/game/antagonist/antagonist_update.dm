@@ -94,11 +94,11 @@
 		if (SSticker.current_state < GAME_STATE_PLAYING)
 			// If we're in the pre-game state, we count readied new players as players.
 			// Yes, not all get spawned, but it's a close enough guestimation.
-			for (var/mob/abstract/new_player/L in player_list)
+			for (var/mob/abstract/new_player/L in GLOB.player_list)
 				if (L.client && L.ready)
 					count++
 		else
-			for (var/mob/living/M in player_list)
+			for (var/mob/living/M in GLOB.player_list)
 				if (M.client)
 					count++
 
@@ -120,11 +120,11 @@
 	if (SSticker.current_state < GAME_STATE_PLAYING)
 		// If we're in the pre-game state, we count readied new players as players.
 		// Yes, not all get spawned, but it's a close enough guestimation.
-		for (var/mob/abstract/new_player/L in player_list)
+		for (var/mob/abstract/new_player/L in GLOB.player_list)
 			if (L.client && L.ready)
 				count++
 	else
-		for (var/mob/living/M in player_list)
+		for (var/mob/living/M in GLOB.player_list)
 			if (M.client)
 				count++
 

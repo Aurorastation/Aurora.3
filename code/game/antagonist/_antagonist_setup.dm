@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY(bantype_to_antag_age)
 
 		// Set up age restrictions for the different antag bantypes.
 		if (!bantype_to_antag_age[A.bantype])
-			if (GLOB.config.age_restrictions_from_file && config.age_restrictions[lowertext(A.bantype)])
+			if (GLOB.config.age_restrictions_from_file && GLOB.config.age_restrictions[lowertext(A.bantype)])
 				bantype_to_antag_age[lowertext(A.bantype)] = config.age_restrictions[lowertext(A.bantype)]
 			else
 				bantype_to_antag_age[A.bantype] = 0

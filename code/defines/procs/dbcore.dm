@@ -180,7 +180,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	_db_query = _dm_db_new_query()
 	return ..()
 
-/DBQuery/proc/Connect(DBConnection/connection_handler)
+/DBQuery/proc/Connect(GLOB.dbconnection/connection_handler)
 	db_connection = connection_handler
 
 /DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_query = sql, cursor_handler = default_cursor)

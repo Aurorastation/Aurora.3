@@ -29,13 +29,13 @@ var/global/enabled_spooking = 0
 				to_chat(C, msg)
 
 /proc/admin_notice(var/message, var/rights)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if(check_rights(rights, 0, M))
 			to_chat(M, message)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
-/datum/admins/proc/show_player_panel(var/mob/M in mob_list)
+/datum/admins/proc/show_player_panel(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
@@ -713,7 +713,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.ooc_allowed = !(config.ooc_allowed)
+	config.ooc_allowed = !(GLOB.config.ooc_allowed)
 	if (GLOB.config.ooc_allowed)
 		to_world("<B>The OOC channel has been globally enabled!</B>")
 	else
@@ -729,7 +729,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.looc_allowed = !(config.looc_allowed)
+	config.looc_allowed = !(GLOB.config.looc_allowed)
 	if (GLOB.config.looc_allowed)
 		to_world("<B>The LOOC channel has been globally enabled!</B>")
 	else
@@ -746,7 +746,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.dsay_allowed = !(config.dsay_allowed)
+	config.dsay_allowed = !(GLOB.config.dsay_allowed)
 	if (GLOB.config.dsay_allowed)
 		to_world("<B>Deadchat has been globally enabled!</B>")
 	else
@@ -764,7 +764,7 @@ var/global/enabled_spooking = 0
 		return
 
 	config.dooc_allowed = !( config.dooc_allowed )
-	log_and_message_admins("toggled dead (global) OOC. (New state: [config.dooc_allowed])")
+	log_and_message_admins("toggled dead (global) OOC. (New state: [GLOB.config.dooc_allowed])")
 	feedback_add_details("admin_verb","TDOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggle_dead_looc()
@@ -776,7 +776,7 @@ var/global/enabled_spooking = 0
 		return
 
 	config.dead_looc_allowed = !config.dead_looc_allowed
-	log_and_message_admins("toggled dead LOOC. (New state: [config.dead_looc_allowed])")
+	log_and_message_admins("toggled dead LOOC. (New state: [GLOB.config.dead_looc_allowed])")
 
 /datum/admins/proc/togglehubvisibility()
 	set category = "Server"
@@ -800,8 +800,8 @@ var/global/enabled_spooking = 0
 	set desc="Toggle traitor scaling"
 	set name="Toggle Traitor Scaling"
 	config.traitor_scaling = !config.traitor_scaling
-	log_admin("[key_name(usr)] toggled Traitor Scaling to [config.traitor_scaling].")
-	message_admins("[key_name_admin(usr)] toggled Traitor Scaling [config.traitor_scaling ? "on" : "off"].", 1)
+	log_admin("[key_name(usr)] toggled Traitor Scaling to [GLOB.config.traitor_scaling].")
+	message_admins("[key_name_admin(usr)] toggled Traitor Scaling [GLOB.config.traitor_scaling ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","TTS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/startnow()
@@ -825,8 +825,8 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="People can't enter"
 	set name="Toggle Entering"
-	config.enter_allowed = !(config.enter_allowed)
-	if (!(config.enter_allowed))
+	config.enter_allowed = !(GLOB.config.enter_allowed)
+	if (!(GLOB.config.enter_allowed))
 		to_world("<B>New players may no longer enter the game.</B>")
 	else
 		to_world("<B>New players may now enter the game.</B>")
@@ -852,13 +852,13 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
-	config.abandon_allowed = !(config.abandon_allowed)
+	config.abandon_allowed = !(GLOB.config.abandon_allowed)
 	if(GLOB.config.abandon_allowed)
 		to_world("<B>You may now respawn.</B>")
 	else
 		to_world("<B>You may no longer respawn :(</B>")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].</span>", 1)
-	log_admin("[key_name(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
+	message_admins("<span class='notice'>[key_name_admin(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"].</span>", 1)
+	log_admin("[key_name(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 	feedback_add_details("admin_verb","TR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -867,8 +867,8 @@ var/global/enabled_spooking = 0
 	set desc="Toggle space ninjas spawning."
 	set name="Toggle Space Ninjas"
 	config.ninjas_allowed = !config.ninjas_allowed
-	log_admin("[key_name(usr)] toggled Space Ninjas to [config.ninjas_allowed].")
-	message_admins("[key_name_admin(usr)] toggled Space Ninjas [config.ninjas_allowed ? "on" : "off"].", 1)
+	log_admin("[key_name(usr)] toggled Space Ninjas to [GLOB.config.ninjas_allowed].")
+	message_admins("[key_name_admin(usr)] toggled Space Ninjas [GLOB.config.ninjas_allowed ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","TSN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
@@ -895,24 +895,24 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Toggle admin jumping"
 	set name="Toggle Jump"
-	config.allow_admin_jump = !(config.allow_admin_jump)
-	message_admins("<span class='notice'>Toggled admin jumping to [config.allow_admin_jump].</span>")
+	config.allow_admin_jump = !(GLOB.config.allow_admin_jump)
+	message_admins("<span class='notice'>Toggled admin jumping to [GLOB.config.allow_admin_jump].</span>")
 	feedback_add_details("admin_verb","TJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adspawn()
 	set category = "Server"
 	set desc="Toggle admin spawning"
 	set name="Toggle Spawn"
-	config.allow_admin_spawning = !(config.allow_admin_spawning)
-	message_admins("<span class='notice'>Toggled admin item spawning to [config.allow_admin_spawning].</span>")
+	config.allow_admin_spawning = !(GLOB.config.allow_admin_spawning)
+	message_admins("<span class='notice'>Toggled admin item spawning to [GLOB.config.allow_admin_spawning].</span>")
 	feedback_add_details("admin_verb","TAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adrev()
 	set category = "Server"
 	set desc="Toggle admin revives"
 	set name="Toggle Revive"
-	config.allow_admin_rev = !(config.allow_admin_rev)
-	message_admins("<span class='notice'>Toggled reviving to [config.allow_admin_rev].</span>")
+	config.allow_admin_rev = !(GLOB.config.allow_admin_rev)
+	message_admins("<span class='notice'>Toggled reviving to [GLOB.config.allow_admin_rev].</span>")
 	feedback_add_details("admin_verb","TAR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/immreboot()
@@ -930,12 +930,12 @@ var/global/enabled_spooking = 0
 
 	world.Reboot()
 
-/datum/admins/proc/unprison(var/mob/M in mob_list)
+/datum/admins/proc/unprison(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Unprison"
 	if (M.z == 2)
 		if (GLOB.config.allow_admin_jump)
-			M.forceMove(pick(latejoin))
+			M.forceMove(pick(GLOB.latejoin))
 			message_admins("[key_name_admin(usr)] has unprisoned [key_name_admin(M)]", 1)
 			log_admin("[key_name(usr)] has unprisoned [key_name(M)]")
 		else
@@ -1046,7 +1046,7 @@ var/global/enabled_spooking = 0
 	feedback_add_details("admin_verb","SA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/datum/admins/proc/show_traitor_panel(var/mob/M in mob_list)
+/datum/admins/proc/show_traitor_panel(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set desc = "Edit mobs's memory and role"
 	set name = "Show Traitor Panel"
@@ -1152,18 +1152,18 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Guests can't enter"
 	set name="Toggle guests"
-	config.guests_allowed = !(config.guests_allowed)
-	if (!(config.guests_allowed))
+	config.guests_allowed = !(GLOB.config.guests_allowed)
+	if (!(GLOB.config.guests_allowed))
 		to_world("<B>Guests may no longer enter the game.</B>")
 	else
 		to_world("<B>Guests may now enter the game.</B>")
-	log_admin("[key_name(usr)] toggled guests game entering [config.guests_allowed?"":"dis"]allowed.")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled guests game entering [config.guests_allowed?"":"dis"]allowed.</span>", 1)
+	log_admin("[key_name(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed.")
+	message_admins("<span class='notice'>[key_name_admin(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed.</span>", 1)
 	feedback_add_details("admin_verb","TGU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/output_ai_laws()
 	var/ai_number = 0
-	for(var/mob/living/silicon/S in mob_list)
+	for(var/mob/living/silicon/S in GLOB.mob_list)
 		ai_number++
 		if(isAI(S))
 			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>")

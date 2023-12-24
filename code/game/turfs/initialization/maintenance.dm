@@ -46,7 +46,7 @@ var/global/list/random_junk
 
 /datum/turf_initializer/maintenance/proc/dirty_neighbors(var/list/cardinal_turfs)
 	var/how_dirty = 0
-	for(var/turf/simulated/T in cardinal_turfs)
+	for(var/turf/simulated/T in GLOB.cardinal_turfs)
 		// Considered dirty if more than halfway to visible dirt
 		if(T.dirt > 25)
 			how_dirty++

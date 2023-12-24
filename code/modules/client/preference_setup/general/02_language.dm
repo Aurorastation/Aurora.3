@@ -53,7 +53,7 @@
 		// Nothing to validate. Leave.
 		return
 
-	var/datum/species/S = all_species[pref.species] || all_species[SPECIES_HUMAN]
+	var/datum/species/S = GLOB.all_species[pref.species] || all_species[SPECIES_HUMAN]
 
 	if (pref.alternate_languages.len > S.num_alternate_languages)
 		if(pref.client)
@@ -82,7 +82,7 @@
 
 /datum/category_item/player_setup_item/general/language/content(var/mob/user)
 	var/list/dat = list("<b>Languages</b><br>")
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(S.language)
 		dat += "- [S.language]<br>"
 	if(S.default_language && S.default_language != S.language)
@@ -113,7 +113,7 @@
 
 		return TOPIC_REFRESH
 	else if(href_list["add_language"])
-		var/datum/species/S = all_species[pref.species]
+		var/datum/species/S = GLOB.all_species[pref.species]
 		if(pref.alternate_languages.len >= S.num_alternate_languages)
 			alert(user, "You have already selected the maximum number of alternate languages for this species!")
 		else

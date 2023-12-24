@@ -33,7 +33,7 @@
 		t1 += "<B>Unrestricted Access Settings</B><br>"
 
 
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			if(direction & unres_dir)
 				t1 += "<a style='color:#00dd12' href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 			else

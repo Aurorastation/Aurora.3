@@ -75,7 +75,7 @@
 	if(!mapload)
 		enable_smart_generation = 0
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/T = get_step(src,direction)
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))

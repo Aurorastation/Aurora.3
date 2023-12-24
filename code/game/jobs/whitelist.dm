@@ -27,7 +27,7 @@ var/list/whitelist_jobconfig = list()
 
 /proc/load_whitelist()
 	if (GLOB.config.sql_whitelists)
-		if (!establish_db_connection(dbcon))
+		if (!establish_db_connection(GLOB.dbcon))
 			//Continue with the old code if we have no database.
 			log_world("ERROR: Database connection failed while loading whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
@@ -70,12 +70,12 @@ var/list/whitelist_jobconfig = list()
 
 /proc/load_alienwhitelist()
 	if (GLOB.config.sql_whitelists)
-		if (!establish_db_connection(dbcon))
+		if (!establish_db_connection(GLOB.dbcon))
 			//Continue with the old code if we have no database.
 			log_world("ERROR: Database connection failed while loading alien whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
 		else
-			var/DBQuery/query = dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")
 			query.Execute()
 
 			while (query.NextRow())
@@ -147,19 +147,19 @@ var/list/whitelist_jobconfig = list()
 	if (!istype(C) || C.holder)
 		return 0
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		return 0
 
 	var/age_to_beat = 0
 
 	// Assume it's an antag role.
-	if (bantype_to_antag_age[lowertext(job)] && config.use_age_restriction_for_antags)
+	if (bantype_to_antag_age[lowertext(job)] && GLOB.config.use_age_restriction_for_antags)
 		age_to_beat = bantype_to_antag_age[lowertext(job)]
 
 	// Assume it's a job instead!
 	if (!age_to_beat)
 		var/datum/job/J = SSjobs.GetJob(job)
-		if (J && config.use_age_restriction_for_jobs)
+		if (J && GLOB.config.use_age_restriction_for_jobs)
 			age_to_beat = J.minimal_player_age
 
 	var/diff = age_to_beat - C.player_age

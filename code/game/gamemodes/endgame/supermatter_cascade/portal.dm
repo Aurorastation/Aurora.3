@@ -18,7 +18,7 @@
 	overlays = 0
 
 /obj/singularity/narsie/large/exit/process()
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			M.see_rift(src)
 	eat()

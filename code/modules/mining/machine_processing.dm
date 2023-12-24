@@ -305,12 +305,12 @@
 		ores_stored[O] = 0
 
 	//Locate our output and input machinery.
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)

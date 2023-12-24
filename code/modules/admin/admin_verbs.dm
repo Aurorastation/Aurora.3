@@ -953,7 +953,7 @@ var/list/admin_verbs_cciaa = list(
 		M.s_tone =  -M.s_tone + 35
 
 	// hair
-	var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in hair_styles_list
+	var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in GLOB.hair_styles_list
 	if(new_hstyle)
 		M.h_style = new_hstyle
 
@@ -1057,7 +1057,7 @@ var/list/admin_verbs_cciaa = list(
 	if(H)
 		new /datum/tgui_module/damage_menu(WEAKREF(H), usr)
 
-/client/proc/man_up(mob/T as mob in mob_list)
+/client/proc/man_up(mob/T as mob in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
@@ -1073,14 +1073,14 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Man Up Global"
 	set desc = "Tells everyone to man up and deal with it."
 
-	for (var/mob/T as mob in mob_list)
+	for (var/mob/T as mob in GLOB.mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
 		sound_to(T, 'sound/voice/ManUp1.ogg')
 
 	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
 
-/client/proc/give_spell(mob/T as mob in mob_list) // -- Urist
+/client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
 	set category = "Fun"
 	set name = "Give Spell"
 	set desc = "Gives a spell to a mob."
@@ -1099,7 +1099,7 @@ var/list/admin_verbs_cciaa = list(
 	if (!check_rights(R_SERVER|R_DEBUG))
 		return
 
-	var/ans = alert(src, "This will force explosions to run in the [config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
+	var/ans = alert(src, "This will force explosions to run in the [GLOB.config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
 
 	if (!ans || ans == "Cancel")
 		to_chat(src, "<span class='notice'>Cancelled.</span>")
@@ -1107,7 +1107,7 @@ var/list/admin_verbs_cciaa = list(
 
 	config.use_spreading_explosions = !config.use_spreading_explosions
 
-	log_and_message_admins("has toggled explosions to be [config.use_spreading_explosions ? "iterative/spreading" : "simple/circular"].")
+	log_and_message_admins("has toggled explosions to be [GLOB.config.use_spreading_explosions ? "iterative/spreading" : "simple/circular"].")
 	feedback_add_details("admin_verb", "TRE")
 
 /client/proc/wipe_ai()
@@ -1153,7 +1153,7 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("is attempting to reconnect the server to MySQL.")
 
-	dbcon.Reconnect()
+	GLOB.dbcon.Reconnect()
 
 /client/proc/fix_player_list()
 	set category = "Special Verbs"
@@ -1167,16 +1167,16 @@ var/list/admin_verbs_cciaa = list(
 		return
 
 	log_and_message_admins("is rebuilding the master player mob list.")
-	for (var/P in player_list)
+	for (var/P in GLOB.player_list)
 		if (isnull(P) || !ismob(P))
-			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
+			var/msg = "P_LIST DEBUG: Found null entry in GLOB.player_list!"
 			log_debug(msg)
 			message_admins(SPAN_DANGER(msg))
 			player_list -= P
 		else
 			var/mob/M = P
 			if (!M.client)
-				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
+				var/msg = "P_LIST DEBUG: Found a mob without a client in GLOB.player_list! [M.name]"
 				log_debug(msg)
 				message_admins(SPAN_DANGER(msg))
 				player_list -= M
@@ -1196,7 +1196,7 @@ var/list/admin_verbs_cciaa = list(
 
 	SSzcopy.hard_reset()
 
-/client/proc/add_client_color(mob/T as mob in mob_list)
+/client/proc/add_client_color(mob/T as mob in GLOB.mob_list)
 	set category = "Debug"
 	set name = "Add Client Color"
 	set desc = "Adds a client color to a given mob"
@@ -1305,7 +1305,7 @@ var/list/admin_verbs_cciaa = list(
 		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
 			messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(isAI(M))

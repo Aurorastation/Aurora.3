@@ -120,12 +120,12 @@
 	pref.can_edit_ipc_tag = TRUE
 
 	if (GLOB.config.sql_saves && pref.current_character)
-		if (!establish_db_connection(dbcon))
+		if (!establish_db_connection(GLOB.dbcon))
 			return
 
 		// Called /after/ loading and /before/ sanitization.
 		// So we have pref.current_character. It's just in text format.
-		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
 		query.Execute(list("id" = text2num(pref.current_character)))
 
 		if (query.NextRow())
@@ -156,7 +156,7 @@
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!pref.speech_bubble_type || !(pref.speech_bubble_type in S.possible_speech_bubble_types))
 		if(istype(S))
 			pref.speech_bubble_type = S.possible_speech_bubble_types[1]
@@ -173,7 +173,7 @@
 		dat += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>)"
 	dat += "<br>"
 	dat += "<b>Sex:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(length(S.selectable_pronouns))
 		dat += "<b>Pronouns:</b> <a href='?src=\ref[src];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
@@ -219,7 +219,7 @@
 					return TOPIC_NOACTION //If the name is the same do nothing
 				if(GLOB.config.sql_saves)
 					//Check if the player already has a character with the same name. (We dont have to account for the current char in that query, as that is already handled by the condition above)
-					var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
+					var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
 					query.Execute(list("ckey" = user.client.ckey, "char_name" = new_name))
 					query.NextRow()
 					var/count = text2num(query.item[1])
@@ -255,13 +255,13 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["speech_bubble_type"])
-		var/datum/species/S = all_species[pref.species]
+		var/datum/species/S = GLOB.all_species[pref.species]
 		pref.speech_bubble_type = next_in_list(pref.speech_bubble_type, S.possible_speech_bubble_types)
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		var/datum/species/S = all_species[pref.species]
-		pref.gender = next_in_list(pref.gender, valid_player_genders & S.default_genders)
+		var/datum/species/S = GLOB.all_species[pref.species]
+		pref.gender = next_in_list(pref.gender, GLOB.GLOB.valid_player_genders & S.default_genders)
 		pref.pronouns = pref.gender
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
@@ -269,7 +269,7 @@
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["pronouns"])
-		var/datum/species/S = all_species[pref.species]
+		var/datum/species/S = GLOB.all_species[pref.species]
 		var/selectable_pronouns = list() // this only exists to uppercase the first letters, otherwise it is uggo
 		for(var/pronoun in S.selectable_pronouns)
 			selectable_pronouns += capitalize_first_letters(pronoun)
@@ -286,7 +286,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["height"])
-		var/datum/species/char_spec = all_species[pref.species]
+		var/datum/species/char_spec = GLOB.all_species[pref.species]
 		var/new_height = input(user, "Choose your character's height: (Values in Centimetres. [char_spec.name] height range [pref.getMinHeight()] - [pref.getMaxHeight()])", "Character Preference", pref.height) as num|null
 		if(new_height && CanUseTopic(user))
 			pref.height = max(min(round(text2num(new_height)),  pref.getMaxHeight()),pref.getMinHeight())

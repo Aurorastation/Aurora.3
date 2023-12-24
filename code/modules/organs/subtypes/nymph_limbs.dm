@@ -125,7 +125,7 @@
 		E.nymph = new /mob/living/carbon/alien/diona
 
 	E.status |= (ORGAN_PLANT | ORGAN_NYMPH)
-	E.species = all_species["Nymph Limb"]
+	E.species = GLOB.all_species["Nymph Limb"]
 	E.fingerprints = null
 	if(!E.dna)
 		E.blood_DNA = list()
@@ -241,7 +241,7 @@
 		to_chat(src, span("warning", "There are no valid hosts to bond to."))
 		return FALSE
 
-	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in mob_list
+	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in GLOB.mob_list
 	var/mob/living/carbon/human/target = choice
 	if(!Adjacent(target) || target.stat || !target.client)
 		return

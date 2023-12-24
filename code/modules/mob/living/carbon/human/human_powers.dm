@@ -17,7 +17,7 @@
 			return
 		else
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
-			for(var/hair_string in hair_styles_list)
+			for(var/hair_string in GLOB.hair_styles_list)
 				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
@@ -42,7 +42,7 @@
 		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
 		var/selected_string
 		var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
-		for(var/hair_string in hair_styles_list)
+		for(var/hair_string in GLOB.hair_styles_list)
 			var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 			if(species.type in test.species_allowed)
 				valid_hairstyles.Add(hair_string)
@@ -317,7 +317,7 @@
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)

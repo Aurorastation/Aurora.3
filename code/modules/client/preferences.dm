@@ -219,23 +219,23 @@ var/list/preferences_datums = list()
 		save_character()
 
 /datum/preferences/proc/getMinAge()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.age_min
 
 /datum/preferences/proc/getMaxAge()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.age_max
 
 /datum/preferences/proc/getMinHeight()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.height_min
 
 /datum/preferences/proc/getMaxHeight()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.height_max
 
 /datum/preferences/proc/getAvgHeight()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.species_height
 
 /datum/preferences/proc/ShowChoices(mob/user)
@@ -515,10 +515,10 @@ var/list/preferences_datums = list()
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
-			if(!establish_db_connection(dbcon))
+			if(!establish_db_connection(GLOB.dbcon))
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
 			query.Execute(list("ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"
@@ -534,7 +534,7 @@ var/list/preferences_datums = list()
 					dat += "<a href='?src=\ref[src];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
-			dat += "<b>[query.RowCount()]/[config.character_slots] slots used</b><br>"
+			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
 			if (query.RowCount() < config.character_slots)
 				dat += "<a href='?src=\ref[src];new_character_sql=1'>New Character</a>"
 			else
@@ -577,13 +577,13 @@ var/list/preferences_datums = list()
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
-	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
+	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(GLOB.dbcon) || !H)
 		return
 
 	if(!H.mind.assigned_role)
 		LOG_DEBUG("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
 	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
@@ -681,11 +681,11 @@ var/list/preferences_datums = list()
 		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
 	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.

@@ -1,7 +1,7 @@
 //like orange but only checks north/south/east/west for one step
 /proc/cardinalrange(var/center)
 	var/list/things = list()
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/T = get_step(center, direction)
 		if(!T)
 			continue
@@ -74,12 +74,12 @@
 		return
 
 	//Search for shielding first
-	for(var/obj/machinery/am_shielding/AMS in cardinalrange(src))
+	for(var/obj/machinery/am_shielding/AMS in GLOB.cardinalrange(src))
 		if(AMS && AMS.control_unit && link_control(AMS.control_unit))
 			break
 
 	if(!control_unit)//No other guys nearby, look for a control unit
-		for(var/obj/machinery/power/am_control_unit/AMC in cardinalrange(src))
+		for(var/obj/machinery/power/am_control_unit/AMC in GLOB.cardinalrange(src))
 			if(AMC.add_shielding(src))
 				break
 		if(!mapped) // Prevent rescanning and suicide if it's part of the map
@@ -92,7 +92,7 @@
 /obj/machinery/am_shielding/proc/assimilate()
 	if(!control_unit)
 		return // nothing to share :'^[
-	for(var/obj/machinery/am_shielding/neighbor in cardinalrange(src))
+	for(var/obj/machinery/am_shielding/neighbor in GLOB.cardinalrange(src))
 		if(neighbor && !neighbor.control_unit)
 			neighbor.link_control(control_unit)
 			neighbor.assimilate() // recursion is fun, right?
@@ -138,7 +138,7 @@
 					coredirs |= direction
 
 			// Detect cores, shielding, and control boxen.
-			if(direction in cardinal)
+			if(direction in GLOB.cardinal)
 				if(istype(machine, /obj/machinery/am_shielding))
 					var/obj/machinery/am_shielding/AMS = machine
 					if(AMS.control_unit == control_unit)
@@ -230,14 +230,14 @@
 			return
 
 		//Search for shielding first
-		for(var/obj/machinery/am_shielding/AMS in cardinalrange(src))
+		for(var/obj/machinery/am_shielding/AMS in GLOB.cardinalrange(src))
 			if(AMS.control_unit)
 				new /obj/machinery/am_shielding(loc, AMS.control_unit)
 				qdel(src)
 				return
 
 		//No other guys nearby, look for a control unit
-		var/obj/machinery/power/am_control_unit/AMC = locate() in cardinalrange(src)
+		var/obj/machinery/power/am_control_unit/AMC = locate() in GLOB.cardinalrange(src)
 		if(AMC?.anchored)
 			new /obj/machinery/am_shielding(loc, AMC)
 			qdel(src)

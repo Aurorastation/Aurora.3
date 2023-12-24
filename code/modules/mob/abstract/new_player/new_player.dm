@@ -51,7 +51,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			var/list/ready_special_roles = list()
 
 			//Get the list of all the players, if they are ready, get their special roles (aka antagonists) preferences and count them up in a list
-			for(var/mob/abstract/new_player/player in player_list)
+			for(var/mob/abstract/new_player/player in GLOB.player_list)
 				if(!player.ready)
 					continue
 				for(var/special_role in player?.client?.prefs?.be_special_role)
@@ -113,8 +113,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		if(!check_rights(R_ADMIN, 0))
-			var/datum/species/S = all_species[client.prefs.species]
-			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
+			var/datum/species/S = GLOB.all_species[client.prefs.species]
+			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && GLOB.config.usealienwhitelist)
 				to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 				return 0
 
@@ -146,8 +146,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
-		var/datum/species/S = all_species[client.prefs.species]
-		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
+		var/datum/species/S = GLOB.all_species[client.prefs.species]
+		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && GLOB.config.usealienwhitelist)
 			to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 			return 0
 
@@ -230,7 +230,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		return FALSE
 
 	if(job.blacklisted_species) // check for restricted species
-		var/datum/species/S = all_species[client.prefs.species]
+		var/datum/species/S = GLOB.all_species[client.prefs.species]
 		if(S.name in job.blacklisted_species)
 			return FALSE
 
@@ -350,16 +350,16 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/use_species_name
 	var/datum/species/chosen_species
 	if(client.prefs.species)
-		chosen_species = all_species[client.prefs.species]
+		chosen_species = GLOB.all_species[client.prefs.species]
 		use_species_name = chosen_species.get_station_variant() //Only used by pariahs atm.
 
 	if(chosen_species && use_species_name)
 		// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 		if(is_species_whitelisted(chosen_species) || has_admin_rights())
-			new_character = new(newplayer_start, use_species_name)
+			new_character = new(GLOB.newplayer_start, use_species_name)
 
 	if(!new_character)
-		new_character = new(newplayer_start)
+		new_character = new(GLOB.newplayer_start)
 
 	new_character.lastarea = get_area(loc)
 
@@ -430,7 +430,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/get_species(var/reference = 0)
 	var/datum/species/chosen_species
 	if(client.prefs.species)
-		chosen_species = all_species[client.prefs.species]
+		chosen_species = GLOB.all_species[client.prefs.species]
 
 	if(!chosen_species)
 		return SPECIES_HUMAN

@@ -120,7 +120,7 @@
 		version_warn += "<b>Your version of BYOND may be out of date!</b><br>"
 		version_warn += config.client_warn_message
 		version_warn += "Your version: [user.byond_version].<br>"
-		version_warn += "Required version to remove this message: [config.client_warn_version] or later.<br>"
+		version_warn += "Required version to remove this message: [GLOB.config.client_warn_version] or later.<br>"
 		version_warn += "Visit http://www.byond.com/download/ to get the latest version of BYOND."
 
 		new_notification("danger", version_warn)
@@ -160,11 +160,11 @@
 	if(!user)
 		return null
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Error initiatlizing database connection while getting notifications.")
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery({"SELECT
+	var/DBQuery/query = GLOB.dbcon.NewQuery({"SELECT
 		message, type, id
 		FROM ss13_player_notifications
 		WHERE acked_at IS NULL AND ckey = :ckey:
@@ -197,7 +197,7 @@
 				//Immeidately ack the notification
 				autoack=1
 		if(autoack)
-			var/DBQuery/ackquery = dbcon.NewQuery({"UPDATE ss13_player_notifications
+			var/DBQuery/ackquery = GLOB.dbcon.NewQuery({"UPDATE ss13_player_notifications
 				SET acked_by = 'autoack-server', acked_at = NOW()
 				WHERE id = :id:
 			"})
@@ -214,11 +214,11 @@
 	if (!user)
 		return null
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Error initiatlizing database connection while counting CCIA actions.")
 		return null
 
-	var/DBQuery/prep_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")
+	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")
 	prep_query.Execute(list("ckey" = user.ckey))
 	var/list/chars = list()
 
@@ -228,7 +228,7 @@
 	if (!chars.len)
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery({"SELECT
+	var/DBQuery/query = GLOB.dbcon.NewQuery({"SELECT
 		COUNT(act_chr.action_id) AS action_count
 	FROM ss13_ccia_action_char act_chr
 	JOIN ss13_characters chr ON act_chr.char_id = chr.id

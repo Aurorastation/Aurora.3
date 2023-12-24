@@ -57,7 +57,7 @@
 		var/list/turf/unvisited_neighbours = list()
 
 		// Check all cardinal turfs
-		for(var/D in cardinals)
+		for(var/D in GLOB.cardinals)
 			var/turf/T2 = get_step(get_step(T, text2num(D)), text2num(D)) // Get the step TWICE because this is wallwise
 			if(T2?.color == MAZEGEN_TURF_UNSEARCHED)
 				unvisited_neighbours["[D]"] += T2
@@ -108,7 +108,7 @@
 		var/dense_surrounding_turfs = 0
 		// Again, these gotta be casted like this
 		var/list/cardinals = list("[NORTH]", "[EAST]", "[SOUTH]", "[WEST]")
-		for(var/D in cardinals)
+		for(var/D in GLOB.cardinals)
 			var/turf/T2 = get_step(T, text2num(D))
 			if(T2.density)
 				dense_surrounding_turfs++

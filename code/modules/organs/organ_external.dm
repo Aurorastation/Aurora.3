@@ -416,7 +416,7 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
+		if((limb_flags & ORGAN_CAN_AMPUTATE) && GLOB.config.limbs_can_break)
 
 			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
 

@@ -154,7 +154,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	var/returning = GAME_FAILURE_NONE
 
 	var/playerC = 0
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player.client && player.ready)
 			playerC++
 
@@ -372,7 +372,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	var/escaped_total = 0
 	var/ghosts = 0
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			clients++
 			if(M.stat != DEAD && isipc(M))
@@ -433,7 +433,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	// If this is being called post-roundstart then it doesn't care about ready status.
 	if(SSticker.current_state == GAME_STATE_PLAYING)
-		for(var/mob/player in player_list)
+		for(var/mob/player in GLOB.player_list)
 			if(!player.client)
 				continue
 			if(istype(player, /mob/abstract/new_player))
@@ -443,7 +443,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 				candidates |= player.mind
 	else
 		// Assemble a list of active players without jobbans.
-		for(var/mob/abstract/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in GLOB.player_list)
 			if( player.client && player.ready )
 				players += player
 
@@ -460,7 +460,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /datum/game_mode/proc/num_players()
 	. = 0
-	for(var/mob/abstract/new_player/P in player_list)
+	for(var/mob/abstract/new_player/P in GLOB.player_list)
 		if(P.client && P.ready)
 			. ++
 
@@ -498,7 +498,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 //////////////////////////
 /proc/get_logout_report()
 	var/msg = "<span class='notice'><b>Logout report</b>\n\n"
-	for(var/mob/living/L in mob_list)
+	for(var/mob/living/L in GLOB.mob_list)
 
 		if(L.ckey)
 			var/found = 0
@@ -522,7 +522,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/abstract/observer/D in mob_list)
+		for(var/mob/abstract/observer/D in GLOB.mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"
@@ -556,7 +556,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /proc/get_poor()
 	var/list/characters = list()
 
-	for(var/mob/living/carbon/human/character in player_list)
+	for(var/mob/living/carbon/human/character in GLOB.player_list)
 		if(character.client)
 			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED)) // Discrimination.
 				characters += character
@@ -616,7 +616,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 			sum += config.probabilities_secret[config_tag]
 		for(var/config_tag in config.probabilities_secret)
 			if(GLOB.config.probabilities_secret[config_tag] > 0)
-				var/percentage = round(config.probabilities_secret[config_tag] / sum * 100, 0.1)
+				var/percentage = round(GLOB.config.probabilities_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 
 		to_chat(src, "<b>Mixed Secret Mode Odds:</b>")
@@ -625,7 +625,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 			sum += config.probabilities_mixed_secret[config_tag]
 		for(var/config_tag in config.probabilities_mixed_secret)
 			if(GLOB.config.probabilities_mixed_secret[config_tag] > 0)
-				var/percentage = round(config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
+				var/percentage = round(GLOB.config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 	else
 		to_chat(src, "Displaying gamemode odds is disabled in the config.")

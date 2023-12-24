@@ -4,7 +4,7 @@
 	LOG_GITHUB_DEBUG("ZAS: [text]")
 #else
 	if (GLOB.config.logsettings["log_subsystems_zas"])
-		WRITE_LOG(config.logfiles["log_subsystems_zas"], "ZAS: [text]")
+		WRITE_LOG(GLOB.config.logfiles["log_subsystems_zas"], "ZAS: [text]")
 #endif
 
 /proc/log_subsystem_zas_debug(text)
@@ -13,5 +13,5 @@
 	LOG_GITHUB_DEBUG("ZAS-Debug: [text]")
 #else
 	if (GLOB.config.logsettings["log_subsystems_zas_debug"])
-		WRITE_LOG(config.logfiles["log_subsystems_zas_debug"], "ZAS-Debug: [text]")
+		WRITE_LOG(GLOB.config.logfiles["log_subsystems_zas_debug"], "ZAS-Debug: [text]")
 #endif

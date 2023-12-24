@@ -7,7 +7,7 @@
 	if(GLOB.config.guests_allowed) // shut up if guests allowed for testing
 		return
 	if(GLOB.config.logsettings["log_access"])
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
 				var/matches

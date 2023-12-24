@@ -351,7 +351,7 @@ for reference:
 /obj/item/deployable_kit/surgery_table/assemble_kit(mob/user)
 	..()
 	var/free_spot = null
-	for(var/check_dir in cardinal)
+	for(var/check_dir in GLOB.cardinal)
 		var/turf/T = get_step(src, check_dir)
 		if(turf_clear(T))
 			free_spot = T

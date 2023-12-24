@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(discord)
 		log_subsystem_discord("UpdateChannels - Failed - Discord bot is not active")
 		return 1
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_subsystem_discord("UpdateChannels - Failed - Unable to connect to database")
 		return 2
 
@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(discord)
 	channels_to_group.Cut()
 	channels.Cut()
 
-	var/DBQuery/channel_query = dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
+	var/DBQuery/channel_query = GLOB.dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
 	channel_query.Execute()
 
 	while (channel_query.NextRow())

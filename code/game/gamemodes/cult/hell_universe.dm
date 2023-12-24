@@ -96,7 +96,7 @@ In short:
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/KillMobs()
-	for(var/mob/living/simple_animal/M in mob_list)
+	for(var/mob/living/simple_animal/M in GLOB.mob_list)
 		if(M && !M.client)
 			M.set_stat(DEAD)
 		CHECK_TICK

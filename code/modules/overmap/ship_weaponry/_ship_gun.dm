@@ -137,7 +137,7 @@
 /obj/machinery/ship_weapon/proc/on_fire() //We just fired! Cool effects!
 	if(firing_effects & FIRING_EFFECT_FLAG_EXTREMELY_LOUD)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/carbon/human/H in player_list)
+		for(var/mob/living/carbon/human/H in GLOB.player_list)
 			if(H.z in connected_z_levels)
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
 				if(H.is_listening())

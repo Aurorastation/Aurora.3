@@ -1117,8 +1117,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					config.organs_decay = 1
 				if("default_brain_health")
 					config.default_brain_health = text2num(value)
-					if(!config.default_brain_health || config.default_brain_health < 1)
-						config.default_brain_health = initial(config.default_brain_health)
+					if(!config.default_brain_health || GLOB.config.default_brain_health < 1)
+						config.default_brain_health = initial(GLOB.config.default_brain_health)
 				if("bones_can_break")
 					config.bones_can_break = value
 				if("limbs_can_break")
@@ -1187,8 +1187,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	load_exoplanets_config()
 
 /datum/configuration/proc/save_logging_config()
-	rustg_file_write(json_encode(config.logsettings), "config/logging.json")
-	rustg_file_write(json_encode(config.logfiles), "config/logging_files.json")
+	rustg_file_write(json_encode(GLOB.config.logsettings), "config/logging.json")
+	rustg_file_write(json_encode(GLOB.config.logfiles), "config/logging_files.json")
 
 /*#############################################
 	JSON loading configs functions section

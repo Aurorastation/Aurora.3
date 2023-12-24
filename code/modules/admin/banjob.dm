@@ -111,7 +111,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (ckey)
-		if (guest_jobbans(rank) && config.guest_jobban && IsGuestKey(ckey))
+		if (guest_jobbans(rank) && GLOB.config.guest_jobban && IsGuestKey(ckey))
 			return "GUEST JOB-BAN"
 		if (GLOB.config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
 			return "WHITELISTED"
@@ -179,7 +179,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_loaddatabase()
 	// No database. Weee.
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Database connection failed. Reverting to the legacy ban system.")
 		log_misc("Database connection failed. Reverting to the legacy ban system.")
 		config.ban_legacy_system = 1
@@ -187,7 +187,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		return
 
 	// All jobbans in one query. Because we don't actually care.
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
 	query.Execute()
 
 	while (query.NextRow())
@@ -730,7 +730,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				if (!mins)
 					return 0
 				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_job_tempban_max)
-					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>")
+					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [GLOB.config.mod_job_tempban_max] minutes!</span>")
 					return 0
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
 				if (!reason)

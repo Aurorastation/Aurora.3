@@ -41,6 +41,6 @@
 	if(action == "track")
 		if(isAI(usr))
 			var/mob/living/silicon/ai/AI = usr
-			var/mob/living/carbon/human/H = locate(params["track"]) in mob_list
+			var/mob/living/carbon/human/H = locate(params["track"]) in GLOB.mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
 				AI.ai_actual_track(H)

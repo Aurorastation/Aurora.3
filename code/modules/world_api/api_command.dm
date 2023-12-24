@@ -80,10 +80,10 @@
 	return FALSE
 
 /datum/topic_command/proc/_is_authorized_via_token(addr, auth_key)
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return FALSE
 
-	var/DBQuery/authquery = dbcon.NewQuery({"SELECT api_f.command
+	var/DBQuery/authquery = GLOB.dbcon.NewQuery({"SELECT api_f.command
 	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND	api_t.deleted_at IS NULL

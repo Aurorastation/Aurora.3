@@ -183,7 +183,7 @@
 			receive -= R
 
 	// Add observers who have ghost radio enabled
-	for (var/mob/abstract/observer/M in player_list)
+	for (var/mob/abstract/observer/M in GLOB.player_list)
 		if(M.client && (M.client.prefs?.toggles & CHAT_GHOSTRADIO))
 			receive |= M
 

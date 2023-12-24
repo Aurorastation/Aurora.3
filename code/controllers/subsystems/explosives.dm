@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(explosives)
 				vibration = 1
 
 	if (vibration)
-		for(var/thing in player_list)
+		for(var/thing in GLOB.player_list)
 			var/mob/M = thing
 			CHECK_TICK
 			// Double check for client
@@ -329,7 +329,7 @@ SUBSYSTEM_DEF(explosives)
 
 	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
 
-	for (var/thing in player_list)
+	for (var/thing in GLOB.player_list)
 		var/mob/M = thing
 		var/reception = EXPLFX_BOTH
 

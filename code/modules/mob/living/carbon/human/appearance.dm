@@ -36,7 +36,7 @@
 	if(h_style == hair_style)
 		return
 
-	if(!(hair_style in hair_styles_list))
+	if(!(hair_style in GLOB.hair_styles_list))
 		return
 
 	h_style = hair_style
@@ -142,9 +142,9 @@
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())
 	var/list/valid_species = new()
 	for(var/current_species_name in all_species)
-		var/datum/species/current_species = all_species[current_species_name]
+		var/datum/species/current_species = GLOB.all_species[current_species_name]
 
-		if(check_whitelist && config.usealienwhitelist && !check_rights(R_ADMIN, 0, src)) //If we're using the whitelist, make sure to check it!
+		if(check_whitelist && GLOB.config.usealienwhitelist && !check_rights(R_ADMIN, 0, src)) //If we're using the whitelist, make sure to check it!
 			if(!(current_species.spawn_flags & CAN_JOIN))
 				continue
 			if(whitelist.len && !(current_species_name in whitelist))
@@ -162,7 +162,7 @@
 	var/list/valid_hairstyles = new()
 	if(species.bald)
 		return valid_hairstyles
-	for(var/hairstyle in hair_styles_list)
+	for(var/hairstyle in GLOB.hair_styles_list)
 		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
 
 		if(check_gender && gender == MALE && S.gender == FEMALE)

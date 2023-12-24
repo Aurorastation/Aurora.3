@@ -423,7 +423,7 @@
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
 	var/turf/our_turf = get_turf(src)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf && (their_turf.z == our_turf.z))
 			M.update_gravity(M.mob_has_gravity())
@@ -484,7 +484,7 @@
 	set_state(FALSE)
 	sleep(30)
 	set_state(TRUE)
-	for(var/mob/living/M in mob_list)
+	for(var/mob/living/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf?.loc ==  Area)
 			if(ishuman(M))

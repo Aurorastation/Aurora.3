@@ -244,7 +244,7 @@
 				return
 
 			if(!head.law_manager)
-				if(!is_alien_whitelisted(M.brainmob, SPECIES_IPC) && config.usealienwhitelist)
+				if(!is_alien_whitelisted(M.brainmob, SPECIES_IPC) && GLOB.config.usealienwhitelist)
 					to_chat(user, SPAN_WARNING("\The [W] does not seem to fit. (The player lacks the appropriate whitelist.)"))
 					return
 

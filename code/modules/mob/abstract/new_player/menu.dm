@@ -249,10 +249,10 @@
 
 /obj/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(establish_db_connection(dbcon))
+	if(establish_db_connection(GLOB.dbcon))
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
-		var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
 		query.Execute()
 		var/newpoll = query.NextRow()
 
@@ -308,7 +308,7 @@
 	// Only display the warning if it's a /new/ new player,
 	// if they've died and gone back to menu they probably already know their respawn time (and it won't be reset anymore)
 	if(!get_death_time(CREW))
-		if(alert(src, "Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
+		if(alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
 			return FALSE
 
 	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
@@ -347,5 +347,5 @@
 /mob/abstract/new_player/proc/show_lore_summary()
 	if(GLOB.config.lore_summary)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
-		output += "<i>[config.lore_summary]</i><hr>"
+		output += "<i>[GLOB.config.lore_summary]</i><hr>"
 		to_chat(src, output)

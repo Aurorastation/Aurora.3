@@ -1049,7 +1049,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 			if("FS")
 				v = Failsafe
 			if("CFG")
-				v = config
+				v = GLOB.config
 			else
 				if(copytext(expression[start], 1, 3) == "SS") //Subsystem //3 == length("SS") + 1
 					var/SSname = copytext_char(expression[start], 3)

@@ -296,7 +296,7 @@ SUBSYSTEM_DEF(vote)
 		log_vote(text)
 		for(var/cc in clients)
 			var/client/C = cc
-			to_chat(C, "<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
+			to_chat(C, "<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [GLOB.config.vote_period/10] seconds to vote.</span>")
 			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
 				switch(vote_type)
 					if("crew_transfer")
@@ -395,7 +395,7 @@ SUBSYSTEM_DEF(vote)
 				initiate_vote("crew_transfer", ui.user.key)
 				return TRUE
 		if("add_antagonist")
-			if(!antag_add_failed && config.allow_extra_antags)
+			if(!antag_add_failed && GLOB.config.allow_extra_antags)
 				initiate_vote("add_antagonist", ui.user.key)
 				return TRUE
 		if("custom")
@@ -427,7 +427,7 @@ SUBSYSTEM_DEF(vote)
 	data["endtime"] = started_time + config.vote_period
 	data["allow_vote_restart"] = config.allow_vote_restart
 	data["allow_vote_mode"] = config.allow_vote_mode
-	data["allow_extra_antags"] = (!antag_add_failed && config.allow_extra_antags)
+	data["allow_extra_antags"] = (!antag_add_failed && GLOB.config.allow_extra_antags)
 
 	if(!question)
 		data["question"] = capitalize(mode)

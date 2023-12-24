@@ -145,7 +145,7 @@
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
-	if(!config || config.jobs_have_minimal_access)
+	if(!config || GLOB.config.jobs_have_minimal_access)
 		. = minimal_access.Copy()
 	else
 		. = access.Copy()

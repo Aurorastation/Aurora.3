@@ -50,7 +50,7 @@
 	return R
 
 /datum/ghostspawner/revenant/proc/play_ambience(var/mob/living/carbon/human/H)
-	for(var/m in player_list - H)
+	for(var/m in GLOB.player_list - H)
 		var/mob/M = m
 		if(M.ear_deaf)
 			continue

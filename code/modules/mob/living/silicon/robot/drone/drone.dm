@@ -235,7 +235,7 @@
 	. = ..()
 	if(can_reenter_corpse || stat == DEAD)
 		return
-	if(src in mob_list) // needs to exist to reopen spawn atom
+	if(src in GLOB.mob_list) // needs to exist to reopen spawn atom
 		if(master_matrix)
 			master_matrix.remove_drone(WEAKREF(src))
 			master_matrix.message_drones(MATRIX_NOTICE("Your circuits dull. The matriarch has gone offline."))
@@ -595,7 +595,7 @@
 
 /proc/too_many_active_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in mob_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.mob_list)
 		if(D.key && D.client)
 			drones++
 	return drones >= config.max_maint_drones

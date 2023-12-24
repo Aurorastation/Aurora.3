@@ -69,4 +69,4 @@
 
 	log_data.Add(additional_data)
 	var/gelf_log = json_encode(log_data)
-	return send_udp_data(config.logsettings["log_gelf_addr"], gelf_log)
+	return send_udp_data(GLOB.config.logsettings["log_gelf_addr"], gelf_log)

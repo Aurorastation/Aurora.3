@@ -6,7 +6,7 @@
 		gender = pick(MALE, FEMALE)
 	else
 		gender = H.gender
-	var/datum/species/current_species = all_species[species]
+	var/datum/species/current_species = GLOB.all_species[species]
 
 	if(current_species)
 		if(current_species.appearance_flags & HAS_SKIN_TONE)

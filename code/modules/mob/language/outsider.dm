@@ -141,7 +141,7 @@
 		to_chat(speaker, msg)
 		return
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
 			if(!within_jamming_range(player))
 				to_chat(player, msg)

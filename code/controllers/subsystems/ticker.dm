@@ -231,7 +231,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	set waitfor = FALSE
 
 	to_world("<br><br><br><H1>A round of [mode.name] has ended!</H1>")
-	for(var/mob/Player in player_list)
+	for(var/mob/Player in GLOB.player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
@@ -256,7 +256,7 @@ var/datum/controller/subsystem/ticker/SSticker
 					to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
 	to_world("<br>")
 
-	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
+	for (var/mob/living/silicon/ai/aiPlayer in GLOB.mob_list)
 		if (aiPlayer.stat != 2)
 			to_world("<b>[aiPlayer.name]'s laws at the end of the round were:</b>")
 		else
@@ -271,7 +271,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/dronecount = 0
 
-	for (var/mob/living/silicon/robot/robo in mob_list)
+	for (var/mob/living/silicon/robot/robo in GLOB.mob_list)
 
 		if(istype(robo,/mob/living/silicon/robot/drone))
 			dronecount++
@@ -377,7 +377,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/update_ready_count()
 	total_players_ready = 0
-	for(var/mob/abstract/new_player/NP in player_list)
+	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		if(NP.ready)
 			total_players_ready++
 
@@ -390,7 +390,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	update_ready_list(NP)
 
 /datum/controller/subsystem/ticker/proc/setup_player_ready_list()
-	for(var/mob/abstract/new_player/NP in player_list)
+	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		// initial setup to catch people who readied 0.1 seconds into init
 		if(NP.ready)
 			update_ready_list(NP)
@@ -430,7 +430,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		if (dynamic_time <= config.vote_autogamemode_timeleft)
 			pregame_timeleft = config.vote_autogamemode_timeleft + 10
-			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
@@ -594,7 +594,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		if (S.name != "AI")
 			qdel(S)
 	// update join icon for lobbysitters
-	for(var/mob/abstract/new_player/NP in player_list)
+	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		if(!NP.client)
 			continue
 		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
@@ -720,7 +720,7 @@ var/datum/controller/subsystem/ticker/SSticker
 // Round setup stuff.
 
 /datum/controller/subsystem/ticker/proc/create_characters()
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player && player.ready && player.mind)
 			if(player.mind.assigned_role=="AI")
 				player.close_spawn_windows()
@@ -733,12 +733,12 @@ var/datum/controller/subsystem/ticker/SSticker
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/collect_minds()
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player.mind)
 			minds += player.mind
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.EquipAugments(player, player.client.prefs)

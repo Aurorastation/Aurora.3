@@ -25,7 +25,7 @@
 /datum/spawnpoint/arrivals/New()
 	..()
 	msg = "is inbound from the [current_map.dock_name]"
-	turfs = latejoin
+	turfs = GLOB.latejoin
 
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"

@@ -253,13 +253,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["announceAuth"] = announceAuth
 
 	if (screen == RCS_FORMS)
-		if (!establish_db_connection(dbcon))
+		if (!establish_db_connection(GLOB.dbcon))
 			data["sql_error"] = 1
 		else
 			if (!SQLquery)
 				SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
 
-			var/DBQuery/query = dbcon.NewQuery(SQLquery)
+			var/DBQuery/query = GLOB.dbcon.NewQuery(SQLquery)
 			query.Execute()
 
 			var/list/forms = list()
@@ -386,11 +386,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
 
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
 		query.Execute()
 
 		while(query.NextRow())
@@ -412,11 +412,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
 
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
 		var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
 		while(query.NextRow())

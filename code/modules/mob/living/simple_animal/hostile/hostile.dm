@@ -384,7 +384,7 @@
 		return FALSE
 
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
-		for(var/card_dir in cardinal) // North, South, East, West
+		for(var/card_dir in GLOB.cardinal) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
 
 			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf

@@ -28,7 +28,7 @@
 	if(A.blood_DNA)
 		var/marked = pick(A.blood_DNA)
 
-		for(var/mob/living/carbon/human/H in mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.mob_list)
 			if(H.dna.unique_enzymes == marked)
 				target = WEAKREF(H)
 				countenance = H.dna.species

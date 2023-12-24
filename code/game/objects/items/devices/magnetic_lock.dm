@@ -291,7 +291,7 @@
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in alldirs) && !(direction in cardinal))
+		if ((direction in alldirs) && !(direction in GLOB.cardinal))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)

@@ -117,14 +117,14 @@ var/list/forum_groupids_to_ranks = list()
 
 	else
 		//The current admin system uses SQL
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			log_world("ERROR: AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()
 			return
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins;")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins;")
 		query.Execute()
 		while(query.NextRow())
 			var/ckey = query.item[1]
@@ -170,7 +170,7 @@ var/list/forum_groupids_to_ranks = list()
 /proc/update_admins_from_api(reload_once_done=FALSE)
 	set background = TRUE
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
 		return FALSE
 
@@ -195,13 +195,13 @@ var/list/forum_groupids_to_ranks = list()
 		for (var/datum/forum_user/user in resp.body)
 			admins_to_push += user
 
-	var/DBQuery/prep_query = dbcon.NewQuery("UPDATE ss13_admins SET status = 0")
+	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("UPDATE ss13_admins SET status = 0")
 	prep_query.Execute()
 
 	for (var/user in admins_to_push)
 		insert_user_to_admins_table(user)
 
-	var/DBQuery/del_query = dbcon.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
+	var/DBQuery/del_query = GLOB.dbcon.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
 	del_query.Execute()
 
 	if (reload_once_done)
@@ -231,5 +231,5 @@ var/list/forum_groupids_to_ranks = list()
 		var/datum/admin_rank/r = forum_groupids_to_ranks["[user.forum_primary_group]"]
 		primary_rank = r.rank_name
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:, 1) ON DUPLICATE KEY UPDATE rank = :rank:, flags = :flags:, status = 1")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:, 1) ON DUPLICATE KEY UPDATE rank = :rank:, flags = :flags:, status = 1")
 	query.Execute(list("ckey" = ckey(user.ckey), "rank" = primary_rank, "flags" = rights))
