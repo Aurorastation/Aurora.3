@@ -209,6 +209,7 @@
 /obj/item/gun/energy/MouseDrop(atom/over)
 	. = ..()
 
+
 	if(istype(over, /obj/item/rig))
 		var/obj/item/rig/rig = over
 		var/obj/item/rig_module/recharger/rigcharge = locate() in rig.installed_modules
