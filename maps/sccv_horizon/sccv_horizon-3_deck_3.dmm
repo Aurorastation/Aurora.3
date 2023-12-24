@@ -8669,6 +8669,11 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, representatives office"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/representative_two)
 "gmF" = (
@@ -8906,16 +8911,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/engineering/break_room)
-"guY" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "gvC" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -9065,6 +9060,11 @@
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
@@ -9939,6 +9939,11 @@
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/representative_two)
@@ -14301,7 +14306,6 @@
 "kiq" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/stasis,
-/obj/item/book/manual/tcfl_pamphlet,
 /obj/item/book/manual/psych,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/book/manual/wiki/station_procedure,
@@ -14309,6 +14313,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Office Aft"
 	},
+/obj/item/book/manual/tcaf_pamphlet,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "kiJ" = (
@@ -21082,6 +21087,11 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
 "oEf" = (
@@ -22412,6 +22422,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, executive officers office"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
@@ -26530,6 +26545,11 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
+	},
 /turf/simulated/floor/plating,
 /area/horizon/stairwell/bridge)
 "sGz" = (
@@ -33136,16 +33156,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
-"xoL" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "xpm" = (
 /obj/structure/platform/ledge{
 	dir = 1
@@ -53685,7 +53695,7 @@ nJT
 tNk
 raP
 eoQ
-guY
+nZp
 wxR
 qLy
 mCX
