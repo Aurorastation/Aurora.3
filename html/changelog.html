@@ -48,6 +48,11 @@
 				<li class="bugfix">Repathed wrong chainsaw sounds to the correct path.</li>
 				<li class="soundadd">Added a missed sound that was forgotten when porting the overmap sensors, from Nebula.</li>
 				<li class="backend">The CI now checks that all sounds are referenced with a static path.</li>
+				<li class="bugfix">The AI can now spawn at roundstart correctly.</li>
+				<li class="bugfix">Solved various roundtimes when the AI core is wiped.</li>
+				<li class="bugfix">Solved a runtime with programs when the computer was GCd.</li>
+				<li class="bugfix">Solved an issue that runtimed the AI mob initialization due to it being created in nullspace at roundstart, for the atmos monitoring program.</li>
+				<li class="rscdel">Removed the ability to disable the AI in a gamemode, noone used it anyways and it gave issues with the fix for the roundstart initialization.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
