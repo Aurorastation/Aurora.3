@@ -351,7 +351,7 @@
 		var/coord_to_str = (world.maxx * M.y) + M.x
 		for(var/ore in ore_seeds)
 			if(text2num(ore_seeds[ore][coord_to_str]))
-				M.mineral = ore_data[ore]
+				M.mineral = GLOB.ore_data[ore]
 				M.UpdateMineral() // It's already a mineral turf, so we can avoid changeturf here
 
 /datum/exoplanet_theme/proc/get_planet_image_extra()

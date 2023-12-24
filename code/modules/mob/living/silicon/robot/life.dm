@@ -81,7 +81,7 @@
 	if(resting)
 		Weaken(5)
 
-	if(health < config.health_threshold_dead && stat != DEAD) //die only once
+	if(health < GLOB.config.health_threshold_dead && stat != DEAD) //die only once
 		death()
 
 	if(stat != DEAD)

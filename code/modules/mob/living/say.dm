@@ -102,7 +102,7 @@ var/list/channel_to_radio_key = new
 
 	if(HAS_FLAG(mutations, HULK))
 		var/ending = copytext(message, length(message), length(message) + 1)
-		if(ending && correct_punctuation[ending])
+		if(ending && GLOB.correct_punctuation[ending])
 			message = copytext(message, 1, length(message))
 		message = "[uppertext(message)]!!!"
 		say_verb = pick("yells", "roars", "hollers")

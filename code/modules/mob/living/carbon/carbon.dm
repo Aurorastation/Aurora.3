@@ -413,7 +413,7 @@
 
 	if(!species)
 		return null
-	return species.default_language ? all_languages[species.default_language] : null
+	return species.default_language ? GLOB.all_languages[species.default_language] : null
 
 /mob/living/carbon/is_berserk()
 	return (CE_BERSERK in chem_effects)

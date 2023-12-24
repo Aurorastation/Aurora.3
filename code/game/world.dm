@@ -59,13 +59,13 @@ GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 /world/New()
 	//logs
 	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
-	GLOB.href_logfile = file("data/logs/[GLOB..diary_date_string] hrefs.htm")
-	GLOB..diary = "data/logs/[GLOB..diary_date_string]_[game_id].log"
+	GLOB.href_logfile = file("data/logs/[GLOB.diary_date_string] hrefs.htm")
+	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[game_id].log"
 	log_startup()
-	GLOB.GLOB.changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+	GLOB.changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
 	if(GLOB.config.logsettings["log_runtime"])
-		GLOB..diary_runtime = file("data/logs/_runtime/[GLOB..diary_date_string]-runtime.log")
+		GLOB.diary_runtime = file("data/logs/_runtime/[GLOB.diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
@@ -311,8 +311,8 @@ var/list/world_api_rate_limit = list()
 	var/list/features = list()
 
 	if (Master.initialization_time_taken)	// This is set at the end of initialization.
-		if(GLOB.GLOB.master_mode)
-			features += GLOB.GLOB.master_mode
+		if(GLOB.master_mode)
+			features += GLOB.master_mode
 	else
 		features += "<b>STARTING</b>"
 

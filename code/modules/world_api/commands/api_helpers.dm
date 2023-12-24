@@ -55,7 +55,7 @@
 		if(commandsquery.item[1] == "_ANY")
 			statuscode = 200
 			response = "Authorized commands retrieved - ALL"
-			data = topic_commands_names
+			data = GLOB.topic_commands_names
 			return TRUE
 
 
@@ -74,7 +74,7 @@
 		)
 
 /datum/topic_command/api_explain_command/run_command(queryparams)
-	var/datum/topic_command/apicommand = topic_commands[queryparams["command"]]
+	var/datum/topic_command/apicommand = GLOB.topic_commands[queryparams["command"]]
 	var/list/commanddata = list()
 
 	if (isnull(apicommand))
@@ -126,8 +126,8 @@
 	VALUES (:command_name:,:command_description:)
 	ON DUPLICATE KEY UPDATE description = :command_description:;"})
 
-	for(var/com in topic_commands)
-		var/datum/topic_command/command = topic_commands[com]
+	for(var/com in GLOB.topic_commands)
+		var/datum/topic_command/command = GLOB.topic_commands[com]
 		commandinsertquery.Execute(list("command_name" = command.name, "command_description" = command.description))
 
 	LOG_DEBUG("API: DB Command Update Executed")

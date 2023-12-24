@@ -824,7 +824,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice engaged. Pain receptors altered."))
-	lattice_users.Add(H)
+	GLOB.lattice_users.Add(H)
 
 /obj/item/rig_module/lattice/deactivate()
 	if (!..())
@@ -832,7 +832,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
-	lattice_users.Remove(H)
+	GLOB.lattice_users.Remove(H)
 
 /obj/item/rig_module/foam_sprayer
 	name = "mounted foam sprayer"

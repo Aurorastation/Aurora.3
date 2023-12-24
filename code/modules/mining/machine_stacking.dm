@@ -155,7 +155,7 @@
 			break
 
 	if(!input)
-		input = get_step(src, reverse_dir[dir])
+		input = get_step(src, GLOB.reverse_dir[dir])
 	if(!output)
 		output = get_step(src, dir)
 

@@ -116,7 +116,7 @@ do { \
 		var/list/turf/unvisited_neighbours = list()
 
 		// Check all cardinal turfs
-		for(var/D in GLOB.cardinals)
+		for(var/D in cardinals)
 			var/turf/T2 = get_step(T, text2num(D))
 			if(T2.color == MAZEGEN_TURF_UNSEARCHED)
 				unvisited_neighbours["[D]"] += T2
@@ -133,7 +133,7 @@ do { \
 
 			// On both tiles
 			for(var/obj/structure/window/reinforced/crescent/W in T3)
-				if(W.dir == reverse_dir[text2num(D)])
+				if(W.dir == GLOB.reverse_dir[text2num(D)])
 					qdel(W)
 
 			// Mark as visited

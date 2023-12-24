@@ -8,7 +8,7 @@
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
 
-		var/to_open = config.wikiurl
+		var/to_open = GLOB.config.wikiurl
 		if (sub_page)
 			to_open += sub_page
 
@@ -20,7 +20,7 @@
 	set name = "forum"
 	set desc = "Visit the forum."
 	set hidden = 1
-	if( config.forumurl )
+	if( GLOB.config.forumurl )
 		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")=="No")
 			return
 		send_link(src, GLOB.config.forumurl)
@@ -32,7 +32,7 @@
 	set name = "reportbug"
 	set desc = "Report a bug."
 	set hidden = 1
-	if( config.githuburl )
+	if( GLOB.config.githuburl )
 		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
 			return
 		send_link(src, GLOB.config.githuburl + "/issues")

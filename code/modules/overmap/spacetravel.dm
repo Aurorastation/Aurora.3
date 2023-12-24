@@ -13,11 +13,11 @@ var/list/cached_space = list()
 	x = nx
 	y = ny
 	map_z += nz
-	map_sectors["[nz]"] = src
+	GLOB.map_sectors["[nz]"] = src
 	testing("Temporary sector at [x],[y] was created, corresponding zlevel is [nz].")
 
 /obj/effect/overmap/visitable/sector/temporary/Destroy()
-	map_sectors["[map_z]"] = null
+	GLOB.map_sectors["[map_z]"] = null
 	testing("Temporary sector at [x],[y] was deleted.")
 	return ..()
 

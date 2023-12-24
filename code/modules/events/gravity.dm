@@ -13,7 +13,7 @@
 			break
 
 /datum/event/gravity/start()
-	gravity_is_on = 0
+	GLOB.gravity_is_on = 0
 	for(var/A in SSmachinery.gravity_generators)
 		var/obj/machinery/gravity_generator/main/B = A
 		if(B.z in affecting_z)

@@ -77,7 +77,7 @@
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
 
-	var/list/valid_directions = alldirs.Copy()
+	var/list/valid_directions = GLOB.alldirs.Copy()
 
 	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
 	if(can_zmove && prob(10))

@@ -275,7 +275,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 	..()
 
 	if(href_list["close"])
-		ticket_panels -= usr.client
+		GLOB.ticket_panels -= usr.client
 
 	switch(href_list["action"])
 		if("unview")

@@ -172,7 +172,7 @@
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
-	for (var/a in cloaking_devices)//Check for any other cloaks
+	for (var/a in GLOB.cloaking_devices)//Check for any other cloaks
 		if (a != source)
 			var/obj/item/cloaking_device/CD = a
 			if (CD.get_holding_mob() == target)

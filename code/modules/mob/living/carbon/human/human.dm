@@ -81,7 +81,7 @@
 	hud_list[WANTED_HUD] = holder
 
 
-	human_mob_list |= src
+	GLOB.human_mob_list |= src
 
 	. = ..()
 
@@ -102,8 +102,8 @@
 		set_default_attack(species.unarmed_attacks[1])
 
 /mob/living/carbon/human/Destroy()
-	human_mob_list -= src
-	intent_listener -= src
+	GLOB.human_mob_list -= src
+	GLOB.intent_listener -= src
 	for(var/organ in organs)
 		qdel(organ)
 	organs = null
@@ -1127,7 +1127,7 @@
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
 	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
-	for(var/mob/abstract/observer/G in dead_mob_list)
+	for(var/mob/abstract/observer/G in GLOB.dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/carbon/human/proc/remoteobserve()

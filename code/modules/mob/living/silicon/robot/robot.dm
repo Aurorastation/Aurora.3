@@ -337,7 +337,7 @@
 		selecting_module = FALSE
 		return
 	var/list/modules = list()
-	modules.Add(robot_module_types)
+	modules.Add(GLOB.robot_module_types)
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"

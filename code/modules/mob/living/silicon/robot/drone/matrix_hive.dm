@@ -11,10 +11,10 @@ GLOBAL_LIST_EMPTY(drone_matrices)
 /datum/drone_matrix/New(var/matrix_id)
 	..()
 	id = matrix_id
-	drone_matrices[id] = src
+	GLOB.drone_matrices[id] = src
 
 /datum/drone_matrix/Destroy(force)
-	drone_matrices -= id
+	GLOB.drone_matrices -= id
 	return ..()
 
 /datum/drone_matrix/proc/get_matriarch()

@@ -8,13 +8,13 @@ GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 			continue
 		if(locate(/mob/living) in S.loc)
 			continue
-		empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(get_turf(S))
+		GLOB.empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(get_turf(S))
 
 	return 1
 
 /mob/living/silicon/ai/proc/do_wipe_core()
-	empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(loc)
-	global_announcer.autosay("[src] has been moved to intelligence storage.", "Artificial Intelligence Oversight")
+	GLOB.empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(loc)
+	GLOB.global_announcer.autosay("[src] has been moved to intelligence storage.", "Artificial Intelligence Oversight")
 
 	//Handle job slot/tater cleanup.
 	var/job = mind.assigned_role

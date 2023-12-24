@@ -217,7 +217,7 @@
 		return
 	shield_icon_delay = TRUE
 	if(update_shield_icons == 2)//2 means to clear everything and rebuild
-		for(var/obj/machinery/am_shielding/neighbor in GLOB.cardinalrange(loc))
+		for(var/obj/machinery/am_shielding/neighbor in cardinalrange(loc))
 			if(!neighbor.control_unit)
 				LAZYADD(linked_shielding, neighbor)
 		for(var/obj/machinery/am_shielding/AMS in linked_shielding)

@@ -170,7 +170,7 @@
 		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
-		for(var/zlevel in map_sectors)
+		for(var/zlevel in GLOB.map_sectors)
 			var/obj/effect/overmap/visitable/O = GLOB.map_sectors[zlevel]
 			if(O.name == horizon.name)
 				continue

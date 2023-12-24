@@ -32,7 +32,7 @@
 
 
 /datum/unit_test/mob_hear/start_test()
-	var/mobloc = pick(tdome1)
+	var/mobloc = pick(GLOB.tdome1)
 	if(!mobloc)
 		TEST_FAIL("Unable to find a location to create test mob")
 		return 0

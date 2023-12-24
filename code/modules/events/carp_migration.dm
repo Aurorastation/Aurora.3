@@ -34,8 +34,8 @@
 
 /datum/event/carp_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)
-		spawn_fish(length(landmarks_list), spawn_drones = deploy_drones)
-		spawn_caverndweller(length(landmarks_list), spawn_drones = deploy_drones)
+		spawn_fish(length(GLOB.landmarks_list), spawn_drones = deploy_drones)
+		spawn_caverndweller(length(GLOB.landmarks_list), spawn_drones = deploy_drones)
 	else if(severity == EVENT_LEVEL_MODERATE)
 		spawn_fish(rand(4, 6), spawn_drones = deploy_drones)			//12 to 30 carp, in small groups
 		spawn_caverndweller(rand(1, 2), spawn_drones = deploy_drones) //less of those, also don't happen in the regular event

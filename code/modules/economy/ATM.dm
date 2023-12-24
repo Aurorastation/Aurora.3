@@ -420,7 +420,7 @@
 		var/area/t = get_area(src)
 		ticks_left_locked_down = 60
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-		global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
+		GLOB.global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
 		if (tried_account_num)
 			SSeconomy.bank_log_unauthorized(SSeconomy.get_account(tried_account_num), machine_id)
 	else

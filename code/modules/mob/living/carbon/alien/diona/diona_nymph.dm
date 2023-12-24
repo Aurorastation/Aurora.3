@@ -82,7 +82,7 @@
 		if(M_WALK)
 			. += 3
 		if(M_RUN)
-			species.handle_sprint_cost(src,.+config.walk_speed)
+			species.handle_sprint_cost(src, . + GLOB.config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if(life_tick < 4)

@@ -57,7 +57,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
-	player_list |= src
+	GLOB.player_list |= src
 	update_Login_details()
 	SSstatistics.update_status()
 

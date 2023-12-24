@@ -82,8 +82,8 @@
 	if(!T)
 		if(length(GLOB.latejoin))
 			T = pick(GLOB.latejoin)			//Safety in case we cannot find the body's position
-		else if(current_map.force_spawnpoint && length(force_spawnpoints["Anyone"]))
-			T = pick(force_spawnpoints["Anyone"])
+		else if(current_map.force_spawnpoint && length(GLOB.force_spawnpoints["Anyone"]))
+			T = pick(GLOB.force_spawnpoints["Anyone"])
 		else
 			T = locate(1, 1, 1)
 	forceMove(T)
@@ -364,7 +364,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		M.antagHUD = 1
 		to_chat(src, "<span class='notice'><B>AntagHUD Enabled</B></span>")
 
-/mob/abstract/observer/proc/dead_tele(A in ghostteleportlocs)
+/mob/abstract/observer/proc/dead_tele(A in GLOB.ghostteleportlocs)
 	set category = "Ghost"
 	set name = "Teleport"
 	set desc= "Teleport to a location"
@@ -373,7 +373,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	remove_verb(usr, /mob/abstract/observer/proc/dead_tele)
 	ADD_VERB_IN(usr, 30, /mob/abstract/observer/proc/dead_tele)
-	var/area/thearea = ghostteleportlocs[A]
+	var/area/thearea = GLOB.ghostteleportlocs[A]
 	if(!thearea)	return
 
 	var/list/L = list()

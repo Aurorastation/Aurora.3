@@ -147,7 +147,7 @@
 /mob/living/silicon/robot/drone/get_default_language()
 	if(default_language)
 		return default_language
-	return all_languages[LANGUAGE_LOCAL_DRONE]
+	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/fall_impact()
 	..(damage_mod = 0.25) //reduces fall damage by 75%
@@ -449,7 +449,7 @@
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
-	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
+	if((!T || !(A in GLOB.the_station_areas)) && src.stat != DEAD)
 		if(!self_destructing)
 			to_chat(src, SPAN_WARNING("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
 			start_self_destruct(TRUE)

@@ -84,9 +84,9 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 		var/datum/design/D = new T
 		designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
-			designs_protolathe_categories |= D.p_category
+			GLOB.designs_protolathe_categories |= D.p_category
 		if(D.build_type & IMPRINTER)
-			designs_imprinter_categories |= D.p_category
+			GLOB.designs_imprinter_categories |= D.p_category
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)

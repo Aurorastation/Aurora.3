@@ -535,7 +535,7 @@ var/list/preferences_datums = list()
 
 			dat += "<hr>"
 			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
-			if (query.RowCount() < config.character_slots)
+			if (query.RowCount() < GLOB.config.character_slots)
 				dat += "<a href='?src=\ref[src];new_character_sql=1'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"

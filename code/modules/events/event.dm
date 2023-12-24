@@ -34,7 +34,7 @@
 	if(!enabled)
 		return 0
 
-	if(length(player_list) <= pop_requirement)
+	if(length(GLOB.player_list) <= pop_requirement)
 		return 0
 
 	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))

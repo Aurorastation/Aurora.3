@@ -74,7 +74,7 @@
 	var/last_time = world_api_rate_limit[addr]
 	world_api_rate_limit[addr] = REALTIMEOFDAY
 
-	if (last_time != null && abs(last_time - REALTIMEOFDAY) < config.api_rate_limit)
+	if (last_time != null && abs(last_time - REALTIMEOFDAY) < GLOB.config.api_rate_limit)
 		return TRUE
 
 	return FALSE

@@ -56,7 +56,7 @@
 	var/can_speak_basic = TRUE
 
 /mob/living/silicon/Initialize()
-	silicon_mob_list |= src
+	GLOB.silicon_mob_list |= src
 	. = ..()
 	add_language(LANGUAGE_TCB, can_speak_basic)
 	init_id()
@@ -67,7 +67,7 @@
 	init_subsystems()
 
 /mob/living/silicon/Destroy()
-	silicon_mob_list -= src
+	GLOB.silicon_mob_list -= src
 	QDEL_NULL(computer)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)

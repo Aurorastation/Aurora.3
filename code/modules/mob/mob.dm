@@ -3,9 +3,9 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	mob_list -= src
-	dead_mob_list -= src
-	living_mob_list -= src
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
@@ -76,11 +76,11 @@
 /mob/Initialize()
 	. = ..()
 	if(should_add_to_mob_list)
-		mob_list += src
+		GLOB.mob_list += src
 		if(stat == DEAD)
-			dead_mob_list += src
+			GLOB.dead_mob_list += src
 		else
-			living_mob_list += src
+			GLOB.living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
@@ -149,7 +149,7 @@
 		var/mob/M = A
 		if (QDELETED(M))
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			player_list -= M
+			GLOB.player_list -= M
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
@@ -460,7 +460,7 @@
 		return//This shouldnt happen
 
 	var/failure = null
-	if (!( config.abandon_allowed ))
+	if (!( GLOB.config.abandon_allowed ))
 		failure = "Respawn is disabled."
 	else if (stat != DEAD)
 		failure = "You must be dead to use this!"

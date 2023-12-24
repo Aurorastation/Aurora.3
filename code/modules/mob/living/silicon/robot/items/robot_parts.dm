@@ -18,7 +18,7 @@
 	..(newloc)
 	if(model_info && model)
 		model_info = model
-		var/datum/robolimb/R = all_robolimbs[model]
+		var/datum/robolimb/R = GLOB.all_robolimbs[model]
 		if(R)
 			name = "[R.company] robot [initial(name)]"
 			desc = "[R.desc]"

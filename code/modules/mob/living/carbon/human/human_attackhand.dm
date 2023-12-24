@@ -378,7 +378,7 @@
 						problem_railing = R
 						break
 				for(var/obj/structure/railing/R in get_step(T, dir))
-					if(R.dir == reverse_dir[dir])
+					if(R.dir == GLOB.reverse_dir[dir])
 						problem_railing = R
 						same_loc = TRUE
 						break

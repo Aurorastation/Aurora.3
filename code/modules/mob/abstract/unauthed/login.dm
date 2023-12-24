@@ -51,13 +51,13 @@
 		del(c)
 		return
 
-	directory -= c.ckey
+	GLOB.directory -= c.ckey
 	if(newkey)
 		c.key = newkey // Try seeting ckey
 		// ^^^^ THIS INVOKES mob/Login()!
 		// and also modifies the c.mob to the actual mob they disconnected out of.
 
-	directory[c.ckey] = c
+	GLOB.directory[c.ckey] = c
 	// Init the client and give it a new_player mob.
 	// Note that modifying the key variable does not invoke client/New() or client/Login() again.
 	c.InitClient()

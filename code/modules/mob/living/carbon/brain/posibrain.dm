@@ -57,7 +57,7 @@
 
 	var/area/A = get_area(src)
 	if(istype(A, /area/assembly/robotics))
-		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
+		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
 
 	brainmob.client.init_verbs()
 

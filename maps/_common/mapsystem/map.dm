@@ -162,7 +162,7 @@
 	if(!use_overmap)
 		return
 
-	if(!config.exoplanets["enable_loading"])
+	if(!GLOB.config.exoplanets["enable_loading"])
 		log_admin("Not building exoplanets because the config specifies not to")
 		return
 
@@ -237,7 +237,7 @@
 	log_admin("Unit testing, so not loading away sites")
 	return // don't build away sites during unit testing
 #else
-	if(!config.awaysites["enable_loading"])
+	if(!GLOB.config.awaysites["enable_loading"])
 		log_admin("Not loading away sites because the config specifies not to")
 		return
 
@@ -251,7 +251,7 @@
 
 	for (var/site_id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
-		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in config.awaysites["guaranteed_sites"]))
+		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight

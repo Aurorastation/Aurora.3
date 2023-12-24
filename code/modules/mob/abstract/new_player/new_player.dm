@@ -21,7 +21,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/Initialize()
 	. = ..()
-	dead_mob_list -= src
+	GLOB.dead_mob_list -= src
 
 /mob/abstract/new_player/Destroy()
 	QDEL_NULL(late_choices_ui)
@@ -42,7 +42,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(SSticker.current_state == GAME_STATE_PREGAME)
 		. += "Time To Start: [SSticker.pregame_timeleft][GLOB.round_progressing ? "" : " (DELAYED)"]"
-		. += "Players: [length(player_list)] Players Ready: [SSticker.total_players_ready]"
+		. += "Players: [length(GLOB.player_list)] Players Ready: [SSticker.total_players_ready]"
 		if(LAZYLEN(SSticker.ready_player_jobs))
 			. += ""
 			. += ""
@@ -288,8 +288,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character = character.AIize(move=0) // AIize the character, but don't move them yet
 
 		// IsJobAvailable for AI checks that there is an empty core available in this list
-		var/obj/structure/AIcore/deactivated/C = empty_playable_ai_cores[1]
-		empty_playable_ai_cores -= C
+		var/obj/structure/AIcore/deactivated/C = GLOB.empty_playable_ai_cores[1]
+		GLOB.empty_playable_ai_cores -= C
 
 		character.forceMove(C.loc)
 		character.eyeobj.forceMove(C.loc)
@@ -332,7 +332,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [current_map.station_type]"].", "Arrivals Announcer")
+		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()
 	if(!istype(late_choices_ui))

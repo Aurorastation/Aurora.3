@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY(GPS_list)
+GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/device/gps
 	name = "global positioning system"

@@ -261,7 +261,7 @@
 
 	else if(href_list["gender"])
 		var/datum/species/S = GLOB.all_species[pref.species]
-		pref.gender = next_in_list(pref.gender, GLOB.GLOB.valid_player_genders & S.default_genders)
+		pref.gender = next_in_list(pref.gender, GLOB.valid_player_genders & S.default_genders)
 		pref.pronouns = pref.gender
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]

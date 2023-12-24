@@ -58,14 +58,14 @@
 
 	icon_state = "drone_fab_active"
 	var/elapsed = world.time - time_last_drone
-	drone_progress = round((elapsed/config.drone_build_time) * 100)
+	drone_progress = round((elapsed/GLOB.config.drone_build_time) * 100)
 
 	if(drone_progress >= 100)
 		visible_message(SPAN_NOTICE("\The [src] voices a strident beep, indicating a drone chassis is prepared."))
 
 /obj/machinery/drone_fabricator/examine(mob/user)
 	. = ..()
-	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && GLOB.config.allow_drone_spawn && count_drones() < config.max_maint_drones)
+	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && GLOB.config.allow_drone_spawn && count_drones() < GLOB.config.max_maint_drones)
 		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
 
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)

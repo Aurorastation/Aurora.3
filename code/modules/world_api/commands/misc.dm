@@ -250,9 +250,9 @@
 
 /datum/topic_command/set_extenal_auth/run_command(queryparams)
 	if(queryparams["state"] == null)
-		config.external_auth = !GLOB.config.external_auth
+		GLOB.config.external_auth = !GLOB.config.external_auth
 	else
-		config.external_auth = queryparams["state"]
+		GLOB.config.external_auth = queryparams["state"]
 
 	statuscode = 200
 	response = "External authentication state has been updated sucessfully."

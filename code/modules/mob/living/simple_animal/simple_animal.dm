@@ -671,7 +671,7 @@
 	if (!nutrition)
 		tally += 4
 
-	return tally+config.animal_delay
+	return tally + GLOB.config.animal_delay
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop

@@ -309,7 +309,7 @@
 
 	for(var/mob/living/carbon/human/l in view(src, min(7, round(sqrt(power/6))))) // If they can see it without mesons on.  Bad on them.
 		if(!istype(l.glasses, /obj/item/clothing/glasses/safety) && !l.is_diona() && !l.isSynthetic())
-			l.hallucination = max(0, min(200, l.hallucination + power * GLOB.config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
+			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 
 	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
 	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
@@ -341,9 +341,9 @@
 
 	var/proj_damage = Proj.get_structure_damage()
 	if(istype(Proj, /obj/item/projectile/beam))
-		power += proj_damage * GLOB.config_bullet_energy	* CHARGING_FACTOR / POWER_FACTOR
+		power += proj_damage * config_bullet_energy	* CHARGING_FACTOR / POWER_FACTOR
 	else
-		damage += proj_damage * GLOB.config_bullet_energy
+		damage += proj_damage * config_bullet_energy
 	return 0
 
 /obj/machinery/power/supermatter/attack_robot(mob/user as mob)

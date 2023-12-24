@@ -15,7 +15,7 @@
 
 	T.dirt = rand(10, 50) + rand(0, 50)
 	// If a neighbor is dirty, then we get dirtier.
-	var/how_dirty = dirty_neighbors(GLOB.cardinal_turfs)
+	var/how_dirty = dirty_neighbors(cardinal_turfs)
 	for(var/i = 0; i < how_dirty; i++)
 		T.dirt += rand(0,10)
 	T.update_dirt()

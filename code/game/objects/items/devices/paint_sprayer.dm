@@ -125,7 +125,7 @@
 		if(!ispath(painting_decal))
 			config_error = 1
 
-	if(GLOB.config_error)
+	if(config_error)
 		to_chat(user, "<span class='warning'>\The [src] flashes an error light. You might need to reconfigure it.</span>")
 		return
 

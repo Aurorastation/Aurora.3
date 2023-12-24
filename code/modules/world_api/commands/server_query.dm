@@ -19,7 +19,7 @@
 	s["transferring"] = evacuation_controller?.is_evacuating()
 
 	s["players"] = GLOB.clients.len
-	s["staff"] = staff.len
+	s["staff"] = GLOB.staff.len
 
 	var/admin_count = 0
 

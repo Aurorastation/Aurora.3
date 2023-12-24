@@ -438,7 +438,7 @@ There are several things that need to be remembered:
 
 		// Beard.
 		if(f_style)
-			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
+			var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.type in facial_hair_style.species_allowed))
 				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = facial_hair_style.icon_state)
 				if(facial_hair_style.do_colouration)
@@ -454,7 +454,7 @@ There are several things that need to be remembered:
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
 					if(g_style)
-						var/datum/sprite_accessory/gradient_style = hair_gradient_styles_list[g_style]
+						var/datum/sprite_accessory/gradient_style = GLOB.hair_gradient_styles_list[g_style]
 						if(gradient_style && gradient_style.species_allowed && (species.type in gradient_style.species_allowed))
 							grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
 							grad_s.Blend(hair_s, ICON_AND)

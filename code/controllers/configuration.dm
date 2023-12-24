@@ -547,7 +547,7 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					GLOB.config.jobs_have_minimal_access = 1
 
 				if ("use_spreading_explosions")
-					GLOB.use_spreading_explosions = 1
+					GLOB.config.use_spreading_explosions = 1
 
 				if ("sql_enabled")
 					GLOB.config.sql_enabled = 1

@@ -3,7 +3,7 @@
 	SEND_SIGNAL(src, COMSIG_MOB_LOGOUT)
 
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
-	player_list -= src
+	GLOB.player_list -= src
 	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]",ckey=key_name(src))
 	SSstatistics.update_status()

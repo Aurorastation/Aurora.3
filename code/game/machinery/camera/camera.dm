@@ -71,8 +71,8 @@
 
 	QDEL_NULL(wires)
 
-	cameranet.remove_source(src)
-	cameranet.cameras -= src
+	GLOB.cameranet.remove_source(src)
+	GLOB.cameranet.cameras -= src
 
 	return ..()
 
@@ -128,7 +128,7 @@
 
 /obj/machinery/camera/proc/setViewRange(var/num = 7)
 	src.view_range = num
-	cameranet.update_visibility(src, 0)
+	GLOB.cameranet.update_visibility(src, 0)
 
 /obj/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
 	if(!istype(user))

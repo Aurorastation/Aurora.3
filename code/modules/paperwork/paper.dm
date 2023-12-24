@@ -422,7 +422,7 @@
 	. = input
 
 	while (written_lang_regex.Find(.))
-		var/datum/language/L = language_keys[written_lang_regex.group[2]]
+		var/datum/language/L = GLOB.language_keys[written_lang_regex.group[2]]
 		// Unknown language.
 		if (!L || !L.written_style)
 			continue
