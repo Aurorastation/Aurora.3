@@ -55,7 +55,7 @@ export class Window extends Component {
     if (this.props.width && this.props.height) {
       options.size = [this.props.width, this.props.height];
     }
-    if (GLOB.config.window?.key) {
+    if (config.window?.key) {
       setWindowKey(config.window.key);
     }
     recallWindowGeometry(options);

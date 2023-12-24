@@ -67,7 +67,7 @@ export const getRoutedComponent = (store: Store) => {
   if (suspended) {
     return SuspendedWindow;
   }
-  if (GLOB.config.refreshing) {
+  if (config.refreshing) {
     return RefreshingWindow;
   }
   if (process.env.NODE_ENV !== 'production') {
