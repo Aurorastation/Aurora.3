@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Removed the little electronic sprite that appears on your chest when you equip a PDA or Wristbound to the ID slot."
