@@ -592,7 +592,8 @@ var/list/asset_datums = list()
 		"copt-b.woff" = 'html/fonts/OFL/Copt-B.woff',
 		"ducados.woff" = 'html/fonts/OFL/Ducados.woff',
 		"kawkabmono.woff" = 'html/fonts/OFL/KawkabMono.woff',
-		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff'
+		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff',
+		"typewriter.woff" = 'html/fonts/OFL/typewriter.woff'
 	)
 	cross_round_cachable = TRUE
 

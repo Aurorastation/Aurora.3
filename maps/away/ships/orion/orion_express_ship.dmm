@@ -1,9 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/machinery/door/airlock/mining{
+	dir = 1;
 	name = "Captain's Quarters";
-	req_access = list(201);
-	dir = 1
+	req_access = list(201)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -92,8 +92,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -143,8 +142,7 @@
 "aKd" = (
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -162,8 +160,7 @@
 	},
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -242,8 +239,7 @@
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -326,8 +322,13 @@
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion/cargo)
 "bkP" = (
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -367,8 +368,7 @@
 "bom" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -434,8 +434,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -539,8 +538,7 @@
 /obj/machinery/smartfridge/foodheater,
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -596,9 +594,7 @@
 	desc = "A cable used to replace the charging cable on a PDA.";
 	name = "PDA charging cable"
 	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
@@ -659,8 +655,7 @@
 "cnJ" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/grass,
 /area/ship/orion/forehall)
@@ -788,8 +783,7 @@
 "dcS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -851,9 +845,9 @@
 /area/ship/orion/shop)
 "diy" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Maintenance";
-	req_access = list(201);
-	dir = 4
+	req_access = list(201)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -867,8 +861,7 @@
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -887,8 +880,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -1108,8 +1100,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -1162,8 +1153,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -1215,8 +1205,7 @@
 	name = "trashbin"
 	},
 /obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -1302,8 +1291,7 @@
 "gep" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -1422,8 +1410,7 @@
 /obj/structure/bookcase/manuals,
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -1454,8 +1441,8 @@
 "gHP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
-	name = "Food Court";
-	dir = 4
+	dir = 4;
+	name = "Food Court"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1465,8 +1452,7 @@
 "gJZ" = (
 /obj/machinery/vending/tool,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -1483,8 +1469,7 @@
 "gLv" = (
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -1558,8 +1543,8 @@
 /area/ship/orion/mainhall)
 "han" = (
 /obj/machinery/door/airlock/service{
-	name = "Restroom";
-	dir = 4
+	dir = 4;
+	name = "Restroom"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -1680,8 +1665,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -1698,6 +1682,7 @@
 /area/ship/orion/thruster2)
 "hrj" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	dir = 1
@@ -1730,10 +1715,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
+	dir = 4;
 	layer = 2.71;
 	name = "Commissary";
-	open_layer = 2.71;
-	dir = 4
+	open_layer = 2.71
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1744,8 +1729,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/crew)
@@ -1773,9 +1757,9 @@
 "hKC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Maintenance";
-	req_access = list(201);
-	dir = 1
+	req_access = list(201)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1807,9 +1791,9 @@
 /area/ship/orion/atmos)
 "hVK" = (
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	name = "Cryogenic Storage";
-	req_access = list(201);
-	dir = 1
+	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/crew)
@@ -1831,9 +1815,9 @@
 "ieN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Maintenance";
-	req_access = list(201);
-	dir = 1
+	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -1947,8 +1931,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/dark,
@@ -2065,9 +2048,7 @@
 /obj/item/storage/pill_bottle/rmt{
 	pixel_x = 8
 	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
@@ -2113,9 +2094,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	name = "Primary Hall";
-	open_layer = 2.71;
-	dir = 1
+	open_layer = 2.71
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2130,8 +2111,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -2204,8 +2184,7 @@
 "jMZ" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /turf/simulated/floor/grass,
 /area/ship/orion/forehall)
@@ -2266,6 +2245,7 @@
 /area/ship/orion/shop)
 "krz" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	dir = 1
@@ -2286,10 +2266,10 @@
 /area/ship/orion/mainhall)
 "kxo" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_e_out";
-	dir = 4
+	id_tag = "orion_traveler_e_out"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2348,8 +2328,8 @@
 /area/ship/orion/atmos)
 "kRQ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms";
-	dir = 4
+	dir = 4;
+	name = "Telecomms"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -2389,8 +2369,7 @@
 "lhJ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor/grass,
 /area/ship/orion/forehall)
@@ -2415,9 +2394,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "lpY" = (
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /obj/machinery/button/remote/blast_door{
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
@@ -2489,9 +2466,7 @@
 /obj/structure/mirror{
 	pixel_y = -32
 	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
 "lTc" = (
@@ -2571,10 +2546,10 @@
 /area/shuttle/orion_shuttle)
 "maj" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_in";
-	dir = 1
+	id_tag = "orion_traveler_n_in"
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
@@ -2607,8 +2582,7 @@
 	req_access = list(201)
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -2666,8 +2640,8 @@
 /area/ship/orion/comms)
 "mmT" = (
 /obj/machinery/door/airlock/glass{
-	name = "Commissary";
-	dir = 4
+	dir = 4;
+	name = "Commissary"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -2731,10 +2705,10 @@
 "mBM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_in";
-	dir = 1
+	id_tag = "orion_traveler_n_in"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2748,12 +2722,17 @@
 /area/ship/orion/mainhall)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Maintenance";
-	req_access = list(201);
-	dir = 4
+	req_access = list(201)
 	},
 /turf/simulated/floor,
-/area/ship/orion/forehall)
+/area/ship/forehall)
+"mHQ" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/item/cargo_package/offship/to_horizon,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "mLK" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor,
@@ -2798,6 +2777,7 @@
 /area/ship/orion/thruster2)
 "mQF" = (
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	name = "Cargo Bay";
 	pixel_x = -15;
 	req_access = list(201);
@@ -2868,8 +2848,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -3002,8 +2981,8 @@
 /area/space)
 "nIu" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet";
-	dir = 4
+	dir = 4;
+	name = "Toilet"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -3078,8 +3057,7 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -3172,8 +3150,7 @@
 /obj/structure/reagent_dispensers/cookingoil,
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -3230,8 +3207,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
@@ -3359,8 +3335,7 @@
 "pFY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
@@ -3417,8 +3392,8 @@
 /area/space)
 "pRV" = (
 /obj/machinery/door/airlock/glass{
-	name = "Primary Hall";
-	dir = 1
+	dir = 1;
+	name = "Primary Hall"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -3543,8 +3518,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
@@ -3586,8 +3560,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -3660,8 +3633,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge"
@@ -3703,8 +3675,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -3725,8 +3696,7 @@
 /area/ship/orion/captain)
 "roN" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -3841,8 +3811,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/computer/arcade/orion_trail,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -3857,10 +3826,10 @@
 /area/shuttle/orion_shuttle)
 "rNJ" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_w_out";
-	dir = 4
+	id_tag = "orion_traveler_w_out"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3939,8 +3908,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
@@ -3965,8 +3933,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge"
@@ -4039,8 +4006,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
@@ -4066,10 +4032,10 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_w_in";
-	dir = 4
+	id_tag = "orion_traveler_w_in"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4110,8 +4076,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/structure/table/rack,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/suit/space/void/engineering,
@@ -4119,6 +4084,8 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/device/gps/engineering,
 /obj/item/device/gps/engineering,
+/obj/item/cargo_backpack,
+/obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "sJD" = (
@@ -4133,9 +4100,9 @@
 /area/ship/orion/thruster1)
 "sLq" = (
 /obj/machinery/door/airlock/mining{
+	dir = 4;
 	name = "Captain's Quarters";
-	req_access = list(201);
-	dir = 4
+	req_access = list(201)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -4216,8 +4183,7 @@
 "tcC" = (
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -4266,8 +4232,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -4295,10 +4260,10 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_e_in";
-	dir = 4
+	id_tag = "orion_traveler_e_in"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4307,10 +4272,10 @@
 /area/ship/orion/cargo)
 "tmL" = (
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	layer = 2.71;
 	name = "Primary Hall";
-	open_layer = 2.71;
-	dir = 1
+	open_layer = 2.71
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4325,9 +4290,9 @@
 /area/ship/orion/mainhall)
 "tnO" = (
 /obj/machinery/door/airlock/mining{
+	dir = 4;
 	name = "Crew Quarters";
-	req_access = list(201);
-	dir = 4
+	req_access = list(201)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4375,6 +4340,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_out";
@@ -4470,8 +4436,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -4530,9 +4495,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "uiz" = (
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "ulP" = (
@@ -4603,12 +4566,14 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/device/gps/engineering,
 /obj/item/device/gps/engineering,
+/obj/item/cargo_backpack,
+/obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "uzX" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
-	dir = 4
+	dir = 4;
+	name = "Maintenance"
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle)
@@ -4684,6 +4649,7 @@
 /area/space)
 "vfR" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	dir = 1
@@ -4805,9 +4771,9 @@
 /area/ship/orion/cargo)
 "vzk" = (
 /obj/machinery/door/airlock/command{
+	dir = 4;
 	name = "Platform Command Center";
-	req_access = list(201);
-	dir = 4
+	req_access = list(201)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4871,8 +4837,7 @@
 	name = "trashbin"
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
@@ -4970,8 +4935,7 @@
 "vVv" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
@@ -5002,8 +4966,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -5029,8 +4992,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -5096,8 +5058,7 @@
 /obj/item/stack/wrapping_paper,
 /obj/item/stack/wrapping_paper,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -5371,8 +5332,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -5482,16 +5442,15 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/light{
 	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
 "xWp" = (
 /obj/machinery/door/airlock/silver{
+	dir = 4;
 	name = "Kitchen";
-	req_access = list(201);
-	dir = 4
+	req_access = list(201)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -5581,6 +5540,7 @@
 /area/ship/orion/atmos)
 "yks" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	dir = 1

@@ -658,3 +658,17 @@
 	earrings["adhomian pearls earrings"] = /obj/item/clothing/ears/earring/tajara
 	earrings["adhomian golden earrings"] = /obj/item/clothing/ears/earring/tajara/gold
 	gear_tweaks += new /datum/gear_tweak/path(earrings)
+
+/datum/gear/tajara_camera
+	display_name = "adhomian camera"
+	path = /obj/item/device/camera/adhomai
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/typewriter
+	display_name = "adhomian portable typewriter"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/typewriter_case
+	flags = GEAR_HAS_DESC_SELECTION
