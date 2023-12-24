@@ -902,6 +902,7 @@ var/global/list/lattice_users = list()
 		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
 		return FALSE
 
+
 	to_chat(user, SPAN_NOTICE("\The [connected] is now connected to your hardsuit power supply. Deactivate this module to disconnect it."))
 	return TRUE
 
