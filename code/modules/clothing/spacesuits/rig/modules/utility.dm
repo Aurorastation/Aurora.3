@@ -897,6 +897,7 @@ var/global/list/lattice_users = list()
 	if (!..())
 		return FALSE
 
+
 	if(!connected)
 		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
 		return FALSE
