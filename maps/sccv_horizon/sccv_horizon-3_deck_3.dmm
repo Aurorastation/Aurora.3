@@ -17788,8 +17788,7 @@
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Bridge Defense Equipment";
-	req_access = null;
-	req_one_access = list(19,38)
+	req_access = list(60)
 	},
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
@@ -26721,8 +26720,7 @@
 "sKC" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Bridge Defense Equipment";
-	req_access = null;
-	req_one_access = list(19,38)
+	req_access = list(60)
 	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
@@ -28706,8 +28704,7 @@
 "ugJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Bridge Defense Armor";
-	req_access = null;
-	req_one_access = list(19,38)
+	req_access = list(60)
 	},
 /obj/item/clothing/head/helmet/security/generic,
 /obj/item/clothing/head/helmet/security/generic,
