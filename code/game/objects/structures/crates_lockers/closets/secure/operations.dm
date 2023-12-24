@@ -107,3 +107,21 @@
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant's locker"
 	req_access = list(access_merchant)
+
+// Package Courier
+/obj/structure/closet/secure_closet/package_courier
+	name = "courier's locker"
+	icon_state = "hangar_tech"
+	req_access = list(access_cargo)
+
+/obj/structure/closet/secure_closet/package_courier/fill()
+	..()
+	// presumably the people taking them down to the exoplanet will give them proper suits
+	// but in some kind of apocalyptic nightmare scenario where there aren't spare suits, these will do
+	new /obj/item/clothing/head/helmet/space(src)
+	new /obj/item/clothing/suit/space(src)
+	new /obj/item/tank/oxygen(src)
+	new /obj/item/cargo_backpack(src)
+	new /obj/item/device/gps/mining(src)
+	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/pickaxe(src)

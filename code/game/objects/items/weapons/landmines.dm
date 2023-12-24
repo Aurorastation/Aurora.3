@@ -376,7 +376,7 @@
 
 		user.drop_from_inventory(I, src)
 
-		trigger_wire.Attach("red", signaler)
+		trigger_wire.attach_assembly(WIRE_EXPLODE, signaler)
 
 	else
 		. = ..()

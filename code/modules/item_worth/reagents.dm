@@ -135,6 +135,12 @@
 /singleton/reagent/drink/milkshake
 	value = 0.12
 
+/singleton/reagent/drink/NTellamilkshake
+	value = 0.14
+
+/singleton/reagent/drink/NTellahotchocolate
+	value = 0.13
+
 /singleton/reagent/drink/rewriter
 	value = 0.11
 

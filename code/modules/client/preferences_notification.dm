@@ -187,12 +187,12 @@
 				panel_notification=1
 				notification_count++
 			if("admin")
-				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
+				SSdiscord.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immediately ack the notification
 				autoack=1
 			if("ccia")
-				discord_bot.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
+				SSdiscord.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
 				post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immeidately ack the notification
 				autoack=1

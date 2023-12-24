@@ -247,7 +247,7 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
 		last_shake = world.time
 
@@ -273,7 +273,7 @@
 	breakout = FALSE
 	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\The [escapee] successfully breaks out of \the [src]!</span>")
-	playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
 	release()
 
@@ -419,7 +419,8 @@
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
 								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
-		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
+		var/sound_to_play = pick(list('sound/items/Screwdriver.ogg', 'sound/items/Screwdriver2.ogg'))
+		playsound(src.loc, sound_to_play, 50, 1)
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
@@ -753,7 +754,7 @@
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	//Try to apply the damage
-	var/success = L.apply_damage(60, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	var/success = L.apply_damage(50, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 
 	//If successfully applied, give the message
 	if(success)
@@ -784,9 +785,6 @@
 				return
 
 			organ.germ_level += INFECTION_LEVEL_THREE
-
-			//Add some fertilizer to poison the target whole, not only the external organ (leg/foot)
-			L.reagents.add_reagent(/singleton/reagent/toxin/fertilizer, 10)
 
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)

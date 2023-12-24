@@ -63,6 +63,7 @@
 /area/medical/ward/isolation
 	name = "Medical - Isolation Ward"
 	area_blurb = "This seldom-used ward somehow smells sterile and musty at the same time."
+	area_blurb_category = "medical_isolation"
 
 /area/medical/emergency_storage
 	name = "Medical - Lower Deck Emergency Storage"
@@ -79,6 +80,7 @@
 /area/medical/smoking
 	name = "Medical - Smoking Lounge"
 	area_blurb = "The smell of cigarette smoke lingers within this room."
+	area_blurb_category = "medical_smoking"
 
 /area/medical/washroom
 	name = "Medical - Washroom"
@@ -124,6 +126,7 @@
 /area/hangar/intrepid
 	name = "Intrepid Hangar"
 	area_blurb = "A big, open room, often housing the Horizon's largest shuttle, the Intrepid."
+	area_blurb_category = "intrepid_hanger"
 
 /area/hangar/intrepid/interstitial
 	name = "Intrepid Hangar Access"
@@ -162,11 +165,13 @@
 	icon_state = "dark160"
 	sound_env = LARGE_ENCLOSED
 	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
+	area_blurb_category = "ops_warehouse"
 
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
 	icon_state = "machinist_workshop"
 	area_blurb = "The scents of oil and machine lubricant fill the air in this workshop."
+	area_blurb_category = "robotics"
 
 /area/operations/lobby
 	name = "Operations Lobby"
@@ -259,6 +264,10 @@
 /area/bridge/helm
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
+
+/area/bridge/supply
+	name = "Bridge Supply Closet"
+	icon_state = "bridge_crew"
 
 //Crew quarters
 
@@ -674,6 +683,7 @@
 	icon_state = "cafeteria"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	area_blurb = "The smell of coffee wafts over from the cafe. Patience the tree stands proudly in the centre of the atrium."
+	area_blurb_category = "d3_cafe"
 
 // Custodial
 /area/horizon/custodial
@@ -684,12 +694,14 @@
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	area_blurb = "A strong, concentrated smell of many cleaning supplies sits within this room."
+	area_blurb_category = "janitor"
 
 /area/horizon/custodial/disposals
 	name = "Horizon - Disposals and Recycling"
 	icon_state = "disposal"
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
 	area_blurb = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
+	area_blurb_category = "trash_compactor"
 
 /area/horizon/custodial/auxiliary
 	name = "Horizon - Auxiliary Custodial Closet"
@@ -833,6 +845,7 @@
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 	area_blurb = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."
+	area_blurb_category = "leviathan"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // Longbow

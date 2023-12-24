@@ -79,7 +79,8 @@ dir = NORTH; \
 pixel_y = 21;
 
 #define PRESET_SOUTH \
-dir = SOUTH;
+dir = SOUTH; \
+pixel_y = -3;
 
 #define PRESET_WEST \
 dir = WEST; \
@@ -332,7 +333,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : 0) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -6) : 0)
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -636,7 +637,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/interact(mob/user)
 	ui_interact(user)
-	wires.Interact(user)
+	wires.interact(user)
 
 /obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = default_state)
 	var/data = list()
@@ -956,7 +957,7 @@ pixel_x = 10;
 					to_chat(user, "<span class='notice'>Nothing happens.</span>")
 					return TRUE
 				else
-					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
+					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
 						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
 					else

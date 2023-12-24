@@ -551,11 +551,13 @@
 //Quantity of spawns is number of discrete selections from the loot lists, default 10
 
 /obj/structure/closet/crate/loot
+	icon = 'icons/obj/random.dmi'
+	icon_state = "loot_crate"
 	var/rarity = 1
 	var/quantity = 10
 	var/list/spawntypes
 
-/obj/structure/closet/crate/loot/Initialize(mapload)
+/obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
 	. = ..()
 
 	spawntypes = list(
@@ -581,6 +583,9 @@
 		C.locked = FALSE
 		C.secure_lights = FALSE
 		C.req_access = null
+
+	C.anchored = FALSE
+
 	C.update_icon()
 
 	qdel(src)

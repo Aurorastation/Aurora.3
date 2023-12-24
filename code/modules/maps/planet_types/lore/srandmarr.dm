@@ -123,12 +123,15 @@
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
 	rock_colors = null
 	plant_colors = null
+	flora_diversity = 0
+	has_trees = FALSE
 	possible_themes = list(/datum/exoplanet_theme/snow/adhomai)
 	features_budget = 8
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
+	small_flora_types = list(/datum/seed/shand, /datum/seed/mtear, /datum/seed/earthenroot, /datum/seed/nifberries, /datum/seed/mushroom/nfrihi, /datum/seed/nmshaan)
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 	/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar,
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_raskariim_hideout, /datum/map_template/ruin/exoplanet/adhomai_cavern_geist,

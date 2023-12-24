@@ -790,7 +790,7 @@ var/global/enabled_spooking = 0
 	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
 	post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
-	discord_bot.send_to_admins("[key_name(src)]" + long_message)
+	SSdiscord.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
 	log_admin("[key_name(usr)] toggled hub visibility.")
 	feedback_add_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
@@ -861,15 +861,6 @@ var/global/enabled_spooking = 0
 	log_admin("[key_name(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 	feedback_add_details("admin_verb","TR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/datum/admins/proc/toggle_aliens()
-	set category = "Server"
-	set desc="Toggle alien mobs"
-	set name="Toggle Aliens"
-	config.aliens_allowed = !config.aliens_allowed
-	log_admin("[key_name(usr)] toggled Aliens to [config.aliens_allowed].")
-	message_admins("[key_name_admin(usr)] toggled Aliens [config.aliens_allowed ? "on" : "off"].", 1)
-	feedback_add_details("admin_verb","TA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggle_space_ninja()
 	set category = "Server"
@@ -1365,7 +1356,7 @@ var/global/enabled_spooking = 0
 		message = sanitize(message, 500, extra = 0)
 
 
-	var/list/sounds = file2list("sound/serversound_list.txt");
+	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
 	sounds += "--LOCAL--"
 	sounds += sounds_cache

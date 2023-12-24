@@ -29,7 +29,7 @@
 	if(panel_open)
 		if(O.ismultitool() || O.iswirecutter())
 			if(panel_open)
-				wires.Interact(user)
+				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 			return TRUE

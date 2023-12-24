@@ -15,6 +15,8 @@ export type SuitCyclerData = {
   target_species: string;
   helmet: SuitObject;
   suit: SuitObject;
+  boots: SuitObject;
+  mask: SuitObject;
 };
 
 type SuitObject = {
@@ -78,6 +80,22 @@ export const SuitCycler = (props, context) => {
                 content={data.suit ? data.suit.name : 'None'}
                 icon="shirt"
                 onClick={() => act('eject_suit')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Boots">
+              <Button
+                disabled={data.in_use || data.locked || !data.boots}
+                content={data.boots ? data.boots.name : 'None'}
+                icon="shoe-prints"
+                onClick={() => act('eject_boots')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Mask">
+              <Button
+                disabled={data.in_use || data.locked || !data.mask}
+                content={data.mask ? data.mask.name : 'None'}
+                icon="mask-ventilator"
+                onClick={() => act('eject_mask')}
               />
             </LabeledList.Item>
           </LabeledList>

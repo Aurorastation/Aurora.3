@@ -1,38 +1,45 @@
 /datum/wires/nuclearbomb
+	proper_name = "Nuclear Fission Device"
 	holder_type = /obj/machinery/nuclearbomb
 	random = 1
-	wire_count = 7
 
-var/const/NUCLEARBOMB_WIRE_LIGHT		= 1
-var/const/NUCLEARBOMB_WIRE_TIMING		= 2
-var/const/NUCLEARBOMB_WIRE_SAFETY		= 4
+/datum/wires/nuclearbomb/New()
+	wires = list(
+		WIRE_LIGHT, WIRE_TIMING,
+		WIRE_SAFETY
+	)
+	/// Listen, Derek. I know you're a surgeon, but...
+	add_duds(2)
+	..()
 
-/datum/wires/nuclearbomb/CanUse(var/mob/living/L)
+/datum/wires/nuclearbomb/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/machinery/nuclearbomb/N = holder
 	return N.panel_open
 
-/datum/wires/nuclearbomb/GetInteractWindow()
+/datum/wires/nuclearbomb/get_status()
 	var/obj/machinery/nuclearbomb/N = holder
 	. += ..()
-	. += "<BR>The device is [N.timing ? "shaking!" : "still."]<BR>"
-	. += "The device is is [N.safety ? "quiet" : "whirring"].<BR>"
-	. += "The lights are [N.lighthack ? "static" : "functional"].<BR>"
+	. += "The device is [N.timing ? "shaking!" : "still."]"
+	. += "The device is is [N.safety ? "quiet" : "whirring"]."
+	. += "The lights are [N.lighthack ? "static" : "functional"]."
 
-/datum/wires/nuclearbomb/UpdatePulsed(var/index)
+/datum/wires/nuclearbomb/on_pulse(wire)
 	var/obj/machinery/nuclearbomb/N = holder
-	switch(index)
-		if(NUCLEARBOMB_WIRE_LIGHT)
+	switch(wire)
+		if(WIRE_LIGHT)
 			N.lighthack = !N.lighthack
 			N.update_icon()
 			spawn(100)
 				N.lighthack = !N.lighthack
 				N.update_icon()
-		if(NUCLEARBOMB_WIRE_TIMING)
+		if(WIRE_TIMING)
 			if(N.timing)
 				spawn
 					log_and_message_admins("pulsed a nuclear bomb's detonation wire, causing it to explode.")
 					N.explode()
-		if(NUCLEARBOMB_WIRE_SAFETY)
+		if(WIRE_SAFETY)
 			N.safety = !N.safety
 			spawn(100)
 				N.safety = !N.safety
@@ -42,17 +49,17 @@ var/const/NUCLEARBOMB_WIRE_SAFETY		= 4
 				else
 					N.visible_message("<span class='notice'>\The [N] emits a quiet whirling noise!</span>")
 
-/datum/wires/nuclearbomb/UpdateCut(var/index, var/mended)
+/datum/wires/nuclearbomb/on_cut(wire, mend, source)
 	var/obj/machinery/nuclearbomb/N = holder
-	switch(index)
-		if(NUCLEARBOMB_WIRE_SAFETY)
-			N.safety = mended
+	switch(wire)
+		if(WIRE_SAFETY)
+			N.safety = mend
 			if(N.timing)
 				spawn
 					log_and_message_admins("cut a nuclear bomb's timing wire, causing it to explode.")
 					N.explode()
-		if(NUCLEARBOMB_WIRE_TIMING)
+		if(WIRE_TIMING)
 			N.secure_device()
-		if(NUCLEARBOMB_WIRE_LIGHT)
-			N.lighthack = !mended
+		if(WIRE_LIGHT)
+			N.lighthack = !mend
 			N.update_icon()
