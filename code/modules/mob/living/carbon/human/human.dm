@@ -265,7 +265,7 @@
 	UpdateDamageIcon()
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
-	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
+	if(!GLOB.config.use_loyalty_implants && !override) return // Nuh-uh.
 
 	var/obj/item/implant/mindshield/L
 	if(isipc(M))
@@ -524,7 +524,7 @@
 		SPAN_WARNING("You hear a light zapping.")
 		)
 
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 
 	return shock_damage
 
@@ -1111,7 +1111,7 @@
 		remove_verb(src, /mob/living/carbon/human/proc/remotesay)
 		return
 	var/list/creatures = list()
-	for(var/hh in human_mob_list)
+	for(var/hh in GLOB.human_mob_list)
 		var/mob/living/carbon/human/H = hh
 		if (H.client)
 			creatures += hh
@@ -1152,7 +1152,7 @@
 
 	var/list/mob/creatures = list()
 
-	for(var/h in human_mob_list)
+	for(var/h in GLOB.human_mob_list)
 		var/mob/living/carbon/human/H = h
 		if (!H.client)
 			continue
@@ -1398,7 +1398,7 @@
 			dna.species = new_species
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
-	if(!all_species[new_species])
+	if(!GLOB.all_species[new_species])
 		new_species = SPECIES_HUMAN
 
 	if(species)
@@ -2062,9 +2062,9 @@
 
 /mob/living/carbon/human/proc/generate_valid_languages()
 	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_TCB
-	for(var/L in all_languages)
-		var/datum/language/lang = all_languages[L]
-		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
+	for(var/L in GLOB.all_languages)
+		var/datum/language/lang = GLOB.all_languages[L]
+		if(!(lang.flags & RESTRICTED) && (!GLOB.config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
 			available_languages |= L
 	return available_languages
 
@@ -2075,7 +2075,7 @@
 	return TRUE
 
 /mob/living/carbon/human/proc/add_or_remove_language(var/language)
-	var/datum/language/new_language = all_languages[language]
+	var/datum/language/new_language = GLOB.all_languages[language]
 	if(!new_language || !istype(new_language))
 		to_chat(src, SPAN_WARNING("Invalid language!"))
 		return TRUE
@@ -2084,7 +2084,7 @@
 			to_chat(src, SPAN_NOTICE("You no longer know <b>[new_language.name]</b>."))
 		return TRUE
 	var/total_alternate_languages = languages.Copy()
-	total_alternate_languages -= all_languages[species.language]
+	total_alternate_languages -= GLOB.all_languages[species.language]
 	if(length(total_alternate_languages) >= species.num_alternate_languages)
 		to_chat(src, SPAN_WARNING("You can't add any more languages!"))
 		return TRUE

@@ -59,7 +59,7 @@
 
 /obj/machinery/power/emitter/Initialize()
 	. = ..()
-	spark_system = bind_spark(src, 5, alldirs)
+	spark_system = bind_spark(src, 5, GLOB.alldirs)
 	if(state == EMITTER_WELDED && anchored)
 		connect_to_network()
 		if(_wifi_id)

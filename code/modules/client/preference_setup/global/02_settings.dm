@@ -71,7 +71,7 @@
 		pref.current_character = validate_current_character()
 
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
-	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
+	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, GLOB.config.character_slots, initial(pref.default_slot))
 	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))

@@ -3,13 +3,13 @@
  * Used for general_purpose debug logging, please use more specific ones if available, or consider adding your own
  */
 /proc/log_debug(text,level = SEVERITY_DEBUG)
-	if (isnull(config) ? TRUE : config.logsettings["log_debug"])
+	if (isnull(GLOB.config) ? TRUE : GLOB.config.logsettings["log_debug"])
 		log_world("DEBUG: [text]")
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
 		log_world("ERROR: [text]")
 
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
 			return
@@ -25,7 +25,7 @@
 /// Logging for config errors
 /// Rarely gets called; just here in case the config breaks.
 /proc/log_config(text)
-	WRITE_LOG(isnull(config) ? "config_error.log" : config.logfiles["config_error_log"], "CONFIG: [text]")
+	WRITE_LOG(isnull(GLOB.config) ? "config_error.log" : GLOB.config.logfiles["config_error_log"], "CONFIG: [text]")
 
 	// Do not print to world.log during unit tests
 	#if !defined(UNIT_TEST)
@@ -55,7 +55,7 @@
 
 /* Log to the logfile only. */
 /proc/log_runtime(text)
-	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.logfiles["world_runtime_log"], "RUNTIME: [text]")
+	WRITE_LOG(isnull(GLOB.config) ? "world_runtime.log" : GLOB.config.logfiles["world_runtime_log"], "RUNTIME: [text]")
 
 /proc/_log_signal(text)
 	if(GLOB.config.logsettings["log_signals"])
@@ -72,6 +72,6 @@
 /// Log to both DD and the logfile.
 /proc/log_world(text)
 #ifdef USE_CUSTOM_ERROR_HANDLER
-	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.logfiles["world_runtime_log"], "WORLD: [text]")
+	WRITE_LOG(isnull(GLOB.config) ? "world_runtime.log" : GLOB.config.logfiles["world_runtime_log"], "WORLD: [text]")
 #endif
 	SEND_TEXT(world.log, "WORLD: [text]")

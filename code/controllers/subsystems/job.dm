@@ -1,4 +1,4 @@
-#define Debug(text) if (Debug2) {job_debug += text}
+#define Debug(text) if (GLOB.Debug2) {job_debug += text}
 
 SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
@@ -421,10 +421,10 @@ SUBSYSTEM_DEF(jobs)
 	if(joined_late)
 		var/antag_count = 0
 		for(var/antag_type in SSticker.mode.antag_tags)
-			var/datum/antagonist/A = all_antag_types[antag_type]
+			var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 			antag_count += A.get_active_antag_count()
 		for(var/antag_type in SSticker.mode.antag_tags)
-			var/datum/antagonist/A = all_antag_types[antag_type]
+			var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 			A.update_current_antag_max()
 			if((A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.cur_max)
 				A.add_antagonist(H.mind)
@@ -456,7 +456,7 @@ SUBSYSTEM_DEF(jobs)
 	if(spawnpos && istype(spawnpos))
 		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [current_map.station_name] at all! You were in cryo the whole time!</span>")
 		src.forceMove(pick(spawnpos.turfs))
-		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
+		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		var/rank= src.mind.assigned_role
 		SSjobs.EquipRank(src, rank, 1)
 	else
@@ -474,7 +474,7 @@ SUBSYSTEM_DEF(jobs)
 	if(spawnpos && istype(spawnpos))
 		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [current_map.station_name] at all! You were in robotic storage the whole time!</span>")
 		src.forceMove(pick(spawnpos.turfs))
-		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
+		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
 		SSjobs.centcomm_despawn_mob(src)
 
@@ -483,17 +483,17 @@ SUBSYSTEM_DEF(jobs)
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
+		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
 		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
 	else
 		if(!isDrone(H))
-			global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
+			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
 			H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
-	if (!config.load_jobs_from_txt)
+	if (!GLOB.config.load_jobs_from_txt)
 		return FALSE
 
 	var/list/jobEntries = file2list(jobsfile)
@@ -580,14 +580,14 @@ SUBSYSTEM_DEF(jobs)
 
 	H.job = rank
 
-	if(current_map.force_spawnpoint && LAZYLEN(force_spawnpoints))
-		if(force_spawnpoints[rank])
-			H.forceMove(pick(force_spawnpoints[rank]))
+	if(current_map.force_spawnpoint && LAZYLEN(GLOB.force_spawnpoints))
+		if(GLOB.force_spawnpoints[rank])
+			H.forceMove(pick(GLOB.force_spawnpoints[rank]))
 		else
-			H.forceMove(pick(force_spawnpoints["Anyone"]))
+			H.forceMove(pick(GLOB.force_spawnpoints["Anyone"]))
 	else
 		if(job.latejoin_at_spawnpoints)
-			for (var/thing in landmarks_list)
+			for (var/thing in GLOB.landmarks_list)
 				var/obj/effect/landmark/L = thing
 				if(istype(L))
 					if(L.name == "LateJoin[rank]")
@@ -631,7 +631,7 @@ SUBSYSTEM_DEF(jobs)
 
 /datum/controller/subsystem/jobs/proc/DespawnMob(mob/living/carbon/human/H)
 	//Update any existing objectives involving this mob.
-	for(var/datum/objective/O in all_objectives)
+	for(var/datum/objective/O in GLOB.all_objectives)
 		// We don't want revs to get objectives that aren't for heads of staff. Letting
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(O.target == H.mind)
@@ -776,7 +776,7 @@ SUBSYSTEM_DEF(jobs)
 
 /datum/controller/subsystem/jobs/proc/get_roundstart_spawnpoint(var/rank)
 	var/list/loc_list = list()
-	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+	for(var/obj/effect/landmark/start/sloc in GLOB.landmarks_list)
 		if(sloc.name != rank)	continue
 		if(locate(/mob/living) in sloc.loc)	continue
 		loc_list += sloc

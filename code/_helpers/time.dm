@@ -1,4 +1,4 @@
-#define TIME_OFFSET config.time_offset
+#define TIME_OFFSET GLOB.config.time_offset
 
 var/roundstart_hour = 0
 var/round_start_time

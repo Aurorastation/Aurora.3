@@ -3,7 +3,7 @@
 	groups = list("generic")
 
 /datum/unit_test/sql_preferences_columns/start_test()
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		TEST_WARN("--------------- Database not Configured - Skipping Preference Column UT")
 		return UNIT_TEST_PASSED
 

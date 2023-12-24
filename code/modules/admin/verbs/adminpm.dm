@@ -17,7 +17,7 @@
 		to_chat(src, "<span class='warning'>Error: Admin-PM-Panel: Only administrators may use this command.</span>")
 		return
 	var/list/client/targets[0]
-	for(var/p in clients)
+	for(var/p in GLOB.clients)
 		var/client/T = p
 		if(T.mob)
 			if(istype(T.mob, /mob/abstract/new_player))
@@ -154,7 +154,7 @@
 	ticket.append_message(src.ckey, C.ckey, msg)
 
 	//we don't use message_admins here because the sender/receiver might get it too
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/X = s
 		//check client/X is an admin and isn't the sender or recipient
 		if(X == C || X == src)
@@ -181,7 +181,7 @@
 	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message linkify'>[msg]</span></span></span>")
 
 	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(C == src)
 			continue

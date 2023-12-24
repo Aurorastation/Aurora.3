@@ -1,6 +1,6 @@
 /proc/count_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.silicon_mob_list)
 		if(D.key && D.client)
 			drones++
 	return drones
@@ -71,7 +71,7 @@
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)
 	if(stat & NOPOWER)
 		return
-	if(!produce_drones || !config.allow_drone_spawn || count_drones() >= config.max_maint_drones)
+	if(!produce_drones || !GLOB.config.allow_drone_spawn || count_drones() >= GLOB.config.max_maint_drones)
 		return
 	if(!player || !istype(player.mob, /mob/abstract))
 		return

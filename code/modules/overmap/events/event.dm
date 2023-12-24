@@ -212,7 +212,7 @@
 	start_moving()
 
 /obj/effect/overmap/event/proc/start_moving()
-	if(!moving_dir) moving_dir = pick(alldirs)
+	if(!moving_dir) moving_dir = pick(GLOB.alldirs)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/event/process()

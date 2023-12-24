@@ -42,8 +42,8 @@
 		"<table>"
 	)
 	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN)
 			continue
 		dat += "<tr><td>[antag.role_text]: </td><td>"
@@ -78,8 +78,8 @@
 
 /datum/category_item/player_setup_item/antagonism/candidacy/proc/valid_special_roles()
 	var/list/private_valid_special_roles = list()
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		private_valid_special_roles += antag.role_type
 
 	return private_valid_special_roles

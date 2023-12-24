@@ -192,14 +192,14 @@
 		response = "Somethnig went horribly wrong."
 		return TRUE
 
-	if(!config.external_auth)
+	if(!GLOB.config.external_auth)
 		statuscode = 500
 		response = "External auth is disalowed."
 		del(una.client)
 		del(una)
 		return TRUE
 
-	var/client/cl = directory[ckey(queryparams["key"])]
+	var/client/cl = GLOB.directory[ckey(queryparams["key"])]
 	if(cl)
 		to_chat(cl, "Another connection has been made using your login key. This session has been terminated.")
 		del(cl)
@@ -229,7 +229,7 @@
 		response = "Something went horribly wrong."
 		return TRUE
 
-	if(!config.external_auth)
+	if(!GLOB.config.external_auth)
 		statuscode = 403
 		response = "External auth is disallowed."
 		del(una.client)
@@ -250,10 +250,10 @@
 
 /datum/topic_command/set_extenal_auth/run_command(queryparams)
 	if(queryparams["state"] == null)
-		config.external_auth = !config.external_auth
+		config.external_auth = !GLOB.config.external_auth
 	else
 		config.external_auth = queryparams["state"]
 
 	statuscode = 200
 	response = "External authentication state has been updated sucessfully."
-	data = config.external_auth
+	data = GLOB.config.external_auth

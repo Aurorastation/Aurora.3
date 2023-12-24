@@ -249,7 +249,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
 				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
 			else
-				R = basic_robolimb
+				R = GLOB.basic_robolimb
 			out += "<li>- [R.company] [capitalize_first_letters(parse_zone(organ_name))] Prosthesis</li>"
 		else if(status == "amputated")
 			out += "<li>- Amputated [capitalize_first_letters(parse_zone(organ_name))]</li>"
@@ -258,7 +258,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
 				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
 			else
-				R = basic_robolimb
+				R = GLOB.basic_robolimb
 			out += "<li>- [R.company] Mechanical [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "nymph")
 			out += "<li>- Diona Nymph [capitalize_first_letters(parse_zone(organ_name))]</li>"

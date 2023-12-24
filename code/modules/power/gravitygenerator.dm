@@ -455,14 +455,14 @@
 
 /obj/machinery/gravity_generator/main/LateInitialize()
 	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 	if(linked)
 		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A

@@ -445,7 +445,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/exoplanet_spawn/LateInitialize(mapload)
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if (istype(E))
 		do_spawn(E)
 

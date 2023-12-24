@@ -58,7 +58,7 @@ GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	GLOB..diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
+	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
 	GLOB.href_logfile = file("data/logs/[GLOB..diary_date_string] hrefs.htm")
 	GLOB..diary = "data/logs/[GLOB..diary_date_string]_[game_id].log"
 	log_startup()

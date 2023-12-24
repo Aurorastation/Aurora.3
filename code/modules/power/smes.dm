@@ -100,7 +100,7 @@
 /obj/machinery/power/smes/Initialize()
 	. = ..()
 	SSmachinery.smes_units += src
-	big_spark = bind_spark(src, 5, alldirs)
+	big_spark = bind_spark(src, 5, GLOB.alldirs)
 	small_spark = bind_spark(src, 3)
 	if(!powernet)
 		connect_to_network()

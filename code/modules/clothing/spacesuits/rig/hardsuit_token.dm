@@ -35,7 +35,7 @@
 		options[hardsuit] = radial_button
 	var/chosen_rig = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
 	if(chosen_rig)
-		spark(loc, 2, alldirs)
+		spark(loc, 2, GLOB.alldirs)
 		var/crate_path = hardsuit_options[chosen_rig]
 		var/obj/structure/closet/crate/secure/gear_loadout/ninja/N = new crate_path(get_turf(src))
 		var/obj/item/rig/R = locate(N.associated_hardsuit) in N

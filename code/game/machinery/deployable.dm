@@ -277,7 +277,7 @@ for reference:
 /*	var/obj/item/stack/rods/ =*/
 	new /obj/item/stack/rods(get_turf(src))
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	explosion(src.loc,-1,-1,0)
 	qdel(src)
@@ -288,13 +288,13 @@ for reference:
 		src.req_access.Cut()
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
-		spark(src, 2, alldirs)
+		spark(src, 2, GLOB.alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
-		spark(src, 2, alldirs)
+		spark(src, 2, GLOB.alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
 

@@ -58,7 +58,7 @@ var/list/cached_space = list()
 	if (!T || !A)
 		return
 
-	var/obj/effect/overmap/visitable/M = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/M = GLOB.map_sectors["[T.z]"]
 	if (!M)
 		return
 

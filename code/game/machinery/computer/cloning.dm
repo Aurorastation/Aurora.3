@@ -337,7 +337,7 @@
 					temp = "Error: Not enough biomass."
 				else if(pod.mess)
 					temp = "Error: Clonepod malfunction."
-				else if(!config.revival_cloning)
+				else if(!GLOB.config.revival_cloning)
 					temp = "Error: Unable to initiate cloning cycle."
 
 				else if(pod.growclone(C))

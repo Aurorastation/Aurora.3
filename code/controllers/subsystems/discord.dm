@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(discord)
 	return ..()
 
 /datum/controller/subsystem/discord/Initialize()
-	config.load("config/discord.txt", "discord")
+	GLOB.config.load("config/discord.txt", "discord")
 	update_channels()
 
 /datum/controller/subsystem/discord/stat_entry(msg)
@@ -502,12 +502,12 @@ SUBSYSTEM_DEF(discord)
 /hook/roundstart/proc/alert_no_admins()
 	var/admins_number = 0
 
-	for (var/C in clients)
+	for (var/C in GLOB.clients)
 		var/client/cc = C
 		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
 			admins_number++
 
-	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=clients.len))
+	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=GLOB.clients.len))
 	if (!admins_number)
 		post_webhook_event(WEBHOOK_ALERT_NO_ADMINS, list())
 		if (!SSdiscord)

@@ -238,7 +238,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	new /obj/item/device/assembly/prox_sensor(T)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 

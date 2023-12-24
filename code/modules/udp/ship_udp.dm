@@ -54,9 +54,9 @@
 #endif // RUST_G
 
 /proc/send_gelf_log(short_message="", long_message="", level = 5, category="", additional_data=list())
-	if (!config)
+	if (!GLOB.config)
 		return "Configuration not loaded."
-	if (!config.logsettings["log_gelf_enabled"])
+	if (!GLOB.config.logsettings["log_gelf_enabled"])
 		return "Gelf logging not enabled."
 	var/list/log_data = list()
 	log_data["version"] = "1.1"

@@ -207,7 +207,7 @@
 	if(!current_map.use_overmap)
 		return station_name()
 
-	var/obj/effect/overmap/O = map_sectors["[pick(affecting_z)]"]
+	var/obj/effect/overmap/O = GLOB.map_sectors["[pick(affecting_z)]"]
 	return O ? O.name : "Unknown Location"
 
 /datum/event/proc/get_skybox_image()

@@ -317,7 +317,7 @@
 
 	observer.started_as_observer = 1
 	close_spawn_windows()
-	var/obj/O = locate("landmark*Observer-Start") in landmarks_list
+	var/obj/O = locate("landmark*Observer-Start") in GLOB.landmarks_list
 	if(istype(O))
 		to_chat(src, "<span class='notice'>Now teleporting.</span>")
 		observer.forceMove(O.loc)
@@ -337,7 +337,7 @@
 
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
-	if(!client.holder && !config.antag_hud_allowed)
+	if(!client.holder && !GLOB.config.antag_hud_allowed)
 		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()

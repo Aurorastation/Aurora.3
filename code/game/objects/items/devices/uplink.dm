@@ -39,12 +39,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	. = ..()
 	src.uplink_owner = owner
 	purchase_log = list()
-	world_uplinks += src
+	GLOB.world_uplinks += src
 	telecrystals = new_telecrystals
 	bluecrystals = new_bluecrystals
 
 /obj/item/device/uplink/Destroy()
-	world_uplinks -= src
+	GLOB.world_uplinks -= src
 	src.uplink_owner = null
 	return ..()
 

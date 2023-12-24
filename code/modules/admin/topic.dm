@@ -284,7 +284,7 @@
 			to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to add bans!</span>")
 			return
 
-		if(check_rights(R_MOD,0) && !check_rights(R_ADMIN, 0) && !config.mods_can_job_tempban) // If mod and tempban disabled
+		if(check_rights(R_MOD,0) && !check_rights(R_ADMIN, 0) && !GLOB.config.mods_can_job_tempban) // If mod and tempban disabled
 			to_chat(usr, "<span class='warning'>Mod jobbanning is disabled!</span>")
 			return
 
@@ -298,7 +298,7 @@
 				var/mins = input(usr,"How long (in minutes)?","Ban time",1440) as num|null
 				if(!mins)
 					return
-				if(check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_tempban_max)
+				if(check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_tempban_max)
 					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [GLOB.config.mod_tempban_max] minutes!</span>")
 					return
 				if(mins >= 525600) mins = 525599
@@ -376,7 +376,7 @@
 		if(ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
-		for(var/mode in config.modes)
+		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='?src=\ref[src];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='?src=\ref[src];c_mode2=secret'>Secret</A><br>"}
 		dat += {"<A href='?src=\ref[src];c_mode2=random'>Random</A><br>"}
@@ -391,7 +391,7 @@
 		if(GLOB.master_mode != ROUNDTYPE_STR_SECRET && GLOB.master_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
-		for(var/mode in config.modes)
+		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='?src=\ref[src];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='?src=\ref[src];f_secret2=secret'>Random (default)</A><br>"}
 		dat += {"Now: [GLOB.secret_force_mode]"}
@@ -541,7 +541,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.forceMove(pick(tdome2))
+		M.forceMove(pick(GLOB.tdome2))
 		spawn(50)
 			to_chat(M, "<span class='notice'>You have been sent to the Thunderdome.</span>")
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 2)",admin_key=key_name(usr),ckey=key_name(M))
@@ -563,7 +563,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.forceMove(pick(tdomeadmin))
+		M.forceMove(pick(GLOB.tdomeadmin))
 		spawn(50)
 			to_chat(M, "<span class='notice'>You have been sent to the Thunderdome.</span>")
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Admin.)",admin_key=key_name(usr),ckey=key_name(M))
@@ -878,7 +878,7 @@
 		if(!isvaurca(H))
 			to_chat(usr, "This can only be used on Vaurca.")
 			return
-		if(!(all_languages[LANGUAGE_VAURCA] in H.languages))
+		if(!(GLOB.all_languages[LANGUAGE_VAURCA] in H.languages))
 			to_chat(usr, "The person you are trying to contact is incapable of recieving Hivenet transmissions.")
 			return
 		var/input = sanitize(input(src.owner, "Please enter a message to reply to [key_name(H)] via the Hivenet.", "Outgoing transmission from the Hive...", ""))
@@ -1013,7 +1013,7 @@
 	else if(href_list["object_list"])			//this is the laggiest thing ever
 		if(!check_rights(R_SPAWN))	return
 
-		if(!config.allow_admin_spawning)
+		if(!GLOB.config.allow_admin_spawning)
 			to_chat(usr, "Spawning of items is not allowed.")
 			return
 
@@ -1401,7 +1401,7 @@
 				to_chat(usr, "[M] is illegal type, must be /mob!")
 				return
 			var/lang2toggle = href_list["lang"]
-			var/datum/language/L = all_languages[lang2toggle]
+			var/datum/language/L = GLOB.all_languages[lang2toggle]
 
 			if(L in M.languages)
 				if(!M.remove_language(lang2toggle))
@@ -1526,7 +1526,7 @@
 	. += target.extra_admin_link(source)
 
 /proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)
-	var/input = input(user, "Select a species:") as null|anything in all_species
+	var/input = input(user, "Select a species:") as null|anything in GLOB.all_species
 	if(!input)
 		return
 	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)

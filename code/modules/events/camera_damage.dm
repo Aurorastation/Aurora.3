@@ -22,7 +22,7 @@
 					cam.wires.UpdateCut(CAMERA_WIRE_ALARM, 0)
 
 /datum/event/camera_damage/proc/acquire_random_camera(var/remaining_attempts = 5)
-	if(!cameranet.cameras.len)
+	if(!GLOB.cameranet.cameras.len)
 		return
 	if(!remaining_attempts)
 		return

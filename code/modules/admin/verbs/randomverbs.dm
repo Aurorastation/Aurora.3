@@ -59,7 +59,7 @@
 	if(!check_rights(R_MOD|R_ADMIN, 0))
 		highlight_special_characters = 0
 
-	for(var/client/C in clients)
+	for(var/client/C in GLOB.clients)
 		if(C.player_age == "Requires database")
 			missing_ages = 1
 			continue
@@ -159,7 +159,7 @@
 
 /proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(automute)
-		if(!config.automute_on)	return
+		if(!GLOB.config.automute_on)	return
 	else
 		if(!usr || !usr.client)
 			return
@@ -237,7 +237,7 @@ Ccomp's first proc.
 
 	var/list/mobs = list()
 	var/list/ghosts = list()
-	var/list/sortmob = sortAtom(mob_list)                           // get the mob list.
+	var/list/sortmob = sortAtom(GLOB.mob_list)                           // get the mob list.
 	var/any=0
 	for(var/mob/abstract/observer/M in sortmob)
 		mobs.Add(M)                                             //filter it where it's only ghosts
@@ -337,7 +337,7 @@ Ccomp's first proc.
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
 				to_chat(g, "<span class='warning'>The Administrator has disabled AntagHUD.</span> ")
-		config.antag_hud_allowed = 0
+		GLOB.config.antag_hud_allowed = 0
 		to_chat(src, "<span class='danger'>AntagHUD usage has been disabled.</span>")
 		action = "disabled"
 	else
@@ -345,7 +345,7 @@ Ccomp's first proc.
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
 				add_verb(g,  /mob/abstract/observer/verb/toggle_antagHUD)
 			to_chat(g, "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>")	// Notify all observers they can now use AntagHUD)
-		config.antag_hud_allowed = 1
+		GLOB.config.antag_hud_allowed = 1
 		action = "enabled"
 		to_chat(src, "<span class='notice'><B>AntagHUD usage has been enabled.</B></span>")
 
@@ -366,7 +366,7 @@ Ccomp's first proc.
 		for(var/mob/abstract/observer/g in get_ghosts())
 			to_chat(g, "<span class='notice'><B>The administrator has lifted restrictions on joining the round if you use AntagHUD</B></span>")
 		action = "lifted restrictions"
-		config.antag_hud_restricted = 0
+		GLOB.config.antag_hud_restricted = 0
 		to_chat(src, "<span class='notice'><B>AntagHUD restrictions have been lifted</B></span>")
 	else
 		for(var/mob/abstract/observer/g in get_ghosts())
@@ -375,7 +375,7 @@ Ccomp's first proc.
 			g.antagHUD = 0
 			g.has_enabled_antagHUD = 0
 		action = "placed restrictions"
-		config.antag_hud_restricted = 1
+		GLOB.config.antag_hud_restricted = 1
 		to_chat(src, "<span class='danger'>AntagHUD restrictions have been enabled</span>")
 
 	log_admin("[key_name(usr)] has [action] on joining the round if they use AntagHUD",admin_key=key_name(usr))
@@ -1012,12 +1012,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set desc = "Toggles random events such as meteors, black holes, blob (but not space dust) on/off"
 	if(!check_rights(R_SERVER))	return
 
-	if(!config.allow_random_events)
-		config.allow_random_events = 1
+	if(!GLOB.config.allow_random_events)
+		GLOB.config.allow_random_events = 1
 		to_chat(usr, "Random events enabled")
 		message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
 	else
-		config.allow_random_events = 0
+		GLOB.config.allow_random_events = 0
 		to_chat(usr, "Random events disabled")
 		message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
 	feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -1050,17 +1050,17 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		return
 
-	var/list/possible_categories = list("Random") + tips_by_category.Copy()
+	var/list/possible_categories = list("Random") + GLOB.tips_by_category.Copy()
 	var/input = input(usr, "Please specify the tip category that you want to send to the players.", "Tip", "Random") as null|anything in possible_categories
 	if(!input)
 		return
 
 	var/datum/tip/tip_datum
 	if(input == "Random")
-		var/chosen_tip_category = pick(tips_by_category)
-		tip_datum = tips_by_category[chosen_tip_category]
+		var/chosen_tip_category = pick(GLOB.tips_by_category)
+		tip_datum = GLOB.tips_by_category[chosen_tip_category]
 	else
-		tip_datum = tips_by_category[input]
+		tip_datum = GLOB.tips_by_category[input]
 
 	SSticker.send_tip_of_the_round(pick(tip_datum.messages))
 

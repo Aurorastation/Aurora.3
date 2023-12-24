@@ -54,7 +54,7 @@
 		. = TRUE
 		updateDialog()
 
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
 /obj/machinery/shield_gen/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/card/id))

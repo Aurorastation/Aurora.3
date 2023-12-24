@@ -113,4 +113,4 @@
 		AnnounceArrivalSimple(character.real_name, rank, join_message)
 
 /proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the [current_map.station_type]", var/new_sound = 'sound/misc/announcements/notice.ogg')
-	global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcer")
+	GLOB.global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcer")

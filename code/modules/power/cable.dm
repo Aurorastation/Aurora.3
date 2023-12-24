@@ -195,7 +195,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!prob(prb))
 		return FALSE
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 		if(user.stunned)
 			return TRUE
 	return FALSE

@@ -161,7 +161,7 @@
 	..()
 	..(null, "disintegrates!")
 	var/T = get_turf(src)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	explosion(T, -1, 0, 2)
 	qdel(src)
 

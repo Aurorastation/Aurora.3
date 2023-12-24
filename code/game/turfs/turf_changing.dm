@@ -24,7 +24,7 @@
 		SSicon_smooth.add_to_queue(src)
 
 	if (current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if (istype(E) && istype(E.theme))
 			E.theme.on_turf_generation(src, E.planetary_area)
 

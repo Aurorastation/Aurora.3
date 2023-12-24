@@ -124,7 +124,7 @@
 
 	"IN" (or "FROM", that works too but it's kinda weird to read),
 	is the list of objects to work on. This defaults to world if not provided.
-	But doing something like "IN living_mob_list" is quite handy and can optimize your query.
+	But doing something like "in GLOB.living_mob_list" is quite handy and can optimize your query.
 	All names inside the IN block are global scope, so you can do living_mob_list (a global var) easily.
 	You can also run it on a single object. Because SDQL is that convenient even for single operations.
 
@@ -524,7 +524,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	finished = TRUE
 	. = TRUE
 	if(show_next_to_key)
-		var/client/C = directory[show_next_to_key]
+		var/client/C = GLOB.directory[show_next_to_key]
 		if(C)
 			var/mob/showmob = C.mob
 			to_chat(showmob, "<span class='admin'>SDQL query results: [get_query_text()]<br>\

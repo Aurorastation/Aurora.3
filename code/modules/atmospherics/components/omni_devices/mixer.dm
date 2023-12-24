@@ -186,11 +186,11 @@
 				update_use_power(POWER_USE_OFF)
 		if("configure")
 			configuring = !configuring
-			if(GLOB.configuring)
+			if(configuring)
 				update_use_power(POWER_USE_OFF)
 
 	//only allows config changes when in configuring mode ~otherwise you'll get weird pressure stuff going on
-	if(GLOB.configuring && !use_power)
+	if(configuring && !use_power)
 		switch(href_list["command"])
 			if("set_flow_rate")
 				var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[max_flow_rate]L/s)","Flow Rate Control",set_flow_rate) as num

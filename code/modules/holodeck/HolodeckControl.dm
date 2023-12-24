@@ -220,7 +220,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 			for(var/turf/T in linkedholodeck)
 				if(prob(30))
-					spark(T, 2, alldirs)
+					spark(T, 2, GLOB.alldirs)
 				T.ex_act(3)
 				T.hotspot_expose(1000,500,1)
 
@@ -316,7 +316,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 			if(L.name=="Atmospheric Test Start")
 				spawn(20)
 					var/turf/T = get_turf(L)
-					spark(T, 2, alldirs)
+					spark(T, 2, GLOB.alldirs)
 					if(T)
 						T.temperature = 5000
 						T.hotspot_expose(50000,50000,1)

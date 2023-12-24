@@ -313,7 +313,7 @@
 			golem_type = O.material.golem
 			O.use(10)
 
-	spark(get_turf(src), 10, alldirs)
+	spark(get_turf(src), 10, GLOB.alldirs)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 

@@ -38,7 +38,7 @@ In short:
 /datum/universal_state/hell/OnEnter()
 	SSgarbage.disable()	// Yeah, fuck it. No point hard-deleting stuff now.
 
-	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
+	GLOB.escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
 	//Separated into separate procs for profiling
 	AreaSet()
@@ -51,7 +51,7 @@ In short:
 	SScult.rune_boost += 9001	//basically removing the rune cap
 
 /datum/universal_state/hell/proc/AreaSet()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 

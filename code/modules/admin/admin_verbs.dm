@@ -824,7 +824,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_ADMIN)) return
 
-	var/mob/living/silicon/S = input("Select silicon.", "Rename Silicon.") as null|anything in silicon_mob_list
+	var/mob/living/silicon/S = input("Select silicon.", "Rename Silicon.") as null|anything in GLOB.silicon_mob_list
 	if(!S) return
 
 	var/new_name = sanitizeSafe(input(src, "Enter new name. Leave blank or as is to cancel.", "[S.real_name] - Enter new silicon name", S.real_name))
@@ -839,7 +839,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_ADMIN)) return
 
-	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in silicon_mob_list
+	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in GLOB.silicon_mob_list
 	if(!S) return
 
 	var/datum/tgui_module/admin/law_manager/L = new(S)
@@ -854,7 +854,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", human_mob_list)
+	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", GLOB.human_mob_list)
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
@@ -868,7 +868,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", human_mob_list)
+	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", GLOB.human_mob_list)
 	if(!H) return
 
 	if(!H.client)
@@ -913,7 +913,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN))	return
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in human_mob_list
+	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
@@ -958,7 +958,7 @@ var/list/admin_verbs_cciaa = list(
 		M.h_style = new_hstyle
 
 	// facial hair
-	var/new_fstyle = input(usr, "Select a facial hair style", "Grooming")  as null|anything in facial_hair_styles_list
+	var/new_fstyle = input(usr, "Select a facial hair style", "Grooming")  as null|anything in GLOB.facial_hair_styles_list
 	if(new_fstyle)
 		M.f_style = new_fstyle
 
@@ -1017,11 +1017,11 @@ var/list/admin_verbs_cciaa = list(
 	if(!holder)	return
 	if(GLOB.config)
 		if(GLOB.config.cult_ghostwriter)
-			config.cult_ghostwriter = 0
+			GLOB.config.cult_ghostwriter = 0
 			to_chat(src, "<b>Disallowed ghost writers.</b>")
 			message_admins("Admin [key_name_admin(usr)] has disabled ghost writers.", 1)
 		else
-			config.cult_ghostwriter = 1
+			GLOB.config.cult_ghostwriter = 1
 			to_chat(src, "<b>Enabled ghost writers.</b>")
 			message_admins("Admin [key_name_admin(usr)] has enabled ghost writers.", 1)
 
@@ -1031,11 +1031,11 @@ var/list/admin_verbs_cciaa = list(
 	if(!holder)	return
 	if(GLOB.config)
 		if(GLOB.config.allow_drone_spawn)
-			config.allow_drone_spawn = 0
+			GLOB.config.allow_drone_spawn = 0
 			to_chat(src, "<b>Disallowed maint drones.</b>")
 			message_admins("Admin [key_name_admin(usr)] has disabled maint drones.", 1)
 		else
-			config.allow_drone_spawn = 1
+			GLOB.config.allow_drone_spawn = 1
 			to_chat(src, "<b>Enabled maint drones.</b>")
 			message_admins("Admin [key_name_admin(usr)] has enabled maint drones.", 1)
 
@@ -1049,7 +1049,7 @@ var/list/admin_verbs_cciaa = list(
 	else
 		to_chat(usr, "You now won't get debug log messages")
 
-/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in human_mob_list)
+/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in GLOB.human_mob_list)
 	set name = "Damage Menu"
 	set desc = "Access a human mob's damage menu, allowing you to make their life hell."
 	set category = "Fun"
@@ -1105,7 +1105,7 @@ var/list/admin_verbs_cciaa = list(
 		to_chat(src, "<span class='notice'>Cancelled.</span>")
 		return
 
-	config.use_spreading_explosions = !config.use_spreading_explosions
+	GLOB.config.use_spreading_explosions = !GLOB.config.use_spreading_explosions
 
 	log_and_message_admins("has toggled explosions to be [GLOB.config.use_spreading_explosions ? "iterative/spreading" : "simple/circular"].")
 	feedback_add_details("admin_verb", "TRE")
@@ -1172,14 +1172,14 @@ var/list/admin_verbs_cciaa = list(
 			var/msg = "P_LIST DEBUG: Found null entry in GLOB.player_list!"
 			log_debug(msg)
 			message_admins(SPAN_DANGER(msg))
-			player_list -= P
+			GLOB.player_list -= P
 		else
 			var/mob/M = P
 			if (!M.client)
 				var/msg = "P_LIST DEBUG: Found a mob without a client in GLOB.player_list! [M.name]"
 				log_debug(msg)
 				message_admins(SPAN_DANGER(msg))
-				player_list -= M
+				GLOB.player_list -= M
 
 /client/proc/reset_openturf()
 	set category = "Debug"
@@ -1324,7 +1324,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/prefix
 	var/admin_stuff
-	for(var/client/target in clients)
+	for(var/client/target in GLOB.clients)
 		admin_stuff = ""
 		var/display_remote = FALSE
 		if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))

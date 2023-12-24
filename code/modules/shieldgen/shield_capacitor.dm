@@ -37,7 +37,7 @@
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 		. = TRUE
 		updateDialog()
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
 /obj/machinery/shield_capacitor/attackby(obj/item/W, mob/user)
 

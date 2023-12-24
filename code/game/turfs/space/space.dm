@@ -41,7 +41,7 @@
 		src.Entered(AM, AM.loc)
 
 	if (isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -73,7 +73,7 @@
 	return 0
 
 /turf/space/proc/update_starlight()
-	if(!config.starlight)
+	if(!GLOB.config.starlight)
 		return
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
@@ -140,7 +140,7 @@
 			qdel(A)
 			return
 
-		var/list/cur_pos = src.get_GLOB.global_map_pos()
+		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
@@ -159,7 +159,7 @@
 			qdel(A)
 			return
 
-		var/list/cur_pos = src.get_GLOB.global_map_pos()
+		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
@@ -177,7 +177,7 @@
 		if(istype(A, /obj/effect/meteor))
 			qdel(A)
 			return
-		var/list/cur_pos = src.get_GLOB.global_map_pos()
+		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
@@ -196,7 +196,7 @@
 		if(istype(A, /obj/effect/meteor))
 			qdel(A)
 			return
-		var/list/cur_pos = src.get_GLOB.global_map_pos()
+		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]

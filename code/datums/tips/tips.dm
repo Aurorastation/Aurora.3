@@ -344,4 +344,4 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 /proc/populate_tip_list()
 	for(var/tip_type in subtypesof(/datum/tip))
 		var/datum/tip/tip_datum = new tip_type
-		tips_by_category[tip_datum.category] = tip_datum
+		GLOB.tips_by_category[tip_datum.category] = tip_datum

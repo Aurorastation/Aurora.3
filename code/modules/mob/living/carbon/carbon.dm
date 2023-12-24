@@ -155,7 +155,7 @@
 			SPAN_WARNING("You feel a mild shock course through your body."), \
 			SPAN_WARNING("You hear a light zapping.") \
 		)
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 	return shock_damage
 
 /mob/proc/swap_hand()

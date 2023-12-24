@@ -27,7 +27,7 @@
 	var/choice = alert(user, "Do you wish to delete this rune or configure it?", "Teleportation Rune", "Delete", "Configure")
 	if(choice == "Configure")
 		var/configure = tgui_input_list(user, "Choose a network.", "Teleportation Rune", SScult.teleport_network)
-		if(GLOB.configure)
+		if(configure)
 			network = configure
 		else
 			return FALSE //don't wipe the rune if they don't wanna change it

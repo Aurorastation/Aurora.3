@@ -65,7 +65,7 @@
  * * triggerer - The `/mob/living` that triggered the mine
  */
 /obj/item/landmine/proc/trigger(mob/living/triggerer)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	if(ishuman(triggerer))
 		triggerer.Weaken(2)
 	explosion(loc, 0, 2, 2, 3)
@@ -189,7 +189,7 @@
 	var/spread_range = 7
 
 /obj/item/landmine/frag/trigger(mob/living/triggerer)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
 	qdel(src)
 
@@ -202,7 +202,7 @@
 	icon_state = "radlandmine"
 
 /obj/item/landmine/radiation/trigger(mob/living/L)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	if(L)
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
@@ -218,7 +218,7 @@
 	icon_state = "phoronlandmine"
 
 /obj/item/landmine/phoron/trigger(mob/living/triggerer)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
 			target.assume_gas(GAS_PHORON, 30)
@@ -236,7 +236,7 @@
 	icon_state = "phoronlandmine"
 
 /obj/item/landmine/n2o/trigger(mob/living/L)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
 			target.assume_gas(GAS_N2O, 30)
@@ -252,7 +252,7 @@
 	icon_state = "emplandmine"
 
 /obj/item/landmine/emp/trigger(mob/living/triggerer)
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	empulse(src.loc, 2, 4)
 	qdel(src)
 

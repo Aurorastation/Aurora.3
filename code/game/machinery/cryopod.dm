@@ -93,11 +93,11 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	src.add_fingerprint(user)
 
 	if(href_list["log"])
-		if(!length(frozen_crew))
+		if(!length(GLOB.frozen_crew))
 			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
 			return
 		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
-		for(var/person in frozen_crew)
+		for(var/person in GLOB.frozen_crew)
 			dat += " - [person]<br>"
 		dat += "<hr>"
 

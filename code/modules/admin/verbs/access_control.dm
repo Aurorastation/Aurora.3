@@ -51,37 +51,37 @@
 
 	switch(control)
 		if ("intel_bad")
-			var/num = input("Please set the new threshold for warning based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
+			var/num = input("Please set the new threshold for warning based on IPintel (0 to disable).", "New Threshold", GLOB.config.ipintel_rating_kick) as num
 			if (num < 0 || num > 1)
 				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
 				return
 
-			config.ipintel_rating_bad = num
+			GLOB.config.ipintel_rating_bad = num
 			if (num)
 				log_and_message_admins("has set the IPIntel warn threshold to [num].")
 			else
 				log_and_message_admins("has disabled warn based on IPIntel.")
 		if ("intel_kick")
-			var/num = input("Please set the new threshold for kicking based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
+			var/num = input("Please set the new threshold for kicking based on IPintel (0 to disable).", "New Threshold", GLOB.config.ipintel_rating_kick) as num
 			if (num < 0 || num > 1)
 				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
 				return
 
-			config.ipintel_rating_kick = num
+			GLOB.config.ipintel_rating_kick = num
 			if (num)
 				log_and_message_admins("has set the IPIntel kick threshold to [num].")
 			else
 				log_and_message_admins("has disabled kicking based on IPIntel.")
 		if ("new_players")
-			config.access_deny_new_players = !config.access_deny_new_players
+			GLOB.config.access_deny_new_players = !GLOB.config.access_deny_new_players
 			log_and_message_admins("has [GLOB.config.access_deny_new_players ? "ENABLED" : "DISABLED"] the kicking of new players.")
 		if ("new_accounts")
-			var/num = input("Please set the new threshold for denying access based on BYOND account age. (-1 to disable.)", "New Threshold", config.access_deny_new_accounts) as num
+			var/num = input("Please set the new threshold for denying access based on BYOND account age. (-1 to disable.)", "New Threshold", GLOB.config.access_deny_new_accounts) as num
 			if (num < 0 && num != -1)
 				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
 				return
 
-			config.access_deny_new_accounts = num
+			GLOB.config.access_deny_new_accounts = num
 			if (num != -1)
 				log_and_message_admins("has set the access barrier for new BYOND accounts to [num] days.")
 			else
@@ -89,7 +89,7 @@
 		if ("vm_warn")
 			var/num = input("Please set the new threshold for warning on login based on positive VM identifiers. (0 to disable.)", "New Threshold") in list(0, 1, 2)
 
-			config.access_warn_vms = num
+			GLOB.config.access_warn_vms = num
 			if (num)
 				log_and_message_admins("has set players with [GLOB.config.access_warn_vms] positive identifiers out of 2 for VM usage to be warned.")
 			else
@@ -97,7 +97,7 @@
 		if ("vm_kick")
 			var/num = input("Please set the new threshold for warning on login based on positive VM identifiers. (0 to disable.)", "New Threshold") in list(0, 1, 2)
 
-			config.access_deny_vms = num
+			GLOB.config.access_deny_vms = num
 			if (num)
 				log_and_message_admins("has set players with [GLOB.config.access_deny_vms] positive identifiers out of 2 for VM usage to be warned.")
 			else
@@ -105,9 +105,9 @@
 		if ("hub")
 			togglehubvisibility()
 		if ("external_auth")
-			config.external_auth = !config.external_auth
+			GLOB.config.external_auth = !GLOB.config.external_auth
 		if ("guest")
-			config.guests_allowed = !config.guests_allowed
+			GLOB.config.guests_allowed = !GLOB.config.guests_allowed
 		else
 			to_chat(usr, "<span class='danger'>Unknown control message sent. Cancelling.</span>")
 

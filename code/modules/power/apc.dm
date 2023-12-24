@@ -864,7 +864,7 @@
 			if (C.amount >= 10 && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
-					spark(src, 5, alldirs)
+					spark(src, 5, GLOB.alldirs)
 					if(user.stunned)
 						return
 				C.use(10)
@@ -883,7 +883,7 @@
 		if(W.use_tool(src, user, 50, volume = 50))
 			if(terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-					spark(src, 5, alldirs)
+					spark(src, 5, GLOB.alldirs)
 					if(usr.stunned)
 						return
 				new /obj/item/stack/cable_coil(loc,10)
@@ -1067,7 +1067,7 @@
 
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
-				spark(src, 5, alldirs)
+				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 				H.adjustFireLoss(10, 0)
 			if(infected)
@@ -1093,7 +1093,7 @@
 					if (cell.charge < 0)
 						cell.charge = 0
 					if (prob(0.5))
-						spark(src, 5, alldirs)
+						spark(src, 5, GLOB.alldirs)
 						to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 						H.adjustFireLoss(10, 0)
 
@@ -1337,7 +1337,7 @@
 			smoke.set_up(3, 0, loc)
 			smoke.attach(src)
 			smoke.start()
-			spark(src, 5, alldirs)
+			spark(src, 5, GLOB.alldirs)
 			visible_message(SPAN_DANGER("The [name] suddenly lets out a blast of smoke and some sparks!"), \
 							SPAN_DANGER("You hear sizzling electronics."))
 

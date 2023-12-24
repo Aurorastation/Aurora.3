@@ -82,7 +82,7 @@
 	if(..())
 		return TRUE
 	if(href_list["switch_camera"])
-		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
+		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 		if(!(current_network in C.network))

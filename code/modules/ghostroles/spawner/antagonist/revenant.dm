@@ -65,7 +65,7 @@
 	if(revenants.kill_count > kills_needed)
 		var/turf/rift_turf
 		var/list/possible_landmarks = list()
-		for(var/thing in landmarks_list)
+		for(var/thing in GLOB.landmarks_list)
 			var/obj/effect/landmark/landmark = thing
 			if(landmark.name == "RevenantRift")
 				possible_landmarks += landmark

@@ -31,9 +31,9 @@
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 
-	for(var/K in all_languages)
+	for(var/K in GLOB.all_languages)
 		add_language(K)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -54,7 +54,7 @@
 
 /mob/living/announcer/proc/ResetAfterBroadcast()
 	src.name = initial(name)
-	src.default_language = all_languages[LANGUAGE_TCB]
+	src.default_language = GLOB.all_languages[LANGUAGE_TCB]
 	src.voice_name = initial(voice_name)
 	src.accent = initial(accent)
 

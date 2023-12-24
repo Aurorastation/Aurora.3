@@ -281,7 +281,7 @@
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
-		direction = pick(cardinal)
+		direction = pick(GLOB.cardinal)
 
 	if(user.facing_dir == null && dir != direction)
 		use_cell_power(legs.power_use * CELLRATE)

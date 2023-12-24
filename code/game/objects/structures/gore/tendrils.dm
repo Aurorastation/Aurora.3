@@ -61,7 +61,7 @@
 
 	new /obj/effect/decal/cleanable/blood/no_dry(loc)
 	START_PROCESSING(SSprocessing, src)
-	dirs_left = cardinal.Copy()
+	dirs_left = GLOB.cardinal.Copy()
 
 /obj/structure/gore/tendrils/proc/update_neighbours(turf/U)
 	if(!U)

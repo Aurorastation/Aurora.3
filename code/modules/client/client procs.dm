@@ -136,7 +136,7 @@ var/list/localhost_addresses = list(
 		warnings_check()
 
 	if(href_list["linkingrequest"])
-		if (!config.webint_url)
+		if (!GLOB.config.webint_url)
 			return
 
 		if (!href_list["linkingaction"])
@@ -215,14 +215,14 @@ var/list/localhost_addresses = list(
 
 			// Forum link from various panels.
 			if ("github")
-				if (!config.githuburl)
+				if (!GLOB.config.githuburl)
 					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
 				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[GLOB.config.githuburl]pull/[href_list["pr"]]"
 						send_link(src, pr_link)
 					else
-						send_link(src, config.githuburl)
+						send_link(src, GLOB.config.githuburl)
 
 			// Forum link from various panels.
 			if ("forums")
@@ -273,13 +273,13 @@ var/list/localhost_addresses = list(
 	..()	//redirect to hsrc.Topic()
 
 /proc/client_by_ckey(ckey)
-	return directory[ckey]
+	return GLOB.directory[ckey]
 
 /client/proc/automute_by_time(mute_type)
 	if (!last_message_time)
 		return FALSE
 
-	if (GLOB.config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
+	if (GLOB.config.macro_trigger && (REALTIMEOFDAY - last_message_time) < GLOB.config.macro_trigger)
 		spam_alert = min(spam_alert + 1, 4)
 		LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
 
@@ -362,15 +362,15 @@ var/list/localhost_addresses = list(
 		del(src)
 		return
 
-	clients += src
-	directory[ckey] = src
+	GLOB.clients += src
+	GLOB.directory[ckey] = src
 	connection_time = world.time
 	connection_realtime = world.realtime
 	connection_timeofday = world.timeofday
 
 	if (LAZYLEN(GLOB.config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
-		if (client_version in config.client_blacklist_version)
+		if (client_version in GLOB.config.client_blacklist_version)
 			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
 			to_chat_immediate(src, "Your current version: [client_version].")
 			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
@@ -434,7 +434,7 @@ var/list/localhost_addresses = list(
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
-	var/local_connection = (GLOB.config.auto_local_admin && !config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
@@ -444,14 +444,14 @@ var/list/localhost_addresses = list(
 	//Admin Authorisation
 	holder = admin_datums[ckey]
 	if(holder)
-		staff += src
+		GLOB.staff += src
 		holder.owner = src
 
 	log_client_to_db()
 
-	if (byond_version < config.client_error_version)
+	if (byond_version < GLOB.config.client_error_version)
 		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
-		to_chat(src, config.client_error_message)
+		to_chat(src, GLOB.config.client_error_message)
 		to_chat(src, "Your version: [byond_version].")
 		to_chat(src, "Required version: [GLOB.config.client_error_version] or later.")
 		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
@@ -472,7 +472,7 @@ var/list/localhost_addresses = list(
 			return 0
 
 		// Check if the account is too young.
-		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= config.access_deny_new_accounts)
+		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
 			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
@@ -500,12 +500,12 @@ var/list/localhost_addresses = list(
 //DISCONNECT//
 //////////////
 /client/Del()
-	ticket_panels -= src
+	GLOB.ticket_panels -= src
 	if(holder)
 		holder.owner = null
-	staff -= src
-	directory -= ckey
-	clients -= src
+	GLOB.staff -= src
+	GLOB.directory -= ckey
+	GLOB.clients -= src
 	return ..()
 
 
@@ -579,7 +579,7 @@ var/list/localhost_addresses = list(
 		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
 		var/DBQuery/query_update = GLOB.dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = :ip:, computerid = :computerid:, lastadminrank = :lastadminrank:, account_join_date = :account_join_date:, byond_version = :byond_version:, byond_build = :byond_build: WHERE ckey = :ckey:")
 		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
-	else if (!config.access_deny_new_players)
+	else if (!GLOB.config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
 		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
 		query_insert.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
@@ -609,7 +609,7 @@ var/list/localhost_addresses = list(
 /client/proc/send_resources()
 #if (PRELOAD_RSC == 0)
 	var/static/next_external_rsc = 0
-	var/list/external_rsc_urls = config.external_rsc_urls
+	var/list/external_rsc_urls = GLOB.config.external_rsc_urls
 	if(length(external_rsc_urls))
 		next_external_rsc = Wrap(next_external_rsc+1, 1, external_rsc_urls.len+1)
 		preload_rsc = external_rsc_urls[next_external_rsc]
@@ -679,7 +679,7 @@ var/list/localhost_addresses = list(
 	check_linking_requests()
 
 /client/proc/check_linking_requests()
-	if (!config.webint_url || !config.sql_enabled)
+	if (!GLOB.config.webint_url || !GLOB.config.sql_enabled)
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
@@ -716,7 +716,7 @@ var/list/localhost_addresses = list(
 	return
 
 /client/proc/gather_linking_requests()
-	if (!config.webint_url || !config.sql_enabled)
+	if (!GLOB.config.webint_url || !GLOB.config.sql_enabled)
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
@@ -742,7 +742,7 @@ var/list/localhost_addresses = list(
 			if (!webint_validate_attributes(list("mode", "u"), attributes_text = attributes))
 				return
 
-			if (!config.forumurl)
+			if (!GLOB.config.forumurl)
 				return
 
 			linkURL = "[GLOB.config.forumurl]memberlist.php?"
@@ -750,7 +750,7 @@ var/list/localhost_addresses = list(
 			linkURL += attributes
 
 		if ("interface/user/link")
-			if (!config.webint_url)
+			if (!GLOB.config.webint_url)
 				return
 
 			linkURL = "[GLOB.config.webint_url]user/link"
@@ -761,7 +761,7 @@ var/list/localhost_addresses = list(
 			if (!new_attributes)
 				return
 
-			if (!config.webint_url)
+			if (!GLOB.config.webint_url)
 				return
 
 			linkURL = "[GLOB.config.webint_url]login/sso_server?"
@@ -778,7 +778,7 @@ var/list/localhost_addresses = list(
 	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
 	if (GLOB.config.ipintel_email)
 		var/datum/ipintel/res = get_ip_intel(address)
-		if (GLOB.config.ipintel_rating_kick && res.intel >= config.ipintel_rating_kick)
+		if (GLOB.config.ipintel_rating_kick && res.intel >= GLOB.config.ipintel_rating_kick)
 			if (!holder)
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
 				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
@@ -786,7 +786,7 @@ var/list/localhost_addresses = list(
 				del(src)
 			else
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
-		else if (res.intel >= config.ipintel_rating_bad)
+		else if (res.intel >= GLOB.config.ipintel_rating_bad)
 			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
 		ip_intel = res.intel
 

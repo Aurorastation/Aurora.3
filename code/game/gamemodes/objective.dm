@@ -11,19 +11,19 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	var/process = 0						//Does the objective need regular checking?
 
 /datum/objective/New(var/text)
-	all_objectives |= src
+	GLOB.all_objectives |= src
 	if(text)
 		explanation_text = text
 	..()
 
 	if (process)
-		process_objectives |= src
+		GLOB.process_objectives |= src
 
 /datum/objective/Destroy()
-	all_objectives -= src
+	GLOB.all_objectives -= src
 
 	if (process)
-		process_objectives -= src
+		GLOB.process_objectives -= src
 	return ..()
 
 /datum/objective/proc/check_completion()
@@ -516,7 +516,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					if(istype(M, /mob/living/silicon/ai) && M.stat != 2) //See if any AI's are alive inside that card.
 						return 1
 
-			for(var/mob/living/silicon/ai/ai in silicon_mob_list)
+			for(var/mob/living/silicon/ai/ai in GLOB.silicon_mob_list)
 				var/turf/T = get_turf(ai)
 				if(istype(T))
 					var/area/check_area = get_area(ai)
@@ -828,7 +828,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	for(var/datum/mind/cult_mind in cult.current_antagonists)
 		if (cult_mind.current && cult_mind.current.stat!=2)
 			var/area/A = get_area(cult_mind.current )
-			if ( is_type_in_list(A, centcom_areas))
+			if ( is_type_in_list(A, GLOB.centcom_areas))
 				acolytes_survived++
 	if(acolytes_survived >= target_amount)
 		return 0

@@ -11,7 +11,7 @@
 
 /obj/item/device/mmi/digital/posibrain/Initialize()
 	. = ..()
-	var/datum/language/L = all_languages[LANGUAGE_EAL]
+	var/datum/language/L = GLOB.all_languages[LANGUAGE_EAL]
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 

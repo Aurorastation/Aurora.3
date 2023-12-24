@@ -15,7 +15,7 @@
 
 	T.dirt = rand(10, 50) + rand(0, 50)
 	// If a neighbor is dirty, then we get dirtier.
-	var/how_dirty = dirty_neighbors(cardinal_turfs)
+	var/how_dirty = dirty_neighbors(GLOB.cardinal_turfs)
 	for(var/i = 0; i < how_dirty; i++)
 		T.dirt += rand(0,10)
 	T.update_dirt()
@@ -25,7 +25,7 @@
 
 /datum/turf_initializer/dirty/proc/dirty_neighbors(var/list/cardinal_turfs)
 	var/how_dirty
-	for(var/turf/simulated/T in GLOB.cardinal_turfs)
+	for(var/turf/simulated/T in cardinal_turfs)
 		// Considered dirty if more than halfway to visible dirt
 		if(T.dirt > 25)
 			how_dirty++

@@ -449,7 +449,7 @@ There are several things that need to be remembered:
 		// Hair.
 		if(hair_is_visible)
 			var/icon/grad_s = null
-			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 			if(hair_style && (species.type in hair_style.species_allowed))
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
@@ -498,7 +498,7 @@ There are several things that need to be remembered:
 	// Handle light emission.
 	if (species.light_range)
 		if (has_visible_hair)
-			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 			if (hair_style)
 				var/col = species.get_light_color(src) || "#FFFFFF"
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)

@@ -16,7 +16,7 @@
 
 	if(current_map.use_overmap)
 		var/turf/current_turf = get_turf(loc)
-		var/obj/effect/overmap/visitable/my_sector = map_sectors["[current_turf.z]"]
+		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
 		if(my_sector)
 			delivery_sector = my_sector.name
 		else

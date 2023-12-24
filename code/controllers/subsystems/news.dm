@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(news)
 	..()
 
 /datum/controller/subsystem/news/proc/load_from_forums()
-	if (!config.forum_api_path || !global.forum_api_key)
+	if (!GLOB.config.forum_api_path || !global.forum_api_key)
 		LOG_DEBUG("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 

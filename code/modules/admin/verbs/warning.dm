@@ -30,7 +30,7 @@
 
 	var/warned_computerid = null
 	var/warned_ip = null
-	var/client/C = directory[warned_ckey]
+	var/client/C = GLOB.directory[warned_ckey]
 	if (C)
 		warned_computerid = C.computer_id
 		warned_ip = C.address
@@ -66,7 +66,7 @@
 		return
 
 	var/datum/preferences/D
-	var/client/C = directory[warned_ckey]
+	var/client/C = GLOB.directory[warned_ckey]
 	if(C)	D = C.prefs
 	else	D = preferences_datums[warned_ckey]
 
@@ -276,7 +276,7 @@
  * A proc used to gather if someone has Unacknowledged Warnings
  */
 /client/proc/fetch_unacked_warning_count()
-	if (!dbcon)
+	if (!GLOB.dbcon)
 		return
 	if (!establish_db_connection(GLOB.dbcon))
 		return

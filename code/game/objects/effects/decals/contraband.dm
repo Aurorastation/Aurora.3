@@ -20,7 +20,7 @@
 /obj/item/contraband/poster/Initialize(mapload, given_serial = 0)
 	. = ..()
 	if(given_serial == 0)
-		serial_number = rand(1, poster_designs.len)
+		serial_number = rand(1, GLOB.poster_designs.len)
 	else
 		serial_number = given_serial
 	name += " - No. [serial_number]"
@@ -93,7 +93,7 @@
 	. = ..()
 
 	if(!serial)
-		serial = rand(1, poster_designs.len) //use a random serial if none is given
+		serial = rand(1, GLOB.poster_designs.len) //use a random serial if none is given
 
 	serial_number = serial
 
@@ -102,7 +102,7 @@
 		var/path = text2path(poster_type)
 		design = new path
 	else
-		design = poster_designs[serial_number]
+		design = GLOB.poster_designs[serial_number]
 
 	set_poster(design)
 

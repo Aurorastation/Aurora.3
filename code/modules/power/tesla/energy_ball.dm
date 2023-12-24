@@ -127,10 +127,10 @@
 				zMove(DOWN)
 				visible_message(SPAN_DANGER("\The [src] gravitates from above!"))
 
-		if(dir in alldirs)
+		if(dir in GLOB.alldirs)
 			dir = move_dir
 		else
-			dir = pick(alldirs)
+			dir = pick(GLOB.alldirs)
 
 		for(var/mob/living/carbon/C in loc)
 			dust_mobs(C)

@@ -305,7 +305,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 

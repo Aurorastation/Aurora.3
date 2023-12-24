@@ -128,7 +128,7 @@
 	cut_overlays()
 	coredirs = 0
 	dirs = 0
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/turf/T = get_step(loc, direction)
 		for(var/obj/machinery/machine in T)
 			// Detect cores
@@ -171,7 +171,7 @@
 
 //Scans cards for shields or the control unit and if all there it
 /obj/machinery/am_shielding/proc/core_check()
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/found_am_device = FALSE
 		for(var/obj/machinery/machine in get_step(loc, direction))
 			if(!machine)

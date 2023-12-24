@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(records)
 	if(action == "follow")
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/M in human_mob_list)
+			for(var/mob/living/M in GLOB.human_mob_list)
 				if(istype(M) && M.real_name == params["name"])
 					O.ManualFollow(M)
 					break

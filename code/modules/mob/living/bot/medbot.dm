@@ -282,7 +282,7 @@
 		reagent_glass.forceMove(Tsec)
 		reagent_glass = null
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	qdel(src)
 	return

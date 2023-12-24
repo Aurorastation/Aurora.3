@@ -91,7 +91,7 @@
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
-	default_language = all_languages[LANGUAGE_LOCAL_DRONE]
+	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
@@ -107,7 +107,7 @@
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
-	if(!config.allow_drone_spawn)
+	if(!GLOB.config.allow_drone_spawn)
 		to_chat(possessor, SPAN_WARNING("Playing as drones is not currently permitted."))
 		return FALSE
 	if(too_many_active_drones())
@@ -362,7 +362,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
 		if(stat == DEAD)
-			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
@@ -598,4 +598,4 @@
 	for(var/mob/living/silicon/robot/drone/D in GLOB.mob_list)
 		if(D.key && D.client)
 			drones++
-	return drones >= config.max_maint_drones
+	return drones >= GLOB.config.max_maint_drones

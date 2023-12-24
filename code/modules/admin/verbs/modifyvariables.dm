@@ -3,7 +3,7 @@ var/list/VVicon_edit_lock = list("icon", "icon_state", "overlays", "underlays")
 var/list/VVckey_edit = list("key", "ckey")
 
 // The paranoia box. Specify a var name => bitflags required to edit it.
-// Allows the securing of specific variables for, for example, config. That alter
+// Allows the securing of specific variables for, for example, GLOB.config. That alter
 // how players could join! Definitely not something you want folks to touch if they
 // don't have the perms.
 var/list/VVdynamic_lock = list(
@@ -619,11 +619,11 @@ var/list/VVdynamic_lock = list(
 					return
 
 				if((O.vars[variable] == 2) && (var_new < 2))//Bringing the dead back to life
-					dead_mob_list -= O
-					living_mob_list += O
+					GLOB.dead_mob_list -= O
+					GLOB.living_mob_list += O
 				if((O.vars[variable] < 2) && (var_new == 2))//Kill he
-					living_mob_list -= O
-					dead_mob_list += O
+					GLOB.living_mob_list -= O
+					GLOB.dead_mob_list += O
 				O.vars[variable] = var_new
 			else
 				var/var_new =  input("Enter new number:","Num",O.vars[variable]) as null|num

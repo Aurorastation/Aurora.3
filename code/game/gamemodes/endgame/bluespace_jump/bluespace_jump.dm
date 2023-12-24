@@ -100,7 +100,7 @@
 			to_chat(daddy, "<span class='warning'>You feel a bit less real. Which one of you two was original again?..</span>")
 
 /obj/effect/bluegoast/proc/mirror_dir(var/atom/movable/am, var/old_dir, var/new_dir)
-	set_dir(reverse_dir[new_dir])
+	set_dir(GLOB.reverse_dir[new_dir])
 
 /obj/effect/bluegoast/examine()
 	return daddy?.examine(arglist(args))

@@ -189,7 +189,7 @@ Works together with spawning an observer, noted above.
 //Teleports the observer away from z-levels they shouldnt be on, if needed.
 /mob/abstract/observer/proc/teleport_if_needed()
 	//If we dont have a observe restriction we dont need to teleport
-	if(!config.observe_restriction)
+	if(!GLOB.config.observe_restriction)
 		return
 
 	//If we are not on a restricted level we dont need to get rid of them
@@ -235,7 +235,7 @@ Works together with spawning an observer, noted above.
 		ghost.ckey = ckey
 		ghost.initialise_postkey(should_set_timer)
 		if(ghost.client)
-			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
+			if(!ghost.client.holder && !GLOB.config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 				remove_verb(ghost, /mob/abstract/observer/verb/toggle_antagHUD)	// Poor guys, don't know what they are missing!
 			ghost.client.init_verbs()
 		return ghost
@@ -344,7 +344,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!client)
 		return
 	var/aux_staff = check_rights(R_MOD|R_ADMIN, 0)
-	if(!config.antag_hud_allowed && (!client.holder || aux_staff))
+	if(!GLOB.config.antag_hud_allowed && (!client.holder || aux_staff))
 		to_chat(src, "<span class='warning'>Admins have disabled this for this round.</span>")
 		return
 	var/mob/abstract/observer/M = src
@@ -635,7 +635,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return ..()
 
 /mob/abstract/observer/proc/try_possession(var/mob/living/M)
-	if(!config.ghosts_can_possess_animals)
+	if(!GLOB.config.ghosts_can_possess_animals)
 		to_chat(usr, "<span class='warning'>Ghosts are not permitted to possess animals.</span>")
 		return 0
 	if(!M.can_be_possessed_by(src))
@@ -914,7 +914,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/timedifference = world.time- get_death_time(respawn_type)
 		var/respawn_time = 0
 		if (respawn_type == CREW)
-			respawn_time = config.respawn_delay MINUTES
+			respawn_time = GLOB.config.respawn_delay MINUTES
 		else if (respawn_type == ANIMAL)
 			respawn_time = RESPAWN_ANIMAL
 		else if (respawn_type == MINISYNTH)

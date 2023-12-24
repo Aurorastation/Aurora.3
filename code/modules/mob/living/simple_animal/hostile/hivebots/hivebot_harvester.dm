@@ -195,7 +195,7 @@
 				if(do_after(src, 32))
 					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
 					if(C.powernet && C.powernet.avail)
-						spark(src, 3, alldirs)
+						spark(src, 3, GLOB.alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
 					qdel(C)
 				busy = 0
@@ -238,7 +238,7 @@
 	var/turf/T
 
 	if((!last_prospect_target) || (last_prospect_loc != src.loc))
-		destination = pick(cardinal)
+		destination = pick(GLOB.cardinal)
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc

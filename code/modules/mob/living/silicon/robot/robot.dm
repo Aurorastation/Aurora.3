@@ -352,7 +352,7 @@
 
 	var/module_type = robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
-	spark(get_turf(src), 5, alldirs)
+	spark(get_turf(src), 5, GLOB.alldirs)
 
 	new module_type(src, src) // i have no choice but to do this, due to how funky initialize is
 
@@ -1125,7 +1125,7 @@
 
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
-	spark(get_turf(src), 5, alldirs)
+	spark(get_turf(src), 5, GLOB.alldirs)
 	remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 

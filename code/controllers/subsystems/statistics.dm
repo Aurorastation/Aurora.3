@@ -48,8 +48,8 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
 	if(GLOB.config.kick_inactive)
-		var/inactivity_threshold = config.kick_inactive MINUTES
-		for(var/client/C in clients)
+		var/inactivity_threshold = GLOB.config.kick_inactive MINUTES
+		for(var/client/C in GLOB.clients)
 			if(!isobserver(C.mob) && !C.holder)
 				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
@@ -59,7 +59,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 
 	// Handle population polling.
 	if (GLOB.config.sql_enabled && GLOB.config.sql_stats)
-		var/admincount = staff.len
+		var/admincount = GLOB.staff.len
 		var/playercount = 0
 		for(var/mob/M in GLOB.player_list)
 			if(M.client)
@@ -157,7 +157,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 	if(!feedback)
 		return
 
-	if (!config.sql_enabled || !config.sql_stats)
+	if (!GLOB.config.sql_enabled || !GLOB.config.sql_stats)
 		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
@@ -235,7 +235,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 	FV.add_details(details)
 
 /proc/sql_report_death(var/mob/living/H)
-	if(!config.sql_enabled || !config.sql_stats)
+	if(!GLOB.config.sql_enabled || !GLOB.config.sql_stats)
 		return
 	if(!H)
 		return

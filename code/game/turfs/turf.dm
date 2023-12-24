@@ -68,7 +68,7 @@
 		Entered(AM, src)
 
 	if (isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -108,7 +108,7 @@
 	changing_turf = FALSE
 
 	if (isStationLevel(z))
-		station_turfs -= src
+		GLOB.station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()

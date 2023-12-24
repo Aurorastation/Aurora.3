@@ -83,7 +83,7 @@
 		return "This spawner is not enabled."
 	if(respawn_flag && !user.MayRespawn(0,respawn_flag))
 		return "You can not respawn at this time."
-	if(!config.enter_allowed)
+	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
 		return "The station is currently exploding."
@@ -121,7 +121,7 @@
 				return T
 	if(!isnull(landmark_name))
 		var/list/possible_landmarks = list()
-		for(var/obj/effect/landmark/landmark in landmarks_list)
+		for(var/obj/effect/landmark/landmark in GLOB.landmarks_list)
 			if(landmark.name == landmark_name)
 				possible_landmarks += landmark
 		if(length(possible_landmarks))
@@ -173,7 +173,7 @@
 			to_chat(user, SPAN_INFO("Role description: ") + desc)
 	GLOB.universe.OnPlayerLatejoin(user)
 	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
+		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]
 		if(sector?.invisible_until_ghostrole_spawn)
 			sector.x = sector.start_x
 			sector.y = sector.start_y

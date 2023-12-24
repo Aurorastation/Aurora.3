@@ -111,7 +111,7 @@ var/list/forum_groupids_to_ranks = list()
 			var/datum/admins/D = new /datum/admins(rank, rank_object?.rights || 0, ckey)
 
 			//find the client for a ckey if they are connected and associate them with the new admin datum
-			D.associate(directory[ckey])
+			D.associate(GLOB.directory[ckey])
 
 			LOG_DEBUG("AdminRanks: Updated Admins from Legacy System")
 
@@ -120,7 +120,7 @@ var/list/forum_groupids_to_ranks = list()
 		if(!establish_db_connection(GLOB.dbcon))
 			log_world("ERROR: AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
-			config.admin_legacy_system = 1
+			GLOB.config.admin_legacy_system = 1
 			load_admins()
 			return
 
@@ -135,12 +135,12 @@ var/list/forum_groupids_to_ranks = list()
 
 			var/datum/admins/D = new /datum/admins(rank, rights, ckey)
 			//find the client for a ckey if they are connected and associate them with the new admin datum
-			D.associate(directory[ckey])
+			D.associate(GLOB.directory[ckey])
 
 		if(!admin_datums)
 			log_world("ERROR: AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
-			config.admin_legacy_system = 1
+			GLOB.config.admin_legacy_system = 1
 			load_admins()
 			return
 
@@ -157,11 +157,11 @@ var/list/forum_groupids_to_ranks = list()
 /proc/clear_admins()
 	//clear the datums references
 	admin_datums.Cut()
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		C.remove_admin_verbs()
 		C.holder = null
-	staff.Cut()
+	GLOB.staff.Cut()
 
 	// Clears admins from the world config.
 	for (var/A in world.GetConfig("admin"))

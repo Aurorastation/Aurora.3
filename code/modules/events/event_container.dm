@@ -26,7 +26,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	if(!next_event_time)
 		set_event_delay()
 
-	if(delayed || !config.allow_random_events)
+	if(delayed || !GLOB.config.allow_random_events)
 		next_event_time += (world.time - last_world_time)
 	else if(world.time > next_event_time)
 		start_event()
@@ -88,8 +88,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 /datum/event_container/proc/set_event_delay()
 	// If the next event time has not yet been set and we have a custom first time start
 	if(next_event_time == 0 && GLOB.config.event_first_run[severity])
-		var/lower = config.event_first_run[severity]["lower"]
-		var/upper = config.event_first_run[severity]["upper"]
+		var/lower = GLOB.config.event_first_run[severity]["lower"]
+		var/upper = GLOB.config.event_first_run[severity]["upper"]
 		var/event_delay = rand(lower, upper)
 		next_event_time = world.time + event_delay
 	// Otherwise, follow the standard setup process
@@ -108,7 +108,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 				playercount_modifier = 0.8
 		playercount_modifier = playercount_modifier * delay_modifier
 
-		var/event_delay = rand(GLOB.config.event_delay_lower[severity], config.event_delay_upper[severity]) * playercount_modifier
+		var/event_delay = rand(GLOB.config.event_delay_lower[severity], GLOB.config.event_delay_upper[severity]) * playercount_modifier
 		next_event_time = world.time + event_delay
 
 	LOG_DEBUG("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")

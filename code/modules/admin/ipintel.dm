@@ -14,7 +14,7 @@
 	. = FALSE
 	if (intel < 0)
 		return
-	if (intel <= config.ipintel_rating_bad)
+	if (intel <= GLOB.config.ipintel_rating_bad)
 		if (world.realtime < cacherealtime+(GLOB.config.ipintel_save_good*60*60*10))
 			return TRUE
 	else
@@ -25,7 +25,7 @@
 	var/datum/ipintel/res = new()
 	res.ip = ip
 	. = res
-	if (!ip || !config.ipintel_email || !SSipintel.enabled)
+	if (!ip || !GLOB.config.ipintel_email || !SSipintel.enabled)
 		return
 	if (!bypasscache)
 		var/datum/ipintel/cachedintel = SSipintel.cache[ip]

@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(pai)
 		pai_candidates.Add(candidate)
 
 	// Load the data before displaying.
-	if (!config.sql_saves)
+	if (!GLOB.config.sql_saves)
 		candidate.savefile_load(M)
 	else
 		M.client.prefs.load_preferences()

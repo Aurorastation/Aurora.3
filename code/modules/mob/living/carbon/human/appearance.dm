@@ -10,7 +10,7 @@
 	if(species == new_species)
 		return
 
-	if(!(new_species in all_species))
+	if(!(new_species in GLOB.all_species))
 		return
 
 	set_species(new_species)
@@ -163,7 +163,7 @@
 	if(species.bald)
 		return valid_hairstyles
 	for(var/hairstyle in GLOB.hair_styles_list)
-		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+		var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
 
 		if(check_gender && gender == MALE && S.gender == FEMALE)
 			continue

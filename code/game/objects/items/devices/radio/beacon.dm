@@ -11,10 +11,10 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 
 /obj/item/device/radio/beacon/Initialize()
 	. = ..()
-	teleportbeacons += src
+	GLOB.teleportbeacons += src
 
 /obj/item/device/radio/beacon/Destroy()
-	teleportbeacons -= src
+	GLOB.teleportbeacons -= src
 	return ..()
 
 /obj/item/device/radio/beacon/examine(mob/user)

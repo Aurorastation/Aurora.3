@@ -72,7 +72,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
-	restart_timeout = config.restart_timeout
+	restart_timeout = GLOB.config.restart_timeout
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
@@ -133,9 +133,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (GLOB.round_progressing)
 		pregame_timeleft--
 
-	total_players = length(player_list)
+	total_players = length(GLOB.player_list)
 
-	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
+	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == GLOB.config.vote_autogamemode_timeleft)
 		if (!SSvote.time_remaining)
 			SSvote.autogamemode()
 			pregame_timeleft--
@@ -203,7 +203,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			var/delay_notified = 0
 			do
 				wait_for_tickets = 0
-				for(var/datum/ticket/ticket in tickets)
+				for(var/datum/ticket/ticket in GLOB.tickets)
 					if(ticket.is_active())
 						wait_for_tickets = 1
 						break
@@ -400,8 +400,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(tip_override)
 		message = tip_override
 	else
-		var/chosen_tip_category = pick(tips_by_category)
-		var/datum/tip/tip_datum = tips_by_category[chosen_tip_category]
+		var/chosen_tip_category = pick(GLOB.tips_by_category)
+		var/datum/tip/tip_datum = GLOB.tips_by_category[chosen_tip_category]
 		message = pick(tip_datum.messages)
 
 	if(message)
@@ -425,11 +425,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
-		total_players = length(player_list)
+		total_players = length(GLOB.player_list)
 		LAZYINITLIST(ready_player_jobs)
 
-		if (dynamic_time <= config.vote_autogamemode_timeleft)
-			pregame_timeleft = config.vote_autogamemode_timeleft + 10
+		if (dynamic_time <= GLOB.config.vote_autogamemode_timeleft)
+			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 10
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
@@ -482,32 +482,32 @@ var/datum/controller/subsystem/ticker/SSticker
 	else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
-	var/list/runnable_modes = config.get_runnable_modes(GLOB.master_mode)
+	var/list/runnable_modes = GLOB.config.get_runnable_modes(GLOB.master_mode)
 	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
 			return SETUP_REVOTE
 		if(GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
-			src.mode = config.pick_mode(GLOB.secret_force_mode)
+			src.mode = GLOB.config.pick_mode(GLOB.secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
 			var/list/probabilities = list()
 
 			if (GLOB.master_mode == ROUNDTYPE_STR_SECRET)
-				probabilities = config.probabilities_secret
+				probabilities = GLOB.config.probabilities_secret
 			else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
-				probabilities = config.probabilities_mixed_secret
+				probabilities = GLOB.config.probabilities_mixed_secret
 			else
 				// GLOB.master_mode == ROUNDTYPE_STR_RANDOM
-				probabilities = config.probabilities_secret.Copy()
-				probabilities |= config.probabilities_mixed_secret
+				probabilities = GLOB.config.probabilities_secret.Copy()
+				probabilities |= GLOB.config.probabilities_mixed_secret
 
 			for(var/datum/game_mode/GM in runnable_modes)
 				weighted_modes[GM.config_tag] = probabilities[GM.config_tag]
-			src.mode = gamemode_cache[pickweight(weighted_modes)]
+			src.mode = GLOB.gamemode_cache[pickweight(weighted_modes)]
 	else
-		src.mode = config.pick_mode(GLOB.master_mode)
+		src.mode = GLOB.config.pick_mode(GLOB.master_mode)
 
 	if(!src.mode)
 		current_state = GAME_STATE_PREGAME
@@ -589,7 +589,7 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/roundstart()
 	mode.post_setup()
 	//Cleanup some stuff
-	for(var/obj/effect/landmark/start/S in landmarks_list)
+	for(var/obj/effect/landmark/start/S in GLOB.landmarks_list)
 		//Deleting Startpoints but we need the ai point to AI-ize people later
 		if (S.name != "AI")
 			qdel(S)
@@ -635,12 +635,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/obj/structure/bed/temp_buckle = new
 	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 	if(station_missed)
-		for(var/mob/living/M in living_mob_list)
+		for(var/mob/living/M in GLOB.living_mob_list)
 			M.buckled_to = temp_buckle				//buckles the mob so it can't do anything
 			if(M.client)
 				M.client.screen += cinematic	//show every client the cinematic
 	else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
-		for(var/mob/living/M in living_mob_list)
+		for(var/mob/living/M in GLOB.living_mob_list)
 			M.buckled_to = temp_buckle
 			if(M.client)
 				M.client.screen += cinematic

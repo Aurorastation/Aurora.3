@@ -13,7 +13,7 @@
 	S["OOC_Notes"]  >> pref.metadata
 	S["floating_chat_color"] >> pref.floating_chat_color
 	S["speech_bubble_type"] >> pref.speech_bubble_type
-	if(istype(all_species[pref.species], /datum/species/machine))
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
 		S["ipc_ownership_status"] >> pref.machine_ownership_status
@@ -29,7 +29,7 @@
 	S["OOC_Notes"]  << pref.metadata
 	S["floating_chat_color"] << pref.floating_chat_color
 	S["speech_bubble_type"] << pref.speech_bubble_type
-	if(istype(all_species[pref.species], /datum/species/machine))
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
 		S["ipc_ownership_status"] << pref.machine_ownership_status
@@ -140,8 +140,8 @@
 	if(!pref.species)
 		pref.species = SPECIES_HUMAN
 	var/is_in_playable_species = FALSE
-	for(var/thing in playable_species)
-		if(pref.species in playable_species[thing])
+	for(var/thing in GLOB.playable_species)
+		if(pref.species in GLOB.playable_species[thing])
 			is_in_playable_species = TRUE
 	if(!is_in_playable_species)
 		pref.species = SPECIES_HUMAN

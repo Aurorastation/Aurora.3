@@ -293,7 +293,7 @@ var/list/admin_departments
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		var/flags = C.holder.rights & (R_ADMIN|R_CCIAA)
 		if(flags)

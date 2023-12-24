@@ -58,8 +58,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 					ready_special_roles[special_role] += 1
 
 			//Get the list of all antagonist types, if they require more than one person to spawn, check that there's at least one candidate and if so list the number of candidates for it
-			for(var/antag_type in all_antag_types)
-				var/datum/antagonist/possible_antag_type = all_antag_types[antag_type]
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/possible_antag_type = GLOB.all_antag_types[antag_type]
 
 				if(possible_antag_type.initial_spawn_req > 1)
 					if(ready_special_roles[possible_antag_type.role_type])
@@ -135,7 +135,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(href_list["SelectedJob"])
 
-		if(!config.enter_allowed)
+		if(!GLOB.config.enter_allowed)
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
@@ -259,7 +259,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
 		return 0
-	if(!config.enter_allowed)
+	if(!GLOB.config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
 	if(GLOB.config.sql_saves && !client.prefs.current_character)
@@ -364,9 +364,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_character.lastarea = get_area(loc)
 
 	for(var/lang in client.prefs.alternate_languages)
-		var/datum/language/chosen_language = all_languages[lang]
+		var/datum/language/chosen_language = GLOB.all_languages[lang]
 		if(chosen_language)
-			if(!config.usealienwhitelist || !(chosen_language.flags & WHITELISTED) || is_alien_whitelisted(src, lang) || has_admin_rights() \
+			if(!GLOB.config.usealienwhitelist || !(chosen_language.flags & WHITELISTED) || is_alien_whitelisted(src, lang) || has_admin_rights() \
 				|| (new_character.species && (chosen_language.name in new_character.species.secondary_langs)))
 				new_character.add_language(lang)
 
@@ -425,7 +425,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/proc/is_species_whitelisted(datum/species/S)
 	if(!S) return 1
-	return is_alien_whitelisted(src, S.name) || !config.usealienwhitelist || !(S.spawn_flags & IS_WHITELISTED)
+	return is_alien_whitelisted(src, S.name) || !GLOB.config.usealienwhitelist || !(S.spawn_flags & IS_WHITELISTED)
 
 /mob/abstract/new_player/get_species(var/reference = 0)
 	var/datum/species/chosen_species

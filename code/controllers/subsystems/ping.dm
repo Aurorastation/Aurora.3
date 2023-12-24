@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(ping)
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/ping/stat_entry(msg)
-	msg = "P:[clients.len]"
+	msg = "P:[GLOB.clients.len]"
 	return ..()
 
 /datum/controller/subsystem/ping/fire(resumed = FALSE)

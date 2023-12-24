@@ -44,7 +44,7 @@
 
 	// Use this to look for cameras that have the same c_tag.
 	if(!isnull(src.c_tag))
-		for(var/obj/machinery/camera/C in cameranet.cameras)
+		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			var/list/tempnetwork = C.network&src.network
 			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
 				log_mapping_error("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
@@ -191,7 +191,7 @@
 			itemname = X.name
 			info = X.info
 		to_chat(U, "You hold \a [itemname] up to the camera ...")
-		for(var/mob/living/silicon/ai/O in living_mob_list)
+		for(var/mob/living/silicon/ai/O in GLOB.living_mob_list)
 			var/entry = O.addCameraRecord(itemname,info)
 			if(!O.client) continue
 			if(U.name == "Unknown")

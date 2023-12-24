@@ -500,7 +500,7 @@
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()
 		if(deep_scan_toggled)

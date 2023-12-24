@@ -200,7 +200,7 @@
 					healths.icon_state = "health3"
 				else if(health >= 0)
 					healths.icon_state = "health4"
-				else if(health >= config.health_threshold_dead)
+				else if(health >= GLOB.config.health_threshold_dead)
 					healths.icon_state = "health5"
 				else
 					healths.icon_state = "health6"

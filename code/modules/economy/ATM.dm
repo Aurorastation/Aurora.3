@@ -74,7 +74,7 @@
 
 	//short out the machine, shoot sparks, spew money!
 	emagged = 1
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	spawn_money(rand(2000,5000),src.loc)
 	//we don't want to grief people by locking their id in an emagged ATM
 	release_held_id(user)

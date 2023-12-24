@@ -237,7 +237,7 @@
 		H.client && H.stat == CONSCIOUS)
 			mob_list += H
 
-	if(!LAZYLEN(mob_list))
+	if(!LAZYLEN(GLOB.mob_list))
 		to_chat(src, span("warning", "There are no valid hosts to bond to."))
 		return FALSE
 

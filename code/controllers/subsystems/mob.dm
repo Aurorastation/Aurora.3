@@ -58,19 +58,19 @@ SUBSYSTEM_DEF(mobs)
 	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
 /datum/controller/subsystem/mobs/stat_entry(msg)
-	msg = "P:[mob_list.len]"
+	msg = "P:[GLOB.mob_list.len]"
 	return ..()
 
 /datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)
-		src.currentrun = mob_list.Copy()
+		src.currentrun = GLOB.mob_list.Copy()
 		src.currentrun += processing.Copy()
 
 	//Mobs might have been removed between the previous and a resumed fire, yet we want to maintain the priority to process
 	//the mobs that we didn't in the previous run, hence we have to pay the price of a list subtraction
 	//with &= we say to remove any item in the first list that is not in the second one
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
-	var/list/currentrun = resumed ? (src.currentrun &= mob_list) : src.currentrun
+	var/list/currentrun = resumed ? (src.currentrun &= GLOB.mob_list) : src.currentrun
 
 	while (currentrun.len)
 		var/datum/thing = currentrun[currentrun.len]
@@ -90,9 +90,9 @@ SUBSYSTEM_DEF(mobs)
 		if (QDELETED(M))
 			LOG_DEBUG("SSmobs: QDELETED mob [DEBUG_REF(M)] left in processing list!")
 			// We can just go ahead and remove them from all the mob lists.
-			mob_list -= M
-			dead_mob_list -= M
-			living_mob_list -= M
+			GLOB.mob_list -= M
+			GLOB.dead_mob_list -= M
+			GLOB.living_mob_list -= M
 
 			if (MC_TICK_CHECK)
 				return

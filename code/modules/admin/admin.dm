@@ -6,14 +6,14 @@ var/global/enabled_spooking = 0
 ////////////////////////////////
 /proc/message_admins(var/msg)
 	msg = "<span class=\"log_message\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			to_chat(C, msg)
 
 /proc/message_cciaa(var/msg)
 	msg = "<span class=\"log_message\"><span class=\"prefix\">CCIA LOG:</span> <span class=\"message\">[msg]</span></span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(R_CCIAA & C.holder.rights)
 			to_chat(C, msg)
@@ -21,7 +21,7 @@ var/global/enabled_spooking = 0
 /proc/msg_admin_attack(var/text,var/ckey="",var/ckey_target="") //Toggleable Attack Messages
 	log_attack(text,ckey=ckey,ckey_target=ckey_target)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			if(C.prefs.toggles & CHAT_ATTACKLOGS)
@@ -206,8 +206,8 @@ var/global/enabled_spooking = 0
 	// language toggles
 	body += "<br><br><b>Languages:</b><br>"
 	var/f = 1
-	for(var/k in all_languages)
-		var/datum/language/L = all_languages[k]
+	for(var/k in GLOB.all_languages)
+		var/datum/language/L = GLOB.all_languages[k]
 		if(!(L.flags & INNATE))
 			if(!f) body += " | "
 			else f = 0
@@ -307,7 +307,7 @@ var/global/enabled_spooking = 0
 		dat += "<body>"
 
 		var/p_age = "unknown"
-		for(var/client/C in clients)
+		for(var/client/C in GLOB.clients)
 			if(C.ckey == key)
 				p_age = C.player_age
 				break
@@ -713,7 +713,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.ooc_allowed = !(GLOB.config.ooc_allowed)
+	GLOB.config.ooc_allowed = !(GLOB.config.ooc_allowed)
 	if (GLOB.config.ooc_allowed)
 		to_world("<B>The OOC channel has been globally enabled!</B>")
 	else
@@ -729,7 +729,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.looc_allowed = !(GLOB.config.looc_allowed)
+	GLOB.config.looc_allowed = !(GLOB.config.looc_allowed)
 	if (GLOB.config.looc_allowed)
 		to_world("<B>The LOOC channel has been globally enabled!</B>")
 	else
@@ -746,7 +746,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.dsay_allowed = !(GLOB.config.dsay_allowed)
+	GLOB.config.dsay_allowed = !(GLOB.config.dsay_allowed)
 	if (GLOB.config.dsay_allowed)
 		to_world("<B>Deadchat has been globally enabled!</B>")
 	else
@@ -763,7 +763,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_ADMIN))
 		return
 
-	config.dooc_allowed = !( config.dooc_allowed )
+	GLOB.config.dooc_allowed = !( GLOB.config.dooc_allowed )
 	log_and_message_admins("toggled dead (global) OOC. (New state: [GLOB.config.dooc_allowed])")
 	feedback_add_details("admin_verb","TDOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -775,7 +775,7 @@ var/global/enabled_spooking = 0
 	if (!check_rights(R_ADMIN))
 		return
 
-	config.dead_looc_allowed = !config.dead_looc_allowed
+	GLOB.config.dead_looc_allowed = !GLOB.config.dead_looc_allowed
 	log_and_message_admins("toggled dead LOOC. (New state: [GLOB.config.dead_looc_allowed])")
 
 /datum/admins/proc/togglehubvisibility()
@@ -799,7 +799,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Toggle traitor scaling"
 	set name="Toggle Traitor Scaling"
-	config.traitor_scaling = !config.traitor_scaling
+	GLOB.config.traitor_scaling = !GLOB.config.traitor_scaling
 	log_admin("[key_name(usr)] toggled Traitor Scaling to [GLOB.config.traitor_scaling].")
 	message_admins("[key_name_admin(usr)] toggled Traitor Scaling [GLOB.config.traitor_scaling ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","TTS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -825,7 +825,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="People can't enter"
 	set name="Toggle Entering"
-	config.enter_allowed = !(GLOB.config.enter_allowed)
+	GLOB.config.enter_allowed = !(GLOB.config.enter_allowed)
 	if (!(GLOB.config.enter_allowed))
 		to_world("<B>New players may no longer enter the game.</B>")
 	else
@@ -839,8 +839,8 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="People can't be AI"
 	set name="Toggle AI"
-	config.allow_ai = !( config.allow_ai )
-	if (!( config.allow_ai ))
+	GLOB.config.allow_ai = !( GLOB.config.allow_ai )
+	if (!( GLOB.config.allow_ai ))
 		to_world("<B>The AI job is no longer chooseable.</B>")
 	else
 		to_world("<B>The AI job is chooseable now.</B>")
@@ -852,7 +852,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
-	config.abandon_allowed = !(GLOB.config.abandon_allowed)
+	GLOB.config.abandon_allowed = !(GLOB.config.abandon_allowed)
 	if(GLOB.config.abandon_allowed)
 		to_world("<B>You may now respawn.</B>")
 	else
@@ -866,7 +866,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Toggle space ninjas spawning."
 	set name="Toggle Space Ninjas"
-	config.ninjas_allowed = !config.ninjas_allowed
+	GLOB.config.ninjas_allowed = !GLOB.config.ninjas_allowed
 	log_admin("[key_name(usr)] toggled Space Ninjas to [GLOB.config.ninjas_allowed].")
 	message_admins("[key_name_admin(usr)] toggled Space Ninjas [GLOB.config.ninjas_allowed ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","TSN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -895,7 +895,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Toggle admin jumping"
 	set name="Toggle Jump"
-	config.allow_admin_jump = !(GLOB.config.allow_admin_jump)
+	GLOB.config.allow_admin_jump = !(GLOB.config.allow_admin_jump)
 	message_admins("<span class='notice'>Toggled admin jumping to [GLOB.config.allow_admin_jump].</span>")
 	feedback_add_details("admin_verb","TJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -903,7 +903,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Toggle admin spawning"
 	set name="Toggle Spawn"
-	config.allow_admin_spawning = !(GLOB.config.allow_admin_spawning)
+	GLOB.config.allow_admin_spawning = !(GLOB.config.allow_admin_spawning)
 	message_admins("<span class='notice'>Toggled admin item spawning to [GLOB.config.allow_admin_spawning].</span>")
 	feedback_add_details("admin_verb","TAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -911,7 +911,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Toggle admin revives"
 	set name="Toggle Revive"
-	config.allow_admin_rev = !(GLOB.config.allow_admin_rev)
+	GLOB.config.allow_admin_rev = !(GLOB.config.allow_admin_rev)
 	message_admins("<span class='notice'>Toggled reviving to [GLOB.config.allow_admin_rev].</span>")
 	feedback_add_details("admin_verb","TAR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -1139,7 +1139,7 @@ var/global/enabled_spooking = 0
 	set category = "Debug"
 	set desc="Reduces view range when wearing welding helmets"
 	set name="Toggle tinted welding helmets."
-	config.welder_vision = !( config.welder_vision )
+	GLOB.config.welder_vision = !( GLOB.config.welder_vision )
 	if (GLOB.config.welder_vision)
 		to_world("<B>Reduced welder vision has been enabled!</B>")
 	else
@@ -1152,7 +1152,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Guests can't enter"
 	set name="Toggle guests"
-	config.guests_allowed = !(GLOB.config.guests_allowed)
+	GLOB.config.guests_allowed = !(GLOB.config.guests_allowed)
 	if (!(GLOB.config.guests_allowed))
 		to_world("<B>Guests may no longer enter the game.</B>")
 	else
@@ -1277,12 +1277,12 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Mode has not started.")
 		return
 
-	var/antag_type = tgui_input_list(usr, "Choose a template.", "Force Latespawn", all_antag_types)
-	if(!antag_type || !all_antag_types[antag_type])
+	var/antag_type = tgui_input_list(usr, "Choose a template.", "Force Latespawn", GLOB.all_antag_types)
+	if(!antag_type || !GLOB.all_antag_types[antag_type])
 		to_chat(usr, "Aborting.")
 		return
 
-	var/datum/antagonist/antag = all_antag_types[antag_type]
+	var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 	message_admins("[key_name(usr)] attempting to force latespawn with template [antag.id].")
 	antag.attempt_auto_spawn()
 

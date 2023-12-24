@@ -13,9 +13,9 @@ SUBSYSTEM_DEF(fail2topic)
 	var/enabled = FALSE
 
 /datum/controller/subsystem/fail2topic/Initialize(timeofday)
-	rate_limit = config.fail2topic_rate_limit
-	max_fails = config.fail2topic_max_fails
-	enabled = config.fail2topic_enabled
+	rate_limit = GLOB.config.fail2topic_rate_limit
+	max_fails = GLOB.config.fail2topic_max_fails
+	enabled = GLOB.config.fail2topic_enabled
 
 	DropFirewallRule() // Clear the old bans if any still remain
 

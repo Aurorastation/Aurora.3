@@ -965,7 +965,7 @@
 
 /datum/chemical_reaction/flash_powder/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
-	spark(location, 2, alldirs)
+	spark(location, 2, GLOB.alldirs)
 	for(var/mob/living/M in viewers(world.view, location))
 		if(!M.flash_act())
 			continue

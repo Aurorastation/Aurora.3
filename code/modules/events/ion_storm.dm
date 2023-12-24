@@ -62,7 +62,7 @@
 		if(isStationLevel(p_loc.z)) //Only choose those who are on station. Should stop from selecting ghost roles.
 			players += player.real_name
 
-	for(var/mob/living/silicon/ai/target in silicon_mob_list)
+	for(var/mob/living/silicon/ai/target in GLOB.silicon_mob_list)
 		var/random_player = "The Captain"
 		if(length(players))
 			random_player = pick(players)		//Random player's name, to be used in laws.

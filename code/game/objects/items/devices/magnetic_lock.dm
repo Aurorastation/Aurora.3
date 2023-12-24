@@ -291,7 +291,7 @@
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in alldirs) && !(direction in GLOB.cardinal))
+		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinal))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
@@ -435,7 +435,7 @@
 		return
 
 	if (prob(50))
-		spark(target ? target : src, 5, alldirs)
+		spark(target ? target : src, 5, GLOB.alldirs)
 
 /obj/item/device/magnetic_lock/keypad
 	name = "magnetic door lock"

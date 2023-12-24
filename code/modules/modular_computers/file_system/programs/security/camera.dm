@@ -101,7 +101,7 @@
 
 	switch(action)
 		if("switch_camera")
-			var/obj/machinery/camera/C = locate(params["switch_camera"]) in cameranet.cameras
+			var/obj/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
 			if(!C)
 				return
 			if(!(current_network in C.network))

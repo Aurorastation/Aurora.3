@@ -25,10 +25,10 @@
 	msg = sanitize(msg)
 
 	if(!holder)
-		if(!config.ooc_allowed)
+		if(!GLOB.config.ooc_allowed)
 			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
 			return
-		if(!config.dooc_allowed && (mob.stat == DEAD))
+		if(!GLOB.config.dooc_allowed && (mob.stat == DEAD))
 			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
@@ -53,7 +53,7 @@
 
 	msg = process_chat_markup(msg, list("*"))
 
-	for(var/client/target in clients)
+	for(var/client/target in GLOB.clients)
 		if(target.prefs.toggles & CHAT_OOC)
 			var/display_name = src.key
 			if(holder)
@@ -96,10 +96,10 @@
 		return
 
 	if(!holder)
-		if(!config.looc_allowed)
+		if(!GLOB.config.looc_allowed)
 			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
 			return
-		if(!config.dead_looc_allowed && (mob.stat == DEAD))
+		if(!GLOB.config.dead_looc_allowed && (mob.stat == DEAD))
 			to_chat(usr, "<span class='danger'>LOOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
@@ -144,7 +144,7 @@
 
 	var/prefix
 	var/admin_stuff
-	for(var/client/target in clients)
+	for(var/client/target in GLOB.clients)
 		if(target.prefs.toggles & CHAT_LOOC)
 			if(mob.stat == DEAD && !(target.prefs.toggles & CHAT_GHOSTLOOC))
 				continue

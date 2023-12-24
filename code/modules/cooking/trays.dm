@@ -177,7 +177,7 @@
 
 	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
-		I.throw_at(get_edge_target_turf(src, pick(alldirs)), rand(0, 2), 10)
+		I.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(0, 2), 10)
 	if (user)
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else

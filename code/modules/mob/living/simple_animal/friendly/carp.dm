@@ -79,7 +79,7 @@
 /mob/living/simple_animal/carp/fluff/proc/handle_movement_target()
 	if(!QDELETED(friend))
 		var/follow_dist = 5
-		if(friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit) //danger
+		if(friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit) //danger
 			follow_dist = 1
 		else if(friend.stat || friend.health <= 50) //danger or just sleeping
 			follow_dist = 2

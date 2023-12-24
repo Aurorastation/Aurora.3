@@ -322,10 +322,10 @@
 
 /obj/structure/closet/secure_closet/brig/Initialize()
 	. = ..()
-	brig_closets += src
+	GLOB.brig_closets += src
 
 /obj/structure/closet/secure_closet/brig/Destroy()
-	brig_closets -= src
+	GLOB.brig_closets -= src
 	return ..()
 
 /obj/structure/closet/secure_closet/brig/fill()

@@ -10,7 +10,7 @@
 
 	if (GLOB.config.api_rate_limit_whitelist.len)
 		// To make the api_rate_limit_whitelist[addr] grabs actually work.
-		for (var/addr in config.api_rate_limit_whitelist)
+		for (var/addr in GLOB.config.api_rate_limit_whitelist)
 			config.api_rate_limit_whitelist[addr] = 1
 
 	return 1

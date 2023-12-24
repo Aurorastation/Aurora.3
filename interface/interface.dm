@@ -23,7 +23,7 @@
 	if( config.forumurl )
 		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		send_link(src, config.forumurl)
+		send_link(src, GLOB.config.forumurl)
 	else
 		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 	return
@@ -35,7 +35,7 @@
 	if( config.githuburl )
 		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		send_link(src, config.githuburl + "/issues")
+		send_link(src, GLOB.config.githuburl + "/issues")
 	else
 		to_chat(src, SPAN_WARNING("The issue tracker URL is not set in the server configuration."))
 	return
@@ -181,7 +181,7 @@ Any-Mode: (hotkey doesn't need to be on)
 	if (GLOB.config.webint_url)
 		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
 			return
-		send_link(src, config.webint_url)
+		send_link(src, GLOB.config.webint_url)
 	else
 		to_chat(src, SPAN_WARNING("The web interface URL is not set in the server configuration."))
 	return

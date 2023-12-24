@@ -267,7 +267,7 @@
 	if (smooth_underlays)
 		var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
-		for(var/direction in alldirs)
+		for(var/direction in GLOB.alldirs)
 			if(adjacencies & direction)
 				var/turf/T = get_step(src, direction)
 				if(T)

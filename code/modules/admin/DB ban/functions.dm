@@ -80,7 +80,7 @@
 		a_ip = world.address
 
 	var/who
-	for(var/c in clients)
+	for(var/c in GLOB.clients)
 		var/client/C = c
 		if(!who)
 			who = "[C]"
@@ -88,7 +88,7 @@
 			who += ", [C]"
 
 	var/adminwho
-	for(var/c in staff)
+	for(var/c in GLOB.staff)
 		var/client/C = c
 		if(!adminwho)
 			adminwho = "[C]"
@@ -336,8 +336,8 @@
 	for(var/j in nonhuman_positions)
 		output += "<option value='[j]'>[j]</option>"
 	var/list/bantypes = list("traitor","changeling","vampire","operative","revolutionary","cultist","wizard") //For legacy bans.
-	for(var/antag_type in all_antag_types) // Grab other bans.
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types) // Grab other bans.
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		bantypes |= antag.bantype
 	for(var/j in bantypes)
 		output += "<option value='[j]'>[j]</option>"

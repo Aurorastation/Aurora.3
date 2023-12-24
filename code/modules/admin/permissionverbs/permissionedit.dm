@@ -37,7 +37,7 @@
 		admins += list(d)
 
 	data["admins"] = admins
-	data["forumuserui_enabled"] = config.use_forumuser_api
+	data["forumuserui_enabled"] = GLOB.config.use_forumuser_api
 
 	return data
 
@@ -118,7 +118,7 @@
 	else
 		D = new /datum/admins(new_rank, rights, admin_ckey)
 
-	var/client/C = directory[admin_ckey]						//find the client with the specified ckey (if they are logged in)
+	var/client/C = GLOB.directory[admin_ckey]						//find the client with the specified ckey (if they are logged in)
 	D.associate(C)											//link up with the client and add verbs
 
 	log_and_message_admins("edited the admin rank of [admin_ckey] to [new_rank]")

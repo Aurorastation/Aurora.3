@@ -287,7 +287,7 @@ var/list/preferences_datums = list()
 	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
 	var/index = 0
-	for(var/D in global.cardinal)
+	for(var/D in GLOB.cardinal)
 		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new
@@ -329,7 +329,7 @@ var/list/preferences_datums = list()
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(GLOB.config.forumurl)
-			send_link(user, config.forumurl)
+			send_link(user, GLOB.config.forumurl)
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
@@ -367,7 +367,7 @@ var/list/preferences_datums = list()
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
 	else if(href_list["delete"])
-		if (!config.sql_saves)
+		if (!GLOB.config.sql_saves)
 			return 0
 		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
 			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
@@ -557,7 +557,7 @@ var/list/preferences_datums = list()
 	if(S)
 		dat += "<b>Select a character slot to load</b><hr>"
 		var/name
-		for(var/i=1, i<= config.character_slots, i++)
+		for(var/i=1, i<= GLOB.config.character_slots, i++)
 			S.cd = "/character[i]"
 			S["real_name"] >> name
 			if(!name)	name = "Character[i]"
@@ -577,7 +577,7 @@ var/list/preferences_datums = list()
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
-	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(GLOB.dbcon) || !H)
+	if (!GLOB.config.sql_saves || !GLOB.config.sql_stats || !establish_db_connection(GLOB.dbcon) || !H)
 		return
 
 	if(!H.mind.assigned_role)
@@ -695,6 +695,6 @@ var/list/preferences_datums = list()
 
 /datum/preferences/proc/get_species_datum()
 	if (species)
-		return all_species[species]
+		return GLOB.all_species[species]
 
 	return null

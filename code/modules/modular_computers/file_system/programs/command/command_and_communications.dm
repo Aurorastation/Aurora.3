@@ -332,7 +332,7 @@ Command action procs
 		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please try again later."))
 		return FALSE
 
-	if(world.time < config.time_to_call_emergency_shuttle)
+	if(world.time < GLOB.config.time_to_call_emergency_shuttle)
 		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((GLOB.config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
 		return FALSE
 

@@ -26,12 +26,12 @@
 
 /obj/item/cloaking_device/New()
 	..()
-	cloaking_devices += src
+	GLOB.cloaking_devices += src
 	cell = new /obj/item/cell/high(src)
 
 /obj/item/cloaking_device/Destroy()
 	. = ..()
-	cloaking_devices -= src
+	GLOB.cloaking_devices -= src
 
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()

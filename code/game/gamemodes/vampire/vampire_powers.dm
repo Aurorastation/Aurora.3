@@ -300,7 +300,7 @@
 
 	var/list/locs = list()
 
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/turf/T = get_step(get_turf(src), direction)
 		if(T || !T.density || !T.contains_dense_objects())
 			locs += T

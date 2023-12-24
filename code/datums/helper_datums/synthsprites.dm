@@ -49,7 +49,7 @@ paiicon is the pai icon sprite name
 		robot_custom_icons[synthsprite] = synth
 
 /proc/loadsynths_from_sql()
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		LOG_DEBUG("Synthsprites: SQL Disabled - Falling back to JSON")
 		loadsynths_from_json()
 		return

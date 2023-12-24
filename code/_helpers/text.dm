@@ -470,7 +470,7 @@
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.
 /proc/process_chat_markup(var/message, var/list/ignore_tags = list())
-	if (!config.allow_chat_markup)
+	if (!GLOB.config.allow_chat_markup)
 		return message
 
 	if (!message)
@@ -489,7 +489,7 @@
 
 	var/regex/tag_markup
 	for (var/tag in (markup_tags - ignore_tags))
-		tag_markup = markup_regex[tag]
+		tag_markup = GLOB.markup_regex[tag]
 		message = tag_markup.Replace_char(message, "$2[markup_tags[tag][1]]$3[markup_tags[tag][2]]$5")
 
 	// ---Unload URL cache
@@ -770,7 +770,7 @@
 /proc/formalize_text(var/string)
 	string = capitalize(string)
 	var/ending = copytext(string, length(string), (length(string) + 1))
-	if(ending && !correct_punctuation[ending])
+	if(ending && !GLOB.correct_punctuation[ending])
 		string += "."
 	return string
 

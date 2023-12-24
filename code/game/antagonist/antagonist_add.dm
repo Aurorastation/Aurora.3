@@ -84,7 +84,7 @@
 
 
 /datum/antagonist/proc/log_antagonist_add(var/datum/mind/player)
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		return
 
 	if(!establish_db_connection(GLOB.dbcon))
@@ -111,7 +111,7 @@
 	return
 
 /datum/antagonist/proc/log_antagonist_remove(var/datum/mind/player)
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		return
 
 	if(!establish_db_connection(GLOB.dbcon))

@@ -19,10 +19,10 @@ GLOBAL_LIST_EMPTY(narsie_list)
 
 /obj/singularity/narsie/New()
 	..()
-	narsie_list.Add(src)
+	GLOB.narsie_list.Add(src)
 
 /obj/singularity/narsie/Destroy()
-	narsie_list.Remove(src)
+	GLOB.narsie_list.Remove(src)
 	return ..()
 
 /obj/singularity/narsie/large
@@ -106,7 +106,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	if(!move_self)
 		return 0
 
-	var/movement_dir = pick(alldirs - last_failed_movement)
+	var/movement_dir = pick(GLOB.alldirs - last_failed_movement)
 
 	if(force_move)
 		movement_dir = force_move
@@ -132,7 +132,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	if(!move_self)
 		return 0
 
-	var/movement_dir = pick(alldirs - last_failed_movement)
+	var/movement_dir = pick(GLOB.alldirs - last_failed_movement)
 
 	if(force_move)
 		movement_dir = force_move
@@ -316,7 +316,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 		acquire(pick(cultists))
 		return
 		//If there was living cultists, it picks one to follow.
-	for(var/mob/living/carbon/human/food in living_mob_list)
+	for(var/mob/living/carbon/human/food in GLOB.living_mob_list)
 		if(food.stat)
 			continue
 		var/turf/pos = get_turf(food)

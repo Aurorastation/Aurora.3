@@ -483,7 +483,7 @@
 	if (!job)
 		return
 	var/choices = list(job.title) + job.alt_titles
-	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
+	if((GLOB.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
 		if (src.age >= (job.get_alt_character_age(species, t) || job.get_minimum_character_age(species)))

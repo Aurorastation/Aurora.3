@@ -63,7 +63,7 @@ var/list/asset_datums = list()
 
 /// Returns whether or not the asset should attempt to read from cache
 /datum/asset/proc/should_refresh()
-	return !cross_round_cachable || !config.cache_assets
+	return !cross_round_cachable || !GLOB.config.cache_assets
 
 //If you don't need anything complicated.
 /datum/asset/simple

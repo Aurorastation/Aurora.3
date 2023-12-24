@@ -263,7 +263,7 @@
 				new_shell.add_language(LANGUAGE_EAL)
 				var/newname = sanitizeSafe(input(new_shell, "Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname)
-					var/datum/language/L = all_languages[new_shell.species.default_language]
+					var/datum/language/L = GLOB.all_languages[new_shell.species.default_language]
 					newname = L.get_random_name()
 				new_shell.real_name = newname
 				new_shell.name = new_shell.real_name

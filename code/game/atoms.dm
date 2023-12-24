@@ -603,7 +603,7 @@
 	clean_blood()
 	R.reagents.splash(src, 1)
 
-/atom/proc/get_GLOB.global_map_pos()
+/atom/proc/get_global_map_pos()
 	if(!islist(GLOB.global_map) || isemptylist(GLOB.global_map)) return
 	var/cur_x = null
 	var/cur_y = null
@@ -682,7 +682,7 @@
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)

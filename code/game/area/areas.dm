@@ -72,8 +72,8 @@
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
-	if (!areas_by_type[type])
-		areas_by_type[type] = src
+	if (!GLOB.areas_by_type[type])
+		GLOB.areas_by_type[type] = src
 	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
 	. = ..()
@@ -95,11 +95,11 @@
 		luminosity = 1
 
 	if(centcomm_area)
-		centcom_areas[src] = TRUE
+		GLOB.centcom_areas[src] = TRUE
 		alwaysgravity = 1
 
 	if(station_area)
-		the_station_areas[src] = TRUE
+		GLOB.the_station_areas[src] = TRUE
 
 	if(!requires_power || !apc)
 		power_light = 0
@@ -397,7 +397,7 @@ var/list/mob/living/forced_ambiance_list = new
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
 /proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
-	for(var/Y in the_station_areas)
+	for(var/Y in GLOB.the_station_areas)
 		if(!Y)
 			continue
 		var/area/A = Y
@@ -429,7 +429,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 		if(filter_players)
 			var/should_continue = FALSE
-			for(var/mob/living/carbon/human/H in human_mob_list)
+			for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 				if(!H.client)
 					continue
 				if(A == get_area(H))

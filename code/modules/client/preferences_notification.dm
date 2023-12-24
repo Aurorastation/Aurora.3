@@ -115,19 +115,19 @@
 	if (!user)
 		return
 
-	if (user.byond_version < config.client_warn_version)
+	if (user.byond_version < GLOB.config.client_warn_version)
 		var/version_warn = ""
 		version_warn += "<b>Your version of BYOND may be out of date!</b><br>"
-		version_warn += config.client_warn_message
+		version_warn += GLOB.config.client_warn_message
 		version_warn += "Your version: [user.byond_version].<br>"
 		version_warn += "Required version to remove this message: [GLOB.config.client_warn_version] or later.<br>"
 		version_warn += "Visit http://www.byond.com/download/ to get the latest version of BYOND."
 
 		new_notification("danger", version_warn)
 
-	if (custom_event_msg && custom_event_msg != "")
+	if (GLOB.custom_event_msg && GLOB.custom_event_msg != "")
 		var/custom_event_warn = "<b><center>A custom event is taking place!</center></b><br>"
-		custom_event_warn += "<b>OOC Info:</b><br>[custom_event_msg]"
+		custom_event_warn += "<b>OOC Info:</b><br>[GLOB.custom_event_msg]"
 
 		new_notification("danger", custom_event_warn)
 

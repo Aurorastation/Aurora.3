@@ -10,7 +10,7 @@
 		return
 
 	if(h_style)
-		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		var/selected_string
 		if(hair_style.length <= 1)
 			to_chat(src, "<span class ='warning'>Your hair isn't long enough to tie.</span>")
@@ -18,7 +18,7 @@
 		else
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in GLOB.hair_styles_list)
-				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+				var/datum/sprite_accessory/hair/test = GLOB.hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = tgui_input_list(usr, "Select a new hairstyle.", "Your Hairstyle", valid_hairstyles, hair_style)
@@ -39,11 +39,11 @@
 		return
 
 	if(h_style)
-		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		var/selected_string
 		var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 		for(var/hair_string in GLOB.hair_styles_list)
-			var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+			var/datum/sprite_accessory/hair/test = GLOB.hair_styles_list[hair_string]
 			if(species.type in test.species_allowed)
 				valid_hairstyles.Add(hair_string)
 		selected_string = tgui_input_list(usr, "Select a new headtail style", "Your Headtail Style", valid_hairstyles, hair_style)
@@ -1370,7 +1370,7 @@
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
 
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, admin_msg)
@@ -2098,7 +2098,7 @@
 	set category = "Hivenet"
 
 	var/list/all_vaurca = list()
-	for(var/mob/living/carbon/human/vaurca in human_mob_list)
+	for(var/mob/living/carbon/human/vaurca in GLOB.human_mob_list)
 		if(!vaurca.stat && isvaurca(vaurca) && vaurca.internal_organs_by_name[BP_NEURAL_SOCKET])
 			all_vaurca += vaurca
 	var/datum/tgui_module/hivenet_manifest/HM = new /datum/tgui_module/hivenet_manifest(usr, all_vaurca)
