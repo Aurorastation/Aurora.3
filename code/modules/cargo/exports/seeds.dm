@@ -4,7 +4,7 @@
 	unit_name = "new plant species sample"
 	export_types = list(/obj/item/seeds)
 	var/needs_discovery = FALSE // Only for undiscovered species
-	var/global/list/discoveredPlants = list()
+	GLOBAL_LIST_EMPTY(discoveredPlants)
 
 /datum/export/seed/get_cost(obj/O)
 	var/obj/item/seeds/S = O

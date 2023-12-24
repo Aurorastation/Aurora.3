@@ -56,7 +56,7 @@
 
 	//If nothing has been done with the device yet
 	if(!selected_report && !interviewee_id)
-		if(config.sql_ccia_logs)
+		if(GLOB.config.sql_ccia_logs)
 			//Get the active cases from the database and display them
 			var/list/reports = list()
 			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
@@ -149,7 +149,7 @@
 	P.forceMove(get_turf(src.loc))
 
 	//If we have sql ccia logs enabled, then persist it here
-	if(config.sql_ccia_logs && establish_db_connection(dbcon))
+	if(GLOB.config.sql_ccia_logs && establish_db_connection(dbcon))
 		//This query is split up into multiple parts due to the length limitations of byond.
 		//To avoid this the text and the antag_involvement_text are saved separately
 		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")

@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(news)
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
-	if (config.news_use_forum_api)
+	if (GLOB.config.news_use_forum_api)
 		load_forum_news_config()
 
 		INVOKE_ASYNC(src, PROC_REF(load_from_forums))

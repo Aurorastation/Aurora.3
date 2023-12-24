@@ -265,7 +265,7 @@
 	if(anchored)
 		return
 
-	if(!universe.OnTouchMapEdge(src))
+	if(!GLOB.universe.OnTouchMapEdge(src))
 		return
 
 	if(current_map.use_overmap)

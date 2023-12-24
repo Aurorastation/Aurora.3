@@ -1234,7 +1234,7 @@
 			laws = new /datum/ai_laws/syndicate_override
 			id_card.access = get_all_station_access() + access_equipment // Give full station access
 			var/time = time2text(world.realtime, "hh:mm:ss")
-			lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+			GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 			set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")
 			. = TRUE
 			spawn()

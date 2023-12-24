@@ -119,7 +119,7 @@
 	pref.can_edit_name = TRUE
 	pref.can_edit_ipc_tag = TRUE
 
-	if (config.sql_saves && pref.current_character)
+	if (GLOB.config.sql_saves && pref.current_character)
 		if (!establish_db_connection(dbcon))
 			return
 
@@ -131,7 +131,7 @@
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)
 				pref.can_edit_name = FALSE
-				if(config.ipc_timelock_active)
+				if(GLOB.config.ipc_timelock_active)
 					pref.can_edit_ipc_tag = FALSE
 		else
 			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
@@ -197,7 +197,7 @@
 			else
 				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
 				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
-	if(config.allow_Metadata)
+	if(GLOB.config.allow_Metadata)
 		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a><br>"
 
 	. = dat.Join()
@@ -217,7 +217,7 @@
 			if(new_name)
 				if(new_name == pref.real_name)
 					return TOPIC_NOACTION //If the name is the same do nothing
-				if(config.sql_saves)
+				if(GLOB.config.sql_saves)
 					//Check if the player already has a character with the same name. (We dont have to account for the current char in that query, as that is already handled by the condition above)
 					var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
 					query.Execute(list("ckey" = user.client.ckey, "char_name" = new_name))

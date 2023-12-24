@@ -156,7 +156,7 @@
 		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
-	for(var/o in listening_objects)
+	for(var/o in GLOB.listening_objects)
 		var/obj/O = o
 		var/turf/O_turf = get_turf(O)
 		if(O && (O_turf in messageturfs))
@@ -514,8 +514,8 @@
 	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
 	changelog_win.set_content(file2text('html/changelog.html'))
 	changelog_win.open()
-	if(prefs.lastchangelog != changelog_hash)
-		prefs.lastchangelog = changelog_hash
+	if(prefs.lastchangelog != GLOB.changelog_hash)
+		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
 		winset(src, "rpane.changelog", "background-color=none;font-style=;")
 

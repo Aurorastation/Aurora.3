@@ -324,7 +324,7 @@ Command action procs
 	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
-	if(!universe.OnShuttleCall(usr))
+	if(!GLOB.universe.OnShuttleCall(usr))
 		to_chat(user, SPAN_WARNING("A bluespace connection cannot be established! Please check the user manual for more information."))
 		return FALSE
 

@@ -1,5 +1,5 @@
-var/global/list/mecha_image_cache = list()
-var/global/list/mecha_icon_cache = list()
+GLOBAL_LIST_EMPTY(mecha_image_cache)
+GLOBAL_LIST_EMPTY(mecha_icon_cache)
 
 /proc/get_mech_image(var/cache_key, var/cache_icon, var/image_colour, var/overlay_layer = FLOAT_LAYER)
 	var/use_key = "[cache_key]-[cache_icon]-[image_colour ? image_colour : "none"]"

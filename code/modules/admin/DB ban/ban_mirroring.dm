@@ -272,7 +272,7 @@
 		if (A & 2)
 			count++
 
-		if (config.access_deny_vms && count >= config.access_deny_vms)
+		if (GLOB.config.access_deny_vms && count >= config.access_deny_vms)
 			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].", ckey = C.ckey)
 			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].")
 			spawn(20)
@@ -280,7 +280,7 @@
 					del(C)
 			return
 
-		if (config.access_warn_vms && count >= config.access_warn_vms)
+		if (GLOB.config.access_warn_vms && count >= config.access_warn_vms)
 			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].", ckey = C.ckey)
 			message_admins("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
 

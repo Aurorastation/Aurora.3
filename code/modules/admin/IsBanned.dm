@@ -28,7 +28,7 @@
 		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
-	if(config.ban_legacy_system)
+	if(GLOB.config.ban_legacy_system)
 		//Ban Checking
 		. = CheckBan(ckey, computer_id, address)
 		if(.)
@@ -92,7 +92,7 @@
 				expires = " The ban is for [duration] minutes and expires on [expiration] (server time)."
 
 			var/desc = "\nReason: You, or another user of this computer or connection ([pckey]) is banned from playing here. The ban reason is:\n[reason]\nThis ban was applied by [ackey] on [bantime], [expires]"
-			if (config.forum_passphrase)
+			if (GLOB.config.forum_passphrase)
 				desc += "\nTo register on the forums, please use the following passphrase: [config.forum_passphrase]"
 
 			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)

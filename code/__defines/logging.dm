@@ -86,10 +86,10 @@ rustg_log_write(LOGPATH("condensed.log"), "[text]", "true")
 #define WRITE_LOG(file, text)\
 rustg_log_write(LOGPATH(file), "[game_id] [text]", "true");\
 \
-if(config?.all_logs_to_chat) { \
+if(GLOB.config?.all_logs_to_chat) { \
 	to_chat(world, "\[[file]\]: [text]");\
 }\
-if(config?.condense_all_logs) {\
+if(GLOB.config?.condense_all_logs) {\
 	rustg_log_write(LOGPATH("condensed.log"), "[game_id] [text]", "true");\
 }
 #endif
@@ -106,10 +106,10 @@ rustg_log_write(LOGPATH("condensed.log"), text, "false");
 #define WRITE_LOG_NO_FORMAT(file, text)\
 rustg_log_write(LOGPATH(file), text, "false");\
 \
-if(config?.all_logs_to_chat) { \
+if(GLOB.config?.all_logs_to_chat) { \
 	to_chat(world, "\[[file]\]: [text]");\
 }\
-if(config?.condense_all_logs) { \
+if(GLOB.config?.condense_all_logs) { \
 	rustg_log_write(LOGPATH("condensed.log"), text, "false");\
 }
 
@@ -119,6 +119,6 @@ if(config?.condense_all_logs) { \
 //// INLINER DEFINES ////
 
 #define LOG_DEBUG(msg)\
-if(config?.logsettings["log_debug"]) { \
+if(GLOB.config?.logsettings["log_debug"]) { \
 	log_debug(msg + " @@@ [__FILE__]:[__LINE__]");\
 }

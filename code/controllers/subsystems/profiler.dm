@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(profiler)
 
 /datum/controller/subsystem/profiler/Shutdown()
 	. = ..()
-	if (config.profiler_is_enabled)
+	if (GLOB.config.profiler_is_enabled)
 		DumpData()
 		world.Profile(PROFILE_CLEAR, type="sendmaps")
 

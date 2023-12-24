@@ -53,7 +53,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	listener = new /obj/cleanbot_listener(src)
 	listener.cleanbot = src
 
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
@@ -63,7 +63,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	target = null
 	ignorelist = null
 	QDEL_NULL(listener)
-	global.janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()

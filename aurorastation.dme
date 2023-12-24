@@ -12,7 +12,6 @@
 // BEGIN_INCLUDE
 #include "code\__linters.dm"
 #include "code\_compile_options.dm"
-#include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
 #include "code\stylesheet.dm"
@@ -56,6 +55,7 @@
 #include "code\__defines\forensic_swabs.dm"
 #include "code\__defines\gamemode.dm"
 #include "code\__defines\ghostspawner.dm"
+#include "code\__defines\global.dm"
 #include "code\__defines\grab.dm"
 #include "code\__defines\guns.dm"
 #include "code\__defines\hallucinations.dm"
@@ -2422,7 +2422,6 @@
 #include "code\modules\mob\living\carbon\human\life.dm"
 #include "code\modules\mob\living\carbon\human\login.dm"
 #include "code\modules\mob\living\carbon\human\logout.dm"
-#include "code\modules\mob\living\carbon\human\MedicalSideEffects.dm"
 #include "code\modules\mob\living\carbon\human\npcs.dm"
 #include "code\modules\mob\living\carbon\human\say.dm"
 #include "code\modules\mob\living\carbon\human\stripping.dm"

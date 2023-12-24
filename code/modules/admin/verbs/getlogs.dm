@@ -85,7 +85,7 @@
 	set category = "Admin"
 
 	var/text_signal_log = ""
-	for(var/log in signal_log)
+	for(var/log in GLOB.signal_log)
 		text_signal_log += "[log]<br>"
 
 	var/datum/browser/signal_win = new(usr, "signallog", "Signal Log", 550, 500)

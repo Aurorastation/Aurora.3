@@ -57,7 +57,7 @@ SUBSYSTEM_DEF(jobs)
 		if(!length(bitflag_to_job["[job.department_flag]"]))
 			bitflag_to_job["[job.department_flag]"] = list()
 		bitflag_to_job["[job.department_flag]"]["[job.flag]"] = job
-		if (config && config.use_age_restriction_for_jobs)
+		if (GLOB.config && config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
 	return TRUE

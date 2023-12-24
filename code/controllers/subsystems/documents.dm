@@ -15,10 +15,10 @@ SUBSYSTEM_DEF(docs)
 
 /datum/controller/subsystem/docs/Initialize(timeofday)
 	//Load in the docs config
-	if(config.docs_load_docs_from == "sql")
+	if(GLOB.config.docs_load_docs_from == "sql")
 		log_subsystem_documents("Attempting to Load from SQL")
 		load_from_sql()
-	else if(config.docs_load_docs_from == "json")
+	else if(GLOB.config.docs_load_docs_from == "json")
 		log_subsystem_documents("Attempting to Load from JSON")
 		load_from_json()
 	else

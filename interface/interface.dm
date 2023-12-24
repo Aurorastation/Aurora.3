@@ -4,7 +4,7 @@
 	set desc = "Visit the wiki."
 	set hidden = 1
 
-	if(config.wikiurl)
+	if(GLOB.config.wikiurl)
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
 
@@ -178,7 +178,7 @@ Any-Mode: (hotkey doesn't need to be on)
 	set desc = "Visit the web interface."
 	set hidden = 1
 
-	if (config.webint_url)
+	if (GLOB.config.webint_url)
 		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
 			return
 		send_link(src, config.webint_url)

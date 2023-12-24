@@ -4,7 +4,7 @@
 	set name = "Advanced ProcCall"
 
 	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(GLOB.config.debugparanoid && !check_rights(R_ADMIN)) return
 
 	var/target = null
 	var/targetselected = 0
@@ -36,7 +36,7 @@
 	set name = "Advanced ProcCall Target"
 
 	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(GLOB.config.debugparanoid && !check_rights(R_ADMIN)) return
 
 	callproc_targetpicked(1, A)
 
@@ -44,7 +44,7 @@
 
 	// this needs checking again here because VV's 'Call Proc' option directly calls this proc with the target datum
 	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(GLOB.config.debugparanoid && !check_rights(R_ADMIN)) return
 
 	var/returnval = null
 

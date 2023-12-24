@@ -276,7 +276,7 @@
 /mob/abstract/new_player/proc/ready(var/readying = TRUE)
 	if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 		// Cannot join without a saved character, if we're on SQL saves.
-		if (config.sql_saves && !client.prefs.current_character)
+		if (GLOB.config.sql_saves && !client.prefs.current_character)
 			alert(src, "You have not saved your character yet. Please do so before readying up.")
 			return
 		if(client.unacked_warning_count > 0)
@@ -345,7 +345,7 @@
 	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()
-	if(config.lore_summary)
+	if(GLOB.config.lore_summary)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
 		output += "<i>[config.lore_summary]</i><hr>"
 		to_chat(src, output)

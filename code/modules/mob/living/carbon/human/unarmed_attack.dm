@@ -1,4 +1,4 @@
-var/global/list/sparring_attack_cache = list()
+GLOBAL_LIST_EMPTY(sparring_attack_cache)
 
 //Species unarmed attacks
 /datum/unarmed_attack

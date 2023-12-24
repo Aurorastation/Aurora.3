@@ -21,13 +21,13 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_DEBUG("SAY: [text]")
 #else
-	if (config.logsettings["log_say"])
+	if (GLOB.config.logsettings["log_say"])
 		WRITE_LOG(config.logfiles["world_game_log"], "SAY: [text]")
 #endif
 
 /// Logging for whispered messages
 /proc/_log_whisper(text)
-	if (config.logsettings["log_whisper"])
+	if (GLOB.config.logsettings["log_whisper"])
 		WRITE_LOG(config.logfiles["world_game_log"], "WHISPER: [text]")
 
 /// Helper for logging of messages with only one sender and receiver (i.e. mind links)
@@ -39,5 +39,5 @@
 
 /// Logging for speech taking place over comms, as well as tcomms equipment
 /proc/log_telecomms(text)
-	if (config.logsettings["log_telecomms"])
+	if (GLOB.config.logsettings["log_telecomms"])
 		WRITE_LOG(config.logfiles["world_telecomms_log"], "TCOMMS: [text]")

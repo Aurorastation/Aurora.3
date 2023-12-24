@@ -174,10 +174,10 @@
 		to_chat(src, "<span class='info'>Adminhelps are also sent to Discord. If no admins are available in game try anyway and an admin on Discord may see it and respond.</span>")
 	msg = "<b>Current Admins ([num_admins_online]):</b><br>" + msg
 
-	if(config.show_mods)
+	if(GLOB.config.show_mods)
 		msg += "<br><b>Current Moderators ([num_mods_online]):</b><br>" + modmsg
 
-	if (config.show_auxiliary_roles)
+	if (GLOB.config.show_auxiliary_roles)
 		if (num_cciaa_online)
 			msg += "<br><b>Current CCIA Agents ([num_cciaa_online]):</b><br>" + cciaamsg
 		if(num_devs_online)

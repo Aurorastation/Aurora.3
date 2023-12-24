@@ -76,7 +76,7 @@ var/list/forum_groupids_to_ranks = list()
 /proc/load_admins()
 	clear_admins()
 
-	if(config.admin_legacy_system)
+	if(GLOB.config.admin_legacy_system)
 		//load text from file
 		var/list/Lines = file2list("config/admins.txt")
 

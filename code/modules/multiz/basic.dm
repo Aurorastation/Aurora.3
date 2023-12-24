@@ -1,6 +1,6 @@
 // If you add a more comprehensive system, just untick this file.
 // Because this shit before was, for some reason, a bitfield.
-var/global/list/z_levels = list()
+GLOBAL_LIST_EMPTY(z_levels)
 var/list/list/connected_z_cache = list()
 
 // If the height is more than 1, we mark all contained levels as connected.

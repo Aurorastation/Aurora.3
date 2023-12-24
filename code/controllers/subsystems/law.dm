@@ -8,7 +8,7 @@ SUBSYSTEM_DEF(law)
 	var/list/high_severity = list()
 
 /datum/controller/subsystem/law/Initialize(timeofday)
-	if(config.sql_enabled)
+	if(GLOB.config.sql_enabled)
 		load_from_sql()
 	else
 		load_from_code()

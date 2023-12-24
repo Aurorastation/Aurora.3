@@ -1,6 +1,6 @@
 // Generates cave systems for the asteroid, and places ore tiles.
-var/global/list/random_maps = list()
-var/global/list/map_count = list()
+GLOBAL_LIST_EMPTY(random_maps)
+GLOBAL_LIST_EMPTY(map_count)
 
 /datum/random_map
 

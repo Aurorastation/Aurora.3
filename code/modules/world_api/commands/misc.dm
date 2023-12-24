@@ -90,7 +90,7 @@
 		)
 
 	//Lets add a WI link to the poll, if we have the WI configured
-	if(config.webint_url)
+	if(GLOB.config.webint_url)
 		poll_data["link"]="[config.webint_url]server/poll/[select_query.item[1]]/[select_query.item[9]]"
 
 	var/list/result_data = list()

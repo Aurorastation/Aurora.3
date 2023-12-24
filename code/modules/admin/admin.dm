@@ -240,7 +240,7 @@ var/global/enabled_spooking = 0
 		return
 	if (!check_rights(R_ADMIN|R_MOD))
 		return
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		PlayerNotesPage(1)
 	else
 		show_notes_sql()
@@ -302,7 +302,7 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		var/dat = "<html><head><title>Info on [key]</title></head>"
 		dat += "<body>"
 
@@ -628,7 +628,7 @@ var/global/enabled_spooking = 0
 		<center><B>Game Panel</B></center><hr>\n
 		<A href='?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
 		"}
-	if(master_mode == ROUNDTYPE_STR_SECRET || master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET || GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		dat += "<A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
 
 	dat += {"
@@ -714,7 +714,7 @@ var/global/enabled_spooking = 0
 		return
 
 	config.ooc_allowed = !(config.ooc_allowed)
-	if (config.ooc_allowed)
+	if (GLOB.config.ooc_allowed)
 		to_world("<B>The OOC channel has been globally enabled!</B>")
 	else
 		to_world("<B>The OOC channel has been globally disabled!</B>")
@@ -730,7 +730,7 @@ var/global/enabled_spooking = 0
 		return
 
 	config.looc_allowed = !(config.looc_allowed)
-	if (config.looc_allowed)
+	if (GLOB.config.looc_allowed)
 		to_world("<B>The LOOC channel has been globally enabled!</B>")
 	else
 		to_world("<B>The LOOC channel has been globally disabled!</B>")
@@ -747,7 +747,7 @@ var/global/enabled_spooking = 0
 		return
 
 	config.dsay_allowed = !(config.dsay_allowed)
-	if (config.dsay_allowed)
+	if (GLOB.config.dsay_allowed)
 		to_world("<B>Deadchat has been globally enabled!</B>")
 	else
 		to_world("<B>Deadchat has been globally disabled!</B>")
@@ -853,7 +853,7 @@ var/global/enabled_spooking = 0
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
 	config.abandon_allowed = !(config.abandon_allowed)
-	if(config.abandon_allowed)
+	if(GLOB.config.abandon_allowed)
 		to_world("<B>You may now respawn.</B>")
 	else
 		to_world("<B>You may no longer respawn :(</B>")
@@ -882,8 +882,8 @@ var/global/enabled_spooking = 0
 		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
 		message_admins("<span class='notice'>[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].</span>", 1)
 		return //alert("Round end delayed", null, null, null, null, null)
-	round_progressing = !round_progressing
-	if (!round_progressing)
+	GLOB.round_progressing = !GLOB.round_progressing
+	if (!GLOB.round_progressing)
 		to_world("<b>The game start has been delayed.</b>")
 		log_admin("[key_name(usr)] delayed the game.")
 	else
@@ -934,7 +934,7 @@ var/global/enabled_spooking = 0
 	set category = "Admin"
 	set name = "Unprison"
 	if (M.z == 2)
-		if (config.allow_admin_jump)
+		if (GLOB.config.allow_admin_jump)
 			M.forceMove(pick(latejoin))
 			message_admins("[key_name_admin(usr)] has unprisoned [key_name_admin(M)]", 1)
 			log_admin("[key_name(usr)] has unprisoned [key_name(M)]")
@@ -1140,7 +1140,7 @@ var/global/enabled_spooking = 0
 	set desc="Reduces view range when wearing welding helmets"
 	set name="Toggle tinted welding helmets."
 	config.welder_vision = !( config.welder_vision )
-	if (config.welder_vision)
+	if (GLOB.config.welder_vision)
 		to_world("<B>Reduced welder vision has been enabled!</B>")
 	else
 		to_world("<B>Reduced welder vision has been disabled!</B>")

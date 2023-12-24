@@ -19,7 +19,7 @@
 
 /// Logging for loading and caching assets
 /proc/log_asset(text)
-	if(config.logsettings["log_asset"])
+	if(GLOB.config.logsettings["log_asset"])
 		WRITE_LOG(config.logfiles["world_asset_log"], "ASSET: [text]")
 
 /// Logging for config errors
@@ -37,7 +37,7 @@
 
 /// Logging for job slot changes
 /proc/log_job_debug(text)
-	if (config.logsettings["log_job_debug"])
+	if (GLOB.config.logsettings["log_job_debug"])
 		WRITE_LOG(config.logfiles["world_job_debug_log"], "JOB: [text]")
 
 /// Logging for lua scripting
@@ -58,7 +58,7 @@
 	WRITE_LOG(isnull(config) ? "world_runtime.log" : config.logfiles["world_runtime_log"], "RUNTIME: [text]")
 
 /proc/_log_signal(text)
-	if(config.logsettings["log_signals"])
+	if(GLOB.config.logsettings["log_signals"])
 		WRITE_LOG(config.logfiles["signals_log"], "SIGNAL: [text]")
 
 /// Logging for DB errors

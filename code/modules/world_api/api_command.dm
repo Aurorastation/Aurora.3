@@ -67,7 +67,7 @@
 		LOG_DEBUG("API: Throttling bypassed - Command [name] set to no_throttle")
 		return FALSE
 
-	if (config.api_rate_limit_whitelist[addr])
+	if (GLOB.config.api_rate_limit_whitelist[addr])
 		LOG_DEBUG("API: Throttling bypassed - IP [addr] is whitelisted.")
 		return FALSE
 

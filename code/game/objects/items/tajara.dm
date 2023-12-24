@@ -152,7 +152,7 @@
 		to_chat(usr, SPAN_WARNING("You check your watch, realising it's closed."))
 	else
 
-		var/adhomian_year = game_year + 1158
+		var/adhomian_year = GLOB.game_year + 1158
 		var/current_month = text2num(time2text(world.realtime, "MM"))
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/adhomian_day

@@ -197,7 +197,7 @@
 	if (!config.age_restrictions_from_file)
 		return
 
-	if (config.age_restrictions[lowertext(title)])
+	if (GLOB.config.age_restrictions[lowertext(title)])
 		minimal_player_age = config.age_restrictions[lowertext(title)]
 	else
 		minimal_player_age = 0

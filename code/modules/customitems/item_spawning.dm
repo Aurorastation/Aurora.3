@@ -32,7 +32,7 @@
 /hook/pregame_start/proc/load_custom_items()
 	var/load_from_file = 0
 
-	if (config.sql_enabled)
+	if (GLOB.config.sql_enabled)
 		log_module_customitems("Loading from SQL")
 		//If we have sql enabled we check if the db is empty. If so we migrate the json file to the db
 		//If the db is not empty we dont load the json file
@@ -216,7 +216,7 @@
 //gets the relevant list for the key from the listlist if it exists, check to make sure they are meant to have it and then calls the giving function
 /proc/equip_custom_items(var/mob/living/carbon/human/M)
 	//Fetch the custom items for the mob
-	if(config.sql_enabled)
+	if(GLOB.config.sql_enabled)
 		if(!establish_db_connection(dbcon))
 			log_module_customitems("Unable to establish database connection while loading item. - Aborting")
 			return

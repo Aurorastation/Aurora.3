@@ -1,5 +1,5 @@
-var/global/list/tickets = list()
-var/global/list/ticket_panels = list()
+GLOBAL_LIST_EMPTY(tickets)
+GLOBAL_LIST_EMPTY(ticket_panels)
 
 /datum/ticket
 	var/owner
@@ -24,7 +24,7 @@ var/global/list/ticket_panels = list()
 	opened_time = world.time
 	opened_rt = world.realtime
 
-	if (config.ticket_reminder_period)
+	if (GLOB.config.ticket_reminder_period)
 		reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/ticket/proc/broadcast_closure(closing_user)

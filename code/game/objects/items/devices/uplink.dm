@@ -284,7 +284,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	if(tgui_menu == 31)
 		tgui_data["contracts_found"] = 0
 
-		if (config.sql_enabled && establish_db_connection(dbcon))
+		if (GLOB.config.sql_enabled && establish_db_connection(dbcon))
 			tgui_data["contracts"] = list()
 
 			if (!tgui_data["contracts_current_page"])

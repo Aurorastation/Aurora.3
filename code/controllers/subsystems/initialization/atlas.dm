@@ -192,7 +192,7 @@ SUBSYSTEM_DEF(atlas)
 	var/chosen_sector
 	var/using_sector_config = FALSE
 
-	if(config.current_space_sector)
+	if(GLOB.config.current_space_sector)
 		chosen_sector = config.current_space_sector
 		using_sector_config = TRUE
 	else
@@ -247,7 +247,7 @@ SUBSYSTEM_DEF(atlas)
 		CHECK_TICK
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
-	if (config.override_map)
+	if (GLOB.config.override_map)
 		if (known_maps[config.override_map])
 			. = config.override_map
 			log_subsystem_atlas("Using configured map.")
@@ -311,7 +311,7 @@ SUBSYSTEM_DEF(atlas)
 	. = current_map.station_name
 
 	var/sname
-	if (config && config.server_name)
+	if (GLOB.config && config.server_name)
 		sname = "[config.server_name]: [.]"
 	else
 		sname = .

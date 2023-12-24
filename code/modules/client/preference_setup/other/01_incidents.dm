@@ -7,7 +7,7 @@
 	pref.ccia_actions = list()
 
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
-	if (config.sql_saves) // Doesnt work without db
+	if (GLOB.config.sql_saves) // Doesnt work without db
 		//Load in the CCIA Actions
 		var/DBQuery/ccia_action_query = dbcon.NewQuery({"SELECT
 			act.title,

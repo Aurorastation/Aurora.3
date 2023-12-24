@@ -400,7 +400,7 @@
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
 	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
 	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = TRUE
 	hacked = FALSE
@@ -425,7 +425,7 @@
 
 	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
 	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
 
 	hacked = TRUE
 	law_update = FALSE

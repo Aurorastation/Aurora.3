@@ -70,10 +70,10 @@ SUBSYSTEM_DEF(cargo)
 	supply_account = SSeconomy.get_department_account("Operations")
 
 	//Load in the cargo items config
-	if(config.cargo_load_items_from == "sql")
+	if(GLOB.config.cargo_load_items_from == "sql")
 		log_subsystem_cargo("SScargo: Attempting to Load from SQL")
 		load_from_sql()
-	else if(config.cargo_load_items_from == "json")
+	else if(GLOB.config.cargo_load_items_from == "json")
 		log_subsystem_cargo("SScargo: Attempting to Load from JSON")
 		load_from_json()
 	else
@@ -739,7 +739,7 @@ SUBSYSTEM_DEF(cargo)
 	if(dumped_orders)
 		log_subsystem_cargo("Order Data Dump Aborted - Orders already dumped")
 		return
-	if(config.cargo_load_items_from != "sql")
+	if(GLOB.config.cargo_load_items_from != "sql")
 		log_subsystem_cargo("Order Data Dump Aborted - Cargo not loaded from database")
 		return
 	if(!establish_db_connection(dbcon))

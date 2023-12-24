@@ -197,7 +197,7 @@ Works together with spawning an observer, noted above.
 		return
 
 	//If we have observe restriction 1 and they are following a living non-animal mob we dont need to do anything.
-	if(config.observe_restriction == 1 && following && isliving(following) && !isliving(following))
+	if(GLOB.config.observe_restriction == 1 && following && isliving(following) && !isliving(following))
 		return
 
 	//In case we have observe restriction 2 (or 1 and they are following something, then teleport them back.)
@@ -351,7 +351,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(jobban_isbanned(M, "AntagHUD"))
 		to_chat(src, "<span class='danger'>You have been banned from using this feature</span>")
 		return
-	if(config.antag_hud_restricted && !M.has_enabled_antagHUD && (!client.holder || aux_staff))
+	if(GLOB.config.antag_hud_restricted && !M.has_enabled_antagHUD && (!client.holder || aux_staff))
 		var/response = alert(src, "If you turn this on, you will not be able to take any part in the round.","Are you sure you want to turn this feature on?","Yes","No")
 		if(response == "No") return
 		M.can_reenter_corpse = 0
@@ -905,7 +905,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if(!client)
 		return 0
-	if(config.antag_hud_restricted && has_enabled_antagHUD == 1)
+	if(GLOB.config.antag_hud_restricted && has_enabled_antagHUD == 1)
 		if(feedback)
 			to_chat(src, "<span class='warning'>antagHUD restrictions prevent you from respawning.</span>")
 		return 0

@@ -130,7 +130,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
-	if (round_progressing)
+	if (GLOB.round_progressing)
 		pregame_timeleft--
 
 	total_players = length(player_list)
@@ -477,29 +477,29 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
-	if(master_mode == ROUNDTYPE_STR_SECRET)
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
 		src.hide_mode = ROUNDTYPE_SECRET
-	else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+	else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
-	var/list/runnable_modes = config.get_runnable_modes(master_mode)
-	if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+	var/list/runnable_modes = config.get_runnable_modes(GLOB.master_mode)
+	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
 			return SETUP_REVOTE
-		if(secret_force_mode != ROUNDTYPE_STR_SECRET && secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
-			src.mode = config.pick_mode(secret_force_mode)
+		if(GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
+			src.mode = config.pick_mode(GLOB.secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
 			var/list/probabilities = list()
 
-			if (master_mode == ROUNDTYPE_STR_SECRET)
+			if (GLOB.master_mode == ROUNDTYPE_STR_SECRET)
 				probabilities = config.probabilities_secret
-			else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+			else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 				probabilities = config.probabilities_mixed_secret
 			else
-				// master_mode == ROUNDTYPE_STR_RANDOM
+				// GLOB.master_mode == ROUNDTYPE_STR_RANDOM
 				probabilities = config.probabilities_secret.Copy()
 				probabilities |= config.probabilities_mixed_secret
 
@@ -507,7 +507,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				weighted_modes[GM.config_tag] = probabilities[GM.config_tag]
 			src.mode = gamemode_cache[pickweight(weighted_modes)]
 	else
-		src.mode = config.pick_mode(master_mode)
+		src.mode = config.pick_mode(GLOB.master_mode)
 
 	if(!src.mode)
 		current_state = GAME_STATE_PREGAME
@@ -544,7 +544,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
-		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+		if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 			to_world("<B>Reselecting gamemode...</B>")
 			return SETUP_REATTEMPT
 		else

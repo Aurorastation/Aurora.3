@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [current_map.name]",
 			"Round ID: [game_id ? game_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [game_year]-[current_month]-[current_day]",
+			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",

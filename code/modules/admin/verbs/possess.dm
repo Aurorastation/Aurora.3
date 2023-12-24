@@ -3,7 +3,7 @@
 	set category = "Object"
 
 	if(istype(O,/obj/singularity))
-		if(config.forbid_singulo_possession)
+		if(GLOB.config.forbid_singulo_possession)
 			to_chat(usr, "It is forbidden to possess singularities.")
 			return
 

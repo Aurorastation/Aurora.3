@@ -802,7 +802,7 @@
 			T.ChangeTurf(/turf/space)
 	return TRUE
 
-var/global/list/lattice_users = list()
+GLOBAL_LIST_EMPTY(lattice_users)
 
 /obj/item/rig_module/lattice
 	name = "neural lattice"

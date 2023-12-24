@@ -12,10 +12,10 @@
 /obj/structure/mopbucket/Initialize()
 	. = ..()
 	create_reagents(bucketsize)
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/structure/mopbucket/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/structure/mopbucket/examine(mob/user, distance, is_adjacent)

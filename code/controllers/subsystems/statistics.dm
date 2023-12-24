@@ -47,7 +47,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
-	if(config.kick_inactive)
+	if(GLOB.config.kick_inactive)
 		var/inactivity_threshold = config.kick_inactive MINUTES
 		for(var/client/C in clients)
 			if(!isobserver(C.mob) && !C.holder)
@@ -58,7 +58,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 					kicked_clients++
 
 	// Handle population polling.
-	if (config.sql_enabled && config.sql_stats)
+	if (GLOB.config.sql_enabled && config.sql_stats)
 		var/admincount = staff.len
 		var/playercount = 0
 		for(var/mob/M in player_list)

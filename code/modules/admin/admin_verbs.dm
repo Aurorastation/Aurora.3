@@ -503,7 +503,7 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_SERVER)		add_verb(src, admin_verbs_server)
 		if(holder.rights & R_DEBUG)
 			add_verb(src, admin_verbs_debug)
-			if(config.debugparanoid && !(holder.rights & R_ADMIN))
+			if(GLOB.config.debugparanoid && !(holder.rights & R_ADMIN))
 				remove_verb(src, admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
 		if(holder.rights & R_POSSESS)		add_verb(src, admin_verbs_possess)
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
@@ -631,7 +631,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Display Job bans"
 	set category = "Admin"
 	if(holder)
-		if(config.ban_legacy_system)
+		if(GLOB.config.ban_legacy_system)
 			holder.Jobbans()
 		else
 			holder.DB_ban_panel()
@@ -642,7 +642,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Unban Panel"
 	set category = "Admin"
 	if(holder)
-		if(config.ban_legacy_system)
+		if(GLOB.config.ban_legacy_system)
 			holder.unbanpanel()
 		else
 			holder.DB_ban_panel()
@@ -1015,8 +1015,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Toggle ghost writers"
 	set category = "Server"
 	if(!holder)	return
-	if(config)
-		if(config.cult_ghostwriter)
+	if(GLOB.config)
+		if(GLOB.config.cult_ghostwriter)
 			config.cult_ghostwriter = 0
 			to_chat(src, "<b>Disallowed ghost writers.</b>")
 			message_admins("Admin [key_name_admin(usr)] has disabled ghost writers.", 1)
@@ -1029,8 +1029,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Toggle maintenance drones"
 	set category = "Server"
 	if(!holder)	return
-	if(config)
-		if(config.allow_drone_spawn)
+	if(GLOB.config)
+		if(GLOB.config.allow_drone_spawn)
 			config.allow_drone_spawn = 0
 			to_chat(src, "<b>Disallowed maint drones.</b>")
 			message_admins("Admin [key_name_admin(usr)] has disabled maint drones.", 1)

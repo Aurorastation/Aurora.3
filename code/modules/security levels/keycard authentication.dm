@@ -194,7 +194,7 @@
 			call_shuttle_proc(user, TRANSFER_EMERGENCY)
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
-	if(config.ert_admin_call_only)
+	if(GLOB.config.ert_admin_call_only)
 		return 1
 	if(SSticker.mode.ert_disabled)
 		SSticker.mode.announce_ert_disabled()

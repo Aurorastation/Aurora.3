@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(sunlight)
 	for (var/thing in subtypesof(/datum/sun_state))
 		presets += new thing
 
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		LOG_DEBUG("sunlight: fastboot detected, skipping setup.")
 		..()
 		return

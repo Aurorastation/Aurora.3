@@ -1,6 +1,6 @@
 #define MAX_ACTIVE_BONFIRE_LIMIT	15
 
-var/global/list/total_active_bonfires = list()
+GLOBAL_LIST_EMPTY(total_active_bonfires)
 
 /obj/structure/bonfire
 	name = "bonfire"

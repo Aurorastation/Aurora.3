@@ -17,9 +17,9 @@
 	unauthed[token] = src
 	remove_verb(client, typesof(/client/verb))
 	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
-	if(config.guests_allowed)
+	if(GLOB.config.guests_allowed)
 		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
-	if(config.webint_url && config.external_auth)
+	if(GLOB.config.webint_url && config.external_auth)
 		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login via forums</a>"
 	if(!config.guests_allowed && config.webint_url && config.external_auth)
 		src.OpenForumAuthWindow()
@@ -75,12 +75,12 @@
 		return
 	switch(href_list["authaction"])
 		if("guest")
-			if(config.guests_allowed)
+			if(GLOB.config.guests_allowed)
 				src.ClientLogin(null)
 			else
 				qdel(src)
 		if("forums")
-			if(config.external_auth)
+			if(GLOB.config.external_auth)
 				src.OpenForumAuthWindow()
 			else
 				qdel(src)

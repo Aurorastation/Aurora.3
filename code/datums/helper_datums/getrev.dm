@@ -47,7 +47,7 @@ var/global/datum/getrev/revdata = new()
 
 	if(revdata.revision)
 		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
-		if(config.githuburl)
+		if(GLOB.config.githuburl)
 			to_chat(src, "<a href='[config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
 		else
 			to_chat(src, revdata.revision)
@@ -106,7 +106,7 @@ var/global/datum/getrev/revdata = new()
 	. += "<hr><p>PR #[tm.number]: \"[html_encode(tm.title)]\""
 	. += "<br>\tAuthor: [html_encode(tm.author)]"
 
-	if (config.githuburl)
+	if (GLOB.config.githuburl)
 		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
 
 	. += "</p>"
@@ -121,7 +121,7 @@ var/global/datum/getrev/revdata = new()
 	. += {"<table class="table">"}
 	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
 
-	if (config.githuburl)
+	if (GLOB.config.githuburl)
 		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
 
 	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}

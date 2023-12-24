@@ -18,10 +18,10 @@ SUBSYSTEM_DEF(finalize)
 
 	load_space_ruin()
 
-	if(config.dungeon_chance > 0)
+	if(GLOB.config.dungeon_chance > 0)
 		place_dungeon_spawns()
 
-	if(config.generate_asteroid)
+	if(GLOB.config.generate_asteroid)
 		time = world.time
 		current_map.generate_asteroid()
 		log_subsystem_mapfinalization("Generated asteroid in [(world.time - time)/10] seconds.")

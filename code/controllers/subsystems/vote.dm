@@ -79,10 +79,10 @@ SUBSYSTEM_DEF(vote)
 				if(choices["Continue Playing"]["votes"] >= greatest_votes)
 					greatest_votes = choices["Continue Playing"]["votes"]
 			else if(mode == "gamemode")
-				if(master_mode in choices)
-					choices[master_mode]["votes"] += non_voters
-					if(choices[master_mode]["votes"] >= greatest_votes)
-						greatest_votes = choices[master_mode]["votes"]
+				if(GLOB.master_mode in choices)
+					choices[GLOB.master_mode]["votes"] += non_voters
+					if(choices[GLOB.master_mode]["votes"] >= greatest_votes)
+						greatest_votes = choices[GLOB.master_mode]["votes"]
 			else if(mode == "crew_transfer")
 				var/factor = 0.5
 				switch(get_round_duration() / (10 * 60)) // minutes
@@ -153,12 +153,12 @@ SUBSYSTEM_DEF(vote)
 				if(. == "Restart Round")
 					restart = 1
 			if("gamemode")
-				if(master_mode != .)
+				if(GLOB.master_mode != .)
 					SSpersistent_configuration.last_gamemode = .
 					if(SSticker.mode)
 						restart = 1
 					else
-						master_mode = .
+						GLOB.master_mode = .
 			if("crew_transfer")
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)
@@ -170,8 +170,8 @@ SUBSYSTEM_DEF(vote)
 					additional_antag_types |= antag_names_to_ids[.]
 
 	if(mode == "gamemode") //fire this even if the vote fails.
-		if(!round_progressing)
-			round_progressing = 1
+		if(!GLOB.round_progressing)
+			GLOB.round_progressing = 1
 			to_world("<span class='warning'><b>The round will start soon.</b></span>")
 
 	if(restart)
@@ -184,7 +184,7 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/submit_vote(ckey, vote)
 	if(mode)
 		if (mode == "crew_transfer")
-			if(config.vote_no_dead && usr && !usr.client.holder)
+			if(GLOB.config.vote_no_dead && usr && !usr.client.holder)
 				if (isnewplayer(usr))
 					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 					return 0
@@ -215,7 +215,7 @@ SUBSYSTEM_DEF(vote)
 			// Transfer votes are their own little special snowflake
 			var/next_allowed_time = 0
 			if (vote_type == "crew_transfer")
-				if (config.vote_no_dead && !usr.client.holder)
+				if (GLOB.config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
 						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
@@ -305,8 +305,8 @@ SUBSYSTEM_DEF(vote)
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 					if("custom")
 						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-		if(mode == "gamemode" && round_progressing)
-			round_progressing = 0
+		if(mode == "gamemode" && GLOB.round_progressing)
+			GLOB.round_progressing = 0
 			to_world("<span class='warning'><b>Round start has been delayed.</b></span>")
 		SStgui.update_uis(src)
 		return 1
@@ -367,7 +367,7 @@ SUBSYSTEM_DEF(vote)
 			if(isstaff)
 				initiate_vote("restart", ui.user.key)
 				return TRUE
-			else if (config.allow_vote_restart)
+			else if (GLOB.config.allow_vote_restart)
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
 
@@ -387,11 +387,11 @@ SUBSYSTEM_DEF(vote)
 					log_and_message_admins("tried to start a restart vote.", usr, null)
 					to_chat(ui.user, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
-			if(config.allow_vote_mode || isstaff)
+			if(GLOB.config.allow_vote_mode || isstaff)
 				initiate_vote("gamemode", ui.user.key)
 				return TRUE
 		if("crew_transfer")
-			if(config.allow_vote_restart || isstaff)
+			if(GLOB.config.allow_vote_restart || isstaff)
 				initiate_vote("crew_transfer", ui.user.key)
 				return TRUE
 		if("add_antagonist")

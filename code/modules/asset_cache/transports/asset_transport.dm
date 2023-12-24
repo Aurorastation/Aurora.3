@@ -12,7 +12,7 @@
 
 /// Called when the transport is loaded by the config controller, not called on the default transport unless it gets loaded by a config change.
 /datum/asset_transport/proc/Load()
-	if (config.asset_simple_preload)
+	if (GLOB.config.asset_simple_preload)
 		for(var/client/C in clients)
 			addtimer(CALLBACK(src, PROC_REF(send_assets_slow), C, preload), 1 SECONDS)
 

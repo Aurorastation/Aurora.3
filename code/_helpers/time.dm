@@ -14,7 +14,7 @@ var/round_start_time
 	. = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 
 /proc/worlddate2text()
-	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
+	return num2text(GLOB.game_year) + "-" + time2text(world.timeofday, "MM-DD")
 
 /proc/time_stamp()
 	return time2text(world.timeofday, "hh:mm:ss")

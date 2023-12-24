@@ -12,11 +12,11 @@ To use:
 */
 
 // Globals.
-var/global/list/all_antag_types = list()
-var/global/list/all_antag_spawnpoints = list()
-var/global/list/antag_names_to_ids = list()
+GLOBAL_LIST_EMPTY(all_antag_types)
+GLOBAL_LIST_EMPTY(all_antag_spawnpoints)
+GLOBAL_LIST_EMPTY(antag_names_to_ids)
 // This is a bit dumb but without it the job and antag age whitelisting would be even dumber.
-var/global/list/bantype_to_antag_age = list()
+GLOBAL_LIST_EMPTY(bantype_to_antag_age)
 
 // Global procs.
 /proc/get_antag_data(var/antag_type)
@@ -53,7 +53,7 @@ var/global/list/bantype_to_antag_age = list()
 
 		// Set up age restrictions for the different antag bantypes.
 		if (!bantype_to_antag_age[A.bantype])
-			if (config.age_restrictions_from_file && config.age_restrictions[lowertext(A.bantype)])
+			if (GLOB.config.age_restrictions_from_file && config.age_restrictions[lowertext(A.bantype)])
 				bantype_to_antag_age[lowertext(A.bantype)] = config.age_restrictions[lowertext(A.bantype)]
 			else
 				bantype_to_antag_age[A.bantype] = 0

@@ -1,4 +1,4 @@
-var/global/list/teleportbeacons = list()
+GLOBAL_LIST_EMPTY(teleportbeacons)
 
 /obj/item/device/radio/beacon
 	name = "tracking beacon"

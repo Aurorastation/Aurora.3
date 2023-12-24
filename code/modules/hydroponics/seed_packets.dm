@@ -1,4 +1,4 @@
-var/global/list/plant_seed_sprites = list()
+GLOBAL_LIST_EMPTY(plant_seed_sprites)
 
 //Seed packet object/procs.
 /obj/item/seeds

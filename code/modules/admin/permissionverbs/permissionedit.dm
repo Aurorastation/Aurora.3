@@ -96,7 +96,7 @@
 		if("*New Rank*")
 			new_rank = input("Please input a new rank", "New custom rank", null, null) as null|text
 
-			if(config.admin_legacy_system)
+			if(GLOB.config.admin_legacy_system)
 				new_rank = ckeyEx(new_rank)
 
 			if(!new_rank)
@@ -157,7 +157,7 @@
 	return new_ckey
 
 /datum/tgui_module/permissions_panel/proc/log_admin_rank_modification(admin_ckey, new_rank)
-	if (config.admin_legacy_system)
+	if (GLOB.config.admin_legacy_system)
 		return
 
 	if (!check_rights(R_PERMISSIONS))
@@ -199,7 +199,7 @@
 		to_chat(usr, SPAN_NOTICE("Admin removed."))
 
 /datum/tgui_module/permissions_panel/proc/log_admin_permission_modification(admin_ckey, new_permission)
-	if (config.admin_legacy_system)
+	if (GLOB.config.admin_legacy_system)
 		return
 
 	if (!check_rights(R_PERMISSIONS))

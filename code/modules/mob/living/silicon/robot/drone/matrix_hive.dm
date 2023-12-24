@@ -1,4 +1,4 @@
-var/global/list/drone_matrices = list()
+GLOBAL_LIST_EMPTY(drone_matrices)
 
 /datum/drone_matrix
 	var/id = null

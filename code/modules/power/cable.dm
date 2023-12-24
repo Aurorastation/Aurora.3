@@ -82,7 +82,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(level == 1 && !T.is_hole)
 		hide(!T.is_plating())
 
-	cable_list += src
+	GLOB.cable_list += src
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
@@ -94,7 +94,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
-	cable_list -= src							//remove it from global cable list
+	GLOB.cable_list -= src							//remove it from global cable list
 	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////

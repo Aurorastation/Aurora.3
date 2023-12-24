@@ -42,7 +42,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  * @return	num		1
  */
 /hook/startup/proc/loadJobBans()
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		jobban_loadbanfile()
 	else
 		jobban_loaddatabase()
@@ -87,7 +87,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobban_keylist[key][rank] = list(reason, unban_time)
 
 	// Log the ban to the appropriate place.
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		jobban_savebanfile()
 	else
 		DB_ban_record(minutes < 0 ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP, null, minutes, reason, rank, banckey = key)
@@ -113,7 +113,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	if (ckey)
 		if (guest_jobbans(rank) && config.guest_jobban && IsGuestKey(ckey))
 			return "GUEST JOB-BAN"
-		if (config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
+		if (GLOB.config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
 			return "WHITELISTED"
 
 		var/age_whitelist = player_old_enough_for_role(player, rank)
@@ -249,7 +249,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				jobban_keylist -= ckey
 
 			// Update appropriate ban files.
-			if (config.ban_legacy_system)
+			if (GLOB.config.ban_legacy_system)
 				jobban_savebanfile()
 
 /**
@@ -269,7 +269,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  *					FALSE if ban is not expired.
  */
 /proc/jobban_isexpired(var/list/tuple, var/player, var/rank)
-	if (config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
+	if (GLOB.config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
 		// It's expired. Remove it.
 		jobban_unban(player, rank)
 
@@ -748,7 +748,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						msg = R
 					else
 						msg += ", [R]"
-				if (config.ban_legacy_system)
+				if (GLOB.config.ban_legacy_system)
 					notes_add(ckey, "Banned from [msg] - [reason]", usr)
 				else
 					notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
@@ -777,7 +777,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						else
 							msg += ", [R]"
 
-					if (config.ban_legacy_system)
+					if (GLOB.config.ban_legacy_system)
 						notes_add(ckey, "Banned  from [msg] - [reason]", usr)
 					else
 						notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)

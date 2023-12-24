@@ -12,7 +12,7 @@ var/list/whitelist_jobconfig = list()
 */
 
 /hook/startup/proc/loadWhitelist()
-	if (config.usewhitelist)
+	if (GLOB.config.usewhitelist)
 		load_whitelist_jobconfig()
 		load_whitelist()
 	return 1
@@ -26,7 +26,7 @@ var/list/whitelist_jobconfig = list()
 			LOG_DEBUG("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 
 /proc/load_whitelist()
-	if (config.sql_whitelists)
+	if (GLOB.config.sql_whitelists)
 		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
 			log_world("ERROR: Database connection failed while loading whitelists. Reverting to legacy system.")
@@ -51,7 +51,7 @@ var/list/whitelist_jobconfig = list()
 	if(!config.usewhitelist)
 		return TRUE
 
-	if (config.sql_whitelists)
+	if (GLOB.config.sql_whitelists)
 		if (M.client && M.client.whitelist_status)
 			return (M.client.whitelist_status & whitelist_id)
 
@@ -64,12 +64,12 @@ var/list/whitelist_jobconfig = list()
 /var/list/alien_whitelist = list()
 
 /hook/startup/proc/loadAlienWhitelist()
-	if (config.usealienwhitelist)
+	if (GLOB.config.usealienwhitelist)
 		load_alienwhitelist()
 	return 1
 
 /proc/load_alienwhitelist()
-	if (config.sql_whitelists)
+	if (GLOB.config.sql_whitelists)
 		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
 			log_world("ERROR: Database connection failed while loading alien whitelists. Reverting to legacy system.")
@@ -113,7 +113,7 @@ var/list/whitelist_jobconfig = list()
 	if (!alien_whitelist && !config.sql_whitelists)
 		return 0
 
-	if (config.sql_whitelists)
+	if (GLOB.config.sql_whitelists)
 		if (M.client && M.client.whitelist_status)
 			return (M.client.whitelist_status & whitelisted_species[species])
 	else

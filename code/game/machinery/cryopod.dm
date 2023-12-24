@@ -9,7 +9,7 @@
 
 //Main cryopod console.
 
-var/global/list/frozen_crew = list()
+GLOBAL_LIST_EMPTY(frozen_crew)
 
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"

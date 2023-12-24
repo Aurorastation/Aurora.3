@@ -2,7 +2,7 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_NOTICE("SSMapfinalization: [text]")
 #else
-	if (config?.logsettings["log_subsystems_mapfinalization"])
+	if (GLOB.config?.logsettings["log_subsystems_mapfinalization"])
 		WRITE_LOG(config.logfiles["world_subsystems_mapfinalization_log"], "SSMapfinalization: [text]")
 #endif
 
@@ -13,6 +13,6 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_ERROR("SSMapfinalization: [text]")
 #else
-	if (config?.logsettings["log_subsystems_mapfinalization"])
+	if (GLOB.config?.logsettings["log_subsystems_mapfinalization"])
 		WRITE_LOG(config.logfiles["world_subsystems_mapfinalization_log"], "SSMapfinalization: [text]")
 #endif

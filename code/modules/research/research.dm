@@ -45,8 +45,8 @@ research holder datum.
 
 // Global design lists
 var/global/list/designs = null
-var/global/list/designs_protolathe_categories = list()
-var/global/list/designs_imprinter_categories = list()
+GLOBAL_LIST_EMPTY(designs_protolathe_categories)
+GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.

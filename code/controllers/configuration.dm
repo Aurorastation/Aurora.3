@@ -1,4 +1,4 @@
-var/list/gamemode_cache = list()
+GLOBAL_LIST_EMPTY(gamemode_cache)
 
 /datum/configuration
 	var/server_name = null				// server name (for world name / status)

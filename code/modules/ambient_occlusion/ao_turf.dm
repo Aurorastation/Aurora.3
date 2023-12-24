@@ -15,7 +15,7 @@
 	var/ao_queued = AO_UPDATE_NONE
 
 /turf/proc/regenerate_ao()
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		return
 	for (var/thing in RANGE_TURFS(1, src))
 		var/turf/T = thing
@@ -54,7 +54,7 @@
 	. = cache[key] = I
 
 /turf/proc/queue_ao(rebuild = TRUE)
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		return
 	if (!ao_queued)
 		SSao.queue += src

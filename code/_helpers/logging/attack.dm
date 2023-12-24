@@ -1,6 +1,6 @@
 /// Generic attack logging
 /proc/_log_attack(text)
-	if (config.logsettings["log_attack"])
+	if (GLOB.config.logsettings["log_attack"])
 		WRITE_LOG(config.logfiles["world_attack_log"], "ATTACK: [text]")
 
 /**

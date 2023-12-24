@@ -1,5 +1,5 @@
 var/global/antag_add_failed // Used in antag type voting.
-var/global/list/additional_antag_types = list()
+GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /datum/game_mode
 	var/name = "invalid"
@@ -293,7 +293,7 @@ var/global/list/additional_antag_types = list()
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
-		feedback_set_details("master_mode","[master_mode]")
+		feedback_set_details("GLOB.master_mode","[GLOB.master_mode]")
 		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
 	return 1
@@ -577,7 +577,7 @@ var/global/list/additional_antag_types = list()
 
 	if(!player || !player.current) return
 
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		show_generic_antag_text(player)
 		return
 
@@ -609,13 +609,13 @@ var/global/list/additional_antag_types = list()
 	set name = "Check Gamemode Probability"
 	set category = "OOC"
 
-	if(config.show_game_type_odd)
+	if(GLOB.config.show_game_type_odd)
 		to_chat(src, "<b>Secret Mode Odds:</b>")
 		var/sum = 0
 		for(var/config_tag in config.probabilities_secret)
 			sum += config.probabilities_secret[config_tag]
 		for(var/config_tag in config.probabilities_secret)
-			if(config.probabilities_secret[config_tag] > 0)
+			if(GLOB.config.probabilities_secret[config_tag] > 0)
 				var/percentage = round(config.probabilities_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 
@@ -624,7 +624,7 @@ var/global/list/additional_antag_types = list()
 		for(var/config_tag in config.probabilities_mixed_secret)
 			sum += config.probabilities_mixed_secret[config_tag]
 		for(var/config_tag in config.probabilities_mixed_secret)
-			if(config.probabilities_mixed_secret[config_tag] > 0)
+			if(GLOB.config.probabilities_mixed_secret[config_tag] > 0)
 				var/percentage = round(config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 	else

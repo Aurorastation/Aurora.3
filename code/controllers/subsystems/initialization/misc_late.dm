@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(misc_late)
 
 	setupgenetics()
 
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
 
 	populate_code_phrases()
@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(misc_late)
 		thing.do_late_fire()
 		LAZYREMOVE(SSatoms.late_misc_firers, thing)
 
-	if (config.use_forumuser_api)
+	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
 	..(timeofday)

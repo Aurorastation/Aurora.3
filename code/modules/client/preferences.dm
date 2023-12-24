@@ -246,7 +246,7 @@ var/list/preferences_datums = list()
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
-		if (config.sql_saves)
+		if (GLOB.config.sql_saves)
 			dat += " - <a href='?src=\ref[src];delete=1'>Permanently delete slot</a>"
 
 	else
@@ -328,7 +328,7 @@ var/list/preferences_datums = list()
 		return
 
 	if(href_list["preference"] == "open_whitelist_forum")
-		if(config.forumurl)
+		if(GLOB.config.forumurl)
 			send_link(user, config.forumurl)
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
@@ -351,7 +351,7 @@ var/list/preferences_datums = list()
 		load_character()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
-			if (config.sql_saves)
+			if (GLOB.config.sql_saves)
 				open_load_dialog_sql(usr)
 			else
 				open_load_dialog_file(usr)
@@ -382,7 +382,7 @@ var/list/preferences_datums = list()
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 
-	if(config.humans_need_surnames)
+	if(GLOB.config.humans_need_surnames)
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname

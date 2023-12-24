@@ -4,8 +4,8 @@ var/global/enable_power_update_profiling = 0
 
 var/global/power_profiled_time = 0
 var/global/power_last_profile_time = 0
-var/global/list/power_update_requests_by_machine = list()
-var/global/list/power_update_requests_by_area = list()
+GLOBAL_LIST_EMPTY(power_update_requests_by_machine)
+GLOBAL_LIST_EMPTY(power_update_requests_by_area)
 
 /proc/log_power_update_request(area/A, obj/machinery/M)
 	if (!enable_power_update_profiling)

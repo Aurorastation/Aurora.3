@@ -6,8 +6,8 @@
 
 /datum/topic_command/get_serverstatus/run_command(queryparams)
 	var/list/s[] = list()
-	s["version"] = game_version
-	s["mode"] = master_mode
+	s["version"] = GLOB.game_version
+	s["mode"] = GLOB.master_mode
 	s["respawn"] = config.abandon_allowed
 	s["enter"] = config.enter_allowed
 	s["vote"] = config.allow_vote_mode

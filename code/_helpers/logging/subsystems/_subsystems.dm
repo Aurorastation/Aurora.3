@@ -1,5 +1,5 @@
 /proc/log_subsystem_mastercontroller(text)
-	if (config?.logsettings["log_subsystems"])
+	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(config.logfiles["world_subsystems_log"], "SUBSYSTEM MASTERCONTROLLER: [text]")
 
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_INFO, "MASTER")
@@ -9,7 +9,7 @@
 		subsystem = "UNKNOWN"
 	var/msg = "[subsystem]: [text]"
 
-	if (config?.logsettings["log_subsystems"])
+	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(config.logfiles["world_subsystems_log"], "SUBSYSTEM: [msg]")
 
 	send_gelf_log(msg, "[time_stamp()]: [msg]", severity, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
@@ -20,7 +20,7 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_DEBUG("SUBSYSTEM INIT: [text]")
 #else
-	if (config?.logsettings["log_subsystems"])
+	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(config.logfiles["world_subsystems_log"], "SUBSYSTEM INIT: [text]")
 
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_INFO, "SS Init")
@@ -28,7 +28,7 @@
 
 // Generally only used when something has gone very wrong.
 /proc/log_failsafe(text)
-	if (config?.logsettings["log_subsystems"])
+	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(config.logfiles["world_subsystems_log"], "SUBSYSTEM FAILSAFE: [text]")
 
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")

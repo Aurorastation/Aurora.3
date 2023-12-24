@@ -111,7 +111,7 @@ var/list/localhost_addresses = list(
 		return
 
 	//Logs all hrefs
-	if(config && config.logsettings["log_hrefs"] && href_logfile)
+	if(GLOB.config && config.logsettings["log_hrefs"] && GLOB.href_logfile)
 		WRITE_LOG(config.logfiles["world_href_log"], "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>")
 
 	switch(href_list["_src_"])
@@ -279,7 +279,7 @@ var/list/localhost_addresses = list(
 	if (!last_message_time)
 		return FALSE
 
-	if (config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
+	if (GLOB.config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
 		spam_alert = min(spam_alert + 1, 4)
 		LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
 
@@ -323,7 +323,7 @@ var/list/localhost_addresses = list(
 	if (prefs.muted & mute_type)
 		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
 		. = TRUE
-	else if (config.automute_on && !holder && length(message))
+	else if (GLOB.config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
 
 		. = . || automute_by_duplicate(message, mute_type)
@@ -464,7 +464,7 @@ var/list/localhost_addresses = list(
 
 	// New player, and we don't want any.
 	if (!holder)
-		if (config.access_deny_new_players && player_age == -1)
+		if (GLOB.config.access_deny_new_players && player_age == -1)
 			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
@@ -472,7 +472,7 @@ var/list/localhost_addresses = list(
 			return 0
 
 		// Check if the account is too young.
-		if (config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= config.access_deny_new_accounts)
+		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= config.access_deny_new_accounts)
 			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
@@ -620,7 +620,7 @@ var/list/localhost_addresses = list(
 		src << browse('code/modules/asset_cache/validate_assets.html', "window=asset_cache_browser")
 
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		if (config.asset_simple_preload)
+		if (GLOB.config.asset_simple_preload)
 			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
 
 
@@ -703,7 +703,7 @@ var/list/localhost_addresses = list(
 		i++
 
 		var/linked_forum_name = null
-		if (config.forumurl)
+		if (GLOB.config.forumurl)
 			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
 			linked_forum_name = "<a href='byond://?src=\ref[src];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
 
@@ -776,9 +776,9 @@ var/list/localhost_addresses = list(
 
 /client/proc/check_ip_intel()
 	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
-	if (config.ipintel_email)
+	if (GLOB.config.ipintel_email)
 		var/datum/ipintel/res = get_ip_intel(address)
-		if (config.ipintel_rating_kick && res.intel >= config.ipintel_rating_kick)
+		if (GLOB.config.ipintel_rating_kick && res.intel >= config.ipintel_rating_kick)
 			if (!holder)
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
 				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")

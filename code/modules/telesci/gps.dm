@@ -1,4 +1,4 @@
-var/list/GPS_list = list()
+GLOBAL_LIST_EMPTY(GPS_list)
 
 /obj/item/device/gps
 	name = "global positioning system"
@@ -55,13 +55,13 @@ var/list/GPS_list = list()
 		moved_event.register(implanted_into, src, PROC_REF(update_position))
 	moved_event.register(src, src, PROC_REF(update_position))
 
-	for(var/gps in GPS_list)
-		tracking += GPS_list[gps]["tag"]
+	for(var/gps in GLOB.gps_list)
+		tracking += GLOB.gps_list[gps]["tag"]
 
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/device/gps/Destroy()
-	GPS_list -= GPS_list[gpstag]
+	GLOB.gps_list -= GLOB.gps_list[gpstag]
 	moved_event.unregister(src, src)
 	if(held_by)
 		moved_event.unregister(held_by, src)
@@ -138,12 +138,12 @@ var/list/GPS_list = list()
 
 	var/list/tracking_list = list()
 	for(var/tracking_tag in sortList(tracking))
-		if(!GPS_list[tracking_tag]) // Another GPS device has changed its tag or been destroyed
+		if(!GLOB.gps_list[tracking_tag]) // Another GPS device has changed its tag or been destroyed
 			tracking -= tracking_tag
 			continue
 
-		if(AreConnectedZLevels(loc.z, GPS_list[tracking_tag]["pos_z"]))
-			tracking_list += list(list("tag" = tracking_tag , "gps" = (GPS_list[tracking_tag])))
+		if(AreConnectedZLevels(loc.z, GLOB.gps_list[tracking_tag]["pos_z"]))
+			tracking_list += list(list("tag" = tracking_tag , "gps" = (GLOB.gps_list[tracking_tag])))
 
 	data["tracking_list"] = tracking_list
 	data["compass_list"] = tracking_compass
@@ -180,8 +180,8 @@ var/list/GPS_list = list()
 				tracking -= gpstag
 
 			if(loc == usr)
-				if(!GPS_list[set_tag])
-					GPS_list -= gpstag
+				if(!GLOB.gps_list[set_tag])
+					GLOB.gps_list -= gpstag
 					gpstag = set_tag
 					name = "global positioning system ([gpstag])"
 					ui.title = capitalize_first_letters(name)
@@ -198,7 +198,7 @@ var/list/GPS_list = list()
 		if("add_tag")
 			var/new_tag = uppertext(copytext(sanitize(params["add_tag"]), 1, 8))
 
-			if(GPS_list[new_tag])
+			if(GLOB.gps_list[new_tag])
 				tracking |= new_tag
 				update_compass(TRUE)
 			else
@@ -213,8 +213,8 @@ var/list/GPS_list = list()
 
 		if("add_all")
 			tracking.Cut()
-			for(var/gps in GPS_list)
-				tracking += GPS_list[gps]["tag"]
+			for(var/gps in GLOB.gps_list)
+				tracking += GLOB.gps_list[gps]["tag"]
 			update_compass(TRUE)
 			return TRUE
 
@@ -243,7 +243,7 @@ var/list/GPS_list = list()
 		update_icon()
 		return
 	var/area/gpsarea = get_area(src)
-	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
+	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 
@@ -251,15 +251,15 @@ var/list/GPS_list = list()
 	compass.hide_waypoints(FALSE)
 	if(LAZYLEN(tracking_compass))
 		for(var/tracking_tag in tracking_compass - gpstag)
-			if(!GPS_list[tracking_tag])
+			if(!GLOB.gps_list[tracking_tag])
 				continue
 			if(!(tracking_tag in tracking))
 				continue
-			if(GPS_list[tracking_tag]["pos_x"] == GPS_list[gpstag]["pos_x"] && GPS_list[tracking_tag]["pos_y"] == GPS_list[gpstag]["pos_y"])
+			if(GLOB.gps_list[tracking_tag]["pos_x"] == GLOB.gps_list[gpstag]["pos_x"] && GLOB.gps_list[tracking_tag]["pos_y"] == GLOB.gps_list[gpstag]["pos_y"])
 				continue
-			compass.set_waypoint(tracking_tag, tracking_tag, GPS_list[tracking_tag]["pos_x"], GPS_list[tracking_tag]["pos_y"], GPS_list[tracking_tag]["pos_z"], GPS_list[tracking_tag]["compass_color"])
+			compass.set_waypoint(tracking_tag, tracking_tag, GLOB.gps_list[tracking_tag]["pos_x"], GLOB.gps_list[tracking_tag]["pos_y"], GLOB.gps_list[tracking_tag]["pos_z"], GLOB.gps_list[tracking_tag]["compass_color"])
 			var/turf/origin = get_turf(src)
-			if(!emped && !GPS_list[tracking_tag]["emped"] && origin.z == GPS_list[tracking_tag]["pos_z"])
+			if(!emped && !GLOB.gps_list[tracking_tag]["emped"] && origin.z == GLOB.gps_list[tracking_tag]["pos_z"])
 				compass.show_waypoint(tracking_tag)
 	compass.rebuild_overlay_lists(update_compass_icon)
 
@@ -269,7 +269,7 @@ var/list/GPS_list = list()
 
 	. = "[gps_prefix][gps_count[gps_prefix]++]"
 
-	if(GPS_list[.]) // if someone has renamed a GPS manually to take this tag already
+	if(GLOB.gps_list[.]) // if someone has renamed a GPS manually to take this tag already
 		. = next_initial_tag()
 
 /obj/item/device/gps/science
@@ -347,8 +347,8 @@ var/list/GPS_list = list()
 		moved_event.register(implanted_into, src, PROC_REF(update_position))
 	moved_event.register(src, src, PROC_REF(update_position))
 
-	for(var/gps in GPS_list)
-		tracking += GPS_list[gps]["tag"]
+	for(var/gps in GLOB.gps_list)
+		tracking += GLOB.gps_list[gps]["tag"]
 
 	START_PROCESSING(SSprocessing, src)
 

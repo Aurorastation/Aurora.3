@@ -162,7 +162,7 @@
 	. += "<br>"
 	. += "<b>CRIMINAL</b>: <i>[C]</i><br><br>"
 
-	. += "[C] was found guilty of the following crimes on [game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
+	. += "[C] was found guilty of the following crimes on [GLOB.game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
 
 	if( brig_sentence != 0 )
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"

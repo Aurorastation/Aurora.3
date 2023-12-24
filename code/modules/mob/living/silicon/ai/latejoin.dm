@@ -1,4 +1,4 @@
-var/global/list/empty_playable_ai_cores = list()
+GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 
 /hook/roundstart/proc/spawn_empty_ai()
 	if("AI" in SSticker.mode.disabled_jobs)

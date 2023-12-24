@@ -38,10 +38,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
 		. += "Game Mode: Mixed Secret"
 	else
-		. += "Game Mode: [master_mode]" // Old setting for showing the game mode
+		. += "Game Mode: [GLOB.master_mode]" // Old setting for showing the game mode
 
 	if(SSticker.current_state == GAME_STATE_PREGAME)
-		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
+		. += "Time To Start: [SSticker.pregame_timeleft][GLOB.round_progressing ? "" : " (DELAYED)"]"
 		. += "Players: [length(player_list)] Players Ready: [SSticker.total_players_ready]"
 		if(LAZYLEN(SSticker.ready_player_jobs))
 			. += ""
@@ -86,7 +86,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["ready"])
 		if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 			// Cannot join without a saved character, if we're on SQL saves.
-			if (config.sql_saves && !client.prefs.current_character)
+			if (GLOB.config.sql_saves && !client.prefs.current_character)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
@@ -108,7 +108,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		// Cannot join without a saved character, if we're on SQL saves.
-		if (config.sql_saves && !client.prefs.current_character)
+		if (GLOB.config.sql_saves && !client.prefs.current_character)
 			alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 			return
 
@@ -262,7 +262,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
-	if(config.sql_saves && !client.prefs.current_character)
+	if(GLOB.config.sql_saves && !client.prefs.current_character)
 		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
@@ -313,7 +313,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-	universe.OnPlayerLatejoin(character)
+	GLOB.universe.OnPlayerLatejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)

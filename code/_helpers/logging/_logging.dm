@@ -10,7 +10,7 @@
 /proc/log_startup()
 	var/static/already_logged = FALSE
 	if (!already_logged)
-		log_world(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
+		log_world(GLOB.diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
 		crash_with("log_startup() was called more then once")
@@ -36,16 +36,16 @@
 	log_world("TESTING: [msg]")
 
 /proc/game_log(category, text)
-	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
+	WRITE_LOG(GLOB.diary, "[game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	_log_admin(text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_signal(var/text)
-	if(length(signal_log) >= 100)
-		signal_log.Cut(1, 2)
-	signal_log.Add("|[time_stamp()]| [text]")
+	if(length(GLOB.signal_log) >= 100)
+		GLOB.signal_log.Cut(1, 2)
+	GLOB.signal_log.Add("|[time_stamp()]| [text]")
 	_log_signal(text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
@@ -90,7 +90,7 @@
 
 /proc/log_to_dd(text)
 	world.log <<  text //this comes before the config check because it can't possibly runtime
-	if(config.log_world_output)
+	if(GLOB.config.log_world_output)
 		log_world("DD_OUTPUT", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category = "DD_OUTPUT")
 
@@ -229,7 +229,7 @@
 /proc/log_tgui(user, message, context,
 		datum/tgui_window/window,
 		datum/src_object)
-	if(config.logsettings["log_subsystems_tgui"])
+	if(GLOB.config.logsettings["log_subsystems_tgui"])
 		var/entry = ""
 		// Insert user info
 		if(!user)

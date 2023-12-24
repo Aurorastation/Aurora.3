@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(icon_smooth)
 	for (var/zlevel = 1 to world.maxz)
 		smooth_zlevel(zlevel, FALSE)
 
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		LOG_DEBUG("icon_smoothing: Skipping prebake, fastboot enabled.")
 		return ..()
 

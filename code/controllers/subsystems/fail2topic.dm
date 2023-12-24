@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(fail2topic)
 /datum/controller/subsystem/fail2topic/proc/IsRateLimited(ip)
 	var/last_attempt = rate_limiting[ip]
 
-	if (config?.api_rate_limit_whitelist[ip])
+	if (GLOB.config?.api_rate_limit_whitelist[ip])
 		return FALSE
 
 	if (active_bans[ip])

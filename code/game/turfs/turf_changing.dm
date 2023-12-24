@@ -88,7 +88,7 @@
 			else
 				lighting_clear_overlay()
 
-		if (config.starlight)
+		if (GLOB.config.starlight)
 			for (var/turf/space/S in RANGE_TURFS(1, src))
 				S.update_starlight()
 
@@ -103,7 +103,7 @@
 		old_fire.RemoveFire()
 
 	if(tell_universe)
-		universe.OnTurfChange(W)
+		GLOB.universe.OnTurfChange(W)
 
 	SSair.mark_for_update(src) //handle the addition of the new turf.
 
