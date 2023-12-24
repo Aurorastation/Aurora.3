@@ -328,7 +328,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
-
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -749,6 +748,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "cVy" = (
@@ -1464,6 +1465,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "gLv" = (
@@ -1515,6 +1518,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "gXD" = (
@@ -1684,8 +1689,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	icon_state = "door_locked";
-	dir = 1
+	icon_state = "door_locked"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2247,8 +2251,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	icon_state = "door_locked";
-	dir = 1
+	icon_state = "door_locked"
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "orion_traveler_port";
@@ -2469,6 +2472,11 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
+"lQT" = (
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/cargo)
 "lTc" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -2727,12 +2735,15 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor,
-/area/ship/forehall)
+/area/ship/orion/forehall)
 "mHQ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/item/cargo_package/offship,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/item/cargo_package/offship/to_horizon,
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion_express_ship)
+/area/ship/orion/cargo)
 "mLK" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor,
@@ -2780,8 +2791,7 @@
 	dir = 1;
 	name = "Cargo Bay";
 	pixel_x = -15;
-	req_access = list(201);
-	dir = 1
+	req_access = list(201)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -2872,6 +2882,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "ntn" = (
@@ -3232,6 +3244,11 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
+"pjg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor,
+/area/ship/orion/cargo)
 "ppD" = (
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -4174,6 +4191,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
+"sYq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor,
+/area/ship/orion/cargo)
 "sYA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -4340,11 +4362,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/door/airlock/external{
-	dir = 4;
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_out";
-	dir = 1
+	id_tag = "orion_traveler_n_out"
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -4651,8 +4672,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	icon_state = "door_locked";
-	dir = 1
+	icon_state = "door_locked"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft, airlock"
@@ -4763,10 +4783,10 @@
 /area/ship/orion/thruster1)
 "vyC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "vzk" = (
@@ -4899,6 +4919,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "vUr" = (
@@ -5207,6 +5229,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "wYR" = (
@@ -5513,6 +5537,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/item/cargo_package/offship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "yhG" = (
@@ -5542,8 +5568,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	icon_state = "door_locked";
-	dir = 1
+	icon_state = "door_locked"
 	},
 /obj/effect/shuttle_landmark/orion_express_ship/nav3{
 	dir = 1
@@ -39571,9 +39596,9 @@ hmX
 stm
 ajL
 gPs
-goI
+sYq
 ygT
-goI
+pjg
 pBw
 pOK
 iTn
@@ -39827,10 +39852,10 @@ qBd
 wlA
 stm
 slH
-stm
-goI
-nRE
-goI
+lQT
+sYq
+mHQ
+pjg
 stm
 pOK
 nVM
