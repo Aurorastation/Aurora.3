@@ -140,7 +140,7 @@
 
 	for(var/mob/O in viewers(usr))
 		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
-		playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
+		playsound(loc, 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	sleep(10)
 

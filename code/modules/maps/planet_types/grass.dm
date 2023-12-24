@@ -7,6 +7,8 @@
 	weather = "Global full-atmosphere hydrological weather system. Dangerous meteorological activity not present"
 	surfacewater = "63% surface water, majority readings not visibly potable. Expected mineral toxicity or salt presence in water bodies"
 	planetary_area = /area/exoplanet/grass
+	flora_diversity = 7
+	has_trees = TRUE
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#3c772e","#27614b","#3f8d35","#185f18","#799628", "RANDOM")
 	possible_themes = list(/datum/exoplanet_theme/grass)

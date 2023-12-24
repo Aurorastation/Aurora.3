@@ -68,7 +68,7 @@
 				var/singleton/flooring/F = decls[flooring_type]
 				if(!F.build_type)
 					continue
-				if(ispath(S.type, F.build_type) || ispath(S.build_type, F.build_type))
+				if((ispath(S.type, F.build_type) && (S.type == F.build_type)) || (ispath(S.build_type, F.build_type) && (S.build_type == F.build_type)))
 					use_flooring = F
 					break
 			if(!use_flooring)

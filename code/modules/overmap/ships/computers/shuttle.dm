@@ -59,3 +59,13 @@
 		if(CanInteract(user, physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TRUE
+
+/obj/machinery/computer/shuttle_control/explore/terminal
+	name = "shuttle control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "tech_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1

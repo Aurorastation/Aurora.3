@@ -212,6 +212,18 @@
 	throw_range = 20
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
+/obj/item/stack/tile/circuit_red
+	name = "circuit tile"
+	singular_name = "circuit tile"
+	desc = "An advanced tile covered in various circuitry and wiring."
+	icon_state = "tile_rcircuit"
+	force = 6.0
+	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
+	throwforce = 15.0
+	throw_speed = 5
+	throw_range = 20
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+
 /*
  * Floors
  */

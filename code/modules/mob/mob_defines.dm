@@ -6,6 +6,10 @@
 	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
 
+	// we never want to hide a turf because it's not lit
+	// We can rely on the lighting plane to handle that for us
+	see_in_dark = 1e6
+
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	can_be_buckled = TRUE
 

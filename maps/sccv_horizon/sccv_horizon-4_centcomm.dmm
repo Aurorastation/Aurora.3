@@ -17559,7 +17559,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/item/storage/box/tcfl_pamphlet,
+/obj/item/storage/box/tcaf_pamphlet,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aTt" = (
@@ -21058,7 +21058,7 @@
 /obj/item/flag/biesel{
 	pixel_y = 8
 	},
-/obj/item/storage/box/tcfl_pamphlet,
+/obj/item/storage/box/tcaf_pamphlet,
 /obj/item/material/twohanded/pike/flag,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
@@ -24424,7 +24424,7 @@
 /obj/item/flag/biesel/l{
 	pixel_y = 8
 	},
-/obj/item/storage/box/tcfl_pamphlet,
+/obj/item/storage/box/tcaf_pamphlet,
 /obj/item/material/twohanded/pike/flag,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -40472,7 +40472,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/book/manual/tcfl_pamphlet{
+/obj/item/book/manual/tcaf_pamphlet{
 	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/dark,

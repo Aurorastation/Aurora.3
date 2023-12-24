@@ -1,6 +1,7 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, Section, Table, Tabs } from '../components';
+import { Box, Button, Input, Section, Table, Tabs } from '../components';
+import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 
 export type SpawnerData = {
@@ -22,6 +23,7 @@ type Spawner = {
   spawn_atoms: any;
   tags: string[];
   spawnpoints: string[];
+  manifest: string[];
 };
 
 export const GhostSpawner = (props, context) => {
@@ -79,9 +81,42 @@ export const GhostSpawner = (props, context) => {
               .map(
                 (spawner) =>
                   (spawner.tags.indexOf(tab) > -1 || tab === 'All') && (
-                    <Table.Row key={spawner.short_name}>
+                    <Table.Row key={spawner.short_name} className="candystripe">
                       <Table.Cell>{spawner.name}</Table.Cell>
-                      <Table.Cell>{spawner.desc}</Table.Cell>
+                      <Table.Cell>
+                        <Box pb={2} pt={2}>
+                          {spawner.desc}
+                          {spawner.manifest.length > 0 ? (
+                            <Box
+                              style={{
+                                'background-color': 'rgba(0, 0, 0, 0.25)',
+                                'border': '1px solid rgba(0, 0, 0, 0.5)',
+                              }}
+                              mt={2}
+                              pb={1}
+                              pt={1}
+                              pl={1}>
+                              <Box fontSize="1.2rem" textAlign="center">
+                                Manifest
+                              </Box>
+                              <Table>
+                                {spawner.manifest.map((spawned_mob_name) => {
+                                  return (
+                                    <TableRow
+                                      pb={1}
+                                      key={spawned_mob_name}
+                                      overflow="hidden">
+                                      <TableCell>
+                                        {' - ' + spawned_mob_name}
+                                      </TableCell>
+                                    </TableRow>
+                                  );
+                                })}
+                              </Table>
+                            </Box>
+                          ) : null}
+                        </Box>
+                      </Table.Cell>
                       <Table.Cell>
                         {spawner.max_count > 0
                           ? spawner.max_count -
