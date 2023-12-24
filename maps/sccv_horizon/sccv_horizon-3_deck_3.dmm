@@ -1842,6 +1842,12 @@
 	},
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
+"bmB" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/railing/mapped,
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "bnC" = (
 /obj/machinery/door/airlock/glass_security{
 	dir = 1;
@@ -2966,6 +2972,21 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
 /area/horizon/security/investigators_office)
+"cmA" = (
+/obj/structure/table/wood,
+/obj/item/toy/xmastree{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/toy/xmas_cracker{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/toy/xmas_cracker{
+	pixel_x = 5
+	},
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "coC" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
@@ -3280,7 +3301,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/bed/stool/chair/padded/brown,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/space/santa,
+/obj/item/clothing/head/festive/santa/beard,
+/obj/item/clothing/head/festive/santa/beard,
+/obj/item/clothing/suit/space/santa,
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "cEY" = (
@@ -5043,6 +5068,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/cciaroom)
+"eay" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "eaF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6420,7 +6449,8 @@
 /area/maintenance/bridge)
 "eRL" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/grass,
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "eSk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -9142,7 +9172,8 @@
 /area/horizon/security/investigations_hallway)
 "gEM" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass,
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "gFw" = (
 /obj/machinery/door/airlock/external{
@@ -10630,6 +10661,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/item/xmasgift,
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "hzU" = (
@@ -13244,6 +13276,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/entrance)
+"jwO" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "jxM" = (
 /obj/machinery/status_display{
 	pixel_y = -32
@@ -16680,7 +16717,10 @@
 /area/horizon/holodeck_control)
 "lMI" = (
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass,
+/obj/item/xmasgift{
+	pixel_x = -7
+	},
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "lNe" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -16922,7 +16962,7 @@
 /area/bridge/meeting_room)
 "lZY" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "mac" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -18234,6 +18274,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"mRk" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "mSp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -20106,7 +20150,8 @@
 "ocK" = (
 /obj/structure/flora/ausbushes/genericbush,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "ocO" = (
 /obj/structure/disposalpipe/junction{
@@ -22233,7 +22278,8 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "pHG" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass,
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "pIS" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -22708,6 +22754,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
+"qcj" = (
+/obj/item/xmasgift{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "qcE" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -24871,8 +24924,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "rCK" = (
-/obj/structure/flora/tree/jungle/small/patience,
-/turf/simulated/floor/grass,
+/obj/structure/flora/tree/pine/xmas{
+	desc = "A lush and healthy tree, dressed up in festive decorations. A small golden plaque at its base reads its name, in plain text, Patience.";
+	name = "Patience"
+	},
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "rCZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -26636,8 +26692,22 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-21"
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -5;
+	pixel_y = 11
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_y = 10;
+	pixel_x = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/structure/table/wood,
+/obj/item/clothing/head/festive/santa{
+	pixel_y = 1;
+	pixel_x = -3
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
@@ -27010,6 +27080,9 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
+"tbk" = (
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "tbl" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -27702,6 +27775,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"tDj" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "tDn" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29816,7 +29893,7 @@
 "vcJ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "vcX" = (
 /obj/machinery/door/airlock/security{
@@ -30209,6 +30286,18 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
+"vpZ" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/item/xmasgift{
+	pixel_x = 9;
+	pixel_y = -2
+	},
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
+"vqP" = (
+/obj/item/xmasgift,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "vrD" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -31380,6 +31469,10 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"wfR" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "wfV" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -31808,6 +31901,10 @@
 	},
 /turf/simulated/floor,
 /area/bridge/aibunker)
+"wuB" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/snow,
+/area/horizon/cafeteria)
 "wuZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -33799,7 +33896,7 @@
 "xWX" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/snow,
 /area/horizon/cafeteria)
 "xXk" = (
 /obj/machinery/door/firedoor,
@@ -54801,7 +54898,7 @@ pHG
 uut
 wwQ
 jKD
-hBC
+jwO
 xWX
 kAR
 szo
@@ -55000,11 +55097,11 @@ lJJ
 swR
 gEM
 lZY
-kzM
-cLV
-kzM
-pHG
-xWX
+tbk
+vpZ
+tbk
+mRk
+bmB
 oZv
 lJJ
 swR
@@ -55201,11 +55298,11 @@ kwr
 iBY
 lEP
 eRL
-kzM
-eRL
+tbk
+tDj
 rCK
-kzM
-eRL
+qcj
+tDj
 vcJ
 kwr
 cLV
@@ -55403,11 +55500,11 @@ ccj
 rNT
 gUD
 lZY
-kzM
-hBC
+tbk
+wfR
 lMI
-iBY
-kzM
+wuB
+vqP
 ocK
 ccj
 rNT
@@ -55607,8 +55704,8 @@ ykD
 cEF
 vSJ
 lZY
-eRL
-cLV
+cmA
+eay
 suu
 ldT
 kAR

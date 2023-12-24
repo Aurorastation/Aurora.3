@@ -171,11 +171,11 @@ var/global/Holiday = null
 	if(Holiday)
 		to_world("<span class='notice'>and...</span>")
 		to_world("<h4>Happy [Holiday] Everybody!</h4>")
-		switch(Holiday)			//special holidays
-			if("Easter")
-				Easter_Game_Start()
-			if("Christmas Eve","Christmas")
-				Christmas_Game_Start()
+		// switch(Holiday)			//special holidays
+		// 	if("Easter")
+		// 		Easter_Game_Start()
+		// 	if("Christmas Eve","Christmas")
+		// 		Christmas_Game_Start()
 
 	return
 
@@ -185,5 +185,5 @@ var/global/Holiday = null
 
 		if("",null)			//no Holiday today! Back to work!
 			return
-		if("Christmas","Christmas Eve")
-			if(prob(eventchance))	ChristmasEvent()
+		// if("Christmas","Christmas Eve")
+		// 	if(prob(eventchance))	ChristmasEvent()
