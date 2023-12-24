@@ -57,6 +57,7 @@
 		to_chat(usr, SPAN_WARNING("\The [src] has no energy weapon connected!"))
 		return
 
+
 	connected.disconnect()
 
 /obj/item/recharger_backpack/update_icon()
