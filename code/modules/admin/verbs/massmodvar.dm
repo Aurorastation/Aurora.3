@@ -28,10 +28,6 @@
 
 	var/list/locked = list("vars", "key", "ckey", "client")
 
-	if(!O.vv_edit_var(var_name))
-		to_chat(src, SPAN_WARNING("You cannot edit this variable."))
-		return
-
 	var/list/names = list()
 	for (var/V in O.vars)
 		names += V
@@ -45,7 +41,8 @@
 	else
 		variable = var_name
 
-	if(!variable)	return
+	if(!variable)
+		return
 	var/default
 	var/var_value = O.vars[variable]
 	var/dir
@@ -128,9 +125,12 @@
 		original_name = O:name
 
 	switch(class)
-
 		if("restore to default")
-			O.vars[variable] = initial(O.vars[variable])
+			var/initial_var = initial(O.vars[variable])
+			if(!O.vv_edit_var(variable, initial_var))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+			O.vars[variable] = initial_var
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in mob_list)
@@ -168,7 +168,11 @@
 
 		if("text")
 			var/new_value = input("Enter new text:","Text",O.vars[variable]) as text|null//todo: sanitize ???
-			if(new_value == null) return
+			if(new_value == null)
+				return
+			if(!O.vv_edit_var(variable, new_value))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 			O.vars[variable] = new_value
 
 			if(method)
@@ -205,7 +209,12 @@
 		if("num")
 			var/new_value = input("Enter new number:","Num",\
 					O.vars[variable]) as num|null
-			if(new_value == null) return
+			if(new_value == null)
+				return
+
+			if(!O.vv_edit_var(variable, new_value))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
 
 			if(variable=="light_range")
 				O.set_light(new_value)
@@ -265,7 +274,13 @@
 		if("type")
 			var/new_value
 			new_value = input("Enter type:","Type",O.vars[variable]) as null|anything in typesof(/obj,/mob,/area,/turf)
-			if(new_value == null) return
+			if(new_value == null)
+				return
+
+			if(!O.vv_edit_var(variable, new_value))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = new_value
 			if(method)
 				if(istype(O, /mob))
@@ -300,7 +315,13 @@
 
 		if("file")
 			var/new_value = input("Pick file:","File",O.vars[variable]) as null|file
-			if(new_value == null) return
+			if(new_value == null)
+				return
+
+			if(!O.vv_edit_var(variable, new_value))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = new_value
 
 			if(method)
@@ -336,7 +357,13 @@
 
 		if("icon")
 			var/new_value = input("Pick icon:","Icon",O.vars[variable]) as null|icon
-			if(new_value == null) return
+			if(new_value == null)
+				return
+
+			if(!O.vv_edit_var(variable, new_value))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = new_value
 			if(method)
 				if(istype(O, /mob))

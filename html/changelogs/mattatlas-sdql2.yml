@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - admin: "SDQL2 has now been updated to work properly, be faster, and overall better and more useful."
   - admin: "View variables can no longer view some protected datums, such as the config datum."
+  - tweak: "Changed the Set Holidays verb to not have a . in front of the name."

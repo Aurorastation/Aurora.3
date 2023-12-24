@@ -477,7 +477,8 @@ var/list/VVdynamic_lock = list(
 		names = sortList(names)
 
 		variable = input("Which var?","Var") as null|anything in names
-		if(!variable)	return
+		if(!variable)
+			return
 		var_value = O.vars[variable]
 
 		if(variable in VVlocked)
@@ -588,17 +589,35 @@ var/list/VVdynamic_lock = list(
 
 		if("text")
 			var/var_new = input("Enter new text:","Text",O.vars[variable]) as null|text
-			if(var_new==null) return
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = var_new
 
 		if("num")
 			if(variable=="light_range")
 				var/var_new = input("Enter new number:","Num",O.vars[variable]) as null|num
-				if(var_new == null) return
+				if(var_new == null)
+					return
+
+				if(!O.vv_edit_var(variable, var_new))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
+
 				O.set_light(var_new)
 			else if(variable=="stat")
 				var/var_new = input("Enter new number:","Num",O.vars[variable]) as null|num
-				if(var_new == null) return
+				if(var_new == null)
+					return
+
+				if(!O.vv_edit_var(variable, var_new))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
+
 				if((O.vars[variable] == 2) && (var_new < 2))//Bringing the dead back to life
 					dead_mob_list -= O
 					living_mob_list += O
@@ -608,7 +627,13 @@ var/list/VVdynamic_lock = list(
 				O.vars[variable] = var_new
 			else
 				var/var_new =  input("Enter new number:","Num",O.vars[variable]) as null|num
-				if(var_new==null) return
+				if(var_new==null)
+					return
+
+				if(!O.vv_edit_var(variable, var_new))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
+
 				O.vars[variable] = var_new
 
 		if("type")
@@ -633,27 +658,56 @@ var/list/VVdynamic_lock = list(
 			else
 				var_new = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
 
-			if(var_new==null) return
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = var_new
 
 		if("reference")
 			var/var_new = input("Select reference:","Reference",O.vars[variable]) as null|mob|obj|turf|area in world
-			if(var_new==null) return
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = var_new
 
 		if("mob reference")
 			var/var_new = input("Select reference:","Reference",O.vars[variable]) as null|mob in world
 			if(var_new==null) return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = var_new
 
 		if("file")
 			var/var_new = input("Pick file:","File",O.vars[variable]) as null|file
-			if(var_new==null) return
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = var_new
 
 		if("icon")
 			var/var_new = input("Pick icon:","Icon",O.vars[variable]) as null|icon
-			if(var_new==null) return
+			if(var_new==null)
+				return
+
+			if(!O.vv_edit_var(variable, var_new))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = var_new
 
 		if("marked datum")
