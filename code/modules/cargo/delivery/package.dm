@@ -27,6 +27,7 @@
 		pay_amount = rand(12, 17) * 1000
 	if(delivery_point)
 		setup_delivery_point(delivery_point)
+	color = pick("#FFFFFF", "#EEEEEE", "#DDDDDD", "#CCCCCC", "#BBBBBB", "#FFDDDD", "#DDDDFF", "#FFFFDD", "#886600")
 
 /obj/item/cargo_package/proc/setup_delivery_point(var/obj/structure/cargo_receptacle/delivery_point)
 	associated_delivery_point = WEAKREF(delivery_point)
