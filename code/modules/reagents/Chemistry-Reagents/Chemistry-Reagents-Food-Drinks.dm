@@ -608,9 +608,9 @@
 	color = "#2c1000"
 	taste_description = "nutty chocolate"
 	taste_mult = 2
-	condiment_name = "notella jar"
-	condiment_desc = "Humans insist this chocolatey spread might be the best thing they've ever created."
-	condiment_icon_state = "notellajar"
+	condiment_name = "NTella jar"
+	condiment_desc = "Originally called 'Entella', it was rebranded after being bought by Getmore. Some Humans insist this chocolate hazelnut spread might be the best thing they've ever created."
+	condiment_icon_state = "NTellajar"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/groundpeanuts
@@ -2407,6 +2407,28 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
+/singleton/reagent/drink/NTellamilkshake
+	name = "NTella Milkshake"
+	description = "An intensely sweet chocolatey concoction with whipped cream on top."
+	color = "#6d4124"
+	taste_description = "overwhelmingly sweet chocolate"
+
+	glass_icon_state = "NTellamilkshake"
+	glass_name = "glass of NTella milkshake"
+	glass_desc = "Oh look, it's that thing you actually want to get but probably shouldn't."
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/NTellahotchocolate
+	name = "NTella Hot Chocolate"
+	description = "It's like a cup of hot chocolate except... More everything."
+	color = "#63432e"
+	taste_description = "hazelnutty, creamy chocolate"
+
+	glass_icon_state = "NTellahotchocolate"
+	glass_name = "glass of NTella hot chocolate"
+	glass_desc = "A very chocolatey drink for the days so rough, so cold, or so celebratory that a regular hot chocolate just won't cut it. It has marshmallows!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
 /singleton/reagent/drink/toothpaste
 	name = "Toothpaste"
 	description = "A paste commonly used in oral hygiene."
@@ -2420,6 +2442,7 @@
 	glass_name = "glass of toothpaste"
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
+
 
 /singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 
@@ -2921,6 +2944,7 @@
 /singleton/reagent/alcohol/wine/assunzione
 	name = "Assunzioni Wine"
 	description = "A complex wine originating from the Dalyanese vineyards of Assunzione. The liturgical wine of choice for Luceian masses and holy gatherings."
+	color = "#8b1b56"
 	strength = 15
 	taste_description = "red wine, truffles, hints of dried fruit, and herbs"
 
@@ -2931,6 +2955,7 @@
 /singleton/reagent/alcohol/wine/rose
 	name = "Rose Wine"
 	description = "A fruity, light, pink wine that looks and tastes like lighthearted fun."
+	color = "#e77884"
 	strength = 8
 	taste_description = "citrus, cherry, and sweet wine"
 
@@ -4582,6 +4607,16 @@
 	glass_name = "glass of Millionaire Sour"
 	glass_desc = "It's a good mix, a great mix. Best mix in the galaxy. It's terrific, you're gonna love it."
 
+/singleton/reagent/drink/lemonlimebitters
+	name = "Lemon Lime & Bitters"
+	color = "#ffa238"
+	description = "A balanced, summery cocktail great for drinking on upside-down December summers."
+	taste_description = "punchy lemonade with a splash of medicine"
+
+	glass_icon_state = "lemonlimebitters_glass"
+	glass_name = "glass of Lemon Lime & Bitters"
+	glass_desc = "A balanced, summery cocktail great for drinking on upside-down December summers."
+
 /singleton/reagent/alcohol/olympusmons
 	name = "Olympus Mons"
 	description = "Another, stronger version of the Black Russian. It's popular in some Martian arcologies."
@@ -4918,6 +4953,127 @@
 	glass_name = "rapturous sacrament of the threefold goddess"
 	glass_desc = "And Our Lady did come down from the mountain, and She was flanked in radiant and ever-burning cosmic fires. And She spoke with the Lady Caladius for what seemed an eternity, \
 	and the Lady Caladius did finally emerge. And we happy few were so blessed as to hear her- the Prophetess Giovanna- say, 'Drink today not as warriors, but as immortals.'."
+
+/singleton/reagent/alcohol/mimosa
+	name = "Mimosa"
+	color = "#d87606"
+	description = "Champagne and orange juice. A festive cocktail usually served at high-end events, such as weddings, business brunch, or even as a first-class drink on passenger transports."
+	strength = 35
+	taste_description = "sparkling orange juice"
+
+	glass_icon_state = "mimosa_glass"
+	glass_name = "glass of Mimosa"
+	glass_desc = "Champagne and orange juice. A festive cocktail usually served at high-end events, such as weddings, business brunch, or even as a first-class drink on passenger transports."
+
+/singleton/reagent/alcohol/lights_edge
+	name = "Light's Edge"
+	color = "#592ada"
+	description = "A rich cocktail made with red wine, lemon juice, and gin. Unusual, rich, and with a touch of acidity -- just like its namesake."
+	strength = 40
+	taste_description = "rich wine, herbal liquor, and tartness"
+
+	glass_icon_state = "lights_edge_glass"
+	glass_name = "glass of Light's Edge"
+	glass_desc = "A rich cocktail made with red wine, lemon juice, and gin. Unusual, rich, and with a touch of acidity -- just like its namesake."
+
+/singleton/reagent/alcohol/rose_tinted_glasses
+	name = "Rose Tinted Glasses"
+	color = "#f1b2bf"
+	description = "When looking through this, all the red flags just look like flags."
+	strength = 20
+	taste_description = "pink-colored nostalgia"
+
+	glass_icon_state = "rose_tinted_glasses_glass"
+	glass_name = "glass of Rose-Tinted Glasses"
+	glass_desc = "When looking through this, all the red flags just look like flags."
+
+/singleton/reagent/alcohol/twisted_lime
+	name = "Twisted Lime"
+	color = "#6bd151"
+	description = "A pungent, unforgiving drink made with lime juice, fernet, and ale, intended for hardcore drinkers as a pick-me-up. The evil brother of the Millionaire Sour."
+	strength = 30
+	taste_description = "bitter sourness"
+
+	glass_icon_state = "twisted_lime_glass"
+	glass_name = "glass of Twisted Lime"
+	glass_desc = "A pungent, unforgiving drink made with lime juice, fernet, and ale, intended for hardcore drinkers as a pick-me-up. The evil brother of the Millionaire Sour."
+
+/singleton/reagent/alcohol/cinnamon_orchard
+	name = "Cinnamon Orchard"
+	color = "#d3954e"
+	description = "A spiced, warm liquor that makes you feel fuzzy inside. Punctuated by a lemon twist that balances the flavor profile."
+	strength = 20
+	taste_description = "cinnamon bliss"
+
+	glass_icon_state = "cinnamon_orchard_glass"
+	glass_name = "glass of Cinnamon Orchard"
+	glass_desc = "A spiced, warm liquor that makes you feel fuzzy inside. Punctuated by a lemon twist that balances the flavor profile."
+
+/singleton/reagent/alcohol/harvest_moon
+	name = "Harvest Moon"
+	color = "#c76617"
+	description = "The taste of autumn itself, distilled into drinkable format. Applejack and pumpkin spice are emphasized by a splash of soda water to give it a refreshing taste that reminds you of falling leaves."
+	strength = 35
+	taste_description = "sparkling pumpkin pie and spiced apples"
+
+	glass_icon_state = "harvest_moon_glass"
+	glass_name = "glass of Harvest Moon"
+	glass_desc = "The taste of autumn itself, distilled into drinkable format. Applejack and pumpkin spice are emphasized by a splash of soda water to give it a refreshing taste that reminds you of falling leaves."
+
+/singleton/reagent/alcohol/new_horizons
+	name = "New Horizons"
+	color = "#1d3fbb"
+	description = "In-house celebratory cocktail of the SCCV Horizon herself, served in an immensely intricate Horizon-shaped glass. Intended for ship-wide celebrations but can happily be poured any day of the week."
+	strength = 30
+	taste_description = "the celebration of new horizons"
+
+	glass_icon_state = "horizon_glass"
+	glass_name = "glass of New Horizons"
+	glass_desc = "In-house celebratory cocktail of the SCCV Horizon herself, served in an immensely intricate Horizon-shaped glass. Intended for ship-wide celebrations but can happily be poured any day of the week."
+
+/singleton/reagent/alcohol/espratini
+	name = "Espratini"
+	color = "#4b2d0b"
+	description = "Coffee liqueur blended with espresso and spiked with vodka. Strong, highly caffeinated, and sure to wake anyone up at the beginning of the day."
+	strength = 50
+	taste_description = "powerful black coffee"
+
+	glass_icon_state = "espratini_glass"
+	glass_name = "glass of Espratini"
+	glass_desc = "Coffee liqueur blended with espresso and spiked with vodka. Strong, highly caffeinated, and sure to wake anyone up at the beginning of the day."
+
+/singleton/reagent/alcohol/pretty_in_pink
+	name = "Pretty in Pink"
+	color = "#efa1ff"
+	description = "Fruity pink wine meets fruity pink lemonade. You half expect a fairy to pop out of this."
+	strength = 10
+	taste_description = "rosy fruity pinkness"
+
+	glass_icon_state = "pink_glass"
+	glass_name = "glass of Pretty in Pink"
+	glass_desc = "Fruity pink wine meets fruity pink lemonade. You half expect a fairy to pop out of this."
+
+/singleton/reagent/alcohol/weeping_stars
+	name = "Weeping Stars"
+	color = "#6f488f"
+	description = "A sparkling, violet drink that almost takes the coloration of tears in its void."
+	strength = 35
+	taste_description = "sparkly violet cranberry juice"
+
+	glass_icon_state = "weeping_stars_glass"
+	glass_name = "glass of Weeping Stars"
+	glass_desc = "A sparkling, violet drink that almost takes the coloration of tears in its void."
+
+/singleton/reagent/alcohol/verdant
+	name = "Verdant Green"
+	color = "#248a21"
+	description = "A refreshing, light drink that mixes soju with green tea and a splash of mint. Popular on Konyang."
+	strength = 20
+	taste_description = "refreshing minty tea with a kick"
+
+	glass_icon_state = "verdant_glass"
+	glass_name = "glass of Verdant Green"
+	glass_desc = "A refreshing, light drink that mixes soju with green tea and a splash of mint. Popular on Konyang."
 
 // Skrellian drinks
 //====================

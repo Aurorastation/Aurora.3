@@ -16,7 +16,6 @@
 	emote_see = list("shakes their head", "shivers")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"

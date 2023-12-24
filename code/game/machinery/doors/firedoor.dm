@@ -497,7 +497,8 @@
 /obj/machinery/door/firedoor/noid/closed
 	req_one_access = null
 	icon_state = "door_closed"
-	density = 1
+	density = TRUE
+	opacity = TRUE
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 

@@ -56,6 +56,7 @@
 /obj/effect/shuttle_landmark/konyang_pirate/start
 	name = "Konyang Pirate Outpost - Landing Pad"
 	landmark_tag = "nav_start_konyang_pirate"
+	docking_controller = "airlock_konyang_pirate"
 	base_area = /area/konyang_pirate_outpost
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

@@ -52,9 +52,13 @@
 
 	tally = max(-2, tally + move_delay_mod)
 
-	var/obj/item/I = get_active_hand()
-	if(istype(I))
-		tally += I.slowdown
+	var/obj/item/AH = get_active_hand()
+	if(istype(AH))
+		tally += AH.slowdown
+
+	var/obj/item/IH = get_inactive_hand()
+	if(istype(IH))
+		tally += IH.slowdown
 
 	if(isitem(pulling))
 		var/obj/item/P = pulling

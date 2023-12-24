@@ -1381,7 +1381,7 @@
 
 			to_chat(C, ccia_msg)
 
-	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [src]! Gamemode: [SSticker.mode]")
+	SSdiscord.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [src]! Gamemode: [SSticker.mode]")
 
 	var/discord_msg = "[cciaa_present] agents online."
 	if (cciaa_present)
@@ -1390,7 +1390,7 @@
 		else
 			discord_msg += " [cciaa_afk] AFK."
 
-	discord_bot.send_to_cciaa(discord_msg)
+	SSdiscord.send_to_cciaa(discord_msg)
 	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
 
 /mob/living/carbon/human/proc/hiveban() //Removes Hivenet completely from a Vaurca
