@@ -913,4 +913,5 @@ var/global/list/lattice_users = list()
 	if(connected)
 		connected.disconnect()
 
+
 	return TRUE
