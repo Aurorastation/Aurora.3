@@ -1,3 +1,5 @@
+var/global/list/all_cargo_receptacles = list()
+
 /obj/structure/cargo_receptacle
 	name = "cargo delivery point"
 	desc = "An Orion Express automated cargo acceptance device. It's linked to a vast underground network of conveyors and de-sterilizers, transporting it to its final destination. These are generally used by researchers who find themselves bunkered alone on an exoplanet."
@@ -6,11 +8,15 @@
 	icon_state = "delivery_point"
 
 	var/delivery_id = ""
-	var/delivery_sector = ""
+	var/datum/weakref/delivery_sector
+
+	var/spawns_packages = TRUE
 
 /obj/structure/cargo_receptacle/Initialize(mapload)
-	. = ..()
+	..()
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/structure/cargo_receptacle/LateInitialize()
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
 
@@ -18,25 +24,32 @@
 		var/turf/current_turf = get_turf(loc)
 		var/obj/effect/overmap/visitable/my_sector = map_sectors["[current_turf.z]"]
 		if(my_sector)
-			delivery_sector = my_sector.name
+			delivery_sector = WEAKREF(my_sector)
 		else
-			delivery_sector = "Unknown"
+			delivery_sector = null
 	else
-		delivery_sector = "Unknown"
+		delivery_sector = null
 
-	var/list/warehouse_turfs = list()
-	for(var/area_path in typesof(current_map.warehouse_basearea))
-		var/area/warehouse = locate(area_path)
-		if(warehouse)
-			for(var/turf/simulated/floor/T in warehouse)
-				if(!turf_contains_dense_objects(T))
-					warehouse_turfs += T
+	all_cargo_receptacles += src
 
-	var/package_amount = rand(2, 4)
-	for(var/i = 1 to package_amount)
-		var/turf/random_turf = pick_n_take(warehouse_turfs)
-		if(random_turf)
-			new /obj/item/cargo_package(random_turf, src)
+	if(spawns_packages)
+		var/list/warehouse_turfs = list()
+		for(var/area_path in typesof(current_map.warehouse_basearea))
+			var/area/warehouse = locate(area_path)
+			if(warehouse)
+				for(var/turf/simulated/floor/T in warehouse)
+					if(!turf_contains_dense_objects(T))
+						warehouse_turfs += T
+
+		var/package_amount = rand(2, 4)
+		for(var/i = 1 to package_amount)
+			var/turf/random_turf = pick_n_take(warehouse_turfs)
+			if(random_turf)
+				new /obj/item/cargo_package(random_turf, src)
+
+/obj/structure/cargo_receptacle/Destroy()
+	all_cargo_receptacles -= src
+	return ..()
 
 /obj/structure/cargo_receptacle/attackby(obj/item/item, mob/user)
 	if(istype(item, /obj/item/cargo_package))
@@ -59,19 +72,20 @@
 	return ..()
 
 /obj/structure/cargo_receptacle/proc/pay_account(var/mob/living/carbon/human/courier, var/obj/item/cargo_package/package)
-	var/datum/money_account/supply_account = SScargo.supply_account
-	if(supply_account && !supply_account.suspended)
-		supply_account.money += package.pay_amount
+	if(package.pays_horizon_account)
+		var/datum/money_account/supply_account = SScargo.supply_account
+		if(supply_account && !supply_account.suspended)
+			supply_account.money += package.pay_amount
 
-		//create a transaction log entry
-		var/datum/transaction/transaction = new()
-		transaction.target_name = "Successful Delivery"
-		transaction.purpose = "Payment for completed Courier Duty"
-		transaction.amount = "[package.pay_amount]"
-		transaction.date = worlddate2text()
-		transaction.time = worldtime2text()
-		transaction.source_terminal = capitalize_first_letters(name)
-		SSeconomy.add_transaction_log(supply_account, transaction)
+			//create a transaction log entry
+			var/datum/transaction/transaction = new()
+			transaction.target_name = "Successful Delivery"
+			transaction.purpose = "Payment for completed Courier Duty"
+			transaction.amount = "[package.pay_amount]"
+			transaction.date = worlddate2text()
+			transaction.time = worldtime2text()
+			transaction.source_terminal = capitalize_first_letters(name)
+			SSeconomy.add_transaction_log(supply_account, transaction)
 
 	var/found_user_account = FALSE
 	var/obj/item/card/id_card = courier.GetIdCard()
@@ -104,3 +118,6 @@
 	else
 		visible_message("\The [src] pings, \"[SPAN_NOTICE("Delivery complete! Cash deposited into supply account, tip wirelessly transmitted into courier account.")]\"")
 		playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
+
+/obj/structure/cargo_receptacle/horizon
+	spawns_packages = FALSE

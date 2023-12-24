@@ -411,6 +411,7 @@ var/global/list/frozen_crew = list()
 		var/mob/living/carbon/human/H = occupant
 		if(H.ghost_spawner)
 			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
+			LAZYREMOVE(GS.spawned_mobs, WEAKREF(H))
 			GS.count--
 
 	// Let SSjobs handle the rest.

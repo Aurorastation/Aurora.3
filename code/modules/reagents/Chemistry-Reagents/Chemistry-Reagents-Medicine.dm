@@ -223,12 +223,18 @@
 
 /singleton/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && !M.is_diona())
 		M.add_chemical_effect(CE_PULSE, -2)
+		M.add_chemical_effect(CE_OXYGENATED, 1)
 		M.adjustCloneLoss(-100 * removed)
-		M.adjustOxyLoss(-10 * removed)
-		M.heal_organ_damage(10 * removed, 10 * removed)
-		M.adjustToxLoss(-10 * removed)
+		M.heal_organ_damage(30 * removed, 30 * removed)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			for(var/obj/item/organ/internal/I in H.internal_organs)
+				if(!BP_IS_ROBOTIC(I))
+					I.heal_damage(20*removed)
+	else if(M.is_diona() && M.bodytemperature < 170)
+		M.adjustFireLoss(5 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
 /singleton/reagent/clonexadone
 	name = "Clonexadone"
@@ -241,12 +247,18 @@
 
 /singleton/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_CRYO, 1)
-	if(M.bodytemperature < 170)
+	if(M.bodytemperature < 170 && !M.is_diona())
 		M.add_chemical_effect(CE_PULSE, -2)
-		M.adjustCloneLoss(-100 * removed)
-		M.adjustOxyLoss(-30 * removed)
-		M.heal_organ_damage(30 * removed, 30 * removed)
-		M.adjustToxLoss(-30 * removed)
+		M.add_chemical_effect(CE_OXYGENATED, 2)
+		M.adjustCloneLoss(-300 * removed)
+		M.heal_organ_damage(50 * removed, 50 * removed)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			for(var/obj/item/organ/internal/I in H.internal_organs)
+				if(!BP_IS_ROBOTIC(I))
+					I.heal_damage(30*removed)
+	else if(M.is_diona() && M.bodytemperature < 170)
+		M.adjustFireLoss(15 * removed)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
 
 /* Painkillers */
 

@@ -1356,7 +1356,7 @@ var/global/enabled_spooking = 0
 		message = sanitize(message, 500, extra = 0)
 
 
-	var/list/sounds = file2list("sound/serversound_list.txt");
+	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
 	sounds += "--LOCAL--"
 	sounds += sounds_cache

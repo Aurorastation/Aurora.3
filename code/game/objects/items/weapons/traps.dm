@@ -247,7 +247,7 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
 		last_shake = world.time
 
@@ -273,7 +273,7 @@
 	breakout = FALSE
 	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\The [escapee] successfully breaks out of \the [src]!</span>")
-	playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
 	release()
 
@@ -419,7 +419,8 @@
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
 								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
-		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
+		var/sound_to_play = pick(list('sound/items/Screwdriver.ogg', 'sound/items/Screwdriver2.ogg'))
+		playsound(src.loc, sound_to_play, 50, 1)
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
