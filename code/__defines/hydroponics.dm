@@ -9,6 +9,11 @@
 #define SEED_NOUN_SEEDS           "seeds"
 #define SEED_NOUN_EGGS            "eggs"
 
+#define GROWTH_WORMS			  "worms"
+#define GROWTH_VINES			  "vines"
+#define GROWTH_BIOMASS			  "biomass"
+#define GROWTH_MOLD				  "mold"
+
 // Definitions for genes (trait groupings)
 #define GENE_BIOCHEMISTRY "biochemistry"
 #define GENE_HARDINESS "hardiness"
@@ -67,3 +72,5 @@
 #define TRAIT_FLESH_COLOUR         39
 #define TRAIT_SPOROUS              40
 #define TRAIT_BIOLUM_PWR           41
+#define TRAIT_LARGE                42
+#define TRAIT_LEAVES_COLOUR		   43

@@ -608,9 +608,9 @@
 	color = "#2c1000"
 	taste_description = "nutty chocolate"
 	taste_mult = 2
-	condiment_name = "notella jar"
-	condiment_desc = "Humans insist this chocolatey spread might be the best thing they've ever created."
-	condiment_icon_state = "notellajar"
+	condiment_name = "NTella jar"
+	condiment_desc = "Originally called 'Entella', it was rebranded after being bought by Getmore. Some Humans insist this chocolate hazelnut spread might be the best thing they've ever created."
+	condiment_icon_state = "NTellajar"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/groundpeanuts
@@ -2407,6 +2407,28 @@
 	glass_name = "mug of apple cider juice"
 	glass_desc = "It's just spiced up apple juice. Sometimes the barista can't work miracles."
 
+/singleton/reagent/drink/NTellamilkshake
+	name = "NTella Milkshake"
+	description = "An intensely sweet chocolatey concoction with whipped cream on top."
+	color = "#6d4124"
+	taste_description = "overwhelmingly sweet chocolate"
+
+	glass_icon_state = "NTellamilkshake"
+	glass_name = "glass of NTella milkshake"
+	glass_desc = "Oh look, it's that thing you actually want to get but probably shouldn't."
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/NTellahotchocolate
+	name = "NTella Hot Chocolate"
+	description = "It's like a cup of hot chocolate except... More everything."
+	color = "#63432e"
+	taste_description = "hazelnutty, creamy chocolate"
+
+	glass_icon_state = "NTellahotchocolate"
+	glass_name = "glass of NTella hot chocolate"
+	glass_desc = "A very chocolatey drink for the days so rough, so cold, or so celebratory that a regular hot chocolate just won't cut it. It has marshmallows!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
 /singleton/reagent/drink/toothpaste
 	name = "Toothpaste"
 	description = "A paste commonly used in oral hygiene."
@@ -2420,6 +2442,7 @@
 	glass_name = "glass of toothpaste"
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
+
 
 /singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 

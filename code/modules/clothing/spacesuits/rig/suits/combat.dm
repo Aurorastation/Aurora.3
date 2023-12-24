@@ -202,6 +202,9 @@
 		/obj/item/rig_module/mounted/taser
 		)
 
+/obj/item/rig/gunslinger/equipped/ert
+	req_access = list(access_distress)
+
 /obj/item/rig/gunslinger/ninja
 
 	initial_modules = list(

@@ -30,7 +30,7 @@ var/global/list/ticket_panels = list()
 /datum/ticket/proc/broadcast_closure(closing_user)
 	var/client/owner_client = client_by_ckey(owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
+		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
 		owner_client.adminhelped = ADMINHELPED
 
 /datum/ticket/proc/set_to_closed(closing_key)
@@ -101,7 +101,7 @@ var/global/list/ticket_panels = list()
 
 	var/client/owner_client = client_by_ckey(src.owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
+		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
 		owner_client.adminhelped = ADMINHELPED
 
 	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")

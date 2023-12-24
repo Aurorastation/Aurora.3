@@ -2259,7 +2259,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "aWy" = (
-/obj/machinery/suit_cycler/science,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -2267,6 +2266,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
+/obj/machinery/suit_cycler/science/prepared,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
 "aWA" = (
@@ -4749,18 +4749,8 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bZu" = (
-/obj/machinery/door/window/northright{
-	name = "Atmospherics Voidsuit Access";
-	req_access = list(24)
-	},
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "bZz" = (
@@ -9723,9 +9713,6 @@
 /obj/structure/closet/secure_closet/hos,
 /obj/item/device/multitool,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/clothing/suit/space/void/hos,
-/obj/item/clothing/head/helmet/space/void/hos,
-/obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /obj/machinery/alarm/north,
 /obj/item/device/radio,
@@ -14150,21 +14137,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/northleft{
-	name = "Atmospherics Voidsuit Access";
-	req_access = list(24)
-	},
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "gAN" = (
@@ -17203,8 +17180,12 @@
 /turf/template_noop,
 /area/template_noop)
 "hVu" = (
-/obj/machinery/suit_cycler/engineering,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/table/standard,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "hWn" = (
@@ -17340,23 +17321,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
-"ibx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/storage_eva)
 "ibE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -17883,23 +17847,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
-"ilB" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/storage_eva)
 "ilT" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
@@ -19175,10 +19122,7 @@
 /area/horizon/stairwell/central)
 "iRN" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
-/obj/item/clothing/suit/space/void/sci,
-/obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/platform{
 	dir = 4
 	},
@@ -19286,20 +19230,8 @@
 /area/crew_quarters/heads/hor)
 "iVO" = (
 /obj/machinery/alarm/south,
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/machinery/suit_cycler/engineering/prepared,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "iVQ" = (
@@ -26046,6 +25978,9 @@
 /obj/item/material/hatchet/butch,
 /obj/item/material/hook,
 /obj/structure/table/standard,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -32303,23 +32238,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
-"pfp" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/storage_eva)
 "pfr" = (
 /obj/effect/landmark/start{
 	name = "Lab Assistant"
@@ -34170,21 +34088,7 @@
 /area/maintenance/wing/starboard)
 "qek" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northright{
-	name = "Engineering Voidsuit Access";
-	req_access = list(11)
-	},
+/obj/machinery/suit_cycler/engineering/prepared,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "qen" = (
@@ -39375,20 +39279,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "Atmospherics Voidsuit Access";
-	req_access = list(24)
-	},
+/obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "sDQ" = (
@@ -40974,7 +40865,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "tun" = (
-/obj/machinery/suit_cycler/hos,
+/obj/machinery/suit_cycler/hos/prepared,
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/full/black,
@@ -43919,7 +43810,15 @@
 "uHh" = (
 /obj/machinery/alarm/south,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/suit_cycler/engineering,
+/obj/structure/table/standard,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "uHq" = (
@@ -46467,10 +46366,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -67798,7 +67697,7 @@ ins
 oPC
 rns
 gsX
-pfp
+qek
 kxP
 lfF
 xhj
@@ -68202,7 +68101,7 @@ hVu
 mfE
 wTU
 qkF
-ibx
+qek
 kxP
 fsf
 mDQ
@@ -68404,7 +68303,7 @@ knH
 mfE
 wTU
 qkF
-ilB
+qek
 kxP
 hvm
 dIZ

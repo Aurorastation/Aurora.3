@@ -58,7 +58,7 @@
 				objs += d
 
 	//to_chat(usr, "Query: [query_text]")
-	var/static/list/blacklist = list(/datum/configuration)
+	var/static/list/blacklist = list(/datum/configuration, /datum/controller/subsystem/discord)
 	for(var/datum/D in objs)
 		if(blacklist[D.type])
 			objs -= D

@@ -790,7 +790,7 @@ var/global/enabled_spooking = 0
 	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
 	post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
-	discord_bot.send_to_admins("[key_name(src)]" + long_message)
+	SSdiscord.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
 	log_admin("[key_name(usr)] toggled hub visibility.")
 	feedback_add_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
@@ -1356,7 +1356,7 @@ var/global/enabled_spooking = 0
 		message = sanitize(message, 500, extra = 0)
 
 
-	var/list/sounds = file2list("sound/serversound_list.txt");
+	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
 	sounds += "--LOCAL--"
 	sounds += sounds_cache
