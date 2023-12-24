@@ -7,19 +7,17 @@
 	4. The master controller initializes the rest of the game.
 
 */
-var/global/datum/global_init/init = new ()
-
+GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 /*
 	Pre-map initialization stuff should go here.
 */
 /datum/global_init/New()
 	generate_gameid()
 
-	makeDatumRefLists()
 	load_configuration()
 
 	qdel(src) //we're done
-	init = null
+	GLOB.init = null
 
 /datum/global_init/Destroy()
 	..()
