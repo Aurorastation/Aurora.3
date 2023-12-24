@@ -8,6 +8,7 @@
 
 */
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
+GLOBAL_VAR_REAL(config, /datum/configuration)
 /*
 	Pre-map initialization stuff should go here.
 */
@@ -288,7 +289,6 @@ var/list/world_api_rate_limit = list()
 	time_stamped = 1
 
 /proc/load_configuration()
-	GLOB.config = new /datum/configuration()
 	GLOB.config.load("config/config.txt")
 	GLOB.config.load("config/game_options.txt","game_options")
 

@@ -69,8 +69,6 @@ GLOBAL_LIST_INIT(reverse_dir, list( // reverse_dir[dir] = reverse of dir
 	23, 28, 30, 29, 31, 48, 50, 49, 51, 56, 58, 57, 59, 52, 54, 53, 55, 60, 62, 61, 63
 ))
 
-GLOBAL_DATUM_INIT(config, /datum/configuration, new)
-
 GLOBAL_LIST_EMPTY(combatlog)
 GLOBAL_LIST_EMPTY(IClog)
 GLOBAL_LIST_EMPTY(OOClog)
