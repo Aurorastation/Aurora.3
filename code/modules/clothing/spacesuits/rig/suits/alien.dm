@@ -116,8 +116,8 @@
 	icon_state = "vaurca_rig"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HEAVY,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SHIELDED,
 		bomb = ARMOR_BOMB_SHIELDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -150,6 +150,17 @@
 
 /obj/item/rig/vaurca/minimal
 	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
+
+/obj/item/rig/vaurca/ninja
+		initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/chem_dispenser/vaurca,
+		/obj/item/rig_module/boring,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/door_hack
+		)
 
 /obj/item/clothing/head/helmet/space/rig/vaurca
 	light_overlay = "helmet_light_dual_green"

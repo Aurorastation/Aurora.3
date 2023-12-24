@@ -273,8 +273,8 @@
 		)
 
 /obj/item/gun/energy/gun/qukala
-	name = "tqi-qop rifle"
-	desc = "The Tqi-Qop Rifle is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
+	name = "tqi-qop carbine"
+	desc = "The Tqi-Qop Carbine is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
 	desc_extended = ""
 	icon = 'icons/obj/item/gun/energy/gun/qukala.dmi'
 	icon_state = "qukalagun"
@@ -297,6 +297,12 @@
 		)
 
 	has_item_ratio = FALSE
+
+/obj/item/gun/energy/gun/qukala/mounted
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0
 
 /obj/item/gun/energy/psipistol
 	name = "psionic pistol"
