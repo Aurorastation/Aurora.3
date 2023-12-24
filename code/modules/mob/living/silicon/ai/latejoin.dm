@@ -1,8 +1,10 @@
 var/global/list/empty_playable_ai_cores = list()
 
-/hook/roundstart/proc/spawn_empty_ai()
-	if("AI" in SSticker.mode.disabled_jobs)
-		return 1	// Don't make empty AI's if you can't have them (also applies to Malf)
+/hook/pregame_start/proc/spawn_empty_ai()
+	//No gamemode disables the AI anyways, and this would prevent this hook from working correctly, so it's a problem for whoever might want to implement a gamemode that doesn't
+	//allow an AI in the future, which is likely (hopefully?) never
+	// if("AI" in SSticker.mode.disabled_jobs)
+	// 	return 1	// Don't make empty AI's if you can't have them (also applies to Malf)
 	for(var/obj/effect/landmark/start/S in landmarks_list)
 		if(S.name != "AI")
 			continue
