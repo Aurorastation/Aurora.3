@@ -39,6 +39,11 @@ SUBSYSTEM_DEF(discord)
 		return FALSE
 	return ..()
 
+/datum/controller/subsystem/discord/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, auth_token))
+		return FALSE
+	return ..()
+
 /datum/controller/subsystem/discord/Initialize()
 	GLOB.config.load("config/discord.txt", "discord")
 	update_channels()
