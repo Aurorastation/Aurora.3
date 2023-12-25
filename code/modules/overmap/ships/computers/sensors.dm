@@ -81,7 +81,7 @@
 		QDEL_NULL(sound_token)
 
 /obj/machinery/computer/ship/sensors/proc/display_message(var/message)
-	if(NOT_FLAG(stat, NOPOWER))
+	if(OPERABLE(src))
 		playsound(src, 'sound/machines/triplebeep.ogg', 50)
 		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"))
 
