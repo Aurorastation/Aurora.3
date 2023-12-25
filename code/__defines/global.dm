@@ -17,15 +17,28 @@ GLOBAL_LIST_EMPTY(listening_objects) // List of objects that need to be able to 
 GLOBAL_DATUM_INIT(universe, /datum/universal_state, new)
 
 GLOBAL_LIST(global_map)
+GLOBAL_PROTECT(global_map)
 
 GLOBAL_LIST_EMPTY(cable_list)
 
 GLOBAL_VAR(diary)
+GLOBAL_PROTECT(diary)
+
 GLOBAL_VAR(diary_runtime)
+GLOBAL_PROTECT(diary_runtime)
+
 GLOBAL_VAR(diary_date_string)
+GLOBAL_PROTECT(diary_date_string)
+
 GLOBAL_VAR(href_logfile)
+GLOBAL_PROTECT(href_logfile)
+
 GLOBAL_VAR_INIT(game_version, "Aurorastation")
+GLOBAL_PROTECT(game_version)
+
 GLOBAL_VAR_INIT(changelog_hash, "")
+GLOBAL_PROTECT(changelog_hash)
+
 GLOBAL_VAR_INIT(game_year, (text2num(time2text(world.realtime, "YYYY")) + 442))
 
 GLOBAL_VAR_INIT(round_progressing, 1)
@@ -34,10 +47,20 @@ GLOBAL_VAR_INIT(master_mode, "extended")
 GLOBAL_VAR_INIT(secret_force_mode, "secret")
 
 GLOBAL_LIST_EMPTY(bombers)
+GLOBAL_PROTECT(bombers)
+
 GLOBAL_LIST_EMPTY(admin_log)
+GLOBAL_PROTECT(admin_log)
+
 GLOBAL_LIST_EMPTY(signal_log)
+GLOBAL_PROTECT(signal_log)
+
 GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
+GLOBAL_PROTECT(lastsignalers)
+
 GLOBAL_LIST_EMPTY(lawchanges) // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
+GLOBAL_PROTECT(lawchanges)
+
 GLOBAL_LIST_EMPTY(reg_dna)
 
 GLOBAL_DATUM(newplayer_start, /turf)
@@ -70,9 +93,16 @@ GLOBAL_LIST_INIT(reverse_dir, list( // reverse_dir[dir] = reverse of dir
 ))
 
 GLOBAL_LIST_EMPTY(combatlog)
+GLOBAL_PROTECT(lawchanges)
+
 GLOBAL_LIST_EMPTY(IClog)
+GLOBAL_PROTECT(IClog)
+
 GLOBAL_LIST_EMPTY(OOClog)
+GLOBAL_PROTECT(OOClog)
+
 GLOBAL_LIST_EMPTY(adminlog)
+GLOBAL_PROTECT(adminlog)
 
 GLOBAL_VAR_INIT(Debug2, 0)
 GLOBAL_DATUM(debugobj, /datum/debug)
@@ -91,6 +121,7 @@ GLOBAL_VAR(custom_event_msg)
 // Database connections. A connection is established along with /hook/startup/proc/load_databases().
 // Ideally, the connection dies when the server restarts (After feedback logging.).
 GLOBAL_DATUM(dbcon, /DBConnection)
+GLOBAL_PROTECT(dbcon)
 
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))

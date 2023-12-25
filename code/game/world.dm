@@ -9,6 +9,7 @@
 */
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 GLOBAL_DATUM(config, /datum/configuration)
+GLOBAL_PROTECT(config)
 /*
 	Pre-map initialization stuff should go here.
 */

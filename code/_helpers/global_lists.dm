@@ -2,6 +2,7 @@
 GLOBAL_LIST_EMPTY(clients)
 /// List of all clients who have any permissions.
 GLOBAL_LIST_EMPTY(staff)
+GLOBAL_PROTECT(staff)
 /// List of all ckeys with associated client.
 GLOBAL_LIST_EMPTY(directory)
 
@@ -19,8 +20,10 @@ GLOBAL_LIST_EMPTY(living_mob_list)
 GLOBAL_LIST_EMPTY(dead_mob_list)
 /// List of all API commands (/datum/topic_command) available.
 GLOBAL_LIST_EMPTY(topic_commands)
+GLOBAL_PROTECT(topic_commands)
 /// List of the names of all API commands (/datum/topic_command) available.
 GLOBAL_LIST_EMPTY(topic_commands_names)
+GLOBAL_PROTECT(topic_commands_names)
 
 /// List of all landmarks.
 GLOBAL_LIST_EMPTY(landmarks_list)
