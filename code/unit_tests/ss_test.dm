@@ -12,7 +12,8 @@
 	The Unit Tests Configuration subsystem
 */
 
-SUBSYSTEM_DEF(SSunit_tests_config)
+var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
+/datum/controller/subsystem/unit_tests_config
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
 	flags = SS_NO_FIRE
@@ -34,7 +35,7 @@ SUBSYSTEM_DEF(SSunit_tests_config)
 /datum/controller/subsystem/unit_tests_config/New()
 	. = ..()
 
-	UT = new()
+	UT = new
 
 	world.fps = 10
 
