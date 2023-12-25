@@ -12,8 +12,7 @@
 	The Unit Tests Configuration subsystem
 */
 
-var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
-/datum/controller/subsystem/unit_tests_config
+SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
 	flags = SS_NO_FIRE
