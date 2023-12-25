@@ -9,7 +9,7 @@
 //			/atom/new_loc: The atom the exitee is now residing in
 //
 
-var/singleton/observ/exited/exited_event = new()
+GLOBAL_DATUM_INIT(exited_event, /singleton/observ/exited, new)
 
 /singleton/observ/exited
 	name = "Exited"

@@ -8,7 +8,7 @@
 //			/old_dir: The dir before the change.
 //			/new_dir: The dir after the change.
 
-var/singleton/observ/dir_set/dir_set_event = new()
+GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
 
 /singleton/observ/dir_set
 	name = "Direction Set"
