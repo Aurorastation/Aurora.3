@@ -124,7 +124,7 @@
 
 	"IN" (or "FROM", that works too but it's kinda weird to read),
 	is the list of objects to work on. This defaults to world if not provided.
-	But doing something like "in GLOB.living_mob_list" is quite handy and can optimize your query.
+	But doing something like "in living_mob_list" is quite handy and can optimize your query.
 	All names inside the IN block are global scope, so you can do living_mob_list (a global var) easily.
 	You can also run it on a single object. Because SDQL is that convenient even for single operations.
 
@@ -789,7 +789,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 	var/list/new_args = list()
 	for(var/arg in arguments)
 		new_args[++new_args.len] = SDQL_expression(source, arg)
-	if(object == "global") // Global proc.
+	if(object == GLOB) // Global proc.
 		return call("/proc/[procname]")(arglist(new_args))
 	return call(object, procname)(arglist(new_args))
 
@@ -1043,7 +1043,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 			if("world")
 				v = world
 			if("global")
-				v = "global"
+				v = GLOB
 			if("MC")
 				v = Master
 			if("FS")
@@ -1066,6 +1066,8 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null
 					v = SSmatch
 				else
 					return null
+	else if(object == GLOB) // Shitty ass hack kill me.
+		v = expression[start]
 	if(long)
 		if(expression[start + 1] == ".")
 			return SDQL_var(v, expression[start + 2], null, source, superuser, query)
