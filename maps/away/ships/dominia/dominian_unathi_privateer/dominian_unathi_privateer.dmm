@@ -3811,8 +3811,8 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
-/obj/item/gun/projectile/automatic/rifle/dom,
-/obj/item/gun/projectile/automatic/rifle/dom,
+/obj/item/gun/projectile/automatic/rifle/dominia,
+/obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/effect/floor_decal/industrial/outline/yellow,

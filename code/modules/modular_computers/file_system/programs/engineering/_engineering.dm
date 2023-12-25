@@ -23,7 +23,8 @@
 	filename = "alarmmonitorall"
 	filedesc = "Alarm Monitoring (All)"
 	required_access_download = ACCESS_HEADS
-	required_access_run = ACCESS_HEADS
+	required_access_run = list(ACCESS_HEADS, ACCESS_EQUIPMENT)
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 
 /datum/computer_file/program/alarm_monitor/all/New()
 	..()
