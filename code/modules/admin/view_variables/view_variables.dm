@@ -21,7 +21,7 @@
 	if(!D)
 		return
 
-	var/static/list/blacklist = list(/datum/configuration, /datum/controller/subsystem/discord)
+	var/static/list/blacklist = list(/datum/configuration)
 	if(is_type_in_list(D,blacklist))
 		return
 
@@ -120,6 +120,8 @@
 	for(var/x in D.vars)
 		CHECK_TICK
 		if(x in view_variables_hide_vars)
+			continue
+		if(!D.can_vv_get(x))
 			continue
 		variables += x
 	variables = sortList(variables)

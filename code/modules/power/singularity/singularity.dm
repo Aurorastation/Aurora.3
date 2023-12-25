@@ -1,6 +1,6 @@
 #define I_SINGULO "singulo"
 
-/obj/singularity/
+/obj/singularity
 	name = "gravitational singularity"
 	desc = "A gravitational singularity."
 	icon = 'icons/obj/singularity.dmi'

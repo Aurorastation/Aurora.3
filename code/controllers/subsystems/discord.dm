@@ -34,6 +34,15 @@ SUBSYSTEM_DEF(discord)
 	// with world.visibility == 0.
 	var/alert_visibility = 0
 
+/datum/controller/subsystem/discord/can_vv_get(var_name)
+	if(var_name == NAMEOF(src, auth_token))
+		return FALSE
+	return ..()
+
+/datum/controller/subsystem/discord/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, auth_token))
+		return FALSE
+	return ..()
 
 /datum/controller/subsystem/discord/Initialize()
 	config.load("config/discord.txt", "discord")
