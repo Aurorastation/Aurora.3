@@ -1,7 +1,7 @@
 /obj/machinery/computer/shuttle_control/specops
 	name = "special operations shuttle console"
 	shuttle_tag = "Phoenix Shuttle"
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
 	to_chat(user, "<span class='warning'>Access Denied.</span>")
@@ -215,10 +215,10 @@
 
 /obj/machinery/computer/shuttle_control/multi/legion
 	name = "dropship control console"
-	req_access = list(access_legion)
+	req_access = list(ACCESS_LEGION)
 	shuttle_tag = "Legion Shuttle"
 
 /obj/machinery/computer/shuttle_control/multi/distress
 	name = "shuttle control computer"
-	req_access = list(access_distress)
+	req_access = list(ACCESS_DISTRESS)
 	shuttle_tag = "Distress Shuttle"

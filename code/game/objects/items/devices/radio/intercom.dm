@@ -373,7 +373,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(SYND_FREQ)
-	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
+	internal_channels[num2text(SYND_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/raider
 	name = "illegally modified intercom"
@@ -396,7 +396,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(RAID_FREQ)
-	internal_channels[num2text(RAID_FREQ)] = list(access_syndicate)
+	internal_channels[num2text(RAID_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)

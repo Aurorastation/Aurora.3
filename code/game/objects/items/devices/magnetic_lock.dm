@@ -12,7 +12,7 @@
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
 	w_class = ITEMSIZE_NORMAL
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
 	var/department = "CENTCOM"
@@ -43,7 +43,7 @@
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = null
-	req_one_access = list(access_legion, access_tcfl_peacekeeper_ship)
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCFL_PEACEKEEPER_SHIP)
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
@@ -443,7 +443,7 @@
 	name = "magnetic door lock"
 	desc = "A large, passcode locked device used for completely locking down airlocks."
 
-	req_access = list(access_none)
+	req_access = list(ACCESS_NONE)
 
 	var/passcode = "open"
 	var/configurable = TRUE

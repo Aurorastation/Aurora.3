@@ -453,43 +453,43 @@
 //General facilities. - Everyone on central has that --> Use this for doors that every central role should have access to, but not the aurora people
 #define ACCESS_CENT_GENERAL 101
 /datum/access/cent_general
-	id = access_cent_general
+	id = ACCESS_CENT_GENERAL
 	desc = "Code Grey"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Thunderdome.
 #define ACCESS_CENT_THUNDER 102
 /datum/access/cent_thunder
-	id = access_cent_thunder
+	id = ACCESS_CENT_THUNDER
 	desc = "Code Yellow"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Centcom Security - This access is used by the ERT / Odin Security and CCIA
-// Separation between Odin Sec/CCIA and ERT is achieved via the ERT Commander Access (access_cent_creed)
+// Separation between Odin Sec/CCIA and ERT is achieved via the ERT Commander Access (ACCESS_CENT_CREED)
 #define ACCESS_CENT_SPECOPS 103
 /datum/access/cent_specops
-	id = access_cent_specops
+	id = ACCESS_CENT_SPECOPS
 	desc = "Code Black"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Medical/Research - Thats the access for the medical section. Used for the odin doctors/chemists
 #define ACCESS_CENT_MEDICAL 104
 /datum/access/cent_medical
-	id = access_cent_medical
+	id = ACCESS_CENT_MEDICAL
 	desc = "Code White"
 	access_type = ACCESS_TYPE_CENTCOM
 
-//Living quarters. - Thats the accesse used by the odin bartenders/chefs
+//Living quarters, the access used by the odin bartenders/chefs
 #define ACCESS_CENT_LIVING 105
 /datum/access/cent_living
-	id = access_cent_living
+	id = ACCESS_CENT_LIVING
 	desc = "Code Green"
 	access_type = ACCESS_TYPE_CENTCOM
 
-//Generic storage areas. - Thats used for the Maint Tunnels on Centcom
+//Generic storage areas, used for the Maint Tunnels on Centcom
 #define ACCESS_CENT_STORAGE 106
 /datum/access/cent_storage
-	id = access_cent_storage
+	id = ACCESS_CENT_STORAGE
 	desc = "Code Orange"
 	access_type = ACCESS_TYPE_CENTCOM
 
@@ -498,32 +498,32 @@
 //Creed's office. - ERT/TCFL Commander
 #define ACCESS_CENT_CREED 108
 /datum/access/cent_creed
-	id = access_cent_creed
+	id = ACCESS_CENT_CREED
 	desc = "Code Silver"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //CCIA Access on Centcom
 #define ACCESS_CENT_CCIA 109
 /datum/access/cent_ccia
-	id = access_cent_ccia
+	id = ACCESS_CENT_CCIA
 	desc = "Code Gold"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_MERCHANT 110//merchant access
 /datum/access/merchant
-	id = access_merchant
+	id = ACCESS_MERCHANT
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_LEGION 111//tau ceti foreign legion access
 /datum/access/legion
-	id = access_legion
+	id = ACCESS_LEGION
 	desc = "Tau Ceti Foreign Legion Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_DISTRESS 112
 /datum/access/distress
-	id = access_distress
+	id = ACCESS_DISTRESS
 	desc = "General ERT Base Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
@@ -533,13 +533,13 @@
 ****************************/
 #define ACCESS_KATAPHRACT 113
 /datum/access/kataphract
-	id = access_kataphract
+	id = ACCESS_KATAPHRACT
 	desc = "Kataphract Chapter Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_KATAPHRACT_KNIGHT 114
 /datum/access/kataphract/knight
-	id = access_kataphract_knight
+	id = ACCESS_KATAPHRACT_KNIGHT
 	desc = "Kataphract Knight Access"
 
 /***************
@@ -547,12 +547,12 @@
 ***************/
 #define ACCESS_SYNDICATE 150//General Syndicate Access
 /datum/access/syndicate
-	id = access_syndicate
+	id = ACCESS_SYNDICATE
 	access_type = ACCESS_TYPE_SYNDICATE
 
 #define ACCESS_SYNDICATE_LEADER 151 //Syndie Commander Access
 /datum/access/syndicate_leader
-	id = access_syndicate_leader
+	id = ACCESS_SYNDICATE_LEADER
 	access_type = ACCESS_TYPE_SYNDICATE
 
 /*******
@@ -560,137 +560,137 @@
 *******/
 #define ACCESS_EQUIPMENT 199
 /datum/access/equipment
-	id = access_equipment
+	id = ACCESS_EQUIPMENT
 	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE
 
 #define ACCESS_CRATE_CASH 200
 /datum/access/crate_cash
-	id = access_crate_cash
+	id = ACCESS_CRATE_CASH
 	access_type = ACCESS_TYPE_NONE
 
 #define ACCESS_ORION_EXPRESS_SHIP 201
 /datum/access/exress_ship
-	id = access_orion_express_ship
+	id = ACCESS_ORION_EXPRESS_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_GENERIC_AWAY_SITE 202
 /datum/access/generic_away_site
-	id = access_generic_away_site
+	id = ACCESS_GENERIC_AWAY_SITE
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_NONE -1
 /datum/access/none
-	id = access_none
+	id = ACCESS_NONE
 	access_type = ACCESS_TYPE_NONE
 
 #define ACCESS_SOL_SHIPS 203
 /datum/access/sol_ships
-	id = access_sol_ships
+	id = ACCESS_SOL_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_TCFL_PEACEKEEPER_SHIP 204
 /datum/access/tcfl_peacekeeper_ship
-	id = access_tcfl_peacekeeper_ship
+	id = ACCESS_TCFL_PEACEKEEPER_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_EE_SPY_SHIP 205
 /datum/access/ee_spy_ship
-	id = access_ee_spy_ship
+	id = ACCESS_EE_SPY_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_CIVILIAN_STATION 206
-/datum/access/access_civilian_station
-	id = access_civilian_station
+/datum/access/ACCESS_CIVILIAN_STATION
+	id = ACCESS_CIVILIAN_STATION
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP 207
-/datum/access/access_elyran_naval_infantry_ship
-	id = access_elyran_naval_infantry_ship
+/datum/access/elyran_naval_infantry_ship
+	id = ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_SKRELL 208
-/datum/access/access_skrell
-	id = access_skrell
+/datum/access/skrell
+	id = ACCESS_SKRELL
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_PRA 209
-/datum/access/access_pra
-	id = access_pra
+/datum/access/pra
+	id = ACCESS_PRA
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_UNATHI_PIRATE 210
-/datum/access/access_unathi_pirate
-	id = access_unathi_pirate
+/datum/access/unathi_pirate
+	id = ACCESS_UNATHI_PIRATE
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_IAC_RESCUE_SHIP 211
-/datum/access/access_iac_rescue_ship
-	id = access_iac_rescue_ship
+/datum/access/iac_rescue_shit
+	id = ACCESS_IAC_RESCUE_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP 212
-/datum/access/access_imperial_fleet_voidsman_ship
-	id = access_imperial_fleet_voidsman_ship
+/datum/access/imperial_fleet_voidsman_ship
+	id = ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_NKA 213
-/datum/access/access_nka
-	id = access_nka
+/datum/access/nka
+	id = ACCESS_NKA
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_DPRA 214
-/datum/access/access_dpra
-	id = access_dpra
+/datum/access/dpra
+	id = ACCESS_DPRA
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_MERCHANTS_GUILD 215
-/datum/access/access_merchants_guild
-	id = access_merchants_guild
+/datum/access/merchants_guild
+	id = ACCESS_MERCHANTS_GUILD
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_hephaestus= 216
-/datum/access/access_hephaestus
-	id = access_hephaestus
+#define ACCESS_HEPHAESTUS 216
+/datum/access/hephaestus
+	id = ACCESS_HEPHAESTUS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_GOLDEN_DEEP 217
-/datum/access/access_golden_deep
-	id = access_golden_deep
+/datum/access/golden_deep
+	id = ACCESS_GOLDEN_DEEP
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_KONYANG_POLICE 218
-/datum/access/access_konyang_police
-	id = access_konyang_police
+/datum/access/konyang_police
+	id = ACCESS_KONYANG_POLICE
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_KONYANG_VENDORS 219
-/datum/access/access_konyang_vendors
+/datum/access/ACCESS_KONYANG_VENDORS
 	id = access_konyang_vendors
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_IDRIS 220
-/datum/access/access_idris
-	id = access_idris
+/datum/access/idris
+	id = ACCESS_IDRIS
 	desc = "Idris Vault Ship"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_COALITION 221
-/datum/access/access_coalition
-	id = access_coalition
+/datum/access/coalition
+	id = ACCESS_COALITION
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_COALITION_NAVY 222
-/datum/access/access_coalition_navy
-	id = access_coalition_navy
+/datum/access/coalition_navy
+	id = ACCESS_COALITION_NAVY
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_GADPATHUR_NAVY 223
-/datum/access/access_gadpathur_navy
-	id = access_gadpathur_navy
+/datum/access/gadpathur_navy
+	id = ACCESS_GADPATHUR_NAVY
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_GADPATHUR_NAVY_OFFICER 224
-/datum/access/access_gadpathur_navy_officer
-	id = access_gadpathur_navy_officer
+/datum/access/gadpathur_navy_officer
+	id = ACCESS_GADPATHUR_NAVY_OFFICER
 	access_type = ACCESS_TYPE_CENTCOM

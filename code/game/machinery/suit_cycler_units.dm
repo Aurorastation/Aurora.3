@@ -55,7 +55,7 @@
 /obj/machinery/suit_cycler/syndicate
 	name = "non-standard suit cycler"
 	model_text = "Nonstandard"
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	departments = list("Mercenary")
 	can_repair = TRUE
 
@@ -118,7 +118,7 @@
 /obj/machinery/suit_cycler/freelancer
 	name = "freelancers suit cycler"
 	model_text = "Freelancers"
-	req_access = list(access_distress)
+	req_access = list(ACCESS_DISTRESS)
 	departments = list("Freelancers")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE

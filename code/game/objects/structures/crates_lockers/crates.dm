@@ -417,7 +417,7 @@
 	name = "AI modules crate"
 	desc = "A secure crate full of AI modules."
 	icon_state = "science_crate"
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/structure/closet/crate/secure/aimodules/fill()
 	for(var/moduletype in subtypesof(/obj/item/aiModule))
@@ -446,7 +446,7 @@
 	name = "foreign legion supply crate"
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
 	icon_state = "tcfl_crate"
-	req_access = list(access_legion)
+	req_access = list(ACCESS_LEGION)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"

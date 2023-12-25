@@ -333,7 +333,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	interior_direction = WEST
 	exterior_direction = NORTH
 	door_name = "ship external access"
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	door_type = /obj/machinery/door/airlock/external
 
 #undef HALF_X

@@ -3,8 +3,8 @@
 var/global/list/default_internal_channels = list(
 	num2text(PUB_FREQ) = list(),
 	num2text(ENT_FREQ) = list(),
-	num2text(AI_FREQ)  = list(access_equipment),
-	num2text(ERT_FREQ) = list(access_cent_specops),
+	num2text(AI_FREQ)  = list(ACCESS_EQUIPMENT),
+	num2text(ERT_FREQ) = list(ACCESS_CENT_SPECOPS),
 	num2text(COMM_FREQ)= list(ACCESS_HEADS),
 	num2text(ENG_FREQ) = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS),
 	num2text(MED_FREQ) = list(ACCESS_MEDICAL_EQUIP),

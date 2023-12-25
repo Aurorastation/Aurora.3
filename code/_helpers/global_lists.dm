@@ -121,7 +121,7 @@ GLOBAL_LIST_EMPTY(endgame_exits)
 /// Safe spawns  for universe states.
 GLOBAL_LIST_EMPTY(endgame_safespawns)
 
-GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, access_syndicate, access_external_airlocks))
+GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, access_external_airlocks))
 
 /// Cloaking devices.
 GLOBAL_LIST_EMPTY(cloaking_devices)

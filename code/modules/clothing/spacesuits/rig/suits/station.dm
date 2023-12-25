@@ -178,7 +178,7 @@
 	siemens_coefficient = 0
 
 /obj/item/rig/eva/equipped/pirate
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
 
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
@@ -382,7 +382,7 @@
 		)
 
 /obj/item/rig/hazard/equipped/pirate
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate

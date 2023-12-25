@@ -27,7 +27,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
@@ -93,7 +93,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc/distress
 
-	req_access = list(access_distress)
+	req_access = list(ACCESS_DISTRESS)
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,

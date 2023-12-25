@@ -33,6 +33,6 @@
 
 /obj/machinery/computer/shuttle_control/merchant
 	name = "merchant shuttle control console"
-	req_access = list(access_merchant)
+	req_access = list(ACCESS_MERCHANT)
 	shuttle_tag = "ICV Enterprise"
 	can_rename_ship = TRUE

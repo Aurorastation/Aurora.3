@@ -36,7 +36,7 @@
 /datum/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	.=..()
 	var/obj/item/card/id/distress/legion/I = H.wear_id
-	I.access += (access_cent_specops)
+	I.access += (ACCESS_CENT_SPECOPS)
 
 /datum/outfit/admin/ert/legion/pilot
 	name = "TCFL Dropship Pilot"
@@ -82,4 +82,4 @@
 /datum/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	.=..()
 	var/obj/item/card/id/distress/legion/I = H.wear_id
-	I.access += (access_cent_specops)
+	I.access += (ACCESS_CENT_SPECOPS)

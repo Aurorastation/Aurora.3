@@ -21,8 +21,8 @@
 
 	selection_color = "#c9ad12"
 
-	access = list(access_merchant)
-	minimal_access = list(access_merchant)
+	access = list(ACCESS_MERCHANT)
+	minimal_access = list(ACCESS_MERCHANT)
 
 	latejoin_at_spawnpoints = TRUE
 
@@ -94,4 +94,4 @@
 	return "Merchant's Assistant"
 
 /datum/outfit/merchant_assistant/get_id_access()
-	return list(access_merchant)
+	return list(ACCESS_MERCHANT)
