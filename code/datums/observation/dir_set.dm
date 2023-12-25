@@ -27,9 +27,9 @@ GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
 
 /atom/movable/Entered(var/atom/movable/am, atom/old_loc)
 	. = ..()
-	if(dir_set_event.has_listeners(am))
-		dir_set_event.register(src, am, TYPE_PROC_REF(/atom, recursive_dir_set))
+	if(GLOB.dir_set_event.has_listeners(am))
+		GLOB.dir_set_event.register(src, am, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 /atom/movable/Exited(var/atom/movable/am, atom/new_loc)
 	. = ..()
-	dir_set_event.unregister(src, am, TYPE_PROC_REF(/atom, recursive_dir_set))
+	GLOB.dir_set_event.unregister(src, am, TYPE_PROC_REF(/atom, recursive_dir_set))

@@ -50,10 +50,10 @@ GLOBAL_LIST_EMPTY(gps_list)
 	update_icon()
 
 	if(held_by)
-		moved_event.register(held_by, src, PROC_REF(update_position))
+		GLOB.moved_event.register(held_by, src, PROC_REF(update_position))
 	if(implanted_into)
-		moved_event.register(implanted_into, src, PROC_REF(update_position))
-	moved_event.register(src, src, PROC_REF(update_position))
+		GLOB.moved_event.register(implanted_into, src, PROC_REF(update_position))
+	GLOB.moved_event.register(src, src, PROC_REF(update_position))
 
 	for(var/gps in GLOB.gps_list)
 		tracking += GLOB.gps_list[gps]["tag"]
@@ -62,12 +62,12 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/device/gps/Destroy()
 	GLOB.gps_list -= GLOB.gps_list[gpstag]
-	moved_event.unregister(src, src)
+	GLOB.moved_event.unregister(src, src)
 	if(held_by)
-		moved_event.unregister(held_by, src)
+		GLOB.moved_event.unregister(held_by, src)
 		held_by = null
 	if(implanted_into)
-		moved_event.unregister(implanted_into, src)
+		GLOB.moved_event.unregister(implanted_into, src)
 		implanted_into = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -84,16 +84,16 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/pickup(var/mob/user)
 	..()
 	if(held_by)
-		moved_event.unregister(held_by, src)
+		GLOB.moved_event.unregister(held_by, src)
 	held_by = user
-	moved_event.register(user, src, PROC_REF(update_position))
+	GLOB.moved_event.register(user, src, PROC_REF(update_position))
 	update_icon()
 
 /obj/item/device/gps/dropped(var/mob/user)
 	..()
 	if(isturf(loc))
 		held_by = null
-		moved_event.unregister(user, src)
+		GLOB.moved_event.unregister(user, src)
 	if(user.client)
 		user.client.screen -= compass
 	update_icon()
@@ -238,7 +238,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/proc/update_position(var/check_held_by = TRUE)
 	var/turf/T = get_turf(src)
 	if(check_held_by && held_by && (held_by.x != T.x || held_by.y != T.y || held_by.z != T.z) && held_by != recursive_loc_turf_check(src, 3, held_by))
-		moved_event.unregister(held_by, src)
+		GLOB.moved_event.unregister(held_by, src)
 		held_by = null
 		update_icon()
 		return
@@ -342,10 +342,10 @@ GLOBAL_LIST_EMPTY(gps_list)
 	update_icon()
 
 	if(held_by)
-		moved_event.register(held_by, src, PROC_REF(update_position))
+		GLOB.moved_event.register(held_by, src, PROC_REF(update_position))
 	if(implanted_into)
-		moved_event.register(implanted_into, src, PROC_REF(update_position))
-	moved_event.register(src, src, PROC_REF(update_position))
+		GLOB.moved_event.register(implanted_into, src, PROC_REF(update_position))
+	GLOB.moved_event.register(src, src, PROC_REF(update_position))
 
 	for(var/gps in GLOB.gps_list)
 		tracking += GLOB.gps_list[gps]["tag"]

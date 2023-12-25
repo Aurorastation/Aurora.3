@@ -10,7 +10,6 @@
 
 GLOBAL_DATUM_INIT(mob_equipped_event, /singleton/observ/mob_equipped, new)
 
-
 /singleton/observ/mob_equipped
 	name = "Mob Equipped"
 	expected_type = /mob

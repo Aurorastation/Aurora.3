@@ -376,7 +376,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
-		dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE

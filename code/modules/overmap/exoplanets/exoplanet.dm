@@ -166,8 +166,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					death_event.register(S, src, PROC_REF(remove_animal))
-					destroyed_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -188,8 +188,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
 	animals -= M
-	death_event.unregister(M, src)
-	destroyed_event.unregister(M, src)
+	GLOB.death_event.unregister(M, src)
+	GLOB.destroyed_event.unregister(M, src)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()

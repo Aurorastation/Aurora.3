@@ -22,4 +22,4 @@ GLOBAL_DATUM_INIT(stat_set_event, /singleton/observ/stat_set, new)
 	var/old_stat = stat
 	. = ..()
 	if(stat != old_stat)
-		stat_set_event.raise_event(src, old_stat, new_stat)
+		GLOB.stat_set_event.raise_event(src, old_stat, new_stat)

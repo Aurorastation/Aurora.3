@@ -118,8 +118,8 @@
 	if(source in sources)
 		return FALSE
 	sources += source
-	moved_event.register(source, src, PROC_REF(source_moved))
-	destroyed_event.register(source, src, PROC_REF(remove_source))
+	GLOB.moved_event.register(source, src, PROC_REF(source_moved))
+	GLOB.destroyed_event.register(source, src, PROC_REF(remove_source))
 	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
@@ -128,8 +128,8 @@
 /datum/visualnet/proc/remove_source(var/atom/source, var/update_visibility = TRUE, var/opacity_check = FALSE)
 	if(!sources.Remove(source))
 		return FALSE
-	moved_event.unregister(source, src)
-	destroyed_event.unregister(source, src)
+	GLOB.moved_event.unregister(source, src)
+	GLOB.destroyed_event.unregister(source, src)
 	for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)

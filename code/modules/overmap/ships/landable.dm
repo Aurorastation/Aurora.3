@@ -12,7 +12,7 @@
 	layer = OVERMAP_SHUTTLE_LAYER
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
-	shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
+	GLOB.shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
 	return ..()
 
 /obj/effect/overmap/visitable/ship/landable/can_burn()
@@ -63,7 +63,7 @@
 /obj/effect/overmap/visitable/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
-	shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
+	GLOB.shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
 
 	var/obj/effect/overmap/visitable/mothership = GLOB.map_sectors["[shuttle_datum.current_location.z]"]
@@ -103,11 +103,11 @@
 	core_landmark = master
 	name = _name
 	landmark_tag = master.shuttle_name + _name
-	destroyed_event.register(master, src, GLOBAL_PROC_REF(qdel))
+	GLOB.destroyed_event.register(master, src, GLOBAL_PROC_REF(qdel))
 	. = ..()
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Destroy()
-	destroyed_event.unregister(core_landmark, src)
+	GLOB.destroyed_event.unregister(core_landmark, src)
 	LAZYREMOVE(core_landmark.visitors, src)
 	core_landmark = null
 	. = ..()
@@ -125,11 +125,11 @@
 /obj/effect/shuttle_landmark/visiting_shuttle/shuttle_arrived(datum/shuttle/shuttle)
 	..()
 	LAZYSET(core_landmark.visitors, src, shuttle)
-	shuttle_moved_event.register(shuttle, src, PROC_REF(shuttle_left))
+	GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(shuttle_left))
 
 /obj/effect/shuttle_landmark/visiting_shuttle/proc/shuttle_left(datum/shuttle/shuttle, obj/effect/shuttle_landmark/old_landmark, obj/effect/shuttle_landmark/new_landmark)
 	if(old_landmark == src)
-		shuttle_moved_event.unregister(shuttle, src)
+		GLOB.shuttle_moved_event.unregister(shuttle, src)
 		LAZYREMOVE(core_landmark.visitors, src)
 
 /obj/effect/overmap/visitable/ship/landable/proc/on_shuttle_jump(datum/shuttle/given_shuttle, obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)
