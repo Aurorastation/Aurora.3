@@ -304,10 +304,10 @@
 	recharge_time = 10
 	can_turret = 0
 
-/obj/item/gun/energy/psipistol
-	name = "psionic pistol"
-	desc = "A pistol that utilises psionics. It's made from a lightweight alloy."
-	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Psi Pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically, enabling the weapon to be used entirely one-handed."
+/obj/item/gun/energy/fedpistol
+	name = "nralakk energy pistol"
+	desc = "A Skrell-made pistol that utilises a psionic control mechanism. It's made from a lightweight alloy."
+	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Xuqm-3 energy pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically. For non-psionic users, a small dial for mode switching has been attached."
 	icon = 'icons/obj/guns/psi_pistol.dmi'
 	icon_state = "psipistolstun100"
 	item_state = "psipistolstun100"
@@ -328,3 +328,6 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
 		list(mode_name="ion", projectile_type=/obj/item/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
 		)
+
+/obj/item/gun/energy/fedpistol/nopsi
+	pin = /obj/item/device/firing_pin
