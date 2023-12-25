@@ -751,6 +751,13 @@
 	catalysts = list(/singleton/reagent/sodium = 5)
 	result_amount = 1
 
+/datum/chemical_reaction/trocanolol
+	name = "Trocanolol"
+	id = "trocanolol"
+	result = /singleton/reagent/trocanolol
+	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/lexorin = 1, /singleton/reagent/hydrazine = 1)
+	result_amount = 3
+
 //Mental Medication
 
 /datum/chemical_reaction/corophenidate

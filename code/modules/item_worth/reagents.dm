@@ -603,6 +603,9 @@
 /singleton/reagent/pneumalin
 	value = 3.2
 
+/singleton/reagent/trocanolol
+	value = 3.1
+
 /singleton/reagent/hyperzine
 	value = 3.9
 

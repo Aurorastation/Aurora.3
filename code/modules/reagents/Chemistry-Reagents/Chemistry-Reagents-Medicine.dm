@@ -1435,7 +1435,7 @@
 /singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
 	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
-	H.add_chemical_effect(CE_PULSE, -1)
+	H.add_chemical_effect(CE_PULSE, -0.8)
 
 	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L) && !BP_IS_ROBOTIC(L))
@@ -1474,6 +1474,40 @@
 	if(M.chem_doses[type] > 10)
 		M.make_dizzy(5)
 		M.make_jittery(5)
+
+/singleton/reagent/trocanolol
+	name = "Trocanolol"
+	description = "Trocanolol is a fast-acting, potent beta blocker, a drug that works by competitively blocking the receptor sites for adrenal hormones such as adrenaline. It slows down the heart and purges adrenaline from the bloodstream."
+	color = "#5f72c9"
+	overdose = 15
+	metabolism = REM * 2
+	scannable = TRUE
+	taste_description = "bitterness"
+	reagent_state = SOLID
+
+/singleton/reagent/trocanolol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_PULSE, -1.5)
+	M.make_dizzy(8)
+	M.make_jittery(-5)
+
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel tired.","You feel your heart slowing down.","You feel weak.")))
+
+	var/removing = (8 * removed)
+	var/datum/reagents/ingested = M.get_ingested_reagents()
+
+	for(var/_R in ingested.reagent_volumes)
+		if((ispath(_R, /singleton/reagent/adrenaline)))
+			ingested.remove_reagent(_R, removing)
+			return
+
+	for(var/_R in M.reagents.reagent_volumes)
+		if((ispath(_R, /singleton/reagent/adrenaline)))
+			M.reagents.remove_reagent(_R, removing)
+			return
+
+/singleton/reagent/trocanolol/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+	H.add_chemical_effect(CE_PULSE, -H.chem_doses[type] * 1)
 
 /singleton/reagent/sanasomnum
 	name = "Sanasomnum"
