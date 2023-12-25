@@ -168,7 +168,7 @@
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return TRUE
 		else if(I.ismultitool() || I.iswirecutter() || issignaler(I))
-			wires.Interact(user)
+			wires.interact(user)
 			return TRUE
 
 	if(istype(I, /obj/item/melee/energy/blade))

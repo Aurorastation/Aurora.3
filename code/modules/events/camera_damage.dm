@@ -17,9 +17,9 @@
 			if(prob(2*severity))
 				cam.destroy()
 			else
-				cam.wires.UpdateCut(CAMERA_WIRE_POWER, 0)
+				cam.wires.cut(WIRE_POWER, src)
 				if(prob(5*severity))
-					cam.wires.UpdateCut(CAMERA_WIRE_ALARM, 0)
+					cam.wires.cut(WIRE_ALARM, src)
 
 /datum/event/camera_damage/proc/acquire_random_camera(var/remaining_attempts = 5)
 	if(!GLOB.cameranet.cameras.len)

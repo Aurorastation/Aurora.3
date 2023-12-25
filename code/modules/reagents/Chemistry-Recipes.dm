@@ -3031,8 +3031,8 @@
 	name = "NTella hot chocolate"
 	id = "NTellahotchocolate"
 	result = /singleton/reagent/drink/NTellahotchocolate
-	required_reagents = list(/singleton/reagent/drink/milk = 2, /singleton/reagent/nutriment/choconutspread = 2, /singleton/reagent/drink/milk/cream = 2)
-	result_amount = 6
+	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/nutriment/choconutspread = 1, /singleton/reagent/drink/milk/cream = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/drink/drink/mimosa
 	name = "Mimosa"

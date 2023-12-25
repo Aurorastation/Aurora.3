@@ -40,6 +40,9 @@
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	var/away_site = FALSE
 
+	/// A lazylist of weakrefs to mobs this spawner has spawned
+	var/list/datum/weakref/spawned_mobs
+
 /datum/ghostspawner/New()
 	. = ..()
 	if(!jobban_job)

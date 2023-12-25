@@ -1386,7 +1386,7 @@
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
-	icon_state = "kazkhz"
+	icon_state = "kazhkz"
 	flag_item = /obj/item/flag/kazhkz
 
 /obj/item/flag/hansan

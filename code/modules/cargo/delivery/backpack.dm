@@ -38,7 +38,12 @@
 
 	data["cargo_pack_details"] = list()
 	for(var/obj/item/cargo_package/package in contained_packages)
-		data["cargo_pack_details"] += list(list("package_id"= ref(package), "delivery_point_sector" = package.delivery_point_sector, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
+		var/delivery_site = "Unknown"
+		if(package.delivery_point_sector)
+			var/obj/effect/overmap/visitable/delivery_sector = package.delivery_point_sector.resolve()
+			if(delivery_sector)
+				delivery_site = delivery_sector.name
+		data["cargo_pack_details"] += list(list("package_id"= ref(package), "delivery_point_sector" = delivery_site, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
 
 	return data
 

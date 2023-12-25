@@ -31,13 +31,15 @@
 	name = "Human Resources Assistant"
 	jobtype = /datum/job/hra
 
-	uniform = /obj/item/clothing/under/rank/scc2
-	suit = /obj/item/clothing/suit/storage/toggle/armor/vest/scc
+	uniform = /obj/item/clothing/under/rank/scc2/ccia
+	suit = /obj/item/clothing/suit/storage/toggle/armor/ccia
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/white
-	accessory = /obj/item/clothing/accessory/tie/corporate/scc
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	head = /obj/item/clothing/head/beret/scc
+	accessory = /obj/item/clothing/accessory/holster/waist
+	accessory_contents = list(/obj/item/gun/energy/repeater/pistol = 1)
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
+	head = /obj/item/clothing/head/beret/scc/alt
+	belt = /obj/item/melee/telebaton
 
 	headset = /obj/item/device/radio/headset/representative
 	bowman = /obj/item/device/radio/headset/representative/alt
@@ -52,3 +54,18 @@
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
 	id = /obj/item/card/id/gold
+
+
+
+	backpack_contents = list(
+			/obj/item/modular_computer/laptop/preset/command = 1,
+	)
+
+/datum/outfit/job/hra/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(H && H.w_uniform)
+		var/obj/item/clothing/under/U = H.w_uniform
+		var/obj/item/clothing/accessory/tie/corporate/scc/alt/tie = new()
+		U.attach_accessory(null, tie)
+
+	return TRUE

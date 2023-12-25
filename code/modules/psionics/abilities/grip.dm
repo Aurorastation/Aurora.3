@@ -38,6 +38,13 @@
 	. = ..()
 	if(!.)
 		return
+
+	var/has_line_of_sight = FALSE
+	SPATIAL_CHECK_LOS(has_line_of_sight, user, victim, world.view)
+	if(!has_line_of_sight)
+		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [victim]!"))
+		return
+
 	user.visible_message(SPAN_WARNING("[user] squeezes [user.get_pronoun("his")] hand!"), SPAN_WARNING("You squeeze your hand to tighten the psionic force around [victim]."))
 	log_and_message_admins("[key_name(owner)] has psionically crushed [victim]", owner, get_turf(owner))
 	to_chat(victim, SPAN_DANGER(FONT_HUGE("You are crushed by an invisible force!")))
@@ -55,7 +62,15 @@
 	. = ..()
 	if(!.)
 		return
+
 	var/mob/living/M = hit_atom
+
+	var/has_line_of_sight = FALSE
+	SPATIAL_CHECK_LOS(has_line_of_sight, user, M, world.view)
+	if(!has_line_of_sight)
+		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [M]!"))
+		return
+
 	user.visible_message(SPAN_DANGER("[user] extends [user.get_pronoun("his")] arm and makes a grab motion towards [M]!"),
 						SPAN_DANGER("You extend your arm and grab [M] with your psionic energy!"))
 	to_chat(M, SPAN_DANGER("You feel an invisible force tighten around you!"))

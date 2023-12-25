@@ -20,7 +20,10 @@
 		"Cyberwarfare Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/hacker,
 		"Advanced Mobility Combat Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/frontier,
 		"Crimson Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/crimson,
-		"Rhino Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/rhino
+		"Rhino Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/rhino,
+		"Einstein Paragon Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/einstein,
+		"Vaurca Combat Exoskeleton" = /obj/structure/closet/crate/secure/gear_loadout/ninja/vaurca,
+		"Tupkala Infiltration Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/skrell
 	)
 	for(var/hardsuit_option in hardsuit_options)
 		var/crate_path = hardsuit_options[hardsuit_option]

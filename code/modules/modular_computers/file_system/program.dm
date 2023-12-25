@@ -49,7 +49,7 @@
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	if(computer)
+	if(!QDELETED(computer))
 		computer.idle_threads -= src
 		computer.enabled_services -= src
 		computer = null

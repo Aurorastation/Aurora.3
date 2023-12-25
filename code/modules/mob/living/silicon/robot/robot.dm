@@ -169,7 +169,7 @@
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
 		else
 			camera.replace_networks(list(NETWORK_MERCENARY))
-		if(wires.IsIndexCut(BORG_WIRE_CAMERA))
+		if(wires.is_cut(WIRE_CAMERA))
 			camera.status = FALSE
 
 	init()
@@ -659,7 +659,7 @@
 						to_chat(user, SPAN_NOTICE("You close \the [src]'s maintenance hatch."))
 						opened = FALSE
 						handle_panel_overlay()
-				else if(wires_exposed && wires.IsAllCut())
+				else if(wires_exposed && wires.is_all_cut())
 					//Cell is out, wires are exposed, remove MMI, produce damaged chassis, baleet original mob.
 					if(!mmi)
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
@@ -742,7 +742,7 @@
 				handle_panel_overlay()
 		else if(W.iswirecutter() || W.ismultitool())
 			if(wires_exposed)
-				wires.Interact(user)
+				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 				return
