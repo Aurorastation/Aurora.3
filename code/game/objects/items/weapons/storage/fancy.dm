@@ -490,7 +490,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(access_forensics_lockers)
+	req_access = list(ACCESS_FORENSICS_LOCKERS)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"

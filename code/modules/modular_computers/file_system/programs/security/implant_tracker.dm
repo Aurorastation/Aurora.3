@@ -4,7 +4,7 @@
 	program_icon_state = "security"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows authorized security personnel to track and remotely interface with active implants."
-	required_access_run = access_armory
+	required_access_run = ACCESS_ARMORY
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 6

@@ -15,7 +15,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	desc = "A little cleaning robot, consisting of a bucket, a proximity sensor, and a prosthetic arm. It looks excited to clean!"
 	icon_state = "cleanbot0"
 	req_one_access = list(access_janitor, access_robotics)
-	botcard_access = list(access_janitor, access_maint_tunnels)
+	botcard_access = list(access_janitor, ACCESS_MAINT_TUNNELS)
 
 	locked = FALSE // Start unlocked so roboticist can set them to patrol.
 

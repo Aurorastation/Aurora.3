@@ -696,7 +696,7 @@
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	deny_time = 15
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -728,7 +728,7 @@
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	deny_time = 15
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -762,7 +762,7 @@
 	icon_state = "sec"
 	icon_vend = "sec-vend"
 	deny_time = 16
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "security"
 	products = list(
 		/obj/item/handcuffs = 8,
@@ -1125,7 +1125,7 @@
 	icon_vend = "tool-vend"
 	deny_time = 6
 	vend_id = "tools"
-	//req_access = list(access_maint_tunnels) //Maintenance access
+	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -1160,7 +1160,7 @@
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	deny_time = 6
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 	vend_id = "tools"
 	products = list(
 		/obj/item/device/multitool = 4,
@@ -1191,7 +1191,7 @@
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
 	deny_time = 19
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "tactical"
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
@@ -1215,7 +1215,7 @@
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "ert"
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
@@ -1249,7 +1249,7 @@
 	icon_state = "engi"
 	icon_vend = "engi-vend"
 	deny_time = 6
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/head/hardhat = 4,

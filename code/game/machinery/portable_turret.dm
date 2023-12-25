@@ -19,7 +19,7 @@
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
 	power_channel = EQUIP	//drains power from the EQUIPMENT channel
 
-	req_one_access = list(access_security, access_heads)
+	req_one_access = list(ACCESS_SECURITY, access_heads)
 
 	light_range = 3
 	light_power = 2

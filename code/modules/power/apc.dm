@@ -144,7 +144,7 @@
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
-	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
+	req_one_access = list(ACCESS_ENGINE_EQUIP,access_research,access_xenobiology)
 
 /obj/machinery/power/apc/isolation/north
 	dir = NORTH
@@ -185,7 +185,7 @@
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(access_intrepid,access_engine_equip)
+	req_one_access = list(access_intrepid,ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/power/apc/intrepid/north
 	dir = NORTH
@@ -206,7 +206,7 @@
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(access_intrepid,access_engine_equip)
+	req_one_access = list(access_intrepid,ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/power/apc/canary/north
 	dir = NORTH
@@ -227,7 +227,7 @@
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(access_mining,access_engine_equip)
+	req_one_access = list(access_mining,ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/power/apc/mining_shuttle/north
 	dir = NORTH
@@ -363,7 +363,7 @@
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /singleton/sound_category/switch_sound
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED

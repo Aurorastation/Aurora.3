@@ -17,7 +17,7 @@
 
 /datum/job/assistant/get_access(selected_title)
 	if(GLOB.config.assistant_maint && selected_title == "Assistant")
-		return list(access_maint_tunnels)
+		return list(ACCESS_MAINT_TUNNELS)
 	else
 		return list()
 

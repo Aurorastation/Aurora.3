@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/scientist
 	name = "scientist's locker"
-	req_access = list(access_tox_storage)
+	req_access = list(ACCESS_TOX_STORAGE)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/scientist/fill()

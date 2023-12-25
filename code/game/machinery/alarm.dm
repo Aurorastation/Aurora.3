@@ -106,7 +106,7 @@ pixel_x = 10;
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
-	req_one_access = list(access_atmospherics, access_engine_equip)
+	req_one_access = list(access_atmospherics, ACCESS_ENGINE_EQUIP)
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -207,7 +207,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/machinery/alarm/server
-	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
+	req_one_access = list(access_rd, access_atmospherics, ACCESS_ENGINE_EQUIP)
 	target_temperature = 80
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
 	highpower = 1
@@ -242,7 +242,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/machinery/alarm/freezer
-	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
+	req_one_access = list(access_kitchen, access_atmospherics, ACCESS_ENGINE_EQUIP)
 	highpower = 1
 	target_temperature = T0C - 20
 

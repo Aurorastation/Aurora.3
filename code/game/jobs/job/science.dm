@@ -18,16 +18,16 @@
 	)
 
 	access = list(
-		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
+		access_rd, access_heads, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, access_eva, access_external_airlocks, ACCESS_TOX_STORAGE,
+		access_teleporter, access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
 		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
-		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
+		access_xenoarch, access_network, ACCESS_MAINT_TUNNELS, access_it, access_intrepid
 	)
 	minimal_access = list(
-		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
+		access_rd, access_heads, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, access_eva, access_external_airlocks, ACCESS_TOX_STORAGE,
+		access_teleporter, access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
 		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
-		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
+		access_xenoarch, access_network, ACCESS_MAINT_TUNNELS, access_it, access_intrepid
 	)
 	minimal_player_age = 14
 	ideal_character_age = list(
@@ -81,8 +81,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox, access_tox_storage, access_research, access_intrepid)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_intrepid)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, access_research, access_intrepid)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, access_research, access_intrepid)
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
@@ -133,8 +133,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
-	minimal_access = list(access_research, access_xenoarch, access_tox, access_tox_storage, access_intrepid)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, access_research, access_xenoarch, access_intrepid)
+	minimal_access = list(access_research, access_xenoarch, ACCESS_TOX, ACCESS_TOX_STORAGE, access_intrepid)
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist/xenoarchaeologist
@@ -164,8 +164,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox, access_tox_storage, access_research, access_xenobiology)
-	minimal_access = list(access_tox, access_research, access_xenobiology, access_tox_storage)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, access_research, access_xenobiology)
+	minimal_access = list(ACCESS_TOX, access_research, access_xenobiology, ACCESS_TOX_STORAGE)
 
 	minimal_player_age = 14
 
@@ -196,8 +196,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox_storage, access_research, access_xenobotany, access_tox)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobotany)
+	access = list(ACCESS_TOX_STORAGE, access_research, access_xenobotany, ACCESS_TOX)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, access_research, access_xenobotany)
 
 	minimal_player_age = 14
 
@@ -221,8 +221,8 @@
 	spawn_positions = 3
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
-	access = list(access_research, access_tox)
-	minimal_access = list(access_research, access_tox)
+	access = list(access_research, ACCESS_TOX)
+	minimal_access = list(access_research, ACCESS_TOX)
 	outfit = /datum/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 

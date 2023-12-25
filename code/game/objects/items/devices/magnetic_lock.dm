@@ -32,13 +32,13 @@
 /obj/item/device/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 
 /obj/item/device/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
 	req_access = null
-	req_one_access = list(access_engine_equip, access_atmospherics)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, access_atmospherics)
 
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"

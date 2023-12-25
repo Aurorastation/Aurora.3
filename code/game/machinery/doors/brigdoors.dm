@@ -11,7 +11,7 @@
 	desc = "A remote control for a door."
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 	layer = OBJ_LAYER
 	anchored = TRUE
 	density = FALSE

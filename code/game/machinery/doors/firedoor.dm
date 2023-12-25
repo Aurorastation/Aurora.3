@@ -11,7 +11,7 @@
 	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
-	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
+	req_one_access = list(access_atmospherics, ACCESS_ENGINE_EQUIP, access_first_responder)
 	opacity = 0
 	density = 0
 	layer = LAYER_UNDER_TABLE

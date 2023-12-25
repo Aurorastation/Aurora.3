@@ -4,8 +4,8 @@
 	program_icon_state = "security"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows monitoring and control of active penal robotics."
-	required_access_run = access_armory
-	required_access_download = access_armory
+	required_access_run = ACCESS_ARMORY
+	required_access_download = ACCESS_ARMORY
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	network_destination = "penal robotics monitoring system"

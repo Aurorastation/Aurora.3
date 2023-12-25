@@ -17,10 +17,10 @@
 
 	selection_color = "#c9ad12"
 
-	access = list(access_sec_doors, access_medical, access_engine, access_eva, access_heads, access_maint_tunnels,
+	access = list(access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_eva, access_heads, ACCESS_MAINT_TUNNELS,
 					access_construction, access_research, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_cent_ccia)
 
-	minimal_access = list(access_sec_doors, access_medical, access_engine, access_eva, access_heads, access_maint_tunnels,
+	minimal_access = list(access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_eva, access_heads, ACCESS_MAINT_TUNNELS,
 							access_construction, access_research, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_cent_ccia)
 
 	outfit = /datum/outfit/job/hra

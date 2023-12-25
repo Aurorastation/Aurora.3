@@ -310,7 +310,7 @@ pixel_x = 8;
 	set_frequency(SEC_I_FREQ)
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
-		num2text(SEC_I_FREQ) = list(access_security)
+		num2text(SEC_I_FREQ) = list(ACCESS_SECURITY)
 	)
 
 /obj/item/device/radio/intercom/entertainment

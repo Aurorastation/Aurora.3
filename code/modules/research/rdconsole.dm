@@ -54,7 +54,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/protolathe_category = "All"
 	var/imprinter_category = "All"
 
-	req_access = list(access_tox)	//Data and setting manipulation requires scientist access.
+	req_access = list(ACCESS_TOX)	//Data and setting manipulation requires scientist access.
 
 /obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	var/return_name = ID

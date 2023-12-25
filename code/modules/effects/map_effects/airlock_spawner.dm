@@ -292,19 +292,19 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	required_access = null
 
 /obj/effect/map_effect/airlock/engineer
-	required_access = list(access_engine)
+	required_access = list(ACCESS_ENGINE)
 	door_name = "engineering external access"
 /obj/effect/map_effect/airlock/e_to_w/engineer
-	required_access = list(access_engine)
+	required_access = list(ACCESS_ENGINE)
 	door_name = "engineering external access"
 /obj/effect/map_effect/airlock/s_to_n/engineer
-	required_access = list(access_engine)
+	required_access = list(ACCESS_ENGINE)
 	door_name = "engineering external access"
 /obj/effect/map_effect/airlock/long/engineer
-	required_access = list(access_engine)
+	required_access = list(ACCESS_ENGINE)
 	door_name = "engineering external access"
 /obj/effect/map_effect/airlock/long/square/engine
-	required_access = list(access_engine)
+	required_access = list(ACCESS_ENGINE)
 	door_name = "engine external access"
 	icon_state = "2x2_N_to_S_leftdoors"
 	door_type = /obj/machinery/door/airlock/external

@@ -9,7 +9,7 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	required_access_download = access_hos
-	required_access_run = access_armory
+	required_access_run = ACCESS_ARMORY
 	usage_flags = PROGRAM_CONSOLE
 	tgui_id = "GunTracker"
 	var/list/wireless_firing_pins_data

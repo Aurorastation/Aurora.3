@@ -342,7 +342,7 @@
 	switch(selected_hud)
 
 		if(SEC_HUDTYPE)
-			req_access = list(access_security)
+			req_access = list(ACCESS_SECURITY)
 			if(allowed(owner))
 				active_hud = "security"
 				process_sec_hud(owner, 1)
@@ -370,7 +370,7 @@
 	switch(selected_hud)
 
 		if(MED_HUDTYPE)
-			req_access = list(access_medical)
+			req_access = list(ACCESS_MEDICAL)
 			if(allowed(owner))
 				active_hud = "medical"
 				process_med_hud(owner, 1)

@@ -7,7 +7,7 @@
 	density = TRUE
 	/// Doesn't use APC power.
 	use_power = POWER_USE_OFF
-	req_one_access = list(access_captain, access_security, access_engine)
+	req_one_access = list(access_captain, ACCESS_SECURITY, ACCESS_ENGINE)
 
 	var/active = FALSE
 	/// Not to be confused with power cell charge, this is in Joules.

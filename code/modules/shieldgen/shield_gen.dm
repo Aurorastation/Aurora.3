@@ -31,7 +31,7 @@
 	use_power = POWER_USE_OFF	//doesn't use APC power
 	var/multiz = TRUE
 	var/multi_unlocked = TRUE
-	req_one_access = list(access_captain, access_security, access_engine)
+	req_one_access = list(access_captain, ACCESS_SECURITY, ACCESS_ENGINE)
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))

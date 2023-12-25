@@ -9,7 +9,7 @@
 	icon_state = "emitter"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
 

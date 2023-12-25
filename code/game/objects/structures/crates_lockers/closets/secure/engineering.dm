@@ -56,7 +56,7 @@
 // Engineer
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng_secure"
 
 /obj/structure/closet/secure_closet/engineering_personal/fill()
@@ -117,7 +117,7 @@
 // Electrical Supplies
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	icon_state = "eng"
 	icon_door = "eng_elec"
 

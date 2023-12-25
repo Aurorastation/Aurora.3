@@ -4,7 +4,7 @@
 	icon_screen = "power_monitor"
 	icon_keyboard = "yellow_key"
 	light_color = LIGHT_COLOR_YELLOW
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	circuit = /obj/item/circuitboard/drone_control
 
 	//Used when pinging drones.

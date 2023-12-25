@@ -23,8 +23,8 @@
 	filedesc = "Medical Analyzer"
 	extended_desc = "A scanning suite capable of detecting major medical problems in individuals."
 	available_on_ntnet = TRUE
-	required_access_run = access_medical
-	required_access_download = access_medical
+	required_access_run = ACCESS_MEDICAL
+	required_access_download = ACCESS_MEDICAL
 	mode = SCANNER_MEDICAL
 
 /datum/computer_file/program/scanner/science

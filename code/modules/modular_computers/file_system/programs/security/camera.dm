@@ -11,11 +11,11 @@
 		if(NETWORK_THUNDER)
 			return FALSE
 		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
-			return access_engine
+			return ACCESS_ENGINE
 		if(NETWORK_MEDICAL)
-			return access_medical
+			return ACCESS_MEDICAL
 		if(NETWORK_SECURITY)
-			return access_security
+			return ACCESS_SECURITY
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
 			return access_research
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
@@ -25,7 +25,7 @@
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return access_cent_specops
 
-	return access_security // Default for all other networks
+	return ACCESS_SECURITY // Default for all other networks
 
 /datum/computer_file/program/camera_monitor
 	filename = "cammon"
@@ -92,7 +92,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_network_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+	return (check_network_access(user, ACCESS_SECURITY) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

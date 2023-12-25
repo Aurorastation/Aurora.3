@@ -6,7 +6,7 @@
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 
 	var/secure = FALSE //if set, then wires will be randomized and bolts will drop if the door is broken
 	var/list/conf_access

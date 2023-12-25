@@ -46,7 +46,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	icon_base = "police"
 
 /obj/item/taperoll/medical
@@ -86,7 +86,7 @@ var/list/tape_roll_applications = list()
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
 	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
-	req_one_access = list(access_engine, access_atmospherics)
+	req_one_access = list(ACCESS_ENGINE, access_atmospherics)
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 

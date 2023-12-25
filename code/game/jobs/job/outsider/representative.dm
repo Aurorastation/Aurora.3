@@ -16,7 +16,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(access_lawyer, access_maint_tunnels)
+	access = list(access_lawyer, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(access_lawyer)
 	alt_titles = list(
 		"Workplace Liaison",
@@ -124,7 +124,7 @@
 		SPECIES_SKRELL_AXIORI = 170
 	)
 
-	access = list(access_consular, access_maint_tunnels)
+	access = list(access_consular, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(access_consular)
 	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)

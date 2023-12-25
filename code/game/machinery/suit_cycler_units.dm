@@ -31,7 +31,7 @@
 /obj/machinery/suit_cycler/security
 	name = "security suit cycler"
 	model_text = "Security"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	departments = list("Security")
 
 /obj/machinery/suit_cycler/security/prepared
@@ -43,7 +43,7 @@
 /obj/machinery/suit_cycler/medical
 	name = "medical suit cycler"
 	model_text = "Medical"
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	departments = list("Medical")
 
 /obj/machinery/suit_cycler/medical/prepared

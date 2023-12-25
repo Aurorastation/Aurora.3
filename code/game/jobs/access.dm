@@ -73,14 +73,14 @@
 		if("Syndicate Operative Leader")
 			return list(access_syndicate, access_syndicate_leader)
 		if("Syndicate Agent")
-			return list(access_syndicate, access_maint_tunnels)
+			return list(access_syndicate, ACCESS_MAINT_TUNNELS)
 		if("Syndicate Commando")
 			return list(access_syndicate, access_syndicate_leader)
 	LOG_DEBUG("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
 /proc/get_distress_access()
-	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip, access_construction)
+	return list(access_legion, access_distress, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, access_research, access_atmospherics, access_medical_equip, access_construction)
 
 /proc/get_distress_access_lesser()
 	return list(access_distress, access_external_airlocks)

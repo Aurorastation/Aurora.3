@@ -147,7 +147,7 @@
 	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	contents_path = "-chem"
-	req_one_access = list(access_medical,access_pharmacy)
+	req_one_access = list(ACCESS_MEDICAL,access_pharmacy)
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/storage/pill_bottle,
 						/obj/item/reagent_containers/pill,

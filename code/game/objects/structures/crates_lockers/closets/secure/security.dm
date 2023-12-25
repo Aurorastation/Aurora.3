@@ -163,7 +163,7 @@
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	icon_state = "warden"
 
 /obj/structure/closet/secure_closet/warden/fill()
@@ -206,7 +206,7 @@
 
 /obj/structure/closet/secure_closet/security_cadet
 	name = "security cadet's locker"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	icon_state = "sec"
 	icon_door = "seccadet"
 
@@ -236,7 +236,7 @@
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/security/fill()
@@ -271,7 +271,7 @@
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"
-	req_access = list(access_forensics_lockers)
+	req_access = list(ACCESS_FORENSICS_LOCKERS)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/investigator/fill()
@@ -315,7 +315,7 @@
 // These are special snowflakes that need to be in a global list.
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 	anchored = TRUE
 	canbemoved = TRUE
 	var/id = null
@@ -372,11 +372,11 @@
 	name = "evidence storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_one_access = list(access_brig, access_armory, access_forensics_lockers)
+	req_one_access = list(ACCESS_BRIG, ACCESS_ARMORY, ACCESS_FORENSICS_LOCKERS)
 
 // Contraband Storage Locker
 /obj/structure/closet/secure_closet/contraband
 	name = "contraband weapons and ammunition storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
