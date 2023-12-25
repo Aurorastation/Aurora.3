@@ -20,6 +20,21 @@
 	name = "Scarab Salvage Vessel - Mess Hall"
 	icon_state = "cafeteria"
 
+/area/coc_scarab/cryogenics
+	name = "Scarab Salvage Vessel - Cryogenics Bay"
+	icon_state = "Sleep"
+	sound_env = SMALL_ENCLOSED
+
+/area/coc_scarab/washroom
+	name = "Scarab Salvage Vessel - Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
+/area/coc_scarab/hallway
+	name = "Scarab Salvage Vessel - Aft Hallway"
+	icon_state = "maintcentral"
+	sound_env = TUNNEL_ENCLOSED
+
 /area/coc_scarab/armory
 	name = "Scarab Salvage Vessel - Armory"
 	icon_state = "armory"
@@ -43,6 +58,7 @@
 /area/coc_scarab/massdriver
 	name = "Scarab Salvage Vessel - Mass Driver"
 	icon_state = "morgue"
+	sound_env = TUNNEL_ENCLOSED
 
 /area/coc_scarab/equipment
 	name = "Scarab Salvage Vessel - Equipment Storage"
@@ -55,6 +71,7 @@
 /area/coc_scarab/engine
 	name = "Scarab Salvage Vessel - Engine Room"
 	icon_state = "engine"
+	ambience = AMBIENCE_ATMOS
 
 /area/coc_scarab/solars
 	name = "Scarab Salvage Vessel - Solar Array"

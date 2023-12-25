@@ -204,6 +204,9 @@
 		/obj/item/rig_module/mounted/taser
 		)
 
+/obj/item/rig/gunslinger/equipped/ert
+	req_access = list(access_distress)
+
 /obj/item/rig/gunslinger/ninja
 
 	initial_modules = list(
@@ -412,7 +415,6 @@
 
 /obj/item/rig/jinxiang/ninja
 	initial_modules = list(
-		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/maneuvering_jets,

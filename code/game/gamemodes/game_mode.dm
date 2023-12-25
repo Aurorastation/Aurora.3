@@ -357,14 +357,14 @@ var/global/list/additional_antag_types = list()
 			antag.check_victory()
 			antag.print_player_summary()
 			// Avoid the longest loop if we aren't actively using the bot.
-			if (discord_bot.active)
+			if (SSdiscord.active)
 				antag_text += antag.print_player_summary_discord()
 
 		sleep(10)
 		print_ownerless_uplinks()
 
 	discord_text += antag_text
-	discord_bot.send_to_announce(discord_text, 1)
+	SSdiscord.send_to_announce(discord_text, 1)
 	discord_text = ""
 
 	var/clients = 0
@@ -406,7 +406,7 @@ var/global/list/additional_antag_types = list()
 		discord_text += "There were **no survivors** ([ghosts] ghosts)."
 	to_world(text)
 
-	discord_bot.send_to_announce(discord_text)
+	SSdiscord.send_to_announce(discord_text)
 	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
 
 	if(clients > 0)

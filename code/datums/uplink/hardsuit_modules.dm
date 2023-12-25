@@ -50,3 +50,9 @@
 	telecrystal_cost = 6
 	path = /obj/item/rig_module/recharger
 	desc = "A mounted system for recharging energy weapons."
+
+/datum/uplink_item/item/hardsuit_modules/ai_container
+	name = "Integrated Intelligence System"
+	telecrystal_cost = 1
+	path = /obj/item/rig_module/ai_container
+	desc = "A hardsuit module which allows for a support intelligence to be installed."

@@ -7,11 +7,15 @@
 	weather = "Global full-atmosphere hydrological weather system. Barely-habitable ambient low temperatures. Frequently dangerous, unpredictable meteorological upsets"
 	surfacewater = "Majority frozen, 70% surface water"
 	planetary_area = /area/exoplanet/snow
+	flora_diversity = 4
+	has_trees = TRUE
 	rock_colors = list(COLOR_DARK_BLUE_GRAY, COLOR_GUNMETAL, COLOR_GRAY80, COLOR_DARK_GRAY)
 	plant_colors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
 	possible_themes = list(/datum/exoplanet_theme/snow)
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
+	ruin_planet_type = PLANET_SNOW
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/generate_atmosphere()
 	..()

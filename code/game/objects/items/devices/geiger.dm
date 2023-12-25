@@ -18,7 +18,7 @@
 
 /obj/item/device/geiger/proc/update_sound(playing)
 	if(playing && !sound_token)
-		sound_token = sound_player.PlayLoopingSound(src, sound_id, "sound/items/geiger.ogg", volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
+		sound_token = sound_player.PlayLoopingSound(src, sound_id, 'sound/items/geiger.ogg', volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
 	else if(!playing && sound_token)
 		QDEL_NULL(sound_token)
 

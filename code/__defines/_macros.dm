@@ -168,5 +168,8 @@
 /// Decrease the size of L by 1 from the end. Is the old last entry index.
 #define LIST_DEC(L) ((L).len--)
 
+/// Drops x into the the src's location, and then nulls its reference.
+#define DROP_NULL(x) if(x) { x.dropInto(loc); x = null}
+
 /// Radial input menu
 #define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)

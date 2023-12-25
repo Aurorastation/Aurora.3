@@ -1,0 +1,131 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/turf/simulated/wall/concrete,
+/area/template_noop)
+"aQ" = (
+/obj/effect/landmark/clear,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"aR" = (
+/obj/effect/landmark/clear,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 32
+	},
+/obj/item/stack/medical/splint/full,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"bi" = (
+/obj/effect/landmark/clear,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"bk" = (
+/obj/effect/landmark/clear,
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"bA" = (
+/obj/structure/cargo_receptacle,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"bE" = (
+/obj/effect/landmark/clear,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"bP" = (
+/obj/effect/landmark/clear,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/unsimulated/floor/concrete,
+/area/template_noop)
+"bQ" = (
+/obj/effect/landmark/clear,
+/obj/structure/sign/flag/orion_express/unmovable{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ku" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+Ku
+Ku
+Ku
+Ku
+Ku
+Ku
+Ku
+"}
+(2,1,1) = {"
+Ku
+ao
+ao
+ao
+ao
+ao
+Ku
+"}
+(3,1,1) = {"
+Ku
+ao
+aQ
+bk
+bE
+ao
+bQ
+"}
+(4,1,1) = {"
+Ku
+ao
+aR
+bA
+bk
+bk
+Ku
+"}
+(5,1,1) = {"
+Ku
+ao
+bi
+bk
+bP
+ao
+bQ
+"}
+(6,1,1) = {"
+Ku
+ao
+ao
+ao
+ao
+ao
+Ku
+"}
+(7,1,1) = {"
+Ku
+Ku
+Ku
+Ku
+Ku
+Ku
+Ku
+"}

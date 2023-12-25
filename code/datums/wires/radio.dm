@@ -1,41 +1,48 @@
 /datum/wires/radio
+	proper_name = "Radio"
 	holder_type = /obj/item/device/radio
-	wire_count = 3
 
-var/const/WIRE_SIGNAL = 1
-var/const/WIRE_RECEIVE = 2
-var/const/WIRE_TRANSMIT = 4
+/datum/wires/radio/New()
+	wires = list(
+		WIRE_SIGNAL,
+		WIRE_RECEIVE,
+		WIRE_TRANSMIT
+	)
+	add_duds(1)
+	..()
 
-/datum/wires/radio/CanUse(var/mob/living/L)
+/datum/wires/radio/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/item/device/radio/R = holder
 	if(R.b_stat)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
-/datum/wires/radio/UpdatePulsed(var/index)
+/datum/wires/radio/on_pulse(wire)
 	var/obj/item/device/radio/R = holder
-	switch(index)
+	switch(wire)
 		if(WIRE_SIGNAL)
-			R.set_listening(!R.get_listening() && !IsIndexCut(WIRE_RECEIVE))
-			R.set_broadcasting(R.get_listening() && !IsIndexCut(WIRE_TRANSMIT))
+			R.set_listening(!R.get_listening() && !is_cut(WIRE_RECEIVE))
+			R.set_broadcasting(R.get_listening() && !is_cut(WIRE_TRANSMIT))
 
 		if(WIRE_RECEIVE)
-			R.set_listening(!R.get_listening() && !IsIndexCut(WIRE_SIGNAL))
+			R.set_listening(!R.get_listening() && !is_cut(WIRE_SIGNAL))
 
 		if(WIRE_TRANSMIT)
-			R.set_broadcasting(!R.get_broadcasting() && !IsIndexCut(WIRE_SIGNAL))
+			R.set_broadcasting(!R.get_broadcasting() && !is_cut(WIRE_SIGNAL))
 	SSnanoui.update_uis(holder)
 
-/datum/wires/radio/UpdateCut(var/index, var/mended)
+/datum/wires/radio/on_cut(wire, mend, source)
 	var/obj/item/device/radio/R = holder
-	switch(index)
+	switch(wire)
 		if(WIRE_SIGNAL)
-			R.set_listening(mended && !IsIndexCut(WIRE_RECEIVE))
-			R.set_broadcasting(mended && !IsIndexCut(WIRE_TRANSMIT))
+			R.set_listening(mend && !is_cut(WIRE_RECEIVE))
+			R.set_broadcasting(mend && !is_cut(WIRE_TRANSMIT))
 
 		if(WIRE_RECEIVE)
-			R.set_listening(mended && !IsIndexCut(WIRE_SIGNAL))
+			R.set_listening(mend && !is_cut(WIRE_SIGNAL))
 
 		if(WIRE_TRANSMIT)
-			R.set_broadcasting(mended && !IsIndexCut(WIRE_SIGNAL))
+			R.set_broadcasting(mend && !is_cut(WIRE_SIGNAL))
 	SSnanoui.update_uis(holder)

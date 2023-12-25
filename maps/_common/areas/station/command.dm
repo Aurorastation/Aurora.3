@@ -7,6 +7,7 @@
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. The smell of ink wafts notably through the air."
+	area_blurb_category = "command"
 
 /area/bridge/upperdeck
 	name = "Command Atrium Upper Deck"
@@ -47,6 +48,7 @@
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 	area_blurb = "A place for behind-closed-doors meetings to get things done, or argue for hours in..."
+	area_blurb_category = "command_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/cciaroom
@@ -54,6 +56,7 @@
 	icon_state = "hr"
 	sound_env = MEDIUM_SOFTFLOOR
 	area_blurb = "You feel severe existential dread when you enter this room.."
+	area_blurb_category = "hr_meeting"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/cciaroom/lounge
@@ -61,6 +64,7 @@
 	icon_state = "hrlounge"
 	sound_env = SMALL_SOFTFLOOR
 	area_blurb = "A place that worsens the slightest anxieties surrounding meetings with your bosses boss."
+	area_blurb_category = "hr_lounge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/bridge/selfdestruct
@@ -70,6 +74,7 @@
 /area/bridge/controlroom // Horizon.
 	name = "Command - Control Room"
 	area_blurb = "The full expanse of space lies beyond a thick pane of glass, all that protects you from a cold death. The computers all hum with various displays and holographic signs, overwhelming if you were not used to such an environment. Even at full power, the sensors fail to map even a fraction of the dots of light making up the cosmic filament."
+	area_blurb_category = "bridge"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/crew_quarters/captain
