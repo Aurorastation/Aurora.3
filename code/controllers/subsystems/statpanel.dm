@@ -66,6 +66,12 @@ SUBSYSTEM_DEF(statpanels)
 			if(target.stat_tab == "MC" && ((num_fires % mc_wait == 0)))
 				set_MC_tab(target)
 
+			if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
+				target.stat_panel.send_message("remove_sdql2")
+
+			else if(length(GLOB.sdql2_queries) && (target.stat_tab == "SDQL2" || !("SDQL2" in target.panel_tabs)) && num_fires % default_wait == 0)
+				set_SDQL2_tab(target)
+
 		if(target.mob)
 			var/mob/target_mob = target.mob
 			var/update_actions = FALSE
@@ -196,6 +202,7 @@ SUBSYSTEM_DEF(statpanels)
 		list("CPU:", world.cpu),
 		list("Instances:", "[num2text(world.contents.len, 10)]"),
 		list("World Time:", "[world.time]"),
+		list("Globals:", GLOB.stat_entry(), text_ref(GLOB)),
 		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%)"),
 		list("Master Controller:", Master.stat_entry(), text_ref(Master)),
 		list("Failsafe Controller:", Failsafe.stat_entry(), text_ref(Failsafe)),
@@ -232,6 +239,22 @@ SUBSYSTEM_DEF(statpanels)
 	if(target.stat_tab == "MC")
 		set_MC_tab(target)
 		return TRUE
+
+	if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
+		target.stat_panel.send_message("remove_sdql2")
+
+	else if(length(GLOB.sdql2_queries) && target.stat_tab == "SDQL2")
+		set_SDQL2_tab(target)
+
+/datum/controller/subsystem/statpanels/proc/set_SDQL2_tab(client/target)
+	var/list/sdql2A = list()
+	sdql2A[++sdql2A.len] = list("", "Access Global SDQL2 List", ref(GLOB.sdql2_vv_statobj))
+	var/list/sdql2B = list()
+	for(var/datum/sdql2_query/query as anything in GLOB.sdql2_queries)
+		sdql2B = query.generate_stat()
+
+	sdql2A += sdql2B
+	target.stat_panel.send_message("update_sdql2", sdql2A)
 
 /// Stat panel window declaration
 /client/var/datum/tgui_window/stat_panel

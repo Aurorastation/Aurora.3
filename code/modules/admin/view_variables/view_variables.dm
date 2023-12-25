@@ -116,18 +116,22 @@
 
 /proc/make_view_variables_var_list(datum/D)
 	. = ""
-	var/list/variables = list()
-	for(var/x in D.vars)
-		CHECK_TICK
-		if(x in view_variables_hide_vars)
-			continue
-		if(!D.can_vv_get(x))
-			continue
-		variables += x
+	var/list/variables = D.make_variable_list()
 	variables = sortList(variables)
 	for(var/x in variables)
 		CHECK_TICK
 		. += make_view_variables_var_entry(D, x, D.vars[x])
+
+/datum/proc/make_variable_list()
+	. = list()
+	for(var/x in vars)
+		CHECK_TICK
+		if(x in view_variables_hide_vars)
+			continue
+		if(!can_vv_get(x))
+			continue
+		. += x
+	return .
 
 /proc/make_view_variables_value(value, varname = "*")
 	var/vtext = ""

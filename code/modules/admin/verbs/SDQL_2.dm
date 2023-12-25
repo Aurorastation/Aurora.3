@@ -305,8 +305,8 @@
 		SPAN_NOTICE("SDQL query completed: [objs_all] objects selected by path, and [selectors_used ? objs_eligible : objs_all] objects executed on after WHERE filtering/MAPping if applicable."),\
 		SPAN_NOTICE("SDQL combined querys took [DisplayTimeText(end_time_total)] to complete.")) + combined_refs
 
-var/global/list/sdql2_queries =list()
-var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW VARIABLES (all)", null)
+GLOBAL_LIST_INIT(sdql2_queries, GLOB.sdql2_queries || list())
+GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null, "VIEW VARIABLES (all)", null))
 
 /datum/sdql2_query
 	var/list/query_tree
@@ -343,7 +343,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	if(!LAZYLEN(tree))
 		qdel(src)
 		return
-	LAZYADD(sdql2_queries, src)
+	LAZYADD(GLOB.sdql2_queries, src)
 	superuser = SU
 	allow_admin_interact = admin_interact
 	query_tree = tree
@@ -359,7 +359,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	obj_count_finished = null
 	select_text = null
 	select_refs = null
-	sdql2_queries -= src
+	GLOB.sdql2_queries -= src
 	return ..()
 
 /datum/sdql2_query/proc/get_query_text()
@@ -1212,7 +1212,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 		message_admins("[key_name_admin(usr)] non-holder clicked on a statclick! ([src])")
 		log_admin("non-holder clicked on a statclick! ([src])")
 		return
-	usr.client.debug_variables(sdql2_queries)
+	usr.client.debug_variables(GLOB.sdql2_queries)
 
 #undef SDQL2_HALT_CHECK
 #undef SDQL2_IS_RUNNING
