@@ -313,7 +313,7 @@ it should be avoided in favour of manual removal where possible
 	return 0
 
 /datum/modifier/proc/invalid_creation(var/reason)
-	log_debug("ERROR: [src] MODIFIER CREATION FAILED on [target]: [reason]")
+	LOG_DEBUG("ERROR: [src] MODIFIER CREATION FAILED on [target]: [reason]")
 	qdel(src)
 	return 0
 

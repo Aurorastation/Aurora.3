@@ -102,7 +102,7 @@
 
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
-		log_debug("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
+		LOG_DEBUG("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
 		return
 
 	switch(action)

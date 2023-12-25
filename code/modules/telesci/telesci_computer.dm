@@ -39,7 +39,7 @@
 	return ..()
 
 /obj/machinery/computer/telescience/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots.")
 
 /obj/machinery/computer/telescience/Initialize()

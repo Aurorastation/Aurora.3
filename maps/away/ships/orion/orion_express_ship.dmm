@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/mining{
+	dir = 1;
+	name = "Captain's Quarters";
+	req_access = list(201)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "aho" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -55,8 +63,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -70,10 +77,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ayD" = (
-/obj/structure/window/shuttle/scc,
-/turf/template_noop,
-/area/shuttle/orion_express_shuttle)
 "aDL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -94,14 +97,13 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "aHv" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "aKd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
@@ -112,8 +114,7 @@
 	},
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -139,7 +140,7 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -168,7 +169,6 @@
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -210,7 +210,6 @@
 "bkP" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/sign/securearea{
@@ -230,10 +229,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "bom" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	dir = 1
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -256,7 +254,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -304,6 +301,7 @@
 /area/ship/orion_express_ship)
 "bIY" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_out"
@@ -332,7 +330,6 @@
 /obj/machinery/smartfridge/foodheater,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
@@ -384,10 +381,8 @@
 	desc = "A cable used to replace the charging cable on a PDA.";
 	name = "PDA charging cable"
 	},
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/corner/green/full{
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -402,10 +397,9 @@
 "cnJ" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/light{
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "cos" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -445,7 +439,7 @@
 /area/ship/orion_express_ship)
 "cxr" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -458,7 +452,7 @@
 	pixel_y = 3;
 	req_one_access = null
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -484,8 +478,7 @@
 "dcS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -529,6 +522,7 @@
 /area/ship/orion_express_ship)
 "diy" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Maintenance";
 	req_access = list(201)
 	},
@@ -541,7 +535,6 @@
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -561,7 +554,6 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -577,7 +569,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "dwE" = (
@@ -614,7 +606,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "dYC" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -636,7 +628,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "eiR" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/meter,
@@ -673,7 +665,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
@@ -714,7 +705,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -746,7 +736,7 @@
 /area/shuttle/orion_express_shuttle)
 "fmY" = (
 /obj/machinery/photocopier,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -761,7 +751,6 @@
 	name = "trashbin"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
@@ -809,10 +798,9 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "gep" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -849,8 +837,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
@@ -896,7 +884,6 @@
 /obj/structure/bookcase/manuals,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -905,7 +892,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -913,6 +900,7 @@
 "gHP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
+	dir = 4;
 	name = "Food Court"
 	},
 /turf/simulated/floor/tiled/white,
@@ -920,15 +908,13 @@
 "gJZ" = (
 /obj/machinery/vending/tool,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "gLv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -943,6 +929,7 @@
 /area/ship/orion_express_ship)
 "gNW" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_express_shuttle_out"
@@ -962,6 +949,7 @@
 /area/shuttle/orion_express_shuttle)
 "han" = (
 /obj/machinery/door/airlock/service{
+	dir = 4;
 	name = "Restroom"
 	},
 /turf/simulated/floor/tiled/white,
@@ -973,7 +961,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion_express_ship)
 "hdZ" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -1023,8 +1011,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1038,6 +1025,7 @@
 /area/ship/orion_express_ship)
 "hrj" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in"
@@ -1060,6 +1048,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
+	dir = 4;
 	layer = 2.71;
 	name = "Commissary";
 	open_layer = 2.71
@@ -1070,13 +1059,12 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "hFA" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1085,6 +1073,7 @@
 "hKC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Maintenance";
 	req_access = list(201)
 	},
@@ -1106,6 +1095,7 @@
 /area/ship/orion_express_ship)
 "hVK" = (
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	name = "Cryogenic Storage";
 	req_access = list(201)
 	},
@@ -1126,6 +1116,7 @@
 "ieN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Maintenance";
 	req_access = list(201)
 	},
@@ -1133,7 +1124,7 @@
 /area/ship/orion_express_ship)
 "ilT" = (
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "imn" = (
 /obj/structure/table/wood,
@@ -1150,7 +1141,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "itr" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1170,13 +1161,12 @@
 /turf/simulated/floor/airless,
 /area/shuttle/orion_express_shuttle)
 "iGD" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/clipboard,
@@ -1215,13 +1205,11 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "iPr" = (
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "iTn" = (
@@ -1277,10 +1265,8 @@
 /obj/item/storage/pill_bottle/rmt{
 	pixel_x = 8
 	},
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/corner/green/full{
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
 /obj/item/storage/pill_bottle/perconol{
@@ -1318,6 +1304,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	name = "Primary Hall";
 	open_layer = 2.71
 	},
@@ -1330,8 +1317,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -1354,10 +1340,9 @@
 "jMZ" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	dir = 8
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "jWz" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -1368,7 +1353,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "jYe" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -1378,9 +1363,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "kcS" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "kku" = (
@@ -1388,7 +1371,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "krv" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
@@ -1396,6 +1379,7 @@
 /area/ship/orion_express_ship)
 "krz" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in"
@@ -1404,6 +1388,7 @@
 /area/ship/orion_express_ship)
 "kxo" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_e_out"
@@ -1419,7 +1404,7 @@
 /area/ship/orion_express_ship)
 "kFU" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "kJM" = (
 /obj/machinery/airlock_sensor{
@@ -1448,6 +1433,7 @@
 /area/shuttle/orion_express_shuttle)
 "kRQ" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Telecomms"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -1470,21 +1456,18 @@
 "lhJ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	dir = 1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "lkY" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "lpY" = (
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
+/obj/machinery/light,
 /obj/machinery/button/remote/blast_door{
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
@@ -1511,7 +1494,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "lvN" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1549,9 +1532,7 @@
 /obj/structure/mirror{
 	pixel_y = -32
 	},
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/ship/orion_express_ship)
 "lTc" = (
@@ -1593,7 +1574,7 @@
 	pixel_y = 3;
 	req_one_access = null
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /obj/structure/table/steel,
@@ -1601,6 +1582,7 @@
 /area/ship/orion_express_ship)
 "maj" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_in"
@@ -1624,8 +1606,7 @@
 	req_access = list(201)
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -1667,6 +1648,7 @@
 /area/ship/orion_express_ship)
 "mmT" = (
 /obj/machinery/door/airlock/glass{
+	dir = 4;
 	name = "Commissary"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1687,7 +1669,6 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/railing/mapped{
@@ -1697,8 +1678,8 @@
 /area/shuttle/orion_express_shuttle)
 "mzY" = (
 /obj/machinery/computer/ship/helm{
-	req_access = list(201);
-	dir = 8
+	dir = 8;
+	req_access = list(201)
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1708,6 +1689,7 @@
 "mBM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_in"
@@ -1716,10 +1698,16 @@
 /area/ship/orion_express_ship)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Maintenance";
 	req_access = list(201)
 	},
 /turf/simulated/floor,
+/area/ship/orion_express_ship)
+"mHQ" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/item/cargo_package/offship/to_horizon,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "mLK" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -1750,6 +1738,7 @@
 /area/ship/orion_express_ship)
 "mQF" = (
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	name = "Cargo Bay";
 	pixel_x = 3;
 	req_access = list(201)
@@ -1783,7 +1772,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
@@ -1838,7 +1826,7 @@
 	dir = 4;
 	req_access = list(201)
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1866,19 +1854,20 @@
 /obj/item/clothing/accessory/pin/corporate/orion,
 /obj/item/clothing/accessory/pin/corporate/orion,
 /obj/item/clothing/accessory/pin/corporate/orion,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "nIu" = (
 /obj/machinery/door/airlock/silver{
+	dir = 4;
 	name = "Toilet"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "nTM" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/meter,
@@ -1888,7 +1877,7 @@
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "nVM" = (
-/obj/item/clothing/shoes/laceup/brown/all_species,
+/obj/item/clothing/shoes/laceup/brown,
 /obj/item/clothing/under/rank/liaison/orion{
 	desc = "The plain, professional attire of a corporate employee. The collar is <i>immaculately</i> starched.";
 	name = "orion express suit"
@@ -1927,8 +1916,7 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -1983,7 +1971,6 @@
 /obj/structure/reagent_dispensers/cookingoil,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
@@ -1994,7 +1981,7 @@
 "oNK" = (
 /obj/structure/window/reinforced,
 /obj/item/toy/xmastree,
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2024,20 +2011,24 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_shuttle)
 "oZS" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
+"phd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor,
+/area/ship/orion_express_ship)
 "phP" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/structure/table/standard,
@@ -2076,7 +2067,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "ptP" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -2097,8 +2088,7 @@
 "pFY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	dir = 1
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
@@ -2136,6 +2126,7 @@
 /area/space)
 "pRV" = (
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	name = "Primary Hall"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2155,7 +2146,7 @@
 /area/ship/orion_express_ship)
 "qbp" = (
 /obj/machinery/papershredder,
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2186,7 +2177,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/orion_express_shuttle)
 "qqs" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/structure/table/standard,
@@ -2208,7 +2199,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2242,7 +2232,6 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2264,7 +2253,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2279,19 +2268,18 @@
 /turf/simulated/floor,
 /area/shuttle/orion_express_shuttle)
 "qRJ" = (
-/obj/effect/floor_decal/corner/green,
+/obj/effect/floor_decal/corner/dark_green,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "qTc" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2316,8 +2304,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2326,8 +2313,7 @@
 /area/ship/orion_express_ship)
 "roN" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -2347,7 +2333,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion_express_ship)
 "ruB" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
@@ -2361,6 +2347,12 @@
 	dir = 9
 	},
 /turf/simulated/floor,
+/area/ship/orion_express_ship)
+"rxa" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/item/cargo_package/offship/to_horizon,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "rzM" = (
 /obj/machinery/computer/ship/engines{
@@ -2377,11 +2369,16 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion_express_ship)
+"rBp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor,
+/area/ship/orion_express_ship)
 "rBK" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/button/distress{
@@ -2393,8 +2390,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/computer/arcade/orion_trail,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -2409,6 +2405,7 @@
 /area/shuttle/orion_express_shuttle)
 "rNJ" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_w_out"
@@ -2454,7 +2451,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/carpet,
@@ -2482,12 +2478,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "smG" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2510,7 +2505,7 @@
 /obj/item/toy/comic/stormman,
 /obj/item/toy/comic/stormman,
 /obj/item/toy/comic/stormman,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2539,7 +2534,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
@@ -2553,6 +2547,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_w_in"
@@ -2593,8 +2588,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/structure/table/rack,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/suit/space/void/engineering,
@@ -2602,10 +2596,12 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/device/gps/engineering,
 /obj/item/device/gps/engineering,
+/obj/item/cargo_backpack,
+/obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "sJD" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -2616,6 +2612,7 @@
 /area/ship/orion_express_ship)
 "sLq" = (
 /obj/machinery/door/airlock/mining{
+	dir = 4;
 	name = "Captain's Quarters";
 	req_access = list(201)
 	},
@@ -2668,7 +2665,6 @@
 "tcC" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2689,12 +2685,11 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "thd" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2712,6 +2707,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_e_in"
@@ -2721,6 +2717,7 @@
 "tmL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
+	dir = 1;
 	layer = 2.71;
 	name = "Primary Hall";
 	open_layer = 2.71
@@ -2729,6 +2726,7 @@
 /area/ship/orion_express_ship)
 "tnO" = (
 /obj/machinery/door/airlock/mining{
+	dir = 4;
 	name = "Crew Quarters";
 	req_access = list(201)
 	},
@@ -2742,7 +2740,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tsn" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -2771,6 +2769,7 @@
 /area/ship/orion_express_ship)
 "tDM" = (
 /obj/machinery/door/airlock/external{
+	dir = 4;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_out"
@@ -2788,9 +2787,7 @@
 /area/ship/orion_express_ship)
 "tLA" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "tNx" = (
@@ -2844,11 +2841,10 @@
 /area/ship/orion_express_ship)
 "tUC" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2879,13 +2875,11 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/effect/floor_decal/corner/green,
+/obj/effect/floor_decal/corner/dark_green,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uiz" = (
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uon" = (
@@ -2927,10 +2921,13 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/device/gps/engineering,
 /obj/item/device/gps/engineering,
+/obj/item/cargo_backpack,
+/obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uzX" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Maintenance"
 	},
 /turf/simulated/floor,
@@ -2947,8 +2944,11 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "uNn" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/orion_express_shuttle)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/item/cargo_package/offship,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "uOy" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -2962,7 +2962,7 @@
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_express_shuttle)
 "uWT" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2973,6 +2973,7 @@
 /area/space)
 "vfR" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
@@ -3052,11 +3053,12 @@
 /area/ship/orion_express_ship)
 "vyC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "vzk" = (
 /obj/machinery/door/airlock/command{
+	dir = 4;
 	name = "Platform Command Center";
 	req_access = list(201)
 	},
@@ -3066,7 +3068,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(201)
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/item/gun/energy/pistol,
@@ -3088,8 +3090,7 @@
 	name = "trashbin"
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/ship/orion_express_ship)
@@ -3097,7 +3098,7 @@
 /obj/machinery/atm{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
 /obj/structure/table/rack,
@@ -3145,10 +3146,17 @@
 "vVv" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/orion_express_ship)
+"vWO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/ghostspawpoint{
+	identifier = "orion_express_courier";
+	name = "igs - orion_express_courier"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "vZZ" = (
 /obj/structure/sign/staff_only{
@@ -3162,10 +3170,9 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3176,8 +3183,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -3192,7 +3198,7 @@
 /area/shuttle/orion_express_shuttle)
 "wlw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "wlA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3205,7 +3211,7 @@
 /area/ship/orion_express_ship)
 "wpk" = (
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/ship/orion_express_ship)
 "wpP" = (
 /obj/structure/bed/stool/chair,
@@ -3218,7 +3224,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "wrk" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/item/stack/wrapping_paper,
 /obj/item/stack/wrapping_paper,
 /obj/item/stack/wrapping_paper,
@@ -3229,8 +3235,7 @@
 /obj/item/stack/wrapping_paper,
 /obj/item/stack/wrapping_paper,
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	dir = 4
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -3260,7 +3265,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "wzK" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/door/window{
 	name = "Cashier's Counter";
 	req_access = list(201)
@@ -3296,10 +3301,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "wUT" = (
-/obj/effect/ghostspawpoint{
-	identifier = "orion_express_courier";
-	name = "igs - orion_express_courier"
-	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/item/cargo_package/offship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "wYR" = (
@@ -3311,7 +3314,7 @@
 /area/ship/orion_express_ship)
 "wZf" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "xnk" = (
@@ -3341,7 +3344,7 @@
 /obj/structure/sign/staff_only{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /obj/structure/table/steel,
@@ -3404,7 +3407,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
@@ -3442,7 +3444,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/ghostspawpoint{
 	identifier = "orion_express_courier";
 	name = "igs - orion_express_courier"
@@ -3457,13 +3459,13 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "xWp" = (
 /obj/machinery/door/airlock/silver{
+	dir = 4;
 	name = "Kitchen";
 	req_access = list(201)
 	},
@@ -3496,6 +3498,7 @@
 /area/ship/orion_express_ship)
 "yks" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
@@ -35189,7 +35192,7 @@ xRX
 xRX
 xRX
 xRX
-ayD
+hvo
 qUy
 sTK
 oqT
@@ -35452,7 +35455,7 @@ oIF
 gXD
 dLy
 iPr
-uNn
+xuX
 xuX
 hPR
 spv
@@ -36223,7 +36226,7 @@ dLy
 dLy
 dLy
 iPr
-uNn
+xuX
 xuX
 qBd
 qBd
@@ -36493,7 +36496,7 @@ oMV
 oMV
 oMV
 oMV
-aOi
+vWO
 lpY
 qBd
 gyL
@@ -36747,9 +36750,9 @@ qBd
 roN
 oMV
 gec
-aOi
+uNn
 goI
-oMV
+wUT
 goI
 oMV
 qBd
@@ -37004,7 +37007,7 @@ qBd
 wlA
 iHS
 ntn
-oMV
+mHQ
 goI
 wUT
 goI
@@ -37261,9 +37264,9 @@ qBd
 wlA
 oMV
 tPq
-oMV
+wUT
 goI
-aOi
+uNn
 goI
 uiz
 qBd
@@ -37518,17 +37521,17 @@ qBd
 hmX
 oMV
 ajL
-oMV
-goI
-aOi
-goI
+mHQ
+phd
+rxa
+rBp
 aOi
 qBd
 iTn
 ayf
 uGk
 oMV
-sLq
+aaa
 oMV
 oMV
 oMV
@@ -37775,10 +37778,10 @@ qBd
 wlA
 oMV
 slH
-oMV
-goI
-oMV
-goI
+wUT
+phd
+wUT
+rBp
 oMV
 qBd
 nVM

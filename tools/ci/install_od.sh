@@ -5,10 +5,17 @@ if [ -d "$HOME/OpenDream/" ];
 then
   echo "Using cached OpenDream directory."
 
-  git -C $HOME/OpenDream fetch origin
-  git -C $HOME/OpenDream reset --hard origin/master
+  if [ -a "$HOME/OpenDream/OpenDream.sln" ];
+  then
+    echo "OpenDream is already compiled."
+    exit
+  else
+    echo "OpenDream is not compiled, compiling it now..."
+    git -C $HOME/OpenDream fetch origin
+    git -C $HOME/OpenDream reset --hard origin/master
 
-  git -C $HOME/OpenDream submodule update --remote
+    git -C $HOME/OpenDream submodule update --init --recursive
+  fi
 
 
 else

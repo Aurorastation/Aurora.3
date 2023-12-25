@@ -25,9 +25,9 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 
-/obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
+/obj/machinery/appliance/cooker/fryer/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if (.)//no need to duplicate adjacency check
+	if (is_adjacent)
 		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
@@ -83,7 +83,7 @@
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/image/pan_overlay
 		if(CC.appliancetype == FRYER)
-			pan_overlay = image('icons/obj/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
+			pan_overlay = image('icons/obj/machinery/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
 		pan_overlay.color = CC.color
 		pans += pan_overlay
 	if(isemptylist(pans))

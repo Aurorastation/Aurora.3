@@ -17,7 +17,6 @@
 	nutrition = 700
 	max_nutrition = 1200
 
-	see_in_dark = 8
 	update_slimes = 0
 
 	// canstun and canweaken don't affect slimes because they ignore stun and weakened variables
@@ -75,7 +74,7 @@
 	add_verb(src, /mob/living/proc/ventcrawl)
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(all_languages[LANGUAGE_TCB])
+	src.default_language = all_languages[LANGUAGE_TCB]
 
 	src.colour = colour
 	number = rand(1, 1000)
@@ -252,8 +251,9 @@
 	return FALSE
 
 /mob/living/carbon/slime/emp_act(severity)
+	. = ..()
+
 	powerlevel = 0 // oh no, the power!
-	..()
 
 /mob/living/carbon/slime/ex_act(severity)
 	..()

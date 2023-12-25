@@ -53,8 +53,8 @@ var/list/holder_mob_icon_cache = list()
 	return ..()
 
 /obj/item/holder/examine(mob/user)
-	if (contained)
-		contained.examine(user)
+	if(contained)
+		return contained.examine(user)
 
 /obj/item/holder/attack_self()
 	for(var/mob/M in contents)
@@ -377,6 +377,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
@@ -606,7 +607,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/fox
 	name = "fox"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = ITEMSIZE_NORMAL
@@ -629,3 +630,25 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
 	w_class = ITEMSIZE_LARGE
+
+/obj/item/holder/fish
+	name = "fish"
+	attack_verb = list("fished", "disrespected", "smacked", "smackereled")
+	icon = 'icons/mob/npc/fish.dmi'
+	icon_state = "fish_rest"
+	item_state = "fish_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 4//Being hit with an entire fish typically hurts
+	throwforce = 4//Having an entire fish thrown at you also hurts
+	throw_speed = 1//Because it's cinematic
+
+/obj/item/holder/fish/gupper
+	icon_state = "gupper_rest"
+	item_state = "gupper_rest"
+
+/obj/item/holder/fish/cod
+	icon_state = "cod_rest"
+	item_state = "cod_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 6//quite large fishey
+	throwforce = 6

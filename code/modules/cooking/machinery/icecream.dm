@@ -12,12 +12,12 @@
 /obj/machinery/icecream_vat
 	name = "icecream vat"
 	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "icecream_vat"
 	density = 1
 	anchored = 0
 	use_power = POWER_USE_OFF
-	flags = OPENCONTAINER | NOREACT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 
 	var/list/product_types = list()
 	var/dispense_flavour = ICECREAM_VANILLA
@@ -186,6 +186,7 @@
 /obj/item/reagent_containers/food/snacks/icecream
 	name = "ice cream cone"
 	desc = "Delicious waffle cone, but no ice cream."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "icecream_cone_waffle" //default for admin-spawned cones, href_list["cone"] should overwrite this all the time
 	layer = 3.1
 	bitesize = 3

@@ -52,4 +52,5 @@
 
 /datum/sound_token/instrument/Destroy()
 	. = ..()
+	player.unsubscribe(src)
 	player = null

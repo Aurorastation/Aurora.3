@@ -3,7 +3,8 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
-	flags = CONDUCT | PROXMOVE
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	throwforce = 5
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
@@ -62,9 +63,9 @@
 	if(master)
 		master.update_icon()
 
-/obj/item/device/assembly_holder/examine(mob/user)
-	. = ..(user)
-	if(. && (in_range(src, user) || src.loc == user))
+/obj/item/device/assembly_holder/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 || src.loc == user)
 		if (src.secured)
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else

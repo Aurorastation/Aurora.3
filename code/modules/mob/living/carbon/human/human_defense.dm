@@ -149,7 +149,7 @@ emp_act
 /mob/living/carbon/human/proc/check_head_airtight_coverage()
 	var/list/clothing = list(head, wear_mask, wear_suit)
 	for(var/obj/item/clothing/C in clothing)
-		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT)))
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (ITEM_FLAG_AIRTIGHT)))
 			return TRUE
 	return FALSE
 
@@ -157,7 +157,7 @@ emp_act
 /mob/living/carbon/human/proc/check_mouth_coverage()
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform)
 	for(var/obj/item/gear in protective_gear)
-		if(istype(gear) && (gear.body_parts_covered & FACE) && !(gear.item_flags & FLEXIBLEMATERIAL))
+		if(istype(gear) && (gear.body_parts_covered & FACE) && !(gear.item_flags & ITEM_FLAG_FLEXIBLE_MATERIAL))
 			return gear
 	return null
 
@@ -176,11 +176,13 @@ emp_act
 	return FALSE
 
 /mob/living/carbon/human/emp_act(severity)
+	. = ..()
+
 	if(species.handle_emp_act(src, severity))
 		return // blocks the EMP
+
 	for(var/obj/O in src)
 		O.emp_act(severity)
-	..()
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
@@ -263,7 +265,7 @@ emp_act
 					apply_effect(20, PARALYZE, blocked)
 
 		//Apply blood
-		if(!(I.flags & NOBLOODY))
+		if(!(I.atom_flags & ATOM_FLAG_NO_BLOOD))
 			I.add_blood(src)
 
 		var/is_sharp_weapon = is_sharp(I)
@@ -418,14 +420,18 @@ emp_act
 
 			if(!O || !src) return
 
-			if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
-				var/turf/T = near_wall(dir,2)
+			if(O != ITEMSIZE_TINY)
+				if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
+					var/turf/T = near_wall(dir,2)
 
-				if(T)
-					src.forceMove(T)
-					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
-					src.anchored = 1
-					src.pinned += O
+					if(T)
+						src.forceMove(T)
+						visible_message(
+							SPAN_WARNING("\The [src] is pinned to the wall by \the [O]!"),
+							SPAN_WARNING("You are pinned to the wall by \the [O]!")
+						)
+						src.anchored = TRUE
+						src.pinned += O
 	else if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.Weaken(3)

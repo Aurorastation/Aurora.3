@@ -28,7 +28,7 @@
 	speed = 4
 	projectiletype = /obj/item/projectile/beam/cavern
 	projectilesound = 'sound/magic/lightningbolt.ogg'
-	destroy_surroundings = 1
+	break_stuff_probability = 2
 
 	emote_see = list("stares","hovers ominously","blinks")
 
@@ -45,7 +45,6 @@
 	faction = "cavern"
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
@@ -98,7 +97,7 @@
 	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")
 	projectiletype = /obj/item/projectile/beam/plasmacutter
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'
-	destroy_surroundings = 1
+	destroy_surroundings = FALSE
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -110,7 +109,6 @@
 	minbodytemp = 0
 	light_range = 10
 	light_wedge = LIGHT_WIDE
-	see_in_dark = 8
 	psi_pingable = FALSE
 
 	faction = "sol"

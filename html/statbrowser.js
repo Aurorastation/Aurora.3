@@ -158,7 +158,7 @@ function verbs_cat_check(cat) {
 	}
 	var verbs_in_cat = 0;
 	var verbcat = "";
-	if (!verb_tabs.includes(tabCat)) {
+	if (!verb_tabs.includes(tabCat) && !spell_tabs.includes(tabCat)) {
 		removeStatusTab(tabCat);
 		return;
 	}
@@ -180,7 +180,16 @@ function verbs_cat_check(cat) {
 			break; // we only need one
 		}
 	}
-	if (verbs_in_cat != 1) {
+  var spells_in_cat = 0;
+  for(var v = 0; v < spells.length; v++) {
+    var part = verbs[0];
+    spellcat = part[0];
+    if(spellcat == tabCat){
+      spells_in_cat = 1;
+      break;
+    }
+  }
+	if (verbs_in_cat != 1 && spells_in_cat != 1) {
 		removeStatusTab(tabCat);
 		if (current_tab == tabCat)
 			tab_change("Status");

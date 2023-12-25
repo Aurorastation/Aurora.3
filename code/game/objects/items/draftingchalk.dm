@@ -6,12 +6,12 @@
 	color = "#FFFFFF"
 	layer = 2.1
 	anchored = TRUE
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 
 /obj/effect/decal/cleanable/draftingchalk/Initialize(mapload)
 	. = ..()
 	if (mapload)
-		queue_smooth(src)
+		SSicon_smooth.add_to_queue(src)
 	else
 		smooth_icon(src)
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
@@ -20,7 +20,7 @@
 /obj/item/pen/drafting
 	name = "white drafting chalk"
 	desc = "A piece of white chalk for marking areas of floor."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "dchalk"
 	color = "#FFFFFF"
 	var/colorName = "whitec"
@@ -34,7 +34,7 @@
 
 	to_chat(user, "You start marking a line on [target].")
 
-	if (!do_after(user, 1 SECONDS, act_target = target))
+	if (!do_after(user, 1 SECONDS, target))
 		return
 
 	for (var/obj/effect/decal/cleanable/draftingchalk/C in target)

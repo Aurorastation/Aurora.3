@@ -57,7 +57,7 @@
 
 		if(10 to 15)    //Announcements that would be made by a player instead of random event
 			var/list/body = list(
-                        "Please avoid [pick("medical", "security", "the bar", "engineering", "operations", "the hangar")] at this time due to [pick("a k'ois outbreak.", "a hostage situation.", "hostile boarders.", "[holder].")]",
+						"Please avoid [pick("medical", "security", "the bar", "engineering", "operations", "the hangar")] at this time due to [pick("a k'ois outbreak.", "a hostage situation.", "hostile boarders.", "[holder].")]",
 						"Due to various complaints about [holder], we have conducted an investigation and due to the findings, we will [pick("arrest them. Please turn yourself in, [holder]", "terminate their employment with us.", "inform their family of their shortcomings.", "cyborgify them immediately.")]. Thank you.",
 						"[pick("Boarders have", "The AI has", "Intruders have")] demanded we sacrifice a crewmember to them. After [pick("much", "little", "quick")] deliberation, we have chosen [holder]. Please turn yourself over, or [pick("we", "your family", "all of us", "those you love")] will die.",
 						"Central Command has chosen [holder] as the SCC employee of the month! Everyone please congratulate them.",

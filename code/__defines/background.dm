@@ -3,6 +3,7 @@
 #define CITIZENSHIP_SOL "Sol Alliance"
 #define CITIZENSHIP_COALITION "Coalition of Colonies"
 #define CITIZENSHIP_ELYRA "Republic of Elyra"
+#define CITIZENSHIP_ELYRA_NCP "Elyran Non-Citizen Person"
 #define CITIZENSHIP_ERIDANI "Eridani Federation"
 #define CITIZENSHIP_DOMINIA "Empire of Dominia"
 
@@ -58,9 +59,9 @@
 #define RELIGION_PREIMMINENNCE "Preimminennce"
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
-#define RELIGION_ETERNAL "The Eternal"
-#define RELIGION_KSSHR "Ksshr"
-#define RELIGION_SHRKH "Shrkh"
+#define RELIGION_ETERNAL "Orthodox Eternal"
+#define RELIGION_ETERNAL_ICHOR "Ichor Eternal"
+#define RELIGION_ETERNAL_IRON "Iron Eternal"
 #define RELIGION_MADA "Maraka"
 #define RELIGION_GLEANERS "Lights Accord"
 
@@ -91,6 +92,7 @@
 #define ACCENT_DOMINIA_FRONTIER "Imperial Frontier"
 #define ACCENT_DOMINIA_NOVIJADRAN "Novi Jadranic"
 #define ACCENT_DOMINIA_LYODII "Lyodii"
+#define ACCENT_DOMINIA_SUNREACH "Sun Reach"
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_CALLISTO "Callistean"
 #define ACCENT_EUROPA "Europan"
@@ -108,10 +110,17 @@
 #define ACCENT_AEMAQ "Aemaq"
 #define ACCENT_NEWSUEZ "New Suez"
 #define ACCENT_DAMASCUS "Damascus II"
+#define ACCENT_BURSA "Bursa"
 #define ACCENT_ANTILLIA "Port Antillia"
 #define ACCENT_XANU "Xanu"
 #define ACCENT_SANCOLETTE "San Colette"
+#define ACCENT_OREPIT "Native Orepitter"
+#define ACCENT_PROVIDENCE "Providence Trinarist"
 #define ACCENT_BURZSIA "Burzsia"
+#define ACCENT_GALATEA "Galatean"
+#define ACCENT_TSUKUYOMI "Tsukuyomian"
+#define ACCENT_EMPYREAN "Empyrean"
+#define ACCENT_SVAROG "Svarogite"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -129,8 +138,8 @@
 #define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
 #define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
-#define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
-#define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
+#define ACCENT_HEARTLAND_NOBLE "Izweski Heartland Noble"
+#define ACCENT_HEARTLAND_PEASANT "Izweski Heartland Peasant"
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
 #define ACCENT_WASTELAND "Deep Wastelander"
@@ -145,6 +154,9 @@
 #define ACCENT_UNATHI_SPACER "Spacer"
 #define ACCENT_HAZANA "Hazana"
 #define ACCENT_TORN "Torn Cities"
+#define ACCENT_ZAZ_LOW "Zazalai Mountains Peasant"
+#define ACCENT_ZAZ_HIGH "Zazalai Mountains Noble"
+#define ACCENT_OUEREA "Ouerea"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
@@ -170,7 +182,10 @@
 #define ACCENT_WAVESONG "Wavesong"
 #define ACCENT_SUNKENSONG "Sunkensong"
 #define ACCENT_STARSONG "Starsong"
-
+#define ACCENT_XRIMSONG "Xrimsong"
+#define ACCENT_PESTSONG "Pestsong"
+#define ACCENT_MEADOWSONG "Meadowsong"
+#define ACCENT_LABOURSONG "Laboursong"
 
 #define ACCENT_TTS "Text-to-Speech"
 

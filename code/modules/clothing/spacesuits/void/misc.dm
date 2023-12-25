@@ -40,7 +40,8 @@
 
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
-	desc = "A helmet resembling an avian, built for the Human head. Heavy and plated with plasteel across its faces."
+	desc = "A helmet resembling an avian, built for the All-Xanu Grand Army and the Frontier Rangers. Heavy and plated with plasteel across its faces."
+	desc_extended = "The dNAXS-02 \"Vulture\" suit (formerly designated the dNXS-2) was designed by de Namur Defense Systems on Xanu in 2291, to provide the All-Xanu Grand Army with a modern voidsuit using the lessons learned from the then-recently ended Interstellar War. This model of voidsuit, designed to look like an avian, has been extremely successful and has been exported across the Coalition of Colonies and beyond. These wildly successful voidsuits are still produced to this day by de Namur's successor company, d.N.A Defense & Aerospace."
 	icon_state = "vulture"
 	item_state = "vulture"
 	armor = list(
@@ -53,14 +54,14 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
 	brightness_on = 6
-	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
-	desc = "An iconic voidsuit of Xanusian make, designed after the Interstellar War and seen in use to this day all throughout the Coalition of Colonies."
+	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. It sees use to this day all throughout the Coalition of Colonies."
+	desc_extended = "The dNAXS-02 \"Vulture\" suit (formerly designated the dNXS-2) was designed by de Namur Defense Systems on Xanu in 2291, to provide the All-Xanu Grand Army with a modern voidsuit using the lessons learned from the then-recently ended Interstellar War. This model of voidsuit, designed to look like an avian, has been extremely successful and has been exported across the Coalition of Colonies and beyond. These wildly successful voidsuits are still produced to this day by de Namur's successor company, d.N.A Defense & Aerospace."
 	icon_state = "vulture"
 	item_state = "vulture"
 	slowdown = 1
@@ -75,9 +76,54 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
+
+/obj/item/clothing/head/helmet/space/void/xanu
+	name = "\improper Xanan eagle voidsuit helmet"
+	desc = "An advanced voidsuit helmet, designed specifically for the All-Xanu Armed Forces as a major upgrade to the iconic vulture voidsuit. Its armor has been upgraded, but it feels no heavier than a vulture."
+	desc_extended = "The dNAXS-24 \"Eagle\" suit was commissioned by the All-Xanu Armed Forces as an upgrade to the aging vulture voidsuit in 2437. Having met all the requirements set out and more, the suit has been adopted by the majority of the Xanan armed forces, with only the National Militia still using the older vulture suits regularly. Despite the upgrades however, these suits have rarely been exported out of Xanu, due to its high cost."
+	icon = 'icons/obj/clothing/voidsuit/xanu.dmi'
+	icon_state = "xanu_void_helmet"
+	item_state = "xanu_void_helmet"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+	light_overlay = "helmet_light_xanu_voidsuit"
+	brightness_on = 6
 	refittable = FALSE
 
+/obj/item/clothing/suit/space/void/xanu
+	name = "\improper Xanan eagle voidsuit"
+	desc = "An advanced voidsuit, designed specifically for the All-Xanu Armed Forces as a major upgrade to the iconic vulture voidsuit. Its armor has been upgraded, but it feels no heavier than a vulture."
+	desc_extended = "The dNAXS-24 \"Eagle\" suit was commissioned by the All-Xanu Armed Forces as an upgrade to the aging vulture voidsuit in 2437. Having met all the requirements set out and more, the suit has been adopted by the majority of the Xanan armed forces, with only the National Militia still using the older vulture suits regularly. Despite the upgrades however, these suits have rarely been exported out of Xanu, due to its high cost."
+	icon = 'icons/obj/clothing/voidsuit/xanu.dmi'
+	icon_state = "xanu_voidsuit"
+	item_state = "xanu_voidsuit"
+	contained_sprite = TRUE
+	slowdown = 1
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/cruiser
 	name = "cruiser voidsuit helmet"
@@ -278,11 +324,14 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
 	light_overlay = "helmet_light_dragon"
 	brightness_on = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr")
+	icon_species_in_hand = TRUE
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/zenghu
@@ -305,8 +354,11 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr")
+	icon_species_in_hand = TRUE
 	refittable = FALSE
 
 //Hephaestus Industries espionage voidsuit
@@ -328,11 +380,14 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_UNATHI)
 	light_overlay = "helmet_light_caiman"
 	brightness_on = 6
 	light_color = "#ffce01"
 	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
+	icon_supported_species_tags = list("una")
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/hephaestus
@@ -355,8 +410,11 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
+	icon_supported_species_tags = list("una")
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
 	refittable = FALSE
 
 //Zavodskoi Interstellar espionage voidsuit
@@ -864,3 +922,94 @@
 	icon_state = "sfa_suit"
 	item_state = "sfa_suit"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/coalition/gadpathur
+	name = "coalition vulture-GP voidsuit helmet"
+	desc = "A helmet resembling an avian. This one has been modified for usage with Gadpathur's navy."
+	icon = 'icons/clothing/rig/gadpathurian_suit.dmi'
+	icon_state = "gadpathur_vulture_helm"
+	item_state = "gadpathur_vulture_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+
+	brightness_on = 6
+
+/obj/item/clothing/suit/space/void/coalition/gadpathur
+	name = "coalition vulture-GP voidsuit"
+	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. This one has been modified for usage with Gadpathur's navy."
+	icon = 'icons/clothing/rig/gadpathurian_suit.dmi'
+	icon_state = "gadpathur_vulture"
+	item_state = "gadpathur_vulture"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/sol/konyang
+	name = "konyang aerospace forces voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been painted in the colors of the Konyang Armed Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_helmet"
+	item_state = "konyang_helmet"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = "ipc"
+
+
+/obj/item/clothing/suit/space/void/sol/konyang
+	name = "konyang aerospace forces voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military.This one has been painted in the colors of the Konyang Armed Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_suit"
+	item_state = "konyang_suit"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = "ipc"
+
+
+/obj/item/clothing/suit/space/void/tcaf
+	name = "tau ceti armed forces voidsuit"
+	desc = "A Zavodskoi-manufactured combat voidsuit designed for the Tau Ceti Armed Forces, the Type-37 \"Aegis\" is now the primary armored voidsuit in use by the Republic of Biesel."
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
+	icon_state = "tcaf_suit"
+	item_state = "tcaf_suit"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	slowdown = 1
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
+
+/obj/item/clothing/head/helmet/space/void/tcaf
+	name = "tau ceti armed forces voidsuit helmet"
+	desc = "A Zavodskoi-designed armored voidsuit helmet, painted in the colors of the Republic of Biesel. Commonly seen in use by personnel of the Tau Ceti Armed Forces."
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
+	icon_state = "tcaf_helmet"
+	item_state = "tcaf_helmet"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
+	brightness_on = 6
+	siemens_coefficient = 0.35

@@ -1,11 +1,11 @@
-var/datum/controller/subsystem/statpanels/SSstatpanels
-
-/datum/controller/subsystem/statpanels
+SUBSYSTEM_DEF(statpanels)
 	name = "Stat Panels"
 	wait = 4
 	init_order = SS_INIT_MISC_FIRST
 	priority = SS_PRIORITY_STATPANELS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
+
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
@@ -18,9 +18,6 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	var/mc_wait = 5
 	///how many full runs this subsystem has completed. used for variable rate refreshes.
 	var/num_fires = 0
-
-/datum/controller/subsystem/statpanels/New()
-	NEW_SS_GLOBAL(SSstatpanels)
 
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
@@ -94,7 +91,16 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
-		return
+		var/list/preliminary_stats = list("The server is initializing...")
+		if(current_map?.name)
+			preliminary_stats.Add("Map: [current_map.name]")
+		if(game_id)
+			preliminary_stats.Add("Round ID: [game_id]")
+		if(world?.timeofday)
+			preliminary_stats.Add("Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
+		if(SSatlas?.current_sector?.name)
+			preliminary_stats.Add("Current Space Sector: [SSatlas.current_sector.name]")
+		target.stat_panel.send_message("update_stat", list(global_data = preliminary_stats, other_str = target.mob?.get_status_tab_items()))
 
 	target.stat_panel.send_message("update_stat", list(
 		global_data = global_data,
@@ -110,6 +116,9 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 /// Set up the various action tabs.
 /datum/controller/subsystem/statpanels/proc/set_action_tabs(client/target, mob/target_mob)
+	if(!target)
+		return
+
 	var/list/actions = target_mob.get_actions_for_statpanel()
 	target.spell_tabs.Cut()
 
@@ -177,7 +186,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		// Now, we're gonna queue image generation out of those refs
 		to_make += turf_item
 		already_seen[turf_item] = OBJ_IMAGE_LOADING
-		obj_window.RegisterSignal(turf_item, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
+		obj_window.RegisterSignal(turf_item, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
 	return turf_items
 
 #undef OBJ_IMAGE_LOADING

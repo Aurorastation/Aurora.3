@@ -1,3 +1,7 @@
+#define UNBUCKLED 0
+#define PARTIALLY_BUCKLED 1
+#define FULLY_BUCKLED 2
+
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	mob_list -= src
 	dead_mob_list -= src
@@ -86,51 +90,26 @@
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","say (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		say_verb(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
 
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		me_verb(message)
-
-/mob/verb/whisper_wrapper()
-	set name = ".Whisper"
-	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		whisper(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
 	set category = "Preferences"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
-	prefs.toggles ^= SHOW_TYPING
+	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
-
-	// Clear out any existing typing indicator.
-	if(prefs.toggles & SHOW_TYPING)
-		if(istype(mob))
-			SStyping.set_indicator_state(mob.client, FALSE)
-
+	to_chat(src, "You will [(prefs.toggles & HIDE_TYPING_INDICATOR) ? "no longer" : "now"] display a typing indicator.")
 	feedback_add_details("admin_verb","TID") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
-		if(SStyping)
-			SStyping.set_indicator_state(client, FALSE)
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -158,14 +137,8 @@
 		to_chat(src, msg)
 	return
 
-// Show a message to all mobs and objects in sight of this one
-// This would be for visible actions by the src mob
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -259,7 +232,7 @@
 			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
+		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -282,9 +255,6 @@
 /mob/proc/Life()
 	return
 
-#define UNBUCKLED 0
-#define PARTIALLY_BUCKLED 1
-#define FULLY_BUCKLED 2
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
@@ -293,11 +263,12 @@
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
 /mob/proc/is_physically_disabled()
-	return incapacitated(INCAPACITATION_DISABLED)
+	return MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED)
 
 /mob/proc/cannot_stand()
-	return incapacitated(INCAPACITATION_KNOCKDOWN)
+	return MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
 
+// Inside this file, you should use MOB_IS_INCAPACITATED for performance reasons
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
 
 	if ((incapacitation_flags & INCAPACITATION_STUNNED) && stunned)
@@ -320,10 +291,6 @@
 			return 1
 
 	return 0
-
-#undef UNBUCKLED
-#undef PARTIALLY_BUCKLED
-#undef FULLY_BUCKLED
 
 /mob/proc/restrained()
 	return
@@ -362,19 +329,11 @@
 	mob_win.open()
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
-/mob/verb/examinate(atom/A as mob|obj|turf in view())
+/mob/verb/ExaminateVerb(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
 
-	if(!A)
-		return
-
-	if((is_blind() || usr.stat) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
-		return 1
-
-	face_atom(A)
-	A.examine(src)
+	examinate(usr, A)
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
@@ -656,9 +615,8 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
-		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
-		flavor_win.open()
+		var/datum/tgui_module/flavor_text/FT = new /datum/tgui_module/flavor_text(usr, capitalize_first_letters(name), flavor_text)
+		FT.ui_interact(usr)
 
 	if(href_list["accent_tag"])
 		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
@@ -838,40 +796,50 @@
 				lying = TRUE
 				break
 	else if(!resting && cannot_stand() && can_stand_overridden())
-		lying = 0
-		canmove = 1
+		lying = FALSE
+		lying_is_intentional = FALSE
+		canmove = TRUE
 	else
 		if(istype(buckled_to, /obj/vehicle))
 			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
-				lying = 1
-				canmove = 0
+				lying = TRUE
+				lying_is_intentional = FALSE
+				canmove = FALSE
 				pixel_y = V.mob_offset_y - 5
 			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-				canmove = 1
+				lying_is_intentional = FALSE
+				canmove = TRUE
 				pixel_y = V.mob_offset_y
 		else if(buckled_to)
-			anchored = 1
-			canmove = 0
+			anchored = TRUE
+			canmove = FALSE
 			if(isobj(buckled_to))
 				if(buckled_to.buckle_lying != -1)
 					lying = buckled_to.buckle_lying
+					lying_is_intentional = FALSE
 				if(buckled_to.buckle_movable)
-					anchored = 0
-					canmove = 1
+					anchored = FALSE
+					canmove = TRUE
 		else if(captured)
-			anchored = 1
-			canmove = 0
-			lying = 0
+			anchored = TRUE
+			canmove = FALSE
+			lying = FALSE
+		else if(m_intent == M_LAY && !incapacitated())
+			lying = TRUE
+			lying_is_intentional = TRUE
+			canmove = TRUE
 		else
-			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
+			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+			lying_is_intentional = FALSE
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		density = 0
-		if(l_hand) unEquip(l_hand)
-		if(r_hand) unEquip(r_hand)
+		if(!lying_is_intentional)
+			if(l_hand) unEquip(l_hand)
+			if(r_hand) unEquip(r_hand)
 	else
 		density = initial(density)
 
@@ -1281,15 +1249,23 @@
 	else
 		throw_mode_on()
 
+#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
 	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
 		src.throw_icon.icon_state = "act_throw_off"
+	if(client?.mouse_pointer_icon == THROW_MODE_ICON)
+		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
 /mob/proc/throw_mode_on()
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+	if(client?.mouse_pointer_icon == initial(client.mouse_pointer_icon))
+		client.mouse_pointer_icon = THROW_MODE_ICON
+
+#undef THROW_MODE_ICON
 
 /mob/proc/is_invisible_to(var/mob/viewer)
 	if(isAI(viewer))
@@ -1356,72 +1332,43 @@
 	toggle_zone_sel(list(BP_R_ARM,BP_R_HAND))
 
 /client/verb/body_l_arm()
- 	set name = "body-l-arm"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
+	set name = "body-l-arm"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
 
 /client/verb/body_chest()
- 	set name = "body-chest"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_CHEST))
+	set name = "body-chest"
+	set hidden = 1
+	toggle_zone_sel(list(BP_CHEST))
 
 /client/verb/body_groin()
- 	set name = "body-groin"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_GROIN))
+	set name = "body-groin"
+	set hidden = 1
+	toggle_zone_sel(list(BP_GROIN))
 
 /client/verb/body_r_leg()
- 	set name = "body-r-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
+	set name = "body-r-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
 
 /client/verb/body_l_leg()
- 	set name = "body-l-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
+	set name = "body-l-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
+
+/client/verb/cycle_target_zone()
+	set name = "cycle-zone"
+	set hidden = 1
+	toggle_zone_sel(BP_ALL_LIMBS)
 
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
-	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
-
-/mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
-	..()
-	if(assembleHeightString(user))
-		to_chat(user, SPAN_NOTICE(assembleHeightString(user)))
-
-//Height String for examine - Runs on the mob being examined.
-/mob/proc/assembleHeightString(mob/examiner)
-	var/heightString = null
-	var/descriptor
-	if(height == HEIGHT_NOT_USED)
-		return heightString
-
-	if(examiner.height == HEIGHT_NOT_USED)
-		return heightString
-
-	switch(height - examiner.height)
-		if(-999 to -100)
-			descriptor = "absolutely tiny compared to"
-		if(-99 to -50)
-			descriptor = "much smaller than"
-		if(-49 to -11)
-			descriptor = "shorter than"
-		if(-10 to 10)
-			descriptor = "about the same height as"
-		if(11 to 50)
-			descriptor = "taller than"
-		if(51 to 100)
-			descriptor = "much larger than"
-		else
-			descriptor = "to tower over"
-	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
+	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones), usr)
 
 /mob/proc/get_speech_bubble_state_modifier()
-	return "normal"
+	return "default"
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
@@ -1433,3 +1380,7 @@
 /mob/proc/get_actions_for_statpanel()
 	var/list/data = list()
 	return data
+
+#undef UNBUCKLED
+#undef PARTIALLY_BUCKLED
+#undef FULLY_BUCKLED

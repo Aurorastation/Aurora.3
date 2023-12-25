@@ -1,16 +1,14 @@
 var/datum/antagonist/cultist/cult
 
 /proc/iscultist(var/mob/player)
-	if(!cult || !player.mind)
-		return 0
-	if(player.mind in cult.current_antagonists)
-		return 1
-
-/proc/iscult(var/mob/test)
-	if (test.faction == "cult")
-		return 1
-
-	else return iscultist(test)
+	if(player.faction == "cult")
+		return TRUE
+	if(player.mind)
+		if(player.mind.antag_datums[MODE_CULTIST])
+			return TRUE
+		if(cult && (player.mind in cult.current_antagonists))
+			return TRUE
+	return FALSE
 
 /datum/antagonist/cultist
 	id = MODE_CULTIST
@@ -121,7 +119,7 @@ var/datum/antagonist/cultist/cult
 		targets |= target
 	targets -= usr
 
-	var/mob/living/carbon/target = input(usr,"Who do you believe may be a worthy offering?") as null|anything in targets
+	var/mob/living/carbon/target = tgui_input_list(usr,"Who do you believe may be a worthy offering?", "Cult", targets)
 	if(!istype(target))
 		return
 

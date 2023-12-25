@@ -44,6 +44,9 @@
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
 
+/obj/item/device/encryptionkey/ship/coal_navy
+	additional_channels = list(CHANNEL_COALITION_NAVY = TRUE)
+
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_MERCENARY = TRUE, CHANNEL_HAILING = TRUE)
@@ -60,6 +63,12 @@
 /obj/item/device/encryptionkey/burglar
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_BURGLAR = TRUE, CHANNEL_HAILING = TRUE)
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+
+/obj/item/device/encryptionkey/jockey
+	icon_state = "cypherkey"
+	additional_channels = list(CHANNEL_JOCKEY = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 

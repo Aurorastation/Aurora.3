@@ -1,11 +1,11 @@
 import { NtosWindow } from '../layouts';
-import { Manifest } from './common/Manifest';
+import { ManifestSection } from './common/ManifestSection';
 
 export const NTOSManifest = () => {
   return (
-    <NtosWindow width={400} height={350}>
+    <NtosWindow width={500} height={700}>
       <NtosWindow.Content scrollable>
-        <Manifest />
+        <ManifestSection />
       </NtosWindow.Content>
     </NtosWindow>
   );

@@ -5,7 +5,7 @@
 /area/template_noop)
 "aV" = (
 /obj/item/gun/projectile/pirate,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aW" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -43,7 +43,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "dK" = (
 /obj/effect/gibspawner/robot,
@@ -62,11 +62,11 @@
 /area/template_noop)
 "gc" = (
 /mob/living/simple_animal/hostile/rogue_drone,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ge" = (
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "go" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
@@ -82,7 +82,7 @@
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "hm" = (
 /obj/random/glowstick,
@@ -107,7 +107,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/ale,
 /obj/item/reagent_containers/food/drinks/bottle/small/ale,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "js" = (
 /obj/structure/table/rack,
@@ -147,10 +147,6 @@
 /obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/template_noop)
-"mi" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/template_noop)
 "mN" = (
 /obj/effect/gibspawner/robot,
 /turf/simulated/wall,
@@ -181,7 +177,7 @@
 /area/template_noop)
 "pw" = (
 /obj/random/vendor,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "pI" = (
 /obj/random/voidsuit/no_nanotrasen,
@@ -199,7 +195,7 @@
 /area/template_noop)
 "tp" = (
 /obj/random/melee,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "tA" = (
 /obj/item/trash/syndi_cakes,
@@ -226,7 +222,7 @@
 /area/template_noop)
 "vV" = (
 /obj/structure/mech_wreckage/powerloader,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "wl" = (
 /obj/structure/grille/broken,
@@ -234,7 +230,7 @@
 /area/template_noop)
 "xD" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "xT" = (
 /turf/simulated/wall{
@@ -284,7 +280,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "AD" = (
 /turf/simulated/floor/tiled/airless,
@@ -316,11 +312,11 @@
 /obj/structure/table/wood,
 /obj/random/medical,
 /obj/random/random_flag,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Dk" = (
 /obj/effect/gibspawner/human,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "DN" = (
 /obj/structure/trash_pile,
@@ -367,7 +363,7 @@
 /area/template_noop)
 "GE" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "GN" = (
 /obj/effect/gibspawner/human,
@@ -393,11 +389,11 @@
 /area/template_noop)
 "If" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Iz" = (
 /obj/structure/bed/stool/bar/wood,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "IP" = (
 /obj/effect/decal/cleanable/blood/gibs/robot,
@@ -407,9 +403,9 @@
 "Jj" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Kx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -433,14 +429,14 @@
 /area/template_noop)
 "MX" = (
 /obj/random/firstaid,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Oe" = (
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4;
 	pixel_x = -4
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Oz" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -462,7 +458,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "PR" = (
 /turf/simulated/wall,
@@ -476,7 +472,7 @@
 /area/template_noop)
 "QU" = (
 /obj/item/mecha_equipment/mounted_system/combat/taser,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Rl" = (
 /mob/living/simple_animal/hostile/rogue_drone,
@@ -487,7 +483,7 @@
 /obj/item/ammo_casing/c10mm{
 	projectile_type = null
 	},
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Sy" = (
 /obj/random/melee,
@@ -508,7 +504,7 @@
 "Um" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/asteroid/airless,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "VS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -521,15 +517,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/template_noop)
-"Xa" = (
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/template_noop)
-"Xu" = (
-/obj/item/ammo_casing/shotgun/pellet{
-	projectile_type = null
-	},
-/turf/simulated/floor/tiled/asteroid/airless,
 /area/template_noop)
 "ZE" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1401,7 +1388,7 @@ dT
 dT
 dT
 wl
-Xa
+zo
 CB
 Iz
 xD
@@ -1435,9 +1422,9 @@ dT
 dT
 dT
 wl
-Xa
-Xa
-Xu
+zo
+zo
+yh
 gc
 MX
 GE
@@ -1470,10 +1457,10 @@ dT
 dT
 PR
 dA
-mi
+KE
 Dk
-Xa
-Xa
+zo
+zo
 GE
 PR
 PR
@@ -1503,10 +1490,10 @@ dT
 dT
 dT
 vK
-Xa
-Xa
+zo
+zo
 aV
-Xu
+yh
 QU
 If
 vK
@@ -1537,11 +1524,11 @@ dT
 dT
 dT
 PR
-mi
+KE
 pw
-Xa
+zo
 pw
-mi
+KE
 vV
 wl
 dT

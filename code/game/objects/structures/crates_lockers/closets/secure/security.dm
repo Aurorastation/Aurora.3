@@ -17,7 +17,7 @@
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/device/megaphone/command(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
 	// uniform briefcases
@@ -40,7 +40,7 @@
 	new /obj/item/clothing/head/bandana/captain(src)
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/gloves/captain(src)
 	new /obj/item/clothing/under/dress/dress_cap(src)
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
@@ -69,7 +69,7 @@
 	new /obj/item/device/radio/headset/heads/xo/alt(src)
 	new /obj/item/device/megaphone/command(src)
 	new /obj/item/storage/box/goldstar(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
@@ -85,10 +85,10 @@
 	new /obj/item/clothing/head/caphat/xo(src)
 	new /obj/random/suit(src)
 	new /obj/random/suit(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/shoes/sneakers(src)
 	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
 	new /obj/item/clothing/gloves/captain/white/xo(src)
 
@@ -102,6 +102,7 @@
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/ids(src)
+	new /obj/item/storage/box/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -125,7 +126,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/breath_analyzer(src)
 	new /obj/item/crowbar/red(src)
@@ -170,6 +171,7 @@
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
+	new /obj/item/storage/box/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -263,6 +265,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/modular(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 
@@ -280,8 +283,8 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/shoes/laceup/all_species(src)
-	new /obj/item/clothing/shoes/laceup/all_species(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -327,7 +330,7 @@
 
 /obj/structure/closet/secure_closet/brig/fill()
 	new /obj/item/clothing/under/color/orange( src )
-	new /obj/item/clothing/shoes/orange( src )
+	new /obj/item/clothing/shoes/sneakers/orange( src )
 
 /obj/structure/closet/secure_closet/courtroom
 	name = "courtroom locker"
@@ -337,7 +340,7 @@
 	..()
 	//Appearance
 	new /obj/item/clothing/head/powdered_wig (src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/suit/judgerobe (src)
 	//Tools
 	new /obj/item/paper/Court (src)

@@ -1,11 +1,13 @@
 //Maintenance
 
 /area/maintenance
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
+	area_blurb = "Dark, tight, and filled with barely filtered air. This place feels alien compared to the interior of the ship, a place where one could get lost or badly hurt. Around you hisses compressed air through pipes, a buzz of electrical charge through wires, and rumbles of the hull settling through damp maintenance corridors."
+	area_blurb_category = "maint"
 
 /area/maintenance/civ
 	name = "Civilian Maintenance"
@@ -107,6 +109,10 @@
 
 /area/maintenance/engineering
 	name = "Engineering Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/engineering/auxillary
+	name = "Auxillary Engineering Maintenance"
 	icon_state = "maint_engineering"
 
 /area/maintenance/sublevel
@@ -225,7 +231,7 @@
 /area/maintenance/interstitial_construction_site
 	name = "Construction Zone"
 	icon_state = "engineering_workshop"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/maintenance/interstitial_construction_site/zone_2
 	name = "Secondary Construction Zone"
@@ -249,6 +255,8 @@
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
+	area_blurb = "Clearly a substation, designed to downgrade voltage to departments in case of electrical hazards, and to act as an emergency battery in case of engine failure. Unlike the maintenance corridors, these stations are far less dusty."
+	area_blurb_category = "substation"
 
 /area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"

@@ -8,13 +8,13 @@
 	name = "Viscerator Delivery Grenade"
 	telecrystal_cost = 2
 	path = /obj/item/grenade/spawnergrenade/manhacks
-	desc = "A grenade that deploys five viscerator combat drones. Deadly in numbers, will not attack you or your allies."
+	desc = "A grenade that deploys three viscerator combat drones. Deadly in numbers, will not attack you or your allies."
 
 /datum/uplink_item/item/grenades/lubed_manhack
 	name = "Lubed Viscerator Delivery Grenade"
-	telecrystal_cost = 4
+	telecrystal_cost = 3
 	path = /obj/item/grenade/spawnergrenade/manhacks/lubed
-	desc = "A grenade that deploys five lubed viscerator combat drones. Deadly in numbers, will not attack you or your allies. Works best when killed."
+	desc = "A grenade that deploys three lubed viscerator combat drones. Deadly in numbers, will not attack you or your allies. Works best when killed."
 
 /datum/uplink_item/item/grenades/smoke
 	name = "5xSmoke Grenades"
@@ -39,3 +39,9 @@
 	telecrystal_cost = 2
 	path = /obj/item/storage/box/cardox
 	desc = "A box of five grenades that deploy cardox smoke in the thrown area. This smoke is incredibly toxic, especially to vaurca. It can also clear K'ois outbreaks with ease."
+
+/datum/uplink_item/item/grenades/napalm
+	name = "5x Napalm Grenades"
+	telecrystal_cost = 8
+	path = /obj/item/storage/box/grenades/napalm
+	desc = "A box of five grenades that deploy napalm in the thrown area, and ignite it."

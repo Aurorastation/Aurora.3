@@ -10,7 +10,7 @@
 
 /obj/structure/closet/secure_closet/operations_manager/fill()
 	new /obj/item/clothing/under/rank/operations_manager(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/device/radio/headset/operations_manager(src)
 	new /obj/item/device/radio/headset/operations_manager/alt(src)
 	new /obj/item/storage/box/fancy/keypouch/cargo(src)
@@ -39,7 +39,7 @@
 /obj/structure/closet/secure_closet/hangar_tech/fill()
 	..()
 	new /obj/item/clothing/under/rank/hangar_technician(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/device/radio/headset/headset_cargo/alt(src)
 	new /obj/item/clothing/gloves/black(src)
@@ -67,7 +67,7 @@
 	new /obj/item/clothing/gloves/yellow/specialt(src)
 	new /obj/item/clothing/under/rank/machinist/orion(src)
 	new /obj/item/clothing/under/rank/machinist/heph(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/device/multitool(src)
 	new /obj/item/ipc_tag_scanner(src)
 	new /obj/item/device/robotanalyzer(src)
@@ -87,7 +87,7 @@
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/device/analyzer(src)
 	new /obj/item/storage/bag/ore(src)
 	new /obj/item/shovel(src)
@@ -107,3 +107,21 @@
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant's locker"
 	req_access = list(access_merchant)
+
+// Package Courier
+/obj/structure/closet/secure_closet/package_courier
+	name = "courier's locker"
+	icon_state = "hangar_tech"
+	req_access = list(access_cargo)
+
+/obj/structure/closet/secure_closet/package_courier/fill()
+	..()
+	// presumably the people taking them down to the exoplanet will give them proper suits
+	// but in some kind of apocalyptic nightmare scenario where there aren't spare suits, these will do
+	new /obj/item/clothing/head/helmet/space(src)
+	new /obj/item/clothing/suit/space(src)
+	new /obj/item/tank/oxygen(src)
+	new /obj/item/cargo_backpack(src)
+	new /obj/item/device/gps/mining(src)
+	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/pickaxe(src)

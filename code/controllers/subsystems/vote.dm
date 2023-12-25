@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/vote/SSvote
-
-/datum/controller/subsystem/vote
+SUBSYSTEM_DEF(vote)
 	name = "Voting"
 	wait = 1 SECOND
 	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
@@ -21,9 +19,6 @@ var/datum/controller/subsystem/vote/SSvote
 	var/last_transfer_vote = null
 
 	var/list/round_voters = list()
-
-/datum/controller/subsystem/vote/New()
-	NEW_SS_GLOBAL(SSvote)
 
 /datum/controller/subsystem/vote/Initialize(timeofday)
 	next_transfer_time = config.vote_autotransfer_initial
@@ -47,14 +42,14 @@ var/datum/controller/subsystem/vote/SSvote
 
 /datum/controller/subsystem/vote/proc/autotransfer()
 	initiate_vote("crew_transfer","the server", 1)
-	log_debug("The server has called a crew transfer vote")
+	LOG_DEBUG("The server has called a crew transfer vote")
 
 /datum/controller/subsystem/vote/proc/autogamemode()
 	for(var/thing in clients)
 		var/client/C = thing
 		window_flash(C)
 	initiate_vote("gamemode","the server", 1)
-	log_debug("The server has called a gamemode vote")
+	LOG_DEBUG("The server has called a gamemode vote")
 
 /datum/controller/subsystem/vote/proc/reset()
 	initiator = null
@@ -159,7 +154,7 @@ var/datum/controller/subsystem/vote/SSvote
 					restart = 1
 			if("gamemode")
 				if(master_mode != .)
-					SSpersist_config.last_gamemode = .
+					SSpersistent_configuration.last_gamemode = .
 					if(SSticker.mode)
 						restart = 1
 					else
@@ -253,7 +248,7 @@ var/datum/controller/subsystem/vote/SSvote
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
 						continue
-					AddChoice(F, capitalize(M.name), "[M.required_players]")
+					AddChoice(F, capitalize(M.name), "", M.required_players)
 				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
 				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
@@ -281,8 +276,10 @@ var/datum/controller/subsystem/vote/SSvote
 						AddChoice(antag.role_text)
 				AddChoice("None")
 			if("custom")
-				question = input(usr,"What is the vote for?") as text|null
-				if(!question)	return 0
+				question = tgui_input_text(usr, "What is the vote for?")
+				if(!question)
+					return FALSE
+
 				for(var/i=1,i<=10,i++)
 					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
 					if(!option || mode || !usr.client)	break
@@ -315,16 +312,21 @@ var/datum/controller/subsystem/vote/SSvote
 		return 1
 	return 0
 
-/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text)
+/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text = "", required_players = 0)
 	if(!display_name)
 		display_name = name
-	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
+	choices[name] = list(
+		"name" = display_name,
+		"extra" = extra_text,
+		"required_players" = required_players,
+		"votes" = 0
+	)
 
 /datum/controller/subsystem/vote/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -416,7 +418,8 @@ var/datum/controller/subsystem/vote/SSvote
 		data["choices"] += list(list(
 			"choice" = choice,
 			"votes" = choices[choice]["votes"],
-			"extra" = choices[choice]["extra"]
+			"extra" = choices[choice]["extra"],
+			"required_players" = choices[choice]["required_players"],
 		))
 
 	data["mode"] = mode
@@ -433,6 +436,8 @@ var/datum/controller/subsystem/vote/SSvote
 	data["is_staff"] = user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))
 	var/slevel = get_security_level()
 	data["is_code_red"] = (slevel == "red" || slevel == "delta")
+	data["total_players"] = SSticker.total_players
+	data["total_players_ready"] = SSticker.total_players_ready
 	return data
 
 /mob/verb/vote()

@@ -465,80 +465,80 @@
 				<h3>Standard Cyborg</h3>
 				The standard cyborg module is a multi-purpose cyborg. It is equipped with various modules, allowing it to do basic tasks.<br>A Standard Cyborg comes with:
 				<ul>
-				  <li>Crowbar</li>
-				  <li>Stun Baton</li>
-				  <li>Health Analyzer</li>
-				  <li>Fire Extinguisher</li>
+					<li>Crowbar</li>
+					<li>Stun Baton</li>
+					<li>Health Analyzer</li>
+					<li>Fire Extinguisher</li>
 				</ul>
 
 				<h3>Engineering Cyborg</h3>
 				The Engineering cyborg module comes equipped with various engineering-related tools to help with engineering-related tasks.<br>An Engineering Cyborg comes with:
 				<ul>
-				  <li>A basic set of engineering tools</li>
-				  <li>Metal Synthesizer</li>
-				  <li>Reinforced Glass Synthesizer</li>
-				  <li>A Rapid-Fabrication-Device C-Class</li>
-				  <li>Wire Synthesizer</li>
-				  <li>Fire Extinguisher</li>
-				  <li>Built-in Optical Meson Scanners</li>
+					<li>A basic set of engineering tools</li>
+					<li>Metal Synthesizer</li>
+					<li>Reinforced Glass Synthesizer</li>
+					<li>A Rapid-Fabrication-Device C-Class</li>
+					<li>Wire Synthesizer</li>
+					<li>Fire Extinguisher</li>
+					<li>Built-in Optical Meson Scanners</li>
 				</ul>
 
 				<h3>Mining Cyborg</h3>
 				The Mining Cyborg module comes equipped with the latest in mining equipment. They are efficient at mining due to no need for oxygen, but their power cells limit their time in the mines.<br>A Mining Cyborg comes with:
 				<ul>
-				  <li>Jackhammer</li>
-				  <li>Shovel</li>
-				  <li>Mining Satchel</li>
-				  <li>Built-in Optical Meson Scanners</li>
+					<li>Jackhammer</li>
+					<li>Shovel</li>
+					<li>Mining Satchel</li>
+					<li>Built-in Optical Meson Scanners</li>
 				</ul>
 
 				<h3>Security Cyborg</h3>
 				The Security Cyborg module is equipped with effective security measures used to apprehend and arrest criminals without harming them a bit.<br>A Security Cyborg comes with:
 				<ul>
-				  <li>Stun Baton</li>
-				  <li>Handcuffs</li>
-				  <li>Taser</li>
+					<li>Stun Baton</li>
+					<li>Handcuffs</li>
+					<li>Taser</li>
 				</ul>
 
 				<h3>Janitor Cyborg</h3>
 				The Janitor Cyborg module is equipped with various cleaning-facilitating devices.<br>A Janitor Cyborg comes with:
 				<ul>
-				  <li>Mop</li>
-				  <li>Hand Bucket</li>
-				  <li>Cleaning Spray Synthesizer and Spray Nozzle</li>
+					<li>Mop</li>
+					<li>Hand Bucket</li>
+					<li>Cleaning Spray Synthesizer and Spray Nozzle</li>
 				</ul>
 
 				<h3>Service Cyborg</h3>
 				The service cyborg module comes ready to serve your human needs. It includes various entertainment and refreshment devices. Occasionally some service cyborgs may have been referred to as "Bros."<br>A Service Cyborg comes with:
 				<ul>
-				  <li>Shaker</li>
-				  <li>Industrial Dropper</li>
-				  <li>Platter</li>
-				  <li>Beer Synthesizer</li>
-				  <li>Zippo Lighter</li>
-				  <li>Rapid-Service-Fabricator (Produces various entertainment and refreshment objects)</li>
-				  <li>Pen</li>
+					<li>Shaker</li>
+					<li>Industrial Dropper</li>
+					<li>Platter</li>
+					<li>Beer Synthesizer</li>
+					<li>Zippo Lighter</li>
+					<li>Rapid-Service-Fabricator (Produces various entertainment and refreshment objects)</li>
+					<li>Pen</li>
 				</ul>
 
 				<h2><a name="Construction">Cyborg Construction</h2>
 				Cyborg construction is a rather easy process, requiring a decent amount of metal and a few other supplies.<br>The required materials to make a cyborg are:
 				<ul>
-				  <li>Metal</li>
-				  <li>Two Flashes</li>
-				  <li>One Power Cell (Preferably rated to 15000w)</li>
-				  <li>Some electrical wires</li>
-				  <li>One Human Brain</li>
-				  <li>One Man-Machine Interface</li>
+					<li>Metal</li>
+					<li>Two Flashes</li>
+					<li>One Power Cell (Preferably rated to 15000w)</li>
+					<li>Some electrical wires</li>
+					<li>One Human Brain</li>
+					<li>One Man-Machine Interface</li>
 				</ul>
 				Once you have acquired the materials, you can start on construction of your cyborg.<br>To construct a cyborg, follow the steps below:
 				<ol>
-				  <li>Start the Exosuit Fabricators constructing all of the cyborg parts</li>
-				  <li>While the parts are being constructed, take your human brain, and place it inside the Man-Machine Interface</li>
-				  <li>Once you have a Robot Head, place your two flashes inside the eye sockets</li>
-				  <li>Once you have your Robot Chest, wire the Robot chest, then insert the power cell</li>
-				  <li>Attach all of the Robot parts to the Robot frame</li>
-				  <li>Insert the Man-Machine Interface (With the Brain inside) into the Robot Body</li>
-				  <li>Congratulations! You have a new cyborg!</li>
+					<li>Start the Exosuit Fabricators constructing all of the cyborg parts</li>
+					<li>While the parts are being constructed, take your human brain, and place it inside the Man-Machine Interface</li>
+					<li>Once you have a Robot Head, place your two flashes inside the eye sockets</li>
+					<li>Once you have your Robot Chest, wire the Robot chest, then insert the power cell</li>
+					<li>Attach all of the Robot parts to the Robot frame</li>
+					<li>Insert the Man-Machine Interface (With the Brain inside) into the Robot Body</li>
+					<li>Congratulations! You have a new cyborg!</li>
 				</ol>
 
 				<h2><a name="Maintenance">Cyborg Maintenance</h2>
@@ -547,12 +547,12 @@
 				<h3>Replacing a Power Cell</h3>
 				Replacing a Power cell is a common type of maintenance for cyborgs. It usually involves replacing the cell with a fully charged one, or upgrading the cell with a larger capacity cell.<br>The steps to replace a cell are as follows:
 				<ol>
-				  <li>Unlock the Cyborg's Interface by swiping your ID on it</li>
-				  <li>Open the Cyborg's outer panel using a crowbar</li>
-				  <li>Remove the old power cell</li>
-				  <li>Insert the new power cell</li>
-				  <li>Close the Cyborg's outer panel using a crowbar</li>
-				  <li>Lock the Cyborg's Interface by swiping your ID on it, this will prevent non-qualified personnel from attempting to remove the power cell</li>
+					<li>Unlock the Cyborg's Interface by swiping your ID on it</li>
+					<li>Open the Cyborg's outer panel using a crowbar</li>
+					<li>Remove the old power cell</li>
+					<li>Insert the new power cell</li>
+					<li>Close the Cyborg's outer panel using a crowbar</li>
+					<li>Lock the Cyborg's Interface by swiping your ID on it, this will prevent non-qualified personnel from attempting to remove the power cell</li>
 				</ol>
 
 				<h3>Exposing the Internal Wiring</h3>
@@ -1025,7 +1025,7 @@
 
 				EVA gear. Wonderful to use. It's useful for mining, engineering, and occasionally just surviving, if things are that bad. Most people have EVA training,
 				but apparently there are some on a space station who don't. This guide should give you a basic idea of how to use this gear, safely. It's split into two sections:
-				 Civilian suits and voidsuits.<BR><BR>
+				Civilian suits and voidsuits.<BR><BR>
 
 				<h2><a name="Civilian">Civilian Suits</a></h2>
 				<I>The bulkiest things this side of Alpha Centauri</I><BR>
@@ -1459,73 +1459,75 @@
 				<ol>
 					<li><a href="#I">Conduct toward Equals</a></li>
 					<li><a href="#II">Dueling Etiquette</a></li>
-					<li><a href="#III">Conduct of a Soldier</a></li>					
+					<li><a href="#III">Conduct of a Soldier</a></li>
 					<li><a href="#IV">On High and Low</a></li>
 					<li><a href="#V">Behavior amongst Foreigners and Enemies</a></li>
 					<li><a href="#VI">On Duty to Family and Goddess</a></li>
 					<li><a href="#VII">On Duty to Country and Emperor</a></li>
-					<li><a href="#VII">On Duty to Self</a></li>					
+					<li><a href="#VII">On Duty to Self</a></li>
 				</ol>
 				<br>
 
 				<a name="I"><h2>Conduct toward Equals</h2><br></a>
 				An honorable person will conduct himself in a manner that recognizes rich or poor, young or old, all are morally equal. Birth and wealth do not convey honor and a good reputation,
-				your actions do. It is not what one thinks, but one does. Thus, a gentle-being of good repute and standing should avoid conducting himself untowardly to their fellow, 
+				your actions do. It is not what one thinks, but one does. Thus, a gentle-being of good repute and standing should avoid conducting himself untowardly to their fellow,
 				that they may avoid unnecessarily coming to blows. Politeness and civility are the hallmarks of a reputable person. Thus, unless a person is known to of low repute and lacking honor,
 				act civilly to all you meet.<BR><BR>
 
 				<a name="II"><h2>Dueling Etiquette</h2><br></a>
-				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest 
-				fate one can receive. It is thus that affairs of honor are brought to the contest of the duel – to satisfy both parties, defender, and accuser. In a duel, a second for 
-				both sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between or people of 
-				differing ages and physical capabilities, to ensure the uprightness, fairness, and honor of the duel, guns may be used. These shall be inspected by both seconds upon 
-				being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily inflict a 
+				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest
+				fate one can receive. It is thus that affairs of honor are brought to the contest of the duel – to satisfy both parties, defender, and accuser. In a duel, a second for
+				both sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between or people of
+				differing ages and physical capabilities, to ensure the uprightness, fairness, and honor of the duel, guns may be used. These shall be inspected by both seconds upon
+				being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily inflict a
 				mortal wound when one is not necessary to satisfy the Honor of the two parties<BR><BR>
 
 				<a name="III"><h2>Conduct of a Soldier</h2><br></a>
-				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting, bawdiness, 
-				pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to their task, dedicated to becoming a master 
-				of their task, and willing to die to complete it. A soldier in defeat, if they have given their all, is a soldier who has learned. No soldier should be afraid of defeat – for 
+				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting, bawdiness,
+				pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to their task, dedicated to becoming a master
+				of their task, and willing to die to complete it. A soldier in defeat, if they have given their all, is a soldier who has learned. No soldier should be afraid of defeat – for
 				no soldier can win every battle – they should be afraid to not learn from it.<BR><BR>
 
 				<a name="IV"><h2>On High and Low</h2><br></a>
-				The Goddess, in Her wisdom, sees fit to place some souls high and some souls low. This does not make them any less equal in matters of honor. A powerful individual, if they 
-				have been seen fit to be head over another, must not, in any case, abuse their authority or position. An individual, if they have been seen fit to be placed under another's 
-				authority, must be dedicated and true in their work. There is no greater stain to a person of honor than to be a cruel task-master or an abuser of the weak and powerless. 
+				The Goddess, in Her wisdom, sees fit to place some souls high and some souls low. This does not make them any less equal in matters of honor. A powerful individual, if they
+				have been seen fit to be head over another, must not, in any case, abuse their authority or position. An individual, if they have been seen fit to be placed under another's
+				authority, must be dedicated and true in their work. There is no greater stain to a person of honor than to be a cruel task-master or an abuser of the weak and powerless.
 				They have a responsibility to ensure those under him work efficiently, and they have a responsibility to not cheat their master.<BR><BR>
 
 				<a name="V"><h2>Behavior amongst Foreigners and Enemies</h2><br></a>
 				When among foreigners, an honorable and respectful soul must be honorable and respectful of their customs as much as he can, unless they are themselves against the code of Honor
-				and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach – but until then, be as polite and respectful 
-				to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your enemy unless they prove 
+				and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach – but until then, be as polite and respectful
+				to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your enemy unless they prove
 				themselves unworthy of it. In all cases, show that you are a better individual than they are.<BR><BR>
 
 				<a name="VI"><h2>On Duty to Family and Goddess</h2><br></a>
-				A genteel and honorable person, in all cases, is loyal first to Goddess first, their family second, king third, country fourth, and themselves last. Your family is your closest 
-				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, they have nothing. Be upright and honest with your family, 
-				loyal, and keep your promises in all things – such as your dealings are with other men. Be loyal to the Goddess first and foremost – for if a soul is without the Goddess, 
+				A genteel and honorable person, in all cases, is loyal first to Goddess first, their family second, king third, country fourth, and themselves last. Your family is your closest
+				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, they have nothing. Be upright and honest with your family,
+				loyal, and keep your promises in all things – such as your dealings are with other men. Be loyal to the Goddess first and foremost – for if a soul is without the Goddess,
 				it is not living. It is Goddess that gives us this opportunity to be honorable and just people.<BR><BR>
 
 				<a name="VII"><h2>On Duty to Country and Emperor</h2><br></a>
-				Dutiful should describe any honorable person. A person everyone knows will keep their word, honor their word, and faithfully fulfill their word. And no more important word is 
-				given than an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve him faithfully, 
+				Dutiful should describe any honorable person. A person everyone knows will keep their word, honor their word, and faithfully fulfill their word. And no more important word is
+				given than an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve him faithfully,
 				and your country will prosper for it. Respectfully question the Emperor at the appropriate time if necessary and obey him in all right and honorable things.<BR><BR>
 
 				<a name="VIII"><h2>On Duty to Self</h2><br></a>
-				Your body, your mind, your honor – these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such as overuse 
+				Your body, your mind, your honor – these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such as overuse
 				of hard liquors and substances which cloud the mind and hamper the body. Without a sound body and mind, nobody can maintain their honor and reputation.<BR><BR>
 
 				</body>
 			</html>
 			"}
 
-/obj/item/book/manual/tcfl_pamphlet
-	name = "tau ceti foreign legion pamphlet"
-	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
-	icon_state = "tcfl_book"
-	item_state = "book13"
-	title = "Tau Ceti foreign legion pamphlet"
-	author = "Tau Ceti foreign legion recruitment center"
+/obj/item/book/manual/tcaf_pamphlet
+	name = "tau ceti armed forces pamphlet"
+	desc = "A simple pamphlet containing information about the Tau Ceti Armed Forces."
+	icon_state = "tcfl_pamphlet"
+	item_state = "paper"
+	title = "Tau Ceti Armed Forces pamphlet"
+	author = "Tau Ceti Armed Forces recruitment center"
+	pickup_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
@@ -1540,12 +1542,48 @@
 				</head>
 				<body>
 				<br>\
-				The Tau Ceti Foreign Legion is the primary armed force of the Republic of Biesel and is comprised of volunteer immigrants. External parties seeking citizenship \
-				often enlist, since the Republic offers citizenship in turn for service. Since 2464 the Legion was promoted to the official armed forces of the Republic, which \
-				resulted in a great boost in popularity, funding and manpower. This happened after President Dorn enacted the People's Protection Act megacorporations are also \
-				able to fund the legion, something the Stellar Corporate Conglomerate immediately did. The Legion's largest deployment currently is throughout the Corporate \
-				Reconstruction Zone, ensuring the SCC's growing influence over the region. To help with this task the Legion also seeks the assistance of the Private Military \
-				Contracting Group.
+				<h2>Introduction</h2><br>
+				The Tau Ceti Armed Forces are the military of the Republic of Biesel, founded in 2465 in order to defend the Republic's borders against the threats of piracy, \
+				terrorism and the devastation of the Solarian warlords. The Tau Ceti Armed Forces has four service branches - the Tau Ceti Minutemen, the Republican Fleets, \
+				the Tau Ceti Foreign Legion and the Auxiliary Corporate Forces. Each of these branches works in its own way to defend the Republic's safety and sovereignty, and to \
+				keep our light of liberty shining!<BR><BR>
+
+				<h2>Tau Ceti Minutemen</h2><br>
+				The Minutemen are the Republic's ground forces, ready to fight for freedom on any of the Republic's worlds. They recently have had great success in the anti-terrorism campaign \
+				on Mictlan, which finally came to an end shortly after the Minutemen were first deployed there. Some of the best and brightest of the Tau Ceti Foreign Legion were recruited into the \
+				Minutemen upon their founding, and already they've been proving themselves worthy of the name - ready at a minute's notice, to protect the Republic and her people. A career in the Minutemen \
+				may take you all across the Republic, offering a competitive salary and access to some of the best-quality training and equipment in the Spur!<BR><BR>
+
+				<h2>Republican Fleets</h2><br>
+				While the Minutemen watch the ground, the Republican Fleets watch the stars! The Republic's primary naval force, the Republican Fleets were founded to ensure that never again will the Republic face \
+				another assault such as the invasion of 2462. Flying top-of-the-line vessels from Zavodskoi Interstellar, and trained by seasoned veterans from across the Spur, the Fleets are rapidly becoming a fixture \
+				of our nation's defences. From the Zoleth Line to the borders of the Corporate Reconstruction Zone, the Republican Fleets ensure that the Republic's travel and trade lanes say safe and free of pirates and marauders. \
+				A career in the Fleets can teach valuable life-long skills for any kind of shipboard work, with positions that can teach you skills to fast-track nearly any career!<BR><BR>
+
+				<h2>Tau Ceti Foreign Legion</h2><br>
+				The oldest branch of the Armed Forces, the Tau Ceti Foreign Legion upholds the values of equity, freedom, and diversity our nation was founded upon. From Sol to Adhomai to Xanu Prime, recruits from anywhere can \
+				be found in the ranks of the TCFL, contributing to the nation they wish to make their home. A year's service with the Foreign Legion will earn full Republic citizenship, and can be the jumping-on point for a career with \
+				the Armed Forces. The branch has a prestigious history, having served with distinction in many of the conflicts of the Republic's history - from the successful repulsion of the Solarian invasion of 2462 to protecting the \
+				people of Mictlan from terrorism and disaster, the TCFL has always fought to protect the Republic and its people. If you are a resident or non-citizen and interested in Republic citizenship, talk to your nearest embassy or \
+				consulate to see if he Foreign Legion is a good fit for you!<BR><BR>
+
+				<h2>Auxiliary Corporate Forces</h2><br>
+				The Auxiliary Corporate Forces are the final branch of the Armed Forces, consisting of seasoned private contractors from the Spur's security corporations. The Auxiliary Corporate Forces are a core of well-disciplined and seasoned \
+				veterans, who act as flexible support units to the other branches in their operations. A position in the Auxiliary Corporate Forces can offer valuable experience in an existing security career, as well as providing a refreshing and \
+				challenging change of pace from the day-to-day work. If you're in the security industry and looking for a challenging new career path among the best of the best, or to put your skills to use for the cause of liberty, talk to your employers about transfer to the ACF today!<BR><BR>
+
+				<h2>Further Information</h2><br>
+				Service with the Tau Ceti Armed Forces renders one eligible for the Tau Ceti Corporate Scholarship, a program for subsidised higher education. In addition, choosing to join the reserve forces after your initial term of enlistment is up \
+				can earn you an income-supplementing stipend, paid for by the Republic of Biesel. If you think that the TCAF might be a good fit for you, contact your nearest recruitment office if in the Republic of Biesel, or your nearest embassy or consulate outside Republic space. \
+				You can also visit biesel.gov/tcaf/careers to learn more about the directions a career with the TCAF can take you, and hear from some of our soldiers and veterans about how their time in the TCAF has changed their lives!\
 				</body>
 			</html>
 			"}
+
+/obj/item/book/manual/tcaf_pamphlet/attack_self(var/mob/user as mob)
+	if(src.dat)
+		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")
+		playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		onclose(user, "book")
+		onclose(playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1))

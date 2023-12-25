@@ -48,7 +48,7 @@
 			return TRUE
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
-	if(!do_after(user, 30, TRUE, src))
+	if(!do_after(user, 30, src))
 		return
 
 	if(!can_open)

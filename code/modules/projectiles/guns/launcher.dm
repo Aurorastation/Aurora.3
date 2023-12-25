@@ -1,8 +1,11 @@
 /obj/item/gun/launcher
 	name = "launcher"
 	desc = "A device that launches things."
+	desc_info = "This is a projectile launcher, which launches objects such as arrows, rockets, or syringes. To fire it, toggle the safety(if one is present) with CTRL-click or by \
+	switching to HARM intent, then click where you wish to fire. To reload it, insert the appropriate items. Some weapons may require additional drawing of the string or charging, \
+	which can typically be done with the Unique-Action macro or button located in the bottom right of the screen."
 	w_class = ITEMSIZE_HUGE
-	flags =  CONDUCT
+	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 
 	var/release_force = 0

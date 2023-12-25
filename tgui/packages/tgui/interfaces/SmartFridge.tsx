@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, LabeledList, Section } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { BlockQuote, Box, Button, LabeledList, Section, Input } from '../components';
 import { Window } from '../layouts';
 
 export type FridgeData = {
@@ -9,6 +9,7 @@ export type FridgeData = {
   shoot_inventory: BooleanLike;
   locked: number; // goes to -1
   secure: BooleanLike;
+  sort_alphabetically: BooleanLike;
 };
 
 type Item = {
@@ -19,11 +20,34 @@ type Item = {
 
 export const SmartFridge = (props, context) => {
   const { act, data } = useBackend<FridgeData>(context);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
 
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Section title="Storage">
+        <Section
+          title="Storage"
+          buttons={
+            <Section>
+              <Input
+                selfClear
+                placeholder="Search..."
+                onInput={(e, value) => {
+                  setSearchTerm(value);
+                }}
+                value={searchTerm}
+              />
+              <Button
+                content="Sort"
+                selected={data.sort_alphabetically}
+                onClick={() => act('switch_sort_alphabetically')}
+              />
+            </Section>
+          }>
           {data.secure ? (
             data.locked === -1 ? (
               <BlockQuote>
@@ -50,11 +74,21 @@ export const SmartFridge = (props, context) => {
 
 export const ContentsWindow = (props, context) => {
   const { act, data } = useBackend<FridgeData>(context);
+  const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
+  const itemList = data.contents.filter(
+    (item) =>
+      item.display_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+  );
+  const itemListSorted = data.sort_alphabetically
+    ? itemList.sort((item1, item2) => {
+      return item1.display_name.localeCompare(item2.display_name);
+    })
+    : itemList;
 
   return (
     <Section>
       <LabeledList>
-        {data.contents.map((item) => (
+        {itemListSorted.map((item) => (
           <LabeledList.Item key={item.display_name} label={item.display_name}>
             x{item.quantity}&nbsp;
             {item.quantity > 0 ? (

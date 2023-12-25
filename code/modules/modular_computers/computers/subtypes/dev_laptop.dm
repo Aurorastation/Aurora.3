@@ -31,7 +31,7 @@
 		return
 	anchored = !anchored
 	screen_on = anchored
-	SStgui.close_all_uis(src)
+	SStgui.close_uis(src)
 	update_icon()
 
 /obj/item/modular_computer/laptop/update_icon()

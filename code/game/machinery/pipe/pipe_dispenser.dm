@@ -77,11 +77,6 @@
 		<A href='?src=\ref[src];make=14;dir=1'>High Power Gas Pump</A><BR>
 		<A href='?src=\ref[src];make=10;dir=1'>Scrubber</A><BR>
 		<A href='?src=\ref[src];makemeter=1'>Meter</A><BR>
-		<A href='?src=\ref[src];make=11;dir=1'>Gas Filter</A><BR>
-		<A href='?src=\ref[src];make=21;dir=1'>Gas Filter - Mirrored</A><BR>
-		<A href='?src=\ref[src];make=12;dir=1'>Gas Mixer</A><BR>
-		<A href='?src=\ref[src];make=23;dir=1'>Gas Mixer - Mirrored</A><BR>
-		<A href='?src=\ref[src];make=22;dir=1'>Gas Mixer - T</A><BR>
 		<A href='?src=\ref[src];make=24;dir=1'>Omni Gas Mixer</A><BR>
 		<A href='?src=\ref[src];make=25;dir=1'>Omni Gas Filter</A><BR>
 		<b>Heat exchange:</b><BR>

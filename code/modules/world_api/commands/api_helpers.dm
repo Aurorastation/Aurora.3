@@ -12,8 +12,8 @@
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 3 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 0 //Minor Version Number --> Increment when adding features
-	version["patch"] = 1 //Patchlevel --> Increment when fixing bugs
+	version["minor"] = 1 //Minor Version Number --> Increment when adding features
+	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
 
@@ -116,7 +116,7 @@
 		return TRUE
 
 /datum/topic_command/update_command_database/proc/api_update_command_database()
-	log_debug("API: DB Command Update Called")
+	LOG_DEBUG("API: DB Command Update Called")
 	//Check if DB Connection is established
 	if (!establish_db_connection(dbcon))
 		response = "Database connection lost, cannot update commands."
@@ -130,7 +130,7 @@
 		var/datum/topic_command/command = topic_commands[com]
 		commandinsertquery.Execute(list("command_name" = command.name, "command_description" = command.description))
 
-	log_debug("API: DB Command Update Executed")
+	LOG_DEBUG("API: DB Command Update Executed")
 
 	response = "Commands successfully updated."
 	return TRUE //OK

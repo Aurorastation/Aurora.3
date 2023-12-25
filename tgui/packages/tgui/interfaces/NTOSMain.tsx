@@ -70,7 +70,11 @@ export const NTOSMain = (props, context) => {
                       content={service.desc}
                       color="transparent"
                       selected={service.running}
-                      onClick={() => act('PC_toggleservice', service)}
+                      onClick={() =>
+                        act('PC_toggleservice', {
+                          service_to_toggle: service.filename,
+                        })
+                      }
                     />
                   </Table.Cell>
                   <Table.Cell collapsing>
@@ -80,7 +84,11 @@ export const NTOSMain = (props, context) => {
                         icon="times"
                         tooltip="Disable Service"
                         tooltipPosition="left"
-                        onClick={() => act('PC_toggleservice', service)}
+                        onClick={() =>
+                          act('PC_toggleservice', {
+                            service_to_toggle: service.filename,
+                          })
+                        }
                       />
                     )}
                   </Table.Cell>

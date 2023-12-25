@@ -278,7 +278,7 @@
 		if(CARGO_CONTAINER_BODYBAG)
 			return /obj/structure/closet/body_bag
 		else
-			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
+			LOG_DEBUG("Cargo: Tried to get container type for invalid container [container_type]")
 			return /obj/structure/largecrate
 
 // Returns the number of items that can be stored in the container
@@ -291,7 +291,7 @@
 		if(CARGO_CONTAINER_BOX)
 			return 5 //You can fit 5 larger items into a box
 		else
-			log_debug("Cargo: Tried to get storage size for invalid container [container_type]")
+			LOG_DEBUG("Cargo: Tried to get storage size for invalid container [container_type]")
 			return 0 //Something went wrong
 
 // Gets the list of the suppliers involved in the order

@@ -55,42 +55,36 @@
 			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_in_toggle"])
 			if(SMES)
 				SMES.toggle_input()
-				computer.update_static_data_for_all_viewers()
 				. = TRUE
 
 		if("smes_out_toggle")
 			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_out_toggle"])
 			if(SMES)
 				SMES.toggle_output()
-				computer.update_static_data_for_all_viewers()
 				. = TRUE
 
 		if("smes_in_set")
 			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_in_set"])
 			if(SMES)
 				SMES.set_input(params["value"])
-				computer.update_static_data_for_all_viewers()
 				. = TRUE
 
 		if("smes_out_set")
 			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_out_set"])
 			if(SMES)
 				SMES.set_output(params["value"])
-				computer.update_static_data_for_all_viewers()
 				. = TRUE
 
 		if("smes_in_max")
 			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_in_max"])
 			if(SMES)
 				SMES.set_input(SMES.input_level_max)
-				computer.update_static_data_for_all_viewers()
 				. = TRUE
 
 		if("smes_out_max")
 			var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(params["smes_out_max"])
 			if(SMES)
 				SMES.set_output(SMES.output_level_max)
-				computer.update_static_data_for_all_viewers()
 				. = TRUE
 
 		if("toggle_breaker")
@@ -100,7 +94,6 @@
 					to_chat(usr, SPAN_WARNING("The breaker box was recently toggled. Please wait before toggling it again."))
 				else
 					toggle.auto_toggle()
-					computer.update_static_data_for_all_viewers()
 					. = TRUE
 
 /datum/computer_file/program/rcon_console/proc/GetSMESByTag(var/tag)

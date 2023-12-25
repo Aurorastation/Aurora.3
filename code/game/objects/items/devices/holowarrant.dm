@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/list/storedwarrant = list() //All the warrants currently stored
 	var/activename = null
 	var/activecharges = null
@@ -16,11 +16,11 @@
 	var/activetype = null //Is this a search or arrest warrant?
 
 //look at it
-/obj/item/device/holowarrant/examine(mob/user)
-	..()
+/obj/item/device/holowarrant/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(activename)
 		to_chat(user, "It's a holographic warrant for '[activename]'.")
-	if(in_range(user, src) || isobserver(user))
+	if(is_adjacent)
 		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
@@ -37,7 +37,7 @@
 		to_chat(user, SPAN_NOTICE("There are no warrants available at this time."))
 		return
 	var/temp
-	temp = input(usr, "Which warrant would you like to load?") as null|anything in storedwarrant
+	temp = tgui_input_list(usr, "Which warrant would you like to load?", storedwarrant)
 	for(var/datum/record/warrant/W in SSrecords.warrants)
 		if(W.name == temp)
 			activename = W.name
@@ -51,10 +51,10 @@
 	if(activename)
 		user.visible_message(SPAN_NOTICE("[user] holds up a warrant projector and shows the contents to [M]."), \
 				SPAN_NOTICE("You show the warrant to [M]."))
-		M.examinate(src)
+		examinate(M, src)
 	else
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
-		
+
 /obj/item/device/holowarrant/update_icon()
 	if(activename)
 		icon_state = "holowarrant_filled"

@@ -9,7 +9,7 @@
 	var/last_gauge_pressure
 	var/gauge_cap = 6
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_NORMAL
 
@@ -47,9 +47,9 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
+/obj/item/tank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		var/descriptive
 		switch(celsius_temperature)
@@ -135,11 +135,11 @@
 				mask_check = 1
 
 		if(mask_check)
-			if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
+			if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 				data["maskConnected"] = 1
 			else if(istype(location, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = location
-				if(H.head && (H.head.item_flags & AIRTIGHT))
+				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
 	return data
@@ -159,11 +159,11 @@
 					location.internals.icon_state = "internal0"
 			else
 				var/can_open_valve
-				if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
+				if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					can_open_valve = 1
 				else if(istype(location,/mob/living/carbon/human))
 					var/mob/living/carbon/human/H = location
-					if(H.head && (H.head.item_flags & AIRTIGHT))
+					if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 						can_open_valve = 1
 
 				if(can_open_valve)
@@ -266,8 +266,8 @@
 		qdel(src)
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
-		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)
@@ -281,8 +281,8 @@
 			integrity--
 
 	else if(pressure > TANK_LEAK_PRESSURE)
-		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)

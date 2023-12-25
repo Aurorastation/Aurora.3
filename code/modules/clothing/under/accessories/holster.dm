@@ -93,12 +93,13 @@
 	holster(W, user)
 
 /obj/item/clothing/accessory/holster/emp_act(severity)
+	. = ..()
+
 	if (holstered)
 		holstered.emp_act(severity)
-	..()
 
 /obj/item/clothing/accessory/holster/examine(mob/user)
-	..(user)
+	. = ..()
 	if (holstered)
 		to_chat(user, "A [holstered] is holstered here.")
 	else
@@ -141,6 +142,10 @@
 		H.holster(W, usr)
 	else
 		H.unholster(usr)
+
+/*###################
+	Holster Subtypes
+###################*/
 
 /obj/item/clothing/accessory/holster/armpit
 	name = "black armpit holster"
@@ -188,13 +193,23 @@
 	icon_state = "holster_brown_thigh"
 	item_state = "holster_brown_thigh"
 
-/********** Utility Holsters Start **********/
+/obj/item/clothing/accessory/holster/modular
+	name = "plate carrier holster"
+	desc = "A special holster with rigging able to attach to modern modular plate carriers."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "modular_holster"
+	item_state = "modular_holster"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	flippable = FALSE
+
+/*##### Utility Holsters Start #####*/
 // Utility Holster
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
 	desc = "A utility holster."
-	icon = 'icons/obj/item/clothing/accessory/utility_holsters.dmi'
-
+	icon_state = "holster"
+	item_state = "holster"
 	var/list/allowed_items = list() // A list of allowed items.
 
 /obj/item/clothing/accessory/holster/utility/holster(var/obj/item/I, var/mob/living/user)
@@ -222,15 +237,15 @@
 /obj/item/clothing/accessory/holster/utility/custodial/armpit
 	name = "brown custodial armpit holster"
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
-	icon_state = "custodial_brown"
-	item_state = "custodial_brown"
+	icon_state = "holster_brown"
+	item_state = "holster_brown"
 
 // Brown Custodial Hip Holster
 /obj/item/clothing/accessory/holster/utility/custodial/hip
 	name = "brown custodial hip holster"
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
-	icon_state = "custodial_brown_hip"
-	item_state = "custodial_brown_hip"
+	icon_state = "holster_brown_hip"
+	item_state = "holster_brown_hip"
 
 /obj/item/clothing/accessory/holster/utility/machete
 	name = "machete sheath"

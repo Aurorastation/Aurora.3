@@ -75,7 +75,7 @@
 /obj/effect/shuttle_landmark/ship
 	name = "Open Space"
 	landmark_tag = "ship"
-	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	landmark_flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 	base_turf = /turf/space
 	var/shuttle_name
 	var/list/visitors // landmark -> visiting shuttle stationed there
@@ -96,7 +96,7 @@
 		return "Grappled by other shuttle; cannot manouver."
 
 /obj/effect/shuttle_landmark/visiting_shuttle
-	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	landmark_flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
 	var/obj/effect/shuttle_landmark/ship/core_landmark
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Initialize(mapload, obj/effect/shuttle_landmark/ship/master, _name)

@@ -46,6 +46,12 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "idris_chef_jacket"
 	item_state = "idris_chef_jacket"
+
+//Orion Chef Jacket
+/obj/item/clothing/suit/chef_jacket/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	icon_state = "orion_chef_jacket"
+	item_state = "orion_chef_jacket"
 /********** Chef/Cook End **********/
 
 //Security
@@ -207,8 +213,12 @@
 /obj/item/clothing/suit/storage/toggle/suitjacket
 	name = "suit jacket"
 	desc = "A snappy dress jacket."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/suitjacket.dmi'
 	icon_state = "suitjacket"
 	item_state = "suitjacket"
+	contained_sprite = TRUE
+	has_accents = TRUE
+	accent_color = COLOR_WHITE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
@@ -219,7 +229,6 @@
 	desc_extended = "for when you want to play ball sports like an aristocrat."
 	icon_state = "blazer"
 	item_state = "blazer"
-	opened = TRUE
 
 /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
 	name = "long blazer"
@@ -227,7 +236,6 @@
 	desc_extended = "For when you want to play ball sports like an aristocrat."
 	icon_state = "longblazer"
 	item_state = "longblazer"
-	opened = TRUE
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket
@@ -289,6 +297,10 @@
 /obj/item/clothing/suit/storage/bartender/idris
 	icon_state = "idris_bartender_jacket"
 	item_state = "idris_bartender_jacket"
+
+/obj/item/clothing/suit/storage/bartender/orion
+	icon_state = "orion_bartender_jacket"
+	item_state = "orion_bartender_jacket"
 
 // Machinist
 

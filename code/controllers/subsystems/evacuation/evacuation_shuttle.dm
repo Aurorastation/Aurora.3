@@ -41,10 +41,14 @@
 
 	state = EVAC_IN_TRANSIT
 
-	if (emergency_evacuation)
-		priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
-	else
-		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+	switch(evacuation_type)
+		if(TRANSFER_EMERGENCY)
+			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+		if(TRANSFER_JUMP)
+			priority_announcement.Announce(replacetext(replacetext(current_map.bluespace_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+		if(TRANSFER_CREW)
+			priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+
 
 /datum/evacuation_controller/shuttle/finish_preparing_evac()
 	departed = 1
@@ -54,12 +58,12 @@
 
 	. = ..()
 	// Arm the escape pods.
-	if (emergency_evacuation)
+	if(evacuation_type == TRANSFER_EMERGENCY)
 		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
 
-/datum/evacuation_controller/shuttle/call_evacuation(var/mob/user, var/_emergency_evac, var/forced, var/skip_announce, var/autotransfer)
+/datum/evacuation_controller/shuttle/call_evacuation(var/mob/user, var/_evac_type, var/forced, var/skip_announce, var/autotransfer)
 	if(..())
 		autopilot = 1
 		shuttle_launch_time = evac_no_return

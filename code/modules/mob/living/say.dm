@@ -1,65 +1,69 @@
 var/list/department_radio_keys = list(
-	  ":r" = "right ear",	".r" = "right ear",
-	  ":l" = "left ear",	".l" = "left ear",
-	  ":i" = "intercom",	".i" = "intercom",
-	  ":h" = "department",	".h" = "department",
-	  ":+" = "special",		".+" = "special", //activate radio-specific special functions
-	  ":a" = "Common",		".a" = "Common",
-	  ":c" = "Command",		".c" = "Command",
-	  ":n" = "Science",		".n" = "Science",
-	  ":m" = "Medical",		".m" = "Medical",
-	  ":e" = "Engineering", ".e" = "Engineering",
-	  ":s" = "Security",	".s" = "Security",
-	  ":q" = "Penal",		".q" = "Penal",
-	  ":w" = "whisper",		".w" = "whisper",
-	  ":t" = "Mercenary",	".t" = "Mercenary",
-	  ":x" = "Raider",		".x" = "Raider",
-	  ":b" = "Burglar",		".b" = "Burglar",
-	  ":j" = "Bluespace",	".j" = "Bluespace",
-	  ":y" = "Hailing",		".y" = "Hailing",
-	  ":q" = "Ninja",		".q" = "Ninja",
-	  ":u" = "Operations",	".u" = "Operations",
-	  ":v" = "Service",		".v" = "Service",
-	  ":p" = "AI Private",	".p" = "AI Private",
-	  ":z" = "Entertainment",".z" = "Entertainment",
+		":r" = "right ear",	".r" = "right ear",
+		":l" = "left ear",	".l" = "left ear",
+		":i" = "intercom",	".i" = "intercom",
+		":h" = "department",	".h" = "department",
+		":+" = "special",		".+" = "special", //activate radio-specific special functions
+		":a" = "Common",		".a" = "Common",
+		":c" = "Command",		".c" = "Command",
+		":n" = "Science",		".n" = "Science",
+		":m" = "Medical",		".m" = "Medical",
+		":e" = "Engineering", ".e" = "Engineering",
+		":f" = "Coalition Navy", ".f" = "Coalition Navy",
+		":s" = "Security",	".s" = "Security",
+		":q" = "Penal",		".q" = "Penal",
+		":w" = "whisper",		".w" = "whisper",
+		":t" = "Mercenary",	".t" = "Mercenary",
+		":x" = "Raider",		".x" = "Raider",
+		":b" = "Burglar",		".b" = "Burglar",
+		":k" = "Jockey",			".k" = "Jockey",
+		":j" = "Bluespace",	".j" = "Bluespace",
+		":y" = "Hailing",		".y" = "Hailing",
+		":q" = "Ninja",		".q" = "Ninja",
+		":u" = "Operations",	".u" = "Operations",
+		":v" = "Service",		".v" = "Service",
+		":p" = "AI Private",	".p" = "AI Private",
+		":z" = "Entertainment",".z" = "Entertainment",
 
-	  ":R" = "right ear",	".R" = "right ear",
-	  ":L" = "left ear",	".L" = "left ear",
-	  ":I" = "intercom",	".I" = "intercom",
-	  ":H" = "department",	".H" = "department",
-	  ":A" = "Common",		".A" = "Common",
-	  ":C" = "Command",		".C" = "Command",
-	  ":N" = "Science",		".N" = "Science",
-	  ":M" = "Medical",		".M" = "Medical",
-	  ":E" = "Engineering",	".E" = "Engineering",
-	  ":S" = "Security",	".S" = "Security",
-	  ":Q" = "Penal",		".Q" = "Penal",
-	  ":W" = "whisper",		".W" = "whisper",
-	  ":T" = "Mercenary",	".T" = "Mercenary",
-	  ":X" = "Raider",		".X" = "Raider",
-	  ":B" = "Burglar",		".B" = "Burglar",
-	  ":J" = "Bluespace",	".J" = "Bluespace",
-	  ":Y" = "Hailing",		".Y" = "Hailing",
-	  ":Q" = "Ninja",		".Q" = "Ninja",
-	  ":U" = "Operations",	".U" = "Operations",
-	  ":V" = "Service",		".V" = "Service",
-	  ":P" = "AI Private",	".P" = "AI Private",
-	  ":Z" = "Entertainment",".Z" = "Entertainment",
+		":R" = "right ear",	".R" = "right ear",
+		":L" = "left ear",	".L" = "left ear",
+		":I" = "intercom",	".I" = "intercom",
+		":H" = "department",	".H" = "department",
+		":A" = "Common",		".A" = "Common",
+		":C" = "Command",		".C" = "Command",
+		":N" = "Science",		".N" = "Science",
+		":M" = "Medical",		".M" = "Medical",
+		":E" = "Engineering",	".E" = "Engineering",
+		":F" = "Coalition Navy", ".F" = "Coalition Navy",
+		":S" = "Security",	".S" = "Security",
+		":Q" = "Penal",		".Q" = "Penal",
+		":W" = "whisper",		".W" = "whisper",
+		":T" = "Mercenary",	".T" = "Mercenary",
+		":X" = "Raider",		".X" = "Raider",
+		":B" = "Burglar",		".B" = "Burglar",
+		":K" = "Jockey",			".K" = "Jockey",
+		":J" = "Bluespace",	".J" = "Bluespace",
+		":Y" = "Hailing",		".Y" = "Hailing",
+		":Q" = "Ninja",		".Q" = "Ninja",
+		":U" = "Operations",	".U" = "Operations",
+		":V" = "Service",		".V" = "Service",
+		":P" = "AI Private",	".P" = "AI Private",
+		":Z" = "Entertainment",".Z" = "Entertainment",
 
-	  //kinda localization -- rastaf0
-	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Operations",	".é" = "Operations"
+		//kinda localization -- rastaf0
+		//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
+		":ê" = "right ear",	".ê" = "right ear",
+		":ä" = "left ear",	".ä" = "left ear",
+		":ø" = "intercom",	".ø" = "intercom",
+		":ð" = "department",	".ð" = "department",
+		":ñ" = "Command",		".ñ" = "Command",
+		":ò" = "Science",		".ò" = "Science",
+		":ü" = "Medical",		".ü" = "Medical",
+		":ó" = "Engineering",	".ó" = "Engineering",
+		":û" = "Security",	".û" = "Security",
+		":ö" = "whisper",		".ö" = "whisper",
+		":å" = "Mercenary",	".å" = "Mercenary",
+		":é" = "Operations",	".é" = "Operations"
 )
 
 
@@ -196,7 +200,7 @@ var/list/channel_to_radio_key = new
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
 	if(emote.Find(message))
-		if(emote.group[1] == "*") return emote(copytext(message, 2))
+		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
 		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
@@ -285,7 +289,7 @@ var/list/channel_to_radio_key = new
 
 	//speaking into radios
 	if(length(used_radios))
-		italics = 1
+		italics = TRUE
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
@@ -312,7 +316,7 @@ var/list/channel_to_radio_key = new
 				message_range = 1
 
 			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-				italics = 1
+				italics = TRUE
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		listening = get_hearers_in_view(message_range, src)
@@ -320,6 +324,8 @@ var/list/channel_to_radio_key = new
 	if(client)
 		for (var/mob/player_mob in player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
+				continue
+			if(player_mob.client?.prefs.toggles & CHAT_GHOSTRADIO && length(used_radios)) //If they are talking into a radio and we hear all radio messages, don't duplicate for observers
 				continue
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
 				listening |= player_mob
@@ -339,6 +345,7 @@ var/list/channel_to_radio_key = new
 	var/image/speech_bubble
 	if(speech_bubble_state)
 		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		adjust_typing_indicator_offsets(speech_bubble)
 		speech_bubble.layer = layer
 		speech_bubble.plane = plane
 

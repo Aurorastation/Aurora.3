@@ -24,8 +24,8 @@
 	/obj/item/material/hatchet = 75
 	)
 
-	min_duration = 50
-	max_duration = 70
+	min_duration = 30
+	max_duration = 50
 
 /singleton/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -71,8 +71,8 @@
 	/obj/item/crowbar = 75
 	)
 
-	min_duration = 30
-	max_duration = 40
+	min_duration = 20
+	max_duration = 30
 
 /singleton/surgery_step/open_encased/retract/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -103,6 +103,9 @@
 
 	affected.open = ORGAN_ENCASED_RETRACTED
 
+	for(var/obj/item/implant/I in affected.implants)
+		I.exposed()
+
 /singleton/surgery_step/open_encased/retract/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
 		return
@@ -123,7 +126,7 @@
 	)
 
 	min_duration = 20
-	max_duration = 40
+	max_duration = 30
 
 /singleton/surgery_step/open_encased/close/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -181,7 +184,7 @@
 	)
 
 	min_duration = 20
-	max_duration = 40
+	max_duration = 30
 
 /singleton/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

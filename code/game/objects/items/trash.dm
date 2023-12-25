@@ -5,10 +5,8 @@
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
 	w_class = ITEMSIZE_TINY
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
-		)
+	contained_sprite = TRUE
+	item_state = "candy"
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
@@ -37,8 +35,21 @@
 	icon_state = "cheesie_honkers"
 
 /obj/item/trash/chips
-	name = "chips"
+	name = "empty chip packet"
 	icon_state = "chips"
+	item_state = "chips"
+
+/obj/item/trash/chips/cucumber
+	icon_state = "cucumberchips"
+
+/obj/item/trash/chips/chicken
+	icon_state = "chickenchips"
+
+/obj/item/trash/chips/dirtberry
+	icon_state = "dirtberrychips"
+
+/obj/item/trash/chips/phoron
+	icon_state = "phoronchips"
 
 /obj/item/trash/popcorn
 	name = "popcorn"
@@ -49,7 +60,7 @@
 	icon_state = "sosjerky"
 
 /obj/item/trash/syndi_cakes
-	name = "syndi cakes"
+	name = "\improper Nutri-Cakes"
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
@@ -72,6 +83,10 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
+/obj/item/trash/snack_bowl/macandcheese
+	name = "empty mac and cheese"
+	icon_state = "macandcheese"
+
 /obj/item/trash/pistachios
 	name = "pistachios pack"
 	icon_state = "pistachios_pack"
@@ -87,7 +102,7 @@
 
 /obj/item/trash/candle
 	name = "candle"
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/obj/storage/fancy/candle.dmi'
 	icon_state = "candle4"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -103,6 +118,7 @@
 /obj/item/trash/meatsnack
 	name = "mo'gunz meat pie"
 	icon_state = "meatsnack-used"
+	item_state = "chips"
 
 /obj/item/trash/maps
 	name = "maps salty ham"
@@ -182,7 +198,7 @@
 
 /obj/item/trash/stew
 	name = "empty pot"
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "stew_empty"
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
@@ -234,6 +250,7 @@
 /obj/item/trash/vkrexitaffy
 	name = "V'krexi Snax"
 	icon_state = "vkrexitaffy"
+	item_state = "vkrexi"
 
 /obj/item/trash/broken_electronics
 	name = "broken electronics"
@@ -246,3 +263,57 @@
 /obj/item/trash/proteinbar
 	name = "protein bar wrapper"
 	icon_state = "proteinbar"
+
+/obj/item/trash/leaf
+	name = "dirty leaf"
+	icon_state = "leaf"
+	desc = "Is... Is that a big old leaf with... are those beans on it? Why?! What kind of situation would lead to this?!"
+
+/obj/item/trash/north60squidempty
+	name = "empty platter"
+	icon_state = "north60squidempty"
+	desc = "A deep dish meant to hold a pool of sauce and seafood, but now it only holds delicious memories. Trash it."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/triolade
+	name = "empty dessert dish"
+	icon_state = "triolade"
+
+/obj/item/trash/board
+	name = "dirty board"
+	icon_state = "board"
+
+/obj/item/trash/icecreamcup
+	name = "empty ice cream cup"
+	icon_state = "icecreamcup"
+	desc = "Oh look, it's one of those prank fake melted ice cream cu- oh, nope. it's real. eugh. Do... Do you have a napkin?"
+
+/obj/item/trash/purplebowl
+	name = "empty bowl"
+	icon_state = "purplebowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/deepdive
+	name = "empty deepdive dish"
+	icon_state = "deepdive"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bluemoon
+	name = "empty blue moon"
+	icon_state = "bluemoon"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/shakshouka
+	name = "empty shakshouka pan"
+	icon_state = "shakshouka"
+	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/stick
+	name = "candy stick"
+	icon_state = "rock_candy"

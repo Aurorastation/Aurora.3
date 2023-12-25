@@ -30,7 +30,7 @@ var/global/list/ticket_panels = list()
 /datum/ticket/proc/broadcast_closure(closing_user)
 	var/client/owner_client = client_by_ckey(owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
+		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
 		owner_client.adminhelped = ADMINHELPED
 
 /datum/ticket/proc/set_to_closed(closing_key)
@@ -101,7 +101,7 @@ var/global/list/ticket_panels = list()
 
 	var/client/owner_client = client_by_ckey(src.owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
+		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
 		owner_client.adminhelped = ADMINHELPED
 
 	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
@@ -166,11 +166,9 @@ var/global/list/ticket_panels = list()
 		return
 
 	var/DBQuery/Q = dbcon.NewQuery({"INSERT INTO ss13_tickets
-		(game_id, message_count, admin_count, admin_list, opened_by, taken_by,
-		 closed_by, response_delay, opened_at, closed_at)
+		(game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at)
 	VALUES
-		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:,
-		 :closed_by:, :delay:, :opened_at:, :closed_at:)"})
+		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:, :closed_by:, :delay:, :opened_at:, :closed_at:)"})
 	Q.Execute(list(
 		"g_id" = game_id,
 		"m_count" = length(msgs),

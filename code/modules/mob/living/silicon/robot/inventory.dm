@@ -68,7 +68,8 @@
 		module_state_3 = null
 		inv3.icon_state = "inv3"
 	update_icon()
-	hud_used.update_robot_modules_display()
+	if(hud_used)
+		hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
 	update_icon()
@@ -265,7 +266,7 @@
 	uneq_active()
 
 /mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages. 
+	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages.
 	if(W)
 		if(!target)
 			target = loc

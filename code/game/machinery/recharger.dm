@@ -32,10 +32,10 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/examine(mob/user)
-	. = ..(user, 3)
+/obj/machinery/recharger/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
-	if (charging && .)
+	if (charging && distance <= 3)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
 			var/datum/progressbar/progbar = new(user, C.maxcharge, src)
@@ -144,14 +144,15 @@
 						bar.update(C.charge)
 
 		else if (cell == DEVICE_NO_CELL)
-			log_debug("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
+			LOG_DEBUG("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
 			charging.forceMove(loc)
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null
 
 /obj/machinery/recharger/emp_act(severity)
+	. = ..()
+
 	if(stat & (NOPOWER|BROKEN) || !anchored)
-		..(severity)
 		return
 
 	if(istype(charging,  /obj/item/gun/energy))
@@ -163,7 +164,6 @@
 		var/obj/item/melee/baton/B = charging
 		if(B.bcell)
 			B.bcell.charge = 0
-	..(severity)
 
 /obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)

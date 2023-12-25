@@ -74,6 +74,7 @@
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
+#define CE_ANTIIMMUNE   "antiimmune"
 #define CE_ANTITOXIN    "antitoxin"		// Dylovene and stuff
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
@@ -114,7 +115,15 @@
 #define	VOMIT_CHANCE_SCALE 2.5 //Percent change added for every 0.01 percent over the VOMIT limit
 
 #define REAGENTS_FREE_SPACE(R) (R.maximum_volume - R.total_volume)
+
+/**
+ * Returns the reagent volume in the specified holder
+ *
+ * * REAGENT_HOLDER - The holder (container) of the reagent
+ * * REAGENT_TYPE - The type of reagent you want to know the amount of
+ */
 #define REAGENT_VOLUME(REAGENT_HOLDER, REAGENT_TYPE) (REAGENT_HOLDER?.reagent_volumes && REAGENT_HOLDER.reagent_volumes[REAGENT_TYPE])
+
 #define REAGENT_DATA(REAGENT_HOLDER, REAGENT_TYPE)   (REAGENT_HOLDER?.reagent_data    && REAGENT_HOLDER.reagent_data[REAGENT_TYPE])
 
 #define PROCESS_REACTION_ITER 5 //when processing a reaction, iterate this many times

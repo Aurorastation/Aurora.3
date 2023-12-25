@@ -38,6 +38,7 @@
 	minbodytemp = 0
 
 	environment_smash = 1
+	destroy_surroundings = FALSE
 
 	faction = "scarybat"
 	flying = TRUE

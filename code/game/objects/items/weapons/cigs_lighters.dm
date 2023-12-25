@@ -105,7 +105,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/proc/light()
 	lit = TRUE
-	damtype = "burn"
+	damtype = "fire"
 	icon_state = "match_lit"
 	item_state = "match_lit"
 	if(ismob(loc))
@@ -143,6 +143,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //FINE SMOKABLES//
 //////////////////
 /obj/item/clothing/mask/smokable
+	abstract_type = /obj/item/clothing/mask/smokable
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/obj/smokables.dmi'
@@ -171,7 +172,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
-	flags |= NOREACT // so it doesn't react until you light it
+	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/process()
@@ -212,7 +213,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			e.start()
 			qdel(src)
 			return
-		flags &= ~NOREACT // allowing reagents to react after being lit
+		atom_flags &= ~ATOM_FLAG_NO_REACT // allowing reagents to react after being lit
 		reagents.handle_reactions()
 		icon_state = icon_on
 		item_state = icon_on
@@ -306,6 +307,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
 	burn_rate = 0.006 //Lasts ~166 seconds)
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -381,7 +383,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/toxin/tobacco = 5,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/lexorin = 2,
-		/singleton/reagent/serotrotium = 3
+		/singleton/reagent/drugs/serotrotium = 3
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
@@ -415,6 +417,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/mental/nicotine = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/adhomai/menthol
+	name = "adhomian menthol cigarette"
+	desc = "An adhomian cigarette made from processed S'rendarr's Hand, with menthol added."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/menthol = 5
+	)
+
 /obj/item/clothing/mask/smokable/cigarette/sweet
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco/sweet = 10,
@@ -434,6 +445,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "wulumunusha cigarette"
 	desc = "A wulumunusha cigarette commonly smoked by Skrell for religious purposes."
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
+
+/obj/item/clothing/mask/smokable/cigarette/oracle
+	name = "oracle cigarette"
+	desc = "A roll of oracle and caromeg."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/oracle = 10,
+		/singleton/reagent/mental/caromeg = 5
+	)
 
 ////////////
 // CIGARS //
@@ -496,6 +515,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		/singleton/reagent/toxin/tobacco/rich = 20,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/fuel = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/oracle
+	name = "\improper Vedamor cigar"
+	desc = "A premium oracle cigar, originating from Vedamor."
+	icon_state = "vedamor_cigaroff"
+	icon_on = "vedamor_cigaron"
+	icon_off = "vedamor_cigaroff"
+	item_state = "vedamor_cigaroff"
+	reagents_to_add = list(
+		/singleton/reagent/toxin/oracle/rich = 25,
+		/singleton/reagent/mental/caromeg = 5
 	)
 
 /obj/item/trash/cigbutt
@@ -674,7 +705,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	w_class = ITEMSIZE_TINY
 	throwforce = 4
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	attack_verb = list("burnt", "singed")
 	var/base_state
@@ -686,6 +717,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 	var/last_open = 0 //prevent message spamming.
 	var/last_close = 0
 	var/flame_light_range = 1
@@ -935,10 +967,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(M == user)
 			cig.attackby(src, user)
 		else
+			var/response = ""
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
+			response = alert(M, "\The [user] offers to light your [cig.name]. Do you accept?", "Lighter offer", "Accept", "Decline")
+			if(response != "Accept")
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				return
+			if(!M.Adjacent(user))
+				to_chat(user, SPAN_WARNING("You need to stay in reaching distance to do that."))
+				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				return
 			if(istype(src, /obj/item/flame/lighter/zippo))
-				cig.light(SPAN_NOTICE("[user] whips the [name] out and holds it for [M]."))
+				cig.light(SPAN_NOTICE("In one smooth motion, \the <b>[user]</b> whips \the [name] out and lights \the [M]'s [cig.name]."))
 			else
-				cig.light(SPAN_NOTICE("[user] holds the [name] out for [M], and lights the [cig.name]."))
+				cig.light(SPAN_NOTICE("\The <b>[user]</b> holds \the [name] out for [M], and lights the [cig.name]."))
 	else
 		..()
 
@@ -984,7 +1026,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/examine(mob/user)
 	. = ..()
-	if(. && filter)
+	if(filter)
 		to_chat(user, "Capped off one end with a filter.")
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
@@ -1051,6 +1093,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure
 	plantname = "puretobacco"
+
+//oracle sold seperately if you're too snobby to grow it yourself.
+/obj/item/reagent_containers/food/snacks/grown/dried_oracle
+	plantname = "oracle"
+	w_class = ITEMSIZE_TINY
+
+/obj/item/reagent_containers/food/snacks/grown/dried_oracle/Initialize()
+	. = ..()
+	dry = TRUE
+	name = "dried [name]"
+	color = "#ff6f6f"
+
+/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine
+	plantname = "vedamororacle"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/cigarette_filter))

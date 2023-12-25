@@ -32,6 +32,7 @@
 /datum/action/Destroy()
 	if(owner)
 		Remove(owner)
+	target = null
 	return ..()
 
 /datum/action/proc/SetTarget(var/atom/Target)
@@ -51,8 +52,7 @@
 	if(button)
 		if(T.client)
 			T.client.screen -= button
-		qdel(button)
-		button = null
+		QDEL_NULL(button)
 	T.actions.Remove(src)
 	T.update_action_buttons()
 	owner = null
@@ -121,6 +121,10 @@
 /obj/screen/movable/action_button
 	var/datum/action/owner
 	screen_loc = "WEST,NORTH"
+
+/obj/screen/movable/action_button/Destroy(force)
+	owner = null
+	. = ..()
 
 /obj/screen/movable/action_button/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -224,6 +228,32 @@
 /datum/action/item_action/hands_free
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
 
+/datum/action/item_action/hands_free/activate
+	name = "Activate"
+
+/datum/action/item_action/hands_free/activate/implant
+	action_type = AB_ITEM_USE_ICON
+	button_icon = 'icons/obj/action_buttons/implants.dmi'
+	button_icon_state = "default"
+
+/datum/action/item_action/hands_free/activate/implant/adrenaline
+	button_icon_state = "adrenal"
+
+/datum/action/item_action/hands_free/activate/implant/chemical
+	button_icon_state = "reagents"
+
+/datum/action/item_action/hands_free/activate/implant/compressed
+	button_icon_state = "storage"
+
+/datum/action/item_action/hands_free/activate/implant/emp
+	button_icon_state = "emp"
+
+/datum/action/item_action/hands_free/activate/implant/explosive
+	button_icon_state = "explosive"
+
+/datum/action/item_action/hands_free/activate/implant/freedom
+	button_icon_state = "freedom"
+
 /datum/action/item_action/organ
 	action_type = AB_ITEM_USE_ICON
 	button_icon = 'icons/obj/action_buttons/organs.dmi'
@@ -266,4 +296,4 @@
 #undef AB_CHECK_STUNNED
 #undef AB_CHECK_LYING
 #undef AB_CHECK_ALIVE
-#undef AB_CHECK_INSIDE 
+#undef AB_CHECK_INSIDE

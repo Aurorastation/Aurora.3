@@ -2,9 +2,9 @@
 	name = "Aurora"
 	full_name = "NSS Aurora"
 	description = "You're aboard the <b>NSS Aurora</b>, a state-of-the-art station specializing in phoron research and acquisition. \
-				   It is staffed by NanoTrasen personnel and contractors from competing megacorporations. \
-				   Orbiting at the very edge of the Tau Ceti system, approximately 12 light-years away from Sol, \
-				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
+					It is staffed by NanoTrasen personnel and contractors from competing megacorporations. \
+					Orbiting at the very edge of the Tau Ceti system, approximately 12 light-years away from Sol, \
+					it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
 	lobby_icons = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')

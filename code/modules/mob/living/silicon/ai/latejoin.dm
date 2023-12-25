@@ -1,8 +1,10 @@
 var/global/list/empty_playable_ai_cores = list()
 
-/hook/roundstart/proc/spawn_empty_ai()
-	if("AI" in SSticker.mode.disabled_jobs)
-		return 1	// Don't make empty AI's if you can't have them (also applies to Malf)
+/hook/pregame_start/proc/spawn_empty_ai()
+	//No gamemode disables the AI anyways, and this would prevent this hook from working correctly, so it's a problem for whoever might want to implement a gamemode that doesn't
+	//allow an AI in the future, which is likely (hopefully?) never
+	// if("AI" in SSticker.mode.disabled_jobs)
+	// 	return 1	// Don't make empty AI's if you can't have them (also applies to Malf)
 	for(var/obj/effect/landmark/start/S in landmarks_list)
 		if(S.name != "AI")
 			continue
@@ -38,11 +40,11 @@ var/global/list/empty_playable_ai_cores = list()
 	if(SSticker.mode && SSticker.mode.name == "AI malfunction")
 		to_chat(usr, "<span class='danger'>You cannot use this verb in malfunction. If you need to leave, please adminhelp.</span>")
 		return
-		
+
 	if(carded)
 		to_chat(usr, "<span class='danger'>No connection to station intelligence storage. You must be in an AI Core to store yourself (adminhelp if you need to leave).</span>")
 		return
-		
+
 	// Guard against misclicks, this isn't the sort of thing we want happening accidentally
 	if(alert("WARNING: This will immediately wipe your core and ghost you, removing your character from the round permanently (similar to cryo and robotic storage). Are you entirely sure you want to do this?",
 					"Wipe Core", "No", "No", "Yes") != "Yes")

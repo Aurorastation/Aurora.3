@@ -33,7 +33,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	speed = -10
-	see_in_dark = 8
 	destroy_surroundings = 0
 	var/bot_type
 	var/bot_amt = 160 //Number of total bots that are spawned before the beacon disappears completely.
@@ -154,7 +153,9 @@
 	else
 		..(Proj)
 
-/mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
+/mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
+	. = ..()
+
 	if(activated != -1)
 		LoseTarget()
 		change_stance(HOSTILE_STANCE_TIRED)

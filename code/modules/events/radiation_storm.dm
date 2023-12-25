@@ -2,7 +2,7 @@
 	var/const/enterBelt		= 45
 	var/const/radIntervall 	= 5	// 20 ticks
 	var/const/leaveBelt		= 145
-	var/const/revokeAccess	= 200
+	var/const/revokeAccess	= 220
 	has_skybox_image = TRUE
 	startWhen				= 2
 	announceWhen			= 1
@@ -42,8 +42,9 @@
 		lights()
 
 /datum/event/radiation_storm/proc/radiate()
-	for(var/mob/living/C in living_mob_list)
-		C.apply_radiation_effects()
+	var/radiation_level = rand(20, 40)
+	for(var/z in affecting_z)
+		SSradiation.z_radiate(locate(1, 1, z), radiation_level, TRUE)
 
 /datum/event/radiation_storm/end(var/faked)
 	..()
@@ -57,7 +58,7 @@
 
 /datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
 	for(var/area/A in all_areas)
-		if(A.flags & RAD_SHIELDED)
+		if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 			continue
 		if(turnOn)
 			A.radiation_active = TRUE

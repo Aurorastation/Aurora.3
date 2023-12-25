@@ -24,7 +24,20 @@ export const Photocopier = (props, context) => {
             <BlockQuote>No toner cartridge inserted.</BlockQuote>
           )}
         </Section>
-        <Section title="Printing">
+        <Section
+          title="Printing"
+          buttons={
+            data.gotitem ? (
+              <Button
+                content="Remove"
+                color="red"
+                icon="times"
+                onClick={() => act('remove')}
+              />
+            ) : (
+              ''
+            )
+          }>
           {data.gotitem ? (
             <PrintOptions />
           ) : (

@@ -17,8 +17,8 @@
 /datum/ship_engine/ion/get_thrust()
 	return thruster.get_thrust()
 
-/datum/ship_engine/ion/burn()
-	return thruster.burn()
+/datum/ship_engine/ion/burn(var/power_modifier = 1)
+	return thruster.burn(power_modifier)
 
 /datum/ship_engine/ion/set_thrust_limit(new_limit)
 	thruster.thrust_limit = new_limit
@@ -35,7 +35,7 @@
 /datum/ship_engine/ion/can_burn()
 	return thruster.on && thruster.powered()
 
-/obj/machinery/ion_engine 
+/obj/machinery/ion_engine
 	name = "ion propulsion device"
 	desc = "An advanced ion propulsion device, using energy and a minute amount of gas to generate thrust."
 	icon = 'icons/obj/ship_engine.dmi'
@@ -66,11 +66,11 @@
 
 	. = jointext(.,"<br>")
 
-/obj/machinery/ion_engine/proc/burn()
+/obj/machinery/ion_engine/proc/burn(var/power_modifier = 1)
 	if(!on && !powered())
 		return 0
-	use_power_oneoff(burn_cost) 
-	. = thrust_limit * generated_thrust
+	use_power_oneoff(thrust_limit * burn_cost * power_modifier)
+	. = thrust_limit * generated_thrust * power_modifier
 
 /obj/machinery/ion_engine/proc/get_thrust()
 	return thrust_limit * generated_thrust * on

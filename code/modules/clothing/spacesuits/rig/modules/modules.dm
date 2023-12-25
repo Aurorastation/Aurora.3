@@ -62,7 +62,7 @@
 	var/category	// Use for restricting modules for specific suits, to specialize
 
 /obj/item/rig_module/examine(mob/user)
-	..()
+	. = ..()
 	switch(damage)
 		if(0)
 			to_chat(user, SPAN_NOTICE("It is undamaged."))

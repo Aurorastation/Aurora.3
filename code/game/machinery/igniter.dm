@@ -137,11 +137,12 @@
 	return 1
 
 /obj/machinery/sparker/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	ignite()
-	..(severity)
 
 /obj/machinery/button/ignition
 	name = "ignition switch"

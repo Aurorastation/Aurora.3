@@ -7,7 +7,7 @@
 	icon_state = ""
 	item_state = "kineticgun"
 	contained_sprite = 1
-	flags =  CONDUCT
+	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEMSIZE_NORMAL
@@ -20,7 +20,7 @@
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	fire_sound_text = "blast"
 	recoil = 0
-	silenced = 0
+	suppressed = FALSE
 	muzzle_flash = 3
 	accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	scoped_accuracy = null
@@ -108,8 +108,10 @@
 	return 1
 
 /obj/item/gun/custom_ka/emp_act(severity)
-	is_emped = 1
-	return 1
+	. = ..()
+
+	is_emped = TRUE
+	return TRUE
 
 /obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
@@ -235,18 +237,29 @@
 	if(installed_barrel)
 		installed_barrel.on_fire(src)
 
-	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
-		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		shot_projectile.damage = damage_increase
-		shot_projectile.range = range_increase
-		shot_projectile.aoe = max(1, aoe_increase)
-		shot_projectile.base_damage = damage_increase
-		return shot_projectile
-	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
-		var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		shot_projectile.damage = damage_increase
-		shot_projectile.range = range_increase
-		return shot_projectile
+	var/turf/T = get_turf(src)
+
+	if(T)
+		var/datum/gas_mixture/environment = T.return_air()
+		var/pressure = (environment)? environment.return_pressure() : 0
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
+			var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+			shot_projectile.damage = damage_increase
+			shot_projectile.range = range_increase
+			shot_projectile.aoe = max(1, aoe_increase)
+			//If pressure is greater than about 40 kPA, reduce damage
+			if(pressure > ONE_ATMOSPHERE*0.4)
+				shot_projectile.base_damage = 5
+				return shot_projectile
+			else
+				shot_projectile.base_damage = damage_increase
+				return shot_projectile
+
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
+			var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+			shot_projectile.damage = damage_increase
+			shot_projectile.range = range_increase
+			return shot_projectile
 
 /obj/item/gun/custom_ka/Initialize()
 	. = ..()

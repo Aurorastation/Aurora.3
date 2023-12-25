@@ -105,8 +105,8 @@
 		return
 	..()
 
-/mob/living/silicon/ai/AltClickOn(var/atom/A)
-	if(!control_disabled && A.AIAltClick(src))
+/mob/living/silicon/ai/AltClickOn(var/mob/living/silicon/user)
+	if(!control_disabled && user.AIAltClick(src))
 		return
 
 /mob/living/silicon/ai/MiddleClickOn(var/atom/A)
@@ -122,64 +122,55 @@
 /atom/proc/AICtrlShiftClick()
 	return
 
-/atom/proc/AIShiftClick()
+/atom/proc/AIShiftClick(var/mob/user)
 	return
 
-/obj/machinery/door/airlock/AIShiftClick()  // Opens and closes doors!
-	if(density)
-		Topic(src, list("command"="open", "activate" = "1"))
-	else
-		Topic(src, list("command"="open", "activate" = "0"))
-	return 1
+/obj/machinery/door/airlock/AIShiftClick(var/mob/user)  // Opens and closes doors!
+	open_interact(user, density)
+	return TRUE
 
 /atom/proc/AICtrlClick(mob/user)
 	return
 
 /obj/machinery/door/airlock/AICtrlClick(mob/user) // Bolts doors
-	var/command = player_is_antag(user.mind) ? "bolts_override" : "bolts"
-	if(locked)
-		Topic(src, list("command"=command, "activate" = "0"))
+	if(player_is_antag(user.mind))
+		bolts_override(user, !locked, FALSE, player_is_antag(user.mind))
 	else
-		Topic(src, list("command"=command, "activate" = "1"))
-	return 1
+		bolts_interact(user, !locked, FALSE, player_is_antag(user.mind))
+	return TRUE
 
 /obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
-	Topic(src, list("breaker"="1"))
-	return 1
+	toggle_breaker()
+	return TRUE
 
 /obj/machinery/turretid/AICtrlClick() //turns off/on Turrets
-	Topic(src, list("turret_ref" = "this", "command"="enable", "value"="[!enabled]"))
-	return 1
+	enabled = !enabled
+	updateTurrets()
+	return TRUE
 
-/atom/proc/AIAltClick(var/atom/A)
-	return AltClick(A)
+/atom/proc/AIAltClick(var/mob/living/silicon/user)
+	return AltClick(user)
 
-/obj/machinery/door/airlock/AIAltClick() // Electrifies doors.
-	if(!electrified_until)
-		// permanent shock
-		Topic(src, list("command"="electrify_permanently", "activate" = "1"))
+/obj/machinery/door/airlock/AIAltClick(var/mob/living/silicon/user) // Electrifies doors.
+	var/antag = player_is_antag(user.mind)
+	if(!antag && (electrified_until == 0))
+		to_chat(user, SPAN_WARNING("Your programming prevents you from electrifying the door."))
+		return FALSE
 	else
-		// disable/6 is not in Topic; disable/5 disables both temporary and permanent shock
-		Topic(src, list("command"="electrify_permanently", "activate" = "0"))
-	return 1
+		if(!electrified_until)
+			// permanent shock
+			electrify(-1, 1)
+		else
+			electrify(0)
+	return TRUE
 
-/obj/machinery/turretid/AIAltClick() //toggles lethal on turrets
-	Topic(src, list("turret_ref" = "this", "command"="lethal", "value"="[!lethal]"))
-	return 1
+/obj/machinery/turretid/AIAltClick(var/mob/living/silicon/user) //toggles lethal on turrets
+	lethal = !lethal
+	updateTurrets()
+	return TRUE
 
 /atom/proc/AIMiddleClick(var/mob/living/silicon/user)
-	return 0
-
-/obj/machinery/door/airlock/AIMiddleClick() // Toggles door bolt lights.
-	if(..())
-		return
-
-	if(!src.lights)
-		Topic(src, list("command"="lights", "activate" = "1"))
-	else
-		Topic(src, list("command"="lights", "activate" = "0"))
-	return 1
-
+	return FALSE
 //
 // Override AdjacentQuick for AltClicking
 //

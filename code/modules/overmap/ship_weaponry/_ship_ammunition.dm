@@ -25,7 +25,7 @@
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
-	var/mob_carry_size = MOB_LARGE //How large a mob has to be to carry the shell
+	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
 	//Cookoff variables.
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
@@ -53,10 +53,10 @@
 			return
 	return ..()
 
-/obj/item/ship_ammunition/examine(mob/user, distance)
+/obj/item/ship_ammunition/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(written_message)
-		if(get_dist(user, src) > 3)
+		if(distance > 3)
 			to_chat(user, "It has something written on it, but you'd need to get closer to tell what the writing says.")
 		else
 			to_chat(user, "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>")
@@ -68,7 +68,7 @@
 			var/datum/species/S = H.species
 			if(S.mob_size >= mob_carry_size || S.resist_mod >= 10 || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
-				if(do_after(user, 1 SECONDS))
+				if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
 					wield(user)
 					return TRUE
@@ -77,7 +77,7 @@
 				var/obj/item/rig/R = H.back
 				if(R.suit_is_deployed())
 					visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving with some difficulty..."))
-					if(do_after(user, 5 SECONDS))
+					if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
 						visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
 						wield(user)
 						return TRUE
@@ -128,6 +128,10 @@
 	return
 
 /obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)
+	var/obj/A = user.get_inactive_hand()
+	if(A)
+		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
+		return
 	wielded = TRUE
 	var/obj/item/offhand/O = new(user)
 	O.name = "[initial(name)] - offhand"

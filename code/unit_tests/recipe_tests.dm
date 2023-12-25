@@ -5,6 +5,7 @@
 
 /datum/unit_test/research_design_cost
 	name = "RECIPES: Design Cost"
+	groups = list("generic", "research")
 
 /datum/unit_test/research_design_cost/start_test()
 	var/tested_count = 0
@@ -35,6 +36,7 @@
 
 /datum/unit_test/stack_recipe_cost
 	name = "RECIPES: Stack Recipes"
+	groups = list("generic")
 
 /datum/unit_test/stack_recipe_cost/start_test()
 	var/tested_count = 0
@@ -60,7 +62,6 @@
 						else
 							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
 				qdel(I)
-		qdel(D)
 
 	if(error_count)
 		TEST_FAIL("[error_count] stack recipe error(s) found. Every stack recipe should cost more than what its product is worth when recycled.")

@@ -572,7 +572,7 @@ export const Bounties = (props, context) => {
       buttons={
         <Button
           content="Print"
-          icon="Print"
+          icon="print"
           onClick={() => act('bounty_print')}
         />
       }>
@@ -593,7 +593,17 @@ export const Bounties = (props, context) => {
             <Table.Cell>{bounty.reward_string}</Table.Cell>
             <Table.Cell>{bounty.completion_string}</Table.Cell>
             <Table.Cell textColor={bounty.claimed ? 'green' : 'red'}>
-              {bounty.claimed ? 'Claimed' : 'Unclaimed'}
+              {bounty.claimed ? (
+                'Claimed'
+              ) : (
+                <Button
+                  content="Unclaimed"
+                  icon="star"
+                  onClick={() =>
+                    act('claim_bounty', { claim_bounty: bounty.name })
+                  }
+                />
+              )}
             </Table.Cell>
           </Table.Row>
         ))}

@@ -13,7 +13,8 @@
 	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
-	projectilesound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = /singleton/sound_category/hivebot_melee
+	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
@@ -30,8 +31,14 @@
 	tameable = FALSE
 	flying = TRUE
 	smart_melee = FALSE
-	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
+	emote_hear = list("emits a harsh noise")
+	emote_sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
+	speak_chance = 5
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE
@@ -166,6 +173,8 @@
 	return 0
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)

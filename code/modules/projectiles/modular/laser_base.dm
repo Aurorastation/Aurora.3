@@ -44,9 +44,9 @@
 	var/criticality
 	repair_item = /obj/item/weldingtool
 
-/obj/item/laser_components/modifier/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
+/obj/item/laser_components/modifier/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(malus > base_malus)
 			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
@@ -85,11 +85,10 @@
 		return 1
 	return 0
 
-/obj/item/laser_components/capacitor/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
-		if(condition > 0)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+/obj/item/laser_components/capacitor/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 && condition > 0)
+		to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
@@ -119,11 +118,10 @@
 		return 1
 	return 0
 
-/obj/item/laser_components/focusing_lens/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
-		if(condition > 0)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+/obj/item/laser_components/focusing_lens/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 && condition > 0)
+		to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
 /obj/item/laser_components/modulator
 	name = "laser modulator"

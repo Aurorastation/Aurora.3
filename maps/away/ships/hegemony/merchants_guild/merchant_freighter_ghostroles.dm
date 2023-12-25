@@ -21,7 +21,7 @@
 /datum/outfit/admin/merchant_guild
 	name = "Merchants' Guild Freighter Crew"
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/caligae
+	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	l_ear = /obj/item/device/radio/headset/ship
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random

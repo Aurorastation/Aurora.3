@@ -52,6 +52,10 @@
 	var/emergency_shuttle_leaving_dock
 	var/emergency_shuttle_recall_message
 	var/emergency_shuttle_called_message
+	var/bluespace_docked_message
+	var/bluespace_leaving_dock
+	var/bluespace_called_message
+	var/bluespace_recall_message
 
 	var/evac_controller_type = /datum/evacuation_controller
 
@@ -152,22 +156,32 @@
 
 // Called right after SSatlas finishes loading the map & multiz is setup.
 /datum/map/proc/finalize_load()
+	return
 
 /datum/map/proc/build_exoplanets()
 	if(!use_overmap)
+		return
+
+	if(!config.exoplanets["enable_loading"])
+		log_admin("Not building exoplanets because the config specifies not to")
 		return
 
 	var/datum/space_sector/sector = SSatlas.current_sector
 	var/list/possible_exoplanets = sector.possible_exoplanets
 
 	if(!length(possible_exoplanets))
-		log_debug("No valid exoplanets found!")
+		log_module_exoplanets("No valid exoplanets found!")
 		return
 
-	var/exoplanets_to_spawn = min(possible_exoplanets.len, num_exoplanets)
-	for(var/i = 0, i < exoplanets_to_spawn, i++)
+	var/exoplanets_budget = isnum(config.exoplanets["exoplanets_budget"]) ? (config.exoplanets["exoplanets_budget"]) : (min(possible_exoplanets.len, num_exoplanets))
+	for(var/i = 0, i < exoplanets_budget, i++)
+
+		//Check that we didn't ran out of exoplanets to make
+		if(!length(possible_exoplanets))
+			break
+
 		var/exoplanet_type = pick_n_take(possible_exoplanets)
-		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
+		log_module_exoplanets("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()
 
@@ -215,11 +229,18 @@
 /datum/map/proc/send_welcome()
 	return
 
+/datum/map/proc/load_holodeck_programs()
+	return
+
 /datum/map/proc/build_away_sites()
 #ifdef UNIT_TEST
 	log_admin("Unit testing, so not loading away sites")
 	return // don't build away sites during unit testing
 #else
+	if(!config.awaysites["enable_loading"])
+		log_admin("Not loading away sites because the config specifies not to")
+		return
+
 	log_admin("Loading away sites...")
 
 	var/list/guaranteed = list()
@@ -230,17 +251,17 @@
 
 	for (var/site_id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
-		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in config.awaysites["guaranteed_sites"]))
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (SSatlas.current_sector.name in site.sectors))
+		else if (NOT_FLAG(site.template_flags, TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 
-	var/points = rand(away_site_budget, away_site_budget + away_variance)
+	var/points = isnum(config.awaysites["away_site_budget"]) ? (config.awaysites["away_site_budget"]) : (rand(away_site_budget, away_site_budget + away_variance))
 	var/players = -min_offmap_players
-	var/shippoints = rand(away_ship_budget, away_ship_budget + away_variance)
+	var/shippoints = isnum(config.awaysites["away_ship_budget"]) ? (config.awaysites["away_ship_budget"]) : (rand(away_ship_budget, away_ship_budget + away_variance))
 	var/totalbudget = shippoints + points
 	for (var/client/C)
 		++players

@@ -1,8 +1,31 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
 "ab" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = -26
+/obj/structure/extinguisher_cabinet/west{
+	layer = 3.3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
+"ac" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
+"ad" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/tajara_safehouse)
+"ae" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -91,7 +114,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "cm" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "cs" = (
@@ -314,7 +339,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "iF" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/tajara_safehouse_shuttle)
 "iI" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary{
@@ -322,9 +347,7 @@
 	},
 /area/shuttle/tajara_safehouse_shuttle)
 "iK" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "iR" = (
@@ -350,9 +373,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "jR" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -368,7 +389,7 @@
 /obj/item/material/hatchet,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/tiled,
 /area/tajara_safehouse)
 "kc" = (
@@ -419,7 +440,9 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "mt" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "nf" = (
@@ -439,7 +462,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tajara_safehouse_shuttle_out"
+	id_tag = "tajara_safehouse_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/tajara_safehouse_shuttle)
@@ -520,7 +544,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "pL" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
@@ -801,7 +827,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "yK" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "yV" = (
@@ -810,9 +838,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "zc" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "zj" = (
@@ -1014,7 +1040,9 @@
 /area/tajara_safehouse)
 "Hr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "IB" = (
@@ -1048,9 +1076,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "JI" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 26
+/obj/structure/extinguisher_cabinet/east{
+	layer = 3.3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -1073,7 +1100,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tajara_safehouse_shuttle_out"
+	id_tag = "tajara_safehouse_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, airlock"
@@ -1111,7 +1139,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "Mc" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/tajara_safehouse)
 "Ms" = (
@@ -1215,15 +1245,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "RB" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "RS" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "RT" = (
@@ -1306,9 +1332,7 @@
 /area/tajara_safehouse/hangar)
 "UP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "UW" = (
@@ -27732,7 +27756,7 @@ xQ
 xQ
 xQ
 xQ
-cm
+aa
 lH
 dR
 nk
@@ -28249,7 +28273,7 @@ TN
 nk
 lH
 lH
-cm
+ac
 lH
 lH
 lH
@@ -28260,7 +28284,7 @@ jw
 eZ
 CN
 nk
-mt
+ad
 nk
 nk
 nk
@@ -30065,7 +30089,7 @@ lH
 lH
 lH
 lH
-cm
+ae
 sI
 lH
 lH

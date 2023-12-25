@@ -28,7 +28,7 @@
 	name = "Firing Pin"
 	bluecrystal_cost = 1
 	path = /obj/item/device/firing_pin
-	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
+	desc = "An unmarked firing pin - It should be compatible with nearly every weapon onboard."
 
 /datum/uplink_item/item/tools/surge
 	name = "IPC surge prevention module"
@@ -60,7 +60,7 @@
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/device/encryptionkey/syndicate
-	desc = "An encryption key for use in a headset, intercepts all frequencies and grants access to a secure syndicate frequency."
+	desc = "An encryption key for use in a headset, intercepts all frequencies and grants access to a secure private frequency."
 
 /datum/uplink_item/item/tools/encryptionkey_binary
 	name = "Binary Translator Key"
@@ -78,7 +78,7 @@
 /datum/uplink_item/item/tools/personal_shield
 	name = "Personal Shield"
 	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots. \
-	        This can only be bought once."
+			This can only be bought once."
 	telecrystal_cost = 1
 	item_limit = 1
 	path = /obj/item/device/personal_shield
@@ -96,7 +96,7 @@
 	name = "Space Suit"
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
-	path = /obj/item/storage/box/syndie_kit/space
+	path = /obj/item/storage/box/syndie_kit/space/covert
 
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"

@@ -15,6 +15,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	human_mob_list -= src
 	delete_inventory()
 
+/mob/living/carbon/human/vatgrown/Initialize(mapload)
+	. = ..(mapload, SPECIES_HUMAN_VATGROWN)
+	mob_thinks = FALSE
+
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, SPECIES_SKRELL)
@@ -66,7 +70,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_a/cargo/Initialize(mapload)
 	. = ..()
 	// Equip mask to allow the drone to breathe
-	equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(src), slot_wear_mask)
+	equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(src), slot_wear_mask)
 	// Set internals
 	var/obj/item/organ/internal/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
 	internal = P

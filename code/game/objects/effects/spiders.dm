@@ -5,6 +5,7 @@
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/health = 15
 
 //similar to weeds, but only barfed out by nurses manually

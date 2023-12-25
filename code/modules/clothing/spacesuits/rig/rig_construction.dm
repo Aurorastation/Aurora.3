@@ -8,10 +8,10 @@
 	var/obj/item/circuitboard/target_board_type = null
 	var/obj/item/rig/rig_type = /obj/item/rig
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	var/datum/construction/reversible/rig_assembly/construct
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/rig_assembly/examine(mob/user, distance)
 	. = ..()

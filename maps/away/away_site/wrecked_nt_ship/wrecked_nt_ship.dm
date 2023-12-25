@@ -7,6 +7,8 @@
 	spawn_cost = 2
 	id = "wrecked_nt_ship"
 
+	unit_test_groups = list(1)
+
 /singleton/submap_archetype/wrecked_nt_ship
 	map = "wrecked_nt_ship"
 	descriptor = "A wrecked ship once owned by NanoTrasen."
@@ -21,4 +23,4 @@
 	requires_power = FALSE
 	base_turf = /turf/space
 	no_light_control = TRUE
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP

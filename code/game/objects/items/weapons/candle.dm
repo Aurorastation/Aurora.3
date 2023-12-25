@@ -1,7 +1,7 @@
 /obj/item/flame/candle
 	name = "red candle"
 	desc = "a small pillar candle. Its specially-formulated fuel-oxidizer wax mixture allows continued combustion in airless environments."
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/obj/storage/fancy/candle.dmi'
 	icon_state = "candle1"
 	item_state = "candle1"
 	drop_sound = 'sound/items/drop/gloves.ogg'

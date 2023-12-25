@@ -12,6 +12,18 @@
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
+/obj/machinery/computer/ship/targeting/terminal
+	name = "targeting systems terminal"
+	desc = "A targeting systems terminal using Zavodskoi software."
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "hostile"
+	icon_keyboard = "red_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -44,7 +56,8 @@
 		data["platform_directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
 	if(linked.targeting)
 		for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
-			data["guns"] += list(get_gun_data(SW))
+			if(!SW.special_firing_mechanism)
+				data["guns"] += list(get_gun_data(SW))
 		data["targeting"] = list(
 			"name" = linked.targeting.name,
 			"shiptype" = linked.targeting.shiptype,
@@ -112,7 +125,10 @@
 			if(!params["entrypoint"])
 				return
 			var/our_entrypoint = params["entrypoint"]
-			selected_entrypoint = names_to_entries[our_entrypoint]
+			if(our_entrypoint == SHIP_HAZARD_TARGET)
+				selected_entrypoint = our_entrypoint
+			else
+				selected_entrypoint = names_to_entries[our_entrypoint]
 			. = TRUE
 
 		if("select_gun")

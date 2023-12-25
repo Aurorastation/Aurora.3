@@ -396,13 +396,16 @@ em {
   color: #1b521f;
   font-weight: bold;
 }
+.debug {
+  color: #306b34;
+}
 
 /* Radio: Misc */
 .deadsay {
   color: #9269c7;
 }
 .radio {
-  color: #008000;
+  color: #00a700;
 }
 .deptradio {
   color: #ff00ff;
@@ -416,6 +419,9 @@ em {
 }
 .syndradio {
   color: #ac6667;
+}
+.coalitionradio {
+  color: #0091ce;
 }
 .centradio {
   color: #7272a7;
@@ -450,6 +456,9 @@ em {
 }
 .srvradio {
   color: #7fc732;
+}
+.expradio {
+  color: #5a3975;
 }
 
 /* Miscellaneous */
@@ -522,16 +531,28 @@ em {
   color: #543354;
 }
 .tajaran {
-  color: #803b56;
+  color: #b15377;
 }
 .tajaran_signlang {
-  color: #941c1c;
+  color: #cc2c2c;
 }
 .skrell {
   color: #00ced1;
 }
 .vaurca {
-  color: #9e9e39;
+  color: #b9b943;
+}
+.vaurca_zora {
+  color: #c74444;
+}
+.vaurca_cthur {
+  color: #438eb9;
+}
+.vaurca_klax {
+  color: #43b97e;
+}
+.vaurca_liidra {
+  color: #af43b9;
 }
 .soghun {
   color: #228b22;
@@ -543,7 +564,7 @@ em {
   color: #c79322;
 }
 .soghun_alt {
-  color: #024402;
+  color: #068b5f;
 }
 .changeling {
   color: #800080;
@@ -558,7 +579,7 @@ em {
   color: #400987;
 }
 .delvahhi {
-  color: #5e2612;
+  color: #914123;
   font-weight: bold;
 }
 .siiktau {

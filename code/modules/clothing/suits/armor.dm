@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/armor
 	allowed = list(/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight,/obj/item/clothing/head/helmet)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
@@ -54,9 +54,10 @@
 		pockets.attackby(W, user)
 
 /obj/item/clothing/suit/armor/emp_act(severity)
+	. = ..()
+
 	if (pockets)
 		pockets.emp_act(severity)
-	..()
 
 /obj/item/clothing/suit/armor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	if (pockets)
@@ -76,12 +77,6 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-
-/obj/item/clothing/suit/armor/vest/fib
-	name = "\improper FIB armored vest"
-	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
-	icon_state = "fib_armor"
-	item_state = "fib_armor"
 
 /obj/item/clothing/suit/storage/toggle/armor/hos
 	name = "armored trenchcoat"
@@ -112,7 +107,7 @@
 	item_state = "swat_suit"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 1
@@ -190,10 +185,11 @@
 	return
 
 /obj/item/clothing/suit/armor/reactive/emp_act(severity)
+	. = ..()
+
 	active = 0
 	src.icon_state = "reactiveoff"
 	src.item_state = "reactiveoff"
-	..()
 
 /obj/item/clothing/suit/armor/tactical
 	name = "tactical armor"
@@ -337,14 +333,6 @@
 	icon_badge = "hosvest_badge"
 	icon_nobadge = "hosvest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/pcrc
-	name = "PCRC armor vest"
-	desc = "A simple kevlar plate carrier belonging to Proxima Centauri Risk Control. This one has a PCRC crest clipped to the chest."
-	icon_state = "pcrcvest_nobadge"
-	item_state = "pcrcvest_nobadge"
-	icon_badge = "pcrcvest_badge"
-	icon_nobadge = "pcrcvest_nobadge"
-
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
 	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a detective's badge clipped to the chest."
@@ -413,14 +401,6 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-
-/obj/item/clothing/suit/storage/vest/heavy/pcrc
-	name = "PCRC heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to Proxima Centauri Risk Control with webbing attached. This one has a PCRC crest clipped to the chest."
-	icon_state = "pcrcwebvest_nobadge"
-	item_state = "pcrcwebvest_nobadge"
-	icon_badge = "pcrcwebvest_badge"
-	icon_nobadge = "pcrcwebvest_nobadge"
 
 //ert related armor
 

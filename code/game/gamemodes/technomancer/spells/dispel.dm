@@ -16,5 +16,6 @@
 	aspect = ASPECT_BIOMED
 
 /obj/item/spell/dispel/on_ranged_cast(atom/hit_atom, mob/living/user)
+	. = ..()
 	user.adjust_instability(10)
 	qdel(src)

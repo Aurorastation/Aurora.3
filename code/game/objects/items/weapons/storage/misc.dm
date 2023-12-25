@@ -27,6 +27,7 @@
 	name = "card box"
 	desc = "A small leather case to show how classy you are compared to everyone else."
 	icon_state = "card_holder_empty"
+	icon = 'icons/obj/storage/misc.dmi'
 	can_hold = list(/obj/item/deck, /obj/item/battle_monsters/deck, /obj/item/hand, /obj/item/pack/, /obj/item/card) //sneaky folks can hide ID and other cards
 	storage_slots = 1 //can hold one deck
 	use_sound = 'sound/items/drop/shoes.ogg'
@@ -42,7 +43,7 @@
 /obj/item/storage/box/pineapple
 	name = "can of pineapple rings"
 	desc = "An aluminium can with fresh pineapple slices."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "pineapple_rings"
 	use_sound = 'sound/items/pickup/soda.ogg'
 	drop_sound = 'sound/items/drop/soda.ogg'
@@ -162,6 +163,13 @@
 	item_state = "Dpacket"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
 
+/obj/item/storage/chewables/oracle
+	name = "can of Natural Vysokan Fields chewing oracle"
+	desc = "A can of chewing oracle, advertising Vysoka's natural beauty. A warning box stating \"This chewing oracle is not healthier than tobacco alternatives\" appears to have been haphazardly placed on the can."
+	icon_state = "oracle_chew"
+	item_state = "Fpacket"
+	starts_with = list(/obj/item/clothing/mask/chewable/oracle = 6)
+
 /obj/item/storage/box/fancy/chewables/tobacco/nico
 	name = "box of Nico-Tine gum"
 	desc = "A Sol-approved brand of nicotine gum. Cut out the middleman for your addiction fix."
@@ -221,4 +229,18 @@
 	desc = "A exclusive brand of overpriced tobacco, allegedly grown at a lagrange point station in Sol system."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"
+	item_state = "Epacket"
+
+/obj/item/storage/chewables/rollable/oracle
+	name = "box of Vysokan Plains oracle leaves"
+	desc = "This box gives a large list of potential sources for the oracle inside of it, reflecting the unstable and volatile state of Vysokan politics."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle = 8)
+	icon_state = "roll_oracle"
+	item_state = "Dpacket"
+
+/obj/item/storage/chewables/rollable/vedamor
+	name = "box of Velhalktai Marathon oracle leaves"
+	desc = "Packaged by a major sponsor of the Velhalktai races, and exported by NanoTrasen, this box promises quality oracle grown directly in the city-state of Vedamor."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine = 8)
+	icon_state = "roll_vedamor"
 	item_state = "Epacket"

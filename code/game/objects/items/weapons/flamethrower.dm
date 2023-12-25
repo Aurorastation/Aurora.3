@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3
 	throwforce = 10
 	throw_speed = 1
@@ -22,7 +22,6 @@
 	var/throw_amount = 100
 	var/lit = FALSE //on or off
 	var/operating = FALSE //cooldown
-	var/turf/previous_turf = null
 	var/obj/item/weldingtool/welding_tool = null
 	var/obj/item/device/assembly/igniter/igniter = null
 	var/obj/item/tank/gas_tank = null
@@ -35,9 +34,9 @@
 		welding_tool.forceMove(src)
 	update_icon()
 
-/obj/item/flamethrower/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/flamethrower/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(gas_tank)
 			to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(gas_tank.air_contents.return_pressure(), 10)] kPa left in it."))
 		else
@@ -100,7 +99,7 @@
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)
-			var/turflist = getline(user, target_turf)
+			var/turflist = get_turfs_in_cone(user, Get_Angle(user, target_turf), get_dist(user, target_turf), 30)
 			flame_turf(turflist)
 
 /obj/item/flamethrower/attackby(obj/item/W, mob/user)
@@ -233,18 +232,22 @@
 /obj/item/flamethrower/proc/flame_turf(turflist)
 	if(!lit || operating)
 		return
+
 	operating = TRUE
-	for(var/turf/T in turflist)
+
+	var/turf/operator_turf = get_turf(src)
+
+	for(var/turf/T in (turflist - operator_turf))
+
 		if(T.density || istype(T, /turf/space))
-			break
-		if(!previous_turf && length(turflist)>1)
-			previous_turf = get_turf(src)
-			continue	//so we don't burn the tile we be standin on
-		if(previous_turf && LinkBlocked(previous_turf, T))
-			break
+			continue
+
+		if(LinkBlocked(operator_turf, T))
+			continue
+
 		ignite_turf(T)
 		sleep(1)
-	previous_turf = null
+
 	operating = FALSE
 
 

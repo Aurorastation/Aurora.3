@@ -12,6 +12,10 @@
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
+	///A list of groups, as strings, that this template belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
+	var/list/unit_test_groups = list()
+
 /datum/map_template/New(var/list/paths = null, rename = null)
 	if(paths && !islist(paths))
 		crash_with("Non-list paths passed into map template constructor.")
@@ -48,7 +52,7 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
-	//Since queue_smooth() manually wakes the subsystem, we have to use enable/disable.
+	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.disable()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
@@ -144,7 +148,7 @@
 		var/turf/T = i
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
-			T.flags |= TURF_NORUINS
+			T.turf_flags |= TURF_NORUINS
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()
@@ -162,7 +166,7 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
-	//Since queue_smooth() manually wakes the subsystem, we have to use enable/disable.
+	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.disable()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
@@ -171,7 +175,7 @@
 		else
 			SSicon_smooth.enable()
 			return FALSE
-	
+
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)

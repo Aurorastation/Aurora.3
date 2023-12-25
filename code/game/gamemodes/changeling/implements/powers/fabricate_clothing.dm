@@ -74,11 +74,13 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/under/chameleon/changeling/emp_act(severity) //As these are purely organic, EMP does nothing to them.
+	. = ..()
 	return
 
 /obj/item/clothing/under/chameleon/changeling/verb/shred() //Remove individual pieces if needed.
 	set name = "Shred Jumpsuit"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -100,11 +102,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/head/chameleon/changeling/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/item/clothing/head/chameleon/changeling/verb/shred() //The copypasta is real.
 	set name = "Shred Helmet"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -125,11 +130,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/suit/chameleon/changeling/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/item/clothing/suit/chameleon/changeling/verb/shred()
 	set name = "Shred Suit"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -150,11 +158,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/shoes/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/shoes/chameleon/changeling/verb/shred()
 	set name = "Shred Shoes"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -175,11 +186,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/storage/backpack/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/storage/backpack/chameleon/changeling/verb/shred()
 	set name = "Shred Backpack"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -203,11 +217,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/gloves/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/gloves/chameleon/changeling/verb/shred()
 	set name = "Shred Gloves"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -229,11 +246,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/mask/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/mask/chameleon/changeling/verb/shred()
 	set name = "Shred Mask"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -255,11 +275,14 @@
 
 
 /obj/item/clothing/glasses/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/glasses/chameleon/changeling/verb/shred()
 	set name = "Shred Glasses"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -280,11 +303,14 @@
 	QDEL_IN(src, 1)
 
 /obj/item/storage/belt/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/storage/belt/chameleon/changeling/verb/shred()
 	set name = "Shred Belt"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
@@ -317,6 +343,7 @@
 /obj/item/card/id/syndicate/changeling/verb/shred()
 	set name = "Shred ID Card"
 	set category = "Chameleon Items"
+	set src in usr
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)

@@ -101,7 +101,7 @@
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	switch(action)
 		if("emergencymaint")
-			if(is_authenticated(user) && !issilicon(user))
+			if(is_authenticated(user) && (isAI(user) || !issilicon(user)))
 				if(maint_all_access)
 					revoke_maint_all_access()
 					feedback_inc("alert_comms_maintRevoke",1)
@@ -120,7 +120,7 @@
 				if(announcement_cooldown)
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					return
-				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
+				var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "Priority Announcement", multiline = TRUE)
 				if(!input || computer.use_check_and_message(usr))
 					return FALSE
 				var/was_hearing = HAS_TRAIT(computer, TRAIT_HEARING_SENSITIVE)
@@ -189,7 +189,7 @@
 			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(params["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, "No", "Yes")
-				if(confirm == "Yes" && !computer.use_check_and_message(usr))
+				if(confirm == "Yes" && !computer.use_check_and_message(usr, (isAI(usr) ? USE_ALLOW_NON_ADJACENT : FALSE)))
 					var/old_level = security_level
 					if(!current_level)
 						current_level = SEC_LEVEL_GREEN
@@ -320,7 +320,7 @@ Command action procs
 	return FALSE
 
 //Returns 1 if called 0 if not
-/proc/call_shuttle_proc(var/mob/user, var/emergency = FALSE)
+/proc/call_shuttle_proc(var/mob/user, var/_evac_type = TRANSFER_CREW)
 	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
@@ -343,7 +343,7 @@ Command action procs
 		to_chat(user, "An evacuation is already underway.")
 		return
 
-	if(evacuation_controller.call_evacuation(user, emergency))
+	if(evacuation_controller.call_evacuation(user, _evac_type))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has called a shuttle.")
 
 	return TRUE
@@ -359,7 +359,7 @@ Command action procs
 		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
 		return
 
-	. = evacuation_controller.call_evacuation(null, _emergency_evac = FALSE, autotransfer = TRUE)
+	. = evacuation_controller.call_evacuation(null, _evac_type = TRANSFER_CREW, autotransfer = TRUE)
 
 	//delay events in case of an autotransfer
 	if(.)

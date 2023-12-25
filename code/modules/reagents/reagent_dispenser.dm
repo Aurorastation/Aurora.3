@@ -21,8 +21,9 @@
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 		desc_info = ""
 
-/obj/structure/reagent_dispensers/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
 
@@ -30,7 +31,7 @@
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in view(1)
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	var/N = tgui_input_list(usr, "Select the amount to transfer from this. ", "[src]", possible_transfer_amounts, amount_per_transfer_from_this)
 	if (N)
 		amount_per_transfer_from_this = N
 
@@ -76,11 +77,11 @@
 				START_PROCESSING(SSprocessing,src)
 
 		else if(accept_any_reagent)
-			if(flags & OPENCONTAINER)
+			if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
 				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."), SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
 			else
 				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."), SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
-			flags ^= OPENCONTAINER
+			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 			return
 
 /obj/structure/reagent_dispensers/process()
@@ -127,8 +128,9 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/fueltank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if (is_leaking)
 		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
@@ -351,6 +353,9 @@
 	desc = "A beer keg"
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 1000)
 
+/obj/structure/reagent_dispensers/keg/beerkeg/rice
+	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 1000)
+
 /obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
@@ -362,6 +367,12 @@
 	desc = "A wooden mead barrel."
 	icon_state = "woodkeg"
 	reagents_to_add = list(/singleton/reagent/alcohol/messa_mead = 1000)
+
+/obj/structure/reagent_dispensers/keg/sake
+	name = "sake barrel"
+	desc = "A wooden sake barrel."
+	icon_state = "woodkeg"
+	reagents_to_add = list(/singleton/reagent/alcohol/sake = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil

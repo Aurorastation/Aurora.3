@@ -26,6 +26,8 @@
 
 /datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
+	groups = list("mob")
+
 	var/mob_type = /mob/living/test
 
 
@@ -83,6 +85,8 @@
 
 /datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
+	groups = list("mob")
+
 	var/starting_oxyloss = null
 	var/ending_oxyloss = null
 	var/mob/living/carbon/human/H
@@ -189,6 +193,8 @@
 
 /datum/unit_test/mob_damage
 	name = "MOB: Template for mob damage"
+	groups = list("mob")
+
 	var/mob/living/carbon/human/testmob = null
 	var/damagetype = DAMAGE_BRUTE
 	var/mob_type = /mob/living/carbon/human
@@ -198,8 +204,7 @@
 
 /datum/unit_test/mob_damage/start_test()
 	var/list/test = create_test_mob_with_mind(null, mob_type)
-	var/damage_amount = 5	// Do not raise, if damage >= 10 there is a % chance to reduce damage by half in /obj/item/organ/external/take_damage()
-                                // Which makes checks impossible.
+	var/damage_amount = 5	// Do not raise, if damage >= 10 there is a % chance to reduce damage by half in /obj/item/organ/external/take_damage(), which makes checks impossible.
 
 	if(isnull(test))
 		TEST_FAIL("Check Runtimed in Mob creation")
@@ -230,8 +235,7 @@
 
 	H.apply_damage(damage_amount, damagetype, damage_location)
 
-	H.updatehealth() // Just in case, though at this time apply_damage does this for us.
-                         // We operate with the assumption that someone might mess with that proc one day.
+	H.updatehealth() // Just in case, though at this time apply_damage does this for us. We operate with the assumption that someone might mess with that proc one day.
 
 	var/ending_damage = damage_check(H, damagetype)
 
@@ -519,6 +523,8 @@
 
 /datum/unit_test/robot_module_icons
 	name = "MOB: Robot module icon check"
+	groups = list("mob")
+
 	var/icon_file = 'icons/mob/screen/robot.dmi'
 
 /datum/unit_test/robot_module_icons/start_test()

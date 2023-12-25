@@ -61,8 +61,9 @@
 		to_chat(user, SPAN_WARNING("This object is far too large to wrap!"))
 	return
 
-/obj/item/stack/wrapping_paper/examine(mob/user)
-	if(..(user, 1))
+/obj/item/stack/wrapping_paper/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!")
 
 /obj/item/stack/wrapping_paper/attack(mob/target, mob/user)
@@ -100,6 +101,7 @@
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
 	desc_info = "To package wrap the object for delivery, use the package wrapper on the object."
+	singular_name = "length"
 	w_class = ITEMSIZE_NORMAL
 	amount = 30
 	var/wrapping_tag = "Sorting Office"
@@ -196,11 +198,6 @@
 		user.put_in_hands(tube)
 		qdel(src)
 		return
-	return
-
-/obj/item/stack/packageWrap/examine(mob/user)
-	if(..(user, 0))
-		to_chat(user, SPAN_NOTICE("There are [amount] units of package wrap left!"))
 	return
 
 /obj/item/c_tube

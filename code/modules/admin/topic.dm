@@ -407,7 +407,7 @@
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the mode as [master_mode].</span>", 1)
 		to_world("<span class='notice'><b>The mode is now: [master_mode]</b></span>")
 		Game() // updates the main game menu
-		SSpersist_config.last_gamemode = master_mode
+		SSpersistent_configuration.last_gamemode = master_mode
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
@@ -432,8 +432,8 @@
 
 	else if(href_list["trigger_psi_latencies"])
 		var/datum/psi_complexus/psi = locate(href_list["trigger_psi_latencies"])
-		log_and_message_admins("triggered psi latencies for [key_name(psi.owner)].")
-		psi.check_latency_trigger(100, "outside intervention", redactive = TRUE)
+		log_and_message_admins("triggered psionics for [key_name(psi.owner)].")
+		psi.check_psionic_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
 		if(!check_rights(R_SPAWN))	return
@@ -589,7 +589,7 @@
 		if(istype(M, /mob/living/carbon/human))
 			var/mob/living/carbon/human/observer = M
 			observer.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket(observer), slot_w_uniform)
-			observer.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(observer), slot_shoes)
+			observer.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black(observer), slot_shoes)
 		M.Paralyse(5)
 		sleep(5)
 		M.forceMove(pick(tdomeobserve))
@@ -870,6 +870,24 @@
 		else
 			to_chat(src.owner, "The person you are trying to contact does not have functional radio equipment.")
 
+	else if(href_list["CentcommHiveReply"])
+		var/mob/living/carbon/human/H = locate(href_list["CentcommHiveReply"])
+		if(!istype(H))
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			return
+		if(!isvaurca(H))
+			to_chat(usr, "This can only be used on Vaurca.")
+			return
+		if(!(all_languages[LANGUAGE_VAURCA] in H.languages))
+			to_chat(usr, "The person you are trying to contact is incapable of recieving Hivenet transmissions.")
+			return
+		var/input = sanitize(input(src.owner, "Please enter a message to reply to [key_name(H)] via the Hivenet.", "Outgoing transmission from the Hive...", ""))
+		if(!input)	return
+		to_chat(src.owner, "You sent [input] to [H] via a secure Hivenet channel.")
+		log_admin("[src.owner] replied to [key_name(H)]'s Hivenet message with the message [input].", admin_key=key_name(src.owner), ckey=key_name(H))
+		to_chat(H, SPAN_INFO("You feel something shifting in the Hivenet, an encrypted whisper transmitted directly to your neural socket. Message as follows."))
+		to_chat(H, SPAN_NOTICE(SPAN_BOLD("\"[input]\"")))
+		to_chat(H, SPAN_INFO("Message ends."))
 
 	else if(href_list["SyndicateReply"])
 		var/mob/living/carbon/human/H = locate(href_list["SyndicateReply"])

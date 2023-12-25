@@ -79,6 +79,7 @@
 #define XGM_GAS_FUEL        1
 #define XGM_GAS_OXIDIZER    2
 #define XGM_GAS_CONTAMINANT 4
+#define XGM_GAS_FUSION_FUEL 8
 
 #define TANK_LEAK_PRESSURE     (30.*ONE_ATMOSPHERE) // Tank starts leaking.
 #define TANK_RUPTURE_PRESSURE  (40.*ONE_ATMOSPHERE) // Tank spills all contents into atmosphere.
@@ -104,7 +105,7 @@
 #define ATMOSTANK_PHORON        25000
 #define ATMOSTANK_PHORON_SCARCE 2500  // we're also in the middle of a phoron shortage - the old ATMOSTANK_PHORON define is staying in case someone wants to map in a phoron tank or something
 #define ATMOSTANK_HYDROGEN      25000
-#define ATMOSTANK_NITROUSOXIDE  10000 // N2O doesn't have a real useful use, i guess it's on station just to allow refilling of sec's riot control canisters?
+#define ATMOSTANK_NITROUSOXIDE  40000 // N2O does have a real use now! It can be used instead of oxygen to do burns for the thrusters. This means we need more of it though, otherwise there isn't really enough.
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
 
@@ -112,13 +113,17 @@
 #define GAS_CO2					"carbon_dioxide"
 #define GAS_N2O					"sleeping_agent"
 #define GAS_NITROGEN			"nitrogen"
-#define GAS_NO2					"nitrodioxide"
+#define GAS_NO2					"nitrogen_dioxide"
 #define GAS_PHORON				"phoron"
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
 #define GAS_STEAM				"water"
-#define GAS_SULFUR				"sulfurdioxide"
+#define GAS_SULFUR				"sulfur_dioxide"
 #define GAS_CHLORINE			"chlorine"
+#define GAS_HELIUM				"helium"
+#define GAS_DEUTERIUM			"deuterium"
+#define GAS_TRITIUM				"tritium"
+#define GAS_BORON				"boron"
 
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"

@@ -115,9 +115,7 @@
 	check_health()
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
-	if((age > seed.get_trait(TRAIT_MATURATION)) && \
-	 ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && \
-	 (!harvest && !dead))
+	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))
 		harvest = 1
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
@@ -125,11 +123,9 @@
 			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
 
 	// If we're a vine which is not in a closed tray and is at least half mature, and there's no vine currently on our turf: make one (maybe)
-	if(!closed_system && \
-	 seed.get_trait(TRAIT_SPREAD) == 2 && \
-	 2 * age >= seed.get_trait(TRAIT_MATURATION) && \
-	 !(locate(/obj/effect/plant) in get_turf(src)) && \
-	 prob(2 * seed.get_trait(TRAIT_POTENCY)))
+	if(!closed_system && seed.get_trait(TRAIT_SPREAD) == 2 && 2 * age >= seed.get_trait(TRAIT_MATURATION) && !(locate(/obj/effect/plant) in get_turf(src)) && \
+		prob(2 * seed.get_trait(TRAIT_POTENCY)))
+
 		new /obj/effect/plant(get_turf(src), seed)
 
 	if(prob(3))  // On each tick, there's a chance the pest population will increase

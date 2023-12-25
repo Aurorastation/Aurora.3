@@ -15,9 +15,9 @@
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
 
-/obj/item/smes_coil/examine(mob/user)
+/obj/item/smes_coil/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(Adjacent(user))
+	if(is_adjacent)
 		to_chat(user, "The label reads:\
 			<div class='notice' style='padding-left:2rem'>Only certified professionals are allowed to handle and install this component.<br>\
 			Charge capacity: [ChargeCapacity/1000000] MJ<br>\
@@ -182,7 +182,7 @@
 
 	// Cyborgs standing next to the SMES can play with the wiring.
 	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
-		wires.Interact(usr)
+		wires.interact(usr)
 
 // Proc: Initialize()
 // Parameters: 2 (dir - direction machine should face, install_coils - if coils should be spawned)
@@ -207,7 +207,7 @@
 /obj/machinery/power/smes/buildable/attack_hand()
 	..()
 	if(open_hatch)
-		wires.Interact(usr)
+		wires.interact(usr)
 
 // Proc: recalc_coils()
 // Parameters: None
@@ -432,7 +432,7 @@
 
 			playsound(get_turf(src), W.usesound, 50, 1)
 			to_chat(user, "<span class='warning'>You begin to disassemble the [src]!</span>")
-			if (do_after(usr, 100 * cur_coils)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
+			if (do_after(usr, 100 * cur_coils, src, DO_REPAIR_CONSTRUCT)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
 
 				if (failure_probability && prob(failure_probability))
 					total_system_failure(failure_probability, user)

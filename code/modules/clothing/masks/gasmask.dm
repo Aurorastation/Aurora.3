@@ -2,7 +2,7 @@
 	name = "gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "gas_alt"
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | THICKMATERIAL
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	w_class = ITEMSIZE_NORMAL
@@ -11,7 +11,7 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	var/gas_filter_strength = 1			//For gas mask filters
-	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O)
+	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	armor = list(
 		bio = ARMOR_BIO_STRONG
 	)

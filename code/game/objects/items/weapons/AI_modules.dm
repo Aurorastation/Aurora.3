@@ -12,7 +12,7 @@ AI MODULES
 	icon_state = "std_mod"
 	item_state = "electronic"
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5.0
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
@@ -40,8 +40,6 @@ AI MODULES
 
 		if (comp.current.stat == 2 || comp.current.control_disabled == 1)
 			to_chat(usr, "Upload failed. No signal is being detected from the AI.")
-		else if (comp.current.see_in_dark == 0)
-			to_chat(usr, "Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power.")
 		else
 			src.transmitInstructions(comp.current, usr)
 			to_chat(comp.current, "These are your laws now:")

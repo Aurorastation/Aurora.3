@@ -56,7 +56,7 @@
 		icon_state = "ovenopen"
 	cut_overlays()
 	if (!stat)
-		var/glow = image('icons/obj/cooking_machines.dmi', "oven_on", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/glow = image('icons/obj/machinery/cooking_machines.dmi', "oven_on", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(glow)
 	..()
 
@@ -121,24 +121,6 @@
 		combination_cook(CI)
 		return
 	..()
-
-/obj/machinery/appliance/cooker/oven/small
-	name = "compact oven"
-	desc = "A lightweight, small oven. Doesn't hold much, but it cooks just fine."
-	density = 0
-	anchored = 0
-	max_contents = 2
-	icon_state = "small_ovenopen"
-
-/obj/machinery/appliance/cooker/oven/small/update_icon()
-	if (!open)
-		icon_state = "small_ovenclosed"
-	else
-		icon_state = "small_ovenopen"
-	cut_overlays()
-	if (!stat)
-		var/glow = image('icons/obj/cooking_machines.dmi', "smalloven_on", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(glow)
 
 /obj/machinery/appliance/cooker/oven/adhomai
 	name = "adhomian oven"

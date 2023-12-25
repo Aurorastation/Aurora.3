@@ -98,7 +98,7 @@
 	attack_verb = list("jumped on")
 	attack_name = "weak stomp"
 
-/datum/unarmed_attack/stomp/weak/get_unarmed_damage()
+/datum/unarmed_attack/stomp/weak/get_unarmed_damage(var/mob/attacker, var/mob/living/carbon/human/target)
 	return damage
 
 /datum/unarmed_attack/stomp/weak/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
@@ -212,6 +212,12 @@
 			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
 			target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
+/datum/unarmed_attack/bite/infectious/get_unarmed_damage(var/mob/attacker, var/target)
+	if(istype(target, /mob/living/heavy_vehicle))
+		return damage * 4
+
+	. = ..()
+
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")
 	attack_noun = list("fist")
@@ -246,7 +252,7 @@
 		target.apply_effect(1, INCINERATE, 0)
 
 /datum/unarmed_attack/vaurca_bulwark
-	attack_verb = list("punched", "pulverized", "hammered")
+	attack_verb = list("smashed", "pulverized", "clobbered")
 	attack_noun = list("fists")
 	desc = "Smash into your opponents with the strength the Queens gave you. Not as sharp as other species' claws, but yours hit a hell of a lot harder."
 	eye_attack_text = "claws"
@@ -260,14 +266,15 @@
 	crowbar_door = TRUE
 	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy
 
-/datum/unarmed_attack/vaurca_bulwark/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+/datum/unarmed_attack/vaurca_bulwark/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/zone)
 	..()
-	if(prob(25))
-		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-		user.visible_message(SPAN_DANGER("[user] shoves hard, sending [target] flying!"))
-		var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
-		target.throw_at(target_turf, 4, 1, user)
-		target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
+	if(target.species.mob_size < user.species.mob_size)
+		if(prob(25))
+			playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
+			user.visible_message(SPAN_DANGER("[user] sends \the [target] flying with the impact!"))
+			var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
+			target.throw_at(target_turf, 4, 1, user)
+			target.apply_effect(4, WEAKEN, armor)
 
 /datum/unarmed_attack/bite/warrior
 	attack_name = "warrior bite"

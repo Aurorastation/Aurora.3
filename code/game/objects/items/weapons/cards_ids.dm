@@ -125,10 +125,12 @@ var/const/NO_EMAG_ACT = -50
 	var/iff_faction = IFF_DEFAULT
 
 /obj/item/card/id/Destroy()
+	QDEL_NULL(chat_user)
 	return ..()
 
-/obj/item/card/id/examine(mob/user)
-	if (..(user, 1))
+/obj/item/card/id/examine(mob/user, distance)
+	. = ..()
+	if (distance <= 1)
 		show(user)
 
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
@@ -458,14 +460,14 @@ var/const/NO_EMAG_ACT = -50
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
-    var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
-    var/blind_add_text = "Done with prejudice and professionalism, you mean business."
-    return ..(user, add_text, blind_add_text)
+	var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+	var/blind_add_text = "Done with prejudice and professionalism, you mean business."
+	return ..(user, add_text, blind_add_text)
 
-/obj/item/card/id/ccia/fib
-	name = "\improper Federal Investigations Bureau identification card"
-	desc = "An ID straight from the Federal Investigations Bureau."
-	icon_state = "fib"
+/obj/item/card/id/ccia/bssb
+	name = "\improper Biesel Security Services Bureau identification card"
+	desc = "An ID straight from the Biesel Security Services Bureau."
+	icon_state = "bssb"
 
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"
@@ -476,6 +478,9 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
+
+/obj/item/card/id/ert/scc
+	name = "\improper SCC Emergency Response Team identification card"
 
 /obj/item/card/id/asset_protection
 	name = "\improper NanoTrasen Asset Protection identification card"
@@ -632,5 +637,18 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/away_site
 	access = list(access_generic_away_site, access_external_airlocks)
+
+/obj/item/card/id/mecha
+	name = "exosuit access card"
+
+/obj/item/card/id/mecha/GetAccess()
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(loc) || !length(exosuit.pilots))
+		return list()
+	var/list/pilot_access = list()
+	for(var/mob/pilot as anything in exosuit.pilots)
+		var/obj/item/ID = pilot.GetIdCard()
+		pilot_access |= ID.GetAccess()
+	return pilot_access
 
 #undef ID_CARD_UNSET

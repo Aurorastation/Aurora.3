@@ -79,6 +79,7 @@
 		if(!config.ert_admin_call_only)
 			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
@@ -126,7 +127,7 @@
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
 	var/distress_message
 	if(event == "Distress Beacon" && user)
-		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+		distress_message = tgui_input_text(user, "Enter a distress message that other vessels will receive.", "Distress Beacon", "", MAX_MESSAGE_LEN)
 		if(distress_message)
 			become_hearing_sensitive()
 			user.say(distress_message)
@@ -188,7 +189,9 @@
 				if(!linked.levi_safeguard.opened)
 					linked.levi_safeguard.open()
 					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
-												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
+													hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
+		if("Emergency Evacuation")
+			call_shuttle_proc(user, TRANSFER_EMERGENCY)
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(config.ert_admin_call_only)
@@ -218,4 +221,16 @@ var/global/maint_all_access = 0
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(access_maint_tunnels)))
 		return 1
+	if(access_by_level || req_one_access_by_level)
+		var/sec_level = get_security_level()
+		if(sec_level in (req_one_access_by_level ? req_one_access_by_level : access_by_level))
+			var/access_to_use = req_one_access_by_level ? req_one_access_by_level[sec_level] : access_by_level[sec_level]
+			if(!access_to_use)
+				return TRUE
+			if(req_one_access_by_level)
+				if(has_access(req_one_access = access_to_use, accesses = A))
+					return TRUE
+			else
+				if(has_access(access_to_use, accesses = A))
+					return TRUE
 	return ..(M)

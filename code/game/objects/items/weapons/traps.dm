@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/item/traps.dmi'
+	icon = 'icons/obj/item/traps/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -125,7 +125,7 @@
 /obj/item/trap/Crossed(atom/movable/AM)
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
-		if(H.shoes?.item_flags & LIGHTSTEP)
+		if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
@@ -136,11 +136,28 @@
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"
 
+
+/*
+##################
+	Subtypes
+##################
+*/
+
+/**
+ * # Sharpened trap
+ *
+ * This device has an even higher chance of penetrating armor and locking foes in place
+ */
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
 	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
 	activated_armor_penetration = 100
 
+/**
+ * # Animal trap
+ *
+ * Used to catch small animals like rats, lizards, and chicks
+ */
 /obj/item/trap/animal
 	name = "small trap"
 	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
@@ -179,7 +196,7 @@
 	icon_state = "[icon_base][deployed]"
 
 /obj/item/trap/animal/examine(mob/user)
-	..()
+	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)
@@ -230,7 +247,7 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
 		last_shake = world.time
 
@@ -249,14 +266,14 @@
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
+	if (!do_after(escapee, time, src))
 		breakout = FALSE
 		return
 
 	breakout = FALSE
 	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\The [escapee] successfully breaks out of \the [src]!</span>")
-	playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
+	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
 	release()
 
@@ -382,7 +399,7 @@
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
-							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
+								"<span class='notice'>You are trying to slice \the [src] open!</span>")
 
 		if(WT.use_tool(src, user, 60, volume = 50))
 			if(WT.use(2, user))
@@ -401,14 +418,15 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-							 "<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
-		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
+								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
+		var/sound_to_play = pick(list('sound/items/Screwdriver.ogg', 'sound/items/Screwdriver2.ogg'))
+		playsound(src.loc, sound_to_play, 50, 1)
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
-								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
+									"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
 	else
 		..()
 
@@ -446,7 +464,7 @@
 		user.visible_message("<span class='notice'>[user] attempts to pass through \the [src] without triggering it.</span>",
 							"<span class='notice'>You attempt to pass through \the [src] without triggering it. </span>"
 		)
-		if(do_after(user, 2 SECONDS, act_target = src))
+		if(do_after(user, 2 SECONDS, src))
 			if(prob(pct))
 				user.forceMove(loc)
 				user.visible_message("<span class='notice'>[user] passes through \the [src] without triggering it.</span>",
@@ -506,6 +524,11 @@
 /obj/item/trap/animal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return TRUE
 
+/**
+ * # Animal trap (Medium)
+ *
+ * Used to catch medium animals like cats, monkeys, nymphs, and wayward maintenance drones
+ */
 /obj/item/trap/animal/medium
 	name = "medium trap"
 	desc = "A medium mechanical trap that is used to catch moderately-sized animals like cats, monkeys, nymphs, and wayward maintenance drones."
@@ -527,6 +550,11 @@
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
 						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
 
+/**
+ * # Animal trap (Large)
+ *
+ * Used to catch larger animals, from spiders and dogs to bears and even larger mammals
+ */
 /obj/item/trap/animal/large
 	name = "large trap"
 	desc = "A large mechanical trap that is used to catch larger animals, from spiders and dogs to bears and even larger mammals."
@@ -572,7 +600,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
-							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
+								"<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
@@ -613,7 +641,7 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
-	icon = 'icons/obj/item/traps.dmi'
+	icon = 'icons/obj/item/traps/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 5
@@ -626,7 +654,7 @@
 
 			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
 
-			if (!do_after(user, 2 SECONDS, act_target = src))
+			if (!do_after(user, 2 SECONDS, src))
 				return
 
 			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")
@@ -641,7 +669,11 @@
 	else
 		..()
 
-
+/**
+ * # Tripwire trap
+ *
+ * A trap that makes you fall over
+ */
 /obj/item/trap/tripwire
 	name = "tripwire trap"
 	desc = "A piece of cable coil strung between two metal rods. Low-tech, but reliable."
@@ -689,3 +721,115 @@
 	if(!L.lying && (L.m_intent == M_RUN) || prob(5))
 		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
 		L.Weaken(3)
+
+/**
+ * # Punji trap
+ *
+ * A trap that damages and gives an infection to the victim, can have a message attached
+ */
+/obj/item/trap/punji
+	name = "punji trap"
+	desc = "An horrendous trap."
+	icon = 'icons/obj/item/traps/punji.dmi'
+	icon_base = "punji"
+	icon_state = "punji0"
+	var/message = null
+
+/obj/item/trap/punji/Crossed(atom/movable/AM)
+	if(deployed && isliving(AM))
+		var/mob/living/L = AM
+		attack_mob(L)
+		update_icon()
+
+/obj/item/trap/punji/attack_mob(mob/living/L)
+
+	//Reveal the trap, if not already visible
+	hide(FALSE)
+
+	//Select a target zone
+	var/target_zone
+	if(L.lying)
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_L_ARM, BP_R_HAND, BP_R_ARM)
+	else
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+	//Try to apply the damage
+	var/success = L.apply_damage(50, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+
+	//If successfully applied, give the message
+	if(success)
+
+		//Show the leftover message, if any, after a little
+		addtimer(CALLBACK(src, PROC_REF(reveal_message), L), 3 SECONDS)
+
+		//Give a simple message and return if it's not a human
+		if(!ishuman(L))
+			L.visible_message(SPAN_DANGER("You step on \the [src]!"))
+			return
+
+		var/mob/living/carbon/human/human = L
+		var/obj/item/organ/organ = human.get_organ(target_zone)
+
+		human.visible_message(SPAN_DANGER("\The [human] steps on \the [src]!"),
+								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [organ.name]!"))),
+								SPAN_WARNING("<b>You feel your body fall, and something sharp penetrate your [organ.name]!</b>"))
+
+		//If it's a human and not an IPC, apply an infection
+		//We are returning early before this step in case something isn't a human, so this should be fine not to catch borgs/bot/exosuits/whatever
+		if(!isipc(L))
+
+			//If it's a Vaurca, there's a chance the spear wouldn't go in deep enough to apply an infection
+			//You're still damaged by falling on it though, which happens above, but at least you're spared the infection
+			//Glory to your carapace
+			if(isvaurca(L) && prob(50))
+				return
+
+			organ.germ_level += INFECTION_LEVEL_THREE
+
+/obj/item/trap/punji/proc/reveal_message(mob/living/victim)
+	if(!message)
+		return
+
+	//If the mob moved away and/or no longer sees the trap, do not show the message
+	if(!(src in oview(world.view, victim)))
+		return
+
+	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+
+/obj/item/trap/punji/examine(mob/user, distance)
+	. = ..()
+	if(src.message && distance < 3)
+		to_chat(user, SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+
+/obj/item/trap/punji/verb/hide_under()
+	set src in oview(1)
+	set name = "Hide"
+	set desc = "Hide the trap under the cover."
+	set category = "Object"
+
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	to_chat(usr, SPAN_NOTICE("You begin hiding the trap..."))
+	if(!do_after(usr, 15 SECONDS))
+		return
+
+	hide(TRUE)
+	to_chat(usr, SPAN_ALERT("You hide \the [src], remember where you left it or suffer the very same warcrime you wanted to inflict!"))
+
+/obj/item/trap/punji/verb/set_message()
+	set src in oview(1)
+	set name = "Set Message"
+	set desc = "Set a message for the victim of the trap."
+	set category = "Object"
+
+	if(src.message)
+		to_chat(usr, SPAN_NOTICE("There is already a carved message inside the trap, can't make more..."))
+		return
+
+	var/added_message = tgui_input_text(usr, "Leave your message here...", "Punji trap message", multiline = TRUE, encode = FALSE)
+
+	if(added_message)
+		to_chat(usr, SPAN_NOTICE("You begin carving the message inside the trap..."))
+		if(do_after(usr, 10 SECONDS))
+			src.message = strip_html_readd_newlines(added_message)

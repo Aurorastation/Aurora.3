@@ -134,7 +134,7 @@
 				if(config.ipc_timelock_active)
 					pref.can_edit_ipc_tag = FALSE
 		else
-			log_error("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
+			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species)

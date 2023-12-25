@@ -134,7 +134,7 @@
 
 		var/turf/target = locate(dst_origin.x + x_pos, dst_origin.y + y_pos, dst_origin.z + z_pos)
 		if(!target)
-			log_error("Null turf in translation @ ([dst_origin.x + x_pos], [dst_origin.y + y_pos], [dst_origin.z + z_pos])")
+			log_world("ERROR: Null turf in translation @ ([dst_origin.x + x_pos], [dst_origin.y + y_pos], [dst_origin.z + z_pos])")
 		turf_map[source] = target //if target is null, preserve that information in the turf map
 
 	return turf_map
@@ -170,7 +170,7 @@
 	var/supported = FALSE // Whether or not there's an object in the turf which can support other objects.
 	if(is_background)
 		new_turf = target
-	else	
+	else
 		new_turf = target.ChangeTurf(source.type, 1, 1)
 		new_turf.transport_properties_from(source)
 
@@ -196,7 +196,7 @@
 
 	if(is_background)
 		return list(new_turf, source)
-	
+
 	return new_turf
 
 /proc/air_sound(atom/source, var/required_pressure = SOUND_MINIMUM_PRESSURE)

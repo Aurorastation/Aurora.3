@@ -542,10 +542,10 @@
 /datum/outfit/proc/get_id_access(mob/living/carbon/human/H)
 	return list()
 
-/datum/outfit/proc/get_id_assignment(mob/living/carbon/human/H)
+/datum/outfit/proc/get_id_assignment(mob/living/carbon/human/H, var/ignore_suffix = FALSE)
 	. = GetAssignment(H)
 
-	if (. && . != "Unassigned" && H?.mind?.selected_faction)
+	if (. && . != "Unassigned" && H?.mind?.selected_faction && !ignore_suffix)
 		if (H.mind.selected_faction.title_suffix)
 			. += " ([H.mind.selected_faction.title_suffix])"
 

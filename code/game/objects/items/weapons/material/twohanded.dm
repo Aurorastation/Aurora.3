@@ -67,17 +67,20 @@
 	. = ..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
-	//Cannot equip wielded items.
+/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE)
 	if(wielded)
-		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
-		return 0
-
+		unwield()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/can_swap_hands(mob/user)
 	if(wielded)
-		return FALSE
+		unwield()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/dropped(mob/user as mob)
@@ -131,6 +134,9 @@
 			O.unwield()
 
 	else //Trying to wield it
+		var/obj/item/offhand_item = user.get_inactive_hand()
+		if(offhand_item)
+			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
@@ -258,7 +264,7 @@
 	return ..()
 
 /obj/item/material/twohanded/spear/examine(mob/user)
-	..(user)
+	. = ..()
 	if(explosive)
 		to_chat(user, "It has \the [explosive] strapped to it.")
 
@@ -345,7 +351,7 @@
 	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	force_unwielded = 10
 	force_wielded = 20
@@ -399,7 +405,7 @@
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
+	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 25, 0, 30)
 	force_unwielded = 30
 	force = force_unwielded
 	force_wielded = 60
@@ -466,8 +472,9 @@
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/examine(mob/user)
-	if(..(user, 1))
+/obj/item/material/twohanded/chainsaw/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel.")
 		if(powered)
 			to_chat(user, SPAN_NOTICE("It is currently powered on."))
@@ -475,7 +482,7 @@
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
 	if(powered)
-		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 		RemoveFuel(3)
 
 /obj/item/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -489,7 +496,7 @@
 		if(!istype(O))
 			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), SPAN_WARNING("You rev the chainsaw!"), SPAN_WARNING("You hear a chainsaw rev!"))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+			playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 			RemoveFuel(3)
 	. = ..()
 
@@ -508,7 +515,7 @@
 				PowerUp(user)
 			else
 				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
-				if(!do_after(user, 2 SECONDS, act_target = user))
+				if(!do_after(user, 2 SECONDS))
 					break
 
 /obj/item/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)

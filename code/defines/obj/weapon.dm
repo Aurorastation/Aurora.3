@@ -3,7 +3,7 @@
 	desc = "Should anything ever go wrong..."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3.0
 	throwforce = 2.0
 	throw_speed = 1
@@ -50,7 +50,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 10
 	throwforce = 7.0
 	w_class = ITEMSIZE_LARGE
@@ -383,7 +383,7 @@
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
 	var/obj/item/device/radio/origradio = null
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "radio"
 	throwforce = 5
@@ -435,7 +435,7 @@
 	icon_state = "std_mod"
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	usesound = 'sound/items/Deconstruct.ogg'
 	var/mtype = 1						// 1=electronic 2=hardware
 
@@ -496,7 +496,7 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = input("Select the camera to observe", null) as null|anything in friendly_cameras
+	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
@@ -535,10 +535,7 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi'
-		)
+	icon = 'icons/obj/storage/misc.dmi'
 	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50

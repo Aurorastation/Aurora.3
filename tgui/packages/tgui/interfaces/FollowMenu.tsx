@@ -43,32 +43,34 @@ export const FollowMenu = (props, context) => {
             />
           }>
           {data.categories.sort().map((category) => (
-            <Section title={category} key={category}>
-              <Collapsible open={1}>
-                {data.ghosts
-                  .filter(
-                    (ghost) =>
-                      ghost.name
-                        .toLowerCase()
-                        .indexOf(searchTerm.toLowerCase()) > -1 &&
-                      category === ghost.category
-                  )
-                  .map((ghost) => (
-                    <Button
-                      key={ghost.name}
-                      content={ghost.name}
-                      color={
-                        data.is_mod
-                          ? ghost.special_character > 0
-                            ? 'bad'
+            <Section title="" key={category}>
+              <Collapsible open={1} title={category}>
+                {data.ghosts &&
+                  data.ghosts.length &&
+                  data.ghosts
+                    .filter(
+                      (ghost) =>
+                        ghost.name
+                          .toLowerCase()
+                          .indexOf(searchTerm.toLowerCase()) > -1 &&
+                        category === ghost.category
+                    )
+                    .map((ghost) => (
+                      <Button
+                        key={ghost.name}
+                        content={ghost.name}
+                        color={
+                          data.is_mod
+                            ? ghost.special_character > 0
+                              ? 'bad'
+                              : ''
                             : ''
-                          : ''
-                      }
-                      onClick={() =>
-                        act('follow_target', { follow_target: ghost.ref })
-                      }
-                    />
-                  ))}
+                        }
+                        onClick={() =>
+                          act('follow_target', { follow_target: ghost.ref })
+                        }
+                      />
+                    ))}
               </Collapsible>
             </Section>
           ))}

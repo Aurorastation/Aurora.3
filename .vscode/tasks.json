@@ -23,8 +23,13 @@
             "kind": "build",
             "isDefault": true
         },
-        "dependsOn": ["dm: reparse", "dreamchecker"],
+        "dependsOn": ["dm: reparse"],
         "label": "Build All"
+      },
+      {
+        "command": "${command:dreammaker.reparse}",
+        "group": "build",
+        "label": "dm: reparse"
       },
       {
         "type": "shell",

@@ -139,6 +139,24 @@
 /// forces the mob to speak gibberish, like highly damaged borgs
 #define TRAIT_SPEAKING_GIBBERISH "speaking_gibberish"
 
+/// Mob does not need to breathe.
+#define TRAIT_NO_BREATHE "no_breathe"
+
+/// Mob has pressure immunity.
+#define TRAIT_PRESSURE_IMMUNITY "pressure_immunity"
+
+/// Trait sourced from changeling abilities.
+#define TRAIT_SOURCE_CHANGELING "changeling"
+
+/// Mob is psionically deaf.
+#define TRAIT_PSIONICALLY_DEAF "psionically_deaf"
+
+/// Zona bovinae absorbed, used by Loner to track a mob that has had its ZB consumed. Doesn't make them psi-deaf.
+#define TRAIT_ZONA_BOVINAE_ABSORBED "bovinae_absorbed"
+
+/// Hidden from Psi-Search.
+#define TRAIT_PSIONIC_SUPPRESSION "psionic_suppression"
+
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
 
@@ -153,3 +171,6 @@
 #define TRAIT_OVERLOADER_OD_INITIAL "overloader_od_initial"
 #define TRAIT_OVERLOADER_OD_MEDIUM "overloader_od_medium"
 #define TRAIT_OVERLOADER_OD_EFFECT "overloader_od_effect"
+
+/// Traits given by psionics.
+#define TRAIT_SOURCE_PSIONICS "psionics"

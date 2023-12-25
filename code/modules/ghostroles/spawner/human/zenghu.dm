@@ -23,7 +23,7 @@
 	name = "Zeng-Hu Employee"
 
 	uniform = /obj/item/clothing/under/rank/scientist
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 	belt = /obj/item/storage/belt/utility/full
 	id = /obj/item/card/id/zeng_hu
 	r_hand = /obj/item/device/flashlight

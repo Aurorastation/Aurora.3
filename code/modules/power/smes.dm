@@ -304,7 +304,7 @@
 			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			return 1
 	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
-	if(do_after(user, 50))
+	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
 		terminal.master = src
@@ -478,9 +478,9 @@
 		else if(prob(15)) //Power drain
 			small_spark.queue()
 			if(prob(50))
-				emp_act(1)
+				emp_act(EMP_HEAVY)
 			else
-				emp_act(2)
+				emp_act(EMP_LIGHT)
 		else if(prob(5)) //smoke only
 			var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 			smoke.set_up(3, 0, src.loc)
@@ -500,6 +500,8 @@
 		outputting = 0
 
 /obj/machinery/power/smes/emp_act(severity)
+	. = ..()
+
 	if(prob(50))
 		inputting(rand(0,1))
 		outputting(rand(0,1))
@@ -513,7 +515,6 @@
 	if(prob(50))
 		energy_fail(rand(0 + (severity * 30),30 + (severity * 30)))
 	update_icon()
-	..()
 
 
 /obj/machinery/power/smes/magical

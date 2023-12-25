@@ -564,6 +564,7 @@ A basic text input, which allow users to enter text into a UI.
 - `placeholder: string` - Text placed into Input box when it's empty,
 otherwise nothing. Clears automatically when focused.
 - `fluid: boolean` - Fill all available horizontal space.
+- `strict: boolean` - Prevent the onChange event from firing on unfocus.
 - `selfClear: boolean` - Clear after hitting enter, as well as remain focused
 when this happens. Useful for things like chat inputs.
 - `onChange: (e, value) => void` - An event, which fires when you commit

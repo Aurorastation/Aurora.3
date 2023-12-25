@@ -27,7 +27,7 @@ export type DoorsData = {
 
 export const Doors = (props, context) => {
   const { act, data } = useBackend<DoorsData>(context);
-  const door_title = data.doorArea + ' - ' + data.doorName;
+  const door_title = data.doorArea + '(' + data.doorName + ')';
   return (
     <Window resizable>
       <Window.Content scrollable>

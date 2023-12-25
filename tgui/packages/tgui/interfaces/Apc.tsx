@@ -5,9 +5,11 @@ import { Window } from '../layouts';
 
 export type APCData = {
   locked: BooleanLike;
-  power_cell_status: number;
+  power_cell_inserted: BooleanLike;
+  power_cell_charge: number;
   fail_time: number;
   silicon_user: BooleanLike;
+  is_AI: BooleanLike;
   total_load: number;
   total_charging: number;
   is_operating: BooleanLike;
@@ -99,14 +101,14 @@ export const APCWindow = (props, context) => {
             )}
           </LabeledList.Item>
           <LabeledList.Item label="Power Cell">
-            {data.power_cell_status ? (
+            {data.power_cell_inserted ? (
               <ProgressBar
                 ranges={{
                   good: [75, 100],
                   average: [30, 75],
                   bad: [0, 30],
                 }}
-                value={data.power_cell_status}
+                value={data.power_cell_charge}
                 minValue={0}
                 maxValue={100}
               />
@@ -114,7 +116,7 @@ export const APCWindow = (props, context) => {
               <Box color="bad">Power cell removed.</Box>
             )}
           </LabeledList.Item>
-          {data.power_cell_status ? (
+          {data.power_cell_inserted ? (
             <LabeledList.Item label="Charge Mode">
               {!data.silicon_user && data.locked ? (
                 <Box color={data.charge_mode ? 'good' : 'bad'}>
@@ -169,7 +171,7 @@ export const APCWindow = (props, context) => {
                 [{channelStatus(channel.status)}] | [
                 {channelPower(channel.status)}] | {channel.power_load} W
               </Box>
-              {!data.locked && !data.silicon_user ? (
+              {(!data.locked && !data.silicon_user) || data.is_AI ? (
                 <Section>
                   <Button
                     content="Auto"
@@ -223,7 +225,7 @@ export const APCWindow = (props, context) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      {data.silicon_user ? (
+      {data.silicon_user || data.is_AI ? (
         <Section title="System Overrides">
           <Button
             content="Overload Lighting Circuit"

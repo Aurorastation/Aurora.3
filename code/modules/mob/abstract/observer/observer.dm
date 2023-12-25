@@ -42,13 +42,12 @@
 
 	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 	see_invisible = SEE_INVISIBLE_OBSERVER
-	see_in_dark = 100
 	add_verb(src, /mob/abstract/observer/proc/dead_tele)
 
 	set_stat(DEAD)
 
 	ghostimage = image(src.icon,src,src.icon_state)
-	SSmob.ghost_darkness_images |= ghostimage
+	SSmobs.ghost_darkness_images |= ghostimage
 	updateallghostimages()
 
 	var/turf/T
@@ -102,7 +101,7 @@
 	ghost_multitool = null
 
 	if (ghostimage)
-		SSmob.ghost_darkness_images -= ghostimage
+		SSmobs.ghost_darkness_images -= ghostimage
 		qdel(ghostimage)
 		ghostimage = null
 		updateallghostimages()
@@ -303,6 +302,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	mind.current.ajourn=0
 	mind.current.key = key
 	mind.current.teleop = null
+	mind.current.client.init_verbs()
 	if(!admin_ghosted)
 		announce_ghost_joinleave(mind, 0, "They now occupy their body again.")
 	return 1
@@ -848,7 +848,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return 1
 
 /mob/proc/can_admin_interact()
-    return 0
+	return 0
 
 /mob/abstract/observer/can_admin_interact()
 	return check_rights(R_ADMIN, 0, src)
@@ -872,12 +872,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(on_restricted_level())
 		//On the restricted level they have the same sight as the mob
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(2)
 		set_see_invisible(SEE_INVISIBLE_OBSERVER)
 	else
 		//Outside of the restrcited level, they have enhanced vision
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(100)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 		if (!seedarkness)
@@ -895,12 +893,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if (!client)
 		return
 	if (seedarkness || !ghostvision)
-		client.images -= SSmob.ghost_darkness_images
-		client.images |= SSmob.ghost_sightless_images
+		client.images -= SSmobs.ghost_darkness_images
+		client.images |= SSmobs.ghost_sightless_images
 	else
 		//add images for the 60inv things ghosts can normally see when darkness is enabled so they can see them now
-		client.images -= SSmob.ghost_sightless_images
-		client.images |= SSmob.ghost_darkness_images
+		client.images -= SSmobs.ghost_sightless_images
+		client.images |= SSmobs.ghost_darkness_images
 		if (ghostimage)
 			client.images -= ghostimage //remove ourself
 

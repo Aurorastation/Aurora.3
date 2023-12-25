@@ -166,7 +166,7 @@ macro "borghotkeymode"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -349,7 +349,7 @@ macro "macro"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -607,7 +607,7 @@ macro "hotkeymode"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -799,7 +799,7 @@ macro "borgmacro"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -1023,8 +1023,8 @@ window "mainwindow"
 		menu = "menu"
 	elem "asset_cache_browser"
 		type = BROWSER
-		pos = 424,208
-		size = 1x1
+		pos = 0,0
+		size = 200x200
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		is-visible = false
@@ -1272,3 +1272,20 @@ window "browserwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+
+window "tgui_say"
+	elem "tgui_say"
+		type = MAIN
+		pos = 848,500
+		size = 380x30
+		is-visible = false
+		saved-params = ""
+		statusbar = false
+		can-minimize = false
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 380x30
+		anchor1 = 0,0
+		anchor2 = 0,0
+		saved-params = ""

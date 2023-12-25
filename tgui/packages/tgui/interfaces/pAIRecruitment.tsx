@@ -22,14 +22,7 @@ export const pAIRecruitment = (props, context) => {
               content="Submit"
               icon="check"
               color="good"
-              onClick={() =>
-                act('submit', {
-                  name: data.name,
-                  description: data.description,
-                  role: data.role,
-                  comments: data.comments,
-                })
-              }
+              onClick={() => act('submit_candidate')}
             />
           }>
           <BlockQuote>

@@ -23,7 +23,7 @@
 	uses = 1
 
 /obj/item/disposable_teleporter/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "[uses] uses remaining.")
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)
@@ -37,7 +37,7 @@
 				continue
 			else
 				valid_areas += A
-		var/area/A = input(user, "Area to teleport to", "Teleportation") as area in valid_areas
+		var/area/A = tgui_input_list(user, "Area to teleport to", "Teleportation", valid_areas)
 		if(!isarea(A) || !(A in the_station_areas))
 			return
 

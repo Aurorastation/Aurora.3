@@ -64,7 +64,9 @@ var/list/active_radio_jammers = list()
 			update_icon()
 			. = TRUE
 
-/obj/item/device/radiojammer/emp_act()
+/obj/item/device/radiojammer/emp_act(severity)
+	. = ..()
+
 	toggle()
 
 /obj/item/device/radiojammer/proc/toggle(var/mob/user)

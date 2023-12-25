@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 
 //ghostroles
@@ -48,7 +48,7 @@
 	uniform = /obj/item/clothing/under/tajaran/nka_uniform
 	head = /obj/item/clothing/head/tajaran/nka_cap
 	back = /obj/item/storage/backpack/rucksack/tan
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	l_ear = null
 

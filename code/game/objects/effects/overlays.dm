@@ -18,7 +18,7 @@
 	var/tmp/atom/BeamSource
 
 /obj/effect/overlay/palmtree_r
-	name = "Palm tree"
+	name = "palm tree"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = 1
@@ -27,7 +27,7 @@
 
 
 /obj/effect/overlay/palmtree_l
-	name = "Palm tree"
+	name = "palm tree"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = 1
@@ -36,7 +36,7 @@
 
 
 /obj/effect/overlay/coconut
-	name = "Coconuts"
+	name = "coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
 

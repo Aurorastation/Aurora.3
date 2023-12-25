@@ -91,8 +91,9 @@
 			else
 				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
-/obj/item/paper_bundle/examine(mob/user)
-	if(..(user, 1))
+/obj/item/paper_bundle/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		src.show_content(user)
 	else
 		to_chat(user, "<span class='notice'>It is too far away.</span>")
@@ -226,7 +227,7 @@
 		return
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 

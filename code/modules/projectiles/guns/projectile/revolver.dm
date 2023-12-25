@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Zavodskoi Interstellar revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
@@ -21,6 +21,7 @@
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
+	set src in usr
 
 	chamber_offset = 0
 	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
@@ -88,7 +89,7 @@
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
-	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"
+	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
@@ -105,6 +106,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun. If you're the detective."
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)	return 0
@@ -121,7 +123,7 @@
 
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
-	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
+	desc = "A small pocket pistol, easily concealed."
 	icon = 'icons/obj/guns/derringer.dmi'
 	icon_state = "derringer"
 	item_state = "derringer"
@@ -161,7 +163,7 @@
 
 /obj/item/gun/projectile/revolver/lemat
 	name = "grapeshot revolver"
-	desc = "A six shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
+	desc = "A six shot revolver, with a secondary firing barrel for loading shotgun shells."
 	icon = 'icons/obj/guns/lemat.dmi'
 	icon_state = "lemat"
 	item_state = "lemat"
@@ -183,6 +185,9 @@
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
+	desc_info = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
+	with ctrl-click (or enable HARM intent), then click where you want to fire. By using the Unique-Action macro, you can switch from one barrel to the other. To reload, click the gun \
+	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
@@ -226,6 +231,7 @@
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
+	set src in usr
 
 	chamber_offset = 0
 	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
@@ -237,7 +243,7 @@
 			chamber_offset = rand(0,max_shells - loaded.len)
 
 /obj/item/gun/projectile/revolver/lemat/examine(mob/user)
-	..()
+	. = ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)
@@ -266,7 +272,7 @@
 
 /obj/item/gun/projectile/revolver/knife
 	name = "knife-revolver"
-	desc = "An adhomian revolver with a blade attached to its barrel."
+	desc = "An Adhomian revolver with a blade attached to its barrel."
 	icon = 'icons/obj/guns/knifegun.dmi'
 	icon_state = "knifegun"
 	item_state = "knifegun"
@@ -287,3 +293,37 @@
 		playsound(user.loc, "punchmiss", 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE
+
+/obj/item/gun/projectile/revolver/konyang/pirate
+	name = "reclaimed revolver"
+	desc = "A revolver, made out of cheap scrap metal. Often used by Konyang's pirates."
+	desc_extended = "A six-shot revolver, crudely hacked together out of different kinds of scrap metal and wood. Made working by the ingenuity Konyang's pirates often need to show. Chambered in .38 ammo."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "38_revolver"
+	item_state = "38_revolver"
+	caliber = "38"
+	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
+	max_shells = 6
+
+/obj/item/gun/projectile/revolver/konyang/pirate/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "38_revolver"
+	else
+		icon_state = "38_revolver-e"
+
+/obj/item/gun/projectile/revolver/konyang/police
+	name = "police service revolver"
+	desc = "A compact and reliable .45 caliber revolver. This one has Konyang National Police markings as well as a lanyard attached to it."
+	desc_extended = "The Nam-Kawada model .45 caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
+	The original design was first introduced in 2307 due to a growing need to arm the nascent Konyang National Police (then known as the Suwon Colonial Constabulary) in the face of both wildlife and the occasional criminal activity.\
+	The lack of a need for an upgrade, as well as institutional attachment to the design, has led to its continued use for almost two centuries."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "police_gun"
+	item_state = "police_gun"
+	w_class = ITEMSIZE_NORMAL
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+	magazine_type = /obj/item/ammo_magazine/c45/revolver
+	max_shells = 6

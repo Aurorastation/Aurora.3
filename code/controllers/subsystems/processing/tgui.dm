@@ -10,9 +10,7 @@
  *
  */
 
-var/datum/controller/subsystem/processing/tgui/SStgui
-
-/datum/controller/subsystem/processing/tgui
+PROCESSING_SUBSYSTEM_DEF(tgui)
 	name = "tgui"
 	wait = 9
 	flags = SS_NO_INIT
@@ -320,6 +318,7 @@ var/datum/controller/subsystem/processing/tgui/SStgui
 	// If the user exists, remove it from them too.
 	if(ui.user)
 		ui.user.tgui_open_uis.Remove(ui)
+		ui.user.unset_machine()
 	var/list/uis = open_uis_by_src[key]
 	uis.Remove(ui)
 	if(length(uis) == 0)

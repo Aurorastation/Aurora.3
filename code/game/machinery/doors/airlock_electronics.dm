@@ -1,6 +1,6 @@
 /obj/item/airlock_electronics
 	name = "airlock electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
 	w_class = ITEMSIZE_TINY
 

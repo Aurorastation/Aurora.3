@@ -73,14 +73,55 @@
 
 /singleton/reagent/toxin/panotoxin
 	name = "Panotoxin"
-	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected."
+	description = "An insidious poison from the panocelium mushroom that causes mind-shattering pain. Known to cause fatal shock in small doses. Torturers dilute it."
 	reagent_state = LIQUID
 	color = "#008844"
 	strength = 0
+	overdose = 2
+	od_minimum_dose = REAGENTS_OVERDOSE * 0.25
 	taste_description = "stinging needles"
 
+/singleton/reagent/toxin/panotoxin/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	M.chem_tracking[/singleton/reagent/toxin/panotoxin] = 0
+
 /singleton/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.adjustHalLoss(removed*15)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.can_feel_pain())
+			return
+	if(prob(40))
+		M.apply_effect(20, DAMAGE_PAIN) //Third of a stunbaton per proc! This gets really bad.
+		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 20
+	else if(prob(5))
+		M.Stun(4)
+		M.custom_pain(SPAN_DANGER("You feel [pick("a spike of horrific pain razing through every cell of your body","your insides bursting into screaming fire","your body trying to turn itself inside out","what death must be like")]!"), 40)
+		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 40
+		M.visible_message(SPAN_WARNING("[M] [pick("writhes in agony!","seizes up!","contorts in pain!")]"))
+
+/singleton/reagent/toxin/panotoxin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.can_feel_pain())
+			return
+	if(prob(5))
+		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
+	else if(prob(5))
+		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
+		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
+		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 120
+		M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
+
+/singleton/reagent/toxin/panotoxin/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	var/pain_to_refund = M.chem_tracking[/singleton/reagent/toxin/panotoxin] //5u does about 1900-2600 pain.
+	if(pain_to_refund > 80)
+		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves them constant scans while preventing spam if IV'd.
+		to_chat(M, SPAN_GOOD("You feel the agony start to recede!"))
+		M.apply_effect(pain_to_refund * -0.5, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse in the game except for red nightshade. We only do half because a lot of it heals during the dose.
+	if(pain_to_refund > 4000)
+		to_chat(M, SPAN_WARNING("You're... free? Was life always so beautiful...?"))
+		M.apply_effect(pain_to_refund * -0.3, DAMAGE_PAIN) //If it's super bad, reduce further to mitigate OOC agony. We've been through multiple heart failures at this point. Let's be generous.
+	M.chem_tracking -= /singleton/reagent/toxin/panotoxin
+	pain_to_refund = null
 
 /singleton/reagent/toxin/phoron
 	name = "Phoron"
@@ -229,12 +270,12 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 0
-	overdose = 5
-	od_minimum_dose = 20
+	metabolism = REM * 0.5
+	overdose = 15
+	od_minimum_dose = 5
 	taste_description = "salt"
 
-/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	..()
+/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
@@ -250,13 +291,12 @@
 	description = "Potassium Chlorophoride is an expensive, vastly improved variant of Potassium Chloride. Potassium Chlorophoride, unlike the original drug, acts immediately to block neuromuscular junctions, causing general paralysis."
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	strength = 10
+	strength = 0
 	overdose = 5
 	od_minimum_dose = 20
 	taste_description = "salt"
 
 /singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
@@ -673,6 +713,33 @@
 	description = "A diluted nicotine solution."
 	reagent_state = LIQUID
 	nicotine = REM * 0.1
+	taste_mult = 2
+
+/singleton/reagent/toxin/oracle
+	name = "Oracle"
+	description = "Oracle originates from Vysoka, where it is often chewed, or dried and smoked or snorted. This is a common variant."
+	reagent_state = SOLID
+	color = "#ad5555"
+	taste_description = "tartness"
+	strength = 0
+	taste_mult = 10
+	var/caromeg = 0.2
+
+/singleton/reagent/toxin/oracle/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	holder.add_reagent(/singleton/reagent/mental/caromeg, removed * caromeg)
+
+/singleton/reagent/toxin/oracle/rich
+	name = "Vedamor Oracle"
+	color = "#ed1c1c"
+	description = "Vedamor is a city-state on Vysoka, renown for its high-quality soil. Their oracle is renown for being sweeter and more effective than the common variety."
+	taste_description = "sweetness"
+	caromeg = 0.5
+
+/singleton/reagent/toxin/oracle/liquid
+	name = "Caromeg Solution"
+	description = "A diluted caromeg solution, refined from oracle."
+	reagent_state = LIQUID
+	caromeg = REM * 0.1
 	taste_mult = 2
 
 /mob/living/carbon/human/proc/berserk_start()

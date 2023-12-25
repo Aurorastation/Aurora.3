@@ -24,7 +24,7 @@
 	. = ..()
 
 /obj/item/integrated_circuit/memory/storage/examine(mob/user)
-	..()
+	. = ..()
 	var/i
 	for (i in 1 to outputs.len)
 		var/datum/integrated_io/O = outputs[i]

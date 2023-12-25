@@ -21,20 +21,27 @@
 #define SPAN_SUBTLE(X) ("<span class='subtle'>" + X + "</span>")
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
 #define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
+#define SPAN_HEAR(X) ("<span class='hear'>" + X + "</span>")
+
+#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
+#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
+#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
+
+#define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
 
 #define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
 
-#define FONT_SIZE_SMALL 1
-#define FONT_SIZE_NORMAL 2
-#define FONT_SIZE_LARGE 3
-#define FONT_SIZE_HUGE 4
-#define FONT_SIZE_GIANT 5
+#define FONT_SIZE_SMALL "10px"
+#define FONT_SIZE_NORMAL "13px"
+#define FONT_SIZE_LARGE "16px"
+#define FONT_SIZE_HUGE "18px"
+#define FONT_SIZE_GIANT "24px"
 
-#define FONT_SMALL(X) ("<font size='1'>" + X + "</font>")
-#define FONT_NORMAL(X) ("<font size='2'>" + X + "</font>")
-#define FONT_LARGE(X) ("<font size='3'>" + X + "</font>")
-#define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
-#define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
+#define FONT_SMALL(X) SPAN_SIZE(FONT_SIZE_SMALL, X)
+#define FONT_NORMAL(X) SPAN_SIZE(FONT_SIZE_NORMAL, X)
+#define FONT_LARGE(X) SPAN_SIZE(FONT_SIZE_LARGE, X)
+#define FONT_HUGE(X) SPAN_SIZE(FONT_SIZE_HUGE, X)
+#define FONT_GIANT(X) SPAN_SIZE(FONT_SIZE_GIANT, X)
 
 #define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
 #define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
@@ -137,6 +144,9 @@
 #define isitem(D) istype(D, /obj/item)
 #define islist(D) istype(D, /list)
 
+/// Semantic define for a 0 int intended for use as a bitfield
+#define EMPTY_BITFIELD 0
+
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
 #define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
 
@@ -157,6 +167,9 @@
 
 /// Decrease the size of L by 1 from the end. Is the old last entry index.
 #define LIST_DEC(L) ((L).len--)
+
+/// Drops x into the the src's location, and then nulls its reference.
+#define DROP_NULL(x) if(x) { x.dropInto(loc); x = null}
 
 /// Radial input menu
 #define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)

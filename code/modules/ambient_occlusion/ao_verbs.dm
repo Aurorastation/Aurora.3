@@ -8,7 +8,7 @@
 	log_and_message_admins("has triggered a global ambient occlusion rebuild.")
 	to_chat(usr, "Beginning global AO rebuild.")
 
-	SSocclusion.disable()
+	SSao.disable()
 
 	for (var/turf/T in world)	// Yes, in world.
 		T.ao_neighbors = null	// To force a recalc.
@@ -18,6 +18,6 @@
 
 		CHECK_TICK
 
-	SSocclusion.enable()
+	SSao.enable()
 
 	to_chat(usr, "AO rebuild complete.")

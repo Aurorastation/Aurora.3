@@ -16,7 +16,7 @@
 	var/list/timestamp = list()
 	var/can_print = TRUE
 	var/obj/item/computer_hardware/hard_drive/portable/portable_drive
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 2
 	throw_speed = 4
 	throw_range = 20
@@ -115,6 +115,7 @@
 /obj/item/device/taperecorder/verb/stop()
 	set name = "Stop Recording"
 	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return

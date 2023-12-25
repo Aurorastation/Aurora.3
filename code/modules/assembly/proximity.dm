@@ -6,8 +6,8 @@
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
-	flags = PROXMOVE
-	wires = WIRE_PULSE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
+	wires = WIRE_PULSE_ASSEMBLY
 
 	secured = FALSE
 
@@ -37,7 +37,7 @@
 
 /obj/item/device/assembly/prox_sensor/HasProximity(atom/movable/AM as mob|obj)
 	if(!istype(AM))
-		log_debug("DEBUG: HasProximity called with [AM] on [src] ([usr]).")
+		LOG_DEBUG("DEBUG: HasProximity called with [AM] on [src] ([usr]).")
 		return
 	if(istype(AM, /obj/effect/beam))
 		return

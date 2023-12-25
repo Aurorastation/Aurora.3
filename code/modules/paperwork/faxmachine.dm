@@ -226,7 +226,7 @@ var/list/admin_departments
 	if (!istype(incoming, /obj/item/paper) && !istype(incoming, /obj/item/photo) && !istype(incoming, /obj/item/paper_bundle))
 		return 0
 
-	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
+	playsound(loc, 'sound/bureaucracy/print.ogg', 75, 1)
 
 	// give the sprite some time to flick
 	spawn(20)
@@ -314,7 +314,7 @@ var/list/admin_departments
 
 	discord_msg += " Gamemode: [SSticker.mode]"
 
-	discord_bot.send_to_cciaa(discord_msg)
+	SSdiscord.send_to_cciaa(discord_msg)
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
 	for(var/obj/item/modular_computer/pda in alert_pdas)
