@@ -8,7 +8,7 @@
 
 */
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
-GLOBAL_VAR_REAL(config, /datum/configuration)
+GLOBAL_DATUM_INIT(config, /datum/configuration, new)
 /*
 	Pre-map initialization stuff should go here.
 */
