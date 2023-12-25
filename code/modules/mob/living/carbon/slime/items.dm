@@ -137,9 +137,6 @@
 	filling.color = COLOR_PINK
 	add_overlay(filling)
 
-	initialized = TRUE
-	return INITIALIZE_HINT_NORMAL
-
 /obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
@@ -183,9 +180,6 @@
 	filling.color = COLOR_PALE_PINK
 	add_overlay(filling)
 
-	initialized = TRUE
-	return INITIALIZE_HINT_NORMAL
-
 /obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
@@ -226,11 +220,14 @@
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_GREEN
 	add_overlay(filling)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
@@ -262,11 +259,14 @@
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_BLUE
 	add_overlay(filling)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/effect/golemrune

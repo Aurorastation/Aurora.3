@@ -47,11 +47,11 @@
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
-/obj/item/organ/New(loc, ...)
-	..()
-	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
-		args[1] = TRUE
-		SSatoms.InitAtom(src, args)
+INITIALIZE_IMMEDIATE(/obj/item/organ)
+
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

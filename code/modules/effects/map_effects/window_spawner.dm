@@ -34,7 +34,7 @@
 
 	activate()
 
-	return INITIALIZE_HINT_LATEQDEL
+	return INITIALIZE_HINT_QDEL
 
 /obj/effect/map_effect/window_spawner/proc/activate()
 	if(activated)

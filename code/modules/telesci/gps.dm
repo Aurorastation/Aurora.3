@@ -322,6 +322,10 @@ var/list/GPS_list = list()
 /obj/item/device/gps/stationary/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	compass = new(src)
 	update_position()
 
@@ -352,7 +356,6 @@ var/list/GPS_list = list()
 
 	START_PROCESSING(SSprocessing, src)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
