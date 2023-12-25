@@ -122,6 +122,11 @@
 
 /obj/effect/decal/cleanable/foam/Initialize(mapload, amt = 1, nologs = 0)
 	SHOULD_CALL_PARENT(FALSE)
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	src.amount = amt
 
 	var/has_spread = 0
@@ -132,8 +137,6 @@
 			other.Spread()
 			has_spread = 1
 			break
-
-	initialized = TRUE
 
 	if(!has_spread)
 		Spread()

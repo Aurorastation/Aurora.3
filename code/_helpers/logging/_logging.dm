@@ -30,10 +30,25 @@
 	world.log <<  "## WARNING: [msg][log_end]"
 	log_world("WARNING: [msg]")
 
-//print a testing-mode debug message to world.log
-/proc/testing(msg)
-	world.log <<  "## TESTING: [msg][log_end]"
-	log_world("TESTING: [msg]")
+//print a testing-mode debug message to world.log and world
+#ifdef TESTING
+#define testing(msg) log_world("## TESTING: [msg]"); to_chat(world, "## TESTING: [msg]")
+
+//When we port GLOB ...
+//GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
+
+// we don't really check if a word or name is used twice, be aware of that
+#define testing_profile_start(NAME, LIST) LIST[NAME] = world.timeofday
+#define testing_profile_current(NAME, LIST) round((world.timeofday - LIST[NAME])/10,0.1)
+#define testing_profile_output(NAME, LIST) testing("[LIST["_PROFILE_NAME"]] profile of [NAME] is [testing_profile_current(NAME,LIST)]s")
+#define testing_profile_output_all(LIST) { for(var/_NAME in LIST) { testing_profile_current(,_NAME,LIST); }; };
+#else
+#define testing(msg)
+#define testing_profile_start(NAME, LIST)
+#define testing_profile_current(NAME, LIST)
+#define testing_profile_output(NAME, LIST)
+#define testing_profile_output_all(LIST)
+#endif
 
 /proc/game_log(category, text)
 	WRITE_LOG(GLOB.diary, "[game_id] [category]: [text][log_end]")

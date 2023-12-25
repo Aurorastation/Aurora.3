@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(events)
 
 	var/datum/event_meta/new_event = new
 
-	var/initialized = FALSE
+	initialized = FALSE
 
 /datum/controller/subsystem/events/Initialize()
 	allEvents = subtypesof(/datum/event)

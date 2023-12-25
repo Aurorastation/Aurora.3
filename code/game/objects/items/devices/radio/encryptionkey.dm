@@ -24,6 +24,10 @@
 	if(!current_map.use_overmap)
 		return ..()
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
@@ -38,7 +42,6 @@
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/encryptionkey/ship/common
