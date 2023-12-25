@@ -17,14 +17,14 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, ACCESS_GENETICS, access_heads,
+	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, ACCESS_ENGINE, access_ship_weapons, access_construction,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, ACCESS_MAINT_TUNNELS, access_intrepid, access_teleporter)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, ACCESS_GENETICS, access_heads,
+			access_keycard_auth, access_sec_doors, access_psychiatrist, ACCESS_EVA, access_external_airlocks, access_research, access_mining, access_mailsorting,
+			access_first_responder, ACCESS_MAINT_TUNNELS, access_intrepid, ACCESS_TELEPORTER)
+	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, ACCESS_ENGINE, access_ship_weapons, access_construction,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, ACCESS_MAINT_TUNNELS, access_intrepid, access_teleporter)
+			access_keycard_auth, access_sec_doors, access_psychiatrist, ACCESS_EVA, access_external_airlocks, access_research, access_mining, access_mailsorting,
+			access_first_responder, ACCESS_MAINT_TUNNELS, access_intrepid, ACCESS_TELEPORTER)
 
 	minimal_player_age = 10
 	ideal_character_age = list(
@@ -79,8 +79,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, access_eva)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_GENETICS, access_eva)
+	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, ACCESS_EVA)
+	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /datum/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -103,8 +103,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, access_eva)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_GENETICS, access_eva)
+	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, ACCESS_EVA)
+	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /datum/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -274,8 +274,8 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, access_eva, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_eva, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, access_research, access_sec_doors, access_external_airlocks, access_first_responder)
+	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
+	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, access_research, access_sec_doors, access_external_airlocks, access_first_responder)
 	outfit = /datum/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)

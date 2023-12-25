@@ -17,17 +17,17 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_SECURITY, access_eva, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY,
-					ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, access_all_personal_lockers,
+	access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY,
+					ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
 					access_research, ACCESS_ENGINE, access_ship_weapons, access_mining, ACCESS_MEDICAL, access_construction, access_mailsorting,
-					access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-					access_weapons, access_intrepid, access_teleporter)
+					ACCESS_HEADS, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+					access_weapons, access_intrepid, ACCESS_TELEPORTER)
 
-	minimal_access = list(ACCESS_SECURITY, access_eva, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY,
-							ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, access_all_personal_lockers,
+	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY,
+							ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
 							access_research, ACCESS_ENGINE, access_ship_weapons, access_mining, ACCESS_MEDICAL, access_construction, access_mailsorting,
-							access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-							access_weapons, access_intrepid, access_teleporter)
+							ACCESS_HEADS, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+							access_weapons, access_intrepid, ACCESS_TELEPORTER)
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
@@ -92,8 +92,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_SECURITY, access_eva, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, access_weapons)
-	minimal_access = list(ACCESS_SECURITY, access_eva, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY, access_external_airlocks, access_weapons)
+	access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, access_weapons)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
 
@@ -205,8 +205,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_SECURITY, access_eva, access_sec_doors, ACCESS_BRIG, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, access_weapons)
-	minimal_access = list(ACCESS_SECURITY, access_eva, access_sec_doors, ACCESS_BRIG, access_external_airlocks, access_weapons)
+	access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, access_weapons)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
 

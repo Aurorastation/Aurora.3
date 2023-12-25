@@ -34,7 +34,7 @@
 /obj/structure/closet/secure_closet/hangar_tech
 	name = "hangar technician's locker"
 	icon_state = "hangar_tech"
-	req_access = list(access_cargo)
+	req_access = list(ACCESS_CARGO)
 
 /obj/structure/closet/secure_closet/hangar_tech/fill()
 	..()
@@ -54,7 +54,7 @@
 /obj/structure/closet/secure_closet/machinist
 	name = "machinist's locker"
 	icon_state = "machinist"
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 /obj/structure/closet/secure_closet/machinist/fill()
 	..()
@@ -112,7 +112,7 @@
 /obj/structure/closet/secure_closet/package_courier
 	name = "courier's locker"
 	icon_state = "hangar_tech"
-	req_access = list(access_cargo)
+	req_access = list(ACCESS_CARGO)
 
 /obj/structure/closet/secure_closet/package_courier/fill()
 	..()

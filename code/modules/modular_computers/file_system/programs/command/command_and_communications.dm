@@ -4,8 +4,8 @@
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
-	required_access_run = access_heads
-	required_access_download = access_heads
+	required_access_run = ACCESS_HEADS
+	required_access_download = ACCESS_HEADS
 	requires_ntnet = TRUE
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP

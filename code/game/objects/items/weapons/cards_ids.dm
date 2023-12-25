@@ -426,7 +426,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/synthetic/cyborg/New()
 	..()
-	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
+	access = list(access_equipment, ACCESS_AI_UPLOAD, access_external_airlocks) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "mine drone identification card"
@@ -436,7 +436,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Minedrone"
 
 /obj/item/card/id/minedrone/New()
-	access = list(ACCESS_MAINT_TUNNELS, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_external_airlocks)
+	access = list(ACCESS_MAINT_TUNNELS, access_mailsorting, ACCESS_CARGO, access_cargo_bot, access_qm, access_mining, access_mining_station, access_external_airlocks)
 	..()
 
 /obj/item/card/id/centcom
@@ -517,7 +517,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "legion"
 
 /obj/item/card/id/distress/legion/New()
-	access = list(access_legion, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, access_research, access_atmospherics, access_medical_equip)
+	access = list(access_legion, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, access_research, ACCESS_ATMOSPHERICS, access_medical_equip)
 	..()
 
 /obj/item/card/id/distress/ap_eridani

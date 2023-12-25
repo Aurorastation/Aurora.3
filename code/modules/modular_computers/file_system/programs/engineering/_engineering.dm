@@ -22,8 +22,8 @@
 /datum/computer_file/program/alarm_monitor/all
 	filename = "alarmmonitorall"
 	filedesc = "Alarm Monitoring (All)"
-	required_access_download = access_heads
-	required_access_run = access_heads
+	required_access_download = ACCESS_HEADS
+	required_access_run = ACCESS_HEADS
 
 /datum/computer_file/program/alarm_monitor/all/New()
 	..()

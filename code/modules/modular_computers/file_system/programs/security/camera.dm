@@ -21,7 +21,7 @@
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
 			return access_mailsorting // Cargo office - all cargo staff should have access here.
 		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE, NETWORK_SERVICE, NETWORK_FIRST_DECK, NETWORK_SECOND_DECK, NETWORK_THIRD_DECK, NETWORK_INTREPID)
-			return access_heads
+			return ACCESS_HEADS
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return access_cent_specops
 
@@ -36,7 +36,7 @@
 	size = 12
 	available_on_ntnet = TRUE
 	requires_ntnet = TRUE
-	required_access_download = access_heads
+	required_access_download = ACCESS_HEADS
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "CameraMonitoring"

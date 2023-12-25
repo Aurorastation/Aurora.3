@@ -9,7 +9,7 @@ var/list/admin_departments
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads)
+	req_one_access = list(access_lawyer, ACCESS_HEADS)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200

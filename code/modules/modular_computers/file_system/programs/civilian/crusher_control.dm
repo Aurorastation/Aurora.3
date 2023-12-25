@@ -7,7 +7,7 @@
 	size = 8
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
-	required_access_run = list(access_janitor, access_first_responder)
+	required_access_run = list(ACCESS_JANITOR, access_first_responder)
 	required_access_download = access_hop
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_TELESCREEN

@@ -164,7 +164,7 @@
 
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 
 /obj/machinery/power/apc/vault/north
 	dir = NORTH

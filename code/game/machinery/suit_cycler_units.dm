@@ -90,7 +90,7 @@
 /obj/machinery/suit_cycler/captain
 	name = "captain suit cycler"
 	model_text = "Captain"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	departments = list("Captain")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE

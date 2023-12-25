@@ -7,7 +7,7 @@
 	icon_keyboard = "purple_key"
 	light_color = LIGHT_COLOR_PURPLE
 
-	req_one_access = list(access_rd, access_robotics)
+	req_one_access = list(ACCESS_RD, ACCESS_ROBOTICS)
 	circuit = /obj/item/circuitboard/robotics
 
 	var/safety = 1

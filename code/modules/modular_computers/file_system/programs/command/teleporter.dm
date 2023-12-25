@@ -8,7 +8,7 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
-	required_access_run = access_heads
+	required_access_run = ACCESS_HEADS
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "Teleporter"
 	var/datum/weakref/pad_ref

@@ -107,97 +107,97 @@
 
 #define ACCESS_AI_UPLOAD 16
 /datum/access/ai_upload
-	id = access_ai_upload
+	id = ACCESS_AI_UPLOAD
 	desc = "AI Upload"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_TELEPORTER 17
 /datum/access/teleporter
-	id = access_teleporter
+	id = ACCESS_TELEPORTER
 	desc = "Teleporter"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_EVA 18
 /datum/access/eva
-	id = access_eva
+	id = ACCESS_EVA
 	desc = "EVA"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_HEADS 19
 /datum/access/heads
-	id = access_heads
+	id = ACCESS_HEADS
 	desc = "Bridge"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_CAPTAIN 20
 /datum/access/captain
-	id = access_captain
+	id = ACCESS_CAPTAIN
 	desc = "Captain"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_ALL_PERSONAL_LOCKERS 21
 /datum/access/all_personal_lockers
-	id = access_all_personal_lockers
+	id = ACCESS_ALL_PERSONAL_LOCKERS
 	desc = "Personal Lockers"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_CHAPEL_OFFICE 22
 /datum/access/chapel_office
-	id = access_chapel_office
+	id = ACCESS_CHAPEL_OFFICE
 	desc = "Chapel Office"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_TECH_STORAGE 23
 /datum/access/tech_storage
-	id = access_tech_storage
+	id = ACCESS_TECH_STORAGE
 	desc = "Technical Storage"
 	region = ACCESS_REGION_ENGINEERING
 
 #define ACCESS_ATMOSPHERICS 24
 /datum/access/atmospherics
-	id = access_atmospherics
+	id = ACCESS_ATMOSPHERICS
 	desc = "Atmospherics"
 	region = ACCESS_REGION_ENGINEERING
 
 #define ACCESS_BAR 25
 /datum/access/bar
-	id = access_bar
+	id = ACCESS_BAR
 	desc = "Bar"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_JANITOR 26
 /datum/access/janitor
-	id = access_janitor
+	id = ACCESS_JANITOR
 	desc = "Custodial Closet"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_CREMATORIUM 27
 /datum/access/crematorium
-	id = access_crematorium
+	id = ACCESS_CREMATORIUM
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_KITCHEN 28
 /datum/access/kitchen
-	id = access_kitchen
+	id = ACCESS_KITCHEN
 	desc = "Kitchen"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_ROBOTICS 29
 /datum/access/robotics
-	id = access_robotics
+	id = ACCESS_ROBOTICS
 	desc = "Robotics"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_RD 30
 /datum/access/rd
-	id = access_rd
+	id = ACCESS_RD
 	desc = "Research Director"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_CARGO 31
 /datum/access/cargo
-	id = access_cargo
+	id = ACCESS_CARGO
 	desc = "Cargo Bay"
 	region = ACCESS_REGION_SUPPLY
 

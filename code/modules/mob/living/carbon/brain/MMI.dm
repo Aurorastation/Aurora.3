@@ -12,7 +12,7 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 

@@ -104,7 +104,7 @@
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
-	var/list/req_access = list(access_robotics)
+	var/list/req_access = list(ACCESS_ROBOTICS)
 	var/key_type
 	var/scrambled_codes = FALSE // When true, doesn't show up on robotics console.
 

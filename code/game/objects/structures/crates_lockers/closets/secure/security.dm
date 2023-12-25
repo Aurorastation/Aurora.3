@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/captains
 	name = "captain's locker"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains/fill()
@@ -28,7 +28,7 @@
 
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains2/fill()
@@ -305,7 +305,7 @@
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 
 /obj/structure/closet/secure_closet/injection/fill()
 	new /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral(src)

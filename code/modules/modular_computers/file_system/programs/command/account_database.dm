@@ -37,7 +37,7 @@
 		return 0
 	if(access_cent_ccia in held_card.access)
 		return 2
-	else if((access_hop in held_card.access) || (access_captain in held_card.access))
+	else if((access_hop in held_card.access) || (ACCESS_CAPTAIN in held_card.access))
 		return 1
 
 /datum/computer_file/program/account_db/proc/create_transation(target, reason, amount)

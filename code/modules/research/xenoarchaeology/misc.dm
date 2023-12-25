@@ -106,9 +106,9 @@
 //---- Isolation room air alarms
 
 /obj/machinery/alarm/isolation
-	req_one_access = list(access_research, access_atmospherics, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(access_research, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/alarm/monitor/isolation
-	req_one_access = list(access_research, access_atmospherics, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(access_research, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	locked = 0
 	remote_control = 1

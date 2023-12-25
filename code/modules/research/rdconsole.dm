@@ -867,7 +867,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
 	id = 1
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
 
 /obj/machinery/computer/rdconsole/core

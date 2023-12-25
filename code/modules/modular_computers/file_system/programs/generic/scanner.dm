@@ -41,6 +41,6 @@
 	filedesc = "Gas Analyzer"
 	extended_desc = "A scanning suite capable of detecting and parsing gaseous conditions within a closed atmospheric system."
 	available_on_ntnet = TRUE
-	required_access_run = list(access_atmospherics, access_research)
-	required_access_download = list(access_atmospherics, access_research)
+	required_access_run = list(ACCESS_ATMOSPHERICS, access_research)
+	required_access_download = list(ACCESS_ATMOSPHERICS, access_research)
 	mode = SCANNER_GAS

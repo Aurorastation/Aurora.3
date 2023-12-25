@@ -110,7 +110,7 @@
 	item_state = "briefcase"
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_SMALL
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"

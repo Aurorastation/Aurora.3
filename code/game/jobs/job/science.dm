@@ -18,15 +18,15 @@
 	)
 
 	access = list(
-		access_rd, access_heads, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, access_eva, access_external_airlocks, ACCESS_TOX_STORAGE,
-		access_teleporter, access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
-		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
+		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, access_external_airlocks, ACCESS_TOX_STORAGE,
+		ACCESS_TELEPORTER, access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
+		access_xenobiology, access_xenobotany, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
 		access_xenoarch, access_network, ACCESS_MAINT_TUNNELS, access_it, access_intrepid
 	)
 	minimal_access = list(
-		access_rd, access_heads, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, access_eva, access_external_airlocks, ACCESS_TOX_STORAGE,
-		access_teleporter, access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
-		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
+		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, access_external_airlocks, ACCESS_TOX_STORAGE,
+		ACCESS_TELEPORTER, access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
+		access_xenobiology, access_xenobotany, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
 		access_xenoarch, access_network, ACCESS_MAINT_TUNNELS, access_it, access_intrepid
 	)
 	minimal_player_age = 14

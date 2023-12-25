@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	var/last_change = 0
 	var/last_gravity_change = 0
 
-	req_one_access = list(access_heads, access_chapel_office)
+	req_one_access = list(ACCESS_HEADS, ACCESS_CHAPEL_OFFICE)
 	var/locked = FALSE
 
 /obj/machinery/computer/holodeck_control/Initialize()

@@ -126,7 +126,7 @@
 
 
 	//But only cargo can switch between the pages
-	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(usr))
+	if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 

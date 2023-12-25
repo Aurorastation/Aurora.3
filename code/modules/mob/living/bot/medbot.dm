@@ -2,7 +2,7 @@
 	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon_state = "medibot0"
-	req_one_access = list(ACCESS_MEDICAL, access_robotics)
+	req_one_access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS)
 	botcard_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS)
 
 	var/obj/item/storage/firstaid/firstaid_item

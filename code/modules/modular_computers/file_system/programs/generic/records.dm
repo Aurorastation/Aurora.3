@@ -37,8 +37,8 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(access_medical_equip, ACCESS_FORENSICS_LOCKERS, access_robotics, access_hop)
-	required_access_download = list(access_heads, access_medical_equip, ACCESS_FORENSICS_LOCKERS, access_robotics)
+	required_access_run = list(access_medical_equip, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS, access_hop)
+	required_access_download = list(ACCESS_HEADS, access_medical_equip, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
@@ -55,7 +55,7 @@
 	record_prefix = "Security "
 
 	required_access_run = list(ACCESS_SECURITY, ACCESS_FORENSICS_LOCKERS, access_lawyer, access_hop)
-	required_access_download = list(access_heads, ACCESS_SECURITY)
+	required_access_download = list(ACCESS_HEADS, ACCESS_SECURITY)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
@@ -71,9 +71,9 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(access_heads, access_lawyer, access_consular)
+	required_access_run = list(ACCESS_HEADS, access_lawyer, access_consular)
 	requires_access_to_download = PROGRAM_ACCESS_ONE
-	required_access_download = access_heads
+	required_access_download = ACCESS_HEADS
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY

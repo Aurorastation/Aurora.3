@@ -84,7 +84,7 @@
 // Atmospherics Technician
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "atmospheric technician's locker"
-	req_access = list(access_atmospherics)
+	req_access = list(ACCESS_ATMOSPHERICS)
 	icon_state = "atmos"
 
 /obj/structure/closet/secure_closet/atmos_personal/fill()

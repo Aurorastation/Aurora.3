@@ -68,7 +68,7 @@
 
 	// ID and Access
 	law_update = FALSE
-	req_access = list(ACCESS_ENGINE, access_robotics)
+	req_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
 	var/hacked = FALSE
 
 	// Laws

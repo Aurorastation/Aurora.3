@@ -108,15 +108,15 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/xo
 
-	access = list(access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, ACCESS_CHANGE_IDS, access_eva, access_heads,
-					access_all_personal_lockers, ACCESS_MAINT_TUNNELS, access_bar, access_janitor, access_construction,
-					access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
-					access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, access_teleporter)
+	access = list(access_sec_doors, ACCESS_MEDICAL, ACCESS_ENGINE, access_ship_weapons, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS,
+					ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, access_construction,
+					ACCESS_CREMATORIUM, ACCESS_KITCHEN, access_hydroponics,ACCESS_CHAPEL_OFFICE, access_library, access_research, access_mining, access_mailsorting,
+					ACCESS_JANITOR, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, ACCESS_TELEPORTER)
 
-	minimal_access = list(access_sec_doors, ACCESS_MEDICAL, access_ship_weapons, ACCESS_ENGINE, ACCESS_CHANGE_IDS, access_eva, access_heads,
-							access_all_personal_lockers, ACCESS_MAINT_TUNNELS, access_bar, access_janitor, access_construction,
-							access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
-							access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, access_teleporter)
+	minimal_access = list(access_sec_doors, ACCESS_MEDICAL, access_ship_weapons, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS,
+							ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, access_construction,
+							ACCESS_CREMATORIUM, ACCESS_KITCHEN, access_hydroponics, ACCESS_CHAPEL_OFFICE, access_library, access_research, access_mining, access_mailsorting,
+							ACCESS_JANITOR,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, ACCESS_TELEPORTER)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -171,8 +171,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/bridge_crew
 
-	access = list(access_eva, access_heads, ACCESS_MAINT_TUNNELS, access_weapons, access_bridge_crew, access_intrepid, access_teleporter, access_external_airlocks)
-	minimal_access = list(access_heads, access_eva, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_teleporter, access_external_airlocks)
+	access = list(ACCESS_EVA, ACCESS_HEADS, ACCESS_MAINT_TUNNELS, access_weapons, access_bridge_crew, access_intrepid, ACCESS_TELEPORTER, access_external_airlocks)
+	minimal_access = list(ACCESS_HEADS, ACCESS_EVA, access_gateway, access_weapons, access_bridge_crew, access_intrepid, ACCESS_TELEPORTER, access_external_airlocks)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 

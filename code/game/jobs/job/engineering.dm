@@ -24,15 +24,15 @@
 	)
 
 
-	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, access_tech_storage, ACCESS_MAINT_TUNNELS,
-					access_teleporter, access_external_airlocks, access_atmospherics, ACCESS_EMERGENCY_STORAGE, access_eva, access_leviathan, access_ship_weapons,
-					access_heads, access_construction, access_sec_doors, access_research, ACCESS_MEDICAL, access_mining, access_mailsorting,
-					access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
+	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
+					ACCESS_TELEPORTER, access_external_airlocks, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, access_leviathan, access_ship_weapons,
+					ACCESS_HEADS, access_construction, access_sec_doors, access_research, ACCESS_MEDICAL, access_mining, access_mailsorting,
+					access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, ACCESS_AI_UPLOAD, access_it, access_intrepid, access_network)
 
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, access_tech_storage, ACCESS_MAINT_TUNNELS,
-							access_teleporter, access_external_airlocks, access_atmospherics, ACCESS_EMERGENCY_STORAGE, access_eva, access_leviathan, access_ship_weapons,
-							access_heads, access_construction, access_sec_doors, access_research, ACCESS_MEDICAL, access_mining, access_mailsorting,
-							access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
+	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
+							ACCESS_TELEPORTER, access_external_airlocks, ACCESS_ATMOSPHERICS, ACCESS_EMERGENCY_STORAGE, ACCESS_EVA, access_leviathan, access_ship_weapons,
+							ACCESS_HEADS, access_construction, access_sec_doors, access_research, ACCESS_MEDICAL, access_mining, access_mailsorting,
+							access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, ACCESS_AI_UPLOAD, access_it, access_bridge_crew, access_intrepid, access_network)
 
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
@@ -95,8 +95,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_eva, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, access_tech_storage, ACCESS_MAINT_TUNNELS, access_ship_weapons, access_external_airlocks, access_construction, access_atmospherics, access_leviathan)
-	minimal_access = list(access_eva, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, access_tech_storage, ACCESS_MAINT_TUNNELS, access_ship_weapons, access_external_airlocks, access_construction, access_leviathan)
+	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, access_ship_weapons, access_external_airlocks, access_construction, ACCESS_ATMOSPHERICS, access_leviathan)
+	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, access_ship_weapons, access_external_airlocks, access_construction, access_leviathan)
 	outfit = /datum/outfit/job/engineer
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -163,8 +163,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_eva, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, access_tech_storage, ACCESS_MAINT_TUNNELS, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
-	minimal_access = list(access_eva, ACCESS_ENGINE, access_atmospherics, ACCESS_MAINT_TUNNELS, ACCESS_EMERGENCY_STORAGE, access_construction, access_external_airlocks)
+	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, access_external_airlocks, access_construction, ACCESS_ATMOSPHERICS, access_external_airlocks)
+	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS, ACCESS_EMERGENCY_STORAGE, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 

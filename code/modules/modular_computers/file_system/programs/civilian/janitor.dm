@@ -6,8 +6,8 @@
 	extended_desc = "This program is used by custodial staff to keep track of work-related supplies."
 	usage_flags = PROGRAM_ALL_REGULAR
 	size = 4
-	required_access_run = access_janitor
-	required_access_download = access_janitor
+	required_access_run = ACCESS_JANITOR
+	required_access_download = ACCESS_JANITOR
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	tgui_id = "Janitor"

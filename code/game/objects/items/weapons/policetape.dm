@@ -86,7 +86,7 @@ var/list/tape_roll_applications = list()
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
 	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
-	req_one_access = list(ACCESS_ENGINE, access_atmospherics)
+	req_one_access = list(ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 
@@ -116,7 +116,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/custodial
 	name = "custodial holographic tape"
 	desc = "A length of custodial tape. Better not cross it."
-	req_one_access = list(access_janitor)
+	req_one_access = list(ACCESS_JANITOR)
 	icon_base = "custodial"
 
 /obj/item/taperoll/attack_self(mob/user as mob)
