@@ -1,3 +1,19 @@
+#define ACCESS_REGION_NONE -1
+#define ACCESS_REGION_ALL 0
+#define ACCESS_REGION_SECURITY 1
+#define ACCESS_REGION_MEDBAY 2
+#define ACCESS_REGION_RESEARCH 3
+#define ACCESS_REGION_ENGINEERING 4
+#define ACCESS_REGION_COMMAND 5
+#define ACCESS_REGION_GENERAL 6
+#define ACCESS_REGION_SUPPLY 7
+
+#define ACCESS_TYPE_NONE 0
+#define ACCESS_TYPE_CENTCOM 1
+#define ACCESS_TYPE_STATION 2
+#define ACCESS_TYPE_SYNDICATE 4
+#define ACCESS_TYPE_ALL (ACCESS_TYPE_CENTCOM|ACCESS_TYPE_STATION|ACCESS_TYPE_SYNDICATE)
+
 /datum/access
 	var/id = 0
 	var/desc = ""
@@ -88,8 +104,8 @@
 	region = ACCESS_REGION_ENGINEERING
 
 #define ACCESS_EXTERNAL_AIRLOCKS 13
-/datum/access/ACCESS_EXTERNAL_AIRLOCKS
-	id = access_external_airlocks
+/datum/access/external_airlocks
+	id = ACCESS_EXTERNAL_AIRLOCKS
 	desc = "External Airlocks"
 	region = ACCESS_REGION_ENGINEERING
 
@@ -600,7 +616,7 @@
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_CIVILIAN_STATION 206
-/datum/access/ACCESS_CIVILIAN_STATION
+/datum/access/civilian_station
 	id = ACCESS_CIVILIAN_STATION
 	access_type = ACCESS_TYPE_CENTCOM
 
@@ -665,8 +681,8 @@
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_KONYANG_VENDORS 219
-/datum/access/ACCESS_KONYANG_VENDORS
-	id = access_konyang_vendors
+/datum/access/konyang_vendors
+	id = ACCESS_KONYANG_VENDORS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_IDRIS 220

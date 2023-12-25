@@ -120,7 +120,7 @@
 /obj/machinery/computer/shuttle_control/explore/elyran_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Elyran Naval Shuttle"
-	req_access = list(access_elyran_naval_infantry_ship)
+	req_access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP)
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"

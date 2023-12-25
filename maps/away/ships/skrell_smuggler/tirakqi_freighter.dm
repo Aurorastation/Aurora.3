@@ -113,7 +113,7 @@
 /obj/machinery/computer/shuttle_control/explore/tirakqi_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ti'Rakqi Shuttle"
-	req_access = list(access_skrell)
+	req_access = list(ACCESS_SKRELL)
 
 /datum/shuttle/autodock/overmap/tirakqi_shuttle
 	name = "Ti'Rakqi Shuttle"

@@ -31,7 +31,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/pill_bottle/rmt = 1)
 
 /datum/outfit/admin/scarab/get_id_access()
-	return list(access_external_airlocks)
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/coc_scarab/captain
 	name = "Scarab Salvager Captain"

@@ -33,7 +33,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	var/tiles_in_y_direction = 1
 	var/id_to_link
 	var/radio_frequency = 1379
-	var/required_access = list(access_external_airlocks)
+	var/required_access = list(ACCESS_EXTERNAL_AIRLOCKS)
 	var/door_name = "external access"
 	var/door_type = /obj/machinery/door/airlock/external
 	var/one_door_interior //For square airlocks, if you set this then a) only one door will spawn, and b) you can choose if the door should go opposite to how it normally goes. Please use the define
@@ -324,7 +324,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 
 /obj/effect/map_effect/airlock/long/square/e_to_s/telecoms
 	door_name = "telecoms external access"
-	required_access = list(ACCESS_TCOMSAT, access_external_airlocks)
+	required_access = list(ACCESS_TCOMSAT, ACCESS_EXTERNAL_AIRLOCKS)
 	door_type = /obj/machinery/door/airlock/external
 
 /obj/effect/map_effect/airlock/long/square/three/syndicate
