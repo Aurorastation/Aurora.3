@@ -40,7 +40,7 @@
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/recharger
+		/obj/item/rig_module/recharger,
 		/obj/item/rig_module/mounted/skrell_gun
 		)
 
