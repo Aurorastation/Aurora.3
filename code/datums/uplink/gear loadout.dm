@@ -169,6 +169,17 @@
 	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail/single
 	telecrystal_cost = 10
 
+/datum/uplink_item/item/gear_loadout/qukala
+	name = "Qukala Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits and hardsuit are only usable by Skrell."
+	path = /obj/structure/closet/crate/gear_loadout/qukala
+
+/datum/uplink_item/item/gear_loadout/qukala_single
+	name = "Qukala Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Skrell."
+	path = /obj/structure/closet/crate/gear_loadout/qukala/single
+	telecrystal_cost = 10
+
 /datum/uplink_item/item/gear_loadout/imperial_army
 	name = "Imperial Army Assets (Group)"
 	desc = "A crate containing gear for a group."

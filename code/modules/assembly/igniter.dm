@@ -8,7 +8,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 50)
 
 	secured = TRUE
-	wires = WIRE_RECEIVE
+	wires = WIRE_RECEIVE_ASSEMBLY
 
 /obj/item/device/assembly/igniter/activate()
 	. = ..()

@@ -35,6 +35,40 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">25 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed AI chamber computers missing programs.</li>
+				<li class="bugfix">Fixed various possible runtimes on qdeleted organs.</li>
+				<li class="bugfix">Fixed device assemblies, which also fixes some chem grenades like the cleaner grenades, that were using wrong wires.</li>
+				<li class="backend">Moved the wires from constant vars to defines, moved inside the wires define file, DMdoc&#x27;d them from the comments they had.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You now need a direct line of sight to establish and use the Psi Grip (crush) ability. You do not have to maintain line of sight to keep the grip active, however.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Qukala hardsuit and gear crates.</li>
+				<li class="rscadd">Adds Einstein, Tupkala and Vaurca ninja hardsuits.</li>
+				<li class="tweak">Changes Skrell and Vaurca hardsuit armor values to be more usable in normal gameplay.</li>
+				<li class="tweak">Removes AI containers from anti-AI factions&#x27; hardsuits and adds AI containers to the uplink.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the required access for the bridge security lockers so only command members can open them, not bridge crew.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Revamped the CCIA Human Resources Asssistant to wear a more formal coat and tie. They now (subjectively) look twice as intimidating.</li>
+				<li class="rscadd">CCIA HRAs now come with additional self-defense weaponry - a gun and a baton - as well as a holster for said gun and a laptop.</li>
+				<li class="rscadd">Added additional lights to the corporate liaisons&#x27; office to brighten them up, as well as photocopiers.</li>
+				<li class="rscadd">Added disposal bins, fire extinguishers, and a photocopier to the bridge vestibule.</li>
+				<li class="rscadd">Added light switches and privacy shutters to the captain&#x27;s office. Moved things around so the _loaded gun_ in a display case is now in the secure part of the captain&#x27;s office.</li>
+				<li class="rscadd">Added shutters to the CCIA room, and replaced the paper cups with proper drinking glasses.</li>
+				<li class="rscadd">Added miscellaneous additional lights and light switches.</li>
+			</ul>
+
 			<h2 class="date">24 December 2023</h2>
 			<h3 class="author">Alberyk, Suethecake updated:</h3>
 			<ul class="changes bgimages16">
@@ -48,6 +82,11 @@
 				<li class="bugfix">Repathed wrong chainsaw sounds to the correct path.</li>
 				<li class="soundadd">Added a missed sound that was forgotten when porting the overmap sensors, from Nebula.</li>
 				<li class="backend">The CI now checks that all sounds are referenced with a static path.</li>
+				<li class="bugfix">The AI can now spawn at roundstart correctly.</li>
+				<li class="bugfix">Solved various roundtimes when the AI core is wiped.</li>
+				<li class="bugfix">Solved a runtime with programs when the computer was GCd.</li>
+				<li class="bugfix">Solved an issue that runtimed the AI mob initialization due to it being created in nullspace at roundstart, for the atmos monitoring program.</li>
+				<li class="rscdel">Removed the ability to disable the AI in a gamemode, noone used it anyways and it gave issues with the fix for the roundstart initialization.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
