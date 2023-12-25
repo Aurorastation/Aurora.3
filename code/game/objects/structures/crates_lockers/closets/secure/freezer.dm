@@ -73,7 +73,7 @@
 /obj/structure/closet/secure_closet/freezer/money
 	name = "freezer"
 	desc = "This contains cold hard cash."
-	req_access = list(access_heads_vault)
+	req_access = list(ACCESS_HEADS_VAULT)
 
 /obj/structure/closet/secure_closet/freezer/money/fill()
 	..()

@@ -622,7 +622,7 @@
 	icon_vend = "med-vend"
 	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,

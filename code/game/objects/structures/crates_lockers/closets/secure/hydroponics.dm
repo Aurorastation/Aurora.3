@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/hydroponics
 	name = "botanist's locker"
-	req_access = list(access_hydroponics)
+	req_access = list(ACCESS_HYDROPONICS)
 	icon_state = "hydro"
 
 /obj/structure/closet/secure_closet/hydroponics/fill()
@@ -23,7 +23,7 @@
 
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"
-	req_access = list(access_xenobotany)
+	req_access = list(ACCESS_XENOBOTANY)
 	icon_state = "xenobot"
 
 /obj/structure/closet/secure_closet/xenobotany/fill()

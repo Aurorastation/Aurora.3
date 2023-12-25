@@ -80,7 +80,7 @@
 	return list()
 
 /proc/get_distress_access()
-	return list(access_legion, access_distress, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, access_research, ACCESS_ATMOSPHERICS, access_medical_equip, access_construction)
+	return list(access_legion, access_distress, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP, ACCESS_CONSTRUCTION)
 
 /proc/get_distress_access_lesser()
 	return list(access_distress, access_external_airlocks)

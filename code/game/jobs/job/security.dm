@@ -17,17 +17,17 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY,
+	access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY,
 					ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
-					access_research, ACCESS_ENGINE, access_ship_weapons, access_mining, ACCESS_MEDICAL, access_construction, access_mailsorting,
-					ACCESS_HEADS, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-					access_weapons, access_intrepid, ACCESS_TELEPORTER)
+					ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
+					ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, access_external_airlocks,
+					ACCESS_WEAPONS, ACCESS_INTREPID, ACCESS_TELEPORTER)
 
-	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY,
+	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY,
 							ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
-							access_research, ACCESS_ENGINE, access_ship_weapons, access_mining, ACCESS_MEDICAL, access_construction, access_mailsorting,
-							ACCESS_HEADS, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-							access_weapons, access_intrepid, ACCESS_TELEPORTER)
+							ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
+							ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, access_external_airlocks,
+							ACCESS_WEAPONS, ACCESS_INTREPID, ACCESS_TELEPORTER)
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
@@ -92,8 +92,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, access_weapons)
-	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_ARMORY, access_external_airlocks, access_weapons)
+	access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, ACCESS_WEAPONS)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, access_external_airlocks, ACCESS_WEAPONS)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
 
@@ -152,8 +152,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_SECURITY, access_sec_doors, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, access_weapons)
-	minimal_access = list(ACCESS_SECURITY, access_sec_doors, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, access_weapons)
+	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_WEAPONS)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_WEAPONS)
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
 	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -205,8 +205,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, access_weapons)
-	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, access_sec_doors, ACCESS_BRIG, access_external_airlocks, access_weapons)
+	access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, access_external_airlocks, ACCESS_WEAPONS)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, access_external_airlocks, ACCESS_WEAPONS)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
 
@@ -267,8 +267,8 @@
 	spawn_positions = 2
 	supervisors = "the Head of Security"
 	selection_color = "#991818"
-	access = list(ACCESS_SECURITY, access_sec_doors, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_SECURITY, access_sec_doors)
+	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS)
 	outfit = /datum/outfit/job/intern_sec
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,

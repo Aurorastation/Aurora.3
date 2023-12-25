@@ -17,14 +17,14 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, ACCESS_ENGINE, access_ship_weapons, access_construction,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, ACCESS_EVA, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, ACCESS_MAINT_TUNNELS, access_intrepid, ACCESS_TELEPORTER)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, ACCESS_ENGINE, access_ship_weapons, access_construction,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, ACCESS_EVA, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, ACCESS_MAINT_TUNNELS, access_intrepid, ACCESS_TELEPORTER)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
+			ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
+			ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, access_external_airlocks, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
+			ACCESS_FIRST_RESPONDER, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_TELEPORTER)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
+			ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
+			ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, access_external_airlocks, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
+			ACCESS_FIRST_RESPONDER, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_TELEPORTER)
 
 	minimal_player_age = 10
 	ideal_character_age = list(
@@ -79,8 +79,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, ACCESS_EVA)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_GENETICS, ACCESS_EVA)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /datum/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -103,8 +103,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, ACCESS_EVA)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_GENETICS, ACCESS_EVA)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /datum/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -167,8 +167,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, access_pharmacy, access_virology)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
 	outfit = /datum/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -217,8 +217,8 @@
 
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_GENETICS, access_psychiatrist)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, access_psychiatrist)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_PSYCHIATRIST)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
 	alt_titles = list("Psychologist")
 	outfit = /datum/outfit/job/psychiatrist
 	alt_outfits = list("Psychologist" = /datum/outfit/job/psychiatrist/psycho)
@@ -274,8 +274,8 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, access_pharmacy, access_virology, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip, ACCESS_MORGUE, access_surgery, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, access_research, access_sec_doors, access_external_airlocks, access_first_responder)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, access_external_airlocks, ACCESS_PSYCHIATRIST, ACCESS_FIRST_RESPONDER)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, access_external_airlocks, ACCESS_FIRST_RESPONDER)
 	outfit = /datum/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -345,8 +345,8 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(ACCESS_MEDICAL, access_medical_equip)
-	minimal_access = list(ACCESS_MEDICAL, access_medical_equip)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,

@@ -6,7 +6,7 @@
 /obj/structure/closet/secure_closet/operations_manager
 	name = "operations manager's locker"
 	icon_state = "om"
-	req_access = list(access_qm)
+	req_access = list(ACCESS_QM)
 
 /obj/structure/closet/secure_closet/operations_manager/fill()
 	new /obj/item/clothing/under/rank/operations_manager(src)
@@ -76,7 +76,7 @@
 /obj/structure/closet/secure_closet/miner
 	name = "miner's locker"
 	icon_state = "miner"
-	req_access = list(access_mining)
+	req_access = list(ACCESS_MINING)
 
 /obj/structure/closet/secure_closet/miner/fill()
 	..()

@@ -32,8 +32,8 @@
 	filedesc = "Reagent Analyzer"
 	extended_desc = "A scanning suite capable of detecting active chemical reagents."
 	available_on_ntnet = TRUE
-	required_access_run = access_research
-	required_access_download = access_research
+	required_access_run = ACCESS_RESEARCH
+	required_access_download = ACCESS_RESEARCH
 	mode = SCANNER_REAGENT
 
 /datum/computer_file/program/scanner/gas
@@ -41,6 +41,6 @@
 	filedesc = "Gas Analyzer"
 	extended_desc = "A scanning suite capable of detecting and parsing gaseous conditions within a closed atmospheric system."
 	available_on_ntnet = TRUE
-	required_access_run = list(ACCESS_ATMOSPHERICS, access_research)
-	required_access_download = list(ACCESS_ATMOSPHERICS, access_research)
+	required_access_run = list(ACCESS_ATMOSPHERICS, ACCESS_RESEARCH)
+	required_access_download = list(ACCESS_ATMOSPHERICS, ACCESS_RESEARCH)
 	mode = SCANNER_GAS

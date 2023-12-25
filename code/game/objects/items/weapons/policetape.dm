@@ -59,7 +59,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/medical
 	name = "medical tape"
 	desc = "A length of medical tape. Better not cross it."
-	req_one_access = list(access_medical_equip)
+	req_one_access = list(ACCESS_MEDICAL_EQUIP)
 	icon_base = "medical"
 
 /obj/item/taperoll/science
@@ -72,7 +72,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/science
 	name = "science tape"
 	desc = "A length of science tape. Better not cross it."
-	req_one_access = list(access_research)
+	req_one_access = list(ACCESS_RESEARCH)
 	icon_base = "science"
 
 /obj/item/taperoll/engineering

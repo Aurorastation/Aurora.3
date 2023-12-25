@@ -203,246 +203,247 @@
 
 #define ACCESS_CONSTRUCTION 32
 /datum/access/construction
-	id = access_construction
+	id = ACCESS_CONSTRUCTION
 	desc = "Construction Areas"
 	region = ACCESS_REGION_ENGINEERING
 
 #define ACCESS_PHARMACY 33
 /datum/access/pharmacy
-	id = access_pharmacy
+	id = ACCESS_PHARMACY
 	desc = "Pharmacy Lab"
 	region = ACCESS_REGION_MEDBAY
 
 #define ACCESS_CARGO_BOT 34
 /datum/access/cargo_bot
-	id = access_cargo_bot
+	id = ACCESS_CARGO_BOT
 	desc = "Cargo Bot Delivery"
 	region = ACCESS_REGION_SUPPLY
 
 #define ACCESS_HYDROPONICS 35
 /datum/access/hydroponics
-	id = access_hydroponics
+	id = ACCESS_HYDROPONICS
 	desc = "Hydroponics"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_MANUFACTURING 36
 /datum/access/manufacturing
-	id = access_manufacturing
+	id = ACCESS_MANUFACTURING
 	desc = "Manufacturing"
 	access_type = ACCESS_TYPE_NONE
 
 #define ACCESS_LIBRARY 37
 /datum/access/library
-	id = access_library
+	id = ACCESS_LIBRARY
 	desc = "Library"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_LAWYER 38
 /datum/access/lawyer
-	id = access_lawyer
+	id = ACCESS_LAWYER
 	desc = "Representative"
 	region = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_VIROLOGY 39
 /datum/access/virology
-	id = access_virology
+	id = ACCESS_VIROLOGY
 	desc = "Virology"
 	region = ACCESS_REGION_MEDBAY
 
 #define ACCESS_CMO 40
 /datum/access/cmo
-	id = access_cmo
+	id = ACCESS_CMO
 	desc = "Chief Medical Officer"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_QM 41
 /datum/access/qm
-	id = access_qm
+	id = ACCESS_QM
 	desc = "Operations Manager"
 	region = ACCESS_REGION_SUPPLY
 
 #define ACCESS_NETWORK 42
 /datum/access/network
-	id = access_network
+	id = ACCESS_NETWORK
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_LEVIATHAN 43
 /datum/access/leviathan
-	id = access_leviathan
+	id = ACCESS_LEVIATHAN
 	desc = "Leviathan"
 	region = ACCESS_REGION_COMMAND
 
-// /var/const/free_access_id = 44
+// free_access_id = 44
 
 #define ACCESS_SURGERY 45
 /datum/access/surgery
-	id = access_surgery
+	id = ACCESS_SURGERY
 	desc = "Surgery"
 	region = ACCESS_REGION_MEDBAY
 
-// /var/const/free_access_id = 46
+// free_access_id = 46
 
 #define ACCESS_RESEARCH 47
 /datum/access/research
-	id = access_research
+	id = ACCESS_RESEARCH
 	desc = "Science"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_MINING 48
 /datum/access/mining
-	id = access_mining
+	id = ACCESS_MINING
 	desc = "Mining"
 	region = ACCESS_REGION_SUPPLY
 
 #define ACCESS_MINING_OFFICE 49
 /datum/access/mining_office
-	id = access_mining_office
+	id = ACCESS_MINING_OFFICE
 	desc = "Mining Office"
 	access_type = ACCESS_TYPE_NONE
 
 #define ACCESS_MAILSORTING 50
 /datum/access/mailsorting
-	id = access_mailsorting
+	id = ACCESS_MAILSORTING
 	desc = "Cargo Office"
 	region = ACCESS_REGION_SUPPLY
 
-// /var/const/free_access_id = 51
+// free_access_id = 51
+
 #define ACCESS_XENOBOTANY 52
 /datum/access/xenobotany
-	id = access_xenobotany
+	id = ACCESS_XENOBOTANY
 	desc = "Xenobotany"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_HEADS_VAULT 53
 /datum/access/heads_vault
-	id = access_heads_vault
+	id = ACCESS_HEADS_VAULT
 	desc = "Main Vault"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_MINING_STATION 54
 /datum/access/mining_station
-	id = access_mining_station
+	id = ACCESS_MINING_STATION
 	desc = "Mining EVA"
 	region = ACCESS_REGION_SUPPLY
 
 #define ACCESS_XENOBIOLOGY 55
 /datum/access/xenobiology
-	id = access_xenobiology
+	id = ACCESS_XENOBIOLOGY
 	desc = "Xenobiology Lab"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_CE 56
 /datum/access/ce
-	id = access_ce
+	id = ACCESS_CE
 	desc = "Chief Engineer"
 	region = ACCESS_REGION_ENGINEERING
 
 #define ACCESS_HOP 57
 /datum/access/hop
-	id = access_hop
+	id = ACCESS_HOP
 	desc = "Executive Officer"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_HOS 58
 /datum/access/hos
-	id = access_hos
+	id = ACCESS_HOS
 	desc = "Head of Security"
 	region = ACCESS_REGION_SECURITY
 
 #define ACCESS_RC_ANNOUNCE 59 //Requests console announcements
 /datum/access/RC_announce
-	id = access_RC_announce
+	id = ACCESS_RC_ANNOUNCE
 	desc = "RC Announcements"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_KEYCARD_AUTH 60 //Used for events which require at least two people to confirm them
 /datum/access/keycard_auth
-	id = access_keycard_auth
+	id = ACCESS_KEYCARD_AUTH
 	desc = "Keycode Auth. Device"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_TCOMSAT 61 // has access to the entire telecomms satellite / machinery
 /datum/access/tcomsat
-	id = access_tcomsat
+	id = ACCESS_TCOMSAT
 	desc = "Telecommunications"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_GATEWAY 62
 /datum/access/gateway
-	id = access_gateway
+	id = ACCESS_GATEWAY
 	desc = "Gateway"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_SEC_DOORS 63 // Security front doors
 /datum/access/sec_doors
-	id = access_sec_doors
+	id = ACCESS_SEC_DOORS
 	desc = "Security"
 	region = ACCESS_REGION_SECURITY
 
 #define ACCESS_PSYCHIATRIST 64 // Psychiatrist's office
 /datum/access/psychiatrist
-	id = access_psychiatrist
+	id = ACCESS_PSYCHIATRIST
 	desc = "Psychiatrist's Office"
 	region = ACCESS_REGION_MEDBAY
 
 #define ACCESS_XENOARCH 65
 /datum/access/xenoarch
-	id = access_xenoarch
+	id = ACCESS_XENOARCH
 	desc = "Xenoarchaeology"
 	region = ACCESS_REGION_RESEARCH
 
 #define ACCESS_MEDICAL_EQUIP 66
 /datum/access/medical_equip
-	id = access_medical_equip
+	id = ACCESS_MEDICAL_EQUIP
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 #define ACCESS_FIRST_RESPONDER 67
-/datum/access/access_first_responder
-	id = access_first_responder
+/datum/access/first_responder
+	id = ACCESS_FIRST_RESPONDER
 	desc = "First Responder Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-// /var/const/free_access_id = 68
+// free_access_id = 68
 
 #define ACCESS_WEAPONS 69
-/datum/access/access_weapons
-	id = access_weapons
+/datum/access/weapons
+	id = ACCESS_WEAPONS
 	desc = "Weaponry Permission"
 	region = ACCESS_REGION_SECURITY
 
-var/const/access_journalist = 70//journalist's office access
+#define ACCESS_JOURNALIST 70//journalist's office access
 /datum/access/journalist
-	id = access_journalist
+	id = ACCESS_JOURNALIST
 	desc = "Journalist Office"
 	region = ACCESS_REGION_GENERAL
 
-var/const/access_it = 71 // allows some unique interactions with devices
+#define ACCESS_IT 71 // allows some unique interactions with devices
 /datum/access/tech_support
-	id = access_it
+	id = ACCESS_IT
 	desc = "Tech Support"
 
-var/const/access_consular = 72
+#define ACCESS_CONSULAR 72
 /datum/access/consular
-	id = access_consular
+	id = ACCESS_CONSULAR
 	desc = "Consular"
 
-var/const/access_intrepid = 73
+#define ACCESS_INTREPID 73
 /datum/access/intrepid
-	id = access_intrepid
+	id = ACCESS_INTREPID
 	desc = "Intrepid Shuttle"
 	region = ACCESS_REGION_COMMAND
 
-var/const/access_bridge_crew = 74
+#define ACCESS_BRIDGE_CREW 74
 /datum/access/bridge_crew
-	id = access_bridge_crew
+	id = ACCESS_BRIDGE_CREW
 	desc = "Bridge Crew"
 	region = ACCESS_REGION_COMMAND
 
 #define ACCESS_SHIP_WEAPONS 75
-/datum/access/access_ship_weapons
-	id = access_ship_weapons
+/datum/access/ship_weapons
+	id = ACCESS_SHIP_WEAPONS
 	desc = "Ship Weapons"
 	region = ACCESS_REGION_SUPPLY
 
@@ -520,7 +521,7 @@ var/const/access_bridge_crew = 74
 	desc = "Tau Ceti Foreign Legion Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-var/const/access_distress = 112
+#define ACCESS_DISTRESS 112
 /datum/access/distress
 	id = access_distress
 	desc = "General ERT Base Access"
@@ -530,13 +531,13 @@ var/const/access_distress = 112
 /****************************
 * Kataphract Chapter Access *
 ****************************/
-var/const/access_kataphract = 113
+#define ACCESS_KATAPHRACT 113
 /datum/access/kataphract
 	id = access_kataphract
 	desc = "Kataphract Chapter Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-var/const/access_kataphract_knight = 114
+#define ACCESS_KATAPHRACT_KNIGHT 114
 /datum/access/kataphract/knight
 	id = access_kataphract_knight
 	desc = "Kataphract Knight Access"

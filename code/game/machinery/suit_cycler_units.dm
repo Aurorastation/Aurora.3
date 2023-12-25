@@ -1,7 +1,7 @@
 /obj/machinery/suit_cycler/engineering
 	name = "engineering suit cycler"
 	model_text = "Engineering"
-	req_access = list(access_construction)
+	req_access = list(ACCESS_CONSTRUCTION)
 	departments = list("Engineering", "Atmos")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
@@ -18,7 +18,7 @@
 /obj/machinery/suit_cycler/mining
 	name = "mining suit cycler"
 	model_text = "Mining"
-	req_access = list(access_mining)
+	req_access = list(ACCESS_MINING)
 	departments = list("Mining")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
@@ -76,7 +76,7 @@
 /obj/machinery/suit_cycler/hos
 	name = "head of security suit cycler"
 	model_text = "head of Security"
-	req_access = list(access_hos)
+	req_access = list(ACCESS_HOS)
 	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -104,7 +104,7 @@
 /obj/machinery/suit_cycler/science
 	name = "research suit cycler"
 	model_text = "Research"
-	req_access = list(access_research)
+	req_access = list(ACCESS_RESEARCH)
 	departments = list("Research")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE

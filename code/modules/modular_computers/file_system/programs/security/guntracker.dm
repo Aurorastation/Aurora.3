@@ -8,7 +8,7 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = access_hos
+	required_access_download = ACCESS_HOS
 	required_access_run = ACCESS_ARMORY
 	usage_flags = PROGRAM_CONSOLE
 	tgui_id = "GunTracker"

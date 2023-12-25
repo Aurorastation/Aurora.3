@@ -436,7 +436,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Minedrone"
 
 /obj/item/card/id/minedrone/New()
-	access = list(ACCESS_MAINT_TUNNELS, access_mailsorting, ACCESS_CARGO, access_cargo_bot, access_qm, access_mining, access_mining_station, access_external_airlocks)
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_MINING_STATION, access_external_airlocks)
 	..()
 
 /obj/item/card/id/centcom
@@ -517,7 +517,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "legion"
 
 /obj/item/card/id/distress/legion/New()
-	access = list(access_legion, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, access_research, ACCESS_ATMOSPHERICS, access_medical_equip)
+	access = list(access_legion, ACCESS_MAINT_TUNNELS, access_external_airlocks, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
 	..()
 
 /obj/item/card/id/distress/ap_eridani

@@ -317,14 +317,14 @@ This spawner places pipe leading up to the interior door, you will need to finis
 
 /obj/effect/map_effect/airlock/w_to_e/long/square/wide/mining
 	door_name = "mining external access"
-	required_access = list(access_mining)
+	required_access = list(ACCESS_MINING)
 /obj/effect/map_effect/airlock/long/square/wide/mining
 	door_name = "mining external access"
-	required_access = list(access_mining)
+	required_access = list(ACCESS_MINING)
 
 /obj/effect/map_effect/airlock/long/square/e_to_s/telecoms
 	door_name = "telecoms external access"
-	required_access = list(access_tcomsat, access_external_airlocks)
+	required_access = list(ACCESS_TCOMSAT, access_external_airlocks)
 	door_type = /obj/machinery/door/airlock/external
 
 /obj/effect/map_effect/airlock/long/square/three/syndicate

@@ -226,7 +226,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
-	req_access = list(access_tcomsat)
+	req_access = list(ACCESS_TCOMSAT)
 	highpower = 1
 
 /obj/machinery/alarm/tcom/north

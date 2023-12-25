@@ -55,7 +55,7 @@
 
 /obj/item/rig/internalaffairs/equipped
 
-	req_access = list(access_lawyer)
+	req_access = list(ACCESS_LAWYER)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -203,7 +203,7 @@
 
 /obj/item/rig/eva/pilot/equipped
 
-	req_access = list(access_bridge_crew)
+	req_access = list(ACCESS_BRIDGE_CREW)
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
@@ -246,7 +246,7 @@
 
 /obj/item/rig/ce/equipped
 
-	req_access = list(access_ce)
+	req_access = list(ACCESS_CE)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -331,7 +331,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(access_first_responder)
+	req_access = list(ACCESS_FIRST_RESPONDER)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,

@@ -8,7 +8,7 @@
 	icon_state = "ce"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_access = list(access_ce)
+	req_access = list(ACCESS_CE)
 
 /obj/structure/closet/secure_closet/engineering_chief/fill()
 	new /obj/item/storage/backpack/satchel/locker_clothing/ce(src)
@@ -146,7 +146,7 @@
 // Welding Supplies
 /obj/structure/closet/secure_closet/engineering_welding
 	name = "welding supplies"
-	req_access = list(access_construction)
+	req_access = list(ACCESS_CONSTRUCTION)
 	icon_state = "eng"
 	icon_door = "eng_weld"
 
