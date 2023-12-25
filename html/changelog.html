@@ -46,6 +46,18 @@
 				<li class="bugfix">Characters with limb nymphs now spawn correctly.</li>
 				<li class="bugfix">Solved an issue that could allow to have eg. a nymph arm and yet still have a human hand.</li>
 				<li class="bugfix">Solved some issues with text messages.</li>
+				<li class="backend">Updated SSAtoms to TG&#x27;s version.</li>
+				<li class="backend">Added signals for initialization, repathed old signal_athom_x_act.dm to its updated home.</li>
+				<li class="backend">Moved /atom initialization related procs in atom/atoms_initializing_EXPENSIVE.dm as per TG.</li>
+				<li class="backend">Updated INITIALIZE_IMMEDIATE to work with the new subsystem.</li>
+				<li class="backend">Adapted various procs and other subsystems to work with the new SSAtoms.</li>
+				<li class="backend">Reordered some procs to set the initialization flag at the start, as that is the supposed behavior.</li>
+				<li class="backend">Transformed the testing() proc to a macro, as per TG.</li>
+				<li class="backend">Cleaned up some initializations a bit.</li>
+				<li class="backend">Flagged organs for immediate initialization.</li>
+				<li class="backend">Initialized variable is now flags_1, as per TG.</li>
+				<li class="backend">The Initialized variable is now global for every subsytem.</li>
+				<li class="backend">Various reordering and flags/defines additions.</li>
 			</ul>
 			<h3 class="author">Fluffyghost updated:</h3>
 			<ul class="changes bgimages16">
