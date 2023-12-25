@@ -1016,7 +1016,7 @@ window "mainwindow"
 		anchor2 = -1,-1
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
-		title = "CTRL+W Station 13 - Aurora Station"
+		title = "Space Station 13 - Aurora Station"
 		is-maximized = true
 		icon = 'icons\\ss13_64.png'
 		macro = "macro"
