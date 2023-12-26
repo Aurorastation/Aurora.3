@@ -3047,6 +3047,7 @@
 	result = /singleton/reagent/drink/shake_dirtberry
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_dirtberry = 1)
 	result_amount = 6
+
 /datum/chemical_reaction/drink/NTellahotchocolate
 	name = "NTella hot chocolate"
 	id = "NTellahotchocolate"
