@@ -5979,6 +5979,8 @@
 /obj/item/shield/energy/hegemony,
 /obj/item/shield/energy/hegemony,
 /obj/item/shield/energy/hegemony,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
 /turf/simulated/floor,
 /area/hegemony_ship/armory)
 "JO" = (
