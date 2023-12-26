@@ -395,7 +395,7 @@
 
 /obj/item/reagent_containers/food/snacks/jadrica
 	name = "jadrica"
-	desc = "A high-end dominian dish from Novi Jadran made of slow cooked braised beef, cloves, carrots and bacon. It is a very complex and difficult dish to make properly - A task usually only succeeded by the most skilled, high-end chefs. In a time crunch, enzymes can be used to speed along the slow cooking process."
+	desc = "A high-end dominian dish from Novi Jadran made of slow cooked braised beef, cloves, carrots and bacon. It is a very complex and difficult dish to make properly - a task usually only accomplished by the most skilled chefs. In a time crunch, enzymes can be used to speed along the slow cooking process."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "jadrica"
 	trash = /obj/item/trash/woodenplatter
