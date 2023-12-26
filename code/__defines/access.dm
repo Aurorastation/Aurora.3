@@ -712,6 +712,6 @@
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_KONYANG_CORPORATE 225
-/datum/access/access_konyang_corporate
+/datum/access/konyang_corporate
 	id = ACCESS_KONYANG_CORPORATE
 	access_type = ACCESS_TYPE_CENTCOM
