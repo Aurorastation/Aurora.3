@@ -22,7 +22,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/corp/zeng
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/konyang_zh/get_id_accesss()
+/datum/outfit/admin/konyang_zh/get_id_access()
 	return list(access_konyang_corporate)
 
 /datum/ghostspawner/human/konyang_ee
@@ -46,7 +46,7 @@
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/konyang_ee/get_id_accesss()
+/datum/outfit/admin/konyang_ee/get_id_access()
 	return list(access_konyang_corporate)
 
 //Police
