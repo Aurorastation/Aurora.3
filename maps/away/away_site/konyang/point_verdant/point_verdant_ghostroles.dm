@@ -280,4 +280,4 @@
 	back = /obj/item/storage/backpack/satchel
 
 /datum/outfit/admin/konyang_gwok/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
