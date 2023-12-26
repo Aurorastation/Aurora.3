@@ -481,7 +481,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("fried dough" = 10, "ginger" = 4))
 	bitesize = 4
 	reagents_to_add = list(/singleton/reagent/nutriment = 24)
-	var/unitname = "item" ///this is the NAME of the item the bowl dispenses, as it would show up in a sentence.
+	var/unitname = "contained_food" ///this is the NAME of the item the bowl dispenses, as it would show up in a sentence.
 
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs
 	name = "puff-puff bowl"
@@ -565,14 +565,14 @@
 	desc = "This rich and creamy berry-coated dessert was invented in a small coastal town on Silversun. It's very tricky to get it stable enough to not collapse under it's own weight. What are you waiting for? Slice it up!"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "ladylulaine"
-	slice_path = /obj/item/reagent_containers/food/snacks/ladylulaineslice
+	slice_path = /obj/item/reagent_containers/food/snacks/ladylulaine_slice
 	trash = /obj/item/trash/plate
 	slices_num = 5
 	filling_color = "#dbddff"
 	reagents_to_add = list(/singleton/reagent/nutriment = 15, /singleton/reagent/drink/berryjuice = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("custard" = 10, "blueberries" = 10, "tangy berries" = 5))
 
-/obj/item/reagent_containers/food/snacks/ladylulaineslice
+/obj/item/reagent_containers/food/snacks/ladylulaine_slice
 	name = "lady lulaine slice"
 	desc = "A Silversun classic, this dessert is somewhere between a frozen custard, ice cream cake, and berry pie. It is often photographed next to a cocktail with a sunset or a sunrise behind it."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
