@@ -693,3 +693,8 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_gadpathur_navy_officer
 	id = access_gadpathur_navy_officer
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_konyang_corporate = 225
+/datum/access/access_konyang_corporate
+	id = access_konyang_corporate
+	access_type = ACCESS_TYPE_CENTCOM
