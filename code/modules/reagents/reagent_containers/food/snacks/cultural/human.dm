@@ -563,7 +563,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/ladylulaine
 	name = "lady lulaine"
-	desc = "This rich and creamy berry-coated dessert was invented in a small coastal town on Silversun. It's very tricky to get it stable enough to not collapse under it's own weight. What are you waiting for? Slice it up!"
+	desc = "This rich and creamy berry-coated dessert was invented in a small coastal town on Silversun. It's very tricky to get it stable enough to not collapse under its own weight. What are you waiting for? Slice it up!"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "ladylulaine"
 	slice_path = /obj/item/reagent_containers/food/snacks/ladylulaineslice
