@@ -285,7 +285,7 @@
 
 /singleton/recipe/fufu
 	appliance = SAUCEPAN | POT
-	fruit = list ("banana" = 2)
+	fruit = list("banana" = 2)
 	reagents = list(/singleton/reagent/water = 5)
 	result = /obj/item/reagent_containers/food/snacks/bowl/fufus
 	reagent_mix = RECIPE_REAGENT_REPLACE
