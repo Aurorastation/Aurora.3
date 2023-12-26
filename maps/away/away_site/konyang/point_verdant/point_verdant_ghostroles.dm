@@ -23,7 +23,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/konyang_zh/get_id_access()
-	return list(access_konyang_corporate)
+	return list(ACCESS_KONYANG_CORPORATE)
 
 /datum/ghostspawner/human/konyang_ee
 	short_name = "konyang_ee"
@@ -47,7 +47,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/konyang_ee/get_id_access()
-	return list(access_konyang_corporate)
+	return list(ACCESS_KONYANG_CORPORATE)
 
 //Police
 /datum/ghostspawner/human/konyang_cop
