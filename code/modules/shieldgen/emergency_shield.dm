@@ -139,7 +139,7 @@
 	density = TRUE
 	opacity = FALSE
 	anchored = FALSE
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 	var/health = 100
 	var/active = FALSE
 	var/malfunction = FALSE //Malfunction causes parts of the shield to slowly dissapate

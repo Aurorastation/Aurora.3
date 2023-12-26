@@ -13,9 +13,9 @@ SUBSYSTEM_DEF(fail2topic)
 	var/enabled = FALSE
 
 /datum/controller/subsystem/fail2topic/Initialize(timeofday)
-	rate_limit = config.fail2topic_rate_limit
-	max_fails = config.fail2topic_max_fails
-	enabled = config.fail2topic_enabled
+	rate_limit = GLOB.config.fail2topic_rate_limit
+	max_fails = GLOB.config.fail2topic_max_fails
+	enabled = GLOB.config.fail2topic_enabled
 
 	DropFirewallRule() // Clear the old bans if any still remain
 
@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(fail2topic)
 /datum/controller/subsystem/fail2topic/proc/IsRateLimited(ip)
 	var/last_attempt = rate_limiting[ip]
 
-	if (config?.api_rate_limit_whitelist[ip])
+	if (GLOB.config?.api_rate_limit_whitelist[ip])
 		return FALSE
 
 	if (active_bans[ip])
@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(fail2topic)
 	fail_counts -= ip
 	rate_limiting -= ip
 
-	. = shell("netsh advfirewall firewall add rule name=\"[config.fail2topic_rule_name]\" dir=in interface=any action=block remoteip=[ip]")
+	. = shell("netsh advfirewall firewall add rule name=\"[GLOB.config.fail2topic_rule_name]\" dir=in interface=any action=block remoteip=[ip]")
 
 	if (.)
 		log_subsystem_fail2topic("Failed to ban [ip]. Exit code: [.].")
@@ -104,7 +104,7 @@ SUBSYSTEM_DEF(fail2topic)
 
 	active_bans = list()
 
-	. = shell("netsh advfirewall firewall delete rule name=\"[config.fail2topic_rule_name]\"")
+	. = shell("netsh advfirewall firewall delete rule name=\"[GLOB.config.fail2topic_rule_name]\"")
 
 	if (.)
 		log_subsystem_fail2topic("Failed to drop firewall rule. Exit code: [.].")

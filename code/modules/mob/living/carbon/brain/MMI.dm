@@ -12,7 +12,7 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 
@@ -101,8 +101,8 @@
 				brainmob.forceMove(src)
 				brainmob.container = src
 				brainmob.set_stat(CONSCIOUS)
-				dead_mob_list -= brainmob //Update dem lists
-				living_mob_list += brainmob
+				GLOB.dead_mob_list -= brainmob //Update dem lists
+				GLOB.living_mob_list += brainmob
 
 				brainobj = B
 				braintype_check()
@@ -163,7 +163,7 @@
 /obj/item/device/mmi/proc/transfer_mob_to_brain()
 	brainmob.container = null //Reset brainmob mmi var.
 	brainmob.forceMove(brainobj) //Throw mob into brain.
-	living_mob_list -= brainmob //Get outta here
+	GLOB.living_mob_list -= brainmob //Get outta here
 	brainobj.brainmob = brainmob //Set the brain to use the brainmob
 	brainobj = null
 	brainmob = null

@@ -301,7 +301,7 @@
 			continue
 		ghost = O
 		break
-	if(ghost && !(ghost.has_enabled_antagHUD && config.antag_hud_restricted))
+	if(ghost && !(ghost.has_enabled_antagHUD && GLOB.config.antag_hud_restricted))
 		icon_state = "golem2"
 	else
 		icon_state = "golem"
@@ -313,7 +313,7 @@
 			golem_type = O.material.golem
 			O.use(10)
 
-	spark(get_turf(src), 10, alldirs)
+	spark(get_turf(src), 10, GLOB.alldirs)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 

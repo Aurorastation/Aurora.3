@@ -4,8 +4,8 @@
 	program_icon_state = "security"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows monitoring and control of active penal robotics."
-	required_access_run = access_armory
-	required_access_download = access_armory
+	required_access_run = ACCESS_ARMORY
+	required_access_download = ACCESS_ARMORY
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	network_destination = "penal robotics monitoring system"
@@ -79,7 +79,7 @@
 				reset_current()
 				usr.reset_view()
 			else
-				var/mob/living/heavy_vehicle/M = locate(params["track_mech"]) in mob_list
+				var/mob/living/heavy_vehicle/M = locate(params["track_mech"]) in GLOB.mob_list
 				if(!istype(M))
 					return FALSE
 				var/obj/machinery/camera/C = M.camera
@@ -88,20 +88,20 @@
 			return TRUE
 
 		if("lockdown_mech")
-			var/mob/living/heavy_vehicle/M = locate(params["lockdown_mech"]) in mob_list
+			var/mob/living/heavy_vehicle/M = locate(params["lockdown_mech"]) in GLOB.mob_list
 			if(ismob(M))
 				M.ToggleLockdown()
 				return TRUE
 
 		if("terminate")
-			var/mob/living/M = locate(params["terminate"]) in mob_list
+			var/mob/living/M = locate(params["terminate"]) in GLOB.mob_list
 			if(M?.old_mob && M.vr_mob)
 				to_chat(M, SPAN_WARNING("Your connection to remote-controlled [M] is forcibly severed!"))
 				M.body_return()
 				return TRUE
 
 		if("message_pilot")
-			var/mob/living/M = locate(params["message_pilot"]) in mob_list
+			var/mob/living/M = locate(params["message_pilot"]) in GLOB.mob_list
 			if(ismob(M))
 				var/message = sanitize(input("Message to [M.old_mob]", "Set Message") as text|null)
 

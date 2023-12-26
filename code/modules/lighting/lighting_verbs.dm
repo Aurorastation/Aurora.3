@@ -94,7 +94,7 @@ var/list/admin_verbs_lighting = list(
 
 	if (!check_rights(R_DEBUG|R_SERVER)) return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		to_chat(usr, SPAN_ALERT("Unable to start profiling: No active database connection."))
 		return
 

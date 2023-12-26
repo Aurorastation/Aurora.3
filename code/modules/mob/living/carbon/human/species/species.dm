@@ -367,9 +367,9 @@
 		else
 			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 
-	var/datum/language/species_language = all_languages[name_language]
+	var/datum/language/species_language = GLOB.all_languages[name_language]
 	if(!species_language)
-		species_language = all_languages[default_language]
+		species_language = GLOB.all_languages[default_language]
 	if(!species_language)
 		return "unknown"
 	return species_language.get_random_name(gender)
@@ -564,7 +564,7 @@
 	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
-	if(config.welder_vision)
+	if(GLOB.config.welder_vision)
 		if(H.equipment_tint_total)
 			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
 		else

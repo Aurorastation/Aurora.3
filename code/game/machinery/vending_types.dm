@@ -25,7 +25,7 @@
 	icon_vend = "engivend-vend"
 	deny_time = 6
 	vend_id = "admin"
-	req_access = list(access_janitor)
+	req_access = list(ACCESS_JANITOR)
 	products = list(
 		/obj/item/device/vending_refill/booze = 1,
 		/obj/item/device/vending_refill/tools = 1,
@@ -154,7 +154,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
-	req_access = list(access_bar)
+	req_access = list(ACCESS_BAR)
 	random_itemcount = 0
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
@@ -622,7 +622,7 @@
 	icon_vend = "med-vend"
 	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
@@ -696,7 +696,7 @@
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	deny_time = 15
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -728,7 +728,7 @@
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	deny_time = 15
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -762,7 +762,7 @@
 	icon_state = "sec"
 	icon_vend = "sec-vend"
 	deny_time = 16
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "security"
 	products = list(
 		/obj/item/handcuffs = 8,
@@ -1125,7 +1125,7 @@
 	icon_vend = "tool-vend"
 	deny_time = 6
 	vend_id = "tools"
-	//req_access = list(access_maint_tunnels) //Maintenance access
+	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -1160,7 +1160,7 @@
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	deny_time = 6
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 	vend_id = "tools"
 	products = list(
 		/obj/item/device/multitool = 4,
@@ -1191,7 +1191,7 @@
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
 	deny_time = 19
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "tactical"
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
@@ -1215,7 +1215,7 @@
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "ert"
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
@@ -1249,7 +1249,7 @@
 	icon_state = "engi"
 	icon_vend = "engi-vend"
 	deny_time = 6
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/head/hardhat = 4,
@@ -1296,7 +1296,7 @@
 	icon_state = "robotics"
 	icon_vend = "robotics-vend"
 	deny_time = 14
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/stack/cable_coil = 4,

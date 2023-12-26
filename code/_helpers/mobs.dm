@@ -23,15 +23,15 @@
 	var/h_style = "Bald"
 
 	var/list/valid_hairstyles = list()
-	for(var/hairstyle in hair_styles_list)
-		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+	for(var/hairstyle in GLOB.hair_styles_list)
+		var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
 		if(gender == MALE && S.gender == FEMALE)
 			continue
 		if(gender == FEMALE && S.gender == MALE)
 			continue
 		if( !(species in S.species_allowed))
 			continue
-		valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
+		valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
 
 	if(valid_hairstyles.len)
 		h_style = pick(valid_hairstyles)
@@ -42,8 +42,8 @@
 	var/f_style = "Shaved"
 
 	var/list/valid_facialhairstyles = list()
-	for(var/facialhairstyle in facial_hair_styles_list)
-		var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
+	for(var/facialhairstyle in GLOB.facial_hair_styles_list)
+		var/datum/sprite_accessory/S = GLOB.facial_hair_styles_list[facialhairstyle]
 		if(gender == MALE && S.gender == FEMALE)
 			continue
 		if(gender == FEMALE && S.gender == MALE)
@@ -51,7 +51,7 @@
 		if( !(species in S.species_allowed))
 			continue
 
-		valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
+		valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
 	if(valid_facialhairstyles.len)
 		f_style = pick(valid_facialhairstyles)
@@ -61,14 +61,14 @@
 /proc/sanitize_name(name, species = SPECIES_HUMAN)
 	var/datum/species/current_species
 	if(species)
-		current_species = all_species[species]
+		current_species = GLOB.all_species[species]
 
 	return current_species ? current_species.sanitize_name(name) : sanitizeName(name)
 
 /proc/random_name(gender, species = SPECIES_HUMAN)
 	var/datum/species/current_species
 	if(species)
-		current_species = all_species[species]
+		current_species = GLOB.all_species[species]
 
 	if(!current_species || current_species.name_language == null)
 		if(gender==FEMALE)
@@ -186,28 +186,28 @@ Proc for attack log creation, because really why not
 /mob/proc/add_to_living_mob_list()
 	return FALSE
 /mob/living/add_to_living_mob_list()
-	if((src in living_mob_list) || (src in dead_mob_list))
+	if((src in GLOB.living_mob_list) || (src in GLOB.dead_mob_list))
 		return FALSE
-	living_mob_list += src
+	GLOB.living_mob_list += src
 	return TRUE
 
 // Returns true if the mob was removed from the living list
 /mob/proc/remove_from_living_mob_list()
-	return living_mob_list.Remove(src)
+	return GLOB.living_mob_list.Remove(src)
 
 // Returns true if the mob was in neither the dead or living list
 /mob/proc/add_to_dead_mob_list()
 	return FALSE
 
 /mob/living/add_to_dead_mob_list()
-	if((src in living_mob_list) || (src in dead_mob_list))
+	if((src in GLOB.living_mob_list) || (src in GLOB.dead_mob_list))
 		return FALSE
-	dead_mob_list += src
+	GLOB.dead_mob_list += src
 	return TRUE
 
 // Returns true if the mob was removed form the dead list
 /mob/proc/remove_from_dead_mob_list()
-	return dead_mob_list.Remove(src)
+	return GLOB.dead_mob_list.Remove(src)
 
 // This will update a mob's name, real_name, mind.name, SSrecords records, pda and id
 // Calling this proc without an oldname will only update the mob and skip updating the pda, id and records
@@ -265,7 +265,7 @@ Proc for attack log creation, because really why not
 			return	//took too long
 		newname = sanitizeName(newname, ,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
 
-		for(var/mob/living/M in player_list)
+		for(var/mob/living/M in GLOB.player_list)
 			if(M == src)
 				continue
 			if(!newname || M.real_name == newname)

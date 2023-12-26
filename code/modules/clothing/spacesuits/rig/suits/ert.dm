@@ -11,7 +11,7 @@
 	icon_supported_species_tags = list("skr")
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,

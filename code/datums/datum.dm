@@ -45,7 +45,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	weakref = null
-	destroyed_event.raise_event(src)
+	GLOB.destroyed_event.raise_event(src)
 	var/ui_key = SOFTREF(src)
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
 		SSnanoui.close_uis(src)

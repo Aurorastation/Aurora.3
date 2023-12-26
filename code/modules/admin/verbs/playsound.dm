@@ -15,7 +15,7 @@ var/list/sounds_cache = list()
 
 	log_admin("[key_name(src)] played sound [S]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] played sound [S]", 1)
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client.prefs.toggles & SOUND_MIDI)
 			sound_to(M, uploaded_sound)
 

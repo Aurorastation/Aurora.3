@@ -5,7 +5,7 @@
 
 /datum/hallucination/announcement/start()
 	var/list/hal_sender = SShallucinations.message_sender
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE) && isStationLevel(H.z))	//We're not going to add ninjas, mercs, borers, etc to prevent meta. No people off-station, either
 			hal_sender += H
 	switch(rand(1,15))
@@ -74,7 +74,7 @@
 //for REALLY selling that fake delamination
 /datum/hallucination/announcement/proc/delam_call()
 	var/list/people = list()
-	for(var/mob/living/carbon/human/M in living_mob_list)
+	for(var/mob/living/carbon/human/M in GLOB.living_mob_list)
 		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && isStationLevel(M.z))	//Antag check prevents meta, isStationLevel prevents people offsite doing it
 			people += M
 	people -= holder
@@ -93,7 +93,7 @@
 
 /datum/hallucination/pda/start()
 	var/list/sender = SShallucinations.message_sender
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
 			sender += H
 	to_chat(holder, FONT_SMALL("<i>[pick(sender)]</i>: [pick(SShallucinations.hallucinated_phrases)] (<FONT color = blue><u>reply</u></FONT>)"))

@@ -40,7 +40,7 @@
 	visible_message("<span class='info'>[user] rests a hand on \the [hit_atom].</span>")
 	busy = 1
 
-	spark(our_turf, 3, cardinal)
+	spark(our_turf, 3, GLOB.cardinal)
 
 	while(i)
 		checked_turf = get_step(checked_turf, direction) //Advance in the given direction

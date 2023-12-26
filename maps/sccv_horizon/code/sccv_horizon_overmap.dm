@@ -81,7 +81,7 @@
 /obj/machinery/computer/shuttle_control/explore/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
-	req_access = list(access_intrepid)
+	req_access = list(ACCESS_INTREPID)
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
@@ -118,7 +118,7 @@
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
-	req_access = list(access_mining)
+	req_access = list(ACCESS_MINING)
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
@@ -156,7 +156,7 @@
 /obj/machinery/computer/shuttle_control/explore/canary
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
-	req_access = list(access_intrepid)
+	req_access = list(ACCESS_INTREPID)
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"

@@ -376,7 +376,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
-		dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
@@ -604,12 +604,12 @@
 	R.reagents.splash(src, 1)
 
 /atom/proc/get_global_map_pos()
-	if(!islist(global_map) || isemptylist(global_map)) return
+	if(!islist(GLOB.global_map) || isemptylist(GLOB.global_map)) return
 	var/cur_x = null
 	var/cur_y = null
 	var/list/y_arr = null
-	for(cur_x=1,cur_x<=global_map.len,cur_x++)
-		y_arr = global_map[cur_x]
+	for(cur_x=1,cur_x<=GLOB.global_map.len,cur_x++)
+		y_arr = GLOB.global_map[cur_x]
 		cur_y = y_arr.Find(src.z)
 		if(cur_y)
 			break
@@ -682,7 +682,7 @@
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)

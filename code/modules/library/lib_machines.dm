@@ -44,7 +44,7 @@
 			<a href='?src=\ref[src];setauthor=1'>Filter by Author: [author]</a><br>
 			<a href='?src=\ref[src];search=1'>\[Start Search\]</a><br>"}
 		if(1)
-			if(!establish_db_connection(dbcon))
+			if(!establish_db_connection(GLOB.dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font><br>"
 			else if(!SQLquery)
 				dat += "<font color=red><b>ERROR</b>: Malformed search request. Please contact your system administrator for assistance.</font><br>"
@@ -52,7 +52,7 @@
 				dat += {"<table>
 				<tr><td>AUTHOR</td><td>TITLE</td><td>CATEGORY</td><td>SS<sup>13</sup>BN</td></tr>"}
 
-				var/DBQuery/query = dbcon.NewQuery(SQLquery)
+				var/DBQuery/query = GLOB.dbcon.NewQuery(SQLquery)
 				query.Execute()
 
 				while(query.NextRow())
@@ -194,13 +194,13 @@
 			<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"}
 		if(4)
 			dat += "<h3>External Archive</h3>"
-			if(!establish_db_connection(dbcon))
+			if(!establish_db_connection(GLOB.dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font>"
 			else
 				dat += {"<a href='?src=\ref[src];orderbyid=1'>(Order Book by ISBN)</a><br><br>
 				<table>
 				<tr><td><a href='?src=\ref[src];sort=author>AUTHOR</a></td><td><a href='?src=\ref[src];sort=title>TITLE</a></td><td><a href='?src=\ref[src];sort=category>CATEGORY</a></td><td></td></tr>"}
-				var/DBQuery/query = dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
+				var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
 				query.Execute()
 
 				while(query.NextRow())
@@ -339,7 +339,7 @@
 					if(scanner.cache.unique)
 						alert("This book has been rejected from the database. Aborting!")
 					else
-						if(!establish_db_connection(dbcon))
+						if(!establish_db_connection(GLOB.dbcon))
 							alert("Connection to Archive has been severed. Aborting.")
 						else
 							var/sqltitle = sanitizeSQL(scanner.cache.name)
@@ -347,7 +347,7 @@
 							var/sqlcontent = sanitizeSQL(scanner.cache.dat)
 							var/sqlcategory = sanitizeSQL(upload_category)
 							var/sqlckey = sanitizeSQL(ckey(usr.client.ckey))
-							var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_library (author, title, content, category, uploadtime, uploader) VALUES ('[sqlauthor]', '[sqltitle]', '[sqlcontent]', '[sqlcategory]', NOW(), '[sqlckey]')")
+							var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_library (author, title, content, category, uploadtime, uploader) VALUES ('[sqlauthor]', '[sqltitle]', '[sqlcontent]', '[sqlcategory]', NOW(), '[sqlckey]')")
 							if(!query.Execute())
 								to_chat(usr, query.ErrorMsg())
 							else
@@ -357,7 +357,7 @@
 
 	if(href_list["targetid"])
 		var/sqlid = sanitizeSQL(href_list["targetid"])
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			alert("Connection to Archive has been severed. Aborting.")
 		if(bibledelay)
 			for (var/mob/V in hearers(src))
@@ -366,7 +366,7 @@
 			bibledelay = 1
 			spawn(60)
 				bibledelay = 0
-			var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_library WHERE id=[sqlid]")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT * FROM ss13_library WHERE id=[sqlid]")
 			query.Execute()
 
 			while(query.NextRow())

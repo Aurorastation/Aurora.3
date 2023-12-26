@@ -6586,7 +6586,7 @@
 /area/crew_quarters/lounge)
 "eWt" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/computer/HolodeckControl/Horizon/beta{
+/obj/machinery/computer/holodeck_control/Horizon/beta{
 	pixel_y = 32;
 	req_one_access = list(19,22,25,28,35,37,38)
 	},
@@ -24627,7 +24627,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/computer/HolodeckControl/Horizon{
+/obj/machinery/computer/holodeck_control/Horizon{
 	pixel_y = 32;
 	req_one_access = list(19,22,25,28,35,37,38)
 	},

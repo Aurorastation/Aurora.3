@@ -392,7 +392,7 @@
 ///Checks if the mob provided (must_be_alone) is alone in an area
 /proc/alone_in_area(area/the_area, mob/must_be_alone, check_type = /mob/living/carbon)
 	var/area/our_area = get_area(the_area)
-	for(var/carbon in living_mob_list)
+	for(var/carbon in GLOB.living_mob_list)
 		if(!istype(carbon, check_type))
 			continue
 		if(carbon == must_be_alone)

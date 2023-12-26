@@ -516,8 +516,8 @@ default behaviour is:
 
 	// remove the character from the list of the dead
 	if(stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list += src
 		tod = null
 		timeofdeath = 0
 
@@ -575,7 +575,7 @@ default behaviour is:
 	set category = "OOC"
 	set src in view()
 
-	if(config.allow_Metadata)
+	if(GLOB.config.allow_Metadata)
 		if(client)
 			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
 		else

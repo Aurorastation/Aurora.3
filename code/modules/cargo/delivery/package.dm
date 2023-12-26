@@ -114,8 +114,8 @@
 
 	var/list/eligible_delivery_points = list()
 	for(var/obj/structure/cargo_receptacle/delivery_point in all_cargo_receptacles)
-		var/obj/effect/overmap/visitable/my_sector = map_sectors["[current_turf.z]"]
-		var/obj/effect/overmap/visitable/delivery_point_sector = map_sectors["[delivery_point.z]"]
+		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
+		var/obj/effect/overmap/visitable/delivery_point_sector = GLOB.map_sectors["[delivery_point.z]"]
 		// no delivering to ourselves
 		if(my_sector == delivery_point_sector)
 			continue

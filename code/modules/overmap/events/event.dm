@@ -126,13 +126,13 @@
 
 	if(!active_hazards.len)
 		hazard_by_turf -= T
-		entered_event.unregister(T, src, PROC_REF(on_turf_entered))
-		exited_event.unregister(T, src, PROC_REF(on_turf_exited))
+		GLOB.entered_event.unregister(T, src, PROC_REF(on_turf_entered))
+		GLOB.exited_event.unregister(T, src, PROC_REF(on_turf_exited))
 	else
 		hazard_by_turf |= T
 		hazard_by_turf[T] = active_hazards
-		entered_event.register(T, src, PROC_REF(on_turf_entered))
-		exited_event.register(T, src, PROC_REF(on_turf_exited))
+		GLOB.entered_event.register(T, src, PROC_REF(on_turf_entered))
+		GLOB.exited_event.register(T, src, PROC_REF(on_turf_exited))
 
 	for(var/obj/effect/overmap/visitable/ship/ship in T)
 		var/list/active_ship_events = ship_events[ship]
@@ -212,7 +212,7 @@
 	start_moving()
 
 /obj/effect/overmap/event/proc/start_moving()
-	if(!moving_dir) moving_dir = pick(alldirs)
+	if(!moving_dir) moving_dir = pick(GLOB.alldirs)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/event/process()

@@ -64,7 +64,7 @@
 
 /obj/item/organ/internal/is_usable()
 	if(robotize_type)
-		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
 		if(!R.malfunctioning_check(owner))
 			return TRUE
 	else
@@ -83,7 +83,7 @@
 
 	if(company)
 		model = company
-		var/datum/robolimb/R = all_robolimbs[company]
+		var/datum/robolimb/R = GLOB.all_robolimbs[company]
 
 		if(R)
 			if(robotic_sprite)

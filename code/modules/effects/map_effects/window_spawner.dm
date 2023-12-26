@@ -47,7 +47,7 @@
 		new firedoor_path(loc)
 	if(!single_window)
 		var/list/neighbours = list()
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			var/turf/T = get_step(src, dir)
 			var/obj/effect/map_effect/window_spawner/other = locate(/obj/effect/map_effect/window_spawner) in T
 			if(!other)

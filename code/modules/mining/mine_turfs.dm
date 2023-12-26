@@ -72,7 +72,7 @@ var/list/mineral_can_smooth_with = list(
 		icon = actual_icon
 
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -191,7 +191,7 @@ var/list/mineral_can_smooth_with = list(
 		icon = actual_icon
 
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -487,10 +487,10 @@ var/list/mineral_can_smooth_with = list(
 				R.amount = rand(5, 25)
 
 /turf/simulated/mineral/proc/change_mineral(mineral_name, force = FALSE)
-	if(mineral_name && (mineral_name in ore_data))
+	if(mineral_name && (mineral_name in GLOB.ore_data))
 		if(mineral && !force)
 			return FALSE
-		mineral = ore_data[mineral_name]
+		mineral = GLOB.ore_data[mineral_name]
 		UpdateMineral()
 
 /turf/simulated/mineral/random
@@ -521,8 +521,8 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
-		if(mineral_name && (mineral_name in ore_data))
-			mineral = ore_data[mineral_name]
+		if(mineral_name && (mineral_name in GLOB.ore_data))
+			mineral = GLOB.ore_data[mineral_name]
 			UpdateMineral()
 		MineralSpread()
 	. = ..()
@@ -661,7 +661,7 @@ var/list/asteroid_floor_smooth = list(
 	base_name = name
 
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0

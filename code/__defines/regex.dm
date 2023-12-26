@@ -12,7 +12,7 @@ var/global/regex/markup_underline
 
 // Global list for mark-up REGEX datums.
 // Initialized in the hook, to avoid passing by null value.
-var/global/list/markup_regex = list()
+GLOBAL_LIST_EMPTY(markup_regex)
 
 // Global list for mark-up REGEX tag collection.
 var/global/list/markup_tags = list("/" = list("<i>", "</i>"),
@@ -29,7 +29,7 @@ var/global/list/markup_tags = list("/" = list("<i>", "</i>"),
 	markup_underline = 	new("((\\W|^)\\_)(\[^\\_\]*)(\\_(\\W|$))", "g")
 
 	// List needs to be initialized here, due to DM mixing and matching pass-by-value and -reference as it chooses.
-	markup_regex = list("/" = markup_italics,
+	GLOB.markup_regex = list("/" = markup_italics,
 						"*" = markup_bold,
 						"~" = markup_strike,
 						"_" = markup_underline)

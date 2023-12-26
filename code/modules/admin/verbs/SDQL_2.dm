@@ -124,7 +124,7 @@
 
 	"IN" (or "FROM", that works too but it's kinda weird to read),
 	is the list of objects to work on. This defaults to world if not provided.
-	But doing something like "IN living_mob_list" is quite handy and can optimize your query.
+	But doing something like "in living_mob_list" is quite handy and can optimize your query.
 	All names inside the IN block are global scope, so you can do living_mob_list (a global var) easily.
 	You can also run it on a single object. Because SDQL is that convenient even for single operations.
 
@@ -305,8 +305,8 @@
 		SPAN_NOTICE("SDQL query completed: [objs_all] objects selected by path, and [selectors_used ? objs_eligible : objs_all] objects executed on after WHERE filtering/MAPping if applicable."),\
 		SPAN_NOTICE("SDQL combined querys took [DisplayTimeText(end_time_total)] to complete.")) + combined_refs
 
-var/global/list/sdql2_queries =list()
-var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW VARIABLES (all)", null)
+GLOBAL_LIST_INIT(sdql2_queries, GLOB.sdql2_queries || list())
+GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null, "VIEW VARIABLES (all)", null))
 
 /datum/sdql2_query
 	var/list/query_tree
@@ -343,7 +343,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	if(!LAZYLEN(tree))
 		qdel(src)
 		return
-	LAZYADD(sdql2_queries, src)
+	LAZYADD(GLOB.sdql2_queries, src)
 	superuser = SU
 	allow_admin_interact = admin_interact
 	query_tree = tree
@@ -359,7 +359,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	obj_count_finished = null
 	select_text = null
 	select_refs = null
-	sdql2_queries -= src
+	GLOB.sdql2_queries -= src
 	return ..()
 
 /datum/sdql2_query/proc/get_query_text()
@@ -524,7 +524,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	finished = TRUE
 	. = TRUE
 	if(show_next_to_key)
-		var/client/C = directory[show_next_to_key]
+		var/client/C = GLOB.directory[show_next_to_key]
 		if(C)
 			var/mob/showmob = C.mob
 			to_chat(showmob, "<span class='admin'>SDQL query results: [get_query_text()]<br>\
@@ -789,7 +789,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 	var/list/new_args = list()
 	for(var/arg in arguments)
 		new_args[++new_args.len] = SDQL_expression(source, arg)
-	if(object == "global") // Global proc.
+	if(object == GLOB) // Global proc.
 		return call("/proc/[procname]")(arglist(new_args))
 	return call(object, procname)(arglist(new_args))
 
@@ -1043,13 +1043,13 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 			if("world")
 				v = world
 			if("global")
-				v = "global"
+				v = GLOB
 			if("MC")
 				v = Master
 			if("FS")
 				v = Failsafe
 			if("CFG")
-				v = config
+				v = GLOB.config
 			else
 				if(copytext(expression[start], 1, 3) == "SS") //Subsystem //3 == length("SS") + 1
 					var/SSname = copytext_char(expression[start], 3)
@@ -1066,6 +1066,8 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 					v = SSmatch
 				else
 					return null
+	else if(object == GLOB) // Shitty ass hack kill me.
+		v = expression[start]
 	if(long)
 		if(expression[start + 1] == ".")
 			return SDQL_var(v, expression[start + 2], null, source, superuser, query)
@@ -1212,7 +1214,7 @@ var/global/obj/effect/statclick/sdql2_vv_all/sdql2_vv_statobj = new(null, "VIEW 
 		message_admins("[key_name_admin(usr)] non-holder clicked on a statclick! ([src])")
 		log_admin("non-holder clicked on a statclick! ([src])")
 		return
-	usr.client.debug_variables(sdql2_queries)
+	usr.client.debug_variables(GLOB.sdql2_queries)
 
 #undef SDQL2_HALT_CHECK
 #undef SDQL2_IS_RUNNING

@@ -30,8 +30,8 @@ var/religion_name = null
 /proc/world_name(var/name)
 	current_map.station_name = name
 
-	if (config && config.server_name)
-		world.name = "[config.server_name]: [name]"
+	if (GLOB.config && GLOB.config.server_name)
+		world.name = "[GLOB.config.server_name]: [name]"
 	else
 		world.name = name
 
@@ -124,15 +124,15 @@ var/syndicate_code_response //Code response for traitors.
 						code_phrase += " "
 						code_phrase += pick(last_names)
 					if (2)
-						code_phrase += pick(joblist) //Returns a job.
+						code_phrase += pick(GLOB.joblist) //Returns a job.
 				safety -= 1
 			if (2)
 				switch (rand(1,2)) //Places or things.
 					if (1)
 						code_phrase += pick(drinks)
 					if (2)
-						if(the_station_areas.len)
-							var/area/location = pick(the_station_areas)
+						if(GLOB.the_station_areas.len)
+							var/area/location = pick(GLOB.the_station_areas)
 							code_phrase += location.name
 						else
 							code_phrase += pick(drinks)

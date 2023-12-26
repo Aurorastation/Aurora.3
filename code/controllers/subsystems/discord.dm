@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(discord)
 	return ..()
 
 /datum/controller/subsystem/discord/Initialize()
-	config.load("config/discord.txt", "discord")
+	GLOB.config.load("config/discord.txt", "discord")
 	update_channels()
 
 /datum/controller/subsystem/discord/stat_entry(msg)
@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(discord)
 		log_subsystem_discord("UpdateChannels - Failed - Discord bot is not active")
 		return 1
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_subsystem_discord("UpdateChannels - Failed - Unable to connect to database")
 		return 2
 
@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(discord)
 	channels_to_group.Cut()
 	channels.Cut()
 
-	var/DBQuery/channel_query = dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
+	var/DBQuery/channel_query = GLOB.dbcon.NewQuery("SELECT channel_group, channel_id, pin_flag, server_id FROM discord_channels")
 	channel_query.Execute()
 
 	while (channel_query.NextRow())
@@ -507,12 +507,12 @@ SUBSYSTEM_DEF(discord)
 /hook/roundstart/proc/alert_no_admins()
 	var/admins_number = 0
 
-	for (var/C in clients)
+	for (var/C in GLOB.clients)
 		var/client/cc = C
 		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
 			admins_number++
 
-	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=clients.len))
+	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=GLOB.clients.len))
 	if (!admins_number)
 		post_webhook_event(WEBHOOK_ALERT_NO_ADMINS, list())
 		if (!SSdiscord)

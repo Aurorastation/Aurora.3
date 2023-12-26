@@ -15,7 +15,7 @@
 
 /turf/simulated/floor/exoplanet/New()
 	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
 				initial_gas = E.atmosphere.gas.Copy()
@@ -72,7 +72,7 @@
 			add_overlay(resource_indicator)
 		if(LAZYLEN(decals))
 			add_overlay(decals)
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			var/turf/turf_to_check = get_step(src,direction)
 			if(!istype(turf_to_check, type))
 				var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
@@ -168,7 +168,7 @@
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
 	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(istype(E) && E.grass_color)
 			color = E.grass_color
 	if(!resources)
@@ -223,7 +223,7 @@
 
 /turf/unsimulated/planet_edge/Initialize()
 	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if(!istype(E))
 		return
 	var/nx = x
@@ -250,7 +250,7 @@
 
 /turf/unsimulated/planet_edge/CollidedWith(atom/movable/A)
 	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))
