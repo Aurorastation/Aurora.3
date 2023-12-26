@@ -71,7 +71,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(1, 1)
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/qixi_mystery, )
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/qixi_mystery, /datum/map_template/ruin/exoplanet/qixi_flag, /datum/map_template/ruin/exoplanet/qixi_mining)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/get_surface_color()
 	return "#807f7f"
@@ -84,4 +84,4 @@
 	ruin_planet_type = PLANET_LORE
 	place_near_main = null
 	features_budget = 2
-	ruin_type_whitelist = list()
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash)

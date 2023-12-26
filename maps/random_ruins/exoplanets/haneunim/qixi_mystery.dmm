@@ -1,31 +1,31 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "c" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/item/archaeological_find,
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "e" = (
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "f" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "i" = (
 /turf/simulated/wall/titanium_reinforced,
-/area/template_noop)
+/area/qixi_mystery)
 "k" = (
 /obj/random/dirt_75,
 /obj/structure/window/borosilicate/reinforced/skrell,
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "l" = (
 /obj/random/dirt_75,
 /obj/structure/warp_drive{
@@ -33,19 +33,19 @@
 	desc = "An ancient bluespace drive, clearly not of human make. Many of its components have long since degraded to the point of inoperability, even if you could figure out how to use it."
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "m" = (
 /obj/structure/window/borosilicate/reinforced/skrell,
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "n" = (
 /obj/random/dirt_75,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "q" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -56,7 +56,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "r" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/xenoarchaeology.dmi';
@@ -66,33 +66,33 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "s" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "t" = (
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "u" = (
 /obj/random/dirt_75,
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "v" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "w" = (
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "x" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/xenoarchaeology.dmi';
@@ -102,7 +102,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "y" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/xenoarchaeology.dmi';
@@ -112,15 +112,15 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "B" = (
 /obj/random/dirt_75,
 /turf/simulated/wall/titanium_reinforced,
-/area/template_noop)
+/area/qixi_mystery)
 "C" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "D" = (
 /turf/template_noop,
 /area/template_noop)
@@ -129,19 +129,19 @@
 /obj/random/dirt_75,
 /obj/item/archaeological_find,
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "G" = (
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 4
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "I" = (
 /obj/random/dirt_75,
 /obj/item/anomaly_core,
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "K" = (
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 4
@@ -150,12 +150,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/redgrid,
-/area/template_noop)
+/area/qixi_mystery)
 "L" = (
 /obj/random/dirt_75,
 /obj/item/archaeological_find,
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "N" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/xenoarchaeology.dmi';
@@ -165,7 +165,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "R" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -177,7 +177,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "S" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object{
@@ -188,7 +188,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "T" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object{
@@ -199,7 +199,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "U" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/xenoarchaeology.dmi';
@@ -209,7 +209,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
-/area/template_noop)
+/area/qixi_mystery)
 "V" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -221,11 +221,11 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "W" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 "Y" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object{
@@ -236,7 +236,7 @@
 	density = 1
 	},
 /turf/simulated/floor/shuttle/advanced/alt,
-/area/template_noop)
+/area/qixi_mystery)
 
 (1,1,1) = {"
 D
