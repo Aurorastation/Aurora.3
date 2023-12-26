@@ -372,7 +372,7 @@
 
 /obj/item/reagent_containers/food/snacks/imperialpot
 	name = "imperial pot"
-	desc = "A massive wooden pot of morozian seafood and rice, traditionally served in dominian feasts and festivals. It is a communal dish shared among friends, family and neighbors. Grab a bowl, you're not finishing this one by yourself."
+	desc = "A massive wooden pot of morozi seafood and rice, traditionally served in dominian feasts and festivals. It is a communal dish shared among friends, family and neighbors. Grab a bowl, you're not finishing this one by yourself."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "imperialpotfull"
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list ("seafood" = 10), /singleton/reagent/nutriment = list("rice" = 10, "potatoes" = 8, "vegetables" = 6))
