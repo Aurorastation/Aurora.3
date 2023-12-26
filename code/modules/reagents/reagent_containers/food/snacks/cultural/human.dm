@@ -488,7 +488,7 @@
 	name = "puff-puff bowl"
 	desc = "A bowl of puffy dough balls. Much like donut balls except pan fried, chewier, and often served savory, not just sweet. It originates in Nigeria, but this is the Eridani variant, which is made with ginger instead of pepper."
 	bitesize = 4
-	reagents_to_add = list(/singleton/reagent/nutriment/ = 24)
+	reagents_to_add = list(/singleton/reagent/nutriment = 24)
 	unitname = "puff-puff"
 	filling_color = "#bb8a41"
 
