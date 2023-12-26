@@ -318,7 +318,7 @@
 	name = "candy stick"
 	icon_state = "rock_candy"
 
-/obj/item/trash/imperialpotempty
+/obj/item/trash/imperial_pot_empty
 	name = "imperial pot"
 	desc = "This large wooden pot was probably used to house a grand, elaborate, dominian feast at some point. How majestic it must have been. Oh well, get rid of it now before it draws rats."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
@@ -326,7 +326,7 @@
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 
-/obj/item/trash/woodenplatter
+/obj/item/trash/wooden_platter
 	name = "wooden platter"
 	icon_state = "woodentray"
 	drop_sound = 'sound/items/drop/bottle.ogg'
