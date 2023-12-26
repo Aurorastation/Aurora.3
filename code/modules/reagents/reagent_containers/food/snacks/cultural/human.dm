@@ -552,7 +552,7 @@
 
 /obj/item/reagent_containers/food/snacks/clamscasino
 	name = "silversun clams casino"
-	desc = "A true silversun classic, clams on the halfshell with breadcrumbs, bacon, and bell peppers. Somehow landing right in the middle ring between average joe finger food and upper class fanciness."
+	desc = "A true Silversun classic, clams on the halfshell with breadcrumbs, bacon, and bell peppers. It somehow lands right in the middle ring between lower class finger food and upper class fanciness."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "clamscasino"
 	trash = /obj/item/trash/plate
