@@ -370,7 +370,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5)
 
-/obj/item/reagent_containers/food/snacks/imperialpot
+/obj/item/reagent_containers/food/snacks/imperial_pot
 	name = "imperial pot"
 	desc = "A massive wooden pot of morozian seafood and rice, traditionally served in dominian feasts and festivals. It is a communal dish shared among friends, family and neighbors. Grab a bowl, you're not finishing this one by yourself."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
@@ -380,12 +380,12 @@
 	filling_color = "#d4b756"
 	center_of_mass = list("x"=16, "y"=10)
 	bitesize = 3
-	trash = /obj/item/trash/imperialpotempty
+	trash = /obj/item/trash/imperial_pot_empty
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	is_liquid = TRUE
 
-/obj/item/reagent_containers/food/snacks/imperialpot/update_icon()
+/obj/item/reagent_containers/food/snacks/imperial_pot/update_icon()
 	var/percent_chetroinuoc = round((reagents.total_volume / 10) * 100)
 	switch(percent_chetroinuoc)
 		if(0 to 1)
@@ -398,13 +398,13 @@
 	desc = "A high-end dominian dish from Novi Jadran made of slow cooked braised beef, cloves, carrots and bacon. It is a very complex and difficult dish to make properly - A task usually only succeeded by the most skilled, high-end chefs. In a time crunch, enzymes can be used to speed along the slow cooking process."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "jadrica"
-	trash = /obj/item/trash/woodenplatter
+	trash = /obj/item/trash/wooden_platter
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride = 4, /singleton/reagent/spacespice = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein = list("braised beef" = 10, "bacon" = 10), /singleton/reagent/nutriment = list("cloves" = 5, "vinegar" = 5))
 	bitesize = 3
 	filling_color = "#49251b"
 
-/obj/item/reagent_containers/food/snacks/imperialscallops
+/obj/item/reagent_containers/food/snacks/imperial_scallops
 	name = "imperial scallops"
 	desc = "Saltwater boiled dominian scallops. While originally this dish was served with just a few herbs, newer iterations add an abundance of flavor to show the dish and the Dominian culture's lavishness."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
@@ -549,7 +549,7 @@
 
 //Silversun
 
-/obj/item/reagent_containers/food/snacks/clamscasino
+/obj/item/reagent_containers/food/snacks/clams_casino
 	name = "silversun clams casino"
 	desc = "A true silversun classic, clams on the halfshell with breadcrumbs, bacon, and bell peppers. Somehow landing right in the middle ring between average joe finger food and upper class fanciness."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
@@ -560,19 +560,19 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/nutriment = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("buttery clams" = 15), /singleton/reagent/nutriment/protein = list ("bacon" = 15), /singleton/reagent/nutriment = list("breadcrumbs" = 10, "bell peppers" = 10))
 
-/obj/item/reagent_containers/food/snacks/sliceable/ladylulaine
+/obj/item/reagent_containers/food/snacks/sliceable/lady_lulaine
 	name = "lady lulaine"
 	desc = "This rich and creamy berry-coated dessert was invented in a small coastal town on Silversun. It's very tricky to get it stable enough to not collapse under it's own weight. What are you waiting for? Slice it up!"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "ladylulaine"
-	slice_path = /obj/item/reagent_containers/food/snacks/ladylulaine_slice
+	slice_path = /obj/item/reagent_containers/food/snacks/lady_lulaine_slice
 	trash = /obj/item/trash/plate
 	slices_num = 5
 	filling_color = "#dbddff"
 	reagents_to_add = list(/singleton/reagent/nutriment = 15, /singleton/reagent/drink/berryjuice = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("custard" = 10, "blueberries" = 10, "tangy berries" = 5))
 
-/obj/item/reagent_containers/food/snacks/ladylulaine_slice
+/obj/item/reagent_containers/food/snacks/lady_lulaine_slice
 	name = "lady lulaine slice"
 	desc = "A Silversun classic, this dessert is somewhere between a frozen custard, ice cream cake, and berry pie. It is often photographed next to a cocktail with a sunset or a sunrise behind it."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
