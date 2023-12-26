@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/orange,
+/turf/simulated/floor/tiled,
+/area/mine)
 "ag" = (
 /obj/effect/map_effect/airlock/long/square,
 /turf/simulated/wall/shuttle/raider,
@@ -8,9 +13,18 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
 "aA" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/table/steel,
+/obj/item/trash/cigbutt{
+	pixel_y = -4;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "aD" = (
 /obj/effect/map_effect/airlock/s_to_n,
 /turf/simulated/wall/shuttle/raider,
@@ -31,16 +45,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "aJ" = (
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 13
-	},
-/obj/structure/mirror{
-	pixel_x = 27
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/trash/ramen,
+/turf/simulated/floor/plating,
+/area/mine)
 "aL" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -49,6 +57,10 @@
 /obj/machinery/power/apc/empty/north,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
+"aM" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/mine)
 "aP" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -59,17 +71,35 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"aR" = (
+/obj/item/trash/proteinbar,
+/turf/simulated/floor/plating,
+/area/mine)
 "aT" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+/obj/structure/table/steel{
+	pixel_x = -2
 	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/wood,
-/area/goonbase)
+/area/mine)
+"bc" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled,
+/area/mine)
 "bi" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"bj" = (
+/obj/effect/floor_decal/corner_wide/grey/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "bk" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -99,29 +129,27 @@
 "bu" = (
 /turf/template_noop,
 /area/space)
+"bH" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/mine)
 "bL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"bN" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/clothing/head/helmet/merc{
-	pixel_x = 6
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/black,
+/obj/item/clothing/suit/armor/cuirass,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"bN" = (
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/wood,
+/area/mine)
 "bQ" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
+/obj/structure/trash_pile,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "bR" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -139,6 +167,18 @@
 	},
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
+"bY" = (
+/obj/structure/table/wood,
+/obj/item/deck/cards{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/obj/item/storage/pill_bottle/dice/gaming{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "bZ" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
@@ -157,52 +197,57 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "cu" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/projectile/pistol{
-	layer = 2.99;
-	pixel_y = 6
-	},
-/obj/item/gun/projectile/pistol,
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"cH" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/light{
-	dir = 8;
-	pixel_y = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"cK" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"cN" = (
-/obj/item/material/ashtray/bronze,
+/obj/item/reagent_containers/food/drinks/bottle/rum,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
-/area/goonbase)
+/area/mine)
+"cx" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/mirror{
+	pixel_y = 31
+	},
+/obj/structure/sink{
+	pixel_y = 21
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"cH" = (
+/obj/structure/bed/stool/chair/sofa/right/black,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"cK" = (
+/obj/machinery/door/airlock{
+	dir = 8;
+	req_access = list(202)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"cN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/device/paicard,
+/obj/item/material/twohanded/fireaxe,
+/obj/item/weldingtool/hugetank,
+/obj/item/tank/jetpack/void,
+/obj/item/wirecutters/toolbelt,
+/turf/simulated/floor/plating,
+/area/mine)
 "cP" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "cY" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/suit/armor/carrier/heavy,
-/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 12
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "dd" = (
 /obj/structure/bed/padded/bunk{
 	pixel_y = 0
@@ -217,16 +262,22 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/storage)
 "dh" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/paper/crumpled,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"dr" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+/obj/structure/table/standard,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
 	},
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"dr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/mine)
 "dt" = (
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation,
 /turf/template_noop,
@@ -240,6 +291,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
+"dz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/mine)
 "dJ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -250,28 +307,28 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "dK" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"dT" = (
-/obj/structure/bed/padded/bunk{
-	pixel_y = 0
-	},
-/obj/item/bedsheet/black,
-/obj/item/toy/plushie/farwa{
-	pixel_y = -3;
-	pixel_x = 7
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "goon"
-	},
+/obj/structure/closet/crate,
+/obj/item/clothing/head/beret,
+/obj/item/clothing/suit/storage/toggle/flannel/gray,
+/obj/item/clothing/suit/storage/vest,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
+"dQ" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"dT" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/plating,
+/area/mine)
+"dV" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/machinery/computer/operating,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "eb" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -281,54 +338,60 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "eh" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
-"er" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/glasses/sunglasses/aviator{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"eA" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
+/area/mine)
+"ei" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/turf/simulated/floor/tiled,
+/area/mine)
+"eq" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = -3;
+	pixel_x = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
+"er" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"eA" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = -7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "eB" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "eE" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/table/steel,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "eH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/syringe/drugs,
-/obj/item/reagent_containers/syringe/drugs,
-/obj/item/reagent_containers/syringe/drugs,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/wood,
+/area/mine)
 "eI" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_x = -32
@@ -346,12 +409,19 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
 "eJ" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"eK" = (
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "eO" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/shuttle/goon_ship/bridge)
+"eP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/tray,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
 "eS" = (
 /obj/item/trash/chips,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -382,17 +452,30 @@
 "fe" = (
 /obj/item/broken_bottle,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
+"ff" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled,
+/area/mine)
+"fh" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/structure/curtain/open{
+	color = "#854636"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "fj" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "fk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/door/airlock{
+	dir = 1;
+	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "fm" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -406,10 +489,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "fr" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/ramen,
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/medal/gold,
+/obj/item/clothing/accessory/crucifix/gold,
+/obj/item/clothing/wrists/watch/gold,
+/obj/item/coin/gold,
+/obj/item/flame/lighter/zippo/gold,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/material/phoron/full,
+/obj/random/highvalue/no_weapon,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "fs" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/bed/roller,
@@ -428,79 +518,123 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "fz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"fA" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"fG" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/pistachios,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"fM" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/suit/armor/cuirass,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
+/obj/item/clothing/suit/space/void/tcaf,
+/obj/item/clothing/head/helmet/space/void/tcaf,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"fC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"fG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"fI" = (
+/obj/structure/bed/stool/padded/orange{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"fM" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "fW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate,
-/obj/item/stack/material/silver,
-/obj/item/stack/material/silver,
-/obj/item/stack/material/silver,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "fY" = (
 /turf/simulated/mineral/surface,
 /area/space)
 "gi" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 5
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 9
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"gj" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"gm" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
 	},
 /obj/machinery/light{
-	dir = 1;
+	dir = 8;
+	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"gj" = (
-/obj/effect/floor_decal/corner_wide/lime{
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"gn" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black,
+/obj/item/clothing/head/helmet/space/syndicate/black,
+/obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"gm" = (
-/obj/structure/toilet{
-	dir = 8
+/turf/simulated/floor/tiled,
+/area/mine)
+"gp" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/table/steel,
+/obj/item/trash/gum{
+	pixel_y = 7;
+	pixel_x = -4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "gr" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
-"gw" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+"gs" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
-"gx" = (
-/obj/machinery/sleeper{
-	dir = 1
+/turf/simulated/floor/wood,
+/area/mine)
+"gw" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 4
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
+"gx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "gI" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
@@ -508,11 +642,17 @@
 /obj/item/trash/raisins,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"gL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
+/turf/simulated/floor/wood,
+/area/mine)
 "gM" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/cheesie,
+/obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "gX" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -536,18 +676,46 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "he" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/head/headbando/random,
-/obj/item/clothing/suit/storage/toggle/track/red,
-/obj/item/clothing/suit/storage/vest,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/storage/toolbox{
+	pixel_y = 2;
+	pixel_x = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"hr" = (
+/obj/item/paper/goon_base/notice{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/wrench{
+	pixel_x = 10;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "hC" = (
 /obj/structure/sign/greencross{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"hF" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "hG" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 8
@@ -558,13 +726,18 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
-"hS" = (
-/obj/structure/table/steel{
-	pixel_x = -2
+"hN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/obj/item/trash/waffles,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/turf/simulated/floor/plating,
+/area/mine)
+"hS" = (
+/obj/structure/table/rack,
+/obj/item/soap/syndie,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
 "hV" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/bed/roller,
@@ -576,10 +749,10 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
 "hZ" = (
-/obj/item/trash/tray,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "ia" = (
 /obj/item/deck/cards,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
@@ -603,19 +776,34 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "id" = (
-/obj/structure/bed/stool,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
-"ie" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"ie" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"ig" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/turf/simulated/floor/tiled,
+/area/mine)
 "ip" = (
-/obj/item/deck/cards,
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/obj/item/trash/kokobar,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"is" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/mine)
 "it" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/glass/rag,
@@ -647,31 +835,42 @@
 /obj/item/trash/chips,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"iK" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"iR" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "iV" = (
-/obj/item/trash/broken_electronics,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/item/rig/merc/ninja{
+	req_access = list(202)
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/wood,
+/area/mine)
 "iW" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "iX" = (
-/obj/structure/table/standard,
-/obj/item/device/breath_analyzer{
-	pixel_x = 7
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
 	},
-/obj/item/device/healthanalyzer{
-	pixel_x = -4
-	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "iY" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/bearpelt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/clothing/suit/storage/vest,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "jg" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
@@ -682,6 +881,16 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
+"jq" = (
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "js" = (
 /obj/structure/bed/stool,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -690,33 +899,41 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "jv" = (
-/obj/machinery/vending/boozeomat/merchant,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/plating,
+/area/mine)
 "jz" = (
-/obj/item/rig/merc/ninja{
-	req_access = list(202)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/trash/uselessplastic,
+/turf/simulated/floor/plating,
+/area/mine)
+"jV" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 6;
+	pixel_x = -6
 	},
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/turf/simulated/floor/tiled,
+/area/mine)
+"jW" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled,
+/area/mine)
 "jZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/obj/structure/janitorialcart/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "kg" = (
-/obj/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "kj" = (
-/obj/machinery/door/airlock{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/machinery/power/portgen/basic,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "kn" = (
 /obj/structure/closet,
 /obj/item/clothing/accessory/tshirt,
@@ -743,24 +960,34 @@
 /obj/structure/table/steel{
 	pixel_x = -2
 	},
-/obj/item/material/kitchen/rollingpin,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+/obj/item/trash/gum,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"kz" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/thigh/brown{
+	pixel_y = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"kB" = (
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
-"kz" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/item/trash/coffee,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"kB" = (
-/obj/item/storage/pill_bottle/dice/gaming,
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/area/mine)
+"kE" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/mine)
 "kH" = (
 /obj/item/trash/gum,
 /turf/simulated/floor/tiled/yellow,
@@ -780,23 +1007,27 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "kL" = (
-/obj/structure/table/rack,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "kR" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/pistol{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/gun/projectile/pistol,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "kS" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -819,23 +1050,33 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "kV" = (
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	dir = 8;
-	pixel_x = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "kW" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+/obj/structure/table/steel{
+	pixel_x = -2
 	},
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/obj/item/trash/snack_bowl,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "kX" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
+"lb" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/stack/material/platinum{
+	pixel_x = -6
+	},
+/obj/item/stack/material/platinum{
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "le" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/floor_decal/corner/black/diagonal{
@@ -846,48 +1087,77 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"lj" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black/green,
+/obj/item/clothing/head/helmet/space/syndicate/black/green,
+/turf/simulated/floor/tiled,
+/area/mine)
 "ln" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/trash/can,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/wood,
+/area/mine)
 "lo" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "lq" = (
 /obj/machinery/optable,
 /obj/item/storage/firstaid/surgery,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
-"lz" = (
-/obj/machinery/vending/engineering{
-	req_access = null
+"lv" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/shower{
+	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"lI" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/match,
+/obj/item/bikehorn/rubberducky{
+	pixel_y = -5;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"lz" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
 /obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
+	dir = 1;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"lI" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"lK" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "lQ" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "lU" = (
-/obj/machinery/light/small{
-	dir = 8
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
+"lW" = (
+/turf/simulated/floor/tiled/full,
+/area/mine)
 "lY" = (
 /obj/item/trash/liquidfood,
 /obj/structure/cable{
@@ -903,16 +1173,20 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "mj" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/item/clothing/suit/armor/cuirass,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"mn" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/mine)
 "ms" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/goonbase)
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "mv" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -929,58 +1203,62 @@
 /area/shuttle/goon_ship/storage)
 "mE" = (
 /obj/structure/closet/crate,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/item/clothing/head/bandana/pirate,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/obj/item/clothing/suit/storage/vest,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "mI" = (
 /turf/simulated/mineral/surface,
 /area/mine)
 "mJ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"mQ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest{
+	pixel_x = -8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
-	dir = 4
+/obj/item/clothing/accessory/storage/black_vest{
+	pixel_x = 8
 	},
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"mQ" = (
-/obj/structure/sink/kitchen{
-	name = "sink";
-	pixel_y = 26
-	},
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "mV" = (
-/obj/effect/decal/cleanable/molten_item,
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
-	dir = 8;
+	dir = 4;
 	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "mW" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "nf" = (
-/obj/structure/bookcase,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"ng" = (
+/obj/structure/closet,
+/turf/simulated/floor/tiled,
+/area/mine)
 "nk" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -993,36 +1271,46 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
+"nl" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "no" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/ramen,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
-"np" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb,
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"np" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "nr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
+"nw" = (
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "nA" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/goon_ship/port)
+"nB" = (
+/turf/simulated/floor/plating/asteroid,
+/area/mine)
 "nC" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
-/obj/item/gun/projectile/shotgun/pump/combat,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/machinery/vending/boozeomat/merchant,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "nI" = (
 /obj/structure/bed/stool,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1031,15 +1319,21 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "nJ" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/gun/projectile/automatic/rifle/sts35,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
-/obj/structure/table/steel{
-	pixel_x = -2
+/obj/machinery/light{
+	dir = 2;
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
-/obj/item/wrench,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "nM" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -1048,9 +1342,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "nQ" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "nR" = (
 /obj/structure/table/steel,
 /obj/item/trash/proteinbar{
@@ -1077,13 +1378,8 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "nT" = (
-/obj/structure/trash_pile,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "nX" = (
 /obj/structure/table/steel,
 /obj/item/gun/projectile/revolver/lemat,
@@ -1102,31 +1398,34 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"od" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled,
+/area/mine)
+"oe" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "of" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/storage/toolbox{
-	pixel_y = 2;
-	pixel_x = 1
-	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
+"op" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/tiled,
+/area/mine)
+"ov" = (
 /obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
+	dir = 8;
+	pixel_y = 0;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"ov" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/head/beret,
-/obj/item/clothing/suit/storage/toggle/flannel/gray,
-/obj/item/clothing/suit/storage/vest,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "ox" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -1146,43 +1445,42 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "oH" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/trash/pistachios,
+/turf/simulated/floor/plating,
+/area/mine)
 "oI" = (
-/obj/machinery/gumballmachine,
-/turf/simulated/floor/wood,
-/area/goonbase)
-"oK" = (
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	dir = 8;
-	pixel_x = 5
-	},
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"oM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/mine)
+"oK" = (
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"oM" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shotgunammo,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "oP" = (
-/obj/structure/bed/stool/chair/sofa/right/black,
+/obj/structure/bookcase,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
-/area/goonbase)
+/area/mine)
 "oX" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_y = -32
@@ -1193,6 +1491,26 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
+"pa" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/mine)
+"pd" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"pn" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/toilet{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "pp" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
@@ -1203,24 +1521,45 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/med)
-"px" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"pB" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
+"pt" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 26
 	},
-/obj/structure/closet/crate,
-/obj/item/stack/material/diamond,
-/obj/item/stack/material/diamond,
-/obj/item/stack/material/diamond,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"pw" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/random/soap{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"px" = (
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 29
+	},
+/obj/item/tank/anesthetic,
+/obj/item/tank/anesthetic,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/medical,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"pz" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/grey/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"pB" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "pI" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1232,16 +1571,24 @@
 /turf/simulated/floor/airless,
 /area/shuttle/goon_ship/bridge)
 "pJ" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/liquidfood,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/stack/material/platinum,
+/obj/item/stack/material/platinum,
+/obj/item/stack/material/platinum,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "pN" = (
 /obj/effect/landmark/entry_point/east{
 	name = "port, power"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/living)
+"pQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/mine)
 "pT" = (
 /obj/item/storage/pill_bottle/dice/gaming,
 /obj/item/trash/cigbutt{
@@ -1264,13 +1611,86 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
-"qy" = (
-/obj/machinery/door/airlock{
-	dir = 1;
-	req_access = list(202)
+"pV" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"qb" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"qj" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black/med,
+/obj/item/clothing/head/helmet/space/syndicate/black/med,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"qt" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/surgery{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"qv" = (
+/obj/structure/closet/crate,
+/obj/item/coin/diamond,
+/obj/item/clothing/wrists/goldbracer,
+/obj/item/clothing/wrists/armchain,
+/obj/item/clothing/wrists/goldbracer/emerald,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/clothing/wrists/watch/gold,
+/obj/item/flame/lighter/zippo/gold,
+/obj/item/stack/material/phoron/full,
+/obj/item/coin/gold,
+/obj/item/clothing/accessory/crucifix/gold,
+/obj/item/gun/projectile/automatic/rifle/dpra/gold,
+/obj/random/melee/highvalue,
+/turf/simulated/floor/plating,
+/area/mine)
+"qy" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/automatic/lebman,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 2;
+	pixel_y = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"qz" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/machinery/body_scanconsole{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"qC" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "qD" = (
 /obj/item/clothing/head/collectable/paper{
 	pixel_y = -3;
@@ -1282,82 +1702,86 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "qJ" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"qN" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/trash/can,
+/turf/simulated/floor/wood,
+/area/mine)
+"qP" = (
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/trash/plate/steak,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"qW" = (
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/mine)
+"qX" = (
+/turf/simulated/wall/r_wall,
+/area/mine)
+"rc" = (
+/obj/structure/bed/padded/bunk{
+	pixel_y = 0
+	},
+/obj/item/bedsheet/black,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/freezer,
-/area/goonbase)
-"qN" = (
-/obj/item/clothing/gloves/janitor,
-/obj/structure/table/rack,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"qP" = (
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
+/obj/effect/ghostspawpoint{
+	identifier = "goon"
 	},
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"qW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/cigbutt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"qX" = (
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/trash/gum,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"rc" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/gun/custom_ka/frame05,
-/obj/machinery/light{
-	dir = 8;
-	pixel_y = 0;
-	icon_state = "tube_empty"
+/area/mine)
+"ri" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/plating,
+/area/mine)
+"rn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/cheesie,
+/turf/simulated/floor/plating,
+/area/mine)
+"rq" = (
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"ru" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"rn" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "rw" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/starboard)
+"rD" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/tiled,
+/area/mine)
 "rF" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/gun/projectile/dragunov,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "rN" = (
-/obj/effect/decal/cleanable/spiderling_remains,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black,
+/obj/item/clothing/head/helmet/space/syndicate/black,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "rU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/light{
@@ -1368,20 +1792,28 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "rW" = (
-/obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+/obj/structure/bed/padded/bunk{
+	pixel_y = 0
+	},
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	identifier = "goon"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "sa" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/storage)
+"sc" = (
+/obj/item/trash/tuna{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"se" = (
+/turf/simulated/floor/airless,
+/area/mine)
 "sg" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/cable{
@@ -1389,69 +1821,63 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
+"sz" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/item/handcuffs,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "sB" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "sI" = (
-/obj/item/trash/kokobar,
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/structure/table/steel,
+/obj/item/clothing/glasses/welding,
+/obj/item/weldingtool,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "sK" = (
-/obj/machinery/shower{
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/plating,
+/area/mine)
+"sN" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/purple,
+/turf/simulated/floor/tiled,
+/area/mine)
+"sO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/freezer,
+/obj/item/organ/internal/heart,
+/obj/item/organ/internal/lungs,
+/obj/item/organ/internal/liver,
+/obj/item/organ/internal/kidneys,
+/turf/simulated/floor/plating,
+/area/mine)
+"sP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"sX" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/wood,
+/area/mine)
+"sZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/freezer,
-/area/goonbase)
-"sO" = (
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
-"sP" = (
-/obj/item/clothing/accessory/longsleeve_s,
-/obj/structure/closet{
-	icon_door = "blue";
-	name = "misc clothing"
-	},
-/obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/under/tactical,
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/under/color/brown,
-/obj/item/clothing/suit/storage/toggle/trench/grey,
-/obj/item/clothing/head/softcap/himeo,
-/obj/item/clothing/suit/storage/toggle/leather_vest,
-/obj/item/clothing/under/service_overalls,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"sX" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
-/area/goonbase)
-"sZ" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 10
-	},
-/obj/item/clothing/suit/armor/cuirass,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "te" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black,
-/obj/item/clothing/head/helmet/space/syndicate/black,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "tp" = (
 /obj/structure/closet,
 /obj/effect/decal/cleanable/dirt,
@@ -1459,6 +1885,33 @@
 /obj/item/clothing/gloves/black,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"tr" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"tt" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"tu" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/mine)
 "tv" = (
 /obj/structure/extinguisher_cabinet/north{
 	pixel_y = 30
@@ -1466,14 +1919,16 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "tz" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "tA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/can,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/item/trash/stew,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "tI" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/starboard)
@@ -1482,26 +1937,66 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "tR" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"uy" = (
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
+/obj/machinery/giga_drill{
+	name = "himean drill";
+	desc = "A giant, Himean drill - usually digging tunnels deep beneath the planet Himeo."
 	},
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
-	dir = 4;
+	dir = 8;
 	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/turf/simulated/floor/plating,
+/area/mine)
+"tS" = (
+/obj/structure/structural_support{
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/mine)
+"uu" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/plating,
+/area/mine)
+"uv" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"uy" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "uB" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/port)
+"uT" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/mine)
 "va" = (
 /obj/item/trash/cigbutt{
 	pixel_y = 7;
@@ -1511,9 +2006,10 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "vc" = (
-/obj/structure/bed/stool/chair,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/mine)
 "vh" = (
 /obj/structure/sign/emergency/meetingpoint{
 	pixel_y = 31
@@ -1527,21 +2023,28 @@
 /obj/item/clothing/accessory/tajaran/charm/stone,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"vq" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/item/towel/random{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "vt" = (
-/obj/item/reagent_containers/food/drinks/bottle/rum,
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "vx" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
 "vz" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/airless/ceiling,
 /area/mine)
 "vB" = (
 /obj/structure/table/steel,
@@ -1573,27 +2076,52 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "vG" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/item/handcuffs,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/wrench,
+/turf/simulated/floor/plating,
+/area/mine)
+"vH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/mine)
+"vI" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "vJ" = (
-/obj/structure/bed/padded/bunk{
-	pixel_y = 0
-	},
-/obj/item/bedsheet/black,
-/obj/effect/ghostspawpoint{
-	identifier = "goon"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"vM" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/tiled,
+/area/mine)
 "vR" = (
-/obj/machinery/door/airlock{
-	dir = 8;
-	req_access = list(202)
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"vZ" = (
+/obj/effect/floor_decal/corner_wide/grey,
+/turf/simulated/floor/tiled,
+/area/mine)
 "wh" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -1601,25 +2129,23 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
 "wo" = (
-/obj/machinery/body_scanconsole{
-	pixel_x = -1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
 	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "wp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "wD" = (
-/obj/structure/trash_pile,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "wG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1631,10 +2157,29 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/living)
 "wL" = (
-/obj/machinery/optable,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"wX" = (
+/obj/structure/closet/crate,
+/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/freezer/organcooler,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
+"wY" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating,
+/area/mine)
 "wZ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1644,12 +2189,13 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "xf" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/head/bearpelt,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
-/obj/item/clothing/suit/storage/vest,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/trash_pile,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "xi" = (
 /obj/structure/closet/crate,
 /obj/item/reagent_containers/food/snacks/cheesiehonkers,
@@ -1674,35 +2220,67 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
+"xp" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black,
+/obj/item/clothing/head/helmet/space/syndicate/black,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "xr" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/material/ashtray{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/obj/item/reagent_containers/food/drinks/bottle/whitewine{
+	desc = "A mediocsre quality white wine, intended more for making spritzers than for drinking by itself. Produced on Visegrad by Idris.";
+	pixel_y = 7;
+	pixel_x = -7
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"xs" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"xH" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"xJ" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/item/bikehorn/rubberducky{
+	pixel_y = -5;
+	pixel_x = 4
+	},
+/obj/item/towel/random{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"xK" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/port)
+"xM" = (
 /obj/item/bedsheet/black,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ghostspawpoint{
 	identifier = "goon_prisoner"
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"xH" = (
-/obj/machinery/door/airlock{
-	dir = 8;
-	req_access = list(202)
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"xK" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/port)
-"xM" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "xO" = (
 /obj/item/trash/cigbutt,
 /obj/effect/floor_decal/spline/plain/black{
@@ -1718,27 +2296,33 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "xQ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/suit/armor/cuirass,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"xX" = (
 /obj/structure/table/steel,
 /obj/item/tank/air,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"xX" = (
-/obj/structure/closet/walllocker/medical{
-	pixel_y = 29
-	},
-/obj/item/tank/anesthetic,
-/obj/item/tank/anesthetic,
-/obj/item/tank/anesthetic,
-/obj/item/clothing/mask/breath/medical,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
+"xY" = (
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/boxing,
+/turf/simulated/floor/wood,
+/area/mine)
 "xZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/trash/match,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/turf/simulated/floor/plating,
+/area/mine)
 "ye" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -1748,22 +2332,16 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "yl" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "ym" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -1777,11 +2355,18 @@
 /obj/item/trash/cheesie,
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
+"yq" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/mine)
 "yr" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/item/trash/cigbutt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/mine)
 "yx" = (
 /obj/effect/landmark/entry_point/north{
 	name = "north, starboard engines"
@@ -1791,6 +2376,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/goon_ship/starboard)
+"yD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"yH" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/mine)
 "yP" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -1804,10 +2401,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "yS" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/spiderling_remains,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "yW" = (
 /obj/structure/bed/padded/bunk{
 	pixel_y = 0
@@ -1821,20 +2418,18 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "yX" = (
-/obj/structure/closet/crate,
-/obj/item/coin/diamond,
-/obj/item/clothing/wrists/goldbracer,
-/obj/item/clothing/wrists/armchain,
-/obj/item/clothing/wrists/goldbracer/emerald,
-/obj/item/gun/projectile/automatic/rifle/dpra/gold,
-/obj/random/melee/highvalue,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"zb" = (
-/obj/item/trash/cigbutt,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
-/area/goonbase)
+/area/mine)
+"zb" = (
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "zd" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/bridge)
@@ -1845,12 +2440,11 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "zr" = (
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/trash/snack_bowl,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/plating,
+/area/mine)
 "zs" = (
 /obj/structure/table/steel,
 /obj/item/device/healthanalyzer,
@@ -1858,18 +2452,17 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
 "zz" = (
-/obj/machinery/giga_drill{
-	name = "himean drill";
-	desc = "A giant, Himean drill - usually digging tunnels deep beneath the planet Himeo."
-	},
+/obj/structure/closet/toolcloset,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"zB" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "zC" = (
 /obj/structure/bed/padded/bunk{
 	pixel_y = 0
@@ -1879,21 +2472,24 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "Ag" = (
-/obj/structure/bookcase,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 8;
+	pixel_x = 5
 	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Ak" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate,
-/obj/item/stack/material/platinum,
-/obj/item/stack/material/platinum,
-/obj/item/stack/material/platinum,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "Aw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1907,18 +2503,27 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "Ay" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
 /obj/structure/table/steel{
 	pixel_x = -2
 	},
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/item/tape_roll,
+/turf/simulated/floor/plating,
+/area/mine)
 "AA" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/starboard)
+"AI" = (
+/obj/structure/bed/stool/padded/orange{
+	dir = 2
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "AR" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
@@ -1959,6 +2564,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
+"Bm" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/stack/material/silver{
+	pixel_x = -6
+	},
+/obj/item/stack/material/silver{
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "Bn" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/spline/plain/black{
@@ -1990,52 +2606,95 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "Br" = (
-/obj/machinery/iv_drip,
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/structure/closet/crate,
+/obj/item/coin/diamond,
+/obj/item/clothing/wrists/goldbracer,
+/obj/item/clothing/wrists/armchain,
+/obj/item/clothing/wrists/goldbracer/emerald,
+/obj/item/gun/projectile/automatic/rifle/dpra/gold,
+/obj/random/melee/highvalue,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "Bt" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+/obj/structure/toilet{
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/trash/chips,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "By" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "Bz" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/chipbasket,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "BE" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"BH" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"BI" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "BK" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/accessory/holster/thigh/brown,
-/obj/item/clothing/accessory/holster/thigh/brown{
-	pixel_y = 9
+/obj/machinery/appliance/cooker/fryer,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
 	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"BW" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/obj/item/trash/match,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"Cb" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"BW" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/area/mine)
 "Cf" = (
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/light{
+	dir = 8;
+	pixel_y = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Ch" = (
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "Cr" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
@@ -2046,6 +2705,481 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "Cz" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"CR" = (
+/obj/item/storage/pill_bottle/dice/gaming,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"CS" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/living)
+"CY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"CZ" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Dj" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/corner/black/diagonal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"Dl" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, substation"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/goon_ship/living)
+"Dm" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/shuttle/goon_ship/bridge)
+"Do" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
+"Dr" = (
+/turf/simulated/wall,
+/area/mine)
+"DI" = (
+/obj/structure/table/steel,
+/obj/item/tank/air,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/living)
+"DN" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/corner/black/diagonal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"DO" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/storage/toggle/leather_jacket,
+/obj/item/clothing/glasses/sunglasses/fluff,
+/obj/item/storage/box/fancy/cigarettes,
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"DT" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
+"DY" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Ea" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/can,
+/turf/simulated/floor/plating,
+/area/mine)
+"El" = (
+/obj/machinery/computer/operating,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Em" = (
+/obj/structure/curtain/open/medical,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/goon_ship/med)
+"Ex" = (
+/obj/structure/bed/stool/padded/orange{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"EE" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/living)
+"EI" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/mine)
+"EP" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/clothing/head/hardhat/dblue,
+/turf/simulated/floor/plating,
+/area/mine)
+"EQ" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/mine)
+"EV" = (
+/obj/item/trash/tray,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
+"Fc" = (
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"Fe" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"Fk" = (
+/obj/structure/bed/stool/chair/sofa/black,
+/turf/simulated/floor/wood,
+/area/mine)
+"Fo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Fp" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/broken_bottle,
+/turf/simulated/floor/plating,
+/area/mine)
+"Ft" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/corner/black/diagonal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"Fz" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"FB" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/yellow,
+/turf/simulated/floor/tiled,
+/area/mine)
+"FE" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/head/helmet/material/makeshift,
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/plating,
+/area/mine)
+"FF" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/goon_ship/port)
+"FO" = (
+/obj/item/trash/liquidfood,
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"FR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/turf/simulated/floor/wood,
+/area/mine)
+"FT" = (
+/obj/structure/closet/walllocker{
+	pixel_x = 30
+	},
+/obj/item/storage/bag/inflatable,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/living)
+"FU" = (
+/obj/effect/floor_decal/corner_wide/grey/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"FZ" = (
+/obj/item/handcuffs/cable{
+	pixel_y = -11;
+	pixel_x = -5
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Ga" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/mine)
+"Gb" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/pistol{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/gun/projectile/pistol,
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Gc" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/plating,
+/area/mine)
+"Gi" = (
+/obj/machinery/gumballmachine,
+/turf/simulated/floor/wood,
+/area/mine)
+"Gn" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/mine)
+"Gp" = (
+/obj/effect/step_trigger/teleporter,
+/turf/template_noop,
+/area/space)
+"Gs" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/turban,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/suit/storage/vest,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"Gw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/port)
+"Gy" = (
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/storage)
+"GB" = (
+/obj/structure/table/standard,
+/obj/item/device/breath_analyzer{
+	pixel_x = 7
+	},
+/obj/item/device/healthanalyzer{
+	pixel_x = -4
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"GF" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"GH" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/head/helmet/merc{
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/plating,
+/area/mine)
+"GI" = (
+/obj/item/trash/maps,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"GL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/sofa/right/red{
+	dir = 2
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"GP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"GY" = (
+/obj/effect/overmap/visitable/ship/landable/goon_ship,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/goon_ship/bridge)
+"GZ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"Hd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Hp" = (
+/obj/structure/bed,
+/turf/simulated/floor/tiled,
+/area/mine)
+"Hr" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"Hs" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/goon_ship/med)
+"Ht" = (
+/obj/effect/landmark/entry_point/north{
+	name = "aft, airlock"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/living)
+"Hx" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/mine)
+"Hy" = (
+/obj/structure/table/steel,
+/obj/item/trash/snacktray{
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/corner/black/diagonal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"HB" = (
+/obj/structure/bed/stool/chair/sofa/left/black,
+/turf/simulated/floor/wood,
+/area/mine)
+"HC" = (
+/obj/machinery/smartfridge/foodheater,
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/goon_ship/living)
+"HD" = (
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/generic{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/paper/goon_base/note,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/port)
+"HJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/padded/blue{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"HW" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/covert,
+/obj/item/clothing/head/helmet/space/syndicate/covert,
+/turf/simulated/floor/tiled,
+/area/mine)
+"HZ" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Ia" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/obj/item/gun/projectile/dragunov,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Ib" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/living)
+"Id" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/port)
+"Ie" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/head/cowboy,
 /obj/item/clothing/shoes/cowboy,
@@ -2154,391 +3288,23 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
 /obj/item/clothing/head/softcap,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"CR" = (
-/obj/structure/bed/padded/bunk{
-	pixel_y = 0
-	},
-/obj/item/bedsheet/black,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "goon"
-	},
+/area/mine)
+"Ig" = (
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"CS" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/living)
-"CY" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"CZ" = (
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"Dj" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/floor_decal/corner/black/diagonal{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"Dl" = (
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, substation"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/goon_ship/living)
-"Dm" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor/airless,
-/area/shuttle/goon_ship/bridge)
-"Dr" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"DI" = (
-/obj/structure/table/steel,
-/obj/item/tank/air,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/living)
-"DN" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/floor_decal/corner/black/diagonal{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"DO" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/leather_jacket,
-/obj/item/clothing/glasses/sunglasses/fluff,
-/obj/item/storage/box/fancy/cigarettes,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"DT" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"Ea" = (
+/area/mine)
+"Iz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/red,
-/area/goonbase)
-"El" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Em" = (
-/obj/structure/curtain/open/medical,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/shuttle/goon_ship/med)
-"EE" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/living)
-"EP" = (
-/obj/machinery/bodyscanner{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"EV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/cryopod,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"Fc" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Fe" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray/bronze,
-/turf/simulated/floor/wood,
-/area/goonbase)
-"Fk" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"Fo" = (
-/obj/structure/bed/stool/chair/office/dark,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Fp" = (
-/obj/structure/curtain/black,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"Ft" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/floor_decal/corner/black/diagonal{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"FE" = (
-/obj/item/wrench,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"FF" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/goon_ship/port)
-"FO" = (
-/obj/item/trash/liquidfood,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"FT" = (
-/obj/structure/closet/walllocker{
-	pixel_x = 30
-	},
-/obj/item/storage/bag/inflatable,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/living)
-"Gb" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/combat{
-	pixel_x = -4
-	},
-/obj/item/storage/firstaid/trauma,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 4
-	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"Gi" = (
-/obj/machinery/pipedispenser,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Gp" = (
-/obj/effect/step_trigger/teleporter,
-/turf/template_noop,
-/area/space)
-"Gs" = (
-/obj/structure/bed/stool/chair/sofa/black,
-/turf/simulated/floor/wood,
-/area/goonbase)
-"Gw" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/port)
-"Gy" = (
-/obj/effect/decal/cleanable/generic,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/storage)
-"GB" = (
-/obj/structure/table/reinforced/glass,
-/obj/item/material/ashtray{
-	pixel_y = 2;
-	pixel_x = 3
-	},
-/obj/item/reagent_containers/food/drinks/bottle/whitewine{
-	desc = "A mediocsre quality white wine, intended more for making spritzers than for drinking by itself. Produced on Visegrad by Idris.";
-	pixel_y = 7;
-	pixel_x = -7
-	},
-/turf/simulated/floor/wood,
-/area/goonbase)
-"GH" = (
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/wood,
-/area/goonbase)
-"GI" = (
-/obj/structure/table/rack,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/paper/goon_base/notice,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"GY" = (
-/obj/effect/overmap/visitable/ship/landable/goon_ship,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/goon_ship/bridge)
-"GZ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"Hr" = (
-/obj/machinery/computer/operating,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"Hs" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/o2{
-	pixel_x = -4
-	},
-/obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/toxin{
-	pixel_x = 4
-	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/shuttle/goon_ship/med)
-"Ht" = (
-/obj/effect/landmark/entry_point/north{
-	name = "aft, airlock"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/living)
-"Hy" = (
-/obj/structure/table/steel,
-/obj/item/trash/snacktray{
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/floor_decal/corner/black/diagonal{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"HB" = (
-/obj/machinery/appliance/cooker/oven,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"HC" = (
-/obj/machinery/smartfridge/foodheater,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/goon_ship/living)
-"HD" = (
-/obj/random/dirt_75,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/generic{
-	pixel_x = -2;
-	pixel_y = 3
-	},
-/obj/item/paper/goon_base/note,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/port)
-"HZ" = (
-/obj/structure/curtain/medical,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"Ia" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"Ib" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/living)
-"Id" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/port)
-"Ie" = (
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"Ig" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 12
-	},
-/obj/item/storage/toolbox/mechanical,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Iz" = (
-/obj/machinery/power/portgen/basic,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "IA" = (
-/obj/machinery/media/jukebox,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "IL" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2546,12 +3312,46 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
-"IS" = (
-/obj/structure/table/steel{
-	pixel_x = -2
+"IN" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/mine)
+"IQ" = (
+/obj/structure/bed/stool/chair/sofa/left/red{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"IS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"IU" = (
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
+"IW" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"IX" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/head/helmet/space/syndicate/black/red,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "IZ" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -2577,16 +3377,18 @@
 "Jj" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "Jl" = (
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_x = -5;
+	pixel_y = 6
 	},
-/obj/item/trash/match,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "Jo" = (
 /obj/structure/bed/padded/bunk{
 	pixel_y = 0
@@ -2603,15 +3405,43 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"Jq" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "Jw" = (
-/obj/item/clothing/gloves/yellow,
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"Jx" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
+"JC" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "JD" = (
-/obj/item/trash/cheesie,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 26
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "JW" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
@@ -2629,10 +3459,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "Ke" = (
-/obj/structure/closet/toolcloset,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "Ki" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -2640,6 +3469,67 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
 "KB" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/item/clothing/suit/armor/cuirass,
+/turf/simulated/floor/plating,
+/area/mine)
+"KD" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/mine)
+"KE" = (
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/food/drinks/carton/milk{
+	pixel_y = 7
+	},
+/obj/item/storage/box/fancy/egg_box,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"KG" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"KK" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/starboard)
+"KL" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"KR" = (
+/obj/structure/bed/padded/bunk{
+	pixel_y = 0
+	},
+/obj/item/bedsheet/black,
+/obj/item/toy/plushie/farwa{
+	pixel_y = -3;
+	pixel_x = 7
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "goon"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"KW" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/plasteel/full,
@@ -2648,33 +3538,11 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"KE" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/broken_bottle,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"KG" = (
-/obj/structure/table/rack,
-/obj/item/soap/syndie,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/freezer,
-/area/goonbase)
-"KK" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/starboard)
-"KR" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/cigbutt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"KW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/trash_pile,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"KZ" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/tiled,
+/area/mine)
 "La" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -2683,12 +3551,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "Ld" = (
-/obj/structure/noticeboard{
-	pixel_y = -30
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
 	},
-/obj/item/trash/candy,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Lg" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -2713,28 +3581,57 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
-"Mo" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
+"LM" = (
 /obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
+	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/turf/simulated/floor/tiled,
+/area/mine)
+"Mh" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating,
+/area/mine)
+"Mk" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"Mo" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/gun/projectile/automatic/c20r,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Mu" = (
+/obj/effect/floor_decal/corner_wide/grey/full,
+/turf/simulated/floor/tiled,
+/area/mine)
 "Mw" = (
 /turf/space,
 /area/space)
+"Mz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/mine)
 "MB" = (
-/obj/item/storage/box/drinkingglasses,
-/obj/structure/table/steel{
-	pixel_x = -2
+/obj/machinery/door/airlock{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
+"ME" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/mine)
 "MJ" = (
 /obj/structure/table/steel,
 /obj/item/paper/crumpled,
@@ -2754,6 +3651,17 @@
 "MR" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/living)
+"MS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"MT" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor/plating,
+/area/mine)
 "MV" = (
 /obj/effect/landmark/entry_point/north{
 	name = "aft, port engines"
@@ -2779,20 +3687,56 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
-"Nk" = (
+"Ne" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
+"Nf" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/rainbow,
+/turf/simulated/floor/tiled,
+/area/mine)
+"Ni" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"Nk" = (
+/obj/machinery/body_scanconsole{
+	pixel_x = -1
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Np" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/mine)
+"Nq" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "Nr" = (
-/obj/item/paper/crumpled,
+/obj/effect/decal/cleanable/molten_item,
 /obj/machinery/light{
 	dir = 8;
 	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"NA" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"NB" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/mine)
 "NF" = (
 /obj/structure/noticeboard{
 	pixel_y = 32
@@ -2800,60 +3744,68 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "NH" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/effect/map_effect/airlock/long/square{
+	required_access = null
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/mine)
 "NP" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/gun/projectile/automatic/c20r,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "NT" = (
-/obj/structure/table/steel,
-/obj/item/trash/cigbutt{
-	pixel_y = -4;
-	pixel_x = -9
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
 	},
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	pixel_y = 8;
-	pixel_x = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "NX" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/red,
-/area/goonbase)
+/obj/item/trash/chipbasket,
+/turf/simulated/floor/plating,
+/area/mine)
 "NY" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
 "On" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/item/trash/cigbutt,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/item/clothing/gloves/janitor,
+/obj/structure/table/rack,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
+"Oo" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"Or" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/sofa/red,
+/obj/item/handcuffs{
+	pixel_x = -10
+	},
+/turf/simulated/floor/wood,
+/area/mine)
 "Os" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/item/trash/broken_electronics,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Ow" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/item/deck/cards,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "OA" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom{
@@ -2864,6 +3816,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
+"OI" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/glasses/sunglasses/aviator,
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 5
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 10
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 7
+	},
+/obj/item/clothing/glasses/sunglasses/aviator{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/mine)
 "OL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fuel_port/hydrogen{
@@ -2889,81 +3858,83 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "Pc" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/accessory/storage/black_vest,
-/obj/item/clothing/accessory/storage/black_vest{
-	pixel_x = -8
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
-/obj/item/clothing/accessory/storage/black_vest{
-	pixel_x = 8
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "Pk" = (
 /obj/effect/overmap/visitable/sector/goon,
 /turf/simulated/mineral/surface,
 /area/mine)
 "Pp" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Pu" = (
-/obj/machinery/light{
-	dir = 4;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/effect/decal/cleanable/ash,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "PC" = (
 /obj/machinery/bodyscanner,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
 "PK" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"PL" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
+/obj/machinery/light/small{
+	dir = 4
 	},
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"PL" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"PR" = (
+/obj/item/wrench,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
+"PS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"PV" = (
+/obj/item/storage/box/drinkingglasses,
 /obj/structure/table/steel{
 	pixel_x = -2
 	},
-/obj/item/tape_roll,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"PR" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"PV" = (
-/obj/structure/bed/stool/chair/sofa/left/black,
-/turf/simulated/floor/wood,
-/area/goonbase)
-"PW" = (
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"PY" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	pixel_y = 8;
-	pixel_x = 6
+/area/mine)
+"PW" = (
+/obj/structure/bed/padded/bunk{
+	pixel_y = 0
+	},
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	identifier = "goon_boss"
 	},
 /turf/simulated/floor/wood,
-/area/goonbase)
+/area/mine)
+"PY" = (
+/obj/item/material/ashtray/bronze,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "PZ" = (
 /obj/structure/table/rack,
 /obj/item/clothing/gloves/latex,
@@ -2971,6 +3942,15 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
+"Qc" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/plating,
+/area/mine)
+"Qe" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/mine)
 "Qf" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
@@ -2979,19 +3959,35 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
+"Qg" = (
+/obj/effect/floor_decal/corner_wide/grey/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "Qh" = (
 /obj/item/trash/coffee,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "Ql" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/portgen/basic,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Qm" = (
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 5
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
+"Qm" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
 "Qv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating{
@@ -2999,9 +3995,10 @@
 	},
 /area/shuttle/goon_ship/bridge)
 "Qw" = (
-/obj/structure/punching_bag,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/plating,
+/area/mine)
 "Qx" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/cable{
@@ -3016,52 +4013,45 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/port)
 "QE" = (
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/trash/plate/steak,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/trash/liquidfood,
+/turf/simulated/floor/plating,
+/area/mine)
 "QM" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"QO" = (
-/obj/structure/closet{
-	icon_door = "blue";
-	name = "misc clothing"
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
-/obj/item/clothing/accessory/university/black,
-/obj/item/clothing/under/syndicate/ninja,
-/obj/item/clothing/under/pants/ripped,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/vysoka,
-/obj/item/clothing/suit/storage/toggle/varsity,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff,
-/obj/item/clothing/under/suit_jacket/charcoal,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"QP" = (
-/obj/item/reagent_containers/glass/bucket/wood{
-	pixel_y = -7
-	},
+/area/mine)
+"QO" = (
+/obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"QP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"QQ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating,
+/area/mine)
 "QT" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "QX" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "Rb" = (
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "Rc" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/med)
@@ -3091,21 +4081,30 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
-"Rv" = (
-/obj/effect/floor_decal/spline/plain/black{
+"Rl" = (
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/clothing/head/hardhat/dblue,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"RE" = (
-/obj/structure/table/rack,
-/obj/item/clothing/gloves/boxing,
 /turf/simulated/floor/wood,
-/area/goonbase)
+/area/mine)
+"Rt" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Rv" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/wood,
+/area/mine)
+"RE" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "RQ" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -3115,10 +4114,23 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "RR" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Sd" = (
+/obj/machinery/door/airlock/glass,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating,
+/area/mine)
 "Sf" = (
 /obj/structure/table/steel,
 /obj/item/trash/proteinbar,
@@ -3128,59 +4140,74 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "Sj" = (
-/obj/structure/table/steel,
-/obj/item/clothing/glasses/welding,
-/obj/item/weldingtool,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Sk" = (
-/obj/effect/decal/cleanable/generic,
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/obj/structure/closet/crate,
+/obj/item/stack/material/diamond,
+/obj/item/stack/material/diamond,
+/obj/item/stack/material/diamond,
+/turf/simulated/floor/plating,
+/area/mine)
 "Sm" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/projectile/pistol{
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"Su" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"Sz" = (
+/obj/structure/trash_pile,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
+"SE" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/mask/gas/syndicate{
 	layer = 2.99;
 	pixel_y = 6
 	},
-/obj/item/gun/projectile/pistol,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
-"Sz" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/trash/uselessplastic,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"SE" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/o2{
-	pixel_x = -4
-	},
-/obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/toxin{
-	pixel_x = 4
-	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "SF" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 13
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "SG" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/machinery/light{
@@ -3189,28 +4216,39 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"SJ" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/plating,
+/area/mine)
 "SK" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "SU" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/civilian{
-	pixel_y = 9
-	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/machinery/pipedispenser,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/mine)
 "SX" = (
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/structure/closet/crate,
+/obj/item/clothing/head/headbando/random,
+/obj/item/clothing/suit/storage/toggle/track/red,
+/obj/item/clothing/suit/storage/vest,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "SZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"Tb" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/mine)
 "Td" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -3221,10 +4259,20 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
 "To" = (
-/obj/structure/trash_pile,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/closet{
+	icon_door = "blue";
+	name = "misc clothing"
+	},
+/obj/item/clothing/accessory/university/black,
+/obj/item/clothing/under/syndicate/ninja,
+/obj/item/clothing/under/pants/ripped,
+/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/under/vysoka,
+/obj/item/clothing/suit/storage/toggle/varsity,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff,
+/obj/item/clothing/under/suit_jacket/charcoal,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Tr" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/cable{
@@ -3235,71 +4283,128 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
 "Ts" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/accessory/medal/gold,
-/obj/item/clothing/accessory/crucifix/gold,
-/obj/item/clothing/wrists/watch/gold,
-/obj/item/coin/gold,
-/obj/item/flame/lighter/zippo/gold,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/material/phoron/full,
-/obj/random/highvalue/no_weapon,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Tt" = (
 /obj/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "Tu" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Ty" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
 "TA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+/obj/item/clothing/accessory/longsleeve_s,
+/obj/structure/closet{
+	icon_door = "blue";
+	name = "misc clothing"
 	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/under/tactical,
+/obj/item/clothing/under/pants/black,
+/obj/item/clothing/under/color/brown,
+/obj/item/clothing/suit/storage/toggle/trench/grey,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/suit/storage/toggle/leather_vest,
+/obj/item/clothing/under/service_overalls,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "TH" = (
-/obj/machinery/appliance/cooker/fryer,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"TJ" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/medical,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
-"TQ" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/effect/floor_decal/spline/plain/black{
+/area/mine)
+"TJ" = (
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/trash/waffles,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"TN" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
+/area/mine)
+"TO" = (
+/obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
 	},
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
+/turf/simulated/floor/tiled,
+/area/mine)
+"TQ" = (
+/obj/structure/noticeboard{
+	pixel_y = -30
 	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/item/trash/candy,
+/turf/simulated/floor/wood,
+/area/mine)
+"TW" = (
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "TY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/mine)
+"Uc" = (
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"Ud" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_ship/port)
+"Uf" = (
+/obj/structure/closet/secure_closet/cabinet{
+	req_access = list(20)
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"Ui" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/goon_ship/bridge)
+"Ul" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/goon_ship/bridge)
+"Un" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/table/steel,
+/obj/item/trash/stew{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Up" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/suit/pirate,
 /obj/item/storage/box/fancy/cigarettes/nicotine,
@@ -3314,48 +4419,7 @@
 /obj/random/spacecash,
 /obj/random/spacecash,
 /turf/simulated/floor/wood,
-/area/goonbase)
-"Uc" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/gun/projectile/automatic/lebman,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 2;
-	pixel_y = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Ud" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_ship/port)
-"Ui" = (
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/goon_ship/bridge)
-"Ul" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
-/obj/machinery/computer/ship/sensors,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/goon_ship/bridge)
-"Up" = (
-/obj/structure/table/rack,
-/obj/item/clothing/gloves/latex,
-/obj/item/clothing/mask/surgical/w,
-/obj/item/melee/baton/stunrod,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
 "Uq" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -3363,12 +4427,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_ship/starboard)
 "Ur" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/head/bandana/pirate,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
-/obj/item/clothing/suit/storage/vest,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/ramen,
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "UA" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -3393,16 +4455,29 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "UX" = (
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Vc" = (
-/obj/machinery/appliance/cooker/stove,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/item/trash/stew,
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/white,
-/area/goonbase)
+/area/mine)
+"Vb" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/item/toy/plushie/farwa{
+	pixel_y = -3;
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"Vc" = (
+/obj/structure/punching_bag,
+/turf/simulated/floor/wood,
+/area/mine)
 "Vo" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_y = -32
@@ -3411,37 +4486,34 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "Vp" = (
-/obj/structure/table/steel{
-	pixel_x = -2
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/light/small{
+	dir = 4
 	},
-/obj/item/paper_bin,
-/obj/item/pen/black,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/turf/simulated/floor/plating,
+/area/mine)
 "Vs" = (
-/obj/structure/table/steel{
-	pixel_x = -2
+/obj/item/paper/crumpled,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
-/obj/item/trash/tray,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/turf/simulated/floor/wood,
+/area/mine)
 "Vu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_ship/bridge)
+"Vw" = (
+/turf/simulated/floor/tiled,
+/area/mine)
 "Vx" = (
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/mop,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "VB" = (
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 1;
@@ -3450,35 +4522,28 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "VD" = (
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+/obj/structure/table/steel{
+	pixel_x = -2
 	},
+/obj/item/trash/tray,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
+"VK" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/mine)
 "VL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/wood,
+/area/mine)
 "VY" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/mask/surgical/w,
+/obj/item/melee/baton/stunrod,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "Wb" = (
 /obj/item/trash/can,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -3489,39 +4554,79 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
+"Wk" = (
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled,
+/area/mine)
+"Wn" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/mine)
 "Wq" = (
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 0;
-	icon_state = "tube_empty"
-	},
+/obj/structure/curtain/medical,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Wt" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
+"Wu" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/mine)
 "Wv" = (
-/obj/structure/bed/padded/bunk{
-	pixel_y = 0
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
 	},
-/obj/item/bedsheet/black,
-/obj/effect/ghostspawpoint{
-	identifier = "goon_boss"
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Ww" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
 	},
-/turf/simulated/floor/wood,
-/area/goonbase)
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"WA" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/mine)
+"WD" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "WG" = (
-/obj/item/storage/box/handcuffs,
-/obj/item/melee/baton/stunrod,
-/obj/structure/table/steel,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/item/trash/coffee,
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"WI" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "WL" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
+"WM" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/mine)
 "WO" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3536,16 +4641,14 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "WR" = (
-/obj/machinery/door/airlock{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/bed/stool,
+/turf/simulated/floor/carpet/red,
+/area/mine)
 "WS" = (
-/obj/structure/closet/crate/loot,
+/obj/item/clothing/gloves/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "Xb" = (
 /obj/effect/shuttle_landmark/goon_ship/transit,
 /turf/space,
@@ -3589,26 +4692,27 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "Xx" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/mask/gas/syndicate{
-	layer = 2.99;
-	pixel_y = 6
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
-"Xz" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"XP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/chips,
 /turf/simulated/floor/carpet/red,
-/area/goonbase)
+/area/mine)
+"Xz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/carpet/red,
+/area/mine)
+"XP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/stack/material/silver,
+/obj/item/stack/material/silver,
+/obj/item/stack/material/silver,
+/turf/simulated/floor/plating,
+/area/mine)
 "XS" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -3616,15 +4720,24 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "XY" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate,
-/obj/item/device/paicard,
-/obj/item/material/twohanded/fireaxe,
-/obj/item/weldingtool/hugetank,
-/obj/item/tank/jetpack/void,
-/obj/item/wirecutters/toolbelt,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
+"Ya" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"Yf" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "Yh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -3632,20 +4745,21 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/goon_ship/living)
 "Yi" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/head/turban,
-/obj/item/clothing/accessory/poncho,
-/obj/item/clothing/suit/storage/vest,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
-"Yp" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock{
-	dir = 8;
-	req_access = list(202)
+/obj/structure/table/steel{
+	pixel_x = -2
 	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/item/material/kitchen/rollingpin,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
+"Yp" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -3653,16 +4767,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
 "Yz" = (
-/obj/structure/table/steel{
-	pixel_x = -2
-	},
-/obj/item/reagent_containers/food/drinks/carton/milk{
-	pixel_y = 7
-	},
-/obj/item/storage/box/fancy/egg_box,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
+/obj/item/storage/box/handcuffs,
+/obj/item/melee/baton/stunrod,
+/obj/structure/table/steel,
+/turf/simulated/floor/wood,
+/area/mine)
 "YA" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -3679,15 +4788,23 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_ship/med)
+"YU" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/standard,
+/obj/random/soap{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "YV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/freezer,
-/obj/item/organ/internal/heart,
-/obj/item/organ/internal/lungs,
-/obj/item/organ/internal/liver,
-/obj/item/organ/internal/kidneys,
+/obj/machinery/door/airlock{
+	dir = 8;
+	req_access = list(202)
+	},
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "YW" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -3706,18 +4823,28 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "YZ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/turf/simulated/floor/wood,
+/area/mine)
+"Zc" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/table/steel{
+	pixel_x = -2
+	},
+/obj/item/gun/custom_ka/frame05,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
+	pixel_y = 0;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/white,
-/area/goonbase)
-"Zc" = (
-/obj/item/trash/maps,
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/turf/simulated/floor/plating,
+/area/mine)
 "Ze" = (
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
@@ -3727,37 +4854,41 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "Zi" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/gun/projectile/automatic/rifle/sts35,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 2;
-	pixel_y = 0;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/plating,
-/area/goonbase)
+/turf/simulated/floor/wood,
+/area/mine)
 "Zk" = (
-/obj/effect/map_effect/airlock/long/square{
-	required_access = null
+/obj/machinery/door/airlock{
+	dir = 8;
+	req_access = list(202)
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/goonbase)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
 "Zu" = (
-/obj/structure/janitorialcart/full,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
 /turf/simulated/floor/plating,
-/area/goonbase)
+/area/mine)
 "Zw" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/combat{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine)
 "Zx" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -3772,30 +4903,46 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
 "ZB" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/head/helmet/material/makeshift,
-/obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/plating,
-/area/goonbase)
+/obj/structure/table/rack,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/paper/goon_base/notice,
+/turf/simulated/floor/tiled/dark,
+/area/mine)
+"ZH" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "ZJ" = (
 /obj/structure/table/steel{
 	pixel_x = -2
 	},
 /obj/item/trash/plate,
 /turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/area/mine)
 "ZL" = (
-/obj/machinery/light{
-	dir = 8;
-	pixel_y = 0;
-	icon_state = "tube_empty"
+/obj/item/trash/cheesie,
+/turf/simulated/floor/wood,
+/area/mine)
+"ZT" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase)
+/obj/structure/mopbucket,
+/obj/item/mop,
+/turf/simulated/floor/tiled,
+/area/mine)
 "ZW" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
-/area/goonbase)
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/plating,
+/area/mine)
 
 (1,1,1) = {"
 Mw
@@ -34452,15 +35599,15 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
 mI
@@ -34709,15 +35856,15 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -34920,24 +36067,6 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
@@ -34975,6 +36104,24 @@ mI
 mI
 mI
 mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+gn
+HW
+ig
+lj
+fA
+Dr
+qX
 mI
 mI
 mI
@@ -35177,24 +36324,6 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
@@ -35219,19 +36348,37 @@ mI
 mI
 mI
 mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+Dr
+TO
+bj
+lW
+Qg
+iK
+Dr
+qX
 mI
 mI
 mI
@@ -35429,29 +36576,6 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
@@ -35477,8 +36601,51 @@ mI
 mI
 mI
 mI
+qX
+qX
+qX
+qX
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qj
+lW
+lW
+lW
+xp
+Dr
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
 mI
@@ -35516,27 +36683,7 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+vz
 mI
 mI
 mI
@@ -35686,50 +36833,6 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
@@ -35755,8 +36858,51 @@ mI
 mI
 mI
 mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+Dr
+qX
 mI
 mI
+qX
+Dr
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+Dr
+IX
+Mu
+lW
+FU
+tr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -35794,7 +36940,8 @@ mI
 mI
 mI
 mI
-mI
+vz
+vz
 mI
 mI
 mI
@@ -35941,53 +37088,6 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-ms
-mW
-mW
-pB
-Ak
-fW
-YV
-zz
-mW
-px
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
@@ -36009,10 +37109,57 @@ mI
 mI
 mI
 mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+Dr
+QX
+QX
+QX
+wY
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+Dr
 mI
 mI
 mI
 mI
+Dr
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+wY
+Vw
+bj
+lW
+pz
+BH
+Dr
+QX
+QX
+QX
+Dr
+QX
+QX
+QX
+QX
+QX
+Dr
+qX
 mI
 mI
 mI
@@ -36049,11 +37196,11 @@ mI
 mI
 mI
 mI
+vz
+vz
+se
 mI
-mI
-mI
-mI
-mI
+Dr
 mI
 mI
 mI
@@ -36198,54 +37345,6 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-ms
-ms
-ms
-ms
-mW
-mW
-mW
-mW
-mW
-mW
-mW
-mW
-px
-ms
-QP
-mW
-bL
-mW
-xr
-ms
-OP
-ms
-ms
-ms
-ms
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
@@ -36267,9 +37366,57 @@ mI
 mI
 mI
 mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+QX
+QX
+QX
+Dr
+Dr
+Dr
+Rt
+Dr
+Dr
+Dr
+Dr
+QX
+Dr
 mI
+tS
 mI
 mI
+Dr
+QX
+QX
+Dr
+EQ
+QX
+QX
+Dr
+Dr
+TO
+lW
+lW
+lW
+BH
+Dr
+QX
+QX
+QX
+Dr
+QX
+QX
+QX
+QX
+QX
+Dr
+qX
 mI
 mI
 mI
@@ -36306,11 +37453,11 @@ mI
 mI
 mI
 mI
+se
+se
+se
 mI
-mI
-mI
-mI
-mI
+Dr
 mI
 mI
 mI
@@ -36455,54 +37602,6 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-Fe
-SU
-PY
-ms
-mW
-mW
-WS
-eH
-Os
-XY
-mW
-mW
-ie
-ms
-mW
-mW
-mW
-mW
-mW
-ms
-ms
-ms
-Ql
-Ig
-Iz
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
 mI
 mI
 mI
@@ -36519,7 +37618,62 @@ mI
 mI
 mI
 mI
+qX
+qX
+qX
+qX
+qX
+qX
+Dr
+yH
+Hd
+ME
+ru
+tu
+Dr
+QX
+QX
+QX
+Dr
+kE
+QX
+QX
+QX
+QX
+kE
+Dr
+QX
+Dr
 mI
+Do
+Do
+tS
+Dr
+Rt
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+ZH
+Mu
+lW
+FU
+Vw
+wY
+QX
+QX
+QX
+wY
+QX
+QX
+QX
+QX
+QX
+Dr
+qX
 mI
 mI
 mI
@@ -36555,19 +37709,12 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+Dr
+se
+se
+se
+se
+Dr
 mI
 mI
 mI
@@ -36712,60 +37859,78 @@ bu
 bu
 mI
 mI
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+QX
+pa
+ru
+vH
+QX
+Dr
+QX
+QX
+QX
+Dr
+IN
+QX
+Bm
+IN
+QX
+IN
+Dr
+QX
+Dr
+Dr
+Do
+Do
+Do
+Dr
+QX
+QX
+QX
+Dr
+QX
+QX
+QX
+Dr
+Yf
+Vw
+Vw
+jW
+ei
+Dr
+Dr
+Dr
+Dr
+Dr
+QX
+QX
+Dr
 ms
-aT
-Pp
-Cf
-ms
-mW
-mW
-mW
-mW
-mW
-VL
-mW
-mW
-Tu
-ms
-mW
-mW
-mW
-hZ
-mW
-ms
-ms
-np
-mW
-gM
-Jw
-Ke
-ms
-nT
-mW
-mW
-mW
-To
-ms
-ms
-KW
-oM
-Nk
-lz
-mW
-mW
-To
-ms
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -36801,30 +37966,12 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+Dr
+vz
+vz
+se
+se
+Dr
 mI
 mI
 mI
@@ -36969,65 +38116,6 @@ bu
 bu
 mI
 mI
-OP
-OP
-OP
-ms
-TY
-Cf
-Cf
-ms
-mW
-mW
-qP
-UX
-Ts
-yX
-TA
-mW
-Tu
-ms
-mW
-mW
-mW
-mW
-mW
-ms
-ms
-px
-mW
-mW
-mW
-mW
-BE
-mW
-mW
-mW
-mW
-mW
-BE
-mW
-qW
-mW
-mW
-mW
-mW
-mW
-mW
-ie
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-mI
-mI
-OP
 mI
 mI
 mI
@@ -37041,6 +38129,65 @@ mI
 mI
 mI
 mI
+mI
+mI
+mI
+qX
+Dr
+MT
+WM
+NB
+NB
+Dr
+is
+vH
+Hx
+yD
+tu
+Dr
+QX
+QX
+QX
+Dr
+Gc
+QX
+IN
+Mh
+QX
+lb
+Dr
+QX
+QX
+wY
+nB
+nB
+nB
+nB
+QX
+QX
+QX
+Dr
+QX
+QX
+QX
+Dr
+Dr
+Dr
+Cb
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+QX
+QX
+Dr
+QX
+QX
+Dr
+qX
 mI
 mI
 mI
@@ -37076,12 +38223,12 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
+Dr
+vz
+vz
+vz
+vz
+Dr
 mI
 mI
 mI
@@ -37226,78 +38373,78 @@ bu
 bu
 mI
 mI
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+QQ
+QX
+QX
+Ga
+Dr
+QX
+pa
+MS
+QX
+Dr
+Dr
+QX
+QX
+QX
+Dr
+qv
+QX
+Mh
+Wu
+QX
+IN
+Dr
+QX
+QX
+Dr
+mI
+mI
+mI
+mI
+QX
+QX
+QX
+Dr
+QX
+QX
+QX
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+QX
+Dr
+mI
+mI
+Dr
+mn
+mn
+Dr
 ms
-Wv
-Cf
-jz
-ms
-Yp
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-Jj
-Jj
-xH
-Jj
-Jj
-ms
-ms
-Sj
-mW
-mW
-mW
-Fc
-ms
-Bz
-To
-mW
-To
-Fc
-ms
-To
-mW
-mW
-mW
-mW
-mW
-Fc
-mW
-mW
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-mI
-mI
-OP
-mI
-mI
-mI
-mI
-mI
-sB
-sB
-sB
-mI
-mI
-mI
-mI
-mI
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -37306,11 +38453,11 @@ mI
 mI
 sB
 sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
+nT
+nT
 mI
 mI
 mI
@@ -37330,15 +38477,15 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-mI
-mI
-mI
-mI
-mI
-mI
+nT
+nT
+nT
+Dr
+Dr
+vz
+vz
+Dr
+Dr
 mI
 mI
 mI
@@ -37483,65 +38630,68 @@ bu
 bu
 mI
 mI
-OP
-OP
-OP
-ms
-ms
-vR
-ms
-ms
-iY
-TQ
-KB
-fz
-GI
-ms
-nf
-Cf
-Nr
-Vp
-Cf
-JD
-Cf
-GH
-WG
-ms
-ms
-ms
-ms
-bQ
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-bQ
-ms
-ms
-Ow
-ms
-ms
-bQ
-ms
-ms
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+Nq
+QX
+QX
+QX
+QX
+QX
+uu
+uu
+QX
+Dr
+EQ
+QX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Rt
+Dr
+Dr
+Dr
+Rt
+Dr
+Dr
+Do
+tS
+mI
+Dr
+Dr
+Rt
+Dr
+Dr
+Rt
+Dr
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+QX
+Dr
 mI
 mI
 mI
@@ -37553,9 +38703,6 @@ sB
 sB
 sB
 sB
-sB
-sB
-mI
 mI
 mI
 sB
@@ -37565,10 +38712,10 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
+nT
 mI
 mI
 mI
@@ -37589,12 +38736,12 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
+nT
+nT
+nT
 sB
 mI
 mI
@@ -37740,65 +38887,75 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-xf
-iY
-Yi
-ms
-iY
-iY
-iY
-iY
-iY
-qy
-nf
-BW
-Cf
-Pp
-Cf
-Cf
-zb
-ZW
-Cf
-ms
-ms
-ZL
-iY
-eJ
-iY
-ZL
-ms
-ms
-nJ
-rc
-sX
-ms
-ms
-iY
-eJ
-ZL
-ms
-ms
-ms
-ZL
-eJ
-iY
-ms
-ms
-ms
-te
-te
-te
-te
-ms
-ms
-ms
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+NB
+Qc
+Ga
+Wu
+Dr
+ME
+hN
+fC
+pQ
+WA
+pQ
+QX
+Dr
+Vw
+Vw
+Vw
+Vw
+Dr
+FU
+Vw
+IW
+IW
+ff
+Vw
+mn
+nB
+Do
+nB
+Do
+nB
+mn
+Vw
+ff
+IW
+Vw
+IW
+IW
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
+Dr
+mI
+sB
+sB
+sB
+sB
+nT
+nT
 sB
 sB
 sB
@@ -37814,6 +38971,8 @@ sB
 sB
 sB
 sB
+nT
+nT
 sB
 sB
 sB
@@ -37825,6 +38984,9 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -37832,24 +38994,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -37997,65 +39144,77 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Vw
+Vw
+Vw
+Vw
+Dr
+Vw
+QX
+Dr
+Vw
+Vw
+Vw
+Vw
+wY
+Vw
+lW
+lW
+Vw
+ff
+Vw
+Sd
+Do
+Do
+Do
+Do
+Do
+ri
+Vw
+ff
+Vw
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
 ms
-dT
-iY
-vJ
-Fp
-tz
-iY
-DT
-iY
-cu
 ms
-Ag
-xZ
-eh
-eh
-eh
-eh
-eh
-Ea
-SX
-ms
-iY
-tz
-fG
-eJ
-eJ
-tz
-ms
-iV
-eJ
-kR
-eJ
-iY
-ms
-iY
-eJ
-tz
-Fk
-ms
-PK
-iY
-eJ
-iY
-iY
-ms
-VD
-eJ
-eJ
-eJ
-Zc
-lU
-mJ
-ms
-OP
-OP
-ms
+Dr
+vz
+vz
+vz
+sB
+sB
+sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -38081,22 +39240,10 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -38254,71 +39401,79 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-sP
-iY
-iY
-Fp
-iY
-er
-sZ
-iY
-Zi
-ms
-oI
-dr
-no
-sO
-id
-sO
-sO
-kW
-Ld
-ms
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-cH
-eJ
-eJ
-eJ
-eJ
-eJ
-cH
-eJ
-eJ
-eJ
-iY
-cH
-iY
-eJ
-KR
-eJ
-tz
-ms
-eJ
-eJ
-eJ
-eJ
-eJ
-iY
-fk
-ms
-ms
-ms
-Zk
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+QX
+QX
+QX
+QX
+Dr
+Vw
+Vw
+Vw
+Vw
+Dr
+Vw
+QX
+Dr
+Vw
+Vw
+Vw
+Vw
+Dr
+TO
+lW
+vZ
+BI
+ff
+BI
+mn
+nB
+Do
+nB
+Do
+nB
+mn
+BI
+ff
+BI
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
+QX
+QX
+Dr
+Dr
+vz
 vz
 sB
 sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -38381,16 +39536,8 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
 sB
 sB
 sB
@@ -38511,79 +39658,103 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-Ur
-iY
-iY
-Fp
-iY
-Pc
-ZB
-tz
-Zi
-ms
-tA
-dr
-sO
-eB
-eB
-eB
-sO
-kW
-Cf
-ms
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-pJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-ms
-eJ
-eJ
-El
-eJ
-eJ
-eJ
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
 Dr
+QX
+QX
+QX
+QX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Vw
+QX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+TO
+Vw
+iK
+Dr
+Dr
+Dr
+Dr
+Dr
+Do
+Do
+tS
+Dr
+Dr
+Dr
+Dr
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
+QX
+QX
+QX
 Rb
-eJ
-eJ
-Rb
+vz
+vz
+nT
+vz
 sB
+vz
 sB
+vz
 sB
+vz
+nT
 sB
+vz
+nT
+nT
+nT
+vz
 sB
+vz
 sB
 sB
 sB
+vz
 sB
+vz
 sB
+nT
+nT
+nT
 sB
 sB
 sB
+vz
 sB
+vz
 sB
 sB
 sB
@@ -38598,6 +39769,10 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -38619,47 +39794,19 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
 sB
 sB
 sB
@@ -38768,65 +39915,72 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-Cz
-iY
-iY
-Fp
-iY
-Xx
-bN
-tz
-NP
-ms
-Cf
-dr
-id
-kB
-ip
-vt
-id
-kW
-Cf
-WR
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-KR
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-NH
-eJ
-eJ
-eE
-eJ
-eJ
-eJ
-eJ
-Rb
-eJ
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+Dr
+QX
+QX
+QX
+QX
+Dr
+QX
+QX
+QX
+QX
+QX
+QX
+QX
+Dr
+dV
+dQ
+eK
+qb
+Dr
+WI
+WI
+WI
+Dr
+tt
+JC
+Dr
+tS
+Do
+mI
+mI
+mI
+mI
+mI
+mI
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
+QX
+QX
 QX
 Rb
+vz
+vz
+nT
+nT
 sB
 sB
 sB
@@ -38836,6 +39990,10 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -38843,6 +40001,12 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -38864,59 +40028,42 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
+nT
+nT
+nT
+vz
 sB
+vz
 sB
+vz
 sB
+vz
 sB
 sB
+vz
 sB
 sB
 sB
+vz
 sB
 sB
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39025,71 +40172,84 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-QO
-iY
-iY
-Fp
-iY
-mj
-cY
-iY
-nC
-ms
-Cf
-dr
-sO
-cN
-eB
-kB
-sO
-kW
-Cf
-ms
-eJ
-eJ
-eJ
-KE
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-dh
-eJ
-eJ
-eJ
-ms
-fr
-eJ
-El
-eJ
-eJ
-iY
-iY
-ms
-ms
-ms
-ms
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+mI
+qX
+mI
+qX
+mI
+qX
+mI
+qX
+Dr
+QX
+QX
+QX
+QX
+wY
+QX
+QX
+QX
+QX
+QX
+Vw
+QX
+Dr
+oe
+kL
+kL
+Ww
+Dr
+TO
+Vw
+hF
+Dr
+ZT
+hF
+Dr
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
+QX
+QX
+Dr
+Dr
 vz
+vz
+nT
+nT
+nT
 sB
+nT
 sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39097,6 +40257,12 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39109,6 +40275,8 @@ sB
 sB
 sB
 sB
+nT
+nT
 sB
 sB
 sB
@@ -39119,6 +40287,10 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39139,45 +40311,20 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
 sB
 sB
 sB
@@ -39282,69 +40429,82 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+Dr
+QX
+QX
+QX
+QX
+Dr
+Dr
+Dr
+Dr
+Dr
+QX
+Vw
+Dr
+Dr
+qt
+lK
+kL
+Ww
+Dr
+TO
+lW
+Vw
+wY
+Vw
+hF
+Dr
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+Dr
+Dr
+Dr
+Dr
+Vw
+Vw
+Dr
 ms
-ov
-iY
-he
-Fp
-iY
-BK
-fM
-iY
-rF
 ms
-IA
-dr
-sO
-sO
-id
-sO
-sO
-NX
-Cf
-ms
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-SG
-eJ
-Sz
-eJ
-eJ
-eJ
-lI
-eJ
-eJ
-eJ
-iY
-SG
-DT
-eJ
-eJ
-eJ
-RR
-ms
-eJ
-eJ
-eJ
-eJ
-eJ
-VY
-xQ
-ms
-OP
-OP
-ms
+Dr
+vz
+vz
+vz
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39352,6 +40512,12 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39365,6 +40531,9 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39388,6 +40557,10 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39403,40 +40576,14 @@ sB
 sB
 sB
 sB
+nT
+nT
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39539,65 +40686,73 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-CR
-iY
-vJ
-Fp
-iY
-iY
-tz
-iY
-Uc
-ms
-oP
-gw
-Bt
-XP
-XP
-XP
-XP
-jZ
-Sk
-ms
-iY
-DT
-eJ
-eJ
-eJ
-iY
-ms
-rN
-eJ
-PR
-eJ
-iY
-ms
-tz
-eJ
-iY
-nQ
-ms
-iY
-tz
-eJ
-iY
-iY
-ms
-rW
-eJ
-eJ
-eJ
-iY
-ms
-ms
-ms
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+aM
+Dr
+Dr
+Dr
+Dr
+AI
+bY
+fI
+Dr
+QX
+QX
+QX
+wY
+eK
+eK
+eK
+qb
+mn
+LM
+lW
+hF
+Dr
+Dr
+Dr
+Dr
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+Dr
+Dr
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39614,6 +40769,13 @@ sB
 sB
 sB
 sB
+nT
+vz
+vz
+vz
+vz
+vz
+vz
 sB
 sB
 sB
@@ -39625,6 +40787,9 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39647,6 +40812,12 @@ sB
 sB
 sB
 sB
+nT
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39667,33 +40838,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
 sB
 sB
 sB
@@ -39796,123 +40943,81 @@ bu
 mI
 mI
 mI
-OP
-OP
-OP
-ms
-iY
-iY
-iY
-ms
-yl
-Jl
-iY
-iY
-Sm
-ms
-Gs
-GB
-Cf
-Cf
-Cf
-ZW
-Cf
-Cf
-Cf
-ms
-ms
-Ie
-iY
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+qX
+qX
+Dr
+xs
+xs
+xs
 eJ
-iY
-xM
-ms
-ms
-PL
-of
-Rv
-ms
-ms
-tR
-eJ
-Ie
-ms
-ms
-ms
-Ie
-eJ
-iY
-ms
-ms
-ms
-te
-te
-te
-te
-ms
-OP
-OP
-OP
-OP
-OP
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+Wt
+Dr
+aR
+QX
+wY
+Mz
+Rl
+Fc
+Ex
+Fc
+Dr
+QX
+Vw
+QX
+Dr
+TH
+Jq
+Jq
+eK
+Sd
+Vw
+lW
+iK
+Dr
 mI
 mI
 mI
 mI
-sB
-mI
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
 mI
 mI
 mI
 mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+Vw
+Vw
+Vw
+Vw
+Vw
+QX
+Dr
+nT
+nT
+nT
+sB
+sB
+sB
+sB
+sB
+nT
+nT
+nT
+mI
+sB
 mI
 sB
 sB
@@ -39922,16 +41027,25 @@ sB
 sB
 sB
 sB
+vz
+vz
+vz
+vz
+vz
+vz
 sB
 sB
 sB
 sB
+nT
+nT
+nT
 sB
 sB
 sB
 sB
-sB
-sB
+nT
+nT
 sB
 sB
 sB
@@ -39947,11 +41061,44 @@ mI
 mI
 mI
 mI
+sB
+sB
+sB
+sB
+sB
+sB
+nT
+nT
+nT
+nT
+nT
+nT
+nT
+nT
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
 mI
 mI
-sB
-sB
-sB
+mI
+mI
+mI
+mI
+mI
+nT
+nT
+nT
 sB
 sB
 sB
@@ -40053,75 +41200,48 @@ bu
 mI
 mI
 mI
-OP
-OP
-ms
-ms
-ms
-vR
-ms
-ms
-ms
-ms
-vR
-ms
-ms
-ms
-PV
-Cf
-Pu
-Cf
-Cf
-Cf
-sI
-RE
-Qw
-ms
-ms
-ms
-ms
-bQ
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-bQ
-ms
-ms
-Tu
-ms
-ms
-bQ
-ms
-ms
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
-mI
-mI
-OP
 mI
 mI
 mI
 mI
-sB
-sB
-sB
-sB
-sB
-sB
+mI
+mI
+qX
+mI
+qX
+mI
+qX
+Dr
+xs
+eJ
+eJ
+eJ
+Wt
+Dr
+FZ
+QX
+fh
+GL
+Np
+Fc
+Fc
+Fc
+Dr
+QX
+Vw
+QX
+Dr
+qz
+Jq
+Jq
+Ww
+mn
+LM
+Vw
+iK
+Dr
+tS
+Do
 mI
 mI
 mI
@@ -40131,41 +41251,28 @@ mI
 mI
 mI
 mI
+mI
+mI
+qX
+Dr
+QX
+QX
+QX
+QX
+QX
+QX
+Dr
+nT
+nT
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
+nT
+mI
 mI
 mI
 mI
@@ -40177,6 +41284,24 @@ sB
 sB
 sB
 sB
+vz
+vz
+vz
+vz
+vz
+vz
+sB
+sB
+sB
+sB
+sB
+nT
+nT
+nT
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -40188,10 +41313,32 @@ sB
 sB
 sB
 sB
+mI
+mI
+mI
+mI
+mI
 sB
 sB
 sB
 sB
+sB
+sB
+nT
+nT
+nT
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+nT
 mI
 mI
 mI
@@ -40310,65 +41457,70 @@ bu
 mI
 mI
 mI
-OP
-OP
-ms
-sK
-HZ
-lo
-YZ
-kL
-ms
-TJ
-QM
-SF
-Gb
-ms
-ms
-ms
-ms
-ms
-vR
-ms
-ms
-ms
-ms
-ms
-OP
-ms
-NT
-yS
-FE
-Zu
-ms
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+qX
+qX
+Dr
+xs
+eJ
+eJ
+eJ
+Wt
+Dr
+jV
+sc
+fh
+Or
+gs
+GP
+GP
+uT
+Dr
+QX
+Vw
+QX
+Dr
+DY
+iR
+rq
+zB
+Dr
+WI
+WI
+WI
+Dr
+Do
+Do
+Do
+mI
+tS
+Do
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+QX
+QX
+QX
+QX
+QX
+Dr
+Dr
 nT
-mW
-To
-mW
-mW
-ms
-mW
-mW
-oM
-mW
-mW
-mW
-mW
-mW
-mW
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-mI
-mI
-OP
+nT
 mI
 mI
 mI
@@ -40389,27 +41541,22 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
+vz
+vz
+vz
+vz
+vz
+vz
 sB
 sB
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+nT
+nT
+nT
+nT
 sB
 sB
 sB
@@ -40446,9 +41593,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
+nT
+nT
+nT
 mI
 mI
 mI
@@ -40567,62 +41714,69 @@ bu
 mI
 mI
 mI
-OP
-OP
-ms
-qJ
-HZ
-lo
-lo
-lo
-ms
-oH
-QM
-QM
-iX
-ms
-Ia
-rn
-Wq
-iY
-tz
-mV
-MB
-Qm
-ms
-OP
-OP
-ms
-Fo
-mW
-mW
-mW
-BE
-mW
-mW
-mW
-mW
-mW
-BE
-mW
-mW
-mW
-mW
-mW
-mW
-mW
-mW
-px
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+mI
+qX
+Dr
+Dr
+Dr
+xs
+eJ
+VK
+eJ
+pd
+Dr
+Wn
+Hp
+fh
+gL
+IQ
+PS
+PS
+dz
+Dr
+Dr
+Dr
+Rt
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+TO
+Vw
+iK
+Dr
+Do
+Do
+Do
+Do
+Do
+Do
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
+nT
 mI
 mI
 mI
@@ -40644,19 +41798,12 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-sB
-sB
-sB
-sB
-sB
-sB
+vz
+vz
+vz
+vz
+vz
+vz
 mI
 mI
 mI
@@ -40824,60 +41971,68 @@ bu
 bu
 bu
 mI
-OP
-OP
-ms
-KG
-HZ
-EV
-gm
-aJ
-ms
-gi
-On
-QM
-SE
-ms
-CY
-Xz
-PW
-DT
-iY
-iY
-iY
-tz
-ms
-OP
-OP
-ms
-ln
-ie
-Vx
-qN
-ms
-Zw
-mW
-mW
-qW
-wD
-ms
-ms
-To
-mW
-To
-Gi
-dK
-Fc
-KW
-ms
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+Dr
+Ya
+Ya
+eJ
+eJ
+VK
+eJ
+Wt
+Dr
+Dr
+Dr
+Dr
+op
+Vw
+Vw
+Vw
+Fz
+Dr
+TW
+IW
+bH
+IW
+IW
+IW
+IW
+ff
+IW
+Ni
+lW
+iK
+mn
+nB
+nB
+Do
+Do
+Do
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
 mI
@@ -40901,17 +42056,9 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+nT
+nT
+nT
 mI
 mI
 mI
@@ -41081,54 +42228,51 @@ bu
 bu
 bu
 mI
-OP
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-gj
-QM
-vG
-Mo
-ms
-TH
-yr
-PW
-vc
-Vs
-ZJ
-cK
-aA
-ms
-OP
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+mI
+qX
+mI
+qX
+Dr
+eJ
+eJ
+eJ
+eJ
+VK
+eJ
+eJ
+QX
+QX
+wY
+KZ
+hr
+lW
+lW
+lW
+Vw
+SJ
+Vw
+Vw
+bH
+Vw
+lW
+lW
+Vw
+ff
+Vw
+lW
+lW
+Vw
+Sd
+nB
+nB
+Do
+Do
+Do
 mI
 mI
 mI
@@ -41168,6 +42312,9 @@ mI
 mI
 mI
 mI
+sB
+sB
+nT
 mI
 mI
 mI
@@ -41339,53 +42486,49 @@ bu
 bu
 mI
 mI
-OP
-OP
-OP
-OP
-ms
-eA
-Up
-ms
-mE
-QM
-QM
-Br
-ms
-Vc
-Xz
-CZ
-iY
-IS
+mI
+mI
+mI
+mI
+mI
 qX
-iY
-iY
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
+mI
+qX
+Dr
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+QX
+QX
+Dr
+KZ
+Vw
+Mk
+Mk
+Vw
+Ch
+Dr
+nw
+BI
+bH
+BI
+BI
+BI
+BI
+ff
+BI
+BI
+Vw
+bj
+mn
+nB
+nB
+Do
+tS
 mI
 mI
 mI
@@ -41425,6 +42568,10 @@ mI
 mI
 mI
 mI
+mI
+sB
+sB
+sB
 mI
 mI
 mI
@@ -41596,52 +42743,48 @@ bu
 bu
 mI
 mI
-OP
-OP
-OP
-OP
-ms
-xX
-QM
-kj
-QM
-QM
-SF
-Br
-ms
-HB
-Xz
-PW
-vc
-hS
-QE
-cK
-iY
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
+mI
+mI
+mI
+mI
+mI
+qX
+qX
+qX
+Dr
+Ya
+Ya
+eJ
+OI
+yq
+yq
+eJ
+QX
+QX
+Dr
+Dr
+Rt
+Dr
+Dr
+Su
+Dr
+Dr
+Dr
+Dr
+Rt
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Su
+Dr
+Dr
+Do
+Do
+Do
 mI
 mI
 mI
@@ -41682,6 +42825,10 @@ mI
 mI
 mI
 mI
+mI
+sB
+sB
+sB
 mI
 mI
 mI
@@ -41855,49 +43002,42 @@ mI
 mI
 mI
 mI
-OP
-OP
-ms
-wL
-QM
-Jj
-gj
-QM
-wo
-EP
-ms
-Yz
-kz
-PW
-iY
-IS
-IS
-tz
-fe
-ms
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
+mI
+mI
+mI
+qX
+mI
+qX
+Dr
+Dr
+Dr
+eJ
+yq
+yq
+yq
+eJ
+QX
+QX
+Dr
+pn
+NA
+Dr
+EI
+Vw
+Vw
+EI
+EI
+Dr
+QX
+QX
+Dr
+ng
+Gn
+Gn
+Dr
+Vw
+Vw
+Dr
 mI
 mI
 mI
@@ -41939,6 +43079,13 @@ mI
 mI
 mI
 mI
+mI
+mI
+mI
+mI
+mI
+sB
+sB
 mI
 mI
 mI
@@ -42112,28 +43259,48 @@ mI
 mI
 mI
 mI
-OP
-OP
-ms
-Hr
-QM
-Jj
-oH
-QM
-QM
-gx
-ms
-ku
-Xz
-PW
-vc
-zr
-Vs
-cK
-aA
-ms
-OP
-OP
+mI
+mI
+mI
+qX
+qX
+qX
+qX
+qX
+Dr
+eJ
+eJ
+eJ
+eJ
+eJ
+QX
+QX
+Dr
+cx
+NA
+Dr
+EI
+Vw
+Vw
+Vw
+Vw
+Dr
+QX
+QX
+Dr
+Vw
+lW
+Gn
+Dr
+Vw
+Vw
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -42174,27 +43341,7 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+sB
 mI
 mI
 mI
@@ -42369,48 +43516,48 @@ mI
 mI
 mI
 mI
-OP
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-Ay
-Xz
-PW
-tz
-iY
-DT
-iY
-iY
-ms
-OP
-OP
 mI
 mI
 mI
+qX
 mI
+qX
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+eJ
+VK
+VK
+VK
+GF
+Dr
+Dr
+Dr
+xJ
+YU
+Dr
+Wk
+Vw
+Oo
+Oo
+Oo
+Dr
+QX
+QX
+Dr
+Vw
+lW
+Vw
+wY
+Vw
+Vw
+Gn
+Dr
+cx
+vq
+lv
+Dr
+qX
 mI
 mI
 mI
@@ -42626,48 +43773,48 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-ms
-mQ
-Xz
-uy
-kg
-kV
-oK
-jv
-iY
-ms
-OP
-OP
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+qX
+qX
+qX
+qX
+Dr
+GF
+GF
+GF
+eJ
+GF
+Dr
+qX
+qX
+qX
+qX
+Dr
+pV
+vJ
+pV
+gp
+pV
+Dr
+QX
+QX
+Dr
+FB
+Vw
+sN
+Dr
+Vw
+lW
+Vw
+wY
+NA
+KL
+pw
+Dr
+qX
 mI
 mI
 mI
@@ -42883,48 +44030,48 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-ms
-OP
-OP
 mI
 mI
 mI
 mI
 mI
+qX
+mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+pt
+vJ
+vJ
+vJ
+pV
+Dr
+QX
+QX
+Dr
+Dr
+Dr
+Dr
+Dr
+Vw
+lW
+ng
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -43140,48 +44287,48 @@ mI
 mI
 mI
 mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
 mI
 mI
 mI
 mI
 mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+uv
+vJ
+vJ
+vJ
+vJ
+wY
+QX
+QX
+wY
+Vw
+Vw
+Vw
+Vw
+Vw
+Vw
+Wn
+Dr
+vM
+Vw
+Gn
+Dr
+qX
 mI
 mI
 mI
@@ -43402,43 +44549,43 @@ mI
 mI
 mI
 mI
+qX
+mI
+qX
+mI
+qX
+mI
+qX
+mI
+qX
+mI
+qX
 mI
 mI
-mI
-mI
-mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+WD
+vJ
+Un
+vJ
+vJ
+Dr
+QX
+QX
+Dr
+od
+Dr
+ng
+lW
+lW
+Vw
+Vw
+wY
+Vw
+lW
+Gn
+Dr
+qX
 mI
 mI
 mI
@@ -43659,43 +44806,43 @@ mI
 mI
 mI
 mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
-mI
-mI
-mI
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-OP
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+Dr
+Dr
+Dr
+jq
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+vM
+lW
+lW
+Vw
+ng
+Dr
+Vw
+lW
+Vw
+Dr
+qX
 mI
 mI
 mI
@@ -43929,30 +45076,30 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+qX
+qX
+Dr
+IU
+IU
+Tb
+Dr
+Tb
+eP
+Tb
+Dr
+Dr
+Wn
+Vw
+Gn
+Vw
+ng
+Dr
+Nf
+bc
+rD
+Dr
+qX
 mI
 mI
 mI
@@ -44188,28 +45335,28 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+IU
+Tb
+Tb
+ri
+Ne
+Ne
+Ne
+Dr
+Dr
+Dr
+Rt
+Dr
+Rt
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -44445,28 +45592,28 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+IU
+IU
+Tb
+TN
+Jx
+Jx
+Ne
+Dr
+Gn
+Gn
+Vw
+Dr
+Vw
+Vw
+Gn
+Gn
+Dr
+qX
+qX
+qX
 mI
 mI
 mI
@@ -44702,26 +45849,26 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+IU
+IU
+IU
+Dr
+eq
+Jx
+Ne
+Dr
+Vw
+lW
+Vw
+Dr
+Uf
+lW
+lW
+Vw
+Dr
+qX
 mI
 mI
 mI
@@ -44959,26 +46106,26 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+ng
+lW
+Vw
+Dr
+vI
+KD
+Mz
+Rl
+Dr
+qX
 mI
 mI
 mI
@@ -45216,26 +46363,26 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+Dr
+Vb
+Gn
+aa
+Dr
+nl
+qC
+FR
+HJ
+Dr
+qX
 mI
 mI
 mI
@@ -45481,18 +46628,18 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+qX
 mI
 mI
 mI
@@ -45708,11 +46855,6 @@ bu
 mI
 mI
 mI
-bu
-mI
-mI
-mI
-bu
 mI
 mI
 mI
@@ -45743,13 +46885,18 @@ mI
 mI
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
+qX
 mI
 mI
 mI
@@ -45965,12 +47112,12 @@ bu
 mI
 mI
 mI
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+mI
+mI
+mI
 mI
 mI
 mI
@@ -46222,51 +47369,51 @@ bu
 mI
 mI
 mI
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
 mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-bu
-bu
-bu
-bu
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
 mI
 mI
@@ -46478,53 +47625,53 @@ bu
 bu
 bu
 bu
-mI
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-mI
-mI
-bu
-bu
-bu
-mI
-mI
-bu
-bu
-bu
-mI
-mI
-mI
-bu
-bu
-bu
-bu
-bu
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+Ke
+Ke
+Sk
+pJ
+XP
+sO
+tR
+Ke
+kV
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
 mI
 mI
@@ -46735,54 +47882,54 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+kV
+OP
+eA
+Ke
+IS
+Ke
+xM
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
 mI
 mI
@@ -46992,54 +48139,54 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-mI
+OP
+OP
+OP
+OP
+VL
+gi
+YZ
+OP
+Ke
+Ke
+QO
+Zu
+BE
+cN
+Ke
+Ke
+DT
+OP
+Ke
+Ke
+Ke
+Ke
+Ke
+OP
+OP
+OP
+ZW
+cY
+kj
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
 mI
 mI
@@ -47249,60 +48396,60 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-mI
-mI
-mI
-mI
-mI
-mI
-mI
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-mI
-mI
-mI
-mI
-mI
+OP
+OP
+OP
+OP
+Hr
+yX
+Zi
+OP
+Ke
+Ke
+Ke
+Ke
+Ke
+dr
+Ke
+Ke
+of
+OP
+Ke
+Ke
+Ke
+EV
+Ke
+OP
+OP
+fW
+Ke
+rn
+WS
+zz
+OP
+xf
+Ke
+Ke
+Ke
+bQ
+OP
+OP
+TY
+Fo
+Vx
+XY
+Ke
+Ke
+bQ
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
 mI
 mI
@@ -47506,65 +48653,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+Up
+Zi
+Zi
+OP
+Ke
+Ke
+mW
+NP
+fr
+Br
+CY
+Ke
+of
+OP
+Ke
+Ke
+Ke
+Ke
+Ke
+OP
+OP
+kV
+Ke
+Ke
+Ke
+Ke
+rF
+Ke
+Ke
+Ke
+Ke
+Ke
+rF
+Ke
+mj
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+DT
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
 mI
-mI
-mI
-mI
-mI
-mI
-mI
+OP
 mI
 mI
 mI
@@ -47763,65 +48910,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+PW
+Zi
+iV
+OP
+YV
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+Jj
+Jj
+Zk
+Jj
+Jj
+OP
+OP
+sI
+Ke
+Ke
+Ke
+sZ
+OP
+NX
+bQ
+Ke
+bQ
+sZ
+OP
+bQ
+Ke
+Ke
+Ke
+Ke
+Ke
+sZ
+Ke
+Ke
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 mI
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+OP
 mI
 mI
 mI
@@ -48020,65 +49167,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+OP
+cK
+OP
+OP
+eJ
+uy
+KW
+lI
+ZB
+OP
+sX
+Zi
+Vs
+aT
+Zi
+ZL
+Zi
+yr
+Yz
+OP
+OP
+OP
+OP
+wL
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+wL
+OP
+OP
+oI
+OP
+OP
+wL
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -48277,65 +49424,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+iY
+eJ
+Gs
+OP
+eJ
+eJ
+eJ
+eJ
+eJ
+fk
+sX
+eH
+Zi
+yX
+Zi
+Zi
+bN
+ln
+Zi
+OP
+OP
+ov
+eJ
+gM
+eJ
+ov
+OP
+OP
+vG
+Zc
+eE
+OP
+OP
+eJ
+gM
+ov
+OP
+OP
+OP
+ov
+gM
+eJ
+OP
+OP
+OP
+rN
+rN
+rN
+rN
+OP
+OP
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -48534,65 +49681,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+KR
+eJ
+rW
+pB
+fM
+eJ
+Pp
+eJ
+Gb
+OP
+oP
+iX
+fz
+fz
+fz
+fz
+fz
+Iz
+Qe
+OP
+eJ
+fM
+oH
+gM
+gM
+fM
+OP
+Os
+gM
+xH
+gM
+eJ
+OP
+eJ
+gM
+fM
+Yp
+OP
+er
+eJ
+gM
+eJ
+eJ
+OP
+Sm
+gM
+gM
+gM
+GI
+te
+vR
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -48791,65 +49938,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+TA
+eJ
+eJ
+pB
+eJ
+Jl
+KB
+eJ
+nJ
+OP
+Gi
+sP
+Ur
+Fc
+WR
+Fc
+Fc
+Xz
+TQ
+OP
+gM
+gM
+gM
+gM
+gM
+gM
+Cf
+gM
+gM
+gM
+gM
+gM
+Cf
+gM
+gM
+gM
+eJ
+Cf
+eJ
+gM
+dT
+gM
+fM
+OP
+gM
+gM
+gM
+gM
+gM
+eJ
+fG
+OP
+OP
+OP
+NH
 bu
 bu
 bu
@@ -49048,65 +50195,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+mE
+eJ
+eJ
+pB
+eJ
+mQ
+FE
+fM
+nJ
+OP
+qN
+sP
+Fc
+np
+np
+np
+Fc
+Xz
+Zi
+OP
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+QE
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+OP
+gM
+gM
+Qw
+gM
+gM
+gM
+Bz
+QX
+gM
+gM
+QX
 bu
 bu
 bu
@@ -49305,65 +50452,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+Ie
+eJ
+eJ
+pB
+eJ
+SE
+GH
+fM
+Mo
+OP
+Zi
+sP
+WR
+CR
+Ow
+cu
+WR
+Xz
+Zi
+MB
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+dT
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+vc
+gM
+gM
+zr
+gM
+gM
+gM
+gM
+QX
+gM
+Vp
+QX
 bu
 bu
 bu
@@ -49562,65 +50709,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+To
+eJ
+eJ
+pB
+eJ
+bL
+no
+eJ
+oM
+OP
+Zi
+sP
+Fc
+PY
+np
+CR
+Fc
+Xz
+Zi
+OP
+gM
+gM
+gM
+Fp
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+gM
+yS
+gM
+gM
+gM
+OP
+aJ
+gM
+Qw
+gM
+gM
+eJ
+eJ
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -49819,65 +50966,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+dK
+eJ
+SX
+pB
+eJ
+kz
+xQ
+eJ
+Ia
+OP
+Rv
+sP
+Fc
+Fc
+WR
+Fc
+Fc
+gx
+Zi
+OP
+gM
+gM
+gM
+gM
+gM
+gM
+SG
+gM
+jz
+gM
+gM
+gM
+xZ
+gM
+gM
+gM
+eJ
+SG
+Pp
+gM
+gM
+gM
+Pu
+OP
+gM
+gM
+gM
+gM
+gM
+PK
+xX
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -50076,65 +51223,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+rc
+eJ
+rW
+pB
+eJ
+eJ
+fM
+eJ
+qy
+OP
+cH
+QP
+Xx
+KG
+KG
+KG
+KG
+wo
+qW
+OP
+eJ
+Pp
+gM
+gM
+gM
+eJ
+OP
+Uc
+gM
+lo
+gM
+eJ
+OP
+fM
+gM
+eJ
+gj
+OP
+eJ
+fM
+gM
+eJ
+eJ
+OP
+NT
+gM
+gM
+gM
+eJ
+OP
+OP
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -50333,65 +51480,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+eJ
+eJ
+eJ
+OP
+Ts
+BW
+eJ
+eJ
+kR
+OP
+Fk
+xr
+Zi
+Zi
+Zi
+ln
+Zi
+Zi
+Zi
+OP
+OP
+QM
+eJ
+gM
+eJ
+mV
+OP
+OP
+Ay
+he
+EP
+OP
+OP
+ie
+gM
+QM
+OP
+OP
+OP
+QM
+gM
+eJ
+OP
+OP
+OP
+rN
+rN
+rN
+rN
+OP
+OP
+OP
+OP
+OP
+OP
 bu
 bu
 bu
@@ -50590,65 +51737,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+OP
+cK
+OP
+OP
+OP
+OP
+cK
+OP
+OP
+OP
+HB
+Zi
+Fe
+Zi
+Zi
+Zi
+ip
+xY
+Vc
+OP
+OP
+OP
+OP
+wL
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+wL
+OP
+OP
+of
+OP
+OP
+wL
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+OP
 bu
 bu
 bu
@@ -50847,65 +51994,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+Qm
+Wq
+RE
+Pc
+yl
+OP
+Wv
+kL
+PL
+Zw
+OP
+OP
+OP
+OP
+OP
+cK
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+aA
+jv
+PR
+jZ
+OP
+xf
+Ke
+bQ
+Ke
+Ke
+OP
+Ke
+Ke
+Fo
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+OP
 bu
 bu
 bu
@@ -51104,65 +52251,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+lU
+Wq
+RE
+RE
+RE
+OP
+CZ
+kL
+kL
+GB
+OP
+Ak
+hZ
+gm
+eJ
+fM
+Nr
+PV
+Ig
+OP
+OP
+OP
+OP
+id
+Ke
+Ke
+Ke
+rF
+Ke
+Ke
+Ke
+Ke
+Ke
+rF
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+Ke
+kV
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
 bu
 bu
 bu
@@ -51361,65 +52508,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+hS
+Wq
+mJ
+Bt
+SF
+OP
+lz
+Cz
+kL
+gw
+OP
+RR
+vJ
+IA
+Pp
+eJ
+eJ
+eJ
+fM
+OP
+OP
+OP
+OP
+Ea
+DT
+eh
+On
+OP
+sK
+Ke
+Ke
+mj
+Sz
+OP
+OP
+bQ
+Ke
+bQ
+SU
+kg
+sZ
+TY
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -51618,65 +52765,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+TH
+kL
+sz
+dh
+OP
+BK
+qJ
+IA
+Tu
+VD
+ZJ
+Jw
+eB
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -51875,65 +53022,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+OP
+OP
+OP
+OP
+OP
+UX
+VY
+OP
+wX
+kL
+kL
+wD
+OP
+tA
+vJ
+Ld
+eJ
+nf
+ku
+eJ
+eJ
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -52132,65 +53279,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+OP
+OP
+OP
+OP
+OP
+px
+kL
+vt
+kL
+kL
+PL
+wD
+OP
+tz
+vJ
+IA
+Tu
+TJ
+qP
+Jw
+eJ
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -52389,65 +53536,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+OP
+OP
+OP
+HZ
+kL
+Jj
+TH
+kL
+Nk
+oK
+OP
+KE
+WG
+IA
+eJ
+nf
+nf
+fM
+fe
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -52646,65 +53793,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+OP
+OP
+OP
+El
+kL
+Jj
+CZ
+kL
+kL
+kB
+OP
+Yi
+vJ
+IA
+Tu
+kW
+VD
+Jw
+eB
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -52903,65 +54050,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+zb
+vJ
+IA
+fM
+eJ
+Pp
+eJ
+eJ
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -53160,65 +54307,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+JD
+vJ
+nQ
+Sj
+Ag
+Ql
+nC
+eJ
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -53417,65 +54564,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
@@ -53674,65 +54821,65 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+mI
+mI
+mI
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+OP
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
+mI
 bu
 bu
 bu
