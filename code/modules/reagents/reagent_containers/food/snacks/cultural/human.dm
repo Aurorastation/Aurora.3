@@ -406,7 +406,7 @@
 
 /obj/item/reagent_containers/food/snacks/imperialscallops
 	name = "imperial scallops"
-	desc = "Saltwater boiled dominian scallops. While originally this dish was served with just a few herbs, newer iterations add an abundance of flavor to show the dish and the Dominian culture's lavishness."
+	desc = "Saltwater boiled dominian scallops. While originally this dish was served with just a few herbs, newer iterations add an abundance of flavor to show the lavishness of Dominian culture."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "imperialscallops"
 	trash = /obj/item/trash/plate
