@@ -466,7 +466,6 @@
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
-
 // Eridani
 
 /obj/item/reagent_containers/food/snacks/bowl
