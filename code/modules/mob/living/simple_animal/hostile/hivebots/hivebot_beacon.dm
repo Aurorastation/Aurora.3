@@ -98,7 +98,7 @@
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	qdel(src)
 	return
 
@@ -231,7 +231,7 @@
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/bomber(Destination, src)
 			if(GUARDIAN)
 				Destination = null
-				for(var/check_dir in cardinal)
+				for(var/check_dir in GLOB.cardinal)
 					var/turf/T = get_step(src, check_dir)
 					if(turf_clear(T))
 						Destination = T

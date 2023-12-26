@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(radiation)
 	if (!resumed)
 		current_sources = sources.Copy()
 		current_res_cache = resistance_cache.Copy()
-		listeners = living_mob_list.Copy()
+		listeners = GLOB.living_mob_list.Copy()
 
 	while(length(current_sources))
 		var/datum/radiation_source/S = current_sources[length(current_sources)]

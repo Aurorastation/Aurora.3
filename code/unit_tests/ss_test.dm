@@ -12,13 +12,12 @@
 	The Unit Tests Configuration subsystem
 */
 
-var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
-/datum/controller/subsystem/unit_tests_config
+SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
 	flags = SS_NO_FIRE
 
-	var/datum/unit_test/UT = new // Logging/output, use this to log things from outside where a specific unit_test is defined
+	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
 
 	///What is our identifier, what pod are we, and hence what are we supposed to run
 	var/identifier = null
@@ -34,6 +33,8 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 /datum/controller/subsystem/unit_tests_config/New()
 	. = ..()
+
+	UT = new
 
 	world.fps = 10
 

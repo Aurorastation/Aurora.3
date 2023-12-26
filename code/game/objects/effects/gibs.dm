@@ -25,7 +25,7 @@
 	var/obj/effect/decal/cleanable/blood/gibs/gib = null
 
 	if(sparks)
-		spark(location, 2, alldirs)
+		spark(location, 2, GLOB.alldirs)
 
 	for(var/i = 1, i<= gibtypes.len, i++)
 		if(gibamounts[i])

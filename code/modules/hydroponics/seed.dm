@@ -219,7 +219,7 @@
 			closed_turfs |= T
 			valid_turfs |= T
 
-			for(var/dir in alldirs)
+			for(var/dir in GLOB.alldirs)
 				var/turf/neighbor = get_step(T,dir)
 				if(!neighbor || (neighbor in closed_turfs) || (neighbor in open_turfs))
 					continue

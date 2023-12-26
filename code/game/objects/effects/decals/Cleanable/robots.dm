@@ -20,7 +20,7 @@
 				var/obj/effect/decal/cleanable/blood/oil/streak = new(src.loc)
 				streak.update_icon()
 			else if (prob(10))
-				spark(src, 3, alldirs)
+				spark(src, 3, GLOB.alldirs)
 		if (step_to(src, get_step(src, direction), 0))
 			break
 

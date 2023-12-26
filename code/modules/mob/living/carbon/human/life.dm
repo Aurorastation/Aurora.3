@@ -68,8 +68,6 @@
 
 		handle_pain()
 
-		handle_medical_side_effects()
-
 		handle_fever()
 
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
@@ -1159,7 +1157,7 @@
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound_simple(null, pick(scarySounds), 50, TRUE)
+			playsound_simple(null, pick(GLOB.scarySounds), 50, TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
 			if(T.get_lumcount() < 0.1)
@@ -1374,8 +1372,8 @@
 		var/image/holder = hud_list[SPECIALROLE_HUD]
 		holder.icon_state = "hudblank"
 		if(mind && mind.special_role)
-			if(hud_icon_reference[mind.special_role])
-				holder.icon_state = hud_icon_reference[mind.special_role]
+			if(GLOB.hud_icon_reference[mind.special_role])
+				holder.icon_state = GLOB.hud_icon_reference[mind.special_role]
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder

@@ -168,13 +168,13 @@
 /obj/item/ship_ammunition/touch_map_edge(var/new_z)
 	if(isprojectile(loc))
 		transfer_to_overmap(new_z)
-		origin = map_sectors["[new_z]"]
+		origin = GLOB.map_sectors["[new_z]"]
 		return TRUE
 	else
 		. = ..()
 
 /obj/item/ship_ammunition/proc/transfer_to_overmap(var/new_z)
-	var/obj/effect/overmap/start_object = map_sectors["[new_z]"]
+	var/obj/effect/overmap/start_object = GLOB.map_sectors["[new_z]"]
 	if(!start_object)
 		return FALSE
 
@@ -221,7 +221,7 @@
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	if(primed)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(AreConnectedZLevels(H.z, z))
 				to_chat(H, SPAN_WARNING("The flooring below you vibrates a little as shells fly by the hull of the ship!"))
 				H.playsound_simple(null, 'sound/effects/explosionfar.ogg', 25)

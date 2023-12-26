@@ -6,7 +6,7 @@
 		gender = pick(MALE, FEMALE)
 	else
 		gender = H.gender
-	var/datum/species/current_species = all_species[species]
+	var/datum/species/current_species = GLOB.all_species[species]
 
 	if(current_species)
 		if(current_species.appearance_flags & HAS_SKIN_TONE)
@@ -227,7 +227,7 @@
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
-			SSatoms.ForceInitializeContents(mannequin)
+			SSatoms.CreateAtoms(list(mannequin))
 			mannequin.regenerate_icons()
 		else
 			mannequin.update_icon()

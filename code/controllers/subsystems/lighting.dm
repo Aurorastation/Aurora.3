@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(lighting)
 	for (var/zlevel = 1 to world.maxz)
 		for (thing in Z_ALL_TURFS(zlevel))
 			T = thing
-			if(config.starlight)
+			if(GLOB.config.starlight)
 				var/turf/space/S = T
 				if(istype(S) && S.use_starlight)
 					S.update_starlight()

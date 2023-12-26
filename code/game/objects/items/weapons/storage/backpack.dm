@@ -38,7 +38,7 @@
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in backbagstrap)
+	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in GLOB.backbagstrap)
 		if("Hidden")
 			alpha_mask = "hidden"
 		if("Thin")

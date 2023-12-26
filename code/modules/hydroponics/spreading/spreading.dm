@@ -196,7 +196,7 @@
 
 	var/direction = 16
 
-	for(var/wallDir in cardinal)
+	for(var/wallDir in GLOB.cardinal)
 		var/turf/newTurf = get_step(T,wallDir)
 		if(newTurf.density)
 			direction |= wallDir

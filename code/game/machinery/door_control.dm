@@ -129,7 +129,7 @@
 
 /obj/machinery/button/remote/airlock/screamer/trigger()
 	. = ..()
-	global_announcer.autosay(message, capitalize_first_letters(name), channel)
+	GLOB.global_announcer.autosay(message, capitalize_first_letters(name), channel)
 
 #undef OPEN
 #undef IDSCAN

@@ -9,7 +9,7 @@
 	maxHealth = 45
 	health = 45
 	pass_flags = PASSTABLE|PASSRAILING
-	req_access = list(access_mining, access_robotics)
+	req_access = list(ACCESS_MINING, ACCESS_ROBOTICS)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
 	hat_x_offset = 1
@@ -104,7 +104,7 @@
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
 			return
-		if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+		if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 

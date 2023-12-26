@@ -7,9 +7,9 @@
 	pref.ccia_actions = list()
 
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
-	if (config.sql_saves) // Doesnt work without db
+	if (GLOB.config.sql_saves) // Doesnt work without db
 		//Load in the CCIA Actions
-		var/DBQuery/ccia_action_query = dbcon.NewQuery({"SELECT
+		var/DBQuery/ccia_action_query = GLOB.dbcon.NewQuery({"SELECT
 			act.title,
 			act.type,
 			act.issuedby,
@@ -39,7 +39,7 @@
 			pref.ccia_actions.Add(list(action))
 
 		//Load in the infractions
-		var/DBQuery/char_infraction_query = dbcon.NewQuery({"SELECT
+		var/DBQuery/char_infraction_query = GLOB.dbcon.NewQuery({"SELECT
 			id, char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony
 		FROM ss13_character_incidents
 		WHERE

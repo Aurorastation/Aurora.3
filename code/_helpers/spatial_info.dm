@@ -31,7 +31,11 @@
 
 /mob/abstract/oranges_ear/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
-	initialized = TRUE
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	return INITIALIZE_HINT_NORMAL
 
 /mob/abstract/oranges_ear/Destroy(force)
@@ -388,7 +392,7 @@
 ///Checks if the mob provided (must_be_alone) is alone in an area
 /proc/alone_in_area(area/the_area, mob/must_be_alone, check_type = /mob/living/carbon)
 	var/area/our_area = get_area(the_area)
-	for(var/carbon in living_mob_list)
+	for(var/carbon in GLOB.living_mob_list)
 		if(!istype(carbon, check_type))
 			continue
 		if(carbon == must_be_alone)

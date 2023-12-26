@@ -125,7 +125,7 @@
 	else
 		var/atom/movable/AM
 
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			AM = find_type_in_direction(src, direction)
 			if(AM == NULLTURF_BORDER)
 				if((smoothing_flags & SMOOTH_BORDER))
@@ -267,7 +267,7 @@
 	if (smooth_underlays)
 		var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
-		for(var/direction in alldirs)
+		for(var/direction in GLOB.alldirs)
 			if(adjacencies & direction)
 				var/turf/T = get_step(src, direction)
 				if(T)

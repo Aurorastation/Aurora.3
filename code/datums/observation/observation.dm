@@ -63,7 +63,7 @@
 	var/list/global_listeners = list()  // Associative list of instances that listen to all events of this type (as opposed to events belonging to a specific source) and the proc to call.
 
 /singleton/observ/New()
-	all_observable_events += src
+	GLOB.all_observable_events += src
 	..()
 
 /singleton/observ/proc/is_listening(event_source, datum/listener, proc_call)

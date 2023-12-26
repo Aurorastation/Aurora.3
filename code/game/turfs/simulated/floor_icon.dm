@@ -23,7 +23,7 @@
 		cut_overlays()
 		var/has_border = 0
 		//Check the cardinal turfs
-		for(var/step_dir in cardinal)
+		for(var/step_dir in GLOB.cardinal)
 			var/turf/simulated/floor/T = get_step(src, step_dir)
 			var/is_linked = flooring.symmetric_test_link(src, T)
 
@@ -44,7 +44,7 @@
 
 		//We can only have inner corners if we're smoothed with something
 		if (has_smooth && flooring.flags & TURF_HAS_INNER_CORNERS)
-			for(var/direction in cornerdirs)
+			for(var/direction in GLOB.cornerdirs)
 				if((has_smooth & direction) == direction)
 					if(!flooring.symmetric_test_link(src, get_step(src, direction)))
 						if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
@@ -54,7 +54,7 @@
 
 		//Next up, outer corners
 		if (has_border && flooring.flags & TURF_HAS_CORNERS)
-			for(var/direction in cornerdirs)
+			for(var/direction in GLOB.cornerdirs)
 				if((has_border & direction) == direction)
 					if(!flooring.symmetric_test_link(src, get_step(src, direction)))
 						if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))

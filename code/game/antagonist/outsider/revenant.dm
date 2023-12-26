@@ -31,6 +31,6 @@ var/datum/antagonist/revenant/revenants = null
 	return TRUE
 
 /proc/message_all_revenants(var/message)
-	for(var/thing in human_mob_list)
+	for(var/thing in GLOB.human_mob_list)
 		if(isrevenant(thing))
 			to_chat(thing, message)

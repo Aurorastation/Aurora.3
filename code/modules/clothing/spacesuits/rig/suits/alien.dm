@@ -50,7 +50,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/unathi/fancy/equipped
-	req_access = list(access_kataphract)
+	req_access = list(ACCESS_KATAPHRACT)
 	initial_modules = list(
 		/obj/item/rig_module/vision/nvg,
 		/obj/item/rig_module/actuators/combat,
@@ -61,7 +61,7 @@
 	)
 
 /obj/item/rig/unathi/fancy/ninja
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	initial_modules = list(
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/chem_dispenser/combat,
@@ -99,7 +99,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
 
 /obj/item/rig/unathi/redsnout/equipped
-	req_access = list(access_legion)
+	req_access = list(ACCESS_LEGION)
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/mounted/smg,

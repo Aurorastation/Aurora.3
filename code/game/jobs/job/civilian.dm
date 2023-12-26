@@ -15,8 +15,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_hydroponics, access_bar, access_kitchen)
-	minimal_access = list(access_bar)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	minimal_access = list(ACCESS_BAR)
 	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -61,8 +61,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_hydroponics, access_bar, access_kitchen)
-	minimal_access = list(access_kitchen)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	minimal_access = list(ACCESS_KITCHEN)
 	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -111,8 +111,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_hydroponics, access_bar, access_kitchen)
-	minimal_access = list(access_hydroponics)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	minimal_access = list(ACCESS_HYDROPONICS)
 	outfit = /datum/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_titles = list("Hydroponicist")
@@ -163,8 +163,8 @@
 	spawn_positions = 2
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
-	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
+	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
+	minimal_access = list(ACCESS_JANITOR, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
 	outfit = /datum/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -208,11 +208,11 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_journalist, access_maint_tunnels)
-	minimal_access = list(access_journalist, access_maint_tunnels)
+	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("Freelance Journalist")
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
-	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
+	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
 	outfit = /datum/outfit/job/journalist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -267,11 +267,11 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	access = list(access_library, access_maint_tunnels)
-	minimal_access = list(access_library)
+	access = list(ACCESS_LIBRARY, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_LIBRARY)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
-	title_accesses = list("Tech Support" = access_it)
+	title_accesses = list("Tech Support" = ACCESS_IT)
 	outfit = /datum/outfit/job/librarian
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -335,8 +335,8 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	access = list(access_chapel_office, access_maint_tunnels)
-	minimal_access = list(access_chapel_office)
+	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CHAPEL_OFFICE)
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor")
 	outfit = /datum/outfit/job/chaplain
 
@@ -407,10 +407,10 @@
 		SPECIES_SKRELL_AXIORI = 70
 	)
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_ship_weapons, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
-	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_ship_weapons, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_QM, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
+						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID)
+	minimal_access = list(ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_SHIP_WEAPONS, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
+						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID)
 
 	ideal_character_age = list(
 		SPECIES_HUMAN = 40,
@@ -464,8 +464,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_ship_weapons, access_cargo_bot, access_mining, access_mining_station)
-	minimal_access = list(access_cargo, access_cargo_bot, access_ship_weapons, access_mailsorting)
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
+	minimal_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
 	outfit = /datum/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -505,8 +505,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station)
-	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
+	minimal_access = list(ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING)
 	outfit = /datum/outfit/job/mining
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -557,8 +557,8 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(access_robotics, access_tech_storage, access_mailsorting)
-	minimal_access = list(access_robotics, access_tech_storage, access_mailsorting)
+	access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING)
+	minimal_access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING)
 
 	minimal_player_age = 7
 

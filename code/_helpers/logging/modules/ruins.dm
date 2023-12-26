@@ -2,8 +2,8 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_NOTICE("Ruins: [text]")
 #else
-	if (config?.logsettings["log_modules_ruins"])
-		WRITE_LOG(config.logfiles["world_modules_ruins_log"], "Ruins: [text]")
+	if (GLOB.config?.logsettings["log_modules_ruins"])
+		WRITE_LOG(GLOB.config.logfiles["world_modules_ruins_log"], "Ruins: [text]")
 #endif
 
 /**
@@ -13,6 +13,6 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_WARNING("Ruins: [text]")
 #else
-	if (config?.logsettings["log_modules_ruins"])
-		WRITE_LOG(config.logfiles["world_modules_ruins_log"], "Ruins: [text]")
+	if (GLOB.config?.logsettings["log_modules_ruins"])
+		WRITE_LOG(GLOB.config.logfiles["world_modules_ruins_log"], "Ruins: [text]")
 #endif

@@ -1,7 +1,7 @@
 #define NEXT_PAGE_ID "__next__"
 #define DEFAULT_CHECK_DELAY 20
 
-var/global/list/radial_menus = list()
+GLOBAL_LIST_EMPTY(radial_menus)
 
 /obj/screen/radial
 	icon = 'icons/mob/screen/radial.dmi'
@@ -312,14 +312,14 @@ var/global/list/radial_menus = list()
 	if(!uniqueid)
 		uniqueid = "defmenu_[SOFTREF(user)]_[SOFTREF(anchor)]"
 
-	if(radial_menus[uniqueid])
+	if(GLOB.radial_menus[uniqueid])
 		if(!no_repeat_close)
-			var/datum/radial_menu/menu = radial_menus[uniqueid]
+			var/datum/radial_menu/menu = GLOB.radial_menus[uniqueid]
 			menu.finished = TRUE
 		return
 
 	var/datum/radial_menu/menu = new
-	radial_menus[uniqueid] = menu
+	GLOB.radial_menus[uniqueid] = menu
 	if(radius)
 		menu.radius = radius
 	if(istype(custom_check))
@@ -331,7 +331,7 @@ var/global/list/radial_menus = list()
 	menu.wait(user, anchor, require_near)
 	var/answer = menu.selected_choice
 	qdel(menu)
-	radial_menus -= uniqueid
+	GLOB.radial_menus -= uniqueid
 	return answer
 
 #undef NEXT_PAGE_ID

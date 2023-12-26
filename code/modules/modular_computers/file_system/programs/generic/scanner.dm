@@ -23,8 +23,8 @@
 	filedesc = "Medical Analyzer"
 	extended_desc = "A scanning suite capable of detecting major medical problems in individuals."
 	available_on_ntnet = TRUE
-	required_access_run = access_medical
-	required_access_download = access_medical
+	required_access_run = ACCESS_MEDICAL
+	required_access_download = ACCESS_MEDICAL
 	mode = SCANNER_MEDICAL
 
 /datum/computer_file/program/scanner/science
@@ -32,8 +32,8 @@
 	filedesc = "Reagent Analyzer"
 	extended_desc = "A scanning suite capable of detecting active chemical reagents."
 	available_on_ntnet = TRUE
-	required_access_run = access_research
-	required_access_download = access_research
+	required_access_run = ACCESS_RESEARCH
+	required_access_download = ACCESS_RESEARCH
 	mode = SCANNER_REAGENT
 
 /datum/computer_file/program/scanner/gas
@@ -41,6 +41,6 @@
 	filedesc = "Gas Analyzer"
 	extended_desc = "A scanning suite capable of detecting and parsing gaseous conditions within a closed atmospheric system."
 	available_on_ntnet = TRUE
-	required_access_run = list(access_atmospherics, access_research)
-	required_access_download = list(access_atmospherics, access_research)
+	required_access_run = list(ACCESS_ATMOSPHERICS, ACCESS_RESEARCH)
+	required_access_download = list(ACCESS_ATMOSPHERICS, ACCESS_RESEARCH)
 	mode = SCANNER_GAS

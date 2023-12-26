@@ -55,7 +55,7 @@
 
 	to_chat(user, SPAN_CULT("You psionically suggest an emotion to [target]: [text]"))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD && HAS_FLAG(M.client.prefs.toggles, CHAT_GHOSTEARS))

@@ -30,7 +30,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/skrell/equipped
-	req_access = list(access_skrell)
+	req_access = list(ACCESS_SKRELL)
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
@@ -45,7 +45,7 @@
 		)
 
 /obj/item/rig/skrell/equipped/merc
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 /obj/item/clothing/head/helmet/space/rig/skrell/tup
 	light_overlay = "helmet_light_tadpole"
@@ -66,7 +66,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/skrell/tup/equipped
-	req_access = list(access_skrell)
+	req_access = list(ACCESS_SKRELL)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -112,7 +112,7 @@
 		)
 
 /obj/item/rig/skrell/tup/modern/equipped
-	req_access = list(access_skrell)
+	req_access = list(ACCESS_SKRELL)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
