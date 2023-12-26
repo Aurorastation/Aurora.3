@@ -501,7 +501,7 @@
 	if (reagents && reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("You take a [unitname] from the plate."))
 	else
-		to_chat(user, "You take the last [unitname] from the plate.")
+		SPAN_NOTICE(to_chat(user, "You take the last [unitname] from \the [src]."))
 		var/obj/waste = new trash(loc)
 		if (loc == user)
 			user.put_in_hands(waste)
