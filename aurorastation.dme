@@ -3763,6 +3763,7 @@
 #include "maps\random_ruins\exoplanets\desert\desert.dm"
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
 #include "maps\random_ruins\exoplanets\haneunim\haneunim_crash.dm"
+#include "maps\random_ruins\exoplanets\haneunim\haneunim_refugees.dm"
 #include "maps\random_ruins\exoplanets\haneunim\qixi_flag.dm"
 #include "maps\random_ruins\exoplanets\haneunim\qixi_mining.dm"
 #include "maps\random_ruins\exoplanets\haneunim\qixi_mystery.dm"

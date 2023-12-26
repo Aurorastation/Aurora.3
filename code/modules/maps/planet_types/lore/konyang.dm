@@ -84,4 +84,4 @@
 	ruin_planet_type = PLANET_LORE
 	place_near_main = null
 	features_budget = 2
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees)
