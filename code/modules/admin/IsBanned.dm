@@ -12,7 +12,7 @@
 
 	var/ckey = ckey(key)
 	var/admin = (ckey in admin_datums)
-	var/client/C = directory[ckey]
+	var/client/C = GLOB.directory[ckey]
 
 	if (C && ckey == C.ckey && computer_id == C.computer_id && address == C.address)
 		return // Player is already connected, do not recheck.
@@ -23,12 +23,12 @@
 	var/message = !checkedckeys[ckey]++
 
 	//Guest Checking
-	if(!(config.guests_allowed || config.external_auth) && IsGuestKey(key))
+	if(!(GLOB.config.guests_allowed || GLOB.config.external_auth) && IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed",ckey=key_name(key))
 		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
-	if(config.ban_legacy_system)
+	if(GLOB.config.ban_legacy_system)
 		//Ban Checking
 		. = CheckBan(ckey, computer_id, address)
 		if(.)
@@ -51,7 +51,7 @@
 			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an computer ID to check.")
 
 
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			log_world("ERROR: Ban database connection failure. Key [ckey] not checked")
 			log_misc("Ban database connection failure. Key [ckey] not checked")
 			return ..()
@@ -69,7 +69,7 @@
 			params["computerid"] = computer_id
 			params["address"] = address
 
-		var/DBQuery/query = dbcon.NewQuery(query_content)
+		var/DBQuery/query = GLOB.dbcon.NewQuery(query_content)
 		query.Execute(params)
 
 		while(query.NextRow())
@@ -92,8 +92,8 @@
 				expires = " The ban is for [duration] minutes and expires on [expiration] (server time)."
 
 			var/desc = "\nReason: You, or another user of this computer or connection ([pckey]) is banned from playing here. The ban reason is:\n[reason]\nThis ban was applied by [ackey] on [bantime], [expires]"
-			if (config.forum_passphrase)
-				desc += "\nTo register on the forums, please use the following passphrase: [config.forum_passphrase]"
+			if (GLOB.config.forum_passphrase)
+				desc += "\nTo register on the forums, please use the following passphrase: [GLOB.config.forum_passphrase]"
 
 			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)
 
@@ -180,15 +180,15 @@
 				return null
 
 		if (ban["fromdb"])
-			if(establish_db_connection(dbcon))
+			if(establish_db_connection(GLOB.dbcon))
 				spawn()
-					var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_stickyban_matched_ckey (matched_ckey, stickyban) VALUES ('[sanitizeSQL(ckey)]', '[sanitizeSQL(bannedckey)]') ON DUPLICATE KEY UPDATE last_matched = now()")
+					var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_stickyban_matched_ckey (matched_ckey, stickyban) VALUES ('[sanitizeSQL(ckey)]', '[sanitizeSQL(bannedckey)]') ON DUPLICATE KEY UPDATE last_matched = now()")
 					query.Execute()
 
-					query = dbcon.NewQuery("INSERT INTO ss13_stickyban_matched_ip (matched_ip, stickyban) VALUES ( INET_ATON('[sanitizeSQL(address)]'), '[sanitizeSQL(bannedckey)]') ON DUPLICATE KEY UPDATE last_matched = now()")
+					query = GLOB.dbcon.NewQuery("INSERT INTO ss13_stickyban_matched_ip (matched_ip, stickyban) VALUES ( INET_ATON('[sanitizeSQL(address)]'), '[sanitizeSQL(bannedckey)]') ON DUPLICATE KEY UPDATE last_matched = now()")
 					query.Execute()
 
-					query = dbcon.NewQuery("INSERT INTO ss13_stickyban_matched_cid (matched_cid, stickyban) VALUES ('[sanitizeSQL(computer_id)]', '[sanitizeSQL(bannedckey)]') ON DUPLICATE KEY UPDATE last_matched = now()")
+					query = GLOB.dbcon.NewQuery("INSERT INTO ss13_stickyban_matched_cid (matched_cid, stickyban) VALUES ('[sanitizeSQL(computer_id)]', '[sanitizeSQL(bannedckey)]') ON DUPLICATE KEY UPDATE last_matched = now()")
 					query.Execute()
 
 		//byond will not trigger isbanned() for "global" host bans,

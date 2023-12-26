@@ -179,3 +179,15 @@
 	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Skrell."
 	path = /obj/structure/closet/crate/gear_loadout/qukala/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/imperial_army
+	name = "Imperial Army Assets (Group)"
+	desc = "A crate containing gear for a group."
+	path = /obj/structure/closet/crate/secure/gear_loadout/imperial_army
+	telecrystal_cost = 50
+
+/datum/uplink_item/item/gear_loadout/imperial_army_single
+	name = "Imperial Army Assets (Single)"
+	desc = "A crate containing gear for a single individual."
+	path = /obj/structure/closet/crate/secure/gear_loadout/imperial_army/single
+	telecrystal_cost = 15

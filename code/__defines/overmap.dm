@@ -14,4 +14,4 @@
 
 #define SENSOR_COEFFICENT 1000
 
-#define waypoint_sector(waypoint) map_sectors["[waypoint.z]"]
+#define waypoint_sector(waypoint) GLOB.map_sectors["[waypoint.z]"]

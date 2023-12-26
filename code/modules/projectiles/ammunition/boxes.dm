@@ -129,6 +129,13 @@
 	max_ammo = 16
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c45m/dominia
+	name = "dominian service pistol magazine (.45)"
+	desc = "A magazine specifically designed for a Dominian service pistol."
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol_mag"
+	max_ammo = 11
+
 /obj/item/ammo_magazine/c46m
 	name = "magazine (4.6mm)"
 	icon_state = "4.6x30p"
@@ -397,6 +404,12 @@
 /obj/item/ammo_magazine/a556/makeshift/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/a556/dlmg
+	name = "MPR-24/5 light machine gun magazine"
+	max_ammo = 50
+	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon_state = "dom_lmg_mag"
+
 /obj/item/ammo_magazine/a65
 	name = "magazine (6.5mm)"
 	icon_state = "c6.5mm"
@@ -470,6 +483,11 @@
 
 /obj/item/ammo_magazine/c762/dpra
 	icon_state = "mrrazhak_mag"
+
+/obj/item/ammo_magazine/c762/dominia
+	name = "mpr-24/5 carbine magazine (7.62mm)"
+	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon_state = "dom_carbine_mag"
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"

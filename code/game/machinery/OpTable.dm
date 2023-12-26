@@ -42,7 +42,7 @@
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 	buckle_delay = 30
-	for(dir in cardinal)
+	for(dir in GLOB.cardinal)
 		computer = locate(/obj/machinery/computer/operating, get_step(src, dir))
 		if(computer)
 			computer.table = src

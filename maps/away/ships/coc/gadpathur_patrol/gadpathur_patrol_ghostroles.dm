@@ -38,7 +38,7 @@
 
 
 /datum/outfit/admin/gadpathur_patrol/get_id_access()
-	return list(access_external_airlocks, access_generic_away_site, access_coalition, access_coalition_navy, access_gadpathur_navy)
+	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_GADPATHUR_NAVY)
 
 /datum/ghostspawner/human/gadpathur_patrol/medical
 	short_name = "gadpathur_patroller_surgeon"
@@ -69,7 +69,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival/engineer = 1)
 
 /datum/outfit/admin/gadpathur_patrol/medic/get_id_access()
-	return list(access_external_airlocks, access_generic_away_site, access_coalition, access_coalition_navy, access_gadpathur_navy, access_gadpathur_navy_officer)
+	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_GADPATHUR_NAVY, ACCESS_GADPATHUR_NAVY_OFFICER)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/gadpathur
 	name = "\improper Gadpathur medical cadre labcoat"
@@ -107,4 +107,4 @@
 	suit = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 
 /datum/outfit/admin/gadpathur_patrol/section_leader/get_id_access()
-	return list(access_external_airlocks, access_generic_away_site, access_coalition, access_coalition_navy, access_gadpathur_navy, access_gadpathur_navy_officer)
+	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_GADPATHUR_NAVY, ACCESS_GADPATHUR_NAVY_OFFICER)

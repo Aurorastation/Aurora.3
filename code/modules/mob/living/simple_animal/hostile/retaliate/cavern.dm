@@ -131,7 +131,7 @@
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	for(var/obj/item/ore/O in loot)
 		O.forceMove(src.loc)
 	qdel(src)

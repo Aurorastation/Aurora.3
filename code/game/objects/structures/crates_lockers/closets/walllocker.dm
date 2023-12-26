@@ -86,4 +86,4 @@
 	icon_door_override = TRUE
 	locked = TRUE
 	secure = TRUE
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)

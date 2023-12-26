@@ -178,7 +178,7 @@
 		return
 
 	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in cardinal))
+	if (!(placement_dir in GLOB.cardinal))
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 

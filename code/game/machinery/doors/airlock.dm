@@ -1337,7 +1337,7 @@ About the new airlock wires panel:
 		if (istype(mover, /obj/item))
 			var/obj/item/i = mover
 			if (i.matter && (DEFAULT_WALL_MATERIAL in i.matter) && i.matter[DEFAULT_WALL_MATERIAL] > 0)
-				spark(src, 5, alldirs)
+				spark(src, 5, GLOB.alldirs)
 	return ..()
 
 /obj/machinery/door/airlock/attack_hand(mob/user as mob)
@@ -1837,7 +1837,7 @@ About the new airlock wires panel:
 		if ((O.client && !( O.blinded )))
 			O.show_message("[src.name]'s control panel bursts open, sparks spewing out!")
 
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
 	update_icon()
 	return
@@ -1929,7 +1929,7 @@ About the new airlock wires panel:
 	var/turf/T = loc
 	if(istype(T))
 		var/list/valid_turfs = list()
-		for(var/dir_to_test in cardinal)
+		for(var/dir_to_test in GLOB.cardinal)
 			var/turf/new_turf = get_step(T, dir_to_test)
 			if(!new_turf.contains_dense_objects())
 				valid_turfs |= new_turf

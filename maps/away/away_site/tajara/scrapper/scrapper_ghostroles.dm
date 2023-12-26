@@ -48,4 +48,4 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /datum/outfit/admin/tajaran_scrapper/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)

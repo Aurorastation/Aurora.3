@@ -2,17 +2,19 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
+
 /mob/living/carbon/human/dummy/mannequin
 	mob_thinks = FALSE
 
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
+
 /mob/living/carbon/human/dummy/mannequin/Initialize()
 	. = ..()
-	mob_list -= src
-	living_mob_list -= src
-	dead_mob_list -= src
-	human_mob_list -= src
+	GLOB.mob_list -= src
+	GLOB.living_mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.human_mob_list -= src
 	delete_inventory()
 
 /mob/living/carbon/human/vatgrown/Initialize(mapload)
@@ -208,7 +210,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	var/obj/item/card/id/ID = new /obj/item/card/id(get_turf(src))
 	ID.assignment = "Overseer"
 	src.set_id_info(ID)
-	ID.access = list(access_armory)
+	ID.access = list(ACCESS_ARMORY)
 	equip_to_slot_or_del(ID, slot_wear_id)
 	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)

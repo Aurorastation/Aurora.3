@@ -39496,7 +39496,7 @@
 	c_tag = "Central Corridor";
 	dir = 1
 	},
-/obj/machinery/computer/HolodeckControl/Aurora{
+/obj/machinery/computer/holodeck_control/Aurora{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,

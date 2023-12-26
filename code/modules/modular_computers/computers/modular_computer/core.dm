@@ -558,7 +558,7 @@
 	return FALSE
 
 /obj/item/modular_computer/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

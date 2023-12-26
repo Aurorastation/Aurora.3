@@ -32,15 +32,15 @@
 /hook/pregame_start/proc/load_custom_items()
 	var/load_from_file = 0
 
-	if (config.sql_enabled)
+	if (GLOB.config.sql_enabled)
 		log_module_customitems("Loading from SQL")
 		//If we have sql enabled we check if the db is empty. If so we migrate the json file to the db
 		//If the db is not empty we dont load the json file
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			log_module_customitems("Unable to establish database connection. - Aborting")
 			return 1
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters_custom_items")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters_custom_items")
 		query.Execute()
 
 		if (!query.NextRow())
@@ -153,7 +153,7 @@
 				continue
 
 			//Fetch the character id of the character
-			var/DBQuery/char_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND name = :name: AND deleted_at IS NULL ORDER BY id DESC")
+			var/DBQuery/char_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND name = :name: AND deleted_at IS NULL ORDER BY id DESC")
 			char_query.Execute(list("ckey"=ckey(ci.usr_ckey),"name"=ci.usr_charname))
 			if (!char_query.NextRow())
 				log_module_customitems("Unable to find matching character for: ckey: [ci.usr_ckey] name: [ci.usr_charname]")
@@ -162,7 +162,7 @@
 			var/char_id = text2num(char_query.item[1])
 
 			try
-				var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_titles:, :additional_data:)")
+				var/DBQuery/item_insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_titles:, :additional_data:)")
 				item_insert_query.Execute(list("char_id"=char_id,"item_path"="[ci.item_path]","item_data"=json_encode(ci.item_data),"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
 			catch(var/exception/e)
 				log_module_customitems("Failed to save item to db: [e]")
@@ -216,12 +216,12 @@
 //gets the relevant list for the key from the listlist if it exists, check to make sure they are meant to have it and then calls the giving function
 /proc/equip_custom_items(var/mob/living/carbon/human/M)
 	//Fetch the custom items for the mob
-	if(config.sql_enabled)
-		if(!establish_db_connection(dbcon))
+	if(GLOB.config.sql_enabled)
+		if(!establish_db_connection(GLOB.dbcon))
 			log_module_customitems("Unable to establish database connection while loading item. - Aborting")
 			return
 
-		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
+		var/DBQuery/char_item_query = GLOB.dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
 		char_item_query.Execute(list("char_id"=M.character_id))
 		while(char_item_query.NextRow())
 			CHECK_TICK

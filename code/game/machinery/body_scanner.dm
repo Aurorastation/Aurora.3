@@ -326,7 +326,7 @@
 	for(var/obj/machinery/computer/operating/D in SSmachinery.machinery)
 		if (AreConnectedZLevels(D.z, z))
 			connected_displays += D
-			destroyed_event.register(D, src, PROC_REF(remove_display))
+			GLOB.destroyed_event.register(D, src, PROC_REF(remove_display))
 	return !!length(connected_displays)
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
@@ -340,7 +340,7 @@
 
 /obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
 	connected_displays -= display
-	destroyed_event.unregister(display, src, PROC_REF(remove_display))
+	GLOB.destroyed_event.unregister(display, src, PROC_REF(remove_display))
 
 /obj/machinery/body_scanconsole/proc/get_connected()
 	if(connected)

@@ -162,7 +162,7 @@
 	if(!use_overmap)
 		return
 
-	if(!config.exoplanets["enable_loading"])
+	if(!GLOB.config.exoplanets["enable_loading"])
 		log_admin("Not building exoplanets because the config specifies not to")
 		return
 
@@ -173,7 +173,7 @@
 		log_module_exoplanets("No valid exoplanets found!")
 		return
 
-	var/exoplanets_budget = isnum(config.exoplanets["exoplanets_budget"]) ? (config.exoplanets["exoplanets_budget"]) : (min(possible_exoplanets.len, num_exoplanets))
+	var/exoplanets_budget = isnum(GLOB.config.exoplanets["exoplanets_budget"]) ? (GLOB.config.exoplanets["exoplanets_budget"]) : (min(possible_exoplanets.len, num_exoplanets))
 	for(var/i = 0, i < exoplanets_budget, i++)
 
 		//Check that we didn't ran out of exoplanets to make
@@ -237,7 +237,7 @@
 	log_admin("Unit testing, so not loading away sites")
 	return // don't build away sites during unit testing
 #else
-	if(!config.awaysites["enable_loading"])
+	if(!GLOB.config.awaysites["enable_loading"])
 		log_admin("Not loading away sites because the config specifies not to")
 		return
 
@@ -251,7 +251,7 @@
 
 	for (var/site_id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
-		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in config.awaysites["guaranteed_sites"]))
+		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
@@ -259,9 +259,9 @@
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 
-	var/points = isnum(config.awaysites["away_site_budget"]) ? (config.awaysites["away_site_budget"]) : (rand(away_site_budget, away_site_budget + away_variance))
+	var/points = isnum(GLOB.config.awaysites["away_site_budget"]) ? (GLOB.config.awaysites["away_site_budget"]) : (rand(away_site_budget, away_site_budget + away_variance))
 	var/players = -min_offmap_players
-	var/shippoints = isnum(config.awaysites["away_ship_budget"]) ? (config.awaysites["away_ship_budget"]) : (rand(away_ship_budget, away_ship_budget + away_variance))
+	var/shippoints = isnum(GLOB.config.awaysites["away_ship_budget"]) ? (GLOB.config.awaysites["away_ship_budget"]) : (rand(away_ship_budget, away_ship_budget + away_variance))
 	var/totalbudget = shippoints + points
 	for (var/client/C)
 		++players

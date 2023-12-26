@@ -19,8 +19,8 @@ PROCESSING_SUBSYSTEM_DEF(ntsl2)
  * Builds request object meant to do certain action. Returns FALSE (0) when there was an issue.
  */
 /datum/controller/subsystem/processing/ntsl2/proc/build_request(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET)
-	if(config.ntsl_hostname && config.ntsl_port) // Requires config to be set.
-		var/url = "http://[config.ntsl_hostname]:[config.ntsl_port]/[command]"
+	if(GLOB.config.ntsl_hostname && GLOB.config.ntsl_port) // Requires config to be set.
+		var/url = "http://[GLOB.config.ntsl_hostname]:[GLOB.config.ntsl_port]/[command]"
 		var/body = ""
 		switch(method)
 			if(RUSTG_HTTP_METHOD_GET)
@@ -113,7 +113,7 @@ PROCESSING_SUBSYSTEM_DEF(ntsl2)
 
 
 /datum/controller/subsystem/processing/ntsl2/proc/attempt_connect()
-	if(config.ntsl_disabled)
+	if(GLOB.config.ntsl_disabled)
 		LOG_DEBUG("NTSL2++ Daemon disabled via config")
 		return FALSE
 	var/res = sync_send("clear")

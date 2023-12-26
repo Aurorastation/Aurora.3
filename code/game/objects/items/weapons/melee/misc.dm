@@ -118,7 +118,7 @@
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)

@@ -83,13 +83,13 @@
 		return FALSE
 
 	if(!R.key)
-		for(var/mob/abstract/observer/ghost in player_list)
+		for(var/mob/abstract/observer/ghost in GLOB.player_list)
 			if(ghost.mind?.current == R)
 				R.key = ghost.key
 
 	R.set_stat(CONSCIOUS)
-	dead_mob_list -= R
-	living_mob_list |= R
+	GLOB.dead_mob_list -= R
+	GLOB.living_mob_list |= R
 	R.notify_ai(ROBOT_NOTIFICATION_NEW_UNIT)
 	return TRUE
 

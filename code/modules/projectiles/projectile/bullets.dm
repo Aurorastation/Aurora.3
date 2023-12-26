@@ -495,7 +495,7 @@
 	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
-	for(var/mob/living/carbon/human/mob in human_mob_list)
+	for(var/mob/living/carbon/human/mob in GLOB.human_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(ishuman(mob))

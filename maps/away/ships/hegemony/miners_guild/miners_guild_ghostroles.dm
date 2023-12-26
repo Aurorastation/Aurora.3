@@ -36,7 +36,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /datum/outfit/admin/miners_guild/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/miners_guild/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)

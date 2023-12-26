@@ -195,7 +195,7 @@ Class Procs:
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
-		pulse2.set_dir(pick(cardinal))
+		pulse2.set_dir(pick(GLOB.cardinal))
 
 		QDEL_IN(pulse2, 10)
 
@@ -365,7 +365,7 @@ Class Procs:
 		return 0
 	if(!prob(prb))
 		return 0
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	if (electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
 		if(temp_area)
@@ -498,7 +498,7 @@ Class Procs:
 	if(isskrell(H) || isunathi(H) || isvaurca(H))
 		return
 
-	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
+	var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[H.h_style]
 	for(var/obj/item/protection in list(H.head))
 		if(protection && (protection.flags_inv & BLOCKHAIR|BLOCKHEADHAIR))
 			return
@@ -526,7 +526,7 @@ Class Procs:
 	return FALSE
 
 /obj/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

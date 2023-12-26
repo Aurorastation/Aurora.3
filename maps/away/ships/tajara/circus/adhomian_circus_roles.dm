@@ -7,7 +7,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/adhomian_circus/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/adhomian_circus
 	short_name = "adhomian_circus_crew"

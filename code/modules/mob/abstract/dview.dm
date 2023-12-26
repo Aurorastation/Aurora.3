@@ -9,11 +9,11 @@ var/mob/abstract/dview/dview_mob = new
 /mob/abstract/dview/Initialize()
 	. = ..()
 	// We don't want to be in any mob lists; we're a dummy not a mob.
-	mob_list -= src
+	GLOB.mob_list -= src
 	if(stat == DEAD)
-		dead_mob_list -= src
+		GLOB.dead_mob_list -= src
 	else
-		living_mob_list -= src
+		GLOB.living_mob_list -= src
 
 /mob/abstract/dview/Destroy(force = FALSE)
 	SHOULD_CALL_PARENT(FALSE)

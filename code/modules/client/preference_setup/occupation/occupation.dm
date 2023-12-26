@@ -188,7 +188,7 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if(job.blacklisted_species) // check for restricted species
-			var/datum/species/S = all_species[pref.species]
+			var/datum/species/S = GLOB.all_species[pref.species]
 			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
@@ -483,7 +483,7 @@
 	if (!job)
 		return
 	var/choices = list(job.title) + job.alt_titles
-	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
+	if((GLOB.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
 		if (src.age >= (job.get_alt_character_age(species, t) || job.get_minimum_character_age(species)))

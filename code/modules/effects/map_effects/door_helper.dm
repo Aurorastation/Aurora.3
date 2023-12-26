@@ -38,10 +38,10 @@
 		A.req_one_access_by_level = req_one_access_by_level
 
 /obj/effect/map_effect/door_helper/level_access/test1
-	access_by_level = list("green" = list(access_security))
+	access_by_level = list("green" = list(ACCESS_SECURITY))
 
 /obj/effect/map_effect/door_helper/level_access/test2
-	req_one_access_by_level = list("green" = list(access_security, access_heads))
+	req_one_access_by_level = list("green" = list(ACCESS_SECURITY, ACCESS_HEADS))
 
 /obj/effect/map_effect/door_helper/level_access/command_foyer
 	access_by_level = list(

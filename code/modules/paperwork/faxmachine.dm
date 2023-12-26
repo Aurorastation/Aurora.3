@@ -9,7 +9,7 @@ var/list/admin_departments
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads)
+	req_one_access = list(ACCESS_LAWYER, ACCESS_HEADS)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200
@@ -293,7 +293,7 @@ var/list/admin_departments
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		var/flags = C.holder.rights & (R_ADMIN|R_CCIAA)
 		if(flags)

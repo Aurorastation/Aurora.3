@@ -100,7 +100,7 @@
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCFL Shuttle"
-	req_access = list(access_tcfl_peacekeeper_ship)
+	req_access = list(ACCESS_TCFL_PEACEKEEPER_SHIP)
 
 /datum/shuttle/autodock/overmap/tcfl_shuttle
 	name = "TCFL Shuttle"

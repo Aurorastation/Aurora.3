@@ -21,7 +21,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/Initialize()
 	. = ..()
-	dead_mob_list -= src
+	GLOB.dead_mob_list -= src
 
 /mob/abstract/new_player/Destroy()
 	QDEL_NULL(late_choices_ui)
@@ -38,11 +38,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
 		. += "Game Mode: Mixed Secret"
 	else
-		. += "Game Mode: [master_mode]" // Old setting for showing the game mode
+		. += "Game Mode: [GLOB.master_mode]" // Old setting for showing the game mode
 
 	if(SSticker.current_state == GAME_STATE_PREGAME)
-		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
-		. += "Players: [length(player_list)] Players Ready: [SSticker.total_players_ready]"
+		. += "Time To Start: [SSticker.pregame_timeleft][GLOB.round_progressing ? "" : " (DELAYED)"]"
+		. += "Players: [length(GLOB.player_list)] Players Ready: [SSticker.total_players_ready]"
 		if(LAZYLEN(SSticker.ready_player_jobs))
 			. += ""
 			. += ""
@@ -51,15 +51,15 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			var/list/ready_special_roles = list()
 
 			//Get the list of all the players, if they are ready, get their special roles (aka antagonists) preferences and count them up in a list
-			for(var/mob/abstract/new_player/player in player_list)
+			for(var/mob/abstract/new_player/player in GLOB.player_list)
 				if(!player.ready)
 					continue
 				for(var/special_role in player?.client?.prefs?.be_special_role)
 					ready_special_roles[special_role] += 1
 
 			//Get the list of all antagonist types, if they require more than one person to spawn, check that there's at least one candidate and if so list the number of candidates for it
-			for(var/antag_type in all_antag_types)
-				var/datum/antagonist/possible_antag_type = all_antag_types[antag_type]
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/possible_antag_type = GLOB.all_antag_types[antag_type]
 
 				if(possible_antag_type.initial_spawn_req > 1)
 					if(ready_special_roles[possible_antag_type.role_type])
@@ -86,7 +86,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["ready"])
 		if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 			// Cannot join without a saved character, if we're on SQL saves.
-			if (config.sql_saves && !client.prefs.current_character)
+			if (GLOB.config.sql_saves && !client.prefs.current_character)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
@@ -108,13 +108,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		// Cannot join without a saved character, if we're on SQL saves.
-		if (config.sql_saves && !client.prefs.current_character)
+		if (GLOB.config.sql_saves && !client.prefs.current_character)
 			alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 			return
 
 		if(!check_rights(R_ADMIN, 0))
-			var/datum/species/S = all_species[client.prefs.species]
-			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
+			var/datum/species/S = GLOB.all_species[client.prefs.species]
+			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && GLOB.config.usealienwhitelist)
 				to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 				return 0
 
@@ -135,7 +135,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(href_list["SelectedJob"])
 
-		if(!config.enter_allowed)
+		if(!GLOB.config.enter_allowed)
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
@@ -146,8 +146,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
-		var/datum/species/S = all_species[client.prefs.species]
-		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
+		var/datum/species/S = GLOB.all_species[client.prefs.species]
+		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && GLOB.config.usealienwhitelist)
 			to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 			return 0
 
@@ -230,7 +230,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		return FALSE
 
 	if(job.blacklisted_species) // check for restricted species
-		var/datum/species/S = all_species[client.prefs.species]
+		var/datum/species/S = GLOB.all_species[client.prefs.species]
 		if(S.name in job.blacklisted_species)
 			return FALSE
 
@@ -259,10 +259,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
 		return 0
-	if(!config.enter_allowed)
+	if(!GLOB.config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
-	if(config.sql_saves && !client.prefs.current_character)
+	if(GLOB.config.sql_saves && !client.prefs.current_character)
 		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
@@ -288,8 +288,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character = character.AIize(move=0) // AIize the character, but don't move them yet
 
 		// IsJobAvailable for AI checks that there is an empty core available in this list
-		var/obj/structure/AIcore/deactivated/C = empty_playable_ai_cores[1]
-		empty_playable_ai_cores -= C
+		var/obj/structure/AIcore/deactivated/C = GLOB.empty_playable_ai_cores[1]
+		GLOB.empty_playable_ai_cores -= C
 
 		character.forceMove(C.loc)
 		character.eyeobj.forceMove(C.loc)
@@ -313,7 +313,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-	universe.OnPlayerLatejoin(character)
+	GLOB.universe.OnPlayerLatejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)
@@ -332,7 +332,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [current_map.station_type]"].", "Arrivals Announcer")
+		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()
 	if(!istype(late_choices_ui))
@@ -350,23 +350,23 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/use_species_name
 	var/datum/species/chosen_species
 	if(client.prefs.species)
-		chosen_species = all_species[client.prefs.species]
+		chosen_species = GLOB.all_species[client.prefs.species]
 		use_species_name = chosen_species.get_station_variant() //Only used by pariahs atm.
 
 	if(chosen_species && use_species_name)
 		// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 		if(is_species_whitelisted(chosen_species) || has_admin_rights())
-			new_character = new(newplayer_start, use_species_name)
+			new_character = new(GLOB.newplayer_start, use_species_name)
 
 	if(!new_character)
-		new_character = new(newplayer_start)
+		new_character = new(GLOB.newplayer_start)
 
 	new_character.lastarea = get_area(loc)
 
 	for(var/lang in client.prefs.alternate_languages)
-		var/datum/language/chosen_language = all_languages[lang]
+		var/datum/language/chosen_language = GLOB.all_languages[lang]
 		if(chosen_language)
-			if(!config.usealienwhitelist || !(chosen_language.flags & WHITELISTED) || is_alien_whitelisted(src, lang) || has_admin_rights() \
+			if(!GLOB.config.usealienwhitelist || !(chosen_language.flags & WHITELISTED) || is_alien_whitelisted(src, lang) || has_admin_rights() \
 				|| (new_character.species && (chosen_language.name in new_character.species.secondary_langs)))
 				new_character.add_language(lang)
 
@@ -425,12 +425,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/proc/is_species_whitelisted(datum/species/S)
 	if(!S) return 1
-	return is_alien_whitelisted(src, S.name) || !config.usealienwhitelist || !(S.spawn_flags & IS_WHITELISTED)
+	return is_alien_whitelisted(src, S.name) || !GLOB.config.usealienwhitelist || !(S.spawn_flags & IS_WHITELISTED)
 
 /mob/abstract/new_player/get_species(var/reference = 0)
 	var/datum/species/chosen_species
 	if(client.prefs.species)
-		chosen_species = all_species[client.prefs.species]
+		chosen_species = GLOB.all_species[client.prefs.species]
 
 	if(!chosen_species)
 		return SPECIES_HUMAN
