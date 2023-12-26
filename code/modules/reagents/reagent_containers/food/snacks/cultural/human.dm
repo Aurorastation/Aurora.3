@@ -499,7 +499,7 @@
 	returningitem.bitesize = bitesize/2
 	user.put_in_hands(returningitem)
 	if (reagents && reagents.total_volume)
-		to_chat(user, "You take a [unitname] from the plate.")
+		to_chat(user, SPAN_NOTICE("You take a [unitname] from the plate."))
 	else
 		to_chat(user, "You take the last [unitname] from the plate.")
 		var/obj/waste = new trash(loc)
