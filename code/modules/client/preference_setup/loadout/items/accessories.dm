@@ -693,3 +693,21 @@
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/pride_pin
+	display_name = "pride pin selection"
+	description = "A holographic pin to show off your pride, reminding the crew of their unwavering commitment to equity, diversity, and inclusion!"
+	path = /obj/item/clothing/accessory/pridepin
+
+/datum/gear/accessory/pride_pin/New()
+	. = ..()
+	var/list/selection = list()
+	selection["rainbow pride pin"] = /obj/item/clothing/accessory/pridepin
+	selection["bisexual pride pin"] = /obj/item/clothing/accessory/pridepin/bi
+	selection["transgender pride pin"] = /obj/item/clothing/accessory/pridepin/trans
+	selection["asexual pride pin"] = /obj/item/clothing/accessory/pridepin/ace
+	selection["non-binary pride pin"] = /obj/item/clothing/accessory/pridepin/enby
+	selection["pansexual pride pin"] = /obj/item/clothing/accessory/pridepin/pan
+	selection["lesbian pride pin"] = /obj/item/clothing/accessory/pridepin/lesbian
+	selection["intersex pride pin"] = /obj/item/clothing/accessory/pridepin/intersex
+	gear_tweaks += new /datum/gear_tweak/path(selection)
