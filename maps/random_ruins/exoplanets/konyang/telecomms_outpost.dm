@@ -2,6 +2,8 @@
 	name = "Konyang Telecomms Outpost"
 	id = "konyang_telecomms_outpost"
 	description = "A remote telecommunications relay, operated by two particularly bored soldiers of the Konyang Armed Forces."
+	spawn_weight = 1
+	spawn_cost = 2
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
