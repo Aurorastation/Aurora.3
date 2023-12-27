@@ -130,7 +130,7 @@
 					listening_obj |= O
 
 
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
 					M.hear_say(message, verb, speaking, null, null, src)
 					continue

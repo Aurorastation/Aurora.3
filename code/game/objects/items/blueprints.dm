@@ -197,7 +197,7 @@
 		return
 	INVOKE_ASYNC(src, PROC_REF(set_area_machinery_title), A, str, prevname)
 	A.name = str
-	sortTim(all_areas, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_text_asc))
 	to_chat(usr, "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>")
 	interact()
 	return
@@ -253,7 +253,7 @@
 			return ROOM_ERR_TOOLARGE
 		var/turf/T = pending[1] //why byond havent list::pop()?
 		pending -= T
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			var/skip = 0
 			for (var/obj/structure/window/W in T)
 				if(dir == W.dir || (W.dir in list(NORTHEAST,SOUTHEAST,NORTHWEST,SOUTHWEST)))

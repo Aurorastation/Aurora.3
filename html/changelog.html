@@ -35,6 +35,168 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">26 December 2023</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Refactored the way globals are done, porting the globals controller from TG.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the ability to recharge energy weapons from power backpacks and hardsuit modules.</li>
+			</ul>
+
+			<h2 class="date">25 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed AI chamber computers missing programs.</li>
+				<li class="bugfix">Fixed various possible runtimes on qdeleted organs.</li>
+				<li class="bugfix">Fixed device assemblies, which also fixes some chem grenades like the cleaner grenades, that were using wrong wires.</li>
+				<li class="backend">Moved the wires from constant vars to defines, moved inside the wires define file, DMdoc&#x27;d them from the comments they had.</li>
+				<li class="bugfix">Fixed borgs not having access to the alarm program.</li>
+				<li class="bugfix">Characters with limb nymphs now spawn correctly.</li>
+				<li class="bugfix">Solved an issue that could allow to have eg. a nymph arm and yet still have a human hand.</li>
+				<li class="bugfix">Solved some issues with text messages.</li>
+				<li class="backend">Updated SSAtoms to TG&#x27;s version.</li>
+				<li class="backend">Added signals for initialization, repathed old signal_athom_x_act.dm to its updated home.</li>
+				<li class="backend">Moved /atom initialization related procs in atom/atoms_initializing_EXPENSIVE.dm as per TG.</li>
+				<li class="backend">Updated INITIALIZE_IMMEDIATE to work with the new subsystem.</li>
+				<li class="backend">Adapted various procs and other subsystems to work with the new SSAtoms.</li>
+				<li class="backend">Reordered some procs to set the initialization flag at the start, as that is the supposed behavior.</li>
+				<li class="backend">Transformed the testing() proc to a macro, as per TG.</li>
+				<li class="backend">Cleaned up some initializations a bit.</li>
+				<li class="backend">Flagged organs for immediate initialization.</li>
+				<li class="backend">Initialized variable is now flags_1, as per TG.</li>
+				<li class="backend">The Initialized variable is now global for every subsytem.</li>
+				<li class="backend">Various reordering and flags/defines additions.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added keymap R, to enable throw mode, lifting the R key disables throw mode, clicking the HUD icon works as before (toggle).</li>
+				<li class="rscadd">Added keymap SPACE, to enable run mode, lifting the SPACE key disables run mode, clicking the HUD icon works as before (toggle).</li>
+				<li class="rscadd">Added SHIFT+R as a keymap to resist.</li>
+				<li class="rscadd">Added CTRL+PGUP/CTRL+PGDOWN as a keymap to Move-upwards and Move-down, respectively.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You now need a direct line of sight to establish and use the Psi Grip (crush) ability. You do not have to maintain line of sight to keep the grip active, however.</li>
+			</ul>
+			<h3 class="author">LynxSolstice updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added a beefier SMES to the Tajaran Smuggler ship to keep the engines from turning off and as recommended by HazelMouse, a breakerbox.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Dominian Imperial Army gear, which can also be bought on the uplink as part of the Imperial Army gear crate.</li>
+				<li class="admin">SDQL2 has now been updated to work properly, be faster, and overall better and more useful.</li>
+				<li class="admin">View variables can no longer view some protected datums, such as the config datum.</li>
+				<li class="tweak">Changed the Set Holidays verb to not have a . in front of the name.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Qukala hardsuit and gear crates.</li>
+				<li class="rscadd">Adds Einstein, Tupkala and Vaurca ninja hardsuits.</li>
+				<li class="tweak">Changes Skrell and Vaurca hardsuit armor values to be more usable in normal gameplay.</li>
+				<li class="tweak">Removes AI containers from anti-AI factions&#x27; hardsuits and adds AI containers to the uplink.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the required access for the bridge security lockers so only command members can open them, not bridge crew.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Revamped the CCIA Human Resources Asssistant to wear a more formal coat and tie. They now (subjectively) look twice as intimidating.</li>
+				<li class="rscadd">CCIA HRAs now come with additional self-defense weaponry - a gun and a baton - as well as a holster for said gun and a laptop.</li>
+				<li class="rscadd">Added additional lights to the corporate liaisons&#x27; office to brighten them up, as well as photocopiers.</li>
+				<li class="rscadd">Added disposal bins, fire extinguishers, and a photocopier to the bridge vestibule.</li>
+				<li class="rscadd">Added light switches and privacy shutters to the captain&#x27;s office. Moved things around so the _loaded gun_ in a display case is now in the secure part of the captain&#x27;s office.</li>
+				<li class="rscadd">Added shutters to the CCIA room, and replaced the paper cups with proper drinking glasses.</li>
+				<li class="rscadd">Added miscellaneous additional lights and light switches.</li>
+			</ul>
+
+			<h2 class="date">24 December 2023</h2>
+			<h3 class="author">Alberyk, Suethecake updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added an adhomian typewriter.</li>
+				<li class="rscadd">Added am adhomian camera.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">If something returns the request to search for refs in Destroy, and all the other reference tracking conditions are met, start the search for the reference without prompting a confirmation box.</li>
+				<li class="backend">Moved all filepaths for sounds to static links, with single quotes instead of doubles.</li>
+				<li class="bugfix">Repathed wrong chainsaw sounds to the correct path.</li>
+				<li class="soundadd">Added a missed sound that was forgotten when porting the overmap sensors, from Nebula.</li>
+				<li class="backend">The CI now checks that all sounds are referenced with a static path.</li>
+				<li class="bugfix">The AI can now spawn at roundstart correctly.</li>
+				<li class="bugfix">Solved various roundtimes when the AI core is wiped.</li>
+				<li class="bugfix">Solved a runtime with programs when the computer was GCd.</li>
+				<li class="bugfix">Solved an issue that runtimed the AI mob initialization due to it being created in nullspace at roundstart, for the atmos monitoring program.</li>
+				<li class="rscdel">Removed the ability to disable the AI in a gamemode, noone used it anyways and it gave issues with the fix for the roundstart initialization.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Removed the little electronic sprite that appears on your chest when you equip a PDA or Wristbound to the ID slot.</li>
+				<li class="rscadd">Added an Orion Express delivery point to the Horizon&#x27;s warehouse, offships with orion express packages can now deliver to the Horizon.</li>
+				<li class="rscadd">Added an Orion Express delivery point to the Orion Express Mobile station, and mapped in packages for drop off. The Horizon is will now receive packages to be delivered there.</li>
+				<li class="rscadd">Updated the ghost spawner UI to have a candystripe theme and also show a manifest for the currently active mobs.</li>
+			</ul>
+			<h3 class="author">Greenjoe12345 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Area blurbs now only show once per blurb, rather then showing each time you enter a subtype of the area they are defined on.</li>
+				<li class="bugfix">Medical&#x27;s area blurb is now set on the correct area.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds new ERTs for Hephaestus, the SCC, Coalition Rangers and Konyang.</li>
+			</ul>
+			<h3 class="author">RustingWithYou, Hazelmouse updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes non-functional shuttle airlocks on the Scarab ship.</li>
+				<li class="maptweak">Several changes for convenience and utility on the Scarab ship.</li>
+			</ul>
+
+			<h2 class="date">22 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Organs of carbon/human mobs are QDEL&#x27;d on mob deletion too.</li>
+				<li class="bugfix">Removed references in /datum/reagents on deletion.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a single typo that was making the House Kazhkz Standard invisible.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed strafing enabling you to ignore the turn delay of some exosuit propulsion systems, such as tracks. You can now only strafe is the turn delay is smaller or equal to the move delay.</li>
+				<li class="tweak">Tweaked the turn delay of light exosuit propulsion legs to be the same as the move delay.</li>
+				<li class="bugfix">Mirror Shades no longer attack the person who summoned them.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ported the cryo tubes to use tgui.</li>
+				<li class="tweak">Replaced the cryo tube sprites. Credit to Remission, cuddleandtea, and SierraKomodo of baystation12.</li>
+				<li class="rscdel">Cryo tubes no longer heal without chemicals; putting someone inside without cryo chems will kill them.</li>
+				<li class="balance">Buffed cryoxadone to heal 30 brute damage per metabolism tick from 10.</li>
+				<li class="balance">Buffed clonexadone to heal 50 brute damage per metabolism tick from 30.</li>
+				<li class="balance">Buffed clonexadone to heal 300 clone damage per metabolism tick from 100.</li>
+				<li class="rscadd">Cryoxadone and clonexadone now heal internal organ damage.</li>
+				<li class="rscdel">Cryoxadone and clonexadone no longer heal toxin or oxygen damage; both now provide an oxygenation effect in place of healing oxygen damage.</li>
+				<li class="rscdel">Cryo tubes no longer show toxin, oxygen, or burn damage, as it cannot heal these types of damage.</li>
+				<li class="rscadd">Added metabolism-boosted and stasis-boosted modes on the cryo tubes. Both will trade off stasis level or metabolism respectively, in favor of the alternative stat.</li>
+			</ul>
+			<h3 class="author">LynxSolstice updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added a missing wire on the freebooter ship so the Hydroponics HAB unit wouldn&#x27;t be disconnected from the grid.</li>
+				<li class="tweak">Changed the Area Power Consoles in the ranger ship to use higher charge cells in order to fix the issue of rangers running out of power in their APCs due to a high powerdraw from the engines.</li>
+			</ul>
+			<h3 class="author">kermit updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Crayons and drafting chalk are no longer invisible.</li>
+			</ul>
+			<h3 class="author">meep109 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes a scrubber in the kitchen</li>
+			</ul>
+
 			<h2 class="date">21 December 2023</h2>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">
@@ -47,11 +209,13 @@
 				<li class="bugfix">External organs now clear more references when they are deleted.</li>
 				<li class="backend">DMDoc&#x27;d most external organs vars.</li>
 				<li class="backend">Updated CI to use byond 515.1621.</li>
+				<li class="bugfix">Tendons now drop the reference to their parent on deletion.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">CULT: Examining the cult tome now gives you the option to read it, instead of it happening every time you go to use it.</li>
 				<li class="tweak">CULT: Clicking on the floor with a cult rune will now let you scribe a rune there. As a side-effect, you can now scribe multiple runes at the same time.</li>
+				<li class="bugfix">Fixed PDAs not having the correct alarm monitor program icon.</li>
 			</ul>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">
@@ -1790,7 +1954,7 @@
 			</ul>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="bugfix">Fixes the observable moved_event that was not unregistering some child atoms.</li>
+				<li class="bugfix">Fixes the observable GLOB.moved_event that was not unregistering some child atoms.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">

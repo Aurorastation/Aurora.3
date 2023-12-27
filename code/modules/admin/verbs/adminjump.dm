@@ -4,7 +4,7 @@
 /mob/abstract/observer/on_mob_jump()
 	stop_following()
 
-/client/proc/Jump(var/area/A in all_areas)
+/client/proc/Jump(var/area/A in GLOB.all_areas)
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
 	set category = "Admin"
@@ -15,7 +15,7 @@
 	if(istype(usr, /mob/abstract/new_player))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		usr.on_mob_jump()
 		usr.forceMove(pick(get_area_turfs(A)))
 
@@ -35,7 +35,7 @@
 	if(isnewplayer(usr))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		log_admin("[key_name(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]",admin_key=key_name(usr))
 		message_admins("[key_name_admin(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]", 1)
 		usr.on_mob_jump()
@@ -45,7 +45,7 @@
 		alert("Admin jumping disabled")
 	return
 
-/client/proc/jumptomob(var/mob/M in mob_list)
+/client/proc/jumptomob(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Jump to Mob Admin"
 
@@ -55,7 +55,7 @@
 	if(isnewplayer(usr))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		log_admin("[key_name(usr)] jumped to [key_name(M)]", admin_key=key_name(usr),ckey=key_name(M))
 		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(M)]", 1)
 		if(src.mob)
@@ -77,7 +77,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if (config.allow_admin_jump)
+	if (GLOB.config.allow_admin_jump)
 		if(src.mob)
 			var/mob/A = src.mob
 			A.on_mob_jump()
@@ -97,7 +97,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		var/list/zlevels = list()
 		for(var/z=0, z<world.maxz, z++)
 			zlevels += z
@@ -123,7 +123,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		var/list/shuttles = list()
 		for(var/shuttle_tag in SSshuttle.shuttles)
 			shuttles += shuttle_tag
@@ -147,7 +147,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		var/list/ships = list()
 		for(var/ship in SSshuttle.ships)
 			ships += ship
@@ -171,7 +171,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		var/list/sectors = list()
 		for(var/sector in SSshuttle.initialized_sectors)
 			sectors += sector
@@ -198,9 +198,9 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		var/list/keys = list()
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			keys += M.client
 		var/selection = input("Please, select a player!", "Admin Jumping", null, null) as null|anything in sortKey(keys)
 		if(!selection)
@@ -215,13 +215,13 @@
 	else
 		alert("Admin jumping disabled")
 
-/client/proc/Getmob(var/mob/M in mob_list)
+/client/proc/Getmob(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Get Mob"
 	set desc = "Mob to teleport"
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		log_admin("[key_name(usr)] teleported [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
 		message_admins("[key_name_admin(usr)] teleported [key_name_admin(M)]", 1)
 		M.on_mob_jump()
@@ -238,9 +238,9 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
 
-	if(config.allow_admin_jump)
+	if(GLOB.config.allow_admin_jump)
 		var/list/keys = list()
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			keys += M.client
 		var/selection = input("Please, select a player!", "Admin Jumping", null, null) as null|anything in sortKey(keys)
 		if(!selection)
@@ -263,9 +263,9 @@
 	set name = "Send Mob"
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
-	var/area/A = input(usr, "Pick an area.", "Pick an area") in all_areas
+	var/area/A = input(usr, "Pick an area.", "Pick an area") in GLOB.all_areas
 	if(A)
-		if(config.allow_admin_jump)
+		if(GLOB.config.allow_admin_jump)
 			M.on_mob_jump()
 			M.forceMove(pick(get_area_turfs(A)))
 			feedback_add_details("admin_verb","SMOB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

@@ -44,7 +44,7 @@
 				bot.emag_act(1)
 
 /datum/event/ionstorm/proc/give_ion_law()
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		var/turf/player_turf = get_turf(player)
 		if(!(player_turf.z in affecting_z))
 			continue
@@ -52,7 +52,7 @@
 			continue
 		players += player.real_name
 
-	for(var/mob/living/silicon/ai/target in silicon_mob_list)
+	for(var/mob/living/silicon/ai/target in GLOB.silicon_mob_list)
 		var/turf/target_turf = get_turf(target)
 		if(!(target_turf.z in affecting_z))
 			continue

@@ -50,17 +50,18 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/unathi/fancy/equipped
-	req_access = list(access_kataphract)
+	req_access = list(ACCESS_KATAPHRACT)
 	initial_modules = list(
 		/obj/item/rig_module/vision/nvg,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
-		/obj/item/rig_module/chem_dispenser/combat
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/recharger
 	)
 
 /obj/item/rig/unathi/fancy/ninja
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	initial_modules = list(
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/chem_dispenser/combat,
@@ -98,14 +99,15 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
 
 /obj/item/rig/unathi/redsnout/equipped
-	req_access = list(access_legion)
+	req_access = list(ACCESS_LEGION)
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/mounted/smg,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/vision/nvg
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/recharger
 		)
 
 /obj/item/rig/vaurca
@@ -116,8 +118,8 @@
 	icon_state = "vaurca_rig"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HEAVY,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SHIELDED,
 		bomb = ARMOR_BOMB_SHIELDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -142,7 +144,8 @@
 		/obj/item/rig_module/chem_dispenser/vaurca,
 		/obj/item/rig_module/boring,
 		/obj/item/rig_module/lattice,
-		/obj/item/rig_module/maneuvering_jets
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/recharger
 
 		)
 
@@ -150,6 +153,17 @@
 
 /obj/item/rig/vaurca/minimal
 	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
+
+/obj/item/rig/vaurca/ninja
+		initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/chem_dispenser/vaurca,
+		/obj/item/rig_module/boring,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/door_hack
+		)
 
 /obj/item/clothing/head/helmet/space/rig/vaurca
 	light_overlay = "helmet_light_dual_green"

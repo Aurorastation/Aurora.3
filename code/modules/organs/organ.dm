@@ -47,11 +47,11 @@
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
-/obj/item/organ/New(loc, ...)
-	..()
-	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
-		args[1] = TRUE
-		SSatoms.InitAtom(src, args)
+INITIALIZE_IMMEDIATE(/obj/item/organ)
+
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -91,10 +91,10 @@
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
-		species = all_species[SPECIES_HUMAN]
+		species = GLOB.all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
-			species = all_species[dna.species]
+			species = GLOB.all_species[dna.species]
 		else
 			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
 		var/mob/living/carbon/human/H = holder
@@ -173,7 +173,7 @@
 			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
-		if(config.organs_decay) damage += rand(1,3)
+		if(GLOB.config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
 		germ_level += rand(2,6)

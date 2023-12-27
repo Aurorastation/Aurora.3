@@ -362,7 +362,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
-	access = list(access_syndicate, access_external_airlocks)
+	access = list(ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /obj/item/card/id/syndicate/ert
 	name = "illicit commando identification card"
@@ -404,7 +404,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "An identification card issued to SCC-sanctioned merchants, indicating their right to sell and buy goods."
 	icon_state = "centcom"
 	overlay_state = "centcom"
-	access = list(access_merchant)
+	access = list(ACCESS_MERCHANT)
 
 /obj/item/card/id/synthetic
 	name = "\improper SCC equipment identification card"
@@ -414,7 +414,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + access_equipment
+	access = get_all_station_access() + ACCESS_EQUIPMENT
 	..()
 
 /obj/item/card/id/synthetic/cyborg
@@ -426,7 +426,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/synthetic/cyborg/New()
 	..()
-	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
+	access = list(ACCESS_EQUIPMENT, ACCESS_AI_UPLOAD, ACCESS_EXTERNAL_AIRLOCKS) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "mine drone identification card"
@@ -436,7 +436,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Minedrone"
 
 /obj/item/card/id/minedrone/New()
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_external_airlocks)
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_EXTERNAL_AIRLOCKS)
 	..()
 
 /obj/item/card/id/centcom
@@ -498,7 +498,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
-	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
+	access = list(ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS)
 	..()
 
 /obj/item/card/id/distress/fsf
@@ -517,7 +517,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "legion"
 
 /obj/item/card/id/distress/legion/New()
-	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
 	..()
 
 /obj/item/card/id/distress/ap_eridani
@@ -636,7 +636,7 @@ var/const/NO_EMAG_ACT = -50
 		..()
 
 /obj/item/card/id/away_site
-	access = list(access_generic_away_site, access_external_airlocks)
+	access = list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /obj/item/card/id/mecha
 	name = "exosuit access card"

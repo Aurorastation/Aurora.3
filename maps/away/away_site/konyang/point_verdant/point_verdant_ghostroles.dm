@@ -70,7 +70,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /datum/outfit/admin/konyang_cop/get_id_access()
-	return list(access_konyang_police)
+	return list(ACCESS_KONYANG_POLICE)
 
 /datum/ghostspawner/human/konyang_cop/senior
 	short_name = "konyang_senior_cop"
@@ -160,7 +160,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/konyang_vendor/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_clinic
 	short_name = "konyang_clinic"
@@ -184,7 +184,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/konyang_clinic/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_pharm
 	short_name = "konyang_pharm"
@@ -207,7 +207,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/konyang_pharm/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_bar
 	short_name = "konyang_bar"

@@ -5,10 +5,10 @@
 
 	if(!holder)	return
 
-	var/choice = input("Choose a map to display.") as null|anything in random_maps
+	var/choice = input("Choose a map to display.") as null|anything in GLOB.random_maps
 	if(!choice)
 		return
-	var/datum/random_map/M = random_maps[choice]
+	var/datum/random_map/M = GLOB.random_maps[choice]
 	if(istype(M))
 		M.display_map(usr)
 
@@ -19,11 +19,11 @@
 
 	if(!holder)	return
 
-	var/choice = input("Choose a map to delete.") as null|anything in random_maps
+	var/choice = input("Choose a map to delete.") as null|anything in GLOB.random_maps
 	if(!choice)
 		return
-	var/datum/random_map/M = random_maps[choice]
-	random_maps[choice] = null
+	var/datum/random_map/M = GLOB.random_maps[choice]
+	GLOB.random_maps[choice] = null
 	if(istype(M))
 		message_admins("[key_name_admin(usr)] has deleted [M.name].")
 		log_admin("[key_name(usr)] has deleted [M.name].",admin_key=key_name(usr))
@@ -60,10 +60,10 @@
 
 	if(!holder)	return
 
-	var/choice = input("Choose a map to apply.") as null|anything in random_maps
+	var/choice = input("Choose a map to apply.") as null|anything in GLOB.random_maps
 	if(!choice)
 		return
-	var/datum/random_map/M = random_maps[choice]
+	var/datum/random_map/M = GLOB.random_maps[choice]
 	if(istype(M))
 		var/tx = input("X? (default to current turf)") as num|null
 		var/ty = input("Y? (default to current turf)") as num|null
@@ -85,17 +85,17 @@
 
 	if(!holder)	return
 
-	var/choice = input("Choose a map as base.") as null|anything in random_maps
+	var/choice = input("Choose a map as base.") as null|anything in GLOB.random_maps
 	if(!choice)
 		return
-	var/datum/random_map/base_map = random_maps[choice]
+	var/datum/random_map/base_map = GLOB.random_maps[choice]
 
 	choice = null
-	choice = input("Choose a map to overlay.") as null|anything in random_maps
+	choice = input("Choose a map to overlay.") as null|anything in GLOB.random_maps
 	if(!choice)
 		return
 
-	var/datum/random_map/overlay_map = random_maps[choice]
+	var/datum/random_map/overlay_map = GLOB.random_maps[choice]
 
 	if(istype(base_map) && istype(overlay_map))
 		var/tx = input("X? (default to 1)") as num|null

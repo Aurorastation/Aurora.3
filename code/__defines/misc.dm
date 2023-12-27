@@ -182,10 +182,10 @@
 
 #define TABLE_BRITTLE_MATERIAL_MULTIPLIER 4 // Amount table damage is multiplied by if it is made of a brittle material (e.g. glass)
 
-#define BOMBCAP_DVSTN_RADIUS (max_explosion_range/4)
-#define BOMBCAP_HEAVY_RADIUS (max_explosion_range/2)
-#define BOMBCAP_LIGHT_RADIUS max_explosion_range
-#define BOMBCAP_FLASH_RADIUS (max_explosion_range*1.5)
+#define BOMBCAP_DVSTN_RADIUS (GLOB.max_explosion_range/4)
+#define BOMBCAP_HEAVY_RADIUS (GLOB.max_explosion_range/2)
+#define BOMBCAP_LIGHT_RADIUS GLOB.max_explosion_range
+#define BOMBCAP_FLASH_RADIUS (GLOB.max_explosion_range*1.5)
 									// NTNet module-configuration values. Do not change these. If you need to add another use larger number (5..6..7 etc)
 #define NTNET_SOFTWAREDOWNLOAD 1 	// Downloads of software from NTNet
 #define NTNET_PEERTOPEER 2			// P2P transfers of files between devices
@@ -269,13 +269,24 @@
 //Large items are spawned on predetermined locations.
 //For each large spawn marker, this is the chance that we will spawn there
 
-
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
 
+/// for general usage of tick_usage
+#define TICK_USAGE world.tick_usage
+/// to be used where the result isn't checked
+#define TICK_USAGE_REAL world.tick_usage
+
 // Stoplag.
-#define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
-#define CHECK_TICK if (TICK_CHECK) stoplag()
+#define TICK_CHECK (TICK_USAGE > CURRENT_TICKLIMIT)
+/// runs stoplag if tick_usage is above the limit
+#define CHECK_TICK ( TICK_CHECK ? stoplag() : 0 )
+
+/// Returns true if tick usage is above 95, for high priority usage
+#define TICK_CHECK_HIGH_PRIORITY ( TICK_USAGE > 95 )
+/// runs stoplag if tick_usage is above 95, for high priority usage
+#define CHECK_TICK_HIGH_PRIORITY ( TICK_CHECK_HIGH_PRIORITY ? stoplag() : 0 )
+
 
 // Performance bullshit.
 
@@ -284,6 +295,12 @@
 	block( \
 		locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
 		locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
+	)
+
+#define RECT_TURFS(H_RADIUS, V_RADIUS, CENTER) \
+	block( \
+	locate(max((CENTER).x-(H_RADIUS),1), max((CENTER).y-(V_RADIUS),1), (CENTER).z), \
+	locate(min((CENTER).x+(H_RADIUS),world.maxx), min((CENTER).y+(V_RADIUS),world.maxy), (CENTER).z) \
 	)
 
 #define get_turf(A) (get_step(A, 0))
@@ -400,7 +417,7 @@ example:
 	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
 */
 #define CALCULATE_NEIGHBORS(ORIGIN, VAR, TVAR, FUNC) \
-	for (var/_tdir in cardinal) {                    \
+	for (var/_tdir in GLOB.cardinal) {                    \
 		TVAR = get_step(ORIGIN, _tdir);              \
 		if ((TVAR) && (FUNC)) {                      \
 			VAR |= 1 << _tdir;                       \

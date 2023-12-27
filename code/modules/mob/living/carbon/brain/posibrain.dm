@@ -5,13 +5,13 @@
 	icon_state = "posibrain"
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	can_be_ipc = TRUE
 	var/searching = FALSE
 
 /obj/item/device/mmi/digital/posibrain/Initialize()
 	. = ..()
-	var/datum/language/L = all_languages[LANGUAGE_EAL]
+	var/datum/language/L = GLOB.all_languages[LANGUAGE_EAL]
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
@@ -57,7 +57,7 @@
 
 	var/area/A = get_area(src)
 	if(istype(A, /area/assembly/robotics))
-		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
+		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
 
 	brainmob.client.init_verbs()
 

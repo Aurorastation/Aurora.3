@@ -24,7 +24,7 @@
 	..()
 
 	var/list/victims = list()
-	for(var/obj/item/device/radio/radio in listening_objects)
+	for(var/obj/item/device/radio/radio in GLOB.listening_objects)
 		if(radio.is_on())
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
 				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))

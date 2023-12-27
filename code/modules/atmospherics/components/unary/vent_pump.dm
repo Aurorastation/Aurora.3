@@ -410,7 +410,7 @@
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
-				spark(get_turf(src), 3, alldirs)
+				spark(get_turf(src), 3, GLOB.alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
 	else

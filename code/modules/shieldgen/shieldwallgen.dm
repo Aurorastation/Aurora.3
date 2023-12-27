@@ -9,7 +9,7 @@
 	icon_state = "Shield_Gen"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 
 	var/power_state = FALSE
 	var/is_powered = FALSE

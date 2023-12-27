@@ -3,7 +3,7 @@
 	SEND_SIGNAL(src, COMSIG_MOB_LOGOUT)
 
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
-	player_list -= src
+	GLOB.player_list -= src
 	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]",ckey=key_name(src))
 	SSstatistics.update_status()
@@ -15,7 +15,7 @@
 		if (A.rights & (R_MOD|R_ADMIN) && SSticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.
 			var/admins_number = 0
 			var/admins_number_afk = 0
-			for (var/client/C in clients)
+			for (var/client/C in GLOB.clients)
 				if (C.holder && (C.holder.rights & (R_MOD|R_ADMIN)))
 					admins_number++
 					if (C.is_afk())

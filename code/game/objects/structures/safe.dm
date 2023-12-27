@@ -245,7 +245,7 @@ FLOOR SAFES
 	time_to_drill -= (world.time - last_drill_time) * drill.time_multiplier
 	last_drill_time = world.time
 	if(prob(15))
-		spark(loc, 3, alldirs)
+		spark(loc, 3, GLOB.alldirs)
 	if(time_to_drill <= 0)
 		drill_open()
 

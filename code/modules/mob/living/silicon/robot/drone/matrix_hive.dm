@@ -1,4 +1,4 @@
-var/global/list/drone_matrices = list()
+GLOBAL_LIST_EMPTY(drone_matrices)
 
 /datum/drone_matrix
 	var/id = null
@@ -11,10 +11,10 @@ var/global/list/drone_matrices = list()
 /datum/drone_matrix/New(var/matrix_id)
 	..()
 	id = matrix_id
-	drone_matrices[id] = src
+	GLOB.drone_matrices[id] = src
 
 /datum/drone_matrix/Destroy(force)
-	drone_matrices -= id
+	GLOB.drone_matrices -= id
 	return ..()
 
 /datum/drone_matrix/proc/get_matriarch()
@@ -84,7 +84,7 @@ var/global/list/drone_matrices = list()
 	LAZYADD(D.matrix_upgrades, upgrade_type)
 
 /proc/assign_drone_to_matrix(mob/living/silicon/robot/drone/D, var/matrix_tag)
-	var/datum/drone_matrix/DM = drone_matrices[matrix_tag]
+	var/datum/drone_matrix/DM = GLOB.drone_matrices[matrix_tag]
 	if(!DM)
 		DM = new /datum/drone_matrix(matrix_tag)
 	D.master_matrix = DM

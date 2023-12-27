@@ -18,10 +18,10 @@ SUBSYSTEM_DEF(finalize)
 
 	load_space_ruin()
 
-	if(config.dungeon_chance > 0)
+	if(GLOB.config.dungeon_chance > 0)
 		place_dungeon_spawns()
 
-	if(config.generate_asteroid)
+	if(GLOB.config.generate_asteroid)
 		time = world.time
 		current_map.generate_asteroid()
 		log_subsystem_mapfinalization("Generated asteroid in [(world.time - time)/10] seconds.")
@@ -38,11 +38,11 @@ SUBSYSTEM_DEF(finalize)
 	..()
 
 /proc/resort_all_areas()
-	all_areas = list()
+	GLOB.all_areas = list()
 	for (var/area/A in world)
-		all_areas += A
+		GLOB.all_areas += A
 
-	sortTim(all_areas, GLOBAL_PROC_REF(cmp_name_asc))
+	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
 	maploader = new
@@ -73,11 +73,11 @@ SUBSYSTEM_DEF(finalize)
 	var/dungeons_placed = 0
 	var/dmm_suite/maploader = new
 
-	var/dungeon_chance = config.dungeon_chance
+	var/dungeon_chance = GLOB.config.dungeon_chance
 
-	log_subsystem_mapfinalization("Attempting to create asteroid dungeons for [length(asteroid_spawn)] different areas, with [length(files) - 1] possible dungeons, with a [dungeon_chance]% chance to spawn a dungeon per area.")
+	log_subsystem_mapfinalization("Attempting to create asteroid dungeons for [length(GLOB.asteroid_spawn)] different areas, with [length(files) - 1] possible dungeons, with a [dungeon_chance]% chance to spawn a dungeon per area.")
 
-	for(var/turf/spawn_location in asteroid_spawn)
+	for(var/turf/spawn_location in GLOB.asteroid_spawn)
 
 		if(length(files) <= 0) //Sanity
 			log_subsystem_mapfinalization("There aren't enough dungeon map files to fill the entire dungeon map. There may be less dungeons than expected.")
@@ -113,7 +113,7 @@ SUBSYSTEM_DEF(finalize)
 	if(!selected_mission)
 		return
 	var/report_text = selected_mission.get_contact_report()
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "Mission Paper")
 			var/obj/item/paper/P = new /obj/item/paper(get_turf(C))
 			P.name = "Icarus reading report"

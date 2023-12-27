@@ -82,7 +82,7 @@ var/datum/evacuation_controller/evacuation_controller
 	state = EVAC_PREPPING
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
-			for(var/area/A in all_areas)
+			for(var/area/A in GLOB.all_areas)
 				if(istype(A, /area/hallway))
 					A.readyalert()
 			if(!skip_announce)
@@ -112,7 +112,7 @@ var/datum/evacuation_controller/evacuation_controller
 	switch(evacuation_type)
 		if(TRANSFER_EMERGENCY)
 			evac_recalled.Announce(current_map.emergency_shuttle_recall_message, new_sound = 'sound/AI/emergency_shuttle_recall_message.ogg')
-			for(var/area/A in all_areas)
+			for(var/area/A in GLOB.all_areas)
 				if(istype(A, /area/hallway))
 					A.readyreset()
 		if(TRANSFER_JUMP)

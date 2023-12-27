@@ -35,7 +35,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/fsf_navy_crewman/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/fsf_navy_officer
 	short_name = "fsf_navy_officer"
@@ -73,7 +73,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/fsf_navy_officer/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/fsf_navy_crewman/senior
 	short_name = "fsf_navy_senior_crewman"
@@ -93,4 +93,4 @@
 
 /obj/item/card/id/fsf_ship
 	name = "fsf patrol ship id"
-	access = list(access_sol_ships, access_external_airlocks)
+	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

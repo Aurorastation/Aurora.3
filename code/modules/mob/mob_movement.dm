@@ -293,7 +293,7 @@
 				move_delay = world.time
 				//drunk driving
 				if(mob.confused && prob(25))
-					direct = pick(cardinal)
+					direct = pick(GLOB.cardinal)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -309,11 +309,11 @@
 					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(25))
-					direct = pick(cardinal)
-				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
+					direct = pick(GLOB.cardinal)
+				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled_to.relaymove(mob,direct)
 
-		var/tally = mob.movement_delay() + config.walk_speed
+		var/tally = mob.movement_delay() + GLOB.config.walk_speed
 
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
@@ -323,13 +323,13 @@
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
 			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
-				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+				tally = (tally / (1 + H.sprint_speed_factor)) * GLOB.config.run_delay_multiplier
 			else if (H.m_intent == M_LAY && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE)))
-				tally = (tally / (1 + H.lying_speed_factor)) * config.lying_delay_multiplier
+				tally = (tally / (1 + H.lying_speed_factor)) * GLOB.config.lying_delay_multiplier
 			else
-				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
+				tally = max(tally * GLOB.config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else
-			tally *= config.walk_delay_multiplier
+			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
 
@@ -364,13 +364,13 @@
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
-			step(mob, pick(cardinal))
+			step(mob, pick(GLOB.cardinal))
 		else
 			. = mob.SelfMove(n, direct)
 
 		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
-				mob.set_dir(reverse_dir[direct])
+				mob.set_dir(GLOB.reverse_dir[direct])
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)

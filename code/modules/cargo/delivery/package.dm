@@ -12,11 +12,13 @@
 	slowdown = 1
 
 	var/delivery_point_id = ""
-	var/delivery_point_sector = ""
+	var/datum/weakref/delivery_point_sector
 	var/delivery_point_coordinates = ""
 
 	var/datum/weakref/associated_delivery_point
 	var/pay_amount = 69420
+
+	var/pays_horizon_account = TRUE
 
 /obj/item/cargo_package/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
@@ -24,15 +26,24 @@
 	if(prob(3))
 		pay_amount = rand(12, 17) * 1000
 	if(delivery_point)
-		associated_delivery_point = WEAKREF(delivery_point)
-		delivery_point_id = delivery_point.delivery_id
-		delivery_point_sector = delivery_point.delivery_sector
-		delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
+		setup_delivery_point(delivery_point)
+
+/obj/item/cargo_package/proc/setup_delivery_point(var/obj/structure/cargo_receptacle/delivery_point)
+	associated_delivery_point = WEAKREF(delivery_point)
+	delivery_point_id = delivery_point.delivery_id
+	delivery_point_sector = delivery_point.delivery_sector
+	delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
 
 /obj/item/cargo_package/examine(mob/user, distance)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_point_sector]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>"))
-	to_chat(user, SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>"))
+	if(delivery_point_id)
+		var/delivery_site = "Unknown"
+		if(delivery_point_sector)
+			var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
+			if(delivery_sector)
+				delivery_site = delivery_sector.name
+		to_chat(user, SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>"))
+		to_chat(user, SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>"))
 
 /obj/item/cargo_package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
 	if(!ishuman(user))
@@ -83,3 +94,47 @@
 
 /obj/item/cargo_package/too_heavy_to_throw()
 	return TRUE
+
+
+/obj/item/cargo_package/offship
+	pays_horizon_account = FALSE
+	var/horizon_delivery = FALSE // whether this package is guaranteed to deliver to the horizon or not
+
+/obj/item/cargo_package/offship/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
+	. = ..()
+
+	if(!delivery_point)
+		// add a timer before we pick the delivery point, in case any ships or ruins still need to load
+		addtimer(CALLBACK(src, PROC_REF(get_delivery_point)), 3 MINUTES)
+
+/obj/item/cargo_package/offship/proc/get_delivery_point()
+	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+
+	var/turf/current_turf = get_turf(src)
+
+	var/list/eligible_delivery_points = list()
+	for(var/obj/structure/cargo_receptacle/delivery_point in all_cargo_receptacles)
+		var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
+		var/obj/effect/overmap/visitable/delivery_point_sector = GLOB.map_sectors["[delivery_point.z]"]
+		// no delivering to ourselves
+		if(my_sector == delivery_point_sector)
+			continue
+		// guaranteed horizon, has to go to horizon
+		if(horizon_delivery && delivery_point_sector.name != horizon.name)
+			continue
+		eligible_delivery_points += delivery_point
+
+	if(!length(eligible_delivery_points))
+		qdel(src)
+		return
+
+	var/obj/structure/cargo_receptacle/selected_delivery_point = pick(eligible_delivery_points)
+	setup_delivery_point(selected_delivery_point)
+
+/obj/item/cargo_package/offship/examine(mob/user, distance)
+	. = ..()
+	if(!delivery_point_id)
+		to_chat(user, SPAN_NOTICE("Delivery site still being calculated, please check back later!"))
+
+/obj/item/cargo_package/offship/to_horizon
+	horizon_delivery = TRUE

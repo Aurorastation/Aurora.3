@@ -8,8 +8,8 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = access_hos
-	required_access_run = access_security
+	required_access_download = ACCESS_HOS
+	required_access_run = ACCESS_SECURITY
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 	tgui_id = "DigitalWarrant"
 	var/datum/record/warrant/active_warrant
@@ -67,12 +67,12 @@
 	if(!istype(user))
 		return
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || !(access_security in I.access) || issilicon(user))
+	if(!istype(I) || !I.registered_name || !(ACCESS_SECURITY in I.access) || issilicon(user))
 		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 
 	// Require higher access to edit warrants that have already been authorized
-	if(active_warrant && active_warrant.authorization != "Unauthorized" && !(access_armory in I.access))
+	if(active_warrant && active_warrant.authorization != "Unauthorized" && !(ACCESS_ARMORY in I.access))
 		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to adjust an authorized warrant."))
 		return
 
@@ -134,7 +134,7 @@
 				active_warrant.notes = new_charges
 
 		if("editwarrantauth")
-			if(!(access_armory in I.access))
+			if(!(ACCESS_ARMORY in I.access))
 				to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 				return
 			. = TRUE

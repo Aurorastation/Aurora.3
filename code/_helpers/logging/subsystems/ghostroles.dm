@@ -2,8 +2,8 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_DEBUG("SSGhostroles: [text]")
 #else
-	if (config?.logsettings["log_subsystems_ghostroles"])
-		WRITE_LOG(config.logfiles["world_subsystems_ghostroles_log"], "SSGhostroles: [text]")
+	if (GLOB.config?.logsettings["log_subsystems_ghostroles"])
+		WRITE_LOG(GLOB.config.logfiles["world_subsystems_ghostroles_log"], "SSGhostroles: [text]")
 #endif
 
 /**
@@ -13,6 +13,6 @@
 #if defined(UNIT_TEST)
 	LOG_GITHUB_ERROR("SSGhostroles: [text]")
 #else
-	if (config?.logsettings["log_subsystems_ghostroles"])
-		WRITE_LOG(config.logfiles["world_subsystems_ghostroles_log"], "SSGhostroles: [text]")
+	if (GLOB.config?.logsettings["log_subsystems_ghostroles"])
+		WRITE_LOG(GLOB.config.logfiles["world_subsystems_ghostroles_log"], "SSGhostroles: [text]")
 #endif

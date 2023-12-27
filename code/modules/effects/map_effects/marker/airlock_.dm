@@ -31,7 +31,7 @@
 	req_access = null
 
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
-	req_one_access = list(access_external_airlocks)
+	req_one_access = list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()

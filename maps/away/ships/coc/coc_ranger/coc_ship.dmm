@@ -1395,11 +1395,12 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null;
+	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -2045,11 +2046,12 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null;
+	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)

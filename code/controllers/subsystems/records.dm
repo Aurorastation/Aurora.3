@@ -178,7 +178,7 @@ SUBSYSTEM_DEF(records)
 				return r
 
 /datum/controller/subsystem/records/proc/build_records()
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		generate_record(H)
 
 /datum/controller/subsystem/records/proc/reset_manifest()
@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(records)
 	if(action == "follow")
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/M in human_mob_list)
+			for(var/mob/living/M in GLOB.human_mob_list)
 				if(istype(M) && M.real_name == params["name"])
 					O.ManualFollow(M)
 					break
@@ -258,7 +258,7 @@ SUBSYSTEM_DEF(records)
 
 	// silicons are not in records, we need to add them manually
 	var/dept = DEPARTMENT_EQUIPMENT
-	for(var/mob/living/silicon/S in player_list)
+	for(var/mob/living/silicon/S in GLOB.player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
 			if(R.scrambled_codes)
