@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/simulated/floor/exoplanet/ice/dark{
-	icon = 'icons/turf/flooring/snow.dmi'
-	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/space)
 "i" = (
 /turf/simulated/mineral/planet,
@@ -14,9 +13,8 @@
 	name = "\improper Department of Colonization plaque";
 	desc = "The plaque bears an enscription in Sol Common. It reads: 'BODY CHARTED: JULY 18 2305. ASSN DEPT. OF COLONIZATION.' The inscription is followed by a list of human names."
 	},
-/turf/simulated/floor/exoplanet/ice/dark{
-	icon = 'icons/turf/flooring/snow.dmi'
-	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/space)
 
 (1,1,1) = {"

@@ -71,7 +71,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(1, 1)
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/qixi_mystery, /datum/map_template/ruin/exoplanet/qixi_flag, /datum/map_template/ruin/exoplanet/qixi_mining)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/haneunim_crash)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/qixi/get_surface_color()
 	return "#807f7f"
@@ -83,5 +83,42 @@
 	desc = "An ice-covered rock from the outlying asteroid belt of Haneunim. Largely unexplored and uninhabited."
 	ruin_planet_type = PLANET_LORE
 	place_near_main = null
-	features_budget = 2
+	generated_name = FALSE
+	features_budget = 1
+	ring_chance = 0
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu
+	name = "Huozhu"
+	desc = "A scorching dwarf planet close to Haneunim's star. Largely unexplored."
+	icon_state = "globe1"
+	massvolume = "0.39/0.56"
+	surfacegravity = "0.32"
+	charted = " Charted 2305, Sol Alliance Department of Colonization."
+	ruin_planet_type = PLANET_LORE
+	generated_name = FALSE
+	features_budget = 1
+	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees)
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_atmosphere()
+	..()
+	atmosphere.remove_ratio(1)
+	atmosphere.adjust_gas(GAS_SULFUR, MOLES_N2STANDARD)
+	atmosphere.temperature = T20C + rand(600, 1000)
+	atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung
+	name = "Hwanung"
+	generated_name = FALSE
+	desc = "A dwarf planet in the Haneunim system, largely considered insignificant."
+	icon_state = "globe1"
+	massvolume = "0.31/0.42"
+	surfacegravity = "0.18"
+	charted = " Charted 2305, Sol Alliance Department of Colonization."
+	features_budget = 1
+	ring_chance = 0
+	ruin_planet_type = PLANET_LORE
+	rock_colors = list(COLOR_GRAY80)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/haneunim_flag, /datum/map_template/ruin/haneunim_mining)
+
