@@ -50,6 +50,24 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
+"aF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
+"aG" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "aI" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_y = -7
@@ -65,6 +83,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_x = 15
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "aL" = (
@@ -109,6 +130,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "aY" = (
@@ -316,6 +340,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
+"di" = (
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
+	},
+/obj/machinery/power/apc/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "dr" = (
 /obj/random/tech_supply{
 	pixel_x = -9;
@@ -456,6 +490,12 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "eu" = (
@@ -463,6 +503,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/tank/oxygen/red{
+	pixel_x = -2
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
 "eA" = (
@@ -660,6 +703,9 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "fG" = (
@@ -950,7 +996,18 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
+/area/mine)
+"hO" = (
+/obj/random/dirt_75,
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/turf/simulated/floor/plating/asteroid,
 /area/mine)
 "hS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -958,6 +1015,9 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "hV" = (
@@ -1037,6 +1097,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"im" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/mine)
 "ip" = (
 /obj/structure/structural_support{
 	pixel_y = 8
@@ -1082,6 +1149,10 @@
 /obj/item/trash/chips,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"iC" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/mine)
 "iK" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -1107,6 +1178,9 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "iW" = (
@@ -1567,6 +1641,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"lB" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/plating,
+/area/mine)
 "lI" = (
 /obj/item/storage/toolbox/emergency{
 	pixel_x = -11;
@@ -1625,6 +1705,10 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"mc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/full,
+/area/mine)
 "mf" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless,
@@ -1635,11 +1719,7 @@
 "mg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = -2;
-	pixel_x = 3
-	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/mineral/surface,
 /area/mine)
 "mj" = (
 /obj/random/dirt_75,
@@ -1651,6 +1731,17 @@
 /area/mine)
 "mn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/mine)
+"mo" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "ms" = (
@@ -1682,6 +1773,12 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
+"mC" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "mE" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2176,6 +2273,9 @@
 "pJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "pN" = (
@@ -2188,6 +2288,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "pT" = (
@@ -2295,29 +2398,19 @@
 "qv" = (
 /obj/structure/closet/crate,
 /obj/item/coin/diamond,
-/obj/item/clothing/wrists/goldbracer,
-/obj/item/clothing/wrists/armchain,
-/obj/item/clothing/wrists/goldbracer/emerald,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/clothing/wrists/watch/gold,
 /obj/item/flame/lighter/zippo/gold,
-/obj/item/stack/material/phoron/full,
 /obj/item/coin/gold,
-/obj/item/gun/projectile/automatic/rifle/dpra/gold,
 /obj/random/dirt_75,
 /obj/random/highvalue/no_weapon,
 /obj/item/clothing/accessory/crucifix/gold,
 /obj/random/melee/highvalue,
-/obj/item/clothing/wrists/armchain,
 /turf/simulated/floor/plating,
 /area/mine)
 "qw" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/tank/oxygen/red{
-	pixel_x = -2
-	},
-/turf/simulated/floor/exoplanet/barren,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled,
 /area/mine)
 "qy" = (
 /obj/effect/floor_decal/corner/purple{
@@ -2415,6 +2508,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/plating,
 /area/mine)
 "qP" = (
@@ -2446,6 +2543,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "ri" = (
@@ -2499,7 +2599,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/full,
+/area/mine)
+"rP" = (
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north,
+/turf/simulated/floor/plating,
 /area/mine)
 "rU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -2619,6 +2730,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"sR" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "sX" = (
 /obj/structure/closet/crate,
 /obj/random/spacecash,
@@ -2635,6 +2753,10 @@
 "sY" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/pickaxe/drill{
+	pixel_y = 10;
+	pixel_x = 9
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/mine)
 "sZ" = (
@@ -2730,6 +2852,15 @@
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/mine)
+"tV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "ua" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -2767,8 +2898,11 @@
 /area/mine)
 "uy" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/reagent_dispensers/coolanttank,
 /obj/random/dirt_75,
+/obj/machinery/power/apc/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "uB" = (
@@ -2796,6 +2930,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
+/area/mine)
+"uN" = (
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled,
 /area/mine)
 "uT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -3402,6 +3543,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"zA" = (
+/obj/structure/table/standard,
+/obj/item/modular_computer/handheld/pda/civilian{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "zB" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -3480,8 +3629,8 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/tech_supply{
-	pixel_x = 15
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
@@ -3613,6 +3762,9 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "Bt" = (
@@ -3704,6 +3856,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "Cf" = (
@@ -3736,6 +3891,9 @@
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "CR" = (
@@ -3743,6 +3901,9 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "CS" = (
@@ -3914,6 +4075,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
+"EB" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window";
+	pixel_y = -6
+	},
+/obj/item/clothing/accessory/crucifix/gold{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/clothing/wrists/watch/gold{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "EE" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
@@ -3946,6 +4127,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "EZ" = (
@@ -4017,6 +4201,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "FE" = (
@@ -4207,6 +4394,10 @@
 /obj/machinery/vending/engineering{
 	req_access = null
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/plating,
 /area/mine)
 "GI" = (
@@ -4242,6 +4433,24 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
+/area/mine)
+"GT" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window";
+	pixel_y = -6
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled,
 /area/mine)
 "GY" = (
 /obj/effect/overmap/visitable/ship/landable/goon_ship,
@@ -4349,6 +4558,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/mine)
+"HP" = (
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "HU" = (
 /obj/structure/closet/cabinet{
 	pixel_y = 0
@@ -4443,6 +4659,14 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/mine)
+"It" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/full,
 /area/mine)
 "Iz" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4678,6 +4902,9 @@
 "KB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "KD" = (
@@ -4698,6 +4925,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/mine)
@@ -4801,10 +5031,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
+"LN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/mine)
 "LY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/power/portgen/basic,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating,
 /area/mine)
 "Mh" = (
@@ -4976,13 +5213,16 @@
 /turf/simulated/floor/tiled,
 /area/mine)
 "Nh" = (
-/obj/item/pickaxe/drill{
-	pixel_y = 10;
-	pixel_x = 9
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra/gold,
+/turf/simulated/floor/tiled,
 /area/mine)
 "Ni" = (
 /obj/effect/floor_decal/corner/grey{
@@ -5020,6 +5260,10 @@
 "Nt" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/random/tool{
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "NA" = (
@@ -5084,6 +5328,12 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/mine)
 "Oo" = (
@@ -5169,6 +5419,13 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
+"OY" = (
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "Pc" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5177,6 +5434,10 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/plating,
+/area/mine)
+"Pe" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/full,
 /area/mine)
 "Pk" = (
 /obj/effect/overmap/visitable/sector/goon,
@@ -5187,6 +5448,9 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "Pu" = (
@@ -5195,11 +5459,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
+"Pw" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/mine)
 "PA" = (
 /obj/random/dirt_75,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/mineral/surface,
 /area/mine)
 "PC" = (
 /obj/machinery/bodyscanner,
@@ -5422,6 +5691,9 @@
 "QP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/mine)
 "QQ" = (
@@ -5529,6 +5801,28 @@
 /obj/item/trash/can,
 /turf/simulated/floor/tiled,
 /area/mine)
+"RS" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/wrists/goldbracer/ruby{
+	pixel_y = -6
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/clothing/wrists/armchain/emerald{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/wrists/armchain{
+	pixel_y = 3;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled,
+/area/mine)
 "Sd" = (
 /obj/machinery/door/airlock/glass,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -5575,6 +5869,9 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "Sk" = (
@@ -5682,6 +5979,9 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "SU" = (
@@ -5782,6 +6082,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/mine)
+"TC" = (
+/obj/machinery/papershredder,
 /turf/simulated/floor/plating,
 /area/mine)
 "TH" = (
@@ -6012,9 +6316,13 @@
 /area/mine)
 "Vx" = (
 /obj/structure/table/steel,
-/obj/item/towel/random{
-	pixel_x = 6;
-	pixel_y = 2
+/obj/item/storage/box/fancy/chocolate_box{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/storage/box/fancy/chips/variety{
+	pixel_x = 17;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
@@ -6161,6 +6469,9 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/mine)
 "WB" = (
@@ -6177,9 +6488,13 @@
 /area/mine)
 "WG" = (
 /obj/structure/table/steel,
+/obj/item/towel/random{
+	pixel_x = 12;
+	pixel_y = 10
+	},
 /obj/item/device/hand_labeler{
-	pixel_x = -1;
-	pixel_y = 3
+	pixel_x = -5;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
@@ -6290,6 +6605,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
+"Xy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "Xz" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -6397,6 +6722,10 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/machinery/power/apc/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "Yh" = (
@@ -6415,6 +6744,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "Yt" = (
@@ -6575,6 +6907,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
 "ZH" = (
@@ -27718,7 +28052,7 @@ mI
 mI
 mI
 mI
-bu
+sB
 bu
 bu
 bu
@@ -27975,7 +28309,7 @@ mI
 mI
 mI
 mI
-bu
+sB
 bu
 bu
 bu
@@ -28232,14 +28566,14 @@ mI
 mI
 mI
 mI
+sB
+sB
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
 bu
 bu
 bu
@@ -28489,14 +28823,14 @@ mI
 mI
 mI
 mI
+sB
+sB
+sB
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
 mI
 mI
 bu
@@ -28746,12 +29080,12 @@ bu
 mI
 mI
 bu
-bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
+sB
+sB
 bu
 mI
 mI
@@ -29004,10 +29338,10 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
 bu
 bu
 mI
@@ -29263,8 +29597,8 @@ bu
 bu
 bu
 bu
-bu
-bu
+sB
+sB
 bu
 mI
 mI
@@ -38080,11 +38414,11 @@ mI
 qX
 Dr
 Rv
-oK
+It
 Au
 FD
 SM
-Ep
+mo
 ZL
 zU
 dY
@@ -38337,8 +38671,8 @@ mI
 qX
 Dr
 uy
-Li
-Gi
+HP
+tR
 Dr
 Dr
 kI
@@ -38625,7 +38959,7 @@ QX
 Dr
 IX
 Mu
-TJ
+im
 FU
 tr
 Dr
@@ -38852,7 +39186,7 @@ qX
 Dr
 eL
 qJ
-tR
+lB
 Dr
 Li
 AL
@@ -39138,8 +39472,8 @@ wL
 Dr
 Dr
 XF
-lW
-OP
+Pe
+LN
 Gb
 To
 Dr
@@ -39147,7 +39481,7 @@ Li
 yS
 Li
 Dr
-Li
+rP
 Mm
 yr
 mW
@@ -39398,7 +39732,7 @@ ZH
 Zc
 On
 aT
-Zw
+aF
 iV
 pJ
 pJ
@@ -39647,12 +39981,12 @@ Pp
 Li
 mQ
 Dr
-QX
-QX
-QX
+uN
+zA
+TC
 Dr
 Yf
-NH
+OY
 er
 jW
 ei
@@ -39904,8 +40238,8 @@ Sj
 yS
 Yi
 Dr
-QX
-QX
+EI
+mC
 QX
 Dr
 Dr
@@ -40161,13 +40495,13 @@ wL
 Li
 Li
 Dr
-QX
-QX
-QX
+iC
+Vw
+sR
 Dr
-FU
-IW
-OP
+di
+BE
+tV
 IW
 xr
 Jw
@@ -40648,17 +40982,17 @@ Ga
 Wu
 Dr
 GH
-hN
+Xy
 fC
 pQ
 WA
 rc
-Nk
+aG
 Dr
-Vw
-Vw
-Vw
-Vw
+EB
+qw
+qw
+Nh
 Dr
 Ld
 NH
@@ -40912,10 +41246,10 @@ Dr
 NH
 Qj
 Dr
-Vw
+qw
 lW
 lW
-Vw
+qw
 wY
 NH
 lW
@@ -41169,10 +41503,10 @@ Dr
 NH
 Qj
 Dr
-Vw
-Vw
-Vw
-Vw
+GT
+qw
+qw
+RS
 Dr
 TO
 lW
@@ -42476,9 +42810,9 @@ mI
 qX
 qX
 qX
-qX
 Dr
-Uc
+Pe
+Pw
 Vw
 Vw
 NH
@@ -42732,9 +43066,9 @@ mI
 mI
 mI
 mI
-mI
 qX
 Dr
+mc
 yX
 TJ
 TJ
@@ -42989,8 +43323,8 @@ mI
 mI
 mI
 mI
-mI
 qX
+Dr
 Dr
 GB
 ku
@@ -43246,7 +43580,7 @@ mI
 mI
 mI
 mI
-mI
+qX
 qX
 Dr
 Mo
@@ -43453,8 +43787,8 @@ bu
 bu
 bu
 mI
-sY
-Nh
+mg
+mg
 mI
 mI
 qX
@@ -43970,7 +44304,7 @@ mI
 mI
 gj
 Ow
-Ow
+hO
 qX
 wA
 Li
@@ -44224,7 +44558,7 @@ bu
 bu
 bu
 mI
-qw
+mg
 eu
 ZC
 Ow
@@ -44481,8 +44815,8 @@ bu
 bu
 mI
 mI
+mg
 ab
-gj
 mg
 mI
 qX
@@ -44738,7 +45072,7 @@ bu
 bu
 mI
 mI
-no
+PA
 PA
 mI
 mI
