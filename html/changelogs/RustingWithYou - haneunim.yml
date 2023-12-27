@@ -41,3 +41,4 @@ changes:
   - rscadd: "Adds the other, less noteworthy planets of the Haneunim system."
   - rscadd: "Adds several ruins to spawn in the wider Haneunim system."
   - tweak: "Tweaks ghostrole ruin costs on Konyang for consistency."
+  - rscadd: "Sectors can now have guaranteed exoplanet types."
