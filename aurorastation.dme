@@ -1812,6 +1812,7 @@
 #include "code\modules\clothing\spacesuits\rig\suits\skrell.dm"
 #include "code\modules\clothing\spacesuits\rig\suits\station.dm"
 #include "code\modules\clothing\spacesuits\rig\suits\terminator.dm"
+#include "code\modules\clothing\spacesuits\rig\suits\xanu.dm"
 #include "code\modules\clothing\spacesuits\void\captain.dm"
 #include "code\modules\clothing\spacesuits\void\merc.dm"
 #include "code\modules\clothing\spacesuits\void\misc.dm"
