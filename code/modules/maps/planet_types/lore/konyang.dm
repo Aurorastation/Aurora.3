@@ -99,7 +99,7 @@
 	generated_name = FALSE
 	features_budget = 1
 	ring_chance = 0
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_mystery)
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_atmosphere()
 	..()
@@ -120,5 +120,5 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	rock_colors = list(COLOR_GRAY80)
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/haneunim_flag, /datum/map_template/ruin/haneunim_mining)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)
 
