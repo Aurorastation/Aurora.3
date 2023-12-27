@@ -207,14 +207,15 @@ BREATH ANALYZER
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 				blood_volume_string = "<span class='scan_danger'>\<[BLOOD_VOLUME_SURVIVE]%</span>"
 
-		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]%</span>"
-		switch(H.get_blood_oxygenation())
+		var/oxygenation = H.get_blood_oxygenation()
+		var/oxygenation_string = "<span class='scan_green'>[oxygenation]]%</span>"
+		switch(oxygenation)
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]%</span>"
+				oxygenation_string = "<span class='scan_notice'>[oxygenation]%</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)
-				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]%</span>"
+				oxygenation_string = "<span class='scan_warning'>[oxygenation]%</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
-				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]%</span>"
+				oxygenation_string = "<span class='scan_danger'>[oxygenation]%</span>"
 		if(H.status_flags & FAKEDEATH)
 			oxygenation_string = "<span class='scan_danger'>[rand(0,10)]%</span>"
 		dat += "Blood pressure: [blood_pressure_string]"
