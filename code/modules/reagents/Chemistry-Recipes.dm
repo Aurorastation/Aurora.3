@@ -3027,6 +3027,27 @@
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/nutriment/choconutspread = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/drink/caramelshake
+	name = "Caramel Milkshake"
+	id = "shake_caramel"
+	result = /singleton/reagent/drink/shake_caramel
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_caramel = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/strawberryshake
+	name = "Strawberry Milkshake"
+	id = "shake_strawberry"
+	result = /singleton/reagent/drink/shake_strawberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_strawberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/dirtberryshake
+	name = "Dirtberry Milkshake"
+	id = "shake_dirtberry"
+	result = /singleton/reagent/drink/shake_dirtberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_dirtberry = 1)
+	result_amount = 6
+
 /datum/chemical_reaction/drink/NTellahotchocolate
 	name = "NTella hot chocolate"
 	id = "NTellahotchocolate"
