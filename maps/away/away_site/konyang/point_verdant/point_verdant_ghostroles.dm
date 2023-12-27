@@ -22,6 +22,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/corp/zeng
 	r_pocket = /obj/item/storage/wallet/random
 
+/datum/outfit/admin/konyang_zh/get_id_access()
+	return list(ACCESS_KONYANG_CORPORATE)
+
 /datum/ghostspawner/human/konyang_ee
 	short_name = "konyang_ee"
 	name = "Einstein Engines Employee"
@@ -42,6 +45,9 @@
 	id = /obj/item/card/id/einstein
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
+
+/datum/outfit/admin/konyang_ee/get_id_access()
+	return list(ACCESS_KONYANG_CORPORATE)
 
 //Police
 /datum/ghostspawner/human/konyang_cop
@@ -272,3 +278,6 @@
 	suit = /obj/item/clothing/accessory/apron/chef
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
+
+/datum/outfit/admin/konyang_gwok/get_id_access()
+	return list(ACCESS_KONYANG_VENDORS)

@@ -710,3 +710,8 @@
 /datum/access/gadpathur_navy_officer
 	id = ACCESS_GADPATHUR_NAVY_OFFICER
 	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_KONYANG_CORPORATE 225
+/datum/access/konyang_corporate
+	id = ACCESS_KONYANG_CORPORATE
+	access_type = ACCESS_TYPE_CENTCOM
