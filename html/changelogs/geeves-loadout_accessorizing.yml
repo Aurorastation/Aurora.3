@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now choose whether your loadout accessory spawns on your uniform, your suit, or gets put into the suit slot as a standalone item, such as with capes and ponchos."

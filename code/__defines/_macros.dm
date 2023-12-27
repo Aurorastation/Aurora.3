@@ -115,6 +115,7 @@
 #define isclient(A) istype(A, /client)
 
 #define isclothing(A) istype(A, /obj/item/clothing)
+#define isaccessory(A) istype(A, /obj/item/clothing/accessory)
 
 /// Projectile helpers
 #define isprojectile(A) istype(A, /obj/item/projectile)

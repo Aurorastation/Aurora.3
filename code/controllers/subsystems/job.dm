@@ -698,12 +698,18 @@ SUBSYSTEM_DEF(jobs)
 				to_chat(H, SPAN_WARNING(cant_spawn_reason))
 				continue
 
+			// we want to handle spawning accessories after all the other clothing items have been spawned in
+			var/list/spawn_data = G.get_spawn_item_data(H, metadata, H)
+			if(ispath(spawn_data[1], /obj/item/clothing/accessory))
+				leftovers += thing
+				continue
+
 			if(G.slot && !(G.slot in custom_equip_slots))
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
 				if (H.equip_to_slot_or_del(CI, G.slot))
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
+					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					if(G.slot != slot_tie)
 						custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
@@ -735,15 +741,42 @@ SUBSYSTEM_DEF(jobs)
 				metadata = gear_test
 			else
 				metadata = list()
-			var/obj/item/CI = G.spawn_item(H, metadata, H)
-			if (H.equip_to_slot_or_del(CI, G.slot))
-				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-				used_slots += G.slot
-				Debug("ECD/([H]): Equipped [thing] successfully.")
 
-			else
-				. += thing
-				Debug("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
+			var/obj/item/CI = G.spawn_item(H, metadata, H)
+			var/equip_slot = G.slot
+			var/handled_accessory = FALSE
+
+			if(isaccessory(CI))
+				var/datum/gear_tweak/accessory_slot/accessory_slot = locate(/datum/gear_tweak/accessory_slot) in G.gear_tweaks
+				if(accessory_slot && metadata["[accessory_slot]"])
+					var/selected_slot = metadata["[accessory_slot]"]
+					if(selected_slot)
+						switch(selected_slot)
+							if(GEAR_TWEAK_ACCESSORY_SLOT_UNDER)
+								if(isclothing(H.w_uniform))
+									var/obj/item/clothing/worn_uniform = H.w_uniform
+									if(worn_uniform.can_attach_accessory(CI))
+										to_chat(H, SPAN_NOTICE("Attaching \the [CI] to your uniform!"))
+										worn_uniform.attach_accessory(H, CI)
+										handled_accessory = TRUE
+							if(GEAR_TWEAK_ACCESSORY_SLOT_SUIT)
+								if(isclothing(H.wear_suit))
+									var/obj/item/clothing/worn_suit = H.wear_suit
+									if(worn_suit.can_attach_accessory(CI))
+										to_chat(H, SPAN_NOTICE("Attaching \the [CI] to your suit!"))
+										worn_suit.attach_accessory(H, CI)
+										handled_accessory = TRUE
+							if(GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE)
+								equip_slot = slot_wear_suit
+
+			if(!handled_accessory)
+				if (H.equip_to_slot_or_del(CI, equip_slot))
+					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
+					used_slots += equip_slot
+					Debug("ECD/([H]): Equipped [thing] successfully.")
+				else
+					. += thing
+					Debug("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
 
 	Debug("ECD/([H]): Complete.")
 
