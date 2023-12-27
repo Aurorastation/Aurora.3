@@ -150,7 +150,7 @@ STOCK_ITEM_RARE(megacorp_goods, 0.25)
 	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/device/advanced_healthanalyzer)
 	new adv_item(L)
 
-STOCK_ITEM_COMMON(pistols, 1)
+STOCK_ITEM_RARE(pistols, 1)
 	var/list/pistols = list(
 		/obj/item/gun/projectile/colt = 1,
 		/obj/item/gun/projectile/silenced = 1,
