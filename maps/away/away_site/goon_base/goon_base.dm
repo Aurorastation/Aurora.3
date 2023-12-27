@@ -55,9 +55,13 @@
 		~love, daryl <br>\
 		"
 
-/obj/item/paper/goon_base/notice
+/obj/item/paper/goon_base/notice_secret_base
 	name = "important notice"
-	info = "REMEMBER TO PUT THE BOOKSHELVES BACK IN PLACE WHEN YOU LEAVE! DON'T WANT ANY POTENTIAL TRESPASSING ASSHOLES STEALING OUR SHIT WHEN WE AREN'T HERE."
+	info = "there is secret entrance to gear equipment room with guns and stuff here in fake walls you can just move over. here in living room and in bathroom. do not let any visitors see it........"
+
+/obj/item/paper/goon_base/notice_secret_back_exit
+	name = "emergency secret back exit"
+	info = "this is for emergency time exit when everything is fucked and we are so over. take pickaxe or drill or whatever and dig straight directly forward north to get to space. remember eva suit............"
 
 //ship stuff
 /obj/effect/overmap/visitable/ship/landable/goon_ship

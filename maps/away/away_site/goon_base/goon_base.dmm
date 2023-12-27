@@ -7,6 +7,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
+"ab" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
 "ad" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -451,6 +458,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"eu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
 "eA" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/lunchbox/filled{
@@ -809,6 +823,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
+"gF" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/plating,
+/area/mine)
 "gI" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
@@ -892,15 +912,15 @@
 /turf/simulated/floor/airless/ceiling,
 /area/mine)
 "hr" = (
-/obj/item/paper/goon_base/notice{
-	pixel_x = -3;
-	pixel_y = -2
-	},
 /obj/item/wrench{
 	pixel_x = 10;
 	pixel_y = 3
 	},
 /obj/random/dirt_75,
+/obj/item/paper/goon_base/notice_secret_base{
+	pixel_x = -1;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled,
 /area/mine)
 "hC" = (
@@ -1612,6 +1632,15 @@
 /obj/item/gun/projectile/sec/wood,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"mg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
 "mj" = (
 /obj/random/dirt_75,
 /obj/item/clothing/head/cone{
@@ -2282,6 +2311,14 @@
 /obj/item/clothing/wrists/armchain,
 /turf/simulated/floor/plating,
 /area/mine)
+"qw" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/tank/oxygen/red{
+	pixel_x = -2
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
 "qy" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
@@ -2595,6 +2632,11 @@
 /obj/random/spacecash,
 /turf/simulated/floor/tiled,
 /area/mine)
+"sY" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/mine)
 "sZ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2747,6 +2789,13 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/white,
+/area/mine)
+"uJ" = (
+/obj/effect/floor_decal/industrial/loading/grey{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/mine)
 "uT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -2934,6 +2983,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/mine)
+"wA" = (
+/obj/item/pickaxe{
+	pixel_y = -11;
+	pixel_x = 6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/mine)
 "wD" = (
 /obj/structure/closet/firecloset,
@@ -3615,6 +3673,15 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/mine)
+"BM" = (
+/obj/item/paper/goon_base/notice_secret_back_exit{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/mine)
 "BW" = (
 /obj/structure/cable{
@@ -4908,6 +4975,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"Nh" = (
+/obj/item/pickaxe/drill{
+	pixel_y = 10;
+	pixel_x = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/mine)
 "Ni" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -5117,6 +5193,12 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
+"PA" = (
+/obj/random/dirt_75,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
 "PC" = (
@@ -5900,6 +5982,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
+"Vi" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/mine)
 "Vo" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_y = -32
@@ -6482,6 +6570,12 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled,
+/area/mine)
+"ZC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
 /area/mine)
 "ZH" = (
 /obj/structure/dispenser/oxygen,
@@ -26710,10 +26804,10 @@ bu
 bu
 bu
 bu
+sB
+sB
 bu
-bu
-bu
-bu
+sB
 mI
 mI
 mI
@@ -26966,11 +27060,11 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
+sB
 mI
 mI
 mI
@@ -27215,15 +27309,15 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
 mI
 mI
 mI
@@ -27470,17 +27564,17 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+mI
 mI
 mI
 mI
@@ -27721,23 +27815,23 @@ bu
 mI
 mI
 mI
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+sB
+mI
+mI
+mI
+sB
+sB
+sB
+sB
+mI
 mI
 mI
 mI
@@ -27983,16 +28077,16 @@ mI
 mI
 mI
 mI
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+sB
+sB
+sB
+mI
+mI
+mI
+mI
+mI
+mI
+sB
 mI
 mI
 mI
@@ -28981,7 +29075,7 @@ bu
 bu
 bu
 bu
-bu
+mI
 mI
 mI
 mI
@@ -29236,9 +29330,9 @@ bu
 bu
 bu
 bu
-bu
-bu
-bu
+mI
+mI
+mI
 mI
 mI
 mI
@@ -43359,8 +43453,8 @@ bu
 bu
 bu
 mI
-mI
-mI
+sY
+Nh
 mI
 mI
 qX
@@ -43617,8 +43711,8 @@ bu
 bu
 mI
 mI
-mI
-mI
+Vi
+sY
 mI
 qX
 qX
@@ -43874,12 +43968,12 @@ bu
 bu
 mI
 mI
-mI
-mI
-mI
+gj
+Ow
+Ow
 qX
-mI
-qX
+wA
+Li
 Dr
 Uk
 Uk
@@ -44130,14 +44224,14 @@ bu
 bu
 bu
 mI
-mI
-mI
-mI
-mI
-qX
-mI
-qX
-Dr
+qw
+eu
+ZC
+Ow
+gF
+BM
+mE
+uJ
 Uk
 Uk
 Ah
@@ -44387,9 +44481,9 @@ bu
 bu
 mI
 mI
-mI
-mI
-mI
+ab
+gj
+mg
 mI
 qX
 qX
@@ -44644,8 +44738,8 @@ bu
 bu
 mI
 mI
-mI
-mI
+no
+PA
 mI
 mI
 qX
