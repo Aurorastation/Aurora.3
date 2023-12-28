@@ -69,6 +69,7 @@
 	else if(generic_object == TRUE)
 		return desc
 
+/// Returns the direction the overmap object is moving in, rather than just the way it's facing
 /obj/effect/overmap/proc/get_heading()
 	return dir
 
