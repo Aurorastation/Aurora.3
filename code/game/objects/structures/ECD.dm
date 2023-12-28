@@ -29,14 +29,14 @@
 		switch(state)
 			if(ECD_LOOSE)
 				state = ECD_BOLTED
-				playsound(get_turf(src), W.use_tool, 75, TRUE)
+				if(W.use_tool(src, user, 50, volume = 50))
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(ECD_BOLTED)
 				state = ECD_LOOSE
-				playsound(get_turf(src), W.use_tool, 75, TRUE)
+				if(W.use_tool(src, user, 50, volume = 50))
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
