@@ -1408,6 +1408,7 @@
 		machine_has_equipment_vision = machine.grants_equipment_vision(src)
 	if(eyeobj && eyeobj.owner != src)
 		reset_view(null)
+
 	if((mRemote in mutations) && remoteview_target && remoteview_target.stat != CONSCIOUS)
 		remoteview_target = null
 		reset_view(null, 0)
