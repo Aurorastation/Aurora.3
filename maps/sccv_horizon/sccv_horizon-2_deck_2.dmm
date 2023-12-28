@@ -1997,6 +1997,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/closet/secure_closet/freezer/kois,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/sign/biohazard{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -29547,7 +29552,7 @@
 	input_tag = "cooling_in";
 	name = "Supermatter Monitoring Terminal";
 	output_tag = "cooling_out";
-	sensors = list("supermatter_sensor"="Supermatter Core")
+	sensors = list("supermatter_sensor"="Supermatter  Core")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
@@ -38366,7 +38371,7 @@
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	input_tag = "fusion_injector_air";
 	name = "INDRA Chamber Monitor";
-	sensors = list("fusion_sensor"="INDRA  Chamber")
+	sensors = list("fusion_sensor"="INDRA    Chamber")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
