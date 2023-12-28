@@ -263,6 +263,11 @@
 "bZ" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/starboard)
+"ch" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled,
+/area/mine)
 "cm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -293,6 +298,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
+/area/mine)
+"cA" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "cF" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -420,15 +432,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
-"dN" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/wall{
-	can_open = 1;
-	color = "#DDDDDD"
-	},
-/area/mine)
 "dQ" = (
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -545,6 +548,11 @@
 	pixel_x = -2
 	},
 /turf/simulated/floor/exoplanet/barren,
+/area/mine)
+"ew" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/mine)
 "eA" = (
 /obj/structure/table/reinforced/steel,
@@ -694,12 +702,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/storage)
-"fn" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/mine)
 "fo" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -932,6 +934,15 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/mine)
+"gH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/wall{
+	can_open = 1;
+	color = "#DDDDDD"
+	},
+/area/mine)
 "gI" = (
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
@@ -1008,6 +1019,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
+"ho" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "hq" = (
 /obj/item/storage/bag/ore{
 	pixel_x = 7
@@ -1049,10 +1066,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
 "hL" = (
-/obj/structure/bed/stool/chair/office/light{
+/obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine)
 "hN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1556,6 +1574,11 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/mine)
+"kQ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/space_heater,
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
 "kR" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
@@ -1700,6 +1723,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/mine)
+"lw" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "lz" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -1781,6 +1811,11 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/plating/asteroid,
+/area/mine)
+"mh" = (
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/mine)
 "mj" = (
 /obj/random/dirt_75,
@@ -1923,6 +1958,13 @@
 /area/mine)
 "ng" = (
 /obj/structure/closet,
+/turf/simulated/floor/tiled,
+/area/mine)
+"nj" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/mine)
 "nk" = (
@@ -2190,6 +2232,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/mine)
+"oL" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 2
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "oM" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2229,6 +2277,8 @@
 /area/mine)
 "oT" = (
 /obj/machinery/papershredder,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
 "oX" = (
@@ -2401,13 +2451,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/mine)
-"qa" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/mine)
 "qb" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -2455,6 +2498,12 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
+/area/mine)
+"qr" = (
+/obj/effect/floor_decal/industrial/loading/grey{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/mine)
 "qt" = (
 /obj/effect/floor_decal/corner/lime{
@@ -2516,14 +2565,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/mine)
-"qA" = (
-/obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
 /area/mine)
 "qC" = (
 /obj/structure/table/wood,
@@ -2628,19 +2669,6 @@
 /area/mine)
 "qX" = (
 /turf/simulated/wall/r_wall,
-/area/mine)
-"qY" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/gun/projectile/automatic/c20r,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/north,
-/turf/simulated/floor/tiled/dark,
 /area/mine)
 "rc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2764,12 +2792,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/mine)
-"ss" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/mine)
 "sz" = (
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/cookingoil,
@@ -2831,6 +2853,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/mine)
+"sS" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating/asteroid,
 /area/mine)
 "sT" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -2914,6 +2940,13 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"tw" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "tA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
@@ -2976,9 +3009,6 @@
 "ua" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/mine)
@@ -3069,12 +3099,28 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/mine)
+"uG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/weldpack{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "uJ" = (
 /obj/effect/floor_decal/industrial/loading/grey{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
+/area/mine)
+"uN" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "uT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -3083,6 +3129,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/mine)
 "uU" = (
@@ -3116,6 +3163,12 @@
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"vi" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "vj" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
@@ -3235,6 +3288,9 @@
 	pixel_x = -9;
 	pixel_y = 3
 	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
 "vZ" = (
@@ -3309,12 +3365,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
-"wF" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/mine)
 "wG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3350,6 +3400,10 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
+/area/mine)
+"wU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/mine)
 "wV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3569,6 +3623,12 @@
 /obj/machinery/power/apc/empty/north,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"yf" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "yl" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/crate,
@@ -3816,12 +3876,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/mine)
-"Al" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
 /area/mine)
 "Au" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -4078,6 +4132,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
+"Cj" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
+"Cm" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "Cr" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
@@ -4169,6 +4237,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
+"DB" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "DI" = (
 /obj/structure/table/steel,
 /obj/item/tank/air,
@@ -4226,6 +4300,10 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/plating,
+/area/mine)
+"Ek" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "El" = (
 /obj/structure/table/steel,
@@ -4348,6 +4426,11 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/mine)
+"Fh" = (
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/mine)
 "Fo" = (
@@ -4743,13 +4826,17 @@
 /obj/item/paper/goon_base/note,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/port)
+"HH" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "HJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/padded/blue{
-	dir = 8
-	},
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/mine)
 "HK" = (
@@ -4955,6 +5042,7 @@
 	pixel_x = 6;
 	pixel_y = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
 "IW" = (
@@ -4983,6 +5071,13 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_ship/living)
+"Ja" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "Jf" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/combat{
@@ -5004,10 +5099,7 @@
 "Jm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/reagent_containers/weldpack{
-	pixel_x = 5;
-	pixel_y = -7
-	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/plating,
 /area/mine)
 "Jn" = (
@@ -5221,6 +5313,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/mine)
+"KF" = (
+/obj/structure/table/standard,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/mine)
 "KG" = (
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -5246,6 +5345,15 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
+/area/mine)
+"KO" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/power/apc/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
 /area/mine)
 "KR" = (
 /obj/effect/floor_decal/corner/grey/full{
@@ -5321,12 +5429,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
-"LO" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2"
+"LS" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "LY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5533,8 +5640,11 @@
 /area/mine)
 "Nh" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/mineral/surface,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
 /area/mine)
 "Ni" = (
 /obj/effect/floor_decal/corner/grey{
@@ -5697,9 +5807,7 @@
 	pixel_x = 9;
 	pixel_y = -8
 	},
-/obj/item/tank/phoron{
-	pixel_y = 2
-	},
+/obj/item/tank/phoron/empty,
 /obj/item/clothing/glasses/welding{
 	pixel_x = -1;
 	pixel_y = 7
@@ -5768,6 +5876,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
+"OQ" = (
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/mine)
 "OW" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
@@ -5801,9 +5914,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
+"Pw" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "PA" = (
 /obj/random/dirt_75,
-/turf/simulated/mineral/surface,
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "PC" = (
 /obj/machinery/bodyscanner,
@@ -5847,6 +5968,13 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled,
+/area/mine)
+"PO" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine)
 "PS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6022,6 +6150,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/mine)
+"QK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating/asteroid,
+/area/mine)
 "QM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6058,7 +6190,9 @@
 /turf/simulated/floor/plating,
 /area/mine)
 "QS" = (
-/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/structure/reagent_dispensers/radioactive_waste{
+	pixel_y = -6
+	},
 /obj/effect/decal/cleanable/acid_remnants,
 /obj/effect/decal/cleanable/acid_remnants{
 	pixel_x = -8;
@@ -6610,6 +6744,8 @@
 	pixel_x = 6;
 	pixel_y = 9
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/mine)
 "UA" = (
@@ -6734,6 +6870,8 @@
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 9
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
 "VB" = (
@@ -7050,6 +7188,10 @@
 /obj/machinery/suit_cycler,
 /turf/simulated/floor/tiled,
 /area/mine)
+"XG" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled,
+/area/mine)
 "XI" = (
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/corner/blue{
@@ -7176,6 +7318,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_ship/living)
+"Yu" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "Yz" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
@@ -7334,6 +7482,7 @@
 /area/mine)
 "Zs" = (
 /obj/machinery/photocopier,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/mine)
 "Zw" = (
@@ -7465,6 +7614,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/mine)
+"ZX" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine)
 "ZY" = (
 /obj/machinery/door/airlock/external{
@@ -21810,9 +21965,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -22065,10 +22220,10 @@ sB
 sB
 sB
 sB
+kz
+kz
 sB
-sB
-sB
-sB
+kz
 sB
 sB
 sB
@@ -22319,9 +22474,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -26882,8 +27037,8 @@ bu
 sB
 sB
 sB
-sB
-sB
+kz
+kz
 sB
 sB
 sB
@@ -27137,9 +27292,9 @@ bu
 sB
 sB
 sB
+kz
 sB
-sB
-sB
+kz
 sB
 sB
 sB
@@ -27390,12 +27545,12 @@ bu
 bu
 bu
 sB
+kz
+kz
+kz
+kz
 sB
-sB
-sB
-sB
-sB
-sB
+kz
 sB
 sB
 sB
@@ -27647,11 +27802,11 @@ bu
 sB
 sB
 sB
+kz
 sB
 sB
-sB
-sB
-sB
+kz
+kz
 sB
 sB
 sB
@@ -27902,11 +28057,11 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 sB
@@ -28108,9 +28263,9 @@ bu
 bu
 sB
 sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -28363,12 +28518,12 @@ bu
 bu
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 mI
@@ -30049,7 +30204,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 sB
 sB
 bu
@@ -30306,7 +30461,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 sB
 sB
 sB
@@ -30563,7 +30718,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 sB
 sB
 sB
@@ -30820,8 +30975,8 @@ mI
 mI
 mI
 mI
-sB
-sB
+kz
+kz
 sB
 sB
 bu
@@ -31077,8 +31232,8 @@ mI
 mI
 mI
 mI
-sB
-sB
+kz
+kz
 sB
 sB
 bu
@@ -31334,9 +31489,9 @@ mI
 mI
 mI
 mI
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 bu
 bu
@@ -31591,7 +31746,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 sB
 sB
 sB
@@ -37995,15 +38150,15 @@ mI
 mI
 sB
 sB
-sB
-sB
-sB
+Dr
+Dr
+Dr
+Dr
 mI
 mI
 mI
 mI
-mI
-sB
+kz
 mI
 mI
 mI
@@ -38236,8 +38391,8 @@ mI
 mI
 mI
 mI
-sB
-sB
+kz
+kz
 mI
 mI
 mI
@@ -38252,18 +38407,18 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
+Dr
+ew
+mh
+Dr
 mI
 mI
 sB
 mI
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
 mI
 mI
 sB
@@ -38493,6 +38648,12 @@ mI
 mI
 mI
 mI
+kz
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 sB
@@ -38503,27 +38664,21 @@ sB
 sB
 sB
 sB
+Dr
+Fh
+wU
+nB
+DB
+vi
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 bu
@@ -38644,7 +38799,7 @@ mI
 mI
 qX
 Dr
-mE
+uG
 mE
 en
 Ic
@@ -38750,6 +38905,13 @@ mI
 mI
 mI
 mI
+kz
+PA
+PA
+PA
+kz
+kz
+kz
 sB
 sB
 sB
@@ -38759,27 +38921,20 @@ sB
 sB
 sB
 sB
+Dr
+wU
+OQ
+nB
+cA
+LS
+LS
+ho
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -39006,6 +39161,11 @@ mI
 mI
 mI
 mI
+tw
+hL
+hL
+lw
+kz
 sB
 sB
 sB
@@ -39018,26 +39178,21 @@ sB
 sB
 sB
 sB
+Dr
+Dr
+nB
+nB
+Ja
+sS
+sS
+yf
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -39263,6 +39418,10 @@ mI
 mI
 mI
 mI
+PO
+mV
+mV
+oL
 sB
 sB
 sB
@@ -39277,25 +39436,21 @@ sB
 sB
 sB
 sB
+Cm
+HH
+HH
+Ek
+QK
+QK
+yf
 sB
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -39520,6 +39675,10 @@ mI
 mI
 mI
 mI
+PO
+mV
+nT
+oL
 sB
 sB
 sB
@@ -39537,14 +39696,10 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+Ek
+QK
+QK
+yf
 sB
 sB
 sB
@@ -39777,6 +39932,10 @@ mI
 mI
 mI
 mI
+Pw
+Yu
+Yu
+ZX
 sB
 sB
 sB
@@ -39794,14 +39953,10 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+Ek
+sS
+sS
+yf
 sB
 sB
 sB
@@ -39923,7 +40078,7 @@ Pp
 Dr
 mI
 sK
-gj
+Cj
 mI
 Dr
 Pp
@@ -40055,10 +40210,10 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
+Cm
+HH
+HH
+vi
 sB
 sB
 sB
@@ -40701,9 +40856,9 @@ Sj
 yS
 Yi
 Dr
-EI
-hL
-QX
+KF
+tF
+Li
 Dr
 Dr
 Dr
@@ -40837,9 +40992,9 @@ aE
 aE
 FF
 nA
-sB
-sB
-sB
+PA
+PA
+PA
 bu
 bu
 bu
@@ -40959,7 +41114,7 @@ Li
 Li
 Dr
 Zs
-Vw
+NH
 IV
 Dr
 xy
@@ -41094,8 +41249,8 @@ JW
 JW
 uB
 MV
-sB
-sB
+PA
+kz
 sB
 bu
 bu
@@ -41351,7 +41506,7 @@ pp
 QT
 bR
 nA
-sB
+PA
 sB
 sB
 bu
@@ -41580,7 +41735,7 @@ mI
 sB
 sB
 sB
-sB
+kz
 Ui
 nk
 Vu
@@ -41709,7 +41864,7 @@ Dr
 NH
 Qj
 Dr
-IG
+ch
 lW
 lW
 IG
@@ -41833,11 +41988,11 @@ mI
 mI
 mI
 mI
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+PA
 Qv
 nX
 cP
@@ -41945,8 +42100,8 @@ mI
 mI
 mI
 mI
-mI
-mI
+qX
+qX
 qX
 qX
 qX
@@ -42092,9 +42247,9 @@ mI
 mI
 sB
 sB
-sB
-sB
-sB
+PA
+PA
+PA
 Qv
 nM
 eT
@@ -42202,7 +42357,7 @@ mI
 mI
 mI
 mI
-mI
+qX
 mI
 qX
 mI
@@ -42351,7 +42506,7 @@ sB
 sB
 sB
 sB
-sB
+kz
 Qv
 Lg
 cP
@@ -42608,7 +42763,7 @@ sB
 sB
 sB
 sB
-sB
+kz
 kr
 La
 eT
@@ -42719,7 +42874,7 @@ mI
 qX
 mI
 qX
-mI
+Dr
 Dr
 Dr
 Dr
@@ -42865,7 +43020,7 @@ sB
 sB
 sB
 sB
-sB
+kz
 Qv
 nM
 Qh
@@ -42976,12 +43131,12 @@ qX
 qX
 qX
 qX
-qX
 Dr
-Al
+KO
 qf
-dN
-qA
+qf
+gH
+Nh
 yS
 mQ
 Zl
@@ -43104,8 +43259,8 @@ sB
 sB
 sB
 sB
-sB
-sB
+nT
+nT
 sB
 sB
 sB
@@ -43235,7 +43390,7 @@ Dr
 Dr
 Dr
 Dr
-fn
+qr
 Dr
 Dr
 Dr
@@ -43361,8 +43516,8 @@ sB
 sB
 sB
 sB
-sB
-sB
+nT
+nT
 sB
 sB
 sB
@@ -43746,10 +43901,10 @@ qX
 mI
 qX
 Dr
-kW
+xs
 HK
 Uk
-ss
+eJ
 oP
 Dr
 FZ
@@ -43921,7 +44076,7 @@ iW
 ee
 rw
 Bo
-sB
+PA
 sB
 bu
 bu
@@ -44003,10 +44158,10 @@ qX
 qX
 qX
 Dr
-qY
-wF
-LO
-qa
+kW
+eJ
+Uk
+Uk
 VL
 Dr
 jV
@@ -44178,8 +44333,8 @@ bZ
 bZ
 Uq
 yx
-sB
-sB
+PA
+kz
 bu
 bu
 bu
@@ -44250,8 +44405,8 @@ bu
 bu
 bu
 mI
-Nh
-Nh
+mI
+mI
 mI
 mI
 qX
@@ -44435,8 +44590,8 @@ kp
 wp
 AA
 Bo
-sB
-sB
+PA
+PA
 bu
 bu
 bu
@@ -44547,7 +44702,7 @@ iK
 mn
 nB
 nB
-te
+kQ
 NP
 gm
 mI
@@ -44919,8 +45074,8 @@ mI
 mI
 sB
 sB
-sB
-sB
+kz
+kz
 sB
 sB
 sB
@@ -44951,7 +45106,7 @@ sB
 sB
 sB
 sB
-sB
+kz
 bu
 bu
 bu
@@ -45021,7 +45176,7 @@ bu
 bu
 bu
 mI
-Nh
+mI
 eu
 DR
 Ow
@@ -45176,6 +45331,8 @@ mI
 mI
 sB
 sB
+PA
+kz
 sB
 sB
 sB
@@ -45206,9 +45363,7 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
+PA
 bu
 bu
 bu
@@ -45278,9 +45433,9 @@ bu
 bu
 mI
 mI
-Nh
+mI
 ab
-Nh
+mI
 mI
 qX
 qX
@@ -45433,6 +45588,8 @@ mI
 mI
 sB
 sB
+PA
+kz
 sB
 sB
 sB
@@ -45450,6 +45607,9 @@ sB
 sB
 sB
 sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -45459,13 +45619,8 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+PA
+PA
 bu
 bu
 bu
@@ -45535,8 +45690,8 @@ bu
 bu
 mI
 mI
-PA
-PA
+mI
+mI
 mI
 mI
 qX
@@ -45690,6 +45845,11 @@ mI
 mI
 sB
 sB
+kz
+PA
+kz
+kz
+kz
 sB
 sB
 sB
@@ -45703,6 +45863,11 @@ sB
 sB
 sB
 sB
+kz
+kz
+PA
+kz
+kz
 sB
 sB
 sB
@@ -45711,18 +45876,8 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+PA
 bu
 bu
 bu
@@ -45817,7 +45972,7 @@ HU
 lW
 TJ
 TJ
-Vw
+XG
 Dr
 kI
 Dr
@@ -45948,6 +46103,12 @@ mI
 sB
 sB
 sB
+PA
+PA
+PA
+kz
+kz
+kz
 sB
 sB
 sB
@@ -45959,6 +46120,11 @@ sB
 sB
 sB
 sB
+PA
+PA
+PA
+kz
+kz
 sB
 sB
 sB
@@ -45966,20 +46132,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+PA
 bu
 bu
 bu
@@ -46207,6 +46362,9 @@ sB
 sB
 sB
 sB
+PA
+PA
+kz
 sB
 sB
 sB
@@ -46215,28 +46373,25 @@ sB
 sB
 sB
 sB
+kz
+kz
+kz
+kz
+PA
+kz
+kz
+kz
+kz
 sB
 sB
 sB
 sB
 sB
 sB
+kz
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
 bu
 bu
 bu
@@ -46340,7 +46495,7 @@ FB
 NH
 sN
 Dr
-Tc
+nj
 lW
 Vw
 wY
@@ -46475,9 +46630,15 @@ mI
 mI
 mI
 mI
+kz
+kz
+kz
+kz
+mI
+mI
 sB
-sB
-sB
+kz
+kz
 sB
 mI
 mI
@@ -46485,15 +46646,9 @@ sB
 sB
 sB
 sB
-mI
-mI
 sB
 sB
-sB
-sB
-sB
-sB
-sB
+kz
 bu
 bu
 bu
@@ -46734,7 +46889,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 mI
 mI
 mI
@@ -46750,7 +46905,7 @@ mI
 sB
 sB
 sB
-sB
+kz
 bu
 bu
 bu
@@ -54104,8 +54259,8 @@ bu
 bu
 sB
 sB
-sB
-sB
+kz
+kz
 sB
 sB
 mI
@@ -54361,11 +54516,11 @@ bu
 bu
 sB
 sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
 mI
 mI
 mI
@@ -54463,7 +54618,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 sB
 bu
 bu
@@ -54619,17 +54774,17 @@ bu
 bu
 sB
 sB
+kz
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
 mI
 mI
 mI
@@ -54720,7 +54875,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 sB
 sB
 bu
@@ -54877,14 +55032,14 @@ bu
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 sB
@@ -59534,8 +59689,8 @@ mI
 mI
 mI
 mI
-sB
-sB
+kz
+kz
 sB
 mI
 mI
@@ -59789,11 +59944,11 @@ sB
 mI
 mI
 mI
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
 sB
 mI
 mI
@@ -60046,9 +60201,9 @@ sB
 sB
 mI
 mI
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -60302,9 +60457,9 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -60635,7 +60790,7 @@ mI
 bu
 bu
 bu
-sB
+kz
 mI
 mI
 sB
@@ -60889,11 +61044,11 @@ mI
 mI
 mI
 mI
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 sB
@@ -61146,7 +61301,7 @@ mI
 mI
 mI
 mI
-sB
+kz
 bu
 bu
 bu
@@ -63691,8 +63846,8 @@ sB
 sB
 sB
 sB
-sB
-sB
+kz
+kz
 sB
 sB
 sB
@@ -63947,10 +64102,10 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
 sB
 sB
 sB
@@ -64199,16 +64354,16 @@ mI
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+PA
+kz
+kz
+kz
+kz
+kz
+uN
+PA
+kz
+kz
 sB
 sB
 sB
@@ -64457,16 +64612,16 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+PA
+PA
+PA
+PA
+PA
+kz
+PA
+kz
+kz
 sB
 sB
 sB
@@ -64716,20 +64871,20 @@ sB
 sB
 sB
 sB
+kz
 sB
+kz
+PA
+PA
+PA
+kz
+kz
+kz
+kz
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
 sB
 sB
 sB
@@ -64980,15 +65135,15 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+PA
+PA
+PA
+kz
+PA
+PA
+kz
+kz
 sB
 sB
 bu
@@ -65240,12 +65395,12 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
+kz
+kz
+kz
+kz
+kz
+kz
 sB
 sB
 bu
