@@ -51,10 +51,3 @@
 	icon_state = "scc_beret"
 	item_state = "scc_beret"
 	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/pin/corporate/scc
-	desc = "A shiny button which simply reads, <i>'Stellar Corporate Conglomerate.'</i>"
-	icon = 'icons/obj/item/clothing/department_uniforms/scc.dmi'
-	icon_state = "scc_liaison_badge"
-	item_state = "scc_liaison_badge"
-	contained_sprite = TRUE
