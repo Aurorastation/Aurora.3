@@ -3,7 +3,7 @@
 #define ECD_WELDED 2
 
 /obj/structure/ecd
-	name = "Electronic Countermeasures Device"
+	name = "electronic countermeasures device"
 	desc = "A large, heavy duty device in the shape of a cylinder. There's something about this piece of tech that feels rather alien. Inside, something hums softly."
 	icon = 'icons/obj/structure/ECD.dmi'
 	icon_state = "ECD"
@@ -22,21 +22,21 @@
 		if(ECD_WELDED)
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted and welded to the floor."))
 	if(user.isSynthetic())
-		to_chat(user, SPAN_NOTICE("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
+		to_chat(user, SPAN_ALIEN("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
 
 /obj/structure/ecd/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		switch(state)
 			if(ECD_LOOSE)
 				state = ECD_BOLTED
-				playsound(get_turf(src), W.usesound, 75, TRUE)
+				playsound(get_turf(src), W.use_tool, 75, TRUE)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(ECD_BOLTED)
 				state = ECD_LOOSE
-				playsound(get_turf(src), W.usesound, 75, TRUE)
+				playsound(get_turf(src), W.use_tool, 75, TRUE)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
