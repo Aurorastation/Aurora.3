@@ -3497,7 +3497,6 @@
 #include "code\unit_tests\origins_tests.dm"
 #include "code\unit_tests\overmap_tests.dm"
 #include "code\unit_tests\power_tests.dm"
-#include "code\unit_tests\program_screen_test.dm"
 #include "code\unit_tests\recipe_tests.dm"
 #include "code\unit_tests\shuttle_tests.dm"
 #include "code\unit_tests\smart_token_bucket.dm"
