@@ -60,6 +60,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		LAZYDISTINCTADD(linked.navigation_viewers, WEAKREF(user))
 	ADD_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
 
+/// Handles disabling the user's overmap view when a signal comes in, primarily used when the TGUI is closed, see helm.dm and sensors.dm
 /obj/machinery/computer/ship/proc/handle_unlook_signal(var/datum/source, var/mob/user)
 	SIGNAL_HANDLER
 
