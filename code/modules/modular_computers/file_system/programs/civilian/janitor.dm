@@ -1,4 +1,4 @@
-/datum/computer_file/program/civilian/janitor
+/datum/computer_file/program/janitor
 	filename = "janitor"
 	filedesc = "Custodial Supplies Locator"
 	program_icon_state = "generic"
@@ -13,7 +13,7 @@
 	tgui_id = "Janitor"
 	var/list/types = list("Mops", "Buckets", "Cleanbots", "Janicarts")
 
-/datum/computer_file/program/civilian/janitor/ui_data(mob/user)
+/datum/computer_file/program/janitor/ui_data(mob/user)
 	var/list/data = list()
 
 	var/headerdata = get_header_data(data["_PC"])

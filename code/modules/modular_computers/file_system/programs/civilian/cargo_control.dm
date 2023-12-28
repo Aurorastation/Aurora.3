@@ -1,4 +1,4 @@
-/datum/computer_file/program/civilian/cargocontrol
+/datum/computer_file/program/cargocontrol
 	filename = "cargocontrol"
 	filedesc = "Cargo Control"
 	extended_desc = "Application to Control Cargo Orders"
@@ -17,7 +17,7 @@
 	var/list/order_details = list() //Order Details for the order
 	var/list/shipment_details = list() //Shipment Details for a selected shipment
 
-/datum/computer_file/program/civilian/cargocontrol/ui_data(mob/user)
+/datum/computer_file/program/cargocontrol/ui_data(mob/user)
 	var/list/data = initial_data()
 
 	post_signal("supply")
@@ -93,7 +93,7 @@
 
 	return data
 
-/datum/computer_file/program/civilian/cargocontrol/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/computer_file/program/cargocontrol/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE
@@ -238,7 +238,7 @@
 				else
 					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 
-/datum/computer_file/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
+/datum/computer_file/program/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 
 	if(!frequency)

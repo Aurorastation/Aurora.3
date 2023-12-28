@@ -1,4 +1,4 @@
-/datum/computer_file/program/civilian/cargodelivery
+/datum/computer_file/program/cargodelivery
 	filename = "cargodelivery"
 	filedesc = "Cargo Delivery"
 	extended_desc = "Application to Control Delivery and Payment of Cargo orders."
@@ -17,7 +17,7 @@
 	var/datum/cargo_order/co
 	var/mod_mode = TRUE //If it can be used to pay for orders
 
-/datum/computer_file/program/civilian/cargodelivery/ui_data(mob/user)
+/datum/computer_file/program/cargodelivery/ui_data(mob/user)
 	var/list/data = initial_data()
 
 	if(computer)
@@ -48,7 +48,7 @@
 
 	return data
 
-/datum/computer_file/program/civilian/cargodelivery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/computer_file/program/cargodelivery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

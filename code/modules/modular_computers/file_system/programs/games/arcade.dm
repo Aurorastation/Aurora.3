@@ -1,4 +1,4 @@
-/datum/computer_file/program/game/arcade
+/datum/computer_file/program/arcade
 	filename = "arcadec"					// File name, as shown in the file browser program.
 	filedesc = "Unknown Game"				// User-Friendly name. In this case, we will generate a random name in constructor.
 	program_icon_state = "game"				// Icon state of this program's screen.
@@ -19,25 +19,25 @@
 	var/information
 
 // Blatantly stolen and shortened version from arcade machines. Generates a random enemy name
-/datum/computer_file/program/game/arcade/proc/random_enemy_name()
+/datum/computer_file/program/arcade/proc/random_enemy_name()
 	var/name_part1 = pick("The Automatic", "Farmer", "Lord", "Professor", "The Cuban", "The Evil", "The Dread King", "The Space", "Lord", "The Great", "Duke", "General", "The Vibrating Bluespace", "Scalie")
 	var/name_part2 = pick("Melonoid", "Murdertron", "Sorcerer", "Ruin", "Jeff", "Geoff", "Ectoplasm", "Crushulon", "Uhangoid", "Vhakoid", "Peteoid", "Slime", "Lizard Man", "Unicorn", "Squirrel")
 	return "[name_part1] [name_part2]"
 
 // When the program is first created, we generate a new enemy name and name ourselves accordingly.
-/datum/computer_file/program/game/arcade/New()
+/datum/computer_file/program/arcade/New()
 	..()
 	enemy_name = random_enemy_name()
 	filedesc = "[pick("Defeat", "Destroy", "Decimate", "Decapitate")] [enemy_name]"
 	new_game()
 
 // Important in order to ensure that copied versions will have the same enemy name.
-/datum/computer_file/program/game/arcade/clone()
-	var/datum/computer_file/program/game/arcade/G = ..()
+/datum/computer_file/program/arcade/clone()
+	var/datum/computer_file/program/arcade/G = ..()
 	G.enemy_name = enemy_name
 	return G
 
-/datum/computer_file/program/game/arcade/ui_data(mob/user)
+/datum/computer_file/program/arcade/ui_data(mob/user)
 	var/list/data = initial_data()
 
 	data["player_health"] = player_health
@@ -50,7 +50,7 @@
 
 	return data
 
-/datum/computer_file/program/game/arcade/proc/enemy_play()
+/datum/computer_file/program/arcade/proc/enemy_play()
 	if((enemy_mana < 5) && prob(60))
 		var/steal = rand(2, 3)
 		player_mana -= steal
@@ -66,7 +66,7 @@
 		player_health -= dam
 		information += " [enemy_name] attacks for [dam] damage!"
 
-/datum/computer_file/program/game/arcade/proc/check_gameover()
+/datum/computer_file/program/arcade/proc/check_gameover()
 	if((player_health <= 0) || player_mana <= 0)
 		if(enemy_health <= 0)
 			information += "You have defeated [enemy_name], but you have died in the fight!"
@@ -80,7 +80,7 @@
 		return TRUE
 	return FALSE
 
-/datum/computer_file/program/game/arcade/proc/new_game()
+/datum/computer_file/program/arcade/proc/new_game()
 	player_mana = 10
 	player_health = 30
 	enemy_mana = 20
@@ -88,7 +88,7 @@
 	gameover = FALSE
 	information = "A new game has started!"
 
-/datum/computer_file/program/game/arcade/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/computer_file/program/arcade/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 	if(action == "new_game")

@@ -1,4 +1,4 @@
-/datum/computer_file/program/civilian/cargoorder
+/datum/computer_file/program/cargoorder
 	filename = "cargoorder"
 	filedesc = "Cargo Order"
 	extended_desc = "Application to Order Items from Cargo."
@@ -19,7 +19,7 @@
 	var/user_tracking_id = 0 //Tracking id of the user
 	var/user_tracking_code = 0 //Tracking Code of the user
 
-/datum/computer_file/program/civilian/cargoorder/ui_data(mob/user)	//Check if a cargo order exists. If not create a new one
+/datum/computer_file/program/cargoorder/ui_data(mob/user)	//Check if a cargo order exists. If not create a new one
 	if(!co)
 		var/datum/cargo_order/crord = new
 		co = crord
@@ -74,7 +74,7 @@
 
 	return data
 
-/datum/computer_file/program/civilian/cargoorder/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/computer_file/program/cargoorder/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

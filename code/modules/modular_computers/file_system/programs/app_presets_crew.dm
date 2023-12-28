@@ -134,7 +134,7 @@
 	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
-		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/cargocontrol(comp),
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/docks(comp),
@@ -161,7 +161,7 @@
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/penal_mechs(comp),
-		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/cargocontrol(comp),
 		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/medical(comp),
@@ -243,7 +243,7 @@
 	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
-		new /datum/computer_file/program/game/arcade(comp),
+		new /datum/computer_file/program/arcade(comp),
 	)
 	return flatten_list(_prg_list)
 
@@ -257,8 +257,8 @@
 	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
-		new /datum/computer_file/program/civilian/janitor(comp),
-		new /datum/computer_file/program/game/arcade(comp),
+		new /datum/computer_file/program/janitor(comp),
+		new /datum/computer_file/program/arcade(comp),
 	)
 	return flatten_list(_prg_list)
 
@@ -272,8 +272,8 @@
 	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
-		new /datum/computer_file/program/civilian/cargocontrol(comp),
-		new /datum/computer_file/program/civilian/cargodelivery(comp),
+		new /datum/computer_file/program/cargocontrol(comp),
+		new /datum/computer_file/program/cargodelivery(comp),
 		new /datum/computer_file/program/away_manifest(comp),
 	)
 	return flatten_list(_prg_list)
@@ -288,8 +288,8 @@
 	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
-		new /datum/computer_file/program/civilian/cargocontrol(comp),
-		new /datum/computer_file/program/civilian/cargodelivery(comp),
+		new /datum/computer_file/program/cargocontrol(comp),
+		new /datum/computer_file/program/cargodelivery(comp),
 		new /datum/computer_file/program/away_manifest(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/docks(comp),

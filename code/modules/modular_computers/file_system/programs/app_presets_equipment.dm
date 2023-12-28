@@ -10,7 +10,7 @@
 		COMPUTER_APP_PRESET_SYSTEM,
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/cargoorder(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/alarm_monitor/engineering(comp)
 	)
@@ -55,8 +55,8 @@
 		COMPUTER_APP_PRESET_SYSTEM,
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/cargoorder(comp),
+		new /datum/computer_file/program/cargocontrol(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/account_db(comp)
 	)
@@ -67,8 +67,8 @@
 		COMPUTER_APP_PRESET_SYSTEM,
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/civilian/cargocontrol(comp),
+		new /datum/computer_file/program/cargoorder(comp),
+		new /datum/computer_file/program/cargocontrol(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/account_db(comp, TRUE)
 	)
@@ -96,6 +96,6 @@
 	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
-		new /datum/computer_file/program/civilian/cargodelivery(comp)
+		new /datum/computer_file/program/cargodelivery(comp)
 	)
 	return flatten_list(_prg_list)
