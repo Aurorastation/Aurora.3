@@ -107,6 +107,7 @@ SUBSYSTEM_DEF(records)
 			viruses += record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
+	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -286,19 +287,23 @@ SUBSYSTEM_DEF(records)
 	get_manifest_list()
 	return manifest_json
 
-/datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)
-	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_delete(r)
+/datum/controller/subsystem/records/proc/onCreate(var/datum/record/record)
+	SEND_SIGNAL(src, COMSIG_RECORD_CREATED, record)
 
-/datum/controller/subsystem/records/proc/onModify(var/datum/record/r)
-	if(r in records)
-		reset_manifest()
+/datum/controller/subsystem/records/proc/onDelete(var/datum/record/record)
 	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_modify(r)
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_delete(record)
+
+/datum/controller/subsystem/records/proc/onModify(var/datum/record/record)
+	if(record in records)
+		reset_manifest()
+	SEND_SIGNAL(record, COMSIG_RECORD_MODIFIED)
+	for (var/listener in GET_LISTENERS("SSrecords"))
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_modify(record)
 
 /*
  * Helping functions for everyone
