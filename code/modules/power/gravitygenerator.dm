@@ -350,14 +350,14 @@
 	if(new_state) // If we turned on
 		if(!area.has_gravity())
 			alert = 1
-			gravity_is_on = 1
+			GLOB.gravity_is_on = 1
 			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
-			gravity_is_on = 0
+			GLOB.gravity_is_on = 0
 			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought offline with no backup generator. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
@@ -423,7 +423,7 @@
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
 	var/turf/our_turf = get_turf(src)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf && (their_turf.z == our_turf.z))
 			M.update_gravity(M.mob_has_gravity())
@@ -455,14 +455,14 @@
 
 /obj/machinery/gravity_generator/main/LateInitialize()
 	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 	if(linked)
 		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A
@@ -484,7 +484,7 @@
 	set_state(FALSE)
 	sleep(30)
 	set_state(TRUE)
-	for(var/mob/living/M in mob_list)
+	for(var/mob/living/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf?.loc ==  Area)
 			if(ishuman(M))

@@ -80,7 +80,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/map_high = current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
 	if (place_near_main)
-		var/obj/effect/overmap/visitable/main = map_sectors["1"] ? map_sectors["1"] : map_sectors[map_sectors[1]]
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
 		if(islist(place_near_main))
 			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
 		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
@@ -141,7 +141,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 /obj/effect/overmap/visitable/proc/register_z_levels()
 	for(var/zlevel in map_z)
-		map_sectors["[zlevel]"] = src
+		GLOB.map_sectors["[zlevel]"] = src
 
 	current_map.player_levels |= map_z
 	if(!in_space)

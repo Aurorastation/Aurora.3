@@ -145,7 +145,7 @@
 /datum/category_group/player_setup_category/proc/load_character(var/savefile/S)
 	// Load all data, then sanitize it.
 	// Need due to, for example, the 01_basic module relying on species having been loaded to sanitize correctly but that isn't loaded until module 03_body.
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for(var/datum/category_item/player_setup_item/PI in items)
 			PI.load_character(S)
 	else
@@ -154,14 +154,14 @@
 
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.load_special(S)
-		PI.sanitize_character(config.sql_saves)
+		PI.sanitize_character(GLOB.config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
 	// Sanitize all data, then save it
 	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
 
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_character(S)
 	else if (modified)
@@ -170,20 +170,20 @@
 		modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.load_preferences(S)
 	else
 		handle_sql_loading(SQL_PREFERENCES)
 
 	for (var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_preferences(config.sql_saves)
+		PI.sanitize_preferences(GLOB.config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_preferences(var/savefile/S)
 	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences()
 
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_preferences(S)
 	else

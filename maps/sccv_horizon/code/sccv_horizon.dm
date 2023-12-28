@@ -170,8 +170,8 @@
 		welcome_text += "Travel time to nearest port:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
-		for(var/zlevel in map_sectors)
-			var/obj/effect/overmap/visitable/O = map_sectors[zlevel]
+		for(var/zlevel in GLOB.map_sectors)
+			var/obj/effect/overmap/visitable/O = GLOB.map_sectors[zlevel]
 			if(O.name == horizon.name)
 				continue
 			if(istype(O, /obj/effect/overmap/visitable/ship/landable)) //Don't show shuttles
@@ -200,6 +200,6 @@
 	// also only loads if no program is loaded already
 	var/list/roles = number_active_with_role()
 	if(roles && roles["Engineer"] && roles["Engineer"] >= 2)
-		for(var/obj/machinery/computer/HolodeckControl/holo in holodeck_controls)
+		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()

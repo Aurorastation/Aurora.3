@@ -55,14 +55,14 @@
 			ion_storm_announcement()
 
 /datum/event/ionstorm/proc/give_ion_law()
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = TRUE) || player.client.inactivity > MinutesToTicks(10))
 			continue
 		var/turf/p_loc = get_turf(player)
 		if(isStationLevel(p_loc.z)) //Only choose those who are on station. Should stop from selecting ghost roles.
 			players += player.real_name
 
-	for(var/mob/living/silicon/ai/target in silicon_mob_list)
+	for(var/mob/living/silicon/ai/target in GLOB.silicon_mob_list)
 		var/random_player = "The Captain"
 		if(length(players))
 			random_player = pick(players)		//Random player's name, to be used in laws.

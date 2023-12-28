@@ -52,9 +52,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		user.reset_view(linked)
 	if(user.client)
 		user.client.view = world.view + extra_view
-	moved_event.register(user, src, PROC_REF(unlook))
+	GLOB.moved_event.register(user, src, PROC_REF(unlook))
 	if(user.eyeobj)
-		moved_event.register(user.eyeobj, src, PROC_REF(unlook))
+		GLOB.moved_event.register(user.eyeobj, src, PROC_REF(unlook))
 	LAZYDISTINCTADD(viewers, WEAKREF(user))
 	if(linked)
 		LAZYDISTINCTADD(linked.navigation_viewers, WEAKREF(user))
@@ -74,11 +74,11 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		c.pixel_x = 0
 		c.pixel_y = 0
 
-	moved_event.unregister(user, src, PROC_REF(unlook))
+	GLOB.moved_event.unregister(user, src, PROC_REF(unlook))
 
 	if(isEye(user)) // If we're an AI eye, the computer has our AI mob in its viewers list not the eye mob
 		var/mob/abstract/eye/E = user
-		moved_event.unregister(E.owner, src, PROC_REF(unlook))
+		GLOB.moved_event.unregister(E.owner, src, PROC_REF(unlook))
 		LAZYREMOVE(viewers, WEAKREF(E.owner))
 	LAZYREMOVE(viewers, WEAKREF(user))
 	if(linked)
@@ -146,6 +146,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/Initialize()
 	. = ..()
 	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, linked_type))
 			attempt_hook_up(my_sector)

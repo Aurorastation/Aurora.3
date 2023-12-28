@@ -71,7 +71,7 @@
 		pref.current_character = validate_current_character()
 
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
-	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
+	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, GLOB.config.character_slots, initial(pref.default_slot))
 	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
@@ -112,10 +112,10 @@
 	return ..()
 
 /datum/category_item/player_setup_item/player_global/settings/proc/validate_current_character()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return pref.current_character
 
-	var/DBQuery/is_ours = dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
+	var/DBQuery/is_ours = GLOB.dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
 	is_ours.Execute(list("ckey" = pref.client.ckey, "curr_char" = pref.current_character))
 
 	if (!is_ours.NextRow())
@@ -129,10 +129,10 @@
 		return pref.current_character
 
 /datum/category_item/player_setup_item/player_global/settings/proc/select_default_character()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return 0
 
-	var/DBQuery/first_char = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
+	var/DBQuery/first_char = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
 	first_char.Execute(list("ckey" = pref.client.ckey))
 
 	if (!first_char.NextRow())

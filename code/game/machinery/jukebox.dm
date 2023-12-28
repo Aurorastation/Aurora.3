@@ -156,7 +156,7 @@
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)

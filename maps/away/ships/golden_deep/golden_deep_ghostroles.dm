@@ -65,7 +65,7 @@
 	head = /obj/item/clothing/head/crest
 
 /datum/outfit/admin/golden_deep/get_id_access()
-	return list(access_golden_deep, access_external_airlocks)
+	return list(ACCESS_GOLDEN_DEEP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/golden_deep/boss/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))

@@ -63,7 +63,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/iac_volunteer/get_id_access()
-	return list(access_iac_rescue_ship, access_external_airlocks)
+	return list(ACCESS_IAC_RESCUE_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/iac_volunteer/technician
 	short_name = "iac_technician"
@@ -125,4 +125,4 @@
 
 /obj/item/card/id/iac_rescue_ship
 	name = "iac ship id"
-	access = list(access_iac_rescue_ship, access_external_airlocks)
+	access = list(ACCESS_IAC_RESCUE_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

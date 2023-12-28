@@ -1,99 +1,139 @@
-var/list/clients = list()							//list of all clients
-var/list/staff = list()							//list of all clients who have any permissions
-var/list/directory = list()							//list of all ckeys with associated client
+/// List of all clients.
+GLOBAL_LIST_EMPTY(clients)
+/// List of all clients who have any permissions.
+GLOBAL_LIST_EMPTY(staff)
+GLOBAL_PROTECT(staff)
+/// List of all ckeys with associated client.
+GLOBAL_LIST_EMPTY(directory)
 
-//Since it didn't really belong in any other category, I'm putting this here
-//This is for procs to replace all the goddamn 'in world's that are chilling around the code
+/// List of all mobs **with clients attached**. Excludes /mob/abstract/new_player
+GLOBAL_LIST_EMPTY(player_list)
+/// List of all mobs, including clientless.
+GLOBAL_LIST_EMPTY(mob_list)
+/// List of all human mobs and sub-types, including clientless.
+GLOBAL_LIST_EMPTY(human_mob_list)
+/// List of all silicon mobs, including clientless.
+GLOBAL_LIST_EMPTY(silicon_mob_list)
+/// List of all alive mobs, including clientless. Excludes /mob/abstract/new_player.
+GLOBAL_LIST_EMPTY(living_mob_list)
+/// List of all dead mobs, including clientless. Excludes /mob/abstract/new_player.
+GLOBAL_LIST_EMPTY(dead_mob_list)
+/// List of all API commands (/datum/topic_command) available.
+GLOBAL_LIST_EMPTY(topic_commands)
+GLOBAL_PROTECT(topic_commands)
+/// List of the names of all API commands (/datum/topic_command) available.
+GLOBAL_LIST_EMPTY(topic_commands_names)
+GLOBAL_PROTECT(topic_commands_names)
 
-var/global/list/player_list = list()				//List of all mobs **with clients attached**. Excludes /mob/abstract/new_player
-var/global/list/mob_list = list()					//List of all mobs, including clientless
-var/global/list/human_mob_list = list()				//List of all human mobs and sub-types, including clientless
-var/global/list/silicon_mob_list = list()			//List of all silicon mobs, including clientless
-var/global/list/living_mob_list = list()			//List of all alive mobs, including clientless. Excludes /mob/abstract/new_player
-var/global/list/dead_mob_list = list()				//List of all dead mobs, including clientless. Excludes /mob/abstract/new_player
-var/global/list/topic_commands = list()				//List of all API commands available
-var/global/list/topic_commands_names = list()				//List of all API commands available
+/// List of all landmarks.
+GLOBAL_LIST_EMPTY(landmarks_list)
+/// Assoc list of force spawnpoints for event maps.
+GLOBAL_LIST_EMPTY(force_spawnpoints)
+/// List of all jobstypes, minus borg, merchant and AI.
+GLOBAL_LIST_EMPTY(joblist)
+/// List of all brig secure_closets. Used by brig timers.
+GLOBAL_LIST_EMPTY(brig_closets)
 
-var/global/list/landmarks_list = list()				//list of all landmarks created
-var/global/list/force_spawnpoints					//assoc list of force spawnpoints for event maps
-var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
-var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
-var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
-var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
+/// A list of areas where ghosts can teleport to, not turfs.
+GLOBAL_LIST_EMPTY(ghostteleportlocs)
+/// Central command areas.
+GLOBAL_LIST_EMPTY(centcom_areas)
+/// Keyed list of area object to boolean. An area is set here if it has station_area set to TRUE.
+GLOBAL_LIST_EMPTY(the_station_areas)
 
-var/global/list/ghostteleportlocs = list()
-var/global/list/centcom_areas = list()
-var/global/list/the_station_areas = list()
+/// List of all implants. Used for teleportation/tracking implants.
+GLOBAL_LIST_EMPTY(implants)
 
-var/global/list/implants = list()
+/// Turf is added to this list if isStationLevel() passes when it's initialized.
+GLOBAL_LIST_EMPTY(station_turfs)
+/// List of all instanced areas by type.
+GLOBAL_LIST_EMPTY(areas_by_type)
+/// List of all instanced areas.
+GLOBAL_LIST_EMPTY(all_areas)
 
-var/global/list/station_turfs = list()
-var/global/list/areas_by_type = list()
-var/global/list/all_areas = list()
+/// Languages/species/whitelist.
+GLOBAL_LIST_EMPTY_TYPED(all_species, /datum/species)
+/// Short names of all species.
+GLOBAL_LIST_EMPTY(all_species_short_names)
+/// All language datums. String to instance.
+GLOBAL_LIST_EMPTY(all_languages)
+/// Table of say codes for all languages.
+GLOBAL_LIST_EMPTY(language_keys)
+/// Species that require a whitelist check.
+GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
+/// A list of ALL playable species, whitelisted, latejoin or otherwise.
+GLOBAL_LIST_EMPTY(playable_species)
 
-//Languages/species/whitelist.
-var/global/list/datum/species/all_species = list()
-var/global/list/all_species_short_names = list()
-var/global/list/all_languages = list()
-var/global/list/language_keys = list()					// Table of say codes for all languages
-var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
-var/global/list/playable_species = list()    // A list of ALL playable species, whitelisted, latejoin or otherwise.
+/// Poster designs (/datum/poster).
+GLOBAL_LIST_EMPTY(poster_designs)
 
-// Posters
-var/global/list/poster_designs = list()
+/// All uplinks.
+GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
 
-// Uplinks
-var/list/obj/item/device/uplink/world_uplinks = list()
+/// Preferences stuff below.
+/// Stores /datum/sprite_accessory/hair indexed by name.
+GLOBAL_LIST_EMPTY(hair_styles_list)
+/// List of hair for the male gender. List of strings.
+GLOBAL_LIST_EMPTY(hair_styles_male_list)
+/// List of hair for the female gender. List of strings.
+GLOBAL_LIST_EMPTY(hair_styles_female_list)
+/// List of hair gradients. List of strings to /datum/sprite_accessory.
+GLOBAL_LIST_EMPTY(hair_gradient_styles_list)
+/// Stores /datum/sprite_accessory/facial_hair indexed by name.
+GLOBAL_LIST_EMPTY(facial_hair_styles_list)
+/// List of facial hair for the male gender. List of strings.
+GLOBAL_LIST_EMPTY(facial_hair_styles_male_list)
+/// List of facial hair for the female gender. List of strings.
+GLOBAL_LIST_EMPTY(facial_hair_styles_female_list)
+/// List of body markings. List of strings to /datum/sprite_accessory/marking.
+GLOBAL_LIST_EMPTY(body_marking_styles_list)
+/// List of valid disabilities in the loadout.
+GLOBAL_LIST_EMPTY(chargen_disabilities_list)
+/// List of valid player genders in the loadout.
+GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
 
-//Preferences stuff
-//Hairstyles
-var/global/list/hair_styles_list = list()			//stores /datum/sprite_accessory/hair indexed by name
-var/global/list/hair_styles_male_list = list()
-var/global/list/hair_styles_female_list = list()
-var/global/list/hair_gradient_styles_list = list()
-var/global/list/facial_hair_styles_list = list()	//stores /datum/sprite_accessory/facial_hair indexed by name
-var/global/list/facial_hair_styles_male_list = list()
-var/global/list/facial_hair_styles_female_list = list()
-var/global/list/skin_styles_female_list = list()		//unused
-var/global/list/body_marking_styles_list = list()
-var/global/list/chargen_disabilities_list = list()
-var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
+/// List of possible backpack shapes for the loadout.
+GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook"))
+/// List of possible backpack styles for the loadout.
+GLOBAL_LIST_INIT(backbagstyles, list("Job-specific", "Generic", "Faction-specific"))
+/// List of possible backpack colors for the loadout.
+GLOBAL_LIST_INIT(backbagcolors, list("None", "Blue", "Green", "Navy", "Tan", "Khaki", "Black", "Olive", "Auburn", "Brown"))
+/// List of possible backpack straps for the loadout.
+GLOBAL_LIST_INIT(backbagstrap, list("Hidden", "Thin", "Normal", "Thick"))
+/// Jobs that are not "internal" to the game map.
+GLOBAL_LIST_INIT(exclude_jobs, list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant))
 
-//Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook")
-var/global/list/backbagstyles = list("Job-specific", "Generic", "Faction-specific")
-var/global/list/backbagcolors = list("None", "Blue", "Green", "Navy", "Tan", "Khaki", "Black", "Olive", "Auburn", "Brown")
-var/global/list/backbagstrap = list("Hidden", "Thin", "Normal", "Thick")
-var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant)
+/// PDA loadout choices.
+GLOBAL_LIST_INIT(pdalist, list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound"))
 
-//PDA choice
-var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
+/// Headset loadout choices.
+GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio"))
 
-//Headset choice
-var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio")
+/// Primary Radio Slot loadout choices.
+GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
 
-// Primary Radio Slot choice
-var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
+/// Visual nets.
+GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)
+/// Camera visualnet.
+GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 
-// Visual nets
-var/list/datum/visualnet/visual_nets = list()
-var/datum/visualnet/camera/cameranet = new()
+/// Escape locations for Nar'Sie. Escape shuttles, generally.
+GLOBAL_LIST_EMPTY(escape_list)
+/// Escape exits for universe states.
+GLOBAL_LIST_EMPTY(endgame_exits)
+/// Safe spawns  for universe states.
+GLOBAL_LIST_EMPTY(endgame_safespawns)
 
-// Runes
-var/global/list/escape_list = list()
-var/global/list/endgame_exits = list()
-var/global/list/endgame_safespawns = list()
+GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS))
 
-var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, access_external_airlocks)
+/// Cloaking devices.
+GLOBAL_LIST_EMPTY(cloaking_devices)
 
-//Cloaking devices
-var/global/list/cloaking_devices = list()
+/// Hearing sensitive listening in closely.
+GLOBAL_LIST_EMPTY(intent_listener)
 
-//Hearing sensitive listening in closely
-var/global/list/intent_listener = list()
-
-// cache for clothing species adaptability
-var/global/list/contained_clothing_species_adaption_cache = list()
+/// Cache for clothing species adaptability.
+GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 
 //////////////////////////
 /////Initial Building/////
@@ -106,75 +146,75 @@ var/global/list/contained_clothing_species_adaption_cache = list()
 	paths = subtypesof(/datum/sprite_accessory/hair)
 	for(var/path in paths)
 		var/datum/sprite_accessory/hair/H = new path()
-		hair_styles_list[H.name] = H
+		GLOB.hair_styles_list[H.name] = H
 		switch(H.gender)
-			if(MALE)	hair_styles_male_list += H.name
-			if(FEMALE)	hair_styles_female_list += H.name
+			if(MALE)	GLOB.hair_styles_male_list += H.name
+			if(FEMALE)	GLOB.hair_styles_female_list += H.name
 			else
-				hair_styles_male_list += H.name
-				hair_styles_female_list += H.name
+				GLOB.hair_styles_male_list += H.name
+				GLOB.hair_styles_female_list += H.name
 
-	sortTim(hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
-	sortTim(hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
-	sortTim(hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Gradients - Initialise all /datum/sprite_accessory/hair_gradients into an list indexed by hairgradient-style name
 	paths = subtypesof(/datum/sprite_accessory/hair_gradients)
 	for(var/path in paths)
 		var/datum/sprite_accessory/hair_gradients/H = new path()
-		hair_gradient_styles_list[H.name] = H
+		GLOB.hair_gradient_styles_list[H.name] = H
 
-	sortTim(hair_gradient_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.hair_gradient_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)
 	for(var/path in paths)
 		var/datum/sprite_accessory/facial_hair/H = new path()
-		facial_hair_styles_list[H.name] = H
+		GLOB.facial_hair_styles_list[H.name] = H
 		switch(H.gender)
-			if(MALE)	facial_hair_styles_male_list += H.name
-			if(FEMALE)	facial_hair_styles_female_list += H.name
+			if(MALE)	GLOB.facial_hair_styles_male_list += H.name
+			if(FEMALE)	GLOB.facial_hair_styles_female_list += H.name
 			else
-				facial_hair_styles_male_list += H.name
-				facial_hair_styles_female_list += H.name
+				GLOB.facial_hair_styles_male_list += H.name
+				GLOB.facial_hair_styles_female_list += H.name
 
-	sortTim(facial_hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
-	sortTim(facial_hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
-	sortTim(facial_hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.facial_hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.facial_hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.facial_hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Body markings
 	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
 		var/datum/sprite_accessory/marking/M = new path()
-		body_marking_styles_list[M.name] = M
+		GLOB.body_marking_styles_list[M.name] = M
 
-	sortTim(body_marking_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.body_marking_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Disability datums
 	paths = subtypesof(/datum/character_disabilities)
 	for(var/path in paths)
 		var/datum/character_disabilities/T = new path()
-		chargen_disabilities_list[T.name] = T
+		GLOB.chargen_disabilities_list[T.name] = T
 
-	sortTim(chargen_disabilities_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.chargen_disabilities_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//List of job. I can't believe this was calculated multiple times per tick!
 	paths = subtypesof(/datum/job)
-	paths -= exclude_jobs
+	paths -= GLOB.exclude_jobs
 	for(var/T in paths)
 		var/datum/job/J = new T
-		joblist[J.title] = J
+		GLOB.joblist[J.title] = J
 
 	//Languages and species.
 	paths = subtypesof(/datum/language)
 	for(var/T in paths)
 		var/datum/language/L = new T
-		all_languages[L.name] = L
+		GLOB.all_languages[L.name] = L
 
-	for (var/language_name in all_languages)
-		var/datum/language/L = all_languages[language_name]
+	for (var/language_name in GLOB.all_languages)
+		var/datum/language/L = GLOB.all_languages[language_name]
 		if(!(L.flags & NONGLOBAL))
-			language_keys[lowertext(L.key)] = L
+			GLOB.language_keys[lowertext(L.key)] = L
 
 	var/rkey = 0
 	paths = subtypesof(/datum/species)
@@ -184,31 +224,33 @@ var/global/list/contained_clothing_species_adaption_cache = list()
 		S.race_key = rkey //Used in mob icon caching.
 		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
 			S.has_autohiss = TRUE
-		all_species[S.name] = S
-		all_species_short_names |= S.short_name
+		GLOB.all_species[S.name] = S
+		GLOB.all_species_short_names |= S.short_name
 
-	sortTim(all_species, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.all_species, GLOBAL_PROC_REF(cmp_text_asc))
 
 	// The other lists are generated *after* we sort the main one so they don't need sorting too.
-	for (var/thing in all_species)
-		var/datum/species/S = all_species[thing]
+	for (var/thing in GLOB.all_species)
+		var/datum/species/S = GLOB.all_species[thing]
 
 		if(!(S.spawn_flags & IS_RESTRICTED) && S.category_name)
-			if(!length(playable_species[S.category_name]))
-				playable_species[S.category_name] = list()
-			playable_species[S.category_name] += S.name
+			if(!length(GLOB.playable_species[S.category_name]))
+				GLOB.playable_species[S.category_name] = list()
+			GLOB.playable_species[S.category_name] += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
-			whitelisted_species += S.name
+			GLOB.whitelisted_species += S.name
 
 	//Posters
 	paths = subtypesof(/datum/poster)
 	for(var/T in paths)
 		var/datum/poster/P = new T
-		poster_designs += P
+		GLOB.poster_designs += P
 
 	return 1
 
-var/global/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "\"" = TRUE)
+GLOBAL_LIST_INIT(correct_punctuation, list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, \
+										"*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, \
+										"," = TRUE, ":" = TRUE, ";" = TRUE, "\"" = TRUE))
 
 /* // Uncomment to debug chemical reaction list.
 /client/verb/debug_chemical_list()
@@ -227,16 +269,16 @@ var/global/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = 
 	Ported from bay12, this seems to be used to store and retrieve 2D vectors as strings, as well as
 	decoding them into a number
 */
-var/global/list/paramslist_cache = list()
+GLOBAL_LIST_EMPTY(paramslist_cache)
 
 #define cached_key_number_decode(key_number_data) cached_params_decode(key_number_data, /proc/key_number_decode)
 #define cached_number_list_decode(number_list_data) cached_params_decode(number_list_data, /proc/number_list_decode)
 
 /proc/cached_params_decode(var/params_data, var/decode_proc)
-	. = paramslist_cache[params_data]
+	. = GLOB.paramslist_cache[params_data]
 	if(!.)
 		. = call(decode_proc)(params_data)
-		paramslist_cache[params_data] = .
+		GLOB.paramslist_cache[params_data] = .
 
 /proc/key_number_decode(var/key_number_data)
 	var/list/L = params2list(key_number_data)

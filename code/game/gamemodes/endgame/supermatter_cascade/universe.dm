@@ -42,7 +42,7 @@ var/global/universe_has_ended = 0
 
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		M.flash_act()
 
 	if(evacuation_controller.cancel_evacuation())
@@ -60,7 +60,7 @@ var/global/universe_has_ended = 0
 
 	PlayerSet()
 
-	new /obj/singularity/narsie/large/exit(pick(endgame_exits))
+	new /obj/singularity/narsie/large/exit(pick(GLOB.endgame_exits))
 	var/time = rand(30, 60)
 	LOG_DEBUG("universal_state/cascade: Announcing to world in [time] seconds.")
 	LOG_DEBUG("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
@@ -91,7 +91,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
@@ -133,7 +133,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/PlayerSet()
-	for(var/datum/mind/M in player_list)
+	for(var/datum/mind/M in GLOB.player_list)
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)

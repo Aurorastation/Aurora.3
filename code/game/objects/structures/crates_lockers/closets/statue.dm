@@ -53,7 +53,10 @@
 		imprisoned = temporarymob
 
 	if(health == 0) //meaning if the statue didn't find a valid target
-		initialized = TRUE
+		if(flags_1 & INITIALIZED_1)
+			stack_trace("Warning: [src]([type]) initialized multiple times!")
+		flags_1 |= INITIALIZED_1
+
 		return INITIALIZE_HINT_QDEL
 
 	START_PROCESSING(SSprocessing, src)

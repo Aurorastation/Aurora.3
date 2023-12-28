@@ -59,16 +59,15 @@
 /turf/Initialize(mapload, ...)
 	SHOULD_CALL_PARENT(FALSE)
 
-	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-
-	initialized = TRUE
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
 	if (isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -108,7 +107,7 @@
 	changing_turf = FALSE
 
 	if (isStationLevel(z))
-		station_turfs -= src
+		GLOB.station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()

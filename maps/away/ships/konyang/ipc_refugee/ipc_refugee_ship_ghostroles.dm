@@ -38,7 +38,7 @@
 	)
 
 /datum/outfit/admin/refugee_crew/get_id_access()
-	return list(access_external_airlocks)
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 // IPC Refugee
 /datum/ghostspawner/human/refugee_crew/ipc
@@ -72,4 +72,4 @@
 
 /obj/item/card/id/refugee_crew_ship
 	name = "refugee ship id"
-	access = list(access_external_airlocks)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS)

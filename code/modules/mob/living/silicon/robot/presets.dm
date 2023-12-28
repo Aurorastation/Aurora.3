@@ -62,7 +62,7 @@
 	set category = "BST"
 
 	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 

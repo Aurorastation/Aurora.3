@@ -3,7 +3,7 @@
 	name = "custodial closet"
 	desc = "It's a storage unit for a custodian's clothes and gear."
 	icon_state = "custodial"
-	req_access = list(access_janitor)
+	req_access = list(ACCESS_JANITOR)
 
 /obj/structure/closet/secure_closet/custodial/fill()
 	new /obj/item/clothing/head/softcap/nt/custodian(src)

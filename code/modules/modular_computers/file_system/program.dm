@@ -49,7 +49,7 @@
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	if(computer)
+	if(!QDELETED(computer))
 		computer.idle_threads -= src
 		computer.enabled_services -= src
 		computer = null
@@ -244,7 +244,7 @@
 		return NM.grants_equipment_vision(user)
 
 /datum/computer_file/program/proc/message_dead(var/message)
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
 			if(isnewplayer(M))
 				continue

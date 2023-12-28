@@ -12,6 +12,9 @@
 	/// Which stage does this subsystem init at. Earlier stages can fire while later stages init.
 	var/init_stage = INITSTAGE_MAIN
 
+	/// This var is set to TRUE after the subsystem has been initialized.
+	var/initialized = FALSE
+
 	/// Levels of the game that the SS can fire. See __defines/subsystem_priority.dm
 	var/runlevels = RUNLEVELS_DEFAULT
 

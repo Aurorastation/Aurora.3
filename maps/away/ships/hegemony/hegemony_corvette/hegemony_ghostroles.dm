@@ -88,7 +88,7 @@
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
 
 /datum/outfit/admin/izweski/get_id_access()
-	return list(access_kataphract, access_external_airlocks)
+	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/izweski/klax
 
@@ -131,7 +131,7 @@
 /datum/outfit/admin/izweski/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 /datum/outfit/admin/izweski/captain/get_id_access()
-	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
+	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/izweski/priest
 	name = "Hegemony Warpriest"

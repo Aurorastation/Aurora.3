@@ -300,7 +300,7 @@
 
 	var/list/locs = list()
 
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/turf/T = get_step(get_turf(src), direction)
 		if(T || !T.density || !T.contains_dense_objects())
 			locs += T
@@ -931,7 +931,7 @@
 
 	// You ain't goin' anywhere, bud.
 	if(!T.client && T.mind)
-		for(var/mob/abstract/observer/ghost in player_list)
+		for(var/mob/abstract/observer/ghost in GLOB.player_list)
 			if(ghost.mind == T.mind)
 				ghost.can_reenter_corpse = TRUE
 				ghost.reenter_corpse()

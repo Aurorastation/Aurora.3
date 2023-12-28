@@ -1,6 +1,6 @@
 // I thought about splitting these into files per category, but that just makes Ctrl+F'ing for problematic tips harder, so I'll just list them all in one file
 
-var/global/list/tips_by_category = list()
+GLOBAL_LIST_EMPTY(tips_by_category)
 
 /*
 	BASELINE TIP
@@ -344,4 +344,4 @@ var/global/list/tips_by_category = list()
 /proc/populate_tip_list()
 	for(var/tip_type in subtypesof(/datum/tip))
 		var/datum/tip/tip_datum = new tip_type
-		tips_by_category[tip_datum.category] = tip_datum
+		GLOB.tips_by_category[tip_datum.category] = tip_datum

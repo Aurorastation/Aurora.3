@@ -6,8 +6,8 @@
 	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
 	size = 12
 	requires_ntnet = TRUE
-	required_access_run = access_network
-	required_access_download = access_heads
+	required_access_run = ACCESS_NETWORK
+	required_access_download = ACCESS_HEADS
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_GREEN
 

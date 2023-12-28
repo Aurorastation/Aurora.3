@@ -35,6 +35,127 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">28 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">AOOC text is now bold, to better distinguish it from Security chat.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaks the Skrell consular pistol&#x27;s name and description, and adds a non-psionic version for non-Skrell consulars.</li>
+			</ul>
+			<h3 class="author">meep109 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds proper power and atmospheric systems to the Orion Courier Ship, as well as overhauling the shuttle.</li>
+			</ul>
+
+			<h2 class="date">27 December 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds OX packages and delivery point to the SCC Scout Ship.</li>
+				<li class="rscadd">OX packages randomly pick a color from a limited selection.</li>
+			</ul>
+			<h3 class="author">GeneralCamo, NobleRow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the Xanan null hardsuit.</li>
+				<li class="rscadd">Added the Xanan combat hardsuit.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the health scanner displaying two percentage signs for blood oxygenation.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes incorrect and missing access restrictions on Point Verdant.</li>
+			</ul>
+			<h3 class="author">Tomixcomics updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added several new foods for Dominia, Eridani, and Silversun.</li>
+				<li class="rscadd">Added three new kinds of milkshakes.</li>
+				<li class="tweak">Changed some of the syrup colors to match the color they&#x27;re supposed to have.</li>
+				<li class="backend">Added kitchen tag for blueberries.</li>
+				<li class="backend">Added correct cuisine category for che troi nuoc</li>
+				<li class="bugfix">Fixed naming issue that was keeping NTella jar from showing up</li>
+			</ul>
+
+			<h2 class="date">26 December 2023</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Refactored the way globals are done, porting the globals controller from TG.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the ability to recharge energy weapons from power backpacks and hardsuit modules.</li>
+			</ul>
+
+			<h2 class="date">25 December 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed AI chamber computers missing programs.</li>
+				<li class="bugfix">Fixed various possible runtimes on qdeleted organs.</li>
+				<li class="bugfix">Fixed device assemblies, which also fixes some chem grenades like the cleaner grenades, that were using wrong wires.</li>
+				<li class="backend">Moved the wires from constant vars to defines, moved inside the wires define file, DMdoc&#x27;d them from the comments they had.</li>
+				<li class="bugfix">Fixed borgs not having access to the alarm program.</li>
+				<li class="bugfix">Characters with limb nymphs now spawn correctly.</li>
+				<li class="bugfix">Solved an issue that could allow to have eg. a nymph arm and yet still have a human hand.</li>
+				<li class="bugfix">Solved some issues with text messages.</li>
+				<li class="backend">Updated SSAtoms to TG&#x27;s version.</li>
+				<li class="backend">Added signals for initialization, repathed old signal_athom_x_act.dm to its updated home.</li>
+				<li class="backend">Moved /atom initialization related procs in atom/atoms_initializing_EXPENSIVE.dm as per TG.</li>
+				<li class="backend">Updated INITIALIZE_IMMEDIATE to work with the new subsystem.</li>
+				<li class="backend">Adapted various procs and other subsystems to work with the new SSAtoms.</li>
+				<li class="backend">Reordered some procs to set the initialization flag at the start, as that is the supposed behavior.</li>
+				<li class="backend">Transformed the testing() proc to a macro, as per TG.</li>
+				<li class="backend">Cleaned up some initializations a bit.</li>
+				<li class="backend">Flagged organs for immediate initialization.</li>
+				<li class="backend">Initialized variable is now flags_1, as per TG.</li>
+				<li class="backend">The Initialized variable is now global for every subsytem.</li>
+				<li class="backend">Various reordering and flags/defines additions.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added keymap R, to enable throw mode, lifting the R key disables throw mode, clicking the HUD icon works as before (toggle).</li>
+				<li class="rscadd">Added keymap SPACE, to enable run mode, lifting the SPACE key disables run mode, clicking the HUD icon works as before (toggle).</li>
+				<li class="rscadd">Added SHIFT+R as a keymap to resist.</li>
+				<li class="rscadd">Added CTRL+PGUP/CTRL+PGDOWN as a keymap to Move-upwards and Move-down, respectively.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You now need a direct line of sight to establish and use the Psi Grip (crush) ability. You do not have to maintain line of sight to keep the grip active, however.</li>
+			</ul>
+			<h3 class="author">LynxSolstice updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added a beefier SMES to the Tajaran Smuggler ship to keep the engines from turning off and as recommended by HazelMouse, a breakerbox.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Dominian Imperial Army gear, which can also be bought on the uplink as part of the Imperial Army gear crate.</li>
+				<li class="admin">SDQL2 has now been updated to work properly, be faster, and overall better and more useful.</li>
+				<li class="admin">View variables can no longer view some protected datums, such as the config datum.</li>
+				<li class="tweak">Changed the Set Holidays verb to not have a . in front of the name.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Qukala hardsuit and gear crates.</li>
+				<li class="rscadd">Adds Einstein, Tupkala and Vaurca ninja hardsuits.</li>
+				<li class="tweak">Changes Skrell and Vaurca hardsuit armor values to be more usable in normal gameplay.</li>
+				<li class="tweak">Removes AI containers from anti-AI factions&#x27; hardsuits and adds AI containers to the uplink.</li>
+			</ul>
+			<h3 class="author">Snowy1237 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the required access for the bridge security lockers so only command members can open them, not bridge crew.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Revamped the CCIA Human Resources Asssistant to wear a more formal coat and tie. They now (subjectively) look twice as intimidating.</li>
+				<li class="rscadd">CCIA HRAs now come with additional self-defense weaponry - a gun and a baton - as well as a holster for said gun and a laptop.</li>
+				<li class="rscadd">Added additional lights to the corporate liaisons&#x27; office to brighten them up, as well as photocopiers.</li>
+				<li class="rscadd">Added disposal bins, fire extinguishers, and a photocopier to the bridge vestibule.</li>
+				<li class="rscadd">Added light switches and privacy shutters to the captain&#x27;s office. Moved things around so the _loaded gun_ in a display case is now in the secure part of the captain&#x27;s office.</li>
+				<li class="rscadd">Added shutters to the CCIA room, and replaced the paper cups with proper drinking glasses.</li>
+				<li class="rscadd">Added miscellaneous additional lights and light switches.</li>
+			</ul>
+
 			<h2 class="date">24 December 2023</h2>
 			<h3 class="author">Alberyk, Suethecake updated:</h3>
 			<ul class="changes bgimages16">
@@ -48,6 +169,11 @@
 				<li class="bugfix">Repathed wrong chainsaw sounds to the correct path.</li>
 				<li class="soundadd">Added a missed sound that was forgotten when porting the overmap sensors, from Nebula.</li>
 				<li class="backend">The CI now checks that all sounds are referenced with a static path.</li>
+				<li class="bugfix">The AI can now spawn at roundstart correctly.</li>
+				<li class="bugfix">Solved various roundtimes when the AI core is wiped.</li>
+				<li class="bugfix">Solved a runtime with programs when the computer was GCd.</li>
+				<li class="bugfix">Solved an issue that runtimed the AI mob initialization due to it being created in nullspace at roundstart, for the atmos monitoring program.</li>
+				<li class="rscdel">Removed the ability to disable the AI in a gamemode, noone used it anyways and it gave issues with the fix for the roundstart initialization.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
@@ -1871,7 +1997,7 @@
 			</ul>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="bugfix">Fixes the observable moved_event that was not unregistering some child atoms.</li>
+				<li class="bugfix">Fixes the observable GLOB.moved_event that was not unregistering some child atoms.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">

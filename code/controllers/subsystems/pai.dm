@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(pai)
 		pai_candidates.Add(candidate)
 
 	// Load the data before displaying.
-	if (!config.sql_saves)
+	if (!GLOB.config.sql_saves)
 		candidate.savefile_load(M)
 	else
 		M.client.prefs.load_preferences()
@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(pai)
 	for(var/datum/paiCandidate/c in SSpai.pai_candidates)
 		if(c.ready)
 			var/found = 0
-			for(var/mob/abstract/observer/o in player_list)
+			for(var/mob/abstract/observer/o in GLOB.player_list)
 				if(o.key == c.key && o.MayRespawn())
 					found = 1
 			if(found)
@@ -292,7 +292,7 @@ SUBSYSTEM_DEF(pai)
 
 /datum/controller/subsystem/pai/proc/requestRecruits(mob/user)
 	inquirer = user
-	for(var/mob/abstract/observer/O in player_list)
+	for(var/mob/abstract/observer/O in GLOB.player_list)
 		if(!O.MayRespawn())
 			continue
 		if(jobban_isbanned(O, "pAI"))

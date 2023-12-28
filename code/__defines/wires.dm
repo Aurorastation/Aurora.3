@@ -83,3 +83,23 @@
 #define AI_WIRE_DISABLED 1
 #define AI_WIRE_HACKED 2
 #define AI_WIRE_DISABLED_HACKED -1
+
+/*################################
+	Wires for the assembly
+	/obj/item/device/assembly
+################################*/
+
+///Allows Pulsed(0) to call Activate()
+#define WIRE_RECEIVE_ASSEMBLY BITFLAG(1)
+
+///Allows Pulse(0) to act on the holder
+#define WIRE_PULSE_ASSEMBLY BITFLAG(2)
+
+/// Allows Pulse(0) to act on the holders special assembly
+#define WIRE_PULSE_SPECIAL BITFLAG(3)
+
+///Allows Pulsed(1) to call Activate()
+#define WIRE_RADIO_RECEIVE BITFLAG(4)
+
+///Allows Pulse(1) to send a radio message
+#define WIRE_RADIO_PULSE BITFLAG(5)

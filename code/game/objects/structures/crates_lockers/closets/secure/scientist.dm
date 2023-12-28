@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/scientist
 	name = "scientist's locker"
-	req_access = list(access_tox_storage)
+	req_access = list(ACCESS_TOX_STORAGE)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/scientist/fill()
@@ -15,7 +15,7 @@
 
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
-	req_access = list(access_rd)
+	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD/fill()
@@ -42,7 +42,7 @@
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
-	req_access = list(access_rd)
+	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD2/fill()

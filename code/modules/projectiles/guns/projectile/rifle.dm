@@ -127,6 +127,29 @@
 	. = ..()
 	jam_chance = min(jam_chance + 5, 100)
 
+/obj/item/gun/projectile/shotgun/pump/rifle/dominia
+	name = "dominian sniper rifle"
+	desc = "A precision rifle used by snipers and sharpshooters of the Imperial Army. One of the few modern military-grade weapons to use a bolt for its action."
+	desc_extended = "The MPMR-08/2 is a precisely machined and meticulously designed rifle which prioritizes accuracy and precision over rate of fire. \
+	Outside of the Imperial Army, it is commonly seen in the hands of competition shooters."
+	icon = 'icons/obj/guns/dominia_bolt_action.dmi'
+	icon_state = "dom_bolt_action"
+	item_state = "dom_bolt_action"
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	magazine_type = /obj/item/ammo_magazine/boltaction
+	load_method = SPEEDLOADER
+
+/obj/item/gun/projectile/shotgun/pump/rifle/dominia/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set src in usr
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
 	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action."

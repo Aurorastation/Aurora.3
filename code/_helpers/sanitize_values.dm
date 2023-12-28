@@ -21,11 +21,11 @@
 
 //more specialised stuff
 /proc/sanitize_gender(gender, var/species_name)
-	var/datum/species/S = all_species[species_name]
-	return sanitize_inlist(gender, (valid_player_genders & S.default_genders), pick(S.default_genders))
+	var/datum/species/S = GLOB.all_species[species_name]
+	return sanitize_inlist(gender, (GLOB.valid_player_genders & S.default_genders), pick(S.default_genders))
 
 /proc/sanitize_pronouns(pronoun, var/species_name, var/current_gender)
-	var/datum/species/S = all_species[species_name]
+	var/datum/species/S = GLOB.all_species[species_name]
 	if(length(S.selectable_pronouns) && (pronoun in S.selectable_pronouns))
 		return pronoun
 	return current_gender

@@ -47,7 +47,7 @@
 	l_pocket = /obj/item/device/radio
 
 /datum/outfit/admin/nka_polar_explorer/get_id_access()
-	return list(access_nka)
+	return list(ACCESS_NKA)
 
 /datum/ghostspawner/human/nka_polar_sailor
 	short_name = "nka_polar_sailor"
@@ -84,4 +84,4 @@
 	l_pocket = /obj/item/device/radio
 
 /datum/outfit/admin/nka_polar_sailor/get_id_access()
-	return list(access_nka)
+	return list(ACCESS_NKA)

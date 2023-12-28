@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(news)
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
-	if (config.news_use_forum_api)
+	if (GLOB.config.news_use_forum_api)
 		load_forum_news_config()
 
 		INVOKE_ASYNC(src, PROC_REF(load_from_forums))
@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(news)
 	..()
 
 /datum/controller/subsystem/news/proc/load_from_forums()
-	if (!config.forum_api_path || !global.forum_api_key)
+	if (!GLOB.config.forum_api_path || !global.forum_api_key)
 		LOG_DEBUG("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 
