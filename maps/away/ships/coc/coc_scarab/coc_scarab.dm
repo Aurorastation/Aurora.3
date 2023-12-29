@@ -17,7 +17,7 @@
 /obj/effect/overmap/visitable/ship/coc_scarab
 	name = "Scarab Salvage Ship"
 	class = "SFV" //Scarab Fleet Vessel
-	desc = "An ancient Burrow-class transport vessel, bearing signs of extensive modification. These vessels are rarely seen in service outside of the Scarab Fleet in the modern day."
+	desc = "The Burrow-class is an archaic class of transport vessel, originally commissioned by the Solarian Department of Colonisation for Colony Fleet SFE-528-RFS - in modern times, better known as the Scarab Fleet. This one has been modified to an incredibly extensive degree, with large swathes of the original design having been cannibalised, and many new systems having been retrofitted to the ship. A large network of lattices and catwalks appears to have been installed on the exterior hull."
 	icon_state = "freighter"
 	moving_state = "freighter_moving"
 	colors = list("#a400c1", "#4d61fc")
@@ -25,7 +25,7 @@
 	volume = "57 meters length, 48 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Starboard fore ballistic armament, dual port flight craft."
-	sizeclass = "Modified Burrow-class transport."
+	sizeclass = "Modified Burrow-class Transport."
 	shiptype = "Salvage, fuel extraction and mineral exploration."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -101,9 +101,9 @@
 //Shuttles
 /obj/effect/overmap/visitable/ship/landable/scarab_gas_harvester
 	name = "Scarab Gas Harvester"
-	desc = "An old Hephaestus-designed shuttle, intended for atmospheric mining of gas giants. This one appears to have been extensively modified."
+	desc = "An absolutely archaic skiff, the Triton-class is a highly specialised tool designed to harvest precious elements by sifting through the atmospheres of gas giants. While ubiquitous throughout human space some centuries ago, it dropped off sharply in popularity following the Interstellar War. This one appears to have been extensively modified, with abnormal internal readings that may imply particularly complex atmospheric systems."
 	class = "SFV"
-	designation = "Umoya"
+	designation = "Rubedo"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	shuttle = "Scarab Gas Harvester"
@@ -113,6 +113,10 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	designer = "Einstein Engines"
+	volume = "13 meters length, 11 meters beam/width, 6 meters vertical height"
+	sizeclass = "Triton-class Atmospheric Mining Skiff"
+	shiptype = "Gas Harvesting Utility"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester
 	name = "shuttle control terminal"
@@ -140,9 +144,9 @@
 
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle
 	name = "Scarab Shuttle"
-	desc = "An early predecessor to the modern Pickaxe-class, this ancient mining shuttle appears to have been extensively repurposed."
+	desc = "An extremely early predecessor to the modern Pickaxe class, the Mattock-class mining shuttle was a common sight throughout human space some centuries ago, prized for its reliability and simplicity. By the extremely irregular hull composition of this one, it appears to be a real-life Ship of Theseus - it is hard to determine how much of the original ship is even left."
 	class = "SFV"
-	designation = "Taslagch"
+	designation = "Bazaar"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	shuttle = "Scarab Shuttle"
@@ -152,6 +156,10 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+	designer = "Einstein Engines"
+	volume = "16 meters length, 13 meters beam/width, 8 meters vertical height"
+	sizeclass = "Mattock-class Mining Skiff"
+	shiptype = "Mineral Exploitation & Salvage Utility"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
