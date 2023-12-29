@@ -2617,10 +2617,10 @@
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "ou" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/aft{
 	name = "fore"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
 	id = "scarab_gas_harvester_shutters";
 	name = "Safety Blast Doors";
@@ -6689,9 +6689,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
-	dir = 6
-	},
+/obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/grauwolf)
 "Lb" = (
