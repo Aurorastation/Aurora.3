@@ -17,7 +17,7 @@
 /obj/effect/overmap/visitable/ship/coc_scarab
 	name = "Scarab Salvage Ship"
 	class = "SFV" //Scarab Fleet Vessel
-	desc = "The Burrow-class is an archaic class of transport vessel, originally commissioned by the Solarian Department of Colonisation for Colony Fleet SFE-528-RFS - in modern times, better known as the Scarab Fleet. This one has been modified to an incredibly extensive degree, with large swathes of the original design having been cannibalised, and many new systems having been retrofitted to the ship. A large network of lattices and catwalks appears to have been installed on the exterior hull."
+	desc = "The Burrow-class is an archaic class of transport vessel, originally commissioned by the Solarian Department of Colonization for Colony Fleet SFE-528-RFS - in modern times, better known as the Scarab Fleet. This one has been modified to an incredibly extensive degree, with large swathes of the original design having been cannibalised, and many new systems having been retrofitted to the ship. A large network of lattices and catwalks appears to have been installed on the exterior hull."
 	icon_state = "freighter"
 	moving_state = "freighter_moving"
 	colors = list("#a400c1", "#4d61fc")
