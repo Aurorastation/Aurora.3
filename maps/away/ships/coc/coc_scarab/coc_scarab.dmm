@@ -252,8 +252,8 @@
 /turf/simulated/floor/airless,
 /area/space)
 "bN" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/engine,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "bO" = (
@@ -7213,11 +7213,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
-"NF" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/shuttle/coc_scarab)
 "NG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple{
 	dir = 8
@@ -45169,7 +45164,7 @@ lb
 sV
 gK
 IR
-bN
+wY
 Xj
 eX
 eX
@@ -47229,7 +47224,7 @@ wY
 KN
 oJ
 Ne
-NF
+bN
 eX
 GC
 eX
