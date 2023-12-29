@@ -7,7 +7,7 @@
 	ship_cost = 1
 	id = "kasf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kasf_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/kasf_corvette
@@ -139,6 +139,14 @@
 /obj/machinery/computer/shuttle_control/explore/kasf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "KASF Shuttle"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_state = "computer"
+	icon_screen = "helm"
+	icon_keyboard = "security_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /datum/shuttle/autodock/overmap/kasf_shuttle
 	name = "KASF Shuttle"
