@@ -1015,8 +1015,6 @@
 	new /obj/item/gun/energy/blaster/tcaf(src)
 	new /obj/item/storage/belt/military(src)
 
-
-
 //ninja stuff
 /obj/structure/closet/crate/secure/gear_loadout/ninja
 	var/associated_hardsuit = /obj/item/rig/light/ninja
