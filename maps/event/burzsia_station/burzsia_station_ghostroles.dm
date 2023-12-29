@@ -49,7 +49,7 @@
 		H.update_body()
 
 /datum/outfit/admin/etna_clerk/get_id_access()
-	return list(access_bar)
+	return list(ACCESS_BAR)
 
 /datum/ghostspawner/human/etna_bartender
 	short_name = "etna_bartender"
@@ -207,7 +207,7 @@
 
 /datum/outfit/admin/etna_med/get_id_access()
 	. = ..()
-	return list(access_medical)
+	return list(ACCESS_MEDICAL)
 
 
 /datum/ghostspawner/human/etna_machinist
@@ -262,7 +262,7 @@
 
 /datum/outfit/admin/etna_machinist/get_id_access()
 	. = ..()
-	return list(access_robotics)
+	return list(ACCESS_ROBOTICS)
 
 /datum/ghostspawner/human/etna_suit
 	name = "Hephaestus Corporate Liaison"
