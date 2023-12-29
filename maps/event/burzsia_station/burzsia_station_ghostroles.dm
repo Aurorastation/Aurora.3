@@ -330,7 +330,6 @@
 	uniform = /obj/item/clothing/under/rank/scc2
 	suit = /obj/item/clothing/suit/storage/toggle/armor/vest/scc
 	accessory = /obj/item/clothing/accessory/tie/corporate/scc
-	suit_accessory = /obj/item/clothing/accessory/pin/corporate/scc
 	head = /obj/item/clothing/head/beret/scc
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/representative
