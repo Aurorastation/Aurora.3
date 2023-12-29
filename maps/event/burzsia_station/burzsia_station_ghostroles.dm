@@ -87,7 +87,7 @@
 	)
 
 /datum/outfit/admin/etna_clerk/get_id_access()
-	return list(access_bar)
+	return list(ACCESS_BAR)
 
 /datum/outfit/admin/etna_bartender/post_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -154,7 +154,7 @@
 		H.update_body()
 
 /datum/outfit/admin/etna_sec/get_id_access()
-	return list(access_security, access_sec_doors, access_brig)
+	return list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG)
 
 /datum/ghostspawner/human/etna_med
 	short_name = "etna_med"

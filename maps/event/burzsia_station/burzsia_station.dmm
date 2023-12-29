@@ -4508,7 +4508,8 @@
 "lv" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical Reception";
-	dir = 4
+	dir = 4;
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -5115,7 +5116,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/medical{
 	name = "Cold Storage";
-	dir = 4
+	dir = 4;
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -5294,7 +5296,8 @@
 "ne" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Medical";
-	dir = 1
+	dir = 1;
+	req_access = list(5)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/multi_tile{
@@ -5916,7 +5919,8 @@
 "oy" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Room";
-	dir = 4
+	dir = 4;
+	req_access = list(5)
 	},
 /obj/machinery/holosign/surgery{
 	id = "1.1"
@@ -11363,7 +11367,8 @@
 "Dj" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical Reception";
-	dir = 4
+	dir = 4;
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13305,8 +13310,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/glass_command{
-	name = "Hephaestus Representative's Office"
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Reception";
+	dir = 4;
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/burzsia_station/hephrepoffice)
@@ -17743,24 +17750,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/burzsia_station/medbay)
-"Ty" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/mob/living/carbon/human/industrial_hephaestus{
-	name = "Big Aeson"
-	},
-/obj/machinery/door/window/southright{
-	dir = 1
-	},
-/obj/structure/window{
-	dir = 8
-	},
-/obj/structure/window{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/burzsia_station/shopette)
 "Tz" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -43303,7 +43292,7 @@ Mp
 wF
 VH
 Gx
-Ty
+xN
 jA
 lp
 lp
