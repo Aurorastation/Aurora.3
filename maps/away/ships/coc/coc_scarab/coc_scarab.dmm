@@ -7213,6 +7213,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
+"NF" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "NG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple{
 	dir = 8
@@ -7676,7 +7681,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
@@ -7704,6 +7708,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "PP" = (
@@ -47224,7 +47229,7 @@ wY
 KN
 oJ
 Ne
-GC
+NF
 eX
 GC
 eX
