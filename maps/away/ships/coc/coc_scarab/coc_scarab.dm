@@ -17,16 +17,16 @@
 /obj/effect/overmap/visitable/ship/coc_scarab
 	name = "Scarab Salvage Ship"
 	class = "SFV" //Scarab Fleet Vessel
-	desc = "The Burrow-class is an archaic class of transport vessel, originally commissioned by the Solarian Department of Colonization for Colony Fleet SFE-528-RFS - in modern times, better known as the Scarab Fleet. This one has been modified to an incredibly extensive degree, with large swathes of the original design having been cannibalised, and many new systems having been retrofitted on. A large network of lattices and catwalks appear to have been installed on the exterior hull."
+	desc = "The Burrow-class is an archaic transport vessel, originally commissioned by the Solarian Department of Colonization for Colony Fleet SFE-528-RFS - in modern times, better known as the Scarab Fleet. This one has been modified to an incredibly extensive degree, with large swathes of the original design having been cannibalised, and many new systems having been retrofitted on. A large network of lattices and catwalks appear to have been installed on the exterior hull."
 	icon_state = "freighter"
 	moving_state = "freighter_moving"
 	colors = list("#a400c1", "#4d61fc")
-	designer = "Coalition of Colonies, Scarab Fleet"
+	designer = "Einstein Engines"
 	volume = "57 meters length, 48 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Starboard fore ballistic armament, dual port flight craft."
 	sizeclass = "Modified Burrow-class Transport."
-	shiptype = "Salvage, fuel extraction and mineral exploration."
+	shiptype = "Salvage, fuel extraction and mineral exploitation."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -113,10 +113,10 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
-	designer = "Einstein Engines"
+a
 	volume = "13 meters length, 11 meters beam/width, 6 meters vertical height"
-	sizeclass = "Triton-class Atmospheric Mining Skiff"
-	shiptype = "Atmospheric mining"
+	sizeclass = "Triton-class Gas Harvesting Shuttle"
+	shiptype = "Gar harvesting"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester
 	name = "shuttle control terminal"
@@ -158,7 +158,7 @@
 	vessel_size = SHIP_SIZE_TINY
 	designer = "Einstein Engines"
 	volume = "16 meters length, 13 meters beam/width, 8 meters vertical height"
-	sizeclass = "Mattock-class Mining Skiff"
+	sizeclass = "Mattock-class Mining Shuttle"
 	shiptype = "Mineral exploitation and salvage operations"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
