@@ -1491,11 +1491,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/coc_scarab/ammo)
 "hJ" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, crew quarters"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
 	id = "scarab_quarters_shutters";
 	dir = 4;
@@ -3032,11 +3032,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "qF" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
 	id = "scarab_bridge";
 	name = "Bridge Blast Doors";
@@ -6275,13 +6275,13 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 8
 	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, engine room"
-	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine room"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "scarab_engine_room_shutters";
 	name = "Safety Blast Doors"
