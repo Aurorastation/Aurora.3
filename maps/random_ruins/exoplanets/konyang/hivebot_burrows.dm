@@ -28,7 +28,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave/Initialize()
 	. = ..()
 	set_light(0, 1, null)
-	footprint_color = dirt_color
+	footprint_color = null
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/barren/cave/Initialize()
