@@ -2937,6 +2937,11 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/space)
+"qk" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab)
 "ql" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -4618,11 +4623,6 @@
 	buckle_dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_scarab)
-"zJ" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "zL" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -7684,7 +7684,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
@@ -47234,7 +47233,7 @@ wY
 KN
 oJ
 Ne
-zJ
+qk
 eX
 GC
 eX
