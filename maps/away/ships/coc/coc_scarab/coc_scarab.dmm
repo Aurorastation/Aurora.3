@@ -252,8 +252,8 @@
 /turf/simulated/floor/airless,
 /area/space)
 "bN" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "bO" = (
@@ -1985,6 +1985,10 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
+/obj/item/clothing/suit/storage/toggle/trench/green,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
+/obj/item/clothing/suit/storage/toggle/highvis,
+/obj/item/clothing/suit/storage/toggle/highvis_alt,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "kc" = (
@@ -4614,6 +4618,11 @@
 	buckle_dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_scarab)
+"zJ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "zL" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -7675,6 +7684,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
@@ -45164,7 +45174,7 @@ lb
 sV
 gK
 IR
-wY
+bN
 Xj
 eX
 eX
@@ -47224,7 +47234,7 @@ wY
 KN
 oJ
 Ne
-bN
+zJ
 eX
 GC
 eX
