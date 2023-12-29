@@ -7,6 +7,7 @@
 	ship_cost = 1
 	id = "tcfl_peacekeeper_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_shuttle)
+	ban_ruins = list(/datum/map_template/ruin/away_site/tcaf_corvette)
 
 	unit_test_groups = list(3)
 
@@ -100,7 +101,7 @@
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCFL Shuttle"
-	req_access = list(ACCESS_TCFL_PEACEKEEPER_SHIP)
+	req_access = list(ACCESS_TCAF_SHIPS)
 
 /datum/shuttle/autodock/overmap/tcfl_shuttle
 	name = "TCFL Shuttle"
