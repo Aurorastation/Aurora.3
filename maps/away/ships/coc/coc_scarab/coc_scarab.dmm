@@ -252,8 +252,8 @@
 /turf/simulated/floor/airless,
 /area/space)
 "bN" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/engine,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "bO" = (
@@ -2937,11 +2937,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/space)
-"qk" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/shuttle/coc_scarab)
 "ql" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -45173,7 +45168,7 @@ lb
 sV
 gK
 IR
-bN
+wY
 Xj
 eX
 eX
@@ -47233,7 +47228,7 @@ wY
 KN
 oJ
 Ne
-qk
+bN
 eX
 GC
 eX
