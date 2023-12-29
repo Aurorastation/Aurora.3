@@ -116,7 +116,7 @@
 	designer = "Einstein Engines"
 	volume = "13 meters length, 11 meters beam/width, 6 meters vertical height"
 	sizeclass = "Triton-class Atmospheric Mining Skiff"
-	shiptype = "Gas Harvesting Utility"
+	shiptype = "Atmospheric mining"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester
 	name = "shuttle control terminal"
@@ -159,7 +159,7 @@
 	designer = "Einstein Engines"
 	volume = "16 meters length, 13 meters beam/width, 8 meters vertical height"
 	sizeclass = "Mattock-class Mining Skiff"
-	shiptype = "Mineral Exploitation & Salvage Utility"
+	shiptype = "Mineral exploitation and salvage operations"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"

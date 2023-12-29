@@ -7632,6 +7632,10 @@
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
+/obj/item/mining_scanner,
+/obj/item/ore_detector,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "Pv" = (
@@ -9317,7 +9321,7 @@
 	pixel_y = 10;
 	pixel_x = 7
 	},
-/obj/structure/table/steel,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/coc_scarab/bridge)
 "Xt" = (
