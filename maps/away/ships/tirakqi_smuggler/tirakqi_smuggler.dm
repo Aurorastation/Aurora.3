@@ -103,7 +103,7 @@
 	name = "Ti'Rakqi Shuttle"
 	class = "ISV"
 	designation = "Ku'ku"
-	desc = "Made to complement the Xroquv-class freighter, the Jloqup-class shuttle is a cargo transport designed to neatly into the aft shuttle bay of its parent ship. While faster than most shuttles of similar class, it finds a shortcoming in fuel efficiency, meaning it usually can't go far on its own. This one's transponder identifies it as belonging to an independent freighter."
+	desc = "Made to complement the Xroquv-class freighter, the Jloqup-class shuttle is a cargo transport designed to fit neatly into the aft shuttle bay of its parent ship. While faster than most shuttles of similar class, it finds a shortcoming in fuel efficiency, meaning it usually can't go far on its own. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Ti'Rakqi Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
