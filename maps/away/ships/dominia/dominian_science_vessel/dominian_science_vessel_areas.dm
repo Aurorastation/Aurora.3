@@ -40,7 +40,7 @@
 
 /area/ship/dominian_science_vessel/starboard_propulsion
 	name = "Dominian Science Vessel Starboard Propulsion"
-	icon_state = "Engine"
+	icon_state = "engine"
 
 /area/ship/dominian_science_vessel/exterior
 	name = "Dominian Science Vessel Exterior"
@@ -70,6 +70,9 @@
 
 /area/ship/dominian_science_vessel/showers
 	name = "Dominian Science Vessel Showers"
+
+/area/ship/dominian_science_vessel/center_hall
+	name = "Dominian Science Vessel Central Hallway"
 
 /area/shuttle/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
