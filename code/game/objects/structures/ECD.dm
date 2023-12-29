@@ -30,17 +30,17 @@
 			if(ECD_LOOSE)
 				state = ECD_BOLTED
 				if(W.use_tool(src, user, 50, volume = 50))
-				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
-					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
-					SPAN_WARNING("You hear a ratcheting noise."))
-				anchored = TRUE
+					user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+						SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
+						SPAN_WARNING("You hear a ratcheting noise."))
+					anchored = TRUE
 			if(ECD_BOLTED)
 				state = ECD_LOOSE
 				if(W.use_tool(src, user, 50, volume = 50))
-				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
-					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
-					SPAN_WARNING("You hear a ratcheting noise."))
-				anchored = FALSE
+					user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
+						SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
+						SPAN_WARNING("You hear a ratcheting noise."))
+					anchored = FALSE
 			if(ECD_WELDED)
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
 		return
