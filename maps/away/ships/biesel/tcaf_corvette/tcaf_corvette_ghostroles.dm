@@ -1,5 +1,5 @@
 /datum/ghostspawner/human/tcaf_crewman
-	name = "Republican Fleet Crewman"
+	name = "Republican Fleet Legionary"
 	short_name = "tcaf_crewman"
 	desc = "Crew a scout vessel of the Tau Ceti Republican Fleet. Follow your captain's orders, clear the sector of any pirate activity, and uphold the interests of the Republic of Biesel."
 	tags = list("External")
@@ -12,8 +12,8 @@
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Republican Fleet Crewman"
-	special_role = "Republican Fleet Crewman"
+	assigned_role = "Republican Fleet Legionary"
+	special_role = "Republican Fleet Legionary"
 	respawn_flag = null
 
 /datum/outfit/admin/tcaf_crewman
@@ -43,7 +43,7 @@
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
 		var/list/fullname = splittext(H.real_name, " ")
-		var/surname = fullname[2]
+		var/surname = fullname[3] //prefix bumps it up
 		switch(surname)
 			if("K'lax")
 				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
@@ -61,7 +61,7 @@
 	return list(ACCESS_TCAF_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/tcaf_crewman/nco
-	name = "Republican Fleet Senior Crewman"
+	name = "Republican Fleet Prefect"
 	short_name = "tcaf_nco"
 	max_count = 1
 	outfit = /datum/outfit/admin/tcaf_crewman/nco

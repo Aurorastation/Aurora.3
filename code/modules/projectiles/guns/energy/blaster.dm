@@ -119,8 +119,10 @@
 	item_state = "blaster_ar"
 	max_shots = 20
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
+	is_wieldable = TRUE
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
