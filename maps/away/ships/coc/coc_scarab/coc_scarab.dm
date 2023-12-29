@@ -113,7 +113,6 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
-a
 	volume = "13 meters length, 11 meters beam/width, 6 meters vertical height"
 	sizeclass = "Triton-class Gas Harvesting Shuttle"
 	shiptype = "Gar harvesting"
