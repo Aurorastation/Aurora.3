@@ -93,6 +93,7 @@
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 		new /obj/item/reagent_containers/food/condiment/sugar(src)
+
 /obj/structure/closet/secure_closet/freezer/kois
 	name = "k'ois freezer"
 	desc = "A freezer with k'ois inside. Don't eat this unless you're a Vaurca!"
@@ -101,4 +102,3 @@
 	..()
 	for(var/i = 0, i < 8, i++)
 		new /obj/item/reagent_containers/food/snacks/grown/kois(src)
-	..()

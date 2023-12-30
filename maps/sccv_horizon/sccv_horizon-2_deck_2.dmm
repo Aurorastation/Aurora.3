@@ -29552,7 +29552,7 @@
 	input_tag = "cooling_in";
 	name = "Supermatter Monitoring Terminal";
 	output_tag = "cooling_out";
-	sensors = list("supermatter_sensor"="Supermatter  Core")
+	sensors = list("supermatter_sensor"="Supermatter Core")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring)
@@ -38371,7 +38371,7 @@
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	input_tag = "fusion_injector_air";
 	name = "INDRA Chamber Monitor";
-	sensors = list("fusion_sensor"="INDRA    Chamber")
+	sensors = list("fusion_sensor"="INDRA  Chamber")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
