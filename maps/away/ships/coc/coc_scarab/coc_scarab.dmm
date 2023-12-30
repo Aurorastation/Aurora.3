@@ -1984,19 +1984,9 @@
 /obj/item/clothing/accessory/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/offworlder,
 /obj/item/clothing/accessory/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/skirt/offworlder{
-	color = "#c9ced4"
-	},
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder,
 /obj/item/clothing/suit/storage/toggle/trench/green,
 /obj/item/clothing/suit/storage/toggle/trench/grey_alt,
 /obj/item/clothing/under/skirt/offworlder{
@@ -2007,6 +1997,18 @@
 	},
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/under/skirt/offworlder{
+	color = "#c9ced4"
+	},
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "kc" = (
@@ -3783,16 +3785,6 @@
 /obj/effect/shuttle_landmark/coc_scarab/nav3,
 /turf/template_noop,
 /area/space)
-"uo" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/sign/securearea{
-	pixel_x = 32
-	},
-/turf/space/dynamic,
-/area/space)
 "ut" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/cryogenics)
@@ -5001,16 +4993,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
-"Bz" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
-/turf/space/dynamic,
-/area/space)
 "BI" = (
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/machinery/light/floor/decayed{
@@ -5559,6 +5541,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"EH" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/sign/securearea{
+	pixel_x = 32
+	},
+/turf/space/dynamic,
 /area/space)
 "EI" = (
 /obj/structure/cable/green{
@@ -7594,6 +7586,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/ammo)
+"OT" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/turf/space/dynamic,
+/area/space)
 "OX" = (
 /obj/structure/table/steel,
 /obj/item/storage/pill_bottle/dice{
@@ -39864,7 +39866,7 @@ ab
 TJ
 px
 VK
-uo
+EH
 Er
 IR
 IR
@@ -42434,7 +42436,7 @@ ab
 IB
 px
 lM
-Bz
+OT
 GJ
 IR
 IR
