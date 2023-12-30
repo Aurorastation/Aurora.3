@@ -6592,7 +6592,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 1;
 	name = "INDRA Reactor Office";
-	req_access = list(11)
+	req_access = list(10)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -13596,7 +13596,7 @@
 	name = "Viewing Blast Doors";
 	pixel_x = 7;
 	pixel_y = -23;
-	req_one_access = list(19,11)
+	req_one_access = list(19,11,24)
 	},
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
@@ -24128,7 +24128,7 @@
 	name = "External Blast Doors";
 	pixel_x = 7;
 	pixel_y = -18;
-	req_one_access = list(19,11)
+	req_one_access = list(19,11,24)
 	},
 /obj/machinery/light/small,
 /obj/structure/window/reinforced{
