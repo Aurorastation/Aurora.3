@@ -7,8 +7,8 @@
 	ship_cost = 1
 	id = "goon"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/goon_ship)
-
 	unit_test_groups = list(2)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/goon
 	map = "goon base"
@@ -93,8 +93,8 @@
 /datum/shuttle/autodock/overmap/goon_ship
 	name = "Wanted Vessel"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/goon_ship/bridge, /area/shuttle/goon_ship/storage, /area/shuttle/goon_ship/med,
-						/area/shuttle/goon_ship/starboard, /area/shuttle/goon_ship/port, /area/shuttle/goon_ship/living)
+	shuttle_area = list(/area/shuttle/goon_shuttle/bridge, /area/shuttle/goon_shuttle/storage, /area/shuttle/goon_shuttle/med,
+						/area/shuttle/goon_shuttle/starboard, /area/shuttle/goon_shuttle/port, /area/shuttle/goon_shuttle/living)
 	dock_target = "goon_ship"
 	current_location = "nav_hangar_goon_ship"
 	landmark_transition = "nav_transit_goon_ship"
