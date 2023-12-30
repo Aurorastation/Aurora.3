@@ -43,17 +43,21 @@ const ManifestTable = function (act, spawner: Spawner) {
             return (
               <TableCell>
                 {' - ' + spawned_mob_name + ' '}
-                <Tooltip content="Follow mob">
-                  <Button
-                    content="F"
-                    onClick={() =>
-                      act('follow_manifest_entry', {
-                        spawner_id: spawner.short_name,
-                        spawned_mob_name: spawned_mob_name,
-                      })
-                    }
-                  />
-                </Tooltip>
+                {spawner.can_jump_to ? (
+                  <Tooltip content="Follow mob">
+                    <Button
+                      content="F"
+                      onClick={() =>
+                        act('follow_manifest_entry', {
+                          spawner_id: spawner.short_name,
+                          spawned_mob_name: spawned_mob_name,
+                        })
+                      }
+                    />
+                  </Tooltip>
+                ) : (
+                  ''
+                )}
               </TableCell>
             );
           } else {
