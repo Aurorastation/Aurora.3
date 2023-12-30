@@ -41,3 +41,4 @@ changes:
   - rscadd: "Gave Bridge Crew access to the Fuel Bay."
   - rscadd: "Gave Atmos Tech access to Tech Storage and the Leviathan."
   - rscadd: "Added a single debugger to each Atmos Tech locker, so they can fix malfunctioning vending machines without insulated gloves."
+  - rscadd: "Gave Atmos Tech access to the little dilapidated office adjacent to the INDRA that has the tables and empty canisters inside."
