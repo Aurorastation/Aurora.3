@@ -3,6 +3,7 @@
 #define STICKYBAN_MAX_ADMIN_MATCHES 1
 
 #define ACCESS_STATUS_PERMITTED "permitted"
+#define ACCESS_STATUS_ADMINPERMITTED "admin permitted"
 #define ACCESS_STATUS_GUESTDENIED "guests denied"
 #define ACCESS_STATUS_NOIP "no ip"
 #define ACCESS_STATUS_NOCID "no cid"
@@ -14,8 +15,9 @@
 
 /world/proc/log_connection(ckey, ip, computerid, byond_version, byond_build, game_id, access_status)
 	if(!establish_db_connection(GLOB.dbcon))
-		//ToDo: Error-Logging
+		log_access("Unable to Establish DB Connection for connection logging")
 		return
+
 	//Logging player access
 	var/DBQuery/query_accesslog = GLOB.dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`datetime`,`serverip`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`,`game_id`, `status`) VALUES(Now(), :serverip:, :ckey:, :ip:, :computerid:, :byond_version:, :byond_build:, :game_id:, :status:);")
 	query_accesslog.Execute(list(
@@ -35,6 +37,7 @@
 		return ..()
 
 	if(ckey(key) in admin_datums)
+		LOG_CLIENT_CONNECTION(ACCESS_STATUS_ADMINPERMITTED)
 		return ..()
 
 	var/ckey = ckey(key)
@@ -55,7 +58,6 @@
 		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
 		LOG_CLIENT_CONNECTION(ACCESS_STATUS_GUESTDENIED)
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
-
 	if(GLOB.config.ban_legacy_system)
 		//Ban Checking
 		. = CheckBan(ckey, computer_id, address)
@@ -67,7 +69,6 @@
 		return ..()	//default pager ban stuff
 
 	else
-
 		if (!address)
 			log_access("Failed Login: [key] null-[computer_id] - Denied access: No IP address broadcast.",ckey=key_name(key))
 			message_admins("[key] tried to connect without an IP address.")
@@ -239,11 +240,11 @@
 		log_access("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
 		LOG_CLIENT_CONNECTION(ACCESS_STATUS_STICKYBANNED)
 
-
 	LOG_CLIENT_CONNECTION(ACCESS_STATUS_PERMITTED)
 	return .
 
 
+#undef ACCESS_STATUS_ADMINPERMITTED
 #undef ACCESS_STATUS_PERMITTED
 #undef ACCESS_STATUS_GUESTDENIED
 #undef ACCESS_STATUS_NOIP
