@@ -1521,8 +1521,11 @@
 "Hd" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Hh" = (
@@ -1579,6 +1582,14 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
+"IR" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
 "Jd" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
@@ -2405,7 +2416,10 @@
 	pixel_y = 14
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 
@@ -2902,7 +2916,7 @@ xf
 xf
 xf
 xf
-ql
+IR
 xf
 xf
 hI
