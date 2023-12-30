@@ -20,7 +20,7 @@
 	flora_diversity = 0
 	has_trees = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine, /datum/map_template/ruin/exoplanet/hivebot_burrows_1, /datum/map_template/ruin/exoplanet/hivebot_burrows_2)
 	possible_themes = list(/datum/exoplanet_theme/konyang)
 	place_near_main = list(1,0)
 

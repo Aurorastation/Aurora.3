@@ -448,11 +448,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/corpse/scientist,
 /obj/effect/decal/cleanable/blood/no_dry{
 	name = "dried blood";
 	basecolor = "#400000"
 	},
+/obj/effect/landmark/corpse/scientist/hivebot_burrows,
 /turf/simulated/floor/tiled/full,
 /area/hivebot_burrows_2)
 "fZ" = (
@@ -772,10 +772,10 @@
 /turf/simulated/floor/asphalt,
 /area/hivebot_burrows_2)
 "lq" = (
-/obj/structure/table/rack,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /obj/random/dirt_75,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/hivebot_burrows_2)
 "lr" = (
@@ -813,9 +813,9 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "lH" = (
-/obj/structure/table/rack,
 /obj/random/tech_supply,
 /obj/random/dirt_75,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/hivebot_burrows_2)
 "lK" = (
@@ -1177,12 +1177,12 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 10
 	},
-/obj/effect/landmark/corpse/scientist,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/no_dry{
 	name = "dried blood";
 	basecolor = "#400000"
 	},
+/obj/effect/landmark/corpse/scientist/hivebot_burrows,
 /turf/simulated/floor/tiled/dark,
 /area/hivebot_burrows_2)
 "qJ" = (
@@ -1398,6 +1398,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "tP" = (
@@ -1587,11 +1590,19 @@
 /area/hivebot_burrows_2)
 "wm" = (
 /obj/random/dirt_75,
-/obj/structure/closet/crate/bin,
 /obj/random/junk,
 /obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
+/obj/structure/closet/crate/trashcart,
+/obj/item/storage/box,
+/obj/item/trash/chips,
+/obj/item/trash/uselessplastic,
+/obj/item/trash/tastybread,
+/obj/item/trash/ramen,
+/obj/item/trash/coffee,
+/obj/item/trash/chipbasket,
+/obj/item/trash/cheesie,
+/obj/item/inflatable/torn,
+/obj/item/storage/firstaid/empty,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "wr" = (
@@ -1622,10 +1633,10 @@
 /area/hivebot_burrows_2)
 "wS" = (
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
-/obj/structure/table/steel{
+/obj/random/dirt_75,
+/obj/structure/table/reinforced/steel{
 	flipped = 1
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hivebot_burrows_2)
 "wX" = (
@@ -2001,8 +2012,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/item/device/ano_scanner{
-	pixel_x = -6;
-	pixel_y = 4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
@@ -2105,6 +2116,11 @@
 	basecolor = "#400000"
 	},
 /mob/living/simple_animal/hostile/hivebot,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hivebot_burrows_2)
 "DI" = (
@@ -2213,6 +2229,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
 /turf/simulated/floor/tiled/full,
 /area/hivebot_burrows_2)
 "Ff" = (
@@ -2257,7 +2278,8 @@
 /area/hivebot_burrows_2)
 "FN" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
-	anchored = 1
+	anchored = 1;
+	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
@@ -2375,6 +2397,11 @@
 /obj/item/device/radio{
 	pixel_x = -10;
 	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_2)
@@ -3277,6 +3304,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hivebot_burrows_2)
 "Us" = (
@@ -3734,21 +3766,23 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hivebot_burrows_2)
 "Zq" = (
-/obj/structure/closet/crate/trashcart,
 /obj/structure/chainlink_fence{
 	dir = 1
 	},
 /obj/random/junk,
 /obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/item/trash/tray,
+/obj/item/trash/ricetub,
+/obj/item/trash/can,
+/obj/item/trash/seaweed,
+/obj/item/broken_device,
+/obj/item/paper/crumpled,
+/obj/item/broken_bottle,
+/obj/item/trash/broken_electronics,
+/obj/item/material/shard,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "Zs" = (
@@ -3765,7 +3799,8 @@
 /area/hivebot_burrows_2)
 "ZA" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
-	anchored = 1
+	anchored = 1;
+	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
@@ -5122,7 +5157,7 @@ eO
 NX
 Dd
 vV
-vV
+dZ
 Wg
 ZF
 gY
@@ -5403,7 +5438,7 @@ Hl
 LV
 RL
 Ts
-RL
+lK
 pU
 dU
 XQ
@@ -5608,12 +5643,12 @@ AQ
 GU
 et
 EI
-eB
+Ff
 ko
 XQ
 XQ
 RL
-RL
+lK
 RL
 vy
 JB
@@ -5660,7 +5695,7 @@ im
 bS
 nM
 Cd
-Ff
+eB
 JG
 XQ
 XQ

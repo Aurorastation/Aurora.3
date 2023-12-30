@@ -150,6 +150,13 @@
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
+"dm" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "dn" = (
 /obj/random/dirt_75,
 /obj/structure/barricade/wooden{
@@ -312,6 +319,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"gJ" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "gQ" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -407,6 +421,13 @@
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"iw" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "iS" = (
 /obj/structure/rope_railing{
 	dir = 1
@@ -449,8 +470,15 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "jg" = (
-/obj/structure/flora/bush/konyang_reeds,
 /obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jl" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "jo" = (
@@ -531,6 +559,7 @@
 /area/hivebot_burrows_1)
 "la" = (
 /obj/structure/flora/rock/konyang,
+/obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "lw" = (
@@ -602,7 +631,7 @@
 	name = "dried blood";
 	basecolor = "#400000"
 	},
-/obj/effect/landmark/corpse/miner,
+/obj/effect/landmark/corpse/miner/hivebot_burrows,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "me" = (
@@ -754,6 +783,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
+"qs" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods,
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "qt" = (
 /obj/random/dirt_75,
 /obj/structure/girder,
@@ -782,6 +817,7 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/mob/living/simple_animal/hostile/hivebot/guardian,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "qX" = (
@@ -925,6 +961,13 @@
 /obj/random/dirt_75,
 /turf/simulated/mineral,
 /area/hivebot_burrows_1)
+"uo" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "uq" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/blood/oil,
@@ -981,6 +1024,12 @@
 "vg" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_1)
+"vW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "wb" = (
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
@@ -1081,6 +1130,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"xD" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/template_noop,
+/area/space)
 "xF" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1126,7 +1179,6 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "yr" = (
-/obj/effect/landmark/corpse/miner,
 /obj/effect/decal/cleanable/blood/no_dry{
 	name = "dried blood";
 	basecolor = "#400000"
@@ -1136,6 +1188,7 @@
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/corpse/miner/hivebot_burrows,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "yw" = (
@@ -1451,6 +1504,10 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
+"Fn" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/template_noop,
+/area/space)
 "Fo" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/konyang,
@@ -1671,6 +1728,11 @@
 /obj/random/bomb_supply,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"Kq" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "Kv" = (
 /obj/structure/chainlink_fence,
 /obj/random/dirt_75,
@@ -1867,6 +1929,13 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"NN" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "NU" = (
 /obj/item/device/flashlight/flare{
 	pixel_y = 7;
@@ -1890,6 +1959,10 @@
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
+"Oh" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/template_noop,
+/area/space)
 "Om" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
@@ -1899,7 +1972,6 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Oy" = (
-/mob/living/simple_animal/hostile/hivebot/guardian,
 /obj/structure/rope_post{
 	dir = 4
 	},
@@ -2082,10 +2154,9 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "Sw" = (
-/mob/living/simple_animal/hostile/hivebot/guardian,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
 "SB" = (
 /obj/random/dirt_75,
@@ -2203,6 +2274,10 @@
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
+"Vj" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/template_noop,
+/area/space)
 "Vk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2261,6 +2336,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"Wh" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "Wr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/rock/konyang/small,
@@ -2490,7 +2572,7 @@ Vy
 Vy
 Vy
 iq
-yB
+dm
 pu
 il
 Vy
@@ -2504,12 +2586,12 @@ Vy
 Vy
 Vy
 Vy
-iY
+Kq
 GZ
 pu
 iq
 pu
-TR
+uo
 Vy
 Vy
 Vy
@@ -2519,7 +2601,7 @@ Vy
 Vy
 Vy
 Om
-iY
+Kq
 pu
 iq
 Vy
@@ -2554,7 +2636,7 @@ Vy
 Vy
 Vy
 Vy
-TR
+NN
 pu
 pu
 pu
@@ -2573,7 +2655,7 @@ Om
 Om
 Om
 pu
-yB
+dm
 iq
 TI
 Vy
@@ -2641,7 +2723,7 @@ Vy
 Vy
 iq
 pu
-iY
+Kq
 pu
 Om
 TI
@@ -2672,12 +2754,12 @@ Om
 TI
 jd
 iq
-iY
+Kq
 TI
-TR
+uo
 Fo
 iq
-iY
+Kq
 Om
 Om
 iq
@@ -2692,7 +2774,7 @@ Vy
 Vy
 Vy
 pu
-TR
+uo
 iq
 Om
 GZ
@@ -2723,7 +2805,7 @@ oJ
 il
 Om
 pu
-yB
+dm
 il
 TI
 jd
@@ -2751,7 +2833,7 @@ pu
 Om
 Om
 Om
-TR
+NN
 iq
 oJ
 oJ
@@ -2891,7 +2973,7 @@ GZ
 oJ
 oJ
 jd
-iY
+Kq
 Om
 Vy
 "}
@@ -2994,14 +3076,14 @@ Fo
 Om
 Om
 dO
-yB
+dm
 TI
 TI
 Vy
 "}
 (11,1,1) = {"
 Om
-TI
+pu
 iq
 Om
 oJ
@@ -3019,7 +3101,7 @@ ve
 tf
 uO
 YM
-cT
+qs
 xf
 xf
 xf
@@ -3042,8 +3124,8 @@ tr
 xf
 xf
 xf
-TI
-iY
+pu
+Kq
 Om
 Om
 pu
@@ -3053,8 +3135,8 @@ TI
 "}
 (12,1,1) = {"
 Vy
-TI
-iY
+pu
+Kq
 Om
 oJ
 HE
@@ -3147,17 +3229,17 @@ xf
 xf
 Qe
 oJ
-TI
+pu
 iq
 TI
-iY
+Kq
 Om
 Om
 il
 "}
 (14,1,1) = {"
 Vy
-TR
+uo
 Om
 Vr
 eb
@@ -3204,7 +3286,7 @@ TI
 TI
 jd
 pu
-TR
+Wh
 TI
 "}
 (15,1,1) = {"
@@ -3253,7 +3335,7 @@ xf
 xf
 nt
 pu
-TR
+uo
 iq
 pu
 pu
@@ -3357,7 +3439,7 @@ xf
 oJ
 oJ
 TI
-iY
+Kq
 il
 Om
 Om
@@ -3411,7 +3493,7 @@ TI
 iq
 pu
 oJ
-yB
+jl
 Om
 Om
 "}
@@ -3560,7 +3642,7 @@ xf
 xf
 Wd
 iW
-iW
+Sw
 iW
 xf
 GX
@@ -3574,7 +3656,7 @@ iq
 (22,1,1) = {"
 Vy
 iq
-yB
+gJ
 pu
 il
 eb
@@ -3627,7 +3709,7 @@ dp
 TI
 pu
 Om
-iY
+Kq
 eb
 Cn
 xf
@@ -3702,7 +3784,7 @@ Go
 tr
 xf
 xf
-Wd
+vW
 bZ
 xf
 xf
@@ -3780,7 +3862,7 @@ eb
 iY
 "}
 (26,1,1) = {"
-TR
+uo
 iq
 Om
 pu
@@ -3800,7 +3882,7 @@ oH
 xf
 xf
 JK
-Sw
+Wd
 Wd
 Pw
 xf
@@ -3931,7 +4013,7 @@ oJ
 oJ
 Om
 Om
-TI
+pu
 Om
 pu
 "}
@@ -3990,7 +4072,7 @@ il
 (30,1,1) = {"
 Vy
 il
-iY
+Kq
 Om
 TI
 oJ
@@ -4026,7 +4108,7 @@ Fd
 qH
 ei
 sF
-JK
+iw
 JK
 xf
 xf
@@ -4189,11 +4271,11 @@ eb
 eb
 eb
 oJ
-TR
+Wh
 pu
 iY
 GZ
-TI
+pu
 "}
 (34,1,1) = {"
 Vy
@@ -4244,7 +4326,7 @@ il
 pu
 Om
 Om
-yB
+jl
 Vy
 "}
 (35,1,1) = {"
@@ -4252,7 +4334,7 @@ Vy
 Vy
 Om
 iq
-yB
+dm
 iq
 pu
 oJ
@@ -4307,7 +4389,7 @@ pu
 Om
 GZ
 iq
-TI
+pu
 oJ
 xf
 xf
@@ -4410,9 +4492,9 @@ Vy
 TI
 pu
 Om
-iY
+Kq
 iq
-TI
+pu
 dO
 eb
 Mb
@@ -4450,7 +4532,7 @@ Om
 TI
 jd
 TI
-iY
+Kq
 Om
 TI
 Vy
@@ -4459,7 +4541,7 @@ Vy
 Vy
 Vy
 Vy
-TR
+Wh
 TI
 gB
 Om
@@ -4518,7 +4600,7 @@ iq
 GZ
 TI
 iq
-TI
+pu
 oJ
 SE
 xf
@@ -4550,7 +4632,7 @@ Om
 Om
 pu
 GZ
-yB
+dm
 oJ
 oJ
 TI
@@ -4607,7 +4689,7 @@ Wr
 oJ
 iq
 Om
-TR
+Wh
 Vy
 Vy
 "}
@@ -4619,7 +4701,7 @@ Vy
 il
 TI
 iq
-iY
+Kq
 pu
 Om
 Om
@@ -4675,7 +4757,7 @@ TI
 Fo
 GZ
 iq
-TI
+pu
 pu
 xf
 xf
@@ -4693,12 +4775,12 @@ GX
 bn
 oJ
 oJ
-TR
+uo
 TI
 pu
 TI
 jd
-yB
+jl
 oJ
 SE
 oJ
@@ -4722,7 +4804,7 @@ Vy
 Vy
 Om
 iq
-yB
+gJ
 TI
 TI
 jd
@@ -4778,11 +4860,11 @@ TI
 il
 TI
 pu
-iY
+Kq
 TI
 iq
 Om
-TI
+pu
 il
 oJ
 ft
@@ -4798,7 +4880,7 @@ pu
 TI
 Om
 Om
-iY
+Kq
 br
 eb
 SE
@@ -4809,7 +4891,7 @@ pu
 TI
 iq
 GZ
-yB
+dm
 TI
 Fo
 TI
@@ -4837,13 +4919,13 @@ Om
 TI
 pu
 pu
-iY
+Kq
 iq
 TI
 Fo
 pu
 pu
-yB
+dm
 Om
 Om
 TI
@@ -4917,7 +4999,7 @@ iq
 pu
 iq
 TI
-TR
+NN
 pu
 iq
 Om
@@ -4937,7 +5019,7 @@ iq
 TI
 pu
 gB
-yB
+dm
 iq
 Om
 Om
@@ -4952,7 +5034,7 @@ TI
 jd
 iq
 GZ
-yB
+dm
 TI
 iq
 Om
@@ -4961,7 +5043,7 @@ TI
 TI
 iq
 GZ
-TR
+NN
 Vy
 Vy
 Vy
@@ -4998,7 +5080,7 @@ sK
 pu
 iY
 TI
-TR
+NN
 iq
 TI
 Fo
@@ -5063,10 +5145,10 @@ Vy
 Vy
 Vy
 Vy
-Vy
-Vy
-Vy
-Vy
+Vj
+xD
+Fn
+Oh
 Vy
 Vy
 Vy
