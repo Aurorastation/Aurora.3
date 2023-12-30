@@ -363,7 +363,7 @@ var/list/gear_datums = list()
 
 	if(href_list["next_slot"] || href_list["prev_slot"])
 		if(pref.gear_modified)
-			tgui_alert(usr, "Gear has been Modified - Save First or Reload", "Gear Modified", list("OK"))
+			tgui_alert(user, "Gear has been Modified - Save First or Reload", "Gear Modified", list("OK"))
 			return TOPIC_NOACTION
 		//Set the current slot in the gear list to the currently selected gear
 		pref.gear_list["[pref.gear_slot]"] = pref.gear
