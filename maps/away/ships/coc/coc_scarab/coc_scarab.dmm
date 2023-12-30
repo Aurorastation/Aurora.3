@@ -696,7 +696,6 @@
 	id = "scarab_washroom";
 	name = "Washroom Bolt Control";
 	pixel_x = -24;
-	req_access = list(72);
 	pixel_y = 4;
 	specialfunctions = 4
 	},
@@ -3784,6 +3783,16 @@
 /obj/effect/shuttle_landmark/coc_scarab/nav3,
 /turf/template_noop,
 /area/space)
+"uo" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/sign/securearea{
+	pixel_x = 32
+	},
+/turf/space/dynamic,
+/area/space)
 "ut" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/coc_scarab/cryogenics)
@@ -4183,16 +4192,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
-"wy" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
-/turf/space/dynamic,
-/area/space)
 "wD" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
@@ -4459,16 +4458,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
-"yH" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/sign/securearea{
-	pixel_x = 32
-	},
-/turf/space/dynamic,
-/area/space)
 "yN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail{
@@ -5012,6 +5001,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
+"Bz" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/turf/space/dynamic,
+/area/space)
 "BI" = (
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/machinery/light/floor/decayed{
@@ -39865,7 +39864,7 @@ ab
 TJ
 px
 VK
-yH
+uo
 Er
 IR
 IR
@@ -42435,7 +42434,7 @@ ab
 IB
 px
 lM
-wy
+Bz
 GJ
 IR
 IR
