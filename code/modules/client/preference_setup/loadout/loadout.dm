@@ -363,8 +363,8 @@ var/list/gear_datums = list()
 
 	if(href_list["next_slot"] || href_list["prev_slot"])
 		if(pref.gear_modified)
-			alert("Gear has been Modified - Save First or Reload", "Gear Modified", "Back") //ToDo: Add a Save and Reload button
-			return TOPIC_REFRESH_UPDATE_PREVIEW
+			tgui_alert("Gear has been Modified - Save First or Reload", "Gear Modified", list("OK"))
+			return TOPIC_NOACTION
 		//Set the current slot in the gear list to the currently selected gear
 		pref.gear_list["[pref.gear_slot]"] = pref.gear
 
