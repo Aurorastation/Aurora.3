@@ -23,7 +23,7 @@
 	name = "Scarab Salvager"
 	uniform = /obj/item/clothing/under/offworlder/drab
 	mask = /obj/item/clothing/mask/offworlder/drab
-	shoes = /obj/item/clothing/shoes/workboots
+	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/offworlder/drab
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/industrial

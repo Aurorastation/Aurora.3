@@ -213,19 +213,19 @@
 
 // Drab offworlder clothing
 /obj/item/clothing/under/offworlder/drab
-	color = "#726C62"
+	color = "#554444"
 
 /obj/item/clothing/accessory/offworlder/drab
-	color = "#726C62"
+	color = "#554444"
 
 /obj/item/clothing/accessory/offworlder/bracer/drab
-	color = "#726C62"
+	color = "#554444"
 
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace/drab
-	color = "#726C62"
+	color = "#554444"
 
 /obj/item/clothing/gloves/offworlder/drab
-	color = "#726C62"
+	color = "#554444"
 
 /obj/item/clothing/mask/offworlder/drab
-	color = "#7A7366"
+	color = "#454c65"

@@ -156,10 +156,6 @@
 /obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/brown,
@@ -180,6 +176,10 @@
 /obj/item/clothing/glasses/spiffygogs/offworlder{
 	color = "#7C7373"
 	},
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "bg" = (
@@ -1990,10 +1990,10 @@
 /obj/item/clothing/suit/storage/toggle/trench/green,
 /obj/item/clothing/suit/storage/toggle/trench/grey_alt,
 /obj/item/clothing/under/skirt/offworlder{
-	color = "#726C62"
+	color = "#554444"
 	},
 /obj/item/clothing/under/skirt/offworlder{
-	color = "#726C62"
+	color = "#554444"
 	},
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -5542,16 +5542,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
-"EH" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/sign/securearea{
-	pixel_x = 32
-	},
-/turf/space/dynamic,
-/area/space)
 "EI" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5715,6 +5705,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/hydroponics)
+"Fv" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/sign/securearea{
+	pixel_x = 32
+	},
+/turf/space/dynamic,
+/area/space)
 "Fy" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
@@ -6593,6 +6593,16 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
+"Km" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/turf/space/dynamic,
+/area/space)
 "Ko" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/atmospherics/pipe/tank/air{
@@ -7586,16 +7596,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/ammo)
-"OT" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
-/turf/space/dynamic,
-/area/space)
 "OX" = (
 /obj/structure/table/steel,
 /obj/item/storage/pill_bottle/dice{
@@ -39866,7 +39866,7 @@ ab
 TJ
 px
 VK
-EH
+Fv
 Er
 IR
 IR
@@ -42436,7 +42436,7 @@ ab
 IB
 px
 lM
-OT
+Km
 GJ
 IR
 IR
