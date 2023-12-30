@@ -2,8 +2,35 @@
 #define STICKYBAN_MAX_EXISTING_USER_MATCHES 3 //ie, users who were connected before the ban triggered
 #define STICKYBAN_MAX_ADMIN_MATCHES 1
 
+#define ACCESS_STATUS_PERMITTED "permitted"
+#define ACCESS_STATUS_GUESTDENIED "guests denied"
+#define ACCESS_STATUS_NOIP "no ip"
+#define ACCESS_STATUS_NOCID "no cid"
+#define ACCESS_STATUS_BANNED "banned"
+#define ACCESS_STATUS_STICKYBANNED "sticky banned"
+
+
+#define LOG_CLIENT_CONNECTION(STATUS)  if (log_connection) {log_connection(ckey(key), address, computer_id, byond_version, byond_build, game_id, STATUS)}
+
+/world/proc/log_connection(ckey, ip, computerid, byond_version, byond_build, game_id, access_status)
+	if(!establish_db_connection(GLOB.dbcon))
+		//ToDo: Error-Logging
+		return
+	//Logging player access
+	var/DBQuery/query_accesslog = GLOB.dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`datetime`,`serverip`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`,`game_id`, `status`) VALUES(Now(), :serverip:, :ckey:, :ip:, :computerid:, :byond_version:, :byond_build:, :game_id:, :status:);")
+	query_accesslog.Execute(list(
+		"serverip"="[world.internet_address]:[world.port]",
+		"ckey"=ckey,
+		"ip"=ip,
+		"computerid"=computerid,
+		"byond_version"=byond_version,
+		"byond_build"=byond_build,
+		"game_id"=game_id,
+		"status"=access_status))
+
+
 //Blocks an attempt to connect before even creating our client datum thing.
-/world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
+/world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE, log_connection = TRUE)
 	if (type == "world")
 		return ..()
 
@@ -26,6 +53,7 @@
 	if(!(GLOB.config.guests_allowed || GLOB.config.external_auth) && IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed",ckey=key_name(key))
 		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
+		LOG_CLIENT_CONNECTION(ACCESS_STATUS_GUESTDENIED)
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
 	if(GLOB.config.ban_legacy_system)
@@ -43,11 +71,13 @@
 		if (!address)
 			log_access("Failed Login: [key] null-[computer_id] - Denied access: No IP address broadcast.",ckey=key_name(key))
 			message_admins("[key] tried to connect without an IP address.")
+			LOG_CLIENT_CONNECTION(ACCESS_STATUS_NOIP)
 			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an IP address to check.")
 
 		if (!computer_id)
 			log_access("Failed Login: [key] [address]-null - Denied access: No computer ID broadcast.",ckey=key_name(key))
 			message_admins("[key] tried to connect without a computer ID.")
+			LOG_CLIENT_CONNECTION(ACCESS_STATUS_NOCID)
 			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an computer ID to check.")
 
 
@@ -95,6 +125,7 @@
 			if (GLOB.config.forum_passphrase)
 				desc += "\nTo register on the forums, please use the following passphrase: [GLOB.config.forum_passphrase]"
 
+			LOG_CLIENT_CONNECTION(ACCESS_STATUS_BANNED)
 			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)
 
 	var/list/ban = ..()	//default pager ban stuff
@@ -206,9 +237,21 @@
 		var/desc = "\nReason:(StickyBan) You, or another user of this computer or connection ([bannedckey]) is banned from playing here. The ban reason is:\n[ban["message"]]\nThis ban was applied by [ban["admin"]]\nThis is a BanEvasion Detection System ban, if you think this ban is a mistake, please wait EXACTLY 6 seconds, then try again before filing an appeal.\n"
 		. = list("reason" = "Stickyban", "desc" = desc)
 		log_access("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
+		LOG_CLIENT_CONNECTION(ACCESS_STATUS_STICKYBANNED)
 
+
+	LOG_CLIENT_CONNECTION(ACCESS_STATUS_PERMITTED)
 	return .
 
+
+#undef ACCESS_STATUS_PERMITTED
+#undef ACCESS_STATUS_GUESTDENIED
+#undef ACCESS_STATUS_NOIP
+#undef ACCESS_STATUS_NOCID
+#undef ACCESS_STATUS_BANNED
+#undef ACCESS_STATUS_STICKYBANNED
+
+#undef LOG_CLIENT_CONNECTION
 
 #undef STICKYBAN_MAX_MATCHES
 #undef STICKYBAN_MAX_EXISTING_USER_MATCHES
