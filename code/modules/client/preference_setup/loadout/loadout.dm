@@ -51,6 +51,7 @@ var/list/gear_datums = list()
 		var/DBQuery/character_gear_query = GLOB.dbcon.NewQuery("SELECT slot, name, tweaks FROM ss13_characters_gear WHERE char_id = :char_id:")
 		character_gear_query.Execute(list("char_id"=pref.current_character))
 		while(character_gear_query.NextRow())
+			CHECK_TICK
 			var/slot = character_gear_query.item[1]
 			var/name = character_gear_query.item[2]
 
