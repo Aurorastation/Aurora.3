@@ -710,3 +710,8 @@
 /datum/access/gadpathur_navy_officer
 	id = ACCESS_GADPATHUR_NAVY_OFFICER
 	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_HOUSE_VOLVALAAD_SHIP 225
+/datum/access/house_volvalaad
+	id = ACCESS_HOUSE_VOLVALAAD_SHIP
+	access_type = ACCESS_TYPE_CENTCOM

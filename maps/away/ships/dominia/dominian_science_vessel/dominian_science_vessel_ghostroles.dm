@@ -3,7 +3,7 @@
 /datum/ghostspawner/human/house_volvalaad
 	short_name = "house_volvalaad"
 	name = "House Volvalaad Voidsman"
-	desc = "You are an enlisted Ma’zal voidsman of the Imperial Fleet, seconded to House Volvalaad. Voidsmen are generally recruited from the Imperial Frontier and are eager to pay off their Mo’ri’zal (“Blood Debt,” the Empire’s form of taxation) via military service. Few serve more than a few tours of duty due to the lonely and hazardous nature of interstellar military service. You have been trained to obey your superior, and most Primaries, without question or delay. If the Ensign wills it, get it done. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
+	desc = "You are an enlisted Ma’zal voidsman of the Imperial Fleet, seconded to House Volvalaad for a scientific mission. Voidsmen are generally recruited from the Imperial Frontier and are eager to pay off their Mo’ri’zal (“Blood Debt,” the Empire’s form of taxation) via military service. Few serve more than a few tours of duty due to the lonely and hazardous nature of interstellar military service. You have been trained to obey your superior, and most Primaries, without question or delay. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	tags = list("External")
 	mob_name_prefix = "VDSMN. " //Voidsman
 
@@ -27,7 +27,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 
-	id = /obj/item/card/id/imperial_fleet
+	id = /obj/item/card/id/house_volvalaad
 
 	l_ear = /obj/item/device/radio/headset/ship
 
@@ -36,12 +36,10 @@
 /datum/outfit/admin/house_volvalaad/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
-//change
 /datum/ghostspawner/human/house_volvalaad/officer
 	short_name = "house_volvalaad_officer"
 	name = "House Volvalaad Captain"
 	desc = "You are a Secondary affiliated with House Volvalaad assigned to captain a science ship. Serve House Volvalaad by searching for artifacts, surveying planetary bodies, and making scientific discoveries. Goddess protect and keep you. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Secondary.)"
-	mob_name_prefix = "ENS. "
 
 	spawnpoints = list("house_volvalaad")
 	max_count = 1
@@ -54,9 +52,8 @@
 
 /datum/outfit/admin/house_volvalaad/officer
 	name = "House Volvalaad Captain"
-	head = /obj/item/clothing/head/dominia/fleet/officer
-	uniform = /obj/item/clothing/under/dominia/fleet/officer
-	suit = /obj/item/clothing/suit/storage/dominia/fleet
+	uniform = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
+	shoes = /obj/item/clothing/shoes/laceup
 
 
 /datum/ghostspawner/human/house_volvalaad/armsman
@@ -82,10 +79,10 @@
 /datum/ghostspawner/human/house_volvalaad/scientist
 	short_name = "house_volvalaad_scientist"
 	name = "House Volvalaad Scientist"
-	/* change */ desc = "You are a  (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
+	desc = "You are a Secondary or Ma'zal affiliated with House Volvalaad who serves as a scientist aboard a House Volvalaad science vessel. Visit planetary bodies, make new discoveries, and bring honor to the Goddess and House. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal or Secondary.)"
 	mob_name_prefix = null
 
-	max_count = 1
+	max_count = 2
 
 	outfit = /datum/outfit/admin/house_volvalaad/scientist
 
@@ -95,9 +92,9 @@
 
 /datum/outfit/admin/house_volvalaad/scientist
 	name = "House Volvalaad Scientist"
-	head = /obj/item/clothing/head/beret/dominia/priest //change v
-	uniform = /obj/item/clothing/under/dominia/priest
-	accessory = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
+	uniform = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	shoes = /obj/item/clothing/shoes/laceup
 
 //items
 

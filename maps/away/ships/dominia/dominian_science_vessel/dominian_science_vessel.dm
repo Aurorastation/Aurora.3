@@ -18,7 +18,7 @@
 
 /obj/effect/overmap/visitable/ship/dominian_science_vessel
 	name = "Dominian Science Vessel"
-	class = "HVSS"
+	class = "HVS"
 	desc = "Based on the Lammergeier-class corvette, this vessel has been repurposed by House Volvalaad for long range survey and scientific tasks. Due to its repurposement, the vessel features an enlarged hangar and shuttle, as well as scientific labs and a smaller defensive armament."
 	icon_state = "lammergeier"//td
 	moving_state = "lammergeier_moving"//td
@@ -88,7 +88,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
-	class = "HVSS"
+	class = "HVS"
 	designation = "Scholar"
 	desc = "An exploration shuttle used by House Volvalaad on its science vessels, the Scholar is well-stocked for its mission of exploration and discovery."
 	shuttle = "Dominian Science Shuttle"
@@ -104,7 +104,7 @@
 /obj/machinery/computer/shuttle_control/explore/dominian_science_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Science Shuttle"
-	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	req_access = list(ACCESS_HOUSE_VOLVALAAD_SHIP)
 
 /datum/shuttle/autodock/overmap/dominian_science_shuttle
 	name = "Dominian Science Shuttle"

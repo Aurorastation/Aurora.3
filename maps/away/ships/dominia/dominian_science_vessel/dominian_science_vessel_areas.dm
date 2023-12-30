@@ -1,6 +1,7 @@
 //areas
 /area/ship/dominian_science_vessel
 	name = "Dominian Science Vessel"
+	requires_power = TRUE
 
 /area/ship/dominian_science_vessel/hangar
 	name = "Dominian Science Vessel Hangar"
