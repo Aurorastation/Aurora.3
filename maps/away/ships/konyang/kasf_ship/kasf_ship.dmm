@@ -8556,7 +8556,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(218)
 	},
-/obj/machinery/computer/shuttle_control/explore/kasf_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
