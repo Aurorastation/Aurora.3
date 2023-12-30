@@ -1,4 +1,4 @@
-//elyran naval infantry
+//td this whole thing
 
 /datum/ghostspawner/human/house_volvalaad
 	short_name = "house_volvalaad"
