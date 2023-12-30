@@ -115,7 +115,7 @@
 	vessel_size = SHIP_SIZE_TINY
 	volume = "13 meters length, 11 meters beam/width, 6 meters vertical height"
 	sizeclass = "Triton-class Gas Harvesting Shuttle"
-	shiptype = "Gar harvesting"
+	shiptype = "Gas mining operations"
 
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_gas_harvester
 	name = "shuttle control terminal"
@@ -185,7 +185,7 @@
 	base_turf = /turf/space/transit/north
 
 // CUSTOM STUFF
-// dimmed yellow lights
+// Dimmed yellow lights
 /obj/machinery/light/floor/decayed
 	brightness_color = "#fabd6d"
 	randomize_color = FALSE
@@ -194,9 +194,10 @@
 /obj/machinery/light/colored/decayed/dimmed
 	brightness_power = 0.2
 
+// Guide to the combustion engine
 /obj/item/paper/fluff/scarab
 	name = "Technician's Notice"
-	info = "NOTICE FOR ALL TECHNICIANS! If a single one of you melts ANY portion of our ship EVER again, I will see you summarily released at our nearest port with as little of our food as I can POSSIBLY spare you! Since wasting paper on this matter has apparently become essential, you will now keep this notice adjacent to the combustion engine AT ALL TIMES! This is our ship's combustion engine. We burn a fire in the chamber, let it fully burn out, and then run the superheated gas through a vent, into our thermoelectric generator, and back into the chamber. This produces a lot of power, and will be required to keep our SMES topped up in the long term. It will slowly cool down, and may occasionally need more burner mix to be injected to keep it hot enough for our needs. Repairing the inside of the chamber may occasionally become necessary, as a particularly hot burn will damage the walls and windows. GUIDE FOR USE: Step one: configure the mixer to output a 60% oxygen and 40% hydrogen mix. Inject a few hundred kPa of this mix into the chamber. Step 2: cut injection, and ignite the mix. Do not panic when the glass makes a noise, that is normal. Step 3: once the fire has fully burned out, enable combustion chamber injection and output, so the gas begins to circulate through the thermoelectric generator. Innovation upon this basic method is welcome! Do not leave injection on after ignition, and if you think the glass might break, immediately cut fuel injection and lower the blast doors!"
+	info = "KEEP THIS NOTE ADJACENT TO THE ENGINE. This is our ship's combustion engine. We burn a fire in the chamber, let it fully burn out, and then run the superheated gas through a vent, into our thermoelectric generator, and back into the chamber. This produces a lot of power, and will be required to keep our SMES topped up in the long term. It will slowly cool down, and may occasionally need more burner mix to be injected to keep it hot enough for our needs. Repairing the inside of the chamber may occasionally become necessary, as a particularly hot burn will damage the walls and windows. GUIDE FOR USE: Step one: configure the mixer to output a 60% oxygen and 40% hydrogen mix. Inject a few hundred kPa of this mix into the chamber. Step 2: cut injection, and ignite the mix. Do not panic when the glass makes a noise, that is normal. Step 3: once the fire has fully burned out, enable combustion chamber injection and output, so the gas begins to circulate through the thermoelectric generator. Innovation upon this basic method is welcome! Do not leave injection on after ignition, and if you think the glass might break, immediately cut fuel injection and lower the blast doors!"
 
 /obj/item/paper/fluff/scarab/Initialize()
 	. = ..()
@@ -204,3 +205,26 @@
 	languagetext += "[info]\[/lang\]"
 	info = parsepencode(languagetext)
 	icon_state = "paper_words"
+
+// Golden variant of the passblade, because it looks weird with the standard white
+/obj/item/clothing/accessory/badge/passcard/scarab/gold
+	color = "#C0B243"
+
+// Drab offworlder clothing
+/obj/item/clothing/under/offworlder/drab
+	color = "#726C62"
+
+/obj/item/clothing/accessory/offworlder/drab
+	color = "#726C62"
+
+/obj/item/clothing/accessory/offworlder/bracer/drab
+	color = "#726C62"
+
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace/drab
+	color = "#726C62"
+
+/obj/item/clothing/gloves/offworlder/drab
+	color = "#726C62"
+
+/obj/item/clothing/mask/offworlder/drab
+	color = "#7A7366"

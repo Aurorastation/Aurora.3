@@ -32,6 +32,16 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
+"aq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
 "at" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, medical"
@@ -72,6 +82,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/coc_scarab/bridge)
 "aS" = (
@@ -80,6 +93,12 @@
 	dir = 1
 	},
 /obj/item/storage/box/fancy/tray,
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	id = "scarab_salvager_or";
+	pixel_x = 7;
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
 "aT" = (
@@ -134,23 +153,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/item/clothing/accessory/armband/offworlder/medical,
-/obj/item/clothing/accessory/armband/offworlder/engineering,
-/obj/item/clothing/accessory/armband/offworlder/engineering,
 /obj/item/clothing/accessory/armband/med,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/item/clothing/accessory/armband/hydro,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/mask/offworlder/veil{
-	color = "#7C7373"
-	},
-/obj/item/clothing/mask/offworlder/veil{
-	color = "#7C7373"
-	},
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/brown,
@@ -159,6 +168,12 @@
 /obj/item/storage/backpack/duffel/eng,
 /obj/item/storage/backpack/satchel/eng,
 /obj/item/storage/backpack/satchel/eng,
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#7C7373"
+	},
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#7C7373"
+	},
 /obj/item/clothing/glasses/spiffygogs/offworlder{
 	color = "#7C7373"
 	},
@@ -211,9 +226,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "bt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/curtain/open/medical,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
+	id = "scarab_salvager_or"
+	},
+/turf/simulated/floor/plating,
 /area/coc_scarab/medical)
 "bu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -508,6 +527,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
 "dg" = (
@@ -587,11 +609,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -600,6 +617,11 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
@@ -1048,6 +1070,9 @@
 /obj/item/bedsheet/purple{
 	pixel_y = 16
 	},
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "fS" = (
@@ -1153,13 +1178,11 @@
 	layer = 2.71;
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/bed/handrail{
 	dir = 8;
-	name = "table handrail";
-	pixel_x = 2;
 	buckle_dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/airless,
 /area/space)
 "gi" = (
@@ -1353,12 +1376,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "scarab_bridge_lockdown";
-	name = "Washroom Bolts";
-	pixel_y = 26
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1451,6 +1468,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
 "hA" = (
@@ -1579,7 +1599,7 @@
 	},
 /obj/item/reagent_containers/toothbrush/green{
 	pixel_y = 12;
-	pixel_x = -9
+	pixel_x = -11
 	},
 /obj/item/reagent_containers/toothbrush/green{
 	pixel_y = 7;
@@ -1590,14 +1610,18 @@
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/toothbrush/red{
-	pixel_x = 7;
-	pixel_y = 12
+	pixel_x = 11;
+	pixel_y = 10
 	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/reagent_containers/toothbrush{
+	pixel_y = 13;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/washroom)
 "iu" = (
@@ -1912,83 +1936,78 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
 "ka" = (
-/obj/item/clothing/under/offworlder{
-	color = "#47453f"
-	},
-/obj/item/clothing/under/skirt/offworlder{
-	color = "#47453f"
-	},
-/obj/item/clothing/gloves/offworlder{
-	color = "#47453f"
-	},
-/obj/item/clothing/gloves/offworlder{
-	color = "#47453f"
-	},
-/obj/item/clothing/mask/offworlder{
-	color = "#297531"
-	},
-/obj/item/clothing/mask/offworlder{
-	color = "#942a15"
-	},
-/obj/item/clothing/accessory/offworlder{
-	color = "#47453f"
-	},
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace{
-	color = "#47453f"
-	},
-/obj/item/clothing/accessory/offworlder/bracer{
-	color = "#47453f"
-	},
-/obj/item/clothing/under/offworlder{
-	color = "#333a59"
-	},
-/obj/item/clothing/under/skirt/offworlder{
-	color = "#333a59"
-	},
-/obj/item/clothing/gloves/offworlder{
-	color = "#333a59"
-	},
-/obj/item/clothing/gloves/offworlder{
-	color = "#333a59"
-	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/structure/closet{
 	name = "Clothing"
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/item/clothing/mask/offworlder{
+	color = "#734062"
 	},
 /obj/item/clothing/mask/offworlder{
 	color = "#495681"
 	},
 /obj/item/clothing/mask/offworlder{
-	color = "#4b2d41"
+	color = "#9E402D"
 	},
-/obj/item/clothing/accessory/offworlder{
+/obj/item/clothing/mask/offworlder{
+	color = "#297531"
+	},
+/obj/item/clothing/mask/offworlder{
+	color = "#708854"
+	},
+/obj/item/clothing/under/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace{
+/obj/item/clothing/under/skirt/offworlder{
+	color = "#333a59"
+	},
+/obj/item/clothing/gloves/offworlder{
+	color = "#333a59"
+	},
+/obj/item/clothing/gloves/offworlder{
 	color = "#333a59"
 	},
 /obj/item/clothing/accessory/offworlder/bracer{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/skirt/offworlder{
-	color = "#c9ced4"
+/obj/item/clothing/accessory/offworlder/bracer{
+	color = "#333a59"
+	},
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace{
+	color = "#333a59"
+	},
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace{
+	color = "#333a59"
+	},
+/obj/item/clothing/accessory/offworlder{
+	color = "#333a59"
+	},
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/accessory/offworlder{
+	color = "#333a59"
 	},
 /obj/item/clothing/under/skirt/offworlder{
 	color = "#c9ced4"
 	},
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
 /obj/item/clothing/accessory/offworlder/bracer,
 /obj/item/clothing/accessory/offworlder/bracer,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 4
-	},
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
 /obj/item/clothing/suit/storage/toggle/trench/green,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
-/obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/trench/grey_alt,
+/obj/item/clothing/under/skirt/offworlder{
+	color = "#726C62"
+	},
+/obj/item/clothing/under/skirt/offworlder{
+	color = "#726C62"
+	},
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "kc" = (
@@ -2007,6 +2026,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/structure/sign/vacuum{
+	pixel_y = -30
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "kd" = (
@@ -2102,6 +2124,16 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
+"kA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/coc_scarab)
 "kD" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating/cooled,
@@ -2257,11 +2289,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	layer = 2.71
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
 "lM" = (
@@ -2333,6 +2360,9 @@
 	dir = 4;
 	name = "Scrubbers to Waste";
 	use_power = 1
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -2542,14 +2572,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/mess)
 "nQ" = (
@@ -3280,7 +3310,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
 /area/coc_scarab/grauwolf)
 "sh" = (
@@ -3347,10 +3376,10 @@
 	layer = 2.71;
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
 "sx" = (
@@ -3619,6 +3648,9 @@
 	shuttle_tag = "Scarab Gas Harvester"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "tP" = (
@@ -4151,6 +4183,16 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
+"wy" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
+/turf/space/dynamic,
+/area/space)
 "wD" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
@@ -4311,15 +4353,15 @@
 /turf/simulated/floor/reinforced/airless,
 /area/coc_scarab/engine)
 "xO" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
@@ -4417,6 +4459,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
+"yH" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/sign/securearea{
+	pixel_x = 32
+	},
+/turf/space/dynamic,
+/area/space)
 "yN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail{
@@ -5329,7 +5381,6 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -6176,14 +6227,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "HY" = (
-/obj/structure/bed/handrail{
-	dir = 1;
-	pixel_y = -2;
-	name = "table handrail";
-	buckle_dir = 2
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "Ia" = (
@@ -6300,6 +6348,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/generic,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
 "IK" = (
@@ -6575,14 +6624,6 @@
 "Ku" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/item/toy/comic/azmarian/issue_2{
-	pixel_x = 1
-	},
-/obj/item/toy/comic/stormman,
-/obj/item/toy/comic/outlandish_tales{
-	pixel_y = 1;
-	pixel_x = -1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "Kv" = (
@@ -6806,6 +6847,10 @@
 /obj/item/bedsheet/brown{
 	pixel_y = 16
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_scarab";
+	identifier = "coc_scarab"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "Lx" = (
@@ -6896,9 +6941,6 @@
 /obj/structure/bed/handrail,
 /obj/machinery/light/floor/decayed{
 	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /obj/structure/closet/walllocker{
 	pixel_y = 25;
@@ -7390,6 +7432,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/sign/securearea{
+	pixel_x = 32
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "Oq" = (
@@ -7407,7 +7452,8 @@
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/blood/OMinus{
-	pixel_x = 1
+	pixel_x = -1;
+	pixel_y = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -7415,6 +7461,9 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_scarab/medical)
@@ -7569,6 +7618,9 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
 	layer = 2.8
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
@@ -7861,6 +7913,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "Qz" = (
@@ -7931,6 +7986,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -8732,6 +8790,9 @@
 	id_tag = "harvester_sensor";
 	output = 31
 	},
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/scarab_harvester)
 "TW" = (
@@ -8834,6 +8895,9 @@
 	pixel_y = 32
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "UN" = (
@@ -8933,7 +8997,6 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
@@ -9124,6 +9187,9 @@
 	},
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "Wa" = (
@@ -9258,12 +9324,15 @@
 	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
 /obj/machinery/light/floor/decayed{
 	dir = 8
 	},
+/obj/machinery/washing_machine{
+	density = 0;
+	pixel_y = 22;
+	pixel_x = 5
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bunks)
 "Xi" = (
@@ -9464,6 +9533,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
 	dir = 4
+	},
+/obj/structure/sign/vacuum{
+	pixel_x = -30
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab)
@@ -39793,7 +39865,7 @@ ab
 TJ
 px
 VK
-VK
+yH
 Er
 IR
 IR
@@ -42363,7 +42435,7 @@ ab
 IB
 px
 lM
-lM
+wy
 GJ
 IR
 IR
@@ -45437,7 +45509,7 @@ pZ
 qE
 eX
 eX
-Bq
+aq
 Bq
 IM
 VK
@@ -47493,7 +47565,7 @@ sc
 Pl
 eX
 eX
-Sh
+kA
 Sh
 xe
 lM
