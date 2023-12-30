@@ -312,6 +312,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"gQ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
 "hb" = (
 /obj/structure/lattice/catwalk/indoor/planks{
 	layer = 2.0;
@@ -486,6 +493,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
+"kp" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "kJ" = (
 /obj/item/device/flashlight/lantern,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -798,6 +819,13 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"sa" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "sg" = (
 /obj/effect/decal/cleanable/generic,
 /obj/item/stack/rods,
@@ -821,6 +849,9 @@
 "sF" = (
 /obj/random/dirt_75,
 /obj/random/junk,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "sG" = (
@@ -980,6 +1011,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"wF" = (
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
 "wG" = (
 /obj/item/archaeological_find,
 /obj/random/dirt_75,
@@ -1500,11 +1539,17 @@
 	name = "dried blood";
 	basecolor = "#400000"
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "GT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "GX" = (
@@ -1610,6 +1655,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"JW" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
 "Ki" = (
 /obj/random/dirt_75,
 /obj/random/bomb_supply,
@@ -2949,7 +3005,7 @@ TI
 iq
 Om
 oJ
-HE
+JW
 xY
 kQ
 zR
@@ -3558,7 +3614,7 @@ tr
 xf
 xf
 iW
-qH
+sa
 aD
 pu
 iq
@@ -4019,7 +4075,7 @@ Cj
 df
 Uz
 GH
-xN
+kp
 fH
 II
 xf
@@ -4148,7 +4204,7 @@ pu
 pu
 oJ
 nt
-bn
+gQ
 iW
 ok
 xf
@@ -4583,7 +4639,7 @@ xf
 xf
 xf
 bn
-aD
+wF
 xf
 xf
 xf
@@ -4730,7 +4786,7 @@ TI
 il
 oJ
 ft
-bn
+gQ
 aD
 oJ
 SE
