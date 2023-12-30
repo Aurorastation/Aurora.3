@@ -144,7 +144,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/scarab_shuttle
 	name = "Scarab Shuttle"
-	desc = "An extremely early predecessor to the modern Pickaxe-class, the Mattock-class mining shuttle was a common sight throughout human space some centuries ago, prized for its reliability and simplicity. By the extremely irregular hull composition of this one, this one appears to be a real-life Ship of Theseus - it is hard to determine how much of the original ship is even left."
+	desc = "An extremely early predecessor to the modern Pickaxe-class, the Mattock-class mining shuttle was a common sight throughout human space some centuries ago, prized for its reliability and simplicity. By the extremely irregular hull composition of this one, this appears to be a real-life Ship of Theseus - it is hard to determine how much of the original ship is even left."
 	class = "SFV"
 	designation = "Bazaar"
 	icon_state = "shuttle"
