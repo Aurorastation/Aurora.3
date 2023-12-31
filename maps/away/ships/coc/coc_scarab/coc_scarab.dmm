@@ -2211,6 +2211,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust2)
 "lg" = (
@@ -3477,7 +3478,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/floor/decayed,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust1)
 "sR" = (
@@ -7156,6 +7157,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust1)
 "MT" = (
@@ -7482,11 +7484,11 @@
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "Ot" = (
-/obj/machinery/light/floor/decayed,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust2)
 "Ou" = (

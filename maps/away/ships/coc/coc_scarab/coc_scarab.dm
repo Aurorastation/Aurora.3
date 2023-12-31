@@ -228,4 +228,4 @@
 	color = "#554444"
 
 /obj/item/clothing/mask/offworlder/drab
-	color = "#454c65"
+	color = "#424d72"
