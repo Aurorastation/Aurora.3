@@ -8,7 +8,7 @@
 	id = "dominian_science_vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_science_shuttle)
 
-	unit_test_groups = list(2)
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/dominian_science_vessel
 	map = "Dominian Science Vessel"
@@ -36,7 +36,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(//td
-		"Dominian Shuttle" = list("nav_hangar_dominia")
+		"Dominian Science Shuttle" = list("nav_hangar_dominian_science_vessel")
 	)
 
 	initial_generic_waypoints = list(
@@ -110,16 +110,16 @@
 	name = "Dominian Science Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/dominian_science_shuttle)
-	current_location = "nav_hangar_dominia" //td maybe
+	current_location = "nav_hangar_dominian_science_vessel"
 	landmark_transition = "nav_transit_dominian_science_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_dominia" //td maybe
+	logging_home_tag = "nav_hangar_dominian_science_vessel"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/dominian_science_shuttle/hangar
 	name = "Dominian Shuttle Hangar"
-	landmark_tag = "nav_hangar_dominia" //td maybe
+	landmark_tag = "nav_hangar_dominian_science_vessel"
 	docking_controller = "dominian_science_shuttle_dock"
 	base_area = /area/ship/dominian_science_vessel
 	base_turf = /turf/simulated/floor/plating
