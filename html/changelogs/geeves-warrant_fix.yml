@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed not being able to load warrants on the warrant projector."
+  - rscadd: "The warrant projector will now alert you if a new warrant was loaded, and will alert you if the currently active warrant is modified or deleted."
+  - tweak: "Tweaked how warrant projectors work, you now use it in-hand to load or unload warrants, and then click on the target to display it. Shift-clicking no longer opens the warrant."
+  - bugfix: "Fixed the digital warrant assistant not having an icon on the PDA."

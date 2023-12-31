@@ -133,6 +133,7 @@
 #include "code\__defines\dcs\helpers.dm"
 #include "code\__defines\dcs\signals.dm"
 #include "code\__defines\dcs\signals\signals_global.dm"
+#include "code\__defines\dcs\signals\signals_record.dm"
 #include "code\__defines\dcs\signals\signals_atom\signals_atom_main.dm"
 #include "code\__defines\dcs\signals\signals_atom\signals_atom_x_act.dm"
 #include "code\_global_vars\edible.dm"
