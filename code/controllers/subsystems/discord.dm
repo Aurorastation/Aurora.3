@@ -56,20 +56,22 @@ SUBSYSTEM_DEF(discord)
 	msg = "A: [active] | C: [length(channels)] | G: [length(channels_to_group)] | W: [length(webhooks)]"
 	return ..()
 
-/*
- * Proc initialize_webhooks
+/**
+ * Initializes Webhooks
+ *
  * Used to load the webhooks from the db or the flatfile
  * Wipes all current channels and channel maps.
  *
- * @return num	- Error code. 0 upon success.
+ * Returns Error code. 0 upon success.
  */
 /datum/controller/subsystem/discord/proc/initialize_webhooks()
+	PRIVATE_PROC(TRUE)
 	if(!establish_db_connection(GLOB.dbcon))
 		var/file = return_file_text("config/webhooks.json")
 		if (file)
 			var/jsonData = json_decode(file)
 			if(!jsonData)
-				return 0
+				return 1
 			for(var/hook in jsonData)
 				if(!hook["url"] || !hook["tags"])
 					continue
@@ -77,9 +79,9 @@ SUBSYSTEM_DEF(discord)
 				webhooks += W
 				if(hook["mention"])
 					W.mention = hook["mention"]
-			return 1
-		else
 			return 0
+		else
+			return 1
 	else
 		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
 		query.Execute()
@@ -91,16 +93,17 @@ SUBSYSTEM_DEF(discord)
 			webhooks += W
 			if(mention)
 				W.mention = mention
-	return 1
+	return 0
 
-/*
+/**
  * Proc update_channels
  * Used to load channels from the database and construct them with the discord API.
  * Wipes all current channels and channel maps.
  *
- * @return num	- Error code. 0 upon success.
+ * Returns Error code. 0 upon success.
  */
 /datum/controller/subsystem/discord/proc/update_channels()
+	PRIVATE_PROC(TRUE)
 	log_subsystem_discord("UpdateChannels - Attempted")
 	if (!active)
 		log_subsystem_discord("UpdateChannels - Failed - Discord bot is not active")
@@ -148,12 +151,14 @@ SUBSYSTEM_DEF(discord)
 	log_subsystem_discord("UpdateChannels - Completed")
 	return 0
 
-/*
- * Proc send_message
- * Used to send a message to a specific channel group.
+/**
+ * Sends message to Channel Group
  *
- * @param text channel_group	- The name of the channel group which to target.
- * @param text message			- The message to send.
+ * Used to send a message to a specific channel group.
+ * The request is sent via SShttp and automatically retried in case of 429/503 errors.
+ * Arguments:
+ * * channel_group - The name of the channel group which to target.
+ * * message - The message to send.
  */
 /datum/controller/subsystem/discord/proc/send_message(var/channel_group, var/message)
 	log_subsystem_discord("SendMessage - Attempted")
@@ -196,13 +201,12 @@ SUBSYSTEM_DEF(discord)
 
 	log_subsystem_discord("SendMessage - Sent to [channel_group]. JSON body: '[message]'")
 
-/*
- * Proc retreive_pins
+/**
+ * Retrieves Pins
+ *
  * Used to fetch a list of all pins from the designated channels.
  *
- * @return list	- A multilayered list of flags associated with pins. Structure looks like this:
- *		list("pin_flag" = list(list("author" = author name, "content" = content),
- *							   list("author" = author name, "content" = content)))
+ * Returns list - A multilayered list of flags associated with pins. Structure looks like this: list("pin_flag" = list(list("author" = author name, "content" = content), list("author" = author name, "content" = content)))
  */
 /datum/controller/subsystem/discord/proc/retreive_pins()
 	log_subsystem_discord("RetrievePins - Attempted")
@@ -237,12 +241,13 @@ SUBSYSTEM_DEF(discord)
 
 	return output
 
-/*
- * Proc retreive_invite
+/**
+ * Retrieves a Invite
+ *
  * Used to retreive the invite to the invite channel.
  * One will be created if none exist.
  *
- * @return text	- The invite URL to the designated invite channel.
+ * Returns text - The invite URL to the designated invite channel.
  */
 /datum/controller/subsystem/discord/proc/retreive_invite()
 	set background = 1
@@ -261,33 +266,42 @@ SUBSYSTEM_DEF(discord)
 	var/res = invite_channel.get_invite(auth_token)
 	return isnum(res) ? "" : res
 
-/*
- * Proc send_to_admin
+/**
+ * Sends Discord message to Admins
+ *
  * Forwards a message to the admin channels.
  */
 /datum/controller/subsystem/discord/proc/send_to_admins(message)
-	set background = 1
 	send_message(CHAN_ADMIN, message)
 
-/*
- * Proc send_to_cciaa
+/**
+ * Sends Discord message to CCIA
+ *
  * Forwards a message to the CCIAA channels.
  */
 /datum/controller/subsystem/discord/proc/send_to_cciaa(message)
-	set background = 1
 	send_message(CHAN_CCIAA, message)
 
-/*
- * Proc send_to_announce
+/**
+ * Sends Discord message to Announce
+ *
  * Forwards a message to the announcements channels.
  */
 /datum/controller/subsystem/discord/proc/send_to_announce(message, prepend_role = 0)
-	set background = 1
 	if (prepend_role && subscriber_role)
 		message = "<@&[subscriber_role]> " + message
 	send_message(CHAN_ANNOUNCE, message)
 
-
+/**
+ * Escapes Discord message
+ *
+ * Escapes a Discord Message and sanitizes it for sending to a discord channel
+ * If mentions are removed the "@role" is replaced with "@ role" in the message
+ * Arguments:
+ * * input - The message to sanitize
+ * * remove_everyone - If everyone mentions should be removed - Defaults to TRUE
+ * * remove_mentions - If other mentions should be removed - Defaults to FALSE
+ */
 /datum/controller/subsystem/discord/proc/discord_escape(var/input, var/remove_everyone = TRUE, var/remove_mentions = FALSE)
 	. = replace_characters(input, list("`" = "\\`", "*" = "\\*", "_" = "\\_", "~" = "\\~"))
 
@@ -304,19 +318,25 @@ SUBSYSTEM_DEF(discord)
 		. = roleReg.Replace(., "\[role mention]")
 
 /**
+ * Send Server invisibility alert
+ *
  * Will alert the staff on Discord if the server is initialized in invisible mode.
  * Can be toggled via config.
  */
 /datum/controller/subsystem/discord/proc/alert_server_visibility()
-	set background = 1
 	if (alert_visibility && !world.visibility)
 		send_to_admins("Server started as invisible!")
 
 
-
+/**
+ * Sends a webhook event
+ *
+ * Sends a webhook based on the supplied tag and data.
+ * Arguments:
+ * * tag - A tag as defined in WEBHOOK_*
+ * * data - Depends on the tag. Check below for required data
+ */
 /datum/controller/subsystem/discord/proc/post_webhook_event(var/tag, var/list/data)
-	set background = 1
-
 	var/escape_text
 	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
@@ -403,26 +423,39 @@ SUBSYSTEM_DEF(discord)
 	if (!OutData["invalid"])
 		for (var/datum/webhook/W in webhooks)
 			if(tag in W.tags)
-				W.send(OutData)
+				if (W.mention)
+					if (OutData["content"])
+						OutData["content"] = "[W.mention]: " + OutData["content"]
+					else
+						OutData["content"] = "[W.mention]"
+
+				SShttp.create_async_request(RUSTG_HTTP_METHOD_POST,W.url,body = json_encode(OutData), headers = list("Content-Type" = "application/json"))
 
 //
 // Related Datums
 //
 
 
-// A holder class for channels.
+/**
+ * # Discord Channel
+ *
+ * A discord channel
+ *
+ * A specific discord channel
+ */
 /datum/discord_channel
 	var/id = ""
 	var/server_id = ""
 	var/pin_flag = 0
 	var/invite_url = ""
 
-/*
+/**
  * Constructor
  *
- * @param text _id	- the discord API id of the channel, as a string.
- * @param text _sid	- the discord API server id for the channel, as a string.
- * @param num _pin	- the bitflags of admin permissions which have access to the pins from this channel.
+ * Arguments:
+ * * _id - the discord API id of the channel, as a string.
+ * * _sid - the discord API server id for the channel, as a string.
+ * * _pin - the bitflags of admin permissions which have access to the pins from this channel.
  */
 /datum/discord_channel/New(var/_id, var/_sid, var/_pin)
 	id = _id
@@ -431,13 +464,14 @@ SUBSYSTEM_DEF(discord)
 	if (_pin)
 		pin_flag = _pin
 
-/*
- * Proc get_pins
- * Retreives a list of pinned messages from the channel.
+/**
+ * Get Pinned Messages
  *
- * @param text token	- the authorization token to be used for the requests.
- * @return mixed		- 2d array of content upon success, in format: list(list("author" = text, "content" = text)).
- *						  Num upon failure.
+ * Retreives a list of pinned messages from the channel.
+ * Arguments:
+ * * token	- the authorization token to be used for the requests.
+ *
+ * Returns mixed - 2d array of content upon success, in format: list(list("author" = text, "content" = text)). Num upon failure.
  */
 /datum/discord_channel/proc/get_pins(var/token)
 	var/datum/http_request/req = httpold_create_get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
@@ -479,12 +513,14 @@ SUBSYSTEM_DEF(discord)
 
 		return pinned_messages
 
-/*
- * Proc get_invite
- * Retreives (or creates if none found) an invite URL to the specific channel.
+/**
+ * Get Invite for Channel
  *
- * @param text token	- the authorization token to be used for the requests.
- * @return mixed		- text upon success, the link to the invite; num upon failure.
+ * Retreives (or creates if none found) an invite URL to the specific channel.
+ * Arguments:
+ * * token - the authorization token to be used for the requests.
+ *
+ * Returns text upon success, the link to the invite; num upon failure.
  */
 /datum/discord_channel/proc/get_invite(var/token)
 	if (invite_url)
@@ -535,14 +571,15 @@ SUBSYSTEM_DEF(discord)
 		invite_url = "https://discord.gg/[code]"
 		return invite_url
 
-/*
- * Proc create_invite
+/**
+ * Create Invite
+ *
  * Creates a permanent invite to a channel and returns it, under the assumption that
  * there are no other invites for this channel.
+ * Arguments:
+ * * token - the authorization token to be used for the requests.
  *
- * @param text token	- the authorization token to be used for the requests.
- * @return mixed		- String upon success - the URL of the newly generated invite.
- *						  Num upon failure.
+ * Returns mixed - String upon success - the URL of the newly generated invite. Num upon failure.
  */
 /datum/discord_channel/proc/create_invite(var/token)
 	var/data = list("max_age" = 0, "max_uses" = 0)
@@ -561,6 +598,19 @@ SUBSYSTEM_DEF(discord)
 		return invite_url
 
 
+
+/datum/webhook
+	var/url = ""
+	var/list/tags
+	var/mention = ""
+
+/datum/webhook/New(var/U, var/list/T)
+	. = ..()
+	url = U
+	tags = T
+
+
+
 /hook/roundstart/proc/alert_no_admins()
 	var/admins_number = 0
 
@@ -577,26 +627,6 @@ SUBSYSTEM_DEF(discord)
 		SSdiscord.send_to_admins("@here Round has started with no admins or mods online.")
 
 	return 1
-
-/datum/webhook
-	var/url = ""
-	var/list/tags
-	var/mention = ""
-
-/datum/webhook/New(var/U, var/list/T)
-	. = ..()
-	url = U
-	tags = T
-
-/datum/webhook/proc/send(var/Data)
-	if (mention)
-		if (Data["content"])
-			Data["content"] = "[mention]: " + Data["content"]
-		else
-			Data["content"] = "[mention]"
-
-	SShttp.create_async_request(RUSTG_HTTP_METHOD_POST,url,body = json_encode(Data), headers = list("Content-Type" = "application/json"))
-
 
 
 #undef HEX_COLOR_RED

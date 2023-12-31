@@ -54,17 +54,17 @@ SUBSYSTEM_DEF(http)
 			log_data += "END ASYNC RESPONSE (ID: [req.id])"
 			log_http(log_data.Join("\n"))
 
-			// Check if we can add a auto-rety on status 429 or 503 if they have a Retry-After header
+			// Automatically Retry if we have a 429 or 503 Status with a retry-after header
 			if((res.status_code == 429 || res.status_code == 503) && ("retry-after" in res.headers) )
 				var/retry_after = text2num(res.headers["retry-after"])
 				if(retry_after == 0 && req.cb)
 					if(req.cb)
 						req.cb.InvokeAsync(res)
-					continue //If we get a Retry-After 0 back, we dont retry it
+					continue // If we get a Retry-After 0 back, we dont retry it
 				if(req.retry_count >= max_retry_count)
 					if(req.cb)
 						req.cb.InvokeAsync(res)
-					continue //If we exceed our maximum retry count, we dont retry it
+					continue // If we exceed our maximum retry count, we dont retry it
 
 				req.retry_at = world.time + (retry_after*10)
 				req.retry_count++
@@ -76,11 +76,21 @@ SUBSYSTEM_DEF(http)
 				req.cb.InvokeAsync(res)
 
 /**
-  * Async request creator
-  *
-  * Generates an async request, and adds it to the subsystem's processing list
-  * These should be used as they do not lock the entire DD process up as they execute inside their own thread pool inside RUSTG
-  */
+ * Async request creator
+ *
+ * Generates an async request, and adds it to the subsystem's processing list.
+ * These should be used as they do not lock the entire DD process up as they execute inside their own thread pool inside RUSTG.
+ * If a 429 or 503 is encountered and a retry-after header is returned the requested is retrued up to [/datum/controller/subsystem/http/var/max_retry_count] times.
+ * During the retries the retry-after header is respected.
+ * A callback can be supplied to this proc. If a callback is supplied it is only invoked when after the final request.
+ *
+ * Arguments:
+ * * method - HTTP method to use -> use the RUSTG_HTTP_METHOD_ MACROS
+ * * url - URL where the request should go to
+ * * body - The body of the request
+ * * headers - list of headers to pass along
+ * * proc_callback - A Callback to be invoced when a final status is reached
+ */
 /datum/controller/subsystem/http/proc/create_async_request(method, url, body = "", list/headers, datum/callback/proc_callback)
 	var/datum/http_request/req = new()
 	req.prepare(method, url, body, headers)

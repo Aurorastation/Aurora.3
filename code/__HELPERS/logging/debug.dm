@@ -69,7 +69,7 @@
 /proc/_log_topic(text)
 	WRITE_LOG(GLOB.config.logfiles["topic_log"], "TOPIC: [text]")
 
-// Logging for HTTP Requests
+/// Logging for HTTP Requests
 /proc/log_http(text)
 	if(GLOB.config.logsettings["log_subsystems_http"])
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_http"], "HTTP: [text]")

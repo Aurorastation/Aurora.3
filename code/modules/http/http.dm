@@ -24,13 +24,13 @@
 
 
 /**
-  * # HTTP Request
-  *
-  * Holder datum for ingame HTTP requests
-  *
-  * Holds information regarding to methods used, URL, and response,
-  * as well as job IDs and progress tracking for async requests
-  */
+ * # HTTP Request
+ *
+ * Holder datum for ingame HTTP requests
+ *
+ * Holds information regarding to methods used, URL, and response,
+ * as well as job IDs and progress tracking for async requests
+ */
 /datum/http_request
 	/// The ID of the request (Only set if it is an async request)
 	var/id
@@ -63,16 +63,16 @@ THE METHODS IN THIS FILE ARE TO BE USED BY THE SUBSYSTEM AS A MANGEMENT HUB
 */
 
 /**
-  * Preparation handler
-  *
-  * Call this with relevant parameters to form the request you want to make
-  *
-  * Arguments:
-  * * method - HTTP Method to use, see code/__DEFINES/rust_g.dm for a full list
-  * * url - The URL to send the request to
-  * * body - The body of the request, if applicable
-  * * headers - Associative list of HTTP headers to send, if applicab;e
-  */
+ * Preparation handler
+ *
+ * Call this with relevant parameters to form the request you want to make
+ *
+ * Arguments:
+ * * method - HTTP Method to use, see code/__DEFINES/rust_g.dm for a full list
+ * * url - The URL to send the request to
+ * * body - The body of the request, if applicable
+ * * headers - Associative list of HTTP headers to send, if applicab;e
+ */
 /datum/http_request/proc/prepare(method, url, body = "", list/headers, output_file)
 	if(!length(headers))
 		src.headers = ""
@@ -85,22 +85,22 @@ THE METHODS IN THIS FILE ARE TO BE USED BY THE SUBSYSTEM AS A MANGEMENT HUB
 	src.output_file = output_file
 
 /**
-  * Blocking executor
-  *
-  * Remains as a proof of concept to show it works, but should NEVER be used to do FFI halting the entire DD process up
-  * Async rqeuests are much preferred, but also require the subsystem to be firing for them to be answered
-  */
+ * Blocking executor
+ *
+ * Remains as a proof of concept to show it works, but should NEVER be used to do FFI halting the entire DD process up
+ * Async rqeuests are much preferred, but also require the subsystem to be firing for them to be answered
+ */
 /datum/http_request/proc/execute_blocking()
 	CRASH("Attempted to execute a blocking HTTP request")
 	// _raw_response = rustg_http_request_blocking(method, url, body, headers, build_options())
 
 /**
-  * Async execution starter
-  *
-  * Tells the request to start executing inside its own thread inside RUSTG
-  * Preferred over blocking, but also requires SShttp to be active
-  * As such, you cannot use this for events which may happen at roundstart (EG: IPIntel, BYOND account tracking, etc)
-  */
+ * Async execution starter
+ *
+ * Tells the request to start executing inside its own thread inside RUSTG
+ * Preferred over blocking, but also requires SShttp to be active
+ * As such, you cannot use this for events which may happen at roundstart (EG: IPIntel, BYOND account tracking, etc)
+ */
 /datum/http_request/proc/begin_async()
 	if(in_progress)
 		CRASH("Attempted to re-use a request object.")
@@ -114,22 +114,25 @@ THE METHODS IN THIS FILE ARE TO BE USED BY THE SUBSYSTEM AS A MANGEMENT HUB
 		in_progress = TRUE
 
 /**
-  * Options builder
-  *
-  * Builds options for if we want to download files with SShttp
-  */
+ * Options builder
+ *
+ * Builds options for if we want to download files with SShttp
+ * Look into the rust_g library to get details on the return values
+ */
 /datum/http_request/proc/build_options()
 	if(output_file)
 		return json_encode(list("output_filename" = output_file, "body_filename" = null))
 	return null
 
 /**
-  * Async completion checker
-  *
-  * Checks if an async request has been complete
-  * Has safety checks built in to compensate if you call this on blocking requests,
-  * or async requests which have already finished
-  */
+ * Async completion checker
+ *
+ * Checks if an async request has been complete
+ * Has safety checks built in to compensate if you call this on blocking requests,
+ * or async requests which have already finished
+ *
+ * Returns TRUE if complete, FALSE if not complete
+ */
 /datum/http_request/proc/is_complete()
 	// If we dont have an ID, were blocking, so assume complete
 	if(isnull(id))
@@ -152,13 +155,14 @@ THE METHODS IN THIS FILE ARE TO BE USED BY THE SUBSYSTEM AS A MANGEMENT HUB
 		return TRUE
 
 /**
-  * Response deserializer
-  *
-  * Takes a HTTP request object, and converts it into a [/datum/http_response]
-  * The entire thing is wrapped in try/catch to ensure it doesnt break on invalid requests
-  * Can be called on async and blocking requests
-  */
+ * Response deserializer
+ *
+ * Takes a HTTP request object, and converts it into a [/datum/http_response]
+ * The entire thing is wrapped in try/catch to ensure it doesnt break on invalid requests
+ * Can be called on async and blocking requests
+ */
 /datum/http_request/proc/into_response()
+	RETURN_TYPE(/datum/http_response)
 	var/datum/http_response/R = new()
 
 	try
@@ -173,13 +177,13 @@ THE METHODS IN THIS FILE ARE TO BE USED BY THE SUBSYSTEM AS A MANGEMENT HUB
 	return R
 
 /**
-  * # HTTP Response
-  *
-  * Holder datum for HTTP responses
-  *
-  * Created from calling [/datum/http_request/proc/into_response()]
-  * Contains vars about the result of the response
-  */
+ * # HTTP Response
+ *
+ * Holder datum for HTTP responses
+ *
+ * Created from calling [/datum/http_request/proc/into_response()]
+ * Contains vars about the result of the response
+ */
 /datum/http_response
 	/// The HTTP status code of the response
 	var/status_code
