@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/hivebot_burrows_2.dmm")
 
-	// ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_1)
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_1)
 
 /area/hivebot_burrows_2
 	name = "Derelict Archaelogy Outpost"
