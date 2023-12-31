@@ -9188,9 +9188,6 @@
 	},
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "Wa" = (
