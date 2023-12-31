@@ -7472,12 +7472,12 @@
 /area/coc_scarab/medical)
 "Os" = (
 /obj/machinery/atmospherics/omni/mixer{
-	tag_east = .20;
-	tag_north = .20;
-	tag_north_con = 0;
-	tag_west = .60;
-	tag_west_con = 0;
-	tag_east_con = 0;
+	tag_east = 1;
+	tag_north = 1;
+	tag_north_con = 0.2;
+	tag_west = 1;
+	tag_west_con = 0.6;
+	tag_east_con = 0.2;
 	active_power_usage = 7500
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
