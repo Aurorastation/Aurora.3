@@ -161,6 +161,7 @@ SUBSYSTEM_DEF(discord)
  * * message - The message to send.
  */
 /datum/controller/subsystem/discord/proc/send_message(var/channel_group, var/message)
+	SHOULD_NOT_SLEEP(TRUE)
 	log_subsystem_discord("SendMessage - Attempted")
 	if (!active)
 		log_subsystem_discord("SendMessage - Failed - Bot not Active")
@@ -272,6 +273,7 @@ SUBSYSTEM_DEF(discord)
  * Forwards a message to the admin channels.
  */
 /datum/controller/subsystem/discord/proc/send_to_admins(message)
+	SHOULD_NOT_SLEEP(TRUE)
 	send_message(CHAN_ADMIN, message)
 
 /**
@@ -280,6 +282,7 @@ SUBSYSTEM_DEF(discord)
  * Forwards a message to the CCIAA channels.
  */
 /datum/controller/subsystem/discord/proc/send_to_cciaa(message)
+	SHOULD_NOT_SLEEP(TRUE)
 	send_message(CHAN_CCIAA, message)
 
 /**
@@ -288,6 +291,7 @@ SUBSYSTEM_DEF(discord)
  * Forwards a message to the announcements channels.
  */
 /datum/controller/subsystem/discord/proc/send_to_announce(message, prepend_role = 0)
+	SHOULD_NOT_SLEEP(TRUE)
 	if (prepend_role && subscriber_role)
 		message = "<@&[subscriber_role]> " + message
 	send_message(CHAN_ANNOUNCE, message)
@@ -324,6 +328,7 @@ SUBSYSTEM_DEF(discord)
  * Can be toggled via config.
  */
 /datum/controller/subsystem/discord/proc/alert_server_visibility()
+	SHOULD_NOT_SLEEP(TRUE)
 	if (alert_visibility && !world.visibility)
 		send_to_admins("Server started as invisible!")
 
@@ -337,6 +342,7 @@ SUBSYSTEM_DEF(discord)
  * * data - Depends on the tag. Check below for required data
  */
 /datum/controller/subsystem/discord/proc/post_webhook_event(var/tag, var/list/data)
+	SHOULD_NOT_SLEEP(TRUE)
 	var/escape_text
 	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
