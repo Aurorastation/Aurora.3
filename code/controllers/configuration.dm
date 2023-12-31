@@ -51,6 +51,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_tools" = FALSE,	// Tools
 	"log_manifest" = TRUE,	// Manifest
 	"log_asset" = FALSE,	// log asset caching
+	"log_loadout" = TRUE,	// Loadout
 
 	/*#### SUBSYSTEMS ####*/
 

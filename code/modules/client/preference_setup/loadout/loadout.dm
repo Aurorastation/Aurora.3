@@ -445,6 +445,8 @@ var/list/gear_datums = list()
 	return list(gd.path, gd.location)
 
 /datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/list/spawn_item_data = get_spawn_item_data(location, metadata, H)
 	var/spawn_path = spawn_item_data[1]
 	var/spawn_location = spawn_item_data[2]
