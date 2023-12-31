@@ -106,6 +106,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"harddel_log" = "harddel.log",
 	"world_paper_log" = "world_paper.log",
 	"world_manifest_log" = "world_manifest.log",
+	"world_loadout_log" = "world_loadout.log",
 
 	/*#### SUBSYSTEMS ####*/
 
