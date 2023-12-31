@@ -23,6 +23,16 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "ai" = (
@@ -112,6 +122,11 @@
 	amount = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "bZ" = (
@@ -143,6 +158,11 @@
 "df" = (
 /obj/random/dirt_75,
 /obj/structure/track,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
@@ -217,6 +237,24 @@
 	},
 /obj/structure/rope_post{
 	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
+"ex" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
@@ -463,6 +501,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "jd" = (
@@ -516,6 +559,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
+"kf" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/item/broken_device{
+	pixel_y = -10;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "kj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -525,13 +577,18 @@
 /obj/random/dirt_75,
 /obj/structure/track,
 /obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
 	basecolor = "#400000"
 	},
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ffffff"
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
@@ -752,7 +809,6 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "pG" = (
-/obj/effect/decal/cleanable/blood/drip,
 /obj/item/trash/can{
 	pixel_x = 7;
 	pixel_y = -6
@@ -763,6 +819,11 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "pJ" = (
@@ -816,12 +877,17 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot/guardian,
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
 	basecolor = "#400000"
 	},
-/mob/living/simple_animal/hostile/hivebot/guardian,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "qX" = (
@@ -879,6 +945,11 @@
 /area/hivebot_burrows_1)
 "sC" = (
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
@@ -1150,6 +1221,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "xW" = (
@@ -1226,6 +1302,21 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
+"zx" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "zB" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1261,6 +1352,25 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"Ah" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "Ai" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -1277,6 +1387,16 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
@@ -1315,7 +1435,6 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Bt" = (
-/obj/effect/decal/cleanable/blood/drip,
 /obj/item/device/gps/mining{
 	pixel_x = 8;
 	pixel_y = 6
@@ -1390,6 +1509,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Cj" = (
@@ -1399,6 +1523,11 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/track,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
@@ -1426,6 +1555,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/loot,
+/obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
@@ -1457,6 +1587,15 @@
 "Du" = (
 /turf/simulated/abyss,
 /area/hivebot_burrows_1)
+"Dz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "DP" = (
 /obj/random/dirt_75,
 /obj/random/tech_supply,
@@ -1468,6 +1607,11 @@
 	pixel_x = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "ED" = (
@@ -1542,6 +1686,21 @@
 "Gh" = (
 /obj/random/dirt_75,
 /mob/living/simple_animal/hostile/hivebot,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Gl" = (
@@ -1583,10 +1742,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "GD" = (
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
 	dries = 0;
-	basecolor = "#400000"
+	name = "dried blood"
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
@@ -1641,6 +1800,17 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_1)
+"Hj" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "HB" = (
 /obj/structure/flora/rock/pile,
@@ -1771,6 +1941,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "KN" = (
@@ -1877,6 +2052,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "MM" = (
@@ -1887,6 +2067,11 @@
 "Ng" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/mushroom,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
 	dries = 0;
@@ -2207,6 +2392,14 @@
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
+"TD" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
 "TI" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -2232,7 +2425,7 @@
 /obj/random/dirt_75,
 /obj/structure/track,
 /obj/item/clothing/head/hardhat{
-	pixel_x = -6
+	pixel_x = -4
 	},
 /obj/effect/decal/cleanable/blood/drip{
 	name = "dried drips of blood";
@@ -2296,6 +2489,11 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Vr" = (
@@ -2324,16 +2522,16 @@
 /area/hivebot_burrows_1)
 "VJ" = (
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	name = "dried drips of blood";
-	dries = 0;
-	basecolor = "#400000"
-	},
 /obj/structure/rope_railing{
 	dir = 1
 	},
 /obj/structure/rope_post{
 	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
@@ -2388,6 +2586,11 @@
 /obj/structure/flora/rock/konyang{
 	density = 0
 	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Xm" = (
@@ -2417,6 +2620,20 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_1)
+"Yp" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Ys" = (
@@ -2465,6 +2682,11 @@
 	pixel_y = 12
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Zb" = (
@@ -3109,7 +3331,7 @@ xf
 YA
 ve
 tf
-uO
+Ah
 YM
 qs
 xf
@@ -3263,7 +3485,7 @@ Vh
 Vv
 xf
 xf
-uO
+Yp
 xf
 xf
 xf
@@ -3469,7 +3691,7 @@ tr
 JK
 xf
 xf
-uO
+xe
 Pw
 xf
 xf
@@ -3519,9 +3741,9 @@ xf
 xf
 xf
 mU
-JK
-Ad
-xe
+SJ
+kf
+TD
 xf
 xf
 xf
@@ -3644,7 +3866,7 @@ xf
 xf
 xf
 IQ
-JK
+TD
 Ew
 hZ
 xf
@@ -3696,8 +3918,8 @@ mV
 xf
 xf
 Jd
-oH
-JK
+Hj
+Yp
 wb
 NB
 xf
@@ -3736,9 +3958,9 @@ JK
 xf
 xf
 xf
-xi
-WX
 ib
+WX
+xi
 jt
 ts
 Wd
@@ -3788,7 +4010,7 @@ CH
 xf
 xf
 SN
-uO
+Ah
 Hd
 Go
 tr
@@ -3836,11 +4058,11 @@ xf
 xf
 PC
 Zs
-xe
-uO
-Vk
+TD
+Ah
+zB
 qQ
-uO
+Yp
 pJ
 rt
 xf
@@ -4211,7 +4433,7 @@ xf
 xf
 rd
 Zo
-aa
+ex
 xf
 xf
 oH
@@ -4262,8 +4484,8 @@ xf
 xf
 xf
 RN
-uO
-mF
+Yp
+zx
 xf
 xf
 xf
@@ -4357,7 +4579,7 @@ Xm
 iW
 JK
 iX
-zB
+Dz
 hZ
 xf
 KN
