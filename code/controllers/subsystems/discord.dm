@@ -103,7 +103,6 @@ SUBSYSTEM_DEF(discord)
  * Returns Error code. 0 upon success.
  */
 /datum/controller/subsystem/discord/proc/update_channels()
-	PRIVATE_PROC(TRUE)
 	log_subsystem_discord("UpdateChannels - Attempted")
 	if (!active)
 		log_subsystem_discord("UpdateChannels - Failed - Discord bot is not active")
