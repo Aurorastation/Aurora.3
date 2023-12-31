@@ -342,7 +342,6 @@
 
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
-	icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
 
@@ -489,7 +488,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
 
 				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
@@ -530,3 +529,25 @@
 			icon_state = "xanu_pistol-em"
 	else
 		icon_state = "xanu_pistol-e"
+
+/obj/item/gun/projectile/pistol/dominia
+	name = "dominian service pistol"
+	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
+	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
+	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
+	magazine_type = /obj/item/ammo_magazine/c45m/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol"
+	item_state = "dom_pistol"
+	caliber = ".45"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/dominia/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "dom_pistol"
+	else
+		icon_state = "dom_pistol-e"

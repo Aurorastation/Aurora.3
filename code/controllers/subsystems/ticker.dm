@@ -72,7 +72,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
-	restart_timeout = config.restart_timeout
+	restart_timeout = GLOB.config.restart_timeout
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
@@ -130,12 +130,12 @@ var/datum/controller/subsystem/ticker/SSticker
 			game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
-	if (round_progressing)
+	if (GLOB.round_progressing)
 		pregame_timeleft--
 
-	total_players = length(player_list)
+	total_players = length(GLOB.player_list)
 
-	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
+	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == GLOB.config.vote_autogamemode_timeleft)
 		if (!SSvote.time_remaining)
 			SSvote.autogamemode()
 			pregame_timeleft--
@@ -203,7 +203,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			var/delay_notified = 0
 			do
 				wait_for_tickets = 0
-				for(var/datum/ticket/ticket in tickets)
+				for(var/datum/ticket/ticket in GLOB.tickets)
 					if(ticket.is_active())
 						wait_for_tickets = 1
 						break
@@ -231,7 +231,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	set waitfor = FALSE
 
 	to_world("<br><br><br><H1>A round of [mode.name] has ended!</H1>")
-	for(var/mob/Player in player_list)
+	for(var/mob/Player in GLOB.player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
@@ -256,7 +256,7 @@ var/datum/controller/subsystem/ticker/SSticker
 					to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
 	to_world("<br>")
 
-	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
+	for (var/mob/living/silicon/ai/aiPlayer in GLOB.mob_list)
 		if (aiPlayer.stat != 2)
 			to_world("<b>[aiPlayer.name]'s laws at the end of the round were:</b>")
 		else
@@ -271,7 +271,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/dronecount = 0
 
-	for (var/mob/living/silicon/robot/robo in mob_list)
+	for (var/mob/living/silicon/robot/robo in GLOB.mob_list)
 
 		if(istype(robo,/mob/living/silicon/robot/drone))
 			dronecount++
@@ -377,7 +377,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/update_ready_count()
 	total_players_ready = 0
-	for(var/mob/abstract/new_player/NP in player_list)
+	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		if(NP.ready)
 			total_players_ready++
 
@@ -390,7 +390,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	update_ready_list(NP)
 
 /datum/controller/subsystem/ticker/proc/setup_player_ready_list()
-	for(var/mob/abstract/new_player/NP in player_list)
+	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		// initial setup to catch people who readied 0.1 seconds into init
 		if(NP.ready)
 			update_ready_list(NP)
@@ -400,8 +400,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(tip_override)
 		message = tip_override
 	else
-		var/chosen_tip_category = pick(tips_by_category)
-		var/datum/tip/tip_datum = tips_by_category[chosen_tip_category]
+		var/chosen_tip_category = pick(GLOB.tips_by_category)
+		var/datum/tip/tip_datum = GLOB.tips_by_category[chosen_tip_category]
 		message = pick(tip_datum.messages)
 
 	if(message)
@@ -425,12 +425,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
-		total_players = length(player_list)
+		total_players = length(GLOB.player_list)
 		LAZYINITLIST(ready_player_jobs)
 
-		if (dynamic_time <= config.vote_autogamemode_timeleft)
-			pregame_timeleft = config.vote_autogamemode_timeleft + 10
-			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+		if (dynamic_time <= GLOB.config.vote_autogamemode_timeleft)
+			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 10
+			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
@@ -477,37 +477,37 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
-	if(master_mode == ROUNDTYPE_STR_SECRET)
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
 		src.hide_mode = ROUNDTYPE_SECRET
-	else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+	else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
-	var/list/runnable_modes = config.get_runnable_modes(master_mode)
-	if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+	var/list/runnable_modes = GLOB.config.get_runnable_modes(GLOB.master_mode)
+	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
 			return SETUP_REVOTE
-		if(secret_force_mode != ROUNDTYPE_STR_SECRET && secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
-			src.mode = config.pick_mode(secret_force_mode)
+		if(GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
+			src.mode = GLOB.config.pick_mode(GLOB.secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
 			var/list/probabilities = list()
 
-			if (master_mode == ROUNDTYPE_STR_SECRET)
-				probabilities = config.probabilities_secret
-			else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
-				probabilities = config.probabilities_mixed_secret
+			if (GLOB.master_mode == ROUNDTYPE_STR_SECRET)
+				probabilities = GLOB.config.probabilities_secret
+			else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+				probabilities = GLOB.config.probabilities_mixed_secret
 			else
-				// master_mode == ROUNDTYPE_STR_RANDOM
-				probabilities = config.probabilities_secret.Copy()
-				probabilities |= config.probabilities_mixed_secret
+				// GLOB.master_mode == ROUNDTYPE_STR_RANDOM
+				probabilities = GLOB.config.probabilities_secret.Copy()
+				probabilities |= GLOB.config.probabilities_mixed_secret
 
 			for(var/datum/game_mode/GM in runnable_modes)
 				weighted_modes[GM.config_tag] = probabilities[GM.config_tag]
-			src.mode = gamemode_cache[pickweight(weighted_modes)]
+			src.mode = GLOB.gamemode_cache[pickweight(weighted_modes)]
 	else
-		src.mode = config.pick_mode(master_mode)
+		src.mode = GLOB.config.pick_mode(GLOB.master_mode)
 
 	if(!src.mode)
 		current_state = GAME_STATE_PREGAME
@@ -544,7 +544,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
-		if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
+		if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 			to_world("<B>Reselecting gamemode...</B>")
 			return SETUP_REATTEMPT
 		else
@@ -589,12 +589,12 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/roundstart()
 	mode.post_setup()
 	//Cleanup some stuff
-	for(var/obj/effect/landmark/start/S in landmarks_list)
+	for(var/obj/effect/landmark/start/S in GLOB.landmarks_list)
 		//Deleting Startpoints but we need the ai point to AI-ize people later
 		if (S.name != "AI")
 			qdel(S)
 	// update join icon for lobbysitters
-	for(var/mob/abstract/new_player/NP in player_list)
+	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		if(!NP.client)
 			continue
 		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
@@ -635,12 +635,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/obj/structure/bed/temp_buckle = new
 	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 	if(station_missed)
-		for(var/mob/living/M in living_mob_list)
+		for(var/mob/living/M in GLOB.living_mob_list)
 			M.buckled_to = temp_buckle				//buckles the mob so it can't do anything
 			if(M.client)
 				M.client.screen += cinematic	//show every client the cinematic
 	else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
-		for(var/mob/living/M in living_mob_list)
+		for(var/mob/living/M in GLOB.living_mob_list)
 			M.buckled_to = temp_buckle
 			if(M.client)
 				M.client.screen += cinematic
@@ -720,7 +720,7 @@ var/datum/controller/subsystem/ticker/SSticker
 // Round setup stuff.
 
 /datum/controller/subsystem/ticker/proc/create_characters()
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player && player.ready && player.mind)
 			if(player.mind.assigned_role=="AI")
 				player.close_spawn_windows()
@@ -733,12 +733,12 @@ var/datum/controller/subsystem/ticker/SSticker
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/collect_minds()
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(player.mind)
 			minds += player.mind
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.EquipAugments(player, player.client.prefs)

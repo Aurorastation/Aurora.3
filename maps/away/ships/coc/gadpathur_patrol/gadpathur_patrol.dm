@@ -130,7 +130,7 @@
 	base_turf = /turf/space/transit/north
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur
-	req_access = list(access_gadpathur_navy_officer)
+	req_access = list(ACCESS_GADPATHUR_NAVY_OFFICER)
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur/sidearm
 	name = "sidearm cabinet"

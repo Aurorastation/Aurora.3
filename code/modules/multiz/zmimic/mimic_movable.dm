@@ -151,8 +151,8 @@
 	var/original_z
 	var/override_depth
 
-/atom/movable/openspace/mimic/New()
-	initialized = TRUE
+/atom/movable/openspace/mimic/Initialize(mapload, ...)
+	. = ..()
 	SSzcopy.openspace_overlays += 1
 
 /atom/movable/openspace/mimic/Destroy()

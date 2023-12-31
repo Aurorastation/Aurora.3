@@ -7,19 +7,19 @@
 	4. The master controller initializes the rest of the game.
 
 */
-var/global/datum/global_init/init = new ()
-
+GLOBAL_DATUM_INIT(init, /datum/global_init, new)
+GLOBAL_DATUM(config, /datum/configuration)
+GLOBAL_PROTECT(config)
 /*
 	Pre-map initialization stuff should go here.
 */
 /datum/global_init/New()
 	generate_gameid()
 
-	makeDatumRefLists()
 	load_configuration()
 
 	qdel(src) //we're done
-	init = null
+	GLOB.init = null
 
 /datum/global_init/Destroy()
 	..()
@@ -60,25 +60,25 @@ var/global/datum/global_init/init = new ()
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
-	href_logfile = file("data/logs/[diary_date_string] hrefs.htm")
-	diary = "data/logs/[diary_date_string]_[game_id].log"
+	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
+	GLOB.href_logfile = file("data/logs/[GLOB.diary_date_string] hrefs.htm")
+	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[game_id].log"
 	log_startup()
-	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+	GLOB.changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
-	if(config.logsettings["log_runtime"])
-		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
+	if(GLOB.config.logsettings["log_runtime"])
+		GLOB.diary_runtime = file("data/logs/_runtime/[GLOB.diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
 	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
 
-	config.post_load()
+	GLOB.config.post_load()
 
-	if(config && config.server_name != null && config.server_suffix && world.port > 0)
+	if(GLOB.config && GLOB.config.server_name != null && GLOB.config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
-		config.server_name += " #[(world.port % 1000) / 100]"
+		GLOB.config.server_name += " #[(world.port % 1000) / 100]"
 
 	callHook("startup")
 
@@ -158,7 +158,7 @@ var/list/world_api_rate_limit = list()
 		response["response"] = "Bad Request - No query specified"
 		return json_encode(response)
 
-	var/datum/topic_command/command = topic_commands[query]
+	var/datum/topic_command/command = GLOB.topic_commands[query]
 
 	//Check if that command exists
 	if (isnull(command))
@@ -206,13 +206,13 @@ var/list/world_api_rate_limit = list()
 
 /world/Reboot(reason, hard_reset = FALSE)
 	if (!hard_reset && world.TgsAvailable())
-		switch (config.rounds_until_hard_restart)
+		switch (GLOB.config.rounds_until_hard_restart)
 			if (-1)
 				hard_reset = FALSE
 			if (0)
 				hard_reset = TRUE
 			else
-				if (SSpersistent_configuration.rounds_since_hard_restart >= config.rounds_until_hard_restart)
+				if (SSpersistent_configuration.rounds_since_hard_restart >= GLOB.config.rounds_until_hard_restart)
 					hard_reset = TRUE
 					SSpersistent_configuration.rounds_since_hard_restart = 0
 				else
@@ -224,13 +224,13 @@ var/list/world_api_rate_limit = list()
 	SSpersistent_configuration.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
-	for(var/thing in clients)
+	for(var/thing in GLOB.clients)
 		if(!thing)
 			continue
 		var/client/C = thing
 		C?.tgui_panel?.send_roundrestart()
-		if(config.server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
-			C << link("byond://[config.server]")
+		if(GLOB.config.server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
+			C << link("byond://[GLOB.config.server]")
 
 	world.TgsReboot()
 
@@ -290,22 +290,22 @@ var/list/world_api_rate_limit = list()
 	time_stamped = 1
 
 /proc/load_configuration()
-	config = new /datum/configuration()
-	config.load("config/config.txt")
-	config.load("config/game_options.txt","game_options")
+	GLOB.config = new()
+	GLOB.config.load("config/config.txt")
+	GLOB.config.load("config/game_options.txt","game_options")
 
-	if (config.age_restrictions_from_file)
-		config.load("config/age_restrictions.txt", "age_restrictions")
+	if (GLOB.config.age_restrictions_from_file)
+		GLOB.config.load("config/age_restrictions.txt", "age_restrictions")
 
 /world/proc/update_status()
 	var/list/s = list()
 
-	if (config && config.server_name)
-		s += "<b>[config.server_name]</b> &#8212; "
+	if (GLOB.config && GLOB.config.server_name)
+		s += "<b>[GLOB.config.server_name]</b> &#8212; "
 
 	s += "<b>[station_name()]</b>";
 	s += " ("
-	s += "<a href=\"[config.forumurl]\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"[GLOB.config.forumurl]\">" //Change this to wherever you want the hub to link to.
 	s += "Forums"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
 	s += ")"
@@ -313,24 +313,24 @@ var/list/world_api_rate_limit = list()
 	var/list/features = list()
 
 	if (Master.initialization_time_taken)	// This is set at the end of initialization.
-		if(master_mode)
-			features += master_mode
+		if(GLOB.master_mode)
+			features += GLOB.master_mode
 	else
 		features += "<b>STARTING</b>"
 
-	if (!config.enter_allowed)
+	if (!GLOB.config.enter_allowed)
 		features += "closed"
 
-	features += config.abandon_allowed ? "respawn" : "no respawn"
+	features += GLOB.config.abandon_allowed ? "respawn" : "no respawn"
 
-	if (config && config.allow_vote_mode)
+	if (GLOB.config && GLOB.config.allow_vote_mode)
 		features += "vote"
 
-	if (config && config.allow_ai)
+	if (GLOB.config && GLOB.config.allow_ai)
 		features += "AI allowed"
 
 	var/n = 0
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (M.client)
 			n++
 
@@ -339,8 +339,8 @@ var/list/world_api_rate_limit = list()
 	else if (n > 0)
 		features += "~[n] player"
 
-	if (config && config.hostedby)
-		features += "hosted by <b>[config.hostedby]</b>"
+	if (GLOB.config && GLOB.config.hostedby)
+		features += "hosted by <b>[GLOB.config.hostedby]</b>"
 
 	if (features)
 		s += ": [jointext(features, ", ")]"
@@ -354,13 +354,13 @@ var/list/world_api_rate_limit = list()
 #define FAILED_DB_CONNECTION_CUTOFF 5
 
 /hook/startup/proc/load_databases()
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		log_world("ERROR: Database Connection disabled. - Skipping Connection Establishment")
 		return 1
 	//Construct the database object from an init file.
-	dbcon = initialize_database_object("config/dbconfig.txt")
+	GLOB.dbcon = initialize_database_object("config/dbconfig.txt")
 
-	if(!setup_database_connection(dbcon))
+	if(!setup_database_connection(GLOB.dbcon))
 		log_world("ERROR: Your server failed to establish a connection with the configured database.")
 	else
 		log_world("Database connection established.")
@@ -435,7 +435,7 @@ var/list/world_api_rate_limit = list()
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
 /proc/establish_db_connection(var/DBConnection/con)
-	if (!config.sql_enabled)
+	if (!GLOB.config.sql_enabled)
 		return FALSE
 
 	if (!con)

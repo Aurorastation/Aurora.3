@@ -59,7 +59,7 @@
 	if(!istype(usr))
 		return
 	var/obj/item/card/id/I = usr.GetIdCard()
-	if(!istype(I) || !I.registered_name || issilicon(usr) || (!(access_heads in I.access) && !(access_research in I.access) && !(access_mining in I.access)))
+	if(!istype(I) || !I.registered_name || issilicon(usr) || (!(ACCESS_HEADS in I.access) && !(ACCESS_RESEARCH in I.access) && !(ACCESS_MINING in I.access)))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 

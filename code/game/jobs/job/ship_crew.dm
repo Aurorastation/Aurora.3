@@ -16,8 +16,8 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/job/assistant/get_access(selected_title)
-	if(config.assistant_maint && selected_title == "Assistant")
-		return list(access_maint_tunnels)
+	if(GLOB.config.assistant_maint && selected_title == "Assistant")
+		return list(ACCESS_MAINT_TUNNELS)
 	else
 		return list()
 

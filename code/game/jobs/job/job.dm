@@ -108,7 +108,7 @@
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
 	if (!species_modifier)
-		var/datum/species/human_species = global.all_species[SPECIES_HUMAN]
+		var/datum/species/human_species = GLOB.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
@@ -145,7 +145,7 @@
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
-	if(!config || config.jobs_have_minimal_access)
+	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
 		. = minimal_access.Copy()
 	else
 		. = access.Copy()
@@ -194,11 +194,11 @@
 	return ideal_character_age[species]
 
 /datum/job/proc/fetch_age_restriction()
-	if (!config.age_restrictions_from_file)
+	if (!GLOB.config.age_restrictions_from_file)
 		return
 
-	if (config.age_restrictions[lowertext(title)])
-		minimal_player_age = config.age_restrictions[lowertext(title)]
+	if (GLOB.config.age_restrictions[lowertext(title)])
+		minimal_player_age = GLOB.config.age_restrictions[lowertext(title)]
 	else
 		minimal_player_age = 0
 

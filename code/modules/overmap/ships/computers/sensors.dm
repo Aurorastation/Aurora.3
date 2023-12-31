@@ -313,7 +313,7 @@
 				contact_details = null
 			if("print")
 				if(contact_details)
-					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+					playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
 					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
 		return TRUE
 
@@ -321,7 +321,7 @@
 		var/obj/effect/overmap/O = locate(params["scan"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked))|| (O in contact_datums))
-				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+				playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
 				LAZYSET(last_scan, "data", O.get_scan_data(usr))
 				LAZYSET(last_scan, "location", "[O.x],[O.y]")
 				LAZYSET(last_scan, "name", "[O]")
@@ -500,7 +500,7 @@
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()
 		if(deep_scan_toggled)

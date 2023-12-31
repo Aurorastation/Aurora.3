@@ -317,7 +317,7 @@
 
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh

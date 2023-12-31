@@ -182,7 +182,7 @@
 
 	if(simple_default_language)
 		add_language(simple_default_language)
-		default_language = all_languages[simple_default_language]
+		default_language = GLOB.all_languages[simple_default_language]
 
 	if(dead_on_map)
 		death()
@@ -671,7 +671,7 @@
 	if (!nutrition)
 		tally += 4
 
-	return tally+config.animal_delay
+	return tally + GLOB.config.animal_delay
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -897,7 +897,7 @@
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
 

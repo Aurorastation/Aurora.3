@@ -130,7 +130,7 @@
 			if(!istype(GS.linked.loc, /turf/unsimulated/map))
 				to_chat(H, SPAN_WARNING("The safeties won't let you target while you're not on the Overmap!"))
 				return
-			var/my_sector = map_sectors["[H.z]"]
+			var/my_sector = GLOB.map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
 				if(V != src && length(V.ship_weapons)) //no guns, no lockon

@@ -70,6 +70,8 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		else
 			init_subtypes(/datum/controller/subsystem, subsystems)
 		Master = src
+	if(!GLOB)
+		new /datum/controller/global_vars
 
 /datum/controller/master/Destroy()
 	..()
@@ -225,7 +227,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 #endif
 
 	world.TgsInitializationComplete()
-	world.change_tick_lag(config.Ticklag)
+	world.change_tick_lag(GLOB.config.Ticklag)
 
 	var/initialized_tod = REALTIMEOFDAY
 

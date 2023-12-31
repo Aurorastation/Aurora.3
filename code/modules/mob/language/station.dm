@@ -254,7 +254,7 @@
 		if(speaker_socket?.encryption_key)
 			speaker_encryption_key = speaker_socket.encryption_key
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		if(istype(player, /mob/abstract/observer) || player == speaker)
 			to_chat(player, msg)
 		else if(!within_jamming_range(player) && check_special_condition(player))
@@ -296,7 +296,7 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_VAURCA] in M.languages))
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1

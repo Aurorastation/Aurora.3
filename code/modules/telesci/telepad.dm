@@ -148,5 +148,5 @@
 /obj/item/rcs/attackby(var/obj/item/O, var/mob/user)
 	if (istype(O, /obj/item/card/emag) && !emagged)
 		emagged = 1
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 		to_chat(user, "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>")

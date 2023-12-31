@@ -70,7 +70,7 @@
 				D.nymphize(H, O.limb_name, TRUE)
 
 /datum/outfit/admin/tarwa/get_id_access()
-	return list(access_unathi_pirate, access_external_airlocks)
+	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/tarwa/diona
 	name = "Tarwa Conglomerate Diona"

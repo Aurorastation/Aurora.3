@@ -18,13 +18,20 @@
 	var/list/attached_overlays = null
 	var/obj/item/device/assembly_holder/holder = null
 	var/cooldown = 0 //To prevent spam
-	var/wires = WIRE_RECEIVE | WIRE_PULSE
 
-	var/const/WIRE_RECEIVE = 1			//Allows Pulsed(0) to call Activate()
-	var/const/WIRE_PULSE = 2				//Allows Pulse(0) to act on the holder
-	var/const/WIRE_PULSE_SPECIAL = 4		//Allows Pulse(0) to act on the holders special assembly
-	var/const/WIRE_RADIO_RECEIVE = 8		//Allows Pulsed(1) to call Activate()
-	var/const/WIRE_RADIO_PULSE = 16		//Allows Pulse(1) to send a radio message
+	/**
+	 * Wires that the assembly has installed
+	 *
+	 * Refer to `code\__defines\wires.dm` in the dedicated section for the supported wires, which _must_ be bitflags
+	 *
+	 * At the time of writing this, it supports:
+	 * * WIRE_RECEIVE_ASSEMBLY
+	 * * WIRE_PULSE_ASSEMBLY
+	 * * WIRE_PULSE_SPECIAL
+	 * * WIRE_RADIO_RECEIVE
+	 * * WIRE_RADIO_PULSE
+	 */
+	var/wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY
 
 /obj/item/device/assembly/proc/holder_movement()
 	return
@@ -39,7 +46,7 @@
 
 // Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
 /obj/item/device/assembly/proc/pulsed(var/radio = 0)
-	if(holder && (wires & WIRE_RECEIVE))
+	if(holder && (wires & WIRE_RECEIVE_ASSEMBLY))
 		activate()
 	if(radio && (wires & WIRE_RADIO_RECEIVE))
 		activate()
@@ -47,7 +54,7 @@
 
 // Called when this device attempts to act on another device, var/radio determines if it was sent via radio or direct
 /obj/item/device/assembly/proc/pulse(var/radio = 0)
-	if(holder && (wires & WIRE_PULSE))
+	if(holder && (wires & WIRE_PULSE_ASSEMBLY))
 		holder.process_activation(src, TRUE, FALSE)
 	if(holder && (wires & WIRE_PULSE_SPECIAL))
 		holder.process_activation(src, FALSE, TRUE)

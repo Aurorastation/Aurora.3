@@ -107,7 +107,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 
 STOCK_ITEM_UNCOMMON(robolimbs, 3)
 	for(var/i in 1 to rand(1, 2))
-		var/manuf = pick(fabricator_robolimbs)
+		var/manuf = pick(GLOB.fabricator_robolimbs)
 		var/type = pick( \
 			/obj/item/robot_parts/l_arm, \
 			/obj/item/robot_parts/r_arm, \

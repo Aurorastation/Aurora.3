@@ -62,7 +62,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/goon/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/goon/boss
 	short_name = "goon_boss"

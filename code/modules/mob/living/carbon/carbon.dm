@@ -155,7 +155,7 @@
 			SPAN_WARNING("You feel a mild shock course through your body."), \
 			SPAN_WARNING("You hear a light zapping.") \
 		)
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 	return shock_damage
 
 /mob/proc/swap_hand()
@@ -392,7 +392,7 @@
 	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
 	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Stun(stun_duration)
-	Weaken(Floor(stun_duration/2))
+	Weaken(FLOOR(stun_duration/2))
 	return 1
 
 /mob/living/carbon/proc/add_chemical_effect(var/effect, var/magnitude = 1)
@@ -413,7 +413,7 @@
 
 	if(!species)
 		return null
-	return species.default_language ? all_languages[species.default_language] : null
+	return species.default_language ? GLOB.all_languages[species.default_language] : null
 
 /mob/living/carbon/is_berserk()
 	return (CE_BERSERK in chem_effects)

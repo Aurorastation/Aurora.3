@@ -35,7 +35,7 @@
 	if(closed)
 		to_chat(usr, "You check your watch, realising it's closed.")
 	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 
 /obj/item/pocketwatch/verb/pointatwatch()
 	set category = "Object"
@@ -108,7 +108,7 @@
 		return
 	if(!thrall || !thrall.resolve())
 		thrall = null
-		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 		return
 
 	var/mob/living/carbon/human/H = thrall.resolve()

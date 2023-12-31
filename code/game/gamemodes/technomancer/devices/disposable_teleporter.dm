@@ -32,13 +32,13 @@
 		return
 	else
 		var/list/area/valid_areas = list()
-		for(var/area/A as anything in the_station_areas)
+		for(var/area/A as anything in GLOB.the_station_areas)
 			if(is_shuttle_area(A))
 				continue
 			else
 				valid_areas += A
 		var/area/A = tgui_input_list(user, "Area to teleport to", "Teleportation", valid_areas)
-		if(!isarea(A) || !(A in the_station_areas))
+		if(!isarea(A) || !(A in GLOB.the_station_areas))
 			return
 
 		if (user.stat || user.restrained())

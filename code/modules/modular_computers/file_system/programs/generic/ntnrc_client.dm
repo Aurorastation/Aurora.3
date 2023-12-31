@@ -129,7 +129,7 @@
 	data["signal"] = get_signal(NTNET_COMMUNICATION)
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
-	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
+	data["can_netadmin_mode"] = can_run(user, FALSE, ACCESS_NETWORK)
 	data["message_mute"] = message_mute
 	if(active && active.can_interact(src))
 		var/ref = text_ref(active)
@@ -321,7 +321,7 @@
 			netadmin_mode = FALSE
 		else
 			var/mob/living/user = usr
-			if(can_run(user, TRUE, access_network))
+			if(can_run(user, TRUE, ACCESS_NETWORK))
 				netadmin_mode = TRUE
 		computer.update_static_data_for_all_viewers()
 		. = TRUE

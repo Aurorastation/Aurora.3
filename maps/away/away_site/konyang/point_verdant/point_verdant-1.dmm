@@ -1997,7 +1997,7 @@
 /area/point_verdant/interior)
 "hW" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/ammo_magazine/c45/revolver,
 /obj/item/ammo_magazine/c45/revolver,
@@ -3347,6 +3347,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
+"nr" = (
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_police_garage";
+	name = "Garage Shutters";
+	pixel_x = 24;
+	dir = 4;
+	req_access = list(218)
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/police)
 "ns" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/decal/exterior_stairs/half{
@@ -3568,7 +3578,7 @@
 "ou" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(217)
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -4890,7 +4900,7 @@
 /area/point_verdant/interior)
 "tS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/random/dirt_75,
 /obj/item/gun/projectile/revolver/konyang/police,
@@ -6962,6 +6972,13 @@
 "CQ" = (
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
+"CS" = (
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "konyang_police_exit"
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/police)
 "CW" = (
 /obj/machinery/washing_machine{
 	name = "dirty laundry machine";
@@ -7537,7 +7554,7 @@
 /area/point_verdant/interior)
 "FD" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -8234,7 +8251,7 @@
 /area/point_verdant/interior/hotel)
 "Ib" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(217)
+	req_access = list(218)
 	},
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
@@ -9666,6 +9683,20 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
+"NY" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_police_exit";
+	name = "Maintenance Shutters";
+	pixel_x = 24;
+	dir = 4;
+	req_access = list(218)
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/police)
 "NZ" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/hotel)
@@ -10516,6 +10547,7 @@
 /area/point_verdant/interior/pharmacy)
 "Rx" = (
 /obj/machinery/door/blast/shutters{
+	id = "konyang_police_garage";
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -10722,6 +10754,13 @@
 	dir = 8;
 	pixel_x = 7;
 	pixel_y = 5
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_bar";
+	name = "Entry Shutters";
+	pixel_x = 24;
+	dir = 4;
+	req_access = list(219)
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
@@ -22867,7 +22906,7 @@ wr
 OU
 wr
 mO
-mO
+nr
 mO
 mO
 MH
@@ -25696,7 +25735,7 @@ kg
 wD
 RY
 tA
-tA
+NY
 SZ
 lC
 AV
@@ -25952,7 +25991,7 @@ lC
 CJ
 ZM
 lC
-Rx
+CS
 lC
 lC
 lC

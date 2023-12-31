@@ -45,7 +45,7 @@
 	)
 
 /datum/outfit/admin/sadar_crew/get_id_access()
-	return list(access_external_airlocks)
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sadar_crew/captain
 	short_name = "sadar_crew_captain"
@@ -69,4 +69,4 @@
 
 /obj/item/card/id/sadar_scout
 	name = "unified sadar fleet id"
-	access = list(access_external_airlocks)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS)

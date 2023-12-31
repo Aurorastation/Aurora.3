@@ -202,8 +202,8 @@
 /obj/item/clothing/ears/skrell/scrunchy/equipped(mob/user, slot, assisted_equip)
 	if((slot in list(slot_head, slot_l_ear, slot_r_ear)) && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(istype(hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
-			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = hair_styles_list[H.h_style]
+		if(istype(GLOB.hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
+			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = GLOB.hair_styles_list[H.h_style]
 			if(hair_datum.scrunchy_style)
 				item_state = "scrunchy_[hair_datum.scrunchy_style]"
 	return ..()

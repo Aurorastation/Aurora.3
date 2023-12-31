@@ -34,8 +34,8 @@
 
 /datum/event/carp_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)
-		spawn_fish(length(landmarks_list), spawn_drones = deploy_drones)
-		spawn_caverndweller(length(landmarks_list), spawn_drones = deploy_drones)
+		spawn_fish(length(GLOB.landmarks_list), spawn_drones = deploy_drones)
+		spawn_caverndweller(length(GLOB.landmarks_list), spawn_drones = deploy_drones)
 	else if(severity == EVENT_LEVEL_MODERATE)
 		spawn_fish(rand(4, 6), spawn_drones = deploy_drones)			//12 to 30 carp, in small groups
 		spawn_caverndweller(rand(1, 2), spawn_drones = deploy_drones) //less of those, also don't happen in the regular event
@@ -46,7 +46,7 @@
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "carpspawn")
 			spawn_locations.Add(C.loc)
 	spawn_locations = shuffle(spawn_locations)
@@ -76,7 +76,7 @@
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "cavernspawn")
 			spawn_locations.Add(C.loc)
 	spawn_locations = shuffle(spawn_locations)
@@ -114,7 +114,7 @@
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "carpspawn")
 			spawn_locations.Add(C.loc)
 	spawn_locations = shuffle(spawn_locations)

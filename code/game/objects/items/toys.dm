@@ -609,7 +609,7 @@
 			do_pop()
 
 /obj/item/toy/snappop/proc/do_pop()
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)

@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(misc_early)
 	// Setup ore.
 	for(var/oretype in subtypesof(/ore))
 		var/ore/OD = new oretype()
-		ore_data[OD.name] = OD
+		GLOB.ore_data[OD.name] = OD
 
 	// Setup cargo spawn lists.
 	setup_cargo_spawn_lists()

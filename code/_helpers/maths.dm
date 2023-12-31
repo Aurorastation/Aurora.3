@@ -1,7 +1,12 @@
+#define FLOOR(x) round(x)
+
+// round() acts like floor(x, 1) by default but can't handle other values
+#define FLOOR_FLOAT(x, y) ( round((x) / (y)) * (y) )
+
 // min is inclusive, max is exclusive
 /proc/Wrap(val, min, max)
 	var/d = max - min
-	var/t = Floor((val - min) / d)
+	var/t = FLOOR((val - min) / d)
 	return val - (t * d)
 
 /proc/Default(a, b)
@@ -25,17 +30,14 @@
 	var/a = arccos(x / sqrt(x*x + y*y))
 	return y >= 0 ? a : -a
 
-/proc/Floor(x)
-	return round(x)
-
 /// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
 #define Ceil(value) ( -round(-(value)) )
 
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
-/proc/Modulus(x, y)
-	return ( (x) - (y) * round((x) / (y)) )
+// Real modulus that handles decimals
+#define MODULUS(x, y) ( (x) - FLOOR_FLOAT(x, y))
 
 /proc/Percent(current_value, max_value, rounding = 1)
 	return round((current_value / max_value) * 100, rounding)
@@ -72,7 +74,7 @@
 	return (min < val && val < max)
 
 /proc/IsInteger(x)
-	return Floor(x) == x
+	return FLOOR(x) == x
 
 /proc/IsMultiple(x, y)
 	return x % y == 0
@@ -163,11 +165,9 @@
 	if(isnum(num)&&isnum(min)&&isnum(max))
 		return ((min <= num) && (num <= max))
 
-#define MODULUS_FLOAT(X, Y) ( (X) - (Y) * round((X) / (Y)) )
-
 // Will filter out extra rotations and negative rotations
 // E.g: 540 becomes 180. -180 becomes 180.
-#define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))
+#define SIMPLIFY_DEGREES(degrees) (MODULUS((degrees), 360))
 
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
@@ -241,3 +241,4 @@
  */
 #define BEARING_RELATIVE(observer_x, observer_y, target_x, target_y) (90 - Atan2(target_x - observer_x, target_y - observer_y))
 
+#define ISINTEGER(x) (round(x) == x)

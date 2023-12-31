@@ -27,7 +27,7 @@
 	selectable = 0
 
 /datum/ai_laws/nanotrasen/malfunction/New()
-	set_zeroth_law(config.law_zero)
+	set_zeroth_law(GLOB.config.law_zero)
 	..()
 
 /************* NanoTrasen Aggressive *************/

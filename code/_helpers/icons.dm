@@ -1115,7 +1115,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	if (!target)
 		return
 	if (target == world)
-		target = clients
+		target = GLOB.clients
 
 	var/list/targets
 	if (!islist(target))

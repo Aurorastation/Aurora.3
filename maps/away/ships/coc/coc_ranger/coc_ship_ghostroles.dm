@@ -38,7 +38,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/ranger/get_id_access()
-	return list(access_external_airlocks)
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ranger/captain
 	short_name = "ranger_leader"
@@ -63,4 +63,4 @@
 
 /obj/item/card/id/ranger_ship
 	name = "ranger ship id"
-	access = list(access_external_airlocks, access_coalition, access_coalition_navy)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY)

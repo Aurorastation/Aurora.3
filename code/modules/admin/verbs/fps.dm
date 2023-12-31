@@ -7,7 +7,7 @@
 	if(!check_rights(R_DEBUG|R_DEV))
 		return
 
-	var/cfg_fps = (10 / config.Ticklag)
+	var/cfg_fps = (10 / GLOB.config.Ticklag)
 	var/new_fps = round(input("Sets game frames-per-second. Can potentially break the game (default: [cfg_fps])","FPS", world.fps) as num|null)
 
 	if(new_fps <= 0)
