@@ -14,7 +14,7 @@
 	icon_state = "bluenew"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
-	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang/cave
+	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 	sound_env = TUNNEL_ENCLOSED
