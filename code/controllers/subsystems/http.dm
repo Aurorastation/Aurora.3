@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(http)
 			log_http(log_data.Join("\n"))
 
 			// Check if we can add a auto-rety on status 429 or 503 if they have a Retry-After header
-			if((res.status_code == 429 || res.status_code == 503) && "retry-after" in res.headers )
+			if((res.status_code == 429 || res.status_code == 503) && ("retry-after" in res.headers) )
 				var/retry_after = text2num(res.headers["retry-after"])
 				if(retry_after == 0 && req.cb)
 					if(req.cb)
