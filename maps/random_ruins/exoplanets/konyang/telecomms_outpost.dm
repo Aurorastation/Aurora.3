@@ -56,4 +56,3 @@
 	name = "konyang army id"
 	access = list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
 
-
