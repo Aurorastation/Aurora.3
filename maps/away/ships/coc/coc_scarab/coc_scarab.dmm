@@ -3138,10 +3138,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/equipment)
-"re" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/template_noop,
-/area/space)
 "rj" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -47009,7 +47005,7 @@ cB
 cB
 cB
 cB
-re
+cB
 cB
 cB
 cB
