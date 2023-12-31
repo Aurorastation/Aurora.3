@@ -2030,6 +2030,7 @@
 /obj/structure/sign/vacuum{
 	pixel_y = -30
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "kd" = (
@@ -2058,6 +2059,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
 "kg" = (
@@ -2632,6 +2634,7 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "od" = (
@@ -3557,6 +3560,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
 "tu" = (
@@ -3766,13 +3770,6 @@
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engine)
-"uh" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "ui" = (
 /obj/machinery/computer/ship/helm/terminal,
 /obj/effect/floor_decal/industrial/warning,
@@ -3853,6 +3850,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "uM" = (
@@ -4372,6 +4370,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
 "xY" = (
@@ -4703,6 +4702,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "Aa" = (
@@ -5951,6 +5951,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "GC" = (
@@ -5974,6 +5975,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "GJ" = (
@@ -8069,6 +8071,7 @@
 /obj/structure/sign/vacuum{
 	pixel_y = 30
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/equipment)
 "Rf" = (
@@ -8331,6 +8334,7 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
 "Sf" = (
@@ -9484,6 +9488,7 @@
 /obj/item/tank/emergency_oxygen/engi,
 /obj/item/tank/emergency_oxygen/engi,
 /obj/item/tank/emergency_oxygen/engi,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "XS" = (
@@ -9668,6 +9673,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/bridge)
 "YW" = (
@@ -9762,6 +9768,7 @@
 /obj/structure/sign/vacuum{
 	pixel_y = 30
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/coc_scarab/engistorage)
 "ZA" = (
@@ -20330,7 +20337,7 @@ cB
 cB
 cB
 cB
-uh
+cB
 cB
 cB
 cB
