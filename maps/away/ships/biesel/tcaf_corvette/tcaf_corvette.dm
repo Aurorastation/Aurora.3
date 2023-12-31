@@ -72,9 +72,19 @@
 	landmark_tag = "tcaf_corvette_nav4"
 
 /obj/effect/shuttle_landmark/tcaf_corvette/dock
-	name = "Docking Port"
+	name = "Port Docking Port"
 	docking_controller = "airlock_tcaf_dock"
 	landmark_tag = "tcaf_corvette_dock"
+
+/obj/effect/shuttle_landmark/tcaf_corvette/dock1
+	name = "Starboard Docking Port"
+	docking_controller = "airlock_tcaf_dock1"
+	landmark_tag = "tcaf_corvette_dock1"
+
+/obj/effect/shuttle_landmark/tcaf_corvette/dock2
+	name = "Aft Docking Port"
+	docking_controller = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_dock2"
 
 /obj/effect/overmap/visitable/ship/landable/tcaf_shuttle
 	name = "TCAF Gunship"
