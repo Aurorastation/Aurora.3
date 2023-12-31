@@ -5714,6 +5714,12 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
+"YG" = (
+/obj/effect/shuttle_landmark/tcaf_shuttle/hangar{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/hangar)
 "YH" = (
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
@@ -33188,7 +33194,7 @@ AI
 Jj
 Jj
 Jj
-Jj
+YG
 Jj
 NB
 TW
