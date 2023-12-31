@@ -32,7 +32,7 @@ on_github = os.getenv("GITHUB_ACTIONS") == "true"
 excluded_files = [
     #  Wildcard directories, all files are expected to be exempt.
     "code/__datastructures/*.dm",
-    "code/__defines/*.dm",
+    "code/__DEFINES/*.dm",
     "code/_global_vars/*.dm",
     "code/_helpers/*.dm",
     # World Config
