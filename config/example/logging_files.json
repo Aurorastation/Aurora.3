@@ -20,6 +20,7 @@
   "world_telecomms_log":"world_telecomms.log",
   "world_speech_indicators_log":"world_speech_indicators.log",
   "world_tool_log":"world_tool.log",
+  "world_loadout_log":"world_loadout.log",
   "world_href_log":"href.log",
   "garbage_collector_log":"garbage_collector.log",
   "harddel_log":"harddel.log",
