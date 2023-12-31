@@ -962,9 +962,8 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "ug" = (
-/obj/random/dirt_75,
-/turf/simulated/mineral,
-/area/hivebot_burrows_1)
+/turf/unsimulated/mineral/asteroid,
+/area/space)
 "uo" = (
 /obj/structure/flora/rock/konyang{
 	density = 0
@@ -1104,7 +1103,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "xf" = (
-/turf/simulated/mineral,
+/turf/unsimulated/mineral/asteroid,
 /area/hivebot_burrows_1)
 "xi" = (
 /obj/random/dirt_75,
@@ -1662,7 +1661,7 @@
 /area/hivebot_burrows_1)
 "Ii" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/mineral,
+/turf/unsimulated/mineral/asteroid,
 /area/hivebot_burrows_1)
 "II" = (
 /obj/structure/bed/stool/chair/wood{
@@ -2660,7 +2659,7 @@ iq
 fE
 Vy
 Vy
-Vy
+ug
 Vy
 Om
 Om
@@ -2962,7 +2961,7 @@ xf
 xf
 EO
 GT
-ug
+xf
 xf
 xf
 OS
@@ -3493,7 +3492,7 @@ xf
 OR
 GF
 xf
-ug
+xf
 wP
 rd
 xf
@@ -4671,7 +4670,7 @@ xf
 xf
 xf
 xf
-ug
+xf
 iW
 Tf
 xf
