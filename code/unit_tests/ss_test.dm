@@ -145,7 +145,8 @@ SUBSYSTEM_DEF(unit_tests_config)
 				break
 
 	SSunit_tests_config.UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)

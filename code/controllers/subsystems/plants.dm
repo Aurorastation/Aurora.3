@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(plants)
 		plant_gene_datums[gene_mask] = G
 		gene_masked_list += (list(list("tag" = gene_tag, "mask" = gene_mask)))
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/plants/Recover()
 	if (istype(SSplants))

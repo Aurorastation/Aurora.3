@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(news)
 
 		INVOKE_ASYNC(src, PROC_REF(load_from_forums))
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/news/proc/load_from_forums()
 	if (!GLOB.config.forum_api_path || !global.forum_api_key)

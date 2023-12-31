@@ -808,7 +808,7 @@ var/global/enabled_spooking = 0
 	set category = "Server"
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
-	if(Master.initializing)
+	if(!MC_RUNNING())
 		alert("Unable to start the game as it is not set up.")
 		return
 	if(SSticker.current_state == GAME_STATE_PREGAME)

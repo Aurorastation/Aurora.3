@@ -182,7 +182,7 @@ Class Procs:
 // 		if(. == PROCESS_KILL)
 // 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/process()
+/obj/machinery/process(seconds_per_tick)
 	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)

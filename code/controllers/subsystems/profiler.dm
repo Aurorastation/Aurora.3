@@ -14,14 +14,13 @@ SUBSYSTEM_DEF(profiler)
 
 /datum/controller/subsystem/profiler/Initialize()
 	if (!GLOB.config.profiler_is_enabled)
-		..()
 		flags |= SS_NO_FIRE
-		return
+		return SS_INIT_SUCCESS
 
 	restart_period = GLOB.config.profiler_restart_period
 	threshold = GLOB.config.profiler_timeout_threshold
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/profiler/Shutdown()
 	. = ..()

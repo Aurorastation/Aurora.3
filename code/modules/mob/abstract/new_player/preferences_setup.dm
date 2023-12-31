@@ -234,7 +234,7 @@
 
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob
-	if(SSjobs.init_state < SS_INITSTATE_DONE)
+	if(!SSjobs.initialized)
 		return
 
 	if(job_civilian_low & ASSISTANT)

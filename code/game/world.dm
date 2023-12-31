@@ -10,6 +10,31 @@
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 GLOBAL_DATUM(config, /datum/configuration)
 GLOBAL_PROTECT(config)
+
+/**
+ * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN SUBSYSTEMS OR WORLD/NEW IS DONE
+ * NOWHERE THE FUCK ELSE
+ * I DON'T CARE HOW MANY LAYERS OF DEBUG/PROFILE/TRACE WE HAVE, YOU JUST HAVE TO DEAL WITH THIS PROC EXISTING
+ * I'M NOT EVEN GOING TO TELL YOU WHERE IT'S CALLED FROM BECAUSE I'M DECLARING THAT FORBIDDEN KNOWLEDGE
+ * SO HELP ME GOD IF I FIND ABSTRACTION LAYERS OVER THIS!
+ */
+/world/proc/Genesis(tracy_initialized = FALSE)
+	RETURN_TYPE(/datum/controller/master)
+
+#ifdef USE_BYOND_TRACY
+#warn USE_BYOND_TRACY is enabled
+	if(!tracy_initialized)
+		init_byond_tracy()
+		Genesis(tracy_initialized = TRUE)
+		return
+#endif
+
+	// Init the debugger first so we can debug Master
+	init_debugger()
+
+	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
+	Master = new
+
 /*
 	Pre-map initialization stuff should go here.
 */
@@ -98,11 +123,7 @@ GLOBAL_PROTECT(config)
 	load_unit_test_changes()
 #endif
 
-	// Do not add initialization stuff to this file, unless it *must* run before the MC initializes!
-	// (hint: you generally won't need this)
-	// To do things on server-start, create a subsystem or shove it into one of the miscellaneous init subsystems.
-
-	Master.Initialize(10, FALSE)
+	Master.Initialize(10, FALSE, TRUE)
 
 #undef RECOMMENDED_VERSION
 
@@ -312,7 +333,7 @@ var/list/world_api_rate_limit = list()
 
 	var/list/features = list()
 
-	if (Master.initialization_time_taken)	// This is set at the end of initialization.
+	if (Master.init_timeofday)	// This is set at the end of initialization.
 		if(GLOB.master_mode)
 			features += GLOB.master_mode
 	else
@@ -475,5 +496,27 @@ var/list/world_api_rate_limit = list()
 
 /world/proc/on_tickrate_change()
 	SStimer?.reset_buckets()
+
+
+/world/proc/init_byond_tracy()
+	var/library
+
+	switch (system_type)
+		if (MS_WINDOWS)
+			library = "prof.dll"
+		if (UNIX)
+			library = "libprof.so"
+		else
+			CRASH("Unsupported platform: [system_type]")
+
+	var/init_result = LIBCALL(library, "init")("block")
+	if (init_result != "0")
+		CRASH("Error initializing byond-tracy: [init_result]")
+
+/world/proc/init_debugger()
+	var/dll = GetConfig("env", "AUXTOOLS_DEBUG_DLL")
+	if (dll)
+		LIBCALL(dll, "auxtools_init")()
+		enable_debugging()
 
 #undef FAILED_DB_CONNECTION_CUTOFF

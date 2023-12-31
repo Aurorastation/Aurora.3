@@ -18,7 +18,6 @@ SUBSYSTEM_DEF(ghostroles)
 	src.spawners = SSghostroles.spawners
 
 /datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
-	. = ..()
 	for(var/spawner in subtypesof(/datum/ghostspawner))
 		CHECK_TICK
 		var/datum/ghostspawner/G = new spawner
@@ -38,6 +37,8 @@ SUBSYSTEM_DEF(ghostroles)
 
 	for(var/spawn_type in spawn_types)
 		spawn_atom[spawn_type] = list()
+
+	return SS_INIT_SUCCESS
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)

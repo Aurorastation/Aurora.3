@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(vote)
 	name = "Voting"
 	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
+	flags = SS_KEEP_TIMING | SS_KEEP_TIMING
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	priority = SS_PRIORITY_VOTE
 
@@ -22,6 +22,7 @@ SUBSYSTEM_DEF(vote)
 
 /datum/controller/subsystem/vote/Initialize(timeofday)
 	next_transfer_time = GLOB.config.vote_autotransfer_initial
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/vote/fire(resumed = FALSE)
 	if (mode)
@@ -39,6 +40,8 @@ SUBSYSTEM_DEF(vote)
 	if (get_round_duration() >= next_transfer_time - 600)
 		autotransfer()
 		next_transfer_time += GLOB.config.vote_autotransfer_interval
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/vote/proc/autotransfer()
 	initiate_vote("crew_transfer","the server", 1)

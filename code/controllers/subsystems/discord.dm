@@ -48,6 +48,8 @@ SUBSYSTEM_DEF(discord)
 	GLOB.config.load("config/discord.txt", "discord")
 	update_channels()
 
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/discord/stat_entry(msg)
 	msg = "A: [active] C: [length(channels)] G: [length(channels_to_group)]"
 	return ..()

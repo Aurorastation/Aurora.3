@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(statistics)
 	name = "Statistics & Inactivity"
 	wait = 1 MINUTE
-	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
+	flags = SS_BACKGROUND
 	priority = SS_PRIORITY_STATISTICS
 
 	var/kicked_clients = 0
@@ -44,6 +44,8 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		simple_statistics[S.key] = S
 
 	sortTim(simple_statistics, GLOBAL_PROC_REF(cmp_name_asc), TRUE)
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.

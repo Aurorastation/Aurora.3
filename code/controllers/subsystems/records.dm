@@ -20,13 +20,14 @@ SUBSYSTEM_DEF(records)
 	var/list/accents = list()
 
 /datum/controller/subsystem/records/Initialize()
-	..()
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
 	InitializeCitizenships()
 	InitializeReligions()
 	InitializeAccents()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/records/PreInit()
 	records = list()
