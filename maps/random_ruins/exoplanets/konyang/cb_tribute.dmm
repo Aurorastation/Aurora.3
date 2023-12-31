@@ -1,0 +1,162 @@
+"bt" = (/obj/structure/konyang_cliff{icon_state = "topcorner_east"; density = 0; layer = 6; pixel_y = 25},/obj/structure/konyang_cliff{icon_state = "cliff-east"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"cA" = (/obj/structure/lattice/catwalk/indoor/tatami{dir = 4},/obj/item/device/versebook/trinary{pixel_y = 9; pixel_x = -7},/obj/item/device/versebook/trinary{pixel_y = 5; pixel_x = 7},/turf/simulated/floor/concrete/square,/area/exoplanet/grass/konyang)
+"cM" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"dj" = (/obj/structure/table/fancy/cyan,/obj/item/trash/candle{pixel_x = 6},/obj/item/trash/candle{pixel_y = 1; pixel_x = -3},/obj/item/trash/candle{pixel_y = 1; pixel_x = -13},/obj/item/trash/candle{pixel_y = -1; pixel_x = -7},/obj/structure/sign/painting_frame/martyr{pixel_y = 9; pixel_x = -16; name = "photo of a martyr"; desc = "a small portrait, with a plate reading 'Rest in Peace Kei Nakai' on the bottom of the frame."; desc_extended = null},/obj/item/flag/trinaryperfection{pixel_y = 19; pixel_x = 3},/turf/simulated/floor/concrete,/area/exoplanet/grass/konyang)
+"dk" = (/obj/effect/floor_decal/konyang_flowers,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"dH" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"fJ" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"gk" = (/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"gn" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"gt" = (/obj/structure/konyang_cliff{icon_state = "cliff2"},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"hr" = (/obj/structure/konyang_cliff{icon_state = "cliff-top1"},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"hR" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"ib" = (/obj/structure/konyang_cliff{icon_state = "cliff-west"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"ja" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"jj" = (/obj/effect/konyang_waterfall{icon_state = "waterfall_topleft"; pixel_y = -16},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"jv" = (/obj/effect/konyang_waterfall/mist{pixel_y = -16},/obj/effect/konyang_waterfall{pixel_y = -14; icon_state = "waterfall_left"},/obj/structure/konyang_cliff{icon_state = "cliff2"; opacity = 1},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"jT" = (/obj/effect/decal/exterior_stairs/right{dir = 8},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"kv" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"kA" = (/obj/structure/konyang_cliff{icon_state = "cliff-top1"; pixel_y = 25},/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"lj" = (/obj/structure/flora/tree/konyang/fall,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"lR" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"nf" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"ng" = (/obj/structure/lattice/catwalk/indoor/tatami{dir = 8},/obj/item/device/versebook/trinary{pixel_y = 7; pixel_x = -4},/turf/simulated/floor/concrete/square,/area/exoplanet/grass/konyang)
+"nu" = (/obj/effect/decal/exterior_stairs/left{dir = 8; layer = 2.6},/obj/structure/konyang_cliff{icon_state = "cliff1-bottom"; layer = 2.1; pixel_y = 14; pixel_x = 2},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"nS" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 26; pixel_x = 1},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"oV" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 22},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"pj" = (/turf/simulated/floor/concrete/square,/area/exoplanet/grass/konyang)
+"qk" = (/obj/effect/konyang_waterfall{icon_state = "waterfall_topright"; pixel_y = -16},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"ql" = (/obj/structure/konyang_cliff{icon_state = "innercorner5"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"qO" = (/obj/structure/konyang_cliff{icon_state = "innercorner6"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"qY" = (/obj/structure/flora/tree/konyang/fall{pixel_x = -31; pixel_y = -10},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"tu" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"uj" = (/obj/structure/konyang_cliff{icon_state = "cliff2"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"ur" = (/obj/structure/konyang_cliff,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"vx" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"vW" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 19},/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"wI" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"wW" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 26},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"xc" = (/obj/effect/decal/exterior_stairs/left,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"xM" = (/obj/structure/konyang_cliff{icon_state = "topcorner_west"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"yG" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"zm" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"At" = (/obj/structure/konyang_cliff{icon_state = "innercorner4"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"AN" = (/obj/structure/konyang_cliff{icon_state = "cliff-top1"},/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"CJ" = (/obj/structure/konyang_cliff{icon_state = "botcorner_east"; pixel_y = 15; layer = 3},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"DB" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/item/device/flashlight/lamp/box{pixel_y = 15; pixel_x = -2},/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"DE" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 19},/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1},/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"EN" = (/obj/effect/decal/exterior_stairs/left{dir = 1},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"EY" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Ff" = (/obj/structure/flora/bush/konyang_reeds,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Gu" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Hv" = (/obj/structure/konyang_cliff{icon_state = "corner_east"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"HA" = (/obj/structure/flora/tree/konyang/blossom,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"HO" = (/obj/structure/konyang_cliff{icon_state = "innercorner1"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Ib" = (/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"IE" = (/obj/effect/konyang_waterfall/mist{pixel_y = -16},/obj/effect/konyang_waterfall{pixel_y = -14; icon_state = "waterfall_right"},/obj/structure/konyang_cliff{icon_state = "cliff2"; opacity = 1},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"IM" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/item/device/flashlight/lamp/box{pixel_y = 16; pixel_x = -1},/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"JY" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"MB" = (/obj/structure/konyang_cliff{icon_state = "cliff-top1"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"NH" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"NY" = (/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"Oy" = (/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"Pi" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Pp" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 19},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"PY" = (/obj/structure/konyang_cliff{icon_state = "cliff-top1"},/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Qj" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 19},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Ql" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 25},/obj/structure/flora/bush/konyang_reeds,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"QD" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"QS" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"RL" = (/obj/structure/table/fancy/cyan,/obj/item/trash/candle{pixel_x = 10},/obj/item/trash/candle{pixel_y = 1; pixel_x = -3},/obj/item/trash/candle{pixel_y = -1; pixel_x = -7},/obj/item/trash/candle{pixel_y = -1; pixel_x = 4},/obj/item/flag/konyang{pixel_y = 17; pixel_x = -4},/turf/simulated/floor/concrete,/area/exoplanet/grass/konyang)
+"RP" = (/obj/structure/flora/tree/konyang{pixel_y = -6; pixel_x = -22},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Th" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Uq" = (/obj/structure/konyang_cliff{icon_state = "corner_west"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"UL" = (/obj/structure/konyang_cliff{icon_state = "innercorner3"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"UV" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"Vo" = (/obj/structure/konyang_cliff{icon_state = "topcorner_east"; density = 0; layer = 6},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Vu" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"VA" = (/obj/structure/konyang_cliff{icon_state = "cliff-east"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Wo" = (/obj/structure/konyang_cliff{icon_state = "innercorner2"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"XI" = (/obj/structure/konyang_cliff{icon_state = "cliff-west"; layer = 2.5; density = 0},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Yl" = (/obj/structure/konyang_cliff{icon_state = "cliff2-bottom"; pixel_y = 22},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"YW" = (/obj/structure/konyang_cliff{icon_state = "topcorner_east"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+ThgkgkThnfThThgkgkgkgkThThgkcMgkJYThThThThJYxMMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBYWgkJYJYThThThnfJYgkgkgkgkgknf
+gkJYgkgkThThThgkgkgkgkgkzmJYnfgkJYgkxMMBMBMBqlThFfThcMgkgkThgknfThThgkIbljIbThgkThThnfgkcMgkgkJYqOMBMBMBMBMBMBMBYWzmgkcMgkgkgk
+JYgkcMzmgkJYgkgkcMJYcMgkgkxMMBMBMBMBqlgkgknfgkNHgkJYgkgkJYgkJYkvgkThgkJYIbThgkkvThThgkJYgkgkThThgkgkThThThgknfgkqOYWgkgkThzmTh
+nfgkgkgkJYgkcMgkJYJYxMMBMBqlThThgkJYgkcMgkgkJYgkfJfJfJfJfJfJPifJfJfJfJfJfJfJfJfJfJfJfJfJPigkJYgkJYgkgkgkgkgkJYgkgkqOYWJYzmThTh
+gkJYThcMgkThThxMMBMBqlgkgkJYgknfkvThThgkfJPifJfJfJfJPifJfJfJfJfJfJfJfJfJfJfJfJPifJfJfJfJfJfJfJfJfJPigkcMgkThThgkcMgkqOYWnfgkgk
+JYThgkgkJYThxMqlThgkJYcMgkfJfJfJfJfJfJfJfJPifJfJfJfJJYgkThgkgkgkThThgkkvJYnfgkgkcMThThThNHgkJYPifJfJgkgkThgkgkgkJYgkgkVAgkgkTh
+ThThcMnfgkxMqlgkgkThgkPifJfJfJPifJfJfJPifJfJgkIbgkgkThThnfgkcMxMMBMBMBMBMBMBMBMBMBMBMBMBMBMBMBVofJfJxMMBMBVogkThgkNHJYVAgkcMTh
+ThgkgkxMMBqlgkcMJYThfJfJfJfJJYgkThkvJYThThgkIbljIbxMMBMBMBMBMBqlThThgkIbgkThThJYgkgkThThgkRPgkWoENENAtRPgkWonfThgkgkThVAJYgkTh
+gkJYgkibThgkThJYgkfJfJfJNHThgkcMxMMBMBMBMBANMBhrMBqlThThThJYgkgkJYgkIbljIbgknfgkcMThgkcMJYgkThqOENENqlJYThqOYWJYJYgkThVAThThgk
+gkgkThibgkgkThThfJfJfJgkJYxMMBMBqlJYThgkThgkgkThJYgkcMThgkgkcMgkThThJYIbxMMBMBMBMBMBMBMBMBVonfJYfJfJThThIbgkVAgkgkJYThVAThzmnf
+cMgkThibgkcMgkfJPifJThxMMBqlThgkcMgknfThgkcMThxMMBMBMBMBANMBMBMBMBMBMBMBqlgkgkgkJYgkgkgkgkqOVoThfJPifJIbljIbVAgkcMThJYVAThzmgk
+gkThThibJYThnffJfJJYJYibThcMJYgkgkxMMBMBMBMBMBqlgkJYgkgkcMgkcMgkgknfgkgkgkgkNHgkIbgkgkgkgkgkWogkfJfJfJJYIbIbqOYWJYgkgkVAThThzm
+nfJYxMqlgkThgkfJfJnfgkibThgkxMMBMBqlThThcMThThgkcMgkgkgkgkJYThgkgkgkgkThcMgkgkIbljIbgkcMThgkVAgkcMfJfJgkNHgkgkVAThThgkqOYWgkzm
+gkgkibgkIbgkThfJfJJYxMqlJYxMqlgkcMgkgkgkThThThcMgknfgkcMgkgkThThcMgkThJYgkgkgkgkIbgkgkgkgkThVAgkThfJPiThgkgkgkVAThThnfJYVAcMTh
+JYThibIbljIbgkPifJThibcMgkibcMgkJYThcMgkcMJYgkxMMBMBMBMBMBPYMBMBMBMBMBMBMBPYMBMBYWJYgknfJYgkVAJYThfJfJThJYJYcMVAgkgkgkgkVAgkJY
+gkThibJYIbJYfJfJgkThibgknfibgkcMgknfxMMBMBMBMBqlgknfThThgkgkgkcMgkThThThThgkThThqOMBYWgkgkgkVAThgkfJfJgkJYJYgkVAJYJYcMThVAgkTh
+gkThibgkgkJYfJfJcMgkibThgkibgkJYxMMBqlcMgkJYThgkgkkvThgkcMgkJYgkgkgkcMgkkvgkgkgkgkgkVAgkcMgkVAgkgkfJfJcMgknfgkqOYWzmgkgkVAnfTh
+ThnfibgkcMgkfJfJgkxMqlJYJYibgkxMqlThThgkgkgkgkgkcMgkfJfJfJfJfJfJfJfJJYgknfgkcMgkcMgkVAgkgkdkVAgkcMfJPigkThgkThgkVAThgkThVAJYTh
+ThgkibThJYThfJPiThibgkgkgkibcMibcMgkgkcMgkcMJYgkfJfJfJtutututututufJfJfJThkvgkgkgkgkqOYWkvThqOYWgkgkfJfJJYgkgkgkVAThnfzmVAzmTh
+ThJYibgkkvThfJfJJYibThcMxMqlgkibgkJYcMgkgkgkgkfJfJtuNYtutuNYtututututufJThgkgkJYgkcMgkVAgkgkgkVANHThfJfJJYThcMgkVAgkJYThVAThTh
+gkgkibgkgkgkfJfJJYibThgkibgkcMibgkgkgkgkcMThThfJNYtututututututujatuNYfJfJgkcMgkgkgkThVAJYgkcMVAThThfJfJgkThThgkVAgkgkgkqOYWzm
+JYgkibcMgkNHfJfJgkibThgkibgkThibcMgkcMJYgkgkfJfJtutututujatututututututufJnfgkgkgkgkgkVAgkgkgkVAThThfJPigkgknfgkVAgkcMThgkVATh
+gknfibgkJYgkfJfJgkibgkJYibcMThibThcMgkgkkvnffJtutuNYtututuOyOyOytutututufJfJgkcMgkcMgkVAgkcMgkVAThThfJfJJYThgkgkqOYWJYThJYVAgk
+gkgkibgkIbJYfJfJcMibcMgkibkvdkibThgkgkThgkfJfJtutututuNYtuOyOyOytuNYtututufJfJgkThgkdkVAThkvgkVAgkThfJfJThThcMgkgkVAgkgkgkVAnf
+ThgkibIbljIbfJfJgkibThnfibThgkibJYgkcMThfJfJNYtuNYtututuOyOyOyOyOytututututufJEYgkgkThVAgkgkThVAgkIbPifJgkgkgkgknfVAThzmnfVAJY
+ThThibgkIbThfJfJkvibThgkibgkcMibThcMgkThfJtutututujatuOyOyOyOyOyUVOytuNYtuNYfJfJgkcMThVAnfgkdkVAIbljfJfJgkcMgkkvgkVAThThThVAzm
+gkJYibgkgkThPifJJYibgkJYibThnfibThgkgkJYfJNYtutututuOyOyOyOyOyOyOyOytututututufJgkgkThVAgkgkgkVAThIbfJfJJYThgkgkThVAgknfThVAzm
+gkxMqlgkcMgkfJfJThibcMgkibgkgkibThgkcMgkfJfJtuNYtutuOyOyOyUVOyOyOyOytututututufJgkgkgkVAgkcMgkVAThThfJfJThnfgkcMgkVAgkgkgkVATh
+JYibgkzmgknffJfJThibJYxMqlcMkvibgkcMgkgkgkfJtututututuOyOyOyOyOyOytutututututufJcMgkgkqOVoJYgkVAkvkvfJfJkvgkNHgkJYVAcMgkzmVAzm
+ThibgkgkJYfJfJfJgkibThibdkThgkibJYgkgkcMgkVututututututuOyOyOyOytuNYtutuNYtutufJThJYcMgkVAgkyGVAgkThfJfJJYThgkThgkVAgkJYgkVAgk
+ThibgkcMJYPifJIbgkibgkibThgkJYibgkcMgkgkgkfJNYtuNYtujatuOyOyOyOytutututututufJfJgkThgknfVAThThVAgkThfJfJgkThgknfgkVAThgkgkVAJY
+ThibgkgkThfJfJljIbibgkibgkgkgkUqULgkJYgkcMfJtututututututuOyOytutuNYtutufJfJIbIbIbIbgkHOHvgkgkVAcMgkfJfJgkgkgkgkJYVAgkgkcMVATh
+JYibcMJYThfJfJIbxMqlcMibgkcMgkhRibgkgkcMkvfJNYtutuNYNYtuNYNYtutujatututufJqYIbqYIbHAIbVAhRgkcMVAgkJYfJfJgkcMgkgkgkVAnfzmJYVAzm
+JYibgkJYgkfJfJJYibzmgkibThnfJYgkibcMThgkgkfJfJfJtututututututututututufJHOujujujujULIbVAgkJYgkVAgkThPiPiJYThgkgkcMVAgkThgkVAzm
+nfibnfJYcMfJfJJYibgkJYibThkvgkgkibJYThcMgkgkgkfJfJfJfJfJfJtujatutufJfJfJVADBRLdjIMibThVAcMgkgkVAThnffJfJgkkvJYgkgkVAgkgkgkVAgk
+gkibThgkgkfJfJThibgkzmibThThgkcMibJYJYgkgkcMgkgkgkgkcMgkfJtujjqktufJIbHAVAJYngcAJYUqujHvThyGnfVAgkgkfJfJThkvgkgkThVAThgkThVAJY
+JYibgkgkfJfJfJThibgkgkibgkgkgkgkUqULgkcMgknfgkcMgkgkHOujujujjvIEujujujujHvJYpjpjJYnShRwWgkgkgkVAgkgkfJPigkgkcMJYgkVAgkcMThVAgk
+ThibgkgkfJfJJYgkibcMgkibgkcMgkgkhRUqULgkgkkvThdkJYujHvYlQjPpDEDEPpPpQjoVhRgkfJfJgkcMgkgkgkcMgkVAgkcMfJfJgkThgkThJYVAJYnfThVAnf
+ThibcMgkfJPigkgkibgknfibThgkThJYkvhRibgkcMgkThHOujHvvxfJfJjajatujatutufJcMThfJfJfJkvgkcMgkgkgkVAThgkfJfJgkNHgkgkThVAJYgkThVATh
+FfibThThfJfJgkgkibzmgkUqULJYThgkgkgkibnfgkHOujHvvxvxfJtutututujatututufJgkThfJfJfJfJgkJYgkIbgkVAThgkPifJgkThgkThgkVAThThgkVATh
+ThibyGJYfJfJgkcMibzmgkhRibThgkgkgkThUqurujHvvxvxfJtutuNYtutujatutututufJfJgkgkfJfJfJfJgkIbljIbVAgkJYfJfJJYgkIbgkgkVAThJYcMVAzm
+zmibgkJYfJfJThnfibThgkcMibgkgkcMnfgkhRhRhRvxfJtutuNYtututututututujatutufJcMgkgkPifJfJgkgkIbgkVANHgkfJfJgkIbljIbHOHvThJYgkVAgk
+gkibgkIbfJfJThgkibgkThJYibThJYgkgkThdkThgkfJtututututujaNYtutuOytututuNYfJgkThgkgkfJfJgkcMgkHOHvgkThfJPigkgkIbgkVAhRnfThHOHvgk
+nfibIbljfJfJgkgkibcMThJYibgkgkThThgkgkkvfJfJtuNYtututututuOyOyOyOytutututufJgkcMgkfJfJfJgkThVAhRgkgkfJfJgkgkgkJYVAJYgkzmVAhRgk
+gkibJYIbfJfJThcMibThgkgkibgkcMgkThcMgkThfJfJtutuNYtutuOyOyOyOyOyOytututuNYtufJgkJYfJfJPigkThVAgkgkgkfJfJcMThThnfVAJYcMgkVAJYTh
+ThibThJYfJfJgkThibgkgkgkibThgkgkgkgkgkgkfJtututututuOyOyOyOyOyOyOyOytututuNYfJfJgkgkfJfJcMThVAgkcMThfJfJThThkvgkVAThJYThVAgkTh
+ThibgkgkfJfJNHgkibThcMgkibThgkcMgkgkcMgkfJNYtuNYtutuUVOyOyOyOyOyOyOyUVNYtuNYNYfJgkgkfJfJgkJYVAThThgkfJfJgkgkgkgkVAgkgkThVAgkJY
+zmibgkcMfJfJgkThibThgkzmibkvgkJYdkThgkThfJtuNYNYtutuOyOyOyOyOyOyOyOytututuNYNYfJcMJYfJfJnfgkVAkvJYfJfJfJJYgkcMThVAgkcMgkVAnfgk
+ThUqULgkfJPigkThibgkNHJYibgkgkgkJYdkgkThfJtututututuOyOyOyOyOyOyOytutututuNYfJfJgkgkfJfJfJHOHvgkJYfJPifJJYThThgkVAgkJYJYVAzmgk
+ThgkibThfJfJgkThibgkThgkibThnfcMJYJYcMgkfJfJtuNYtututuOyOyUVOyOytututujatutufJThgkgkfJPifJnuCJfJfJfJfJfJgkNHJYThVAcMnfThVAThgk
+gkThibnffJfJcMJYibThgkThibgkThThgkgkgkgkThfJtututuNYtuOyOyOyOytututuNYtutufJfJdkgkIbgkfJfJjTfJfJfJfJfJJYcMgkJYgkVAgkgkgkVAgkJY
+JYThibgkfJfJgkJYibgkcMgkUqULJYgkgkgkgkgkgkfJfJtutututututututututututututufJgkgkIbljIbnfgkkAbtgkgkgkJYJYgkgkgkHOHvzmJYcMVAgkgk
+gknfibThfJfJfJgkibJYJYgkgkibgkgkcMgkcMnfkvgkfJtututujatututuNYtujatutututufJgkgkgkIbgkJYHOurHvgkcMThgkThgkcMThVAhRgkJYHOHvgkTh
+cMgkibJYfJfJfJnfibJYzmgkgkUqULgkgkgkgkgkThThfJfJtuNYtututuNYtututututufJfJfJgkgkcMgkgkHOHvhRhRgkgkgkkvgkgkJYJYVAnfgkThVAdHgkzm
+gkJYibgkJYfJfJgkibThgknfgkhRUqULThcMgkgkgkgkgkfJfJfJtutututututututufJfJfJgkcMgkgkHOurHvhRThgkThThgkgkcMThJYgkVAgkgkgkVAgkJYgk
+ThJYUqULThfJfJThibThgkgkJYcMhRibThThgkcMgkcMJYThThfJfJtujjqktufJfJfJfJdkgkgkHOururHvdHhRThThcMgkThgkgkThgknfgkVAJYcMgkVAgkgkgk
+ThThgkibThfJfJThUqULgkcMJYThThUqurururururururururururujjvIEujurururururururHvhRlRlRgkJYNHgkgkgkgkcMgkThThgkHOHvzmJYJYVAgkcMgk
+JYgkThibThPifJJYhRUqULThThgkgklRlRhRGuhRlRhRhRhRhRlRYlPpvWvWPpYllRhRhRhRlRlRhRgkgkgkThThgkgkcMgknfgkJYgkgkHOHvhRgknfThVAgkgkJY
+gknfThibgkfJfJfJgklRUqururULcMJYJYThgkgkgknfThcMgkThfJNYtututufJfJThgkcMgknfJYJYcMgkThgkcMgkgkJYJYgkJYJYHOHvhRgkcMgkThVAgknfgk
+gkgkgkUqULThfJfJfJgkdHdHhRUqururULThThcMgkgkThThJYgkThfJNYjjqktuVugkThJYHOurururururururururururururururHvhRgkgkzmJYHOHvJYgkTh
+ThgkgkgkibgkJYfJfJcMgkThgkhRlRdHUqurururururururururururgtjvIEgtururururHvhRdHwIlRlRhRhRdHQlhRlRdHhRhRlRhRgkcMJYgkHOHvhRgkgkTh
+ThgkcMgkUqULThfJfJfJgkThcMNHJYgkhRdHlRlRhRwIdHhRhRlRhRYlPpvWvWPpYlhRdHdHhRgkThgkJYJYcMgkThJYThThgkcMgknfJYThHOururHvdHgkgkJYgk
+JYThgkThgkXInfHOxcxcULgkThgkThgkcMgkThJYJYThJYcMThThJYfJtujjqkNYfJgkThHOururururururururururururururururururHvhRhRhRgkgkgkgkgk
+gkgkgkgkgkUqurHvxcxcUqurururururururururururururururururgtjvIEgturururHvhRwIhRhRlRhRhRhRhRhRdHhRhRhRhRhRdHhRhRgkgkgkgkgkcMgkJY
+nfgkThgkJYhRhRhRfJfJhRhRlRlRlRlRlRhRhRhRlRlRhRhRhRhRhRYlPpvWvWPpYlhRhRhRgkQSgkgkgkgkThgknfgkgkgkgkThThgkgkgkJYgkgkcMgkgkJYgkgk
+gkThThThgkgkgkNHfJfJfJgkgkgkgkThThgkgkgkgkgkgkgkgkgkfJtutujatujatufJfJfJfJfJfJfJgngkThgkgkJYThThgkJYgkgkgkgkgkgkJYgkgkgkgkThgk
+gkThThgkgkIbgkgkfJfJfJgkgkgkgkgkThThgknfgkgkgkgkgkgkfJtujatujatuNYtuNYtutufJfJfJfJfJfJgkQSgkThThQSgkgkgkcMgkgkgkgknfgkJYgkgkgk
+gkgkgkgkIbljIbgkgkfJPigkgkgkcMgkgkgkgkgkgkThgkcMgkgkfJtututututututututututututuNYtufJfJfJgkgkgkgkgkgkgkThgkgkgkgkgkThgkgkgkgk
+gkgkgkgkgkIbgkgkgkfJfJgkzmThgkgkThgkgkgkgkgkgkgkgkgkgkfJNYtututututututututuNYtujatututufJfJgkQSgkQSnfgkThgkcMgkJYgkgkgkgkgkgk
+gkJYcMgkJYgkThJYgkfJfJgkgkgkgkgkIbgkgkgkcMgkgkgkgkgkgkfJfJtujaNYtutujatututututufJfJfJfJfJfJfJfJJYQSgkgkgkgkgkgkJYgkgkgkgkcMgk
+gkgkgkgkgkgkThgkgkfJfJgkgknfgkIbljIbgkgkgkgkgkgkQSgkThgkgkfJfJtutututututuNYtututututututufJfJfJfJQSgkQSQSQDgkgkgkgkcMgkgkgkgk
+ThgkgknfgkJYThgkgkfJfJfJgkgkgkgkIbgkgkThgkgkThgknfgkgkgkgkgkfJfJtutuNYtututuNYtututututufJfJfJfJfJfJfJQSQSQSgkgkgkgkgkgkQSJYgk
+gkgkgkgkgkgkgkgkThgkfJfJfJfJfJgkgkgkgkgkgkgkgkgkgkgkgkThThgkgkfJfJfJfJfJfJtuNYtututujatututututuNYtutufJfJfJfJfJQSQSThnfJYgkgk
+gkgkgkJYgkgkgkgkThgkgkgkgkgkgkgkgkgkfJgkgkgkThgkgkgkgkgkgkgkQSgkgkgkgkgkfJtutututuNYtutututufJfJfJfJfJfJfJfJgkgkQSQSQSgkgkgkgk
+gkThgkgkgkcMgkgkThgkJYJYgkfJgkThThgkgkgkgkgkgkgkcMgkgkThgkgkgkgkgkThThQSgkfJfJtutufJtutuNYtutututututufJfJgkgkgkQSgkgkgkgkQSgk
+gkgkgkgkgkJYgkgkgkThThgkgkgkgkThThgkfJgknfgkgkgkThgkgkThgknfgkgkgkThThgkQSnfgkfJfJfJfJfJtututututututufJfJfJfJfJfJfJfJQSgkgkgk
+gkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkgkcMgkgkgkgkQSgkgkQSgkgkfJfJfJfJfJfJfJfJfJfJfJfJfJfJfJfJfJfJgkgk
+"}

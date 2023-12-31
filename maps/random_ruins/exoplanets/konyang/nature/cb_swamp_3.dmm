@@ -1,0 +1,100 @@
+"a" = (/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"b" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"c" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"d" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"e" = (/obj/structure/table/standard,/obj/random/highvalue,/obj/random/highvalue/no_weapon{pixel_y = 6; pixel_x = 7},/obj/random/highvalue/cash{pixel_x = -7; pixel_y = 8},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"g" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"h" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"j" = (/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"l" = (/obj/item/ammo_casing{pixel_x = 5},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"m" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"o" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"p" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"q" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"r" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"s" = (/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"u" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"v" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"w" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"x" = (/obj/item/ammo_casing{pixel_x = 9; pixel_y = 9},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"y" = (/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"A" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"B" = (/obj/item/ammo_casing{pixel_y = -11; pixel_x = 8},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"H" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"I" = (/obj/structure/flora/log_bench,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"J" = (/obj/structure/flora/log_bench{dir = 8},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"K" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"L" = (/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"N" = (/obj/item/ammo_casing{pixel_x = 8; pixel_y = 3},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Q" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"R" = (/obj/structure/flora/log_bench{dir = 4},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"S" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"T" = (/obj/item/ammo_casing{pixel_x = -8},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"U" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"V" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"W" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"X" = (/obj/structure/flora/bush/konyang_reeds/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"Z" = (/obj/item/ammo_casing,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+aaaaaaaaVaaaaaaaaaaaaVaaaaaaaa
+aaaaaaraaaaaahaqaayaaaaaaaaqaa
+aaaqaaaAaaqmayaaaSaaauuuuumaaa
+aaaahaaaaraaaaVaaaaaaudbduVaaa
+aaaVaaaaaaaaaaaauuuuuusssuaaaa
+aaWaaraqyamhaqaauddsuuucuuaVaa
+aaaaaaaaaaaaaaauudscuaaaaaaama
+aAqaaaaaaaaaVauudssuaaaaayaaaa
+aaaaaaaaaaaaauudsuuuayaVaaSaVa
+aaaVaaahqaauuudscuaaaaaaaaaaaa
+aaaaayaaaauudddscaaahaaaVaaaaa
+aaraVaaaaauddddsuaaaaayaaaaaaa
+aaraaaaaauudddscuaamaaaaAaqama
+aaaaraAaauddbdsuaaaaaaVaaaaaaa
+ahmaaaaauudLdsuuaaaVhaaaaaaaaa
+VaaaaahauddLdscaaaaaaaqaVaaVaa
+aaayaVaaudLddsuyahaaaaaaaaaaya
+aaaaaaauudLdssuaaaaqaaaaahaaaa
+aaaqaSauddLdsuuaamaaaaymaVaama
+aaaaaaauddLdscuaaaaaaaaaaaaaaa
+qaaaahauddddscuaaaVaaaVaaaVaaa
+aaaaaauudLdsuuuaahahaaaamahaaa
+aahraauddLdscuaaaaaaaaaaaaaaaq
+VamaVauddLdscupaamayaaraqayAaa
+aaaraugddddsuuTapZaaVaraaaaaaa
+aAraauddLddsuujIVapaaaaSaVaaaa
+aarahuddLdscuuReJlVqaaahaaaaVa
+aaaaauddLdXcuUNphaaaahaaaVaaha
+aqVauuddddscuuBapamaaaayaaaaaa
+aaaaudddLdbscupqxAayyaaaaaamaa
+ahaauddddLdscuaaaaaaaVaaaaaraa
+araaudddLddscuuaaVaaaaraaVaaaa
+amahudddLbdsccuaaoaaaarmaaHaqa
+aaaauuddLddscuuaaaaqaarayaaaaa
+aaaVauddLdddsuuaaaaaaaVaaaqaaa
+ahaaauuddLddscuaaayqaaahaaaVaa
+araAaaudddLdsuuaaaaaVaaahaaaaa
+aaaaaauuddLddscaahaaaaaaaVaaaa
+aaVaahaudddddscuaaamarraaaaaaa
+aaaaaaauudddLdsuuaaahrrVaaaaaa
+aaaaaaVauddddddsuaVaaaaamaVKya
+aaraaaaruuuddbdscuaaaaaaaaaama
+aaaamaaaaauuddddsuaaSaaaayaaaa
+aqaaahaqaaauddddsuuaamaqhaaaaa
+aaaAaaaaahauudddbsuuahaaAaaqaa
+aaraaaaaVaaauuddddsuaaVaaVaaaa
+aaaaaraaaaaaauuudduucaaaaaavVa
+aaaaaaaahaaahaauuuusucaaaamaaa
+aaVaaaaaaayamaaaaaussuaaVaaaaa
+aaaaaaaaaaaaaqaaVauuuuuaayaaaa
+aaaaaraaaAaaaaaaaauddscaaaaqAa
+aaaamaaVaaaaaaayahuddwuaahaaaa
+aaraaaaaaaaaaahaaaauuuaqaaaaVa
+aaaaaaqaaaaraaaaaaVaaahaayyaaa
+aaaaaaaaaaaaaaaaaaaaaraaayQaaa
+aaaaaVaaraaaaaVamhaaaaVaaaaaha
+aaaaraaaraaaqaaaaaaaamaaaqaaqa
+aamaaaaaaaaaaaaaayaVaaaaaVaaaa
+aaaaaaaaamaaAaaaaaaqaahaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaamaaa
+"}
