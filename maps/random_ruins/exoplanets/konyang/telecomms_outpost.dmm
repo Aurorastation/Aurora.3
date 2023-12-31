@@ -168,8 +168,11 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"iJ" = (
 /obj/machinery/light{
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
@@ -218,6 +221,12 @@
 	name = "Garage"
 	},
 /turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"ln" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "lK" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -519,8 +528,10 @@
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "zX" = (
-/obj/machinery/telecomms/allinone/ship,
-/turf/simulated/wall/r_wall,
+/obj/structure/sink/kitchen{
+	pixel_y = 22
+	},
+/turf/simulated/floor/lino/diamond,
 /area/konyang_telecomms_outpost)
 "Ai" = (
 /obj/structure/flora/rock/konyang/small,
@@ -556,7 +567,7 @@
 "Dw" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(218);
-	name = "Utility Cabinet"
+	name = "Equipment Cabinet"
 	},
 /obj/machinery/light{
 	icon_state = "tube_empty";
@@ -596,6 +607,10 @@
 /obj/item/clothing/head/welding,
 /obj/item/storage/toolbox/electrical,
 /obj/item/clothing/gloves/yellow,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "Eh" = (
@@ -915,10 +930,11 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "VY" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "Wd" = (
@@ -2042,7 +2058,7 @@ wM
 Oj
 Oj
 eD
-Bn
+ln
 Bn
 eD
 Oj
@@ -2068,7 +2084,7 @@ eD
 eD
 eD
 eD
-zX
+qg
 Nh
 DK
 Nh
@@ -2085,7 +2101,7 @@ Oj
 Oj
 eD
 VY
-Bn
+iJ
 Nr
 Oj
 wM
@@ -2216,7 +2232,7 @@ wM
 Oj
 Oj
 uh
-Hp
+zX
 Hp
 Hp
 Hp
