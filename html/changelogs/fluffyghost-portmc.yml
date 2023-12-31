@@ -45,3 +45,5 @@ changes:
   - backend: "Renamed the help and define folders to align with TG structure."
   - backend: "Renamed/restructured some files to align (more) with TG structure."
   - backend: "Updated subsystems to align with the new MC logic."
+  - backend: "Turned some initializations and vars into GLOB."
+  - bugfix: "Fixed an issue with maploader not removing null atoms from the initialization list."

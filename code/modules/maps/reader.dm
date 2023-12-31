@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////
 
 //global datum that will preload variables on atoms instanciation
-var/global/use_preloader = FALSE
+GLOBAL_VAR_INIT(use_preloader, FALSE)
 var/global/dmm_suite/preloader/_preloader = new
 
 /datum/map_load_metadata
@@ -326,7 +326,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		if(crds)
 			instance.contents += crds
 
-		if(use_preloader && instance)
+		if(GLOB.use_preloader && instance)
 			_preloader.load(instance)
 
 	//then instance the /turf
@@ -376,7 +376,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		else
 			. = create_atom(path, crds)//first preloader pass
 
-	if(use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
+	if(GLOB.use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
 		_preloader.load(.)
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
@@ -485,16 +485,17 @@ var/global/dmm_suite/preloader/_preloader = new
 //Preloader datum
 //////////////////
 
+GLOBAL_LIST_INIT(_preloader_path, null)
+
 /dmm_suite/preloader
 	parent_type = /datum
 	var/list/attributes
-	var/target_path
 
 /dmm_suite/preloader/proc/setup(list/the_attributes, path)
 	if(LAZYLEN(the_attributes))
-		use_preloader = TRUE
+		GLOB.use_preloader = TRUE
 		attributes = the_attributes
-		target_path = path
+		GLOB._preloader_path = path
 
 /dmm_suite/preloader/proc/load(atom/what)
 	for(var/attribute in attributes)
@@ -502,7 +503,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		if(islist(value))
 			value = deepCopyList(value)
 		what.vars[attribute] = value
-	use_preloader = FALSE
+	GLOB.use_preloader = FALSE
 
 /area/template_noop
 	name = "Area Passthrough"

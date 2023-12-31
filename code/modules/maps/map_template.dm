@@ -106,7 +106,7 @@
 	var/list/obj/structure/cable/cables = list()
 	var/list/obj/machinery/power/apc/apcs = list()
 
-	for(var/atom/A in atoms)
+	for(var/atom/A as anything in atoms)
 		if(istype(A, /turf))
 			turfs += A
 		if(istype(A, /obj/structure/cable))
@@ -119,9 +119,7 @@
 			LAZYADD(subtemplates_to_spawn, A)
 		if(istype(A, /obj/machinery/power/apc))
 			apcs += A
-		if(isnull(A))
-			atoms -= A
-		if(A.flags_1 & INITIALIZED_1)
+		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
 			atoms -= A
 
 	var/notsuspended

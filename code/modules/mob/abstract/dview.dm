@@ -1,7 +1,7 @@
 //DVIEW is a hack that uses a mob with darksight in order to find lists of viewable stuff while ignoring darkness
 // Defines for dview are elsewhere.
 
-var/mob/abstract/dview/dview_mob = new
+GLOBAL_DATUM_INIT(dview_mob, /mob/abstract/dview, new)
 
 /mob/abstract/dview
 	see_in_dark = 1e6
@@ -23,5 +23,5 @@ var/mob/abstract/dview/dview_mob = new
 
 	world.log <<  "Dview was force-qdeleted, this should never happen!"
 
-	dview_mob = new
+	GLOB.dview_mob = new
 	return QDEL_HINT_QUEUE
