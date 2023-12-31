@@ -789,7 +789,7 @@ var/global/enabled_spooking = 0
 	world.visibility = !(world.visibility)
 	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
-	post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
+	SSdiscord.post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
 	SSdiscord.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
 	log_admin("[key_name(usr)] toggled hub visibility.")

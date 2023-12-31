@@ -35,8 +35,6 @@ SUBSYSTEM_DEF(misc_early)
 	if (SSdiscord)
 		SSdiscord.alert_server_visibility()
 
-	global_initialize_webhooks()
-
 	// Setup ore.
 	for(var/oretype in subtypesof(/ore))
 		var/ore/OD = new oretype()

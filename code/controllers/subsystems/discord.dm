@@ -8,9 +8,11 @@
 #define ERROR_PROC		4
 #define ERROR_HTTP		8
 
-//ToDos:
-// At some point the subsystem processing should be used instead of the addtimer´s
-// But that requires a larger overhaul of this subsystem (and ideally a http subsystem to delegate the queueing/processing of the http requests to)
+#define HEX_COLOR_RED 16711680
+#define HEX_COLOR_GREEN 65280
+#define HEX_COLOR_BLUE 255
+#define HEX_COLOR_YELLOW 16776960
+
 
 SUBSYSTEM_DEF(discord)
 	name = "Discord"
@@ -19,6 +21,7 @@ SUBSYSTEM_DEF(discord)
 
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
 	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
+	var/list/webhooks = list()
 
 	var/datum/discord_channel/invite_channel = null	// The channel datum where the ingame Join Channel button will link to.
 
@@ -26,16 +29,14 @@ SUBSYSTEM_DEF(discord)
 	var/auth_token = ""
 	var/subscriber_role = ""
 
-
-	// Lazy man's rate limiting vars
-	var/list/queue = list()
-
 	// Used to determine if BOREALIS should alert staff if the server is created
 	// with world.visibility == 0.
 	var/alert_visibility = 0
 
 /datum/controller/subsystem/discord/can_vv_get(var_name)
 	if(var_name == NAMEOF(src, auth_token))
+		return FALSE
+	if(var_name == NAMEOF(src, webhooks))
 		return FALSE
 	return ..()
 
@@ -47,12 +48,50 @@ SUBSYSTEM_DEF(discord)
 /datum/controller/subsystem/discord/Initialize()
 	GLOB.config.load("config/discord.txt", "discord")
 	update_channels()
+	initialize_webhooks()
 
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/discord/stat_entry(msg)
-	msg = "A: [active] C: [length(channels)] G: [length(channels_to_group)]"
+	msg = "A: [active] | C: [length(channels)] | G: [length(channels_to_group)] | W: [length(webhooks)]"
 	return ..()
+
+/*
+ * Proc initialize_webhooks
+ * Used to load the webhooks from the db or the flatfile
+ * Wipes all current channels and channel maps.
+ *
+ * @return num	- Error code. 0 upon success.
+ */
+/datum/controller/subsystem/discord/proc/initialize_webhooks()
+	if(!establish_db_connection(GLOB.dbcon))
+		var/file = return_file_text("config/webhooks.json")
+		if (file)
+			var/jsonData = json_decode(file)
+			if(!jsonData)
+				return 0
+			for(var/hook in jsonData)
+				if(!hook["url"] || !hook["tags"])
+					continue
+				var/datum/webhook/W = new(hook["url"], hook["tags"])
+				webhooks += W
+				if(hook["mention"])
+					W.mention = hook["mention"]
+			return 1
+		else
+			return 0
+	else
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
+		query.Execute()
+		while (query.NextRow())
+			var/url = query.item[1]
+			var/list/tags = splittext(query.item[2], ";")
+			var/mention = query.item[3]
+			var/datum/webhook/W = new(url, tags)
+			webhooks += W
+			if(mention)
+				W.mention = mention
+	return 1
 
 /*
  * Proc update_channels
@@ -150,23 +189,10 @@ SUBSYSTEM_DEF(discord)
 	message = json_encode(list("content" = message))
 
 	var/list/A = channels_to_group[channel_group]
-	var/list/sent = list()
 	for (var/B in A)
 		var/datum/discord_channel/channel = B
 		log_subsystem_discord("SendMessage - Sending - Attempting to send to send to '[channel.id]'")
-		if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-			log_subsystem_discord("SendMessage - Sending - Attempt has been rate-limited - Queuing")
-			// Whoopsies, rate limited.
-			// Set up the queue.
-			queue.Add(list(list(message, A - sent)))
-
-			// Schedule a push.
-			addtimer(CALLBACK(src, PROC_REF(push_queue)), 10 SECONDS, TIMER_UNIQUE)
-
-			// And exit.
-			return
-		else
-			sent += channel
+		SShttp.create_async_request(RUSTG_HTTP_METHOD_POST,"https://discordapp.com/api/channels/[channel.id]/messages",message,list("Authorization" = "Bot [auth_token]", "Content-Type" = "application/json"))
 
 	log_subsystem_discord("SendMessage - Sent to [channel_group]. JSON body: '[message]'")
 
@@ -261,37 +287,6 @@ SUBSYSTEM_DEF(discord)
 		message = "<@&[subscriber_role]> " + message
 	send_message(CHAN_ANNOUNCE, message)
 
-/*
- * Proc push_queue
- * Handles the queue pushing for the bot. If there is no need to reschedule (all messages get successfully
- * pushed), then it deletes push_task and sets it back to null. Otherwise, it simply reschedules it.
- */
-/datum/controller/subsystem/discord/proc/push_queue()
-	log_subsystem_discord("PushQueue - Attempt")
-	// What facking queue.
-	if (!queue || !queue.len)
-		log_subsystem_discord("PushQueue - Failed - Attempted to push a null length queue.")
-		return
-
-	// A[1] - message body.
-	// A[2] - list of channels to send to.
-	var/message
-	var/list/destinations
-	for (var/list/A in queue)
-		message = A[1]
-		destinations = A[2]
-
-		for (var/B in destinations)
-			var/datum/discord_channel/channel = B
-			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-				addtimer(CALLBACK(src, PROC_REF(push_queue)), 10 SECONDS, TIMER_UNIQUE)
-
-				return
-			else
-				destinations.Remove(channel)
-
-		queue.Remove(A)
-
 
 /datum/controller/subsystem/discord/proc/discord_escape(var/input, var/remove_everyone = TRUE, var/remove_mentions = FALSE)
 	. = replace_characters(input, list("`" = "\\`", "*" = "\\*", "_" = "\\_", "~" = "\\~"))
@@ -308,7 +303,6 @@ SUBSYSTEM_DEF(discord)
 		var/regex/roleReg = regex("<@&\[\\d]+>", "g")
 		. = roleReg.Replace(., "\[role mention]")
 
-
 /**
  * Will alert the staff on Discord if the server is initialized in invisible mode.
  * Can be toggled via config.
@@ -317,6 +311,103 @@ SUBSYSTEM_DEF(discord)
 	set background = 1
 	if (alert_visibility && !world.visibility)
 		send_to_admins("Server started as invisible!")
+
+
+
+/datum/controller/subsystem/discord/proc/post_webhook_event(var/tag, var/list/data)
+	set background = 1
+
+	var/escape_text
+	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+		escape_text = "escaped"
+	else
+		escape_text = "transfered"
+
+	if (!webhooks.len)
+		return
+	var/OutData = list()
+	switch (tag)
+		if (WEBHOOK_ADMIN_PM)
+			var/emb = list(
+				"title" = data["title"],
+				"description" = data["message"],
+				"color" = HEX_COLOR_BLUE
+			)
+			OutData["embeds"] = list(emb)
+		if (WEBHOOK_ADMIN_PM_IMPORTANT)
+			var/emb = list(
+				"title" = data["title"],
+				"description" = data["message"],
+				"color" = HEX_COLOR_BLUE
+			)
+			OutData["embeds"] = list(emb)
+		if (WEBHOOK_ADMIN)
+			var/emb = list(
+				"title" = data["title"],
+				"description" = data["message"],
+				"color" = HEX_COLOR_BLUE
+			)
+			OutData["embeds"] = list(emb)
+		if (WEBHOOK_ADMIN_IMPORTANT)
+			var/emb = list(
+				"title" = data["title"],
+				"description" = data["message"],
+				"color" = HEX_COLOR_BLUE
+			)
+			OutData["embeds"] = list(emb)
+		if (WEBHOOK_ROUNDEND)
+			var/emb = list(
+				"title" = "Round has ended",
+				"color" = HEX_COLOR_RED,
+				"description" = "A round of **[data["gamemode"]]** has ended! \[Game ID: [data["gameid"]]\]\n"
+			)
+			emb["description"] += data["antags"]
+			if(data["survivours"] > 0)
+				emb["description"] += "There [data["survivours"]>1 ? "were **[data["survivours"]] survivors**" : "was **one survivor**"]"
+				emb["description"] += " ([data["escaped"]>0 ? data["escaped"] : "none"] [escape_text]) and **[data["ghosts"]] ghosts**."
+			else
+				emb["description"] += "There were **no survivors** ([data["ghosts"]] ghosts)."
+			OutData["embeds"] = list(emb)
+		if (WEBHOOK_CCIAA_EMERGENCY_MESSAGE)
+			var/emb = list(
+				"title" = "Emergency message from station",
+				"fields" = list()
+			)
+			var/f1 = list("name"="[data["sender"]] wrote:", "value"="[data["message"]]")
+			emb["fields"] += list(f1)
+			if (data["cciaa_present"])
+				var/f2 = list("name"="[data["cciaa_present"]] CCIA agents online.")
+				if (data["cciaa_present"] - data["cciaa_afk"] <= 0)
+					f2["value"] = "***All of them are AFK!***"
+					emb["color"] = HEX_COLOR_YELLOW
+				else
+					f2["value"] = "[data["cciaa_afk"]] AFK."
+					emb["color"] = HEX_COLOR_GREEN
+				emb["fields"] += list(f2)
+			else
+				var/f2 = list("name"="No CCIA agents online.","value"="_Someone should join._")
+				emb["fields"] += list(f2)
+				emb["color"] = HEX_COLOR_RED
+			OutData["embeds"] = list(emb)
+		if (WEBHOOK_ALERT_NO_ADMINS)
+			OutData["content"] = "Round has started with no admins or mods online."
+		if (WEBHOOK_ROUNDSTART)
+			var/emb = list(
+				"title" = "Round has started",
+				"description" = "Round started with [data["playercount"]] player\s.",
+				"color" = HEX_COLOR_GREEN
+			)
+			OutData["embeds"] = list(emb)
+		else
+			OutData["invalid"] = 1
+	if (!OutData["invalid"])
+		for (var/datum/webhook/W in webhooks)
+			if(tag in W.tags)
+				W.send(OutData)
+
+//
+// Related Datums
+//
 
 
 // A holder class for channels.
@@ -341,42 +432,6 @@ SUBSYSTEM_DEF(discord)
 		pin_flag = _pin
 
 /*
- * Proc send_message_to
- * Sends a message to the channel.
- *
- * @param text token	- the authorization token to be used for the requests.
- * @param text message	- the sanitized message content to be sent.
- * @return num			- a specific return code for the SSdiscord to handle.
- */
-/datum/discord_channel/proc/send_message_to(var/token, var/message)
-	if (!token || !message)
-		return ERROR_PROC
-
-	var/datum/http_request/req = http_create_post("https://discordapp.com/api/channels/[id]/messages", message, list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
-
-	req.begin_async()
-	UNTIL(req.is_complete())
-
-	var/datum/http_response/res = req.into_response()
-
-	if (res.errored)
-		log_subsystem_discord("SendMessageTo - library error during HTTP query. [res.error]")
-		return ERROR_PROC
-
-	switch (res.status_code)
-		if (200)
-			log_subsystem_discord("SendMessageTo - Success")
-			return SEND_OK
-
-		if (429)
-			log_subsystem_discord("SendMessageTo - RateLimited")
-			return SEND_TIMEOUT
-
-		else
-			log_subsystem_discord("SendMessageTo - HTTP error while forwarding message to Discord API: [res]. Channel: [id]. Message body: [message].")
-			return ERROR_HTTP
-
-/*
  * Proc get_pins
  * Retreives a list of pinned messages from the channel.
  *
@@ -385,7 +440,7 @@ SUBSYSTEM_DEF(discord)
  *						  Num upon failure.
  */
 /datum/discord_channel/proc/get_pins(var/token)
-	var/datum/http_request/req = http_create_get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
+	var/datum/http_request/req = httpold_create_get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
@@ -435,7 +490,7 @@ SUBSYSTEM_DEF(discord)
 	if (invite_url)
 		return invite_url
 
-	var/datum/http_request/req = http_create_get("https://discordapp.com/api/channels/[id]/invites", headers = list("Authorization" = "Bot [token]"))
+	var/datum/http_request/req = httpold_create_get("https://discordapp.com/api/channels/[id]/invites", headers = list("Authorization" = "Bot [token]"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
@@ -491,7 +546,7 @@ SUBSYSTEM_DEF(discord)
  */
 /datum/discord_channel/proc/create_invite(var/token)
 	var/data = list("max_age" = 0, "max_uses" = 0)
-	var/datum/http_request/req = http_create_post("https://discordapp.com/api/channels/[id]/invites", json_encode(data), list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
+	var/datum/http_request/req = httpold_create_post("https://discordapp.com/api/channels/[id]/invites", json_encode(data), list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
@@ -514,15 +569,40 @@ SUBSYSTEM_DEF(discord)
 		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
 			admins_number++
 
-	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=GLOB.clients.len))
+	SSdiscord.post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=GLOB.clients.len))
 	if (!admins_number)
-		post_webhook_event(WEBHOOK_ALERT_NO_ADMINS, list())
+		SSdiscord.post_webhook_event(WEBHOOK_ALERT_NO_ADMINS, list())
 		if (!SSdiscord)
 			return 1
 		SSdiscord.send_to_admins("@here Round has started with no admins or mods online.")
 
 	return 1
 
+/datum/webhook
+	var/url = ""
+	var/list/tags
+	var/mention = ""
+
+/datum/webhook/New(var/U, var/list/T)
+	. = ..()
+	url = U
+	tags = T
+
+/datum/webhook/proc/send(var/Data)
+	if (mention)
+		if (Data["content"])
+			Data["content"] = "[mention]: " + Data["content"]
+		else
+			Data["content"] = "[mention]"
+
+	SShttp.create_async_request(RUSTG_HTTP_METHOD_POST,url,body = json_encode(Data), headers = list("Content-Type" = "application/json"))
+
+
+
+#undef HEX_COLOR_RED
+#undef HEX_COLOR_GREEN
+#undef HEX_COLOR_BLUE
+#undef HEX_COLOR_YELLOW
 
 #undef CHAN_ADMIN
 #undef CHAN_CCIAA

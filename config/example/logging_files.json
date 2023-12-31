@@ -43,5 +43,6 @@
   "world_modules_sectors_log":"modules/sectors.log",
   "world_modules_ruins_log":"modules/ruins.log",
   "world_subsystems_zas":"subsystems/zas.log",
-  "world_subsystems_zas_debug":"subsystems/zas.log"
+  "world_subsystems_zas_debug":"subsystems/zas.log",
+  "world_subsystems_http":"subsystems/http.log"
 }
