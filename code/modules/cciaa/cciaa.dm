@@ -1,6 +1,6 @@
 /datum/admins/proc/create_admin_fax(var/department in alldepartments)
-	set name = "Send admin fax"
-	set desc = "Send a fax from Central Command"
+	set name = "Send Admin Fax"
+	set desc = "Send a fax from Central Command."
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
@@ -11,7 +11,7 @@
 		to_chat(usr, "<span class='warning'>No target department specified!</span>")
 		return
 
-	var/obj/machinery/photocopier/faxmachine/fax = null
+	var/obj/machinery/photocopier/faxmachine/fax
 
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
 		if (F.department == department)
@@ -23,7 +23,8 @@
 		return
 
 	//todo: sanitize
-	var/input = tgui_input_text(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "", multiline = TRUE)
+	var/input = tgui_input_text(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do!", \
+				"Outgoing message from Centcomm", "", MAX_BOOK_MESSAGE_LEN, TRUE)
 	if (!input)
 		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
@@ -32,12 +33,13 @@
 	if (!customname)
 		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
+
 	var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
 	if(announce == "Yes")
 		announce = 1
 
 	// Create the reply message
-	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
+	var/obj/item/paper/P = new /obj/item/paper(null) //hopefully the null loc won't cause trouble for us
 	P.name = "[current_map.boss_name] - [customname]"
 	P.info = input
 	P.update_icon()
