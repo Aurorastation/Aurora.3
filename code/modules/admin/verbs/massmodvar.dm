@@ -127,10 +127,9 @@
 	switch(class)
 		if("restore to default")
 			var/initial_var = initial(O.vars[variable])
-			if(!O.vv_edit_var(variable, initial_var))
+			if(!O.can_vv_get(variable, initial_var))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
-			O.vars[variable] = initial_var
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
@@ -170,10 +169,10 @@
 			var/new_value = input("Enter new text:","Text",O.vars[variable]) as text|null//todo: sanitize ???
 			if(new_value == null)
 				return
+
 			if(!O.vv_edit_var(variable, new_value))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
-			O.vars[variable] = new_value
 
 			if(method)
 				if(istype(O, /mob))
@@ -212,14 +211,12 @@
 			if(new_value == null)
 				return
 
-			if(!O.vv_edit_var(variable, new_value))
-				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
-				return
-
 			if(variable=="light_range")
 				O.set_light(new_value)
 			else
-				O.vars[variable] = new_value
+				if(!O.vv_edit_var(variable, new_value))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
 
 			if(method)
 				if(istype(O, /mob))
@@ -281,7 +278,6 @@
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = new_value
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
@@ -321,8 +317,6 @@
 			if(!O.vv_edit_var(variable, new_value))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
-
-			O.vars[variable] = new_value
 
 			if(method)
 				if(istype(O, /mob))
@@ -364,7 +358,6 @@
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = new_value
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
