@@ -107,20 +107,27 @@
 	var/list/obj/machinery/power/apc/apcs = list()
 
 	for(var/atom/A as anything in atoms)
+		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
+			atoms -= A
+			continue
 		if(istype(A, /turf))
 			turfs += A
+			continue
 		if(istype(A, /obj/structure/cable))
 			cables += A
+			continue
+		if(istype(A,/obj/effect/landmark/map_load_mark))
+			LAZYADD(subtemplates_to_spawn, A)
+			continue
+
+		//Not mutually exclusive anymore section, no continue here, keep checking
+
 		if(istype(A, /obj/machinery/atmospherics))
 			atmos_machines += A
 		if(istype(A, /obj/machinery))
 			machines += A
-		if(istype(A,/obj/effect/landmark/map_load_mark))
-			LAZYADD(subtemplates_to_spawn, A)
 		if(istype(A, /obj/machinery/power/apc))
 			apcs += A
-		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
-			atoms -= A
 
 	var/notsuspended
 	if(!SSmachinery.can_fire)
