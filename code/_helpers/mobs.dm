@@ -19,7 +19,8 @@
 
 		. += AM.get_mob()
 
-/proc/random_hair_style(gender, species = SPECIES_HUMAN)
+/// Species must be a datum.
+/proc/random_hair_style(gender, species = /datum/species/human)
 	var/h_style = "Bald"
 
 	var/list/valid_hairstyles = list()
@@ -29,7 +30,7 @@
 			continue
 		if(gender == FEMALE && S.gender == MALE)
 			continue
-		if( !(species in S.species_allowed))
+		if(!(species in S.species_allowed))
 			continue
 		valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
 
@@ -38,7 +39,8 @@
 
 	return h_style
 
-/proc/random_facial_hair_style(gender, species = SPECIES_HUMAN)
+/// Species must be a datum.
+/proc/random_facial_hair_style(gender, species = /datum/species/human)
 	var/f_style = "Shaved"
 
 	var/list/valid_facialhairstyles = list()
@@ -48,7 +50,7 @@
 			continue
 		if(gender == FEMALE && S.gender == MALE)
 			continue
-		if( !(species in S.species_allowed))
+		if(!(species in S.species_allowed))
 			continue
 
 		valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]

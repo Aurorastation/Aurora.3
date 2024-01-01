@@ -127,27 +127,27 @@ var/global/list/datum/dna/gene/dna_genes[0]
 		character.f_style = "Shaved"
 	var/beard	= GLOB.facial_hair_styles_list.Find(character.f_style)
 
-	SetUIValueRange(DNA_UI_HAIR_R,    character.r_hair,    255,    1)
-	SetUIValueRange(DNA_UI_HAIR_G,    character.g_hair,    255,    1)
-	SetUIValueRange(DNA_UI_HAIR_B,    character.b_hair,    255,    1)
+	SetUIValueRange(DNA_UI_HAIR_R, character.r_hair, 255, 1)
+	SetUIValueRange(DNA_UI_HAIR_G, character.g_hair, 255, 1)
+	SetUIValueRange(DNA_UI_HAIR_B, character.b_hair, 255, 1)
 
-	SetUIValueRange(DNA_UI_BEARD_R,   character.r_facial,  255,    1)
-	SetUIValueRange(DNA_UI_BEARD_G,   character.g_facial,  255,    1)
-	SetUIValueRange(DNA_UI_BEARD_B,   character.b_facial,  255,    1)
+	SetUIValueRange(DNA_UI_BEARD_R, character.r_facial, 255, 1)
+	SetUIValueRange(DNA_UI_BEARD_G, character.g_facial, 255, 1)
+	SetUIValueRange(DNA_UI_BEARD_B, character.b_facial, 255, 1)
 
-	SetUIValueRange(DNA_UI_EYES_R,    character.r_eyes,    255,    1)
-	SetUIValueRange(DNA_UI_EYES_G,    character.g_eyes,    255,    1)
-	SetUIValueRange(DNA_UI_EYES_B,    character.b_eyes,    255,    1)
+	SetUIValueRange(DNA_UI_EYES_R, character.r_eyes, 255, 1)
+	SetUIValueRange(DNA_UI_EYES_G, character.g_eyes, 255, 1)
+	SetUIValueRange(DNA_UI_EYES_B, character.b_eyes, 255, 1)
 
-	SetUIValueRange(DNA_UI_SKIN_R,    character.r_skin,    255,    1)
-	SetUIValueRange(DNA_UI_SKIN_G,    character.g_skin,    255,    1)
-	SetUIValueRange(DNA_UI_SKIN_B,    character.b_skin,    255,    1)
+	SetUIValueRange(DNA_UI_SKIN_R, character.r_skin, 255, 1)
+	SetUIValueRange(DNA_UI_SKIN_G, character.g_skin, 255, 1)
+	SetUIValueRange(DNA_UI_SKIN_B, character.b_skin, 255, 1)
 
-	SetUIValueRange(DNA_UI_SKIN_TONE, 35-character.s_tone, 220,    1) // Value can be negative.
+	SetUIValueRange(DNA_UI_SKIN_TONE, character.s_tone, 220, 1)
 
-	SetUIState(DNA_UI_GENDER,         character.gender!=MALE,        1)
+	SetUIState(DNA_UI_GENDER, character.gender != MALE, 1)
 
-	SetUIValueRange(DNA_UI_HAIR_STYLE,  hair,  GLOB.hair_styles_list.len,       1)
+	SetUIValueRange(DNA_UI_HAIR_STYLE, hair, GLOB.hair_styles_list.len, 1)
 	SetUIValueRange(DNA_UI_BEARD_STYLE, beard, GLOB.facial_hair_styles_list.len,1)
 
 	body_markings.Cut()
@@ -160,7 +160,6 @@ var/global/list/datum/dna/gene/dna_genes[0]
 // Set a DNA UI block's raw value.
 /datum/dna/proc/SetUIValue(var/block,var/value,var/defer=0)
 	if (block<=0) return
-	ASSERT(value>0)
 	ASSERT(value<=4095)
 	UI[block]=value
 	dirtyUI=1
