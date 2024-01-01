@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type NavData = {
@@ -93,7 +93,8 @@ export const Nav = (props, context) => {
               }
               onClick={() => act('viewing')}
             />
-          }></Section>
+          }
+        />
         {FlightSection(act, data)}
         {NavSection(act, data)}
       </NtosWindow.Content>
