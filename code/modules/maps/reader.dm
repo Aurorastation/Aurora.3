@@ -4,7 +4,7 @@
 
 //global datum that will preload variables on atoms instanciation
 GLOBAL_VAR_INIT(use_preloader, FALSE)
-var/global/dmm_suite/preloader/_preloader = new
+GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 /datum/map_load_metadata
 	var/bounds
@@ -319,7 +319,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		var/atom/instance = GLOB.areas_by_type[atype]
 		var/list/attr = members_attributes[index]
 		if (LAZYLEN(attr))
-			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
+			GLOB._preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		if(!instance)
 			instance = new atype(null)
 			atoms_to_initialise += instance
@@ -327,7 +327,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			instance.contents += crds
 
 		if(GLOB.use_preloader && instance)
-			_preloader.load(instance)
+			GLOB._preloader.load(instance)
 
 	//then instance the /turf
 
@@ -368,7 +368,7 @@ var/global/dmm_suite/preloader/_preloader = new
 //Instance an atom at (x,y,z) and gives it the variables in attributes
 /dmm_suite/proc/instance_atom(path,list/attributes, turf/crds, no_changeturf)
 	if (LAZYLEN(attributes))
-		_preloader.setup(attributes, path)
+		GLOB._preloader.setup(attributes, path)
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
@@ -377,7 +377,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			. = create_atom(path, crds)//first preloader pass
 
 	if(GLOB.use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
-		_preloader.load(.)
+		GLOB._preloader.load(.)
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
 	if(TICK_CHECK)

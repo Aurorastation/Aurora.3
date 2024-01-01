@@ -14,6 +14,7 @@
 //wrapper macros for easier grepping
 #define DIRECT_OUTPUT(A, B) A << B
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
+#define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
 
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")

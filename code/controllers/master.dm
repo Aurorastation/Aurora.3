@@ -823,4 +823,4 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	if(REALTIMEOFDAY - last_profiled <= delay)
 		return FALSE
 	last_profiled = REALTIMEOFDAY
-	// SSprofiler.DumpFile(allow_yield = FALSE)
+	SSprofiler.DumpFile(allow_yield = FALSE)

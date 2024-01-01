@@ -1,3 +1,4 @@
+#define INIT_ORDER_PROFILER 101
 #define SS_INIT_PERSISTENT_CONFIG 26
 #define SS_INIT_MISC_FIRST  25
 #define SS_INIT_SEEDS       24	// Plant controller setup.
