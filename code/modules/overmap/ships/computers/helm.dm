@@ -335,7 +335,7 @@
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Nav", capitalize_first_letters(name), ui_x=470, ui_y=380)
+		ui = new(user, src, "Nav", capitalize_first_letters(name), ui_x=470, ui_y=320)
 		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
