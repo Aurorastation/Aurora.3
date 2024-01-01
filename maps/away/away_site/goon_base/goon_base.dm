@@ -31,38 +31,6 @@
 	base_turf = /turf/space
 	base_area = /area/space
 
-/obj/item/paper/goon_base
-	name = "/obj/item/paper/goon_base/ parent object"
-	desc = DESC_PARENT
-
-/obj/item/paper/goon_base/note
-	name = "dirty note"
-	info = "hey, boss <br>\
-			<br>\
-		<br>\
-		i had a bit of an acidnet when i was workig the smes <br>\
-		it fuckcng blew up <br>\
-		it wasnt my fault this time. i dident fuck up like u always say i do. it just blew op on its own <br>\
-		<br>\
-		only reason im teling you throgh this note insted of in person <br>\
-		(i fuckimg hate writing) is becaus i knew youd kill me <br>\
-		you threw jake, the olnly real enginer we ever had in this crew out of the airlock cause he short circiuted the booze vendor by accidnet <br>\
-		<br>\
-		so honestely if you guys are stuck here now and have to cannibelaize that dork we snatched last job to not starve then seriusly its ur fault not mine <br>\
-		i got a contact to pick me up, im far gon. u wont find me. dont try to find me if you dont end up starveng here <br>\
-		<br>\
-		<br>\
-		~love, daryl <br>\
-		"
-
-/obj/item/paper/goon_base/notice_secret_base
-	name = "important notice"
-	info = "there is secret entrance to gear equipment room with guns and stuff here in fake walls you can just move over. here in living room and in bathroom. do not let any visitors see it........"
-
-/obj/item/paper/goon_base/notice_secret_back_exit
-	name = "emergency secret back exit"
-	info = "this is for emergency time exit when everything is fucked and we are so over. take pickaxe or drill or whatever and dig straight directly forward north to get to space. remember eva suit............"
-
 //ship stuff
 /obj/effect/overmap/visitable/ship/landable/goon_ship
 	name = "Wanted Vessel"

@@ -14,6 +14,13 @@
 /obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/equipment)
+"ac" = (
+/obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/living)
 "ad" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -105,6 +112,13 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/north,
+/obj/item/tank/hydrogen/empty{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/obj/item/paper/goon_base/shuttle_fuel_note{
+	pixel_x = -10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/starboard)
 "aM" = (
@@ -134,6 +148,9 @@
 /obj/item/trash/proteinbar,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/living)
 "aS" = (
@@ -158,6 +175,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/eva)
+"aV" = (
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_y = -10;
+	pixel_x = -5
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "aY" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -184,6 +208,9 @@
 /obj/item/reagent_containers/food/snacks/berrymuffin{
 	pixel_x = 3;
 	pixel_y = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
@@ -242,7 +269,7 @@
 	pixel_x = 12;
 	pixel_y = -5
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "bu" = (
 /turf/template_noop,
@@ -288,6 +315,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_south)
+"bF" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/maint_south)
 "bH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -327,6 +361,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "bW" = (
@@ -371,6 +406,17 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_north)
+"ci" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_south)
 "cm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -393,6 +439,13 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"cw" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/maint_north)
 "cx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/mirror{
@@ -545,6 +598,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/power)
+"dc" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/gun/projectile/automatic/c20r,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "dd" = (
 /obj/structure/bed/padded/bunk{
 	pixel_y = 0
@@ -595,10 +660,14 @@
 	dir = 6
 	},
 /obj/structure/table/wood,
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/goonbase/living)
 "dE" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	id_tag = "goon_base_prison_door";
+	locked = 1
+	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -680,6 +749,11 @@
 	},
 /obj/machinery/computer/operating/terminal,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
 "dW" = (
@@ -818,6 +892,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "eE" = (
@@ -928,6 +1003,9 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_south)
 "fa" = (
@@ -977,9 +1055,11 @@
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
 "fh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/structure/curtain/open{
 	color = "#854636"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
+	id = "goon_base_prison_window"
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/living)
@@ -1002,6 +1082,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/storage)
+"fp" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/floodlight/randomcharge{
+	dir = 2
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/goonbase/hallway_north)
 "fr" = (
 /obj/item/clothing/shoes/slippers/carp{
 	pixel_y = -4;
@@ -1026,6 +1116,12 @@
 /obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
+"fz" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/equipment)
 "fA" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/tcaf,
@@ -1048,7 +1144,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "fC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1128,6 +1224,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
+"fX" = (
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -9
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine)
 "fY" = (
 /turf/simulated/mineral/surface,
 /area/space)
@@ -1203,6 +1306,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_north)
@@ -1292,6 +1398,12 @@
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
+/obj/machinery/button/remote/airlock{
+	dir = 2;
+	id = "goon_base_freezer_door";
+	specialfunctions = 4;
+	pixel_y = -19
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/goonbase/kitchen)
 "gO" = (
@@ -1378,6 +1490,12 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
+"hp" = (
+/obj/machinery/floodlight/randomcharge{
+	dir = 2
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine)
 "hq" = (
 /obj/item/storage/bag/ore{
 	pixel_x = 7
@@ -1390,9 +1508,9 @@
 	pixel_y = 3
 	},
 /obj/random/dirt_75,
-/obj/item/paper/goon_base/notice_secret_base{
-	pixel_x = -1;
-	pixel_y = -4
+/obj/item/paper/goon_base/secret_base_note{
+	pixel_x = -3;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
@@ -1426,6 +1544,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/living)
 "hE" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/hallway_south)
 "hF" = (
@@ -1466,6 +1587,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
@@ -1697,7 +1821,10 @@
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "iQ" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	locked = 1;
+	id_tag = "goon_base_freezer_door"
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/kitchen)
 "iR" = (
@@ -1722,6 +1849,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
 "iY" = (
@@ -1745,6 +1875,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
+"je" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/goonbase/hallway_north)
 "jg" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
@@ -1816,6 +1952,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
+"jB" = (
+/obj/machinery/floodlight/randomcharge{
+	dir = 1
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine)
 "jH" = (
 /turf/simulated/wall,
 /area/goonbase/living)
@@ -1825,6 +1967,7 @@
 	master_tag = "airlock_goon_base_maint";
 	name = "airlock_goon_base_maint"
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
 "jP" = (
@@ -1865,6 +2008,9 @@
 "jW" = (
 /obj/structure/dispenser/oxygen,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/eva)
 "jY" = (
@@ -1932,6 +2078,7 @@
 /obj/structure/closet,
 /obj/item/clothing/accessory/tshirt,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/living)
 "kp" = (
@@ -2180,6 +2327,11 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/green,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/eva)
 "ll" = (
@@ -2188,6 +2340,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
 "lo" = (
@@ -2327,6 +2482,7 @@
 	pixel_y = -2;
 	pixel_x = 3
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/equipment)
 "mh" = (
@@ -2418,7 +2574,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "mO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2484,16 +2640,35 @@
 "nf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/sliceable/bread,
+/obj/item/reagent_containers/food/snacks/sliceable/bread{
+	pixel_y = -4;
+	pixel_x = 3
+	},
 /obj/item/reagent_containers/food/snacks/pbjsandwich{
 	pixel_y = -4
 	},
 /obj/item/reagent_containers/food/snacks/reubensandwich{
 	pixel_y = 10
 	},
+/obj/item/reagent_containers/food/snacks/NTellabread{
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/kitchen)
 "ng" = (
 /obj/structure/closet,
+/obj/random/suit,
+/obj/random/suit,
+/obj/random/suit,
+/obj/item/clothing/shoes/laceup{
+	pixel_y = -8
+	},
+/obj/item/clothing/under/pj/red,
+/obj/item/clothing/under/pants/jeans{
+	pixel_y = -5
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/mars,
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "nj" = (
@@ -2501,6 +2676,9 @@
 	dir = 5
 	},
 /obj/random/pottedplant,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "nk" = (
@@ -2545,6 +2723,7 @@
 	pixel_y = 6;
 	pixel_x = -2
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/goonbase/kitchen)
 "nq" = (
@@ -2608,6 +2787,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
+"nE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/goonbase/power)
 "nI" = (
 /obj/structure/bed/stool,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2640,6 +2827,9 @@
 /obj/item/storage/box/shotgunammo,
 /obj/item/storage/box/shotgunshells,
 /obj/item/gun/projectile/shotgun/pump/combat,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "nR" = (
@@ -2726,6 +2916,9 @@
 /area/goonbase/hallway_north)
 "op" = (
 /obj/machinery/media/jukebox,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "os" = (
@@ -2762,6 +2955,9 @@
 	},
 /obj/item/clothing/head/helmet/merc{
 	pixel_x = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
@@ -2859,6 +3055,7 @@
 	pixel_x = 5;
 	pixel_y = -1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "oT" = (
@@ -2870,6 +3067,9 @@
 "oU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
 "oX" = (
@@ -2890,12 +3090,26 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/atmos)
+"pb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled/white,
+/area/goonbase/kitchen)
 "pd" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
 /obj/item/storage/box/donkpockets{
 	pixel_x = 6;
 	pixel_y = 6
+	},
+/obj/item/storage/box/donkpockets{
+	pixel_x = -3;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
@@ -2906,8 +3120,18 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"ph" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/maint_north)
 "pn" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/toilet{
@@ -2978,6 +3202,9 @@
 /obj/structure/reagent_dispensers/water_cooler{
 	pixel_x = -9
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/kitchen)
 "pI" = (
@@ -3003,7 +3230,7 @@
 	name = "port, power"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/goon_shuttle/port)
+/area/shuttle/goon_shuttle/storage)
 "pO" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3015,6 +3242,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
 "pQ" = (
@@ -3104,6 +3332,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "qj" = (
@@ -3125,14 +3356,17 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
+/obj/item/clothing/head/ushanka/dominia{
+	pixel_x = 5;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "qr" = (
-/obj/effect/floor_decal/industrial/loading/grey{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/goonbase/equipment)
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/exoplanet/barren,
+/area/goonbase/maint_south)
 "qt" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -3156,6 +3390,9 @@
 /obj/item/flame/lighter/zippo/gold,
 /obj/item/coin/gold,
 /obj/random/dirt_75,
+/obj/item/stack/material/gold/full{
+	pixel_y = 4
+	},
 /obj/random/highvalue/no_weapon,
 /obj/item/clothing/accessory/crucifix/gold,
 /obj/random/melee/highvalue,
@@ -3178,6 +3415,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_north)
 "qz" = (
@@ -3206,6 +3444,11 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/rocks{
 	pixel_x = -1;
 	pixel_y = 5
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
@@ -3257,6 +3500,9 @@
 /obj/random/tool{
 	pixel_y = 6;
 	pixel_x = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/power)
@@ -3596,16 +3842,10 @@
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "sX" = (
-/obj/structure/closet/crate,
-/obj/random/spacecash,
-/obj/random/spacecash,
-/obj/random/spacecash,
-/obj/random/spacecash,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c200,
-/obj/random/spacecash,
-/obj/random/spacecash,
+/obj/item/clothing/shoes/workboots/toeless{
+	pixel_x = 6;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "sY" = (
@@ -3695,9 +3935,12 @@
 /turf/simulated/floor/tiled,
 /area/goonbase/power)
 "tL" = (
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/goon_shuttle/starboard)
+/area/goonbase/maint_north)
 "tN" = (
 /obj/structure/reagent_dispensers/radioactive_waste{
 	pixel_y = -8
@@ -3723,6 +3966,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/toolcloset,
+/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/plating,
 /area/goonbase/power)
 "tS" = (
@@ -3746,7 +3990,7 @@
 	pixel_y = 3
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "um" = (
 /obj/structure/reagent_dispensers/radioactive_waste{
@@ -3773,6 +4017,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
+"up" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_north)
 "uq" = (
 /obj/machinery/power/rtg,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3931,6 +4184,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/living)
 "vr" = (
@@ -3968,7 +4224,7 @@
 	pixel_y = -10
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "vw" = (
 /obj/random/dirt_75,
@@ -4038,14 +4294,17 @@
 "vI" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze{
-	pixel_x = -5;
-	pixel_y = 2
+	pixel_x = -7;
+	pixel_y = -1
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/item/clothing/mask/smokable/cigarette/cigar/oracle{
 	pixel_x = 6;
 	pixel_y = 1
+	},
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
@@ -4055,6 +4314,13 @@
 /area/goonbase/kitchen)
 "vM" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/hooded/wintercoat/iac,
+/obj/item/clothing/suit/storage/toggle/labcoat/accent,
+/obj/item/clothing/shoes/sneakers/hitops/brown{
+	pixel_y = -7
+	},
+/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/under/syndicate/tracksuit,
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "vR" = (
@@ -4126,6 +4392,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/goonbase/living)
+"wv" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/goonbase/hallway_north)
 "wA" = (
 /obj/random/dirt_75,
 /obj/item/pickaxe/drill{
@@ -4506,6 +4779,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
 "yx" = (
@@ -4547,7 +4821,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "yP" = (
 /obj/structure/cable{
@@ -4565,6 +4839,9 @@
 /obj/random/dirt_75,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/eva)
@@ -4684,6 +4961,11 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
 "zC" = (
@@ -4719,6 +5001,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"zR" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_north)
 "zU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -4792,6 +5081,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
+"An" = (
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/maint_airlock)
 "Ap" = (
 /obj/structure/structural_support{
 	pixel_y = 8
@@ -4892,6 +5189,10 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/item/paper/goon_base/shuttle_power_note{
+	pixel_x = 6;
+	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
@@ -5009,6 +5310,9 @@
 	pixel_y = 2;
 	pixel_x = 3
 	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "BC" = (
@@ -5024,6 +5328,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_south)
 "BH" = (
@@ -5034,6 +5343,7 @@
 /obj/item/tank/emergency_oxygen/double{
 	pixel_y = 5
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/goonbase/eva)
 "BI" = (
@@ -5056,15 +5366,23 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "BM" = (
-/obj/item/paper/goon_base/notice_secret_back_exit{
-	pixel_x = 4;
-	pixel_y = 2
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
+/obj/item/paper/goon_base/secret_back_exit_note{
+	pixel_x = -10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "BO" = (
@@ -5085,6 +5403,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_north)
@@ -5160,6 +5481,9 @@
 "Co" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "Cr" = (
@@ -5171,6 +5495,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_shuttle/bridge)
+"Cs" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/maint_north)
 "Cz" = (
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5181,10 +5512,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
+"CC" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/goonbase/hallway_south)
 "CL" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/starboard)
+"CQ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/goonbase/maint_south)
 "CR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -5259,6 +5605,13 @@
 "Do" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
+"Dp" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/loading/grey,
+/turf/simulated/floor/plating,
+/area/goonbase/equipment)
 "Dr" = (
 /turf/simulated/wall,
 /area/mine)
@@ -5358,6 +5711,11 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
 "Ea" = (
@@ -5386,6 +5744,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_north)
+"Ei" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/maint_south)
 "Ek" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -5401,6 +5766,11 @@
 	pixel_y = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "Em" = (
@@ -5464,6 +5834,9 @@
 /obj/item/trash/match{
 	pixel_y = 11;
 	pixel_x = -11
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
@@ -5551,6 +5924,9 @@
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /obj/random/tech_supply,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/atmos)
 "Fp" = (
@@ -5914,6 +6290,9 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/atmos)
 "Hf" = (
@@ -5927,6 +6306,9 @@
 "Ho" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "Hp" = (
@@ -5956,6 +6338,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/storage)
+"Hu" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_south)
 "Hw" = (
 /obj/item/pickaxe{
 	pixel_y = -9
@@ -6007,7 +6399,6 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
-/obj/item/paper/goon_base/note,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "HF" = (
@@ -6088,6 +6479,9 @@
 /obj/item/clothing/head/helmet/space/syndicate/covert,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/eva)
 "HY" = (
@@ -6386,6 +6780,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
+"Ju" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/goonbase/living)
 "Jw" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
@@ -6400,6 +6798,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/item/trash/match,
+/obj/random/junk{
+	pixel_x = -11;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/goonbase/kitchen)
 "Jz" = (
@@ -6409,6 +6811,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/power)
+"JA" = (
+/obj/random/dirt_75,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/goonbase/hallway_south)
 "JC" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
@@ -6463,6 +6870,9 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_goon_base_main";
 	name = "airlock_goon_base_main"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_south)
@@ -6654,6 +7064,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/alarm/north,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 9;
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_south)
 "KG" = (
@@ -6718,6 +7132,13 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_south)
+"KX" = (
+/obj/item/device/flashlight/flare{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "KZ" = (
 /turf/simulated/wall{
 	can_open = 1;
@@ -6867,6 +7288,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/coolanttank,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/power)
 "LZ" = (
@@ -6933,6 +7357,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "Ml" = (
@@ -6994,6 +7423,19 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/button/switch/windowtint{
+	dir = 8;
+	id = "goon_base_prison_window";
+	pixel_x = -22;
+	pixel_y = -4
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "goon_base_prison_door";
+	specialfunctions = 4;
+	pixel_x = -22;
+	pixel_y = 10
+	},
 /turf/simulated/floor/wood,
 /area/goonbase/living)
 "MA" = (
@@ -7062,6 +7504,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/goon_shuttle/bridge)
+"MM" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/maint_north)
+"MR" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -9
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine)
 "MS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -7237,6 +7695,13 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
+"NQ" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/goonbase/maint_south)
 "NT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/reagent_containers/food/drinks/waterbottle{
@@ -7272,6 +7737,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"Of" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_north)
 "Og" = (
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/airless/ceiling,
@@ -7343,6 +7819,9 @@
 	pixel_x = -1;
 	pixel_y = 7
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "Oy" = (
@@ -7384,19 +7863,16 @@
 /area/goonbase/hallway_north)
 "OI" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/clothing/glasses/sunglasses/aviator{
-	pixel_y = 5
+	pixel_y = 9
 	},
 /obj/item/clothing/glasses/sunglasses/aviator{
-	pixel_y = 10
-	},
-/obj/item/clothing/glasses/sunglasses/aviator{
-	pixel_y = 7
+	pixel_y = 6
 	},
 /obj/item/clothing/glasses/sunglasses/aviator{
 	pixel_y = 3
 	},
+/obj/item/clothing/glasses/sunglasses/aviator,
 /turf/simulated/floor/tiled/dark/full,
 /area/goonbase/equipment)
 "OL" = (
@@ -7463,6 +7939,15 @@
 /obj/effect/overmap/visitable/sector/goon,
 /turf/simulated/mineral/surface,
 /area/mine)
+"Po" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_north)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7558,6 +8043,20 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine)
+"PP" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/goonbase/kitchen)
+"PQ" = (
+/obj/random/dirt_75,
+/obj/random/glowstick{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/goonbase/hallway_north)
 "PS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -7605,11 +8104,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/goonbase/equipment)
+"PX" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/marshallingwand{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine)
 "PY" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/tech_supply,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/goonbase/kitchen)
 "PZ" = (
@@ -7623,6 +8133,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/atmos)
 "Qe" = (
@@ -7673,6 +8186,9 @@
 	pixel_y = 9
 	},
 /obj/structure/table/rack,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "Ql" = (
@@ -7727,6 +8243,11 @@
 	pixel_x = 4
 	},
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
 "Qz" = (
@@ -7747,6 +8268,9 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 3;
 	pixel_x = 2
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/power)
@@ -7819,7 +8343,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "QT" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -7964,7 +8488,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "RE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -8100,6 +8624,9 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
 "Su" = (
@@ -8167,6 +8694,13 @@
 /obj/item/clothing/gloves/yellow{
 	pixel_y = 9
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/item/device/flashlight{
+	pixel_x = 2;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/power)
 "SG" = (
@@ -8227,6 +8761,11 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"SS" = (
+/obj/random/dirt_75,
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/tiled,
+/area/goonbase/living)
 "SU" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -8286,6 +8825,10 @@
 /obj/machinery/power/apc/empty/west,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/living)
+"Tg" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/goonbase/hallway_south)
 "Tj" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -8420,6 +8963,9 @@
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "TW" = (
@@ -8441,13 +8987,19 @@
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_south)
 "Uf" = (
-/obj/structure/closet/secure_closet/cabinet{
-	req_access = list(20)
-	},
 /obj/random/dirt_75,
 /obj/item/melee/energy/sword/pirate/generic,
 /obj/item/clothing/head/bandana/red,
 /obj/machinery/alarm/north,
+/obj/structure/closet/cabinet,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c500,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/spacecash/c200,
+/obj/random/spacecash,
+/obj/random/spacecash,
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
 "Uh" = (
@@ -8544,6 +9096,15 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
+	},
+/obj/item/pen/fountain/silver{
+	pixel_x = -5;
+	pixel_y = -1
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_south)
 "UA" = (
@@ -8660,6 +9221,9 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/atmos)
 "Vo" = (
@@ -8676,6 +9240,11 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_north)
@@ -8708,11 +9277,12 @@
 /area/goonbase/living)
 "Vz" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/civilian{
-	pixel_y = 9
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lamp/off{
+	pixel_x = -6;
+	pixel_y = 11
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_south)
 "VB" = (
@@ -8832,6 +9402,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"Ws" = (
+/obj/random/junk{
+	pixel_x = -9
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine)
 "Wt" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -8859,6 +9435,12 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "Wu" = (
@@ -8906,6 +9488,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "WD" = (
@@ -8946,6 +9531,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/atmos)
 "WO" = (
@@ -9095,6 +9683,7 @@
 /area/goonbase/eva)
 "XG" = (
 /obj/random/pottedplant,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/goonbase/kitchen)
 "XH" = (
@@ -9165,6 +9754,9 @@
 /obj/item/device/flashlight/flare/glowstick/random,
 /obj/item/device/flashlight/flare/glowstick/random,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "XS" = (
@@ -9181,6 +9773,12 @@
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
+"XU" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/goonbase/hallway_south)
 "XY" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9198,6 +9796,11 @@
 	},
 /obj/item/storage/box/flashbangs{
 	pixel_x = -3
+	},
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
@@ -9225,6 +9828,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
+"Yo" = (
+/obj/random/dirt_75,
+/obj/machinery/floodlight/randomcharge{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/goonbase/hallway_north)
 "Yp" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
@@ -9361,6 +9971,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/goonbase/living)
 "Zc" = (
@@ -9459,6 +10070,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/goonbase/hallway_south)
+"Zv" = (
+/obj/machinery/light,
+/turf/simulated/floor/carpet/red,
+/area/goonbase/living)
 "Zw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -9615,6 +10230,7 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "ZX" = (
@@ -40292,7 +40908,7 @@ iy
 tN
 yJ
 ui
-gj
+CQ
 mI
 mI
 vr
@@ -40795,7 +41411,7 @@ Jz
 da
 MH
 xz
-KJ
+nE
 ba
 Af
 mI
@@ -41566,12 +42182,12 @@ Ep
 jY
 yC
 JX
-Oz
+MM
 jY
 an
 ZI
 sI
-jY
+cw
 Jl
 yC
 mI
@@ -41580,11 +42196,11 @@ eH
 mI
 Gv
 wL
-JK
+bF
 Yi
 JK
 eC
-JK
+bF
 xB
 QB
 IX
@@ -41689,7 +42305,7 @@ mI
 mI
 PO
 mV
-nT
+Ws
 oL
 sB
 sB
@@ -41818,7 +42434,7 @@ eL
 qJ
 Xl
 ba
-jY
+tL
 AL
 zW
 LU
@@ -42337,7 +42953,7 @@ GX
 if
 yC
 kE
-jY
+cw
 JV
 Lm
 QR
@@ -42603,9 +43219,9 @@ yC
 Bw
 yC
 yC
-no
+NQ
 gj
-no
+qr
 Gv
 Pp
 ZS
@@ -42622,7 +43238,7 @@ jW
 ei
 kk
 Oy
-UG
+An
 GV
 kk
 lJ
@@ -42669,7 +43285,7 @@ mI
 mI
 Dr
 cN
-cN
+PX
 se
 se
 Dr
@@ -42927,7 +43543,7 @@ mI
 Dr
 cN
 cN
-cN
+fX
 cN
 Dr
 mI
@@ -43108,7 +43724,7 @@ GX
 JX
 yC
 qv
-jY
+ph
 kB
 Wu
 Ce
@@ -43122,7 +43738,7 @@ nn
 nn
 nn
 wL
-JK
+Ei
 JK
 GG
 Zs
@@ -43391,7 +44007,7 @@ lW
 jZ
 Ji
 fR
-Jw
+CC
 GG
 mI
 mI
@@ -43620,7 +44236,7 @@ rc
 bz
 Ql
 UB
-IG
+up
 IG
 OH
 Ql
@@ -43631,15 +44247,15 @@ LR
 ff
 Vw
 mn
-ka
+je
 Fp
 Ow
 rV
-hE
+XU
 Rn
 Ji
 Rh
-IW
+ci
 Ji
 IW
 IW
@@ -43873,7 +44489,7 @@ sM
 RO
 sl
 pW
-GX
+Cs
 if
 Ql
 ch
@@ -44134,7 +44750,7 @@ GX
 if
 Ql
 Zo
-IG
+zR
 IG
 JD
 Ql
@@ -44145,7 +44761,7 @@ BI
 ff
 jy
 mn
-Ow
+wv
 rY
 MB
 OS
@@ -44153,12 +44769,12 @@ hE
 Rn
 LF
 Cf
-aA
+Hu
 aA
 SW
 DJ
 ws
-Ji
+Tg
 GG
 JH
 Ew
@@ -44642,7 +45258,7 @@ yC
 JX
 an
 ZI
-Oz
+MM
 HB
 Iz
 ys
@@ -44909,7 +45525,7 @@ SX
 kL
 Ww
 fl
-dH
+Po
 Vw
 hF
 Ql
@@ -44929,7 +45545,7 @@ GG
 wD
 GG
 Uc
-Ji
+Tg
 GG
 JH
 Df
@@ -45146,7 +45762,7 @@ qX
 SL
 KO
 qf
-qf
+Dp
 gH
 Nh
 sp
@@ -45191,7 +45807,7 @@ GG
 CY
 Ia
 GG
-vz
+hp
 cN
 cN
 mV
@@ -45402,7 +46018,7 @@ SL
 SL
 SL
 SL
-qr
+QX
 SL
 SL
 jH
@@ -45514,7 +46130,7 @@ kz
 sB
 sB
 nT
-nT
+KX
 nT
 nT
 nT
@@ -45671,7 +46287,7 @@ AI
 id
 fI
 jH
-jY
+tL
 GX
 Qj
 fl
@@ -45704,14 +46320,14 @@ TJ
 TJ
 ZB
 mt
-Li
+JA
 GG
 nT
 nT
 nT
 sB
 sB
-sB
+aV
 sB
 sB
 nT
@@ -45913,7 +46529,7 @@ qX
 YT
 qX
 SL
-xs
+dc
 HK
 Uk
 eJ
@@ -45926,7 +46542,7 @@ GL
 Np
 Fc
 Ex
-Fc
+Zv
 jH
 JX
 GX
@@ -46078,7 +46694,7 @@ UD
 RZ
 gr
 VZ
-tL
+JY
 Lh
 JY
 JY
@@ -46245,7 +46861,7 @@ mI
 hq
 vz
 vz
-vz
+jB
 vz
 vz
 sB
@@ -46455,8 +47071,8 @@ dH
 Vw
 iK
 Ql
+fp
 NT
-te
 of
 of
 oM
@@ -46947,7 +47563,7 @@ VK
 eJ
 BJ
 QX
-QX
+fz
 Ts
 KZ
 hr
@@ -47214,14 +47830,14 @@ NH
 Ch
 jH
 nw
-BI
+Of
 gV
 FL
 Yx
 zM
-BI
+Of
 ff
-BI
+Of
 EJ
 vd
 bj
@@ -47232,7 +47848,7 @@ Gs
 tS
 mI
 mI
-Ow
+PQ
 rY
 xc
 Ry
@@ -47492,7 +48108,7 @@ ik
 hc
 rm
 Um
-rY
+Yo
 mI
 mI
 mI
@@ -47732,7 +48348,7 @@ WH
 zr
 Tj
 jH
-ng
+sX
 xf
 Vx
 jH
@@ -47994,7 +48610,7 @@ KS
 xQ
 jH
 Tc
-yk
+Ju
 jH
 jH
 jH
@@ -48133,7 +48749,7 @@ sB
 sB
 sB
 PA
-PA
+MR
 PA
 kz
 kz
@@ -48504,7 +49120,7 @@ BW
 Zl
 jH
 FB
-NH
+ac
 sN
 jH
 nj
@@ -49265,7 +49881,7 @@ YT
 ao
 WH
 WD
-fM
+pb
 Un
 Up
 vJ
@@ -50553,21 +51169,21 @@ mI
 ao
 WH
 Se
-IU
+PP
 sh
 WH
 eq
 PY
 Sk
 jH
-NH
+SS
 Lw
 cg
 jH
 Uf
 lA
 Lw
-sX
+yk
 jH
 oB
 mI

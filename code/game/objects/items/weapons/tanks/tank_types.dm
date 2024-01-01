@@ -130,6 +130,8 @@
 /obj/item/tank/hydrogen/shuttle/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_HYDROGEN, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
+/obj/item/tank/hydrogen/empty
+
 /*
  * Emergency Oxygen
  */
