@@ -3,6 +3,7 @@
 	description = "A wrecked ship once owned by NanoTrasen."
 	suffixes = list("away_site/wrecked_nt_ship/wrecked_nt_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "wrecked_nt_ship"

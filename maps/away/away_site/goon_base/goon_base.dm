@@ -3,6 +3,7 @@
 	description = "An asteroid with a occupied hangar carved into it."
 	suffixes = list("away_site/goon_base/goon_base.dmm")
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "goon"

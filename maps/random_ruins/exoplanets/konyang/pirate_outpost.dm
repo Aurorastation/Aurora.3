@@ -7,6 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/pirate_outpost.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/pirate_moonshine)
 
 /area/konyang_pirate_outpost
 	name = "Konyang Pirate Outpost"

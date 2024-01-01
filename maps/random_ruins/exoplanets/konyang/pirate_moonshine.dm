@@ -6,6 +6,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/pirate_moonshine.dmm")
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/pirate_outpost)
 
 /area/konyang_pirate_moonshine
 	name = "Konyang Moonshiner Den"

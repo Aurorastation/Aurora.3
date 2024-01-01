@@ -58,6 +58,17 @@ var/list/banned_ruin_ids = list()
 		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			banned_ruin_ids += ruin.id
 			available -= ruin
+		if(ruin.ban_ruins)
+			for(var/datum/map_template/ruin/banned_ruin in ruin.ban_ruins)
+				banned_ruin_ids += banned_ruin.id
+		if(ruin.force_ruins)
+			for(var/datum/map_template/ruin/forced_ruin in ruin.force_ruins)
+				selected += forced_ruin
+				if(forced_ruin.spawn_cost > 0)
+					remaining -= forced_ruin.spawn_cost
+				if(!(forced_ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
+					banned_ruin_ids += forced_ruin.id
+					available -= forced_ruin
 
 	if (remaining)
 		log_admin("Ruin loader had no ruins to pick from with [budget] left to spend.")
