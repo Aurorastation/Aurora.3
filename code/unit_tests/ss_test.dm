@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(unit_tests_config)
 	///How many times can the pod retries before the unit test is considered failed
 	var/retries = 0
 
-/datum/controller/subsystem/unit_tests_config/New()
+/datum/controller/subsystem/unit_tests_config/PreInit()
 	. = ..()
 
 	UT = new
@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(unit_tests_config)
 /*
 	The Unit Tests subsystem
 */
-/datum/controller/subsystem/unit_tests
+SUBSYSTEM_DEF(unit_tests)
 	name = "Unit Tests"
 	init_order = -1e6	// last.
 	var/list/queue = list()
