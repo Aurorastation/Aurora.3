@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed ships not wrapping around the other side of the overmap when the faced direction was different from the heading."
