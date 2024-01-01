@@ -1,0 +1,159 @@
+"aV" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 6},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"bh" = (/obj/structure/table/wood/bamboo,/obj/item/material/twohanded/spear/steel{pixel_y = 25},/obj/item/reagent_containers/food/drinks/bottle/sake{pixel_x = 4; pixel_y = 15},/obj/item/reagent_containers/food/drinks/bottle/sake{pixel_x = -7; pixel_y = 11},/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot,/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_x = 8},/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_x = 9; pixel_y = 7},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"by" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang/wilting,/area/konyang_swamp_4)
+"bz" = (/obj/random/dirt_75,/obj/structure/bed/stool/chair/folding{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"ca" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/konyang_swamp_4)
+"cq" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"db" = (/obj/structure/flora/stump,/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"dj" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"eJ" = (/obj/structure/rope_post{dir = 1},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"fi" = (/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"fy" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"fA" = (/obj/random/dirt_75,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"gd" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"gf" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"gG" = (/turf/simulated/floor/exoplanet/konyang/pink,/area/konyang_swamp_4)
+"hE" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"ik" = (/obj/structure/lattice/catwalk/indoor/planks,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"iY" = (/obj/structure/flora/stump/log{pixel_y = -5},/obj/item/device/flashlight/lamp/box{pixel_x = 2; pixel_y = 6},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"js" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"jV" = (/obj/structure/table/wood/bamboo,/obj/item/material/twohanded/spear/steel,/obj/item/flame/lighter{pixel_y = 8; pixel_x = -6},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"kk" = (/obj/random/dirt_75,/obj/structure/bed/stool/chair/folding,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"kL" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"lk" = (/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"mx" = (/obj/structure/rope_post{dir = 4},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"mA" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"mG" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"ni" = (/obj/structure/flora/rock/konyang,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"nx" = (/mob/living/simple_animal/aquatic/fish/cod,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"ol" = (/obj/structure/closet/crate/freezer{name = "cooler"},/obj/item/reagent_containers/food/snacks/fish/fishfillet,/obj/item/reagent_containers/food/snacks/fish/fishfillet,/obj/item/reagent_containers/food/snacks/fish/fishfillet,/obj/item/reagent_containers/food/snacks/fish/fishfillet,/obj/item/reagent_containers/food/snacks/fish/fishfillet,/obj/item/reagent_containers/food/snacks/fish/fishfillet,/obj/item/reagent_containers/food/snacks/fish/mollusc,/obj/item/reagent_containers/food/snacks/fish/mollusc,/obj/item/reagent_containers/food/snacks/fish/mollusc,/obj/item/reagent_containers/food/snacks/fish/mollusc,/obj/item/reagent_containers/food/snacks/fish/mollusc,/obj/item/reagent_containers/food/snacks/fish/mollusc,/obj/item/holder/fish/cod,/obj/item/holder/fish/cod,/obj/item/holder/fish/cod,/obj/item/holder/fish/cod,/obj/item/holder/fish/cod,/obj/item/holder/fish/cod,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"oB" = (/obj/structure/rope_post{dir = 1},/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"pi" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"pw" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"pP" = (/mob/living/simple_animal/aquatic/fish/cod,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"qC" = (/obj/structure/lattice/catwalk/indoor/planks,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"rx" = (/obj/random/dirt_75,/obj/structure/bed/stool/chair/plastic{dir = 8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"rE" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/rope_post,/obj/structure/rope_post{dir = 8},/obj/structure/rope_railing,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"sQ" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"tg" = (/obj/random/dirt_75,/obj/structure/flora/log_bench{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"th" = (/obj/structure/flora/rock/konyang,/obj/item/wrench{pixel_x = -8; pixel_y = -5},/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"tt" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"tz" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 8},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"tG" = (/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water,/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"uH" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"vR" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"wk" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/rope_post{dir = 8},/obj/structure/rope_post,/obj/structure/rope_railing,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"wz" = (/obj/machinery/appliance/cooker/grill,/obj/structure/beach_umbrella{pixel_x = 9; pixel_y = 22},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"zG" = (/obj/machinery/media/jukebox{anchored = 1; pixel_x = 20; density = 0; pixel_y = 2},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"zQ" = (/obj/structure/lattice/catwalk/indoor/planks/stairs{dir = 8},/obj/structure/rope_post{dir = 8},/obj/structure/rope_post,/obj/structure/rope_railing,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Ad" = (/obj/structure/flora/bush/konyang_reeds/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"AA" = (/obj/effect/decal/fake_object{icon = 'icons/obj/weapons.dmi'; icon_state = "towel_flat"; pixel_x = 10; pixel_y = 26; color = "#903A64"; desc = "A soft fleece picnic blanket."; name = "picnic blanket"; layer = 2.99},/obj/effect/decal/fake_object{icon = 'icons/obj/weapons.dmi'; icon_state = "towel_flat"; pixel_x = -10; pixel_y = 12; color = "#903A64"; desc = "A soft fleece picnic blanket."; name = "picnic blanket"; layer = 2.99},/obj/effect/decal/fake_object{icon = 'icons/obj/weapons.dmi'; icon_state = "towel_flat"; pixel_x = 10; pixel_y = -2; color = "#903A64"; desc = "A soft fleece picnic blanket."; name = "picnic blanket"; layer = 2.99},/obj/effect/decal/fake_object{icon = 'icons/obj/weapons.dmi'; icon_state = "towel_flat"; pixel_x = -6; pixel_y = 26; color = "#914789"; desc = "A soft fleece picnic blanket."; name = "picnic blanket"},/obj/effect/decal/fake_object{icon = 'icons/obj/weapons.dmi'; icon_state = "towel_flat"; pixel_x = -6; pixel_y = -2; color = "#914789"; desc = "A soft fleece picnic blanket."; name = "picnic blanket"},/obj/effect/decal/fake_object{icon = 'icons/obj/weapons.dmi'; icon_state = "towel_flat"; pixel_x = 13; pixel_y = 12; color = "#914789"; desc = "A soft fleece picnic blanket."; name = "picnic blanket"},/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/konyang_swamp_4)
+"AF" = (/mob/living/simple_animal/aquatic/fish,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"Cl" = (/obj/structure/flora/rock/konyang/small,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Cu" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"CK" = (/obj/structure/flora/stump,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Df" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Dn" = (/obj/structure/automobile{desc = "A newer model car. This one's tires have been swapped out for ones better suited for offroad driving."},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Dy" = (/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"DH" = (/obj/structure/flora/stump,/turf/simulated/floor/exoplanet/konyang/pink,/area/konyang_swamp_4)
+"En" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"EP" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/konyang_swamp_4)
+"Fl" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"Gh" = (/obj/structure/lattice/catwalk/indoor/planks/stairs{dir = 4},/obj/structure/rope_post,/obj/structure/rope_post{dir = 8},/obj/structure/rope_railing,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Ha" = (/turf/template_noop,/area/konyang_swamp_4)
+"Hc" = (/obj/structure/table/wood/bamboo,/obj/item/material/hatchet/butch,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Ho" = (/obj/item/stack/material/wood/branch/full,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Ht" = (/obj/structure/flora/tree/konyang/fall{pixel_y = -26},/turf/simulated/floor/exoplanet/konyang/pink,/area/konyang_swamp_4)
+"Hv" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Hy" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"HA" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Ig" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 9},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"IC" = (/obj/random/dirt_75,/obj/structure/bed/stool/wood{pixel_x = -2},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"IL" = (/obj/item/stack/material/wood/log{pixel_x = -7},/obj/item/stack/material/wood/log{pixel_x = 2},/obj/item/stack/material/wood/log{pixel_x = -3; pixel_y = 7},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"IU" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"Jy" = (/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"JJ" = (/turf/template_noop,/area/exoplanet/grass/konyang)
+"Ke" = (/obj/structure/flora/stump/log{pixel_x = -19; pixel_y = 2},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Lj" = (/obj/random/dirt_75,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Lr" = (/obj/structure/bed/stool/wood{dir = 1},/obj/structure/lattice/catwalk/indoor/planks,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"Lt" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 5},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"Mz" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"MQ" = (/mob/living/simple_animal/aquatic/fish,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"MS" = (/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/konyang_swamp_4)
+"Ns" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"NJ" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 10},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"Od" = (/obj/structure/flora/bush/konyang_reeds/water,/mob/living/simple_animal/aquatic/fish,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"Oj" = (/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"OB" = (/obj/structure/flora/rock/konyang/small,/obj/structure/bonfire,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"OC" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"OR" = (/obj/random/dirt_75,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Px" = (/obj/item/storage/overloader/rainbow{pixel_y = -6},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"QG" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/item/device/flashlight/lamp/box{pixel_x = 6; pixel_y = 16},/obj/item/reagent_containers/food/drinks/bottle/small/beer{pixel_x = -12},/obj/item/reagent_containers/food/drinks/bottle/small/beer{pixel_x = -5; pixel_y = -6},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"Rk" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"TI" = (/obj/structure/rope_post{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"TW" = (/mob/living/simple_animal/aquatic/fish/gupper,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"TX" = (/obj/structure/closet/crate/freezer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Ul" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 1},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"UD" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"UW" = (/obj/effect/step_trigger/thrower{icon_state = "dir_arrow"; tiles = 1; dir = 4},/turf/simulated/floor/exoplanet/water/konyang,/area/exoplanet/grass/konyang)
+"UX" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"WA" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"WB" = (/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"WC" = (/obj/structure/flora/tree/konyang,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/konyang_swamp_4)
+"Xs" = (/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Ym" = (/obj/random/dirt_75,/obj/structure/flora/log_bench,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_swamp_4)
+"Zm" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+JJJJJJJJJJlkDflklklklkWAfyfyWAWAHAlklklkkLlkWAfyfyfyfyWAHAWAfyfyfyWAWAWAlklkHAlklkJJJJJJJJJJ
+JJJJJJJJlkWAWAHAlklkuHfyfyfysQfyWAlkcqlkDfDfgfCufyfygfDfDfWAgfgffyfyfygfDflklklkOClkHAJJJJJJ
+JJJJlkgfvRfyWAOCDflkWAgfWAfygfgfgflklkJyJyJyJyWAgfgfEnJyJyEnlkWAgfIUWAWAcqUDlkHAlklklkDfJJJJ
+JJHAuHfyfyfyWADflkDfDfWAEnJyJyJyJyJyJyEnEnEnJyJyJyEnEnEnJyEnJyEnlklkDflklklklklklklklkOClkJJ
+lkDfCufyMzWAgfJyJyJyJyJyEnEnJyJyJyEnEnEnJyJyEnEnJyJyEnEnJyJyJyEnEnJyJyEnDflkHvWBlkUDlklkcqJJ
+lklkgfvRWAJyJyEnEnEnJyJyJyEnEnEnEnJyJyJyJyJyJyEnEnpiJyJyJyEnJyJyEnEnEnEnlkOChEWBHvDflkHAJJJJ
+DflklklkJyEnEnJyEnJyEnEnJyJyEnJyJyEnJyJyEnEnJyJyEnEnJyJyJyOdEnEnJyJyEnEnEnlklkpwWBWBlklkJJJJ
+lkOCDflkJyEnJyEnJyAdJyEnEnJyEnEnpPEnEnEnJyEnEnEnEnEnEnJyEnJyJyEnZmJyJyJyEnJyDflkWBHvlklkJJJJ
+JJlklkJyEnpiJyJyJyEnEnZmJyEnJyEnEnEnEnEnEnZmEnEnJyJyJyJyJyEnEnJyJyEnJyJyEnJyDfHAWAWAlklkJJJJ
+JJWAgfJyEnJyJyEnEnEnJyJyEnJyEnEnEnZmEnEnEnEnEnEnEnJyJyJyJyEnZmEnJyEnEnJyJyJyDfWAfyWAUDlkHAJJ
+JJfygfJyOdEnJyJyEnJyEnJyJyEnJyEnEnEnEnUlUlUlUlEnEnpPJyJyEnEnJyJyJyEnEnpPJyEnJyWAfyfyWBDflkJJ
+JJfyWAJyJyEnJyEnJyAFJyJyEnJyEnEnEnUlUlIgOjOjLtUlUlEnEnJyJyEnEnJyJyEnJyJyJyEnEngfWAfyHvWBDflk
+WAgffyEnJyJyJyEnJyEnnxEnEnEnEnEnIgIgOjOjOjOjOjOjLtUlEnEnEnMQEnEnJyJyJyJyJyJyEnDfgffyWAWBlklk
+fyfygfJyEnJyJyJyEnJyEnEnJyEnEnIgIgOjOjOjOjOjOjOjOjLtUlLtEnEnJyJyEnEnJyJyEnAdJyJylkWAWAcqlklk
+fyWAWAJyEnJyEnJyEnJyEnJyEnEnIgIgOjOjOjOjOjOjOjOjOjOjOjLtLtEnEnJyJyEnpiJyEnEnJyJyDflklklkDfHA
+CugflkDfJyEnEnpiJyEnEnJyEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjLtUWEnEnJyJyEnJyJyEnJyJyJykLlkDfOClk
+WAlklkDfJyEnJyJyEnJyEnEnEntzIgOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnJyJyJyJyEnJyZmJyJyDflklklklk
+lklkHAlkJyEnJyEnJyJyEnEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnpPJyEnEnEnJyEnJyJyEnlklkWAHA
+lklklkDflkJyJyEnJyEnEnEnEntzNJOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnEnJyEnJyEnEnJyEnJyJyDfWAWAWA
+lklklkDfDfJyJyEnJyEnJyEnEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjLtUWEnJyEnJyEnJyEnEnJyJyEnJyWAfyWA
+lkUDlkDfDfJyEnJyEnEnJyEnEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnJyEnEnEnJyEnEnEnEnEnDffyfy
+WAgfIUlklkJyEnJyEnEnpiEnEntzIgOjOjOjOjOjOjOjtGOjOjOjOjOjOjOjUWEnEnEnJyEnEnZmJyAFJyJyJyJygffy
+IUfyWADfJyEnEnJyMQEnJyEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjLtUWEnEnJyEnEnEnJyEnJyJyJyJygfIU
+JJfyfygfJyJyEnJyJyEnJyEnEnNJNJOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnJyEnEnJyEnJyJyEnJyEnlkWA
+JJgffygfJyJyEnEnJyEnJyEnEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWZmEnJyEnEnJyJyJypiJyEnEnDfOC
+JJcqCuWAJyJyEnEnJyEnJyEnEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjOjaVUWEnEnEnEnEnEnJyEnJyJyJyEnDfDf
+JJlklklkEnJyJyJyJyZmJyJyEnEnNJNJOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnEnEnAFJyEnJyJyJyEnJyOClklk
+JJWAIUWAlkJyJyJyJyJyEnEnEnpPEntzOjOjOjOjOjOjOjOjOjOjOjOjOjOjUWEnpPEnEnJyEnEnJyJyEnJyJyDflklk
+WAfyfyWADfJyEnEnJyEnJyEnEnEnEntzOjOjOjOjOjOjOjOjOjOjOjOjOjaVUWEnEnEnZmEnEnEnEnJyEnJyDflkHAvR
+gfWAfyWAgfJyZmEnJyEnJyJyEnEnEnNJNJOjOjOjOjOjOjOjOjOjOjOjOjUWEnEnJyJyEnEnJyEnJyJyEnJyDfWAWAfy
+lkIUWAfyWAJyEnEnAFJyEnEnJyEnEnEnNJNJOjOjOjOjOjOjOjOjOjOjaVaVEnEnEnEnEnEnJyEnJyEnEnlkgfWAfyWA
+lklkWAgflklkEnJyJyEnEnJyEnEnEnEnEnNJdjNJOjOjOjOjOjOjaVdjdjEnEnEnJyEnTWJyEnEnJyJyEnDfWAfyfyWA
+lkDflklklkDfJyEnJyEnEnEnJyEnEnEnEnEnEndjNJOjOjOjaVdjdjEnEnEnEnEnJyEnJyJyJyJyJyJyJyDfWAfyfygf
+lkDfUDlklklkJyEnJyEnEnZmJyJyEnTWEnEnEnEndjdjdjdjdjEnEnEnAFEnEnJyEnJyJyEnpiJyEnJyJyOCWAWAfyWA
+lkDfWAHAlklkEnJyEnJyJyEnEnEnJyEnZmEnEnEnEnEnEnEnEnEnEnEnEnJyJyEnEnJyJyJyEnEnJyJyJyDflkuHWAHA
+JJIUfyWAIUDfJyJyEnZmJyJyEnJyAFEnEnEnEnEnmxLrQGeJEnEnEnEnEnJyEnEnJyEnEnEnJyJyEnJylklkDfhEWAlk
+JJCugffyWADfEnJyJyEnJyEnEnJyJyEnJyEnEnEnEnqCqCEnEnEnJyEnZmEnJyJyJyEnJyJyJyJyJylkDfHAhEhEDflk
+JJJJfyfyWAgflkJyJyJyEnJyJyEnJyJyEnJyEnEnmxqCqCeJEnJyEnEnEnJyEnEnJypiEnJyEnJyJylkDfWAhEhElkHA
+JJJJWAfyfyWAlkJyEnJyJyEnJyEnpiJyJyEnJyEnEnqCqCEnJyEnEnEnJyEnEnJyEnEnEnJyJyDfgfgfcqWAhElklkJJ
+JJJJcqWACuDflklkEnEnEnJyJyJyEnJyEnEnEnEnmxqCqCeJEnEnJyJyEnJyJyAFJyJyJyJyJygfgffyfigflkUDlkJJ
+JJlkDflklkDflkDflklkEnJyEnJyJyEnJyEnZmEnEnqCqCEnEnEnEnEnpiJyEnJyEnJyJyEnmAMSHtcaDHmAmADyFlHa
+DfHAlkHAlklklklklklklkEnEnEnEnJyEnJyEnEnmxqCqCeJJyJyEnJyJyJyJyEnJyJyJyDfMScaMSMScawzolHcmADy
+lklklkWBWBOCDfUDlkHADfJyJyEnJyJyEnEnJyJyEnqCqCEnEnEnEnEnEnJyJyJyJyDflkfycaMSAAcaICXsgdmGgdmA
+lkUDlkhEWBfAHvHAlklklkDfDflklkDfJyJyJyEnmxqCqCeJEnJyJyJyJyJyDfDflklkgfficacacamGXskkLjgdjVgd
+lklkcqlkHvWBWBhEDflklkHAWAgfWAlkDfDfDfJyJyqCqCJyJyJylkDfDflklklkHADfgfNsEPiYKegdXsgdXstgbhgd
+JJlklkDflkjshEnihElkWAWAgffygfgfWAlklkDfTIikikoBDflkDflklkDflkDfDflkCKlkmAmGHobzXsOBgdrxgdmG
+JJlkNslklklklkHvfAlkgffyfyfyfyfygflkHAWBzQrEwkGhhEWBDfCKHAlklklklklkHAvREPgdILXsYmgdXsXsUXdb
+JJlklkHAUDDfDflklklkWAfylkttgffyfyWAlkDfHvWBWBWBhElklklkcqlklklkUDlkWAWAbyEPgdUXORXsXsmGTXHy
+JJJJlkDflklkHAlkUDlkHAgfuHlkDfWAWAWAlklklkDfhEWBWBClWBlklkDflkHAlkDflkhEgdgdXsXszGDnPxXsmARk
+JJJJJJlklkNslklkDfHAlklklklklkUDlkDflklklklklklkHvhEWBWBWBWBHvWBhEhEfAWBXsXsXsmGthgGDyDymAHa
+JJJJJJJJlklklkDflklklklkDflklklkHAlkNslkDflklkHAlklkhEhEWBpwhEWBWBWBhEHvXsDyDyHyEPmAdbWCmAHa
+"}

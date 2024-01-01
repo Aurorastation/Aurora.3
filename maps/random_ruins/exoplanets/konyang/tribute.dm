@@ -3,6 +3,6 @@
 	id = "konyang_tribute"
 	description = "A shrine on top of a mountain next to a waterfall."
 
-	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_SPAWN_GUARANTEED
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/tribute.dmm")

@@ -3,7 +3,7 @@
 	id = "konyang_fireoutpost"
 	description = "A remote fireoutpost on Konyang."
 
-	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_SPAWN_GUARANTEED
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/fireoutpost.dmm")
 
