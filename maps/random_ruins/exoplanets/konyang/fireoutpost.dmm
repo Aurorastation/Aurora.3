@@ -1,0 +1,151 @@
+"bk" = (/obj/effect/ghostspawpoint{name = "igs - konyang_fireman"; identifier = "konyang_fireman"},/obj/structure/lattice/catwalk/indoor/tatami{dir = 4},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"bC" = (/obj/structure/undies_wardrobe,/obj/item/toy/plushie/bearfire{pixel_x = 17; pixel_y = -4},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"bE" = (/obj/structure/reagent_dispensers/extinguisher,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"dB" = (/obj/structure/lattice/catwalk/indoor/tatami{dir = 8},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"dC" = (/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"dK" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/curb/corner{dir = 1},/obj/effect/decal/curb/corner{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"ei" = (/obj/structure/chainlink_fence{dir = 4},/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"eN" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{name = "railing"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"eP" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"fb" = (/obj/machinery/recharge_station,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"fq" = (/obj/structure/lattice/catwalk/indoor/planks/stairs{dir = 8},/obj/structure/rope_post,/obj/structure/rope_post{dir = 8},/obj/structure/rope_railing{pixel_y = 4},/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"fw" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "1-8"},/obj/structure/lattice/catwalk/indoor/urban,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"; light_power = 50},/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"fA" = (/obj/structure/rope_post{dir = 8; pixel_y = -4},/obj/structure/rope_post{pixel_y = -4},/obj/structure/rope_railing,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"fM" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"fZ" = (/obj/structure/closet/secure_closet/freezer{pixel_x = -8},/obj/item/reagent_containers/food/snacks/meat/chicken,/obj/item/reagent_containers/food/snacks/meat/chicken,/obj/item/reagent_containers/food/snacks/meat/chicken,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/random_produce/box,/obj/random_produce/box,/obj/random_produce/box,/obj/random_produce/box,/obj/random_produce/box,/obj/random_produce/box,/obj/random_produce/box,/obj/random_produce/box,/obj/item/reagent_containers/food/drinks/carton/soymilk,/obj/item/reagent_containers/food/drinks/carton/soymilk,/obj/item/reagent_containers/food/drinks/carton/soymilk,/obj/item/reagent_containers/food/drinks/carton/soymilk,/obj/item/reagent_containers/food/condiment/shaker/salt,/obj/item/reagent_containers/food/condiment/shaker/peppermill,/obj/item/reagent_containers/food/condiment/shaker/spacespice,/obj/item/storage/box/fancy/egg_box,/obj/item/storage/box/fancy/egg_box,/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"gw" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{dir = 1; pixel_y = 13},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"gJ" = (/obj/structure/cable/green{icon_state = "1-4"},/obj/structure/lattice/catwalk/indoor/tatami{dir = 8},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"he" = (/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"hn" = (/obj/structure/cable/green{icon_state = "4-8"},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"hC" = (/obj/structure/cable/green{icon_state = "0-2"},/obj/machinery/power/apc/west,/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"hI" = (/obj/effect/decal/curb/corner{dir = 1},/obj/effect/decal/curb/corner{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"hJ" = (/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"in" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{dir = 8; pixel_x = -1},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"iY" = (/obj/random/dirt_75,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"jJ" = (/obj/structure/rope_post{dir = 8; pixel_y = -4},/obj/structure/rope_post{pixel_y = -4},/obj/structure/rope_railing,/obj/effect/decal/curb{dir = 8},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"jK" = (/obj/structure/chainlink_fence{dir = 8},/obj/effect/decal/exterior_stairs/half,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"la" = (/obj/machinery/mech_recharger,/mob/living/heavy_vehicle/premade/firefighter,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"lC" = (/obj/structure/closet/firecloset,/obj/item/material/twohanded/fireaxe,/obj/item/extinguisher/mini,/obj/item/extinguisher/mini,/obj/item/reagent_containers/extinguisher_refill/filled,/obj/item/reagent_containers/extinguisher_refill/filled,/obj/item/device/suit_cooling_unit,/obj/item/clothing/suit/storage/toggle/konyang/pants,/obj/item/device/flashlight/heavy,/obj/item/cell/device/high,/obj/item/storage/belt/utility/atmostech,/obj/item/clothing/accessory/storage/webbing,/obj/item/clothing/gloves/swat/tactical{name = "\improper fire-proof gloves"; desc = "These fire-proof gloves are somewhat fire and impact-resistant."},/obj/item/device/radio/eng,/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"mq" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"nc" = (/obj/structure/flora/tree/konyang/spring,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"nE" = (/obj/machinery/appliance/cooker/stove,/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"nN" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"nY" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/curb{dir = 6},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"nZ" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"oM" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{dir = 8; pixel_x = -1},/obj/structure/railing/fence{name = "railing"},/obj/item/device/flashlight/lamp/box{pixel_y = 12; pixel_x = 2},/obj/structure/table/rack/cafe_table,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"pc" = (/obj/structure/bed{name = "bottom bunk"},/obj/effect/decal/fake_object{icon = 'icons/obj/structure/beds.dmi'; icon_state = "bed"; pixel_y = 13; name = "top bunk"; desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."},/obj/structure/railing/mapped{dir = 8; pixel_x = -5},/obj/structure/railing/mapped{dir = 4; pixel_x = 4},/obj/item/bedsheet/red,/obj/item/bedsheet/red{pixel_y = 13},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"px" = (/obj/effect/decal/curb{dir = 9},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"pC" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"pX" = (/obj/structure/table/wood,/obj/machinery/recharger{pixel_x = -8; pixel_y = 9},/obj/machinery/cell_charger{pixel_x = 9; pixel_y = 8},/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"rc" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"sy" = (/obj/effect/decal/exterior_stairs/half,/obj/effect/decal/curb{dir = 8},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"uk" = (/obj/structure/flora/rock/konyang/small,/obj/effect/decal/curb{dir = 5},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"vg" = (/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"wm" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/lattice/catwalk/indoor/urban,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"; light_power = 50},/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"wI" = (/obj/random/dirt_75,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"xX" = (/obj/effect/map_effect/window_spawner/full/wood,/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"yY" = (/obj/effect/decal/curb{dir = 4},/obj/effect/decal/curb,/obj/effect/decal/curb{dir = 1; layer = 2.02},/obj/effect/decal/exterior_stairs/half{dir = 8},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Aw" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/konyang_fireoutpost)
+"AA" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"BB" = (/obj/random/dirt_75,/obj/effect/decal/curb/corner,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"BU" = (/obj/structure/cable/green{icon_state = "2-4"},/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"Cf" = (/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/lattice/catwalk/indoor/tatami{dir = 4},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"Cw" = (/obj/structure/chainlink_fence{dir = 4},/obj/effect/decal/curb/corner{dir = 1},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"CT" = (/obj/structure/flora/tree/konyang/fall,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"CW" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/curb{dir = 1; layer = 2.02},/obj/effect/decal/curb,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"CY" = (/obj/effect/decal/curb{dir = 4},/obj/effect/decal/curb{dir = 1; layer = 2.02},/obj/effect/decal/curb,/obj/effect/decal/exterior_stairs/half{dir = 8},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"CZ" = (/obj/structure/cable/green{icon_state = "2-4"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"Dl" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/curb,/obj/effect/decal/curb{dir = 1; layer = 2.02},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"DP" = (/obj/structure/chainlink_fence{dir = 8; pixel_y = -19},/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"ER" = (/obj/machinery/door/urban{dir = 4},/obj/effect/decal/exterior_stairs/half/center{dir = 8},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"Fe" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Fk" = (/obj/structure/flora/rock/konyang/small,/obj/random/dirt_75,/obj/random/dirt_75,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"FF" = (/turf/template_noop,/area/exoplanet/grass/konyang)
+"FH" = (/obj/structure/cable/green{icon_state = "2-8"},/obj/structure/cable/green{icon_state = "1-8"},/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"FV" = (/obj/structure/lattice/catwalk/indoor/planks/stairs{dir = 4},/obj/structure/rope_post{dir = 8},/obj/structure/rope_railing{pixel_y = 4},/obj/structure/rope_post,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"Gk" = (/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"Gl" = (/obj/structure/automobile{desc = "A newer model car. This one's tires have been swapped out for ones better suited for offroad driving."},/obj/random/dirt_75,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"GJ" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{dir = 1; pixel_y = 13},/obj/structure/railing/fence{dir = 8; pixel_x = -1},/obj/item/device/flashlight/lamp/box{pixel_y = 12; pixel_x = 2},/obj/item/storage/firstaid/adv{pixel_x = 6; pixel_y = 2},/obj/item/device/binoculars/high_power{pixel_x = -2; pixel_y = -2},/obj/structure/table/rack/cafe_table,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"HO" = (/obj/effect/decal/curb,/obj/effect/decal/curb{dir = 1; layer = 2.02},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"HR" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/curb/corner{dir = 1},/obj/effect/decal/curb/corner{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"HY" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{name = "railing"},/obj/structure/railing/fence{dir = 4; pixel_x = 2},/obj/item/device/flashlight/lamp/box{pixel_y = 12; pixel_x = 2},/obj/structure/table/rack/cafe_table,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"Ib" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"Ik" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/curb{dir = 5},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"In" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{dir = 4; pixel_x = 2},/obj/structure/railing/fence{dir = 1; pixel_y = 13},/obj/item/device/flashlight/lamp/box{pixel_y = 12; pixel_x = 2},/obj/item/storage/backpack/duffel{pixel_y = 2},/obj/structure/table/rack/cafe_table,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"Ip" = (/obj/effect/decal/curb{dir = 5},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"IK" = (/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"JI" = (/obj/structure/chainlink_fence{dir = 4},/obj/effect/decal/curb/corner{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"JU" = (/obj/effect/decal/curb{dir = 1; layer = 2.02},/obj/effect/decal/curb,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Kc" = (/obj/structure/flora/tree/konyang/spring,/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"Kq" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/curb{dir = 8},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"KI" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "1-4"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"Lk" = (/obj/structure/cable/green{icon_state = "1-4"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"LE" = (/obj/structure/lattice/catwalk/indoor/planks,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"Mf" = (/obj/structure/chainlink_fence{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Ms" = (/obj/structure/cable/green{icon_state = "4-8"},/turf/simulated/wall/wood,/area/konyang_fireoutpost)
+"Mu" = (/obj/structure/chainlink_fence{layer = 9.1},/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"Ni" = (/obj/machinery/appliance/cooker/oven,/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"Nq" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"NH" = (/obj/structure/cable/green{icon_state = "0-8"},/obj/machinery/power/tracker,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"NV" = (/turf/simulated/wall/wood,/area/konyang_fireoutpost)
+"NW" = (/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "0-4"},/obj/machinery/power/solar_control/autostart{dir = 4; pixel_x = -5},/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"OL" = (/obj/structure/cable/green{icon_state = "0-8"},/obj/machinery/power/solar,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"PD" = (/obj/structure/chainlink_fence{dir = 1; pixel_y = -5},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"PZ" = (/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"Qo" = (/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"Qp" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"Re" = (/obj/structure/flora/rock/konyang/small,/obj/effect/decal/curb{dir = 6},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Ro" = (/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/table/rack{pixel_x = 4},/obj/item/material/kitchen/utensil/fork/chopsticks,/obj/item/material/kitchen/utensil/fork/chopsticks,/obj/item/material/kitchen/utensil/fork/chopsticks,/obj/item/material/kitchen/utensil/fork/chopsticks,/obj/item/material/kitchen/utensil/spoon{pixel_x = 9},/obj/item/material/kitchen/utensil/spoon{pixel_x = 9},/obj/item/material/kitchen/utensil/spoon{pixel_x = 9},/obj/item/material/kitchen/utensil/spoon{pixel_x = 9},/obj/item/material/kitchen/utensil/knife{pixel_x = 4},/obj/item/reagent_containers/food/condiment/flour{pixel_x = 7},/obj/machinery/light{dir = 4},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"Rr" = (/obj/structure/rope_post{dir = 8; pixel_y = -4},/obj/structure/rope_post{pixel_y = -4},/obj/structure/rope_railing,/obj/effect/decal/curb{dir = 10},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"RK" = (/obj/structure/closet/crate/bin/urban/dumpster,/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/obj/random/junk{pixel_x = 3; pixel_y = -4},/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"Sh" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/curb{dir = 1; layer = 2.02},/obj/effect/decal/curb,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Ss" = (/obj/structure/sink{dir = 4; pixel_x = 13},/obj/structure/mirror{pixel_x = 26},/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
+"Sz" = (/obj/structure/cable/green,/obj/machinery/power/solar,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"SG" = (/obj/structure/cable/green{d2 = 2; icon_state = "0-2"},/obj/machinery/power/solar,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"SI" = (/obj/effect/decal/curb{dir = 8},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Tb" = (/obj/structure/flora/bush/mushroom,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Tr" = (/obj/effect/decal/curb{dir = 6},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"TR" = (/obj/effect/decal/curb{dir = 8},/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
+"Uw" = (/obj/structure/chainlink_fence{layer = 9.1},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"VV" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/structure/railing/fence{dir = 1; pixel_y = 13},/obj/item/hammer{pixel_x = 4; pixel_y = 4},/obj/item/storage/toolbox/mechanical{pixel_y = -3; pixel_x = -8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
+"Wd" = (/obj/structure/cable/green{icon_state = "2-8"},/obj/structure/cable/green{icon_state = "1-8"},/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/lattice/catwalk/indoor/urban,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"; light_power = 50},/turf/simulated/floor/plating,/area/konyang_fireoutpost)
+"Ww" = (/obj/structure/chainlink_fence{dir = 8},/obj/structure/closet/outhouse,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
+"WK" = (/obj/effect/ghostspawpoint{name = "igs - konyang_fireman"; identifier = "konyang_fireman"},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"XZ" = (/obj/structure/extinguisher_cabinet/west,/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"Yf" = (/obj/structure/chainlink_fence{dir = 4},/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/curb/corner{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"Zr" = (/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"Zs" = (/obj/structure/chainlink_fence{dir = 4},/obj/effect/decal/curb{dir = 4},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"ZE" = (/obj/structure/flora/tree/konyang/blossom,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+FFFFAAIKIKAANqIKIKIKIKnNNqIKIKIKAAFeIKIKNqIKFeIKnNNqIKIKIKFF
+FFNqIKIKIKIKIKIKnNpCUwUwUwUwUwUwUwUwUwUwUwUwUwUwUwUwUwMuMuIK
+TbIKpCIKIKnZIKncIKnNWwRKfbSGSGSGSGSGSGSGSGSGSGSGSGSGSGIpYfIK
+AAIKIKIKIKIKIKNqIKnNvgGkCZFHFHFHWdFHFHFHFHFHFHWdFHFHFHOLZsIK
+IKIKNqIKIKAAIKIKpCAAjKsymqSzSzSzSzSzSzSzSzSzSzSzSzSzSzTrCwNq
+IKnZIKIKFeIKIKIKFenNPZSIwmyYHOHOHOHODlHOHOHOHODlHOHOHOHRMfIK
+IKQoAwQoIbQoQoIbQoQoDPKqmqSGSGSGSGSGSGSGSGSGSGSGSGSGSGIpJIIK
+IKKcQoQoQoQoQoQoQoQoQoSIBUFHFHFHWdFHFHFHFHFHFHWdFHFHFHOLZsAA
+IKIbQoGJgwgwgwgwgwVVInjJmqSzSzSzSzSzSzSzSzSzSzSzSzSzSzReCwIK
+IKrcQoinLELELELELELELEFVmqCYJUJUShJUJUJUJUJUJUJUShJUJUdKeiIK
+IKrcQoinLENVxXxXxXxXNVpxmqSGSGSGSGSGSGSGSGSGSGSGSGSGSGIpJIpC
+pCQoQoinLExXnENipXfZNVbEBUFHFHFHWdFHFHFHFHFHFHWdFHFHFHNHZsIK
+IKQofAinLENVhCheheSsNVlamqSzSzSzSzSzSzSzSzSzSzSzSzSzSznYCwIK
+AAhJfqLELEERgJCfhnRoMsNWfwCYJUJUJUJUJUJUJUJUShJUCWJUJUhIMfIK
+IKQpIbinLENVXZdBbkWKNVbEmqSGSGSGSGSGSGSGSGSGSGSGSGSGSGukJINq
+IKhJIbinLExXbClClCpcNVfMKIFHFHFHWdFHFHFHFHFHFHWdFHFHFHOLZsIK
+FehJIbinLENVxXxXxXxXNVRrmqSzSzSzSzSzSzSzSzSzSzSzSzSzSzTrCwIK
+IKhJIbinLELELELELELELEFVmqCYJUJUJUJUJUShCWJUJUJUJUJUJUhIMfAA
+IKhJIboMeNeNeNeNeNeNHYTRmqSGSGSGSGSGSGSGSGSGSGSGSGSGSGIkJIIK
+IKQphJhJhJQpQphJQpQphJBBLkFHFHFHWdFHFHFHFHFHFHWdFHFHFHOLZsIK
+ncQoQpQphJhJhJhJGlwIhJQpGkSzSzSzSzSzSzSzSzSzSzSzSzSzSzTrCwNq
+IKIKIKIKePePdCePdCdCiYiYPDPDPDPDPDPDPDPDPDPDPDPDPDPDPDPDPDIK
+IKpCIKIKIKIKIKePePePdCdCdCePIKIKIKAAIKNqIKNqIKIKIKpCTbIKIKIK
+IKIKIKIKIKIKIKIKIKIKePdCFkiYdCePIKIKIKIKIKZrCTZrIKIKIKnZIKIK
+IKIKNqAAIKIKIKIKIKIKIKIKIKePdCdCIKIKNqIKIKFeZrIKIKIKFeIKAAIK
+IKncIKIKIKpCIKIKIKIKnZIKIKIKePdCdCIKIKIKIKIKIKpCIKIKIKAAIKIK
+IKIKTbIKFeIKIKIKIKIKIKIKZrIKIKePdCdCePIKIKAAIKIKIKncIKIKIKIK
+FFnZIKIKIKIKIKIKZEIKIKIKIKIKIKIKIKIKePePdCdCIKIKIKIKIKNqIKFF
+FFIKIKNqIKZrIKIKpCIKIKNqNqIKIKIKIKIKIKIKIKIKePdCIKIKIKIKAAFF
+FFFFIKIKIKIKIKIKIKIKIKIKIKIKIKncIKnZAAIKIKIKIKAAIKIKePIKFFFF
+"}
