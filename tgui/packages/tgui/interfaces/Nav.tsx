@@ -27,7 +27,16 @@ const bearing_unbounded = function (x, y) {
 
 const FlightSection = function (act, data) {
   return (
-    <Section title="Flight Data">
+    <Section
+      title="Flight Data"
+      buttons={
+        <Button
+          content={
+            'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')
+          }
+          onClick={() => act('viewing')}
+        />
+      }>
       <Table>
         <Table.Row>
           <Table.Cell>ETA to Next Grid:</Table.Cell>
@@ -84,17 +93,6 @@ export const Nav = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        <Section
-          title="Sensor Array Access"
-          buttons={
-            <Button
-              content={
-                'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')
-              }
-              onClick={() => act('viewing')}
-            />
-          }
-        />
         {FlightSection(act, data)}
         {NavSection(act, data)}
       </NtosWindow.Content>
