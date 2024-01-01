@@ -42,3 +42,4 @@ changes:
   - rscadd: "The Notes verb will now show your culture data."
   - bugfix: "Fixed a DNA runtime."
   - rscadd: "Added a portal subtype that doesn't run out for admins to use."
+  - rscadd: "Added a trioxin bottle that can be spawned."

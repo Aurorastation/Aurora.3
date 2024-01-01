@@ -24,7 +24,7 @@
 
 	if(!species)
 		if(new_species)
-			set_species(new_species,1)
+			set_species(new_species, 1)
 		else
 			set_species()
 
@@ -1481,9 +1481,7 @@
 	if(typing_indicator)
 		adjust_typing_indicator_offsets(typing_indicator)
 
-	if(!change_hair)
-		species.set_default_hair(src)
-	else
+	if(change_hair)
 		h_style = random_hair_style(gender, species.type)
 
 	if(prob(10))
