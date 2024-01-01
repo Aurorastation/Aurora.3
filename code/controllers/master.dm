@@ -260,8 +260,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	log_world(msg)
 
 
-	// if(world.system_type == MS_WINDOWS && CONFIG_GET(flag/toast_notification_on_init) && !length(GLOB.clients))
-	// 	world.shelleo("start /min powershell -ExecutionPolicy Bypass -File tools/initToast/initToast.ps1 -name \"[world.name]\" -icon %CD%\\icons\\ui_icons\\common\\tg_16.png -port [world.port]")
+	// There was a toast notifications call here, but we do not use it currently
 
 	// Set world options.
 	world.change_fps((10 / GLOB.config.Ticklag))
