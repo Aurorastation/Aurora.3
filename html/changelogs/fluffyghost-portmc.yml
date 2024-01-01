@@ -48,3 +48,4 @@ changes:
   - backend: "Turned some initializations and vars into GLOB."
   - bugfix: "Fixed an issue with maploader not removing null atoms from the initialization list."
   - backend: "Optimized the maploader to be faster by skipping unnecessary checks on a large list of atoms."
+  - backend: "Updated SSprofiler to TG's version."
