@@ -304,8 +304,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/time = rustg_time_milliseconds(SS_INIT_TIMER_KEY)
 	var/seconds = round(time / 1000, 0.01)
 
-	// Always update the blackbox tally regardless.
-	// SSblackbox.record_feedback("tally", "subsystem_initialize", time, subsystem.name)
+	// There was a call to SSblackbox here to update the tally, since we don't have SSblackbox it's not ported over
 
 	// Gave invalid return value.
 	if(result && !(result in valid_results))
