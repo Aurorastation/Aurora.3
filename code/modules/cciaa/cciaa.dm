@@ -1,4 +1,4 @@
-/datum/admins/proc/create_admin_fax(var/department in alldepartments)
+/datum/admins/proc/create_admin_fax()
 	set name = "Send Admin Fax"
 	set desc = "Send a fax from Central Command."
 	set category = "Special Verbs"
@@ -7,15 +7,10 @@
 		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
 		return
 
-	if (!department)
-		to_chat(usr, "<span class='warning'>No target department specified!</span>")
-		return
-
 	var/list/faxes = list()
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
-		if (F.department == department)
-			faxes[F.department] = F
-			break
+		faxes[F.department] = F
+		break
 
 	if(!length(faxes))
 		to_chat(usr, SPAN_WARNING("No valid fax machines located!"))
