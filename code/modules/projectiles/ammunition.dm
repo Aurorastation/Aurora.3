@@ -37,7 +37,7 @@
 /obj/item/ammo_casing/proc/expend()
 	. = BB
 	BB = null
-	set_dir(pick(alldirs)) //spin spent casings
+	set_dir(pick(GLOB.alldirs)) //spin spent casings
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/W as obj, mob/user as mob)
@@ -162,7 +162,7 @@
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
 		playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)
-		C.set_dir(pick(alldirs))
+		C.set_dir(pick(GLOB.alldirs))
 	stored_ammo.Cut()
 	update_icon()
 

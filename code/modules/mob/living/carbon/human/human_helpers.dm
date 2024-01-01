@@ -152,7 +152,7 @@
 
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
-			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+			var/datum/sprite_accessory/marking/mark_datum = GLOB.body_marking_styles_list[M]
 
 			if(!istype(mark_datum))
 				to_chat(usr, SPAN_WARNING("Invalid body marking [M] selected! Please re-save your markings, as they may have changed."))
@@ -175,7 +175,7 @@
 /mob/living/carbon/human/proc/sync_trait_prefs_to_mob(datum/preferences/prefs)
 	var/list/traits = prefs.disabilities
 	for(var/M in traits)
-		var/datum/character_disabilities/trait = chargen_disabilities_list[M]
+		var/datum/character_disabilities/trait = GLOB.chargen_disabilities_list[M]
 		trait.apply_self(src)
 
 // Helper proc that grabs whatever organ this humantype uses to see.
@@ -261,6 +261,11 @@
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
 		. = max(20, .)
+	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
+		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
+		if(cryo.current_stasis_mult)
+			var/gcf_stasis_mult = cryo.current_stasis_mult
+			. = . * gcf_stasis_mult
 	return round(.)
 
 // Martial Art Helpers
@@ -379,7 +384,7 @@
 	return species.hearing_sensitivity
 
 /mob/living/carbon/human/proc/is_listening()
-	if(src in intent_listener)
+	if(src in GLOB.intent_listener)
 		return TRUE
 	return FALSE
 

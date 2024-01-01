@@ -28,7 +28,7 @@
 	if(A.blood_DNA)
 		var/marked = pick(A.blood_DNA)
 
-		for(var/mob/living/carbon/human/H in mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.mob_list)
 			if(H.dna.unique_enzymes == marked)
 				target = WEAKREF(H)
 				countenance = H.dna.species
@@ -54,7 +54,7 @@
 		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 			to_chat(user, "<span class='notice'>You move \the [src]'s legs around.</span>")
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
-				step(H, pick(cardinal))
+				step(H, pick(GLOB.cardinal))
 
 		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, "<span class='notice'>You twist \the [src]'s left arm.</span>")
@@ -120,7 +120,7 @@
 	..()
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.throw_at(get_edge_target_turf(H,pick(alldirs)), 5, 1)
+		H.throw_at(get_edge_target_turf(H,pick(GLOB.alldirs)), 5, 1)
 
 /obj/item/poppet/emp_act(severity)
 	. = ..()

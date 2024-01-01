@@ -217,10 +217,11 @@ SUBSYSTEM_DEF(garbage)
 	else if(isnull(D.gcDestroyed))
 		if (SEND_SIGNAL(D, COMSIG_PARENT_PREQDELETED, force)) // Give the components a chance to prevent their parent from being deleted
 			return
+		// this SEND_SIGNAL should be above Destroy because Destroy sets signal_enabled to FALSE
+		SEND_SIGNAL(D, COMSIG_QDELETING, force) // Let the (remaining) components know about the result of Destroy
 		D.gcDestroyed = GC_CURRENTLY_BEING_QDELETED
 		var/start_time = world.time
 		var/hint = D.Destroy(force) // Let our friend know they're about to get fucked up.
-		SEND_SIGNAL(D, COMSIG_QDELETING, force) // Let the (remaining) components know about the result of Destroy
 		if(world.time != start_time)
 			SSgarbage.sleptDestroy["[D.type]"]++
 		if(!D)
@@ -252,7 +253,7 @@ SUBSYSTEM_DEF(garbage)
 			if (QDEL_HINT_FINDREFERENCE)//qdel will, if REFERENCE_TRACKING is enabled, display all references to this object, then queue the object for deletion.
 				SSgarbage.QueueForQueuing(D)
 				#ifdef REFERENCE_TRACKING
-				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references))
+				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references), TRUE)
 				#endif
 			if (QDEL_HINT_IFFAIL_FINDREFERENCE) // qdel will, if REFERENCE_TRACKING is enabled and the object fails to collect, display all references to this object
 				SSgarbage.QueueForQueuing(D)

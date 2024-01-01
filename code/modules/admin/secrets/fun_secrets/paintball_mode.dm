@@ -6,8 +6,8 @@
 	if(!.)
 		return
 
-	for(var/species in all_species)
-		var/datum/species/S = all_species[species]
+	for(var/species in GLOB.all_species)
+		var/datum/species/S = GLOB.all_species[species]
 		S.blood_color = "rainbow"
 	for(var/obj/effect/decal/cleanable/blood/B in world)
 		B.basecolor = "rainbow"

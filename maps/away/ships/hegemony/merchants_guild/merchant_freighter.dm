@@ -94,7 +94,7 @@
 /obj/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
-	req_access = list(access_merchants_guild)
+	req_access = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/shuttle/autodock/overmap/merchants_guild
 	name = "Merchants' Guild Shuttle"

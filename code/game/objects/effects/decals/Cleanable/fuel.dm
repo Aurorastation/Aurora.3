@@ -33,7 +33,7 @@
 	if(amount < 15) return //lets suppose welder fuel is fairly thick and sticky. For something like water, 5 or less would be more appropriate.
 	var/turf/simulated/S = loc
 	if(!istype(S)) return
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
@@ -88,7 +88,7 @@
 	var/turf/simulated/S = loc
 	if(!istype(S))
 		return
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
@@ -122,6 +122,11 @@
 
 /obj/effect/decal/cleanable/foam/Initialize(mapload, amt = 1, nologs = 0)
 	SHOULD_CALL_PARENT(FALSE)
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	src.amount = amt
 
 	var/has_spread = 0
@@ -132,8 +137,6 @@
 			other.Spread()
 			has_spread = 1
 			break
-
-	initialized = TRUE
 
 	if(!has_spread)
 		Spread()
@@ -147,7 +150,7 @@
 	if(amount < 15) return
 	var/turf/simulated/S = loc
 	if(!istype(S)) return
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))

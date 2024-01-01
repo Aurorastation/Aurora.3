@@ -16,6 +16,9 @@
 #define LAZYACCESSASSOC(L, I, K) L ? L[I] ? L[I][K] ? L[I][K] : null : null : null
 #define LAZYREPLACEKEY(L, K, NK) if(L) { if(L[K]) { L[NK] = L[K] } else {L += NK} L -= K; }
 
+/// Explicitly set the length of L to NEWLEN, adding nulls or dropping entries. Is the same value as NEWLEN.
+#define LIST_RESIZE(L, NEWLEN) ((L).len = (NEWLEN))
+
 /// Performs an insertion on the given lazy list with the given key and value. If the value already exists, a new one will not be made.
 #define LAZYORASSOCLIST(lazy_list, key, value) \
 	LAZYINITLIST(lazy_list); \

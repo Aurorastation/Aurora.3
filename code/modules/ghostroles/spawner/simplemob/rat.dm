@@ -21,7 +21,7 @@
 	return get_turf(spawnpoint)
 
 /datum/ghostspawner/simplemob/rat/cant_spawn()
-	if(config.disable_player_rats)
+	if(GLOB.config.disable_player_rats)
 		return "Spawning as Rat is disabled"
 	return ..()
 
@@ -36,7 +36,7 @@
 		to_chat(user, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
 
 	if(S)
-		if(config.uneducated_rats)
+		if(GLOB.config.uneducated_rats)
 			S.universal_understand = 0
 		announce_ghost_joinleave(user, 0, "They are now a [name].")
 		S.ckey = user.ckey

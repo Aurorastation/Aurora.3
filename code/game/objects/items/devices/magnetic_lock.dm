@@ -12,7 +12,7 @@
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
 	w_class = ITEMSIZE_NORMAL
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
 	var/department = "CENTCOM"
@@ -32,18 +32,18 @@
 /obj/item/device/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 
 /obj/item/device/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
 	req_access = null
-	req_one_access = list(access_engine_equip, access_atmospherics)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = null
-	req_one_access = list(access_legion, access_tcfl_peacekeeper_ship)
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCFL_PEACEKEEPER_SHIP)
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
@@ -138,11 +138,13 @@
 		if (I.force >= 18)
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
 			takedamage(I.force)
-			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
-			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1), 3, TIMER_CLIENT_TIME)
+			var/sound_to_play = pick(list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
+			playsound(loc, sound_to_play, I.force*3, 1)
+			sound_to_play = pick(list('sound/effects/sparks1.ogg', 'sound/effects/sparks2.ogg', 'sound/effects/sparks3.ogg', 'sound/effects/sparks4.ogg'))
+			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, sound_to_play, 30, 1), 3, TIMER_CLIENT_TIME)
 		else
 			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
-			playsound(loc, "sound/weapons/Genhit.ogg", I.force*2.5, 1)
+			playsound(loc, 'sound/weapons/Genhit.ogg', I.force*2.5, 1)
 		return TRUE
 
 	if(invincible)
@@ -291,7 +293,7 @@
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in alldirs) && !(direction in cardinal))
+		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinal))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
@@ -435,13 +437,13 @@
 		return
 
 	if (prob(50))
-		spark(target ? target : src, 5, alldirs)
+		spark(target ? target : src, 5, GLOB.alldirs)
 
 /obj/item/device/magnetic_lock/keypad
 	name = "magnetic door lock"
 	desc = "A large, passcode locked device used for completely locking down airlocks."
 
-	req_access = list(access_none)
+	req_access = list(ACCESS_NONE)
 
 	var/passcode = "open"
 	var/configurable = TRUE

@@ -98,7 +98,7 @@
 	for(var/ore in machine.ores_processing)
 		if(!machine.ores_stored[ore] && !show_all_ores)
 			continue
-		var/ore/O = ore_data[ore]
+		var/ore/O = GLOB.ore_data[ore]
 		if(!O)
 			continue
 		var/processing_type = ""
@@ -248,7 +248,7 @@
 	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
-	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
+	playsound(get_turf(src), 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	// reset
 	output_mats = list()
@@ -300,24 +300,24 @@
 		for(var/alloytype in subtypesof(/datum/alloy))
 			alloy_data += new alloytype()
 
-	for(var/O in ore_data)
+	for(var/O in GLOB.ore_data)
 		ores_processing[O] = 0
 		ores_stored[O] = 0
 
 	//Locate our output and input machinery.
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, reverse_dir[dir])
+		input = get_step(src, GLOB.reverse_dir[dir])
 	if(!output)
 		output = get_step(src, dir)
 
@@ -366,7 +366,7 @@
 			break
 
 		if(ores_stored[metal] > 0 && ores_processing[metal] != 0)
-			var/ore/O = ore_data[metal]
+			var/ore/O = GLOB.ore_data[metal]
 			if(!O)
 				continue
 
@@ -394,7 +394,7 @@
 						var/total
 						for(var/needs_metal in A.requires)
 							if(console)
-								var/ore/Ore = ore_data[needs_metal]
+								var/ore/Ore = GLOB.ore_data[needs_metal]
 								console.points += Ore.worth
 							use_power_oneoff(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]

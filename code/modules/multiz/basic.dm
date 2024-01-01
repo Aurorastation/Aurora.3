@@ -1,6 +1,6 @@
 // If you add a more comprehensive system, just untick this file.
 // Because this shit before was, for some reason, a bitfield.
-var/global/list/z_levels = list()
+GLOBAL_LIST_EMPTY(z_levels)
 var/list/list/connected_z_cache = list()
 
 // If the height is more than 1, we mark all contained levels as connected.
@@ -11,23 +11,23 @@ var/list/list/connected_z_cache = list()
 	if(_height)
 		height = _height
 	for(var/i = (loc.z - height + 1) to (loc.z-1))
-		if (z_levels.len <i)
-			z_levels.len = i
-		z_levels[i] = TRUE
+		if (GLOB.z_levels.len <i)
+			GLOB.z_levels.len = i
+		GLOB.z_levels[i] = TRUE
 
 /obj/effect/landmark/map_data/Initialize()
 	..()
 	return INITIALIZE_HINT_QDEL
 
 /proc/HasAbove(var/z)
-	if(z >= world.maxz || z < 1 || z > z_levels.len)
+	if(z >= world.maxz || z < 1 || z > GLOB.z_levels.len)
 		return 0
-	return z_levels[z]
+	return GLOB.z_levels[z]
 
 /proc/HasBelow(var/z)
-	if(z > world.maxz || z < 2 || (z-1) > z_levels.len)
+	if(z > world.maxz || z < 2 || (z-1) > GLOB.z_levels.len)
 		return 0
-	return z_levels[z-1]
+	return GLOB.z_levels[z-1]
 
 // Thankfully, no bitwise magic is needed here.
 /proc/GetAbove(var/atom/atom)

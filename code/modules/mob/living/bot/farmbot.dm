@@ -11,7 +11,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics, access_xenobotany)
+	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_ROBOTICS, ACCESS_XENOBOTANY)
 
 	var/action = "" // Used to update icon
 	var/waters_trays = TRUE
@@ -305,7 +305,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 

@@ -18,7 +18,7 @@
 	..(newloc)
 	if(model_info && model)
 		model_info = model
-		var/datum/robolimb/R = all_robolimbs[model]
+		var/datum/robolimb/R = GLOB.all_robolimbs[model]
 		if(R)
 			name = "[R.company] robot [initial(name)]"
 			desc = "[R.desc]"
@@ -244,7 +244,7 @@
 				return
 
 			if(!head.law_manager)
-				if(!is_alien_whitelisted(M.brainmob, SPECIES_IPC) && config.usealienwhitelist)
+				if(!is_alien_whitelisted(M.brainmob, SPECIES_IPC) && GLOB.config.usealienwhitelist)
 					to_chat(user, SPAN_WARNING("\The [W] does not seem to fit. (The player lacks the appropriate whitelist.)"))
 					return
 
@@ -263,7 +263,7 @@
 				new_shell.add_language(LANGUAGE_EAL)
 				var/newname = sanitizeSafe(input(new_shell, "Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname)
-					var/datum/language/L = all_languages[new_shell.species.default_language]
+					var/datum/language/L = GLOB.all_languages[new_shell.species.default_language]
 					newname = L.get_random_name()
 				new_shell.real_name = newname
 				new_shell.name = new_shell.real_name

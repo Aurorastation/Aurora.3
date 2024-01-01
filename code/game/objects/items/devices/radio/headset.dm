@@ -74,10 +74,10 @@
 /obj/item/device/radio/headset/handle_message_mode(mob/living/M, message, channel)
 	if(channel == "special")
 		if(translate_binary)
-			var/datum/language/binary = all_languages[LANGUAGE_ROBOT]
+			var/datum/language/binary = GLOB.all_languages[LANGUAGE_ROBOT]
 			binary.broadcast(M, message)
 		if(translate_hivenet)
-			var/datum/language/bug = all_languages[LANGUAGE_VAURCA]
+			var/datum/language/bug = GLOB.all_languages[LANGUAGE_VAURCA]
 			bug.broadcast(M, message)
 		return null
 
@@ -712,7 +712,7 @@
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
 		default_frequency = assign_away_freq(V.name)
 		if(V.comms_name)

@@ -131,7 +131,7 @@
 					M.Stun(power)
 					M.stuttering = max(M.stuttering, power)
 
-					spark(M, 5, alldirs)
+					spark(M, 5, GLOB.alldirs)
 
 					if(prob(stunprob) && powerlevel >= 8)
 						M.adjustFireLoss(powerlevel * rand(6,10))

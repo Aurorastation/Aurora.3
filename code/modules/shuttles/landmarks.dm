@@ -53,9 +53,9 @@
 			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/forceMove()
-	var/obj/effect/overmap/visitable/map_origin = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
 	. = ..()
-	var/obj/effect/overmap/visitable/map_destination = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_destination = GLOB.map_sectors["[z]"]
 	if(map_origin != map_destination)
 		if(map_origin)
 			map_origin.remove_landmark(src, shuttle_restricted)

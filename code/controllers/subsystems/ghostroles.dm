@@ -119,6 +119,12 @@ SUBSYSTEM_DEF(ghostroles)
 		if(G.cant_see(user))
 			continue
 		var/cant_spawn = G.cant_spawn(user)
+		var/list/manifest = list()
+		if(LAZYLEN(G.spawned_mobs))
+			for(var/datum/weakref/mob_ref in G.spawned_mobs)
+				var/mob/spawned_mob = mob_ref.resolve()
+				if(spawned_mob)
+					manifest += spawned_mob.real_name
 		var/list/spawner = list(
 			"short_name" = G.short_name,
 			"name" = G.name,
@@ -132,7 +138,8 @@ SUBSYSTEM_DEF(ghostroles)
 			"spawn_atoms" = length(G.spawn_atoms),
 			"max_count" = G.max_count,
 			"tags" = G.tags,
-			"spawnpoints" = G.spawnpoints
+			"spawnpoints" = G.spawnpoints,
+			"manifest" = manifest
 		)
 		data["categories"] |= G.tags
 		data["spawners"] += list(spawner)
@@ -166,6 +173,7 @@ SUBSYSTEM_DEF(ghostroles)
 			if(!S.post_spawn(M))
 				to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 				return
+			LAZYADD(S.spawned_mobs, WEAKREF(M))
 			log_and_message_admins("joined as GhostRole: [S.name]", M)
 			SStgui.update_uis(src)
 			. = TRUE

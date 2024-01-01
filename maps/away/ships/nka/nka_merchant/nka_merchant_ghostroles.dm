@@ -31,7 +31,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/nka_merchant_crew/get_id_access()
-	return list(access_nka, access_external_airlocks)
+	return list(ACCESS_NKA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/nka_merchant_crew/captain
 	short_name = "nka_merchant_captain"

@@ -8,7 +8,8 @@
 //			/old_sight: sight before the change
 //			/new_sight: sight after the change
 
-var/singleton/observ/sight_set/sight_set_event = new()
+GLOBAL_DATUM_INIT(sight_set_event, /singleton/observ/sight_set, new)
+
 
 /singleton/observ/sight_set
 	name = "Sight Set"
@@ -22,4 +23,4 @@ var/singleton/observ/sight_set/sight_set_event = new()
 	var/old_sight = sight
 	if(old_sight != new_sight)
 		sight = new_sight
-		sight_set_event.raise_event(src, old_sight, new_sight)
+		GLOB.sight_set_event.raise_event(src, old_sight, new_sight)

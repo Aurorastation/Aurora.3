@@ -15,6 +15,7 @@
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 	area_blurb = "Many tanks are here, providing life support systems for the vessel."
+	area_blurb_category = "atmos"
 
 /area/engineering/atmos/monitoring
 	name = "Engineering - Atmospherics Monitoring Room"
@@ -96,6 +97,7 @@
 	icon_state = "engineering_break"
 	sound_env = MEDIUM_SOFTFLOOR
 	area_blurb = "The smells of coffee and motor oil linger in the air."
+	area_blurb_category = "engi_breakroom"
 
 /area/engineering/engine_eva
 	name = "Engineering - Engine EVA"

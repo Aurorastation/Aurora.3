@@ -9,7 +9,7 @@
 
 //Main cryopod console.
 
-var/global/list/frozen_crew = list()
+GLOBAL_LIST_EMPTY(frozen_crew)
 
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
@@ -93,11 +93,11 @@ var/global/list/frozen_crew = list()
 	src.add_fingerprint(user)
 
 	if(href_list["log"])
-		if(!length(frozen_crew))
+		if(!length(GLOB.frozen_crew))
 			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
 			return
 		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
-		for(var/person in frozen_crew)
+		for(var/person in GLOB.frozen_crew)
 			dat += " - [person]<br>"
 		dat += "<hr>"
 
@@ -403,14 +403,15 @@ var/global/list/frozen_crew = list()
 			else
 				W.forceMove(T)
 	if(isStationLevel(z))
-		global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
+		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
-	frozen_crew += occupant
+	GLOB.frozen_crew += occupant
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(H.ghost_spawner)
 			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
+			LAZYREMOVE(GS.spawned_mobs, WEAKREF(H))
 			GS.count--
 
 	// Let SSjobs handle the rest.

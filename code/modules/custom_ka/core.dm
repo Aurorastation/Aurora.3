@@ -140,7 +140,7 @@
 		)
 		if(is_emped)
 			warning_message = pick(warning_messages)
-			spark(src.loc, 3, alldirs)
+			spark(src.loc, 3, GLOB.alldirs)
 	else if(!installed_cell || !installed_barrel)
 		if(!is_emagged || (is_emped && prob(5)) )
 			warning_message = "ERROR CODE: 0"
@@ -182,7 +182,7 @@
 		switch(disaster)
 			if("spark")
 				to_chat(user,"<span class='danger'>\The [src] sparks!</span>")
-				spark(src.loc, 3, alldirs)
+				spark(src.loc, 3, GLOB.alldirs)
 			if("overheat")
 				to_chat(user,"<span class='danger'>\The [src] turns red hot!</span>")
 				user.IgniteMob()

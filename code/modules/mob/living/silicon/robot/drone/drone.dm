@@ -68,7 +68,7 @@
 
 	// ID and Access
 	law_update = FALSE
-	req_access = list(access_engine, access_robotics)
+	req_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
 	var/hacked = FALSE
 
 	// Laws
@@ -91,7 +91,7 @@
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
-	default_language = all_languages[LANGUAGE_LOCAL_DRONE]
+	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
@@ -107,7 +107,7 @@
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
-	if(!config.allow_drone_spawn)
+	if(!GLOB.config.allow_drone_spawn)
 		to_chat(possessor, SPAN_WARNING("Playing as drones is not currently permitted."))
 		return FALSE
 	if(too_many_active_drones())
@@ -147,7 +147,7 @@
 /mob/living/silicon/robot/drone/get_default_language()
 	if(default_language)
 		return default_language
-	return all_languages[LANGUAGE_LOCAL_DRONE]
+	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/fall_impact()
 	..(damage_mod = 0.25) //reduces fall damage by 75%
@@ -235,7 +235,7 @@
 	. = ..()
 	if(can_reenter_corpse || stat == DEAD)
 		return
-	if(src in mob_list) // needs to exist to reopen spawn atom
+	if(src in GLOB.mob_list) // needs to exist to reopen spawn atom
 		if(master_matrix)
 			master_matrix.remove_drone(WEAKREF(src))
 			master_matrix.message_drones(MATRIX_NOTICE("Your circuits dull. The matriarch has gone offline."))
@@ -362,7 +362,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
 		if(stat == DEAD)
-			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
@@ -400,7 +400,7 @@
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
 	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
 	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = TRUE
 	hacked = FALSE
@@ -425,7 +425,7 @@
 
 	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
 	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
 
 	hacked = TRUE
 	law_update = FALSE
@@ -449,7 +449,7 @@
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
-	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
+	if((!T || !(A in GLOB.the_station_areas)) && src.stat != DEAD)
 		if(!self_destructing)
 			to_chat(src, SPAN_WARNING("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
 			start_self_destruct(TRUE)
@@ -595,7 +595,7 @@
 
 /proc/too_many_active_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in mob_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.mob_list)
 		if(D.key && D.client)
 			drones++
-	return drones >= config.max_maint_drones
+	return drones >= GLOB.config.max_maint_drones

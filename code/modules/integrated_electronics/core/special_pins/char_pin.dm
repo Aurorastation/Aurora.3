@@ -19,7 +19,7 @@
 /datum/integrated_io/char/scramble()
 	if(!is_valid())
 		return
-	var/list/options = list("!","@","#","$","%","^","&","*") + alphabet_uppercase
+	var/list/options = list("!","@","#","$","%","^","&","*") + GLOB.alphabet_uppercase
 	data = pick(options)
 	push_data()
 

@@ -5197,8 +5197,8 @@
 	name = "gun cabinet (rifles)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/gun/projectile/automatic/rifle/dom,
-/obj/item/gun/projectile/automatic/rifle/dom,
+/obj/item/gun/projectile/automatic/rifle/dominia,
+/obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/grenade/frag,

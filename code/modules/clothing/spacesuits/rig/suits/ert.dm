@@ -11,7 +11,7 @@
 	icon_supported_species_tags = list("skr")
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -33,7 +33,8 @@
 		/obj/item/rig_module/vision/nvg,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/actuators/combat
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -61,7 +62,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/rfd_c,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/recharger
 		)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
 
@@ -87,7 +89,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL
@@ -114,7 +117,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/mounted/egun,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/recharger
 		)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
@@ -142,7 +146,8 @@
 		/obj/item/rig_module/vision/nvg,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/storage
+		/obj/item/rig_module/storage,
+		/obj/item/rig_module/recharger
 		)
 
 /obj/item/rig/ert/scc/engineer
@@ -204,7 +209,8 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/actuators/combat
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules

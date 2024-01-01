@@ -488,13 +488,13 @@
 		qdel(src)
 		return
 	updateOverlays()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
 
 /obj/structure/track/Destroy()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
@@ -527,7 +527,7 @@
 
 	var/dir_sum = 0
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(locate(/obj/structure/track, get_step(src, direction)))
 			dir_sum += direction
 
@@ -708,7 +708,7 @@
 /obj/item/device/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
+	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
 		if(isStationLevel(T.z))
 			destinations += B
