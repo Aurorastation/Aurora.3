@@ -8,9 +8,8 @@
 		return
 
 	var/list/faxes = list()
-	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
 		faxes[F.department] = F
-		break
 
 	if(!length(faxes))
 		to_chat(usr, SPAN_WARNING("No valid fax machines located!"))
