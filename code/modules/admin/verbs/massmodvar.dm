@@ -127,7 +127,7 @@
 	switch(class)
 		if("restore to default")
 			var/initial_var = initial(O.vars[variable])
-			if(!O.can_vv_get(variable, initial_var))
+			if(!O.can_vv_get(variable))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 			if(method)
