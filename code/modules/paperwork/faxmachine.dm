@@ -231,7 +231,7 @@ var/list/admin_departments
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/paper))
-			copy(src, incoming, 1, 0, 0, toner = src.toner)
+			copy(src, incoming, TRUE, FALSE, FALSE, toner = toner)
 		else if (istype(incoming, /obj/item/photo))
 			photocopy(src, incoming, toner = src.toner)
 		else if (istype(incoming, /obj/item/paper_bundle))
@@ -265,11 +265,11 @@ var/list/admin_departments
 
 	var/obj/item/rcvdcopy
 	if (istype(copy_item, /obj/item/paper))
-		rcvdcopy = copy(src, copy_item, 0, toner = src.toner)
+		rcvdcopy = copy(src, copy_item, FALSE, toner = toner)
 	else if (istype(copy_item, /obj/item/photo))
-		rcvdcopy = photocopy(src, copy_item, toner = src.toner)
+		rcvdcopy = photocopy(src, copy_item, toner = toner)
 	else if (istype(copy_item, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(src, copy_item, 0, toner = src.toner)
+		rcvdcopy = bundlecopy(src, copy_item, FALSE, toner = toner)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return

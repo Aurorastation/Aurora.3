@@ -39,3 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixed the Send Admin Fax verb."
+  - bugfix: "Fixed photocopiers thinking that ghosts were valid mobs to give a paper to."
+  - bugfix: "Fixed long-range teleportation of paper through photocopying."
