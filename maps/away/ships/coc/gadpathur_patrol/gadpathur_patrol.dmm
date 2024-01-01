@@ -5579,7 +5579,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/west{
-	req_one_access = ssssss;
+	req_one_access = list(223,224);
 	dir = 4;
 	pixel_x = 10
 	},
