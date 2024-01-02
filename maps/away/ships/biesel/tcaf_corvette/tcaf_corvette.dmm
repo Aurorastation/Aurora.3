@@ -856,14 +856,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
-"gS" = (
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
-	},
-/turf/simulated/wall/shuttle/legion,
-/area/tcaf_corvette/dock)
 "gT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -40646,10 +40638,10 @@ Db
 Db
 tP
 Db
-gS
+NC
 Qr
 cg
-gS
+NC
 UI
 UI
 UI
