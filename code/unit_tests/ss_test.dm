@@ -4,7 +4,7 @@
 
 /*
  * Wondering if you should change this to run the tests? NO!
- * Because the preproc checks for this in other areas too, set it in code\__defines\manual_unit_testing.dm instead!
+ * Because the preproc checks for this in other areas too, set it in code\__DEFINES\manual_unit_testing.dm instead!
  */
 #ifdef UNIT_TEST
 
@@ -15,7 +15,7 @@
 SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_INIT
 
 	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
 
