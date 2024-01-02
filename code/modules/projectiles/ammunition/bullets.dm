@@ -332,7 +332,7 @@
 	spent_icon = "lcasing-spent"
 	max_stack = 6
 
-obj/item/ammo_casing/vintage/spent/Initialize()
+/obj/item/ammo_casing/vintage/spent/Initialize()
 	. = ..()
 	expend()
 
