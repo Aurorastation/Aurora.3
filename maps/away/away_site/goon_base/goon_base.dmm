@@ -984,7 +984,9 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/shuttle/goon_shuttle/bridge)
 "eP" = (
-/obj/item/trash/tray,
+/obj/item/trash/tray{
+	pixel_x = 7
+	},
 /obj/random/dirt_75,
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/freezer,
@@ -2489,8 +2491,8 @@
 "mg" = (
 /obj/random/dirt_75,
 /obj/item/tank/emergency_oxygen/double{
-	pixel_y = -2;
-	pixel_x = 3
+	pixel_y = 3;
+	pixel_x = -3
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating/asteroid,
@@ -3632,7 +3634,6 @@
 	pixel_x = -2;
 	pixel_y = 16
 	},
-/obj/item/ammo_casing/c45/practice,
 /obj/item/ammo_casing/c45/practice{
 	pixel_x = -13;
 	pixel_y = 10
@@ -3640,6 +3641,9 @@
 /obj/item/trash/cigbutt{
 	pixel_y = -13;
 	pixel_x = 11
+	},
+/obj/machinery/floodlight/randomcharge{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
@@ -4369,10 +4373,6 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/maint_south)
-"vV" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/shuttle/goon_shuttle/port)
 "vZ" = (
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled,
@@ -5459,9 +5459,6 @@
 "BM" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /obj/item/paper/goon_base/secret_back_exit_note{
 	pixel_x = -10;
 	pixel_y = -3
@@ -6217,11 +6214,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/goonbase/kitchen)
-"Gg" = (
-/obj/random/dirt_75,
-/obj/structure/reagent_dispensers/coolanttank,
-/turf/simulated/floor/plating,
-/area/goonbase/power)
 "Gh" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7656,6 +7648,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
+"MQ" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating,
+/area/goonbase/power)
 "MR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9236,6 +9233,7 @@
 	pixel_x = 7;
 	pixel_y = -8
 	},
+/obj/item/ammo_casing/c45/practice,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
 "Un" = (
@@ -10031,12 +10029,9 @@
 /turf/simulated/floor/plating,
 /area/goonbase/maint_south)
 "Yo" = (
-/obj/random/dirt_75,
-/obj/machinery/floodlight/randomcharge{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/barren,
-/area/goonbase/hallway_north)
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_shuttle/port)
 "Yp" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
@@ -10109,10 +10104,12 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/obj/item/clothing/accessory/poncho,
 /obj/item/clothing/head/turban,
 /obj/item/clothing/head/turban/gadpathur,
 /obj/item/clothing/head/turban/brown,
+/obj/random/gloves,
+/obj/random/gloves,
+/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/tiled,
 /area/goonbase/quarters)
 "YK" = (
@@ -41603,7 +41600,7 @@ aJ
 IB
 eE
 Jz
-Gg
+MQ
 MH
 xz
 nE
@@ -44321,7 +44318,7 @@ Zf
 VZ
 YW
 Aw
-vV
+Yo
 xK
 XS
 KK
@@ -48303,7 +48300,7 @@ ik
 hc
 rm
 Um
-Yo
+rY
 mI
 mI
 mI

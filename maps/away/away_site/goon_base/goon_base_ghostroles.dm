@@ -81,7 +81,7 @@
 	short_name = "goon_boss"
 	name = "Pirate Gang Boss"
 	tags = list("External")
-		desc = "\
+	desc = "\
 		You are the head honcho of a pirate gang residing in your own base, having just scored a hit and captured a hostage, \
 		trying to wait out a bounty that was placed on your ship and its crew. \
 		Just now a unknown ship has landed outside your asteroid base, they'd best buckle up, they're on your turf now. \
