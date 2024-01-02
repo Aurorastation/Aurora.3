@@ -15,7 +15,12 @@
 
 /obj/effect/overmap/visitable/sector/goon
 	name = "asteroid lair"
-	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer.  Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. Extreme caution is advised."
+	desc = "\
+		Scans reveal that there is a unregistered structure within this asteroid, \
+		as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. \
+		Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. \
+		Extreme caution is advised.\
+		"
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_goon_1",
@@ -34,7 +39,11 @@
 /obj/effect/overmap/visitable/ship/landable/goon_ship
 	name = "Wanted Vessel"
 	class = "ICV"
-	desc = "A Leapfrog model multi-purpose vessel. An old, rudimentary Hephaestus manufactured vessel that sees use by all sorts of people. This one has a bounty placed on it by the Coalition of Colonies for piracy and kidnapping."
+	desc = "\
+		A Leapfrog model multi-purpose vessel. \
+		An old, rudimentary Hephaestus manufactured vessel that sees use by all sorts of factions and organization. \
+		This one has a bounty placed on it by the Coalition of Colonies for piracy and kidnapping.\
+		"
 	shuttle = "Wanted Vessel"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"

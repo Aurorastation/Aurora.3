@@ -70,6 +70,8 @@
 /area/goonbase/maint_north)
 "av" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "aA" = (
@@ -117,13 +119,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/north,
-/obj/item/tank/hydrogen/empty{
-	pixel_x = 8;
-	pixel_y = -7
-	},
-/obj/item/paper/goon_base/shuttle_fuel_note{
-	pixel_x = -10
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/starboard)
 "aM" = (
@@ -791,6 +786,8 @@
 /area/goonbase/power)
 "ed" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "ef" = (
@@ -1121,7 +1118,11 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/storage)
 "fv" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "fz" = (
@@ -1457,18 +1458,13 @@
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_north)
 "gX" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/generic{
-	pixel_x = 17;
-	pixel_y = -8
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
-/obj/effect/decal/cleanable/generic{
-	pixel_x = -19;
-	pixel_y = -5
-	},
-/obj/item/broken_device,
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "gZ" = (
@@ -2248,6 +2244,7 @@
 "kQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/space_heater,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
 "kR" = (
@@ -4002,7 +3999,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/toolcloset,
-/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/plating,
 /area/goonbase/power)
 "tS" = (
@@ -4373,6 +4369,10 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/maint_south)
+"vV" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/shuttle/goon_shuttle/port)
 "vZ" = (
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled,
@@ -4744,7 +4744,13 @@
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_north)
 "yb" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "ye" = (
@@ -4866,12 +4872,16 @@
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "yP" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
-/obj/machinery/power/apc/empty/north,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "yQ" = (
@@ -5186,11 +5196,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "1-8"
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "Ay" = (
@@ -5265,16 +5272,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "Ba" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
-/obj/item/paper/goon_base/shuttle_power_note{
-	pixel_x = 6;
-	pixel_y = 4
-	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "Be" = (
@@ -6215,6 +6217,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/goonbase/kitchen)
+"Gg" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating,
+/area/goonbase/power)
 "Gh" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6510,14 +6517,12 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/storage)
 "HD" = (
-/obj/random/dirt_75,
 /obj/structure/cable{
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/obj/effect/decal/cleanable/generic{
-	pixel_x = -2;
-	pixel_y = 3
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "HF" = (
@@ -6724,12 +6729,12 @@
 /area/goonbase/hallway_south)
 "IB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/plating,
 /area/goonbase/power)
 "IF" = (
@@ -7046,7 +7051,15 @@
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/starboard)
 "JZ" = (
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "Ka" = (
@@ -7406,9 +7419,17 @@
 "LY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/coolanttank,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/stack/material/graphite/full{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/stack/material/uranium/full{
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/power)
@@ -8004,10 +8025,10 @@
 /area/goonbase/equipment)
 "OL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/fuel_port/hydrogen/empty{
+/obj/structure/fuel_port/hydrogen{
 	pixel_y = 32
 	},
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/starboard)
 "OM" = (
@@ -9290,6 +9311,7 @@
 /area/goonbase/hallway_south)
 "UA" = (
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "UB" = (
@@ -10131,12 +10153,10 @@
 /turf/simulated/floor/wood,
 /area/goonbase/quarters)
 "YW" = (
+/obj/machinery/power/apc/empty/north,
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/random/dirt_75,
-/obj/item/trash/broken_electronics,
 /turf/simulated/floor/plating,
 /area/shuttle/goon_shuttle/port)
 "YX" = (
@@ -41583,7 +41603,7 @@ aJ
 IB
 eE
 Jz
-da
+Gg
 MH
 xz
 nE
@@ -43531,7 +43551,7 @@ VZ
 av
 ed
 yb
-xK
+yb
 Yq
 Yq
 Yq
@@ -43787,8 +43807,8 @@ Bq
 VZ
 yP
 Ba
-qR
-qR
+JZ
+fv
 Gw
 kp
 kp
@@ -44301,8 +44321,8 @@ Zf
 VZ
 YW
 Aw
-fv
-JZ
+vV
+xK
 XS
 KK
 AW
