@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/konyang_swamp_4
-	name = "Swamp 4"
+	name = "Lakeside Grill"
 	id = "konyang_swamp_4"
-	description = "A swamp."
+	description = "A large lake with a dock and a nearby camp."
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_HANEUNIM)

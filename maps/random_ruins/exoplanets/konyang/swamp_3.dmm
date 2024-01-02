@@ -1,54 +1,90 @@
+"aL" = (/obj/structure/flora/rock/konyang/small,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/item/storage/wallet/random{pixel_x = 14},/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"bs" = (/obj/structure/closet/crate/drop/grey{pixel_x = 12; pixel_y = -2},/obj/item/ipc_overloader/screenshaker{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_x = 12; pixel_y = -2},/obj/item/ipc_overloader/jitterbug{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_y = -2; pixel_x = 12},/obj/item/ipc_overloader/jitterbug{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_y = -2; pixel_x = 12},/obj/item/ipc_overloader/screenshaker{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_x = 12; pixel_y = -2},/obj/item/ipc_overloader/screenshaker{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_x = 12; pixel_y = -2},/obj/item/ipc_overloader/screenshaker{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_x = 12; pixel_y = -2},/obj/item/ipc_overloader/jitterbug{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_y = -2; pixel_x = 12},/obj/item/ipc_overloader/jitterbug{name = "bootleg overloader"; desc = "An overloader commonly marketed to IPC in the service sector by GwokBuzz. All the markings and labelling has been either scrubbed or etched off, making it difficult to say what this one does or if it's even legitimate. Only one way to find out!"; pixel_y = -2; pixel_x = 12},/obj/structure/flora/bush/konyang_reeds,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"bw" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "cc" = (/obj/structure/flora/rock/konyang/small,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "ct" = (/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"dj" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"do" = (/obj/structure/flora/rock/konyang/small,/obj/random/dirt_75,/obj/item/ammo_casing{pixel_x = 10},/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5; dir = 8},/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "du" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"es" = (/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "eJ" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "fc" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"fj" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "hI" = (/obj/random/dirt_75,/obj/effect/decal/cleanable/blood{basecolor = "#400000"; dries = 0; name = "dried blood"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"iu" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"jp" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"jq" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "lf" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
-"lH" = (/obj/item/ammo_casing{pixel_x = 8; pixel_y = 3},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"lH" = (/obj/item/ammo_casing{pixel_x = 8; pixel_y = 3; dir = 8},/obj/random/dirt_75,/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5; dir = 4},/obj/item/ammo_casing{pixel_x = -8; dir = 5},/obj/effect/decal/cleanable/blood/drip/oil,/obj/random/highvalue{pixel_x = 5; pixel_y = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"lK" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"mw" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/item/ammo_casing/vintage/spent{pixel_x = 13; pixel_y = 15; dir = 8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"mG" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"mL" = (/obj/structure/flora/rock/konyang,/obj/item/gun/projectile/revolver/konyang/pirate{pixel_y = 14; layer = 2.98},/obj/structure/flora/bush/konyang_reeds,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "ni" = (/obj/structure/flora/rock/konyang,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"pt" = (/turf/template_noop,/area/exoplanet/grass/konyang)
+"pt" = (/turf/template_noop,/area/space)
+"pI" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/random/highvalue/cash{pixel_x = 6; pixel_y = 6},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "qa" = (/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
-"qL" = (/obj/structure/flora/rock/konyang,/obj/random/dirt_75,/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle{pixel_x = -12; pixel_y = 6},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"qm" = (/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"qL" = (/obj/structure/flora/rock/konyang,/obj/random/dirt_75,/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle{pixel_x = -12; pixel_y = 6},/obj/item/device/binoculars{pixel_x = 3; pixel_y = -7},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"si" = (/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "sz" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"sI" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "sS" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"tw" = (/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"tS" = (/obj/structure/flora/log_bench{dir = 8},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"tw" = (/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5; dir = 1},/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/oil/streak,/obj/effect/decal/cleanable/blood/gibs/robot/limb,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"tS" = (/obj/structure/flora/log_bench{dir = 8},/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/oil,/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "ur" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "vG" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/structure/flora/ausbushes/reedbush,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"vW" = (/obj/random/dirt_75,/obj/structure/flora/rock/konyang/small,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"xb" = (/obj/item/ammo_casing{pixel_x = 5; dir = 5},/obj/item/ammo_casing{pixel_x = 9; pixel_y = 9; dir = 9},/obj/item/ammo_casing{pixel_x = -8; pixel_y = 4; dir = 8},/obj/effect/decal/cleanable/blood/oil/streak,/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "xn" = (/mob/living/simple_animal/aquatic/fish,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "xL" = (/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"xM" = (/obj/random/dirt_75,/obj/item/material/knife/bayonet,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "zz" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"BU" = (/obj/item/ammo_casing{pixel_x = 9; pixel_y = 9},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"Ei" = (/obj/item/ammo_casing{pixel_y = -11; pixel_x = 8},/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"Ey" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"FV" = (/obj/structure/flora/log_bench{pixel_y = 10},/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"GD" = (/obj/item/ammo_casing{pixel_x = 5},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"GF" = (/obj/structure/flora/log_bench{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"zC" = (/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"BP" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"BU" = (/obj/item/ammo_casing{pixel_x = 9; pixel_y = 9; dir = 10},/obj/random/dirt_75,/obj/item/ammo_casing{pixel_y = -11},/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5; dir = 4},/obj/item/ammo_casing{pixel_x = -8; pixel_y = 4},/obj/effect/decal/cleanable/blood/oil/streak,/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Dd" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Dt" = (/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Ei" = (/obj/item/ammo_casing{pixel_y = -11; pixel_x = 8; dir = 4},/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Ey" = (/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"FV" = (/obj/structure/flora/log_bench{pixel_y = 14},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Gn" = (/obj/effect/decal/cleanable/blood/drip/oil,/obj/item/material/shard/shrapnel,/obj/effect/decal/cleanable/blood/gibs/robot/limb{pixel_x = -6},/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"GD" = (/obj/item/ammo_casing{pixel_x = 5; dir = 8},/obj/random/dirt_75,/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5; dir = 10},/obj/item/ammo_casing{pixel_x = -8; pixel_y = 4; dir = 4},/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"GF" = (/obj/structure/flora/log_bench{dir = 4},/obj/effect/decal/cleanable/blood/oil,/obj/effect/decal/cleanable/blood/oil,/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "Hd" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
+"Jf" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"JJ" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Kl" = (/obj/structure/flora/rock/konyang/small,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "KL" = (/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "Mo" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"MO" = (/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "MT" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "MZ" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"NM" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "OX" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "Pe" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"Pg" = (/obj/structure/table/standard,/obj/random/highvalue,/obj/random/highvalue/no_weapon{pixel_y = 6; pixel_x = 7},/obj/random/highvalue/cash{pixel_x = -7; pixel_y = 8},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Pg" = (/obj/structure/table/standard,/obj/random/dirt_75,/obj/random/highvalue/cash{pixel_x = -6; pixel_y = 6},/obj/item/spacecash/c1000{pixel_x = 6; pixel_y = 8},/obj/item/spacecash/c100,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Pk" = (/obj/random/dirt_75,/obj/item/ammo_casing/vintage/spent{dir = 4; pixel_y = 4},/obj/item/ammo_casing/vintage/spent{dir = 1; pixel_y = 14; pixel_x = -8},/obj/item/ammo_casing/vintage/spent{pixel_x = -10; pixel_y = 8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "Pt" = (/obj/structure/flora/tree/konyang/blossom,/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"Pz" = (/obj/random/dirt_75,/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "PI" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "Qb" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"QN" = (/obj/item/ammo_casing,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"QN" = (/obj/structure/flora/rock/konyang/small,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Ra" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
+"Rv" = (/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/obj/effect/decal/cleanable/blood/drip{dries = 0; basecolor = "#400000"; name = "dried drips of blood"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "RA" = (/obj/structure/flora/tree/konyang,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "Ss" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "SM" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "SO" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "SY" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
-"Ts" = (/obj/effect/decal/cleanable/blood/oil,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Ts" = (/obj/random/dirt_75,/obj/structure/flora/log_bench,/obj/effect/decal/cleanable/blood/oil,/obj/effect/decal/cleanable/blood/oil,/obj/item/material/shard/shrapnel,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "TF" = (/obj/structure/flora/bush/konyang_reeds/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "TJ" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"UB" = (/obj/item/ammo_casing{pixel_x = -8},/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"UB" = (/obj/item/ammo_casing{pixel_x = -8; dir = 6},/obj/structure/flora/rock/konyang/small,/obj/item/ammo_casing{pixel_x = 9; pixel_y = 9; dir = 5},/obj/item/ammo_casing{pixel_x = 6; pixel_y = 5; dir = 4},/obj/item/ammo_casing{pixel_y = -11; pixel_x = 8},/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Vw" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "VU" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "VV" = (/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
-"Wm" = (/obj/random/dirt_75,/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"Wm" = (/obj/random/dirt_75,/obj/random/dirt_75,/obj/effect/decal/cleanable/blood/drip/oil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "WX" = (/mob/living/simple_animal/aquatic/fish/cod,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "Xi" = (/obj/structure/flora/bush/konyang_reeds/water,/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "Zf" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
@@ -71,29 +107,29 @@ PeszxLPeeJeJSsfcszxLPeqaqaqaMTqaOXPexLxLPexLszPexLOXPeZmxLsz
 OXOXxLSseJeJeJeJxLOXPeqaMTMTqaPePexLOXfcPePexLOXQbxLSOKLfcxL
 OXxLfceJeJeJeJeJOXPeqaqaurMTqavGPeszOXPexLOXszxLPePeZIKLxLxL
 xLduszeJeJeJSsxLszPeqaMTqaqaPePePeOXxLSMeJeJOXPePeZIZmSOxLxL
-szPexLeJeJlfVUOXvGqaMTMTMTqaPeOXszxLlfeJeJeJSsOXszSOKLszxLsz
-ptPePeOXOXszxLOXPeqaMTMTMTqaszOXPeVUSseJeJeJSMxLOXKLxLOXOXxL
-ptptPeszxLOXszPePeqaMTxnqaqaPexLPeszeJeJPteJSsxLxLVUOXPexLOX
-ptptxLPexLsSxLPeqaqaMTMTXiPePexLPeOXeJeJeJeJOXfcOXszPePefcxL
-ptxLszOXSMSsOXPeqaqaqaMTqaPeOXfcPeOXeJeJeJSsxLOXxLPePexLOXpt
-PePeOXSMSMMZxLPeqaMTMTMTqaPeOXOXxLszxLOXxLOXszOXxLPeszxLptpt
-OXszSMSMPeOXszvGqaMTMTqaPeszxLPeOXMZPeVUszPexLOXRAPeVUOXptpt
-PePeVUOXPexLPeqaXiMTqaqaPeOXPeszxLxLOXPeOXxLPeVUxLPeOXOXptpt
-szOXfcxLszPePeqaMTMTMTqaPexLOXOXOXfcxLOXeJeJSsOXPeszPeQbxLpt
-xLeJSsOXOXPesSqaMTMTMTqavGOXUBKLEyQNszOXeJeJeJlfxLOXPeszOXpt
-SMeJeJSsOXxLqaqaMTMTqaqaPeKLtwFVSOZIOXxLSseJeJeJSsszxLOXxLpt
-SseJeJeJlfszqaqaqaMTqaPeOXSOtSPgGFGDszPeOXSseJeJSMxLsSPeszpt
-SseJPteJSMPeqaMTVVMTTFPeszEylHTsccKLOXOXszVUSMeJOXszPexLVUxL
-xLSseJeJSsPeqaMTMTMTqaPeOXZIEiKLTsSOxLxLOXPeOXPexLOXPexLOXOX
-OXOXSMeJPeqaqaMTMTWXZfqaPexLEyWmBUQbOXfcPeSMeJSMOXPeszfcPePe
-szVUxLOXxLXiMTqaMTMTMTqaPeOXxLPexLOXxLPeSseJeJeJSsxLxLPePesz
-xLSMPeOXPeqaMTMTMTMTMTqaPexLszxLOXszOXPeeJeJPteJSMszOXOXxLOX
-OXfcOXVUPeqaqaMTMTurMTqaPePeOXOXPeTJOXxLeJeJeJeJOXPeMoOXPexL
-PeOXszSOPevGqaMTMTMTMTqaPeOXOXxLszPexLPelfeJeJSsxLOXOXxLszOX
-xLPeZmKLOXPeqaqaMTqaMTMTqavGxLfcOXPeszOXPexLszOXszxLPeOXOXPe
-ptVUKLKLOXPePeqaMTMTMTMTqaPeOXxLPexLOXPeOXPexLMZPePeOXszPexL
+szPexLeJeJlfVUOXvGqaMTqaMTqaPeOXszxLlfeJeJeJSsOXszSOKLszxLsz
+ptPePeOXOXszxLOXPeqaMTMTMTqaszOXPeVUSseJeJeJSMxLOXKLxLOXNMzC
+ptptPeszxLOXszPePeqaMTxnqaqaPexLPeszeJeJPteJSsxLxLVUNMbwxLOX
+ptptxLPexLsSxLPeqaqaMTMTXiPePexLPeOXeJeJeJeJOXfcOXJJdjPefcxL
+ptxLszOXSMSsOXPeqaqaqaMTqaPeOXfcPeOXeJeJeJSsDtJfDtPePexLOXpt
+PePeOXSMSMMZxLPeqaMTMTMTqaPeOXOXxLszxLOXDtNMmGOXxLPeszxLptpt
+OXszSMSMPeOXszvGqaMTMTqaPeszxLPeNMVwbwKlszPexLOXRAPeVUOXptpt
+PePeVUOXPexLPeqaXiMTqaqaPeOXPeJJDtxLOXPeOXxLPeVUxLPeOXOXptpt
+szOXfcxLszPePeqaMTMTMTqaPexLJfiuOXfcxLOXeJeJSsOXPeszPeQbxLpt
+xLeJSsOXOXPesSqaMTqaMTqavGOXUBqmEyxLszOXeJeJeJlfxLOXPeszOXpt
+SMeJeJSsOXxLqaqaMTMTqaqaPePztwFVpIxbBPDtSseJeJeJSsszxLOXxLpt
+SseJeJeJlfszqaqaqaMTqaPeOXSOtSPgGFGDszPeNMSseJeJSMxLsSPeszpt
+SseJPteJSMPeqaMTVVMTTFPeszeslHTsdoKLOXOXszaLGnfjiumGMOzCVUxL
+xLSseJeJSsPeqaMTMTMTqaPeOXZIEiKLKLSObsOXJfdjJfbwDtOXPexLJfiu
+DdOXSMeJPeqaqaMTMTWXZfqaPexLZIWmBUmLjpfcdjSMeJSMOXbwRafcPePe
+jqQNxLOXxLXiMTqaMTMTMTqaPeOXxLPeDtJfDtdjSseJeJeJSsxLxLMOdjJJ
+xLSMlKOXPeqaMTMTMTMTMTqaPexLszxLOXszOXPeeJeJPteJSMszOXOXxLOX
+OXfcOXQNPeqaqaMTqaurMTqaPePeOXOXPeTJOXxLeJeJeJeJOXPeMoOXPexL
+PeOXszsIPevGqaMTMTMTMTqaPeOXOXxLszPexLPelfeJeJSsxLOXOXxLszOX
+xLPevWsiOXPeqaqaMTqaMTMTqavGxLfcOXPeszOXPexLszOXszxLPeOXOXPe
+ptVURvxMOXPePeqaMTMTMTqaqaPeOXxLPexLOXPeOXPexLMZPePeOXszPexL
 ptszhIqLSOxLPeqaMTMTMTMTqaPexLszPePexLxLszOXPePeVUPePexLxLsz
-ptPeSOKLZIOXszPeqaMTqaMTMTqaPeOXxLMZOXxLxLxLszxLOXszPePeOXOX
+ptPemwPkZIOXszPeqaMTqaMTMTqaPeOXxLMZOXxLxLxLszxLOXszPePeOXOX
 ptPeszKLKLVUPeOXXiqaMTMTMTqaPexLOXPeszfcPeOXPePePePexLOXszxL
 ptptOXPeZmOXPePevGqaqaMTMTMTqaPevGxLOXPeVUszOXszxLOXPexLOXxL
 ptptOXPexLOXszPePeqaqaqaqaMTMTqaPeOXszOXeJeJeJSsfcOXszVUctxL

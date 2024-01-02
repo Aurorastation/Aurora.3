@@ -1,8 +1,9 @@
 "a" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"c" = (/obj/effect/floor_decal/konyang_flowers,/obj/item/material/sword/katana{pixel_x = 4; pixel_y = 12},/obj/item/clothing/head/hachimaki{pixel_x = 11; pixel_y = 3; layer = 2.0},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "d" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "e" = (/obj/structure/flora/rock/konyang/small,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "f" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
-"h" = (/obj/structure/flora/rock/konyang/moss,/obj/random/highvalue/no_weapon,/obj/effect/floor_decal/konyang_flowers,/obj/structure/flora/tree/konyang/fall{pixel_x = -36; pixel_y = 15},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"h" = (/obj/structure/flora/rock/konyang/moss{density = 0},/obj/effect/floor_decal/konyang_flowers,/obj/structure/bed/stool/wood,/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette{pixel_x = 16; pixel_y = 6},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "i" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "k" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "o" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
@@ -21,46 +22,47 @@
 "F" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "G" = (/obj/structure/flora/tree/konyang/blossom,/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "H" = (/obj/structure/flora/bush/konyang_reeds/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
-"J" = (/turf/template_noop,/area/exoplanet/grass/konyang)
+"J" = (/turf/template_noop,/area/space)
 "K" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "L" = (/obj/random/dirt_75,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "M" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "N" = (/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"O" = (/obj/structure/flora/tree/konyang,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "Q" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
-"T" = (/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
-"W" = (/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"T" = (/obj/effect/decal/cleanable/generic/beet_tree_petals,/obj/structure/flora/tree/konyang/fall{pixel_x = -36; pixel_y = -18},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"W" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "X" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"Y" = (/obj/structure/flora/rock/konyang,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"Y" = (/obj/structure/flora/rock/konyang{density = 0},/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 
 (1,1,1) = {"
-JJJJJJCCXCxCCCxxXCCCXCxxXxCXJJ
-JJJJCxXxCxxCXiooWxsXxxBBBBArEJ
-JJJCxxCCxCXCyooooxAxBBBBBBBCLJ
-JXCsCXxrECCCooGotBBBBBaBBBBBxE
-JxCxCEMLrMsXWootBBBBBBaaQBBBCM
-xCxxMrrMxXCCxxxBBBaaaafaaBBXrC
-CCxXrrExCCxxxxBBaaaQaaDaaBxrrx
-xXCCxXxCXxxABHBaaaaBaQaaBBxEMx
-xCCxxCCxxBHHBBaQaBaaaaaaBXLrsX
-xCsCXCxBBBBBBBaaaaDaBaaBBArrxC
-CxCxCCxBBBaBaaBBaaaaaaaBBxEtot
+JJJJJJWCXWxWWCxxXWCWXWxxXxWXJJ
+JJJJWxXxWxxCXioooxOXxxBBBBArEJ
+JJJCxxWCxWXWyooooxAxBBBBBBBWLJ
+JXCsWXxrECCWooGotBBBBBaBBBBBxE
+JxWxWEMLrMsXoootBBBBBBaaQBBBWM
+xWxxMrrMxXWWxxxBBBaaaafaaBBXrW
+CWxXrrExCWxxxxBBaaaQaaDaaBxrrx
+xXCWxXxWXxxABHBaaaaBaQaaBBxEMx
+xWCxxCWxxBHHBBaQaBaaaaaaBXLrsX
+xCsWXWxBBBBBBBaaaaDaBaaBBArrxW
+CxWxCWxBBBaBaaBBaaaaaaaBBxEtot
 XyootxxBBaQaaBttBaaBaaaBBxyooo
 toootABBaaaaBtdetfaaaQaBBtoooo
-FooFxxBBaBaftYTotBaaBaaBBFooKC
-xxxCxBBaaaaBtohkBaapaaaBCxFtCx
-CCXxxBBaaBpaBktBaaQaaaBBxXCCsx
-CsxxBBafaaaaaBfaaaBaaaBBAxCXxC
-xXxxBBaaaaaaaaNaaaaaaBBxxCXxCX
-xCxxBaaaazaaaaaaBQaaaBBxCCCoyC
-XxXxBBBaaaaQBaaaaDaaBBBxXsCoWt
-CFxABBBaQaaaaaaBaaBBBBBxCCxooW
-xFCxBBBBBBaaaaaaaQBBBBxxxXxCoo
-CtiXxBBxBBBBaQaaaBBBBxxXCxXxCC
-CtFCxBxxAxBBBBaQBBBAXxCCFFCxXx
-xxFXxxXCCxxxBBBBBBxtoFXxCFFxCx
-XCCCxCCootXxxABBBxyoooFCXCCXCx
-JCCsCXxoooFCxCxxxtooooixxCCCxx
-JJCxCCxtoooFCXCxCFooGootxXsCCJ
-JJJXxxCCytFCxxCCXsxtooooxxCCJJ
-JJJCCxxXCxsXCxxxxxxXCxxxCXJJJJ
+FooFxxBBaBaftYTotBaaBaaBBFooKW
+xxxWxBBaaaaBtchkBaapaaaBWxFtCx
+CCXxxBBaaBpaBktBaaQaaaBBxXWCOx
+WsxxBBafaaaaaBfaaaBaaaBBAxWXxW
+xXxxBBaaaaaaaaNaaaaaaBBxxCXxWX
+xWxxBaaaazaaaaaaBQaaaBBxWCWoyC
+XxXxBBBaaaaQBaaaaDaaBBBxXsWoot
+WFxABBBaQaaaaaaBaaBBBBBxWWxooo
+xFCxBBBBBBaaaaaaaQBBBBxxxXxWoo
+WtiXxBBxBBBBaQaaaBBBBxxXWxXxWW
+WtFWxBxxAxBBBBaQBBBAXxWCFFyxXx
+xxFXxxXWWxxxBBBBBBxtoFXxWtFtWx
+XWCCxWCootXxxABBBxyoooFWXWWXWx
+JCWsWXxoooFWxWxxxtooooixxCCCxx
+JJWxCWxtoooFWXCxWFooGootxXsWCJ
+JJJXxxWWytFWxxWWXsxtooooxxWWJJ
+JJJWWxxXWxsXWxxxxxxXWxxxCXJJJJ
 "}

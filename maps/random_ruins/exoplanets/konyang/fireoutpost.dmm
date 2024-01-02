@@ -1,5 +1,5 @@
 "ae" = (/obj/effect/decal/curb,/obj/effect/decal/curb{dir = 1; layer = 2.02},/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
-"bk" = (/obj/effect/ghostspawpoint{name = "igs - konyang_fireman"; identifier = "konyang_fireman"},/obj/structure/lattice/catwalk/indoor/tatami{dir = 4},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"bk" = (/obj/structure/lattice/catwalk/indoor/tatami{dir = 4},/obj/effect/ghostspawpoint{name = "igs - konyang_firewatcher"; identifier = "konyang_firewatcher"},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
 "bC" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "bE" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
 "cE" = (/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
@@ -77,7 +77,7 @@
 "ER" = (/obj/structure/chainlink_fence{dir = 8},/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
 "Fe" = (/obj/effect/decal/curb{dir = 5},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
 "Fk" = (/obj/structure/chainlink_fence{dir = 8},/obj/effect/decal/exterior_stairs/half,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
-"FF" = (/turf/template_noop,/area/exoplanet/grass/konyang)
+"FF" = (/turf/template_noop,/area/space)
 "FH" = (/obj/structure/cable/green{icon_state = "2-8"},/obj/structure/cable/green{icon_state = "1-8"},/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/lattice/catwalk/indoor/urban,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"; light_power = 50},/turf/simulated/floor/plating,/area/konyang_fireoutpost)
 "FV" = (/obj/machinery/door/urban{dir = 4},/obj/effect/decal/exterior_stairs/half/center{dir = 8},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
 "Gk" = (/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
@@ -109,7 +109,7 @@
 "Nq" = (/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "NG" = (/obj/structure/flora/rock/konyang/small,/obj/effect/decal/curb{dir = 6},/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
 "NH" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/lattice/catwalk/indoor/urban,/turf/simulated/floor/plating,/area/konyang_fireoutpost)
-"NV" = (/obj/effect/ghostspawpoint{name = "igs - konyang_fireman"; identifier = "konyang_fireman"},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
+"NV" = (/obj/effect/ghostspawpoint{name = "igs - konyang_firewatcher"; identifier = "konyang_firewatcher"},/turf/simulated/floor/wood,/area/konyang_fireoutpost)
 "NW" = (/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "0-4"},/obj/machinery/power/solar_control/autostart{dir = 4; pixel_x = -5},/turf/simulated/floor/concrete,/area/konyang_fireoutpost)
 "Ox" = (/obj/structure/sink{dir = 4; pixel_x = 13},/obj/structure/mirror{pixel_x = 26},/turf/simulated/floor/lino/diamond,/area/konyang_fireoutpost)
 "OC" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
@@ -150,6 +150,7 @@
 "YY" = (/obj/structure/chainlink_fence{dir = 4},/obj/structure/chainlink_fence,/turf/simulated/floor/exoplanet/konyang,/area/konyang_fireoutpost)
 "Zr" = (/obj/structure/flora/tree/konyang/fall,/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "Zs" = (/obj/structure/chainlink_fence{dir = 4},/obj/effect/decal/curb{dir = 4},/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang/no_edge,/area/konyang_fireoutpost)
+"ZG" = (/obj/structure/lattice/catwalk/indoor/planks,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_fireoutpost)
 
 (1,1,1) = {"
 FFFFAApCNqAANqpCNqNqnNnNNqqvNqqvAAPqNqAANqpCbCqvAANqNqNqpCFF
@@ -161,15 +162,15 @@ mrCTCTCTCTCTmONqbCnNERSIIbyYaeMraefhDlfhMrHOaeDlMrfhHOOLMfNq
 qvEQXwrTrTEQfPrcOCfPShKqNHIpIpIpIpIpIpIpIpIpIpIpIpIpIpFeCWqv
 NqIKfPOCQorcOCQoOCOCEQyEwmTbTbTbFHTbTbTbTbTbTbFHTbTbTbPTQnAA
 qvrcOCQGRrRrRrRrRrgwInjJNHCZCZCZCZCZCZCZCZCZCZCZCZCZCZNGItpC
-AAfPQoinLELELELELELELEReNHCYRDQUhIQUxOxORDQUxOIkhIQUxOdKeiNq
+AAfPQoinLELELEZGLELELEReNHCYRDQUhIQUxOxORDQUxOIkhIQUxOdKeiNq
 AAfPOCinLEnEDPDPDPDPnEWKNHIpIpIpIpIpIpIpIpIpIpIpIpIpIpXnfSHR
 HROCrcinLEDPxXNipXfZnEdCwmTbTbTbFHTbTbTbTbTbTbFHTbTbTbgUQnqv
 NqOCfAinLEnESGheheOxnEMaNHCZCZCZCZCZCZCZCZCZCZCZCZCZCZSzWwAA
-AAhJvgLELEFVgJCfhnncMsNWfwCYxORDxOQURDQUxOxOhIIkJUQUIkUjTXpC
+AAhJvgLEZGFVgJCfhnncMsNWfwCYxORDxOQURDQUxOxOhIIkJUQUIkUjTXpC
 qvCwrcinLEnEnZdBbkNVnEdCNHIpIpIpIpIpIpIpIpIpIpIpIpIpIpYffSNq
 NqhJrcinLEDPjbTrTrlCnEbEKITbTbTbFHTbTbTbTbTbTbFHTbTbTbPTQnNq
 PqhJrcinLEnEDPDPDPDPnEBUNHCZCZCZCZCZCZCZCZCZCZCZCZCZCZwTKnqv
-qvhJrcinLELELELELELELEReNHCYxOxORDxOQUhIJUIkxOxOQUxORDPITXAA
+qvhJrcinLELELEZGLELELEReNHCYxOxORDxOQUhIJUIkxOxOQUxORDPITXAA
 pChJrcmqeNeNeNeNeNeNHYTRNHIpIpIpIpIpIpIpIpIpIpIpIpIpIpsZCWqv
 pCCwhJhJhJHMCwhJHMCwhJsfpxTbTbTbFHTbTbTbTbTbTbFHTbTbTbPTZspC
 LkfPCwCwhJhJhJhJBBwIhJHMGkCZCZCZCZCZCZCZCZCZCZCZCZCZCZPZKnNq
