@@ -435,16 +435,6 @@
 "cn" = (
 /turf/simulated/wall/r_wall,
 /area/goonbase/maint_airlock)
-"cq" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 27;
-	pixel_x = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase/equipment)
 "ct" = (
 /obj/effect/shuttle_landmark/goon_ship/hangar,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -676,6 +666,7 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/light,
+/obj/random/loot,
 /turf/simulated/floor/wood,
 /area/goonbase/living)
 "dE" = (
@@ -1496,6 +1487,10 @@
 /obj/item/ammo_casing/c45/practice{
 	pixel_x = 11;
 	pixel_y = -7
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = -13;
+	pixel_x = -2
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
@@ -3645,6 +3640,10 @@
 	pixel_x = -13;
 	pixel_y = 10
 	},
+/obj/item/trash/cigbutt{
+	pixel_y = -13;
+	pixel_x = 11
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
 "rn" = (
@@ -4933,6 +4932,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_airlock)
+"zj" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 27;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "zk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable{
@@ -4980,16 +4989,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_shuttle/med)
-"zu" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 27;
-	pixel_x = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase/equipment)
 "zz" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -5575,6 +5574,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
+"Cp" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 27;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "Cr" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
@@ -5937,6 +5946,9 @@
 /area/shuttle/goon_shuttle/storage)
 "EI" = (
 /obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled,
 /area/goonbase/kitchen)
 "EJ" = (
@@ -7788,15 +7800,6 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/living)
-"NG" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 27
-	},
-/turf/simulated/floor/tiled/dark,
-/area/goonbase/equipment)
 "NH" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -8102,6 +8105,15 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine)
+"Pz" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "PA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -48491,7 +48503,7 @@ qX
 SL
 SL
 SL
-zu
+Cp
 xM
 yq
 eA
@@ -48748,7 +48760,7 @@ qX
 qX
 qX
 SL
-cq
+zj
 eJ
 Uk
 Ah
@@ -49005,7 +49017,7 @@ qX
 YT
 qX
 SL
-NG
+Pz
 eJ
 VK
 eJ
