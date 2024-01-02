@@ -454,13 +454,13 @@ Class Procs:
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
 	qdel(src)
-	return 1
+	return TRUE
 
 /obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
-		return 0
+		return FALSE
 
-	printing = 1
+	printing = TRUE
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
@@ -471,10 +471,10 @@ Class Procs:
 
 	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
-	return 1
+	return TRUE
 
 /obj/machinery/proc/print_move_paper(obj/paper, mob/user)
-	if(user)
+	if(user && ishuman(user) && user.Adjacent(src))
 		user.put_in_hands(paper)
 	else
 		paper.forceMove(loc)

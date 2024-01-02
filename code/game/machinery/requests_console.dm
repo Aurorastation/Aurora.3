@@ -523,7 +523,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			playsound(Console.loc, 'sound/machines/twobeep.ogg')
 			playsound(Console.loc, 'sound/items/polaroid1.ogg')
 			if(!is_paper_bundle)
-				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15)
+				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15, user)
 				P.forceMove(Console.loc)
 			else
 				var/obj/item/paper_bundle/PB = bundlecopy(Console, O, FALSE, 15, FALSE)

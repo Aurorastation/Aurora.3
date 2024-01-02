@@ -127,41 +127,41 @@
 	switch(class)
 		if("restore to default")
 			var/initial_var = initial(O.vars[variable])
-			if(!O.vv_edit_var(variable, initial_var))
+			if(!O.can_vv_get(variable))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
-			O.vars[variable] = initial_var
+			O.vv_edit_var(variable, initial_var)
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
-						if ( istype(M , O.type) )
-							M.vars[variable] = O.vars[variable]
+						if (istype(M , O.type))
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
-						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+						if (istype(A , O.type))
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
-						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+						if (istype(A , O.type))
+							A.vv_edit_var(variable, O.vars[variable])
 
 			else
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if (M.type == O.type)
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 		if("edit referenced object")
 			return .(O.vars[variable])
@@ -170,41 +170,41 @@
 			var/new_value = input("Enter new text:","Text",O.vars[variable]) as text|null//todo: sanitize ???
 			if(new_value == null)
 				return
+
 			if(!O.vv_edit_var(variable, new_value))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
-			O.vars[variable] = new_value
 
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if ( istype(M , O.type) )
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 			else
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if (M.type == O.type)
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 		if("num")
 			var/new_value = input("Enter new number:","Num",\
@@ -212,14 +212,12 @@
 			if(new_value == null)
 				return
 
-			if(!O.vv_edit_var(variable, new_value))
-				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
-				return
-
 			if(variable=="light_range")
 				O.set_light(new_value)
 			else
-				O.vars[variable] = new_value
+				if(!O.vv_edit_var(variable, new_value))
+					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+					return
 
 			if(method)
 				if(istype(O, /mob))
@@ -228,7 +226,7 @@
 							if(variable=="light_range")
 								M.set_light(new_value)
 							else
-								M.vars[variable] = O.vars[variable]
+								M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
@@ -236,7 +234,7 @@
 							if(variable=="light_range")
 								A.set_light(new_value)
 							else
-								A.vars[variable] = O.vars[variable]
+								A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
@@ -244,7 +242,7 @@
 							if(variable=="light_range")
 								A.set_light(new_value)
 							else
-								A.vars[variable] = O.vars[variable]
+								A.vv_edit_var(variable, O.vars[variable])
 
 			else
 				if(istype(O, /mob))
@@ -253,7 +251,7 @@
 							if(variable=="light_range")
 								M.set_light(new_value)
 							else
-								M.vars[variable] = O.vars[variable]
+								M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
@@ -261,7 +259,7 @@
 							if(variable=="light_range")
 								A.set_light(new_value)
 							else
-								A.vars[variable] = O.vars[variable]
+								A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
@@ -269,7 +267,7 @@
 							if(variable=="light_range")
 								A.set_light(new_value)
 							else
-								A.vars[variable] = O.vars[variable]
+								A.vv_edit_var(variable, O.vars[variable])
 
 		if("type")
 			var/new_value
@@ -281,37 +279,36 @@
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = new_value
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if ( istype(M , O.type) )
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 			else
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if (M.type == O.type)
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 		if("file")
 			var/new_value = input("Pick file:","File",O.vars[variable]) as null|file
@@ -322,38 +319,36 @@
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = new_value
-
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if ( istype(M , O.type) )
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O.type, /obj))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O.type, /turf))
 					for(var/turf/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 			else
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if (M.type == O.type)
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O.type, /obj))
 					for(var/obj/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O.type, /turf))
 					for(var/turf/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 		if("icon")
 			var/new_value = input("Pick icon:","Icon",O.vars[variable]) as null|icon
@@ -364,38 +359,37 @@
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = new_value
 			if(method)
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if ( istype(M , O.type) )
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if ( istype(A , O.type) )
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 			else
 				if(istype(O, /mob))
 					for(var/mob/M in GLOB.mob_list)
 						if (M.type == O.type)
-							M.vars[variable] = O.vars[variable]
+							M.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /obj))
 					for(var/obj/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 				else if(istype(O, /turf))
 					for(var/turf/A in world)
 						if (A.type == O.type)
-							A.vars[variable] = O.vars[variable]
+							A.vv_edit_var(variable, O.vars[variable])
 
 	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]", 1)

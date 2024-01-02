@@ -377,6 +377,9 @@ var/const/NO_EMAG_ACT = -50
 	name = "passport"
 	assignment = "Visitor"
 
+/obj/item/card/id/syndicate/raider/update_name()
+	name = "[registered_name]'s Passport"
+
 /obj/item/card/id/highlander
 	name = "highlander identification card"
 	assignment = "Highlander"
