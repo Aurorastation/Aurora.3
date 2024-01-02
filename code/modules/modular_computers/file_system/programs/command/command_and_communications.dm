@@ -4,8 +4,8 @@
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
-	required_access_run = access_heads
-	required_access_download = access_heads
+	required_access_run = ACCESS_HEADS
+	required_access_download = ACCESS_HEADS
 	requires_ntnet = TRUE
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
@@ -324,7 +324,7 @@ Command action procs
 	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
-	if(!universe.OnShuttleCall(usr))
+	if(!GLOB.universe.OnShuttleCall(usr))
 		to_chat(user, SPAN_WARNING("A bluespace connection cannot be established! Please check the user manual for more information."))
 		return FALSE
 
@@ -332,8 +332,8 @@ Command action procs
 		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please try again later."))
 		return FALSE
 
-	if(world.time < config.time_to_call_emergency_shuttle)
-		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
+	if(world.time < GLOB.config.time_to_call_emergency_shuttle)
+		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((GLOB.config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
 		return FALSE
 
 	if(evacuation_controller.is_on_cooldown()) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE

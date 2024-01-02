@@ -60,7 +60,7 @@
 	LAZYCLEARLIST(contained_mobs)
 	LAZYCLEARLIST(important_recursive_contents)
 
-	moved_event.unregister_all_movement(loc, src)
+	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	. = ..()
 
@@ -265,7 +265,7 @@
 	if(anchored)
 		return
 
-	if(!universe.OnTouchMapEdge(src))
+	if(!GLOB.universe.OnTouchMapEdge(src))
 		return
 
 	if(current_map.use_overmap)
@@ -352,8 +352,8 @@
 	. = ..()
 	if (.)
 		// Events.
-		if (moved_event.global_listeners[src])
-			moved_event.raise_event(src, old_loc, loc)
+		if (GLOB.moved_event.global_listeners[src])
+			GLOB.moved_event.raise_event(src, old_loc, loc)
 
 		// Lighting.
 		if (light_sources)

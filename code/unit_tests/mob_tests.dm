@@ -32,7 +32,7 @@
 
 
 /datum/unit_test/mob_hear/start_test()
-	var/mobloc = pick(tdome1)
+	var/mobloc = pick(GLOB.tdome1)
 	if(!mobloc)
 		TEST_FAIL("Unable to find a location to create test mob")
 		return 0
@@ -125,7 +125,7 @@
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
 	if(isnull(mobloc))
-		mobloc = pick(tdome1)
+		mobloc = pick(GLOB.tdome1)
 	if(!mobloc)
 		test_result["msg"] = "Unable to find a location to create test mob"
 		return test_result
@@ -139,7 +139,7 @@
 	test_result["mobref"] = "\ref[L]"
 
 	if(add_to_playerlist)
-		player_list |= L
+		GLOB.player_list |= L
 		testing("Adding test subject to the player list")
 		world << "Adding test subject to the player list"
 

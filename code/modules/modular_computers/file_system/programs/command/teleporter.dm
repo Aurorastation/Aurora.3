@@ -8,7 +8,7 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
-	required_access_run = access_heads
+	required_access_run = ACCESS_HEADS
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "Teleporter"
 	var/datum/weakref/pad_ref
@@ -56,7 +56,7 @@
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
-		for(var/obj/item/device/radio/beacon/R as anything in teleportbeacons)
+		for(var/obj/item/device/radio/beacon/R as anything in GLOB.teleportbeacons)
 			var/turf/BT = get_turf(R)
 			if(!BT)
 				continue
@@ -77,7 +77,7 @@
 		data["teleport_beacons"] = teleport_beacon_info
 
 		var/list/teleport_implant_info = list()
-		for(var/obj/item/implant/tracking/I in implants)
+		for(var/obj/item/implant/tracking/I in GLOB.implants)
 			if(!I.implanted || !ismob(I.loc))
 				continue
 			else
@@ -124,7 +124,7 @@
 
 		if("beacon")
 			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
-			var/obj/O = locate(params["beacon"]) in teleportbeacons
+			var/obj/O = locate(params["beacon"]) in GLOB.teleportbeacons
 			if(linked_pad.locked_obj)
 				var/obj/LO = linked_pad.locked_obj.resolve()
 				if(LO == O)
@@ -139,7 +139,7 @@
 
 		if("implant")
 			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
-			var/obj/O = locate(params["implant"]) in implants
+			var/obj/O = locate(params["implant"]) in GLOB.implants
 			if(linked_pad.locked_obj)
 				var/obj/LO = linked_pad.locked_obj.resolve()
 				if(LO == O)

@@ -4,23 +4,23 @@ var/global/enable_power_update_profiling = 0
 
 var/global/power_profiled_time = 0
 var/global/power_last_profile_time = 0
-var/global/list/power_update_requests_by_machine = list()
-var/global/list/power_update_requests_by_area = list()
+GLOBAL_LIST_EMPTY(power_update_requests_by_machine)
+GLOBAL_LIST_EMPTY(power_update_requests_by_area)
 
 /proc/log_power_update_request(area/A, obj/machinery/M)
 	if (!enable_power_update_profiling)
 		return
 
 	var/machine_type = "[M.type]"
-	if (machine_type in power_update_requests_by_machine)
-		power_update_requests_by_machine[machine_type] += 1
+	if (machine_type in GLOB.power_update_requests_by_machine)
+		GLOB.power_update_requests_by_machine[machine_type] += 1
 	else
-		power_update_requests_by_machine[machine_type] = 1
+		GLOB.power_update_requests_by_machine[machine_type] = 1
 
-	if (A.name in power_update_requests_by_area)
-		power_update_requests_by_area[A.name] += 1
+	if (A.name in GLOB.power_update_requests_by_area)
+		GLOB.power_update_requests_by_area[A.name] += 1
 	else
-		power_update_requests_by_area[A.name] = 1
+		GLOB.power_update_requests_by_area[A.name] = 1
 
 	power_profiled_time += (world.time - power_last_profile_time)
 	power_last_profile_time = world.time
@@ -55,8 +55,8 @@ var/global/list/power_update_requests_by_area = list()
 	if(!check_rights(R_DEBUG))	return
 
 	to_chat(usr, "Total profiling time: [power_profiled_time] ticks")
-	for (var/M in power_update_requests_by_machine)
-		to_chat(usr, "[M] = [power_update_requests_by_machine[M]]")
+	for (var/M in GLOB.power_update_requests_by_machine)
+		to_chat(usr, "[M] = [GLOB.power_update_requests_by_machine[M]]")
 
 /client/proc/view_power_update_stats_area()
 	set name = "View Area Power Update Statistics By Area"
@@ -67,5 +67,5 @@ var/global/list/power_update_requests_by_area = list()
 
 	to_chat(usr, "Total profiling time: [power_profiled_time] ticks")
 	to_chat(usr, "Total profiling time: [power_profiled_time] ticks")
-	for (var/A in power_update_requests_by_area)
-		to_chat(usr, "[A] = [power_update_requests_by_area[A]]")
+	for (var/A in GLOB.power_update_requests_by_area)
+		to_chat(usr, "[A] = [GLOB.power_update_requests_by_area[A]]")

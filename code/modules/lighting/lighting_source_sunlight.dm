@@ -68,7 +68,7 @@
 	// We don't need no damn vis checks!
 	for (Tthing in RANGE_TURFS(Ceiling(light_range), source_turf))
 		T = Tthing
-		if (the_station_areas[T.loc])
+		if (GLOB.the_station_areas[T.loc])
 			continue
 
 		check_t:

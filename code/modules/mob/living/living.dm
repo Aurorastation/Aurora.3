@@ -516,8 +516,8 @@ default behaviour is:
 
 	// remove the character from the list of the dead
 	if(stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list += src
 		tod = null
 		timeofdeath = 0
 
@@ -575,7 +575,7 @@ default behaviour is:
 	set category = "OOC"
 	set src in view()
 
-	if(config.allow_Metadata)
+	if(GLOB.config.allow_Metadata)
 		if(client)
 			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
 		else
@@ -1020,6 +1020,49 @@ default behaviour is:
 /mob/living/verb/toggle_run_intent()
 	set hidden = 1
 	set name = "mov_intent"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
+/**
+ * Used by a macro in skin.dmf to toggle the throw
+ */
+/mob/living/verb/throw_intent_keyDown()
+	set hidden = 1
+	set name = "throw_intent"
+	if(!(src.in_throw_mode))
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_keyUp()
+	set hidden = 1
+	set name = "throw_intent_up"
+	if(src.in_throw_mode)
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_toggle()
+	set hidden = 1
+	set name = "throw_intent_toggle"
+	toggle_throw_mode()
+
+/**
+ * User by a macro in skin.dmf to toggle the running
+ */
+/mob/living/verb/run_intent_keyDown()
+	set hidden = 1
+	set name = "run_intent"
+
+	if(usr?.m_intent != M_WALK)
+		return
+
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
+/mob/living/verb/run_intent_keyUp()
+	set hidden = 1
+	set name = "run_intent_up"
+
+	if(usr?.m_intent != M_RUN)
+		return
+
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
 

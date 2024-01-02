@@ -54,7 +54,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/tcfl_peacekeeper/get_id_access()
-	return list(access_tcfl_peacekeeper_ship, access_external_airlocks)
+	return list(ACCESS_TCFL_PEACEKEEPER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/tcfl_peacekeeper/prefect
 	short_name = "tcfl_peacekeeper_prefect"
@@ -105,4 +105,4 @@
 
 /obj/item/card/id/tcfl_ship
 	name = "tcfl peacekeeper ship id"
-	access = list(access_tcfl_peacekeeper_ship, access_external_airlocks)
+	access = list(ACCESS_TCFL_PEACEKEEPER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

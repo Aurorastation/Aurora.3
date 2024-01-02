@@ -178,7 +178,7 @@
 		return
 
 	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in cardinal))
+	if (!(placement_dir in GLOB.cardinal))
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 
@@ -1386,7 +1386,7 @@
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
-	icon_state = "kazkhz"
+	icon_state = "kazhkz"
 	flag_item = /obj/item/flag/kazhkz
 
 /obj/item/flag/hansan

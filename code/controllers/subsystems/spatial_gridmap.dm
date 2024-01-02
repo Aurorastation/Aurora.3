@@ -544,7 +544,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	if(insert_clients)
 		var/list/turfs
 		if(isStationLevel(z))
-			turfs = station_turfs
+			turfs = GLOB.station_turfs
 
 		else
 			turfs = block(locate(1,1,z), locate(world.maxx, world.maxy, z))

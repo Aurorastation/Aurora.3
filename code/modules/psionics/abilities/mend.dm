@@ -57,7 +57,7 @@
 	for(var/obj/item/organ/E in H.bad_external_organs) // Fix bones
 		var/obj/item/organ/external/affected = E
 		if(do_mob(user, H, 10 SECONDS))
-			if((affected.damage < affected.min_broken_damage * config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
+			if((affected.damage < affected.min_broken_damage * GLOB.config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
 				to_chat(user, SPAN_NOTICE("You mend their [affected] together."))
 				affected.status &= ~ORGAN_BROKEN
 			if(HAS_FLAG(affected.status, ORGAN_ARTERY_CUT))

@@ -50,7 +50,7 @@
 
 /obj/item/device/quikpay/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(istype(I) && (access_heads in I.access))
+	if(istype(I) && (ACCESS_HEADS in I.access))
 		editmode = TRUE
 		to_chat(user, SPAN_NOTICE("Command access granted."))
 		SStgui.update_uis(src)

@@ -162,7 +162,7 @@
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
 /obj/machinery/power/smes/buildable/process()
 	if(!grounding && (Percentage() > 5))
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 		charge -= (output_level_max * SMESRATE)
 		if(prob(1)) // Small chance of overload occuring since grounding is disabled.
 			apcs_overload(5,10,20)
@@ -182,7 +182,7 @@
 
 	// Cyborgs standing next to the SMES can play with the wiring.
 	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
-		wires.Interact(usr)
+		wires.interact(usr)
 
 // Proc: Initialize()
 // Parameters: 2 (dir - direction machine should face, install_coils - if coils should be spawned)
@@ -207,7 +207,7 @@
 /obj/machinery/power/smes/buildable/attack_hand()
 	..()
 	if(open_hatch)
-		wires.Interact(usr)
+		wires.interact(usr)
 
 // Proc: recalc_coils()
 // Parameters: None

@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(icon_update)
 		var/list/argv = icon_update_queue_cache[A]
 		icon_update_queue_cache.len--
 
-		if(A.initialized)
+		if(A.flags_1 & INITIALIZED_1)
 			A.icon_update_queued = FALSE
 
 			//Do not target qdeleted atoms

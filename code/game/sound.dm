@@ -101,7 +101,7 @@
 /proc/playsound_allinrange(atom/source, sound/S, extra_range = 0, is_global = FALSE, use_random_freq = FALSE, use_pressure = TRUE,  modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/turf/source_turf = get_turf(source)
 
-	for (var/MM in player_list)
+	for (var/MM in GLOB.player_list)
 		var/mob/M = MM
 
 		if (!M?.client)

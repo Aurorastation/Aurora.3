@@ -41,7 +41,7 @@
 
 	for(var/i = 0;i<name_count;i++)
 		new_name = ""
-		for(var/x = rand(Floor(syllable_count/syllable_divisor),syllable_count);x>0;x--)
+		for(var/x = rand(FLOOR(syllable_count/syllable_divisor),syllable_count);x>0;x--)
 			new_name += pick(syllables)
 		full_name += " [capitalize(lowertext(new_name))]"
 
@@ -136,7 +136,7 @@
 		speaker_mask = speaker.name
 	message = format_message(message, get_spoken_verb(message))
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		player.hear_broadcast(src, speaker, speaker_mask, message)
 
 /mob/proc/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
@@ -204,7 +204,7 @@
 	if(istype(language, /datum/language))
 		new_language = language
 	else
-		new_language = all_languages[language]
+		new_language = GLOB.all_languages[language]
 
 	if(!istype(new_language) || !new_language)
 		crash_with("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
@@ -228,7 +228,7 @@
 	if(istype(language, /datum/language))
 		new_default_language = language
 	else
-		new_default_language = all_languages[language]
+		new_default_language = GLOB.all_languages[language]
 
 	if(!isnull(new_default_language) && !istype(new_default_language))
 		stack_trace("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
@@ -251,12 +251,12 @@
 	. = ..()
 
 /mob/proc/remove_language(var/rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = GLOB.all_languages[rem_language]
 	. = (L in languages)
 	languages.Remove(L)
 
 /mob/living/remove_language(rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = GLOB.all_languages[rem_language]
 	if(default_language == L)
 		default_language = null
 	return ..()
@@ -269,13 +269,13 @@
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
 		return client.prefs.language_prefixes[1]
 
-	return config.language_prefixes[1]
+	return GLOB.config.language_prefixes[1]
 
 /mob/proc/is_language_prefix(var/prefix)
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
 		return prefix in client.prefs.language_prefixes
 
-	return prefix in config.language_prefixes
+	return prefix in GLOB.config.language_prefixes
 
 //TBD
 /mob/verb/check_languages()

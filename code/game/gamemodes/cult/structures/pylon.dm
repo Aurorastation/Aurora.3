@@ -88,12 +88,12 @@
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
 /obj/structure/cult/pylon/proc/reconsider_interval()
 	var/mindist = INFINITY
-	for(var/mob/living/L in player_list)
+	for(var/mob/living/L in GLOB.player_list)
 		if(L.z != z)
 			continue
 		if(L.stat == DEAD)
 			continue
-		if(iscult(L))
+		if(iscultist(L))
 			continue
 		if(L == sacrificer)
 			continue
@@ -151,7 +151,7 @@
 //If user is a cultist, speaks message to them with a prefix
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
-	if(iscult(user) || (all_languages[LANGUAGE_CULT] in user.languages))
+	if(iscultist(user) || (GLOB.all_languages[LANGUAGE_CULT] in user.languages))
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
@@ -284,7 +284,7 @@
 			continue		 //This is mainly for xenoarch antags
 		if(L.stat == DEAD)  //No point shooting at corpses
 			continue
-		if(iscult(L))		 //Pylon wont shoot at cultists or constructs
+		if(iscultist(L))		 //Pylon wont shoot at cultists or constructs
 			continue
 		if(!isInSight(src, L))
 			continue
@@ -293,7 +293,7 @@
 			if(!LAZYLEN(mech.pilots))
 				continue
 			for(var/mob/M in mech.pilots)
-				if(M == sacrificer || iscult(M))
+				if(M == sacrificer || iscultist(M))
 					continue
 		target = L
 		break

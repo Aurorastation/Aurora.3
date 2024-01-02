@@ -25,10 +25,10 @@
 /obj/item/mop/Initialize()
 	. = ..()
 	create_reagents(30)
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/item/mop/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/item/mop/afterattack(atom/A, mob/user, proximity)

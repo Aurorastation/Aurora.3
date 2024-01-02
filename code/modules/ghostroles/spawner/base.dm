@@ -40,6 +40,9 @@
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	var/away_site = FALSE
 
+	/// A lazylist of weakrefs to mobs this spawner has spawned
+	var/list/datum/weakref/spawned_mobs
+
 /datum/ghostspawner/New()
 	. = ..()
 	if(!jobban_job)
@@ -83,7 +86,7 @@
 		return "This spawner is not enabled."
 	if(respawn_flag && !user.MayRespawn(0,respawn_flag))
 		return "You can not respawn at this time."
-	if(!config.enter_allowed)
+	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
 		return "The station is currently exploding."
@@ -121,7 +124,7 @@
 				return T
 	if(!isnull(landmark_name))
 		var/list/possible_landmarks = list()
-		for(var/obj/effect/landmark/landmark in landmarks_list)
+		for(var/obj/effect/landmark/landmark in GLOB.landmarks_list)
 			if(landmark.name == landmark_name)
 				possible_landmarks += landmark
 		if(length(possible_landmarks))
@@ -171,9 +174,9 @@
 			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
 		if(desc)
 			to_chat(user, SPAN_INFO("Role description: ") + desc)
-	universe.OnPlayerLatejoin(user)
+	GLOB.universe.OnPlayerLatejoin(user)
 	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
+		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]
 		if(sector?.invisible_until_ghostrole_spawn)
 			sector.x = sector.start_x
 			sector.y = sector.start_y
@@ -207,7 +210,7 @@
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE
 	if(enable_dmessage)
-		for(var/mob/abstract/observer/O in player_list)
+		for(var/mob/abstract/observer/O in GLOB.player_list)
 			if(O.client && !cant_see(O))
 				if(enable_dmessage == TRUE)
 					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")

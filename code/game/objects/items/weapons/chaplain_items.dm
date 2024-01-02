@@ -100,6 +100,7 @@
 /obj/item/nullrod/shumaila
 	name = "\improper Shumaila hammer"
 	desc = "A ceremonial hammer carried by the priesthood of Shumaila."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "shumaila_hammer"
 	item_state = "shumaila_hammer"
 	contained_sprite = TRUE

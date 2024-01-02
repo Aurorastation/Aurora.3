@@ -4,8 +4,8 @@
 	program_icon_state = "crew"
 	program_key_icon_state = "teal_key"
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
-	required_access_run = access_medical
-	required_access_download = access_medical
+	required_access_run = ACCESS_MEDICAL
+	required_access_download = ACCESS_MEDICAL
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
@@ -41,6 +41,6 @@
 	if(action == "track")
 		if(isAI(usr))
 			var/mob/living/silicon/ai/AI = usr
-			var/mob/living/carbon/human/H = locate(params["track"]) in mob_list
+			var/mob/living/carbon/human/H = locate(params["track"]) in GLOB.mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
 				AI.ai_actual_track(H)

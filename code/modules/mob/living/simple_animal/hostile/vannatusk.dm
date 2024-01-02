@@ -102,6 +102,6 @@
 
 /obj/machinery/vannatusk_spawner/power_change()
 	..()
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	new /mob/living/simple_animal/hostile/vannatusk(get_turf(src))
 	qdel(src)

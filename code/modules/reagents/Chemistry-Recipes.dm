@@ -965,7 +965,7 @@
 
 /datum/chemical_reaction/flash_powder/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
-	spark(location, 2, alldirs)
+	spark(location, 2, GLOB.alldirs)
 	for(var/mob/living/M in viewers(world.view, location))
 		if(!M.flash_act())
 			continue
@@ -3027,12 +3027,33 @@
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/nutriment/choconutspread = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/drink/caramelshake
+	name = "Caramel Milkshake"
+	id = "shake_caramel"
+	result = /singleton/reagent/drink/shake_caramel
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_caramel = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/strawberryshake
+	name = "Strawberry Milkshake"
+	id = "shake_strawberry"
+	result = /singleton/reagent/drink/shake_strawberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_strawberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/dirtberryshake
+	name = "Dirtberry Milkshake"
+	id = "shake_dirtberry"
+	result = /singleton/reagent/drink/shake_dirtberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_dirtberry = 1)
+	result_amount = 6
+
 /datum/chemical_reaction/drink/NTellahotchocolate
 	name = "NTella hot chocolate"
 	id = "NTellahotchocolate"
 	result = /singleton/reagent/drink/NTellahotchocolate
-	required_reagents = list(/singleton/reagent/drink/milk = 2, /singleton/reagent/nutriment/choconutspread = 2, /singleton/reagent/drink/milk/cream = 2)
-	result_amount = 6
+	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/nutriment/choconutspread = 1, /singleton/reagent/drink/milk/cream = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/drink/drink/mimosa
 	name = "Mimosa"

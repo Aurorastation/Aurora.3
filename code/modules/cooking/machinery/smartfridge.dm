@@ -136,7 +136,7 @@
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts"
 	contents_path = "-slime"
-	req_access = list(access_research)
+	req_access = list(ACCESS_RESEARCH)
 	accepted_items = list(/obj/item/slime_extract)
 
 /obj/machinery/smartfridge/secure/extract/Initialize()
@@ -147,7 +147,7 @@
 	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	contents_path = "-chem"
-	req_one_access = list(access_medical,access_pharmacy)
+	req_one_access = list(ACCESS_MEDICAL,ACCESS_PHARMACY)
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/storage/pill_bottle,
 						/obj/item/reagent_containers/pill,
@@ -160,7 +160,7 @@
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
 	contents_path = "-viro"
-	req_access = list(access_virology)
+	req_access = list(ACCESS_VIROLOGY)
 	accepted_items = list(/obj/item/reagent_containers/glass/beaker/vial)
 
 /obj/machinery/smartfridge/chemistry
@@ -386,7 +386,7 @@
 /obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
-	wires.Interact(user)
+	wires.interact(user)
 	ui_interact(user)
 
 /*******************

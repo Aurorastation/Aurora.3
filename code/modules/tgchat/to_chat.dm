@@ -27,7 +27,7 @@
 	if(!html && !text)
 		CRASH("Empty or null string in to_chat proc call.")
 	if(target == world)
-		target = clients
+		target = GLOB.clients
 
 	// Build a message
 	var/message = list()
@@ -87,7 +87,7 @@
 	if(!html && !text)
 		CRASH("Empty or null string in to_chat proc call.")
 	if(target == world)
-		target = clients
+		target = GLOB.clients
 
 	// Build a message
 	var/message = list()

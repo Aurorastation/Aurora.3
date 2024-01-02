@@ -274,10 +274,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "bx" = (
@@ -370,7 +370,10 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "bZ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -494,20 +497,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
 /obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
 "cS" = (
@@ -558,7 +558,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -579,12 +579,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/scc_scout_ship/quarters)
 "do" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "dq" = (
@@ -694,10 +689,10 @@
 "dW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "dX" = (
@@ -729,10 +724,15 @@
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/mess)
 "eh" = (
-/obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "ei" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -789,9 +789,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -826,10 +823,10 @@
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /obj/machinery/power/apc/west,
-/obj/structure/cable{
+/obj/random/dirt_75,
+/obj/structure/cable/pink{
 	icon_state = "0-4"
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "eK" = (
@@ -890,7 +887,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 2
 	},
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -968,9 +965,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
@@ -1015,7 +1009,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
@@ -1138,7 +1132,7 @@
 /area/ship/scc_scout_ship/maint_atmos)
 "gi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -1157,7 +1151,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -1239,12 +1233,6 @@
 /turf/template_noop,
 /area/ship/scc_scout_ship/maint_atmos)
 "gN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -1252,6 +1240,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "gP" = (
@@ -1273,8 +1264,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "gV" = (
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/closet/emcloset,
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/structure/cable/pink{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "ha" = (
@@ -1324,10 +1320,10 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "hu" = (
@@ -1617,13 +1613,13 @@
 "kd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/engineering_cargo)
 "ke" = (
@@ -2261,14 +2257,11 @@
 /area/ship/scc_scout_ship/maint_atmos)
 "nK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/structure/cable/pink{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "nL" = (
@@ -2301,7 +2294,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
@@ -2471,16 +2464,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "oL" = (
@@ -2510,6 +2500,9 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "pf" = (
@@ -2740,12 +2733,14 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/mess)
 "qA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/railing/mapped,
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship/maint_propulsion_port)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "qB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -2775,6 +2770,9 @@
 "qJ" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "qL" = (
@@ -2782,10 +2780,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
 "qM" = (
@@ -2846,6 +2844,7 @@
 /area/ship/scc_scout_ship/mess)
 "ro" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "rp" = (
@@ -2853,7 +2852,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -2939,11 +2938,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "rT" = (
@@ -2960,10 +2959,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "sf" = (
@@ -3121,9 +3120,7 @@
 /area/ship/scc_scout_ship/hydroponics)
 "tl" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 2
-	},
+/obj/machinery/atmospherics/valve,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "tn" = (
@@ -3369,22 +3366,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
-"uT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/scc_scout_ship_shuttle/cargo)
 "uZ" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_scc_scout_aft_port";
@@ -3462,9 +3443,6 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "vD" = (
@@ -3538,10 +3516,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/cable{
+/obj/random/dirt_75,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "wg" = (
@@ -3572,32 +3550,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
-"wk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/scc_scout_ship_shuttle/cargo)
 "wm" = (
-/obj/machinery/portable_atmospherics/canister/empty/air,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/engineering_cargo)
 "ws" = (
@@ -3613,7 +3572,7 @@
 	pixel_x = -3
 	},
 /obj/machinery/power/apc/east,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
@@ -3649,12 +3608,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship/medbay)
-"wJ" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+"wI" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship/maint_propulsion_port)
+/obj/item/cargo_package/offship/to_horizon{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/scc_scout_ship/engineering_cargo)
 "wM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3703,11 +3669,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "wZ" = (
@@ -3768,9 +3734,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3783,7 +3746,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -3984,8 +3947,11 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/cable/pink{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -4035,17 +4001,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
+"zi" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship/maint_propulsion_port)
 "zl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/machinery/meter{
+	pixel_y = -8;
+	pixel_x = 7
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
@@ -4068,13 +4039,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/cable{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/pink{
 	icon_state = "1-4"
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "zx" = (
@@ -4179,9 +4150,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -4229,13 +4197,13 @@
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
 "Bk" = (
-/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Bm" = (
@@ -4263,15 +4231,6 @@
 /obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
-"Br" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/scc_scout_ship/maint_propulsion_port)
 "Bs" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -4293,7 +4252,7 @@
 "By" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/meter{
-	pixel_y = 9;
+	pixel_y = 10;
 	pixel_x = 7
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -4357,9 +4316,6 @@
 	dir = 4
 	},
 /obj/machinery/light/small/emergency,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Cg" = (
@@ -4550,7 +4506,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 2
+	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -4584,6 +4540,19 @@
 	},
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
+"DX" = (
+/obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/scc_scout_ship/engineering_cargo)
 "Ed" = (
 /obj/structure/lattice,
 /obj/effect/landmark/entry_point/fore{
@@ -4677,7 +4646,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/firealarm/east,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -4787,6 +4756,9 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "FL" = (
@@ -5007,7 +4979,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -5050,13 +5022,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
@@ -5073,10 +5041,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/eva)
 "HW" = (
@@ -5123,7 +5091,20 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue,
-/obj/machinery/smartfridge/foodheater,
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_x = -12;
+	pixel_y = 2
+	},
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
 "Ix" = (
@@ -5172,10 +5153,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/east,
-/obj/structure/cable{
+/obj/random/dirt_75,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "IH" = (
@@ -5183,9 +5164,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "II" = (
@@ -5262,7 +5240,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "Js" = (
-/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -5272,6 +5249,14 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship/to_horizon{
+	pixel_y = -2;
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "JB" = (
@@ -5279,10 +5264,10 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/south,
-/obj/structure/cable{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
 	icon_state = "0-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "JC" = (
@@ -5291,7 +5276,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -5590,6 +5575,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "LU" = (
@@ -5675,11 +5663,11 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "MJ" = (
@@ -5783,14 +5771,14 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/pink{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/pink{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Ny" = (
@@ -5864,17 +5852,9 @@
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard)
 "Oh" = (
-/obj/random/junk{
-	pixel_y = -2;
-	pixel_x = 1
-	},
-/obj/random/junk{
-	pixel_y = -2;
-	pixel_x = 1
-	},
-/obj/structure/closet/crate/trashcart,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Ok" = (
@@ -6007,13 +5987,12 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/scc_scout_ship/bridge)
 "OV" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
+/obj/random/dirt_75,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "co2_sensor"
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "OY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -6220,7 +6199,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/power/apc/east,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
@@ -6285,10 +6264,10 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor"
 	},
-/obj/structure/cable{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "Sb" = (
@@ -6377,8 +6356,11 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -6489,11 +6471,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "Tm" = (
@@ -6658,13 +6640,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/pink{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "UL" = (
@@ -6775,10 +6757,10 @@
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/cable/pink{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard)
 "Vn" = (
@@ -6834,6 +6816,9 @@
 /obj/structure/extinguisher_cabinet/south,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "VG" = (
@@ -6914,11 +6899,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
 "VX" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/random/dirt_75,
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 4;
+	input_tag = "co2_in";
+	output_tag = "co2_out";
+	sensors = list("co2_sensor"="Tank");
+	name = "Carbon Dioxide Supply Monitor"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Wc" = (
@@ -6941,7 +6930,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
+/obj/structure/cable/pink{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
@@ -7060,11 +7049,14 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "WM" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "co2_out";
+	dir = 1
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "WO" = (
 /obj/effect/shuttle_landmark/scc_scout_ship/space/aft_port,
@@ -7080,11 +7072,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/pink{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "WR" = (
@@ -7399,9 +7394,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/hydroponics)
 "YB" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/light/small/emergency,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/portables_connector{
@@ -7473,6 +7465,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_scout_ship_shuttle/eva)
 "Zd" = (
@@ -7481,15 +7476,23 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/medbay)
+"Zh" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "co2_in";
+	name = "carbon dioxide injector";
+	use_power = 1;
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/ship/scc_scout_ship/maint_propulsion_port)
 "Zo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/hatch{
@@ -7500,6 +7503,9 @@
 "Zx" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/spline/plain/corner/black,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Zz" = (
@@ -7581,10 +7587,10 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/north,
-/obj/structure/cable{
+/obj/random/dirt_75,
+/obj/structure/cable/pink{
 	icon_state = "0-8"
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cockpit)
 "ZT" = (
@@ -41095,7 +41101,7 @@ vA
 VX
 wR
 do
-Br
+OV
 hu
 yj
 lV
@@ -41351,7 +41357,7 @@ By
 tX
 tl
 zl
-wJ
+zi
 WM
 hu
 gd
@@ -41376,7 +41382,7 @@ LT
 Zc
 qJ
 WP
-FF
+qA
 dQ
 sN
 sG
@@ -41608,8 +41614,8 @@ DJ
 MJ
 ns
 HP
-qA
-OV
+zi
+Zh
 hu
 Ht
 or
@@ -41632,7 +41638,7 @@ IO
 kv
 cJ
 aa
-uT
+rW
 hd
 gP
 nB
@@ -41889,7 +41895,7 @@ HF
 HF
 HF
 HF
-wk
+gm
 Ut
 fZ
 yF
@@ -44437,8 +44443,8 @@ Wx
 Oz
 pP
 wm
-cW
-cW
+wI
+DX
 WR
 bZ
 bZ

@@ -9,7 +9,7 @@
 
 /obj/structure/closet/secure_closet/cabinet/bar
 	name = "booze closet"
-	req_access = list(access_bar)
+	req_access = list(ACCESS_BAR)
 	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 /obj/structure/closet/secure_closet/cabinet/bar/fill()
