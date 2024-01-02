@@ -6,7 +6,7 @@
 	identifier = "goon"
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "ab" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -20,7 +20,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "ad" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -145,12 +145,12 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/storage)
 "aR" = (
-/obj/item/trash/proteinbar,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/item/trash/candy,
 /turf/simulated/floor/plating,
 /area/goonbase/living)
 "aS" = (
@@ -191,7 +191,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "ba" = (
 /turf/simulated/wall,
 /area/goonbase/power)
@@ -213,7 +213,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "bi" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/yellow,
@@ -399,7 +399,7 @@
 /obj/random/dirt_75,
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "ch" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -976,7 +976,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "eO" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/shuttle/goon_shuttle/bridge)
@@ -1039,7 +1039,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "ff" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -1100,7 +1100,7 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "fs" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
@@ -1169,7 +1169,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "fI" = (
 /obj/structure/bed/stool/padded/orange{
 	dir = 1
@@ -1254,7 +1254,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "gj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1363,7 +1363,10 @@
 "gF" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	id_tag = "goon_base_secret_exit_door";
+	locked = 1
+	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "gG" = (
@@ -2060,8 +2063,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "kk" = (
 /turf/simulated/wall,
 /area/goonbase/maint_airlock)
@@ -2392,7 +2396,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "lw" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
@@ -2411,7 +2415,7 @@
 /area/goonbase/hallway_north)
 "lA" = (
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "lI" = (
 /obj/item/storage/toolbox/emergency{
 	pixel_x = -11;
@@ -2431,13 +2435,13 @@
 "lK" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/masks{
-	pixel_y = 8;
-	pixel_x = 4
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -11;
 	pixel_y = 12
+	},
+/obj/item/storage/box/masks{
+	pixel_y = 8;
+	pixel_x = 4
 	},
 /obj/item/storage/box/gloves{
 	pixel_x = -1;
@@ -2640,7 +2644,7 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/shoes/workboots/toeless,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "nf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -2674,7 +2678,7 @@
 	},
 /obj/item/clothing/suit/storage/hooded/wintercoat/mars,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "nj" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -2683,8 +2687,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "nk" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -2704,7 +2709,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "nn" = (
 /turf/simulated/mineral/surface,
 /area/goonbase/maint_south)
@@ -2762,7 +2767,7 @@
 "nB" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/mine)
 "nC" = (
 /obj/structure/table/rack,
@@ -2906,7 +2911,7 @@
 "od" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "oe" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -2989,7 +2994,7 @@
 /area/goonbase/kitchen)
 "oB" = (
 /turf/simulated/wall/r_wall,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "oE" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -3119,6 +3124,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
+"pe" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/goonbase/quarters)
 "pf" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards{
@@ -3184,7 +3199,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "px" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -3367,7 +3382,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "qr" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency,
@@ -3386,6 +3401,10 @@
 	pixel_y = -7
 	},
 /obj/random/dirt_75,
+/obj/item/storage/pill_bottle/cocaine{
+	pixel_x = 9;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
 "qv" = (
@@ -3457,7 +3476,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "qD" = (
 /obj/item/clothing/head/collectable/paper{
 	pixel_y = -3;
@@ -3477,7 +3496,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "qJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -3657,7 +3676,7 @@
 	identifier = "goon"
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "rF" = (
 /obj/random/dirt_75,
 /obj/machinery/pipedispenser,
@@ -3811,7 +3830,7 @@
 /obj/item/bedsheet/purple,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "sO" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/corner/blue{
@@ -3830,7 +3849,7 @@
 /obj/item/clothing/head/ushanka/dominia,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "sP" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3839,7 +3858,7 @@
 /area/goonbase/hallway_south)
 "sS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/mine)
 "sT" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -3853,7 +3872,7 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "sY" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4015,6 +4034,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -20;
+	pixel_y = -10
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/maint_south)
 "un" = (
@@ -4155,7 +4178,7 @@
 	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "vd" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -4194,7 +4217,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "vr" = (
 /turf/simulated/wall/r_wall,
 /area/goonbase/maint_south)
@@ -4207,18 +4230,16 @@
 /area/goonbase/eva)
 "vt" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/zipties{
-	layer = 2.99;
-	pixel_x = 9;
-	pixel_y = 10
-	},
 /obj/item/melee/baton{
-	pixel_x = -2;
-	pixel_y = 5
+	pixel_y = 3
 	},
 /obj/item/melee/telebaton{
 	pixel_x = 5;
 	pixel_y = 5
+	},
+/obj/item/melee/baton/stunrod{
+	pixel_x = -4;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/goonbase/equipment)
@@ -4313,7 +4334,7 @@
 	pixel_y = 14
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "vJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -4328,7 +4349,7 @@
 /obj/item/clothing/under/pants/tacticool,
 /obj/item/clothing/under/syndicate/tracksuit,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "vR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4361,7 +4382,7 @@
 "wg" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "wo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable{
@@ -4453,7 +4474,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "wJ" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -4504,7 +4525,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "wZ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -4525,7 +4546,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "xi" = (
 /obj/structure/closet/crate,
 /obj/item/reagent_containers/food/snacks/cheesiehonkers,
@@ -4606,7 +4627,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "xH" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -4615,7 +4636,7 @@
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "xJ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/shower{
@@ -4642,7 +4663,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "xM" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/pill_bottle/mortaphenyl{
@@ -4683,7 +4704,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "xX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4747,8 +4768,9 @@
 /obj/item/clothing/under/rank/sol/army/grey,
 /obj/item/clothing/under/rank/sol/army/service,
 /obj/item/clothing/under/rank/sol/army/service/officer,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "ym" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -4801,8 +4823,9 @@
 /area/shuttle/goon_shuttle/starboard)
 "yy" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "yC" = (
 /turf/simulated/wall,
 /area/goonbase/maint_north)
@@ -5043,6 +5066,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/maint_north)
+"Aa" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/goonbase/quarters)
 "Ac" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -5058,6 +5086,16 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
+"Ae" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/goonbase/quarters)
 "Af" = (
 /turf/simulated/wall/r_wall,
 /area/goonbase/power)
@@ -5336,7 +5374,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "BC" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -5394,7 +5432,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "BM" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5404,6 +5442,13 @@
 /obj/item/paper/goon_base/secret_back_exit_note{
 	pixel_x = -10;
 	pixel_y = -3
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 4;
+	id = "goon_base_secret_exit_door";
+	specialfunctions = 4;
+	pixel_x = 22;
+	pixel_y = 10
 	},
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
@@ -5795,7 +5840,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Em" = (
 /obj/structure/curtain/open/medical,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -5999,7 +6044,7 @@
 /obj/item/bedsheet/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "FD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6054,7 +6099,7 @@
 	identifier = "goon_boss"
 	},
 /turf/simulated/floor/wood,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "FT" = (
 /obj/structure/closet/walllocker{
 	pixel_x = 30
@@ -6162,7 +6207,7 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Gp" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -6201,7 +6246,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "GB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -6292,7 +6337,7 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/storage/belt/fannypack/recolorable/random,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "GP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -6460,7 +6505,7 @@
 	},
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "HK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 2
@@ -6471,7 +6516,7 @@
 /obj/random/dirt_75,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "HU" = (
 /obj/structure/closet/cabinet{
 	pixel_y = 0
@@ -6659,7 +6704,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "IG" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled,
@@ -6823,7 +6868,7 @@
 "Ju" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Jw" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
@@ -6990,18 +7035,6 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/storage/belt/military{
-	pixel_y = -3;
-	pixel_x = -3
-	},
-/obj/item/storage/belt/military{
-	pixel_y = -3;
-	pixel_x = -3
-	},
-/obj/item/storage/belt/military{
-	pixel_y = -3;
-	pixel_x = -3
-	},
-/obj/item/storage/belt/military{
 	pixel_y = 5;
 	pixel_x = 2
 	},
@@ -7012,6 +7045,18 @@
 /obj/item/storage/belt/military{
 	pixel_y = 5;
 	pixel_x = 2
+	},
+/obj/item/storage/belt/military{
+	pixel_y = -3;
+	pixel_x = -3
+	},
+/obj/item/storage/belt/military{
+	pixel_y = -3;
+	pixel_x = -3
+	},
+/obj/item/storage/belt/military{
+	pixel_y = -3;
+	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
@@ -7078,7 +7123,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "KE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -7135,7 +7180,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "KO" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -7158,7 +7203,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "KV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -7266,7 +7311,7 @@
 "Lw" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Lz" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -7411,7 +7456,11 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/blood/ripped,
+/obj/item/reagent_containers/syringe{
+	pixel_x = 5;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/white,
 /area/goonbase/medbay)
 "Mm" = (
@@ -7616,7 +7665,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Ng" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -7839,6 +7888,10 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/goonbase/living)
+"Ot" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/goonbase/quarters)
 "Ow" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
@@ -8079,7 +8132,7 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "PO" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -8121,30 +8174,50 @@
 	pixel_x = -1;
 	pixel_y = 13
 	},
-/obj/item/storage/wallet/lanyard,
+/obj/item/storage/box/zipties{
+	layer = 2.99;
+	pixel_x = 11;
+	pixel_y = -2
+	},
 /obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -5;
+	pixel_x = -3;
 	pixel_y = -9
 	},
 /obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -5;
+	pixel_x = -3;
 	pixel_y = -9
 	},
 /obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -5;
+	pixel_x = -3;
 	pixel_y = -9
 	},
 /obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -5;
+	pixel_x = -3;
 	pixel_y = -9
 	},
 /obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -5;
+	pixel_x = -3;
 	pixel_y = -9
 	},
 /obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -5;
+	pixel_x = -3;
 	pixel_y = -9
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/goonbase/equipment)
@@ -8187,7 +8260,7 @@
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Qf" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4;
@@ -8303,6 +8376,9 @@
 "QC" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/goon_shuttle/bridge)
+"QD" = (
+/turf/simulated/floor/tiled,
+/area/goonbase/quarters)
 "QE" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -8320,7 +8396,7 @@
 /area/goonbase/power)
 "QK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/mine)
 "QM" = (
 /obj/structure/cable{
@@ -8475,7 +8551,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/wood,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Rn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -8809,7 +8885,7 @@
 /obj/random/dirt_75,
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "SU" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -8859,7 +8935,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Td" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -9044,8 +9120,15 @@
 /obj/item/spacecash/c200,
 /obj/random/spacecash,
 /obj/random/spacecash,
+/obj/item/clothing/under/pants/designer{
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red{
+	pixel_x = 1;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Uh" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
@@ -9229,7 +9312,7 @@
 	identifier = "goon"
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Vc" = (
 /obj/machinery/atmospherics/binary/pump/aux/on{
 	dir = 8
@@ -9255,7 +9338,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Vk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -9318,7 +9401,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Vz" = (
 /obj/structure/table/standard,
 /obj/random/dirt_75,
@@ -9436,7 +9519,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Wq" = (
 /obj/random/dirt_75,
 /obj/random/loot,
@@ -9554,7 +9637,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "WH" = (
 /turf/simulated/wall,
 /area/goonbase/kitchen)
@@ -9671,6 +9754,9 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/storage)
+"Xr" = (
+/turf/simulated/wall,
+/area/goonbase/quarters)
 "Xt" = (
 /obj/structure/dispenser/oxygen,
 /obj/machinery/light{
@@ -9717,7 +9803,7 @@
 /obj/random/dirt_75,
 /obj/item/clothing/gloves/boxing,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "XF" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -9758,7 +9844,7 @@
 /obj/item/clothing/accessory/longsleeve_s,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "XP" = (
 /obj/structure/table/rack,
 /obj/item/device/flashlight/lantern{
@@ -9773,34 +9859,31 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/heavy,
 /obj/item/device/flashlight{
-	pixel_x = 2;
+	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/item/device/flashlight{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/item/device/flashlight{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/item/device/flashlight{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/item/device/flashlight/flare/glowstick/random,
-/obj/item/device/flashlight/flare/glowstick/random,
-/obj/item/device/flashlight/flare/glowstick/random,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/device/flashlight{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight/heavy,
 /turf/simulated/floor/plating,
 /area/goonbase/equipment)
 "XS" = (
@@ -9956,7 +10039,7 @@
 /obj/item/clothing/head/turban/gadpathur,
 /obj/item/clothing/head/turban/brown,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "YK" = (
 /obj/machinery/computer/operating,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -9993,7 +10076,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "YW" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -10064,7 +10147,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Zk" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -10121,7 +10204,7 @@
 "Zw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/goonbase/living)
+/area/goonbase/quarters)
 "Zx" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -48134,14 +48217,14 @@ WH
 WH
 zr
 wS
-jH
-jH
-jH
-jH
-jH
-jH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
 Gz
-jH
+Xr
 Ql
 oU
 he
@@ -48391,14 +48474,14 @@ EI
 WH
 zr
 Tj
-jH
+Xr
 sX
 xf
 Vx
-jH
+Xr
 aY
-yk
-jH
+QD
+Xr
 mI
 mI
 mI
@@ -48648,19 +48731,19 @@ XG
 WH
 MI
 Ql
-jH
+Xr
 wg
 KS
 xQ
-jH
+Xr
 Tc
 Ju
-jH
-jH
-jH
-jH
-jH
-jH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
 oB
 mI
 pZ
@@ -48905,19 +48988,19 @@ Oo
 WH
 Bf
 Ee
-jH
-NH
+Xr
+Ot
 Lw
-yk
+QD
 wY
-yk
-yk
+Ot
+QD
 qq
-jH
+Xr
 fG
 vq
 lv
-jH
+Xr
 oB
 mI
 hu
@@ -49162,19 +49245,19 @@ uD
 WH
 BW
 Zl
-jH
+Xr
 FB
 ac
 sN
-jH
+Xr
 nj
-lA
-yk
+Lw
+QD
 wY
-NA
+Aa
 KL
 pw
-jH
+Xr
 oB
 mI
 hK
@@ -49419,19 +49502,19 @@ np
 WH
 VY
 rn
-jH
-jH
-jH
-jH
-jH
+Xr
+Xr
+Xr
+Xr
+Xr
 PL
-lA
+Lw
 GM
-jH
-jH
-jH
-jH
-jH
+Xr
+Xr
+Xr
+Xr
+Xr
 oB
 mI
 mI
@@ -49684,11 +49767,11 @@ kj
 yl
 yy
 mX
-jH
+Xr
 vM
-yk
+QD
 WG
-jH
+Xr
 oB
 mI
 mI
@@ -49933,19 +50016,19 @@ nf
 WH
 Yz
 xZ
-jH
+Xr
 od
-jH
+Xr
 YI
-eN
+Ae
 lA
-yk
-yk
+QD
+QD
 wY
-yk
+QD
 IF
 Xz
-jH
+Xr
 oB
 mI
 mI
@@ -50191,18 +50274,18 @@ WH
 WH
 WH
 WH
-jH
-jH
+Xr
+Xr
 XI
 eN
 xE
-yk
+QD
 sO
-jH
+Xr
 HO
 xL
 fr
-jH
+Xr
 oB
 mI
 mI
@@ -50448,18 +50531,18 @@ WH
 sz
 eP
 DE
-jH
-jH
+Xr
+Xr
 Wn
 Vj
 El
 Zw
 Zi
-jH
+Xr
 Nf
 bc
 rD
-jH
+Xr
 oB
 mI
 mI
@@ -50705,18 +50788,18 @@ iQ
 wX
 eB
 TH
-jH
-jH
-jH
-Rt
-jH
-Rt
-jH
-jH
-jH
-jH
-jH
-jH
+Xr
+Xr
+Xr
+pe
+Xr
+pe
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
 oB
 mI
 mI
@@ -50962,16 +51045,16 @@ TN
 hZ
 Jx
 oz
-jH
+Xr
 Gn
 xH
-yk
-jH
-yk
-yk
+QD
+Xr
+QD
+QD
 vc
 gi
-jH
+Xr
 oB
 oB
 oB
@@ -51219,16 +51302,16 @@ WH
 eq
 PY
 Sk
-jH
+Xr
 SS
 Lw
 cg
-jH
+Xr
 Uf
 lA
 Lw
-yk
-jH
+QD
+Xr
 oB
 mI
 mI
@@ -51476,16 +51559,16 @@ WH
 WH
 WH
 WH
-jH
+Xr
 ng
 lA
 Qe
-jH
+Xr
 vI
 KD
 YV
 Rl
-jH
+Xr
 oB
 mI
 mI
@@ -51733,16 +51816,16 @@ ao
 ao
 ao
 ao
-jH
+Xr
 Vb
 Bz
 aa
-jH
+Xr
 nl
 qC
 FR
 HJ
-jH
+Xr
 oB
 mI
 mI
@@ -51990,16 +52073,16 @@ mI
 mI
 mI
 ao
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
-jH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
 oB
 mI
 mI
