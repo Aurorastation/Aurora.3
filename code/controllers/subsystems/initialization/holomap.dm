@@ -3,8 +3,7 @@
 
 SUBSYSTEM_DEF(holomap)
 	name = "Holomap"
-	flags = SS_BACKGROUND
-	wait = 30 SECONDS
+	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
 
 	/// List of images of minimaps, for every z-level, initialized at round start.
@@ -19,7 +18,7 @@ SUBSYSTEM_DEF(holomap)
 	/// Same as `minimaps_base64`, but the map is colored with `holomap_color` of the `/area/`
 	var/list/minimaps_area_colored_base64 = list()
 
-	/// Same as `minimaps_base64`, but does not show discriminate between walls and paths.
+	/// Same as `minimaps_base64`, but does not discriminate between walls and paths.
 	var/list/minimaps_scan_base64 = list()
 
 /datum/controller/subsystem/holomap/Initialize()
@@ -36,11 +35,6 @@ SUBSYSTEM_DEF(holomap)
 	for (var/z in 1 to world.maxz)
 		generate_minimap(z)
 		generate_minimap_area_colored(z)
-		generate_minimap_scan(z)
-
-/datum/controller/subsystem/holomap/fire(resumed = FALSE)
-	minimaps_scan_base64.len = world.maxz
-	for (var/z in 1 to world.maxz)
 		generate_minimap_scan(z)
 
 /datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
