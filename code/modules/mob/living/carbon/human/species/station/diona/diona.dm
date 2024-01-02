@@ -87,9 +87,9 @@
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
 
-	cold_level_1 = 273
-	cold_level_2 = 223
-	cold_level_3 = 173
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
 
 	heat_level_1 = 800 //Default 360 - Higher is better
 	heat_level_2 = 850 //Default 400
