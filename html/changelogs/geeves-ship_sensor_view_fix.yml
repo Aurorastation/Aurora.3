@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Interacting with other ship UIs will no longer drop the sensor view randomly."
