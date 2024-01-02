@@ -8,7 +8,6 @@
 	id = "goon"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/goon_ship)
 	unit_test_groups = list(2)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/goon
 	map = "goon base"
