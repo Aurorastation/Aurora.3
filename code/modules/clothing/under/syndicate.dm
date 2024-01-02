@@ -45,6 +45,8 @@
 	illegality, generally to other criminal elements. The Hammertail Smiths are just that, an organization of engineers, scientists, machinists, and industrial workers \
 	whose ingenuity, and occasionally deranged inspiration, is fueled and funded by eager clients, from pirate fleets and other Unathi criminal organizations to \
 	individual actors, may they be in the Hegemony, or on the other side of the spur."
+	icon = 'icons/obj/item/clothing/under/hammertail.dmi'
 	icon_state = "hammertail"
 	item_state = "hammertail"
 	worn_state = "hammertail"
+	contained_sprite = TRUE
