@@ -571,7 +571,7 @@
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = /singleton/sound_category/sword_pickup_sound
 	equip_sound = /singleton/sound_category/sword_equip_sound
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
 	throwforce = 5
@@ -602,14 +602,14 @@
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/human/M = H
-		if(M.shoes?.item_flags & LIGHTSTEP)
+		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.m_intent == M_RUN)
 			to_chat(M, SPAN_WARNING("You step on the snap pop!"))
 			do_pop()
 
 /obj/item/toy/snappop/proc/do_pop()
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)

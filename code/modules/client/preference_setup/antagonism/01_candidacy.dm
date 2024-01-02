@@ -42,8 +42,8 @@
 		"<table>"
 	)
 	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN)
 			continue
 		dat += "<tr><td>[antag.role_text]: </td><td>"
@@ -52,7 +52,7 @@
 			dat += "<span class='danger'>\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]</span><br>"
 		else if(is_global_banned || ban_reason)
 			dat += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
-		else if(establish_db_connection(dbcon) && antag.required_age && antag.required_age > user.client?.player_age)
+		else if(establish_db_connection(GLOB.dbcon) && antag.required_age && antag.required_age > user.client?.player_age)
 			dat += "<span class='notice'>ACC TOO YOUNG</span><br>"
 		else if(antag.role_type in pref.be_special_role)
 			dat += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
@@ -78,8 +78,8 @@
 
 /datum/category_item/player_setup_item/antagonism/candidacy/proc/valid_special_roles()
 	var/list/private_valid_special_roles = list()
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		private_valid_special_roles += antag.role_type
 
 	return private_valid_special_roles

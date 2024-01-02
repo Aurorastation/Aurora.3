@@ -92,3 +92,11 @@
 	fruit = list("dyn leaf" = 4)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/jyalrafresh
+
+/singleton/recipe/qlguabi
+	appliance = MIX
+	fruit = list("guami" = 4)
+	reagents = list(/singleton/reagent/drink/dynjuice = 10, /singleton/reagent/drink/milk = 10)
+	result = /obj/item/reagent_containers/food/snacks/qlguabi
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/qlguabi

@@ -7,7 +7,7 @@
 	desc = "Extracts information on wounds."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autopsy"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
@@ -140,7 +140,7 @@
 
 	for(var/mob/O in viewers(usr))
 		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
-		playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
+		playsound(loc, 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	sleep(10)
 

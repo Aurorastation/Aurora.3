@@ -6,7 +6,7 @@
 	icon_state = "powersink0"
 	item_state = "powersink0"
 	w_class = ITEMSIZE_LARGE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
@@ -27,7 +27,7 @@
 
 /obj/item/device/powersink/Destroy()
 	STOP_PROCESSING_POWER_OBJECT(src)
-	processing_power_items -= src
+	GLOB.processing_power_items -= src
 
 	return ..()
 
@@ -49,7 +49,7 @@
 		else
 			if (mode == 2)
 				STOP_PROCESSING_POWER_OBJECT(src)
-				processing_power_items.Remove(src)
+				GLOB.processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
 			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
@@ -74,7 +74,7 @@
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING_POWER_OBJECT(src)
-			processing_power_items += src
+			GLOB.processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
 			mode = 1
@@ -82,7 +82,7 @@
 			icon_state = "powersink0"
 			item_state = "powersink0"
 			STOP_PROCESSING_POWER_OBJECT(src)
-			processing_power_items -= src
+			GLOB.processing_power_items -= src
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)
@@ -171,10 +171,10 @@
 				else
 					AP.flicker_all()
 			else if (T.master)
-				T.master.emp_act(dist)
+				T.master.emp_act(EMP_LIGHT)
 
 		var/atom/aa = A
-		aa.emp_act(dist)
+		aa.emp_act(EMP_LIGHT)
 
 		if (prob(15 * dist))
 			explosion(aa.loc, 0, 0, 3, 4)

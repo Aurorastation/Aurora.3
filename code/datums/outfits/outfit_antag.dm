@@ -40,7 +40,7 @@
 		U.hidden_uplink.uplink_owner = H.mind
 		U.hidden_uplink.telecrystals = uplink_uses
 		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
-		U.hidden_uplink.nanoui_menu = 1
+		U.hidden_uplink.tgui_menu = 1
 
 /datum/outfit/admin/syndicate/get_id_access()
 	return get_syndicate_access(id_access)
@@ -381,7 +381,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -483,7 +483,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -543,7 +543,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -677,7 +677,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 

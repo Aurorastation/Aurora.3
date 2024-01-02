@@ -162,7 +162,7 @@
 	. += "<br>"
 	. += "<b>CRIMINAL</b>: <i>[C]</i><br><br>"
 
-	. += "[C] was found guilty of the following crimes on [game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
+	. += "[C] was found guilty of the following crimes on [GLOB.game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
 
 	if( brig_sentence != 0 )
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"
@@ -222,7 +222,7 @@
 	var/fine = 0// how much space dosh do they need to cough up if they want to go free
 	var/felony = 0// will the criminal become a felon as a result of being found guilty of his crimes?
 	var/created_by //The ckey and name of the person that created that charge
-	excluded_fields = list("db_id", "char_id", "created_by", "felony", "evidence", "arbiters", "brig_sentence", "prison_sentence", "fine")
+	excluded_fields = list("db_id", "char_id", "created_by", "felony", "evidence", "arbiters", "prison_sentence")
 
 /datum/record/char_infraction/proc/getBrigSentence()
 	if(brig_sentence < PERMABRIG_SENTENCE)
@@ -231,7 +231,7 @@
 		return "Holding until Transfer"
 
 /datum/record/char_infraction/proc/saveToDB()
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: SQL database connection failed. Infractions Datum failed to save information")
 		return
 
@@ -261,7 +261,7 @@
 		"game_id" = game_id
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
-	var/DBQuery/infraction_insert_query = dbcon.NewQuery({"INSERT INTO ss13_character_incidents
+	var/DBQuery/infraction_insert_query = GLOB.dbcon.NewQuery({"INSERT INTO ss13_character_incidents
 		(char_id,  UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by, game_id)
 	VALUES
 		(:char_id:, :uid:, :datetime:, :notes:, :charges:, :evidence:, :arbiters:, :brig_sentence:, :fine:, :felony:, :created_by:, :game_id:)
@@ -279,7 +279,7 @@
 	infraction_insert_query.Execute(sql_args)
 
 /datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: SQL database connection failed. Infractions Datum failed to save information")
 		return
 
@@ -297,7 +297,7 @@
 		"deleted_by" = deleted_by
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
-	var/DBQuery/infraction_delete_query = dbcon.NewQuery({"UPDATE ss13_character_incidents
+	var/DBQuery/infraction_delete_query = GLOB.dbcon.NewQuery({"UPDATE ss13_character_incidents
 	SET
 		deleted_by=:deleted_by:,
 		deleted_at=NOW()

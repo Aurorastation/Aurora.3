@@ -48,8 +48,8 @@
 /obj/item/ore_detector/ui_data(mob/user)
 	if(!length(ore_names))
 		ore_names = list()
-		for(var/ore_n in ore_data)
-			var/ore/O = ore_data[ore_n]
+		for(var/ore_n in GLOB.ore_data)
+			var/ore/O = GLOB.ore_data[ore_n]
 			var/ore_name = O.display_name
 			ore_names += ore_name
 		ore_names += SURFACE_MINERALS
@@ -130,7 +130,9 @@
 				M.client.images += ore_ping
 			ore_pings += ore_ping
 
-/obj/item/ore_detector/emp_act()
+/obj/item/ore_detector/emp_act(severity)
+	. = ..()
+
 	deactivate()
 
 /obj/item/ore_detector/proc/activate(var/mob/user)

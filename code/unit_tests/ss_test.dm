@@ -2,7 +2,7 @@
 // It initializes last in the subsystem order, and queues
 // the tests to start about 20 seconds after init is done.
 
-/**
+/*
  * Wondering if you should change this to run the tests? NO!
  * Because the preproc checks for this in other areas too, set it in code\__defines\manual_unit_testing.dm instead!
  */
@@ -12,13 +12,12 @@
 	The Unit Tests Configuration subsystem
 */
 
-var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
-/datum/controller/subsystem/unit_tests_config
+SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
 	flags = SS_NO_FIRE
 
-	var/datum/unit_test/UT = new // Logging/output
+	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
 
 	///What is our identifier, what pod are we, and hence what are we supposed to run
 	var/identifier = null
@@ -34,6 +33,8 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 /datum/controller/subsystem/unit_tests_config/New()
 	. = ..()
+
+	UT = new
 
 	world.fps = 10
 
@@ -111,7 +112,6 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 */
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
-	var/datum/unit_test/UT = new // Use this to log things from outside where a specific unit_test is defined
 	init_order = -1e6	// last.
 	var/list/queue = list()
 	var/list/async_tests = list()
@@ -122,7 +122,7 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
-	UT.notice("Initializing Unit Testing", __FILE__, __LINE__)
+	SSunit_tests_config.UT.notice("Initializing Unit Testing", __FILE__, __LINE__)
 
 	//
 	//Start the Round.
@@ -136,7 +136,7 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 			continue
 
 		if(!length(D.groups))
-			UT.fail("**** Unit Test has no group assigned! [D.name] ****")
+			SSunit_tests_config.UT.fail("**** Unit Test has no group assigned! [D.name] ****")
 			del world
 
 		for(var/group in D.groups)
@@ -144,17 +144,17 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 				queue += D
 				break
 
-	UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
+	SSunit_tests_config.UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
 	..()
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 
-		UT.debug("Round has been started.", __FILE__, __LINE__)
+		SSunit_tests_config.UT.debug("Round has been started.", __FILE__, __LINE__)
 		stage++
 	else
-		UT.fail("Unable to start testing; SSticker.current_state=[SSticker.current_state]!", __FILE__, __LINE__)
+		SSunit_tests_config.UT.fail("Unable to start testing; SSticker.current_state=[SSticker.current_state]!", __FILE__, __LINE__)
 		del world
 
 /datum/controller/subsystem/unit_tests/proc/handle_tests()
@@ -176,8 +176,15 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 			continue
 
 		TEST_GROUP_OPEN("[test.name]")
-		if (test.start_test() == null)	// Runtimed.
-			test.fail("Test Runtimed: [test.name]", __FILE__, __LINE__)
+
+		var/current_test_result = null
+
+		current_test_result = test.start_test()
+
+		//If the result is still null, the test have runtimed or not returned a valid result, either way rise an error
+		if (isnull(current_test_result))
+			test.fail("Unit Test runtimed or returned an illicit result: [test.name]", __FILE__, __LINE__)
+
 		TEST_GROUP_CLOSE("[test.name]")
 
 		if (test.async)
@@ -186,7 +193,7 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		total_unit_tests++
 
 		if(unit_tests_failures && SSunit_tests_config.fail_fast)
-			UT.fail("**** Fail fast is enabled and an unit test failed! Aborting... ****", __FILE__, __LINE__)
+			SSunit_tests_config.UT.fail("**** Fail fast is enabled and an unit test failed! Aborting... ****", __FILE__, __LINE__)
 			handle_tests_ending(TRUE)
 			break
 
@@ -234,10 +241,10 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 
 		if (4)	// Finalization.
 			if(all_unit_tests_passed)
-				UT.pass("**** All Unit Tests Passed \[[total_unit_tests]\] ****", __FILE__, __LINE__)
+				SSunit_tests_config.UT.pass("**** All Unit Tests Passed \[[total_unit_tests]\] ****", __FILE__, __LINE__)
 				handle_tests_ending(FALSE)
 			else
-				UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
+				SSunit_tests_config.UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
 				handle_tests_ending(TRUE)
 
 /datum/controller/subsystem/unit_tests/proc/handle_tests_ending(is_failure = FALSE)
@@ -246,5 +253,20 @@ var/datum/controller/subsystem/unit_tests_config/SSunit_tests_config = new
 		world.Reboot("Restarting for another UT try, remaining tries: [SSunit_tests_config.retries]", TRUE)
 	else
 		del world
+
+//This is only valid during unit tests
+/world/Error(var/exception/e)
+
+	var/datum/unit_test/UT
+
+	//Try to use the SSunit_tests_config.UT, but if for some god forsaken reason it doesn't exist, make a new one
+	if(SSunit_tests_config?.UT)
+		UT = SSunit_tests_config?.UT
+	else
+		UT = new
+
+	UT.fail("**** !!! Encountered a world exception during unit testing !!! - Exception name: [e.name] → @@@ [e.file]:[e.line] ****", __FILE__, __LINE__)
+
+	return ..(e)
 
 #endif

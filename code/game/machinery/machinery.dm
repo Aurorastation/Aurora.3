@@ -186,6 +186,7 @@ Class Procs:
 	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)
+	. = ..()
 	if(use_power && stat == 0)
 		use_power_oneoff(7500/severity)
 
@@ -194,10 +195,9 @@ Class Procs:
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
-		pulse2.set_dir(pick(cardinal))
+		pulse2.set_dir(pick(GLOB.cardinal))
 
 		QDEL_IN(pulse2, 10)
-	..()
 
 /obj/machinery/ex_act(severity)
 	switch(severity)
@@ -365,7 +365,7 @@ Class Procs:
 		return 0
 	if(!prob(prb))
 		return 0
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	if (electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
 		if(temp_area)
@@ -454,13 +454,13 @@ Class Procs:
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
 	qdel(src)
-	return 1
+	return TRUE
 
 /obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
-		return 0
+		return FALSE
 
-	printing = 1
+	printing = TRUE
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
@@ -471,10 +471,10 @@ Class Procs:
 
 	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
-	return 1
+	return TRUE
 
 /obj/machinery/proc/print_move_paper(obj/paper, mob/user)
-	if(user)
+	if(user && ishuman(user) && user.Adjacent(src))
 		user.put_in_hands(paper)
 	else
 		paper.forceMove(loc)
@@ -498,7 +498,7 @@ Class Procs:
 	if(isskrell(H) || isunathi(H) || isvaurca(H))
 		return
 
-	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
+	var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[H.h_style]
 	for(var/obj/item/protection in list(H.head))
 		if(protection && (protection.flags_inv & BLOCKHAIR|BLOCKHEADHAIR))
 			return
@@ -526,7 +526,7 @@ Class Procs:
 	return FALSE
 
 /obj/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

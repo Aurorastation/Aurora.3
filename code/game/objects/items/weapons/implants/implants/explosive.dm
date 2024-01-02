@@ -113,7 +113,7 @@
 
 /obj/item/implant/explosive/exposed()
 	if(warning_message)
-		global_announcer.autosay(warning_message, "Anti-Tampering System")
+		GLOB.global_announcer.autosay(warning_message, "Anti-Tampering System")
 
 /obj/item/implant/explosive/proc/sanitizePhrase(phrase)
 	var/list/replacechars = list("'" = "", "\"" = "", ">" = "", "<" = "", "(" = "", ")" = "")
@@ -197,6 +197,8 @@
 	return TRUE
 
 /obj/item/implant/explosive/emp_act(severity)
+	. = ..()
+
 	if(malfunction)
 		return
 	malfunction = MALFUNCTION_TEMPORARY
@@ -280,21 +282,19 @@
 	return TRUE
 
 /obj/item/implant/explosive/deadman/emp_act(severity)
+	. = ..()
+
 	if(malfunction)
 		return
+
 	malfunction = MALFUNCTION_TEMPORARY
 	switch (severity)
-		if(3.0)
-			if(prob(1))
-				small_countdown()
-			else if(prob(5))
-				meltdown()
-		if(2.0)
+		if(EMP_LIGHT)
 			if(prob(5))
 				small_countdown()
 			else if (prob(10))
 				meltdown()
-		if(1.0)
+		if(EMP_HEAVY)
 			if(prob(10))
 				small_countdown()
 			else if (prob(30))

@@ -1,4 +1,4 @@
-var/global/list/ore_data = list()
+GLOBAL_LIST_EMPTY(ore_data)
 
 /ore
 	var/name

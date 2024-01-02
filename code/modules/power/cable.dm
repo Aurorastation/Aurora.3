@@ -82,7 +82,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(level == 1 && !T.is_hole)
 		hide(!T.is_plating())
 
-	cable_list += src
+	GLOB.cable_list += src
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
@@ -94,7 +94,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
-	cable_list -= src							//remove it from global cable list
+	GLOB.cable_list -= src							//remove it from global cable list
 	return ..()										// then go ahead and delete the cable
 
 ///////////////////////////////////
@@ -135,7 +135,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			if(user.a_intent != I_HELP)
 				return
 
-			if(W.flags & CONDUCT)
+			if(W.obj_flags & OBJ_FLAG_CONDUCTABLE)
 				shock(user, 50, 0.7)
 
 		if(d1 == 12 || d2 == 12)
@@ -195,7 +195,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!prob(prb))
 		return FALSE
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 		if(user.stunned)
 			return TRUE
 	return FALSE
@@ -374,7 +374,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	for(var/cable_dir in list(d1, d2))
 		if(cable_dir == 11 || cable_dir == 12 || cable_dir == 0)
 			continue
-		var/reverse = reverse_dir[cable_dir]
+		var/reverse = GLOB.reverse_dir[cable_dir]
 		T = get_step(src, cable_dir)
 		if(T)
 			for(var/obj/structure/cable/C in T)
@@ -482,7 +482,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	recyclable = TRUE
-	flags = HELDMAPTEXT|CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
@@ -1123,35 +1124,42 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	add_fingerprint(user)
 
-	if(M == user && buckle(M))
+	if(M == user && buckle(M, user))
 		M.visible_message(\
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
 		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
+
 	else
-		M.visible_message(\
-			SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),\
-			SPAN_DANGER("[user] ties \the [src] over your neck!"))
+		M.visible_message(SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),
+							SPAN_DANGER("[user] ties \the [src] over your neck!"))
+
 		to_chat(user, SPAN_NOTICE("It will take 20 seconds and you have to stand still."))
+
 		if(do_after(user, 200))
-			if(buckle(M))
-				M.visible_message(\
-					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
-					SPAN_DANGER("[user] ties \the [src] over your neck!"))
+			if(buckle(M, user))
+				M.visible_message(SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),
+									SPAN_DANGER("[user] ties \the [src] over your neck!"))
+
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+
 				SSstatistics.IncrementSimpleStat("hangings")
+
 				return TRUE
+
 			else
-				user.visible_message(\
-					SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),\
-					SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+				user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
+										SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
 				return FALSE
+
 		else
-			user.visible_message(\
-				SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),\
-				SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
+			user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
+									SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
+
 			return FALSE
 
 /obj/structure/noose/process(mob/living/carbon/human/M, mob/user)

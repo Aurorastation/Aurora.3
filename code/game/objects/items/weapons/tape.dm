@@ -98,9 +98,9 @@
 	drop_sound = null
 	var/obj/item/stuck = null
 
-/obj/item/ducttape/New()
-	..()
-	flags |= NOBLUDGEON
+/obj/item/ducttape/Initialize()
+	. = ..()
+	item_flags |= ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/ducttape/examine(mob/user)
 	return stuck.examine(user)
@@ -136,8 +136,8 @@
 	var/dir_offset = 0
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
-		if(!(dir_offset in cardinal))
-			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in cardinal directions, to)
+		if(!(dir_offset in GLOB.cardinal))
+			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in GLOB.cardinal directions, to)
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src,source_turf)

@@ -59,7 +59,7 @@ var/list/doppler_arrays = list()
 		return
 
 	var/message = "Explosive disturbance detected - Epicenter at: grid ([x0],[y0],[z0]). Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range]."
-	global_announcer.autosay(message, "Tachyon-Doppler Array", "Science")
+	GLOB.global_announcer.autosay(message, "Tachyon-Doppler Array", "Science")
 
 	var/list/gained_tech
 	switch(devastation_range)

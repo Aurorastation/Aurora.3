@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MAGNET = 2, TECH_COMBAT = 1)
 
 	var/times_used = 0 //Number of times it's been used.
@@ -152,12 +152,13 @@
 			L.disable_cloaking_device()
 
 /obj/item/device/flash/emp_act(severity)
+	. = ..()
+
 	var/mob/living/L = loc
 	if(!istype(L) || broken || burnout_check(L, intensity = 15 / severity))
 		return
 	to_chat(L, SPAN_WARNING("Your [src] goes off!"))
 	flash(L)
-	..()
 
 /obj/item/device/flash/synthetic
 	name = "synthetic flash"

@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(holomap)
 		A = T.loc
 		Ttype = T.type
 
-		if (A.flags & HIDE_FROM_HOLOMAP)
+		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
 			continue
 		if (rock_tcache[Ttype])
 			continue

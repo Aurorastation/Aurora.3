@@ -14,7 +14,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_EXPOUTPOST
 
 /area/raskara_okon/observatory
@@ -88,4 +88,4 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/okon_crew/get_id_access()
-	return list(access_pra, access_external_airlocks)
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)

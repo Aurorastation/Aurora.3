@@ -27,8 +27,8 @@ pixel_x = 8;
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
-	flags = CONDUCT | NOBLOODY
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/global/list/screen_overlays
@@ -68,7 +68,7 @@ pixel_x = 8;
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
 		if(V.comms_name)
 			name = "intercom ([V.comms_name])"
@@ -310,7 +310,7 @@ pixel_x = 8;
 	set_frequency(SEC_I_FREQ)
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
-		num2text(SEC_I_FREQ) = list(access_security)
+		num2text(SEC_I_FREQ) = list(ACCESS_SECURITY)
 	)
 
 /obj/item/device/radio/intercom/entertainment
@@ -373,7 +373,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(SYND_FREQ)
-	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
+	internal_channels[num2text(SYND_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/raider
 	name = "illegally modified intercom"
@@ -396,7 +396,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(RAID_FREQ)
-	internal_channels[num2text(RAID_FREQ)] = list(access_syndicate)
+	internal_channels[num2text(RAID_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)
@@ -452,9 +452,12 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/broadcasting/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
 
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	set_broadcasting(TRUE)
 
-	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/radio/intercom/locked

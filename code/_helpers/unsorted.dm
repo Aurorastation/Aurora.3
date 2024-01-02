@@ -54,6 +54,51 @@
 	else if(dx < 0)
 		. += 360
 
+/**
+ * Gets all turfs inside a cone, return a `/list` of `/turf` that are inside the cone
+ *
+ * * source - The source from which to calculate the cone from, an `/atom`
+ * * middle_angle - The angle that is considered the middle, if not specific (eg. from a click), you can use `dir2angle(dir)` to convert the direction of the atom to an angle
+ * * distance - How far to take turfs from
+ * * angle_spread - How much degrees does the cone spread, from the `middle_angle`
+ *
+ */
+/proc/get_turfs_in_cone(atom/source, middle_angle, distance, angle_spread)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(!source)
+		crash_with("Source not specified")
+
+	if(isnull(middle_angle) || middle_angle < 0)
+		crash_with("middle_angle not specified, or invalid")
+
+	if(isnull(distance))
+		crash_with("Distance not specified")
+
+	if(angle_spread < 0)
+		crash_with("angle_spread cannot be negative")
+
+	var/list/turf/turfs_in_cone = list()
+	RETURN_TYPE(turfs_in_cone)
+
+	var/angle_left = (middle_angle - angle_spread + 360) % 360
+	var/angle_right = (middle_angle + angle_spread) % 360
+
+	for(var/turf/turf in range(distance, source))
+		var/angle_between_source_and_target = Get_Angle(source, turf)
+
+		// Ensure correct handling of angles spanning the 0-degree mark
+		if(angle_left <= angle_right)
+			if((angle_between_source_and_target >= angle_left) && (angle_between_source_and_target <= angle_right))
+				turfs_in_cone += turf
+		else
+			if((angle_between_source_and_target >= angle_left) || (angle_between_source_and_target <= angle_right))
+				turfs_in_cone += turf
+
+	return turfs_in_cone
+
+
 /proc/get_projectile_angle(atom/source, atom/target)
 	var/sx = source.x * world.icon_size
 	var/sy = source.y * world.icon_size
@@ -300,7 +345,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/freeborg()
 	var/select = null
 	var/list/borgs = list()
-	for (var/mob/living/silicon/robot/A in player_list)
+	for (var/mob/living/silicon/robot/A in GLOB.player_list)
 		if (A.stat == 2 || A.connected_ai || A.scrambled_codes || istype(A,/mob/living/silicon/robot/drone))
 			continue
 		var/name = "[A.real_name] ([A.mod_type] [A.braintype])"
@@ -313,7 +358,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 ///When a borg is activated, it can choose which AI it wants to be slaved to
 /proc/active_ais()
 	. = list()
-	for(var/mob/living/silicon/ai/A in living_mob_list)
+	for(var/mob/living/silicon/ai/A in GLOB.living_mob_list)
 		if(A.stat == DEAD)
 			continue
 		if(A.control_disabled == 1)
@@ -395,7 +440,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 ///Orders mobs by type then by name
 /proc/sortmobs()
 	var/list/moblist = list()
-	var/list/sortmob = sortAtom(mob_list)
+	var/list/sortmob = sortAtom(GLOB.mob_list)
 	for(var/mob/abstract/eye/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/silicon/ai/M in sortmob)
@@ -557,9 +602,21 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	else return get_step(ref, base_dir)
 
+/**
+ * Makes a mob perform an action to another mob, showing a progress bar and over a given time
+ *
+ * * user - The `/mob` that performs the action
+ * * target - The `/mob` that the action is being performed to
+ * * delay - The time it takes for the action to be performed
+ * * needhand - Boolean, if a free hand is needed for the action to be successful
+ * * display_progress - Boolean, if the progress bar is shown
+ * * extra_checks - A `/datum/callback` that is invoked to perform extra checks and validate that the action can continue to be performed,
+ * if it returns `FALSE` or an algebraic equivalent the action is aborted
+ */
 /proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
-		return 0
+		stack_trace("do_mob called without either an user or a target!")
+		return FALSE
 
 	var/user_loc = user.loc
 	var/target_loc = target.loc
@@ -575,7 +632,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/endtime = world.time + delay
 	var/starttime = world.time
 
-	. = 1
+	. = TRUE
 
 	while (world.time < endtime)
 		stoplag(1)
@@ -583,11 +640,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			progbar.update(world.time - starttime)
 
 		if(QDELETED(user) || QDELETED(target))
-			. = 0
+			. = FALSE
 			break
 
 		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned || (extra_checks && !extra_checks.Invoke()))
-			. = 0
+			. = FALSE
 			break
 
 	if (progbar)
@@ -832,7 +889,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 /proc/get_mob_with_client_list()
 	var/list/mobs = list()
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.client)
 			mobs += M
 	return mobs

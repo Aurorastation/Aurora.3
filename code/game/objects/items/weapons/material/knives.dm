@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	sharp = 1
 	edge = TRUE
 	var/active = 1 // For butterfly knives
@@ -62,10 +62,11 @@
 /obj/item/material/knife/ritual
 	name = "ritual knife"
 	desc = "The unearthly energies that once powered this blade are now dormant."
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/item/material/knife/ritual.dmi'
 	icon_state = "render"
-	item_state = "knife"
-	applies_material_colour = 0
+	item_state = "render"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
 
 /obj/item/material/knife/raskariim
 	name = "adhomian ritual dagger"

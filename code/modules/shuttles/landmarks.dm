@@ -53,9 +53,9 @@
 			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/forceMove()
-	var/obj/effect/overmap/visitable/map_origin = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
 	. = ..()
-	var/obj/effect/overmap/visitable/map_destination = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_destination = GLOB.map_sectors["[z]"]
 	if(map_origin != map_destination)
 		if(map_origin)
 			map_origin.remove_landmark(src, shuttle_restricted)
@@ -183,3 +183,20 @@
 	if(active)
 		icon_state = "bluflare_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
+
+//This one activates away site ghostroles on the z-level.
+/obj/effect/shuttle_landmark/automatic/ghostrole_activation
+	var/triggered_away_sites = FALSE
+	var/landmark_position
+
+/obj/effect/shuttle_landmark/automatic/ghostrole_activation/shuttle_arrived(datum/shuttle/shuttle)
+	. = ..()
+	if(!triggered_away_sites && !isStationLevel(loc.z))
+		for(var/s in SSghostroles.spawners)
+			var/datum/ghostspawner/G = SSghostroles.spawners[s]
+			for(var/obj/effect/ghostspawpoint/L in SSghostroles.spawnpoints[s])
+				landmark_position = L.loc.z
+			if(landmark_position == src.loc.z)
+				if(!(G.enabled))
+					G.enable()
+		triggered_away_sites = TRUE

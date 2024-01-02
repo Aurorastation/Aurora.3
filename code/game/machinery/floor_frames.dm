@@ -3,7 +3,7 @@
 	desc = "Used for building machines."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/build_machine_type
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
@@ -29,7 +29,7 @@
 	else
 		ndir = get_dir(on_floor,usr)
 
-	if (!(ndir in cardinal))
+	if (!(ndir in GLOB.cardinal))
 		return
 
 	var/turf/loc = get_turf(on_floor)

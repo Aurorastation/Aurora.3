@@ -168,9 +168,9 @@
 		testing("Moving [A]")
 		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
 	var/old_location = current_location
-	shuttle_pre_move_event.raise_event(src, old_location, destination)
+	GLOB.shuttle_pre_move_event.raise_event(src, old_location, destination)
 	shuttle_moved(destination, translation)
-	shuttle_moved_event.raise_event(src, old_location, destination)
+	GLOB.shuttle_moved_event.raise_event(src, old_location, destination)
 	destination.shuttle_arrived(src)
 	return TRUE
 
@@ -181,7 +181,7 @@
 
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
-		if(destination.flags & SLANDMARK_FLAG_ZERO_G)
+		if(destination.landmark_flags & SLANDMARK_FLAG_ZERO_G)
 			var/area/new_area = get_area(destination)
 			new_grav = new_area.has_gravity
 		for(var/area/our_area in shuttle_area)

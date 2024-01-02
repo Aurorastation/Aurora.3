@@ -8,7 +8,7 @@
 /obj/item/clothing/shoes/combat/speed
 	name = "boots of speed"
 	desc = "The latest in sure footing technology."
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.6
 	slowdown = -1
 	armor = null

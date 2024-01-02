@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 
 //ghostroles
@@ -57,7 +57,7 @@
 	l_pocket = /obj/item/device/radio
 
 /datum/outfit/admin/nka_base/get_id_access()
-	return list(access_nka)
+	return list(ACCESS_NKA)
 
 /datum/ghostspawner/human/nka_base/commander
 	short_name = "nka_base_commander"

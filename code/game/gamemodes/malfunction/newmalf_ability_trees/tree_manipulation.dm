@@ -64,7 +64,7 @@
 	to_chat(user, "Holopad hacked.")
 	user.hacking = 0
 
-/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in cameranet.cameras)
+/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in GLOB.cameranet.cameras)
 	set name = "Hack Camera"
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
@@ -215,7 +215,7 @@
 		if(temp_apc && temp_apc.terminal && temp_apc.terminal.powernet)
 			temp_apc.terminal.powernet.trigger_warning(50) // Long alarm
 		if(temp_apc)
-			temp_apc.emp_act(3) // Such power surges are not good for APC electronics/cell in general.
+			temp_apc.emp_act(EMP_LIGHT) // Such power surges are not good for APC electronics/cell in general.
 			if(prob(explosion_intensity))
 				temp_apc.set_broken()
 

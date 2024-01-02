@@ -100,7 +100,7 @@
 /obj/machinery/computer/shuttle_control/explore/fsf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "FSF Shuttle"
-	req_access = list(access_sol_ships)
+	req_access = list(ACCESS_SOL_SHIPS)
 
 /datum/shuttle/autodock/overmap/fsf_shuttle
 	name = "FSF Shuttle"

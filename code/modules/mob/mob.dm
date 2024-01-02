@@ -3,9 +3,9 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	mob_list -= src
-	dead_mob_list -= src
-	living_mob_list -= src
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
@@ -76,11 +76,11 @@
 /mob/Initialize()
 	. = ..()
 	if(should_add_to_mob_list)
-		mob_list += src
+		GLOB.mob_list += src
 		if(stat == DEAD)
-			dead_mob_list += src
+			GLOB.dead_mob_list += src
 		else
-			living_mob_list += src
+			GLOB.living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
@@ -137,32 +137,26 @@
 		to_chat(src, msg)
 	return
 
-// Show a message to all mobs and objects in sight of this one
-// This would be for visible actions by the src mob
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
-	for(var/A in player_list)
+	for(var/A in GLOB.player_list)
 		var/mob/M = A
 		if (QDELETED(M))
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			player_list -= M
+			GLOB.player_list -= M
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
-	for(var/o in listening_objects)
+	for(var/o in GLOB.listening_objects)
 		var/obj/O = o
 		var/turf/O_turf = get_turf(O)
 		if(O && (O_turf in messageturfs))
@@ -241,7 +235,7 @@
 		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.real_name == text("[]", msg))
 			return M
 	return 0
@@ -466,7 +460,7 @@
 		return//This shouldnt happen
 
 	var/failure = null
-	if (!( config.abandon_allowed ))
+	if (!( GLOB.config.abandon_allowed ))
 		failure = "Respawn is disabled."
 	else if (stat != DEAD)
 		failure = "You must be dead to use this!"
@@ -520,8 +514,8 @@
 	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
 	changelog_win.set_content(file2text('html/changelog.html'))
 	changelog_win.open()
-	if(prefs.lastchangelog != changelog_hash)
-		prefs.lastchangelog = changelog_hash
+	if(prefs.lastchangelog != GLOB.changelog_hash)
+		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
 		winset(src, "rpane.changelog", "background-color=none;font-style=;")
 
@@ -577,7 +571,7 @@
 			creatures[name] = O
 
 
-	for(var/mob/M in sortAtom(mob_list))
+	for(var/mob/M in sortAtom(GLOB.mob_list))
 		var/name = M.name
 		if (names.Find(name))
 			namecounts[name]++

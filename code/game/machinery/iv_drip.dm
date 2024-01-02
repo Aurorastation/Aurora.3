@@ -80,7 +80,7 @@
 /obj/machinery/iv_drip/Crossed(var/mob/H)
 	if(ishuman(H))
 		var/mob/living/carbon/human/M = H
-		if(M.shoes?.item_flags & LIGHTSTEP)
+		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.incapacitated())
 			return
@@ -448,7 +448,7 @@
 		user.visible_message(
 			SPAN_NOTICE("[user] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
 			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
-		playsound(src.loc, "sound/items/wrench.ogg", 50, 1)
+		playsound(src.loc, 'sound/items/wrench.ogg', 50, 1)
 		is_loose = !is_loose
 		return TRUE
 	if(default_deconstruction_screwdriver(user, W))

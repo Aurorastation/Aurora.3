@@ -421,9 +421,10 @@
 
 
 /obj/machinery/door/emp_act(severity)
+	. = ..()
+
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
 		open()
-	..()
 
 
 /obj/machinery/door/ex_act(severity)
@@ -450,7 +451,7 @@
 				take_damage(damage, FALSE)
 		if(3.0)
 			if(prob(80))
-				spark(src, 2, alldirs)
+				spark(src, 2, GLOB.alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8

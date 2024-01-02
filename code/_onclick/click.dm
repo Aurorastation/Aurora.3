@@ -120,6 +120,7 @@
 		return 1
 
 	if(in_throw_mode && (isturf(A) || isturf(A.loc)) && throw_item(A))
+		trigger_aiming(TARGET_CAN_CLICK)
 		throw_mode_off()
 		return TRUE
 
@@ -127,6 +128,7 @@
 
 	if(W == A) // Handle attack_self
 		W.attack_self(src)
+		trigger_aiming(TARGET_CAN_CLICK)
 		if(hand)
 			update_inv_l_hand(0)
 		else
@@ -149,6 +151,8 @@
 			if(ismob(A)) // No instant mob attacking
 				setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			UnarmedAttack(A, 1)
+
+		trigger_aiming(TARGET_CAN_CLICK)
 		return 1
 
 	if(!isturf(loc)) // This is going to stop you from telekinesing from inside a closet, but I don't shed many tears for that
@@ -168,19 +172,23 @@
 				if(ismob(A)) // No instant mob attacking
 					setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				UnarmedAttack(A, 1)
+
+			trigger_aiming(TARGET_CAN_CLICK)
 			return
 		else // non-adjacent click
 			if(W)
 				W.afterattack(A, src, 0, params) // 0: not Adjacent
 			else
 				RangedAttack(A, params)
+
+			trigger_aiming(TARGET_CAN_CLICK)
 	return 1
 
 /mob/proc/setClickCooldown(var/timeout)
 	next_move = max(world.time + timeout, next_move)
 
 /mob/proc/canClick()
-	if(config.no_click_cooldown || next_move <= world.time)
+	if(GLOB.config.no_click_cooldown || next_move <= world.time)
 		return 1
 	return 0
 
@@ -345,7 +353,7 @@
 	var/dy = A.y - y
 
 	var/direction
-	if (loc == A.loc && A.flags & ON_BORDER)
+	if (loc == A.loc && A.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 		direction = A.dir
 	else if (!dx && !dy)
 		return

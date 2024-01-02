@@ -38,6 +38,12 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
+/obj/item/ammo_magazine/c45/revolver
+	name = "speed loader (.45)"
+	icon_state = "a454"
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+
 // End of Revolvos //
 
 // Pistols and handguns //
@@ -123,6 +129,13 @@
 	max_ammo = 16
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c45m/dominia
+	name = "dominian service pistol magazine (.45)"
+	desc = "A magazine specifically designed for a Dominian service pistol."
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol_mag"
+	max_ammo = 11
+
 /obj/item/ammo_magazine/c46m
 	name = "magazine (4.6mm)"
 	icon_state = "4.6x30p"
@@ -133,6 +146,12 @@
 	ammo_type = /obj/item/ammo_casing/c46mm
 	max_ammo = 15
 	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/c46m/extended
+	name = "extended magazine (4.6mm)"
+	icon_state = "4.6x30p_extended"
+	desc = "A magazine designed for the dNAC-4.6 II submachine gun, but can also be used in the dNAC-4.6 pistol."
+	max_ammo = 30
 
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
@@ -293,6 +312,16 @@
 	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 50
 
+/obj/item/ammo_magazine/smg10mm
+	name = "smg magazine (10mm)"
+	desc = "A detachable magazine for the improvised konyanger pirate SMG, made from scrap metal."
+	icon_state = "10mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/smg10mm
+	caliber = "10mm"
+	max_ammo = 20
+	multiple_sprites = 1
+
 // End of SMGs and PDWs //
 
 // Rifles and bigger calibers //
@@ -326,6 +355,10 @@
 	icon_state = "5.56AP"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
+/obj/item/ammo_magazine/a556/k556
+	name = "konyang rifle magazine"
+	icon_state = "k556rifle_mag"
+
 /obj/item/ammo_magazine/a556/carbine
 	name = "carbine magazine (5.56mm)"
 	icon_state = "5.56c"
@@ -357,6 +390,10 @@
 	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/blank
 
+/obj/item/ammo_magazine/a556/carbine/konyang47
+	name = "konyang carbine magazine"
+	icon_state = "k47_mag"
+
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"
 	icon_state = "5.56m"
@@ -366,6 +403,12 @@
 
 /obj/item/ammo_magazine/a556/makeshift/empty
 	initial_ammo = 0
+
+/obj/item/ammo_magazine/a556/dlmg
+	name = "MPR-24/5 light machine gun magazine"
+	max_ammo = 50
+	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon_state = "dom_lmg_mag"
 
 /obj/item/ammo_magazine/a65
 	name = "magazine (6.5mm)"
@@ -440,6 +483,11 @@
 
 /obj/item/ammo_magazine/c762/dpra
 	icon_state = "mrrazhak_mag"
+
+/obj/item/ammo_magazine/c762/dominia
+	name = "mpr-24/5 carbine magazine (7.62mm)"
+	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon_state = "dom_carbine_mag"
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
@@ -644,4 +692,14 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/konyang_shotgun
+	name = "konyang shotgun magazine"
+	icon_state = "konyang_shotgun"
+	caliber = "shotgun"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 9
 	multiple_sprites = 1

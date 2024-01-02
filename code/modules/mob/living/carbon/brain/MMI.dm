@@ -12,7 +12,7 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 
@@ -101,8 +101,8 @@
 				brainmob.forceMove(src)
 				brainmob.container = src
 				brainmob.set_stat(CONSCIOUS)
-				dead_mob_list -= brainmob //Update dem lists
-				living_mob_list += brainmob
+				GLOB.dead_mob_list -= brainmob //Update dem lists
+				GLOB.living_mob_list += brainmob
 
 				brainobj = B
 				braintype_check()
@@ -163,7 +163,7 @@
 /obj/item/device/mmi/proc/transfer_mob_to_brain()
 	brainmob.container = null //Reset brainmob mmi var.
 	brainmob.forceMove(brainobj) //Throw mob into brain.
-	living_mob_list -= brainmob //Get outta here
+	GLOB.living_mob_list -= brainmob //Get outta here
 	brainobj.brainmob = brainmob //Set the brain to use the brainmob
 	brainobj = null
 	brainmob = null
@@ -278,17 +278,16 @@
 	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_listening() ? "now" : "no longer"] receiving broadcast."))
 
 /obj/item/device/mmi/emp_act(severity)
+	. = ..()
+
 	if(!brainmob)
 		return
-	else
-		switch(severity)
-			if(1)
-				brainmob.emp_damage += rand(20,30)
-			if(2)
-				brainmob.emp_damage += rand(10,20)
-			if(3)
-				brainmob.emp_damage += rand(0,10)
-	..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			brainmob.emp_damage += rand(20,30)
+		if(EMP_LIGHT)
+			brainmob.emp_damage += rand(10,20)
 
 /obj/item/device/mmi/digital/Initialize(mapload, ...)
 	. = ..()

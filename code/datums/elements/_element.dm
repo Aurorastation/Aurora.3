@@ -14,7 +14,7 @@
 	 *
 	 * This is infinity so you must explicitly set this
 	 */
-	var/id_arg_index = INFINITY
+	var/argument_hash_start_idx = INFINITY
 
 /// Activates the functionality defined by the element on the given target datum
 /datum/element/proc/Attach(datum/target)
@@ -22,14 +22,14 @@
 	if(type == /datum/element)
 		return ELEMENT_INCOMPATIBLE
 	SEND_SIGNAL(target, COMSIG_ELEMENT_ATTACH, src)
-	if(element_flags & ELEMENT_DETACH)
-		RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(Detach), override = TRUE)
+	if(element_flags & ELEMENT_DETACH_ON_HOST_DESTROY)
+		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(Detach), override = TRUE)
 
 /// Deactivates the functionality defines by the element on the given datum
 /datum/element/proc/Detach(datum/source, force)
-	SEND_SIGNAL(source, COMSIG_ELEMENT_DETACH, src)
+	SEND_SIGNAL(source, COMSIG_ELEMENT_DETACH_ON_HOST_DESTROY, src)
 	SHOULD_CALL_PARENT(1)
-	UnregisterSignal(source, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(source, COMSIG_QDELETING)
 
 /datum/element/Destroy(force)
 	if(!force)

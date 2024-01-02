@@ -294,7 +294,6 @@
 /obj/structure/closet/crate/gear_loadout/zenghu/fill()
 	new /obj/item/clothing/head/helmet/space/void/zenghu(src)
 	new /obj/item/clothing/suit/space/void/zenghu(src)
-	new /obj/item/voidsuit_modkit/zeng_skrell(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
 
@@ -308,7 +307,6 @@
 	new /obj/item/clothing/suit/space/void/hephaestus(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/voidsuit_modkit/heph_unathi(src)
 
 /obj/structure/closet/crate/gear_loadout/einstein/suit/fill()
 	new /obj/item/clothing/head/helmet/space/void/einstein(src)
@@ -341,8 +339,8 @@
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
-	new /obj/item/gun/projectile/automatic/rifle/dom(src)
-	new /obj/item/gun/projectile/automatic/rifle/dom(src)
+	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
+	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/ammo_magazine/c762(src)
@@ -373,7 +371,7 @@
 	new /obj/item/clothing/under/dominia/fleet/armsman(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
-	new /obj/item/gun/projectile/automatic/rifle/dom(src)
+	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/melee/energy/sword/pirate(src)
@@ -807,6 +805,139 @@
 	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/shield/riot/tact(src)
 
+
+/obj/structure/closet/crate/secure/gear_loadout/hammertail/fill()
+	var/i
+	for(i=0, i<6, i++) //6 outfits
+		new /obj/item/clothing/under/syndicate/hammertail(src)
+	for(i=0, i<4, i++) //4 voidsuits w/helmets
+		new /obj/item/clothing/head/helmet/space/void/merc(src)
+		new /obj/item/clothing/suit/space/void/merc(src)
+	for(i=0, i<4, i++) //4 e-swords
+		new /obj/item/melee/energy/sword(src)
+	for(i=0, i<4, i++) //4 heavy pistols w/spare magazines
+		new /obj/item/gun/projectile/pistol/super_heavy(src)
+		new /obj/item/ammo_magazine/super_heavy(src)
+	for(i=0, i<4, i++) //4 tungsten slug guns w/spare magazines
+		new /obj/item/gun/projectile/gauss(src)
+		new /obj/item/ammo_magazine/gauss(src)
+	for(i=0, i<2, i++) //2 assault rifles w/spare magazines
+		new /obj/item/gun/projectile/automatic/rifle/sts35(src)
+		new /obj/item/ammo_magazine/c762(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/hammertail/single/fill()
+	new /obj/item/clothing/under/syndicate/hammertail(src) //1 outfit
+	new /obj/item/clothing/head/helmet/space/void/merc(src) //1 voidsuit w/helmet
+	new /obj/item/clothing/suit/space/void/merc(src)
+	new /obj/item/melee/energy/sword(src) //1 e-sword
+	new /obj/item/gun/projectile/revolver(src) //1 .357 pistol w/spare speedloader
+	new /obj/item/ammo_magazine/a357(src)
+	new /obj/item/gun/projectile/gauss(src) //1 tungsten slug gun w/spare magazine
+	new /obj/item/ammo_magazine/gauss(src)
+
+/obj/structure/closet/crate/gear_loadout/qukala/fill()
+	new /obj/item/clothing/under/skrell/qukala(src)
+	new /obj/item/clothing/under/skrell/qukala(src)
+	new /obj/item/clothing/under/skrell/qukala(src)
+	new /obj/item/clothing/under/skrell/qukala(src)
+	new /obj/item/clothing/suit/space/void/kala(src)
+	new /obj/item/clothing/suit/space/void/kala(src)
+	new /obj/item/clothing/suit/space/void/kala/med(src)
+	new /obj/item/clothing/suit/space/void/kala/engineering(src)
+	new /obj/item/clothing/suit/space/void/kala/leader(src)
+	new /obj/item/clothing/head/helmet/space/void/kala(src)
+	new /obj/item/clothing/head/helmet/space/void/kala(src)
+	new /obj/item/clothing/head/helmet/space/void/kala/engineering(src)
+	new /obj/item/clothing/head/helmet/space/void/kala/med(src)
+	new /obj/item/clothing/head/helmet/space/void/kala/leader(src)
+	new /obj/item/clothing/suit/storage/vest/kala(src)
+	new /obj/item/clothing/suit/storage/vest/kala(src)
+	new /obj/item/clothing/suit/storage/vest/kala(src)
+	new /obj/item/clothing/suit/storage/vest/kala(src)
+	new /obj/item/clothing/shoes/jackboots/kala(src)
+	new /obj/item/clothing/shoes/jackboots/kala(src)
+	new /obj/item/clothing/shoes/jackboots/kala(src)
+	new /obj/item/clothing/shoes/jackboots/kala(src)
+	new /obj/item/rig/skrell/equipped/merc(src)
+	new /obj/item/gun/energy/fedpistol(src)
+	new /obj/item/gun/energy/fedpistol(src)
+	new /obj/item/gun/energy/fedpistol(src)
+	new /obj/item/gun/energy/fedpistol(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser/qukala(src)
+	new /obj/item/gun/energy/rifle/laser/qukala(src)
+	new /obj/item/gun/energy/rifle/laser/qukala(src)
+	new /obj/item/gun/energy/rifle/laser/qukala(src)
+	new /obj/item/clothing/gloves/kala(src)
+	new /obj/item/clothing/gloves/kala(src)
+	new /obj/item/clothing/gloves/kala(src)
+	new /obj/item/clothing/gloves/kala(src)
+
+/obj/structure/closet/crate/gear_loadout/qukala/single/fill()
+	new /obj/item/clothing/under/skrell/qukala(src)
+	new /obj/item/clothing/gloves/kala(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser/qukala(src)
+	new /obj/item/gun/energy/fedpistol(src)
+	new /obj/item/clothing/suit/storage/vest/kala(src)
+	new /obj/item/clothing/suit/space/void/kala(src)
+	new /obj/item/clothing/head/helmet/space/void/kala(src)
+	new /obj/item/clothing/shoes/jackboots/kala(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill()
+	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/gun/projectile/automatic/rifle/dominia_carbine(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/gun/projectile/automatic/rifle/dominia_lmg(src)
+	new /obj/item/ammo_magazine/a556/dlmg(src)
+	new /obj/item/ammo_magazine/a556/dlmg(src)
+	new /obj/item/clothing/under/dominia/army(src)
+	new /obj/item/clothing/under/dominia/army(src)
+	new /obj/item/clothing/under/dominia/army(src)
+	new /obj/item/clothing/under/dominia/army/nco(src)
+	new /obj/item/clothing/accessory/dominia/nco_badge(src)
+	new /obj/item/storage/backpack/dominia(src)
+	new /obj/item/storage/backpack/dominia(src)
+	new /obj/item/storage/backpack/dominia(src)
+	new /obj/item/storage/backpack/dominia/nco(src)
+	new /obj/item/storage/belt/military(src)
+	new /obj/item/storage/belt/military(src)
+	new /obj/item/storage/belt/military(src)
+	new /obj/item/storage/belt/military(src)
+	new /obj/item/clothing/head/helmet/dominia(src)
+	new /obj/item/clothing/head/helmet/dominia(src)
+	new /obj/item/clothing/head/helmet/dominia(src)
+	new /obj/item/clothing/head/helmet/dominia/nco(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/imperial_army/single/fill()
+	new /obj/item/gun/projectile/automatic/rifle/dominia_carbine(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/ammo_magazine/c762/dominia(src)
+	new /obj/item/clothing/under/dominia/army(src)
+	new /obj/item/storage/backpack/dominia(src)
+	new /obj/item/storage/belt/military(src)
+	new /obj/item/clothing/head/helmet/dominia(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+
 //ninja stuff
 /obj/structure/closet/crate/secure/gear_loadout/ninja
 	var/associated_hardsuit = /obj/item/rig/light/ninja
@@ -931,3 +1062,46 @@
 	new /obj/item/gun/projectile/pistol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/einstein
+	associated_hardsuit = /obj/item/rig/merc/einstein/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/einstein/fill()
+	..()
+	new /obj/item/clothing/under/rank/einstein(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle(src)
+	new /obj/item/gun/projectile/pistol(src)
+	new /obj/item/suppressor(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/vaurca
+	associated_hardsuit = /obj/item/rig/vaurca
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/vaurca/fill()
+	var/obj/item/clothing/under/vaurca/clothes = new(src)
+	var/obj/item/clothing/shoes/vaurca/shoes = new(src)
+	var/obj/item/clothing/glasses/sunglasses/blinders/blinders = new(src)
+	clothes.color = COLOR_GRAY20
+	shoes.color = COLOR_GRAY20
+	blinders.color = COLOR_GRAY20
+
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/mask/gas/vaurca/tactical(src)
+	new /obj/item/melee/energy/vaurca(src)
+	new /obj/item/reagent_containers/food/snacks/koisbar(src)
+	new /obj/item/reagent_containers/food/snacks/koisbar(src)
+	new /obj/item/reagent_containers/food/snacks/koisbar(src)
+	new /obj/item/gun/energy/vaurca/blaster(src)
+	new /obj/item/device/augment_implanter/hivenet_warfare(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/skrell
+	associated_hardsuit = /obj/item/rig/skrell/tup/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/skrell/fill()
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/under/skrell/tupkala(src)
+	new /obj/item/gun/energy/rifle/laser/qukala(src)
+	new /obj/item/clothing/shoes/jackboots/kala(src)
+	new /obj/item/gun/energy/fedpistol(src)

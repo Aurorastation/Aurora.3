@@ -5,17 +5,17 @@
 	icon_state = "mopbucket"
 	density = 1
 	w_class = ITEMSIZE_NORMAL
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/amount_per_transfer_from_this = 5	//shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/bucketsize = 600 //about 2x the size relative to a regular bucket.
 
 /obj/structure/mopbucket/Initialize()
 	. = ..()
 	create_reagents(bucketsize)
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/structure/mopbucket/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/structure/mopbucket/examine(mob/user, distance, is_adjacent)

@@ -64,7 +64,7 @@
 	if(power > 20)
 		var/probmod = 5 + (power-20)
 		if(prob(probmod) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
-			step(M, pick(cardinal))
+			step(M, pick(GLOB.cardinal))
 
 	if(prob(7))
 		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
@@ -656,4 +656,43 @@
 	if(M.losebreath < 15)
 		M.losebreath++
 
+/singleton/reagent/drugs/dionae_stimulant
+	name = "Diesel"
+	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materialls and provides an invigorating kick to a dionae's workday."
+	color = "#465044"
+	taste_description = "gritty corium"
+	reagent_state = SOLID
+	metabolism = REM*0.04
+	overdose = 10
+	unaffected_species = IS_MACHINE
+
+	initial_effect_message_list = list("A heat builds within you.", )
+	sober_message_list = list("The heat within you begins to dull...")
+
+/singleton/reagent/drugs/dionae_stimulant/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	if(alien == IS_DIONA)
+		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		if(prob(5))
+			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
+			M.emote(pick("chirp", "twitch", "shiver"))
+
+/singleton/reagent/drugs/dionae_stimulant/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(alien == IS_DIONA)
+		if(prob(5))
+			to_chat(M, SPAN_DANGER(pick("Your nymphs keep interrupting one another - decisions can't be made!", "A nymph is too many steps ahead of the majority, we can't keep up!", "None of your nymphs have time to deliberate!", "What do we do? Where do we go? What do we say?")))
+		if(prob(5))
+			M.Weaken(10)
+			M.Stun(10)
+
+/singleton/reagent/drugs/dionae_stimulant/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 2)
+		if(!istype(T, /turf/space))
+			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
+			if(!glow)
+				new /obj/effect/decal/cleanable/greenglow(T)
+			return
+
 #undef DRUG_MESSAGE_DELAY
+

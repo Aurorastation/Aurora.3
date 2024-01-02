@@ -32,7 +32,6 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	stop_sight_update = TRUE
 
@@ -190,7 +189,7 @@
 	for(var/atom/movable/AM in src)
 		AM.forceMove(loc)
 		if(prob(90))
-			step(AM, pick(global.alldirs))
+			step(AM, pick(GLOB.alldirs))
 
 /mob/living/simple_animal/hostile/morph/UnarmedAttack(atom/A, proximity)
 	if(morphed && !melee_damage_disguised)

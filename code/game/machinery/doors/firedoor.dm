@@ -11,7 +11,7 @@
 	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
-	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP, ACCESS_FIRST_RESPONDER)
 	opacity = 0
 	density = 0
 	layer = LAYER_UNDER_TABLE
@@ -75,7 +75,7 @@
 	if(!mapload)
 		enable_smart_generation = 0
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/T = get_step(src,direction)
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
@@ -497,7 +497,8 @@
 /obj/machinery/door/firedoor/noid/closed
 	req_one_access = null
 	icon_state = "door_closed"
-	density = 1
+	density = TRUE
+	opacity = TRUE
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 

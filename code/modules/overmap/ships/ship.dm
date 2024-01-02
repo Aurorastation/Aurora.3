@@ -109,6 +109,15 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	. += "<br><center><b>Native Database Notes</b></center>"
 	. += "<br><small>[desc]</small>"
 
+/obj/effect/overmap/visitable/ship/get_tooltip_description()
+	var/description = "<ul>"
+	description += "<li><b>Manufacturer:</b> [designer]</li>"
+	description += "<li><b>Class Designation:</b> [sizeclass]</li>"
+	description += "<li><b>Designated Purpose:</b> [shiptype]</li>"
+	description += "<li><b>Weapons Estimation:</b> [weapons]</li>"
+	description += "</ul>"
+	return description
+
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()
 	return round(get_total_thrust()/get_vessel_mass(), SHIP_MOVE_RESOLUTION)
@@ -129,7 +138,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/get_speed_xy()
 	return list(round(speed[1], SHIP_MOVE_RESOLUTION), round(speed[2], SHIP_MOVE_RESOLUTION))
 
-/obj/effect/overmap/visitable/ship/proc/get_heading()
+/obj/effect/overmap/visitable/ship/get_heading()
 	var/res = 0
 	if(MOVING(speed[1]))
 		if(speed[1] > 0)
@@ -197,7 +206,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 				if(position[i] < 0)
 					deltas[i] = CEILING(position[i], 1)
 				else if(position[i] > 0)
-					deltas[i] = Floor(position[i])
+					deltas[i] = FLOOR(position[i])
 				if(deltas[i] != 0)
 					position[i] -= deltas[i]
 					position[i] += (deltas[i] > 0) ? -1 : 1
@@ -331,7 +340,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		speed[2] = 0
 		update_icon()
 	dir = get_heading()
-	for(var/mob/living/L in living_mob_list)
+	for(var/mob/living/L in GLOB.living_mob_list)
 		if(L.z in map_z)
 			if(!gravity_generator?.on && !L.anchored)
 				to_chat(L, SPAN_DANGER("The ship rapidly turns beneath you!"))
@@ -347,7 +356,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	burn()
 	var/dir_to_move = turn(dir, new_dir == WEST ? 90 : -90)
 	forceMove(get_step(src, dir_to_move))
-	for(var/mob/living/L in living_mob_list)
+	for(var/mob/living/L in GLOB.living_mob_list)
 		if(L.z in map_z)
 			if(!gravity_generator?.on && !L.anchored)
 				to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines beneath you!</font>"))

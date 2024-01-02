@@ -24,7 +24,7 @@
 
 	amount_per_transfer_from_this = 0.2
 	possible_transfer_amounts = list(0.2, 1, 2, 3, 4)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/datum/weakref/attached_mob
 
@@ -203,7 +203,7 @@
 					if(51 to INFINITY)	strength = 4
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
-						var/direction = pick(alldirs)
+						var/direction = pick(GLOB.alldirs)
 						var/target
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)

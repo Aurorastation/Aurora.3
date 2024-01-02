@@ -4,8 +4,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "company officials"
 	selection_color = "#6186cf"
 	economic_modifier = 15
@@ -16,8 +16,8 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(access_lawyer, access_maint_tunnels)
-	minimal_access = list(access_lawyer)
+	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_LAWYER)
 	alt_titles = list(
 		"Workplace Liaison",
 		"Corporate Representative",
@@ -25,6 +25,18 @@
 		)
 	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+
+/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
+	var/datum/faction/faction = SSjobs.name_factions[player.client.prefs.faction]
+	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
+/datum/job/representative/after_spawn(mob/living/carbon/human/H)
+	var/datum/faction/faction = SSjobs.GetFaction(H)
+	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
+/datum/job/representative/on_despawn(mob/living/carbon/human/H)
+	var/datum/faction/faction = SSjobs.GetFaction(H)
+	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -94,8 +106,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "your embassy"
 	selection_color = "#6186cf"
 	economic_modifier = 15
@@ -112,10 +124,11 @@
 		SPECIES_SKRELL_AXIORI = 170
 	)
 
-	access = list(access_consular, access_maint_tunnels)
-	minimal_access = list(access_consular)
+	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -142,3 +155,15 @@
 	if(citizenship)
 		rep_objectives = citizenship.get_objectives(mission_level, H)
 	return rep_objectives
+
+/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[player.client.prefs.citizenship]
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
+
+/datum/job/consular/after_spawn(mob/living/carbon/human/H)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
+
+/datum/job/consular/on_despawn(mob/living/carbon/human/H)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	LAZYREMOVE(blacklisted_citizenship, citizenship.name)

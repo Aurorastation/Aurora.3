@@ -157,3 +157,37 @@
 	desc = "A crate containing gear for a single individual. The hardsuit is only usable by humans and skrell."
 	path = /obj/structure/closet/crate/gear_loadout/nanotrasen/single
 	telecrystal_cost = 15
+
+/datum/uplink_item/item/gear_loadout/hammertail
+	name = "Hammertail Smiths Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are are only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail
+
+/datum/uplink_item/item/gear_loadout/hammertail_single
+	name = "Hammertail Smiths Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/hammertail/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/qukala
+	name = "Qukala Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits and hardsuit are only usable by Skrell."
+	path = /obj/structure/closet/crate/gear_loadout/qukala
+
+/datum/uplink_item/item/gear_loadout/qukala_single
+	name = "Qukala Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Skrell."
+	path = /obj/structure/closet/crate/gear_loadout/qukala/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/imperial_army
+	name = "Imperial Army Assets (Group)"
+	desc = "A crate containing gear for a group."
+	path = /obj/structure/closet/crate/secure/gear_loadout/imperial_army
+	telecrystal_cost = 50
+
+/datum/uplink_item/item/gear_loadout/imperial_army_single
+	name = "Imperial Army Assets (Single)"
+	desc = "A crate containing gear for a single individual."
+	path = /obj/structure/closet/crate/secure/gear_loadout/imperial_army/single
+	telecrystal_cost = 15

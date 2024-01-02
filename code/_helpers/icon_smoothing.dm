@@ -101,12 +101,6 @@
 /turf/simulated/wall/shuttle
 	smooth_underlays = TRUE
 
-/turf/simulated/wall
-	smooth_underlays = TRUE
-
-/turf/unsimulated/wall
-	smooth_underlays = TRUE
-
 /atom/proc/calculate_adjacencies()
 	if (!loc)
 		return 0
@@ -131,7 +125,7 @@
 	else
 		var/atom/movable/AM
 
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			AM = find_type_in_direction(src, direction)
 			if(AM == NULLTURF_BORDER)
 				if((smoothing_flags & SMOOTH_BORDER))
@@ -189,7 +183,7 @@
 		return
 	if(QDELETED(A))
 		return
-	A.flags |= HTML_USE_INITAL_ICON
+	A.atom_flags |= ATOM_FLAG_HTML_USE_INITIAL_ICON
 	if((A.smoothing_flags & SMOOTH_TRUE) || (A.smoothing_flags & SMOOTH_MORE))
 		var/adjacencies = A.calculate_adjacencies()
 
@@ -273,7 +267,7 @@
 	if (smooth_underlays)
 		var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
-		for(var/direction in alldirs)
+		for(var/direction in GLOB.alldirs)
 			if(adjacencies & direction)
 				var/turf/T = get_step(src, direction)
 				if(T)

@@ -86,6 +86,12 @@
 	icon_state = "gcircuit"
 	initial_flooring = /singleton/flooring/reinforced/circuit/green
 
+/turf/simulated/floor/redgrid
+	name = "mainframe floor"
+	icon = 'icons/turf/flooring/circuit.dmi'
+	icon_state = "rcircuit"
+	initial_flooring = /singleton/flooring/reinforced/circuit/red
+
 //Wood Flooring
 /turf/simulated/floor/wood
 	name = "wooden floor"
@@ -136,7 +142,7 @@
 	icon_state = "diona0"
 	footstep_sound = /singleton/sound_category/grass_footstep
 	initial_flooring = /singleton/flooring/diona
-	flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
+	turf_flags = TURF_REMOVE_SHOVEL|TURF_REMOVE_WELDER
 
 /turf/simulated/floor/diona/airless
 	initial_gas = null

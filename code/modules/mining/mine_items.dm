@@ -10,7 +10,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
 		)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 10.0
@@ -325,7 +325,7 @@
 		)
 	icon_state = "shovel"
 	item_state = "shovel"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
@@ -488,13 +488,13 @@
 		qdel(src)
 		return
 	updateOverlays()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
 
 /obj/structure/track/Destroy()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
@@ -527,7 +527,7 @@
 
 	var/dir_sum = 0
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(locate(/obj/structure/track, get_step(src, direction)))
 			dir_sum += direction
 
@@ -618,7 +618,7 @@
 	desc = "An antiquated device that can detect ore in a wide radius around the user."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pinoff"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
@@ -708,7 +708,7 @@
 /obj/item/device/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
+	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
 		if(isStationLevel(T.z))
 			destinations += B
@@ -729,12 +729,17 @@
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
-/obj/item/device/wormhole_jaunter/emp_act(power)
+/obj/item/device/wormhole_jaunter/emp_act(severity)
+	. = ..()
+
 	var/triggered = FALSE
-	if(power == 1)
-		triggered = TRUE
-	else if(power == 2 && prob(50))
-		triggered = TRUE
+
+	switch(severity)
+		if(EMP_HEAVY)
+			triggered = TRUE
+		if(EMP_LIGHT)
+			if(prob(50))
+				triggered = TRUE
 
 	if(triggered)
 		usr.visible_message(SPAN_WARNING("\The [src] overloads and activates!"))
@@ -833,6 +838,8 @@
 			return
 
 /obj/item/lazarus_injector/emp_act()
+	. = ..()
+
 	if(!malfunctioning)
 		malfunctioning = TRUE
 		update_icon()

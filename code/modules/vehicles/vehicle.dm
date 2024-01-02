@@ -128,7 +128,7 @@
 	..()
 
 	if (prob(20) && !organic)
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 
 	healthcheck()
 
@@ -151,8 +151,11 @@
 	return
 
 /obj/vehicle/emp_act(severity)
+	. = ..()
+
 	if(organic)
 		return
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)
@@ -160,7 +163,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(pulse2, 10)
 	if(on)
@@ -358,7 +361,7 @@
 	if(!dest || dest == v_turf || dest.is_hole)
 		var/list/options = new()
 		var/list/safe_options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/turf/T = get_step_to(src, get_step(src, test_dir))
 			if(istype(T) && load.Adjacent(T))
 				options += T
@@ -396,7 +399,7 @@
 // Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
 /obj/vehicle/post_buckle(var/mob/M)
 	if (M.client)
-		M.client.move_delay = M.movement_delay() + config.walk_speed
+		M.client.move_delay = M.movement_delay() + GLOB.config.walk_speed
 
 //-------------------------------------------------------
 // Stat update procs

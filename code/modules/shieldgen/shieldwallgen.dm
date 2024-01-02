@@ -9,7 +9,7 @@
 	icon_state = "Shield_Gen"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 
 	var/power_state = FALSE
 	var/is_powered = FALSE
@@ -19,7 +19,7 @@
 	var/check_delay = 10
 	var/locked = TRUE
 	var/storedpower = 0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	//There have to be at least two posts, so these are effectively doubled
 	var/power_draw = 30000 //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.

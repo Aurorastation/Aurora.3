@@ -36,6 +36,14 @@
 	tracer_type = /obj/effect/projectile/tracer/laser/scc
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
+/obj/item/projectile/beam/pistol/scc/weak
+	damage = 20
+	armor_penetration = 10
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/tracer/laser/scc
+	impact_type = /obj/effect/projectile/impact/laser/scc
+
 /obj/item/projectile/beam/pistol/hegemony
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
@@ -255,7 +263,7 @@
 				M.visible_message("<span class='danger'>\The [M] gets fried!</span>")
 				M.color = "#4d4d4d" //get fried
 				M.death()
-				spark(M, 3, alldirs)
+				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
 				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
@@ -297,7 +305,7 @@
 			if(M.mob_size <= 4 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
-				spark(M, 3, alldirs)
+				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
 				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
@@ -399,7 +407,7 @@
 	//Harmlessly passes through cultists and constructs
 	if (target_mob == ignore)
 		return 0
-	if (iscult(target_mob))
+	if (iscultist(target_mob))
 		return 0
 
 	return ..()

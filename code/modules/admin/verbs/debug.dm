@@ -3,20 +3,20 @@
 	set name = "Debug-Game"
 	if(!check_rights(R_DEBUG|R_DEV))	return
 
-	if(Debug2)
-		Debug2 = 0
+	if(GLOB.Debug2)
+		GLOB.Debug2 = 0
 		message_admins("[key_name(src)] toggled debugging off.")
 		log_admin("[key_name(src)] toggled debugging off.",admin_key=key_name(usr))
 	else
-		Debug2 = 1
+		GLOB.Debug2 = 1
 		message_admins("[key_name(src)] toggled debugging on.")
 		log_admin("[key_name(src)] toggled debugging on.",admin_key=key_name(usr))
 
 	switch(alert("Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", "No", "Yes"))
 		if("Yes")
-			config.all_logs_to_chat = 1
+			GLOB.config.all_logs_to_chat = 1
 		else
-			config.all_logs_to_chat = 0
+			GLOB.config.all_logs_to_chat = 0
 
 	feedback_add_details("admin_verb","DG2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -25,10 +25,10 @@
 	set name = "Debugs Toggle"
 	if(!check_rights(R_DEBUG|R_DEV))	return
 
-	var/target = input(usr, "Select which log to toggle", "Debugs Toggle", null) in sortAssoc(config.logsettings)
+	var/target = input(usr, "Select which log to toggle", "Debugs Toggle", null) in sortAssoc(GLOB.config.logsettings)
 	if(target)
-		config.logsettings[target] = !config.logsettings[target]
-		to_chat(usr, "The log category [target] is now [config.logsettings[target]]")
+		GLOB.config.logsettings[target] = !GLOB.config.logsettings[target]
+		to_chat(usr, "The log category [target] is now [GLOB.config.logsettings[target]]")
 
 /client/proc/DebugToggleAll()
 	set category = "Debug"
@@ -37,8 +37,8 @@
 
 	switch(alert("Do you want to turn on ALL LOGS?.", "All logs to ON?", "No", "Yes"))
 		if("Yes")
-			for(var/k in config.logsettings)
-				config.logsettings[k] = TRUE
+			for(var/k in GLOB.config.logsettings)
+				GLOB.config.logsettings[k] = TRUE
 
 // callproc moved to code/modules/admin/callproc
 
@@ -64,7 +64,7 @@
 	usr.show_message(t, 1)
 	feedback_add_details("admin_verb","ASL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_robotize(var/mob/M in mob_list)
+/client/proc/cmd_admin_robotize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Robot"
 
@@ -79,7 +79,7 @@
 	else
 		alert("Invalid mob")
 
-/client/proc/cmd_admin_animalize(var/mob/M in mob_list)
+/client/proc/cmd_admin_animalize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
@@ -100,7 +100,7 @@
 		M.Animalize()
 
 
-/client/proc/cmd_admin_slimeize(var/mob/M in mob_list)
+/client/proc/cmd_admin_slimeize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make slime"
 
@@ -139,16 +139,7 @@
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_debug_tog_aliens()
-	set category = "Server"
-	set name = "Toggle Aliens"
-
-	config.aliens_allowed = !config.aliens_allowed
-	log_admin("[key_name(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].",admin_key=key_name(usr))
-	message_admins("[key_name_admin(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].", 0)
-	feedback_add_details("admin_verb","TAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/cmd_admin_grantfullaccess(var/mob/M in mob_list)
+/client/proc/cmd_admin_grantfullaccess(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Grant Full Access"
 
@@ -176,7 +167,7 @@
 	log_admin("[key_name(src)] has granted [M.key] full access.",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("<span class='notice'>[key_name_admin(usr)] has granted [M.key] full access.</span>", 1)
 
-/client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
+/client/proc/cmd_assume_direct_control(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
@@ -297,7 +288,7 @@
 	var/list/chosen_observers = list()
 	var/next_observer = "NotGeeves"
 	while(next_observer)
-		var/list/valid_choices = player_list.Copy()
+		var/list/valid_choices = GLOB.player_list.Copy()
 		for(var/choice in valid_choices)
 			if(choice in chosen_observers)
 				valid_choices -= choice
@@ -314,7 +305,7 @@
 		H.ckey = O.ckey
 		qdel(O)
 
-/client/proc/cmd_admin_dress(mob/living/carbon/human/H in human_mob_list)
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in GLOB.human_mob_list)
 	set category = "Fun"
 	set name = "Set Human Outfit"
 
@@ -324,7 +315,7 @@
 
 /client/proc/do_dressing(var/mob/living/carbon/human/M = null)
 	if(!M || !istype(M))
-		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in human_mob_list
+		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in GLOB.human_mob_list
 	if(!M)
 		return
 
@@ -397,19 +388,19 @@
 
 	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs","Frozen Mobs","Clients"))
 		if("Players")
-			to_chat(usr, jointext(player_list,", "))
+			to_chat(usr, jointext(GLOB.player_list,", "))
 		if("Staff")
-			to_chat(usr, jointext(staff,", "))
+			to_chat(usr, jointext(GLOB.staff,", "))
 		if("Mobs")
-			to_chat(usr, jointext(mob_list,", "))
+			to_chat(usr, jointext(GLOB.mob_list,", "))
 		if("Living Mobs")
-			to_chat(usr, jointext(living_mob_list,", "))
+			to_chat(usr, jointext(GLOB.living_mob_list,", "))
 		if("Dead Mobs")
-			to_chat(usr, jointext(dead_mob_list,", "))
+			to_chat(usr, jointext(GLOB.dead_mob_list,", "))
 		if("Frozen Mobs")
-			to_chat(usr, jointext(frozen_crew,", "))
+			to_chat(usr, jointext(GLOB.frozen_crew,", "))
 		if("Clients")
-			to_chat(usr, jointext(clients,", "))
+			to_chat(usr, jointext(GLOB.clients,", "))
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)

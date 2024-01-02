@@ -304,7 +304,7 @@
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
-	flags |= NOREACT
+	atom_flags |= ATOM_FLAG_NO_REACT
 	create_reagents(15 * storage_slots)	//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 	. = ..()
 
@@ -464,7 +464,7 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
-	req_access = list(access_virology)
+	req_access = list(ACCESS_VIROLOGY)
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
@@ -490,7 +490,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(access_forensics_lockers)
+	req_access = list(ACCESS_FORENSICS_LOCKERS)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"
@@ -751,3 +751,117 @@
 		/obj/item/reagent_containers/food/snacks/chips/cucumber = 2,
 		/obj/item/reagent_containers/food/snacks/chips/chicken = 2
 	)
+
+
+/obj/item/storage/box/fancy/food/cakepopjar
+	name = "cake pops"
+	desc = "Unhealthy? Don't be silly! If sprinkles of unnatural colors, intensely concentrated sugar, and bright, oil-based food dyes were bad for you, why would our children be evolutionarily drawn to eating them?!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cakepopsfull"
+	icon_type = "cake pop"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+	storage_type = "glass"
+	storage_slots = 20
+	max_storage_space = 20
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/cakepopselection
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/cakepopselection = 5)
+	trash = /obj/item/reagent_containers/food/drinks/drinkingglass
+	opened = TRUE
+	closable = FALSE
+	throwforce = 4
+
+
+/obj/item/storage/box/fancy/food/cakepopjar/fill()
+	. = ..()
+	for(var/obj/item/reagent_containers/food/snacks/cakepopselection/cakepop in src.contents)
+		var/MM = text2num(time2text(world.timeofday, "MM"))
+		if(MM == 10) //this checks if the month is october and if so gives the cake pops themselves halloween colors!
+			switch(roll("1d2"))
+				if(1)
+					cakepop.icon_state = "cakepop5"
+				if(2)
+					cakepop.icon_state = "cakepop6"
+		else //otherwise it randomly gives them one of the "normal" colors
+			switch(roll("1d4"))
+				if(1)
+					cakepop.icon_state = "cakepop1"
+				if(2)
+					cakepop.icon_state = "cakepop2"
+				if(3)
+					cakepop.icon_state = "cakepop3"
+				if(4)
+					cakepop.icon_state = "cakepop4"
+
+/obj/item/storage/box/fancy/food/cakepopjar/update_icon()
+	. = ..()
+	var/MM = text2num(time2text(world.timeofday, "MM"))
+	if(MM == 10) //checks if it's october to give the cake pop jar halloween colors
+		if(contents.len == 0)
+			icon_state = "cakepopsempty"
+		else if(contents.len == 1)
+			icon_state = "halloweencakepopsone"
+		else if(contents.len <= 3)
+			icon_state = "halloweencakepopshalf"
+		else if(contents.len <= 5)
+			icon_state = "halloweencakepopsfull"
+		else if(contents.len <= 10)
+			icon_state = "halloweencakepopsstuffed"
+		else
+			icon_state = "halloweencakepopshalf"
+	else //or else normal colors
+		if(contents.len == 0)
+			icon_state = "cakepopsempty"
+		else if(contents.len == 1)
+			icon_state = "cakepopsone"
+		else if(contents.len <= 3)
+			icon_state = "cakepopshalf"
+		else if(contents.len <= 5)
+			icon_state = "cakepopsfull"
+		else if(contents.len <= 10)
+			icon_state = "cakepopsstuffed"
+		else
+			icon_state = "cakepopshalf"
+
+/obj/item/storage/box/fancy/food/pralinebox
+	name = "box of pralines"
+	desc = "A heart shaped box filled with assorted delicious chocolate pralines. Used to show love either for another person, or more commonly - for chocolate."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "heartbox_closed"
+	item_state = "heartbox_closed"
+	icon_type = "chocolate praline"
+	contained_sprite = TRUE
+	storage_slots = 10
+	max_storage_space = 10
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/pralines
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/pralines/praline1 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline2 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline3 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline4 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline5 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline6 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline7 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline8 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline9 = 1,
+		/obj/item/reagent_containers/food/snacks/pralines/praline10 = 1
+	)
+	throwforce = 2
+
+/obj/item/storage/box/fancy/food/pralinebox/update_icon()
+	. = ..()
+	if(opened)
+		if(contents.len == 0)
+			icon_state = "heartbox_empty"
+			item_state = "heartbox_open"
+		else if(contents.len <= 9)
+			icon_state = "heartbox_half"
+			item_state = "heartbox_open"
+		else if(contents.len <= 10)
+			item_state = "heartbox_open"
+			icon_state = "heartbox_full"

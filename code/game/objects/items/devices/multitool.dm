@@ -12,7 +12,7 @@
 	item_state = "multitool"
 	item_icons = null
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 5.0
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
@@ -65,14 +65,14 @@
 			unregister_buffer(buffer_object)
 			buffer_object = buffer
 			if(buffer_object)
-				destroyed_event.register(buffer_object, src, PROC_REF(unregister_buffer))
+				GLOB.destroyed_event.register(buffer_object, src, PROC_REF(unregister_buffer))
 		update_icon()
 
 /obj/item/device/multitool/proc/unregister_buffer(var/atom/buffer_to_unregister)
 	// Only remove the buffered object, don't reset the name
 	// This means one cannot know if the buffer has been destroyed until one attempts to use it.
 	if(buffer_to_unregister == buffer_object && buffer_object)
-		destroyed_event.unregister(buffer_object, src)
+		GLOB.destroyed_event.unregister(buffer_object, src)
 		buffer_object = null
 		update_icon()
 

@@ -101,14 +101,17 @@
 		//Temporary exclusion while matt fixes it
 		/obj/item/projectile/beam/psi_lightning/wide,
 		/obj/effect/fusion_particle_catcher,
-		/obj/item/fuel_assembly
+		/obj/item/fuel_assembly,
+
+		//The location needs to be the mob, otherwise it stacktrace
+		/obj/aiming_overlay,
 
 	)
 
 	// Paths and all the subpaths excluded
 
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
-	ignore += typesof(/obj/machinery/computer/HolodeckControl)
+	ignore += typesof(/obj/machinery/computer/holodeck_control)
 
 	// Spells require an owner, which would not work here
 	ignore += typesof(/obj/item/spell)

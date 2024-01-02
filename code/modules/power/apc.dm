@@ -82,7 +82,7 @@
 
 /obj/machinery/power/apc/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
@@ -101,7 +101,7 @@
 
 /obj/machinery/power/apc/critical/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/low
 	cell_type = /obj/item/cell
@@ -120,7 +120,7 @@
 
 /obj/machinery/power/apc/low/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
@@ -139,12 +139,12 @@
 
 /obj/machinery/power/apc/high/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
-	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
+	req_one_access = list(ACCESS_ENGINE_EQUIP,ACCESS_RESEARCH,ACCESS_XENOBIOLOGY)
 
 /obj/machinery/power/apc/isolation/north
 	dir = NORTH
@@ -160,11 +160,11 @@
 
 /obj/machinery/power/apc/isolation/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 
 /obj/machinery/power/apc/vault/north
 	dir = NORTH
@@ -180,12 +180,12 @@
 
 /obj/machinery/power/apc/vault/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(access_intrepid,access_engine_equip)
+	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/power/apc/intrepid/north
 	dir = NORTH
@@ -201,12 +201,12 @@
 
 /obj/machinery/power/apc/intrepid/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(access_intrepid,access_engine_equip)
+	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/power/apc/canary/north
 	dir = NORTH
@@ -222,12 +222,12 @@
 
 /obj/machinery/power/apc/canary/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(access_mining,access_engine_equip)
+	req_one_access = list(ACCESS_MINING,ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/power/apc/mining_shuttle/north
 	dir = NORTH
@@ -243,7 +243,7 @@
 
 /obj/machinery/power/apc/mining_shuttle/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
@@ -269,7 +269,7 @@
 
 /obj/machinery/power/apc/canary/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 
 /obj/machinery/power/apc/super
@@ -289,7 +289,7 @@
 
 /obj/machinery/power/apc/super/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/super/critical
 	is_critical = TRUE
@@ -308,7 +308,7 @@
 
 /obj/machinery/power/apc/super/critical/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
@@ -327,7 +327,7 @@
 
 /obj/machinery/power/apc/hyper/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/empty
 	start_charge = 0
@@ -346,7 +346,7 @@
 
 /obj/machinery/power/apc/empty/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc
 	name = "area power controller"
@@ -363,7 +363,7 @@
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /singleton/sound_category/switch_sound
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -480,7 +480,7 @@
 
 /obj/machinery/power/apc/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 12 : -(12)))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(0)) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(8)) : 0)
 
 /obj/machinery/power/apc/Destroy()
 	update()
@@ -843,7 +843,7 @@
 		else if(hacker)
 			to_chat(user, SPAN_WARNING("Access denied."))
 		else
-			if(allowed(usr) && !isWireCut(APC_WIRE_IDSCAN))
+			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
 				locked = !locked
 				to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
 				update_icon()
@@ -864,7 +864,7 @@
 			if (C.amount >= 10 && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
-					spark(src, 5, alldirs)
+					spark(src, 5, GLOB.alldirs)
 					if(user.stunned)
 						return
 				C.use(10)
@@ -883,7 +883,7 @@
 		if(W.use_tool(src, user, 50, volume = 50))
 			if(terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-					spark(src, 5, alldirs)
+					spark(src, 5, GLOB.alldirs)
 					if(usr.stunned)
 						return
 				new /obj/item/stack/cable_coil(loc,10)
@@ -1067,7 +1067,7 @@
 
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
-				spark(src, 5, alldirs)
+				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 				H.adjustFireLoss(10, 0)
 			if(infected)
@@ -1093,7 +1093,7 @@
 					if (cell.charge < 0)
 						cell.charge = 0
 					if (prob(0.5))
-						spark(src, 5, alldirs)
+						spark(src, 5, GLOB.alldirs)
 						to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 						H.adjustFireLoss(10, 0)
 
@@ -1109,7 +1109,7 @@
 			user.visible_message(SPAN_WARNING("[user.name] slashes at the [name]!"), SPAN_NOTICE("You slash at the [name]!"))
 			playsound(loc, 'sound/weapons/slash.ogg', 100, 1)
 
-			var/allcut = wires.IsAllCut()
+			var/allcut = wires.is_all_cut()
 
 			if(beenhit >= pick(3, 4) && !wiresexposed)
 				wiresexposed = TRUE
@@ -1117,7 +1117,7 @@
 				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
 
 			else if(wiresexposed && !allcut)
-				wires.CutAll()
+				wires.cut_all()
 				update_icon()
 				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
 			else
@@ -1146,7 +1146,7 @@
 		return
 
 	if(wiresexposed && !isAI(user))
-		wires.Interact(user)
+		wires.interact(user)
 
 	return ui_interact(user)
 
@@ -1197,7 +1197,7 @@
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
-	return wires.IsIndexCut(wireIndex)
+	return wires.is_cut(wireIndex)
 
 /obj/machinery/power/apc/proc/can_use(mob/user, var/loud = 0) //used by attack_hand() and Topic()
 	if(inoperable())
@@ -1337,7 +1337,7 @@
 			smoke.set_up(3, 0, loc)
 			smoke.attach(src)
 			smoke.start()
-			spark(src, 5, alldirs)
+			spark(src, 5, GLOB.alldirs)
 			visible_message(SPAN_DANGER("The [name] suddenly lets out a blast of smoke and some sparks!"), \
 							SPAN_DANGER("You hear sizzling electronics."))
 
@@ -1530,6 +1530,8 @@
 
 // damage and destruction acts
 /obj/machinery/power/apc/emp_act(severity)
+	. = ..()
+
 	if(cell)
 		cell.emp_act(severity)
 
@@ -1540,7 +1542,6 @@
 	update_icon()
 
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), 600)
-	..()
 
 /obj/machinery/power/apc/proc/post_emp_act()
 	update_channels()

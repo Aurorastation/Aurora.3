@@ -31,7 +31,7 @@
 		if ("play")
 			src.player.song.playing = value
 			if (src.player.song.playing)
-				instrument_synchronizer.raise_event(player.actual_instrument)
+				GLOB.instrument_synchronizer.raise_event(player.actual_instrument)
 				src.player.song.play_song(usr)
 		if ("wait")
 			if(value)

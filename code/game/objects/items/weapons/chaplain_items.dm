@@ -100,6 +100,7 @@
 /obj/item/nullrod/shumaila
 	name = "\improper Shumaila hammer"
 	desc = "A ceremonial hammer carried by the priesthood of Shumaila."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "shumaila_hammer"
 	item_state = "shumaila_hammer"
 	contained_sprite = TRUE
@@ -260,7 +261,7 @@
 	icon_state = "urn"
 	applies_material_colour = TRUE
 	w_class = ITEMSIZE_SMALL
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/material/urn/afterattack(var/obj/A, var/mob/user, var/proximity)
 	if(!istype(A, /obj/effect/decal/cleanable/ash))

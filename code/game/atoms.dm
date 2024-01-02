@@ -1,7 +1,7 @@
 /atom
 	layer = 2
 	var/level = 2
-	var/flags = 0
+	var/atom_flags = 0
 	var/init_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -107,20 +107,36 @@
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
 /atom/proc/is_open_container()
-	return flags & OPENCONTAINER
+	return atom_flags & ATOM_FLAG_OPEN_CONTAINER
 
 /atom/proc/is_pour_container()
-	return flags & POURCONTAINER
+	return atom_flags & ATOM_FLAG_POUR_CONTAINER
 
 /atom/proc/CheckExit()
 	return 1
 
-// If you want to use this, the atom must have the PROXMOVE flag and the moving atom must also have the PROXMOVE flag currently to help with lag. -ComicIronic
+// If you want to use this, the atom must have the MOVABLE_FLAG_PROXMOVE flag and the moving atom must also have the MOVABLE_FLAG_PROXMOVE flag currently to help with lag. -ComicIronic
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
+/**
+ * React to an EMP of the given severity
+ *
+ * Default behaviour is to send the [COMSIG_ATOM_PRE_EMP_ACT] and [COMSIG_ATOM_EMP_ACT] signal
+ *
+ * * severity - The severity of the EMP pulse (how strong it is), defines in `code\__defines\empulse.dm`
+ *
+ * Returns the protection value
+ */
 /atom/proc/emp_act(var/severity)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+
+	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_PRE_EMP_ACT, severity)
+
+	RETURN_TYPE(protection)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
+	return protection // Pass the protection value collected here upwards
 
 /atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
@@ -360,7 +376,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
-		dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
@@ -528,7 +544,7 @@
 // Returns 1 if made bloody, returns 0 otherwise.
 /atom/proc/add_blood(mob/living/carbon/human/M)
 
-	if(flags & NOBLOODY)
+	if(atom_flags & ATOM_FLAG_NO_BLOOD)
 		return 0
 
 	if(!blood_DNA || !istype(blood_DNA, /list))	// If our list of DNA doesn't exist yet (or isn't a list), initialise it.
@@ -588,12 +604,12 @@
 	R.reagents.splash(src, 1)
 
 /atom/proc/get_global_map_pos()
-	if(!islist(global_map) || isemptylist(global_map)) return
+	if(!islist(GLOB.global_map) || isemptylist(GLOB.global_map)) return
 	var/cur_x = null
 	var/cur_y = null
 	var/list/y_arr = null
-	for(cur_x=1,cur_x<=global_map.len,cur_x++)
-		y_arr = global_map[cur_x]
+	for(cur_x=1,cur_x<=GLOB.global_map.len,cur_x++)
+		y_arr = GLOB.global_map[cur_x]
 		cur_y = y_arr.Find(src.z)
 		if(cur_y)
 			break
@@ -612,12 +628,23 @@
 	else
 		return 0
 
-// Show a message to all mobs and objects in sight of this atom.
-// Use for objects performing visible actions.
-// The message is output to anyone who can see, e.g. "The [src] does something!"
-// "blind_message" (optional) is what blind people will hear e.g. "You hear something!"
-/atom/proc/visible_message(var/message, var/blind_message, var/range = world.view, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+
+/**
+ * Show a message to all mobs and objects in sight of this one, usually used for visible actions by the `src` mob
+ *
+ * _Implementations differs, basically this is a shitshow, check the params without assuming the order from this description_
+ *
+ * * message - The message output to anyone who can see, a string
+ * * self_message - A message to show to the `src` mob
+ * * blind_message - A message to show to mobs or movable atoms that are in view range but blind
+ * * range - The range that is considered for the view evaluation, defaults to `world.view`
+ * * show_observers - Boolean, if observers sees the message
+ * * intent_message - A message sent via `intent_message()`
+ * * intent_range - The range considered for the evaluation of the `intent_message`
+ */
+/atom/proc/visible_message(message, blind_message, range = world.view, intent_message = null, intent_range = 7)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/list/hearers = get_hearers_in_view(range, src)
 
 	for(var/atom/movable/AM as anything in hearers)
@@ -655,7 +682,7 @@
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
@@ -702,7 +729,7 @@
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		do_late_fire()
 		return
-	LAZYADD(SSatoms.late_misc_firers, src)
+	LAZYADD(SSmisc_late.late_misc_firers, src)
 
 /atom/proc/do_late_fire()
 	return

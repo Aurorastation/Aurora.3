@@ -136,7 +136,7 @@
 
 /obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	..()
 
 /obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
@@ -320,7 +320,7 @@
 	edge = TRUE
 	anchored = 0
 	armor_penetration = 40
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0
 	self_recharge = 1
 	recharge_time = 2

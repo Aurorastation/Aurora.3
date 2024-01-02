@@ -45,8 +45,8 @@ research holder datum.
 
 // Global design lists
 var/global/list/designs = null
-var/global/list/designs_protolathe_categories = list()
-var/global/list/designs_imprinter_categories = list()
+GLOBAL_LIST_EMPTY(designs_protolathe_categories)
+GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.
@@ -84,9 +84,9 @@ var/global/list/designs_imprinter_categories = list()
 		var/datum/design/D = new T
 		designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
-			designs_protolathe_categories |= D.p_category
+			GLOB.designs_protolathe_categories |= D.p_category
 		if(D.build_type & IMPRINTER)
-			designs_imprinter_categories |= D.p_category
+			GLOB.designs_imprinter_categories |= D.p_category
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)

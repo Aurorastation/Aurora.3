@@ -33,7 +33,7 @@
 		)
 	throwforce = 0
 	force = 0
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/mob/living/carbon/human/owner
 	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.
@@ -188,10 +188,13 @@
 // Parameters: 0
 // Description: Nulls object references so it can qdel() cleanly.
 /obj/item/spell/Destroy()
-	owner.unref_spell(src)
+	if(owner)
+		owner.unref_spell(src)
 	owner = null
+
 	core = null
-	return ..()
+
+	. = ..()
 
 /// Check if we're still being held. Otherwise... time to qdel.
 /obj/item/spell/proc/check_owner()

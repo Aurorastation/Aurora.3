@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(persistent_configuration)
 
 /datum/controller/subsystem/persistent_configuration/proc/populate_variables(list/decoded)
 	IF_FOUND_USE(decoded, last_gamemode)
-	master_mode = last_gamemode
+	GLOB.master_mode = last_gamemode
 
 	IF_FOUND_CONV(decoded, rounds_since_hard_restart, text2num)
 	IF_FOUND_USE(decoded, forced_awaymission)

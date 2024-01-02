@@ -281,15 +281,18 @@
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
-		direction = pick(cardinal)
+		direction = pick(GLOB.cardinal)
 
-	if(user.facing_dir == null && dir != direction)
+	var/do_strafe = !isnull(user.facing_dir) && (legs.turn_delay <= legs.move_delay)
+	if(!do_strafe && dir != direction)
 		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		if(world.time + legs.turn_delay > next_mecha_move)
 			next_mecha_move = world.time + legs.turn_delay
 		set_dir(direction)
+		for(var/mob/pilot in pilots)
+			pilot.set_dir(direction)
 		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
 			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
 			if(S.aura)
@@ -310,7 +313,8 @@
 			use_cell_power(legs.power_use * CELLRATE)
 			user.client.Process_Incorpmove(direction, src)
 		else
-			Move(target_loc, user.facing_dir || direction)
+			var/new_direction = do_strafe ? user.facing_dir || direction : direction
+			Move(target_loc, new_direction)
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))

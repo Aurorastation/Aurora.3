@@ -417,7 +417,7 @@
 	name = "AI modules crate"
 	desc = "A secure crate full of AI modules."
 	icon_state = "science_crate"
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/structure/closet/crate/secure/aimodules/fill()
 	for(var/moduletype in subtypesof(/obj/item/aiModule))
@@ -446,7 +446,7 @@
 	name = "foreign legion supply crate"
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
 	icon_state = "tcfl_crate"
-	req_access = list(access_legion)
+	req_access = list(ACCESS_LEGION)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
@@ -464,7 +464,7 @@
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	icon_state = "hydro_secure_crate"
-	req_one_access = list(access_hydroponics, access_xenobotany)
+	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_XENOBOTANY)
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"
@@ -551,11 +551,13 @@
 //Quantity of spawns is number of discrete selections from the loot lists, default 10
 
 /obj/structure/closet/crate/loot
+	icon = 'icons/obj/random.dmi'
+	icon_state = "loot_crate"
 	var/rarity = 1
 	var/quantity = 10
 	var/list/spawntypes
 
-/obj/structure/closet/crate/loot/Initialize(mapload)
+/obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
 	. = ..()
 
 	spawntypes = list(
@@ -581,6 +583,9 @@
 		C.locked = FALSE
 		C.secure_lights = FALSE
 		C.req_access = null
+
+	C.anchored = FALSE
+
 	C.update_icon()
 
 	qdel(src)

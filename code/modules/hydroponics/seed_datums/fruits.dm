@@ -130,6 +130,7 @@
 	display_name = "blueberry bush"
 	mutants = list("berries","poisonberries","glowberries")
 	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/blueberryjuice = list(10,10))
+	kitchen_tag = "blueberries"
 
 /datum/seed/berry/blue/setup_traits()
 	..()
@@ -245,6 +246,7 @@
 	display_name = "strawberry bush"
 	mutants = list("berries","poisonberries","glowberries")
 	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/strawberryjuice = list(10,10))
+	kitchen_tag = "strawberries"
 
 /datum/seed/berry/strawberry/setup_traits()
 	..()

@@ -17,8 +17,10 @@
 	rock_colors = null//pre colored
 	plant_colors = null//pre colored
 	generated_name = FALSE
+	flora_diversity = 0
+	has_trees = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/konyang_landing_zone, /datum/map_template/ruin/exoplanet/konyang_jeweler_nest, /datum/map_template/ruin/exoplanet/konyang_village, /datum/map_template/ruin/exoplanet/konyang_telecomms_outpost, /datum/map_template/ruin/exoplanet/pirate_outpost, /datum/map_template/ruin/exoplanet/pirate_moonshine)
 	possible_themes = list(/datum/exoplanet_theme/konyang)
 	place_near_main = list(1,0)
 

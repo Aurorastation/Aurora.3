@@ -219,6 +219,7 @@
 #define APPEARANCE_ALL						65535
 #define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 #define APPEARANCE_PLASTICSURGERY 			(APPEARANCE_ALL & ~APPEARANCE_RACE)
+#define APPEARANCE_SURGERYKIT				(APPEARANCE_PLASTICSURGERY & ~APPEARANCE_LANGUAGE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -318,8 +319,8 @@
 #define EAR_PROTECTION_MODERATE 1
 #define EAR_PROTECTION_MAJOR	2
 
-#define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
-#define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
+#define ANIMAL_SPAWN_DELAY round(GLOB.config.respawn_delay / 6)
+#define DRONE_SPAWN_DELAY  round(GLOB.config.respawn_delay / 3)
 
 // Gluttony levels.
 #define GLUT_TINY 1       // Eat anything tiny and smaller

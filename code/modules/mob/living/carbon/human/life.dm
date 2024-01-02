@@ -68,8 +68,6 @@
 
 		handle_pain()
 
-		handle_medical_side_effects()
-
 		handle_fever()
 
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
@@ -268,11 +266,11 @@
 	/** breathing **/
 
 /mob/living/carbon/human/handle_chemical_smoke(var/datum/gas_mixture/environment)
-	if(wear_mask && (wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
-	if(glasses && (glasses.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(glasses && (glasses.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
-	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(head && (head.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
 	..()
 
@@ -285,7 +283,7 @@
 			if(!rig.offline && (rig.air_supply && internal == rig.air_supply))
 				rig_supply = rig.air_supply
 
-		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & AIRTIGHT)) || (head && (head.item_flags & AIRTIGHT)))))
+		if (!rig_supply && (!contents.Find(internal) || !((wear_mask && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)) || (head && (head.item_flags & ITEM_FLAG_AIRTIGHT)))))
 			internal = null
 
 		if(internal)
@@ -1159,7 +1157,7 @@
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound_simple(null, pick(scarySounds), 50, TRUE)
+			playsound_simple(null, pick(GLOB.scarySounds), 50, TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
 			if(T.get_lumcount() < 0.1)
@@ -1374,8 +1372,8 @@
 		var/image/holder = hud_list[SPECIALROLE_HUD]
 		holder.icon_state = "hudblank"
 		if(mind && mind.special_role)
-			if(hud_icon_reference[mind.special_role])
-				holder.icon_state = hud_icon_reference[mind.special_role]
+			if(GLOB.hud_icon_reference[mind.special_role])
+				holder.icon_state = GLOB.hud_icon_reference[mind.special_role]
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder
@@ -1404,21 +1402,14 @@
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
-			set_sight(sight, viewflags)
+			set_sight(sight|viewflags)
 		machine_has_equipment_vision = machine.grants_equipment_vision(src)
-	else if(eyeobj)
-		if(eyeobj.owner != src)
-			reset_view(null)
-	else
-		var/isRemoteObserve = 0
-		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
-			isRemoteObserve = 1
-		if(remoteview_target)
-			if(remoteview_target.stat==CONSCIOUS)
-				isRemoteObserve = 1
-		if(!isRemoteObserve && client && !client.adminobs)
-			remoteview_target = null
-			reset_view(null, 0)
+	if(eyeobj && eyeobj.owner != src)
+		reset_view(null)
+
+	if((mRemote in mutations) && remoteview_target && remoteview_target.stat != CONSCIOUS)
+		remoteview_target = null
+		reset_view(null, 0)
 
 	update_equipment_vision(machine_has_equipment_vision)
 	species.handle_vision(src)

@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
 
 //ghost roles
@@ -64,4 +64,4 @@
 	l_pocket = /obj/item/device/radio
 
 /datum/outfit/admin/psis_outpost/get_id_access()
-	return list(access_pra)
+	return list(ACCESS_PRA)
