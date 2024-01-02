@@ -44,9 +44,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/template_noop,
 /area/ship/dominian_science_vessel/exterior)
 "akl" = (
@@ -267,14 +264,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/airless,
-/area/ship/dominian_science_vessel/exterior)
+/area/ship/dominian_science_vessel/bridge)
 "aWi" = (
 /obj/structure/window/reinforced{
 	layer = 5;
@@ -541,14 +532,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
-"bXg" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/template_noop,
-/area/ship/dominian_science_vessel/exterior)
 "bYr" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -838,7 +821,8 @@
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - house_volvalaad_arsman"
+	name = "igs - house_volvalaad_armsman";
+	identifier = "house_volvalaad_armsman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
@@ -945,12 +929,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/infirmary)
-"dGt" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_science_vessel/armory)
 "dHh" = (
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/showers)
@@ -1156,9 +1134,6 @@
 	dir = 8;
 	pixel_y = 6;
 	pixel_x = 20
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
@@ -1701,9 +1676,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "gUu" = (
@@ -1911,14 +1883,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/starboard_propulsion)
-"hIl" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/template_noop,
-/area/ship/dominian_science_vessel/exterior)
 "hIB" = (
 /obj/machinery/light{
 	icon_state = "tube_empty"
@@ -2158,13 +2122,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/atmospherics)
-"iyU" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/space,
-/area/ship/dominian_science_vessel/exterior)
 "iDY" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2735,12 +2692,6 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
-"kYv" = (
-/obj/machinery/door/blast/regular{
-	id = "isospace"
-	},
-/turf/template_noop,
-/area/ship/dominian_science_vessel/research)
 "leu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/portable_atmospherics/canister/air,
@@ -2767,7 +2718,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/wood,
 /area/ship/dominian_science_vessel/officer)
 "lme" = (
 /obj/effect/shuttle_landmark/dominian_science_vessel/nav4,
@@ -2791,7 +2742,8 @@
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
 /obj/effect/ghostspawpoint{
-	name = "igs - house_volvalaad_officer"
+	name = "igs - house_volvalaad_officer";
+	identifier = "house_volvalaad_officer"
 	},
 /turf/simulated/floor/carpet,
 /area/ship/dominian_science_vessel/officer)
@@ -2976,16 +2928,6 @@
 /obj/structure/sign/flag/volvalaad,
 /turf/simulated/wall/shuttle,
 /area/shuttle/dominian_science_shuttle)
-"mtc" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/space,
-/area/ship/dominian_science_vessel/exterior)
 "mwJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3770,9 +3712,6 @@
 	pixel_x = 28;
 	dir = 2
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
 "puW" = (
@@ -3793,18 +3732,15 @@
 /obj/machinery/door/blast/regular{
 	id = "isospace"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/research)
 "pAh" = (
 /obj/machinery/shipsensors/strong,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/airless,
-/area/ship/dominian_science_vessel/exterior)
+/area/ship/dominian_science_vessel/bridge)
 "pAn" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -3821,9 +3757,6 @@
 /obj/machinery/access_button{
 	pixel_x = 28;
 	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
@@ -4548,7 +4481,8 @@
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - house_volvalaad"
+	name = "igs - house_volvalaad_voidsman";
+	identifier = "house_volvalaad_voidsman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
@@ -4595,17 +4529,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/hangar)
-"tmC" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/template_noop,
-/area/ship/dominian_science_vessel/exterior)
 "toh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4917,7 +4840,8 @@
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - house_volvalaad_scientist"
+	name = "igs - house_volvalaad_scientist";
+	identifier = "house_volvalaad_scientist"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
@@ -5123,9 +5047,6 @@
 /area/ship/dominian_science_vessel/starboard_hall)
 "vMS" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/space,
 /area/ship/dominian_science_vessel/exterior)
 "vMT" = (
@@ -5181,7 +5102,8 @@
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - house_volvalaad_scientist"
+	name = "igs - house_volvalaad_scientist";
+	identifier = "house_volvalaad_scientist"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
@@ -5457,7 +5379,8 @@
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - house_volvalaad"
+	name = "igs - house_volvalaad_voidsman";
+	identifier = "house_volvalaad_voidsman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
@@ -5506,13 +5429,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
-"xdJ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/space,
-/area/ship/dominian_science_vessel/exterior)
 "xdL" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -29861,7 +29777,7 @@ xPu
 sZn
 pyW
 pyW
-kYv
+pyW
 xCN
 xRX
 xRX
@@ -35791,11 +35707,11 @@ nKh
 nKh
 quW
 gUd
-dGt
+itH
 pDc
 eqS
 pub
-hIl
+doI
 xRX
 xRX
 xRX
@@ -36052,7 +35968,7 @@ tvT
 xfT
 xfT
 xfT
-bXg
+doI
 xRX
 xRX
 xRX
@@ -36309,7 +36225,7 @@ ewT
 lXp
 uAn
 xfT
-xdJ
+vMS
 wIx
 jhJ
 xRX
@@ -36566,12 +36482,12 @@ ahu
 xax
 xsa
 xfT
-iyU
+vMS
 vMS
 vMS
 ajL
 ajL
-tmC
+cTq
 xRX
 xRX
 xRX
@@ -36828,8 +36744,8 @@ mqx
 bTa
 ive
 ive
-iyU
-tmC
+vMS
+cTq
 xRX
 xRX
 xRX
@@ -37086,8 +37002,8 @@ jHZ
 mFl
 ive
 ive
-iyU
-mtc
+vMS
+wIx
 cTq
 xRX
 xRX
