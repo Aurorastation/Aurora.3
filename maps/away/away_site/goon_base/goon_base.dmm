@@ -48,6 +48,11 @@
 "ao" = (
 /turf/simulated/wall/r_wall,
 /area/goonbase/kitchen)
+"ar" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled,
+/area/goonbase/maint_north)
 "as" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3604,6 +3609,8 @@
 /area/goonbase/maint_north)
 "ri" = (
 /obj/machinery/door/airlock/glass,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/goonbase/hallway_south)
 "rj" = (
@@ -4015,6 +4022,10 @@
 	pixel_y = 3
 	},
 /obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -20;
+	pixel_y = -10
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
 "um" = (
@@ -4034,10 +4045,6 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/junk{
-	pixel_x = -20;
-	pixel_y = -10
-	},
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/maint_south)
 "un" = (
@@ -8892,6 +8899,10 @@
 /obj/item/gun/custom_ka/frame05{
 	pixel_x = -8;
 	pixel_y = 5
+	},
+/obj/item/stack/cable_coil{
+	pixel_x = 7;
+	pixel_y = -7
 	},
 /obj/item/wrench{
 	pixel_y = -10
@@ -45901,7 +45912,7 @@ jH
 jH
 jH
 Qj
-GX
+ar
 yC
 fl
 qt
