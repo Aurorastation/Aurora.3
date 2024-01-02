@@ -1,5 +1,5 @@
 "a" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
-"c" = (/obj/effect/floor_decal/konyang_flowers,/obj/item/material/sword/katana{pixel_x = 4; pixel_y = 12},/obj/item/clothing/head/hachimaki{pixel_x = 11; pixel_y = 3; layer = 2.0},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
+"c" = (/obj/effect/floor_decal/konyang_flowers,/obj/item/material/sword/katana{pixel_x = 4; pixel_y = 14},/obj/item/clothing/head/hachimaki{pixel_x = 10; pixel_y = 2; layer = 2.0},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "d" = (/obj/effect/floor_decal/konyang_flowers,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "e" = (/obj/structure/flora/rock/konyang/small,/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "f" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
@@ -26,7 +26,6 @@
 "K" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "L" = (/obj/random/dirt_75,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "M" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"N" = (/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "O" = (/obj/structure/flora/tree/konyang,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "Q" = (/obj/structure/flora/rock/konyang/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "T" = (/obj/effect/decal/cleanable/generic/beet_tree_petals,/obj/structure/flora/tree/konyang/fall{pixel_x = -36; pixel_y = -18},/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
@@ -52,7 +51,7 @@ FooFxxBBaBaftYTotBaaBaaBBFooKW
 xxxWxBBaaaaBtchkBaapaaaBWxFtCx
 CCXxxBBaaBpaBktBaaQaaaBBxXWCOx
 WsxxBBafaaaaaBfaaaBaaaBBAxWXxW
-xXxxBBaaaaaaaaNaaaaaaBBxxCXxWX
+xXxxBBaaaaaaaaaaaaaaaBBxxCXxWX
 xWxxBaaaazaaaaaaBQaaaBBxWCWoyC
 XxXxBBBaaaaQBaaaaDaaBBBxXsWoot
 WFxABBBaQaaaaaaBaaBBBBBxWWxooo

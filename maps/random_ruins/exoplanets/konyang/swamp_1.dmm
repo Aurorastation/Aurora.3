@@ -6,7 +6,7 @@
 "g" = (/turf/template_noop,/area/space)
 "h" = (/obj/structure/flora/rock/konyang/small,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "i" = (/obj/random/dirt_75,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"j" = (/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
+"j" = (/obj/structure/flora/bush/konyang_reeds/water,/mob/living/simple_animal/aquatic/fish,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "l" = (/obj/random/dirt_75,/obj/structure/flora/stump/log,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "n" = (/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "o" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
@@ -27,7 +27,6 @@
 "E" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "F" = (/obj/random/dirt_75,/obj/structure/flora/stump{pixel_y = 12; pixel_x = -8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "G" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
-"H" = (/mob/living/simple_animal/aquatic/fish,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/exoplanet/grass/konyang)
 "I" = (/obj/structure/flora/rock/konyang,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "J" = (/obj/random/dirt_75,/obj/structure/bed/stool/chair/plastic{dir = 4},/obj/item/clothing/head/konyang{pixel_y = -2; pixel_x = 2},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "K" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
@@ -39,7 +38,7 @@
 "Q" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "R" = (/obj/structure/flora/tree/konyang,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "S" = (/obj/structure/flora/rock/konyang/moss,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
-"U" = (/obj/random/dirt_75,/obj/effect/decal/cleanable/generic,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
+"U" = (/obj/random/dirt_75,/obj/effect/decal/cleanable/generic,/obj/item/stack/material/wood/branch/full,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "V" = (/obj/random/dirt_75,/obj/structure/table/wood/bamboo,/obj/item/material/knife/butterfly{pixel_x = -1},/obj/item/clothing/mask/smokable/cigarette/cigar{pixel_x = -8; pixel_y = 5},/obj/item/reagent_containers/food/drinks/bottle/sake{pixel_x = 4; pixel_y = 14},/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_x = 7},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "W" = (/obj/structure/flora/tree/konyang/blossom,/obj/effect/decal/cleanable/generic/beet_tree_petals,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
 "X" = (/obj/structure/flora/rock/konyang/moss,/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
@@ -62,14 +61,14 @@ gccBOocafFKsfvavccqcccccvoavcv
 ggvaOvcilrVffocGnnnecavavBYYYc
 ggovQccfKJUKvqennZnnhcvAOYYYYv
 ghacoaaffPNccnnnZnZnncovBYWYLc
-acccvvAvuDcnnnnZZnZZnqvaOYYYcv
-ccGYYLocvocenZZjHZpnncvBoYYBvo
-voBYYYcccvqnnnZZZZnncaSOaccQog
-avYYzYhoavcnnZnnnenncovOLoavgg
+acccvvAvuDcnnnnZZjZZnqvaOYYYcv
+ccGYYLocvocenZZjZZpnncvBoYYBvo
+voBYYYcccqnnnnZZZZnncaSOaccQog
+avYYzYhoavnnnZnnnenncovOLoavgg
 ccYYYYavccQnEnnnQccqavaOBOcvgg
-ocYYYBvcnqGconqcccvIoORaOOvvag
+ocYYYBvcnqvconqcccvIoORaOOvvag
 ocavvacnnEccccccaovcOYYOLocavg
-vvQovqennEcavavvcaaoBYYYYOccoa
+vvQovqennEcGvavvcaaoBYYYYOccoa
 cvAvcnnnnqcovcvoaavaLYYCYBaXac
 covcennncccLYYYOvAocaBYYYYOvvc
 vvcnnnEccovYYYYYBvvcfMOBYYBaca
