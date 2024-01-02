@@ -403,7 +403,7 @@ var/list/VVdynamic_lock = list(
 		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
 		return
 
-	if(!O.vv_edit_var(param_var_name))
+	if(!O.can_vv_get(param_var_name))
 		to_chat(src, SPAN_WARNING("You cannot edit this variable."))
 		return
 
@@ -596,15 +596,13 @@ var/list/VVdynamic_lock = list(
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = var_new
-
 		if("num")
 			if(variable=="light_range")
 				var/var_new = input("Enter new number:","Num",O.vars[variable]) as null|num
 				if(var_new == null)
 					return
 
-				if(!O.vv_edit_var(variable, var_new))
+				if(!O.can_vv_get(variable))
 					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 					return
 
@@ -618,13 +616,12 @@ var/list/VVdynamic_lock = list(
 					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 					return
 
-				if((O.vars[variable] == 2) && (var_new < 2))//Bringing the dead back to life
+				if((O.vars[variable] == DEAD) && (var_new < DEAD))//Bringing the dead back to life
 					GLOB.dead_mob_list -= O
 					GLOB.living_mob_list += O
-				if((O.vars[variable] < 2) && (var_new == 2))//Kill he
+				if((O.vars[variable] < DEAD) && (var_new == DEAD))//Kill he
 					GLOB.living_mob_list -= O
 					GLOB.dead_mob_list += O
-				O.vars[variable] = var_new
 			else
 				var/var_new =  input("Enter new number:","Num",O.vars[variable]) as null|num
 				if(var_new==null)
@@ -633,8 +630,6 @@ var/list/VVdynamic_lock = list(
 				if(!O.vv_edit_var(variable, var_new))
 					to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 					return
-
-				O.vars[variable] = var_new
 
 		if("type")
 			var/object = input("Enter typepath:","Type",O.vars[variable]) as null|text
@@ -665,8 +660,6 @@ var/list/VVdynamic_lock = list(
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = var_new
-
 		if("reference")
 			var/var_new = input("Select reference:","Reference",O.vars[variable]) as null|mob|obj|turf|area in world
 			if(var_new==null)
@@ -676,8 +669,6 @@ var/list/VVdynamic_lock = list(
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = var_new
-
 		if("mob reference")
 			var/var_new = input("Select reference:","Reference",O.vars[variable]) as null|mob in world
 			if(var_new==null) return
@@ -685,8 +676,6 @@ var/list/VVdynamic_lock = list(
 			if(!O.vv_edit_var(variable, var_new))
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
-
-			O.vars[variable] = var_new
 
 		if("file")
 			var/var_new = input("Pick file:","File",O.vars[variable]) as null|file
@@ -697,8 +686,6 @@ var/list/VVdynamic_lock = list(
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = var_new
-
 		if("icon")
 			var/var_new = input("Pick icon:","Icon",O.vars[variable]) as null|icon
 			if(var_new==null)
@@ -708,9 +695,11 @@ var/list/VVdynamic_lock = list(
 				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
 				return
 
-			O.vars[variable] = var_new
-
 		if("marked datum")
+			if(!O.can_vv_get(variable))
+				to_chat(usr, SPAN_WARNING("You cannot edit this variable."))
+				return
+
 			O.vars[variable] = holder.marked_datum
 
 	world.log <<  "### VarEdit by [src]: [O.type] [variable]=[html_encode("[O.vars[variable]]")]"
