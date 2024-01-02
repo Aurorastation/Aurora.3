@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aab" = (
-/obj/structure/sign/flag/volvalaad,
-/turf/simulated/wall/r_wall,
-/area/ship/dominian_science_vessel/bridge)
 "aaI" = (
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
@@ -799,6 +795,9 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
+/obj/structure/sign/flag/dominia{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
 "dnN" = (
@@ -1488,6 +1487,9 @@
 /obj/item/clothing/shoes/laceup/brown,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/sign/flag/volvalaad{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/ship/dominian_science_vessel/officer)
@@ -2633,10 +2635,6 @@
 	name = "processing strata"
 	},
 /area/ship/dominian_science_vessel/research)
-"kRt" = (
-/obj/structure/sign/flag/volvalaad,
-/turf/simulated/wall/r_wall,
-/area/ship/dominian_science_vessel/quarters)
 "kRG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -2924,10 +2922,6 @@
 /obj/structure/window/shuttle,
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/bridge)
-"mse" = (
-/obj/structure/sign/flag/volvalaad,
-/turf/simulated/wall/shuttle,
-/area/shuttle/dominian_science_shuttle)
 "mwJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3578,10 +3572,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/center_hall)
-"oNz" = (
-/obj/structure/sign/flag/volvalaad,
-/turf/simulated/wall/r_wall,
-/area/ship/dominian_science_vessel/officer)
 "oNY" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
@@ -3609,6 +3599,9 @@
 "oXc" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/sign/flag/volvalaad{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/dominian_science_shuttle)
 "oXW" = (
@@ -3832,6 +3825,9 @@
 /obj/item/folder/purple,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
+	},
+/obj/structure/sign/flag/volvalaad{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
@@ -4266,6 +4262,9 @@
 /obj/item/device/flash,
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
+/obj/structure/sign/flag/dominia{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/ship/dominian_science_vessel/officer)
 "sqU" = (
@@ -4294,6 +4293,9 @@
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
+	},
+/obj/structure/sign/flag/volvalaad{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
@@ -4701,7 +4703,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "ufx" = (
-/obj/structure/sign/flag/dominia,
+/obj/structure/sign/flag/dominia{
+	pixel_y = 32
+	},
 /turf/simulated/wall/r_wall,
 /area/ship/dominian_science_vessel/hangar)
 "ujP" = (
@@ -5029,10 +5033,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
-"vCy" = (
-/obj/structure/sign/flag/volvalaad,
-/turf/simulated/wall/r_wall,
-/area/ship/dominian_science_vessel/starboard_propulsion)
 "vFW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5123,10 +5123,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/port_hall)
-"whA" = (
-/obj/structure/sign/flag/dominia,
-/turf/simulated/wall/r_wall,
-/area/ship/dominian_science_vessel/quarters)
 "wji" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -5368,6 +5364,9 @@
 /obj/item/clothing/accessory/flagpatch/dominia,
 /obj/item/clothing/accessory/flagpatch/dominia,
 /obj/item/clothing/accessory/flagpatch/dominia,
+/obj/structure/sign/flag/volvalaad{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
 "wTR" = (
@@ -5729,16 +5728,15 @@
 	},
 /turf/simulated/wall/shuttle,
 /area/shuttle/dominian_science_shuttle)
-"xRG" = (
-/obj/structure/sign/flag/dominia,
-/turf/simulated/wall/r_wall,
-/area/ship/dominian_science_vessel/officer)
 "xRX" = (
 /turf/template_noop,
 /area/space)
 "xSb" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/structure/sign/flag/volvalaad{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
@@ -32344,7 +32342,7 @@ xRX
 xRX
 dQP
 lCD
-vCy
+sZn
 qbT
 aBG
 mkP
@@ -33383,7 +33381,7 @@ lRV
 hKe
 lBn
 lBn
-xRG
+lBn
 spb
 pgn
 goU
@@ -33640,7 +33638,7 @@ dTD
 ols
 gTO
 qPA
-oNz
+lBn
 fxK
 pgn
 pgn
@@ -37252,7 +37250,7 @@ xUD
 tjB
 aHs
 bpc
-aab
+xyE
 xSb
 krH
 eKR
@@ -37484,7 +37482,7 @@ xRX
 xRX
 siX
 hbi
-mse
+wny
 sts
 iWi
 aMc
@@ -38259,7 +38257,7 @@ aaJ
 qTV
 eyA
 eYR
-mse
+wny
 oXc
 sFI
 rex
@@ -38537,7 +38535,7 @@ tyS
 tjB
 str
 bpc
-aab
+xyE
 xSb
 krH
 uNN
@@ -39299,7 +39297,7 @@ wny
 wny
 qdL
 jZe
-whA
+rrA
 djH
 qLH
 gTb
@@ -39556,7 +39554,7 @@ uOY
 uOY
 qdL
 jZe
-kRt
+rrA
 wQc
 qLH
 bIL
