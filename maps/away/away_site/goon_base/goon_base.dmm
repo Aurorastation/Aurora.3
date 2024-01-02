@@ -435,6 +435,16 @@
 "cn" = (
 /turf/simulated/wall/r_wall,
 /area/goonbase/maint_airlock)
+"cq" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 27;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "ct" = (
 /obj/effect/shuttle_landmark/goon_ship/hangar,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -1255,7 +1265,7 @@
 "gi" = (
 /obj/structure/table/steel,
 /obj/random/desktoy{
-	pixel_x = -4;
+	pixel_x = -7;
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2286,10 +2296,7 @@
 "kW" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/gun/projectile/automatic/rifle/sts35,
+/obj/random/civgun/rifle,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
@@ -2840,12 +2847,10 @@
 "nQ" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunshells,
-/obj/item/gun/projectile/shotgun/pump/combat,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/civgun/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "nR" = (
@@ -4597,10 +4602,10 @@
 "xs" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/gun/projectile/automatic/c20r,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/gun/projectile/automatic/rifle/sts35,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "xu" = (
@@ -4975,6 +4980,16 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/goon_shuttle/med)
+"zu" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 27;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "zz" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7773,6 +7788,15 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/goon_shuttle/living)
+"NG" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/goonbase/equipment)
 "NH" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -9448,11 +9472,15 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/handcuffs{
-	pixel_x = 3;
-	pixel_y = -4
+	pixel_x = -2;
+	pixel_y = -9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/recharger{
+	pixel_x = 7;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/goonbase/living)
@@ -9461,13 +9489,8 @@
 /area/goonbase/equipment)
 "VL" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/c45m/lebman,
-/obj/item/ammo_magazine/c45m/lebman,
-/obj/item/ammo_magazine/c45m/lebman,
-/obj/item/gun/projectile/automatic/lebman{
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "VR" = (
@@ -10368,14 +10391,9 @@
 /area/goonbase/hallway_north)
 "ZW" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/gun/projectile/automatic/konyang_pirate{
-	pixel_y = 5
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/dark,
 /area/goonbase/equipment)
 "ZX" = (
@@ -48473,7 +48491,7 @@ qX
 SL
 SL
 SL
-HV
+zu
 xM
 yq
 eA
@@ -48730,7 +48748,7 @@ qX
 qX
 qX
 SL
-HV
+cq
 eJ
 Uk
 Ah
@@ -48987,7 +49005,7 @@ qX
 YT
 qX
 SL
-HV
+NG
 eJ
 VK
 eJ

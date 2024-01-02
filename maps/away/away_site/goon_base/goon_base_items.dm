@@ -35,7 +35,7 @@
 	in bathroom near living room (not our quarters) behind shower. <br>\
 	in maint room beside prisoner cell behind portable scrubber. <br>\
 	do not let any visitors see it.  <br>\
-	~jake
+	~jake\
 	"
 
 /obj/item/paper/goon_base/secret_back_exit_note
