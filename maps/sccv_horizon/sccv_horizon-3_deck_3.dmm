@@ -95,7 +95,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -5012,7 +5012,7 @@
 	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
@@ -7235,6 +7235,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/item/device/tvcamera,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "ftA" = (
@@ -13181,7 +13182,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -29274,13 +29275,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/storage/secure/briefcase,
-/obj/item/clipboard,
-/obj/item/folder/red,
-/turf/simulated/floor/wood,
-/area/journalistoffice)
-"TP" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/structure/platform_deco{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
