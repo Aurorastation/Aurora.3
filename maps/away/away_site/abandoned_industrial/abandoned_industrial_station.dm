@@ -8,8 +8,8 @@
 	spawn_weight = 1
 	suffixes = list("away_site/abandoned_industrial/abandoned_industrial_station.dmm")
 
-	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE)
-	sectors_blacklist = list(SECTOR_TAU_CETI, SECTOR_BURZSIA, SECTOR_HANEUNIM)
+	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(SECTOR_TAU_CETI, SECTOR_HANEUNIM)
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"
