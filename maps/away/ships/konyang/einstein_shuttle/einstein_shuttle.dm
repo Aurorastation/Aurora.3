@@ -89,7 +89,7 @@
 /obj/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Shuttle"
-	req_access = list(access_ee_spy_ship)
+	req_access = list(ACCESS_EE_SPY_SHIP)
 
 /datum/shuttle/autodock/overmap/einstein_shuttle
 	name = "Einstein Shuttle"
@@ -150,7 +150,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/einstein_crew/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/einstein_crew/suit
 	short_name = "einstein_suit"

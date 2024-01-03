@@ -1,7 +1,7 @@
 /obj/machinery/suit_cycler/engineering
 	name = "engineering suit cycler"
 	model_text = "Engineering"
-	req_access = list(access_construction)
+	req_access = list(ACCESS_CONSTRUCTION)
 	departments = list("Engineering", "Atmos")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
@@ -18,7 +18,7 @@
 /obj/machinery/suit_cycler/mining
 	name = "mining suit cycler"
 	model_text = "Mining"
-	req_access = list(access_mining)
+	req_access = list(ACCESS_MINING)
 	departments = list("Mining")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
@@ -31,7 +31,7 @@
 /obj/machinery/suit_cycler/security
 	name = "security suit cycler"
 	model_text = "Security"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	departments = list("Security")
 
 /obj/machinery/suit_cycler/security/prepared
@@ -43,7 +43,7 @@
 /obj/machinery/suit_cycler/medical
 	name = "medical suit cycler"
 	model_text = "Medical"
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	departments = list("Medical")
 
 /obj/machinery/suit_cycler/medical/prepared
@@ -55,7 +55,7 @@
 /obj/machinery/suit_cycler/syndicate
 	name = "non-standard suit cycler"
 	model_text = "Nonstandard"
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	departments = list("Mercenary")
 	can_repair = TRUE
 
@@ -76,7 +76,7 @@
 /obj/machinery/suit_cycler/hos
 	name = "head of security suit cycler"
 	model_text = "head of Security"
-	req_access = list(access_hos)
+	req_access = list(ACCESS_HOS)
 	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -90,7 +90,7 @@
 /obj/machinery/suit_cycler/captain
 	name = "captain suit cycler"
 	model_text = "Captain"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	departments = list("Captain")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -104,7 +104,7 @@
 /obj/machinery/suit_cycler/science
 	name = "research suit cycler"
 	model_text = "Research"
-	req_access = list(access_research)
+	req_access = list(ACCESS_RESEARCH)
 	departments = list("Research")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -118,7 +118,7 @@
 /obj/machinery/suit_cycler/freelancer
 	name = "freelancers suit cycler"
 	model_text = "Freelancers"
-	req_access = list(access_distress)
+	req_access = list(ACCESS_DISTRESS)
 	departments = list("Freelancers")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE

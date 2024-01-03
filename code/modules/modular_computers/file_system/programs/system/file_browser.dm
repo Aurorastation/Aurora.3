@@ -213,7 +213,7 @@
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				var/obj/item/card/id/ID = H.GetIdCard()
-				if(access_it in ID.access)
+				if(ACCESS_IT in ID.access)
 					is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
@@ -242,7 +242,7 @@
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				var/obj/item/card/id/ID = H.GetIdCard()
-				if(access_it in ID.access)
+				if(ACCESS_IT in ID.access)
 					is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))

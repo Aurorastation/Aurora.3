@@ -16,5 +16,5 @@
 
 /obj/structure/adhomai_minefield/examine(mob/user)
 	. = ..()
-	if(all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
 		to_chat(user, SPAN_WARNING("The sign says: \"WARNING: MINEFIELD\"."))

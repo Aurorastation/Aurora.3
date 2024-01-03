@@ -384,7 +384,7 @@
 		return FALSE
 
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
-		for(var/card_dir in cardinal) // North, South, East, West
+		for(var/card_dir in GLOB.cardinal) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
 
 			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf
@@ -400,7 +400,7 @@
 
 			found_obj = locate(/obj/structure/window) in target_turf
 			if(found_obj)
-				if(HAS_FLAG(found_obj.atom_flags, ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != reverse_dir[card_dir])
+				if(HAS_FLAG(found_obj.atom_flags, ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time
@@ -452,8 +452,8 @@
 /mob/living/simple_animal/hostile/proc/check_horde()
 	if(evacuation_controller.is_prepared())
 		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
-				shuttletarget = pick(escape_list) //Pick a shuttle target
+			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
+				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
 			enroute = 1
 			stop_automated_movement = 1
 			spawn()

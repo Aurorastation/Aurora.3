@@ -74,7 +74,7 @@
 
 	//short out the machine, shoot sparks, spew money!
 	emagged = 1
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	spawn_money(rand(2000,5000),src.loc)
 	//we don't want to grief people by locking their id in an emagged ATM
 	release_held_id(user)
@@ -420,7 +420,7 @@
 		var/area/t = get_area(src)
 		ticks_left_locked_down = 60
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-		global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
+		GLOB.global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
 		if (tried_account_num)
 			SSeconomy.bank_log_unauthorized(SSeconomy.get_account(tried_account_num), machine_id)
 	else

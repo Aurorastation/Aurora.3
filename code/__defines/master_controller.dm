@@ -3,7 +3,7 @@
 #define TICK_LIMIT_RUNNING max(98 - MAPTICK_LAST_TICK_USAGE, MAPTICK_MC_MIN_RESERVE)
 #define TICK_LIMIT_TO_RUN 70
 #define TICK_LIMIT_MC 70
-#define TICK_LIMIT_MC_INIT config.mc_init_tick_limit
+#define TICK_LIMIT_MC_INIT GLOB.config.mc_init_tick_limit
 #define TICK_LIMIT_MC_INIT_DEFAULT 98
 
 #define MC_TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? pause() : 0 )

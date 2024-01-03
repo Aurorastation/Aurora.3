@@ -17,3 +17,9 @@
 
 /singleton/recipe/whitechocolate/soy
 	reagents = list(/singleton/reagent/nutriment/vanilla = 2, /singleton/reagent/drink/milk/soymilk = 2, /singleton/reagent/sugar = 2)
+
+/singleton/recipe/plaincrepe
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/coating/batter = 5)
+	result = /obj/item/reagent_containers/food/snacks/plaincrepe
+	reagent_mix = RECIPE_REAGENT_REPLACE

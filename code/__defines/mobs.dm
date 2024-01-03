@@ -319,8 +319,8 @@
 #define EAR_PROTECTION_MODERATE 1
 #define EAR_PROTECTION_MAJOR	2
 
-#define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
-#define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
+#define ANIMAL_SPAWN_DELAY round(GLOB.config.respawn_delay / 6)
+#define DRONE_SPAWN_DELAY  round(GLOB.config.respawn_delay / 3)
 
 // Gluttony levels.
 #define GLUT_TINY 1       // Eat anything tiny and smaller

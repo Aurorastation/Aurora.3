@@ -150,6 +150,7 @@
 	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
 	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
 	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
+	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
 	gear_tweaks += new /datum/gear_tweak/path(pills)
 
 /datum/gear/utility/buddy_tag

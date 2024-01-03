@@ -69,19 +69,25 @@
 	else if(generic_object == TRUE)
 		return desc
 
+/// Returns the direction the overmap object is moving in, rather than just the way it's facing
+/obj/effect/overmap/proc/get_heading()
+	return dir
+
 /obj/effect/overmap/proc/handle_wraparound()
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
 	var/high_edge = current_map.overmap_size - 1
 
-	if((dir & WEST) && x == low_edge)
+	var/heading = get_heading()
+
+	if((heading & WEST) && x == low_edge)
 		nx = high_edge
-	else if((dir & EAST) && x == high_edge)
+	else if((heading & EAST) && x == high_edge)
 		nx = low_edge
-	if((dir & SOUTH)  && y == low_edge)
+	if((heading & SOUTH)  && y == low_edge)
 		ny = high_edge
-	else if((dir & NORTH) && y == high_edge)
+	else if((heading & NORTH) && y == high_edge)
 		ny = low_edge
 	if((x == nx) && (y == ny))
 		return //we're not flying off anywhere
@@ -130,7 +136,7 @@
 			if(!istype(GS.linked.loc, /turf/unsimulated/map))
 				to_chat(H, SPAN_WARNING("The safeties won't let you target while you're not on the Overmap!"))
 				return
-			var/my_sector = map_sectors["[H.z]"]
+			var/my_sector = GLOB.map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
 				if(V != src && length(V.ship_weapons)) //no guns, no lockon

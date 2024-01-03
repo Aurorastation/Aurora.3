@@ -157,7 +157,7 @@
 /obj/machinery/computer/shuttle_control/explore/iac_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
-	req_access = list(access_iac_rescue_ship)
+	req_access = list(ACCESS_IAC_RESCUE_SHIP)
 
 /datum/shuttle/autodock/overmap/iac_shuttle
 	name = "IAC Ambulance Shuttle"

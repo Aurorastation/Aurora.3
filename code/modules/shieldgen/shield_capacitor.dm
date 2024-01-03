@@ -7,7 +7,7 @@
 	density = TRUE
 	/// Doesn't use APC power.
 	use_power = POWER_USE_OFF
-	req_one_access = list(access_captain, access_security, access_engine)
+	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
 
 	var/active = FALSE
 	/// Not to be confused with power cell charge, this is in Joules.
@@ -37,7 +37,7 @@
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 		. = TRUE
 		updateDialog()
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
 /obj/machinery/shield_capacitor/attackby(obj/item/W, mob/user)
 

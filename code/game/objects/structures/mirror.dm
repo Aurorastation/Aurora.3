@@ -19,14 +19,14 @@
 	reflection.setup_visuals(src)
 	ref = WEAKREF(reflection)
 
-	entered_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_enter))
-	exited_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_exit))
+	GLOB.entered_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_enter))
+	GLOB.exited_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_exit))
 
 /obj/structure/mirror/Destroy()
 	var/obj/effect/reflection/reflection = ref.resolve()
 	if(istype(reflection))
-		entered_event.unregister(loc, reflection)
-		exited_event.unregister(loc, reflection)
+		GLOB.entered_event.unregister(loc, reflection)
+		GLOB.exited_event.unregister(loc, reflection)
 		qdel(reflection)
 		ref = null
 	return ..()

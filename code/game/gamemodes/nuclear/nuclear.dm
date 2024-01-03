@@ -35,13 +35,13 @@ var/list/nuke_disks = list()
 	return 0
 
 /datum/game_mode/nuclear/declare_completion()
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		..()
 		return
 	var/disk_rescued = 1
 	for(var/obj/item/disk/nuclear/D in nuke_disks)
 		var/disk_area = get_area(D)
-		if(!is_type_in_list(disk_area, centcom_areas))
+		if(!is_type_in_list(disk_area, GLOB.centcom_areas))
 			disk_rescued = 0
 			break
 	var/crew_evacuated = (evacuation_controller.round_over())

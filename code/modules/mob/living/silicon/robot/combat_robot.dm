@@ -24,7 +24,7 @@
 	braintype = "Android" // Posibrain.
 
 	// ID and Access
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	id_card_type = /obj/item/card/id/syndicate
 	key_type = /obj/item/device/encryptionkey/syndicate
 	var/datum/antagonist/assigned_antagonist

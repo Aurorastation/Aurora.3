@@ -71,7 +71,7 @@
 		M.equip_to_slot_or_del(new /obj/item/tank/oxygen(M), slot_s_store)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(cardinal)
+	M.dir = pick(GLOB.cardinal)
 
 /obj/effect/landmark/corpse/idris/robot
 	name = "Idris Security Unit"
@@ -85,7 +85,7 @@
 
 /obj/effect/landmark/corpse/idris/robot/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(cardinal)
+	M.dir = pick(GLOB.cardinal)
 
 /obj/effect/landmark/corpse/idris/captain
 	name = "Idris Captain"
@@ -98,7 +98,7 @@
 /obj/effect/landmark/corpse/idris/captain/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(cardinal)
+	M.dir = pick(GLOB.cardinal)
 
 /obj/effect/landmark/corpse/izharshan
 	name = "Izharshan Pirate"
@@ -113,7 +113,7 @@
 	M.ChangeToHusk()
 	M.equip_to_slot_or_del(new /obj/item/tank/oxygen(M), slot_s_store)
 	M.adjustFireLoss(rand(200,400))
-	M.dir = pick(cardinal)
+	M.dir = pick(GLOB.cardinal)
 
 //Areas
 /area/idris_wreck

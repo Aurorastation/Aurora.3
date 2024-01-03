@@ -39,7 +39,7 @@
 			if(!src)	return 1
 			if(src.loc != user)	return 1
 
-			var/list/directions = new/list(cardinal)
+			var/list/directions = new/list(GLOB.cardinal)
 			var/i = 0
 			for (var/obj/structure/window/win in user.loc)
 				i++
@@ -47,7 +47,7 @@
 					to_chat(user, "<span class='warning'>There are too many windows in this location.</span>")
 					return 1
 				directions-=win.dir
-				if(!(win.dir in cardinal))
+				if(!(win.dir in GLOB.cardinal))
 					to_chat(user, "<span class='warning'>Can't let you do that.</span>")
 					return 1
 

@@ -127,7 +127,7 @@
 		var/mob/living/carbon/human/H = player
 		var/datum/language/L = H.default_language
 		if(!L)
-			L = all_languages[LANGUAGE_TCB]
+			L = GLOB.all_languages[LANGUAGE_TCB]
 		H.real_name = L.get_random_name()
 		H.name = H.real_name
 		H.dna.real_name = H.real_name

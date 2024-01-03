@@ -14,7 +14,7 @@
 	var/obj/machinery/camera/camera = null
 	var/obj/item/device/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
-	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
+	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
 	var/positronic
 
 	name = "spider-bot"
@@ -55,7 +55,7 @@
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 	internal_id = new /obj/item/card/id(src)
 	add_verb(src, /mob/living/proc/ventcrawl)
 	add_verb(src, /mob/living/proc/hide)
@@ -81,7 +81,7 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/abstract/observer/G in player_list)
+				for(var/mob/abstract/observer/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
@@ -142,7 +142,7 @@
 			if("Eject")
 				if(use_check_and_message(user))
 					return 0
-				if(access_robotics in id_card.access)
+				if(ACCESS_ROBOTICS in id_card.access)
 					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
 					eject_brain()
 					if(held_item)
@@ -231,8 +231,8 @@
 
 /mob/living/simple_animal/spiderbot/death()
 
-	living_mob_list -= src
-	dead_mob_list += src
+	GLOB.living_mob_list -= src
+	GLOB.dead_mob_list += src
 
 	if(camera)
 		camera.status = 0

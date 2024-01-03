@@ -18,7 +18,7 @@
 	if(!is_valid())
 		return
 	var/string_length = length(data)
-	var/list/options = list("!","@","#","$","%","^","&","*") + alphabet_uppercase
+	var/list/options = list("!","@","#","$","%","^","&","*") + GLOB.alphabet_uppercase
 	var/new_data = ""
 	while(string_length)
 		new_data += pick(options)

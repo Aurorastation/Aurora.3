@@ -111,7 +111,7 @@
 	// Paths and all the subpaths excluded
 
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
-	ignore += typesof(/obj/machinery/computer/HolodeckControl)
+	ignore += typesof(/obj/machinery/computer/holodeck_control)
 
 	// Spells require an owner, which would not work here
 	ignore += typesof(/obj/item/spell)

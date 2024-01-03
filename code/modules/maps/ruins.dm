@@ -32,6 +32,7 @@ var/list/banned_ruin_ids = list()
 	for(var/datum/map_template/ruin/ruin in force_spawn)
 		var/turf/choice = validate_ruin(ruin, zlevels, filter_area = allowed_area, max_x = maxx, max_y = maxy)
 		if(!choice)
+			log_admin("Ruin \"[ruin.name]\" failed to force-spawned at ([choice.x], [choice.y], [choice.z])!!!")
 			continue
 
 		log_admin("Ruin \"[ruin.name]\" force-spawned at ([choice.x], [choice.y], [choice.z])!")

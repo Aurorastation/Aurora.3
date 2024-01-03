@@ -65,6 +65,7 @@
 	set_trait(TRAIT_IDEAL_HEAT,           293)          // Preferred temperature in Kelvin.
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)         // Plant eats this much per tick.
 	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")    // Colour of the plant icon.
+	set_trait(TRAIT_LARGE,				  0)			//0 = normal plant, 1 = big tree
 
 	setup_traits()
 
@@ -218,7 +219,7 @@
 			closed_turfs |= T
 			valid_turfs |= T
 
-			for(var/dir in alldirs)
+			for(var/dir in GLOB.alldirs)
 				var/turf/neighbor = get_step(T,dir)
 				if(!neighbor || (neighbor in closed_turfs) || (neighbor in open_turfs))
 					continue
@@ -369,7 +370,7 @@
 	display_name = "[name] plant"
 
 //Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
-/datum/seed/proc/randomize()
+/datum/seed/proc/randomize(var/list/native_gases = list(GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
 	roundstart = FALSE
 	mysterious = TRUE
 
@@ -404,12 +405,12 @@
 
 	if(prob(5))
 		consume_gasses = list()
-		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2,GAS_HYDROGEN)
+		var/gas = pick_n_take(native_gases)
 		consume_gasses[gas] = rand(3,9)
 
 	if(prob(5))
 		exude_gasses = list()
-		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2,GAS_HYDROGEN)
+		var/gas = pick_n_take(native_gases)
 		exude_gasses[gas] = rand(3,9)
 
 	chems = list()
@@ -691,9 +692,9 @@
 		if(GENE_ENVIRONMENT)
 			traits_to_copy = list(TRAIT_IDEAL_HEAT,TRAIT_IDEAL_LIGHT,TRAIT_LIGHT_TOLERANCE)
 		if(GENE_PIGMENT)
-			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR)
+			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR,TRAIT_LEAVES_COLOUR)
 		if(GENE_STRUCTURE)
-			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT, TRAIT_SPOROUS)
+			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT, TRAIT_SPOROUS, TRAIT_LARGE)
 		if(GENE_FRUIT)
 			traits_to_copy = list(TRAIT_STINGS,TRAIT_EXPLOSIVE,TRAIT_FLESH_COLOUR,TRAIT_JUICY)
 		if(GENE_SPECIAL)
@@ -807,3 +808,41 @@
 		growth_stages = SSplants.plant_sprites[get_trait(TRAIT_PLANT_ICON)]
 	else
 		growth_stages = 0
+
+/datum/seed/proc/get_growth_type()
+	if(get_trait(TRAIT_SPREAD) == 2)
+		switch(seed_noun)
+			if(SEED_NOUN_CUTTINGS)
+				return GROWTH_WORMS
+			if(SEED_NOUN_NODES)
+				return GROWTH_BIOMASS
+			if(SEED_NOUN_SPORES)
+				return GROWTH_MOLD
+			else
+				return GROWTH_VINES
+	return 0
+
+/datum/seed/proc/get_icon(growth_stage)
+	var/image/res = image('icons/obj/hydroponics_growing.dmi', "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]")
+	if(get_growth_type())
+		res.icon_state = "[get_growth_type()]-[growth_stage]"
+	else
+		res.icon_state = "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]"
+
+	if(get_growth_type())
+		res.icon = 'icons/obj/hydroponics_vines.dmi'
+
+	res.color = get_trait(TRAIT_PLANT_COLOUR)
+
+	if(get_trait(TRAIT_LARGE))
+		res.icon = 'icons/obj/hydroponics_large.dmi'
+		res.pixel_x = -8
+		res.pixel_y = -16
+
+	if(get_trait(TRAIT_LEAVES_COLOUR))
+		var/image/I = image(res.icon, "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]-leaves")
+		I.color = get_trait(TRAIT_LEAVES_COLOUR)
+		I.appearance_flags = RESET_COLOR
+		res.overlays += I
+
+	return res

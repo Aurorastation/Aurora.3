@@ -405,7 +405,7 @@
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
+	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 25, 0, 30)
 	force_unwielded = 30
 	force = force_unwielded
 	force_wielded = 60
@@ -463,7 +463,7 @@
 		FuelToRemove = 1
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			if(prob(25) && isliving(loc))
 				if(loc.flash_act())
 					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))
@@ -482,7 +482,7 @@
 /obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
 	if(powered)
-		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 		RemoveFuel(3)
 
 /obj/item/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -496,7 +496,7 @@
 		if(!istype(O))
 			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), SPAN_WARNING("You rev the chainsaw!"), SPAN_WARNING("You hear a chainsaw rev!"))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
+			playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 			RemoveFuel(3)
 	. = ..()
 

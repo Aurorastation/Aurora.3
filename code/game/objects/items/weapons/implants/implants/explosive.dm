@@ -113,7 +113,7 @@
 
 /obj/item/implant/explosive/exposed()
 	if(warning_message)
-		global_announcer.autosay(warning_message, "Anti-Tampering System")
+		GLOB.global_announcer.autosay(warning_message, "Anti-Tampering System")
 
 /obj/item/implant/explosive/proc/sanitizePhrase(phrase)
 	var/list/replacechars = list("'" = "", "\"" = "", ">" = "", "<" = "", "(" = "", ")" = "")

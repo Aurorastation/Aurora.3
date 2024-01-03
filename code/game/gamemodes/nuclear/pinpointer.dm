@@ -200,7 +200,7 @@
 					var/DNAstring = tgui_input_text(usr, "Input the DNA string to search.", "Pinpointer")
 					if(!DNAstring)
 						return
-					for(var/mob/living/carbon/M in mob_list)
+					for(var/mob/living/carbon/M in GLOB.mob_list)
 						if(!M.dna)
 							continue
 						if(M.dna.unique_enzymes == DNAstring)

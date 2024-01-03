@@ -311,10 +311,9 @@
 	build_type = /obj/item/stack/tile/circuit_green
 
 /singleton/flooring/reinforced/circuit/red
+	name = "processing strata"
 	icon_base = "rcircuit"
-	flags = TURF_ACID_IMMUNE
-	can_paint = FALSE
-	build_type = null
+	build_type = /obj/item/stack/tile/circuit_red
 
 /singleton/flooring/reinforced/cult
 	name = "engraved floor"
