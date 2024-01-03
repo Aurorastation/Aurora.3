@@ -70,10 +70,10 @@
 	..()
 
 /obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
-  ui = SStgui.try_update_ui(user, src, ui)
-  if(!ui)
-    ui = new(user, src, "NTNetRelay")
-    ui.open()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NTNetRelay")
+		ui.open()
 
 /obj/machinery/ntnet_relay/ui_data(mob/user)
 	var/list/data = list()

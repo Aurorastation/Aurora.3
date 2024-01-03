@@ -4,7 +4,7 @@
 #define PLANE_SPACE_DUST (PLANE_SPACE_PARALLAX + 1) // -96
 #define PLANE_ABOVE_PARALLAX (PLANE_SPACE_DUST + 1) // -95
 #define PLANE_DEFAULT 0
-#define DECAL_PLATING_LAYER         1.02
+#define DECAL_PLATING_LAYER (TURF_LAYER + 0.01)
 // TURF_LAYER 			2
 #define LOWER_ON_TURF_LAYER (TURF_LAYER + 0.05)	// under the below
 #define ON_TURF_LAYER (TURF_LAYER + 0.1)	// sitting on the turf - should be preferred over direct use of TURF_LAYER

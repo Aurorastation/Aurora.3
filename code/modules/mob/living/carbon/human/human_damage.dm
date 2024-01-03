@@ -31,15 +31,17 @@
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
 	if(status_flags & GODMODE)
 		return 0	//godmode
-	if(should_have_organ(BP_BRAIN))
+
+	if(should_have_organ(BP_BRAIN) && internal_organs_by_name)
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
 			sponge.take_internal_damage(amount)
 
-/mob/living/carbon/human/setBrainLoss(var/amount)
+/mob/living/carbon/human/setBrainLoss(amount)
 	if(status_flags & GODMODE)
 		return 0	//godmode
-	if(should_have_organ(BP_BRAIN))
+
+	if(should_have_organ(BP_BRAIN) && internal_organs_by_name)
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
 			sponge.damage = min(max(amount, 0),sponge.species.total_health)
@@ -48,8 +50,15 @@
 /mob/living/carbon/human/getBrainLoss()
 	if(status_flags & GODMODE)
 		return 0	//godmode
+
+
 	if(should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
+
+		//Get the brain organ, if it's there
+		var/obj/item/organ/internal/brain/sponge = null
+		if(internal_organs_by_name)
+			sponge = internal_organs_by_name[BP_BRAIN]
+
 		if(sponge)
 			if(sponge.status & ORGAN_DEAD)
 				return sponge.species.total_health
@@ -148,7 +157,12 @@
 	if(!need_breathe())
 		return 0
 	else
-		var/obj/item/organ/internal/lungs/breathe_organ = internal_organs_by_name[species.breathing_organ]
+
+		//Get the breathe organ, if it's there
+		var/obj/item/organ/internal/lungs/breathe_organ = null
+		if(internal_organs_by_name)
+			breathe_organ = internal_organs_by_name[species.breathing_organ]
+
 		if(!breathe_organ)
 			return maxHealth/2
 		return breathe_organ.get_oxygen_deprivation()
@@ -163,7 +177,11 @@
 	if(!need_breathe())
 		return
 	var/heal = amount < 0
-	var/obj/item/organ/internal/lungs/breathe_organ = internal_organs_by_name[species.breathing_organ]
+
+	var/obj/item/organ/internal/lungs/breathe_organ = null
+	if(internal_organs_by_name)
+		breathe_organ = internal_organs_by_name[species.breathing_organ]
+
 	if(breathe_organ)
 		if(heal)
 			breathe_organ.remove_oxygen_deprivation(abs(amount))
@@ -198,21 +216,29 @@
 	var/list/pick_organs = shuffle(internal_organs.Copy())
 
 	// Prioritize damaging our filtration organs first.
-	var/obj/item/organ/internal/kidneys/kidneys = internal_organs_by_name[BP_KIDNEYS]
-	if(kidneys)
-		pick_organs -= kidneys
-		pick_organs.Insert(1, kidneys)
-	var/obj/item/organ/internal/liver/liver = internal_organs_by_name[BP_LIVER]
-	if(liver)
-		pick_organs -= liver
-		pick_organs.Insert(1, liver)
+	var/obj/item/organ/internal/kidneys/kidneys = null
+	if(internal_organs_by_name)
+		kidneys = internal_organs_by_name[BP_KIDNEYS]
+		if(kidneys)
+			pick_organs -= kidneys
+			pick_organs.Insert(1, kidneys)
+
+
+	var/obj/item/organ/internal/liver/liver = null
+	if(internal_organs_by_name)
+		liver = internal_organs_by_name[BP_LIVER]
+		if(liver)
+			pick_organs -= liver
+			pick_organs.Insert(1, liver)
 
 	// Move the brain to the very end since damage to it is vastly more dangerous
 	// (and isn't technically counted as toxloss) than general organ damage.
-	var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
-	if(brain)
-		pick_organs -= brain
-		pick_organs += brain
+	var/obj/item/organ/internal/brain/brain = null
+	if(internal_organs_by_name)
+		brain = internal_organs_by_name[BP_BRAIN]
+		if(brain)
+			pick_organs -= brain
+			pick_organs += brain
 
 	for(var/internal in pick_organs)
 		var/obj/item/organ/internal/I = internal
@@ -362,7 +388,7 @@ This function restores the subjects blood to max.
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
 		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
-		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
+		vessel.add_reagent(/singleton/reagent/blood, species.blood_volume - total_blood, temperature = species.body_temperature)
 
 
 /*
@@ -384,6 +410,8 @@ This function restores all organs.
 
 
 /mob/living/carbon/human/proc/get_organ(var/zone, var/allow_no_result = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/obj/item/organ)
 	if(!zone)
 		if(allow_no_result)
 			return
@@ -419,8 +447,10 @@ This function restores all organs.
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
 		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
-				emote("scream")
+			if((damage > 25) || (damage > 50))
+				force_say()
+				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
+					emote("scream")
 		return ..()
 
 	if(!organ)
@@ -435,9 +465,11 @@ This function restores all organs.
 	if(!damage)
 		return FALSE
 
-	if(damage > 15 && prob(damage*4) && ORGAN_CAN_FEEL_PAIN(organ))
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
-			make_adrenaline(round(damage/10))
+	if(damage > 15 && ORGAN_CAN_FEEL_PAIN(organ))
+		force_say()
+		if(prob(damage*4))
+			if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
+				make_adrenaline(round(damage/10))
 
 	switch(damagetype)
 		if(DAMAGE_BRUTE)

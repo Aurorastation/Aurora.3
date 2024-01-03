@@ -10,7 +10,7 @@
 /proc/log_startup()
 	var/static/already_logged = FALSE
 	if (!already_logged)
-		log_world(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
+		log_world(GLOB.diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
 		crash_with("log_startup() was called more then once")
@@ -30,22 +30,37 @@
 	world.log <<  "## WARNING: [msg][log_end]"
 	log_world("WARNING: [msg]")
 
-//print a testing-mode debug message to world.log
-/proc/testing(msg)
-	world.log <<  "## TESTING: [msg][log_end]"
-	log_world("TESTING: [msg]")
+//print a testing-mode debug message to world.log and world
+#ifdef TESTING
+#define testing(msg) log_world("## TESTING: [msg]"); to_chat(world, "## TESTING: [msg]")
+
+//When we port GLOB ...
+//GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
+
+// we don't really check if a word or name is used twice, be aware of that
+#define testing_profile_start(NAME, LIST) LIST[NAME] = world.timeofday
+#define testing_profile_current(NAME, LIST) round((world.timeofday - LIST[NAME])/10,0.1)
+#define testing_profile_output(NAME, LIST) testing("[LIST["_PROFILE_NAME"]] profile of [NAME] is [testing_profile_current(NAME,LIST)]s")
+#define testing_profile_output_all(LIST) { for(var/_NAME in LIST) { testing_profile_current(,_NAME,LIST); }; };
+#else
+#define testing(msg)
+#define testing_profile_start(NAME, LIST)
+#define testing_profile_current(NAME, LIST)
+#define testing_profile_output(NAME, LIST)
+#define testing_profile_output_all(LIST)
+#endif
 
 /proc/game_log(category, text)
-	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
+	WRITE_LOG(GLOB.diary, "[game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	_log_admin(text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_signal(var/text)
-	if(length(signal_log) >= 100)
-		signal_log.Cut(1, 2)
-	signal_log.Add("|[time_stamp()]| [text]")
+	if(length(GLOB.signal_log) >= 100)
+		GLOB.signal_log.Cut(1, 2)
+	GLOB.signal_log.Add("|[time_stamp()]| [text]")
 	_log_signal(text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
@@ -90,7 +105,7 @@
 
 /proc/log_to_dd(text)
 	world.log <<  text //this comes before the config check because it can't possibly runtime
-	if(config.log_world_output)
+	if(GLOB.config.log_world_output)
 		log_world("DD_OUTPUT", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category = "DD_OUTPUT")
 
@@ -107,7 +122,7 @@
 	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
 
 /proc/log_exception(exception/e)
-	if (isnull(config) || config.logsettings["log_runtime"])
+	if (isnull(GLOB.config) || GLOB.config.logsettings["log_runtime"])
 		log_runtime("RUNTIME ERROR:\n[e.name] - [e.desc] @@@ [e.file]")
 
 		for(var/k in e.vars)
@@ -229,7 +244,7 @@
 /proc/log_tgui(user, message, context,
 		datum/tgui_window/window,
 		datum/src_object)
-	if(config.logsettings["log_subsystems_tgui"])
+	if(GLOB.config.logsettings["log_subsystems_tgui"])
 		var/entry = ""
 		// Insert user info
 		if(!user)
@@ -254,4 +269,4 @@
 		// Insert message
 		if(message)
 			entry += "\n[message]"
-		WRITE_LOG(config.logfiles["world_subsystems_tgui"], "TGUI: [entry]")
+		WRITE_LOG(GLOB.config.logfiles["world_subsystems_tgui"], "TGUI: [entry]")

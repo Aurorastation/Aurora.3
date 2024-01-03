@@ -101,12 +101,6 @@
 /turf/simulated/wall/shuttle
 	smooth_underlays = TRUE
 
-/turf/simulated/wall
-	smooth_underlays = TRUE
-
-/turf/unsimulated/wall
-	smooth_underlays = TRUE
-
 /atom/proc/calculate_adjacencies()
 	if (!loc)
 		return 0
@@ -131,7 +125,7 @@
 	else
 		var/atom/movable/AM
 
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			AM = find_type_in_direction(src, direction)
 			if(AM == NULLTURF_BORDER)
 				if((smoothing_flags & SMOOTH_BORDER))
@@ -189,7 +183,7 @@
 		return
 	if(QDELETED(A))
 		return
-	A.flags |= HTML_USE_INITAL_ICON
+	A.atom_flags |= ATOM_FLAG_HTML_USE_INITIAL_ICON
 	if((A.smoothing_flags & SMOOTH_TRUE) || (A.smoothing_flags & SMOOTH_MORE))
 		var/adjacencies = A.calculate_adjacencies()
 
@@ -273,7 +267,7 @@
 	if (smooth_underlays)
 		var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
-		for(var/direction in alldirs)
+		for(var/direction in GLOB.alldirs)
 			if(adjacencies & direction)
 				var/turf/T = get_step(src, direction)
 				if(T)
@@ -536,14 +530,26 @@
 
 	for(var/V in Z_ALL_TURFS(zlevel))
 		var/turf/T = V
+
+		//There's no use in smoothing turfs that have been deleted
+		if(QDELETED(T))
+			continue
+
 		if(T.smoothing_flags)
 			if(now)
 				smooth_icon(T)
 			else
 				SSicon_smooth.add_to_queue(T)
+
 		for(var/R in T)
 			var/atom/A = R
+
+			//There's no use in smoothing deleted things
+			if(QDELETED(A))
+				continue
+
 			if(A.smoothing_flags)
+
 				if(now)
 					smooth_icon(A)
 				else

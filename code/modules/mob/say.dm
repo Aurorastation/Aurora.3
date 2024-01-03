@@ -5,7 +5,6 @@
 	set name = "Say"
 	set category = "IC"
 
-	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
@@ -21,7 +20,6 @@
 	set name = "Me"
 	set category = "IC"
 
-	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
@@ -42,7 +40,7 @@
 		return
 
 	if(!src.client.holder)
-		if(!config.dsay_allowed)
+		if(!GLOB.config.dsay_allowed)
 			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
 			return
 
@@ -86,12 +84,12 @@
 	return FALSE
 
 /*
-   ***Deprecated***
-   let this be handled at the hear_say or hear_radio proc
-   This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
-   robot_talk() proc.
-   There is no language handling build into it however there is at the /mob level so we accept the call
-   for it but just ignore it.
+	***Deprecated***
+	let this be handled at the hear_say or hear_radio proc
+	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
+	robot_talk() proc.
+	There is no language handling build into it however there is at the /mob level so we accept the call
+	for it but just ignore it.
 */
 
 /mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
@@ -150,14 +148,14 @@
 /mob/proc/parse_language(var/message)
 	var/prefix = copytext(message,1,2)
 	if(length(message) >= 1 && prefix == "!")
-		return all_languages[LANGUAGE_NOISE]
+		return GLOB.all_languages[LANGUAGE_NOISE]
 
 	if(length(message) >= 2 && is_language_prefix(prefix))
 		var/language_prefix = lowertext(copytext(message, 2, 4))
-		var/datum/language/L = language_keys[language_prefix]
+		var/datum/language/L = GLOB.language_keys[language_prefix]
 		if(!L || !can_speak(L))
 			language_prefix = lowertext(copytext(message, 2, 3))
-			L = language_keys[language_prefix]
+			L = GLOB.language_keys[language_prefix]
 		if(can_speak(L))
 			return L
 

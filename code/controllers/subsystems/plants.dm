@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/plants/SSplants
-
-/datum/controller/subsystem/plants
+SUBSYSTEM_DEF(plants)
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
@@ -20,9 +18,6 @@
 
 	var/list/processing = list()
 	var/list/current = list()
-
-/datum/controller/subsystem/plants/New()
-	NEW_SS_GLOBAL(SSplants)
 
 /datum/controller/subsystem/plants/stat_entry(msg)
 	msg = "P:[processing.len]"

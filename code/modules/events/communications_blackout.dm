@@ -9,7 +9,7 @@
 						"Ionospheri:% MCayj^j<.3-BZZZZZZT", \
 						"#4nd%;f4y6,>%-BZZZZZZZT")
 
-	for(var/mob/living/silicon/ai/A in player_list)	//AIs are always aware of communication blackouts.
+	for(var/mob/living/silicon/ai/A in GLOB.player_list)	//AIs are always aware of communication blackouts.
 		if(A.z in affecting_z)
 			to_chat(A, "<br>")
 			to_chat(A, "<span class='warning'><b>[alert]</b></span>")
@@ -24,4 +24,4 @@
 /datum/event/communications_blackout/start()
 	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.z in affecting_z)
-			T.emp_act(1)
+			T.emp_act(EMP_HEAVY)

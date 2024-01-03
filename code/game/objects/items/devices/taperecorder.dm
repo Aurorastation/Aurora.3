@@ -16,7 +16,7 @@
 	var/list/timestamp = list()
 	var/can_print = TRUE
 	var/obj/item/computer_hardware/hard_drive/portable/portable_drive
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 2
 	throw_speed = 4
 	throw_range = 20
@@ -27,7 +27,7 @@
 	portable_drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 
 /obj/item/device/taperecorder/Destroy()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	if(portable_drive)
 		QDEL_NULL(portable_drive)
 	return ..()

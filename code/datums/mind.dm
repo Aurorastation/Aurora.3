@@ -96,8 +96,8 @@
 
 		SSnanoui.user_transferred(current, new_character)
 		SStgui.on_transfer(current, new_character)
-		if(current.client && ticket_panels[current.client])
-			var/datum/ticket_panel/tp = ticket_panels[current.client]
+		if(current.client && GLOB.ticket_panels[current.client])
+			var/datum/ticket_panel/tp = GLOB.ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
 
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
@@ -151,8 +151,8 @@
 	out += "Assigned role: [assigned_role]. <a href='?src=\ref[src];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		out += "[antag.get_panel_entry(src)]"
 	out += "</table><hr>"
 	out += "<b>Objectives</b></br>"
@@ -180,7 +180,7 @@
 	if(!check_rights(R_ADMIN))	return
 
 	if(href_list["add_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["add_antagonist"]]
 		if(antag)
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
 				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].",admin_key=key_name(usr),ckey=key_name(src))
@@ -188,23 +188,23 @@
 				to_chat(usr, "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>")
 
 	else if(href_list["remove_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["remove_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["remove_antagonist"]]
 		if(antag) antag.remove_antagonist(src)
 
 	else if(href_list["equip_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["equip_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["equip_antagonist"]]
 		if(antag) antag.equip(src.current)
 
 	else if(href_list["unequip_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["unequip_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["unequip_antagonist"]]
 		if(antag) antag.unequip(src.current)
 
 	else if(href_list["move_antag_to_spawn"])
-		var/datum/antagonist/antag = all_antag_types[href_list["move_antag_to_spawn"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["move_antag_to_spawn"]]
 		if(antag) antag.place_mob(src.current)
 
 	else if (href_list["role_edit"])
-		var/new_role = input("Select new role", "Assigned role", assigned_role) as null|anything in joblist
+		var/new_role = input("Select new role", "Assigned role", assigned_role) as null|anything in GLOB.joblist
 		if (!new_role) return
 		assigned_role = new_role
 
@@ -214,7 +214,7 @@
 		memory = new_memo
 
 	else if (href_list["amb_edit"])
-		var/new_ambition = input("Enter a new ambition", "Memory",html_decode(src.ambitions)) as null|message
+		var/new_ambition = tgui_input_text("Enter a new ambition", "Memory", html_decode(ambitions))
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
@@ -441,7 +441,8 @@
 		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
 		return
 	else if(href_list["set_psi_rank_limitless"])
-		var/sure = input(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", "Don't Get A Staff Complaint") as anything in list("I know what I'm doing!", "I fear no man. But that thing... it scares me!")
+		var/sure = tgui_alert(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", \
+					"Don't Get A Staff Complaint", list("I know what I'm doing!", "I fear no man. But that thing... it scares me!"))
 		if(sure == "I know what I'm doing!")
 			current.set_psi_rank(PSI_RANK_LIMITLESS)
 		return

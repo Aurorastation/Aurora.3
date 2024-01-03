@@ -6,7 +6,7 @@
 var/list/global_webhooks = list()
 
 /proc/global_initialize_webhooks()
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		var/file = return_file_text("config/webhooks.json")
 		if (file)
 			var/jsonData = json_decode(file)
@@ -23,7 +23,7 @@ var/list/global_webhooks = list()
 		else
 			return 0
 	else
-		var/DBQuery/query = dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
 		query.Execute()
 		while (query.NextRow())
 			var/url = query.item[1]

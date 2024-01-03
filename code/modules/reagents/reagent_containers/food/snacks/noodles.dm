@@ -68,3 +68,89 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/drink/carrotjuice = 3, /singleton/reagent/oculine = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "cabbage" = 2))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/matsuul
+	name = "Matsuul"
+	desc = "Several places claim to be the origin place of Matsuul'hu (Matsuul for short), but all that's known for a fact is that this bowl of stir-fried, thinly sliced fish, tiny squares of earthern root pasta, eki mushrooms, and mint, is a local street food available in any melting pot where multiple species live together."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "matsuul"
+	trash = /obj/item/trash/purplebowl
+	filling_color = "#70c9c1"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein/seafood = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("earthenroot pasta" = 2, "mushroom" = 2, "mint" = 2))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/reagent_containers/food/snacks/matsuul/update_icon()
+	var/percent_matsuul = round((reagents.total_volume / 8) * 100)
+	switch(percent_matsuul)
+		if(0 to 50)
+			icon_state = "matsuulhalf"
+		if(51 to INFINITY)
+			icon_state = "matsuul"
+/obj/item/reagent_containers/food/snacks/macandcheese
+	name = "mac and cheese"
+	desc = "Cheesy, simple, messy fun."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "macandcheese"
+	trash = /obj/item/trash/snack_bowl/macandcheese
+	filling_color = "#F1C022"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cheese = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5))
+
+/obj/item/reagent_containers/food/snacks/macandcheese/bacon
+	name = "bacon mac and cheese"
+	icon_state = "baconmacandcheese"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cheese = 5, /singleton/reagent/nutriment/protein = 3)
+
+/obj/item/reagent_containers/food/snacks/ramenbowl
+	name = "ramen bowl"
+	desc = "There are many different types of Ramen, and this one is... one of them. Not to be confused with the instant, vending machine kind, this elaborate bowl is a celebration of noodles, vegetables, and pork, chicken or fish."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "ramenbowl"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#91682b"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 4, /singleton/reagent/water = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("noodles" = 5 , "rich vegetable broth" = 3, "egg" =3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/spaghettibolognese
+	name = "spaghetti bolognese"
+	desc = "If it's not from the bologna region of italy it's really just sparkling noodles."
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "bolognese"
+	trash = /obj/item/trash/plate
+	filling_color = "#a15b0a"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/tomatojuice = 5, /singleton/reagent/nutriment/protein = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("spaghetti" = 5, "seasoned vegetables" = 4), /singleton/reagent/nutriment/protein= list ("ground beef" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/ravioli
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "ravioli"
+	trash = /obj/item/trash/plate
+	filling_color = "#e9c880"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+
+/obj/item/reagent_containers/food/snacks/ravioli/cheese
+	name = "cheese ravioli"
+	desc = "Ravioli with ricotta filling and creamy tomato sauce."
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "ricotta cheese" = 5, "tomato sauce" = 5))
+
+/obj/item/reagent_containers/food/snacks/ravioli/meat
+	name = "meat ravioli"
+	icon_state = "raviolimeat"
+	desc = "Ravioli with ground meat filling and creamy tomato sauce."
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "tomato sauce" = 5), /singleton/reagent/nutriment/protein = list ("ground meat" = 5))
+
+/obj/item/reagent_containers/food/snacks/ravioli/earthenroot
+	name = "earthenroot ravioli"
+	icon_state = "veganravioli"
+	desc = "This bizzarely colored dish is not actually Tajaran in origin, but the Earthenroot pasta, together with the creamy tomato sauce makes for a pink-and blue dish that's vegan, delicious, and truly bizzare to look at."
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "pumpkin squash" = 5, "creamy sauce" = 5))
+	filling_color = "#80d1e9"

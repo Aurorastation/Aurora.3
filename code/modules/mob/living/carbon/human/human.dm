@@ -81,7 +81,7 @@
 	hud_list[WANTED_HUD] = holder
 
 
-	human_mob_list |= src
+	GLOB.human_mob_list |= src
 
 	. = ..()
 
@@ -95,8 +95,6 @@
 		sync_organ_dna()
 	make_blood()
 
-	available_maneuvers = species.maneuvers.Copy()
-
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
@@ -104,11 +102,9 @@
 		set_default_attack(species.unarmed_attacks[1])
 
 /mob/living/carbon/human/Destroy()
-	human_mob_list -= src
-	intent_listener -= src
-	for(var/organ in organs)
-		qdel(organ)
-	organs = null
+	GLOB.human_mob_list -= src
+	GLOB.intent_listener -= src
+	QDEL_NULL_LIST(organs)
 	internal_organs_by_name = null
 	internal_organs = null
 	organs_by_name = null
@@ -267,7 +263,7 @@
 	UpdateDamageIcon()
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
-	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
+	if(!GLOB.config.use_loyalty_implants && !override) return // Nuh-uh.
 
 	var/obj/item/implant/mindshield/L
 	if(isipc(M))
@@ -492,24 +488,19 @@
 		var/emp_damage
 		switch(shock_damage)
 			if(-INFINITY to 5)
-				emp_damage = 0
-			if(6 to 19)
-				emp_damage = 3
-			if(20 to 49)
-				emp_damage = 2
+				emp_damage = FALSE
+			if(6 to 49)
+				emp_damage = EMP_LIGHT
 			else
-				emp_damage = 1
+				emp_damage = EMP_HEAVY
 
 		if(emp_damage)
 			for(var/obj/item/organ/O in affecting.internal_organs)
 				O.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting.implants)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 			for(var/obj/item/I in affecting)
 				I.emp_act(emp_damage)
-				emp_damage *= 0.4
 
 		apply_damage(shock_damage, DAMAGE_BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
@@ -531,7 +522,7 @@
 		SPAN_WARNING("You hear a light zapping.")
 		)
 
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 
 	return shock_damage
 
@@ -568,7 +559,7 @@
 			if(perpname)
 				var/datum/record/general/R = SSrecords.find_record("name", perpname)
 				if(istype(R) && istype(R.security))
-					var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", ) in list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel")
+					var/setcriminal = tgui_input_list(usr, "Specify a new criminal status for this person.", "Security HUD", list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel"))
 					if(hasHUD(usr, "security"))
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal
@@ -648,10 +639,10 @@
 					return
 				if(istype(usr,/mob/living/carbon/human))
 					var/mob/living/carbon/human/U = usr
-					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
-					R.security.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.security.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
 
 	if (href_list["medical"])
 		if(hasHUD(usr,"medical"))
@@ -666,10 +657,10 @@
 
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R))
-				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel")
+				var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel"), R.physical_status)
 
 				if(hasHUD(usr,"medical"))
-					if(setmedical != "Cancel")
+					if(!isnull(setmedical) && setmedical != "Cancel")
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
@@ -747,10 +738,10 @@
 					return
 				if(ishuman(usr))
 					var/mob/living/carbon/human/U = usr
-					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
-					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
 
 	if(href_list["triagetag"])
 		if(hasHUD(usr, "medical"))
@@ -1118,7 +1109,7 @@
 		remove_verb(src, /mob/living/carbon/human/proc/remotesay)
 		return
 	var/list/creatures = list()
-	for(var/hh in human_mob_list)
+	for(var/hh in GLOB.human_mob_list)
 		var/mob/living/carbon/human/H = hh
 		if (H.client)
 			creatures += hh
@@ -1134,7 +1125,7 @@
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
 	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
-	for(var/mob/abstract/observer/G in dead_mob_list)
+	for(var/mob/abstract/observer/G in GLOB.dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/carbon/human/proc/remoteobserve()
@@ -1159,7 +1150,7 @@
 
 	var/list/mob/creatures = list()
 
-	for(var/h in human_mob_list)
+	for(var/h in GLOB.human_mob_list)
 		var/mob/living/carbon/human/H = h
 		if (!H.client)
 			continue
@@ -1405,7 +1396,7 @@
 			dna.species = new_species
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
-	if(!all_species[new_species])
+	if(!GLOB.all_species[new_species])
 		new_species = SPECIES_HUMAN
 
 	if(species)
@@ -1420,7 +1411,7 @@
 		species.remove_inherent_verbs(src)
 		holder_type = null
 
-	species = all_species[new_species]
+	species = GLOB.all_species[new_species]
 
 	if(species.language)
 		add_language(species.language)
@@ -1440,6 +1431,11 @@
 
 	if(species.holder_type)
 		holder_type = species.holder_type
+
+	//Clear out the manouvers of the previous specie and add the one of the current specie
+	available_maneuvers = null
+	if(species?.maneuvers)
+		available_maneuvers = species.maneuvers.Copy()
 
 	icon_state = lowertext(species.name)
 
@@ -1626,9 +1622,9 @@
 	)
 	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
 		var/injection_modifier = BASE_INJECTION_MOD
-		if(C.item_flags & INJECTIONPORT)
+		if(C.item_flags & ITEM_FLAG_INJECTION_PORT)
 			injection_modifier = SUIT_INJECTION_MOD
-		else if(C.item_flags & THICKMATERIAL)
+		else if(C.item_flags & ITEM_FLAG_THICK_MATERIAL)
 			injection_modifier = INJECTION_FAIL
 		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
 			continue
@@ -1653,7 +1649,7 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
-		if(C.item_flags & SHOWFLAVORTEXT)
+		if(C.item_flags & ITEM_FLAG_SHOW_FLAVOR_TEXT)
 			continue
 
 		if(C.body_parts_covered & HEAD)
@@ -1708,7 +1704,7 @@
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
-	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
+	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP)))
 		return 0
 	. = ..(slipped_on,stun_duration)
 
@@ -1742,7 +1738,7 @@
 		var/obj/item/organ/external/current_limb = organs_by_name[limb]
 		if(current_limb && current_limb.dislocated == 2)
 			limbs |= limb
-	var/choice = input(usr,"Which joint do you wish to relocate?") as null|anything in limbs
+	var/choice = tgui_input_list(usr, "Which joint do you wish to relocate?", "Relocate Joint", limbs)
 
 	if(!choice)
 		return
@@ -1831,7 +1827,7 @@
 
 	if(stat)
 		return
-	var/datum/category_group/underwear/UWC = input(usr, "Choose underwear:", "Show/hide underwear") as null|anything in global_underwear.categories
+	var/datum/category_group/underwear/UWC = tgui_input_list(usr, "Choose underwear.", "Show/Hide Underwear", global_underwear.categories)
 	if(!UWC)
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
@@ -1922,9 +1918,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5))*0.25)
+		return list(FLOOR(species.bp_base_systolic+rand(-5,5))*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5))*0.25)
 	var/blood_result = get_blood_circulation()
-	return list(Floor((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), Floor((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
+	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
@@ -2064,9 +2060,9 @@
 
 /mob/living/carbon/human/proc/generate_valid_languages()
 	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_TCB
-	for(var/L in all_languages)
-		var/datum/language/lang = all_languages[L]
-		if(!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
+	for(var/L in GLOB.all_languages)
+		var/datum/language/lang = GLOB.all_languages[L]
+		if(!(lang.flags & RESTRICTED) && (!GLOB.config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))
 			available_languages |= L
 	return available_languages
 
@@ -2077,7 +2073,7 @@
 	return TRUE
 
 /mob/living/carbon/human/proc/add_or_remove_language(var/language)
-	var/datum/language/new_language = all_languages[language]
+	var/datum/language/new_language = GLOB.all_languages[language]
 	if(!new_language || !istype(new_language))
 		to_chat(src, SPAN_WARNING("Invalid language!"))
 		return TRUE
@@ -2086,7 +2082,7 @@
 			to_chat(src, SPAN_NOTICE("You no longer know <b>[new_language.name]</b>."))
 		return TRUE
 	var/total_alternate_languages = languages.Copy()
-	total_alternate_languages -= all_languages[species.language]
+	total_alternate_languages -= GLOB.all_languages[species.language]
 	if(length(total_alternate_languages) >= species.num_alternate_languages)
 		to_chat(src, SPAN_WARNING("You can't add any more languages!"))
 		return TRUE

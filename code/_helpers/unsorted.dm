@@ -54,6 +54,51 @@
 	else if(dx < 0)
 		. += 360
 
+/**
+ * Gets all turfs inside a cone, return a `/list` of `/turf` that are inside the cone
+ *
+ * * source - The source from which to calculate the cone from, an `/atom`
+ * * middle_angle - The angle that is considered the middle, if not specific (eg. from a click), you can use `dir2angle(dir)` to convert the direction of the atom to an angle
+ * * distance - How far to take turfs from
+ * * angle_spread - How much degrees does the cone spread, from the `middle_angle`
+ *
+ */
+/proc/get_turfs_in_cone(atom/source, middle_angle, distance, angle_spread)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(!source)
+		crash_with("Source not specified")
+
+	if(isnull(middle_angle) || middle_angle < 0)
+		crash_with("middle_angle not specified, or invalid")
+
+	if(isnull(distance))
+		crash_with("Distance not specified")
+
+	if(angle_spread < 0)
+		crash_with("angle_spread cannot be negative")
+
+	var/list/turf/turfs_in_cone = list()
+	RETURN_TYPE(turfs_in_cone)
+
+	var/angle_left = (middle_angle - angle_spread + 360) % 360
+	var/angle_right = (middle_angle + angle_spread) % 360
+
+	for(var/turf/turf in range(distance, source))
+		var/angle_between_source_and_target = Get_Angle(source, turf)
+
+		// Ensure correct handling of angles spanning the 0-degree mark
+		if(angle_left <= angle_right)
+			if((angle_between_source_and_target >= angle_left) && (angle_between_source_and_target <= angle_right))
+				turfs_in_cone += turf
+		else
+			if((angle_between_source_and_target >= angle_left) || (angle_between_source_and_target <= angle_right))
+				turfs_in_cone += turf
+
+	return turfs_in_cone
+
+
 /proc/get_projectile_angle(atom/source, atom/target)
 	var/sx = source.x * world.icon_size
 	var/sy = source.y * world.icon_size
@@ -263,7 +308,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 #undef LOCATE_COORDS
 
-//Returns whether or not a player is a guest using their ckey as an input
+///Returns whether or not a player is a guest using their ckey as an input
 /proc/IsGuestKey(key)
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
 		return 0
@@ -279,7 +324,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 0
 	return 1
 
-//Ensure the frequency is within bounds of what it should be sending/recieving at
+///Ensure the frequency is within bounds of what it should be sending/recieving at
 /proc/sanitize_frequency(var/f, var/low = PUBLIC_LOW_FREQ, var/high = PUBLIC_HIGH_FREQ)
 	f = round(f)
 	f = max(low, f)
@@ -288,19 +333,19 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		f += 1
 	return f
 
-//Turns 1479 into 147.9
+///Turns 1479 into 147.9
 /proc/format_frequency(var/f)
 	return "[round(f / 10)].[f % 10]"
 
-//Picks a string of symbols to display as the law number for hacked or ion laws
+///Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
 	return "[pick("1","2","3","4","5","6","7","8","9","0")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")]"
 
-//When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
+///When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
 /proc/freeborg()
 	var/select = null
 	var/list/borgs = list()
-	for (var/mob/living/silicon/robot/A in player_list)
+	for (var/mob/living/silicon/robot/A in GLOB.player_list)
 		if (A.stat == 2 || A.connected_ai || A.scrambled_codes || istype(A,/mob/living/silicon/robot/drone))
 			continue
 		var/name = "[A.real_name] ([A.mod_type] [A.braintype])"
@@ -310,10 +355,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		select = input("Unshackled borg signals detected:", "Borg selection", null, null) as null|anything in borgs
 		return borgs[select]
 
-//When a borg is activated, it can choose which AI it wants to be slaved to
+///When a borg is activated, it can choose which AI it wants to be slaved to
 /proc/active_ais()
 	. = list()
-	for(var/mob/living/silicon/ai/A in living_mob_list)
+	for(var/mob/living/silicon/ai/A in GLOB.living_mob_list)
 		if(A.stat == DEAD)
 			continue
 		if(A.control_disabled == 1)
@@ -321,7 +366,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		. += A
 	return .
 
-//Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
+///Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
 /proc/select_active_ai_with_fewest_borgs()
 	var/mob/living/silicon/ai/selected
 	var/list/active = active_ais()
@@ -366,7 +411,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	new_list += Dead_list
 	return new_list
 
-//Returns a list of all mobs with their name
+///Returns a list of all mobs with their name
 /proc/getmobs()
 
 	var/list/mobs = sortmobs()
@@ -392,10 +437,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return creatures
 
-//Orders mobs by type then by name
+///Orders mobs by type then by name
 /proc/sortmobs()
 	var/list/moblist = list()
-	var/list/sortmob = sortAtom(mob_list)
+	var/list/sortmob = sortAtom(GLOB.mob_list)
 	for(var/mob/abstract/eye/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/silicon/ai/M in sortmob)
@@ -424,15 +469,17 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //		mob_list.Add(M)
 	return moblist
 
-//Forces a variable to be posative
+///Forces a variable to be posative
 /proc/modulus(var/M)
 	if(M >= 0)
 		return M
 	if(M < 0)
 		return -M
 
-// returns the turf located at the map edge in the specified direction relative to A
-// used for mass driver
+/**
+ * Returns the turf located at the map edge in the specified direction relative to A
+ * used for mass driver
+ */
 /proc/get_edge_target_turf(var/atom/A, var/direction)
 
 	var/turf/target = locate(A.x, A.y, A.z)
@@ -453,10 +500,12 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return target
 
-// returns turf relative to A in given direction at set range
-// result is bounded to map size
-// note range is non-pythagorean
-// used for disposal system
+/**
+ * returns turf relative to A in given direction at set range
+ * result is bounded to map size
+ * note range is non-pythagorean
+ * used for disposal system
+ */
 /proc/get_ranged_target_turf(var/atom/A, var/direction, var/range)
 
 	var/x = A.x
@@ -480,25 +529,25 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x,y,A.z)
 
-//Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
+///Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
-//returns random gauss number
+///Returns random gauss number
 /proc/GaussRand(var/sigma)
-  var/x,y,rsq
-  do
-    x=2*rand()-1
-    y=2*rand()-1
-    rsq=x*x+y*y
-  while(rsq>1 || !rsq)
-  return sigma*y*sqrt(-2*log(rsq)/rsq)
+	var/x,y,rsq
+	do
+		x=2*rand()-1
+		y=2*rand()-1
+		rsq=x*x+y*y
+	while(rsq>1 || !rsq)
+	return sigma*y*sqrt(-2*log(rsq)/rsq)
 
-//returns random gauss number, rounded to 'roundto'
+///Returns random gauss number, rounded to 'roundto'
 /proc/GaussRandRound(var/sigma,var/roundto)
 	return round(GaussRand(sigma),roundto)
 
-//Step-towards method of determining whether one atom can see another. Similar to viewers()
+///Step-towards method of determining whether one atom can see another. Similar to viewers()
 /proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
 	var/turf/current = get_turf(source)
 	var/turf/target_turf = get_turf(target)
@@ -553,9 +602,21 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	else return get_step(ref, base_dir)
 
+/**
+ * Makes a mob perform an action to another mob, showing a progress bar and over a given time
+ *
+ * * user - The `/mob` that performs the action
+ * * target - The `/mob` that the action is being performed to
+ * * delay - The time it takes for the action to be performed
+ * * needhand - Boolean, if a free hand is needed for the action to be successful
+ * * display_progress - Boolean, if the progress bar is shown
+ * * extra_checks - A `/datum/callback` that is invoked to perform extra checks and validate that the action can continue to be performed,
+ * if it returns `FALSE` or an algebraic equivalent the action is aborted
+ */
 /proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
-		return 0
+		stack_trace("do_mob called without either an user or a target!")
+		return FALSE
 
 	var/user_loc = user.loc
 	var/target_loc = target.loc
@@ -571,7 +632,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/endtime = world.time + delay
 	var/starttime = world.time
 
-	. = 1
+	. = TRUE
 
 	while (world.time < endtime)
 		stoplag(1)
@@ -579,11 +640,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			progbar.update(world.time - starttime)
 
 		if(QDELETED(user) || QDELETED(target))
-			. = 0
+			. = FALSE
 			break
 
 		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned || (extra_checks && !extra_checks.Invoke()))
-			. = 0
+			. = FALSE
 			break
 
 	if (progbar)
@@ -828,7 +889,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 /proc/get_mob_with_client_list()
 	var/list/mobs = list()
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.client)
 			mobs += M
 	return mobs
@@ -1013,7 +1074,6 @@ var/list/wall_items = typecacheof(list(
 	/obj/structure/mirror,
 	/obj/structure/fireaxecabinet,
 	/obj/machinery/computer/security/telescreen/entertainment,
-	/obj/machinery/station_map,
 	/obj/structure/sign
 ))
 

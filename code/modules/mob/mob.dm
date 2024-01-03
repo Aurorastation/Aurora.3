@@ -3,9 +3,9 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	mob_list -= src
-	dead_mob_list -= src
-	living_mob_list -= src
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
@@ -76,11 +76,11 @@
 /mob/Initialize()
 	. = ..()
 	if(should_add_to_mob_list)
-		mob_list += src
+		GLOB.mob_list += src
 		if(stat == DEAD)
-			dead_mob_list += src
+			GLOB.dead_mob_list += src
 		else
-			living_mob_list += src
+			GLOB.living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
@@ -90,51 +90,26 @@
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","say (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		say_verb(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
 
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		me_verb(message)
-
-/mob/verb/whisper_wrapper()
-	set name = ".Whisper"
-	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		whisper(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
 	set category = "Preferences"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
-	prefs.toggles ^= SHOW_TYPING
+	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
-
-	// Clear out any existing typing indicator.
-	if(prefs.toggles & SHOW_TYPING)
-		if(istype(mob))
-			SStyping.set_indicator_state(mob.client, FALSE)
-
+	to_chat(src, "You will [(prefs.toggles & HIDE_TYPING_INDICATOR) ? "no longer" : "now"] display a typing indicator.")
 	feedback_add_details("admin_verb","TID") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
-		if(SStyping)
-			SStyping.set_indicator_state(client, FALSE)
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -162,32 +137,26 @@
 		to_chat(src, msg)
 	return
 
-// Show a message to all mobs and objects in sight of this one
-// This would be for visible actions by the src mob
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
-	for(var/A in player_list)
+	for(var/A in GLOB.player_list)
 		var/mob/M = A
 		if (QDELETED(M))
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			player_list -= M
+			GLOB.player_list -= M
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
-	for(var/o in listening_objects)
+	for(var/o in GLOB.listening_objects)
 		var/obj/O = o
 		var/turf/O_turf = get_turf(O)
 		if(O && (O_turf in messageturfs))
@@ -266,7 +235,7 @@
 		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.real_name == text("[]", msg))
 			return M
 	return 0
@@ -491,7 +460,7 @@
 		return//This shouldnt happen
 
 	var/failure = null
-	if (!( config.abandon_allowed ))
+	if (!( GLOB.config.abandon_allowed ))
 		failure = "Respawn is disabled."
 	else if (stat != DEAD)
 		failure = "You must be dead to use this!"
@@ -545,8 +514,8 @@
 	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
 	changelog_win.set_content(file2text('html/changelog.html'))
 	changelog_win.open()
-	if(prefs.lastchangelog != changelog_hash)
-		prefs.lastchangelog = changelog_hash
+	if(prefs.lastchangelog != GLOB.changelog_hash)
+		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
 		winset(src, "rpane.changelog", "background-color=none;font-style=;")
 
@@ -602,7 +571,7 @@
 			creatures[name] = O
 
 
-	for(var/mob/M in sortAtom(mob_list))
+	for(var/mob/M in sortAtom(GLOB.mob_list))
 		var/name = M.name
 		if (names.Find(name))
 			namecounts[name]++
@@ -1396,10 +1365,10 @@
 	if(!check_has_body_select())
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
-	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
+	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones), usr)
 
 /mob/proc/get_speech_bubble_state_modifier()
-	return "normal"
+	return "default"
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()

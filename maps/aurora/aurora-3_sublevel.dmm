@@ -6,20 +6,6 @@
 /obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
-"aac" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "eng_sl_eva_outer";
-	locked = 1;
-	luminosity = 1;
-	name = "Engineering Sub-Level EVA";
-	req_access = list(10,13);
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/outpost/engineering/hallway)
 "aad" = (
 /obj/structure/grille,
 /turf/simulated/wall/r_wall,
@@ -3513,21 +3499,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"aip" = (
-/obj/machinery/station_map{
-	dir = 1;
-	pixel_y = -32
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/engineering/hallway)
 "aiq" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -4080,10 +4051,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"ajs" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/turf/simulated/floor/tiled,
-/area/engineering/break_room)
 "ajt" = (
 /obj/machinery/light{
 	dir = 4
@@ -14541,9 +14508,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -34401,16 +34365,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"uGE" = (
-/obj/machinery/station_map{
-	dir = 4;
-	pixel_x = -32
-	},
-/obj/effect/floor_decal/corner_wide/mauve{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/hallway)
 "uGF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -49321,9 +49275,9 @@ jXD
 aim
 vly
 akJ
-ajs
-ajs
-ajs
+wHR
+wHR
+wHR
 xNS
 ajv
 qnn
@@ -49577,7 +49531,7 @@ pmn
 ahI
 xxd
 uqb
-ajs
+wHR
 bVc
 akn
 akn
@@ -49834,7 +49788,7 @@ hZh
 eby
 ain
 dbr
-ajs
+wHR
 ajT
 rmO
 rmO
@@ -50353,7 +50307,7 @@ xrn
 rmO
 rmO
 tbe
-ajs
+wHR
 ntd
 lYK
 aaa
@@ -50863,11 +50817,11 @@ tZw
 ain
 vly
 ajx
-ajs
+wHR
 ajw
 bTq
 uTq
-ajs
+wHR
 pOl
 lYK
 aaa
@@ -51631,7 +51585,7 @@ fvN
 jjk
 ahi
 ahK
-aip
+ain
 aiQ
 ajA
 ajA
@@ -53938,7 +53892,7 @@ sOM
 sOM
 sOM
 sOM
-aac
+fYn
 ayP
 aiv
 dPp
@@ -57608,7 +57562,7 @@ xFr
 aLI
 aMG
 aCf
-uGE
+azn
 aPg
 aGC
 aQt

@@ -67,7 +67,7 @@
 /obj/effect/overlay/temp/New()
 	..()
 	if(randomdir)
-		dir = (pick(cardinal))
+		dir = (pick(GLOB.cardinal))
 	flick("[icon_state]", src)
 
 	QDEL_IN(src, duration)

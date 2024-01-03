@@ -49,8 +49,11 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	var/why_disabled = "No reason set."   // If we disable a unit test we will display why so it reminds us to check back on it later.
 	var/map_path // This should be the same as the path var on /datum/map - The unit test will only run for that map
 
+	///A list of strings, each of which represents a group which this UT belongs to, the UT pods will only run UTs that are in their list
+	var/list/groups = list()
 
-/**
+
+/*
  * Log levels used to prettify correctly, only defined in this file (aka undef'd at the end)
  * Build unit test messages as per https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions, or for console output
  */
@@ -141,7 +144,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 /proc/load_unit_test_changes()
 /*
 	//This takes about 60 seconds to run on Travis and is only used for the ZAS vacume check on The Asteroid.
-	if(config.generate_asteroid != 1)
+	if(GLOB.config.generate_asteroid != 1)
 		log_unit_test("Overiding Configuration option for Asteroid Generation to ENABLED")
 		config.generate_asteroid = 1	// The default map requires it, the example config doesn't have this enabled.
  */

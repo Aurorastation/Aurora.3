@@ -1,4 +1,4 @@
-#define TIME_OFFSET config.time_offset
+#define TIME_OFFSET GLOB.config.time_offset
 
 var/roundstart_hour = 0
 var/round_start_time
@@ -14,7 +14,7 @@ var/round_start_time
 	. = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 
 /proc/worlddate2text()
-	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
+	return num2text(GLOB.game_year) + "-" + time2text(world.timeofday, "MM-DD")
 
 /proc/time_stamp()
 	return time2text(world.timeofday, "hh:mm:ss")
@@ -72,3 +72,32 @@ var/real_round_start_time
  */
 /proc/stop_watch(wh)
 	return round(0.1 * (REALTIMEOFDAY - wh), 0.1)
+
+//Takes a value of time in deciseconds.
+//Returns a text value of that number in hours, minutes, or seconds.
+/proc/DisplayTimeText(time_value, round_seconds_to = 0.1)
+	var/second = FLOOR_FLOAT(time_value * 0.1, round_seconds_to)
+	if(!second)
+		return "right now"
+	if(second < 60)
+		return "[second] second[(second != 1)? "s":""]"
+	var/minute = FLOOR_FLOAT(second / 60, 1)
+	second = FLOOR_FLOAT(MODULUS(second, 60), round_seconds_to)
+	var/secondT
+	if(second)
+		secondT = " and [second] second[(second != 1)? "s":""]"
+	if(minute < 60)
+		return "[minute] minute[(minute != 1)? "s":""][secondT]"
+	var/hour = FLOOR_FLOAT(minute / 60, 1)
+	minute = MODULUS(minute, 60)
+	var/minuteT
+	if(minute)
+		minuteT = " and [minute] minute[(minute != 1)? "s":""]"
+	if(hour < 24)
+		return "[hour] hour[(hour != 1)? "s":""][minuteT][secondT]"
+	var/day = FLOOR_FLOAT(hour / 24, 1)
+	hour = MODULUS(hour, 24)
+	var/hourT
+	if(hour)
+		hourT = " and [hour] hour[(hour != 1)? "s":""]"
+	return "[day] day[(day != 1)? "s":""][hourT][minuteT][secondT]"

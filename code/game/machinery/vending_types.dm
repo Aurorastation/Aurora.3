@@ -25,7 +25,7 @@
 	icon_vend = "engivend-vend"
 	deny_time = 6
 	vend_id = "admin"
-	req_access = list(access_janitor)
+	req_access = list(ACCESS_JANITOR)
 	products = list(
 		/obj/item/device/vending_refill/booze = 1,
 		/obj/item/device/vending_refill/tools = 1,
@@ -52,15 +52,18 @@
 	deny_time = 16
 	vend_id = "booze"
 	products = list(
+		/obj/item/reagent_containers/food/drinks/bottle/applejack = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/bitters = 6,
 		/obj/item/reagent_containers/food/drinks/bottle/boukha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/tequila = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/fernet = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/cognac = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/wine = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/rose_wine = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/whitewine = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 4,
@@ -72,6 +75,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/triplesec = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
@@ -99,6 +103,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/algae_wine = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/kvass = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/tarasun = 3,
@@ -117,6 +122,7 @@
 		/obj/item/reagent_containers/food/drinks/carton/lemonjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/orangejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/tomatojuice = 4,
+		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters = 2,
 		/obj/item/reagent_containers/food/drinks/carton/mutthir = 2,
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 2,
@@ -148,7 +154,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
-	req_access = list(access_bar)
+	req_access = list(ACCESS_BAR)
 	random_itemcount = 0
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
@@ -318,6 +324,7 @@
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
 		/obj/item/storage/box/pineapple = 4,
 		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 6,
 		/obj/item/storage/box/fancy/cookiesnack = 6,
 		/obj/item/storage/box/fancy/gum = 4,
 		/obj/item/storage/box/fancy/vkrexitaffy = 5,
@@ -344,7 +351,8 @@
 		/obj/item/reagent_containers/food/snacks/koisbar = 4
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/snacks/cookie = 6
+		/obj/item/reagent_containers/food/snacks/cookie = 6,
+		/obj/item/storage/box/fancy/food/pralinebox = 2
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/snacks/candy = 15,
@@ -357,6 +365,7 @@
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
 		/obj/item/storage/box/pineapple = 20,
 		/obj/item/reagent_containers/food/snacks/chocolatebar = 12,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 12,
 		/obj/item/storage/box/fancy/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/storage/box/fancy/admints = 12,
@@ -506,15 +515,19 @@
 		/obj/item/storage/box/fancy/cigarettes/nka = 6,
 		/obj/item/storage/box/fancy/cigarettes/federation = 3,
 		/obj/item/storage/box/fancy/cigarettes/dyn = 3,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 3,
 		/obj/item/storage/chewables/rollable = 8,
 		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
 		/obj/item/storage/chewables/rollable/nico = 3,
+		/obj/item/storage/chewables/rollable/oracle = 5,
+		/obj/item/storage/chewables/rollable/vedamor = 3,
 		/obj/item/storage/chewables/tobacco/bad = 6,
 		/obj/item/storage/chewables/tobacco = 8,
 		/obj/item/storage/chewables/tobacco/fine = 5,
 		/obj/item/storage/chewables/tobacco/federation = 2,
 		/obj/item/storage/chewables/tobacco/dyn = 2,
+		/obj/item/storage/chewables/oracle = 4,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 6,
@@ -549,16 +562,20 @@
 		/obj/item/storage/box/fancy/cigarettes/nka = 74,
 		/obj/item/storage/box/fancy/cigarettes/federation = 93,
 		/obj/item/storage/box/fancy/cigarettes/dyn = 84,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 84,
 		/obj/item/storage/chewables/rollable = 63,
 		/obj/item/storage/chewables/rollable/unathi = 65,
 		/obj/item/storage/chewables/rollable/fine = 69,
 		/obj/item/storage/chewables/rollable/nico = 86,
+		/obj/item/storage/chewables/rollable/oracle = 66,
+		/obj/item/storage/chewables/rollable/vedamor = 72,
 		/obj/item/storage/chewables/tobacco/bad = 55,
 		/obj/item/storage/chewables/tobacco = 74,
 		/obj/item/storage/chewables/tobacco/fine = 86,
 		/obj/item/storage/chewables/tobacco/federation = 88,
 		/obj/item/storage/chewables/tobacco/dyn = 85,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
+		/obj/item/storage/chewables/oracle = 76,
 		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
 		/obj/item/storage/cigfilters = 28,
@@ -581,6 +598,7 @@
 	prices = list()
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes = 10,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 10,
 		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/storage/box/fancy/cigarettes/cigar = 5,
@@ -604,7 +622,7 @@
 	icon_vend = "med-vend"
 	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
@@ -678,7 +696,7 @@
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	deny_time = 15
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -710,7 +728,7 @@
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	deny_time = 15
-	req_access = list(access_medical)
+	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -744,7 +762,7 @@
 	icon_state = "sec"
 	icon_vend = "sec-vend"
 	deny_time = 16
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "security"
 	products = list(
 		/obj/item/handcuffs = 8,
@@ -762,7 +780,8 @@
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
-		/obj/item/grenade/flashbang = 4
+		/obj/item/grenade/flashbang = 4,
+		/obj/item/grenade/stinger = 4
 	)
 	restock_blocked_items = list(
 		/obj/item/storage/box/fancy/donut,
@@ -857,6 +876,7 @@
 		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
+		/obj/item/seeds/oracleseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
 		/obj/item/seeds/peppercornseed = 3,
@@ -895,6 +915,7 @@
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,
+		/obj/item/seeds/cocaseed = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3
@@ -936,6 +957,7 @@
 		/obj/item/seeds/mintseed = 70,
 		/obj/item/seeds/nifberries = 70,
 		/obj/item/seeds/onionseed = 30,
+		/obj/item/seeds/oracleseed = 50,
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
 		/obj/item/seeds/peppercornseed = 30,
@@ -1103,7 +1125,7 @@
 	icon_vend = "tool-vend"
 	deny_time = 6
 	vend_id = "tools"
-	//req_access = list(access_maint_tunnels) //Maintenance access
+	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -1138,7 +1160,7 @@
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	deny_time = 6
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 	vend_id = "tools"
 	products = list(
 		/obj/item/device/multitool = 4,
@@ -1169,7 +1191,7 @@
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
 	deny_time = 19
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "tactical"
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
@@ -1193,7 +1215,7 @@
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 	vend_id = "ert"
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
@@ -1227,7 +1249,7 @@
 	icon_state = "engi"
 	icon_vend = "engi-vend"
 	deny_time = 6
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/head/hardhat = 4,
@@ -1274,7 +1296,7 @@
 	icon_state = "robotics"
 	icon_vend = "robotics-vend"
 	deny_time = 14
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/stack/cable_coil = 4,

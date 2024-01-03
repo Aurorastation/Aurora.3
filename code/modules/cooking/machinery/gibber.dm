@@ -7,7 +7,7 @@
 	icon_state = "grinder"
 	density = 1
 	anchored = TRUE
-	req_access = list(access_kitchen,access_morgue)
+	req_access = list(ACCESS_KITCHEN,ACCESS_MORGUE)
 
 	var/operating = 0 //Is it on?
 	var/dirty = 0 // Does it need cleaning?
@@ -24,7 +24,7 @@
 
 /obj/machinery/gibber/autogibber/Initialize()
 	. = ..()
-	for(var/i in cardinal)
+	for(var/i in GLOB.cardinal)
 		var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(loc, i) )
 		if(input_obj)
 			if(isturf(input_obj.loc))

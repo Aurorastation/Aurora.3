@@ -17,58 +17,58 @@
 /obj/effect/landmark/proc/do_landmark_effect()
 	switch(name)			//some of these are probably obsolete
 		if("start")
-			newplayer_start = get_turf(loc)
+			GLOB.newplayer_start = get_turf(loc)
 			delete_me = 1
 			return
 		if("JoinLate")
-			latejoin += loc
+			GLOB.latejoin += loc
 			delete_me = 1
 			return
 		if("KickoffLocation")
-			kickoffsloc += loc
+			GLOB.kickoffsloc += loc
 			delete_me = 1
 			return
 		if("JoinLateGateway")
-			latejoin_gateway += loc
+			GLOB.latejoin_gateway += loc
 			delete_me = 1
 			return
 		if("JoinLateCryo")
-			latejoin_cryo += loc
+			GLOB.latejoin_cryo += loc
 			delete_me = 1
 			return
 		if("JoinLateCryoCommand")
-			latejoin_cryo_command += loc
+			GLOB.latejoin_cryo_command += loc
 			delete_me = 1
 		if("JoinLateLift")
-			latejoin_living_quarters_lift += loc
+			GLOB.latejoin_living_quarters_lift += loc
 			delete_me = 1
 			return
 		if("JoinLateCyborg")
-			latejoin_cyborg += loc
+			GLOB.latejoin_cyborg += loc
 			delete_me = 1
 			return
 		if("JoinLateMerchant")
-			latejoin_merchant += loc
+			GLOB.latejoin_merchant += loc
 			delete_me = 1
 			return
 		if("tdome1")
-			tdome1 += loc
+			GLOB.tdome1 += loc
 		if("tdome2")
-			tdome2 += loc
+			GLOB.tdome2 += loc
 		if("tdomeadmin")
-			tdomeadmin += loc
+			GLOB.tdomeadmin += loc
 		if("tdomeobserve")
-			tdomeobserve += loc
+			GLOB.tdomeobserve += loc
 		if("endgame_exit")
-			endgame_safespawns += loc
+			GLOB.endgame_safespawns += loc
 			delete_me = 1
 			return
 		if("bluespacerift")
-			endgame_exits += loc
+			GLOB.endgame_exits += loc
 			delete_me = 1
 			return
 		if("asteroid spawn")
-			asteroid_spawn += loc
+			GLOB.asteroid_spawn += loc
 			delete_me = 1
 			return
 		if("skrell_entry")
@@ -76,11 +76,11 @@
 			delete_me = 1
 			return
 		if("virtual_reality_spawn")
-			virtual_reality_spawn += loc
+			GLOB.virtual_reality_spawn += loc
 			delete_me = 1
 			return
 
-	landmarks_list += src
+	GLOB.landmarks_list += src
 
 /obj/effect/landmark/proc/delete()
 	delete_me = 1
@@ -91,7 +91,7 @@
 		qdel(src)
 
 /obj/effect/landmark/Destroy()
-	landmarks_list -= src
+	GLOB.landmarks_list -= src
 	return ..()
 
 /obj/effect/landmark/start
@@ -232,8 +232,8 @@
 	var/job_tag = "Anyone"
 
 /obj/effect/landmark/force_spawnpoint/do_landmark_effect()
-	LAZYINITLIST(force_spawnpoints)
-	LAZYADD(force_spawnpoints[job_tag], loc)
+	LAZYINITLIST(GLOB.force_spawnpoints)
+	LAZYADD(GLOB.force_spawnpoints[job_tag], loc)
 
 var/list/ruin_landmarks = list()
 
@@ -266,7 +266,7 @@ var/list/ruin_landmarks = list()
 	name += " [x], [y]"
 
 /obj/effect/landmark/entry_point/proc/get_candidate()
-	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

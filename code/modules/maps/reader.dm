@@ -316,7 +316,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	index = members.len
 	if(members[index] != /area/template_noop)
 		var/atype = members[index]
-		var/atom/instance = areas_by_type[atype]
+		var/atom/instance = GLOB.areas_by_type[atype]
 		var/list/attr = members_attributes[index]
 		if (LAZYLEN(attr))
 			_preloader.setup(attr)//preloader for assigning  set variables on atom creation

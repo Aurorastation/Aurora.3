@@ -12,7 +12,7 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 
@@ -21,8 +21,13 @@
 
 	var/cradle_state = STATE_EMPTY
 	var/can_be_ipc = FALSE
-	var/mob/living/carbon/brain/brainmob = null	//The current occupant.
-	var/obj/item/organ/internal/brain/brainobj = null	//The current brain organ.
+
+	///The current occupant
+	var/mob/living/carbon/brain/brainmob = null
+
+	///The current brain organ
+	var/obj/item/organ/internal/brain/brainobj = null
+
 	var/braintype = null
 
 	var/static/list/valid_braintype = list("Skrell", "Vaurca")
@@ -96,8 +101,8 @@
 				brainmob.forceMove(src)
 				brainmob.container = src
 				brainmob.set_stat(CONSCIOUS)
-				dead_mob_list -= brainmob //Update dem lists
-				living_mob_list += brainmob
+				GLOB.dead_mob_list -= brainmob //Update dem lists
+				GLOB.living_mob_list += brainmob
 
 				brainobj = B
 				braintype_check()
@@ -158,7 +163,7 @@
 /obj/item/device/mmi/proc/transfer_mob_to_brain()
 	brainmob.container = null //Reset brainmob mmi var.
 	brainmob.forceMove(brainobj) //Throw mob into brain.
-	living_mob_list -= brainmob //Get outta here
+	GLOB.living_mob_list -= brainmob //Get outta here
 	brainobj.brainmob = brainmob //Set the brain to use the brainmob
 	brainobj = null
 	brainmob = null
@@ -224,6 +229,13 @@
 		borg.mmi = null
 	if(brainmob)
 		QDEL_NULL(brainmob)
+
+	//Technically since we haven't created the brain it isn't our responsibility to QDEL it
+	//But since I don't see any scenario in which a deletion would want to leave the brain
+	//without taking it out / move it itself, this will do
+	if(brainobj)
+		QDEL_NULL(brainobj)
+
 	return ..()
 
 /obj/item/device/mmi/radio_enabled
@@ -266,17 +278,16 @@
 	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_listening() ? "now" : "no longer"] receiving broadcast."))
 
 /obj/item/device/mmi/emp_act(severity)
+	. = ..()
+
 	if(!brainmob)
 		return
-	else
-		switch(severity)
-			if(1)
-				brainmob.emp_damage += rand(20,30)
-			if(2)
-				brainmob.emp_damage += rand(10,20)
-			if(3)
-				brainmob.emp_damage += rand(0,10)
-	..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			brainmob.emp_damage += rand(20,30)
+		if(EMP_LIGHT)
+			brainmob.emp_damage += rand(10,20)
 
 /obj/item/device/mmi/digital/Initialize(mapload, ...)
 	. = ..()

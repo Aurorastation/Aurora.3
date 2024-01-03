@@ -64,16 +64,15 @@ var/list/mineral_can_smooth_with = list(
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	initialized = TRUE
-
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -185,16 +184,15 @@ var/list/mineral_can_smooth_with = list(
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
 
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	initialized = TRUE
-
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -490,10 +488,10 @@ var/list/mineral_can_smooth_with = list(
 				R.amount = rand(5, 25)
 
 /turf/simulated/mineral/proc/change_mineral(mineral_name, force = FALSE)
-	if(mineral_name && (mineral_name in ore_data))
+	if(mineral_name && (mineral_name in GLOB.ore_data))
 		if(mineral && !force)
 			return FALSE
-		mineral = ore_data[mineral_name]
+		mineral = GLOB.ore_data[mineral_name]
 		UpdateMineral()
 
 /turf/simulated/mineral/random
@@ -524,8 +522,8 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
-		if(mineral_name && (mineral_name in ore_data))
-			mineral = ore_data[mineral_name]
+		if(mineral_name && (mineral_name in GLOB.ore_data))
+			mineral = GLOB.ore_data[mineral_name]
 			UpdateMineral()
 		MineralSpread()
 	. = ..()
@@ -653,9 +651,9 @@ var/list/asteroid_floor_smooth = list(
 
 // Copypaste parent for performance.
 /turf/unsimulated/floor/asteroid/Initialize(mapload)
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-	initialized = TRUE
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	if(icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.
 		icon = base_icon
@@ -664,7 +662,7 @@ var/list/asteroid_floor_smooth = list(
 	base_name = name
 
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -825,12 +823,14 @@ var/list/asteroid_floor_smooth = list(
 		if(S.collection_mode)
 			for(var/obj/item/ore/O in contents)
 				O.attackby(W, user)
+				CHECK_TICK
 				return
 	else if(istype(W,/obj/item/storage/bag/fossils))
 		var/obj/item/storage/bag/fossils/S = W
 		if(S.collection_mode)
 			for(var/obj/item/fossil/F in contents)
 				F.attackby(W, user)
+				CHECK_TICK
 				return
 	else
 		..(W, user)
@@ -845,25 +845,25 @@ var/list/asteroid_floor_smooth = list(
 		var/list/ore = list()
 		for(var/metal in resources)
 			switch(metal)
-				if("silicates")
+				if(ORE_SAND)
 					ore += /obj/item/ore/glass
-				if("carbonaceous rock")
+				if(ORE_COAL)
 					ore += /obj/item/ore/coal
-				if("iron")
+				if(ORE_IRON)
 					ore += /obj/item/ore/iron
-				if("gold")
+				if(ORE_GOLD)
 					ore += /obj/item/ore/gold
-				if("silver")
+				if(ORE_SILVER)
 					ore += /obj/item/ore/silver
-				if("diamond")
+				if(ORE_DIAMOND)
 					ore += /obj/item/ore/diamond
-				if("uranium")
+				if(ORE_URANIUM)
 					ore += /obj/item/ore/uranium
-				if("phoron")
+				if(ORE_PHORON)
 					ore += /obj/item/ore/phoron
-				if("osmium")
+				if(ORE_PLATINUM)
 					ore += /obj/item/ore/osmium
-				if("hydrogen")
+				if(ORE_HYDROGEN)
 					ore += /obj/item/ore/hydrogen
 				else
 					if(prob(25))

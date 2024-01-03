@@ -150,6 +150,7 @@
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
+	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
 	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
@@ -157,6 +158,7 @@
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
 	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
+	banners["banner, All-Xanu Republic"] = /obj/item/flag/xanu
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
@@ -173,11 +175,23 @@
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
 	banners["banner, Silversun"] = /obj/item/flag/silversun
+	banners["banner, Luna"] = /obj/item/flag/luna
+	banners["banner, Persepolis"] = /obj/item/flag/persepolis
+	banners["banner, Damascus"] = /obj/item/flag/damascus
+	banners["banner, Medina"] = /obj/item/flag/medina
+	banners["banner, Aemaq"] = /obj/item/flag/aemaq
+	banners["banner, New Suez"] = /obj/item/flag/newsuez
 	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
 	banners["banner, Hive K'lax"] = /obj/item/flag/klax
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
 	banners["banner, Orion Express"] = /obj/item/flag/orion_express
 	banners["banner, Imperial Frontier"] = /obj/item/flag/imperial_frontier
+	banners["banner, Scarab Fleet"] = /obj/item/flag/scarab
+	banners["banner, Federal Technocracy of Galatea"] = /obj/item/flag/galatea_government
+	banners["banner, Galatea"] = /obj/item/flag/galatea
+	banners["banner, Tsukuyomi"] = /obj/item/flag/tsukuyomi
+	banners["banner, Svarog"] = /obj/item/flag/svarog
+	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -222,12 +236,14 @@
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
 	flags["flag, Free Tajaran Council"] = /obj/item/flag/ftc/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
+	flags["flag, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
 	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
 	flags["flag, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi/l
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
+	flags["flag, All-Xanu Republic"] = /obj/item/flag/xanu/l
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
@@ -242,11 +258,23 @@
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
 	flags["flag, Silversun"] = /obj/item/flag/silversun/l
+	flags["flag, Luna"] = /obj/item/flag/luna/l
+	flags["flag, Persepolis"] = /obj/item/flag/persepolis/l
+	flags["flag, Damascus"] = /obj/item/flag/damascus/l
+	flags["flag, Medina"] = /obj/item/flag/medina/l
+	flags["flag, Aemaq"] = /obj/item/flag/aemaq/l
+	flags["flag, New Suez"] = /obj/item/flag/newsuez/l
 	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
 	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
 	flags["flag, Orion Express"] = /obj/item/flag/orion_express/l
 	flags["flag, Imperial Frontier"] = /obj/item/flag/imperial_frontier/l
+	flags["flag, Scarab Fleet"] = /obj/item/flag/scarab/l
+	flags["flag, Federal Technocracy of Galatea"] = /obj/item/flag/galatea_government/l
+	flags["flag, Galatea"] = /obj/item/flag/galatea/l
+	flags["flag, Tsukuyomi"] = /obj/item/flag/tsukuyomi/l
+	flags["flag, Svarog"] = /obj/item/flag/svarog/l
+	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

@@ -49,13 +49,15 @@
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	computer.idle_threads -= src
-	computer.enabled_services -= src
-	computer = null
+	if(!QDELETED(computer))
+		computer.idle_threads -= src
+		computer.enabled_services -= src
+		computer = null
 	. = ..()
 
 /datum/computer_file/program/ui_host()
-	return computer.ui_host()
+	if(computer)
+		return computer.ui_host()
 
 /datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -242,7 +244,7 @@
 		return NM.grants_equipment_vision(user)
 
 /datum/computer_file/program/proc/message_dead(var/message)
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
 			if(isnewplayer(M))
 				continue

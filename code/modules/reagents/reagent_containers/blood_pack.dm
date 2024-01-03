@@ -24,7 +24,7 @@
 
 	amount_per_transfer_from_this = 0.2
 	possible_transfer_amounts = list(0.2, 1, 2, 3, 4)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/datum/weakref/attached_mob
 
@@ -167,7 +167,7 @@
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = input(user, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel")
+		var/blood_name = tgui_input_list(user, "What blood type would you like to label it as?", "Blood Types",  list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel"))
 		if(blood_name == "Cancel")
 			return
 		var/obj/item/i = user.get_active_hand()
@@ -203,7 +203,7 @@
 					if(51 to INFINITY)	strength = 4
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
-						var/direction = pick(alldirs)
+						var/direction = pick(GLOB.alldirs)
 						var/target
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)

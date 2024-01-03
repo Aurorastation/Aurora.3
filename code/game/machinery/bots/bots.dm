@@ -119,6 +119,8 @@
 	return
 
 /obj/machinery/bot/emp_act(severity)
+	. = ..()
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)
@@ -126,7 +128,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(pulse2, 10)
 
@@ -169,7 +171,7 @@
 
 	//	for(var/turf/simulated/t in oview(src,1))
 
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
 			if(!LinkBlockedWithAccess(src, T, ID))
@@ -201,7 +203,7 @@
 		return 1
 
 	for(var/obj/O in B)
-		if(O.density && !istype(O, /obj/machinery/door) && !(O.flags & ON_BORDER))
+		if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 
 	return 0

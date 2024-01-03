@@ -61,7 +61,16 @@
 			return
 
 		if(act == "help")
-			to_chat(src,"<b>Usable emotes:</b> [english_list(usable_emotes)]")
+			var/list/help_text = list()
+			for(var/emote_key in usable_emotes)
+				var/emote_text = emote_key
+				var/singleton/emote/emote = usable_emotes[emote_key]
+				if(istype(emote, /singleton/emote/audible))
+					var/singleton/emote/audible/audible_emote = emote
+					if(audible_emote.emote_sound)
+						emote_text = SPAN_NOTICE(emote_key)
+				help_text += emote_text
+			to_chat(src,"<b>Usable emotes:</b> [english_list(help_text)]")
 			return
 
 		if(!can_emote(m_type))

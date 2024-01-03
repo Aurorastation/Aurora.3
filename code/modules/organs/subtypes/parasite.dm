@@ -6,13 +6,27 @@
 	var/max_stage = 4
 	var/stage_ticker = 0
 	var/recession = 0
-	var/infection_speed = 2 //Will be determined by get_infect_speed()
-	var/infect_speed_high = 35	//The fastest this parasite will advance stages
-	var/infect_speed_low = 15	//The slowest this parasite will advance stages
-	var/stage_interval = 300 //time between stages, in seconds. interval of 300 allows convenient treating with antiparasitics, higher will require spaced dosing of medications.
-	var/subtle = 0 //will the body reject the parasite naturally?
-	var/egg = null //does the parasite have a reagent which seeds an infection?
-	var/drug_resistance = 0 //is the parasite resistant to antiparasitic medications?
+
+	///Infection progress speed, will be determined by get_infect_speed()
+	var/infection_speed = 2
+
+	///The fastest the parasite will advance its stage
+	var/infect_speed_high = 35
+
+	///The fastest the parasite will advance its stage
+	var/infect_speed_low = 15
+
+	///Time between stages, in seconds. interval of 300 allows convenient treating with antiparasitics, higher will require spaced dosing of medications.
+	var/stage_interval = 300
+
+	///Boolean, if the body should reject the parasite naturally
+	var/subtle = FALSE
+
+	///Does the parasite have a reagent which seeds an infection?
+	var/egg = null
+
+	//Boolean, if the parasite is resistant to antiparasitic medications
+	var/drug_resistance = FALSE
 
 /obj/item/organ/internal/parasite/Initialize()
 	. = ..()
@@ -63,7 +77,7 @@
 
 /obj/item/organ/internal/parasite/kois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "kois-on"
 	dead_icon = "kois-off"
 
@@ -135,7 +149,7 @@
 
 /obj/item/organ/internal/parasite/blackkois
 	name = "k'ois mycosis"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "black-on"
 	dead_icon = "black-off"
 	subtle = 1
@@ -171,7 +185,7 @@
 
 	if(stage >= 3)
 		set_light(-1.5, 6, "#FFFFFF")
-		if(!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+		if(!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages))
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 
@@ -216,7 +230,11 @@
 				owner.remove_language(L.name)
 			owner.add_language(LANGUAGE_VAURCA)
 			owner.add_language(LANGUAGE_LIIDRA)
+			owner.set_default_language(LANGUAGE_LIIDRA)
 			removed_langs = TRUE
+
+		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		owner.add_client_color(/datum/client_color/vaurca)
 
 		if(prob(10))
 			if(owner.can_feel_pain())
@@ -289,10 +307,10 @@
 			SPAN_DANGER("You feel the cold of the knife cutting and cutting, but it is too late. There is nothing left of you but the Lii'dra's will, now. A final cut - and then you are granted the only escape that still remains to you."))
 			to_chat(target, SPAN_GOOD("Your function is fulfilled. We have no further need of you. Releasing control."))
 			target.death(FALSE) //too late, there is no brain left to save
-	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
+	if(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
-	if(all_languages[LANGUAGE_LIIDRA] in target.languages && stage >= 3)
+	if(GLOB.all_languages[LANGUAGE_LIIDRA] in target.languages && stage >= 3)
 		target.remove_language(LANGUAGE_LIIDRA)
 	removed_langs = 0
 	remove_verb(owner, /mob/living/carbon/human/proc/kois_cough)
@@ -307,8 +325,8 @@
 
 	organ_tag = BP_ZOMBIE_PARASITE
 	parent_organ = BP_HEAD
-	stage_interval = 150
-	drug_resistance = 1
+	stage_interval = 110
+	drug_resistance = TRUE
 	relative_size = 0
 
 	egg = /singleton/reagent/toxin/trioxin
@@ -425,7 +443,7 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~5 minutes
@@ -476,7 +494,11 @@
 	if (!owner)
 		return
 
-	if(prob(10))
+	if(BP_IS_ROBOTIC(heart))
+		recession = 10
+		return
+
+	if(prob(4))
 		owner.adjustNutritionLoss(10)
 
 	if(stage >= 2) //after ~7.5 minutes

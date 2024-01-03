@@ -83,7 +83,7 @@
 	if(!.)
 		return FALSE
 
-	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
+	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'. Have a lovely day."))
 	if (evacuation_controller.get_status_panel_eta())
 		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [evacuation_controller.get_status_panel_eta()]."))
 
@@ -117,7 +117,7 @@
 
 	var/obj/item/M = new augment_type(owner)
 	M.canremove = FALSE
-	M.item_flags |= NOMOVE
+	M.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.equip_to_slot(M, aug_slot)
 	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
 	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
@@ -311,10 +311,12 @@
 		return
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
-	..()
+	. = ..()
+
 	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
 	if(!E)
 		return
+
 	E.take_damage(5)
 
 /obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
@@ -340,7 +342,7 @@
 	switch(selected_hud)
 
 		if(SEC_HUDTYPE)
-			req_access = list(access_security)
+			req_access = list(ACCESS_SECURITY)
 			if(allowed(owner))
 				active_hud = "security"
 				process_sec_hud(owner, 1)
@@ -368,7 +370,7 @@
 	switch(selected_hud)
 
 		if(MED_HUDTYPE)
-			req_access = list(access_medical)
+			req_access = list(ACCESS_MEDICAL)
 			if(allowed(owner))
 				active_hud = "medical"
 				process_med_hud(owner, 1)
@@ -425,6 +427,10 @@
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
 
+/obj/item/organ/internal/augment/ethanol_burner
+	name = "integrated ethanol burner"
+	organ_tag = BP_AUG_ETHANOL_BURNER
+
 // Geeves!
 /obj/item/organ/internal/augment/language
 	name = "language processor"
@@ -449,9 +455,11 @@
 
 /obj/item/organ/internal/augment/language/emp_act()
 	. = ..()
+
 	for(var/language in added_languages)
 		if(prob(25))
 			owner.remove_language(language)
+
 	owner.set_default_language(pick(owner.languages))
 
 /obj/item/organ/internal/augment/language/klax
@@ -523,9 +531,9 @@
 	parent_organ = BP_HEAD
 
 /obj/item/organ/internal/augment/synthetic_cords/voice
-    desc = "An array of vocal cords. These appears to have been modified with a specific accent."
-    organ_tag = BP_AUG_ACC_CORDS
-    var/accent = ACCENT_TTS
+	desc = "An array of vocal cords. These appears to have been modified with a specific accent."
+	organ_tag = BP_AUG_ACC_CORDS
+	var/accent = ACCENT_TTS
 
 /obj/item/organ/internal/augment/synthetic_cords/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
@@ -578,7 +586,8 @@
 	return TRUE
 
 /obj/item/organ/internal/augment/memory_inhibitor/emp_act(severity)
-	..()
+	. = ..()
+
 	if(prob(25))
 		do_broken_act()
 
@@ -654,10 +663,12 @@
 	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
-	..()
+	. = ..()
+
 	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
 	if(!E)
 		return
+
 	E.take_damage(5)
 
 /obj/item/organ/internal/augment/sightlights

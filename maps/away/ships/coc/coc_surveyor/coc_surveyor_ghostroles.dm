@@ -44,7 +44,7 @@
 
 
 /datum/outfit/admin/coc_surveyor_crew/get_id_access()
-	return list(access_external_airlocks, access_generic_away_site)
+	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE)
 
 /datum/ghostspawner/human/coc_surveyor/captain
 	name = "Coalition Head Surveyor"

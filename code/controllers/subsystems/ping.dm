@@ -1,4 +1,4 @@
-/datum/controller/subsystem/ping
+SUBSYSTEM_DEF(ping)
 	name = "Ping"
 	priority = SS_PRIORITY_PING
 	init_order = SS_INIT_PING
@@ -10,13 +10,13 @@
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/ping/stat_entry(msg)
-	msg = "P:[clients.len]"
+	msg = "P:[GLOB.clients.len]"
 	return ..()
 
 /datum/controller/subsystem/ping/fire(resumed = FALSE)
 	// Prepare the new batch of clients
 	if (!resumed)
-		src.currentrun = clients.Copy()
+		src.currentrun = GLOB.clients.Copy()
 
 	// De-reference the list for sanic speeds
 	var/list/currentrun = src.currentrun

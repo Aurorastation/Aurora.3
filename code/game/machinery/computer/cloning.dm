@@ -4,7 +4,7 @@
 	icon_keyboard = "teal_key"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
-	req_access = list(access_genetics)
+	req_access = list(ACCESS_GENETICS)
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
 	var/temp = ""
@@ -337,7 +337,7 @@
 					temp = "Error: Not enough biomass."
 				else if(pod.mess)
 					temp = "Error: Clonepod malfunction."
-				else if(!config.revival_cloning)
+				else if(!GLOB.config.revival_cloning)
 					temp = "Error: Unable to initiate cloning cycle."
 
 				else if(pod.growclone(C))

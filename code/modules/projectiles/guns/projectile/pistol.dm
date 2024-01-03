@@ -342,7 +342,6 @@
 
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
-	icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
 
@@ -489,7 +488,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
 
 				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
@@ -499,3 +498,56 @@
 					LH.take_damage(30)
 				else
 					RH.take_damage(30)
+
+/obj/item/gun/projectile/xanupistol
+	name = "\improper Xanan service pistol"
+	desc = "A sleek metal-framed semi-automatic pistol, produced by d.N.A Defense for the All-Xanu Armed Forces."
+	desc_extended = "The dNAC-4.6 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 4.6x30mm rounds with less weight but better armor penetration than the 9mm pistols it replaced, the dNAC-4.6 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for police forces, military units, and other entities across the Coalition of Colonies and beyond."
+	magazine_type = /obj/item/ammo_magazine/c46m
+	allowed_magazines = list(/obj/item/ammo_magazine/c46m, /obj/item/ammo_magazine/c46m/extended)
+	icon = 'icons/obj/guns/xanu_pistol.dmi'
+	icon_state = "xanu_pistol"
+	item_state = "xanu_pistol"
+	caliber = "4.6mm"
+	accuracy = 1
+	offhand_accuracy = 1
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 9
+	suppressor_y_offset = 2
+
+/obj/item/gun/projectile/xanupistol/update_icon()
+	..()
+	if(ammo_magazine)
+		if(ammo_magazine.stored_ammo.len)
+			icon_state = "xanu_pistol"
+		else
+			icon_state = "xanu_pistol-em"
+	else
+		icon_state = "xanu_pistol-e"
+
+/obj/item/gun/projectile/pistol/dominia
+	name = "dominian service pistol"
+	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
+	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
+	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
+	magazine_type = /obj/item/ammo_magazine/c45m/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol"
+	item_state = "dom_pistol"
+	caliber = ".45"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/dominia/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "dom_pistol"
+	else
+		icon_state = "dom_pistol-e"

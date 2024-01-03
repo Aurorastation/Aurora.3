@@ -40,7 +40,7 @@
 		if(anchored)
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message("<span class='warning'>[user] has inserted a circuit into \the [src]!</span>",
-								  "You have inserted the circuit into \the [src]!")
+									"You have inserted the circuit into \the [src]!")
 			new /obj/machinery/door/firedoor(src.loc)
 			qdel(C)
 			qdel(src)
@@ -51,7 +51,7 @@
 		anchored = !anchored
 		playsound(src.loc, C.usesound, 50, 1)
 		user.visible_message("<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
-							  "You have [anchored ? "" : "un" ]secured \the [src]!")
+								"You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()
 		return TRUE
 	else if(!anchored && C.iswelder())

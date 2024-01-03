@@ -27,6 +27,17 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/sensors/terminal
+	name = "sensors terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "teleport"
+	icon_keyboard = "teleport_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
@@ -73,6 +84,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Sensors", capitalize_first_letters(name))
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
 /obj/machinery/computer/ship/sensors/ui_data(mob/user)
@@ -238,7 +250,7 @@
 
 	if(sensors)
 		if (action == "range")
-			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
+			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
 			if(!CanInteract(usr, default_state))
 				return FALSE
 			if (nrange)
@@ -268,7 +280,7 @@
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
-			var/new_class = input("Insert a new ship class. 4 letters maximum.", "IFF Management") as text|null
+			var/new_class = tgui_input_text(usr, "Insert a new ship class. 4 letters maximum.", "IFF Management", linked.class, 4)
 			if(!length(new_class))
 				return
 			new_class = sanitizeSafe(new_class, 5)
@@ -284,7 +296,7 @@
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
-			var/new_name = input("Insert a new ship name. 24 letters maximum.", "IFF Management") as text|null
+			var/new_name = tgui_input_text(usr, "Insert a new ship name. 24 letters maximum.", "IFF Management", linked.designation, MAX_NAME_LEN)
 			if(!length(new_name))
 				return
 			new_name = sanitizeSafe(new_name, 24)
@@ -302,7 +314,7 @@
 				contact_details = null
 			if("print")
 				if(contact_details)
-					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+					playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
 					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
 		return TRUE
 
@@ -310,7 +322,7 @@
 		var/obj/effect/overmap/O = locate(params["scan"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked))|| (O in contact_datums))
-				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+				playsound(loc, 'sound/machines/dotprinter.ogg', 30, 1)
 				LAZYSET(last_scan, "data", O.get_scan_data(usr))
 				LAZYSET(last_scan, "location", "[O.x],[O.y]")
 				LAZYSET(last_scan, "name", "[O]")
@@ -489,7 +501,7 @@
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()
 		if(deep_scan_toggled)
@@ -518,8 +530,11 @@
 	change_power_consumption(1500 * (range**2), POWER_USE_ACTIVE)
 
 /obj/machinery/shipsensors/emp_act(severity)
+	. = ..()
+
 	if(!use_power)
 		return
+
 	take_damage(20/severity)
 	toggle()
 

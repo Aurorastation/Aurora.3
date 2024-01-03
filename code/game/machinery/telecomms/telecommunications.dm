@@ -62,7 +62,7 @@
 
 /obj/machinery/telecomms/LateInitialize()
 	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -136,8 +136,10 @@
 
 /obj/machinery/telecomms/emp_act(severity)
 	. = ..()
+
 	if(stat & EMPED || !prob(100/severity))
 		return
+
 	stat |= EMPED
 	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), (300 SECONDS) / severity)
 

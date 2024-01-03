@@ -1,20 +1,22 @@
-var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
-								   SPECIES_GOLEM_IRON,
-								   SPECIES_GOLEM_BRONZE,
-								   SPECIES_GOLEM_STEEL,
-								   SPECIES_GOLEM_PLASTEEL,
-								   SPECIES_GOLEM_TITANIUM,
-								   SPECIES_GOLEM_CLOTH,
-								   SPECIES_GOLEM_CARDBOARD,
-								   SPECIES_GOLEM_GLASS,
-								   SPECIES_GOLEM_PHORON,
-								   SPECIES_GOLEM_HYDROGEN,
-								   SPECIES_GOLEM_WOOD,
-								   SPECIES_GOLEM_DIAMOND,
-								   SPECIES_GOLEM_SAND,
-								   SPECIES_GOLEM_URANIUM,
-								   SPECIES_GOLEM_MEAT,
-								   SPECIES_GOLEM_ADAMANTINE)
+var/global/list/golem_types = list(
+									SPECIES_GOLEM_COAL,
+									SPECIES_GOLEM_IRON,
+									SPECIES_GOLEM_BRONZE,
+									SPECIES_GOLEM_STEEL,
+									SPECIES_GOLEM_PLASTEEL,
+									SPECIES_GOLEM_TITANIUM,
+									SPECIES_GOLEM_CLOTH,
+									SPECIES_GOLEM_CARDBOARD,
+									SPECIES_GOLEM_GLASS,
+									SPECIES_GOLEM_PHORON,
+									SPECIES_GOLEM_HYDROGEN,
+									SPECIES_GOLEM_WOOD,
+									SPECIES_GOLEM_DIAMOND,
+									SPECIES_GOLEM_SAND,
+									SPECIES_GOLEM_URANIUM,
+									SPECIES_GOLEM_MEAT,
+									SPECIES_GOLEM_ADAMANTINE
+								)
 
 /datum/species/golem
 	name = SPECIES_GOLEM_COAL
@@ -120,7 +122,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		qdel(H)
 
 /datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
@@ -411,7 +413,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 /datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
-		var/turf/landing = get_step(H, pick(alldirs))
+		var/turf/landing = get_step(H, pick(GLOB.alldirs))
 		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 	qdel(H)
 
@@ -823,7 +825,9 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
-		H.gib()
+		//This is because otherwise the removal of vital organs in the gibbing will call death again, which calls this again, creating a neverending
+		//server death loop
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 1 SECONDS)
 
 /datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))

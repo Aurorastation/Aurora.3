@@ -14,14 +14,17 @@
 	my_atom = A
 
 /datum/reagents/Destroy()
-	. = ..()
 	if(SSchemistry)
 		SSchemistry.active_holders -= src
 
 	LAZYCLEARLIST(reagent_data)
 	LAZYCLEARLIST(reagent_volumes)
+
 	if(my_atom && my_atom.reagents == src)
 		my_atom.reagents = null
+	my_atom = null
+
+	. = ..()
 
 /* Internal procs */
 
@@ -83,7 +86,7 @@
 /datum/reagents/proc/process_reactions()
 	if(!my_atom?.loc)
 		return FALSE
-	if(my_atom.flags & NOREACT)
+	if(my_atom.atom_flags & ATOM_FLAG_NO_REACT)
 		return FALSE
 
 	var/reaction_occured

@@ -96,7 +96,7 @@
 		if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
 			var/obj/item/clothing/shoes/S = perp.shoes
 			if(istype(S))
-				if(S.item_flags & LIGHTSTEP)
+				if(S.item_flags & ITEM_FLAG_LIGHT_STEP)
 					return
 				S.blood_color = basecolor
 				S.track_footprint = max(amount, S.track_footprint)
@@ -155,8 +155,8 @@
 		add_verb(user,  /mob/living/carbon/human/proc/bloody_doodle)
 
 /obj/effect/decal/cleanable/blood/splatter
-    random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-    amount = 2
+	random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
+	amount = 2
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"

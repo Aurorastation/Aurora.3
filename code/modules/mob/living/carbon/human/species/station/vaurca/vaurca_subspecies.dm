@@ -120,12 +120,15 @@
 		/mob/living/carbon/human/proc/hivemute,
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivevoid,
-		/mob/living/carbon/human/proc/hivenet_transmit
+		/mob/living/carbon/human/proc/hivenet_transmit,
+		/mob/living/carbon/human/proc/hivenet_manifest
 	)
 
 	default_h_style = "Bald"
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket/admin,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -135,8 +138,6 @@
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
 		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield
 	)
 
@@ -209,10 +210,13 @@
 		/mob/living/carbon/human/proc/devour_head,
 		/mob/living/carbon/human/proc/formic_spray,
 		/mob/living/carbon/human/proc/trample,
-		/mob/living/carbon/human/proc/hivenet_recieve
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
 		)
 
 	has_organ = list(
+		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET       = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
@@ -220,8 +224,6 @@
 		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
-		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit,
 		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield/advanced
 	)
@@ -269,11 +271,12 @@
 	)
 
 	natural_armor = list(
-		melee = ARMOR_MELEE_SMALL
+		melee = ARMOR_MELEE_MEDIUM
 	)
 
-	brute_mod = 0.65
-	burn_mod = 1
+	brute_mod = 0.4
+	burn_mod = 1.25
+	pain_mod = 0.75 //thick carapace, getting hit doesn't hurt them as much
 	oxy_mod = 1
 	radiation_mod = 0
 	toxins_mod = 3
@@ -292,7 +295,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	heat_level_2 = 400 //Default 400
 	heat_level_3 = 800 //Default 1000
 
-	sprint_speed_factor = 1.4
+	sprint_speed_factor = 1.0
 	stamina = 50
 
 /datum/species/bug/type_e/New()

@@ -1,7 +1,7 @@
 /mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
-		if(!thick || (C.item_flags & THICKMATERIAL))
+		if(!thick || (C.item_flags & ITEM_FLAG_THICK_MATERIAL))
 			skipbody |= C.body_parts_covered
 	return skipbody
 
@@ -391,7 +391,7 @@
 
 	msg += "*---------*</span>"
 
-	if(src in intent_listener)
+	if(src in GLOB.intent_listener)
 		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
 
 	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)

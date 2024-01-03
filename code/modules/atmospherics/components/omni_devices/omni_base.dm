@@ -28,7 +28,7 @@
 /obj/machinery/atmospherics/omni/Initialize()
 	icon_state = "base"
 	ports = new()
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/datum/omni_port/new_port = new(src, d)
 		switch(d)
 			if(NORTH)
@@ -161,7 +161,7 @@
 			if(ATM_OUTPUT)
 				ic_on += "_out_glow"
 				ic_off += "_out"
-			if(ATM_O2 to ATM_H2)
+			if(ATM_O2 to ATM_H2O)
 				ic_on += "_filter"
 				ic_off += "_out"
 

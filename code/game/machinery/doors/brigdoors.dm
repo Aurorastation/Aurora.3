@@ -11,7 +11,7 @@
 	desc = "A remote control for a door."
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 	layer = OBJ_LAYER
 	anchored = TRUE
 	density = FALSE
@@ -48,7 +48,7 @@
 		if(F.id == src.id)
 			targets += F
 
-	for(var/obj/structure/closet/secure_closet/brig/C in brig_closets)
+	for(var/obj/structure/closet/secure_closet/brig/C in GLOB.brig_closets)
 		if(C.id == src.id)
 			targets += C
 
@@ -59,7 +59,7 @@
 /obj/machinery/door_timer/examine(mob/user)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))	return
-	
+
 	if(src.timing)
 		var/second = round(timeleft() % 60)
 		var/minute = round((timeleft() - second) / 60)

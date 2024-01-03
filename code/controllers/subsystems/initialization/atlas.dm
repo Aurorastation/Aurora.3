@@ -2,9 +2,7 @@
 
 var/datum/map/current_map	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
 
-var/datum/controller/subsystem/atlas/SSatlas
-
-/datum/controller/subsystem/atlas
+SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MAPLOAD
@@ -138,11 +136,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	)
 
 /datum/controller/subsystem/atlas/stat_entry(msg)
-	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]"
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[GLOB.z_levels]"
 	return ..()
-
-/datum/controller/subsystem/atlas/New()
-	NEW_SS_GLOBAL(SSatlas)
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
@@ -197,8 +192,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/chosen_sector
 	var/using_sector_config = FALSE
 
-	if(config.current_space_sector)
-		chosen_sector = config.current_space_sector
+	if(GLOB.config.current_space_sector)
+		chosen_sector = GLOB.config.current_space_sector
 		using_sector_config = TRUE
 	else
 		chosen_sector = current_map.default_sector
@@ -252,9 +247,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 		CHECK_TICK
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
-	if (config.override_map)
-		if (known_maps[config.override_map])
-			. = config.override_map
+	if (GLOB.config.override_map)
+		if (known_maps[GLOB.config.override_map])
+			. = GLOB.config.override_map
 			log_subsystem_atlas("Using configured map.")
 		else
 			log_config("-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
@@ -316,8 +311,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	. = current_map.station_name
 
 	var/sname
-	if (config && config.server_name)
-		sname = "[config.server_name]: [.]"
+	if (GLOB.config && GLOB.config.server_name)
+		sname = "[GLOB.config.server_name]: [.]"
 	else
 		sname = .
 

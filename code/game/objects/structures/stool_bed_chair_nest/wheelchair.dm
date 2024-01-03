@@ -12,7 +12,7 @@
 
 	var/bloodiness
 
-/obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs? 
+/obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs?
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
 /obj/structure/bed/stool/chair/office/wheelchair/set_dir()

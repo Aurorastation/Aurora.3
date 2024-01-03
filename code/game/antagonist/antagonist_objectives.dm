@@ -1,12 +1,12 @@
 /datum/antagonist/proc/create_global_objectives()
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		return 0
 	if(global_objectives && global_objectives.len)
 		return 0
 	return 1
 
 /datum/antagonist/proc/create_objectives(var/datum/mind/player)
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		return 0
 	if(create_global_objectives() || global_objectives.len)
 		player.objectives |= global_objectives
@@ -17,7 +17,7 @@
 
 /datum/antagonist/proc/check_victory()
 	var/result = 1
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		return 1
 	if(global_objectives && global_objectives.len)
 		for(var/datum/objective/O in global_objectives)
@@ -39,9 +39,9 @@
 	if(!is_special_character(src))
 		to_chat(src, "<span class='warning'>While you may perhaps have goals, this verb's meant to only be visible to antagonists.  Please make a bug report!</span>")
 		return
-	var/new_ambitions = input(src, "Write a short sentence of what your character hopes to accomplish \
+	var/new_ambitions = tgui_input_text(src, "Write a short sentence of what your character hopes to accomplish \
 	today as an antagonist.  Remember that this is purely optional.  It will be shown at the end of the \
-	round for everybody else.", "Ambitions", html_decode(mind.ambitions)) as null|message
+	round for everybody else.", "Ambitions", html_decode(mind.ambitions), multiline = TRUE)
 	if(isnull(new_ambitions))
 		return
 	new_ambitions = sanitize(new_ambitions)

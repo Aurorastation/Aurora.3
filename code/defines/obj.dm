@@ -12,12 +12,11 @@
 	density = 0
 	unacidable = 1//Just to be sure.
 	var/def_zone
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE | PASSRAILING
 
-/var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
-
 /proc/make_list_rank(rank)
+	var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
 	for(var/prefix in acting_rank_prefixes)
 		rank = replacetext(rank, "[prefix] ", "")
 	for(var/datum/faction/faction as anything in SSjobs.factions)
@@ -47,7 +46,7 @@
 	throwforce = 0.0
 	throw_speed = 1
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 

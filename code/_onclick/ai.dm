@@ -176,4 +176,4 @@
 //
 
 /mob/living/silicon/ai/TurfAdjacent(var/turf/T)
-	return (cameranet && cameranet.is_turf_visible(T))
+	return (GLOB.cameranet && GLOB.cameranet.is_turf_visible(T))

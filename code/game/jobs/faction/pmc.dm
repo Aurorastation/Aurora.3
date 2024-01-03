@@ -50,7 +50,8 @@
 		"Psychologist" = /datum/outfit/job/psychiatrist/pmc,
 		"First Responder" = /datum/outfit/job/med_tech/pmc,
 		"Medical Intern" = /datum/outfit/job/intern_med/pmc,
-		"Corporate Liaison" = /datum/outfit/job/representative/pmc
+		"Corporate Liaison" = /datum/outfit/job/representative/pmc,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/pmc
 	)
 
 /datum/outfit/job/officer/pmc
@@ -201,6 +202,16 @@
 	id = /obj/item/card/id/pmc
 	accessory = /obj/item/clothing/accessory/tie/corporate/pmc
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/pmc
+
+	backpack_faction = /obj/item/storage/backpack/pmcg
+	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
+	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
+	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
+
+/datum/outfit/job/visitor/pmc
+	name = "Off-Duty Crew Member - PMC"
+
+	id = /obj/item/card/id/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg

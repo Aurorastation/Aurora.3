@@ -15,11 +15,27 @@
 
 	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
 
+/obj/structure/Initialize(mapload)
+	. = ..()
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
+	if (!mapload)
+		updateVisibility(src)	// No point checking this before visualnet initializes.
+	if(climbable)
+		verbs += /obj/structure/proc/climb_on
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
+
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
 	if (smoothing_flags)
+		SSicon_smooth.remove_from_queues(src)
 		SSicon_smooth.add_to_queue_neighbors(src)
+
+	climbers = null
+
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
@@ -64,18 +80,6 @@
 /obj/structure/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
 	bullet_ping(P)
-
-/obj/structure/Initialize(mapload)
-	. = ..()
-	if(!isnull(material) && !istype(material))
-		material = SSmaterials.get_material_by_name(material)
-	if (!mapload)
-		updateVisibility(src)	// No point checking this before visualnet initializes.
-	if(climbable)
-		verbs += /obj/structure/proc/climb_on
-	if (smoothing_flags)
-		SSicon_smooth.add_to_queue(src)
-		SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/proc/climb_on()
 
@@ -124,7 +128,7 @@
 			var/obj/structure/S = O
 			if(S.climbable)
 				continue
-		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER structures are handled by the Adjacent() check.
+		if(O && O.density && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER)) //ATOM_FLAG_CHECKS_BORDER structures are handled by the Adjacent() check.
 			if(exclude_self && O == src)
 				continue
 			return O
@@ -134,7 +138,7 @@
 	if (!can_climb(user))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
+	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
 	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
@@ -146,12 +150,12 @@
 		return
 
 	var/turf/TT = get_turf(src)
-	if(flags & ON_BORDER)
+	if(atom_flags & ATOM_FLAG_CHECKS_BORDER)
 		TT = get_step(get_turf(src), dir)
 		if(user.loc == TT)
 			TT = get_turf(src)
 
-	user.visible_message("<span class='warning'>[user] [flags & ON_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
 	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 

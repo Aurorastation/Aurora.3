@@ -135,7 +135,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "jukebox.tmpl", title, 450, 600)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
@@ -156,7 +156,7 @@
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)

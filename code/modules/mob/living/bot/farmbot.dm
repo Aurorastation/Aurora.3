@@ -11,7 +11,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics, access_xenobotany)
+	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_ROBOTICS, ACCESS_XENOBOTANY)
 
 	var/action = "" // Used to update icon
 	var/waters_trays = TRUE
@@ -167,7 +167,7 @@
 					continue
 				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
 					continue
-				if(pathfind(tray)) //If we can get there, we can accept it as a target. 
+				if(pathfind(tray)) //If we can get there, we can accept it as a target.
 					target = tray
 					frustration = 0
 					break
@@ -190,7 +190,7 @@
 	if(!length(freespaces))
 		return FALSE
 
-	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.	
+	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.
 	var/turf/location_goal = pick(freespaces)
 	path = AStar(loc, location_goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 	if(!path)
@@ -305,7 +305,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 

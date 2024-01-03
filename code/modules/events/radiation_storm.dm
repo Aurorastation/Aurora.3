@@ -57,8 +57,8 @@
 	return
 
 /datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
-	for(var/area/A in all_areas)
-		if(A.flags & RAD_SHIELDED)
+	for(var/area/A in GLOB.all_areas)
+		if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 			continue
 		if(turnOn)
 			A.radiation_active = TRUE

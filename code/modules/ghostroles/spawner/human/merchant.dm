@@ -21,11 +21,11 @@
 	mob_name = null
 
 /datum/ghostspawner/human/merchantass/can_edit(mob/user)
-    . = ..()
-    var/is_merchant = FALSE
+	. = ..()
+	var/is_merchant = FALSE
 
-    if(ishuman(user))
-        var/mob/living/carbon/human/H = user
-        is_merchant = (H.job == "Merchant")
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		is_merchant = (H.job == "Merchant")
 
-    return . || is_merchant
+	return . || is_merchant

@@ -40,17 +40,22 @@
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
 	var/const/fountainfont = "Segoe Script"
+	var/const/typewriterfont = "Typewriter"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_change_icon_state = TRUE
+	var/set_unsafe_on_init = FALSE
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
 	if (text || title)
-		set_content(title, text ? text : info)
+		if(set_unsafe_on_init)
+			set_content_unsafe(title, text ? text : info)
+		else
+			set_content(title, text ? text : info)
 	else
 		updateinfolinks()
 		if (mapload)
@@ -225,10 +230,10 @@
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-								 	 SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
+										SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
 				if(do_after(user, 1 SECOND, H, do_flags = (DO_DEFAULT | DO_USER_UNIQUE_ACT) & ~DO_BOTH_CAN_TURN))
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
-										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
+											SPAN_NOTICE("You wipe off [H]'s lipstick."))
 					H.lipstick_color = null
 					H.update_body()
 
@@ -303,9 +308,11 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain)
-	t = parse_languages(user, t, TRUE)
-	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter)
+	if(user)
+		t = parse_languages(user, t, TRUE)
+	if(P)
+		t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
 	if(iscrayon) // If it is a crayon, and he still tries to use these, make them empty!
 		t = replacetext(t, "\[*\]", "")
@@ -336,10 +343,25 @@
 		t = replacetext(t, "\[logo_golden\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
+	if(istypewriter)
+		t = replacetext(t, "\[*\]", "")
+		t = replacetext(t, "\[hr\]", "")
+		t = replacetext(t, "\[small\]", "")
+		t = replacetext(t, "\[/small\]", "")
+		t = replacetext(t, "\[list\]", "")
+		t = replacetext(t, "\[/list\]", "")
+		t = replacetext(t, "\[table\]", "")
+		t = replacetext(t, "\[/table\]", "")
+		t = replacetext(t, "\[row\]", "")
+		t = replacetext(t, "\[cell\]", "")
+		t = replacetext(t, "\[barcode\]", "")
+
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
 	else if(isfountain)
 		t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+	else if(istypewriter)
+		t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
 	else
 		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 
@@ -418,7 +440,7 @@
 	. = input
 
 	while (written_lang_regex.Find(.))
-		var/datum/language/L = language_keys[written_lang_regex.group[2]]
+		var/datum/language/L = GLOB.language_keys[written_lang_regex.group[2]]
 		// Unknown language.
 		if (!L || !L.written_style)
 			continue
@@ -456,11 +478,23 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+
+		if(!i && istype(loc, /obj/item/portable_typewriter))
+			var/obj/item/portable_typewriter/T = loc
+			if(T.pen)
+				i = T.pen
+
+		if(i && istype(i, /obj/item/portable_typewriter) || !i && istype(loc, /obj/item/portable_typewriter))
+			var/obj/item/portable_typewriter/T = i
+			if(T.pen)
+				i = T.pen
+
 		if(!i || !i.ispen())
 			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
+		var/istypewriter = FALSE
 		if(!i.ispen())
 			if(usr.back && istype(usr.back,/obj/item/rig))
 				var/obj/item/rig/r = usr.back
@@ -469,12 +503,10 @@
 					i = m.device
 				else
 					return
-			else if(istype(src.loc, /obj/item/clipboard))
+			if(istype(src.loc, /obj/item/clipboard))
 				c = src.loc
 				if(c.haspen)
 					i = c.haspen
-				else
-					return
 			else
 				return
 
@@ -488,13 +520,15 @@
 			else
 				isfountain = FALSE
 
+		if(istype(i, /obj/item/pen/typewriter))
+			istypewriter = TRUE
+
 		if(!write_check(usr))
 			return
 
 		var/last_fields_value = fields
 
-		t = parsepencode(t, i, usr, iscrayon, isfountain) // Encode everything from pencode to html
-
+		t = parsepencode(t, i, usr, iscrayon, isfountain, istypewriter) // Encode everything from pencode to html
 
 		if(fields > 50)//large amount of fields creates a heavy load on the server, see updateinfolinks() and addtofield()
 			to_chat(usr, SPAN_WARNING("Too many fields. Sorry, you can't do this."))
@@ -514,7 +548,11 @@
 		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 		paper_win.open()
 
-		playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+		if(istype(i, /obj/item/pen/typewriter))
+			playsound(src, ('sound/machines/typewriter.ogg'), 40)
+		else
+			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+
 		update_icon()
 		if(c)
 			c.update_icon()
@@ -531,6 +569,10 @@
 	if(!. && istype(loc, /obj/item/folder))
 		var/obj/item/folder/F = loc
 		if(F.loc_check(user) || F.Adjacent(user))
+			. = TRUE
+	if(!. && istype(loc, /obj/item/portable_typewriter))
+		var/obj/item/portable_typewriter/T = loc
+		if(T.loc == user || T.Adjacent(user))
 			. = TRUE
 
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
@@ -704,6 +746,13 @@
 
 /obj/item/paper/medscan
 	icon_state = "medscan"
+	color = "#eeffe8"
+	set_unsafe_on_init = TRUE
+	var/datum/weakref/scan_target
+
+/obj/item/paper/medscan/Initialize(mapload, text, title, var/atom/set_scan_target)
+	. = ..()
+	scan_target = WEAKREF(set_scan_target)
 
 //
 // Fluff Papers
@@ -730,6 +779,15 @@
 	name = "bunker evacuation route instructions"
 	desc = "A paper. It has evacuation route instructions printed on it."
 	info = "<font face=\"Verdana\"><center>SCCV Horizon Command Bunker<br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
+		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
+		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
+		equipment, if necessary.</li></ol></font></font>"
+
+// Used in the bridge on the SCCV Horizon
+/obj/item/paper/fluff/bridge
+	name = "bridge evacuation route instructions"
+	desc = "A paper. It has evacuation route instructions printed on it."
+	info = "<font face=\"Verdana\"><center>SCCV Horizon Command <br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"

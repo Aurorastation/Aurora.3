@@ -182,7 +182,7 @@
 
 	if(simple_default_language)
 		add_language(simple_default_language)
-		default_language = all_languages[simple_default_language]
+		default_language = GLOB.all_languages[simple_default_language]
 
 	if(dead_on_map)
 		death()
@@ -534,7 +534,7 @@
 			simple_harm_attack(user)
 			return
 		attack.show_attack_simple(user, src, pick(organ_names))
-		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
+		var/actual_damage = attack.get_unarmed_damage(src, user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
 		if(!actual_damage)
 			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
 		apply_damage(actual_damage, attack.damage_type)
@@ -671,7 +671,7 @@
 	if (!nutrition)
 		tally += 4
 
-	return tally+config.animal_delay
+	return tally + GLOB.config.animal_delay
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -897,7 +897,7 @@
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
-	spark(loc, 5, alldirs)
+	spark(loc, 5, GLOB.alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
 
@@ -920,18 +920,16 @@
 		return FALSE
 
 /mob/living/simple_animal/emp_act(severity)
+	. = ..()
+
 	if(!isSynthetic())
 		return
 
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			adjustFireLoss(rand(20, 25))
-		if(2)
+		if(EMP_LIGHT)
 			adjustFireLoss(rand(10, 15))
-		if(3)
-			adjustFireLoss(rand(5, 10))
-		if(4)
-			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
@@ -984,7 +982,7 @@
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
 
 /mob/living/simple_animal/get_speech_bubble_state_modifier()
-	return ..() || "rough"
+	return isSynthetic() ? "machine" : "rough"
 
 
 #undef BLOOD_NONE

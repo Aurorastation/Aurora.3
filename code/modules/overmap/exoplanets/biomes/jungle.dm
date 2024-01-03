@@ -9,13 +9,15 @@
 	spawn_types = list(
 		LARGE_FLORA = list(
 			/obj/structure/flora/tree/jungle/small/random = 5,
-			/obj/structure/flora/tree/jungle/random = 1
+			/obj/structure/flora/tree/jungle/random = 1,
+			/obj/effect/landmark/exoplanet_spawn/large_plant = 1
 		),
 		SMALL_FLORA = list(
 			/obj/structure/flora/bush/jungle/large/random = 1,
 			/obj/structure/flora/bush/jungle/random = 3,
 			/obj/structure/flora/bush/jungle/b/random = 3,
-			/obj/structure/flora/bush/jungle/c/random = 3
+			/obj/structure/flora/bush/jungle/c/random = 3,
+			/obj/effect/landmark/exoplanet_spawn/plant = 3
 		),
 		GRASSES = list(
 			/obj/structure/flora/grass/junglegrass/random = 4,
@@ -40,7 +42,8 @@
 		SMALL_FLORA = list(
 			/obj/structure/flora/bush/jungle/random = 3,
 			/obj/structure/flora/bush/jungle/b/random = 3,
-			/obj/structure/flora/bush/jungle/c/random = 3
+			/obj/structure/flora/bush/jungle/c/random = 3,
+			/obj/effect/landmark/exoplanet_spawn/plant = 3
 		),
 		GRASSES = list(
 			/obj/structure/flora/grass/junglegrass/random = 4,

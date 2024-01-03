@@ -28,26 +28,48 @@
 	tag_icon = "dionae_ironsong"
 	text_tag = "INS"
 
+/datum/accent/laboursong
+	name = ACCENT_LABOURSONG
+	description = "An accent unique to Dionae of the Narrows penal vessel. The accent has developed as a result of Narrows dionae restricting their pitch to their octave rank, giving it a very rigid and dull, mono-octave sound, where pronunciation is slow and deliberate. When multiple Narrows dionae come together and speak or sing at once, the accent shines, with beautiful harmonies sounding during their worksongs."
+	tag_icon = "dionae_laboursong"
+	text_tag = "LBS"
+
+//Human Influenced Accents
+
+/datum/accent/meadowsong
+	name = ACCENT_MEADOWSONG
+	description = "Influenced by the people of Mictlan, Meadowsong is found only among the Primitive Sirens. It's often considered an even more musical accent than most, with a near-constant sing-song inflection."
+	tag_icon = "dionae_meadow"
+	text_tag = "MWS"
+
+//Vaurca Influenced Accents
+
+/datum/accent/pestsong
+	name = ACCENT_PESTSONG
+	description = "Unique to those known as the Pests of Titan Prime, this accent is influenced by the buzzing and clacking noises of Vaurca, and as such tends to sound much harsher to the ears than many other Dionae accents."
+	tag_icon = "dionae_pest"
+	text_tag = "PTS"
+
 //Unathi Influenced Accents
 /datum/accent/sandsong
 	name = ACCENT_SANDSONG
 	description = "Found exclusively in Dionae hailing from the Unathi-Dominated world of Moghes, Sandsong is a distinct variation of Rootsong notable for having its tempo much more drawn out, with tones of higher pitches especially having a much more exaggerated sound. Dionae speaking with the Sandsong accent will typically hold certain speech patterns held by Unathi such as hissing out their S’s and difficulties pronouncing the letter X. "
 	tag_icon = "dionae_sandsong"
 	text_tag = "SDS"
-	
+
 /datum/accent/wastesong
 	name = ACCENT_WASTESONG
 	description = "Originating from the irradiated Moghes Wastes, Wastesong is an accent spoken by Dionae who found themselves being bathed in the Wasteland’s radiation, making them healthy and much more resilient than some of their other planet-bound brethren, but also giving them a slightly distinct accent notable for having a lower-pitched voice compared to regular Rootsong but also a much faster tempo. Much like Sandsong, Dionae with the Wasteland accent will typically carry similar speech patterns to Unathi such as hissing out their S’s."
 	tag_icon = "dionae_wastesong"
 	text_tag = "WES"
-	
+
 //Skrell influenced Accents
 /datum/accent/wavesong
 	name = ACCENT_WAVESONG
 	description = "A variant of Rootsong originating from Diona born on Skrellian worlds, Wavesong is considered the general accent for Dionae hailing from the Nralakk Federation. While it shares many similarities with Rootsong, Wavesong sets itself apart by having a lower pitch and more drawn-out tempo in comparison. While not considered mandatory, many Dionae living in the Federation will adopt the accent due to it being generally more favored by the Federation, often granting those with the accent a higher social credit score."
 	tag_icon = "dionae_wavesong"
 	text_tag = "WAS"
-	
+
 /datum/accent/sunkensong
 	name = ACCENT_SUNKENSONG
 	description = "Sunkensong is a variant of Voidsong that is common for space-borne Dionae hailing from regions surrounding the Tri-Qyu Nebula. Known for it's lighter pitch and tone, along with it's consistent, even pacing for words, the accent is prevalent amongst Nralakk Federation Diona that originate from wild, voidbound gestalts. Dionae with Sunkensong may attempt to mimic Skrell accents in an attempt to replicate the more popular Starsong, with mixed results."

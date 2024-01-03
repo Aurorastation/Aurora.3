@@ -9,7 +9,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	var/active = 0.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	throwforce = 10.0
 	throw_speed = 2
@@ -26,12 +26,12 @@
 
 /obj/item/cloaking_device/New()
 	..()
-	cloaking_devices += src
+	GLOB.cloaking_devices += src
 	cell = new /obj/item/cell/high(src)
 
 /obj/item/cloaking_device/Destroy()
 	. = ..()
-	cloaking_devices -= src
+	GLOB.cloaking_devices -= src
 
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()
@@ -92,10 +92,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/cloaking_device/emp_act(severity)
+	. = ..()
+
 	deactivate()
 	if (cell)
 		cell.emp_act(severity)
-	..()
 
 /obj/item/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)
@@ -171,7 +172,7 @@
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
-	for (var/a in cloaking_devices)//Check for any other cloaks
+	for (var/a in GLOB.cloaking_devices)//Check for any other cloaks
 		if (a != source)
 			var/obj/item/cloaking_device/CD = a
 			if (CD.get_holding_mob() == target)

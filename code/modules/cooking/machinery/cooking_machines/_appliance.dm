@@ -4,6 +4,10 @@
 /obj/item/reagent_containers/food/snacks
 	var/tmp/list/cooked
 
+//similar process for food containers that you can create via a cooking process
+/obj/item/storage/box/fancy/food
+	var/tmp/list/cooked
+
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
 	name = "cooker"
@@ -132,14 +136,14 @@
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
-	set name = "Choose output"
+	set name = "Choose Output"
 	set category = "Object"
 
 	if (use_check_and_message(usr, issilicon(usr) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 	if(isemptylist(output_options))
 		return
-	var/choice = input("What specific food do you wish to make with [src]?", "Choose Output") as null|anything in output_options+"Default"
+	var/choice = tgui_input_list(usr, "What specific food do you wish to make with [src]?", "Choose Output", output_options + "Default")
 	if(!choice)
 		return
 	selected_option = (choice == "Default") ? null : choice

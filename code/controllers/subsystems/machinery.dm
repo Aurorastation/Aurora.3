@@ -33,9 +33,7 @@ if(Datum.isprocessing) {\
 #define START_PROCESSING_POWER_OBJECT(Datum) START_PROCESSING_IN_LIST(Datum, power_objects)
 #define STOP_PROCESSING_POWER_OBJECT(Datum) STOP_PROCESSING_IN_LIST(Datum, power_objects)
 
-/var/datum/controller/subsystem/machinery/SSmachinery
-
-/datum/controller/subsystem/machinery
+SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
 	init_order = SS_INIT_MACHINERY
@@ -84,9 +82,6 @@ if(Datum.isprocessing) {\
 	all_receivers = SSmachinery.all_receivers
 	current_step = SSMACHINERY_PIPENETS
 
-/datum/controller/subsystem/machinery/New()
-	NEW_SS_GLOBAL(SSmachinery)
-
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	makepowernets()
 	build_rcon_lists()
@@ -132,7 +127,7 @@ if(Datum.isprocessing) {\
 	for(var/datum/powernet/powernet as anything in powernets)
 		qdel(powernet)
 	powernets.Cut()
-	setup_powernets_for_cables(cable_list)
+	setup_powernets_for_cables(GLOB.cable_list)
 
 /datum/controller/subsystem/machinery/proc/setup_powernets_for_cables(list/cables)
 	for (var/obj/structure/cable/cable as anything in cables)

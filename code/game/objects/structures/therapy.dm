@@ -35,7 +35,7 @@
 	if(closed)
 		to_chat(usr, "You check your watch, realising it's closed.")
 	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 
 /obj/item/pocketwatch/verb/pointatwatch()
 	set category = "Object"
@@ -57,7 +57,7 @@
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
 	w_class = ITEMSIZE_TINY
-	flags = NOBLUDGEON
+	atom_flags = ITEM_FLAG_NO_BLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE
@@ -108,7 +108,7 @@
 		return
 	if(!thrall || !thrall.resolve())
 		thrall = null
-		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 		return
 
 	var/mob/living/carbon/human/H = thrall.resolve()
@@ -123,8 +123,7 @@
 			to_chat(user, "You must stand in whisper range of [H].")
 			return
 
-		text = input("What would you like to suggest?", "Hypnotic suggestion", null, null)
-		text = sanitize(text)
+		text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion")
 		if(!text)
 			return
 

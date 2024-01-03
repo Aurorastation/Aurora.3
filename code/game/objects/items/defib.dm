@@ -324,7 +324,7 @@
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
 		for(var/obj/item/clothing/cloth in list(H.wear_suit, H.w_uniform))
-			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & THICKMATERIAL))
+			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				return FALSE
 	return TRUE
 
@@ -533,6 +533,8 @@
 		return TRUE
 
 /obj/item/shockpaddles/emp_act(severity)
+	. = ..()
+
 	var/new_safety = rand(0, 1)
 	if(safety != new_safety)
 		safety = new_safety
@@ -543,7 +545,6 @@
 			make_announcement("beeps, \"Safety protocols disabled!\"", "warning")
 			playsound(get_turf(src), 'sound/machines/defib_safetyoff.ogg', 50, 0)
 		update_icon()
-	..()
 
 /obj/item/shockpaddles/robot
 	name = "defibrillator paddles"
@@ -669,13 +670,17 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/shockpaddles/standalone/emp_act(severity)
-	..()
+	. = ..()
+
 	var/new_fail = 0
+
 	switch(severity)
-		if(3)
+
+		if(EMP_HEAVY)
 			new_fail = max(fail_counter, 20)
 			visible_message("\The [src]'s reactor overloads!")
-		if(2)
+
+		if(EMP_LIGHT)
 			new_fail = max(fail_counter, 8)
 			if(ismob(loc))
 				to_chat(loc, SPAN_WARNING("\The [src] feel pleasantly warm."))

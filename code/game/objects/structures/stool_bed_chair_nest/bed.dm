@@ -109,7 +109,7 @@
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
@@ -206,7 +206,7 @@
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
-				if(buckle(affecting))
+				if(buckle(affecting, user))
 					affecting.visible_message(\
 						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
 						SPAN_DANGER("You are buckled to [src] by [user.name]!"),\

@@ -29,7 +29,7 @@
 
 	var/storage_capacity = 45 //Tying this to mob sizes was dumb
 	//This is so that someone can't pack hundreds of items in a locker/crate
-							  //then open it in a populated area to crash clients.
+							//then open it in a populated area to crash clients.
 
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
@@ -776,7 +776,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
 /obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)

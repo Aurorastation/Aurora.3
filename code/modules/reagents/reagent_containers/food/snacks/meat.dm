@@ -203,7 +203,7 @@
 	icon_state = "vannameat"
 	item_state = "vannameat"
 	contained_sprite = TRUE
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/mindbreaker = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drugs/mindbreaker = 6)
 
 /obj/item/reagent_containers/food/snacks/meat/bat
 	name = "bat wings"
@@ -220,7 +220,7 @@
 	icon_state = "hugemushroomslice"
 	filling_color = "#E0D7C5"
 
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/psilocybin = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drugs/psilocybin = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("raw" = 2, "mushroom" = 2))
 	bitesize = 6
 
@@ -303,9 +303,9 @@
 			icon_state = "steak_40"
 		if(41 to 60)
 			icon_state = "steak_60"
-		if(61 to 75)
+		if(61 to 80) //this was originally set to 75 but this resulted in a weird situation that prevented the steak_75 image from showing up. this is my fix.
 			icon_state = "steak_75"
-		if(76 to INFINITY)
+		if(81 to INFINITY)
 			icon_state = "steak"
 
 /obj/item/reagent_containers/food/snacks/meatsteak/grilled
@@ -361,7 +361,7 @@
 
 /obj/item/reagent_containers/food/snacks/squidmeat/attackby(var/obj/item/W, var/mob/user)
 	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
-		var/transfer_amt = Floor(reagents.total_volume/3)
+		var/transfer_amt = FLOOR(reagents.total_volume/3)
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
 			reagents.trans_to(sashimi, transfer_amt)

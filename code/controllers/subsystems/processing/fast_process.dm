@@ -1,10 +1,4 @@
-/var/datum/controller/subsystem/processing/fast/SSfast_process
-
-// Not really much to it, literally just a faster-ticking SSprocessing.
-
-/datum/controller/subsystem/processing/fast
+/// Not really much to it, literally just a faster-ticking SSprocessing.
+PROCESSING_SUBSYSTEM_DEF(fast_process)
 	name = "Processing (Fast)"
 	wait = 5
-
-/datum/controller/subsystem/processing/fast/New()
-	NEW_SS_GLOBAL(SSfast_process)

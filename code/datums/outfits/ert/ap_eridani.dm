@@ -117,12 +117,12 @@
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
-        /obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
-        /obj/item/reagent_containers/glass/bottle/antitoxin = 1,
-        /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-        /obj/item/reagent_containers/glass/bottle/butazoline = 1,
-        /obj/item/reagent_containers/glass/bottle/dermaline = 1,
-        /obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
 		/obj/item/storage/pill_bottle/mortaphenyl = 1
 	)
 
@@ -156,11 +156,11 @@
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
-        /obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
-        /obj/item/reagent_containers/glass/bottle/antitoxin = 1,
-        /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-        /obj/item/reagent_containers/glass/bottle/butazoline = 1,
-        /obj/item/reagent_containers/glass/bottle/dermaline = 1,
-        /obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
 		/obj/item/melee/baton/stunrod = 1
 	)

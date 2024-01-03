@@ -202,6 +202,31 @@
 		list(mode_name="full-auto", can_autofire = TRUE, burst = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3), dispersion = list(5, 10, 15, 20))
 		)
 
+/obj/item/gun/energy/repeater/pistol
+	name = "Energy Pistol"
+	desc = "A more compact and portable version of the Stellar Corporate Conglomerate Energy Repeater. It has two settings: Stun, and Lethal."
+	desc_extended = "The SCC-ER1-2 was designed to be a reliable yet more compact version of the SCC-ER1, capable of defending Staff and Assets."
+	icon = 'icons/obj/guns/sccpistol.dmi'
+	icon_state = "sccpistolstun"
+	item_state = "sccpistolstun"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 8
+	fire_delay = 5
+	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc/weak
+	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
+	can_switch_modes = 1
+
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	modifystate = "sccpistolstun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol/scc/weak, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
+		)
+
 /obj/item/gun/energy/gun/skrell
 	self_recharge = TRUE
 	fire_sound = 'sound/weapons/Laser2.ogg'
@@ -210,6 +235,8 @@
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 
 /obj/item/gun/energy/gun/skrell/emp_act(severity)
+	. = ..()
+
 	return //Fuck robots.
 
 /obj/item/gun/energy/gun/skrell/pistol
@@ -246,8 +273,8 @@
 		)
 
 /obj/item/gun/energy/gun/qukala
-	name = "tqi-qop rifle"
-	desc = "The Tqi-Qop Rifle is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
+	name = "tqi-qop carbine"
+	desc = "The Tqi-Qop Carbine is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
 	desc_extended = ""
 	icon = 'icons/obj/item/gun/energy/gun/qukala.dmi'
 	icon_state = "qukalagun"
@@ -271,10 +298,16 @@
 
 	has_item_ratio = FALSE
 
-/obj/item/gun/energy/psipistol
-	name = "psionic pistol"
-	desc = "A pistol that utilises psionics. It's made from a lightweight alloy."
-	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Psi Pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically, enabling the weapon to be used entirely one-handed."
+/obj/item/gun/energy/gun/qukala/mounted
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0
+
+/obj/item/gun/energy/fedpistol
+	name = "nralakk energy pistol"
+	desc = "A Skrell-made pistol that utilises a psionic control mechanism. It's made from a lightweight alloy."
+	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Xuqm-3 energy pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically. For non-psionic users, a small dial for mode switching has been attached."
 	icon = 'icons/obj/guns/psi_pistol.dmi'
 	icon_state = "psipistolstun100"
 	item_state = "psipistolstun100"
@@ -295,3 +328,6 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
 		list(mode_name="ion", projectile_type=/obj/item/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
 		)
+
+/obj/item/gun/energy/fedpistol/nopsi
+	pin = /obj/item/device/firing_pin

@@ -9,7 +9,7 @@
 	var/mob/attacher = null
 	var/valve_open = 0
 	var/toggle = 1
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 
 /obj/item/device/transfer_valve/proc/process_activation(var/obj/item/device/D)
 
@@ -52,7 +52,7 @@
 		A.holder = src
 		A.toggle_secure()	//this calls update_icon(), which calls update_icon() on the holder (i.e. the bomb).
 
-		bombers += "[key_name(user)] attached a [item] to a transfer valve."
+		GLOB.bombers += "[key_name(user)] attached a [item] to a transfer valve."
 		message_admins("[key_name_admin(user)] attached a [item] to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(user)] attached a [item] to a transfer valve.",ckey=key_name(user))
 		attacher = user
@@ -204,7 +204,7 @@
 			last_touch_info = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[mob]'>?</A>)"
 
 		log_str += " Last touched by: [src.fingerprintslast][last_touch_info]"
-		bombers += log_str
+		GLOB.bombers += log_str
 		message_admins(log_str, 0, 1)
 		log_game(log_str)
 		merge_gases()

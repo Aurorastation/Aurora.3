@@ -39,8 +39,7 @@
 	var/list/transplant_data
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
-	var/list/trace_chemicals = list() // traces of chemicals in the organ,
-									  // links chemical IDs to number of ticks for which they'll stay in the blood
+	var/list/trace_chemicals = list() // traces of chemicals in the organ, links chemical IDs to number of ticks for which they'll stay in the blood
 
 	//DNA stuff.
 	var/datum/dna/dna
@@ -48,11 +47,11 @@
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
-/obj/item/organ/New(loc, ...)
-	..()
-	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
-		args[1] = TRUE
-		SSatoms.InitAtom(src, args)
+INITIALIZE_IMMEDIATE(/obj/item/organ)
+
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -92,10 +91,10 @@
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
-		species = all_species[SPECIES_HUMAN]
+		species = GLOB.all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
-			species = all_species[dna.species]
+			species = GLOB.all_species[dna.species]
 		else
 			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
 		var/mob/living/carbon/human/H = holder
@@ -174,7 +173,7 @@
 			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
-		if(config.organs_decay) damage += rand(1,3)
+		if(GLOB.config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
 		germ_level += rand(2,6)
@@ -389,7 +388,9 @@
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
 
-/obj/item/organ/emp_act(var/severity)
+/obj/item/organ/emp_act(severity)
+	. = ..()
+
 	if(!(status & ORGAN_ASSISTED))
 		return
 
@@ -399,12 +400,10 @@
 		organ_fragility = 1
 
 	switch (severity)
-		if (1.0)
+		if (EMP_HEAVY)
 			take_surge_damage(15 * emp_coeff * organ_fragility)
-		if (2.0)
+		if (EMP_LIGHT)
 			take_surge_damage(8 * emp_coeff * organ_fragility)
-		if(3.0)
-			take_surge_damage(4 * emp_coeff * organ_fragility)
 
 	return TRUE
 

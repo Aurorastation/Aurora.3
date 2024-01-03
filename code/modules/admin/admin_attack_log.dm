@@ -46,8 +46,10 @@
 		violent = ""
 
 	var/temperature_text = "([temperature - (T0C + 20)]C)"
-	admin_attack_log(attacker,
-	                 victim,
-	                 "used \the [I] to [violent]inject - [reagents] [temperature_text] - [amount_transferred]u transferred",
-	                 "was [violent]injected with \the [I] - [reagents] [temperature_text] - [amount_transferred]u transferred",
-	                 "used \the [I] to [violent]inject [reagents] [temperature_text] ([amount_transferred]u transferred) into")
+	admin_attack_log(
+						attacker,
+						victim,
+						"used \the [I] to [violent]inject - [reagents] [temperature_text] - [amount_transferred]u transferred",
+						"was [violent]injected with \the [I] - [reagents] [temperature_text] - [amount_transferred]u transferred",
+						"used \the [I] to [violent]inject [reagents] [temperature_text] ([amount_transferred]u transferred) into"
+					)

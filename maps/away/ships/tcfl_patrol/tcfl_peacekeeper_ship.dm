@@ -8,6 +8,8 @@
 	id = "tcfl_peacekeeper_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_shuttle)
 
+	unit_test_groups = list(3)
+
 /singleton/submap_archetype/tcfl_peacekeeper_ship
 	map = "TCFL Corvette"
 	descriptor = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one appears to be a Decanus-class, the Tau Ceti Foreign Legion variation of the design."
@@ -98,7 +100,7 @@
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCFL Shuttle"
-	req_access = list(access_tcfl_peacekeeper_ship)
+	req_access = list(ACCESS_TCFL_PEACEKEEPER_SHIP)
 
 /datum/shuttle/autodock/overmap/tcfl_shuttle
 	name = "TCFL Shuttle"

@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/ghostroles/SSghostroles
-
-/datum/controller/subsystem/ghostroles
+SUBSYSTEM_DEF(ghostroles)
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_GHOSTROLES
@@ -18,9 +16,6 @@
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
 	src.spawners = SSghostroles.spawners
-
-/datum/controller/subsystem/ghostroles/New()
-	NEW_SS_GLOBAL(SSghostroles)
 
 /datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
 	. = ..()
@@ -104,10 +99,10 @@
 			return get_turf(P)
 
 /datum/controller/subsystem/ghostroles/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/ghostroles/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -124,6 +119,12 @@
 		if(G.cant_see(user))
 			continue
 		var/cant_spawn = G.cant_spawn(user)
+		var/list/manifest = list()
+		if(LAZYLEN(G.spawned_mobs))
+			for(var/datum/weakref/mob_ref in G.spawned_mobs)
+				var/mob/spawned_mob = mob_ref.resolve()
+				if(spawned_mob)
+					manifest += spawned_mob.real_name
 		var/list/spawner = list(
 			"short_name" = G.short_name,
 			"name" = G.name,
@@ -137,7 +138,8 @@
 			"spawn_atoms" = length(G.spawn_atoms),
 			"max_count" = G.max_count,
 			"tags" = G.tags,
-			"spawnpoints" = G.spawnpoints
+			"spawnpoints" = G.spawnpoints,
+			"manifest" = manifest
 		)
 		data["categories"] |= G.tags
 		data["spawners"] += list(spawner)
@@ -171,6 +173,7 @@
 			if(!S.post_spawn(M))
 				to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 				return
+			LAZYADD(S.spawned_mobs, WEAKREF(M))
 			log_and_message_admins("joined as GhostRole: [S.name]", M)
 			SStgui.update_uis(src)
 			. = TRUE

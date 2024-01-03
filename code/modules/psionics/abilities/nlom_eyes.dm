@@ -38,7 +38,7 @@
 		return
 
 	var/list/mob_choices = list()
-	for(var/mob/living/L in mob_list)
+	for(var/mob/living/L in GLOB.mob_list)
 		if(L == user)
 			continue
 		if(!L.is_psi_blocked())
@@ -46,7 +46,7 @@
 		if(GET_Z(L) != GET_Z(user))
 			continue
 		mob_choices += L
-	var/choice = input(user, "Decide who to track.", "Nlom Eyes") as null|anything in mob_choices
+	var/choice = tgui_input_list(user, "Decide who to track.", "Nlom Eyes", mob_choices)
 	if(choice)
 		tracked = choice
 		tracking = TRUE

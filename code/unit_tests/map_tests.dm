@@ -11,6 +11,7 @@
 
 /datum/unit_test/map_test
 	name = "MAP TEST template"
+	groups = list("map")
 
 /datum/unit_test/map_test/apc_area_test
 	name = "MAP: Area Test APC / Scrubbers / Vents / Alarms (Station)"
@@ -34,7 +35,7 @@
 	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
 	var/list/exempt_from_fire = typecacheof(current_map.ut_fire_exempt_areas)
 
-	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
 		if(isStationLevel(A.z))
 			area_test_count++
 			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
@@ -117,7 +118,7 @@
 	var/turf/above
 	var/area/A
 	var/thing
-	for (thing in the_station_areas)
+	for (thing in GLOB.the_station_areas)
 		A = thing
 
 		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
@@ -263,7 +264,7 @@
 
 	next_turf:
 		for(var/turf/T in world)
-			for(var/dir in cardinal)
+			for(var/dir in GLOB.cardinal)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
 					checks++
@@ -320,7 +321,7 @@
 	for(var/excluded in exclude)
 		exclude_types += typesof(excluded)
 
-	for(var/area/A as anything in list_keys(the_station_areas))
+	for(var/area/A as anything in list_keys(GLOB.the_station_areas))
 		if(A.type in exclude_types)
 			continue
 		checks++

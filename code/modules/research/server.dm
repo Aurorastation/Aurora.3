@@ -13,7 +13,7 @@
 	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
-	req_access = list(access_rd) //Only the R&D can change server settings.
+	req_access = list(ACCESS_RD) //Only the R&D can change server settings.
 
 	var/list/linked_processors
 
@@ -96,8 +96,9 @@
 			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
+	. = ..()
+
 	griefProtection()
-	..()
 
 /obj/machinery/r_n_d/server/ex_act(severity)
 	griefProtection()

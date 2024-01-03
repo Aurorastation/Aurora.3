@@ -298,7 +298,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -628,7 +628,7 @@
 /obj/machinery/atmospherics/pipe/manifold/atmos_init()
 	var/connect_directions = (NORTH|SOUTH|EAST|WEST)&(~dir)
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
 				if(target.initialize_directions & get_dir(target,src))
@@ -640,7 +640,7 @@
 				break
 
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
 				if(target.initialize_directions & get_dir(target,src))
@@ -652,7 +652,7 @@
 				break
 
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&connect_directions)
 			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
 				if(target.initialize_directions & get_dir(target,src))
@@ -1388,7 +1388,7 @@
 	air_temporary.temperature = T20C
 
 	air_temporary.adjust_multi(GAS_OXYGEN,  (start_pressure*O2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature), \
-	                           GAS_NITROGEN,(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
+								GAS_NITROGEN,(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 
 	. = ..()

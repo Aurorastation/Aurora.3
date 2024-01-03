@@ -124,10 +124,10 @@
 		var/x_offset = round(sin(Angle) * (N + world.icon_size/2))
 		var/y_offset = round(cos(Angle) * (N + world.icon_size/2))
 		//Position the effect so the beam is one continuous line
-		segment.x += SIMPLE_SIGN(x_offset) * Floor(abs(x_offset)/world.icon_size)
+		segment.x += SIMPLE_SIGN(x_offset) * FLOOR(abs(x_offset)/world.icon_size)
 		x_offset %= world.icon_size
 
-		segment.y += SIMPLE_SIGN(y_offset) * Floor(abs(y_offset)/world.icon_size)
+		segment.y += SIMPLE_SIGN(y_offset) * FLOOR(abs(y_offset)/world.icon_size)
 		y_offset %= world.icon_size
 
 		segment.pixel_x = x_offset
@@ -164,9 +164,17 @@
 		set_color = COLOR_BLUE
 	else
 		set_color = COLOR_GREEN
+	var/beam_index = 1
+	var/elements_length = length(elements)
+	var/half_elements = elements_length / 2
 	for(var/beam in elements)
 		var/obj/effect/ebeam/B = beam
 		B.color = set_color
+		if(beam_index > half_elements)
+			B.alpha = clamp(255 - (40 * (elements_length - beam_index)), 0, 255)
+		else
+			B.alpha = clamp(255 - (40 * (beam_index - 1)), 0, 255)
+		beam_index++
 
 /datum/beam/power
 	var/obj/item/computer_hardware/tesla_link/charging_cable/owner

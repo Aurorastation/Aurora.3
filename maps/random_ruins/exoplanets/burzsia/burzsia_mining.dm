@@ -16,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/burzsia_mining/mess_hall
 	name = "Hephaestus Burzsia Mining Outpost Mess Hall"
@@ -72,7 +72,7 @@
 	accessory = /obj/item/clothing/accessory/badge/passcard/burzsia
 
 /datum/outfit/admin/burzsia_miner/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/burzsia_miner/foreman
 	short_name = "burzsia_foreman"

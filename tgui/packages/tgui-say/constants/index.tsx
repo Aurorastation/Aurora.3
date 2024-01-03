@@ -6,13 +6,13 @@ export enum WINDOW_SIZES {
   small = 30,
   medium = 50,
   large = 70,
-  width = 231,
+  width = 380,
 }
 
 /** Line lengths for autoexpand */
 export enum LINE_LENGTHS {
-  small = 20,
-  medium = 35,
+  small = 38,
+  medium = 76,
 }
 
 /**
@@ -22,9 +22,9 @@ export enum LINE_LENGTHS {
  * label - string. button label.
  */
 export const RADIO_PREFIXES = {
-  ':a ': {
-    id: 'hive',
-    label: 'Hive',
+  '; ': {
+    id: 'radio',
+    label: 'Com',
   },
   ':b ': {
     id: 'binary',
@@ -54,20 +54,40 @@ export const RADIO_PREFIXES = {
     id: 'security',
     label: 'Sec',
   },
-  ':t ': {
+  ':x ': {
     id: 'syndicate',
     label: 'Syndi',
   },
+  ':b': {
+    id: 'syndicate',
+    label: 'Burg',
+  },
+  ':q ': {
+    id: 'syndicate',
+    label: 'Ninja',
+  },
+  ':t': {
+    id: 'syndicate',
+    label: 'Merc',
+  },
+  ':q': {
+    id: 'syndicate',
+    label: 'Pen',
+  },
+  ':y ': {
+    id: 'hail',
+    label: 'Hail',
+  },
+  ':z ': {
+    id: 'ent',
+    label: 'Ent',
+  },
   ':u ': {
     id: 'supply',
-    label: 'Supp',
+    label: 'Ops',
   },
   ':v ': {
     id: 'service',
     label: 'Svc',
-  },
-  ':y ': {
-    id: 'centcom',
-    label: 'CCom',
   },
 } as const;

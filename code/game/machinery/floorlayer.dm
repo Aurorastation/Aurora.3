@@ -19,13 +19,13 @@
 
 	if(on)
 		if(mode["dismantle"])
-			dismantleFloor(old_turf)
+			dismantle_floor(old_turf)
 
 		if(mode["laying"])
-			layFloor(old_turf)
+			lay_floor(old_turf)
 
 		if(mode["collect"])
-			CollectTiles(old_turf)
+			collect_tiles(old_turf)
 
 	old_turf = new_turf
 
@@ -35,7 +35,7 @@
 
 /obj/machinery/floorlayer/attackby(obj/item/I, mob/user)
 	if(I.iswrench())
-		var/m = input(user, "Choose work mode", "Mode") as null|anything in mode
+		var/m = tgui_input_list(user, "Choose work mode", "Mode", mode)
 		mode[m] = !mode[m]
 		var/O = mode[m]
 		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."))
@@ -44,14 +44,14 @@
 	if(istype(I, /obj/item/stack/tile))
 		to_chat(user, SPAN_NOTICE("You successfully load \the [I] into \the [src]."))
 		user.drop_from_inventory(I, src)
-		TakeTile(I)
+		take_tile(I)
 		return TRUE
 
 	if(I.iscrowbar())
 		if(!length(contents))
 			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		else
-			var/obj/item/stack/tile/E = input(user, "Choose which set of tiles you want to remove.", "Tiles") as null|anything in contents
+			var/obj/item/stack/tile/E = tgui_input_list(user, "Choose which set of tiles you want to remove.", "Tiles", contents)
 			if(E)
 				to_chat(user, SPAN_NOTICE("You remove \the [E] from \the [src]."))
 				user.put_in_hands(E)
@@ -59,7 +59,7 @@
 		return TRUE
 
 	if(I.isscrewdriver())
-		T = input(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles") as null|anything in contents
+		T = tgui_input_list(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles", contents)
 		return TRUE
 
 /obj/machinery/floorlayer/examine(mob/user)
@@ -75,7 +75,7 @@
 /obj/machinery/floorlayer/proc/reset()
 	on = FALSE
 
-/obj/machinery/floorlayer/proc/dismantleFloor(var/turf/new_turf)
+/obj/machinery/floorlayer/proc/dismantle_floor(var/turf/new_turf)
 	if(istype(new_turf, /turf/simulated/floor))
 		var/turf/simulated/floor/T = new_turf
 		if(!T.is_plating())
@@ -85,13 +85,13 @@
 		return T.is_plating()
 	return FALSE
 
-/obj/machinery/floorlayer/proc/TakeNewStack()
+/obj/machinery/floorlayer/proc/take_new_stack()
 	for(var/obj/item/stack/tile/tile in contents)
 		T = tile
 		return TRUE
 	return FALSE
 
-/obj/machinery/floorlayer/proc/SortStacks()
+/obj/machinery/floorlayer/proc/sort_stacks()
 	for(var/obj/item/stack/tile/tile1 in contents)
 		if (tile1 && tile1.get_amount() > 0)
 			if (!T || T.type == tile1.type)
@@ -101,20 +101,20 @@
 					if (tile2 != tile1 && tile2.type == tile1.type)
 						tile2.transfer_to(tile1)
 
-/obj/machinery/floorlayer/proc/layFloor(var/turf/w_turf)
+/obj/machinery/floorlayer/proc/lay_floor(var/turf/w_turf)
 	if(!T)
-		if(!TakeNewStack())
+		if(!take_new_stack())
 			return FALSE
 	w_turf.attackby(T, src)
 	return TRUE
 
-/obj/machinery/floorlayer/proc/TakeTile(var/obj/item/stack/tile/tile)
+/obj/machinery/floorlayer/proc/take_tile(var/obj/item/stack/tile/tile)
 	if(!T)
 		T = tile
 	tile.forceMove(src)
 
-	SortStacks()
+	sort_stacks()
 
-/obj/machinery/floorlayer/proc/CollectTiles(var/turf/w_turf)
+/obj/machinery/floorlayer/proc/collect_tiles(var/turf/w_turf)
 	for(var/obj/item/stack/tile/tile in w_turf)
-		TakeTile(tile)
+		take_tile(tile)

@@ -50,7 +50,7 @@
 		laser = ARMOR_LASER_PISTOL
 	)
 
-/mob/living/simple_animal/hostile/retaliate/beast/charbaby/on_attack_mob(var/mob/hit_mob)	
+/mob/living/simple_animal/hostile/retaliate/beast/charbaby/on_attack_mob(var/mob/hit_mob)
 	. = ..()
 	if(isliving(hit_mob) && prob(25))
 		var/mob/living/L = hit_mob

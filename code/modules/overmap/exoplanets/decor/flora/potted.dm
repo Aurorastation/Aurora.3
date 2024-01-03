@@ -262,7 +262,7 @@
 /obj/structure/flora/pottedplant/eye
 	name = "eye bulb plant"
 	desc = "A decorative plant borne from a genetic mishap in a Zeng-Hu genetics lab. \
-	        Scientists assure, the blinking \"eye\" is simply just a form of heat regulation, \
+			Scientists assure, the blinking \"eye\" is simply just a form of heat regulation, \
 			and other than that, this plant is same as any other greenery."
 	icon_state = "plant-36"
 

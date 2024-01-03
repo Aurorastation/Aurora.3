@@ -113,7 +113,7 @@
 
 	if(!dest || dest == get_turf(src))
 		var/list/options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/new_dir = get_step_to(src, get_step(src, test_dir))
 			if(new_dir && user.Adjacent(new_dir))
 				options += new_dir
@@ -157,7 +157,7 @@
 		load(user)
 		launchinterface()
 
-/obj/attack_ghost(mob/user)
+/obj/vehicle/droppod/attack_ghost(mob/user)
 	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
 		..()
 	else // normal ghosts cannot use this

@@ -75,17 +75,16 @@
 			to_chat(user, SPAN_NOTICE("The generator is off."))
 
 /obj/machinery/power/portgen/emp_act(severity)
+	. = ..()
+
 	var/duration = 6000 //ten minutes
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			stat &= BROKEN
 			if(prob(75)) explode()
-		if(2)
+		if(EMP_LIGHT)
 			if(prob(25)) stat &= BROKEN
 			if(prob(10)) explode()
-		if(3)
-			if(prob(10)) stat &= BROKEN
-			duration = 300
 
 	stat |= EMPED
 	if(duration)
@@ -331,7 +330,7 @@
 	if(loc)
 		var/datum/gas_mixture/environment = loc.return_air()
 		if(environment)
-			data["temperature_min"] = Floor(environment.temperature - T0C)
+			data["temperature_min"] = FLOOR(environment.temperature - T0C)
 
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
@@ -469,7 +468,7 @@
 	board_path = "/obj/item/circuitboard/portgen/fusion"
 
 	anchored = TRUE
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2

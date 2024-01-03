@@ -5,13 +5,13 @@
 	icon_state = "posibrain"
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	can_be_ipc = TRUE
 	var/searching = FALSE
 
 /obj/item/device/mmi/digital/posibrain/Initialize()
 	. = ..()
-	var/datum/language/L = all_languages[LANGUAGE_EAL]
+	var/datum/language/L = GLOB.all_languages[LANGUAGE_EAL]
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
@@ -57,14 +57,14 @@
 
 	var/area/A = get_area(src)
 	if(istype(A, /area/assembly/robotics))
-		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
+		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
 
 	brainmob.client.init_verbs()
 
 	return src
 
 /obj/item/device/mmi/digital/posibrain/update_name()
-	var/new_name = input(brainmob, "Choose your name.", "Name Selection", brainmob.real_name) as text
+	var/new_name = tgui_input_text(brainmob, "Choose your name.", "Name Selection", brainmob.real_name, MAX_NAME_LEN)
 	if(new_name)
 		brainmob.real_name = new_name
 		brainmob.name = new_name
@@ -107,14 +107,13 @@
 	return
 
 /obj/item/device/mmi/digital/posibrain/emp_act(severity)
+	. = ..()
+
 	if(!brainmob)
 		return
-	else
-		switch(severity)
-			if(1)
-				brainmob.emp_damage += rand(20,30)
-			if(2)
-				brainmob.emp_damage += rand(10,20)
-			if(3)
-				brainmob.emp_damage += rand(0,10)
-	..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			brainmob.emp_damage += rand(20,30)
+		if(EMP_LIGHT)
+			brainmob.emp_damage += rand(10,20)

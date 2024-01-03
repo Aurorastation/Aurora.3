@@ -20,13 +20,14 @@
 /// before a datum's Destroy() is called: (force), returning a nonzero value will cancel the qdel operation
 #define COMSIG_PARENT_PREQDELETED "parent_preqdeleted"
 /// just before a datum's Destroy() is called: (force), at this point none of the other components chose to interrupt qdel and Destroy will be called
-#define COMSIG_PARENT_QDELETING "parent_qdeleting"
+#define COMSIG_QDELETING "parent_qdeleting"
 /// from datum ui_act (usr, action)
 #define COMSIG_UI_ACT "COMSIG_UI_ACT"
 /// fires on the target datum when an element is attached to it (/datum/element)
 #define COMSIG_ELEMENT_ATTACH "element_attach"
 /// fires on the target datum when an element is attached to it  (/datum/element)
-#define COMSIG_ELEMENT_DETACH "element_detach"
+#define COMSIG_ELEMENT_DETACH_ON_HOST_DESTROY "ELEMENT_DETACH_ON_HOST_DESTROY"
+
 
 // /atom signals
 
@@ -62,6 +63,12 @@
 #define COMSIG_MOB_LOGOUT "mob_logout"
 /// from mob/get_status_tab_items(): (list/items)
 #define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
+///from /mob/living/carbon/human/proc/force_say(): ()
+#define COMSIG_HUMAN_FORCESAY "human_forcesay"
+///Mob is trying to open the wires of a target [/atom], from /datum/wires/interactable(): (atom/target)
+#define COMSIG_TRY_WIRES_INTERACT "try_wires_interact"
+	#define COMPONENT_CANT_INTERACT_WIRES (1<<0)
+
 
 /// Sent from /proc/do_after if someone starts a do_after action bar.
 #define COMSIG_DO_AFTER_BEGAN "mob_do_after_began"
@@ -77,5 +84,8 @@
 #define COMSIG_ITEM_UPDATE_STATE "update_state"
 /// updates sprites
 #define COMSIG_ITEM_ICON_UPDATE "icon_update"
+
+// tgui signals
+#define COMSIG_TGUI_CLOSE "tgui_close"
 
 /*******Component Specific Signals*******/

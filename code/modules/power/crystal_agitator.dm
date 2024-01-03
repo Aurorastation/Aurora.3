@@ -65,7 +65,7 @@
 	if(!length(agitation_turfs))
 		toggle_active()
 		return
-	
+
 	var/actual_load = draw_power(active_power_usage)
 	if(actual_load < active_power_usage)
 		toggle_active()

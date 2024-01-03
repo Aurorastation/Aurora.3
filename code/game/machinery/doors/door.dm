@@ -51,7 +51,7 @@
 	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
 	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
 
-	// Integer. Used for intercepting clicks on our turf. Set 0 to disable click interception. Passed directly to `/datum/extension/turf_hand`.
+	// Integer. Used for intercepting clicks on our turf. Set 0 to disable click interception. Passed directly to `/datum/component/turf_hand`.
 	var/turf_hand_priority = 3
 
 	// turf animation
@@ -421,9 +421,10 @@
 
 
 /obj/machinery/door/emp_act(severity)
+	. = ..()
+
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
 		open()
-	..()
 
 
 /obj/machinery/door/ex_act(severity)
@@ -450,7 +451,7 @@
 				take_damage(damage, FALSE)
 		if(3.0)
 			if(prob(80))
-				spark(src, 2, alldirs)
+				spark(src, 2, GLOB.alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8

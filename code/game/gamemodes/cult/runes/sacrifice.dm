@@ -23,7 +23,7 @@
 		else if(istype(I,/obj/item/aicard))
 			for(var/mob/living/silicon/ai/AI in I)
 				victims += AI
-	
+
 	for(var/mob/living/carbon/C in orange(1, A))
 		if(iscultist(C) && !C.stat)
 			cultists_in_range += C
@@ -52,7 +52,7 @@
 				do_sacrifice(cultists_in_range, H, H.stat, 80, worthy)
 		else
 			fizzle(user)
-		
+
 		if(output)
 			for(var/mob/C in cultists_in_range)
 				to_chat(C, output)

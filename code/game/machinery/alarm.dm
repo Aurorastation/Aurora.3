@@ -79,7 +79,8 @@ dir = NORTH; \
 pixel_y = 21;
 
 #define PRESET_SOUTH \
-dir = SOUTH;
+dir = SOUTH; \
+pixel_y = -3;
 
 #define PRESET_WEST \
 dir = WEST; \
@@ -105,7 +106,7 @@ pixel_x = 10;
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
-	req_one_access = list(access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -153,6 +154,13 @@ pixel_x = 10;
 
 	var/global/image/alarm_overlay
 
+	//Used to cache the previous gas mixture result, and evaluate if we can skip processing or not
+	var/previous_environment_group_multiplier = null
+	var/previous_environment_temperature = null
+	var/previous_environment_total_moles = null
+	var/previous_environment_volume = null
+	var/list/previous_environment_gas = list()
+
 /obj/machinery/alarm/north
 	PRESET_NORTH
 
@@ -199,7 +207,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/machinery/alarm/server
-	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_RD, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	target_temperature = 80
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
 	highpower = 1
@@ -218,7 +226,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
-	req_access = list(access_tcomsat)
+	req_access = list(ACCESS_TCOMSAT)
 	highpower = 1
 
 /obj/machinery/alarm/tcom/north
@@ -234,7 +242,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/machinery/alarm/freezer
-	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_KITCHEN, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	highpower = 1
 	target_temperature = T0C - 20
 
@@ -325,7 +333,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : 0) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -6) : 0)
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -360,6 +368,27 @@ pixel_x = 10;
 	if(!istype(location))	return//returns if loc is not simulated
 
 	var/datum/gas_mixture/environment = location.return_air()
+
+	var/is_same_environment = TRUE
+	for(var/k in environment.gas)
+		if(environment.gas[k] != previous_environment_gas[k])
+			is_same_environment = FALSE
+			previous_environment_gas = environment.gas.Copy()
+			break
+	if(is_same_environment)
+		if(	(environment.temperature != previous_environment_temperature) ||\
+			(environment.group_multiplier != previous_environment_group_multiplier) ||\
+			(environment.total_moles != previous_environment_total_moles) ||\
+			(environment.volume != previous_environment_volume)
+		)
+			is_same_environment = FALSE
+			previous_environment_group_multiplier = environment.group_multiplier
+			previous_environment_temperature = environment.temperature
+			previous_environment_total_moles = environment.total_moles
+			previous_environment_volume = environment.volume
+
+	if(is_same_environment)
+		return
 
 	//Handle temperature adjustment here.
 	handle_heating_cooling(environment)
@@ -608,7 +637,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/interact(mob/user)
 	ui_interact(user)
-	wires.Interact(user)
+	wires.interact(user)
 
 /obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = default_state)
 	var/data = list()
@@ -779,11 +808,11 @@ pixel_x = 10;
 		var/list/selected = TLV["temperature"]
 		var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
 		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-		var/input_temperature = input("What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+		var/input_temperature = tgui_input_number(usr, "What temperature would you like the system to mantain?", "Thermostat Controls", target_temperature - T0C, max_temperature, min_temperature)
 		if(isnum(input_temperature))
-			var/temp = Clamp(input_temperature, min_temperature,  max_temperature)
+			var/temp = Clamp(input_temperature, min_temperature, max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C")
+				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C.")
 			target_temperature = Clamp(input_temperature + T0C, selected[2],  selected[3])
 		else
 			to_chat(usr, "Error, input not recognised. Temperature unchanged.")
@@ -797,7 +826,7 @@ pixel_x = 10;
 			var/device_id = href_list["id_tag"]
 			switch(href_list["command"])
 				if("set_external_pressure")
-					var/input_pressure = input("What pressure you like the system to mantain?", "Pressure Controls") as num|null
+					var/input_pressure = tgui_input_number(usr, "What pressure you like the system to mantain?", "Pressure Controls")
 					if(isnum(input_pressure))
 						send_signal(device_id, list(href_list["command"] = input_pressure))
 					return 1
@@ -826,7 +855,7 @@ pixel_x = 10;
 					var/threshold = text2num(href_list["var"])
 					var/list/selected = TLV[env]
 					var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
-					var/newval = input("Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
+					var/newval = tgui_input_number(usr, "Enter [thresholds[threshold]] for [env].", "Alarm Triggers", selected[threshold])
 					if (isnull(newval))
 						return 1
 					if (newval<0)
@@ -928,7 +957,7 @@ pixel_x = 10;
 					to_chat(user, "<span class='notice'>Nothing happens.</span>")
 					return TRUE
 				else
-					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
+					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
 						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
 					else

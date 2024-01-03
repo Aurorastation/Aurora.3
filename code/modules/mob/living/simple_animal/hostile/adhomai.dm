@@ -101,7 +101,6 @@
 	environment_smash = 1
 
 	attack_emote = "wiggles toward"
-	see_in_dark = 10
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	blood_type = "#281C2D"
 
@@ -132,7 +131,6 @@
 	mob_size = 5
 
 	attack_emote = "hums at"
-	see_in_dark = 10
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	smart_ranged = TRUE
@@ -163,7 +161,7 @@
 	..()
 	..(null, "disintegrates!")
 	var/T = get_turf(src)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	explosion(T, -1, 0, 2)
 	qdel(src)
 

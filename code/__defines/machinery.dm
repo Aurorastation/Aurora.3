@@ -2,8 +2,12 @@
 #define MEGAWATTS *1000000
 #define GIGAWATTS *1000000000
 
-#define CELLRATE 0.002 // Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
-                       // It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
+/**
+ * Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)
+ *
+ * It's a conversion constant. power_used*CELLRATE = charge_provided, or charge_used/CELLRATE = power_provided
+ */
+#define CELLRATE 0.002
 
 // Doors!
 #define DOOR_CRUSH_DAMAGE 20
@@ -101,8 +105,12 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 /*
  *	Atmospherics Machinery.
 */
-#define MAX_SIPHON_FLOWRATE   2500 // L/s. This can be used to balance how fast a room is siphoned. Anything higher than CELL_VOLUME has no effect.
-#define MAX_SCRUBBER_FLOWRATE 200  // L/s. Max flow rate when scrubbing from a turf.
+
+///Maximum flowrate, in L/s, that the scrubbers use when siphoning. Anything higher than `CELL_VOLUME` has no effect.
+#define MAX_SIPHON_FLOWRATE   5000
+
+///Maximum flowrate, in L/s, that the scrubbers use when scrubbing from a turf.
+#define MAX_SCRUBBER_FLOWRATE 400
 
 #define ATMOS_PUMP_MAX_PRESSURE 15000
 

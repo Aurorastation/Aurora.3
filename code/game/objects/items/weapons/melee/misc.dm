@@ -13,7 +13,7 @@
 	desc = "A tool used by great men to placate the frothing masses."
 	icon_state = "chain"
 	item_state = "chain"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
@@ -27,7 +27,7 @@
 	desc = "A deadly chainsaw in the shape of a sword."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chainswordoff"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 7
@@ -37,6 +37,7 @@
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	surgerysound = 'sound/weapons/saw/chainsword.ogg'
 	var/active = 0
 	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
@@ -117,7 +118,7 @@
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)
@@ -182,7 +183,7 @@
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 5

@@ -247,23 +247,27 @@
 		to_chat(speaker, msg)
 		return
 
-	for(var/mob/player in player_list)
-		if(istype(player,/mob/abstract/observer) || player == speaker)
+	var/speaker_encryption_key
+	var/mob/living/carbon/human/speaker_human = speaker
+	if(istype(speaker_human))
+		var/obj/item/organ/internal/vaurca/neuralsocket/speaker_socket = speaker_human.internal_organs_by_name[BP_NEURAL_SOCKET]
+		if(speaker_socket?.encryption_key)
+			speaker_encryption_key = speaker_socket.encryption_key
+
+	for(var/mob/player in GLOB.player_list)
+		if(istype(player, /mob/abstract/observer) || player == speaker)
 			to_chat(player, msg)
-		else if((src in player.languages && !within_jamming_range(player)) || check_special_condition(player))
-			var/mob/living/carbon/human/H = player
-			var/mob/living/carbon/human/M = speaker
-			if(!istype(M) || !istype(H))
-				return
-			var/obj/item/organ/internal/vaurca/neuralsocket/speakersocket = M.internal_organs_by_name[BP_NEURAL_SOCKET]
-			var/obj/item/organ/internal/vaurca/neuralsocket/listenersocket = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-			if(!speakersocket.encryption_key)
-				to_chat(player, msg)
-			else
-				if(listenersocket.decryption_key && listenersocket.decryption_key == speakersocket.encryption_key)
-					to_chat(player, msg)
-				else
+		else if(!within_jamming_range(player) && check_special_condition(player))
+			if(speaker_encryption_key)
+				var/mob/living/carbon/human/listener_human = player
+				if(!istype(listener_human))
 					to_chat(player, encrypted_msg)
+					continue
+				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
+				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_key)
+					to_chat(player, encrypted_msg)
+					continue
+			to_chat(player, msg)
 
 /datum/language/bug/format_message(message, verb, speaker_mask)
 	var/message_color = colour
@@ -292,7 +296,7 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_VAURCA] in M.languages))
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
@@ -314,7 +318,9 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(S.muted || S.disrupted)
+
+	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
+	if(S && (S.muted || S.disrupted))
 		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
 		return FALSE
 	else

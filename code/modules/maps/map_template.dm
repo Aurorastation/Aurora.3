@@ -12,6 +12,10 @@
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
+	///A list of groups, as strings, that this template belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
+	var/list/unit_test_groups = list()
+
 /datum/map_template/New(var/list/paths = null, rename = null)
 	if(paths && !islist(paths))
 		crash_with("Non-list paths passed into map template constructor.")
@@ -117,7 +121,7 @@
 			apcs += A
 		if(isnull(A))
 			atoms -= A
-		if(A.initialized)
+		if(A.flags_1 & INITIALIZED_1)
 			atoms -= A
 
 	var/notsuspended
@@ -144,7 +148,7 @@
 		var/turf/T = i
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
-			T.flags |= TURF_NORUINS
+			T.turf_flags |= TURF_NORUINS
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()

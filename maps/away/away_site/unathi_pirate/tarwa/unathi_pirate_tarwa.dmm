@@ -1660,6 +1660,9 @@
 	pixel_x = 6;
 	pixel_y = -1
 	},
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "zl" = (
@@ -3542,6 +3545,16 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"YI" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/tarwa_ship/medical)
 "YL" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -17139,7 +17152,7 @@ wj
 MG
 Cm
 NU
-yx
+YI
 aH
 uX
 ce

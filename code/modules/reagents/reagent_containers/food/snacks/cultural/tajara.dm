@@ -604,7 +604,7 @@
 	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/sourcream
 	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/sourcream
 	chiptrans = /obj/item/reagent_containers/food/snacks/chip/sourcream
-	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "dip_sourcream"
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 20))
@@ -616,7 +616,7 @@
 	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
 	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
 	chiptrans = /obj/item/reagent_containers/food/snacks/chip/tajhummus
-	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "dip_hummus"
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweet hummus" = 20))

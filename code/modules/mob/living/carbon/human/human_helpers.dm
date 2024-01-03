@@ -152,7 +152,7 @@
 
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
-			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+			var/datum/sprite_accessory/marking/mark_datum = GLOB.body_marking_styles_list[M]
 
 			if(!istype(mark_datum))
 				to_chat(usr, SPAN_WARNING("Invalid body marking [M] selected! Please re-save your markings, as they may have changed."))
@@ -175,7 +175,7 @@
 /mob/living/carbon/human/proc/sync_trait_prefs_to_mob(datum/preferences/prefs)
 	var/list/traits = prefs.disabilities
 	for(var/M in traits)
-		var/datum/character_disabilities/trait = chargen_disabilities_list[M]
+		var/datum/character_disabilities/trait = GLOB.chargen_disabilities_list[M]
 		trait.apply_self(src)
 
 // Helper proc that grabs whatever organ this humantype uses to see.
@@ -204,7 +204,6 @@
 	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
 	custom_pain(SPAN_DANGER(FONT_LARGE("[pick(psi_operancy_messages)]")), 25)
-	set_psi_rank(PSI_RANK_HARMONIOUS)
 	sleep(30)
 	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
 
@@ -262,6 +261,11 @@
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
 		. = max(20, .)
+	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
+		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
+		if(cryo.current_stasis_mult)
+			var/gcf_stasis_mult = cryo.current_stasis_mult
+			. = . * gcf_stasis_mult
 	return round(.)
 
 // Martial Art Helpers
@@ -308,7 +312,7 @@
 /mob/living/carbon/human/get_hearing_protection()
 	. = EAR_PROTECTION_NONE
 
-	if ((l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION))
+	if ((l_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (r_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (head?.item_flags & ITEM_FLAG_SOUND_PROTECTION))
 		return EAR_PROTECTION_MAJOR
 
 	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))
@@ -380,7 +384,7 @@
 	return species.hearing_sensitivity
 
 /mob/living/carbon/human/proc/is_listening()
-	if(src in intent_listener)
+	if(src in GLOB.intent_listener)
 		return TRUE
 	return FALSE
 

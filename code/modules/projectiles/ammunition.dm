@@ -4,7 +4,7 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "s-casing"
 	randpixel = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
 	w_class = ITEMSIZE_TINY
@@ -37,7 +37,7 @@
 /obj/item/ammo_casing/proc/expend()
 	. = BB
 	BB = null
-	set_dir(pick(alldirs)) //spin spent casings
+	set_dir(pick(GLOB.alldirs)) //spin spent casings
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/W as obj, mob/user as mob)
@@ -94,7 +94,7 @@
 	desc = "A magazine for some kind of gun."
 	icon_state = "357"
 	icon = 'icons/obj/ammo.dmi'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "box"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
@@ -162,7 +162,7 @@
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
 		playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)
-		C.set_dir(pick(alldirs))
+		C.set_dir(pick(GLOB.alldirs))
 	stored_ammo.Cut()
 	update_icon()
 

@@ -124,7 +124,7 @@ var/datum/uplink/uplink
 		return FALSE
 
 	for(var/antag_role in antag_roles)
-		var/datum/antagonist/antag = all_antag_types[antag_role]
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
 		if(antag.is_antagonist(U.uplink_owner))
 			return TRUE
 

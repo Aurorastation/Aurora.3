@@ -9,6 +9,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/merchants_guild)
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/merchants_guild
 	map = "Merchants' Guild Freighter"
 	descriptor = "A freighter flying under the banner of the Izweski Hegemony Merchants' Guild."
@@ -92,7 +94,7 @@
 /obj/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
-	req_access = list(access_merchants_guild)
+	req_access = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/shuttle/autodock/overmap/merchants_guild
 	name = "Merchants' Guild Shuttle"

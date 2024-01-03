@@ -14,9 +14,16 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
 
-	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
-	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
-	var/list/tracked_dock_tags //landmark_tag of landmarks of docks that will be tracked in the docks computer program
+	/// Landmark tags of landmarks that should be added to the actual lists below on init.
+	/// Generic, meaning usable by any shuttle.
+	/// Can contain nested lists, as it is flattened on init.
+	var/list/initial_generic_waypoints
+	/// Restricted, meaning that only specific shuttles can use them.
+	/// Should be an assoc list like `list("Shuttle" = list("nav_landmark_tag"), ...)`
+	var/list/initial_restricted_waypoints
+	/// Landmark tags of landmarks of docks that will be tracked in the docks computer program.
+	/// Can contain nested lists, as it is flattened on init.
+	var/list/tracked_dock_tags
 
 	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
 	var/list/restricted_waypoints = list() //waypoints for specific shuttles
@@ -66,11 +73,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(!current_map.overmap_z)
 		build_overmap()
 
+	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
+	tracked_dock_tags = flatten_list(tracked_dock_tags)
+
 	var/map_low = OVERMAP_EDGE
 	var/map_high = current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
 	if (place_near_main)
-		var/obj/effect/overmap/visitable/main = map_sectors["1"] ? map_sectors["1"] : map_sectors[map_sectors[1]]
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
 		if(islist(place_near_main))
 			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
 		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
@@ -131,7 +141,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 /obj/effect/overmap/visitable/proc/register_z_levels()
 	for(var/zlevel in map_z)
-		map_sectors["[zlevel]"] = src
+		GLOB.map_sectors["[zlevel]"] = src
 
 	current_map.player_levels |= map_z
 	if(!in_space)

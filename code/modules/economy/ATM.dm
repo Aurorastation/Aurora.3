@@ -66,11 +66,7 @@
 
 	for(var/obj/item/spacecash/S in src)
 		S.forceMove(src.loc)
-		if(prob(50))
-			playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-		else
-			playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
-		break
+		playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 
 /obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
@@ -78,7 +74,7 @@
 
 	//short out the machine, shoot sparks, spew money!
 	emagged = 1
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	spawn_money(rand(2000,5000),src.loc)
 	//we don't want to grief people by locking their id in an emagged ATM
 	release_held_id(user)
@@ -110,10 +106,7 @@
 		if(istype(I,/obj/item/spacecash))
 			//consume the money
 			authenticated_account.money += I:worth
-			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
@@ -330,15 +323,12 @@
 				R.stamped += /obj/item/stamp
 				R.add_overlay(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
-				print(R)
+				print(R, user = usr)
 
 				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 				. = TRUE
 
-			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 		if ("print_transaction")
 			if(authenticated_account)
 				var/obj/item/paper/R = new()
@@ -378,12 +368,9 @@
 				R.stamped += /obj/item/stamp
 				R.add_overlay(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
-				print(R)
+				print(R, user = usr)
 
-			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 			release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 			. = TRUE
 
@@ -433,7 +420,7 @@
 		var/area/t = get_area(src)
 		ticks_left_locked_down = 60
 		playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-		global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
+		GLOB.global_announcer.autosay("An ATM has gone into lockdown in [t.name].", machine_id)
 		if (tried_account_num)
 			SSeconomy.bank_log_unauthorized(SSeconomy.get_account(tried_account_num), machine_id)
 	else

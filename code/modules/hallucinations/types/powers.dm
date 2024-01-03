@@ -69,7 +69,7 @@
 	if(!creatures.len)
 		return
 
-	var/mob/target = input("Whose mind do you wish to probe?") as null|anything in creatures
+	var/mob/target = tgui_input_list(src, "Whose mind do you wish to probe?", "Read Mind", creatures)
 	if(!target)
 		return
 	if(target.stat)
@@ -156,7 +156,7 @@
 		creatures += C
 	if(!creatures.len)
 		return
-	var/mob/target = input("Who do you wish to send a message to?") as null|anything in creatures
+	var/mob/target = tgui_input_list(usr, "Who do you wish to send a message to?", "Telepathic Message", creatures)
 	if(!target)
 		return
 	if(target.stat)

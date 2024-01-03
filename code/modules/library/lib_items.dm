@@ -51,9 +51,9 @@
 	else
 		..()
 
-/obj/structure/bookcase/attack_hand(var/mob/user as mob)
+/obj/structure/bookcase/attack_hand(var/mob/user)
 	if(contents.len)
-		var/obj/item/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
+		var/obj/item/book/choice = tgui_input_list(user, "Which book would you like to remove from the shelf?", "Bookcase", contents)
 		if(choice)
 			if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 				return
@@ -104,7 +104,7 @@
 	addtimer(CALLBACK(src, PROC_REF(populate_shelves)), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
@@ -114,7 +114,7 @@
 		query_str = "SELECT author, title, content FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:"
 		query_data["cat"] = spawn_category
 
-	var/DBQuery/query_books = dbcon.NewQuery(query_str)
+	var/DBQuery/query_books = GLOB.dbcon.NewQuery(query_str)
 	query_books.Execute(query_data)
 
 	while (query_books.NextRow())
@@ -243,25 +243,25 @@
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return
-		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
+		var/choice = tgui_input_list(user, "What would you like to change?", "Book", list("Title", "Contents", "Author", "Cancel"), "Cancel")
 		switch(choice)
 			if("Title")
-				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))
+				var/newtitle = reject_bad_text(strip_html_full(tgui_input_text(user, "Write a new title:", "Title", encode = FALSE)))
 				if(!newtitle)
 					to_chat(usr, "The title is invalid.")
 					return
 				else
-					src.name = newtitle
+					src.name = html_decode(newtitle)
 					src.title = newtitle
 			if("Contents")
-				var/content = sanitize(input("Write your book's contents (HTML NOT allowed):") as message|null, MAX_BOOK_MESSAGE_LEN)
+				var/content = strip_html_readd_newlines(tgui_input_text(user, "Write your book's contents (HTML NOT allowed):", "Content", multiline = TRUE, encode = FALSE), MAX_BOOK_MESSAGE_LEN)
 				if(!content)
 					to_chat(usr, "The content is invalid.")
 					return
 				else
 					src.dat += content
 			if("Author")
-				var/newauthor = sanitize(input(usr, "Write the author's name:"))
+				var/newauthor = strip_html_full(tgui_input_text(user, "Write the author's name:", "Author", encode = FALSE))
 				if(!newauthor)
 					to_chat(usr, "The name is invalid.")
 					return

@@ -253,13 +253,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["announceAuth"] = announceAuth
 
 	if (screen == RCS_FORMS)
-		if (!establish_db_connection(dbcon))
+		if (!establish_db_connection(GLOB.dbcon))
 			data["sql_error"] = 1
 		else
 			if (!SQLquery)
 				SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
 
-			var/DBQuery/query = dbcon.NewQuery(SQLquery)
+			var/DBQuery/query = GLOB.dbcon.NewQuery(SQLquery)
 			query.Execute()
 
 			var/list/forms = list()
@@ -386,11 +386,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
 
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
 		query.Execute()
 
 		while(query.NextRow())
@@ -404,7 +404,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 			data = html_encode(data)
 			C.set_content("NFC-[id] - [name]", data)
-			print(C)
+			print(C, user = usr)
 
 			paperstock--
 
@@ -412,11 +412,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
 
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
 		var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
 		while(query.NextRow())
@@ -450,7 +450,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
 			var/obj/item/card/id/ID = O
-			if (access_RC_announce in ID.GetAccess())
+			if (ACCESS_RC_ANNOUNCE in ID.GetAccess())
 				announceAuth = 1
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
@@ -500,7 +500,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return FALSE
 
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
-	var/sendto = input("Select department.", "Send Fax", null, null) as null|anything in allConsoles
+	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", allConsoles)
 	if(!sendto)
 		return
 	if(use_check_and_message(user))
@@ -523,7 +523,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			playsound(Console.loc, 'sound/machines/twobeep.ogg')
 			playsound(Console.loc, 'sound/items/polaroid1.ogg')
 			if(!is_paper_bundle)
-				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15)
+				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15, user)
 				P.forceMove(Console.loc)
 			else
 				var/obj/item/paper_bundle/PB = bundlecopy(Console, O, FALSE, 15, FALSE)

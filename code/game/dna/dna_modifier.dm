@@ -148,7 +148,7 @@
 		|| locate(/obj/machinery/computer/cloning, get_step(src, WEST)))
 
 		if(!M.client && M.mind)
-			for(var/mob/abstract/observer/ghost in player_list)
+			for(var/mob/abstract/observer/ghost in GLOB.player_list)
 				if(ghost.mind == M.mind)
 					to_chat(ghost, "<b><font color = #330033><font size = 3>Your corpse has been placed into a cloning scanner. Return to your body if you want to be resurrected/cloned!</b> (Verbs -> Ghost -> Re-enter corpse)</font></font>")
 					break
@@ -295,17 +295,17 @@
 	if(!..())
 		ui_interact(user)
 
- /**
-  * The ui_interact proc is used to open and update Nano UIs
-  * If ui_interact is not used then the UI will not update correctly
-  * ui_interact is currently defined for /atom/movable (which is inherited by /obj and /mob)
-  *
-  * @param user /mob The mob who is interacting with this ui
-  * @param ui_key string A string key to use for this ui. Allows for multiple unique uis on one obj/mob (defaut value "main")
-  * @param ui /datum/nanoui This parameter is passed by the nanoui process() proc when updating an open ui
-  *
-  * @return nothing
-  */
+/**
+ * The ui_interact proc is used to open and update Nano UIs
+ * If ui_interact is not used then the UI will not update correctly
+ * ui_interact is currently defined for /atom/movable (which is inherited by /obj and /mob)
+ *
+ * @param user /mob The mob who is interacting with this ui
+ * @param ui_key string A string key to use for this ui. Allows for multiple unique uis on one obj/mob (defaut value "main")
+ * @param ui /datum/nanoui This parameter is passed by the nanoui process() proc when updating an open ui
+ *
+ * @return nothing
+ */
 /obj/machinery/computer/scan_consolenew/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if (!connected)
 		return

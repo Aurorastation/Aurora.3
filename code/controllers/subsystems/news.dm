@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/news/SSnews
-
-/datum/controller/subsystem/news
+SUBSYSTEM_DEF(news)
 	name = "News"
 	flags = SS_NO_FIRE
 	var/list/datum/feed_channel/network_channels = list()
@@ -11,15 +9,12 @@
 	src.network_channels = SSnews.network_channels
 	src.wanted_issue = SSnews.wanted_issue
 
-/datum/controller/subsystem/news/New()
-	NEW_SS_GLOBAL(SSnews)
-
 /datum/controller/subsystem/news/Initialize(timeofday)
 	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
-	if (config.news_use_forum_api)
+	if (GLOB.config.news_use_forum_api)
 		load_forum_news_config()
 
 		INVOKE_ASYNC(src, PROC_REF(load_from_forums))
@@ -27,7 +22,7 @@
 	..()
 
 /datum/controller/subsystem/news/proc/load_from_forums()
-	if (!config.forum_api_path || !global.forum_api_key)
+	if (!GLOB.config.forum_api_path || !global.forum_api_key)
 		LOG_DEBUG("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 

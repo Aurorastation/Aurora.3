@@ -8,7 +8,7 @@
 //			/obj/item/item: The equipped item.
 //			slot:           The slot equipped to.
 
-var/singleton/observ/mob_equipped/mob_equipped_event = new()
+GLOBAL_DATUM_INIT(mob_equipped_event, /singleton/observ/mob_equipped, new)
 
 /singleton/observ/mob_equipped
 	name = "Mob Equipped"

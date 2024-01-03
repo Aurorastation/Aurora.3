@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/assets/SSassets
-
-/datum/controller/subsystem/assets
+SUBSYSTEM_DEF(assets)
 	name = "Assets"
 	init_order = SS_INIT_ASSETS
 	flags = SS_NO_FIRE
@@ -9,12 +7,9 @@
 	var/list/preload = list()
 	var/datum/asset_transport/transport = new()
 
-/datum/controller/subsystem/assets/New()
-	NEW_SS_GLOBAL(SSassets)
-
 /datum/controller/subsystem/assets/Initialize()
 	var/newtransporttype = /datum/asset_transport
-	switch (config.asset_transport)
+	switch (GLOB.config.asset_transport)
 		if ("webroot")
 			newtransporttype = /datum/asset_transport/webroot
 

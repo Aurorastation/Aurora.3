@@ -907,12 +907,12 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	if(user.a_intent == I_GRAB)
 		if(!rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] rolls up \the [src]."),\
-								 SPAN_NOTICE("You roll up \the [src]."))
+									SPAN_NOTICE("You roll up \the [src]."))
 			rolled(user)
 		return
 	if(rolled)
 		user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to read it."),\
-						     SPAN_NOTICE("You unroll \the [src] to read it."))
+								SPAN_NOTICE("You unroll \the [src] to read it."))
 		rolled(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
@@ -1030,7 +1030,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	if(W.ispen())
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
-						     	 SPAN_NOTICE("You unroll \the [src] to write on it."))
+									SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")

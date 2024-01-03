@@ -2,11 +2,14 @@
 	name = "COC Survey Ship"
 	description = "Coalition science ship."
 	suffixes = list("ships/coc/coc_surveyor/coc_surveyor.dmm")
-	sectors = list(ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_surveyor"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
+
+	unit_test_groups = list(1)
 
 /singleton/submap_archetype/coc_surveyor
 	map = "COC Survey Ship"

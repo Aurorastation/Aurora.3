@@ -22,7 +22,7 @@ effective or pretty fucking useless.
 	w_class = ITEMSIZE_TINY
 	throw_speed = 4
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 
@@ -68,7 +68,7 @@ effective or pretty fucking useless.
 	if(!istype(target))
 		to_chat(user, SPAN_NOTICE("[target] is not a valid target!"))
 		return
-	if(all_languages[LANGUAGE_LIIDRA] in target.languages || target.internal_organs_by_name["blackkois"])
+	if(GLOB.all_languages[LANGUAGE_LIIDRA] in target.languages || target.internal_organs_by_name["blackkois"])
 		to_chat(user, SPAN_NOTICE("[target] is already part of the Lii'dra Hivemind!"))
 		return
 	if(isvaurca(target))

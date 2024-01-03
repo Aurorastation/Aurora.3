@@ -7,7 +7,7 @@
 	icon = null
 	set_invisibility(101)
 	update_canmove()
-	dead_mob_list -= src
+	GLOB.dead_mob_list -= src
 
 	var/atom/movable/overlay/animation = null
 	animation = new(loc)
@@ -49,7 +49,7 @@
 	new /obj/effect/decal/cleanable/ash(loc)
 	if(remains)
 		new remains(loc)
-	dead_mob_list -= src
+	GLOB.dead_mob_list -= src
 
 /mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", messagerange = world.view)
 
@@ -73,7 +73,6 @@
 	layer = MOB_LAYER
 
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	set_see_in_dark(8)
 	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 	drop_r_hand()
@@ -88,8 +87,8 @@
 	set_respawn_time()
 	if(mind)
 		mind.store_memory("Time of death: [worldtime2text()]", 0)
-	living_mob_list -= src
-	dead_mob_list |= src
+	GLOB.living_mob_list -= src
+	GLOB.dead_mob_list |= src
 
 	update_icon()
 

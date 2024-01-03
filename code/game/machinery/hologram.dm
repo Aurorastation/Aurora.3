@@ -140,7 +140,7 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/proc/has_command_auth(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(I && (access_heads in I.access))
+	if(I && (ACCESS_HEADS in I.access))
 		return TRUE
 	return FALSE
 
@@ -154,7 +154,7 @@ Possible to do for anyone motivated enough:
 			last_request = world.time
 			to_chat(usr, SPAN_NOTICE("You request an AI's presence."))
 			var/area/area = get_area(src)
-			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
+			for(var/mob/living/silicon/ai/AI in GLOB.silicon_mob_list)
 				if(!AI.client)
 					continue
 				if(!AreConnectedZLevels(AI.z, z))

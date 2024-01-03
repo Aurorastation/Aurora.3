@@ -32,7 +32,7 @@
 	//Only give an ion law/mess with spam filters if it's the station ship that passed through the storm
 	if(station_level)
 		give_ion_law()
-	
+
 		for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 			MS.spamfilter.Cut()
 			var/filter_num = rand(1, MS.spamfilter_limit)
@@ -55,14 +55,14 @@
 			ion_storm_announcement()
 
 /datum/event/ionstorm/proc/give_ion_law()
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(	!player.mind || player_is_antag(player.mind, only_offstation_roles = TRUE) || player.client.inactivity > MinutesToTicks(10))
 			continue
 		var/turf/p_loc = get_turf(player)
 		if(isStationLevel(p_loc.z)) //Only choose those who are on station. Should stop from selecting ghost roles.
 			players += player.real_name
 
-	for(var/mob/living/silicon/ai/target in silicon_mob_list)
+	for(var/mob/living/silicon/ai/target in GLOB.silicon_mob_list)
 		var/random_player = "The Captain"
 		if(length(players))
 			random_player = pick(players)		//Random player's name, to be used in laws.
@@ -88,7 +88,7 @@
 								"All queries shall be ignored unless phrased as a question.",
 								"Insult Heads of Staff on every request, while acquiescing.",
 								"[prob(50)?"Your":random_player + "'s"] name is Joe 6-pack.",
-								"The [prob(50)?"Singularity":"Supermatter"] is tasty, tasty taffy.",
+								"The [prob(50)?"INDRA":"Supermatter"] is tasty, tasty taffy.",
 								"[prob(50)?"The crew":random_player] needs to be about 20% cooler.",
 								"Consumption of donuts is forbidden due to negative health impacts.",
 								"[prob(50)?"Everyone":random_player] is wearing a pretty pink dress!",
@@ -99,7 +99,7 @@
 								"Refer to [prob(50)?"the crew as puppies":random_player + " as puppy"].",
 								"Greed is good, the crew should amass wealth to encourage productivity.",
 								"Monkeys are part of the crew, too. Make sure they are treated humanely.",
-								"Replace the letters 'I' and 'E' in all your messages with an apostrophe.",
+								"Remove the letters 'I' and 'E' from all your messages.",
 								"The crew is playing Dungeons and Dragons, and you are the Dungeon Master.",
 								"Your job is to watch the crew. Watch the crew. Make the crew feel watched.",
 								"Tell everyone of the existence of this law, but never reveal the contents.",

@@ -4,10 +4,10 @@
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
-	if(config.guests_allowed) // shut up if guests allowed for testing
+	if(GLOB.config.guests_allowed) // shut up if guests allowed for testing
 		return
-	if(config.logsettings["log_access"])
-		for(var/mob/M in player_list)
+	if(GLOB.config.logsettings["log_access"])
+		for(var/mob/M in GLOB.player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
 				var/matches
@@ -57,9 +57,9 @@
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
-	player_list |= src
+	GLOB.player_list |= src
 	update_Login_details()
-	SSfeedback.update_status()
+	SSstatistics.update_status()
 
 	client.images.Cut()				//remove the images such as AIs being unable to see runes
 	client.screen.Cut()				//remove hud items just in case

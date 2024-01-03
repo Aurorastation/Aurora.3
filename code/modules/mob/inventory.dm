@@ -24,7 +24,7 @@
 /mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE, assisted_equip = FALSE)
 	if(!istype(W))
 		return FALSE
-	if(W.item_flags & NOMOVE) //Cannot move NOMOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
+	if(W.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
 	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked))

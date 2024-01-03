@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/pai/SSpai
-
-/datum/controller/subsystem/pai
+SUBSYSTEM_DEF(pai)
 	name = "pAI"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -15,8 +13,7 @@
 
 	var/askDelay = 1 MINUTE
 
-/datum/controller/subsystem/pai/New()
-	NEW_SS_GLOBAL(SSpai)
+/datum/controller/subsystem/pai/PreInit()
 	LAZYINITLIST(pai_software_by_key)
 	LAZYINITLIST(default_pai_software)
 
@@ -25,10 +22,10 @@
 	default_pai_software = SSpai.default_pai_software
 
 /datum/controller/subsystem/pai/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/pai/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 
 /datum/controller/subsystem/pai/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -136,7 +133,7 @@
 		pai_candidates.Add(candidate)
 
 	// Load the data before displaying.
-	if (!config.sql_saves)
+	if (!GLOB.config.sql_saves)
 		candidate.savefile_load(M)
 	else
 		M.client.prefs.load_preferences()
@@ -183,7 +180,7 @@
 	for(var/datum/paiCandidate/c in SSpai.pai_candidates)
 		if(c.ready)
 			var/found = 0
-			for(var/mob/abstract/observer/o in player_list)
+			for(var/mob/abstract/observer/o in GLOB.player_list)
 				if(o.key == c.key && o.MayRespawn())
 					found = 1
 			if(found)
@@ -295,7 +292,7 @@
 
 /datum/controller/subsystem/pai/proc/requestRecruits(mob/user)
 	inquirer = user
-	for(var/mob/abstract/observer/O in player_list)
+	for(var/mob/abstract/observer/O in GLOB.player_list)
 		if(!O.MayRespawn())
 			continue
 		if(jobban_isbanned(O, "pAI"))

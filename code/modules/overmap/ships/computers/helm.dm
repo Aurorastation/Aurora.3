@@ -24,6 +24,16 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/helm/terminal
+	name = "helm control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "security_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
@@ -106,6 +116,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Helm", capitalize_first_letters(name))
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
 /obj/machinery/computer/ship/helm/ui_data(mob/user)
@@ -310,6 +321,16 @@
 	icon_screen = "blue"
 	icon_keyboard = null
 	circuit = null
+
+/obj/machinery/computer/ship/navigation/terminal
+	name = "navigation terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "nav"
+	icon_keyboard = "generic_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)

@@ -128,7 +128,7 @@
 
 
 	flick("migniter-spark", src)
-	spark(src, 2, alldirs)
+	spark(src, 2, GLOB.alldirs)
 	src.last_spark = world.time
 	use_power_oneoff(1000)
 	var/turf/location = src.loc
@@ -137,11 +137,12 @@
 	return 1
 
 /obj/machinery/sparker/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	ignite()
-	..(severity)
 
 /obj/machinery/button/ignition
 	name = "ignition switch"

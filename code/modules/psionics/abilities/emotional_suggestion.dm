@@ -41,7 +41,7 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
-	var/text = input("Which emotion would you like to suggest?", "Emotional Suggestion") as null|anything in list("Calm", "Happiness", "Sadness", "Fear", "Anger", "Stress", "Confusion")
+	var/text = tgui_input_list(user, "Which emotion would you like to suggest?", "Emotional Suggestion", list("Calm", "Happiness", "Sadness", "Fear", "Anger", "Stress", "Confusion"))
 	if(!text)
 		return
 
@@ -55,7 +55,7 @@
 
 	to_chat(user, SPAN_CULT("You psionically suggest an emotion to [target]: [text]"))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD && HAS_FLAG(M.client.prefs.toggles, CHAT_GHOSTEARS))

@@ -23,9 +23,9 @@
 	return TRUE
 
 /datum/ghostspawner/simplemob/maintdrone/cant_spawn()
-	if(!config.allow_drone_spawn)
+	if(!GLOB.config.allow_drone_spawn)
 		return "Spawning as drone is disabled"
-	if(count_drones() >= config.max_maint_drones)
+	if(count_drones() >= GLOB.config.max_maint_drones)
 		return "The maximum number of active drones has been reached"
 	var/has_active_fabricator = FALSE
 	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
@@ -49,7 +49,7 @@
 		to_chat(user, "<span class='danger'>There are no available drone spawn points, sorry.</span>")
 		return FALSE
 
-	var/choice = input(user, "Which fabricator do you wish to use?") as null|anything in all_fabricators
+	var/choice = tgui_input_list(user, "Which fabricator do you wish to use?", "Fabricator Selection", all_fabricators)
 	if(!choice || !all_fabricators[choice])
 		return FALSE
 	fabricator = all_fabricators[choice]

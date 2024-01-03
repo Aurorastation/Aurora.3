@@ -1,7 +1,4 @@
-
-var/datum/controller/subsystem/profiler/SSprofiler
-
-/datum/controller/subsystem/profiler
+SUBSYSTEM_DEF(profiler)
 	name = "Profiler"
 	wait = 1
 	priority = SS_PRIORITY_PROFILE
@@ -15,23 +12,20 @@ var/datum/controller/subsystem/profiler/SSprofiler
 	var/next_restart = 0
 	var/restart_period = 0
 
-/datum/controller/subsystem/profiler/New()
-	NEW_SS_GLOBAL(SSprofiler)
-
 /datum/controller/subsystem/profiler/Initialize()
-	if (!config.profiler_is_enabled)
+	if (!GLOB.config.profiler_is_enabled)
 		..()
 		flags |= SS_NO_FIRE
 		return
 
-	restart_period = config.profiler_restart_period
-	threshold = config.profiler_timeout_threshold
+	restart_period = GLOB.config.profiler_restart_period
+	threshold = GLOB.config.profiler_timeout_threshold
 
 	..()
 
 /datum/controller/subsystem/profiler/Shutdown()
 	. = ..()
-	if (config.profiler_is_enabled)
+	if (GLOB.config.profiler_is_enabled)
 		DumpData()
 		world.Profile(PROFILE_CLEAR, type="sendmaps")
 

@@ -1,12 +1,3 @@
-#define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span>"
-
-/// Macro from Lummox used to get height from a MeasureText proc
-#define WXH_TO_HEIGHT(x) text2num(copytext(x, findtextEx(x, "x") + 1))
-
-#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
-#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
-#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
-
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
@@ -24,14 +15,56 @@
 
 // Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
 /proc/sanitizeSQL(var/t as text)
-	var/sqltext = dbcon.Quote(t);
+	var/sqltext = GLOB.dbcon.Quote(t);
 	return copytext_char(sqltext, 2, length(sqltext));//Quote() adds quotes around input, we already do that
 
 /*
  * Text sanitization
  */
 
-//Used for preprocessing entered text
+/**
+ * Same as `strip_html_full`, but readds the newlines after the stripping
+ *
+ * Not SQL escaping safe, do not use alone for SQL sanitizing operations
+ *
+ * Returns a string
+ */
+/proc/strip_html_readd_newlines(text, limit = MAX_MESSAGE_LEN)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+	//For some reason at the first replace the backslash doubles, go figure... Either way, this is how to match it
+	var/static/regex/regex_newlines = regex(@"(\\n)", "g")
+	//And this matches the two newlines after the HTML strip and encoding
+	var/static/regex/regex_newlines_readd = regex(@"(##)", "g")
+
+	//We make them double, so we know the # is not part of the special ascii encoding of characters
+	var/message = regex_newlines.Replace(text, @"\n\n")
+
+	//Strip the HTML from the message
+	message = strip_html_full(message, limit)
+
+	//Bring the newlines back
+	return regex_newlines_readd.Replace(message, "<br>")
+
+/// Runs STRIP_HTML_SIMPLE and sanitize.
+/proc/strip_html(text, limit = MAX_MESSAGE_LEN)
+	return sanitize_tg(STRIP_HTML_SIMPLE(text, limit))
+
+/// Runs STRIP_HTML_FULL and sanitize.
+/proc/strip_html_full(text, limit = MAX_MESSAGE_LEN)
+	return sanitize_tg(STRIP_HTML_FULL(text, limit))
+
+/// Runs byond's html encoding sanitization proc, after replacing new-lines and tabs for the # character.
+/// This is ported from tg, hence the name
+/proc/sanitize_tg(text)
+	var/static/regex/regex = regex(@"[\n\t]", "g")
+	return html_encode(regex.Replace(text, "#"))
+
+/**
+ * DEPRECATED, USE `strip_html_full` / `strip_html` / `sanitize_tg` / `strip_html_readd_newlines` WHERE POSSIBLE
+ *
+ * Used for preprocessing entered text
+ */
 /proc/sanitize(var/input, var/max_length = MAX_MESSAGE_LEN, var/encode = 1, var/trim = 1, var/extra = 1)
 	if(!input)
 		return
@@ -85,11 +118,10 @@
 #define SYMBOLS_DETECTED_NEW_WORD 5 // symbols that we will interpret as the start of a new word
 
 /**
-  * Filters out undesirable characters from names.
-  *
-  * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
-  */
-
+ * Filters out undesirable characters from names.
+ *
+ * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
+ */
 /proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = TRUE)
 	if(!input)
 		return //Rejects the input if it is null
@@ -438,7 +470,7 @@
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.
 /proc/process_chat_markup(var/message, var/list/ignore_tags = list())
-	if (!config.allow_chat_markup)
+	if (!GLOB.config.allow_chat_markup)
 		return message
 
 	if (!message)
@@ -457,7 +489,7 @@
 
 	var/regex/tag_markup
 	for (var/tag in (markup_tags - ignore_tags))
-		tag_markup = markup_regex[tag]
+		tag_markup = GLOB.markup_regex[tag]
 		message = tag_markup.Replace_char(message, "$2[markup_tags[tag][1]]$3[markup_tags[tag][2]]$5")
 
 	// ---Unload URL cache
@@ -594,7 +626,7 @@
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
-	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [config.docs_image_host]$1></img>")
+	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t
 
 /proc/html2pencode(t, var/include_images = FALSE)
@@ -738,7 +770,7 @@
 /proc/formalize_text(var/string)
 	string = capitalize(string)
 	var/ending = copytext(string, length(string), (length(string) + 1))
-	if(ending && !correct_punctuation[ending])
+	if(ending && !GLOB.correct_punctuation[ending])
 		string += "."
 	return string
 
@@ -767,3 +799,41 @@
 						return "[text]es"
 		return "[text]s"
 	return ""
+
+/**
+ * Used to get a properly sanitized input. Returns null if cancel is pressed.
+ *
+ * Arguments
+ ** user - Target of the input prompt.
+ ** message - The text inside of the prompt.
+ ** title - The window title of the prompt.
+ ** max_length - If you intend to impose a length limit - default is 1024.
+ ** no_trim - Prevents the input from being trimmed if you intend to parse newlines or whitespace.
+*/
+/proc/stripped_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
+	var/user_input = input(user, message, title, default) as text|null
+	if(isnull(user_input)) // User pressed cancel
+		return
+	if(no_trim)
+		return copytext(html_encode(user_input), 1, max_length)
+	else
+		return trim(html_encode(user_input), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
+
+/**
+ * Used to get a properly sanitized input in a larger box. Works very similarly to stripped_input.
+ *
+ * Arguments
+ ** user - Target of the input prompt.
+ ** message - The text inside of the prompt.
+ ** title - The window title of the prompt.
+ ** max_length - If you intend to impose a length limit - default is 1024.
+ ** no_trim - Prevents the input from being trimmed if you intend to parse newlines or whitespace.
+*/
+/proc/stripped_multiline_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
+	var/user_input = input(user, message, title, default) as message|null
+	if(isnull(user_input)) // User pressed cancel
+		return
+	if(no_trim)
+		return copytext(html_encode(user_input), 1, max_length)
+	else
+		return trim(html_encode(user_input), max_length)

@@ -14,7 +14,7 @@
 
 /obj/item/implant/tracking/Initialize()
 	var/list/tracking_list = list()
-	for(var/obj/item/implant/tracking/T in implants)
+	for(var/obj/item/implant/tracking/T in GLOB.implants)
 		tracking_list += T
 	id = length(tracking_list) + 1
 	. = ..()
@@ -48,16 +48,18 @@ Implant Specifics:<BR>"}
 	return TRUE
 
 /obj/item/implant/tracking/emp_act(severity)
+	. = ..()
+
 	if (malfunction)	//no, dawg, you can't malfunction while you are malfunctioning
 		return
 	malfunction = MALFUNCTION_TEMPORARY
 
 	var/delay = 20
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			if(prob(60))
 				meltdown()
-		if(2)
+		if(EMP_LIGHT)
 			delay = rand(5*60*10,15*60*10)	//from 5 to 15 minutes of free time
 
 	spawn(delay)

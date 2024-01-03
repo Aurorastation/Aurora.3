@@ -1,6 +1,6 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
-	desc = "A sleek, sturdy box"
+	desc = "A sleek, sturdy box."
 	icon_state = "syndiebox"
 	worn_overlay = "writing_syndie"
 

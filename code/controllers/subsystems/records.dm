@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/records/SSrecords
-
-/datum/controller/subsystem/records
+SUBSYSTEM_DEF(records)
 	name = "Records"
 	flags = SS_NO_FIRE
 
@@ -30,7 +28,7 @@
 	InitializeReligions()
 	InitializeAccents()
 
-/datum/controller/subsystem/records/New()
+/datum/controller/subsystem/records/PreInit()
 	records = list()
 	records_locked = list()
 	warrants = list()
@@ -39,7 +37,6 @@
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
-	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
 		excluded_fields[v] = v
@@ -110,6 +107,7 @@
 			viruses += record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
+	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -181,7 +179,7 @@
 				return r
 
 /datum/controller/subsystem/records/proc/build_records()
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		generate_record(H)
 
 /datum/controller/subsystem/records/proc/reset_manifest()
@@ -202,7 +200,7 @@
 	if(action == "follow")
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/M in human_mob_list)
+			for(var/mob/living/M in GLOB.human_mob_list)
 				if(istype(M) && M.real_name == params["name"])
 					O.ManualFollow(M)
 					break
@@ -261,7 +259,7 @@
 
 	// silicons are not in records, we need to add them manually
 	var/dept = DEPARTMENT_EQUIPMENT
-	for(var/mob/living/silicon/S in player_list)
+	for(var/mob/living/silicon/S in GLOB.player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
 			if(R.scrambled_codes)
@@ -289,19 +287,23 @@
 	get_manifest_list()
 	return manifest_json
 
-/datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)
-	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_delete(r)
+/datum/controller/subsystem/records/proc/onCreate(var/datum/record/record)
+	SEND_SIGNAL(src, COMSIG_RECORD_CREATED, record)
 
-/datum/controller/subsystem/records/proc/onModify(var/datum/record/r)
-	if(r in records)
-		reset_manifest()
+/datum/controller/subsystem/records/proc/onDelete(var/datum/record/record)
 	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_modify(r)
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_delete(record)
+
+/datum/controller/subsystem/records/proc/onModify(var/datum/record/record)
+	if(record in records)
+		reset_manifest()
+	SEND_SIGNAL(record, COMSIG_RECORD_MODIFIED)
+	for (var/listener in GET_LISTENERS("SSrecords"))
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_modify(record)
 
 /*
  * Helping functions for everyone

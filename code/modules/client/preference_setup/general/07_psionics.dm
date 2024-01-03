@@ -60,7 +60,7 @@
 		pref.psionics = list()
 
 /datum/category_item/player_setup_item/general/psionics/sanitize_character(var/sql_load = 0)
-	var/datum/species/mob_species = all_species[pref.species]
+	var/datum/species/mob_species = GLOB.all_species[pref.species]
 	if(length(pref.psionics) && !mob_species.has_psionics)
 		to_chat(pref.client, SPAN_WARNING("This species does not have psionics! Resetting..."))
 		pref.psionics = list()
@@ -83,7 +83,7 @@
 		pref.psionics = list()
 
 /datum/category_item/player_setup_item/general/psionics/content(var/mob/user)
-	var/datum/species/mob_species = all_species[pref.species]
+	var/datum/species/mob_species = GLOB.all_species[pref.species]
 	if(!(mob_species.has_psionics))
 		return
 	var/list/bought_psionic_powers = list()
@@ -108,7 +108,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["add_psi_power"])
-		var/datum/species/mob_species = all_species[pref.species]
+		var/datum/species/mob_species = GLOB.all_species[pref.species]
 		var/total_psi_points = mob_species.character_creation_psi_points
 		var/list/available_psionics = list()
 		var/list/psionic_map = list()
@@ -129,7 +129,7 @@
 			to_chat(user, SPAN_WARNING("You ran out of points!"))
 			return
 
-		var/new_power = input(user, "Choose a psionic power to add.", "Psionics") as null|anything in available_psionics
+		var/new_power = tgui_input_list(user, "Choose a psionic power to add.", "Psionics", available_psionics)
 		if(new_power)
 			var/singleton/psionic_power/P = GET_SINGLETON(psionic_map[new_power])
 			if(istype(P))

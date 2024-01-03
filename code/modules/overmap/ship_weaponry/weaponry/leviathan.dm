@@ -45,7 +45,7 @@
 	visible_message(SPAN_DANGER("<font size=5>\The [src] begins lighting up with a powerful hum...</font>"))
 	var/power_draw = smes.drain_power_simple(active_power_usage)
 	if(power_draw >= active_power_usage)
-		for(var/mob/M in living_mob_list)
+		for(var/mob/M in GLOB.living_mob_list)
 			if(AreConnectedZLevels(GET_Z(M), z))
 				if(get_area(M) != get_area(src))
 					to_chat(M, SPAN_DANGER("<font size=4>The ground below you starts shaking...</font>"))
@@ -56,7 +56,7 @@
 		ammunition |= L
 		if(!stat)
 			visible_message(SPAN_DANGER("<font size=6>\The [src] fires, quaking the ground below you!</font>"))
-			for(var/mob/M in living_mob_list)
+			for(var/mob/M in GLOB.living_mob_list)
 				if(AreConnectedZLevels(M.z, z) && (get_area(M) != get_area(src)))
 					to_chat(M, SPAN_DANGER("<font size=4>A gigantic shock courses through the hull of the ship!</font>"))
 			. = ..()
@@ -67,7 +67,7 @@
 
 /obj/machinery/ship_weapon/leviathan/process()
 	if(firing)
-		for(var/mob/M in living_mob_list)
+		for(var/mob/M in GLOB.living_mob_list)
 			if(AreConnectedZLevels(GET_Z(M), z))
 				shake_camera(M, 3, 3)
 
@@ -85,7 +85,7 @@
 	firing = FALSE
 	if(use_power != POWER_USE_OFF)
 		visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
-		for(var/mob/living/L in living_mob_list)
+		for(var/mob/living/L in GLOB.living_mob_list)
 			if(AreConnectedZLevels(L.z, z))
 				sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
 				to_chat(L, SPAN_WARNING("The ground below you settles down, no longer vibrating."))
@@ -98,7 +98,7 @@
 		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."))
 		return
 	visible_message(SPAN_DANGER("<font size=4>\The [src] lights up with a powerful hum...</font>"))
-	for(var/mob/living/L in living_mob_list)
+	for(var/mob/living/L in GLOB.living_mob_list)
 		if(AreConnectedZLevels(L.z, z))
 			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
 			to_chat(L, SPAN_WARNING("The ground below you starts vibrating with a slight hum..."))
@@ -210,9 +210,13 @@
 /obj/item/leviathan_key
 	name = "leviathan activation key"
 	desc = "A key made of hardlight used to activate the Leviathan. It is a software-controlled morphing key that uses self-replicating encryption: \
-			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology!"
+			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology! \
+			If you're vain, you could also probably wear it as a necklace."
 	icon = 'icons/obj/machinery/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "cannon_key"
+	item_state = "cannon_key"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
 
 /obj/item/leviathan_case
 	name = "leviathan key case"
@@ -288,6 +292,8 @@
 	return
 
 /obj/machinery/leviathan_safeguard/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/machinery/leviathan_safeguard/Destroy()
@@ -297,7 +303,7 @@
 
 /obj/machinery/leviathan_safeguard/LateInitialize()
 	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 	if(linked)
@@ -351,7 +357,7 @@
 
 /obj/machinery/leviathan_button/LateInitialize()
 	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -359,6 +365,8 @@
 	return
 
 /obj/machinery/leviathan_button/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/machinery/leviathan_button/proc/open()
@@ -381,7 +389,7 @@
 				possible_entry_points = sortList(possible_entry_points)
 			if(istype(linked.targeting, /obj/effect/overmap/event))
 				possible_entry_points += SHIP_HAZARD_TARGET
-			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
+			var/targeted_landmark = tgui_input_list(user, "Select an entry point.", "Leviathan Control", possible_entry_points)
 			if(!targeted_landmark && length(possible_entry_points))
 				return
 			var/obj/effect/landmark

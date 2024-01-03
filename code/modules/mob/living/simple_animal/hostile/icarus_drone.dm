@@ -56,7 +56,6 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	psi_pingable = FALSE
@@ -79,7 +78,7 @@
 	M.Scale(0.1, 0.1)
 	animate(src, transform = M, time = 0.1, easing = LINEAR_EASING)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	var/matrix/N = matrix()
 	N.Scale(1, 1)
@@ -90,7 +89,7 @@
 		return
 	visible_message(SPAN_WARNING("\The [src] warps into nothingness!"))
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	var/matrix/M = matrix()
 	M.Scale(0.1, 0.1)
@@ -170,12 +169,12 @@
 	//repair a bit of damage
 	if(prob(1) && health < maxHealth)
 		visible_message(SPAN_NOTICE("\The [src] shudders and shakes as some of its damaged systems come back online."))
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 		health += rand(25, 100)
 
 	//spark for no reason
 	if(malfunctioning && prob(5))
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 
 	//sometimes our targetting sensors malfunction, and we attack anyone nearby
 	if(malfunctioning && prob(disabled ? 0 : 1))
@@ -215,7 +214,7 @@
 			visible_message(SPAN_ALERT("\The [src] begins to spark and shake violently!"))
 		else
 			visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"))
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 
 	if(!exploding && !disabled && prob(explode_chance))
 		exploding = TRUE
@@ -229,6 +228,8 @@
 
 //ion rifle!
 /mob/living/simple_animal/hostile/icarus_drone/emp_act(severity)
+	. = ..()
+
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE
@@ -242,7 +243,7 @@
 	QDEL_NULL(ion_trail)
 	//some random debris left behind
 	if(has_loot)
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 		var/obj/O
 
 		//shards

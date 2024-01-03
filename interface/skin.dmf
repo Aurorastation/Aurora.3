@@ -123,9 +123,6 @@ macro "borghotkeymode"
 		name = "CTRL+Q"
 		command = "unequip-module"
 	elem
-		name = "R"
-		command = ".southwest"
-	elem
 		name = "CTRL+R"
 		command = ".southwest"
 	elem "s_key"
@@ -169,7 +166,7 @@ macro "borghotkeymode"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -218,6 +215,19 @@ macro "borghotkeymode"
 	elem
 		name = "NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+
 
 macro "macro"
 	elem
@@ -339,7 +349,7 @@ macro "macro"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -388,6 +398,31 @@ macro "macro"
 	elem
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+	elem
+		name = "Space"
+		command = "run_intent"
+	elem
+		name = "Space+UP"
+		command = "run_intent_up"
+	elem
+		name = "SHIFT+R"
+		command = "Resist"
+  elem
+    name = "R"
+    command = "throw_intent_toggle"
+
 
 macro "hotkeymode"
 	elem
@@ -526,9 +561,6 @@ macro "hotkeymode"
 		name = "CTRL+Q"
 		command = ".northwest"
 	elem
-		name = "R"
-		command = ".southwest"
-	elem
 		name = "CTRL+R"
 		command = ".southwest"
 	elem "s_key"
@@ -572,7 +604,7 @@ macro "hotkeymode"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -622,11 +654,30 @@ macro "hotkeymode"
 		name = "NUMPAD3"
 		command = "body-l-leg"
 	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
 		name = ","
 		command = "move-upwards"
 	elem
 		name = "."
-		command = "move-down"
+		command = "Move-Down"
+	elem
+		name = "Space"
+		command = "run_intent"
+	elem
+		name = "Space+UP"
+		command = "run_intent_up"
+	elem
+		name = "SHIFT+R"
+		command = "Resist"
+  elem
+    name = "R"
+    command = "throw_intent_toggle"
+
 
 macro "borgmacro"
 	elem
@@ -742,7 +793,7 @@ macro "borgmacro"
 		command = ".options"
 	elem
 		name = "F2"
-		command = "ooc"
+		command = ".ooc"
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -791,6 +842,18 @@ macro "borgmacro"
 	elem
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
 
 
 menu "menu"
@@ -1203,3 +1266,20 @@ window "browserwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+
+window "tgui_say"
+	elem "tgui_say"
+		type = MAIN
+		pos = 848,500
+		size = 380x30
+		is-visible = false
+		saved-params = ""
+		statusbar = false
+		can-minimize = false
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 380x30
+		anchor1 = 0,0
+		anchor2 = 0,0
+		saved-params = ""
