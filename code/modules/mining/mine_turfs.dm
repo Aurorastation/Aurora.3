@@ -2,7 +2,7 @@
 /turf/unsimulated/mineral
 	name = "impassable rock"
 	icon = 'icons/turf/smooth/rock_dense.dmi'
-	icon_state = "wall"
+	icon_state = "preview_wall_unsimulated"
 	blocks_air = TRUE
 	density = TRUE
 	gender = PLURAL
@@ -22,8 +22,8 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "rock"
+	icon = 'icons/turf/smooth/rock_dense.dmi'
+	icon_state = "preview_wall"
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
@@ -168,8 +168,6 @@ var/list/mineral_can_smooth_with = list(
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid
 	name = "rock"
-	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "rock"
 	desc = "It's a greyish rock. Exciting."
 	opacity = TRUE
 	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
@@ -179,7 +177,7 @@ var/list/mineral_can_smooth_with = list(
 		/turf/unsimulated/mineral/asteroid
 	)
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	// smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	color = "#705d40"
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
