@@ -1538,6 +1538,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"aGz" = (
+/obj/effect/map_effect/window_spawner/full/reinforced{
+	layer = 2
+	},
+/turf/simulated/floor/plating,
+/area/operations/office)
 "aHj" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/cable/green{
@@ -6109,11 +6115,6 @@
 /area/horizon/hallway/deck_two/fore)
 "cNh" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
-	dir = 8;
-	pixel_x = 26;
-	pixel_y = -8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "cNo" = (
@@ -13337,13 +13338,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "giP" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/open,
 /area/operations/office)
 "gjl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -30014,12 +30012,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
-"obx" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	layer = 2
-	},
-/turf/simulated/floor/plating,
-/area/operations/office)
 "oby" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -40813,6 +40805,15 @@
 /obj/effect/floor_decal/corner_wide/orange/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
+"tqN" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "tre" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -49767,12 +49768,6 @@
 "xnf" = (
 /turf/simulated/wall/r_wall,
 /area/storage/secure)
-"xns" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/operations/office)
 "xnv" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -64699,7 +64694,7 @@ kXS
 rVg
 fRi
 oDl
-giP
+tqN
 oDl
 arK
 rVg
@@ -64899,9 +64894,9 @@ cAb
 cAb
 sUj
 rVg
-xns
+giP
 rSG
-obx
+aGz
 iku
 ubZ
 rVg
@@ -65103,7 +65098,7 @@ bgS
 rVg
 rSG
 rSG
-obx
+aGz
 yig
 eUa
 rVg
