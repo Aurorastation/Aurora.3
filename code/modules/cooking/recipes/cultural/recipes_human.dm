@@ -149,6 +149,14 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/crab_legs
 
+/singleton/recipe/hash_browns
+	appliance = GRILL | SKILLET
+	reagents = list(/singleton/reagent/blackpepper = 1, /singleton/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawsticks
+	)
+	result = /obj/item/reagent_containers/food/snacks/hash_browns
+
 // Konyang
 
 /singleton/recipe/mossbowl

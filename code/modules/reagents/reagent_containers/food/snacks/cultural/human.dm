@@ -212,6 +212,17 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FFA8E5"
 
+/obj/item/reagent_containers/food/snacks/hash_browns
+	name = "hash browns"
+	desc = "diner-style, thinly-sliced, fried potatoes. so greasy they might as well be singing about cars."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "hashbrowns"
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/triglyceride/oil/corn = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("crunchy potatoes" = 10))
+	bitesize = 2
+	filling_color = "#bb8432"
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl

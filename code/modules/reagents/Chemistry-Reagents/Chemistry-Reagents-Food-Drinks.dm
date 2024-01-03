@@ -2420,7 +2420,7 @@
 
 /singleton/reagent/drink/shake_strawberry
 	name = "Strawberry Milkshake"
-	description = "Milkshake with a healthy heaping of strawberry syrup mixed in."
+	description = "Milkshake with a healthy heaping of Strawberry syrup mixed in."
 	color = "#ff7575"
 	taste_description = "sugary strawberry"
 
@@ -2431,7 +2431,7 @@
 
 /singleton/reagent/drink/shake_caramel
 	name = "Caramel Milkshake"
-	description = "Milkshake with a healthy heaping of caramel syrup mixed in."
+	description = "Milkshake with a healthy heaping of Caramel syrup mixed in."
 	color = "#d19d4e"
 	taste_description = "smooth caramel"
 
@@ -2440,16 +2440,92 @@
 	glass_desc = "In case there wasn't enough sugar in your sugar."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
-
 /singleton/reagent/drink/shake_dirtberry
 	name = "Dirtberry Milkshake"
-	description = "Milkshake with a healthy heaping of dirtberry syrup mixed in."
+	description = "Milkshake with a healthy heaping of Dirtberry syrup mixed in."
 	color = "#92692c"
 	taste_description = "smooth dirtberries"
 
 	glass_icon_state = "shake_dirtberry"
 	glass_name = "glass of Dirtberry Milkshake"
 	glass_desc = "Don't let the name fool you, this dairy delight is smooth and sweet!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_blueberry
+	name = "Blueberry Milkshake"
+	description = "Milkshake with some neon blue Blueberry syrup mixed in."
+	color = "#0c00b3"
+	taste_description = "creamy blueberries"
+
+	glass_icon_state = "shake_blueberry"
+	glass_name = "glass of Blueberry Milkshake"
+	glass_desc = "This is an alarming level of neon blue for something that's supposed to be ingested. Probably still delicious though!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_chocolate
+	name = "Chocolate Milkshake"
+	description = "Vanilla Milkshake with a heaping of Chocolate syrup mixed in."
+	color = "#79452c"
+	taste_description = "chocolatey vanilla"
+
+	glass_icon_state = "shake_chocolate"
+	glass_name = "glass of Chocolate Milkshake"
+	glass_desc = "A vanilla milkshake with a hefty heap of delicious chocolate syrup mixed in. Eh, that diet can wait until tomorrow, right?"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_blue_raspberry
+	name = "Blue Raspberry Milkshake"
+	description = "A milkshake with a heaping of Blue Raspberry syrup mixed in."
+	color = "#3955a3"
+	taste_description = "creamy raspberry"
+
+	glass_icon_state = "shake_blue_raspberry"
+	glass_name = "glass of Blue Raspberry Milkshake"
+	glass_desc = "Formerly this used to be created with artificial food dyes. Now it's made with real Blue Raspberries! Make no mistake, though, this is still absolutely and deliciously bad for you."
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_raspberry
+	name = "Raspberry Milkshake"
+	description = "A milkshake with a heaping of Raspberry syrup mixed in."
+	color = "#a03257"
+	taste_description = "creamy raspberry"
+
+	glass_icon_state = "shake_purplered"
+	glass_name = "glass of Raspberry Milkshake"
+	glass_desc = "Oh Raspberries, is there any dessert you can't improve?"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_berry
+	name = "Berry Milkshake"
+	description = "A milkshake with a heaping of Berry syrup mixed in."
+	color = "#f1315b"
+	taste_description = "smooth berries"
+
+	glass_icon_state = "shake_berry"
+	glass_name = "glass of Berry Milkshake"
+	glass_desc = "Why settle for just one Milkshake flavor when you can have the wide, delicious vagueness of 'berries'?"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_ylpha
+	name = "Ylpha Berry Milkshake"
+	description = "A milkshake with a heaping of Ylpha Berry syrup mixed in."
+	color = "#a03257"
+	taste_description = "tangy sweetness"
+
+	glass_icon_state = "shake_purplered"
+	glass_name = "glass of Ylpha Berry Milkshake"
+	glass_desc = "That trademark magenta mixture of tangy and sweet - now in a tall, creamy glass of Milkshake!"
+	glass_center_of_mass = list("x"=16, "y"=7)
+
+/singleton/reagent/drink/shake_choco_mint
+	name = "Choco-Mint Milkshake"
+	description = "A milkshake with a heaping of Mint syrup mixed in and some little chocolate chips as well!"
+	color = "#6ecf73"
+	taste_description = "chocolatey mint"
+
+	glass_icon_state = "shake_choco_mint"
+	glass_name = "glass of Choco-Mint Milkshake"
+	glass_desc = "For everyone who liked to eat their toothpaste as a kid and never grew out of it."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
 /singleton/reagent/drink/NTellahotchocolate
@@ -5709,7 +5785,7 @@
 	name = "Berry Syrup"
 	description = "Thick berry syrup used to flavor drinks."
 	taste_description = "berry"
-	color = "#f3e5ab"
+	color = "#c00726"
 	glass_name = "berry syrup"
 	glass_desc = "Thick berry syrup used to flavor drinks."
 //strawberry
@@ -5781,7 +5857,7 @@
 	name = "Ylpha Berry Syrup"
 	description = "Thick ylpha berry syrup used to flavor drinks."
 	taste_description = "ylpha berry"
-	color = "#f3d1ab"
+	color = "#790042"
 	glass_name = "ylpha berry syrup"
 	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
 //dirt
