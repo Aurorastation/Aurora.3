@@ -31,7 +31,6 @@ var/list/mineral_can_smooth_with = list(
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	// smoothing_hints = SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 	initial_gas = null
 	opacity = TRUE
@@ -83,8 +82,6 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = mineral_can_smooth_with
-		// pixel_x = -4
-		// pixel_y = -4
 
 	rock_health = rand(10,20)
 
@@ -229,7 +226,6 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	if(!mineral)
 		name = "\improper Rock"
-		// icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
 	new /obj/effect/mineral(src, mineral)
@@ -624,7 +620,6 @@ var/list/mineral_can_smooth_with = list(
 	icon_state = ""
 	desc = "An exposed developer texture. Someone wasn't paying attention."
 	smoothing_flags = SMOOTH_FALSE
-	// smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
 	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
