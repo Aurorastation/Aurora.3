@@ -241,8 +241,6 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		return
 	if(!istype(H, /mob/living/carbon/human) && !istype(H, /mob/living/silicon/robot))
 		return
-	if(!H.key || !H.mind)
-		return
 
 	var/area/placeofdeath = get_area(H)
 	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
@@ -253,8 +251,8 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 		//Prepare location data
 		var/turf/T = get_turf(H)
 
-		var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, loc_x, loc_y, loc_z) VALUES \
-		(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :loc_x:, :loc_y:, :loc_z:)")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, lachar_id, gender, bruteloss, fireloss, brainloss, oxyloss, loc_x, loc_y, loc_z) VALUES \
+		(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :lachar_id:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :loc_x:, :loc_y:, :loc_z:)")
 		if(!query.Execute(list(
 			"name"=H.real_name,
 			"ckey"=H.ckey,
@@ -265,6 +263,7 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 			"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
 			"laname"=H?.lastattacker?.real_name,
 			"lackey"=H?.lastattacker?.ckey,
+			"lachar_id"=H?.lastattacker?.character_id,
 			"gender"=H.gender,
 			"bruteloss"=H.getBruteLoss(),
 			"fireloss"=H.getFireLoss(),

@@ -4,4 +4,5 @@
 ALTER TABLE `ss13_death`
   ADD COLUMN `loc_x` INT NULL AFTER `oxyloss`,
   ADD COLUMN `loc_y` INT NULL AFTER `loc_x`,
-  ADD COLUMN `loc_z` INT NULL AFTER `loc_y`;
+  ADD COLUMN `loc_z` INT NULL AFTER `loc_y`,
+  ADD COLUMN `lachar_id` INT NULL DEFAULT NULL AFTER `lackey`;
