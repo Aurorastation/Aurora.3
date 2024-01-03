@@ -26,18 +26,18 @@
 
 /obj/effect/shuttle_landmark/idris_cruiser/port_aft
 	name = "Port Aft Dock"
-	landmark_tag = "nav_idris_cruiser_stbd_aft"
-	docking_controller = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "nav_idris_cruiser_port_aft"
+	docking_controller = "airlock_idris_cruiser_port_aft"
 
 /obj/effect/shuttle_landmark/idris_cruiser/port_fore
 	name = "Port Fore Dock"
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
-	docking_controller = "airlock_idris_cruiser_stbd_fore"
+	landmark_tag = "nav_idris_cruiser_port_fore"
+	docking_controller = "airlock_idris_cruiser_port_fore"
 
 /obj/effect/shuttle_landmark/idris_cruiser/port_berth //For docking to large ships, e.g. Horizon
 	name = "Port Berthing Dock"
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
-	docking_controller = "airlock_idris_cruiser_stbd_berth"
+	landmark_tag = "nav_idris_cruiser_port_berth"
+	docking_controller = "airlock_idris_cruiser_port_berth"
 
 //Space
 
