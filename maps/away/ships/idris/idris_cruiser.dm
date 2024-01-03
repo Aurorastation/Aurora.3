@@ -40,7 +40,6 @@
 		"Idris Cruiser" = list("nav_idris_cruiser_stbd_aft")
 	)
 	initial_generic_waypoints = list(
-		"nav_idris_cruiser_stbd_aft",
 		"nav_idris_cruiser_stbd_fore",
 		"nav_idris_cruiser_stbd_berth",
 		"nav_idris_cruiser_port_aft",
