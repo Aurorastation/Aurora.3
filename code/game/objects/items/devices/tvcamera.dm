@@ -82,7 +82,7 @@
 
 /* Assembly by a roboticist */
 /obj/item/robot_parts/head/attackby(var/obj/item/device/assembly/S, mob/user as mob)
-	if ((!istype(S, /obj/item/device/assembly/infra)))
+	if(!istype(S, /obj/item/device/assembly/infra))
 		..()
 		return
 	var/obj/item/TVAssembly/A = new(user)
