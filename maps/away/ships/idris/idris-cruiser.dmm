@@ -315,6 +315,9 @@
 "ct" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -26
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/idris_cruiser_shuttle)
 "cv" = (
@@ -486,7 +489,7 @@
 /area/ship/idris_cruiser/corridor/civ_fore)
 "de" = (
 /obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "dg" = (
 /obj/structure/platform{
@@ -3496,9 +3499,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "sm" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/full,
+/obj/structure/table/reinforced/steel,
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/floor/wood,
 /area/shuttle/idris_cruiser_shuttle)
 "sp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4444,9 +4447,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
-"wW" = (
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/idris_cruiser_shuttle/bridge)
 "wZ" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -4965,7 +4965,7 @@
 /area/ship/idris_cruiser/locker_rooms)
 "zF" = (
 /obj/machinery/shipsensors/weak,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "zI" = (
 /obj/structure/cable/green{
@@ -6894,7 +6894,10 @@
 	name = "airlock_idris_cruiser_shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle)
 "Kn" = (
 /obj/machinery/disposal/small/south,
@@ -8358,7 +8361,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle)
 "Qu" = (
 /obj/structure/table/stone/marble,
@@ -9843,6 +9849,10 @@
 "Zl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/machinery/vending/wallmed1{
+	pixel_x = 24;
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
@@ -27617,13 +27627,13 @@ MX
 MX
 MX
 MX
-wW
-wW
-wW
-wW
-wW
-wW
-wW
+MX
+MX
+MX
+MX
+MX
+MX
+MX
 ym
 qq
 IR
