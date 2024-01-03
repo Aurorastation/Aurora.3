@@ -198,8 +198,6 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
-		// pixel_x = -4
-		// pixel_y = -4
 
 	return INITIALIZE_HINT_NORMAL
 
