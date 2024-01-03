@@ -39682,6 +39682,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 14;
+	pixel_x = -8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "sPY" = (
