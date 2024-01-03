@@ -29275,7 +29275,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/platform_deco{
+/obj/item/storage/secure/briefcase,
+/obj/item/clipboard,
+/obj/item/folder/red,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
+"TP" = (
+/obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
