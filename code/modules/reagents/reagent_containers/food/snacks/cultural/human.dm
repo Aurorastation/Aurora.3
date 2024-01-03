@@ -132,6 +132,27 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("turkey" = 3))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/sliceable/roast_chicken
+	name = "roast chicken"
+	desc = "Roasted and stuffed chicken surrounded by potatoes, all ready for the carving! Dibs on the drumsticks!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "roast_chicken"
+	slice_path = /obj/item/reagent_containers/food/snacks/roast_chicken_slice
+	slices_num = 6
+	trash = /obj/item/tray/plate //Yes, this isn't the "trash" kind of plate. It's a big dish, so it's served on a large serving plate.
+	filling_color = "#9b5e2c"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 24, /singleton/reagent/nutriment = 12, /singleton/reagent/soporific = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("chicken" = 6), /singleton/reagent/nutriment = list("potatoes" = 5, "stuffing" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/roast_chicken_slice
+	name = "roast chicken slice"
+	desc = "A slice of juicy roasted chicken with potatoes. Get ready to loosen your belt!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "roast_chicken_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#9b5e2c"
+
 /obj/item/reagent_containers/food/snacks/meatbun
 	name = "meat bun"
 	desc = "A soft, fluffy flour bun also known as baozi. This one is filled with a spiced meat filling."
