@@ -102,5 +102,5 @@
 	landmark_transition = "nav_idris_cruiser_transit"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "airlock_idris_cruiser_stbd_aft"
+	logging_home_tag = "airlock_idris_cruiser_shuttle"
 	defer_initialisation = TRUE
