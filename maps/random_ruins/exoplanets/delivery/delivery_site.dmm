@@ -1,16 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ao" = (
-/turf/simulated/wall/concrete,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/cargo_package{
+	pixel_y = 3
+	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "aQ" = (
-/obj/effect/landmark/clear,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/unsimulated/floor/concrete,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "aR" = (
-/obj/effect/landmark/clear,
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
@@ -21,107 +27,219 @@
 /obj/item/stack/medical/ointment/full,
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/bruise_pack/full,
-/turf/unsimulated/floor/concrete,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "bi" = (
-/obj/effect/landmark/clear,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/unsimulated/floor/concrete,
-/area/template_noop)
-"bk" = (
-/obj/effect/landmark/clear,
-/turf/unsimulated/floor/concrete,
-/area/template_noop)
-"bA" = (
-/obj/structure/cargo_receptacle,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor/concrete,
-/area/template_noop)
-"bE" = (
-/obj/effect/landmark/clear,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/unsimulated/floor/concrete,
-/area/template_noop)
-"bP" = (
-/obj/effect/landmark/clear,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/unsimulated/floor/concrete,
-/area/template_noop)
-"bQ" = (
-/obj/effect/landmark/clear,
 /obj/structure/sign/flag/orion_express/unmovable{
 	dir = 1;
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bk" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bA" = (
+/obj/structure/cargo_receptacle,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/sign/flag/orion_express/unmovable{
+	dir = 1;
+	pixel_x = -32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bQ" = (
+/turf/simulated/wall,
+/area/template_noop)
+"ec" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"hE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"ig" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"iQ" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"lK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate,
+/obj/item/storage/backpack/duffel/orion,
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/item/crowbar,
+/obj/item/clothing/accessory/pin/corporate/orion,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/item/cargo_package{
+	pixel_y = 3
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"CG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"EK" = (
 /turf/template_noop,
+/area/template_noop)
+"FF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Ku" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
+"Ru" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"VP" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 
 (1,1,1) = {"
-Ku
-Ku
-Ku
+EK
+EK
+EK
 Ku
 Ku
 Ku
 Ku
 "}
 (2,1,1) = {"
-Ku
-ao
-ao
-ao
-ao
-ao
+EK
+bQ
+bQ
+bQ
+bQ
+bQ
 Ku
 "}
 (3,1,1) = {"
 Ku
-ao
-aQ
-bk
-bE
-ao
 bQ
+aQ
+iQ
+bE
+bQ
+Ku
 "}
 (4,1,1) = {"
 Ku
-ao
+bQ
 aR
 bA
 bk
-bk
+FF
 Ku
 "}
 (5,1,1) = {"
 Ku
-ao
-bi
-bk
-bP
-ao
 bQ
+bi
+Ru
+bP
+ec
+Ku
 "}
 (6,1,1) = {"
 Ku
+bQ
+bQ
+lK
 ao
-ao
-ao
-ao
-ao
+hE
 Ku
 "}
 (7,1,1) = {"
 Ku
+Ku
+Ku
+ig
+ig
+qY
+Ku
+"}
+(8,1,1) = {"
+EK
+Ku
+Ku
+CG
+VP
+qc
+Ku
+"}
+(9,1,1) = {"
+EK
 Ku
 Ku
 Ku
