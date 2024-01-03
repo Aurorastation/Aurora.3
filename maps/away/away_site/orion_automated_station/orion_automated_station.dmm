@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"dx" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "ey" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6,8 +13,21 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
+"ft" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "fU" = (
 /turf/simulated/floor/tiled/full,
+/area/space)
+"gQ" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "ib" = (
 /obj/structure/window/reinforced,
@@ -15,6 +35,25 @@
 	dir = 8
 	},
 /turf/template_noop,
+/area/space)
+"im" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"in" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"iL" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "iM" = (
 /obj/structure/lattice,
@@ -24,11 +63,30 @@
 /obj/machinery/power/solar,
 /turf/simulated/floor/airless,
 /area/space)
+"jt" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/plating,
+/area/space)
+"jL" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "kO" = (
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"kU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "lu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "mr" = (
@@ -47,6 +105,28 @@
 	},
 /turf/template_noop,
 /area/space)
+"qN" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"rt" = (
+/obj/structure/sign/radiation{
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "rS" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -59,13 +139,62 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"se" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"sj" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"sF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "td" = (
+/turf/simulated/floor/tiled,
+/area/space)
+"uP" = (
+/obj/structure/window/reinforced,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
+"uS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "vE" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/lattice,
 /turf/template_noop,
+/area/space)
+"wC" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"wS" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "xh" = (
 /obj/structure/window/reinforced,
@@ -78,6 +207,28 @@
 "zb" = (
 /turf/simulated/floor/airless,
 /area/space)
+"zV" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
+/area/space)
+"Bj" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"BQ" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Do" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "DU" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
@@ -88,8 +239,55 @@
 	},
 /turf/template_noop,
 /area/space)
+"ET" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor/plating,
+/area/space)
+"Fn" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Gn" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "GF" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/space)
+"Hm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ht" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled,
+/area/space)
+"HJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"HQ" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/template_noop,
 /area/space)
 "Ik" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
@@ -104,6 +302,11 @@
 	},
 /obj/structure/window/reinforced,
 /turf/template_noop,
+/area/space)
+"Lf" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
 /area/space)
 "MY" = (
 /obj/structure/window/reinforced{
@@ -134,11 +337,27 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
+"OH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Pk" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "PK" = (
+/turf/simulated/floor/plating,
+/area/space)
+"PO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Sj" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/space)
 "TG" = (
@@ -152,9 +371,21 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
+"Uo" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "UV" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
+/area/space)
+"Vq" = (
+/obj/structure/cargo_receptacle,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled,
 /area/space)
 "VE" = (
 /obj/structure/window/reinforced{
@@ -165,11 +396,63 @@
 	},
 /turf/template_noop,
 /area/space)
+"VH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/cargo_package/offship,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"VO" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "VU" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/template_noop,
+/area/space)
+"WS" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
+"XF" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
+/area/space)
+"Yw" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"YK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"YV" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Zi" = (
 /turf/template_noop,
@@ -36091,16 +36374,16 @@ Zi
 Zi
 Zi
 GF
-GF
+zV
 GF
 NY
 NY
 td
-PK
-PK
+td
+Sj
 NY
 GF
-GF
+zV
 GF
 Zi
 Zi
@@ -36348,16 +36631,16 @@ Zi
 Zi
 GF
 GF
-kO
-kO
-kO
+Hm
+sF
+wS
 NY
 td
-PK
-PK
+td
+Sj
 NY
-kO
-kO
+ft
+wC
 GF
 GF
 Zi
@@ -36604,17 +36887,17 @@ Zi
 Zi
 GF
 GF
-GF
-kO
-kO
-kO
+iL
+im
+BQ
+se
 NY
 TG
 TG
 NY
 NY
-kO
-kO
+ft
+qN
 GF
 GF
 GF
@@ -36860,20 +37143,20 @@ Zi
 Zi
 GF
 GF
-kO
-kO
-kO
-kO
-kO
+ET
+jt
+kU
+OH
+OH
 NY
 td
 td
 NY
-kO
-kO
-kO
-kO
-kO
+VO
+in
+rt
+Fn
+XF
 GF
 GF
 Zi
@@ -37117,20 +37400,20 @@ Zi
 Zi
 GF
 NY
-kO
-kO
-kO
-kO
-kO
+NY
+Uo
+PK
+YK
+Do
 NY
 td
 td
-TG
-kO
-kO
-kO
-kO
-kO
+NY
+Yw
+PO
+Bj
+gQ
+XF
 NY
 GF
 Zi
@@ -37377,16 +37660,16 @@ NY
 NY
 NY
 DU
-DU
+YV
 NY
 NY
 td
 td
-TG
-kO
-kO
-kO
 NY
+kO
+kO
+kO
+kO
 NY
 NY
 GF
@@ -37628,13 +37911,13 @@ Zi
 yv
 Zi
 Zi
-GF
+zV
 PK
-PK
+Sj
 NY
+Ht
 td
-td
-td
+vj
 td
 td
 td
@@ -37645,9 +37928,9 @@ kO
 kO
 kO
 NY
+Sj
 PK
-PK
-GF
+zV
 Zi
 Zi
 yv
@@ -37887,9 +38170,9 @@ NY
 NY
 NY
 PK
-PK
+Sj
 NY
-td
+Lf
 td
 td
 td
@@ -37902,7 +38185,7 @@ TG
 TG
 NY
 NY
-PK
+Sj
 PK
 NY
 NY
@@ -38143,24 +38426,24 @@ UV
 PK
 PK
 UV
-PK
-td
-TG
-td
-td
-td
-td
-td
-td
-td
-td
-td
-td
 td
 td
 TG
 td
-PK
+td
+td
+td
+td
+td
+td
+td
+td
+td
+td
+td
+TG
+td
+td
 UV
 PK
 PK
@@ -38911,12 +39194,12 @@ Zi
 Zi
 Zi
 yv
-Zi
+iM
 Zi
 GF
 NY
-Pk
-Pk
+VH
+VH
 Pk
 td
 td
@@ -38929,8 +39212,8 @@ td
 td
 td
 lu
-lu
-lu
+uS
+HJ
 NY
 GF
 Zi
@@ -39168,23 +39451,23 @@ Zi
 Zi
 Zi
 Zi
-Zi
+iM
 Zi
 GF
 GF
 oL
 oL
 oL
-td
-td
-td
-TG
-td
+oL
+oL
 td
 TG
 td
 td
+TG
 td
+oL
+oL
 oL
 oL
 oL
@@ -39425,27 +39708,27 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
-Zi
-GF
+zV
+VH
 Pk
-Pk
-Pk
-td
-td
+VH
+Vq
+oL
 td
 TG
 td
 td
 TG
 td
+oL
 td
-td
+uS
 lu
 lu
-lu
-GF
+zV
 Zi
 Zi
 Zi
@@ -39682,14 +39965,14 @@ Zi
 Zi
 Zi
 yv
+iM
 Zi
 Zi
-Zi
 GF
 GF
 GF
 GF
-Pk
+VH
 oL
 Pk
 NY
@@ -39939,21 +40222,21 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
-Zi
-Zi
+iM
 GF
 GF
 GF
-Pk
+VH
 oL
-Pk
+VH
 NY
 td
 td
 NY
-Pk
+sj
 oL
 Pk
 NY
@@ -40196,23 +40479,23 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
-Zi
-Zi
+iM
 Zi
 GF
 GF
-Pk
+VH
 oL
-Pk
+VH
 NY
 td
 td
 NY
-Pk
+sj
 oL
-Pk
+sj
 GF
 GF
 Zi
@@ -40452,15 +40735,15 @@ Zi
 Zi
 Zi
 Zi
-yv
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
+vE
+iM
+iM
+iM
+iM
+iM
+iM
 GF
-GF
+zV
 GF
 NY
 NY
@@ -40469,7 +40752,7 @@ td
 NY
 NY
 GF
-GF
+zV
 GF
 Zi
 Zi
@@ -40711,13 +40994,13 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+iM
 GF
 GF
 NY
@@ -40968,20 +41251,20 @@ rS
 Zi
 Zi
 Zi
-rS
+dx
 Zi
 Zi
 rS
 Zi
 Zi
-Zi
+iM
 Zi
 Zi
 NY
 td
 td
 NY
-Zi
+iM
 Zi
 Zi
 Zi
@@ -41230,16 +41513,16 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
-Zi
-Zi
+iM
+iM
+iM
+iM
 NY
 td
 td
 NY
-Zi
-Zi
+iM
+iM
 Zi
 Zi
 Zi
@@ -41488,14 +41771,14 @@ Zi
 Zi
 Zi
 yv
-Zi
+iM
 Zi
 Zi
 NY
 td
 td
 NY
-Zi
+iM
 Zi
 Zi
 yv
@@ -41745,14 +42028,14 @@ Zi
 Zi
 Zi
 Zi
-Zi
+iM
 Zi
 Zi
 NY
 td
 td
 NY
-Zi
+iM
 Zi
 Zi
 Zi
@@ -42002,14 +42285,14 @@ Zi
 Zi
 Zi
 Zi
-Zi
+iM
 Zi
 NY
 NY
 td
 td
 NY
-Zi
+iM
 Zi
 Zi
 Zi
@@ -42259,14 +42542,14 @@ Zi
 Zi
 Zi
 yv
-Zi
+iM
 Zi
 NY
-PK
+Ht
 td
 td
 NY
-Zi
+iM
 Zi
 Zi
 yv
@@ -42515,15 +42798,15 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
-Zi
+iM
+iM
+iM
 NY
-PK
+Lf
 td
 td
 NY
-Zi
+iM
 Zi
 Zi
 Zi
@@ -42773,7 +43056,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+iM
 Zi
 NY
 NY
@@ -42781,7 +43064,7 @@ TG
 TG
 NY
 NY
-Zi
+iM
 Zi
 Zi
 Zi
@@ -43030,13 +43313,13 @@ Zi
 Zi
 Zi
 yv
-Zi
+iM
 Zi
 NY
-PK
+Sj
 td
 td
-PK
+Sj
 NY
 Zi
 Zi
@@ -43290,10 +43573,10 @@ NY
 NY
 NY
 NY
-PK
+Sj
 td
 td
-PK
+Sj
 NY
 NY
 NY
@@ -44061,10 +44344,10 @@ NY
 NY
 NY
 NY
+Sj
 td
 td
-td
-PK
+Sj
 NY
 NY
 NY
@@ -44315,7 +44598,7 @@ Zi
 Zi
 Zi
 yv
-Zi
+iM
 Zi
 NY
 NY
@@ -44324,7 +44607,7 @@ TG
 NY
 NY
 Zi
-Zi
+iM
 yv
 Zi
 Zi
@@ -44572,16 +44855,16 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
-Zi
-ib
+Gn
 fU
 td
-MY
+Os
 Zi
 Zi
-Zi
+iM
 Zi
 Zi
 Zi
@@ -44829,17 +45112,17 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
-Zi
-xh
+uP
 td
 fU
-EN
-Zi
-Zi
-Zi
-Zi
+WS
+iM
+iM
+iM
+iM
 Zi
 Zi
 Zi
@@ -45085,17 +45368,17 @@ Zi
 Zi
 Zi
 Zi
-yv
-Zi
-Zi
-Zi
-xh
+vE
+iM
+iM
+iM
+uP
 fU
 td
-EN
+WS
 Zi
 Zi
-Zi
+iM
 yv
 Zi
 Zi
@@ -45343,13 +45626,13 @@ Zi
 Zi
 Zi
 Zi
+iM
 Zi
 Zi
-Zi
-xh
+uP
 td
 fU
-EN
+WS
 Zi
 Zi
 Zi
@@ -45603,10 +45886,10 @@ Zi
 Zi
 Zi
 Zi
-xh
+uP
 fU
 td
-EN
+WS
 Zi
 Zi
 Zi
@@ -45860,10 +46143,10 @@ yv
 Zi
 Zi
 Zi
-xh
+uP
 td
 fU
-EN
+WS
 Zi
 Zi
 Zi
@@ -46117,10 +46400,10 @@ Zi
 Zi
 Zi
 Zi
-xh
+uP
 fU
 td
-EN
+WS
 Zi
 Zi
 Zi
@@ -46373,12 +46656,12 @@ Zi
 Zi
 Zi
 Zi
-Zi
-xh
+iM
+jL
 td
 fU
-EN
-Zi
+HQ
+iM
 Zi
 Zi
 Zi
@@ -46630,12 +46913,12 @@ Zi
 Zi
 Zi
 Zi
-Zi
-oW
-fU
-td
-VE
-Zi
+iM
+NY
+rT
+rT
+NY
+iM
 Zi
 Zi
 Zi
@@ -46889,10 +47172,10 @@ Zi
 Zi
 Zi
 NY
-rT
-rT
+PK
+PK
 NY
-Zi
+iM
 Zi
 Zi
 Zi
@@ -47395,24 +47678,24 @@ Zi
 Zi
 Zi
 Zi
+rS
 Zi
 Zi
+rS
 Zi
 Zi
-Zi
-Zi
-Zi
+rS
 NY
-PK
-PK
+rT
+rT
 NY
+rS
 Zi
 Zi
+rS
 Zi
 Zi
-Zi
-Zi
-Zi
+rS
 Zi
 Zi
 Zi
@@ -47652,24 +47935,24 @@ Zi
 Zi
 Zi
 Zi
-rS
 Zi
 Zi
-rS
 Zi
 Zi
-rS
-NY
-rT
-rT
-NY
-rS
 Zi
 Zi
-rS
 Zi
 Zi
-rS
+Zi
+Zi
+Zi
+Zi
+Zi
+Zi
+Zi
+Zi
+Zi
+Zi
 Zi
 Zi
 Zi
@@ -47907,6 +48190,7 @@ Zi
 Zi
 Zi
 Zi
+yv
 Zi
 Zi
 Zi
@@ -47927,8 +48211,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+yv
 Zi
 Zi
 Zi
@@ -48164,7 +48447,6 @@ Zi
 Zi
 Zi
 Zi
-yv
 Zi
 Zi
 Zi
@@ -48185,7 +48467,8 @@ Zi
 Zi
 Zi
 Zi
-yv
+Zi
+Zi
 Zi
 Zi
 Zi
@@ -48678,6 +48961,7 @@ Zi
 Zi
 Zi
 Zi
+yv
 Zi
 Zi
 Zi
@@ -48698,8 +48982,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+yv
 Zi
 Zi
 Zi
@@ -48935,7 +49218,6 @@ Zi
 Zi
 Zi
 Zi
-yv
 Zi
 Zi
 Zi
@@ -48956,7 +49238,8 @@ Zi
 Zi
 Zi
 Zi
-yv
+Zi
+Zi
 Zi
 Zi
 Zi
