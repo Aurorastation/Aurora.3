@@ -96,11 +96,11 @@
 /datum/shuttle/autodock/overmap/idris_cruiser_shuttle
 	name = "Runabout"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/scc_scout_ship_shuttle/cockpit, /area/shuttle/scc_scout_ship_shuttle/eva, /area/shuttle/scc_scout_ship_shuttle/cargo, /area/shuttle/scc_scout_ship_shuttle/medbay, /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard, /area/shuttle/scc_scout_ship_shuttle/propulsion_port)
-	dock_target = "airlock_idris_cruiser_stbd_aft"
+	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering)
+	dock_target = "airlock_idris_cruiser_shuttle"
 	current_location = "nav_idris_cruiser_stbd_aft"
 	landmark_transition = "nav_idris_cruiser_transit"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "airlock_idris_cruiser_shuttle"
+	logging_home_tag = "nav_idris_cruiser_stbd_aft"
 	defer_initialisation = TRUE

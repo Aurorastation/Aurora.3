@@ -3,6 +3,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
+"ae" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa2)
 "ag" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -16,7 +22,8 @@
 	id_tag = "merchant_shuttle_dock_pump"
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -84,7 +91,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -273,7 +281,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -284,12 +293,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
-"ck" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/idris_cruiser/spa/spa1)
 "cp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -301,14 +304,16 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_idriscruiser_dock_stbd_aft";
-	landmark_tag = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "airlock_idris_cruiser_stbd_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "ct" = (
 /obj/machinery/recharge_station,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/idris_cruiser_shuttle)
 "cv" = (
 /obj/structure/bed/stool/chair/sofa/teal{
@@ -468,7 +473,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_fore"
+	name = "airlock_idriscruiser_dock_port_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -527,9 +533,6 @@
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/lounge)
 "dy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/idris_cruiser_shuttle/bridge)
@@ -658,11 +661,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
-"er" = (
-/obj/structure/table/wood/walnut,
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/wood,
-/area/ship/idris_cruiser/spa/spa1)
 "eu" = (
 /obj/structure/table/stone/marble,
 /obj/item/glass_jar{
@@ -718,7 +716,8 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -906,6 +905,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
 "fG" = (
@@ -941,9 +943,6 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/alarm/north,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "gb" = (
@@ -1337,12 +1336,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/kitchen)
-"ic" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/idris_cruiser/spa/spa1)
 "id" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1419,7 +1412,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -1469,7 +1463,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -1527,8 +1522,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "jj" = (
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/idris_cruiser_shuttle/bridge)
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/shuttle/idris_cruiser_shuttle)
 "jm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
@@ -1563,7 +1562,8 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_aft"
+	name = "airlock_idriscruiser_dock_port_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -1609,7 +1609,8 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_fore"
+	name = "airlock_idriscruiser_dock_stbd_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -1751,7 +1752,8 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -1800,7 +1802,8 @@
 "lo" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_fore"
+	name = "airlock_idriscruiser_dock_stbd_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -1813,7 +1816,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -1929,6 +1933,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "lL" = (
@@ -2082,7 +2087,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -2145,7 +2151,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "mD" = (
@@ -2479,6 +2484,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
+"nO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Runabout";
+	master_tag = "airlock_idris_cruiser_shuttle";
+	name = "airlock_idris_cruiser_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/idris_cruiser_shuttle)
 "nQ" = (
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/reinforced/airless,
@@ -2491,13 +2508,16 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/idris_cruiser_shuttle)
 "nT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
 "nU" = (
@@ -2713,7 +2733,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_aft"
+	name = "airlock_idriscruiser_dock_port_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -2732,6 +2753,9 @@
 /area/ship/idris_cruiser/corridor/suites_a)
 "pb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/brig)
 "pe" = (
@@ -2901,13 +2925,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
-"pT" = (
-/obj/machinery/power/apc/east,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/idris_cruiser/spa/spa1)
 "pY" = (
 /obj/structure/platform/cutout,
 /obj/structure/platform_stairs/full/east_west_cap{
@@ -3072,7 +3089,8 @@
 	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_fore"
+	name = "airlock_idriscruiser_dock_stbd_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -3314,7 +3332,6 @@
 /obj/structure/cable/orange{
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "rB" = (
@@ -3364,6 +3381,17 @@
 "rS" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
@@ -3417,12 +3445,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "sm" = (
-/obj/structure/table/reinforced/wood,
-/turf/simulated/floor/wood,
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/idris_cruiser_shuttle)
 "sp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3668,7 +3699,8 @@
 	},
 /obj/effect/shuttle_landmark/idris_cruiser/port_aft,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_aft"
+	name = "airlock_idriscruiser_dock_port_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -3714,7 +3746,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -3758,12 +3791,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/corridor/crew_aft)
-"tW" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/idris_cruiser/spa/spa2)
 "uc" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -3779,6 +3806,10 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/vending/wallmed1{
+	pixel_x = 24;
+	req_access = null
+	},
 /turf/simulated/floor/carpet/green,
 /area/shuttle/idris_cruiser_shuttle)
 "uh" = (
@@ -3845,7 +3876,8 @@
 	pixel_y = 10
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_fore"
+	name = "airlock_idriscruiser_dock_stbd_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -3868,13 +3900,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/port_lobby)
-"uA" = (
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = -22
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/idris_cruiser/spa/spa2)
 "uB" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/firealarm/west,
@@ -3907,7 +3932,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_fore"
+	name = "airlock_idriscruiser_dock_stbd_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -4181,7 +4207,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_fore"
+	name = "airlock_idriscruiser_dock_stbd_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -4360,10 +4387,6 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "wW" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
-	name = "waste outlet"
-	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "wZ" = (
@@ -4480,7 +4503,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -4576,6 +4600,10 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
+"yt" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/medbay)
 "yy" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -4592,6 +4620,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
+"yB" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/idris_cruiser_shuttle)
 "yD" = (
 /obj/machinery/power/apc/super/critical/north,
 /obj/structure/cable/green{
@@ -4666,18 +4700,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/lounge)
-"yK" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Runabout";
-	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/idris_cruiser_shuttle)
 "yL" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -4789,7 +4811,8 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -4917,7 +4940,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_idriscruiser_dock_stbd_aft";
-	landmark_tag = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "airlock_idris_cruiser_stbd_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -5277,6 +5301,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "BU" = (
@@ -5296,8 +5323,10 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/spa)
 "Cb" = (
-/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/fuel_port/phoron/scc{
+	pixel_y = 24
+	},
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Cc" = (
@@ -5352,7 +5381,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -5364,7 +5394,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -5579,7 +5610,8 @@
 "DJ" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_aft"
+	name = "airlock_idriscruiser_dock_port_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -5703,6 +5735,13 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/crew_quarters)
+"Ex" = (
+/obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa1)
 "EE" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6010,6 +6049,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-4"
 	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Gm" = (
@@ -6119,6 +6159,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/brig)
 "GZ" = (
@@ -6168,7 +6211,10 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "Hn" = (
-/obj/machinery/alarm/east,
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -22
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "Ho" = (
@@ -6258,6 +6304,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Ib" = (
@@ -6454,12 +6501,12 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
-"IV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+"IU" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/turf/simulated/wall/shuttle/idris,
-/area/shuttle/idris_cruiser_shuttle)
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa1)
 "IW" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -6500,9 +6547,6 @@
 /obj/structure/bed/padded/bunk,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/crew_quarters)
-"Jg" = (
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/idris_cruiser_shuttle)
 "Jk" = (
 /obj/structure/cable/orange{
 	icon_state = "4-8"
@@ -6687,7 +6731,8 @@
 	pixel_y = 10
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_aft"
+	name = "airlock_idriscruiser_dock_port_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -6804,7 +6849,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -6973,7 +7019,8 @@
 	pixel_y = 10
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_fore"
+	name = "airlock_idriscruiser_dock_port_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -6991,14 +7038,6 @@
 "Lu" = (
 /turf/simulated/wall/shuttle/idris,
 /area/shuttle/idris_cruiser_shuttle)
-"Lv" = (
-/obj/machinery/power/apc/west,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/idris_cruiser/spa/spa2)
 "Lw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
@@ -7136,7 +7175,8 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -7682,7 +7722,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -7698,6 +7739,14 @@
 /area/ship/idris_cruiser/lounge)
 "Os" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/pen/fountain/silver{
+	pixel_x = -5;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "Ou" = (
@@ -7745,7 +7794,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -7779,7 +7829,8 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_fore"
+	name = "airlock_idriscruiser_dock_port_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -7853,7 +7904,8 @@
 	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_aft"
+	name = "airlock_idriscruiser_dock_port_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -7881,7 +7933,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_idriscruiser_dock_stbd_aft";
-	landmark_tag = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "airlock_idris_cruiser_stbd_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -7998,7 +8051,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -8086,7 +8140,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -8170,7 +8225,8 @@
 "Qm" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_fore"
+	name = "airlock_idriscruiser_dock_port_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -8258,6 +8314,13 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/spa)
+"QS" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/brig)
 "QU" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
@@ -8286,13 +8349,17 @@
 /area/ship/idris_cruiser/spa)
 "Rc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
 "Rf" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_berth"
+	name = "airlock_idriscruiser_dock_port_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -8377,6 +8444,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/corridor/crew_fore)
+"RL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/shuttle/idris_cruiser_shuttle)
 "RN" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -8731,6 +8804,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/hydroponics)
+"TY" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa2)
 "TZ" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -8787,6 +8864,9 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
 "Uw" = (
@@ -8824,7 +8904,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_fore"
+	name = "airlock_idriscruiser_dock_port_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -9109,7 +9190,8 @@
 	pixel_y = 12
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_port_fore"
+	name = "airlock_idriscruiser_dock_port_fore";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -9226,7 +9308,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_idriscruiser_dock_stbd_aft";
-	landmark_tag = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "airlock_idris_cruiser_stbd_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -9293,6 +9376,7 @@
 "Xa" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Xb" = (
@@ -9325,6 +9409,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/wood,
 /area/shuttle/idris_cruiser_shuttle)
 "Xj" = (
@@ -9349,7 +9434,8 @@
 /obj/effect/shuttle_landmark/idris_cruiser/starboard_aft,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_idriscruiser_dock_stbd_aft";
-	landmark_tag = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "airlock_idris_cruiser_stbd_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -9414,6 +9500,12 @@
 /obj/structure/closet/radiation,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
+"XM" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa1)
 "XN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -9467,7 +9559,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_idriscruiser_dock_stbd_aft";
-	landmark_tag = "airlock_idris_cruiser_stbd_aft"
+	landmark_tag = "airlock_idris_cruiser_stbd_aft";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -9576,6 +9669,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/suite/suite_3)
+"YM" = (
+/obj/structure/table/wood/walnut,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/wood,
+/area/ship/idris_cruiser/spa/spa1)
 "YP" = (
 /obj/machinery/alarm/north,
 /obj/machinery/firealarm/west,
@@ -9678,7 +9776,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_idriscruiser_dock_stbd_berth"
+	name = "airlock_idriscruiser_dock_stbd_berth";
+	master_tag = "idris_cruiser_dock"
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -9733,14 +9832,13 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
 "ZT" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/idris_cruiser_shuttle/bridge)
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa2)
 "ZU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -25793,7 +25891,7 @@ go
 dC
 Lu
 Lu
-IV
+RL
 Ft
 Ft
 Ft
@@ -25995,7 +26093,7 @@ qw
 px
 Xg
 MG
-yK
+nO
 kr
 Ft
 RW
@@ -26196,8 +26294,8 @@ sm
 QD
 ud
 nR
-MG
-Jg
+jj
+yB
 ym
 Ft
 wZ
@@ -27000,7 +27098,7 @@ MX
 MX
 MX
 jQ
-ZT
+jQ
 OI
 qB
 vA
@@ -27202,7 +27300,7 @@ MX
 MX
 MX
 zF
-ZT
+jQ
 jQ
 Zk
 jQ
@@ -27403,13 +27501,13 @@ MX
 MX
 MX
 MX
-jj
 wW
-jj
-jj
-jj
-jj
-jj
+wW
+wW
+wW
+wW
+wW
+wW
 ym
 qq
 IR
@@ -27796,7 +27894,7 @@ DI
 tz
 sd
 eM
-ic
+XM
 Xj
 iI
 mV
@@ -27997,7 +28095,7 @@ oi
 UR
 tz
 AC
-ck
+IU
 LJ
 TE
 oh
@@ -28198,8 +28296,8 @@ Iw
 Oo
 dv
 tz
-er
-pT
+YM
+Ex
 rR
 KZ
 iI
@@ -28603,9 +28701,9 @@ NP
 mv
 tz
 AD
-Lv
+ZT
 db
-uA
+Hn
 yR
 lA
 UN
@@ -28805,7 +28903,7 @@ NP
 Hc
 tz
 tf
-tW
+ae
 lX
 vi
 Tf
@@ -29007,7 +29105,7 @@ NP
 ZK
 tz
 tf
-Hn
+TY
 fA
 lW
 yR
@@ -29251,7 +29349,7 @@ NT
 Er
 fm
 fm
-pb
+QS
 Ov
 fm
 iA
@@ -29463,7 +29561,7 @@ hJ
 hJ
 wq
 tN
-wq
+yt
 wq
 Nt
 Od
