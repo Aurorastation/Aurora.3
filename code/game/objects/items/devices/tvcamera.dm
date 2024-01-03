@@ -10,7 +10,7 @@
 	var/obj/item/device/radio/radio
 
 /obj/item/device/tvcamera/Destroy()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	QDEL_NULL(camera)
 	QDEL_NULL(radio)
 	. = ..()
@@ -22,7 +22,7 @@
 	radio = new(src)
 	radio.listening = FALSE
 	radio.set_frequency(ENT_FREQ)
-	listening_objects += src
+	GLOB.listening_objects += src
 	. = ..()
 
 /obj/item/device/tvcamera/examine(mob/user)
@@ -59,7 +59,7 @@
 			to_chat(usr,"<span class='notice'>Video streaming: Deactivated.</span>")
 		update_icon()
 	if(href_list["sound"])
-		radio.ToggleBroadcast()
+		radio.set_broadcasting(!radio.get_broadcasting())
 		if(radio.broadcasting)
 			to_chat(usr,"<span class='notice'>Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.frequency)].</span>")
 		else
