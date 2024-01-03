@@ -61,6 +61,7 @@
 /obj/effect/shuttle_landmark/cyclops/nav2
 	name = "Cyclops Mining Vessel - Port Airlock"
 	landmark_tag = "nav_cyclops_2"
+	docking_controller = "airlock_cyclops_dock"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
@@ -108,7 +109,7 @@
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
 	current_location = "nav_hangar_cyclops"
 	landmark_transition = "nav_transit_cyclops_shuttle"
-	dock_target = "cyclops_shuttle"
+	dock_target = "airlock_shuttle_cyclops"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_cyclops"
@@ -117,7 +118,7 @@
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
 	name = "Cyclops Shuttle Hangar"
 	landmark_tag = "nav_hangar_cyclops"
-	docking_controller = "cyclops_shuttle_dock"
+	docking_controller = "airlock_shuttle_cyclops"
 	base_area = /area/hephmining_ship/cyclops
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
