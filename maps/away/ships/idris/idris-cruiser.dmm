@@ -446,7 +446,9 @@
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "db" = (
-/obj/machinery/alarm/west,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "dc" = (
@@ -857,7 +859,9 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/security)
 "fA" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "fB" = (
@@ -1737,6 +1741,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
+"kZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa1)
 "ld" = (
 /turf/simulated/floor/lino,
 /area/ship/idris_cruiser/great_room)
@@ -1940,13 +1950,15 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "lX" = (
 /obj/structure/bed/padded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "lY" = (
@@ -2089,6 +2101,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "mz" = (
@@ -3337,7 +3350,9 @@
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/engineering/reactor)
 "rR" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa1)
 "rS" = (
@@ -3963,7 +3978,9 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green{
-	icon_state = "2-4"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
@@ -4325,6 +4342,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"wY" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa2)
 "wZ" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -4719,6 +4740,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/pool)
+"zp" = (
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa1)
 "zr" = (
 /obj/structure/janitorialcart{
 	dir = 4
@@ -5000,6 +5028,7 @@
 /obj/item/flame/lighter/zippo{
 	pixel_x = 8
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/spa/spa2)
 "AE" = (
@@ -5561,6 +5590,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/engineering)
+"DW" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa2)
 "DX" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5639,6 +5674,14 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/crew_quarters)
+"EB" = (
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa2)
 "EE" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5942,6 +5985,12 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
+"Gk" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/idris_cruiser/spa/spa1)
 "Gm" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
@@ -6098,6 +6147,10 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "Hn" = (
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -22
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "Ho" = (
@@ -6243,6 +6296,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_fore)
 "Ip" = (
@@ -6805,12 +6859,9 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
 "KZ" = (
-/obj/machinery/disposal/small/west,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa1)
@@ -6936,6 +6987,11 @@
 /area/ship/idris_cruiser/corridor/lobby)
 "LJ" = (
 /obj/structure/bed/padded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa1)
 "LM" = (
@@ -7884,6 +7940,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/medbay)
+"Py" = (
+/obj/structure/table/wood/walnut,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/wood,
+/area/ship/idris_cruiser/spa/spa1)
 "PB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8567,12 +8628,14 @@
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle)
 "TE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable/green{
-	icon_state = "2-4"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa1)
@@ -9228,6 +9291,10 @@
 /turf/simulated/floor/carpet/green,
 /area/shuttle/idris_cruiser_shuttle)
 "Xj" = (
+/obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa1)
 "Xl" = (
@@ -27689,9 +27756,9 @@ oi
 DI
 tz
 sd
-Xj
 eM
-Xj
+kZ
+zp
 iI
 mV
 Ff
@@ -27891,7 +27958,7 @@ oi
 UR
 tz
 AC
-Xj
+Gk
 LJ
 TE
 oh
@@ -28092,7 +28159,7 @@ Iw
 Oo
 dv
 tz
-AC
+Py
 Xj
 rR
 KZ
@@ -28497,7 +28564,7 @@ NP
 mv
 tz
 AD
-Hn
+EB
 db
 Hn
 yR
@@ -28699,7 +28766,7 @@ NP
 Hc
 tz
 tf
-Hn
+DW
 lX
 vi
 Tf
@@ -28901,7 +28968,7 @@ NP
 ZK
 tz
 tf
-Hn
+wY
 fA
 lW
 yR
