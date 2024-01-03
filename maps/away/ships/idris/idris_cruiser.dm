@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "idris_cruiser"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/idris_cruiser_shuttle)
+//	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/idris_cruiser_shuttle)
 	unit_test_groups = list(3)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
@@ -85,16 +85,17 @@
 	return skybox_image
 
 /obj/effect/overmap/visitable/ship/landable/idris_cruiser_shuttle/New()
-	designation = "Runabout"
+	designation = "Idris Runabout"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "Runabout"
+	shuttle_tag = "Idris Runabout"
 
+/*
 /datum/shuttle/autodock/overmap/idris_cruiser_shuttle
-	name = "Runabout"
-	move_time = 20
+	name = "Idris Runabout"
+	move_time = 15
 	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering)
 	dock_target = "airlock_idris_cruiser_shuttle"
 	current_location = "nav_idris_cruiser_stbd_aft"
@@ -103,3 +104,4 @@
 	fuel_consumption = 1
 	logging_home_tag = "nav_idris_cruiser_stbd_aft"
 	defer_initialisation = TRUE
+*/
