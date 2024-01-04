@@ -238,7 +238,8 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
-		/obj/item/clothing/accessory/badge/press = 1
+		/obj/item/clothing/accessory/badge/press = 1,
+		/obj/item/device/tvcamera = 1
 	)
 
 /datum/outfit/job/journalistf
@@ -253,7 +254,8 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
 
 	backpack_contents = list(
-		/obj/item/clothing/accessory/badge/press/independent = 1
+		/obj/item/clothing/accessory/badge/press/independent = 1,
+		/obj/item/device/tvcamera = 1
 	)
 
 
