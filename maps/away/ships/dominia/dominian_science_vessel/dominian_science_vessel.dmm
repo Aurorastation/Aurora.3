@@ -59,7 +59,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = 28;
@@ -69,7 +71,8 @@
 /area/shuttle/dominian_science_shuttle)
 "aqS" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Gun Cabinet (Sidearms)"
+	name = "Gun Cabinet (Sidearms)";
+	req_access = list(225)
 	},
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/gun/projectile/pistol/dominia,
@@ -198,6 +201,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
+"aHP" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = -25;
+	id_tag = "dominian_science_shuttle_dock"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_science_vessel/hangar)
 "aMc" = (
 /obj/structure/cable/pink{
 	icon_state = "1-2"
@@ -933,7 +943,8 @@
 /area/ship/dominian_science_vessel/showers)
 "dIe" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Gun Cabinet (SMGs)"
+	name = "Gun Cabinet (SMGs)";
+	req_access = list(225)
 	},
 /obj/item/gun/projectile/automatic/tommygun/dom,
 /obj/item/gun/projectile/automatic/tommygun/dom,
@@ -1028,7 +1039,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/light{
 	dir = 8;
@@ -1128,7 +1141,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "shipexterior"
+	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = 6;
@@ -1416,7 +1431,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = 28;
@@ -1465,7 +1482,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -1754,7 +1773,9 @@
 "hhf" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "shipexterior"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -2528,7 +2549,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -2639,11 +2662,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = 25
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -2702,7 +2725,7 @@
 /area/ship/dominian_science_vessel/infirmary)
 "liI" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(212);
+	req_access = list(225);
 	dir = 4;
 	name = "Captain's Quarters"
 	},
@@ -2786,7 +2809,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "shipexterior"
+	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4;
@@ -3020,7 +3045,9 @@
 /area/ship/dominian_science_vessel/infirmary)
 "mLa" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -3197,7 +3224,8 @@
 /area/ship/dominian_science_vessel/eva)
 "ntu" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Gun Cabinet (Rifles)"
+	name = "Gun Cabinet (Rifles)";
+	req_access = list(225)
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/item/gun/projectile/automatic/rifle/dominia,
@@ -3507,7 +3535,9 @@
 /area/ship/dominian_science_vessel/showers)
 "oCX" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "shipexterior"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -3518,7 +3548,7 @@
 "oDy" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(212);
+	req_access = list(225);
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
@@ -3540,7 +3570,7 @@
 "oNi" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(212);
+	req_access = list(225);
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
@@ -3699,7 +3729,9 @@
 /area/ship/dominian_science_vessel/research)
 "pub" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "shipexterior"
+	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = 28;
@@ -3745,7 +3777,9 @@
 /area/ship/dominian_science_vessel/research)
 "pDc" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "shipexterior"
+	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = 28;
@@ -3760,7 +3794,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "shuttleairlock"
+	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4;
@@ -5245,7 +5281,8 @@
 /area/ship/dominian_science_vessel/bridge)
 "wCU" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Gun Cabinet (Carbines)"
+	name = "Gun Cabinet (Carbines)";
+	req_access = list(225)
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine,
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine,
@@ -38268,7 +38305,7 @@ wny
 wny
 wny
 qdL
-jZe
+aHP
 tjB
 rfO
 tyS
