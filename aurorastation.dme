@@ -3766,6 +3766,8 @@
 #include "maps\random_ruins\exoplanets\delivery\delivery_site.dm"
 #include "maps\random_ruins\exoplanets\desert\desert.dm"
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
+#include "maps\random_ruins\exoplanets\konyang\hivebot_burrows_1.dm"
+#include "maps\random_ruins\exoplanets\konyang\hivebot_burrows_2.dm"
 #include "maps\random_ruins\exoplanets\konyang\jeweler_nest.dm"
 #include "maps\random_ruins\exoplanets\konyang\landing_zone.dm"
 #include "maps\random_ruins\exoplanets\konyang\pirate_moonshine.dm"
