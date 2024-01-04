@@ -13,6 +13,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "aw" = (
@@ -42,6 +45,10 @@
 /area/orion_automated_station/east)
 "bq" = (
 /obj/structure/closet/crate,
+/obj/random/civgun,
+/obj/random/civgun/rifle,
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/west)
 "bt" = (
@@ -104,7 +111,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_engineering{
-	dir = 4
+	dir = 4;
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/atmos)
@@ -281,6 +289,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
 "fD" = (
@@ -327,8 +338,22 @@
 /area/orion_automated_station/west)
 "ge" = (
 /obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
+"gf" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/orion_automated_station/engineering)
 "gp" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -490,6 +515,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "jU" = (
@@ -520,6 +548,9 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
 "kY" = (
@@ -543,6 +574,14 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/storage)
+"lA" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/orion_automated_station/engineering)
 "lI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -684,6 +723,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
+"oi" = (
+/obj/machinery/iff_beacon,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/orion_automated_station/exterior)
+"oD" = (
+/obj/structure/closet/crate,
+/obj/random/highvalue/cash,
+/obj/random/highvalue/cash,
+/obj/random/highvalue/cash,
+/obj/random/highvalue/cash,
+/obj/random/highvalue/cash,
+/obj/random/highvalue,
+/obj/random/highvalue/cash,
+/obj/random/highvalue/cash,
+/turf/simulated/floor/tiled/dark/full,
+/area/orion_automated_station/west)
 "oE" = (
 /obj/effect/floor_decal/big/ox_full{
 	layer = 2.2
@@ -731,6 +789,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "pZ" = (
@@ -773,7 +834,7 @@
 /area/orion_automated_station/storage)
 "rf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/storage)
 "rD" = (
@@ -955,6 +1016,9 @@
 	pixel_x = 6;
 	pixel_y = 9
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
 "wx" = (
@@ -995,6 +1059,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
 "xq" = (
@@ -1032,6 +1097,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "xG" = (
@@ -1071,7 +1137,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
-	dir = 4
+	dir = 4;
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/engineering)
@@ -1103,6 +1170,12 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
+"Ai" = (
+/obj/item/paper/orion_automated_station/ox_storage_unit_ad{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/orion_automated_station/west)
 "Al" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped,
@@ -1143,6 +1216,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
+"Be" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/plating,
+/area/orion_automated_station/atmos)
 "Bg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1197,6 +1277,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "CO" = (
@@ -1215,6 +1299,9 @@
 /obj/item/paper/orion_automated_station/report_1{
 	pixel_x = -5;
 	pixel_y = -6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
@@ -1275,7 +1362,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
-	dir = 4
+	dir = 4;
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/atmos)
@@ -1361,6 +1449,17 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/west)
+"EU" = (
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "EV" = (
@@ -1621,12 +1720,16 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "IX" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
@@ -1744,6 +1847,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
 "LA" = (
@@ -1765,6 +1869,9 @@
 "LG" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
 "LV" = (
@@ -1779,7 +1886,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_engineering{
-	dir = 4
+	dir = 4;
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/engineering)
@@ -1907,6 +2015,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "Oi" = (
@@ -2078,6 +2187,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "Rq" = (
@@ -2137,6 +2249,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/random/tech_supply,
 /obj/random/tool,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
 "Sl" = (
@@ -2440,6 +2553,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "Xm" = (
@@ -2460,10 +2574,9 @@
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "XB" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/dark,
-/area/orion_automated_station/storage)
+/obj/random/custom_ka,
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/west)
 "XC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -31746,7 +31859,7 @@ jU
 jU
 jU
 YJ
-Qs
+oD
 Vh
 Xt
 dA
@@ -32011,7 +32124,7 @@ Go
 JE
 dA
 Vh
-dA
+XB
 Qs
 YJ
 vY
@@ -32260,7 +32373,7 @@ jU
 jU
 DF
 YJ
-Zr
+Ai
 Oi
 xe
 Tp
@@ -32525,7 +32638,7 @@ PB
 JE
 dA
 Vh
-RA
+EU
 bq
 YJ
 jU
@@ -34324,7 +34437,7 @@ MG
 td
 KB
 KB
-fC
+gf
 QQ
 Sw
 Sw
@@ -34575,7 +34688,7 @@ ge
 Rk
 pY
 Cp
-Cp
+Be
 sg
 tS
 ha
@@ -34584,7 +34697,7 @@ Lp
 ql
 EV
 UF
-LG
+lA
 Sw
 Sw
 jU
@@ -35359,7 +35472,7 @@ XI
 KS
 HC
 dd
-vY
+oi
 DF
 vE
 Zi
@@ -37664,7 +37777,7 @@ kr
 ZB
 td
 rb
-XB
+Qp
 Zc
 Pk
 rb
@@ -37921,9 +38034,9 @@ kr
 nH
 td
 rb
-XB
+Qp
 tO
-XB
+Qp
 ax
 ax
 Zi

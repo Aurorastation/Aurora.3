@@ -2,33 +2,34 @@
 // -------------------------------- map and station defs
 
 /datum/map_template/ruin/away_site/orion_automated_station
-	name = "Orion Express Automated Station"//Not a visible thing ingame, but this should be unique for visibility purposes
-	description = "Orion Express Automated Station."//Not visible ingame
-	unit_test_groups = list(1)
+	name = "Orion Express Automated Station" // not visible ingame, but this should be unique for visibility purposes
+	description = "Orion Express Automated Station" // not visible ingame
+	unit_test_groups = list(3)
 
-	id = "orion_automated_station"//Arbitrary tag to make things work. This should be lowercase and unique
+	id = "orion_automated_station" // arbitrary tag to make things work, this should be lowercase and unique
 	spawn_cost = 1
 	spawn_weight = 1
 	suffixes = list("away_site/abandoned_industrial/orion_automated_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-/singleton/submap_archetype/orion_automated_station//Arbitrary duplicates of the above name/desc
+/singleton/submap_archetype/orion_automated_station // arbitrary duplicates of the above name/desc
 	map = "Orion Express Automated Station"
-	descriptor = "Orion Express Automated Station."
+	descriptor = "Orion Express Automated Station"
 
-/obj/effect/overmap/visitable/sector/orion_automated_station//This is the actual overmap object that spawns at roundstart
-	name = "Orion Express Automated Station"//This and desc is visible ingame when the object is scanned by any scanner
-	desc = "Industrial station of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
-	icon_state = "outpost"
+/obj/effect/overmap/visitable/sector/orion_automated_station // this is the actual overmap object that spawns at roundstart
+	name = "Orion Express Automated Station" // this and desc is visible ingame when the object is scanned by any scanner
+	desc = "."
+	icon_state = "ox_auto_station"
 
 	static_vessel = TRUE
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-	icon_state = "outpost"
+	icon_state = "ox_auto_station"
 	color = "#bbb186"
 	designer = "Unknown"
-	volume = "78 meters length, 133 meters beam/width, 24 meters vertical height"
+	volume = "26 meters length, 58 meters beam/width, 20 meters vertical height"
 	weapons = "Not apparent"
 	sizeclass = "Industrial Station"
 
@@ -156,113 +157,68 @@
 	desc = DESC_PARENT
 
 /obj/item/paper/orion_automated_station/report_1
-	name = "Captain's Report"
-	desc = "A printed situation report."
+	name = "Site Inspection Report #090"
+	desc = "A printed site inspection report."
 	info = "\
-		TO: COMPANY SECTOR MANAGEMENT <br>\
-		FROM: CAPTAIN DENISA HRUSKA <br>\
-		SUBJECT: SITUATION REPORT <br>\
-		DATE: 2464-02-12<br>\
+		TO: ORION EXPRESS BRANCH MANAGEMENT <br>\
+		FROM: MAINTENANCE TECHNICIAN ANDRZEJ KRZYSZTOFIAK <br>\
+		SUBJECT: SITE INSPECTION REPORT <br>\
+		DATE: 2465-02-02<br>\
 		<br>\
 		<br>\
-		We are running out of asteroids we can exploit. Or at least with the personnel and supplies that we have. <br>\
-		We are lacking competent engineers, and our systems are constantly broken or running at reduced capacity. <br>\
-		We need tools, food, air, fuel. A second fusion reactor. Solar panels. Electronics. Spare shuttle parts. <br>\
-		<br>\
-		<br>\
-		Crew manifest as of today: <br>\
-		- Denisa Hruska - Captain <br>\
-		- Anna Jelinek - Miner Specialist <br>\
-		- Frantisek Bartos - Miner <br>\
-		- Tomas Hruby - Pilot <br>\
-		- Fiala Dvorakova - Atmospherics Engineer <br>\
-		- Jiri Ruzicka - Cook <br>\
-		<br>\
-		<br>\
-		I am aware it is even smaller crew than last week. <br>\
-		Crew is not happy about all of this. And so, more and more are just leaving, even before their contracts end. <br>\
+		the station looks in order, I just had to change some broken lights cause they were smashed <br>\
+		probably just some punks though trashing orion stuff for no reason <br>\
+		no damage to packages or the long-term storage units <br>\
+		though someone did try to get into one of them cause one is all scratched up like with a knife of screwdriver but <br>\
+		seems they gave up so all is good <br>\
 		"
 
 /obj/item/paper/orion_automated_station/report_2
-	name = "Captain's Report"
-	desc = "A printed situation report."
+	name = "Site Inspection Report #124"
+	desc = "A printed site inspection report. This one is stained with coffee."
 	info = "\
-		TO: COMPANY SECTOR MANAGEMENT <br>\
-		FROM: CAPTAIN DENISA HRUSKA <br>\
-		SUBJECT: SITUATION REPORT <br>\
-		DATE: 2464-02-12<br>\
+		TO: ORION EXPRESS BRANCH MANAGEMENT <br>\
+		FROM: JUNIOR MAINTENANCE TECHNICIAN HUNTER MEADOW <br>\
+		SUBJECT: SITE INSPECTION REPORT <br>\
+		DATE: 2465-05-27<br>\
 		<br>\
 		<br>\
-		We are running out of asteroids we can exploit. Or at least with the personnel and supplies that we have. <br>\
-		We are lacking competent engineers, and our systems are constantly broken or running at reduced capacity. <br>\
-		We need tools, food, air, fuel. A second fusion reactor. Solar panels. Electronics. Spare shuttle parts. <br>\
-		<br>\
-		<br>\
-		Crew manifest as of today: <br>\
-		- Denisa Hruska - Captain <br>\
-		- Anna Jelinek - Miner Specialist <br>\
-		- Frantisek Bartos - Miner <br>\
-		- Tomas Hruby - Pilot <br>\
-		- Fiala Dvorakova - Atmospherics Engineer <br>\
-		- Jiri Ruzicka - Cook <br>\
-		<br>\
-		<br>\
-		I am aware it is even smaller crew than last week. <br>\
-		Crew is not happy about all of this. And so, more and more are just leaving, even before their contracts end. <br>\
+		I accidentally spilled coffee on a RTG unit but it appears it was not damaged in any way <br>\
+		I cleaned it up though and gave it a quick systems check <br>\
+		the north dock right side interior door had its wires burned, no idea why, but I fixed it <br>\
+		everything else seems ok <br>\
 		"
 
 /obj/item/paper/orion_automated_station/report_3
-	name = "Captain's Report"
-	desc = "A printed situation report."
+	name = "Site Inspection Report #159"
+	desc = "A printed site inspection report."
 	info = "\
-		TO: COMPANY SECTOR MANAGEMENT <br>\
-		FROM: CAPTAIN DENISA HRUSKA <br>\
-		SUBJECT: SITUATION REPORT <br>\
-		DATE: 2464-02-12<br>\
+		TO: ORION EXPRESS BRANCH MANAGEMENT <br>\
+		FROM: MAINTENANCE TECHNICIAN OX-AB2137 <br>\
+		SUBJECT: SITE INSPECTION REPORT <br>\
+		DATE: 2466-01-07<br>\
 		<br>\
 		<br>\
-		We are running out of asteroids we can exploit. Or at least with the personnel and supplies that we have. <br>\
-		We are lacking competent engineers, and our systems are constantly broken or running at reduced capacity. <br>\
-		We need tools, food, air, fuel. A second fusion reactor. Solar panels. Electronics. Spare shuttle parts. <br>\
-		<br>\
-		<br>\
-		Crew manifest as of today: <br>\
-		- Denisa Hruska - Captain <br>\
-		- Anna Jelinek - Miner Specialist <br>\
-		- Frantisek Bartos - Miner <br>\
-		- Tomas Hruby - Pilot <br>\
-		- Fiala Dvorakova - Atmospherics Engineer <br>\
-		- Jiri Ruzicka - Cook <br>\
-		<br>\
-		<br>\
-		I am aware it is even smaller crew than last week. <br>\
-		Crew is not happy about all of this. And so, more and more are just leaving, even before their contracts end. <br>\
+		Dirty floor. Cleaned. <br>\
+		Potted plant dying. Watered. <br>\
+		Firedoor stuck closed. Fixed. <br>\
+		Air tank running close to empty. Filled. <br>\
+		Air vent clogged. Unclogged. <br>\
+		Long-term storage #5 unit broken into. Notified authorities. <br>\
+		Everything else is nominal. Departing. <br>\
 		"
 
-/obj/item/paper/orion_automated_station/empty_storage_unit
-	name = "Captain's Report"
-	desc = "A printed situation report."
+/obj/item/paper/orion_automated_station/ox_storage_unit_ad
+	name = "Orion Express Long-Term Storage Unit Ad"
+	desc = "A printed and colorful advertisement."
 	info = "\
-		TO: COMPANY SECTOR MANAGEMENT <br>\
-		FROM: CAPTAIN DENISA HRUSKA <br>\
-		SUBJECT: SITUATION REPORT <br>\
-		DATE: 2464-02-12<br>\
+		Running out of space on your ship? <br>\
+		Coming to visit the Automated Station often? <br>\
 		<br>\
+		Rent this Long-Term Storage Unit to solve all your storage problems. <br>\
+		You get a 20% discount if delivering one Orion Express Courier Package in a month. <br>\
+		You get another 10% discount if using Orion Express services regularly. <br>\
 		<br>\
-		We are running out of asteroids we can exploit. Or at least with the personnel and supplies that we have. <br>\
-		We are lacking competent engineers, and our systems are constantly broken or running at reduced capacity. <br>\
-		We need tools, food, air, fuel. A second fusion reactor. Solar panels. Electronics. Spare shuttle parts. <br>\
-		<br>\
-		<br>\
-		Crew manifest as of today: <br>\
-		- Denisa Hruska - Captain <br>\
-		- Anna Jelinek - Miner Specialist <br>\
-		- Frantisek Bartos - Miner <br>\
-		- Tomas Hruby - Pilot <br>\
-		- Fiala Dvorakova - Atmospherics Engineer <br>\
-		- Jiri Ruzicka - Cook <br>\
-		<br>\
-		<br>\
-		I am aware it is even smaller crew than last week. <br>\
-		Crew is not happy about all of this. And so, more and more are just leaving, even before their contracts end. <br>\
+		This Long-Term Storage Unit could be yours! <br>\
+		Terms and conditions apply. <br>\
 		"
