@@ -715,3 +715,8 @@
 /datum/access/konyang_corporate
 	id = ACCESS_KONYANG_CORPORATE
 	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_HOUSE_VOLVALAAD_SHIP 226
+/datum/access/house_volvalaad_ship
+	id = ACCESS_HOUSE_VOLVALAAD_SHIP
+	access_type = ACCESS_TYPE_CENTCOM
