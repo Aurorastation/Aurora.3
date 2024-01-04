@@ -12,8 +12,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion/thruster2)
@@ -213,6 +212,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "aXC" = (
@@ -254,7 +256,6 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "bex" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -270,7 +271,7 @@
 	dir = 4
 	},
 /obj/machinery/iff_beacon/name_change,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "bgb" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -285,10 +286,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
-"bgA" = (
-/obj/structure/closet/walllocker,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion)
 "bgK" = (
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
@@ -443,7 +440,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "bEt" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1
@@ -460,7 +456,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "bGx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -620,8 +616,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -646,8 +641,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
@@ -661,7 +655,7 @@
 "cos" = (
 /obj/structure/sign/flag/orion_express,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion)
+/area/ship/orion/bridge)
 "coK" = (
 /obj/effect/landmark/entry_point/port{
 	name = "starboard, lower commissary"
@@ -806,13 +800,13 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
 "deS" = (
@@ -913,8 +907,6 @@
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -944,6 +936,9 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/structure/closet/walllocker{
+	pixel_y = 30
+	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "dGE" = (
@@ -1033,8 +1028,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -1064,7 +1058,6 @@
 /turf/space/transit/north,
 /area/space)
 "exg" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1
@@ -1072,7 +1065,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "eBK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1483,7 +1476,6 @@
 	pixel_x = 32
 	},
 /obj/structure/cable/green{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/north,
@@ -1577,8 +1569,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1598,8 +1589,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1760,16 +1750,16 @@
 /area/ship/orion/atmos)
 "hKC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	name = "Maintenance";
 	req_access = list(201)
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor,
-/area/ship/orion/shop)
+/area/ship/orion/engie)
 "hNk" = (
 /obj/structure/cable{
 	dir = 1
@@ -2035,13 +2025,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
-"jqv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/template_noop,
-/area/ship/orion)
 "jsa" = (
 /obj/structure/sign/poster{
 	icon_state = "bsposter32";
@@ -2124,10 +2107,7 @@
 	pixel_x = 32
 	},
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -2138,12 +2118,8 @@
 /area/ship/orion/forehall)
 "jBp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/device/assembly/mousetrap/armed,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
@@ -2478,7 +2454,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "lTc" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2495,7 +2470,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "lXJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2615,19 +2590,13 @@
 	dir = 9
 	},
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "mgg" = (
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/orion/comms)
@@ -2703,10 +2672,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 8
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -2776,6 +2742,9 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -3077,8 +3046,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor,
@@ -3500,10 +3467,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -3638,10 +3602,7 @@
 "qRJ" = (
 /obj/effect/floor_decal/corner/dark_green,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -3720,12 +3681,10 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "rro" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "rrQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -3750,8 +3709,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -3882,8 +3840,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 8
+	icon_state = "2-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4141,8 +4098,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 8
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -4185,8 +4141,6 @@
 /area/shuttle/orion_shuttle)
 "sXW" = (
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4256,13 +4210,11 @@
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -4321,6 +4273,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/crew)
@@ -4521,9 +4476,6 @@
 /area/ship/orion/cargo)
 "ulP" = (
 /obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4531,15 +4483,17 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
 "uon" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "uqu" = (
 /obj/structure/cable/green{
@@ -4755,7 +4709,6 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion/thruster2)
 "vyi" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -4770,7 +4723,7 @@
 	pixel_x = -32;
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "vyy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4799,6 +4752,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4865,15 +4821,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
 "vKn" = (
@@ -4947,8 +4900,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4968,7 +4919,9 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/vending/engineering,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "vVF" = (
@@ -5003,8 +4956,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -5263,16 +5215,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "xnk" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/template_noop,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
 /area/ship/orion)
 "xnY" = (
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
@@ -5368,10 +5316,7 @@
 "xuX" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -5379,8 +5324,7 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/ship/orion/atmos)
@@ -33435,7 +33379,7 @@ xRX
 xRX
 xRX
 bex
-jqv
+rro
 xnk
 xRX
 xRX
@@ -33688,8 +33632,8 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
+gfT
+gfT
 rZA
 rZA
 rNJ
@@ -35490,9 +35434,9 @@ rZA
 yaV
 rZA
 rZA
-qBd
-qBd
-qBd
+qpX
+qpX
+qpX
 qpX
 dcS
 agB
@@ -35746,7 +35690,7 @@ nEg
 smG
 pBC
 wZf
-qBd
+rZA
 eCG
 tLA
 jWz
@@ -36003,7 +35947,7 @@ gDc
 sMm
 hfO
 cxr
-qBd
+rZA
 yfU
 lKs
 lKs
@@ -36260,7 +36204,7 @@ qqs
 uty
 xkx
 fmY
-qBd
+rZA
 wPe
 lKs
 lKs
@@ -36774,7 +36718,7 @@ phP
 ioB
 dvk
 vzU
-qBd
+rZA
 bVs
 lKs
 lKs
@@ -37031,7 +36975,7 @@ rBK
 pxl
 pBC
 qLl
-qBd
+rZA
 gqU
 lKs
 jgn
@@ -37046,7 +36990,7 @@ gHP
 gHP
 qpX
 qpX
-qBd
+qpX
 ddB
 oQn
 riA
@@ -37288,7 +37232,7 @@ aSO
 qTc
 pBC
 qbp
-qBd
+rZA
 oKe
 lKs
 aYo
@@ -37545,7 +37489,7 @@ rZA
 rZA
 vzk
 rZA
-qBd
+rZA
 qpX
 xWp
 qpX
@@ -39100,7 +39044,7 @@ dhX
 vtB
 ufB
 bXG
-qBd
+ssp
 fwA
 sSQ
 oEN
@@ -39356,8 +39300,8 @@ oMV
 xrl
 rxB
 soa
-qBd
-qBd
+ssp
+ssp
 fwA
 lYc
 riA
@@ -39613,7 +39557,7 @@ oMV
 oMV
 rxB
 nGj
-bgA
+ssp
 dFW
 qwu
 hlg
@@ -39870,7 +39814,7 @@ oNK
 sXW
 qRJ
 jsa
-qBd
+ssp
 sff
 wzY
 riA
@@ -40127,7 +40071,7 @@ wzK
 jyA
 vKn
 gHc
-qBd
+ssp
 vtR
 wzW
 riA
