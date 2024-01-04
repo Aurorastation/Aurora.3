@@ -212,10 +212,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"lz" = (
-/obj/effect/floor_decal/big/sol_full,
-/turf/template_noop,
-/area/space)
 "lI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -275,8 +271,13 @@
 /turf/simulated/floor/plating,
 /area/space)
 "oE" = (
-/obj/effect/floor_decal/big/ox_full,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/big/ox_full{
+	layer = 2.2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "oL" = (
 /turf/simulated/floor/tiled/dark/full,
@@ -558,10 +559,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/white/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/big/ox_full,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Cp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -743,7 +742,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Kz" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -827,7 +826,7 @@
 /area/space)
 "Ni" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "NA" = (
 /obj/item/hullbeacon/red,
@@ -904,7 +903,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Qp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1014,7 +1013,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/space)
 "UN" = (
@@ -1087,7 +1085,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Xe" = (
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -1124,7 +1122,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Yi" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -38612,7 +38610,7 @@ Zi
 Zi
 Zi
 Zi
-lz
+Zi
 Zi
 Zi
 yv
@@ -38880,9 +38878,9 @@ gV
 Yi
 NY
 Ab
-Qd
+td
 uE
-fU
+Qd
 oE
 ar
 td
@@ -39137,10 +39135,10 @@ FY
 td
 WE
 td
-WW
+td
 CO
-fU
-fU
+WW
+WW
 ED
 td
 WE
