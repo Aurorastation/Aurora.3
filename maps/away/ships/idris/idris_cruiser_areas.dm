@@ -168,6 +168,10 @@
 /area/shuttle/idris_cruiser_shuttle
 	name = "Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE
+
+/area/shuttle/idris_cruiser_shuttle/main
+	name = "Main Compartment"
 
 /area/shuttle/idris_cruiser_shuttle/engineering
 	name = "Engineering"
