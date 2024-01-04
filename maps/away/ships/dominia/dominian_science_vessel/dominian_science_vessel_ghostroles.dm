@@ -6,7 +6,7 @@
 	mob_name_prefix = "VDSMN. " //Voidsman
 
 	spawnpoints = list("house_volvalaad_voidsman")
-	max_count = 2
+	max_count = 1
 
 	outfit = /datum/outfit/admin/house_volvalaad_voidsman
 	possible_species = list(SPECIES_HUMAN)

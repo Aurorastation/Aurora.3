@@ -80,10 +80,20 @@
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/dominian_science_vessel/transit
+/obj/effect/shuttle_landmark/dominian_science_vessel/shuttle_transit
 	name = "In transit"
-	landmark_tag = "nav_transit_dominian_science_vessel"
-	base_turf = /turf/space/transit/north
+	landmark_tag = "nav_transit_dominian_science_shuttle"
+	base_turf = /turf/space/transit
+
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/port
+	name = "Dock, Port"
+	landmark_tag = "nav_dominian_science_dock_port"
+	docking_controller = "airlock_dominian_science_dock_port"
+
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/aft
+	name = "Dock, Aft"
+	landmark_tag = "nav_dominian_science_dock_aft"
+	docking_controller = "airlock_dominian_science_dock_aft"
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/dominian_science_shuttle
@@ -112,6 +122,7 @@
 	shuttle_area = list(/area/shuttle/dominian_science_shuttle)
 	current_location = "nav_hangar_dominian_science_vessel"
 	landmark_transition = "nav_transit_dominian_science_shuttle"
+	dock_target = "shuttleairlock"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_dominian_science_vessel"
