@@ -129,3 +129,38 @@
 	icon_state = "goblet"
 	icon = 'icons/obj/drink_glasses/goblet.dmi'
 	volume = 25
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+	name = "yunomi"
+	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \
+			This sort of teacup is popular on Konyang, owing to the Japanese origins of some of its population. \
+			This one is unglazed and the plain brownish-gray of the clay most often used on Konyang."
+	icon = 'icons/obj/teaware.dmi'
+	icon_state = "yunomi"
+	item_state = "yunomi"
+	contained_sprite = TRUE
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/grey
+	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \
+			This sort of teacup is popular on Konyang, owing to the Japanese origins of some of its population. \
+			This one is unglazed and a plain stone grey color."
+	icon_state = "yunomi-grey"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/pattern
+	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \
+			This sort of teacup is popular on Konyang, owing to the Japanese origins of some of its population. \
+			This one is glazed and has a simple abstract pattern."
+	icon_state = "yunomi-pattern"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/manila
+	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \
+			This sort of teacup is popular on Konyang, owing to the Japanese origins of some of its population. \
+			This one is glazed and a plain manila color."
+	icon_state = "yunomi-manila"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/nature
+	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \
+			This sort of teacup is popular on Konyang, owing to the Japanese origins of some of its population. \
+			This one is glazed and depicts a nature scene, showing trees native to Konyang."
+	icon_state = "yunomi-nature"
+

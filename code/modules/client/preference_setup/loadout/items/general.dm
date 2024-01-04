@@ -125,6 +125,59 @@
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
+/datum/gear/teacup
+	display_name = "tea cups"
+	description = "Tea cups in various designs."
+	cost = 1
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup
+
+/datum/gear/teacup/New()
+	..()
+	var/list/teacups = list()
+	teacups["plain tea cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup
+	teacups["clay yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+	teacups["grey yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/grey
+	teacups["glazed pattern yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/pattern
+	teacups["manila pattern yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/manila
+	teacups["nature pattern yunomi"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/nature
+
+	gear_tweaks += new /datum/gear_tweak/path(teacups)
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/teacup/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup/spawned_cup = .
+	if(istype(spawned_cup) && spawned_cup.reagents)
+		spawned_cup.reagents.set_temperature(T0C + 45)
+
+/datum/gear/chatins
+	display_name = "konyang-cha tins"
+	description = "Tins of tea leaves made by Konyang-cha."
+	cost = 1
+	path = /obj/item/storage/box/tea
+
+/datum/gear/chatins/New()
+	..()
+	var/list/chatins = list()
+	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
+	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
+	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
+	gear_tweaks += new /datum/gear_tweak/path(chatins)
+
+/datum/gear/teapots
+	display_name = "teapots"
+	description = "A selection of teapots."
+	cost = 1
+	path = /obj/item/reagent_containers/glass/beaker/teapot
+
+/datum/gear/teapots/New()
+	..()
+	var/list/teapots = list()
+	teapots["teapot"] = /obj/item/reagent_containers/glass/beaker/teapot
+	teapots["gaiwan"] = /obj/item/reagent_containers/glass/beaker/teapot/lidded
+	teapots["kyusu"] = /obj/item/reagent_containers/glass/beaker/teapot/lidded/kyusu
+	gear_tweaks += new /datum/gear_tweak/path(teapots)
+
 /datum/gear/banner
 	display_name = "banner selection"
 	path = /obj/item/flag
