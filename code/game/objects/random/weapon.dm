@@ -150,7 +150,6 @@
 		/obj/item/gun/projectile/automatic/x9,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/gun/energy/retro,
-		/obj/item/gun/projectile/revolver/konyang/pirate
 	)
 
 /obj/random/civgun/post_spawn(var/obj/item/gun/projectile/spawned)
@@ -210,9 +209,7 @@
 		/obj/item/gun/projectile/automatic/lebman,
 		/obj/item/gun/projectile/pistol/super_heavy,
 		/obj/item/gun/projectile/deagle,
-		/obj/item/gun/custom_ka/frame01/illegal,
-		/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle,
-		/obj/item/gun/projectile/automatic/konyang_pirate
+		/obj/item/gun/custom_ka/frame01/illegal
 	)
 
 /obj/random/vault_weapon
