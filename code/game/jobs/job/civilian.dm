@@ -238,7 +238,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
-		/obj/item/clothing/accessory/badge/press = 1
+		/obj/item/clothing/accessory/badge/press = 1,
 		/obj/item/device/tvcamera = 1
 	)
 
