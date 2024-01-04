@@ -95,7 +95,7 @@
 "aqS" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Gun Cabinet (Sidearms)";
-	req_access = list(225)
+	req_access = list(226)
 	},
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/gun/projectile/pistol/dominia,
@@ -1111,7 +1111,7 @@
 "dIe" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Gun Cabinet (SMGs)";
-	req_access = list(225)
+	req_access = list(226)
 	},
 /obj/item/gun/projectile/automatic/tommygun/dom,
 /obj/item/gun/projectile/automatic/tommygun/dom,
@@ -3128,7 +3128,7 @@
 /area/ship/dominian_science_vessel/port_propulsion)
 "liI" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(225);
+	req_access = list(226);
 	dir = 4;
 	name = "Captain's Quarters"
 	},
@@ -3703,7 +3703,7 @@
 "ntu" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Gun Cabinet (Rifles)";
-	req_access = list(225)
+	req_access = list(226)
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/item/gun/projectile/automatic/rifle/dominia,
@@ -4045,7 +4045,7 @@
 "oDy" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(225);
+	req_access = list(226);
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
@@ -4092,7 +4092,7 @@
 "oNi" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(225);
+	req_access = list(226);
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
@@ -5998,7 +5998,7 @@
 "wCU" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Gun Cabinet (Carbines)";
-	req_access = list(225)
+	req_access = list(226)
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine,
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine,
