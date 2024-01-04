@@ -20,7 +20,7 @@
 	camera.c_tag = channel
 	camera.status = FALSE
 	radio = new(src)
-	radio.listening = FALSE
+	radio.get_frequency(FALSE)
 	radio.set_frequency(ENT_FREQ)
 	GLOB.listening_objects += src
 	. = ..()
@@ -28,7 +28,7 @@
 /obj/item/device/tvcamera/examine(mob/user)
 	. = ..()
 	to_chat(user, "Video feed is currently: [camera.status ? "Online" : "Offline"]")
-	to_chat(user, "Audio feed is currently: [radio.broadcasting ? "Online" : "Offline"]")
+	to_chat(user, "Audio feed is currently: [radio.get_broadcasting() ? "Online" : "Offline"]")
 
 /obj/item/device/tvcamera/attack_self(mob/user)
 	add_fingerprint(user)
@@ -36,8 +36,8 @@
 	var/dat = list()
 	dat += "Channel name is: <a href='?src=\ref[src];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
 	dat += "Video streaming is: <a href='?src=\ref[src];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
-	dat += "Microphone is: <a href='?src=\ref[src];sound=1'>[radio.broadcasting ? "Online" : "Offline"]</a><br>"
-	dat += "Sound is being broadcasted on frequency: [format_frequency(radio.frequency)] ([get_frequency_name(radio.frequency)])<br>"
+	dat += "Microphone is: <a href='?src=\ref[src];sound=1'>[radio.get_broadcasting() ? "Online" : "Offline"]</a><br>"
+	dat += "Sound is being broadcasted on frequency: [format_frequency(radio.get_frequency())] ([get_frequency_name(radio.get_frequency())])<br>"
 	var/datum/browser/popup = new(user, "Press Camera Drone", "EyeBuddy", 300, 390, src)
 	popup.set_content(jointext(dat,null))
 	popup.open()
@@ -60,8 +60,8 @@
 		update_icon()
 	if(href_list["sound"])
 		radio.set_broadcasting(!radio.get_broadcasting())
-		if(radio.broadcasting)
-			to_chat(usr,"<span class='notice'>Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.frequency)].</span>")
+		if(radio.get_broadcasting())
+			to_chat(usr,"<span class='notice'>Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.get_frequency())].</span>")
 		else
 			to_chat(usr,"<span class='notice'>Audio streaming: Deactivated.</span>")
 	if(!href_list["close"])
