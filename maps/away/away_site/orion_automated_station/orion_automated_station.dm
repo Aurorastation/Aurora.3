@@ -9,7 +9,7 @@
 	id = "orion_automated_station" // arbitrary tag to make things work, this should be lowercase and unique
 	spawn_cost = 1
 	spawn_weight = 1
-	suffixes = list("away_site/abandoned_industrial/orion_automated_station.dmm")
+	suffixes = list("away_site/orion_automated_station/orion_automated_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
@@ -19,7 +19,7 @@
 	descriptor = "Orion Express Automated Station"
 
 /obj/effect/overmap/visitable/sector/orion_automated_station // this is the actual overmap object that spawns at roundstart
-	name = "Orion Express Automated Station" // this and desc is visible ingame when the object is scanned by any scanner
+	name = "Orion Express Automated Station (replaced in /New())" // this and desc is visible ingame when the object is scanned by any scanner
 	desc = "."
 	icon_state = "ox_auto_station"
 
@@ -47,6 +47,10 @@
 		"nav_ox_auto_station_space_south_east",
 		"nav_ox_auto_station_space_south_west",
 	)
+
+/obj/effect/overmap/visitable/sector/orion_automated_station/New()
+	designation = "[pick("Orion Express Automated Station #6282", "Orion Express Automated Station #1112", "Orion Express Automated Station #0091", "Orion Express Automated Station #9123", "Orion Express Automated Station #0157", "Orion Express Automated Station Zeta", "Orion Express Automated Station Kilo", "Orion Express Automated Station Uniform", "Orion Express Automated Station Whiskey")]"
+	..()
 
 // -------------------------------- landmarks docks
 
@@ -121,6 +125,14 @@
 /area/orion_automated_station/center
 	name = "Central Hallway/Docks"
 	icon_state = "hallC"
+	area_blurb = "\
+	You hear a robotic voice coming from cheap ceiling-mounted speakers: \
+	'Welcome to the Orion Express Automated Station, where you may rest, exchange packages, and use any other of our facilities.' <br><br>\
+	The voice stops, and shortly after played is a short jingle, with the same robotic voice speaking: \
+	'Faster than light. Orion Express. No better choice here or anywhere.' <br><br>\
+	And after a longer pause, once again: \
+	'Any attempt to vandalize this station will have a bounty placed on your ship and crew. Your IFF was logged upon docking.' \
+	"
 
 /area/orion_automated_station/east
 	name = "East Hallway/Docks"
@@ -133,10 +145,21 @@
 /area/orion_automated_station/storage
 	name = "Crates/Canisters Storage"
 	icon_state = "storage"
+	area_blurb = "\
+	You hear a robotic voice: \
+	'You may borrow any of the crates or canisters here, and return them later, free of charge. \
+	Any damages will be deducted from your Orion Express account.'\
+	"
 
 /area/orion_automated_station/packages
 	name = "Packages Storage"
 	icon_state = "storage"
+	area_blurb = "\
+	You hear a robotic voice: \
+	'You may leave your packages here, or take the packages to deliver elsewhere. \
+	Remember, you get a 2% tip on successful delivery based on the value of the package. \
+	Without you, there is no Orion Express.'\
+	"
 
 /area/orion_automated_station/engineering
 	name = "Engineering"

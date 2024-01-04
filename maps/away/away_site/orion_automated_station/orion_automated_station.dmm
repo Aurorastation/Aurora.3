@@ -98,11 +98,6 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/random/junk,
-/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/storage)
 "dw" = (
@@ -767,6 +762,7 @@
 	pixel_y = 32;
 	pixel_x = 16
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
 "pf" = (
@@ -834,7 +830,7 @@
 /area/orion_automated_station/storage)
 "rf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/storage)
 "rD" = (
@@ -1122,6 +1118,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/center)
+"yQ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/cargo_backpack,
+/turf/simulated/floor/tiled/dark,
+/area/orion_automated_station/packages)
 "zq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1611,6 +1612,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
 "HI" = (
@@ -1790,6 +1792,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
 "La" = (
@@ -1935,6 +1938,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
+"MU" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/orion_automated_station/storage)
 "Nh" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2273,6 +2286,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
 "SN" = (
@@ -2455,6 +2469,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/west)
 "Vh" = (
@@ -2610,6 +2625,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
 "Yn" = (
@@ -2648,6 +2664,7 @@
 "YI" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux,
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
 "YJ" = (
@@ -2655,6 +2672,11 @@
 /area/orion_automated_station/west)
 "Zc" = (
 /turf/simulated/floor/tiled/dark/full,
+/area/orion_automated_station/storage)
+"Ze" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/storage)
 "Zi" = (
 /turf/template_noop,
@@ -37254,7 +37276,7 @@ jU
 jU
 NV
 bt
-WM
+yQ
 Do
 TO
 oL
@@ -37267,7 +37289,7 @@ TU
 Zc
 Xm
 na
-lu
+Ze
 lu
 aw
 jU
@@ -37779,7 +37801,7 @@ td
 rb
 Qp
 Zc
-Pk
+MU
 rb
 ax
 ax
