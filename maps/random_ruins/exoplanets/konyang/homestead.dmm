@@ -7,7 +7,7 @@
 "cr" = (/obj/structure/flora/rock/konyang/small,/obj/structure/railing/fence{dir = 8; pixel_x = -1},/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "cv" = (/obj/machinery/appliance/cooker/oven,/turf/simulated/floor/lino/diamond,/area/konyang_homestead)
 "cB" = (/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"de" = (/obj/structure/flora/ausbushes/sparsegrass,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"},/turf/simulated/floor/exoplanet/konyang,/area/konyang_homestead)
+"de" = (/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "dr" = (/obj/structure/lattice/catwalk/indoor/tatami{dir = 1},/turf/simulated/floor/wood,/area/konyang_homestead)
 "ek" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/obj/random/dirt_75,/obj/structure/railing/fence{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "fe" = (/obj/structure/lattice/catwalk/indoor/planks/stairs{dir = 1},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
@@ -23,6 +23,7 @@
 "hV" = (/obj/structure/chainlink_fence{dir = 4},/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/konyang_homestead)
 "iW" = (/obj/structure/flora/tree/konyang/spring,/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "jj" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/konyang_homestead)
+"jE" = (/obj/random/dirt_75,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "jI" = (/obj/structure/lattice/catwalk/indoor/planks/opaque,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "jS" = (/obj/structure/railing/fence{dir = 4},/obj/structure/railing/fence,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "kr" = (/obj/structure/closet/secure_closet/freezer/fridge{pixel_x = -8},/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/fish,/obj/item/reagent_containers/food/snacks/moss_dumplings,/obj/item/reagent_containers/food/snacks/moss_dumplings,/obj/item/reagent_containers/food/snacks/mossbowl,/obj/item/reagent_containers/food/snacks/mossbowl,/turf/simulated/floor/lino/diamond,/area/konyang_homestead)
@@ -54,7 +55,7 @@
 "uN" = (/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/konyang_homestead)
 "uS" = (/obj/structure/railing/fence{dir = 8; pixel_x = -1},/obj/structure/closet/crate/hydroponics,/obj/item/material/hatchet,/obj/item/material/hatchet,/obj/item/material/minihoe,/obj/item/material/minihoe,/obj/item/reagent_containers/glass/bucket/wood,/obj/item/reagent_containers/glass/bucket/wood,/obj/item/wirecutters/clippers,/obj/item/wirecutters/clippers,/turf/simulated/floor/exoplanet/konyang,/area/konyang_homestead)
 "uT" = (/obj/structure/table/rack/clothing{layer = 3.1},/obj/item/clothing/under/konyangdresstraditional/red,/obj/item/clothing/under/konyangdresstraditional/national/vest,/obj/structure/window/urban{dir = 8},/obj/effect/floor_decal/spline/fancy/wood{dir = 4},/turf/simulated/floor/wood,/area/konyang_homestead)
-"vm" = (/obj/random/dirt_75,/obj/item/storage/toolbox/mechanical{pixel_x = 6; pixel_y = 14},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"vm" = (/obj/random/dirt_75,/obj/item/storage/toolbox/mechanical{pixel_x = 6; pixel_y = 14},/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "vu" = (/obj/effect/map_effect/window_spawner/full/wood,/turf/simulated/floor/wood,/area/konyang_homestead)
 "wd" = (/obj/structure/lattice/catwalk/indoor/planks/opaque,/obj/structure/railing/fence{dir = 4},/obj/structure/bed/stool/bamboo,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "ws" = (/obj/structure/lattice/catwalk/indoor/planks/opaque,/obj/structure/railing/fence{dir = 4},/obj/structure/table/rack/cafe_table,/obj/item/clothing/head/konyang{pixel_y = 4; pixel_x = -2},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
@@ -64,10 +65,10 @@
 "xi" = (/obj/effect/floor_decal/konyang_flowers,/turf/simulated/floor/exoplanet/konyang,/area/exoplanet/grass/konyang)
 "xq" = (/obj/structure/table/rack/clothing{layer = 3.1},/obj/item/clothing/suit/storage/hooded/wintercoat/konyang{pixel_y = 9},/obj/item/clothing/suit/storage/hooded/wintercoat/konyang{pixel_y = 5},/obj/structure/window/urban{dir = 8},/obj/effect/floor_decal/spline/fancy/wood{dir = 4},/turf/simulated/floor/wood,/area/konyang_homestead)
 "xV" = (/obj/structure/lattice/catwalk/indoor/planks/stairs{dir = 8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
-"yf" = (/obj/effect/map_effect/window_spawner/full/wood,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"yf" = (/obj/effect/map_effect/window_spawner/full/wood,/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "yZ" = (/obj/machinery/door/urban,/turf/simulated/floor/tiled/white,/area/konyang_homestead)
 "zf" = (/obj/structure/lattice/catwalk/indoor/planks/opaque,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
-"zM" = (/obj/structure/table/wood/bamboo,/obj/random/dirt_75,/obj/item/storage/firstaid/regular{pixel_y = 8; pixel_x = -5},/obj/item/reagent_containers/glass/bucket/wood{pixel_x = -6},/obj/item/reagent_containers/glass/bucket/wood{pixel_x = 8; pixel_y = 11},/obj/item/mop{pixel_x = 3; pixel_y = -13},/obj/item/shovel{pixel_y = -8},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"zM" = (/obj/structure/table/wood/bamboo,/obj/random/dirt_75,/obj/item/storage/firstaid/regular{pixel_y = 8; pixel_x = -5},/obj/item/reagent_containers/glass/bucket/wood{pixel_x = -6},/obj/item/reagent_containers/glass/bucket/wood{pixel_x = 8; pixel_y = 11},/obj/item/mop{pixel_x = 3; pixel_y = -13},/obj/item/shovel{pixel_y = -8},/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "zX" = (/obj/structure/chainlink_fence{dir = 1},/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/konyang_homestead)
 "zY" = (/obj/machinery/appliance/cooker/stove,/obj/machinery/appliance/cooker/stove,/turf/simulated/floor/lino/diamond,/area/konyang_homestead)
 "Bs" = (/obj/structure/chainlink_fence{dir = 1},/obj/random/dirt_75,/obj/random/junk,/obj/random/junk,/obj/structure/closet/crate/bin,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
@@ -86,12 +87,12 @@
 "Em" = (/obj/structure/table/rack{pixel_x = -5},/obj/item/toy/comic/inspector,/obj/item/toy/comic/inspector,/obj/item/toy/comic/inspector,/obj/item/toy/comic/inspector,/obj/item/melee/energy/sword/knife,/obj/item/material/knife/butterfly,/turf/simulated/floor/wood,/area/konyang_homestead)
 "Eu" = (/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
 "Ez" = (/obj/structure/lattice/catwalk/indoor/tatami{dir = 8},/obj/machinery/light{dir = 1},/obj/item/clothing/shoes/sandals/geta{color = "#964B00"},/turf/simulated/floor/wood,/area/konyang_homestead)
-"EA" = (/obj/structure/table/wood/bamboo,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/obj/item/seeds/cabbageseed,/obj/item/seeds/cabbageseed,/obj/item/seeds/cabbageseed,/obj/item/seeds/chiliseed,/obj/item/seeds/chiliseed,/obj/item/seeds/chiliseed,/obj/item/seeds/cornseed,/obj/item/seeds/cornseed,/obj/item/seeds/cornseed,/obj/item/seeds/garlicseed,/obj/item/seeds/garlicseed,/obj/item/seeds/garlicseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/peanutseed,/obj/item/seeds/peanutseed,/obj/item/seeds/peanutseed,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/storage/box/shotgunshells,/obj/item/storage/box/shotgunshells,/obj/item/gun/projectile/shotgun/doublebarrel/pellet,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"EA" = (/obj/structure/table/wood/bamboo,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/obj/item/seeds/cabbageseed,/obj/item/seeds/cabbageseed,/obj/item/seeds/cabbageseed,/obj/item/seeds/chiliseed,/obj/item/seeds/chiliseed,/obj/item/seeds/chiliseed,/obj/item/seeds/cornseed,/obj/item/seeds/cornseed,/obj/item/seeds/cornseed,/obj/item/seeds/garlicseed,/obj/item/seeds/garlicseed,/obj/item/seeds/garlicseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/peanutseed,/obj/item/seeds/peanutseed,/obj/item/seeds/peanutseed,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/seaweed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/mossseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/storage/box/shotgunshells,/obj/item/storage/box/shotgunshells,/obj/item/gun/projectile/shotgun/doublebarrel/pellet,/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "Fh" = (/obj/machinery/door/urban,/turf/simulated/floor/wood,/area/konyang_homestead)
 "FD" = (/obj/structure/lattice/catwalk/indoor/planks/opaque,/obj/structure/railing/fence{dir = 1},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "FI" = (/obj/structure/chainlink_fence{layer = 9.1},/turf/simulated/floor/exoplanet/konyang,/area/konyang_homestead)
 "FN" = (/turf/simulated/floor/exoplanet/konyang/wilting,/area/exoplanet/grass/konyang)
-"FO" = (/obj/structure/table/wood/bamboo,/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = 9; pixel_y = 15},/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = 9; pixel_y = 10},/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = -6; pixel_y = 16},/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = -6; pixel_y = 10},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"FO" = (/obj/structure/table/wood/bamboo,/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = 9; pixel_y = 15},/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = 9; pixel_y = 10},/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = -6; pixel_y = 16},/obj/item/reagent_containers/glass/fertilizer/ez{pixel_x = -6; pixel_y = 10},/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "Gn" = (/turf/simulated/floor/wood,/area/konyang_homestead)
 "Gp" = (/obj/structure/chainlink_fence{dir = 4},/obj/structure/chainlink_fence{dir = 1},/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang,/area/konyang_homestead)
 "IL" = (/obj/effect/decal/cleanable/generic/beet_tree_petals,/obj/structure/flora/tree/konyang/blossom,/turf/simulated/floor/exoplanet/konyang/pink,/area/exoplanet/grass/konyang)
@@ -102,7 +103,7 @@
 "LQ" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "MB" = (/obj/structure/closet/crate/bin/urban/dumpster,/obj/item/trash/candy,/obj/item/trash/cheesie,/obj/item/trash/can,/obj/item/trash/leaf,/obj/item/trash/match,/obj/item/trash/mollusc_shell/clam,/obj/item/trash/plate,/obj/item/trash/seaweed,/obj/item/paper/crumpled,/obj/item/broken_bottle,/obj/random/junk,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "MP" = (/obj/random/dirt_75,/obj/structure/trash_pile,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
-"Ng" = (/obj/machinery/door/urban,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"Ng" = (/obj/machinery/door/urban,/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "Ni" = (/obj/structure/table/stone/marble,/obj/item/trash/dipbowl{pixel_x = 5; pixel_y = 10},/obj/item/material/kitchen/utensil/knife{pixel_x = -8},/turf/simulated/floor/lino/diamond,/area/konyang_homestead)
 "Nj" = (/obj/structure/railing/fence,/obj/structure/flora/rock/konyang/small,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "NE" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
@@ -130,7 +131,7 @@
 "TJ" = (/obj/machinery/light{dir = 8},/obj/structure/coatrack{pixel_x = -6},/turf/simulated/floor/wood,/area/konyang_homestead)
 "Ut" = (/obj/random/dirt_75,/obj/machinery/portable_atmospherics/hydroponics/soil,/obj/effect/decal/fake_object/light_source/invisible{light_color = "#ffffff"},/obj/machinery/portable_atmospherics/hydroponics/soil{pixel_y = 16},/obj/structure/flora/ausbushes/brflowers,/turf/simulated/floor/exoplanet/dirt_konyang,/area/exoplanet/grass/konyang)
 "Uy" = (/obj/structure/chainlink_fence{dir = 4},/obj/structure/flora/bush/konyang_reeds,/turf/simulated/floor/exoplanet/konyang/wilting,/area/konyang_homestead)
-"Vb" = (/obj/structure/table/wood/bamboo,/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = 9; pixel_y = 15},/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = -5; pixel_y = 15},/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = 9; pixel_y = 8},/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = -5; pixel_y = 8},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
+"Vb" = (/obj/structure/table/wood/bamboo,/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = 9; pixel_y = 15},/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = -5; pixel_y = 15},/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = 9; pixel_y = 8},/obj/item/reagent_containers/glass/fertilizer/rh{pixel_x = -5; pixel_y = 8},/obj/random/dirt_75,/turf/simulated/floor/exoplanet/dirt_konyang/cave,/area/konyang_homestead)
 "Vt" = (/obj/structure/lattice/catwalk/indoor/planks/opaque,/obj/structure/railing/fence,/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
 "VU" = (/obj/structure/flora/rock/konyang/water,/obj/structure/flora/bush/konyang_reeds/water,/turf/simulated/floor/exoplanet/water/shallow/konyang,/area/konyang_homestead)
 "We" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/obj/structure/railing/fence{dir = 4},/turf/simulated/floor/exoplanet/dirt_konyang,/area/konyang_homestead)
@@ -153,9 +154,9 @@ mhxiQsaWZngPgPPogPgPFNQsaWaWaWaWaWQsZnZngPgPgPZnxiPdmhQsQYQs
 QsSsZnaWaWFNgPgPgPgPgPEuQspZmhmhximhBVWFFNZnlgQsaWaWaWaWmhxi
 xioVFNQsaWmhZnZnZngPgPZnaWaWXUBOBsPzPzyfPzPzZzTfTfTfPcVUaWQs
 QsFNQsxiaWaWQsQsmhZnFNxicBhpPrMPMBPzzMvmFOPzQNQNPcPcPcuNQsaW
-FNEuaWQsQsmhmJpZQsPzPzPzPzvuvuvuPzPzEAkzVbPzpXawEkEkzXGpxiSs
-mhQsxiQsmhQsaWaWmhPzOWPzcvOjzYNikrPzPzNgyfPzTfDvTfTfTfhVQsmh
-QsaWaWmhiWZnZnFNQYPzyZPzslslslslDRPzTfkzdeTfNELQLQWekzgxQsaW
+FNEuaWQsQsmhmJpZQsPzPzPzPzvuvuvuPzPzEAdeVbPzpXawEkEkzXGpxiSs
+mhQsxiQsmhQsaWaWmhPzOWPzcvOjzYNikrPzPzNgPzPzTfDvTfTfTfhVQsmh
+QsaWaWmhiWZnZnFNQYPzyZPzslslslslDRPzTfjEZzTfNELQLQWekzgxQsaW
 ximhaWaWFNgPgPgPFNPzGnGnGnrlqjGnoPPzTftoWLkzkzNjCvgnkzgkmhZn
 aWQsEuZngPkwgPgPZnPzTJGnGnGnGnGnxePzgJfeuSNEkzLQLQWekztpBVZn
 aWZngPgPgPZcgPgPZnPzWQrlqjrAGnGndrSUFDjIcnZzkzBvBvgnNEUyaWFN
