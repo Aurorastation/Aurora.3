@@ -16,6 +16,8 @@ var/datum/antagonist/revenant/revenants = null
 	var/kill_count = 0
 	var/obj/effect/portal/revenant/revenant_rift
 
+	has_idris_account = FALSE
+
 /datum/antagonist/revenant/New()
 	..()
 

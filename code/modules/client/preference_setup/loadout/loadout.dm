@@ -41,27 +41,58 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
 	S["gear_list"] >> pref.gear_list
-	if(pref.gear_list!=null && pref.gear_slot!=null)
-		pref.gear = pref.gear_list["[pref.gear_slot]"]
-	else
-		S["gear"] >> pref.gear
+
+/datum/category_item/player_setup_item/loadout/load_character_special(var/savefile/S)
+	pref.gear_modified = FALSE
+	//Query the ss13_characters_gear table
+	if(GLOB.config.sql_saves && establish_db_connection(GLOB.dbcon))
+		var/fetched_gear = list()
+
+		var/DBQuery/character_gear_query = GLOB.dbcon.NewQuery("SELECT slot, name, tweaks FROM ss13_characters_gear WHERE char_id = :char_id:")
+		character_gear_query.Execute(list("char_id"=pref.current_character))
+		while(character_gear_query.NextRow())
+			CHECK_TICK
+			var/slot = character_gear_query.item[1]
+			var/name = character_gear_query.item[2]
+
+			if(!fetched_gear[slot])
+				fetched_gear[slot] = list()
+
+			var/tweaks = list()
+			if(character_gear_query.item[3])
+				tweaks = json_decode(character_gear_query.item[3])
+
+			fetched_gear[slot][name]=tweaks
+
+		pref.gear_list = fetched_gear
+	return
+
+/datum/category_item/player_setup_item/loadout/save_character_special(var/savefile/S)
+	//Persist the loadout to the database
+	if(GLOB.config.sql_saves && establish_db_connection(GLOB.dbcon) && pref.gear_modified)
+		var/gear_string = json_encode(pref.gear_list["[pref.gear_slot]"])
+		var/DBQuery/character_gear_save_query = GLOB.dbcon.NewQuery("CALL `update_character_gear`(:char_id:, :slot_id:, :gear_data:)")
+		character_gear_save_query.Execute(list("char_id"=pref.current_character,"slot_id"=pref.gear_slot,"gear_data"=gear_string))
+		pref.gear_modified = FALSE
+	return
 
 /datum/category_item/player_setup_item/loadout/save_character(var/savefile/S)
 	pref.gear_list["[pref.gear_slot]"] = pref.gear
 	to_file(S["gear_list"], pref.gear_list)
 	to_file(S["gear_slot"], pref.gear_slot)
 
+/datum/category_item/player_setup_item/loadout/gather_load_query()
+	return list("ss13_characters" = list("vars" = list("gear_slot"), "args" = list("id")))
+
 /datum/category_item/player_setup_item/loadout/gather_load_parameters()
 	return list("id" = pref.current_character)
 
-/datum/category_item/player_setup_item/loadout/gather_load_query()
-	return list("ss13_characters" = list("vars" = list("gear" = "gear_list", "gear_slot"), "args" = list("id")))
-
 /datum/category_item/player_setup_item/loadout/gather_save_query()
-	return list("ss13_characters" = list("gear", "gear_slot", "id" = 1, "ckey" = 1))
+	return list("ss13_characters" = list("gear_slot", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
-	return list("gear" = json_encode(pref.gear_list), "gear_slot" = pref.gear_slot, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
+	return list("gear_slot" = pref.gear_slot, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
+
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
@@ -131,7 +162,7 @@ var/list/gear_datums = list()
 			pref.gear -= gear_name
 		else
 			var/datum/gear/G = gear_datums[gear_name]
-			if(total_cost + G.cost > MAX_GEAR_COST)
+			if(total_cost + G.cost > GLOB.config.loadout_cost)
 				pref.gear -= gear_name
 				to_chat(preference_mob, "<span class='warning'>You cannot afford to take \the [gear_name]</span>")
 			else
@@ -146,13 +177,13 @@ var/list/gear_datums = list()
 				total_cost += G.cost
 
 	var/fcolor =  "#3366CC"
-	if(total_cost < MAX_GEAR_COST)
+	if(total_cost < GLOB.config.loadout_cost)
 		fcolor = "#E67300"
 	. = list()
 	. += "<table align = 'center' width = 100%>"
 	if (gear_reset)
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
-	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[GLOB.config.loadout_cost]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -307,6 +338,7 @@ var/list/gear_datums = list()
 
 /datum/category_item/player_setup_item/loadout/OnTopic(href, href_list, user)
 	if(href_list["toggle_gear"])
+		pref.gear_modified = TRUE
 		var/datum/gear/TG = gear_datums[href_list["toggle_gear"]]
 		if(TG.display_name in pref.gear)
 			pref.gear -= TG.display_name
@@ -315,10 +347,11 @@ var/list/gear_datums = list()
 			for(var/gear_name in pref.gear)
 				var/datum/gear/G = gear_datums[gear_name]
 				if(istype(G)) total_cost += G.cost
-			if((total_cost+TG.cost) <= MAX_GEAR_COST)
+			if((total_cost+TG.cost) <= GLOB.config.loadout_cost)
 				pref.gear += TG.display_name
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	if(href_list["gear"] && href_list["tweak"])
+		pref.gear_modified = TRUE
 		var/datum/gear/gear = gear_datums[href_list["gear"]]
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
 		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
@@ -330,6 +363,9 @@ var/list/gear_datums = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	if(href_list["next_slot"] || href_list["prev_slot"])
+		if(pref.gear_modified)
+			tgui_alert(user, "Gear has been Modified - Save First or Reload", "Gear Modified", list("OK"))
+			return TOPIC_NOACTION
 		//Set the current slot in the gear list to the currently selected gear
 		pref.gear_list["[pref.gear_slot]"] = pref.gear
 
@@ -357,12 +393,16 @@ var/list/gear_datums = list()
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
 		return TOPIC_REFRESH
+
 	else if(href_list["clear_loadout"])
+		pref.gear_modified = TRUE
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	else if(href_list["search_input_refresh"] != null) // empty str is false
 		search_input_value = sanitize(href_list["search_input_refresh"], 100)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	return ..()
 
 /datum/gear

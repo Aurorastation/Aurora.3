@@ -5,6 +5,9 @@ SUBSYSTEM_DEF(misc_late)
 	init_order = SS_INIT_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
+	/// this is a list of things that fire when late misc init is called
+	var/list/late_misc_firers
+
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
 	// Setup the teleport locs.
 	for(var/area/AR as anything in GLOB.the_station_areas)
@@ -27,9 +30,9 @@ SUBSYSTEM_DEF(misc_late)
 	populate_code_phrases()
 
 	// this covers mapped in drone fabs
-	for(var/atom/thing as anything in SSatoms.late_loaders)
+	for(var/atom/thing as anything in late_misc_firers)
 		thing.do_late_fire()
-		LAZYREMOVE(SSatoms.late_loaders, thing)
+		LAZYREMOVE(late_misc_firers, thing)
 
 	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(TRUE)

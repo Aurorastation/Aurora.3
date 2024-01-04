@@ -21,6 +21,7 @@
 	name = "Konyang Army Telecomm Operator"
 	desc = "Man a telecommunications relay on Konyang. (OOC Note: All characters must be of Konyang ethnic origin and background, this is enforceable by admin/moderator action.)"
 	tags = list("External")
+	mob_name_prefix = "SPC. "
 	welcome_message = "You are a soldier of the Konyang Army, monitoring and operating a remote telecommunications relay."
 
 	spawnpoints = list("konyang_telecomms")
@@ -35,10 +36,23 @@
 	special_role = "Konyang Army Telecomm Operator"
 	respawn_flag = null
 
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
+	origin_restriction = list(/singleton/origin_item/origin/konyang)
+
 /datum/outfit/admin/konyang_army
 	name = "Konyang Army"
 	uniform = /obj/item/clothing/under/rank/konyang
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/army
 	l_pocket = /obj/item/storage/wallet/random
+	r_pocket = /obj/item/device/radio
 	back = /obj/item/storage/backpack/rucksack/green
+	id = /obj/item/card/id/konyang_army
+
+/datum/outfit/admin/konyang_army/get_id_access()
+	return list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+
+/obj/item/card/id/konyang_army
+	name = "konyang army id"
+	access = list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+

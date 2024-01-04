@@ -92,7 +92,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "bf" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -360,7 +363,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "cM" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -422,7 +428,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(223,224)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -670,7 +677,9 @@
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/item/device/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
 "fF" = (
@@ -1049,8 +1058,8 @@
 	tag = "gadpathur_corvette_dock";
 	tag_exterior_sensor = "gadpathur_corvette_dock_sensor_exterior";
 	tag_interior_sensor = "gadpathur_corvette_dock_sensor_interior";
-	req_access = list(13);
-	id_tag = "gadpathur_corvette_dock"
+	id_tag = "gadpathur_corvette_dock";
+	req_one_access = list(223,224)
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -1086,7 +1095,10 @@
 	pixel_y = 9
 	},
 /obj/item/storage/firstaid/surgery,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/light,
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
@@ -1100,7 +1112,9 @@
 /area/ship/gadpathur_patrol/ward)
 "jt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/atmos)
 "jy" = (
@@ -1202,7 +1216,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/corridor/starboard)
 "kb" = (
@@ -1235,7 +1251,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/light/floor{
 	dir = 1
 	},
@@ -1339,7 +1358,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "kJ" = (
-/obj/machinery/door/airlock/multi_tile/glass/gadpathur,
+/obj/machinery/door/airlock/multi_tile/glass/gadpathur{
+	dir = 8
+	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/corridor/port)
@@ -1359,7 +1380,10 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/galley)
 "kQ" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/light/floor{
 	dir = 1
 	},
@@ -1591,7 +1615,10 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/fuel)
 "mI" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1759,7 +1786,10 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/gadpathur_shuttle)
 "oy" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -1855,7 +1885,9 @@
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
 "ps" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/light/floor{
 	dir = 8
@@ -2149,7 +2181,10 @@
 	pixel_y = 31
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_one_access = list(223,224);
+	req_access = null
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2261,7 +2296,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/interrogation)
@@ -2552,7 +2590,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -2627,7 +2668,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/ward)
 "uE" = (
@@ -2664,7 +2707,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/quarters_bath)
 "uY" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
@@ -2676,7 +2722,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -2788,7 +2837,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/brig)
 "wN" = (
@@ -2947,7 +2998,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/officer_bath)
 "xJ" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(223,224)
+	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3004,7 +3057,9 @@
 	},
 /area/ship/gadpathur_patrol/thrusters/port)
 "yb" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3016,7 +3071,10 @@
 /area/ship/gadpathur_patrol/armory)
 "ys" = (
 /obj/machinery/light/floor,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224);
+	dir = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/longbow)
 "yE" = (
@@ -3096,7 +3154,9 @@
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
 "zg" = (
-/obj/machinery/alarm/cold/north,
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -3109,12 +3169,20 @@
 /obj/machinery/atmospherics/binary/pump/fuel/on{
 	dir = 1
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224);
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = 20
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
 	pixel_y = 0
@@ -3225,7 +3293,10 @@
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "zW" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/light/floor{
 	dir = 4
 	},
@@ -3482,7 +3553,9 @@
 	name = "bottom bunk"
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(223,224)
+	},
 /obj/item/bedsheet/brown,
 /obj/machinery/light/small{
 	dir = 4
@@ -3556,7 +3629,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "Cy" = (
@@ -3631,7 +3706,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "CN" = (
-/obj/machinery/alarm/tcom/east,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224);
+	dir = 4;
+	pixel_x = 10
+	},
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -3645,7 +3724,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -3653,7 +3735,10 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
 "Dk" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -3695,7 +3780,9 @@
 /area/ship/gadpathur_patrol/eva)
 "Du" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(223,224)
+	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
@@ -3845,7 +3932,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(223,224)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3911,7 +3999,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/gadpathur_patrol/morgue)
@@ -4057,7 +4148,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/francisca)
 "FX" = (
@@ -4192,7 +4282,9 @@
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/quarters_bath)
 "Hy" = (
@@ -4273,13 +4365,17 @@
 /area/ship/gadpathur_patrol/fuel)
 "Io" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
-	pixel_y = 32
+/obj/machinery/alarm/south{
+	req_one_access = list(223,224);
+	dir = 1;
+	pixel_y = 20
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/francisca)
+"Ip" = (
+/obj/machinery/computer/cryopod,
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
+/area/ship/gadpathur_patrol/quarters_bath)
 "Iq" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4328,7 +4424,10 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/officer_bath)
 "IF" = (
@@ -4394,11 +4493,16 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/cryo)
 "Jh" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -4460,7 +4564,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
 "JK" = (
@@ -4648,8 +4754,8 @@
 	tag_exterior_sensor = "gadpathur_starboard_airlock_sensor_exterior";
 	tag_interior_door = "gadpathur_starboard_airlock_door_interior";
 	tag_interior_sensor = "gadpathur_starboard_airlock_sensor_interior";
-	req_access = list(13);
-	id_tag = "gadpathur_starboard_airlock"
+	id_tag = "gadpathur_starboard_airlock";
+	req_one_access = list(223,224)
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -4673,7 +4779,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/quarters_bath)
 "Ll" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -4706,6 +4815,11 @@
 "LJ" = (
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/armanent/longbow)
+"LK" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/gadpathur_patrol/armanent/francisca)
 "LM" = (
 /obj/effect/shuttle_landmark/gadpathur_patrol/nav3{
 	dir = 8
@@ -4794,7 +4908,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/corridor/starboard)
 "Mz" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/autolathe,
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -4929,8 +5046,8 @@
 	tag_interior_door = "gadpathur_port_airlock_door_in";
 	tag_interior_sensor = "gadpathur_port_airlock_sensor_in";
 	frequency = 1391;
-	req_access = list(13);
-	id_tag = "gadpathur_port_airlock"
+	id_tag = "gadpathur_port_airlock";
+	req_one_access = list(223,224)
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
 	dir = 1;
@@ -5105,12 +5222,17 @@
 /obj/machinery/atmospherics/binary/pump/fuel/on{
 	dir = 1
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -5304,7 +5426,10 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "QC" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -5316,7 +5441,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/corridor/port)
 "QL" = (
@@ -5384,7 +5511,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/galley)
 "Ro" = (
@@ -5449,7 +5578,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224);
+	dir = 4;
+	pixel_x = 10
+	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/fuel)
@@ -5815,7 +5948,9 @@
 	pixel_x = -12
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -5841,7 +5976,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "UB" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5888,7 +6025,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "UV" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "UW" = (
@@ -6098,7 +6237,7 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
 	pixel_x = -18;
-	req_access = list(13)
+	req_one_access = list(223,224)
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
 	dir = 8;
@@ -6183,11 +6322,15 @@
 	dir = 1;
 	pixel_y = -1
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cell)
 "Xs" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /obj/machinery/light/floor{
 	dir = 8
 	},
@@ -6205,7 +6348,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6380,7 +6526,9 @@
 /obj/item/clothing/suit/armor/carrier/heavy{
 	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/heavy,/obj/item/clothing/accessory/leg_guard/heavy,/obj/item/clothing/accessory/arm_guard/heavy,/obj/item/clothing/accessory/storage/modular_pouch/large,/obj/item/clothing/accessory/flagpatch/gadpathur)
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = list(223,224)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "YV" = (
@@ -35987,7 +36135,7 @@ ig
 pg
 Io
 FU
-Nm
+LK
 Nm
 Nm
 Nm
@@ -40846,7 +40994,7 @@ FP
 Cu
 Cu
 Cu
-uV
+Ip
 uV
 cl
 uV
