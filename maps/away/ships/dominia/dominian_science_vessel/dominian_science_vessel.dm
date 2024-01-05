@@ -35,13 +35,17 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	initial_restricted_waypoints = list(//td
+	initial_restricted_waypoints = list(
 		"Dominian Science Shuttle" = list("nav_hangar_dominian_science_vessel")
 	)
 
 	initial_generic_waypoints = list(
 		"nav_dominian_science_vessel_1",
-		"nav_dominian_science_vessel_2"
+		"nav_dominian_science_vessel_2",
+		"nav_dominian_science_vessel_3",
+		"nav_dominian_science_vessel_4",
+		"nav_dominian_science_dock_port",
+		"nav_dominian_science_dock_aft"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -122,7 +126,7 @@
 	shuttle_area = list(/area/shuttle/dominian_science_shuttle)
 	current_location = "nav_hangar_dominian_science_vessel"
 	landmark_transition = "nav_transit_dominian_science_shuttle"
-	dock_target = "shuttleairlock"
+	dock_target = "airlock_dominian_science_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_dominian_science_vessel"
