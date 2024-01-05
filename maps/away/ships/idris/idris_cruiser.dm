@@ -22,7 +22,7 @@
 	desc = "A small luxury cruiser run by Idris Incorporated's subsidiary, Celestial Cruises. The Argentum-class is more of a yacht than a proper cruise ship, and is easily dwarfed by the fleet's larger vessels. However, it makes up for its diminuitive size by its speed, flexibility, and low maintenance cost. It adopts a unique wandering business model, where it roams the Spur and caters to tired traveling vessel crews seeking a getaway among the stars. It comes with a bar and restaurant, a pool, a spa, and a viewing lounge, as well as four suites for overnight stayers."
 	icon_state = "sanctuary"
 	moving_state = "sanctuary_moving"
-	colors = list("#a7fff3", "#5acfc0")
+	colors = "#5acfc0"
 	designer = "Idris Incorporated - Celestial Cruises"
 	volume = "82 meters length, 60 meters beam/width, 28 meters vertical height"
 	drive = "Warp Capable, Hybrid Phoron Bluespace Drive"
@@ -61,10 +61,10 @@
 	name = "Runabout"
 	class = "I-2"
 	desc = "The I-2 Runabout is one of a few shuttlecraft types in service with Idris Incorporated's civilian liners, all designed to transport civilians between their ship and a port of call or a planet's surface. It is the middle child of the Idris runabout family, larger than the I-1 but smaller than the I-3 and I-4."
-	shuttle = "Runabout"
+	shuttle = "Idris Runabout"
 	icon_state = "pod"
 	moving_state = "pod_moving"
-	colors = list("#a7fff3", "#5acfc0")
+	colors = "#5acfc0"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 1000
@@ -92,7 +92,7 @@
 /datum/shuttle/autodock/overmap/idris_cruiser_shuttle
 	name = "Idris Runabout"
 	move_time = 15
-	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle, /area/shuttle/idris_cruiser_shuttle/main, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering)
+	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle, /area/shuttle/idris_cruiser_shuttle/main, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering,)
 	dock_target = "airlock_idris_cruiser_shuttle"
 	current_location = "nav_idris_cruiser_stbd_aft"
 	landmark_transition = "nav_idris_cruiser_transit"
