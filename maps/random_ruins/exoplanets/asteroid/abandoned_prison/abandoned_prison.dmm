@@ -2266,7 +2266,7 @@
 "BI" = (
 /turf/simulated/wall/r_wall{
 	can_open = 1;
-	color = #dedede
+	color = "#dedede"
 	},
 /area/abandoned_prison/cells)
 "Ca" = (
