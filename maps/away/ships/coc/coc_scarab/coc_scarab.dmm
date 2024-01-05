@@ -48,6 +48,12 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/medical)
+"au" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "av" = (
 /obj/machinery/button/remote/blast_door{
 	name = "Starboard Window Blast Shutters";
@@ -1579,6 +1585,9 @@
 	pixel_x = -32;
 	pixel_y = -8
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/mess)
 "hN" = (
@@ -1681,16 +1690,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/coc_scarab/washroom)
-"it" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "scarab_bridge_lockdown";
-	name = "Bridge Lockdown";
-	pixel_y = 26;
-	pixel_x = -8
-	},
-/turf/template_noop,
-/area/space)
 "iu" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2335,11 +2334,24 @@
 /turf/space/dynamic,
 /area/space)
 "lu" = (
-/obj/machinery/light/colored/decayed/dimmed{
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armory";
 	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/armory)
 "lx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3922,6 +3934,16 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scarab_harvester)
+"uj" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "scarab_bridge_lockdown";
+	name = "Bridge Lockdown";
+	pixel_y = 26;
+	pixel_x = -8
+	},
+/turf/template_noop,
+/area/space)
 "un" = (
 /obj/effect/shuttle_landmark/coc_scarab/nav3,
 /turf/template_noop,
@@ -7094,9 +7116,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/bed/handrail{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8236,25 +8255,6 @@
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
 /area/shuttle/scarab_harvester)
-"QB" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Armory";
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/coc_scarab/armory)
 "QC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
@@ -41250,7 +41250,7 @@ fo
 FE
 BV
 BV
-QB
+lu
 BV
 ab
 Xl
@@ -47168,7 +47168,7 @@ cB
 cB
 cB
 cB
-lu
+au
 cB
 cB
 cB
@@ -47939,7 +47939,7 @@ cB
 cB
 cB
 cB
-it
+uj
 cB
 cB
 cB
