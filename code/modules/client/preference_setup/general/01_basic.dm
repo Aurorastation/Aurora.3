@@ -115,7 +115,7 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/basic/load_special()
+/datum/category_item/player_setup_item/general/basic/load_character_special()
 	pref.can_edit_name = TRUE
 	pref.can_edit_ipc_tag = TRUE
 
@@ -134,7 +134,7 @@
 				if(GLOB.config.ipc_timelock_active)
 					pref.can_edit_ipc_tag = FALSE
 		else
-			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
+			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_character_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species)

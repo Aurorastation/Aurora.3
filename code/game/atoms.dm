@@ -729,7 +729,7 @@
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		do_late_fire()
 		return
-	LAZYADD(SSatoms.late_loaders, src)
+	LAZYADD(SSmisc_late.late_misc_firers, src)
 
 /atom/proc/do_late_fire()
 	return

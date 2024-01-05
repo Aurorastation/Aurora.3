@@ -36,7 +36,7 @@
 
 /datum/job/representative/on_despawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)
-	LAZYADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -158,11 +158,11 @@
 
 /datum/job/consular/pre_spawn(mob/abstract/new_player/player)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[player.client.prefs.citizenship]
-	LAZYADD(blacklisted_citizenship, citizenship.name)
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
 
 /datum/job/consular/after_spawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
-	LAZYADD(blacklisted_citizenship, citizenship.name)
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
 
 /datum/job/consular/on_despawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]

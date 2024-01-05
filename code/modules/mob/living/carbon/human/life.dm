@@ -1402,21 +1402,14 @@
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
-			set_sight(sight, viewflags)
+			set_sight(sight|viewflags)
 		machine_has_equipment_vision = machine.grants_equipment_vision(src)
-	else if(eyeobj)
-		if(eyeobj.owner != src)
-			reset_view(null)
-	else
-		var/isRemoteObserve = 0
-		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
-			isRemoteObserve = 1
-		if(remoteview_target)
-			if(remoteview_target.stat==CONSCIOUS)
-				isRemoteObserve = 1
-		if(!isRemoteObserve && client && !client.adminobs)
-			remoteview_target = null
-			reset_view(null, 0)
+	if(eyeobj && eyeobj.owner != src)
+		reset_view(null)
+
+	if((mRemote in mutations) && remoteview_target && remoteview_target.stat != CONSCIOUS)
+		remoteview_target = null
+		reset_view(null, 0)
 
 	update_equipment_vision(machine_has_equipment_vision)
 	species.handle_vision(src)

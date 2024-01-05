@@ -117,7 +117,8 @@
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
-		/obj/item/tape_roll
+		/obj/item/tape_roll,
+		/obj/item/device/geiger
 	)
 	content_overlays = TRUE
 
