@@ -538,6 +538,13 @@
 			user.put_in_hands(waste)
 		qdel(src)
 
+/obj/item/reagent_containers/food/snacks/bowl/MouseDrop(mob/user) //Dropping the bowl of food onto the user
+	if(istype(user) && user == usr)
+		user.put_in_active_hand(src)
+		src.pickup(user)
+		return
+	. = ..()
+
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs/update_icon()
 	switch(reagents.total_volume)
 		if(1 to 8)
