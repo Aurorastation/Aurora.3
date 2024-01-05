@@ -492,7 +492,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 4
 	},
