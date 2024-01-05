@@ -688,7 +688,7 @@
 #define ACCESS_IDRIS 220
 /datum/access/idris
 	id = ACCESS_IDRIS
-	desc = "Idris Vault Ship"
+	desc = "Idris Ship"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_COALITION 221
@@ -715,3 +715,53 @@
 /datum/access/konyang_corporate
 	id = ACCESS_KONYANG_CORPORATE
 	access_type = ACCESS_TYPE_CENTCOM
+
+//free: 226 - 229
+
+//guest rooms - for any future RP that requires hotel-esque rooms
+
+#define ACCESS_GUEST_ROOMS 230 //use with req_one_access
+/datum/access/guest_rooms
+	id = ACCESS_GUEST_ROOMS
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_1 231
+/datum/access/guest_room_1
+	id = ACCESS_GUEST_ROOM_1
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_2 232
+/datum/access/guest_room_2
+	id = ACCESS_GUEST_ROOM_2
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_3 233
+/datum/access/guest_room_3
+	id = ACCESS_GUEST_ROOM_3
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_4 234
+/datum/access/guest_room_4
+	id = ACCESS_GUEST_ROOM_4
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_5 235
+/datum/access/guest_room_5
+	id = ACCESS_GUEST_ROOM_5
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_6 236
+/datum/access/guest_room_6
+	id = ACCESS_GUEST_ROOM_6
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_7 237
+/datum/access/guest_room_7
+	id = ACCESS_GUEST_ROOM_7
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_8 238
+/datum/access/guest_room_8
+	id = ACCESS_GUEST_ROOM_8
+	access_type = ACCESS_TYPE_CENTCOM
+
