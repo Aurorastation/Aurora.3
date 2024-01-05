@@ -194,7 +194,6 @@
 	dir = 8
 	},
 /obj/structure/cable/pink,
-/obj/machinery/power/apc/east,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "aBG" = (
@@ -565,6 +564,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
+"bMe" = (
+/obj/effect/landmark/entry_point/fore{
+	dir = 2;
+	name = "fore, cockpit"
+	},
+/turf/simulated/wall/shuttle,
+/area/shuttle/dominian_science_shuttle)
 "bRh" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "starboardext"
@@ -1336,6 +1342,16 @@
 "etL" = (
 /turf/space/transit/north,
 /area/space)
+"ewb" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	dir = 1;
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_science_shuttle)
 "ewT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1380,7 +1396,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/power/apc/south,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -3786,7 +3801,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
 "nDY" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "Dominian Science Vessel Flak Cannon"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "nEY" = (
@@ -4628,7 +4645,6 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/starboard_hall)
 "qTV" = (
-/obj/machinery/alarm/west,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -4640,6 +4656,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_science_shuttle)
+"qUG" = (
+/obj/effect/landmark/entry_point/starboard{
+	dir = 8;
+	name = "starboard, storage"
+	},
+/turf/simulated/wall/shuttle,
 /area/shuttle/dominian_science_shuttle)
 "qVe" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -5377,6 +5400,16 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/showers)
+"ukr" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	dir = 1;
+	name = "aft, port thrusters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_science_shuttle)
 "ulB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5706,7 +5739,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "SCC Scout Ship Flak Cannon";
+	weapon_id = "Dominian Science Vessel Flak Cannon";
 	name = "ZA-51/3 Flak Battery";
 	desc = "A Zhurong Armaments flak battery developed in 2451. Its barrels may look smaller than larger weapons, but don't let that fool you: this gun will shred through smaller ships."
 	},
@@ -5813,7 +5846,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/structure/cable/pink,
-/obj/machinery/power/apc/west,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "vUO" = (
@@ -6288,6 +6320,16 @@
 "xoc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_science_shuttle)
+"xqu" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle,
+/obj/effect/landmark/entry_point/port{
+	dir = 4;
+	name = "port, medical"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -36998,7 +37040,7 @@ wny
 wny
 aaJ
 aaJ
-aaJ
+xqu
 wny
 wny
 wny
@@ -37776,7 +37818,7 @@ xXN
 iRD
 diE
 xPN
-lri
+ukr
 haa
 jZe
 tjB
@@ -38791,7 +38833,7 @@ uOY
 uOY
 uOY
 hbi
-wny
+bMe
 wny
 hJs
 wny
@@ -39575,7 +39617,7 @@ hZH
 wIV
 xoc
 xPN
-lri
+ewb
 qdL
 jZe
 tjB
@@ -40339,7 +40381,7 @@ aaJ
 aaJ
 aaJ
 aaJ
-wny
+qUG
 wny
 wny
 wny

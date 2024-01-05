@@ -102,8 +102,8 @@
 	designation = "Scholar"
 	desc = "An exploration shuttle used by House Volvalaad on its science vessels, the Scholar is well-stocked for its mission of exploration and discovery."
 	shuttle = "Dominian Science Shuttle"
-	icon_state = "shuttle"//td maybe
-	moving_state = "shuttle_moving"//td maybe
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
 	colors = list("#df1032", "#d4296b")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
