@@ -273,7 +273,7 @@
 /area/space)
 "bN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+	dir = 8
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
@@ -1482,12 +1482,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/solars)
-"hp" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/coc_scarab)
 "hr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4433,8 +4427,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
 "xq" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
@@ -6739,6 +6733,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/mess)
+"Jw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "Jx" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
@@ -6986,12 +6986,6 @@
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
-"KZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/coc_scarab)
 "Lb" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
@@ -7051,6 +7045,12 @@
 	},
 /turf/space/dynamic,
 /area/space)
+"Lp" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "Lr" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 4;
@@ -8333,7 +8333,7 @@
 /area/ship/coc_scarab/engine)
 "Rc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
@@ -46359,8 +46359,8 @@ IR
 sV
 gK
 hf
-bN
 xq
+Lp
 WX
 Sn
 Dr
@@ -46618,7 +46618,7 @@ gK
 hf
 XV
 Kg
-Rc
+bN
 Oj
 AM
 GC
@@ -47132,7 +47132,7 @@ gK
 eX
 Hs
 Cx
-Rc
+bN
 VZ
 nX
 Pt
@@ -47387,8 +47387,8 @@ IR
 Ua
 gK
 eX
-KZ
-hp
+Rc
+Jw
 WK
 fn
 GU
