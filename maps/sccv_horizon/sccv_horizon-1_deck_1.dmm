@@ -102,7 +102,21 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/steel,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 10;
+	pixel_x = 2
+	},
+/obj/item/device/gps/science{
+	pixel_x = 3
+	},
+/obj/item/device/gps{
+	pixel_x = -6
+	},
+/obj/item/device/gps/mining{
+	pixel_x = 12
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "adX" = (
@@ -360,6 +374,11 @@
 	},
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
+"aoS" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "apf" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -1072,12 +1091,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "aRG" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/machinery/shieldwallgen,
-/turf/simulated/floor/airless,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "aSL" = (
 /obj/structure/cable/green{
@@ -1147,9 +1169,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "aUk" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "aUC" = (
@@ -1912,6 +1932,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"bwq" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/storage/box/kitchen,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "bwJ" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -2677,7 +2703,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "bSM" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/hangar/intrepid)
 "bUN" = (
@@ -5236,7 +5261,8 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "dJH" = (
@@ -5504,9 +5530,11 @@
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "dSQ" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/shuttle_landmark/intrepid/hangar{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
@@ -7023,12 +7051,19 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "eVk" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/shieldwallgen,
-/obj/structure/cable/green{
-	icon_state = "0-4"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/turf/simulated/floor/airless,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Mining Shuttle Dock Port";
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "eVn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7792,6 +7827,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
+"fsc" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "fsf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8166,6 +8206,25 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
+"fHQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/steel,
+/obj/item/storage/box/flares{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/storage/box/led_collars{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/storage/box/flares{
+	pixel_x = -6
+	},
+/obj/item/storage/box/tethers{
+	pixel_x = 8
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "fIg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -10032,9 +10091,6 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10601,6 +10657,11 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/template_noop)
+"hpj" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "hpA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -11560,6 +11621,18 @@
 "icm" = (
 /turf/simulated/wall,
 /area/maintenance/engineering/auxillary)
+"idf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/device/flashlight{
+	pixel_x = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "idq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -11871,9 +11944,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "ipg" = (
@@ -12053,6 +12123,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/operations)
+"iyn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/steel,
+/obj/item/hoist_kit,
+/obj/item/ladder_mobile{
+	pixel_y = 12
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "iyV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -12253,6 +12332,10 @@
 "iFd" = (
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"iFf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "iFH" = (
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine,
 /turf/simulated/floor/reinforced{
@@ -14948,6 +15031,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
+"kzc" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "kzi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -15788,6 +15877,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"lbu" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "lcz" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -16529,6 +16623,11 @@
 "lIg" = (
 /turf/simulated/wall,
 /area/medical/morgue/lower)
+"lIj" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "lIu" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -17958,6 +18057,12 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/engineering/auxillary)
+"mBl" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "mBx" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -18699,9 +18804,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/spot{
 	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -27768,6 +27870,15 @@
 "tuP" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/storage/lower)
+"tvc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "tvn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -31078,6 +31189,18 @@
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/template_noop)
+"vHF" = (
+/obj/effect/shuttle_landmark/intrepid/hangar{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "vHR" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33039,6 +33162,20 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"xbU" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/steel,
+/obj/item/stack/material/glass/full{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/stack/rods{
+	amount = 50;
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "xdE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suspension_gen{
@@ -33950,7 +34087,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -53422,10 +53559,10 @@ her
 xVU
 xVU
 pEO
-xVU
-xVU
-xVU
-xVU
+fEy
+mNH
+mNH
+lMA
 aXq
 xVU
 xVU
@@ -53621,8 +53758,9 @@ oPL
 usP
 lCX
 wuD
-pvn
-iRC
+lIj
+hpj
+iFf
 iRC
 iRC
 iRC
@@ -53642,17 +53780,16 @@ iRC
 iRC
 iRC
 iRC
-iRC
-iRC
-iRC
-iRC
-iRC
-iRC
-iRC
-iRC
-iRC
-iRC
-nDI
+mBl
+kEJ
+kEJ
+kEJ
+kEJ
+kEJ
+tvc
+kEJ
+kEJ
+kEJ
 aRG
 nDI
 eSV
@@ -53824,8 +53961,9 @@ oPL
 eEm
 ifD
 wuD
-pvn
-iRC
+lbu
+bwq
+iFf
 iRC
 iRC
 iRC
@@ -53855,8 +53993,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -54027,7 +54164,8 @@ oPL
 gpw
 fUS
 aHY
-pvn
+iRC
+iRC
 iRC
 iRC
 eHK
@@ -54058,8 +54196,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -54230,7 +54367,8 @@ oPL
 rLm
 mKo
 aHY
-pvn
+aoS
+iFf
 iRC
 iRC
 pIR
@@ -54261,8 +54399,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -54433,7 +54570,8 @@ oPL
 rLm
 mKo
 aHY
-pvn
+fsc
+iFf
 iRC
 iRC
 iSn
@@ -54464,8 +54602,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -54637,6 +54774,7 @@ rLm
 mKo
 aHY
 dJm
+iFf
 iRC
 iRC
 iMt
@@ -54667,8 +54805,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -54842,6 +54979,7 @@ wuD
 wuD
 ahI
 uRt
+uRt
 iAP
 vvK
 wzA
@@ -54870,8 +55008,7 @@ hqo
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -55045,6 +55182,7 @@ hUk
 aaa
 pvn
 pvn
+pvn
 fZQ
 jXW
 kki
@@ -55073,8 +55211,7 @@ oKJ
 ebk
 lbc
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -55246,8 +55383,9 @@ mey
 hYy
 apf
 aaa
-pvn
 dSQ
+dSQ
+vHF
 nvn
 gDj
 dir
@@ -55276,7 +55414,6 @@ kyK
 oSi
 kaM
 iRC
-cLV
 bSM
 xsx
 eSV
@@ -55451,6 +55588,7 @@ hhv
 aaa
 pvn
 pvn
+pvn
 kxk
 rKh
 yib
@@ -55479,8 +55617,7 @@ iQL
 tsR
 bFM
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -55654,6 +55791,7 @@ wuD
 wuD
 kEJ
 kEJ
+kEJ
 xqv
 inM
 iaD
@@ -55682,8 +55820,7 @@ owM
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -55857,6 +55994,7 @@ rPN
 adv
 aUk
 iRC
+iRC
 fNt
 tvK
 inf
@@ -55885,8 +56023,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -56057,7 +56194,8 @@ aEl
 jgk
 qPF
 rPN
-pvn
+fHQ
+aUk
 iRC
 iRC
 hAl
@@ -56088,8 +56226,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -56260,7 +56397,8 @@ wSd
 kLb
 qeD
 rPN
-pvn
+iyn
+aUk
 iRC
 iRC
 xtM
@@ -56291,8 +56429,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -56463,7 +56600,8 @@ aEl
 kLb
 qeD
 rPN
-pvn
+iRC
+iRC
 iRC
 iRC
 dhJ
@@ -56494,8 +56632,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -56666,8 +56803,9 @@ aEl
 mMQ
 gTx
 rPN
-pvn
-iRC
+xbU
+iFf
+kzc
 iRC
 iRC
 iRC
@@ -56697,8 +56835,7 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
 cLV
 eSV
 eSV
@@ -56869,8 +57006,9 @@ hdi
 aKo
 wif
 hdi
-pvn
-iRC
+idf
+hpj
+iFf
 iRC
 iRC
 iRC
@@ -56880,7 +57018,6 @@ dRx
 kmo
 nrz
 qui
-iRC
 iRC
 iRC
 iRC
@@ -56900,8 +57037,8 @@ iRC
 iRC
 iRC
 iRC
-cLV
-bSM
+iRC
+iRC
 cLV
 eSV
 eSV
@@ -57103,7 +57240,7 @@ uRt
 xAU
 uRt
 uRt
-nDI
+uRt
 eVk
 nDI
 eSV
