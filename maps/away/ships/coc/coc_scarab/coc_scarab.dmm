@@ -7808,15 +7808,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/ammo)
-"OX" = (
-/obj/structure/table/steel,
-/obj/item/storage/pill_bottle/dice{
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/coc_scarab/mess)
 "Pa" = (
 /obj/machinery/power/apc/high/west{
 	req_access = null
@@ -9456,26 +9447,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scarab_harvester)
-"Wc" = (
-/obj/structure/table/steel,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/item/trash/tray{
-	pixel_x = 14;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/coc_scarab/mess)
 "Wg" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -41965,7 +41936,7 @@ jU
 cN
 hg
 Lb
-Wc
+Br
 Go
 SX
 Ia
@@ -42221,7 +42192,7 @@ Of
 AR
 tE
 hg
-OX
+Go
 Br
 ja
 Ji
