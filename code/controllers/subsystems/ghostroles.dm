@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(ghostroles)
 			. = TRUE
 
 		if("jump_to")
-			var/spawner_id = params["jump_to"]
+			var/spawner_id = params["spawner_id"]
 			var/datum/ghostspawner/human/spawner = spawners[spawner_id]
 			var/mob/abstract/observer/observer = usr
 			if(spawner && istype(observer) && spawner.can_jump_to(observer))
@@ -187,6 +187,19 @@ SUBSYSTEM_DEF(ghostroles)
 				if(isturf(turf))
 					observer.on_mob_jump()
 					observer.forceMove(turf)
+
+		if("follow_manifest_entry")
+			var/spawner_id = params["spawner_id"]
+			var/spawned_mob_name = params["spawned_mob_name"]
+			var/datum/ghostspawner/human/spawner = spawners[spawner_id]
+			var/mob/abstract/observer/observer = usr
+			if(istype(observer) && spawner.can_jump_to(observer) && spawner && LAZYLEN(spawner.spawned_mobs))
+				for(var/datum/weakref/mob_ref in spawner.spawned_mobs)
+					var/mob/spawned_mob = mob_ref.resolve()
+					if(spawned_mob && spawned_mob.real_name == spawned_mob_name)
+						observer.ManualFollow(spawned_mob)
+						break
+
 		if("enable")
 			var/datum/ghostspawner/S = spawners[params["enable"]]
 			if(!S)

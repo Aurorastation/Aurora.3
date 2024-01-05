@@ -39,8 +39,6 @@
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
 
-#define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
-
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2

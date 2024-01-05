@@ -332,45 +332,53 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!connected)
-		display_reconnect_dialog(user, "Navigation")
-		return
-
-	var/data[0]
-
-
-	var/turf/T = get_turf(connected)
-	var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
-
-	data["sector"] = current_sector ? current_sector.name : "Deep Space"
-	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-	data["s_x"] = connected.x
-	data["s_y"] = connected.y
-	data["speed"] = round(connected.get_speed()*1000, 0.01)
-	data["accel"] = round(connected.get_acceleration()*1000, 0.01)
-	data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
-	data["viewing"] = viewing_overmap(user)
-
-	if(connected.get_speed())
-		data["ETAnext"] = "[round(connected.ETA()/10)] seconds"
-	else
-		data["ETAnext"] = "N/A"
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "nav.tmpl", "[connected.get_real_name()] Navigation Screen", 380, 530)
-		ui.set_initial_data(data)
+/obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Nav", capitalize_first_letters(name), ui_x=470, ui_y=320)
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/computer/ship/navigation/Topic(href, href_list)
+/obj/machinery/computer/ship/navigation/ui_data(mob/user)
+	var/list/data = list()
+
+	if(!connected)
+		display_reconnect_dialog(user, "navigation")
+	else
+		var/turf/T = get_turf(connected)
+		var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
+
+		data["sector"] = current_sector ? current_sector.name : "Deep Space"
+		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
+		data["ship_coord_x"] = connected.x
+		data["ship_coord_y"] = connected.y
+		data["speed"] = round(connected.get_speed()*1000, 0.01)
+		data["accel"] = round(connected.get_acceleration()*1000, 0.01)
+		var/list/speed_xy = connected.get_speed_xy()
+		data["ship_speed_x"] = speed_xy[1]
+		data["ship_speed_y"] = speed_xy[2]
+		data["direction"] = dir2angle(connected.dir)
+		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
+		data["ETAnext"] = get_eta()
+		data["viewing"] = viewing_overmap(user)
+
+	return data
+
+/obj/machinery/computer/ship/navigation/proc/get_eta()
+	var/ETA = connected.ETA()
+	if(ETA && connected.get_speed())
+		return "[round(ETA/7)] seconds"
+	else
+		return "N/A"
+
+/obj/machinery/computer/ship/navigation/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TOPIC_HANDLED
+		return TRUE
 
-	if (!connected)
-		return TOPIC_NOACTION
+	if(!connected)
+		return TRUE
 
-	if (href_list["viewing"])
+	if(action == "viewing")
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
-		return TOPIC_REFRESH
+
+	add_fingerprint(usr)
