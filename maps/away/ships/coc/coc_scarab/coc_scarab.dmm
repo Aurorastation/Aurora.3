@@ -273,7 +273,7 @@
 /area/space)
 "bN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+	dir = 8
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
@@ -1095,7 +1095,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light/small,
 /obj/machinery/alarm/south,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/spline/plain/beige{
@@ -1132,12 +1131,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bridge)
-"gb" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/coc_scarab)
 "gc" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -2865,9 +2858,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
+/obj/machinery/light/floor/decayed{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
@@ -3386,6 +3378,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/engistorage)
+"rT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "rU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3544,9 +3542,8 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
 	},
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
+/obj/machinery/light/floor/decayed{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/engistorage)
@@ -4435,11 +4432,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
 "xq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/coc_scarab)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/coc_scarab/hallway)
 "xr" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -4549,12 +4543,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/solars)
-"ye" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/coc_scarab)
 "yg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -6270,9 +6258,6 @@
 /area/ship/coc_scarab/grauwolf)
 "GQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/massdriver)
 "GR" = (
@@ -7514,6 +7499,12 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
+"Nk" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "Nn" = (
 /obj/structure/ship_weapon_dummy,
 /turf/space/dynamic,
@@ -7746,7 +7737,7 @@
 	tag_north = 1;
 	tag_north_con = 0.4;
 	tag_west = 0.3;
-	tag_west_con = 0;
+	tag_west_con = 1;
 	tag_east_con = 0.3;
 	active_power_usage = 7500
 	},
@@ -8344,8 +8335,11 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Rc" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/coc_scarab/hallway)
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_scarab)
 "Re" = (
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_scarab_stbd";
@@ -41221,14 +41215,14 @@ Id
 vQ
 eH
 TP
-Rc
-Rc
-Rc
+xq
+xq
+xq
 Qb
-Rc
-Rc
-Rc
-Rc
+xq
+xq
+xq
+xq
 hk
 TI
 Wx
@@ -41735,14 +41729,14 @@ zs
 gU
 Cz
 Cb
-Rc
-Rc
-Rc
+xq
+xq
+xq
 Ev
-Rc
-Rc
-Rc
-Rc
+xq
+xq
+xq
+xq
 LE
 bo
 zE
@@ -46369,7 +46363,7 @@ sV
 gK
 hf
 DJ
-gb
+Rc
 WX
 Sn
 Dr
@@ -46627,7 +46621,7 @@ gK
 hf
 XV
 Kg
-xq
+bN
 Oj
 AM
 GC
@@ -47141,7 +47135,7 @@ gK
 eX
 Hs
 Cx
-xq
+bN
 VZ
 nX
 Pt
@@ -47396,8 +47390,8 @@ IR
 Ua
 gK
 eX
-bN
-ye
+rT
+Nk
 WK
 fn
 GU
