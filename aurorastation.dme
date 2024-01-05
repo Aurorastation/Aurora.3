@@ -2680,6 +2680,7 @@
 #include "code\modules\modular_computers\file_system\programs\civilian\cargo_control.dm"
 #include "code\modules\modular_computers\file_system\programs\civilian\cargo_delivery.dm"
 #include "code\modules\modular_computers\file_system\programs\civilian\cargo_order.dm"
+#include "code\modules\modular_computers\file_system\programs\civilian\cooking_codex.dm"
 #include "code\modules\modular_computers\file_system\programs\civilian\crusher_control.dm"
 #include "code\modules\modular_computers\file_system\programs\civilian\janitor.dm"
 #include "code\modules\modular_computers\file_system\programs\command\account_database.dm"
