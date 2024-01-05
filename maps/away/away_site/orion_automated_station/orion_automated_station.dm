@@ -233,7 +233,7 @@
 		Firedoor stuck closed. Fixed. <br>\
 		Air tank running close to empty. Filled. <br>\
 		Air vent clogged. Unclogged. <br>\
-		Long-term storage #5 unit broken into. Notified authorities. <br>\
+		Long-term storage unit #5 broken into. Notified authorities. <br>\
 		Everything else is nominal. Departing. <br>\
 		"
 
