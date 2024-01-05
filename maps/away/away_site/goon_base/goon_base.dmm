@@ -7959,7 +7959,6 @@
 	pixel_x = 9;
 	pixel_y = -8
 	},
-/obj/item/tank/phoron/empty,
 /obj/item/clothing/glasses/welding{
 	pixel_x = -1;
 	pixel_y = 7
