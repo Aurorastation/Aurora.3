@@ -176,6 +176,4 @@
 	. = ..()
 	new /obj/item/tank/hydrogen/shuttle(src)
 
-/obj/structure/fuel_port/hydrogen/empty
-
 #undef waypoint_sector

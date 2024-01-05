@@ -93,9 +93,6 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = null	//they have no straps!
 
-/obj/item/tank/phoron/empty
-	volume = 0
-
 /obj/item/tank/phoron/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_PHORON, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
@@ -129,8 +126,6 @@
 
 /obj/item/tank/hydrogen/shuttle/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_HYDROGEN, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
-
-/obj/item/tank/hydrogen/empty
 
 /*
  * Emergency Oxygen
