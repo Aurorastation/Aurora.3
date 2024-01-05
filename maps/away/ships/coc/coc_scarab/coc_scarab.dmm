@@ -1621,7 +1621,7 @@
 "is" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothpaste{
-	pixel_x = -2
+	pixel_x = -11
 	},
 /obj/item/reagent_containers/toothbrush/green{
 	pixel_y = 12;
@@ -1647,6 +1647,18 @@
 /obj/item/reagent_containers/toothbrush{
 	pixel_y = 13;
 	pixel_x = 1
+	},
+/obj/item/towel/random{
+	pixel_y = -3;
+	pixel_x = 11
+	},
+/obj/item/towel/random{
+	pixel_y = -3;
+	pixel_x = 11
+	},
+/obj/item/towel/random{
+	pixel_y = -3;
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/coc_scarab/washroom)
@@ -2167,7 +2179,10 @@
 /area/shuttle/coc_scarab)
 "kD" = (
 /obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/plating/cooled,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/redgrid,
 /area/coc_scarab/engine)
 "kE" = (
 /obj/structure/railing/mapped{
@@ -2904,6 +2919,9 @@
 /obj/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
 	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust2)
@@ -4316,6 +4334,9 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
+/obj/item/trash/liquidfood,
+/obj/item/trash/can,
+/obj/item/trash/admints,
 /turf/simulated/floor/tiled/dark,
 /area/coc_scarab/mess)
 "xh" = (
@@ -5929,6 +5950,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/structure/sign/securearea{
+	pixel_x = 32
 	},
 /turf/simulated/floor/airless,
 /area/coc_scarab/thrust1)
@@ -9432,6 +9456,26 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scarab_harvester)
+"Wc" = (
+/obj/structure/table/steel,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/item/trash/tray{
+	pixel_x = 14;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_scarab/mess)
 "Wg" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -41921,7 +41965,7 @@ jU
 cN
 hg
 Lb
-Br
+Wc
 Go
 SX
 Ia
