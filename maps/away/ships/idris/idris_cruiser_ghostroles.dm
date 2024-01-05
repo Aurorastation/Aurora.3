@@ -1,13 +1,13 @@
 /datum/ghostspawner/human/idris_cruiser_crew
 	name = "Idris Cruise Crew Member"
 	short_name = "idriscrew"
-	desc = "Serve as the waiters, stewards, and maintenance crew of an Idris cruiser."
+	desc = "Serve as either a staff member, engineer, janitor, bartender, chef, guard, or service provider of an Idris luxury cruise yacht."
 	tags = list("External")
 
-	welcome_message = "You're a crewmember for an Idris cruise vessel. Keep your clients happy, your ship in tip-top shape, and your smile uniquely Idris!"
+	welcome_message = "You're a crewmember for an Idris cruise vessel. Keep your clients happy, your ship in tip-top shape, and your smile uniquely Idris! You can take any service, maintenance, or security role on the ship as necessary."
 
 	spawnpoints = list("idriscrew")
-	max_count = 4
+	max_count = 5
 
 	outfit = /datum/outfit/admin/idris_cruiser_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL)
@@ -18,20 +18,50 @@
 	special_role = "Idris Cruise Crew Member"
 	respawn_flag = null
 
+/datum/ghostspawner/human/idris_cruiser_crew/director
+	name = "Idris Cruise Director"
+	short_name = "idriscrew_director"
+	spawnpoints = list("idriscrew_director")
+	desc = "Serve as the prestigious director of an Idris luxury cruise yacht."
+	welcome_message = "You're the prestigious director for an Idris luxury cruiser! Make sure the ship and its crew are in tip-top shape, and make sure to attract customers to your space getaway."
+	max_count = 1
+
+	outfit = /datum/outfit/admin/idris_cruiser_director
+
+	assigned_role = "Idris Cruise Director"
+	special_role = "Idris Cruise Director"
+	respawn_flag = null
+
+//Outfits
 /datum/outfit/admin/idris_cruiser_crew
 	name = "Idris Cruise Crew Member"
 	uniform = /obj/item/clothing/under/librarian/idris
 	shoes = /obj/item/clothing/shoes/laceup
-	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/ship
-	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel/heph
-	id = /obj/item/card/id/hephaestus
+	back = /obj/item/storage/backpack/satchel/leather
+	id = /obj/item/card/id/idris
+	l_pocket = /obj/item/reagent_containers/glass/rag/advanced/idris
+	wrist = /obj/item/clothing/wrists/watch
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
-	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/sandals/caligae/socks,
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
-	)
-	species_suit = list(
-		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
-	)
+
+/datum/outfit/admin/idris_cruiser_crew/director
+	name = "Idris Cruise Director"
+	head = /obj/item/clothing/head/beret/corporate/idris
+	uniform = /obj/item/clothing/under/rank/liaison/idris
+	suit = /obj/item/clothing/suit/storage/toggle/corp/idris
+	accessory = /obj/item/clothing/accessory/holster/waist
+	accessory_contents = list(/obj/item/gun/energy/repeater/pistol = 1)
+	l_pocket = /obj/item/stamp/idris
+	wrist = /obj/item/clothing/wrists/watch/silver
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
+
+/datum/outfit/admin/idris_cruiser_director/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(H && H.w_uniform)
+		var/obj/item/clothing/under/U = H.w_uniform
+		var/obj/item/clothing/accessory/tie/corporate/idris/tie = new()
+		U.attach_accessory(null, tie)
+
+/datum/outfit/admin/idris_cruiser_crew/get_id_access()
+	return list(ACCESS_IDRIS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GUEST_ROOMS, ACCESS_GUEST_ROOM_1, ACCESS_GUEST_ROOM_2, ACCESS_GUEST_ROOM_3, ACCESS_GUEST_ROOM_4)
+

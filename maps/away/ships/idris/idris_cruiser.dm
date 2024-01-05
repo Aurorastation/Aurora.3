@@ -37,7 +37,7 @@
 	fore_dir = SOUTH
 	invisible_until_ghostrole_spawn = FALSE
 	initial_restricted_waypoints = list(
-		"Idris Cruiser" = list("nav_idris_cruiser_stbd_aft")
+		"Idris Runabout" = list("nav_idris_cruiser_stbd_aft")
 	)
 	initial_generic_waypoints = list(
 		"nav_idris_cruiser_stbd_fore",
@@ -92,7 +92,7 @@
 /datum/shuttle/autodock/overmap/idris_cruiser_shuttle
 	name = "Idris Runabout"
 	move_time = 15
-	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle, /area/shuttle/idris_cruiser_shuttle/main, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering,)
+	shuttle_area = list(/area/shuttle/idris_cruiser_shuttle/main, /area/shuttle/idris_cruiser_shuttle/bridge, /area/shuttle/idris_cruiser_shuttle/engineering,)
 	dock_target = "airlock_idris_cruiser_shuttle"
 	current_location = "nav_idris_cruiser_stbd_aft"
 	landmark_transition = "nav_idris_cruiser_transit"

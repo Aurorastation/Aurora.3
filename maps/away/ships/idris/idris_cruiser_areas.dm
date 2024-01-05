@@ -6,7 +6,7 @@
 	requires_power = TRUE
 
 /area/ship/idris_cruiser/bridge
-	name = "Bridge"
+	name = "Idris Cruiser Bridge"
 	icon_state = "bridge"
 
 /area/ship/idris_cruiser/armory
@@ -77,6 +77,14 @@
 	name = "Lounge"
 	icon_state = "lounge2"
 
+/area/ship/idris_cruiser/cargo_bay
+	name = "Cargo Bay"
+	icon_state = "storage"
+
+/area/ship/idris_cruiser/laundromat
+	name = "Laundromat"
+	icon_state = "purple"
+
 /area/ship/idris_cruiser/engineering
 	name = "Engineering"
 	icon_state = "engineering"
@@ -136,6 +144,10 @@
 	name = "Civilian Corridor - Aft"
 	icon_state = "hallA"
 
+/area/ship/idris_cruiser/corridor/maintenance_foyer
+	name = "Maintenance Foyer"
+	icon_state = "yellow"
+
 /area/ship/idris_cruiser/corridor/port_lobby
 	name = "Port Lobby Foyer"
 	icon_state = "hallP"
@@ -177,4 +189,4 @@
 	name = "Engineering"
 
 /area/shuttle/idris_cruiser_shuttle/bridge
-	name = "Bridge"
+	name = "Idris Runabout Cockpit"

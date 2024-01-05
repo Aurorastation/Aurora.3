@@ -68,3 +68,4 @@
 /obj/effect/shuttle_landmark/idris_cruiser/transit
 	name = "In Transit"
 	landmark_tag = "nav_idris_cruiser_transit"
+	base_turf = /turf/space/transit
