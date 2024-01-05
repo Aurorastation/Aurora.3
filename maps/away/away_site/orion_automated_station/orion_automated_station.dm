@@ -20,7 +20,13 @@
 
 /obj/effect/overmap/visitable/sector/orion_automated_station // this is the actual overmap object that spawns at roundstart
 	name = "Orion Express Automated Station (replaced in /New())" // this and desc is visible ingame when the object is scanned by any scanner
-	desc = "."
+	desc = "\
+		Orion Express Automated Station, common sight all around the Spur. \
+		But especially so in the outer edges of the Coalition and the Frontier, \
+		where the Orion Express service depends on ordinary people and ships picking up and delivering packages for each other, \
+		with Orion Express only delivering to the automated stations and other distribution points. \
+		This particular station is of the smaller variety, with very few facilities.\
+		"
 	icon_state = "ox_auto_station"
 
 	static_vessel = TRUE

@@ -16,6 +16,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "aw" = (
@@ -43,6 +44,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
+"aT" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/orion_automated_station/center)
 "bq" = (
 /obj/structure/closet/crate,
 /obj/random/civgun,
@@ -99,6 +109,14 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled,
+/area/orion_automated_station/storage)
+"do" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/storage)
 "dw" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -170,6 +188,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
+"eg" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/cargo_backpack,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/orion_automated_station/packages)
 "ep" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -223,6 +249,9 @@
 	name = "airlock_ox_auto_station_dock_north_1";
 	master_tag = "airlock_ox_auto_station_dock_north_1";
 	landmark_tag = "nav_ox_auto_station_dock_north_1"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
@@ -357,6 +386,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/storage)
+"gR" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/orion_automated_station/east)
 "gV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
@@ -499,6 +537,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/atmos)
 "jd" = (
@@ -523,6 +564,14 @@
 /obj/structure/window/reinforced,
 /turf/template_noop,
 /area/orion_automated_station/exterior)
+"ke" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/orion_automated_station/storage)
 "kr" = (
 /turf/simulated/wall,
 /area/orion_automated_station/packages)
@@ -560,6 +609,17 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/orion_automated_station/exterior)
+"lq" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/orion_automated_station/east)
 "lr" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
@@ -591,6 +651,9 @@
 "lU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/storage)
 "mc" = (
@@ -763,8 +826,26 @@
 	pixel_x = 16
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
+"oY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/center)
 "pf" = (
 /obj/effect/shuttle_landmark/orion_automated_station/space/south_west{
 	dir = 1
@@ -805,6 +886,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
+"qB" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/cargo_package{
+	pixel_y = 12
+	},
+/obj/item/cargo_package,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/orion_automated_station/packages)
 "qQ" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -864,6 +956,9 @@
 	name = "airlock_ox_auto_station_dock_south_2";
 	master_tag = "airlock_ox_auto_station_dock_south_2";
 	landmark_tag = "nav_ox_auto_station_dock_south_2"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
@@ -937,6 +1032,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/storage)
+"tR" = (
+/obj/effect/floor_decal/corner/white/diagonal{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/east)
 "tS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -948,10 +1050,16 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
 "uc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/west)
 "uj" = (
@@ -1017,6 +1125,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
+"wr" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/center)
 "wx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -1087,6 +1199,9 @@
 	pixel_y = 12
 	},
 /obj/item/cargo_package/offship/to_horizon,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/packages)
 "xA" = (
@@ -1102,6 +1217,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
+"ya" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/orion_automated_station/east)
 "yl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -1118,11 +1244,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/center)
-"yQ" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/cargo_backpack,
-/turf/simulated/floor/tiled/dark,
-/area/orion_automated_station/packages)
 "zq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1143,6 +1264,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/engineering)
+"zM" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/orion_automated_station/storage)
 "zP" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -1207,6 +1339,12 @@
 	},
 /turf/template_noop,
 /area/space)
+"AO" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/center)
 "AZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1291,6 +1429,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/orion_automated_station/center)
+"CU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/orion_automated_station/east)
 "Dh" = (
 /obj/item/storage/toolbox/emergency{
 	pixel_y = 11;
@@ -1521,6 +1671,7 @@
 /obj/item/cargo_package{
 	pixel_y = 12
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/packages)
 "FY" = (
@@ -1740,6 +1891,10 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/orion_automated_station/exterior)
+"Jt" = (
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled/full,
+/area/orion_automated_station/east)
 "JE" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -1781,9 +1936,21 @@
 "KB" = (
 /turf/simulated/wall,
 /area/orion_automated_station/engineering)
+"KD" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/orion_automated_station/center)
 "KK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/orion_automated_station/west)
@@ -1841,6 +2008,9 @@
 	master_tag = "airlock_ox_auto_station_dock_north_2";
 	landmark_tag = "nav_ox_auto_station_dock_north_2"
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
 "Lp" = (
@@ -1851,6 +2021,9 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/engineering)
 "LA" = (
@@ -1867,6 +2040,9 @@
 /obj/random/junk,
 /obj/item/reagent_containers/blood/ripped,
 /obj/item/reagent_containers/syringe,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "LG" = (
@@ -1881,6 +2057,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/center)
+"LZ" = (
+/obj/effect/floor_decal/corner/white/diagonal{
+	dir = 4
+	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/center)
 "Me" = (
@@ -1938,16 +2121,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/east)
-"MU" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/orion_automated_station/storage)
 "Nh" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2029,10 +2202,17 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
 "Oi" = (
 /obj/machinery/door/blast/shutters/open,
+/turf/simulated/floor/tiled,
+/area/orion_automated_station/west)
+"Ok" = (
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "Os" = (
@@ -2095,6 +2275,7 @@
 "PC" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "PO" = (
@@ -2263,6 +2444,9 @@
 /obj/random/tech_supply,
 /obj/random/tool,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
 "Sl" = (
@@ -2293,6 +2477,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/orion_automated_station/west)
 "Tc" = (
@@ -2313,6 +2500,9 @@
 	name = "airlock_ox_auto_station_dock_south_1";
 	master_tag = "airlock_ox_auto_station_dock_south_1";
 	landmark_tag = "nav_ox_auto_station_dock_south_1"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
@@ -2456,6 +2646,7 @@
 	pixel_x = -8;
 	pixel_y = 5
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
 "UW" = (
@@ -2521,6 +2712,7 @@
 	master_tag = "airlock_ox_auto_station_dock_west";
 	landmark_tag = "nav_ox_auto_station_dock_west"
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/west)
 "Wg" = (
@@ -2561,6 +2753,7 @@
 	pixel_x = -11;
 	pixel_y = 6
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
 "Xe" = (
@@ -2571,6 +2764,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
+"Xf" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_ox_auto_station_dock_east";
+	master_tag = "airlock_ox_auto_station_dock_east";
+	landmark_tag = "nav_ox_auto_station_dock_east"
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/orion_automated_station/east)
 "Xm" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
@@ -2673,11 +2878,6 @@
 "Zc" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/storage)
-"Ze" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
-/turf/simulated/floor/tiled/dark,
-/area/orion_automated_station/storage)
 "Zi" = (
 /turf/template_noop,
 /area/space)
@@ -2699,6 +2899,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/center)
 "ZE" = (
@@ -32912,7 +33115,7 @@ YJ
 DA
 Vh
 dA
-dA
+Ok
 uj
 dA
 dA
@@ -34713,7 +34916,7 @@ Cp
 Be
 sg
 tS
-ha
+LZ
 KB
 Lp
 ql
@@ -35481,7 +35684,7 @@ XI
 NH
 GX
 sm
-zq
+aT
 zq
 Ld
 hT
@@ -36247,22 +36450,22 @@ Rq
 dM
 dI
 td
-td
+AO
 WE
 td
 ha
 ha
-MQ
+KD
 MQ
 hZ
 Zq
 WE
-td
+AO
 pF
 pF
 td
 WE
-td
+AO
 td
 TW
 ZE
@@ -36768,7 +36971,7 @@ hq
 hq
 sL
 kr
-nH
+oY
 td
 rb
 dj
@@ -37276,7 +37479,7 @@ jU
 jU
 NV
 bt
-yQ
+eg
 Do
 TO
 oL
@@ -37289,7 +37492,7 @@ TU
 Zc
 Xm
 na
-Ze
+do
 lu
 aw
 jU
@@ -37792,16 +37995,16 @@ DF
 NW
 NW
 kr
-nB
+qB
 oL
 FT
 kr
 ZB
-td
+wr
 rb
-Qp
+ke
 Zc
-MU
+zM
 rb
 ax
 ax
@@ -39595,8 +39798,8 @@ DF
 jU
 jU
 NY
-xv
-Bx
+CU
+tR
 NY
 NY
 Zi
@@ -40882,7 +41085,7 @@ NY
 oX
 ik
 La
-SI
+lq
 rM
 DF
 Zi
@@ -41907,10 +42110,10 @@ NY
 NY
 NY
 NY
-YI
+gR
 fl
 rD
-SI
+ya
 NY
 NY
 NY
@@ -43194,7 +43397,7 @@ Jj
 NA
 jY
 vh
-fU
+Jt
 GA
 ZN
 Zi
@@ -44736,7 +44939,7 @@ Zi
 Zi
 NY
 Vi
-ht
+Xf
 NY
 Zi
 Zi
