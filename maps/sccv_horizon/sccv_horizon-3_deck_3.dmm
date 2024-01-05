@@ -20319,7 +20319,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/wood,
-/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot,
+/obj/item/reagent_containers/glass/beaker/teapot,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "ogm" = (
@@ -30018,6 +30018,9 @@
 /obj/item/storage/box/tea/tieguanyin{
 	pixel_x = 10;
 	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/beaker/teapot/lidded{
+	pixel_y = -8
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
