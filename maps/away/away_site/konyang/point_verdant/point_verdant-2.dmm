@@ -1504,6 +1504,14 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"eC" = (
+/obj/structure/neon_sign{
+	icon_state = "soleil_royal";
+	pixel_x = -3;
+	pixel_y = 19
+	},
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "eD" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -5877,6 +5885,10 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"rz" = (
+/obj/structure/billboard,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "rA" = (
 /obj/structure/flora/tree/konyang/spring,
 /obj/structure/ledge/quarter{
@@ -6995,6 +7007,10 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 26
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "uU" = (
@@ -7185,6 +7201,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"vv" = (
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/billboard,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "vw" = (
 /obj/structure/flora/pottedplant/bamboo,
@@ -10321,6 +10344,19 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"DY" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_corporate";
+	name = "Building Shutters";
+	req_access = list(225);
+	dir = 8;
+	pixel_x = -24
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/offices)
 "DZ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -10733,9 +10769,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Fi" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/decal/curb{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_corporate"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
@@ -10955,6 +10994,11 @@
 "FV" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/arcade)
@@ -15063,6 +15107,11 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "RH" = (
@@ -15223,6 +15272,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Se" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/restaurant)
 "Sf" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -15414,9 +15470,12 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "SV" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/decal/curb{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_corporate"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
@@ -15429,6 +15488,10 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/restaurant)
+"SY" = (
+/obj/structure/billboard,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "SZ" = (
 /obj/structure/shipping_container,
 /obj/effect/overlay/container_logo{
@@ -15525,7 +15588,10 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "Tk" = (
-/obj/machinery/door/blast/shutters,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_corporate"
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "Tm" = (
@@ -15846,6 +15912,15 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"Uj" = (
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_corporate";
+	name = "Building Shutters";
+	req_access = list(225);
+	pixel_y = 24
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant/outdoors)
 "Uk" = (
 /obj/structure/window/urban{
 	dir = 8;
@@ -16111,6 +16186,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"Vk" = (
+/obj/structure/billboard,
+/turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "Vo" = (
 /obj/structure/dressing_divider,
@@ -26067,7 +26146,7 @@ ci
 ci
 ci
 ci
-bh
+Uj
 BT
 iF
 LN
@@ -26322,7 +26401,7 @@ ci
 mQ
 jA
 jA
-jA
+DY
 SV
 sJ
 ju
@@ -34802,7 +34881,7 @@ MA
 fw
 vA
 vA
-vA
+vv
 vA
 vA
 vA
@@ -40196,7 +40275,7 @@ MA
 MA
 Qi
 BT
-BT
+Vk
 BT
 Vp
 Vp
@@ -42485,7 +42564,7 @@ Ir
 Oq
 Oq
 Al
-Al
+SY
 od
 Al
 Al
@@ -42561,7 +42640,7 @@ ce
 Ir
 BT
 BT
-BT
+Vk
 BT
 BT
 BT
@@ -42741,7 +42820,7 @@ Fq
 Ir
 Oq
 Al
-Oq
+Al
 Al
 od
 Al
@@ -42998,7 +43077,7 @@ Fq
 Ir
 Oq
 Al
-Oq
+Al
 Oq
 xu
 Al
@@ -45337,7 +45416,7 @@ OB
 OB
 LR
 OB
-YS
+Se
 JV
 pT
 pT
@@ -48448,7 +48527,7 @@ aD
 aD
 aD
 tV
-BT
+eC
 LN
 iL
 iL
@@ -50014,7 +50093,7 @@ Fq
 bh
 hn
 su
-su
+rz
 su
 su
 su

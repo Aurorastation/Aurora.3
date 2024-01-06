@@ -2,6 +2,7 @@
 "ab" = (
 /obj/structure/closet/crate/weld,
 /obj/random/dirt_75,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "ac" = (
@@ -446,6 +447,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "bK" = (
@@ -691,6 +693,11 @@
 	layer = 2.9
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/outdoors)
+"cD" = (
+/obj/structure/road_barrier,
+/obj/structure/billboard,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "cE" = (
 /obj/effect/decal/curb,
@@ -3818,6 +3825,14 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"pm" = (
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/maint_janitorial)
 "po" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -4378,6 +4393,10 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "rS" = (
@@ -4838,6 +4857,10 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "tL" = (
@@ -4871,6 +4894,7 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "tO" = (
@@ -7495,6 +7519,10 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/maint_janitorial)
 "Fn" = (
@@ -7836,6 +7864,11 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"GO" = (
+/obj/random/dirt_75,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/maint_janitorial)
 "GP" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -8287,6 +8320,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Ij" = (
+/obj/structure/billboard,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/tunnels)
 "Ik" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
@@ -8628,6 +8665,10 @@
 /obj/structure/closet/crate/tool,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "Jy" = (
@@ -9141,6 +9182,10 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/random/loot,
 /obj/random/junk,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "LU" = (
@@ -10324,6 +10369,7 @@
 	},
 /obj/item/storage/belt/custodial,
 /obj/item/grenade/chem_grenade/cleaner,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "QE" = (
@@ -10440,6 +10486,11 @@
 	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
+"QX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/billboard,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/tunnels)
 "QY" = (
 /obj/structure/shipping_container{
@@ -11340,6 +11391,10 @@
 /obj/random/dirt_75,
 /obj/structure/toilet{
 	pixel_x = -8
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/maint_janitorial)
@@ -22110,7 +22165,7 @@ AV
 AV
 AV
 AV
-Ja
+QX
 VX
 DQ
 dq
@@ -31654,7 +31709,7 @@ AV
 AV
 AV
 AV
-do
+Ij
 VX
 DQ
 Aw
@@ -45282,7 +45337,7 @@ AV
 AV
 AV
 AV
-do
+Ij
 VX
 DQ
 Aw
@@ -50409,7 +50464,7 @@ hl
 jP
 jP
 jP
-jn
+pm
 jn
 jP
 jP
@@ -51700,7 +51755,7 @@ uR
 jP
 LS
 HI
-rK
+GO
 jP
 vE
 gn
@@ -57875,7 +57930,7 @@ QV
 QV
 QV
 QV
-pc
+cD
 Wx
 Rv
 vH

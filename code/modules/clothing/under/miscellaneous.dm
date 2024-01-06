@@ -716,3 +716,20 @@
 	icon_state = "pachrom"
 	item_state = "pachrom"
 	armor = null
+
+/obj/item/clothing/under/rank/chef/gwok
+	name = "\improper UP! Burger uniform"
+	desc = "An astoundingly bright orange uniform, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "upburger"
+	item_state = "upburger"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS
+
+/obj/item/clothing/head/gwok
+	name = "\improper UP! Burger cap"
+	desc = "An astoundingly bright orange hat, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "upburger-cap"
+	item_state = "upburger-cap"
+	contained_sprite = TRUE

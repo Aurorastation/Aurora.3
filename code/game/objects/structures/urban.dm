@@ -554,6 +554,23 @@
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
+/obj/structure/billboard
+	name = "billboard"
+	desc = "A large neon billboard displaying a series of advertisements."
+	icon = 'icons/obj/structure/urban/konyang_billboards.dmi'
+	icon_state = "billboard-blank"
+	var/list/ads = list()
+	var/image/ad_overlay
+
+/obj/structure/billboard/Initialize()
+	. = ..()
+	ads = icon_states(icon)
+	ads -= icon_state
+	var/ad = pick(ads)
+	ad_overlay = image(icon, "[ad]", EFFECTS_ABOVE_LIGHTING_LAYER)
+	ad_overlay.appearance_flags = KEEP_APART
+	add_overlay(ad_overlay)
+
 /**
  * # Urban doors
  *
