@@ -753,7 +753,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "dB" = (
-/obj/machinery/photocopier,
+/obj/machinery/computer/atmos_alert{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/bridge)
 "dC" = (
@@ -865,6 +867,7 @@
 	req_access = list(220)
 	},
 /obj/item/gun/energy/pistol,
+/obj/item/clothing/accessory/badge/holo,
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/security)
 "eh" = (
@@ -899,19 +902,19 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/maintenance_foyer)
+"ek" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/sign/flag/idris/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor,
+/area/ship/idris_cruiser/engineering)
 "em" = (
 /obj/effect/shuttle_landmark/idris_cruiser/space/starboard_far,
 /turf/template_noop,
 /area/space)
-"eo" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ship/idris_cruiser/engineering)
 "ep" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -952,11 +955,6 @@
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/engineering)
-"eA" = (
-/turf/simulated/wall/shuttle/idris{
-	req_access = list(220)
-	},
-/area/ship/idris_cruiser/armory)
 "eE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1106,14 +1104,6 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/suite/suite_4)
-"fh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/starboard{
-	dir = 1;
-	name = "starboard, main compartment"
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/idris_cruiser_shuttle/main)
 "fk" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/paper_bin{
@@ -1255,12 +1245,6 @@
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/ship/idris_cruiser/corridor/lobby)
-"fQ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
@@ -1624,6 +1608,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/suite/suite_4)
+"ht" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/carpet/green,
+/area/ship/idris_cruiser/corridor/lobby)
 "hy" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -1743,6 +1737,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
+"hW" = (
+/obj/structure/bed/stool/chair/padded/teal{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ship/idris_cruiser/corridor/lobby)
 "hX" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/corridor/lobby)
@@ -1946,19 +1952,18 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "je" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
-	id = "idris_crew_quarters_window"
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
 	},
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /obj/effect/landmark/entry_point/port{
-	name = "port, crew quarters"
+	name = "port, engineering airlock"
 	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/crew_quarters)
+/turf/simulated/floor/reinforced/airless,
+/area/ship/idris_cruiser/engineering)
 "jf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -2136,6 +2141,10 @@
 	name = "clothing locker";
 	req_access = list(220)
 	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/crew_quarters)
 "jK" = (
@@ -2183,6 +2192,16 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
+"jX" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/flag/idris/l{
+	pixel_y = 11
+	},
+/obj/item/flag/idris/l{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/idris_cruiser/bridge)
 "jZ" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -2308,18 +2327,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/great_room)
-"kQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/bridge)
 "kT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -2534,18 +2541,6 @@
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/engineering/disposals)
-"lN" = (
-/obj/structure/bed/stool/chair/padded/teal{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/ship/idris_cruiser/corridor/lobby)
 "lO" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -3005,16 +3000,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/suites_b)
-"mZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet/green,
-/area/ship/idris_cruiser/corridor/lobby)
 "nd" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -3223,6 +3208,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
+"nJ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	dir = 1;
+	name = "starboard, main compartment"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/idris_cruiser_shuttle/main)
 "nQ" = (
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/reinforced/airless,
@@ -3387,18 +3380,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/maintenance_foyer)
-"oE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "port docking arm"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/corridor/dockingarm/port)
 "oF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/reagent_dispensers/peppertank/spacecleaner{
@@ -3640,27 +3621,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/main)
-"pn" = (
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_y = 9
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_y = 3
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = 6;
-	pixel_y = 10
-	},
-/obj/item/material/knife{
-	layer = 2.99;
-	pixel_x = -9
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/idris_cruiser/kitchen)
 "pp" = (
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3767,6 +3727,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
+"pI" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_shuttle_blast"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/idris_cruiser_shuttle/bridge)
 "pN" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4233,6 +4206,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/crew_fore)
+"ru" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, great room"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/great_room)
 "rB" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -4650,6 +4635,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/maintenance_foyer)
+"tb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/carpet/green,
+/area/ship/idris_cruiser/corridor/lobby)
 "tc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -4858,6 +4857,15 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/clothing/under/swimsuit/black,
+/obj/item/clothing/under/swimsuit/blue,
+/obj/item/clothing/under/swimsuit/green,
+/obj/item/clothing/under/swimsuit/purple,
+/obj/item/clothing/under/swimsuit/red,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms)
 "tP" = (
@@ -5158,6 +5166,27 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
+"vb" = (
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_y = 9
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_y = 3
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/idris_cruiser/kitchen)
 "ve" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5438,18 +5467,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
-"wx" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
-	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, lounge"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/lounge)
 "wy" = (
 /turf/simulated/floor/carpet/rubber,
 /area/ship/idris_cruiser/brig)
@@ -5513,6 +5530,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
+"wL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/ship/idris_cruiser/corridor/lobby)
+"wM" = (
+/obj/effect/landmark/entry_point/port{
+	dir = 2;
+	name = "port, engine compartment"
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/shuttle/idris_cruiser_shuttle/engineering)
 "wN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
@@ -5634,6 +5664,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/suite/suite_2)
+"xi" = (
+/obj/structure/table/wood,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/purple,
+/area/ship/idris_cruiser/lounge)
 "xl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -5682,6 +5719,18 @@
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
+"xy" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "starboard docking arm"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "xB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -5802,6 +5851,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/hydroponics)
+"xT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "port docking arm"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/corridor/dockingarm/port)
 "xU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -6158,12 +6219,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
-"zz" = (
-/obj/machinery/computer/atmos_alert{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/idris_cruiser/bridge)
 "zA" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -6208,16 +6263,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/port_lobby)
-"zM" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/flag/idris/l{
-	pixel_y = 11
-	},
-/obj/item/flag/idris/l{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/idris_cruiser/bridge)
 "zN" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6273,12 +6318,19 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "zU" = (
-/obj/effect/landmark/entry_point/aft{
-	dir = 4;
-	name = "aft, engine compartment"
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "idris_crew_quarters_window"
 	},
-/turf/simulated/wall/shuttle/idris,
-/area/shuttle/idris_cruiser_shuttle/engineering)
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew quarters"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/crew_quarters)
 "zV" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
@@ -6376,19 +6428,14 @@
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "AA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/floor/carpet/green,
-/area/ship/idris_cruiser/corridor/lobby)
+/turf/simulated/floor/reinforced/airless,
+/area/ship/idris_cruiser/engineering)
 "AB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6699,18 +6746,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/hydroponics)
-"BV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "starboard docking arm"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "BW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7405,12 +7440,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/bridge)
 "EL" = (
-/obj/effect/landmark/entry_point/port{
-	dir = 2;
-	name = "port, engine compartment"
-	},
-/turf/simulated/wall/shuttle/idris,
-/area/shuttle/idris_cruiser_shuttle/engineering)
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/dark,
+/area/ship/idris_cruiser/bridge)
 "EQ" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable/green{
@@ -7632,6 +7664,15 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/clothing/under/swimsuit/black,
+/obj/item/clothing/under/swimsuit/blue,
+/obj/item/clothing/under/swimsuit/green,
+/obj/item/clothing/under/swimsuit/purple,
+/obj/item/clothing/under/swimsuit/red,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms)
 "FQ" = (
@@ -7662,6 +7703,13 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/civ_fore)
+"FZ" = (
+/obj/effect/landmark/entry_point/aft{
+	dir = 4;
+	name = "aft, engine compartment"
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/shuttle/idris_cruiser_shuttle/engineering)
 "Gb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -7733,6 +7781,12 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ship/idris_cruiser/great_room)
+"GB" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, reactor"
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/ship/idris_cruiser/engineering/reactor)
 "GD" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -7778,19 +7832,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/breakroom)
-"GM" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, engineering airlock"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ship/idris_cruiser/engineering)
 "GO" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -7813,6 +7854,18 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
+"GQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, kitchen"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/kitchen)
 "GR" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
@@ -8108,6 +8161,15 @@
 /area/ship/idris_cruiser/medbay)
 "Iq" = (
 /obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/swimsuit/black,
+/obj/item/clothing/under/swimsuit/blue,
+/obj/item/clothing/under/swimsuit/green,
+/obj/item/clothing/under/swimsuit/purple,
+/obj/item/clothing/under/swimsuit/red,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/shorts/athletic/blue,
+/obj/item/clothing/under/shorts/athletic/green,
+/obj/item/clothing/under/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms)
 "Iu" = (
@@ -8130,6 +8192,18 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/lounge)
+"Ix" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/bridge)
 "Iy" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -8142,18 +8216,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
-"IB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/green,
-/area/ship/idris_cruiser/corridor/lobby)
 "ID" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -8646,12 +8708,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
-"Ke" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, reactor"
-	},
-/turf/simulated/wall/shuttle/idris,
-/area/ship/idris_cruiser/engineering/reactor)
 "Kf" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -9785,6 +9841,7 @@
 	req_access = list(220)
 	},
 /obj/item/gun/energy/pistol,
+/obj/item/clothing/accessory/badge/holo,
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/security)
 "Oz" = (
@@ -10088,6 +10145,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/green,
 /area/shuttle/idris_cruiser_shuttle/main)
 "PC" = (
@@ -10149,13 +10209,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
-"PN" = (
-/obj/structure/table/wood,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/purple,
-/area/ship/idris_cruiser/lounge)
 "PO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -10678,6 +10731,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_aft)
+"Sf" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/carpet/green,
+/area/ship/idris_cruiser/corridor/lobby)
 "Si" = (
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/suite/suite_2)
@@ -10693,14 +10756,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/engineering/disposals)
-"So" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/port{
-	dir = 2;
-	name = "port, main compartment"
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/idris_cruiser_shuttle/main)
 "Sp" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/extinguisher_cabinet/west,
@@ -11369,18 +11424,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_fore)
-"VD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, kitchen"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/kitchen)
 "VE" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -11449,19 +11492,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
-"VS" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_shuttle_blast"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, cockpit";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/idris_cruiser_shuttle/bridge)
 "VT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11888,6 +11918,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
+"Xq" = (
+/obj/item/clothing/under/librarian/idris,
+/obj/item/clothing/under/librarian/idris,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/structure/closet/secure_closet{
+	name = "clothing locker";
+	req_access = list(220)
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/idris_cruiser/crew_quarters)
 "Xr" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -12052,6 +12093,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/civ_fore)
+"Yc" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, lounge"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/lounge)
 "Ye" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -12142,6 +12195,11 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/port_lobby)
+"Yy" = (
+/turf/simulated/wall/shuttle/idris{
+	req_access = list(220)
+	},
+/area/ship/idris_cruiser/armory)
 "YB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -12154,18 +12212,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/custodial)
-"YE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	name = "Safety Blast Doors";
-	id = "idriscruiser_bridge_blast"
-	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, great room"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/idris_cruiser/great_room)
 "YG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -12183,15 +12229,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/spa)
-"YL" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/sign/flag/idris/large/north{
-	pixel_y = 32
-	},
-/turf/simulated/floor,
-/area/ship/idris_cruiser/engineering)
 "YP" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/dark/full,
@@ -12245,30 +12282,25 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/suite/suite_3)
 "Zb" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/port{
+	dir = 2;
+	name = "port, main compartment"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
+/turf/simulated/floor/tiled,
+/area/shuttle/idris_cruiser_shuttle/main)
+"Zh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/lobby)
-"Zg" = (
-/obj/item/clothing/under/librarian/idris,
-/obj/item/clothing/under/librarian/idris,
-/obj/item/clothing/shoes/laceup,
-/obj/item/clothing/shoes/laceup,
-/obj/structure/closet/secure_closet{
-	name = "clothing locker";
-	req_access = list(220)
-	},
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = -22
-	},
-/turf/simulated/floor/tiled/full,
-/area/ship/idris_cruiser/crew_quarters)
 "Zk" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -26894,7 +26926,7 @@ Bz
 TO
 TO
 TO
-zU
+FZ
 Fx
 gR
 Ft
@@ -27697,7 +27729,7 @@ MX
 MX
 MX
 MX
-EL
+wM
 Bf
 am
 kG
@@ -27912,7 +27944,7 @@ Ya
 bx
 Eo
 Ya
-BV
+xy
 nQ
 MX
 MX
@@ -29313,12 +29345,12 @@ MX
 MX
 MX
 MX
-So
+Zb
 AT
 No
 px
 Xg
-fh
+nJ
 Km
 rF
 Ft
@@ -30495,7 +30527,7 @@ MC
 xC
 xC
 XI
-eo
+AA
 UO
 UO
 UO
@@ -30529,7 +30561,7 @@ CS
 ab
 ab
 ab
-VS
+pI
 ab
 Op
 kr
@@ -30710,7 +30742,7 @@ ml
 oy
 tz
 Do
-wx
+Yc
 Do
 tz
 nQ
@@ -31101,7 +31133,7 @@ Bx
 Bx
 Bx
 Mw
-YL
+ek
 GZ
 wN
 Yk
@@ -31315,7 +31347,7 @@ ss
 fa
 zf
 tz
-PN
+xi
 UR
 oi
 UR
@@ -31350,7 +31382,7 @@ NZ
 FQ
 FQ
 ku
-YE
+ru
 ku
 Mg
 Mg
@@ -32152,8 +32184,8 @@ ei
 Bi
 mk
 lV
-IB
-lN
+Zh
+hW
 dP
 ZX
 ld
@@ -32553,7 +32585,7 @@ Up
 Up
 dP
 wG
-fQ
+wL
 mk
 lV
 wR
@@ -32592,7 +32624,7 @@ ZZ
 Od
 jN
 xJ
-dB
+EL
 eX
 hV
 hV
@@ -32790,14 +32822,14 @@ nr
 nt
 wq
 Xr
-eA
+Yy
 Od
 TR
 Ye
 vF
 wO
 fp
-kQ
+Ix
 Ov
 MX
 MX
@@ -32914,7 +32946,7 @@ MX
 MX
 MX
 MC
-Ke
+GB
 rO
 rO
 QL
@@ -32957,7 +32989,7 @@ MR
 MR
 MR
 rM
-AA
+tb
 aa
 cH
 Ql
@@ -33363,8 +33395,8 @@ Va
 dP
 wT
 kv
-Zb
-mZ
+Sf
+ht
 LG
 dP
 Xo
@@ -33396,12 +33428,12 @@ FC
 yY
 SM
 ex
-Zg
+jJ
 FC
 WA
 xJ
 VW
-zM
+jX
 hV
 hV
 Ov
@@ -33598,7 +33630,7 @@ FC
 Cg
 ra
 qL
-jJ
+Xq
 FC
 qS
 EK
@@ -33803,7 +33835,7 @@ PP
 lO
 FC
 SY
-zz
+dB
 hV
 hV
 hZ
@@ -33984,7 +34016,7 @@ FK
 FK
 NQ
 mQ
-pn
+vb
 rD
 Wl
 lI
@@ -34202,7 +34234,7 @@ BE
 BE
 FC
 Be
-je
+zU
 Be
 FC
 FC
@@ -34591,7 +34623,7 @@ FQ
 Cq
 Cq
 ia
-VD
+GQ
 ia
 Cq
 ft
@@ -35348,7 +35380,7 @@ Dv
 Sy
 ND
 aq
-GM
+je
 sD
 gJ
 lv
@@ -38214,7 +38246,7 @@ SO
 qi
 hy
 SO
-oE
+xT
 nQ
 MX
 MX

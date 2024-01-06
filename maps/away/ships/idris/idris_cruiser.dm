@@ -35,7 +35,7 @@
 	vessel_mass = 5000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
-	invisible_until_ghostrole_spawn = FALSE
+	invisible_until_ghostrole_spawn = TRUE
 	initial_restricted_waypoints = list(
 		"Idris Runabout" = list("nav_idris_cruiser_stbd_aft")
 	)
