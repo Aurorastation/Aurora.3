@@ -549,3 +549,11 @@ example:
 
 /// Gyrotron power usage modifier.
 #define GYRO_POWER 25000
+
+// Accessory Slot Gear Tweak Settings
+/// Spawns attached to the uniform
+#define GEAR_TWEAK_ACCESSORY_SLOT_UNDER "Uniform"
+/// Spawns attached to the suit slot item
+#define GEAR_TWEAK_ACCESSORY_SLOT_SUIT "Suit"
+/// Spawns standalone in the suit slot
+#define GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE "Standalone Suit"

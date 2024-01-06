@@ -179,6 +179,7 @@
 #include "code\_helpers\logging\attack.dm"
 #include "code\_helpers\logging\debug.dm"
 #include "code\_helpers\logging\game.dm"
+#include "code\_helpers\logging\loadout.dm"
 #include "code\_helpers\logging\manifest.dm"
 #include "code\_helpers\logging\paper.dm"
 #include "code\_helpers\logging\pda.dm"

@@ -438,6 +438,8 @@ var/list/gear_datums = list()
 		gear_tweaks += list(gear_tweak_free_desc)
 	if(flags & GEAR_HAS_COLOR_ROTATION_SELECTION)
 		gear_tweaks += list(gear_tweak_color_rotation)
+	if(ispath(path, /obj/item/clothing/accessory))
+		gear_tweaks += list(gear_tweak_accessory_slot)
 
 /datum/gear_data
 	var/path
@@ -472,24 +474,34 @@ var/list/gear_datums = list()
 		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
 	return null
 
-/datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
+/// Returns a list of spawn item data. The first entry is the path, the second is the location
+/datum/gear/proc/get_spawn_item_data(var/location, var/metadata, var/mob/living/carbon/human/H)
 	var/datum/gear_data/gd = new(path, location, faction)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
 			gt.tweak_gear_data(metadata["[gt]"], gd, H)
 		else
 			gt.tweak_gear_data(gt.get_default(), gd, H)
-	if(ispath(gd.path, /obj/item/organ/external))
-		var/obj/item/organ/external/external_aug = gd.path
+	return list(gd.path, gd.location)
+
+/datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
+	var/list/spawn_item_data = get_spawn_item_data(location, metadata, H)
+	var/spawn_path = spawn_item_data[1]
+	var/spawn_location = spawn_item_data[2]
+
+	if(ispath(spawn_path, /obj/item/organ/external))
+		var/obj/item/organ/external/external_aug = spawn_path
 		var/obj/item/organ/external/replaced_limb = H.get_organ(initial(external_aug.limb_name))
 		replaced_limb.droplimb(TRUE, DROPLIMB_EDGE, FALSE)
 		qdel(replaced_limb)
-	var/item = new gd.path(gd.location)
+
+	var/item = new spawn_path(spawn_location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
 			gt.tweak_item(item, metadata["[gt]"], H)
 		else
 			gt.tweak_item(item, gt.get_default(), H)
+
 	return item
 
 /datum/gear/proc/spawn_random(var/location)

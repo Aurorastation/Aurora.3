@@ -24,6 +24,7 @@
   "log_telecomms":0,
   "log_speech_indicators":0,
   "log_tools":0,
+  "log_loadout":1,
   "log_manifest":1,
   "log_subsystems":1,
   "log_subsystems_chemistry":1,
