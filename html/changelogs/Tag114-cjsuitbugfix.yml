@@ -1,6 +1,0 @@
-author: Tag114
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the crimson jumpsuit's sprites not displaying."
