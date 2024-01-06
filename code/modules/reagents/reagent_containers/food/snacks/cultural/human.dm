@@ -539,7 +539,7 @@
 		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/bowl/MouseDrop(mob/user) //Dropping the bowl of food onto the user
-	if(istype(user) && user == usr)
+	if(istype(user) && !user.use_check_and_message)
 		user.put_in_active_hand(src)
 		src.pickup(user)
 		return
