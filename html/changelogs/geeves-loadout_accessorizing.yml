@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now choose whether your loadout accessory spawns on your uniform, your suit, or gets put into the suit slot as a standalone item, such as with capes and ponchos."
-  - bugfix: "Fixed only one accessory being visible at a time in the loadout preview."
-  - bugfix: "Fixed vaurca tunnel cloaks not being visible in the loadout preview."
