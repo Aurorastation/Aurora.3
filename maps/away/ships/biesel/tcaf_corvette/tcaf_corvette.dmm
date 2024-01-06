@@ -8,11 +8,22 @@
 "ai" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_captain";
+	name = "Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/captain)
 "aD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -30,6 +41,9 @@
 "aO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -275,6 +289,14 @@
 /area/tcaf_corvette/security)
 "cL" = (
 /obj/machinery/computer/ship/sensors,
+/obj/machinery/button/remote/blast_door{
+	id = "tcaf_shuttle";
+	name = "Window Shielding";
+	req_access = list(204);
+	dir = 8;
+	pixel_x = -22;
+	pixel_y = 5
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "cN" = (
@@ -359,6 +381,14 @@
 /obj/structure/window/shuttle/legion,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, rotary cannon"
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_francisca";
+	name = "Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
@@ -501,6 +531,19 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
+"ek" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/legion,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_francisca";
+	name = "Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/francisca)
 "et" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -644,6 +687,14 @@
 "fq" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_grau";
+	name = "Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/grauwolf)
 "ft" = (
@@ -872,9 +923,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "hf" = (
@@ -1023,6 +1071,19 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 36;
+	pixel_x = -8;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_tcaf_shuttle";
+	name = "airlock_tcaf_shuttle";
+	req_one_access = list(204);
+	shuttle_tag = "TCAF Gunship"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "iu" = (
@@ -1231,6 +1292,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
+"ko" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/button/remote/blast_door{
+	id = "tcaf_mess";
+	name = "Window Shielding";
+	req_access = list(204);
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/messhall)
 "kp" = (
 /obj/machinery/power/apc/super/south{
 	req_access = list(204)
@@ -1422,6 +1500,14 @@
 /area/tcaf_corvette/bridge)
 "md" = (
 /obj/structure/bed/stool/chair/wood,
+/obj/machinery/button/remote/blast_door{
+	id = "tcaf_captain";
+	name = "Window Shielding";
+	req_access = list(204);
+	dir = 8;
+	pixel_x = -22;
+	pixel_y = 5
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/tcaf_corvette/captain)
 "mg" = (
@@ -1613,6 +1699,22 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/grauwolf)
+"or" = (
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_tcaf_shuttle";
+	name = "airlock_tcaf_shuttle";
+	req_one_access = list(204);
+	shuttle_tag = "TCAF Gunship"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_x = -24;
+	pixel_y = 8;
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/tcaf)
 "oy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1624,6 +1726,14 @@
 /obj/structure/grille,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, captain's office"
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_captain";
+	name = "Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/captain)
@@ -1706,16 +1816,20 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "scrubbers to waste"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "ps" = (
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tcaf_francisca";
+	name = "Window Shielding";
+	req_access = list(204);
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/francisca)
@@ -1914,6 +2028,14 @@
 "rb" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/legion,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_shuttle";
+	name = "Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "rh" = (
@@ -2054,6 +2176,17 @@
 	},
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/captain)
+"sD" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/engineering)
 "sF" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino,
@@ -2671,6 +2804,10 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
+"xm" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/tcaf)
 "xJ" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -2723,6 +2860,14 @@
 /obj/structure/window/shuttle/legion,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, mess hall"
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_mess";
+	name = "Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/messhall)
@@ -2924,6 +3069,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
+"Aj" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/hangar)
 "Al" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -3773,6 +3924,12 @@
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
+"Io" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engineering)
 "Ip" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
@@ -3832,9 +3989,9 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
-	pixel_x = 8;
+	pixel_x = 9;
 	pixel_y = 28;
-	dir = 4
+	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -4003,6 +4160,13 @@
 	},
 /turf/simulated/floor/lino,
 /area/tcaf_corvette/messhall)
+"KF" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 2;
+	name = "scrubbers to waste"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engineering)
 "KG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4425,6 +4589,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
@@ -4648,6 +4815,12 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/machinery/button/remote/blast_door{
+	id = "tcaf_grau";
+	name = "Window Shielding";
+	req_access = list(204);
+	pixel_y = -21
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
 "Qr" = (
@@ -4719,11 +4892,8 @@
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "Qy" = (
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
 "QG" = (
@@ -4908,6 +5078,14 @@
 "RO" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/legion,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_mess";
+	name = "Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/messhall)
 "RS" = (
@@ -5090,6 +5268,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "TN" = (
@@ -5143,7 +5322,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
@@ -5151,6 +5329,7 @@
 	req_one_access = list(204);
 	shuttle_tag = "TCAF Gunship"
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "Uq" = (
@@ -5501,7 +5680,7 @@
 /area/tcaf_corvette/storage)
 "Xe" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
@@ -5710,6 +5889,9 @@
 /obj/effect/shuttle_landmark/tcaf_shuttle/hangar{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/hangar)
 "YH" = (
@@ -5748,11 +5930,27 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/legion,
 /obj/effect/landmark/entry_point/fore,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_shuttle";
+	name = "Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "YS" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/legion,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "tcaf_francisca";
+	name = "Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
 "YX" = (
@@ -31646,7 +31844,7 @@ Vs
 GA
 fG
 XB
-zO
+sD
 zO
 oV
 CE
@@ -31903,7 +32101,7 @@ Sd
 dw
 Jh
 TP
-Sd
+Io
 Sd
 hb
 Po
@@ -32418,7 +32616,7 @@ hD
 Fa
 ge
 aO
-Sd
+KF
 Xe
 Ip
 NO
@@ -33187,7 +33385,7 @@ Jj
 Jj
 Jj
 YG
-Jj
+Aj
 NB
 TW
 lB
@@ -34221,7 +34419,7 @@ OO
 OO
 OO
 Eo
-tD
+TN
 ZC
 ZC
 aR
@@ -34470,7 +34668,7 @@ OO
 oA
 Fw
 fn
-Fw
+or
 IE
 Fw
 RB
@@ -34980,7 +35178,7 @@ HP
 nO
 nO
 nO
-OO
+xm
 Wu
 yI
 sk
@@ -38854,7 +39052,7 @@ aU
 sp
 kI
 dt
-FK
+ko
 FK
 iu
 aU
@@ -39633,7 +39831,7 @@ sG
 Hp
 ps
 LV
-YS
+ek
 UI
 UI
 UI
