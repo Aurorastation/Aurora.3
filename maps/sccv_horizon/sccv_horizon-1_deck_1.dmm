@@ -2199,11 +2199,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bDQ" = (
-/obj/structure/stairs_railing{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
+/turf/simulated/floor/tiled/dark/full,
+/area/turbolift/scc_ship/operations_lift)
 "bEk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3043,8 +3043,7 @@
 /turf/simulated/floor/plating,
 /area/turbolift/research/deck_1)
 "clf" = (
-/obj/effect/shuttle_landmark/lift/operations_first_deck,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/operations/loading)
 "clG" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -3275,27 +3274,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "crZ" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/brown{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
-	pixel_x = -31;
-	pixel_y = 26
+/obj/machinery/computer/shuttle_control/multi/lift/operations{
+	pixel_x = 8;
+	pixel_y = 2
 	},
-/turf/simulated/floor/tiled,
-/area/operations/loading)
+/turf/simulated/floor/tiled/dark/full,
+/area/turbolift/scc_ship/operations_lift)
 "cty" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -3660,10 +3647,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Warehouse Entrance";
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "cDa" = (
@@ -4821,11 +4804,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/operations/loading)
 "dsG" = (
 /obj/structure/cable/green{
@@ -4986,7 +4966,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "dBb" = (
@@ -7283,11 +7262,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -7436,7 +7415,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
@@ -7539,6 +7517,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -9334,7 +9315,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
@@ -9728,6 +9708,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/device/cratescanner,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "gGE" = (
@@ -11321,12 +11304,8 @@
 	},
 /area/medical/morgue/lower)
 "hRn" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
 /area/operations/loading)
 "hRo" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -13925,6 +13904,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "jKF" = (
@@ -14545,6 +14525,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -17690,6 +17673,9 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/firealarm/west{
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "mpV" = (
@@ -24373,6 +24359,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/machinery/computer/shuttle_control/multi/lift/operations{
+	pixel_x = 8;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "qXZ" = (
@@ -24888,9 +24878,6 @@
 "rpj" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
-	},
-/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
-	pixel_y = 26
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -28276,23 +28263,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "tMa" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/stairs/west,
+/obj/structure/stairs_lower/stairs_upper{
+	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	dir = 2;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67)
-	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/loading)
 "tMp" = (
 /obj/structure/cable/green{
@@ -29002,18 +28977,13 @@
 	},
 /area/shuttle/canary)
 "ulE" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/stairs/west,
+/obj/structure/stairs_lower{
+	dir = 1;
+	pixel_y = -23
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 0;
-	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67)
-	},
-/obj/machinery/door/firedoor/multi_tile,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
 /area/operations/loading)
 "ulJ" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -29386,7 +29356,26 @@
 /turf/space,
 /area/horizon/exterior)
 "uzB" = (
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Warehouse Entrance";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
 /area/operations/loading)
 "uzC" = (
 /obj/effect/floor_decal/corner_wide/black{
@@ -29470,10 +29459,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"uBL" = (
-/obj/structure/sign/crush,
-/turf/simulated/wall,
-/area/operations/loading)
 "uBW" = (
 /obj/structure/window/shuttle/unique/scc/scout{
 	icon_state = "4,2"
@@ -30477,6 +30462,9 @@
 /obj/item/device/hand_labeler,
 /obj/item/device/destTagger,
 /obj/item/stack/packageWrap,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "vjA" = (
@@ -32949,6 +32937,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "wZi" = (
@@ -33616,12 +33607,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "xqn" = (
-/obj/structure/stairs_railing{
-	dir = 4;
-	pixel_x = -32
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
+/turf/simulated/floor/tiled/dark/full,
+/area/turbolift/scc_ship/operations_lift)
 "xqo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	layer = 2.8
@@ -34773,11 +34763,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/firealarm/west{
-	pixel_x = -24
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/operations/loading)
 "ybl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -34875,9 +34864,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "yeo" = (
-/obj/structure/stairs/north,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/shuttle_landmark/lift/operations_first_deck,
+/turf/simulated/floor/tiled/dark/full,
+/area/turbolift/scc_ship/operations_lift)
 "yeB" = (
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 4
@@ -34926,13 +34918,10 @@
 /area/hangar/auxiliary)
 "yhf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/loading)
 "yib" = (
 /obj/machinery/light/small/red{
@@ -47124,7 +47113,7 @@ kOJ
 lNG
 uGI
 qdE
-yeo
+crZ
 xqn
 klR
 qWW
@@ -47528,9 +47517,9 @@ sLl
 iJt
 owP
 gtM
-nYx
-drY
 yaP
+drY
+nYx
 cCv
 arw
 mpI
@@ -47732,8 +47721,8 @@ qkh
 qkh
 feY
 gvZ
-qMM
-qMM
+gvZ
+gvZ
 gvZ
 sgp
 buS
@@ -47935,10 +47924,10 @@ tRQ
 xGe
 dAZ
 gvZ
-uzB
-uzB
+tMa
 ulE
-crZ
+gvZ
+uzB
 qDJ
 wlh
 gvZ
@@ -48136,11 +48125,11 @@ bGl
 iJR
 pqh
 qkh
-vqU
+fCT
 gvZ
 clf
-uzB
 hRn
+gvZ
 ehD
 qDJ
 eFe
@@ -48342,8 +48331,8 @@ qkh
 baV
 gvZ
 yhf
-tMa
-uBL
+yhf
+gvZ
 fbc
 lNj
 eFe
