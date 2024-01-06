@@ -478,6 +478,10 @@
 	name = "Zino language processor"
 	augment_languages = list(LANGUAGE_GUTTER)
 
+/obj/item/organ/internal/augment/language/eridani
+	name = "Eridani language processor"
+	augment_languages = list(LANGUAGE_TRADEBAND)
+
 /obj/item/organ/internal/augment/language/zeng
 	name = "Zeng-Hu Nral'malic language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
