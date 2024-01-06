@@ -2310,7 +2310,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable,
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "kK" = (
