@@ -48,12 +48,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/medical)
-"au" = (
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "av" = (
 /obj/machinery/button/remote/blast_door{
 	name = "Starboard Window Blast Shutters";
@@ -98,12 +92,20 @@
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 1
 	},
-/obj/item/storage/box/fancy/tray,
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
 	id = "scarab_salvager_or";
 	pixel_x = 7;
 	pixel_y = 28
+	},
+/obj/item/storage/firstaid/surgery{
+	pixel_y = 12
+	},
+/obj/item/storage/box/masks{
+	pixel_x = -8
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/coc_scarab/surgery)
@@ -244,10 +246,13 @@
 "bu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
-/obj/machinery/alarm/north{
+/obj/effect/decal/cleanable/dirt{
+	pixel_x = -1
+	},
+/obj/machinery/alarm/east{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
 "by" = (
 /obj/structure/railing/mapped{
@@ -298,11 +303,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/bed/handrail{
-	dir = 8;
-	name = "table handrail";
-	pixel_x = 2;
-	buckle_dir = 4
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/armory)
@@ -398,18 +400,23 @@
 /area/ship/coc_scarab/engine)
 "cu" = (
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/structure/sign/flag/scarab/large/north{
-	pixel_y = 32
-	},
 /obj/structure/sign/fire{
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/ammo)
 "cv" = (
@@ -451,23 +458,10 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 4
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
 "cK" = (
-/obj/structure/bed/handrail{
-	pixel_y = 7;
-	name = "table handrail";
-	buckle_dir = 1
-	},
-/obj/structure/bed/handrail{
-	dir = 1;
-	pixel_y = -2;
-	name = "table handrail";
-	buckle_dir = 2
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -476,6 +470,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/armory)
@@ -573,14 +570,6 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hydroponics)
 "di" = (
-/obj/item/storage/box/masks{
-	pixel_x = -4;
-	pixel_y = 10
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = -5;
-	pixel_y = -4
-	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 1
@@ -592,15 +581,12 @@
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
 	icon_state = "sterilesprayblue";
 	name = "surgery cleaner";
-	pixel_x = 8;
-	pixel_y = -5
-	},
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 8
+	pixel_x = 6;
+	pixel_y = -1
 	},
 /obj/item/storage/box/sharps{
-	pixel_x = 9;
-	pixel_y = 10
+	pixel_x = -7;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/coc_scarab/surgery)
@@ -937,11 +923,6 @@
 	dir = 8
 	},
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
@@ -956,6 +937,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/ammo)
@@ -1030,6 +1014,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
+"fA" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "scarab_flak_battery";
+	name = "Safety Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/ship/coc_scarab/grauwolf)
 "fB" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
@@ -1064,12 +1060,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
-	},
-/obj/machinery/button/remote/blast_door{
-	name = "Flak Battery Blast Shutters";
-	id = "scarab_flak_battery";
-	pixel_x = 24;
-	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
@@ -1289,9 +1279,6 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/engistorage)
 "gE" = (
@@ -1537,7 +1524,7 @@
 	name = "Ammunition Storage"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/armory)
 "hJ" = (
 /obj/machinery/door/firedoor/noid,
@@ -1729,11 +1716,6 @@
 /area/shuttle/scarab_harvester)
 "iA" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/bed/handrail{
-	pixel_y = 7;
-	name = "table handrail";
-	buckle_dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1803,6 +1785,25 @@
 	},
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
+"iP" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armory";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/armory)
 "iQ" = (
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
@@ -1847,11 +1848,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/south,
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/ammo)
 "ja" = (
@@ -1937,8 +1946,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light/floor/decayed{
+/obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt{
+	pixel_x = -1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
@@ -2334,24 +2350,11 @@
 /turf/space/dynamic,
 /area/space)
 "lu" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Armory";
+/obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/coc_scarab/armory)
+/turf/template_noop,
+/area/space)
 "lx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2535,9 +2538,6 @@
 /area/ship/coc_scarab/armory)
 "mJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
 /obj/structure/table/standard,
 /obj/item/storage/box/bodybags{
 	pixel_x = 7
@@ -2545,6 +2545,9 @@
 /obj/item/storage/box/bodybags{
 	pixel_x = -9;
 	pixel_y = 2
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/massdriver)
@@ -2567,6 +2570,16 @@
 "mM" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/hydroponics)
+"mN" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "scarab_bridge_lockdown";
+	name = "Bridge Lockdown";
+	pixel_y = 26;
+	pixel_x = -8
+	},
+/turf/template_noop,
+/area/space)
 "mS" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2677,9 +2690,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "nD" = (
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/glass/rag{
 	pixel_y = 11;
@@ -2692,6 +2702,9 @@
 	pixel_y = 13
 	},
 /obj/item/stock,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/armory)
 "nP" = (
@@ -2932,18 +2945,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
 "pv" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	pixel_y = -5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
 "pw" = (
@@ -3037,11 +3058,19 @@
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "pS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/structure/railing/mapped{
+	pixel_y = -5
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
 "pT" = (
 /obj/structure/closet/crate/loot,
@@ -3249,15 +3278,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/hydroponics)
 "qS" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/sign/flag/scarab/large/north{
+	pixel_y = 32
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
-/obj/machinery/door/window/southright,
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
 "qT" = (
@@ -3420,6 +3447,10 @@
 	layer = 2.71;
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/ammo)
 "sc" = (
@@ -3453,9 +3484,7 @@
 /turf/space/dynamic,
 /area/space)
 "sf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/structure/platform,
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
 "sh" = (
@@ -3772,11 +3801,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/coc_scarab)
 "tI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/floor/decayed{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/device/multitool{
+	pixel_x = 1;
+	pixel_y = 11
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing/mapped{
+	pixel_y = -5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
 "tM" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -3934,16 +3971,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scarab_harvester)
-"uj" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "scarab_bridge_lockdown";
-	name = "Bridge Lockdown";
-	pixel_y = 26;
-	pixel_x = -8
-	},
-/turf/template_noop,
-/area/space)
 "un" = (
 /obj/effect/shuttle_landmark/coc_scarab/nav3,
 /turf/template_noop,
@@ -4703,15 +4730,9 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engistorage)
 "zd" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/high/north{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_probe,
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/item/ship_ammunition/grauwolf_probe,
@@ -4941,6 +4962,9 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/armory)
@@ -5223,12 +5247,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
 "BJ" = (
-/obj/structure/sign/flag/scarab/large/south{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/armory)
 "BL" = (
@@ -5605,15 +5630,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hydroponics)
 "DG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
-	},
-/obj/structure/bed/handrail{
-	dir = 8
+/obj/structure/platform_stairs/full/south_north_cap,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
@@ -5664,15 +5683,14 @@
 /turf/space/dynamic,
 /area/space)
 "Ea" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/handrail{
-	dir = 8;
-	name = "table handrail";
-	pixel_x = 2;
-	buckle_dir = 4
+/obj/effect/decal/cleanable/dirt{
+	pixel_x = -1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/armory)
 "El" = (
@@ -5863,6 +5881,9 @@
 	pixel_x = 6;
 	pixel_y = 17
 	},
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/armory)
 "EO" = (
@@ -5927,7 +5948,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/coc_scarab)
 "Fj" = (
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing/mapped{
+	pixel_y = -5
+	},
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
 "Fm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5938,15 +5969,11 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/equipment)
 "Fn" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "scarab_flak_battery";
-	name = "Safety Blast Doors"
-	},
-/turf/simulated/floor/reinforced,
-/area/ship/coc_scarab/grauwolf)
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped,
+/obj/item/ship_ammunition/grauwolf_probe,
+/turf/simulated/floor/airless,
+/area/space)
 "Fq" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
@@ -6019,6 +6046,9 @@
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/ammo)
@@ -6132,13 +6162,15 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/grey,
+/turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/ammo)
 "Gl" = (
+/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
 	dir = 8
 	},
-/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
 "Go" = (
@@ -6284,15 +6316,17 @@
 /area/space)
 "GP" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light/colored/decayed/dimmed{
+	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
 "GQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/massdriver)
 "GR" = (
@@ -6330,17 +6364,13 @@
 /turf/space/dynamic,
 /area/space)
 "GX" = (
+/obj/structure/platform,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
 	dir = 8
 	},
-/obj/structure/sign/flag/scarab/large/west{
-	pixel_x = -32
-	},
-/obj/structure/bed/handrail{
-	dir = 4
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
@@ -7015,16 +7045,33 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scarab_harvester)
 "KT" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars{
+	pixel_x = 7;
+	pixel_y = -3
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_x = -8
 	},
-/obj/machinery/door/window/southleft,
-/turf/simulated/floor/tiled/dark,
+/obj/item/clothing/ears/earmuffs{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/obj/item/clothing/head/hardhat{
+	pixel_x = 9;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Flak Battery Blast Shutters";
+	id = "scarab_flak_battery";
+	dir = 10;
+	pixel_y = 29
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
 "Lb" = (
 /obj/structure/table/steel,
@@ -7165,10 +7212,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/walllocker/firecloset{
-	pixel_y = 25
-	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "LE" = (
@@ -7219,9 +7262,6 @@
 /obj/structure/sink/kitchen{
 	dir = 8;
 	pixel_x = 22
-	},
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
@@ -7472,14 +7512,14 @@
 "MZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /obj/structure/sign/fire{
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_x = 32
+	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/ammo)
@@ -7624,26 +7664,20 @@
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "Og" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/ears/earmuffs{
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/obj/item/device/binoculars{
-	pixel_x = 8;
-	pixel_y = -3
-	},
 /obj/structure/cable/green{
-	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null
 	},
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk{
-	pixel_y = 13;
-	pixel_x = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
 "Oi" = (
@@ -7816,9 +7850,6 @@
 /obj/item/storage/bag/ore,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "Oy" = (
@@ -7878,6 +7909,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/ammo)
 "Pa" = (
@@ -8026,11 +8060,10 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	layer = 2.8
-	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab)
 "PJ" = (
@@ -8518,16 +8551,16 @@
 	dir = 1
 	},
 /obj/item/reagent_containers/hypospray{
-	pixel_x = -5;
-	pixel_y = 3
+	pixel_x = -13;
+	pixel_y = 6
 	},
 /obj/item/storage/belt/medical{
 	pixel_y = -3;
-	pixel_x = 6
+	pixel_x = -3
 	},
 /obj/item/clothing/head/bandana/medical{
-	pixel_x = 5;
-	pixel_y = 9
+	pixel_x = 11;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/coc_scarab/surgery)
@@ -9333,8 +9366,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/coc_scarab/engine)
 "Vo" = (
-/obj/machinery/computer/ship/navigation/terminal,
-/obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
 "Vp" = (
@@ -9347,6 +9383,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
 "Vv" = (
@@ -9632,6 +9671,10 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
+"WZ" = (
+/obj/machinery/alarm/south,
+/turf/template_noop,
+/area/space)
 "Xe" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -9765,6 +9808,9 @@
 	pixel_x = -6
 	},
 /obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/armory)
 "XA" = (
@@ -9951,10 +9997,14 @@
 /area/ship/coc_scarab/hydroponics)
 "YD" = (
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/structure/sign/flag/scarab/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/ammo)
 "YF" = (
@@ -10074,6 +10124,9 @@
 /obj/item/gun/projectile/automatic/mini_uzi,
 /obj/item/ammo_magazine/c45uzi,
 /obj/item/ammo_magazine/c45uzi,
+/obj/structure/sign/flag/scarab/large/west{
+	pixel_x = -32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/armory)
 "Zd" = (
@@ -38419,8 +38472,8 @@ IR
 IR
 IR
 YY
-YY
-YY
+fA
+fA
 Ez
 YY
 YY
@@ -39709,7 +39762,7 @@ js
 DG
 cE
 fF
-Fn
+YY
 px
 cn
 IR
@@ -39950,7 +40003,7 @@ Re
 GB
 sX
 ny
-Sw
+IR
 Sw
 mJ
 GQ
@@ -41250,7 +41303,7 @@ fo
 FE
 BV
 BV
-lu
+iP
 BV
 ab
 Xl
@@ -43317,7 +43370,7 @@ cB
 cB
 cB
 cB
-cB
+WZ
 cB
 cB
 cB
@@ -47168,7 +47221,7 @@ cB
 cB
 cB
 cB
-au
+lu
 cB
 cB
 cB
@@ -47939,7 +47992,7 @@ cB
 cB
 cB
 cB
-uj
+mN
 cB
 cB
 cB
@@ -48685,7 +48738,7 @@ cB
 cB
 cB
 bO
-gK
+Fn
 cB
 cB
 cB
