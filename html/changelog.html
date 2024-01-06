@@ -47,12 +47,25 @@
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="backend">Updated embedded rust_g DLL version to 2.1.0+a1.</li>
+				<li class="backend">Ported the master controller from TG.</li>
+				<li class="backend">Ported the failsafe controller from TG.</li>
+				<li class="backend">Updated world initialization to work with the new MC.</li>
+				<li class="backend">Debugger (auxtools/spacemandmm) now initializes on world start so you can debug the MC init.</li>
+				<li class="backend">Renamed the help and define folders to align with TG structure.</li>
+				<li class="backend">Renamed/restructured some files to align (more) with TG structure.</li>
+				<li class="backend">Updated subsystems to align with the new MC logic.</li>
+				<li class="backend">Turned some initializations and vars into GLOB.</li>
+				<li class="bugfix">Fixed an issue with maploader not removing null atoms from the initialization list.</li>
+				<li class="backend">Optimized the maploader to be faster by skipping unnecessary checks on a large list of atoms.</li>
+				<li class="backend">Updated SSprofiler to TG&#x27;s version.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">You can now choose whether your loadout accessory spawns on your uniform, your suit, or gets put into the suit slot as a standalone item, such as with capes and ponchos.</li>
 				<li class="bugfix">Fixed only one accessory being visible at a time in the loadout preview.</li>
 				<li class="bugfix">Fixed vaurca tunnel cloaks not being visible in the loadout preview.</li>
+				<li class="tweak">Space fauna, such as carp and reavers, have slightly less armor penetration and no longer have smart melee, meaning they won&#x27;t dodge attacks anymore.</li>
+				<li class="rscadd">Added metal rods, a medkit, and machetes to the Spark and mining bay.</li>
 			</ul>
 			<h3 class="author">Lent23, Geeves updated:</h3>
 			<ul class="changes bgimages16">

@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Space fauna, such as carp and reavers, have slightly less armor penetration and no longer have smart melee, meaning they won't dodge attacks anymore."
-  - rscadd: "Added metal rods, a medkit, and machetes to the Spark and mining bay."
