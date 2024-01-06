@@ -204,6 +204,7 @@
 #include "code\__HELPERS\logging\subsystems\fail2topic.dm"
 #include "code\__HELPERS\logging\subsystems\garbage.dm"
 #include "code\__HELPERS\logging\subsystems\ghostroles.dm"
+#include "code\__HELPERS\logging\subsystems\http.dm"
 #include "code\__HELPERS\logging\subsystems\law.dm"
 #include "code\__HELPERS\logging\subsystems\mapfinalization.dm"
 #include "code\__HELPERS\logging\subsystems\ZAS.dm"
