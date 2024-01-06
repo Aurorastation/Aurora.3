@@ -2,7 +2,8 @@
 	name = "lone asteroid"
 	description = "A lone asteroid with a hangar. Latest data from this sector shows it as a Hephaestus mining station, two years ago."
 	suffixes = list("away_site/abandoned_mining/cursed.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_TAU_CETI) //you're not gonna have a station left alone for 2 years in the middle of inhabited space
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "cursed"

@@ -9,6 +9,7 @@
 	suffixes = list("away_site/abandoned_industrial/abandoned_industrial_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(SECTOR_TAU_CETI, SECTOR_HANEUNIM)
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"
