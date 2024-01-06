@@ -67,6 +67,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_tgui" = TRUE, // TGUI
 	"log_subsystems_zas" = FALSE, // ZAS
 	"log_subsystems_zas_debug" = FALSE, // ZAS debug
+	"log_subsystems_http" = TRUE, //HTTP Log
 
 	/*#### MODULES ####*/
 
@@ -90,6 +91,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"query_debug_log" = "query_debug.log",
 	"world_runtime_log" = "world_runtime.log",
 	"sql_error_log" = "sql_error.log",
+	"topic_log" = "topic.log",
 	"world_game_log" = "world_game.log",
 	"world_job_debug_log" = "world_job_debug.log",
 	"signals_log" = "signals.log",
@@ -122,6 +124,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_tgui" = "subsystems/tgui.log",
 	"world_subsystems_zas" = "subsystems/zas.log",
 	"world_subsystems_zas_debug" = "subsystems/zas.log",
+	"world_subsystems_http" = "subsystems/http.log",
 
 	/*#### MODULES ####*/
 

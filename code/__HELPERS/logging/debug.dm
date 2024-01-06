@@ -67,7 +67,7 @@
 
 /// Logging for world/Topic
 /proc/_log_topic(text)
-	WRITE_LOG(GLOB.config.logfiles["world_game_log"], "TOPIC: [text]")
+	WRITE_LOG(GLOB.config.logfiles["topic_log"], "TOPIC: [text]")
 
 /// Log to both DD and the logfile.
 /proc/log_world(text)
