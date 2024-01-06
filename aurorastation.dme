@@ -183,6 +183,7 @@
 #include "code\__HELPERS\logging\attack.dm"
 #include "code\__HELPERS\logging\debug.dm"
 #include "code\__HELPERS\logging\game.dm"
+#include "code\__HELPERS\logging\loadout.dm"
 #include "code\__HELPERS\logging\manifest.dm"
 #include "code\__HELPERS\logging\paper.dm"
 #include "code\__HELPERS\logging\pda.dm"
