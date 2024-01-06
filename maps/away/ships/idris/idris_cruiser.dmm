@@ -573,9 +573,7 @@
 /area/ship/idris_cruiser/corridor/port_lobby)
 "cO" = (
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "cR" = (
@@ -1013,8 +1011,8 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa2)
 "eK" = (
-/obj/structure/dispenser,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "eM" = (
@@ -1263,11 +1261,9 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "fS" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "CO2 Outlet"
-	},
 /obj/machinery/alarm/north,
+/obj/structure/dispenser,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "fU" = (
@@ -1828,8 +1824,10 @@
 /area/ship/idris_cruiser/engineering/disposals)
 "iy" = (
 /obj/machinery/light,
-/obj/structure/closet/firecloset/full,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "iz" = (
@@ -2354,11 +2352,19 @@
 /turf/simulated/floor/marble,
 /area/ship/idris_cruiser/great_room)
 "lg" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit{
+	pixel_y = 4
+	},
+/obj/item/device/suit_cooling_unit{
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots{
+	pixel_y = -4
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
@@ -2828,6 +2834,9 @@
 	name = "CO2 to Thrusters"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -25
+	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "mD" = (
@@ -3869,6 +3878,9 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "qw" = (
@@ -9244,8 +9256,8 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/bar)
 "Mu" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = 25
 	},
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
@@ -9978,11 +9990,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/crew_aft)
 "OR" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
 /obj/machinery/meter,
 /obj/structure/fireaxecabinet/north,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "OT" = (
