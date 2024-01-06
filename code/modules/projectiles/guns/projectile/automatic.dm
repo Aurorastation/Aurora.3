@@ -620,13 +620,17 @@
 /obj/item/gun/projectile/automatic/tommygun/assassin
 	name = "integrally suppressed machine pistol"
 	desc = "An Eridanian “rat hunting” gun manufactured by the Amon Pest Control Company. Commonly used by corporate assassins, uncommonly used by pest control workers. Chambered in 6mm."
-	desc_extended = "The APCC RatAway SMG is manufactured by a shell company of Ringspire for use in corporate assassination duties. Extremely quiet and firing sub-sonic ammunition, it is an ideal weapon for putting down those who dare to threaten megacorporate interests."
+	desc_extended = "The APCC RatAway SMG is manufactured by a shell company of Ringspire for use in corporate assassination duties. Extremely quiet and firing caseless ammunition, it is an ideal weapon for putting down those who dare to threaten megacorporate interests."
 	icon = 'icons/obj/guns/assassin_smg.dmi'
 	icon_state = "assassin_smg"
 	item_state = "assassin_smg"
+	magazine_type = /obj/item/ammo_magazine/submachinemag/assassin
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
+	caliber = "6mm"
 	suppressed = TRUE
 	can_unsuppress = FALSE
-	max_shells = 20
+	handle_casings = DELETE_CASINGS
+	max_shells = 30
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
 
 /obj/item/gun/projectile/automatic/tommygun/assassin/update_icon()

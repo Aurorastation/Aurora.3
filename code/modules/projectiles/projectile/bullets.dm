@@ -224,7 +224,7 @@
 
 /obj/item/projectile/bullet/pistol/assassin
 	damage = 20
-	armor_penetration = 0
+	armor_penetration = 5
 
 /* shotgun projectiles */
 

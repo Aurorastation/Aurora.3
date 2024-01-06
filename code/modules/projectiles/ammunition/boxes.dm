@@ -309,7 +309,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	caliber = "6mm"
 	insert_sound = /singleton/sound_category/polymer_slide_reload
-	max_ammo = 20
+	max_ammo = 30
 
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
