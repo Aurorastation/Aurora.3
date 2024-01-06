@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Added 6mm ammo, a very low damage type of bullet."
   - rscadd: "Added an integrally suppressed 6mm submachine gun, which can be bought in the uplink."
-  - rscaad: "Added a concealed camera gun, which can be bought in the uplink."
+  - rscadd: "Added a concealed camera gun, which can be bought in the uplink."
