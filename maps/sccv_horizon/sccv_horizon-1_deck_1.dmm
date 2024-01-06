@@ -1535,6 +1535,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"bfO" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "bfX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -8774,6 +8779,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"fXM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "fXS" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -10841,11 +10851,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
-"huO" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "hvO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13174,11 +13179,6 @@
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
-"jjx" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "jjZ" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
@@ -14469,6 +14469,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"keZ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/hoist_kit,
+/obj/item/ladder_mobile{
+	pixel_y = 12
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "kfb" = (
 /obj/machinery/gravity_generator/main/station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -22220,10 +22228,11 @@
 /area/engineering/atmos/propulsion)
 "pwR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/hoist_kit,
-/obj/item/ladder_mobile{
-	pixel_y = 12
-	},
+/obj/structure/closet/crate,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "pxH" = (
@@ -23870,11 +23879,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
-"qzW" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "qAj" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "14,17"
@@ -24821,8 +24825,8 @@
 "rlc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -8;
+/obj/item/storage/toolbox/emergency{
+	pixel_x = -7;
 	pixel_y = 8
 	},
 /obj/item/device/flashlight{
@@ -27835,6 +27839,11 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"tsA" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "tsD" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -34474,50 +34483,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
-"xNd" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/flare{
-	pixel_x = -6
-	},
-/obj/item/device/flashlight/flare{
-	pixel_x = -6
-	},
-/obj/item/device/flashlight/flare{
-	pixel_x = -6
-	},
-/obj/item/device/flashlight/flare{
-	pixel_x = -6
-	},
-/obj/item/device/flashlight/flare{
-	pixel_x = -6
-	},
-/obj/item/device/flashlight/flare{
-	pixel_x = -6
-	},
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/obj/random/glowstick{
-	pixel_x = 4
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "xNw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -34555,17 +34520,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hangar/intrepid)
-"xNT" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "xOb" = (
 /obj/machinery/camera/network/first_deck{
@@ -53841,7 +53795,7 @@ lCX
 wuD
 ybD
 rGK
-jjx
+bfO
 iRC
 iRC
 iRC
@@ -54043,7 +53997,7 @@ eEm
 ifD
 wuD
 xCT
-xNT
+pwR
 evm
 iRC
 iRC
@@ -54449,7 +54403,7 @@ rLm
 mKo
 aHY
 vBN
-huO
+tsA
 iRC
 iRC
 pIR
@@ -56276,7 +56230,7 @@ jgk
 qPF
 rPN
 mrC
-qzW
+aUk
 iRC
 iRC
 hAl
@@ -56479,7 +56433,7 @@ kLb
 qeD
 rPN
 vmL
-aUk
+fXM
 iRC
 iRC
 xtM
@@ -56885,8 +56839,8 @@ mMQ
 gTx
 rPN
 sol
-pwR
-xNd
+keZ
+evm
 iRC
 iRC
 iRC
