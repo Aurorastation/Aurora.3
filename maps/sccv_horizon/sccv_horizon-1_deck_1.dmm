@@ -2952,11 +2952,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
-"cfl" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "cfJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -5997,6 +5992,11 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"ema" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "emH" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light{
@@ -8120,6 +8120,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"fEH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "fFb" = (
 /obj/structure/shuttle_part/scc/mining{
 	icon_state = "thrustermount";
@@ -9455,6 +9466,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"gwj" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/hoist_kit,
+/obj/item/ladder_mobile{
+	pixel_y = 12
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "gwA" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -21385,11 +21404,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"oUR" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "oVe" = (
 /obj/structure/sign/fire{
 	desc = "A caution sign which reads 'PORT PROPULSION'.";
@@ -22642,14 +22656,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
-"pKK" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/hoist_kit,
-/obj/item/ladder_mobile{
-	pixel_y = 12
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "pLc" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -28854,6 +28860,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"ucq" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "ucs" = (
 /obj/structure/closet/crate,
 /obj/machinery/mineral/stacking_unit_console{
@@ -53785,8 +53796,8 @@ usP
 lCX
 wuD
 ybD
-pwR
-cfl
+rGK
+ucq
 iRC
 iRC
 iRC
@@ -53988,7 +53999,7 @@ eEm
 ifD
 wuD
 xCT
-rGK
+fEH
 evm
 iRC
 iRC
@@ -54394,7 +54405,7 @@ rLm
 mKo
 aHY
 vBN
-oUR
+ema
 iRC
 iRC
 pIR
@@ -56830,7 +56841,7 @@ mMQ
 gTx
 rPN
 sol
-pKK
+gwj
 dnl
 iRC
 iRC
