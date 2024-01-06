@@ -3,9 +3,6 @@ SUBSYSTEM_DEF(http)
 	flags = SS_TICKER | SS_BACKGROUND | SS_NO_INIT // Measure in ticks, but also only run if we have the spare CPU.
 	wait = 1
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY // All the time
-	// Assuming for the worst, since only discord is hooked into this for now, but that may change
-	//offline_implications = "The server is no longer capable of making async HTTP requests. Shuttle call recommended."
-	//cpu_display = SS_CPUDISPLAY_LOW
 
 	/// List of all async HTTP requests in the processing chain
 	var/list/datum/http_request/active_async_requests = list()
@@ -17,10 +14,6 @@ SUBSYSTEM_DEF(http)
 	var/total_requests
 	/// Maximum times a http request is retried
 	var/max_retry_count = 3
-
-/datum/controller/subsystem/http/PreInit()
-	. = ..()
-	// rustg_create_async_http_client() // Commented out for now
 
 /datum/controller/subsystem/http/stat_entry(msg)
 	return "P: [length(active_async_requests)] | R: [length(retry_async_requests)] | T: [total_requests]"
