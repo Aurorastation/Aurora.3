@@ -2,13 +2,12 @@
 	name = "Idris Cruiser"
 	description = "A small luxury cruiser run by Idris Incorporated's subsidiary, Celestial Cruises. The Argentum-class is more of a yacht than a proper cruise ship, and is easily dwarfed by the fleet's larger vessels. However, it makes up for its diminuitive size by its speed, flexibility, and low maintenance cost. It adopts a unique wandering business model, where it roams the Spur and caters to tired traveling vessel crews seeking a getaway among the stars. It comes with a bar and restaurant, a pool, a spa, and a viewing lounge, as well as four suites for overnight stayers."
 	suffixes = list("ships/idris/idris_cruiser.dmm")
-	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors = list(ALL_CORPORATE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "idris_cruiser"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/idris_cruiser_shuttle)
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/idris_cruiser
 	map = "Idris Cruiser"
