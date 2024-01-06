@@ -137,6 +137,19 @@
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
 
+	/// Culture and origin may have been set while there was no mob.
+	if(ishuman(recipient))
+		var/mob/living/carbon/human/H = recipient
+		output += "<hr><b>Culture Information:</b><br></hr>"
+		if(H.culture)
+			output += "Your culture is <b>[H.culture.name]</b>.<br>"
+		if(H.origin)
+			output += "Your origin is <b>[H.origin.name]</b>.<br>"
+		if(H.religion)
+			output += "Your religion is <b>[H.religion]</b>.<br>"
+		if(H.accent)
+			output += "Your accent is <b>[H.accent]</b>.<br>"
+
 	var/datum/browser/memory_win = new(recipient, "memory")
 	memory_win.set_content(output)
 	memory_win.open()
