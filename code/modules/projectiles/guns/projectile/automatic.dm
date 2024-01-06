@@ -635,7 +635,7 @@
 
 /obj/item/gun/projectile/automatic/tommygun/assassin/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "assassin_smg" : "assassin_smg-empty"
+	icon_state = (ammo_magazine) ? "assassin_smg" : "assassin_smg-empty"
 
 /obj/item/gun/projectile/automatic/rifle/dnac
 	name = "dNAC-6.5 assault rifle"
