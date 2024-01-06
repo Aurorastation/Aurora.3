@@ -6221,7 +6221,7 @@
 	dir = 1;
 	level = 2
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/idris_cruiser_shuttle/main)
 "zB" = (
 /obj/structure/disposalpipe/segment,
@@ -6967,7 +6967,7 @@
 "CS" = (
 /obj/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/airless,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "CT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7610,7 +7610,7 @@
 /area/ship/idris_cruiser/engineering)
 "Fx" = (
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/airless,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Fz" = (
 /obj/structure/cable/green{
@@ -8746,7 +8746,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/idris_cruiser_shuttle/main)
 "Kn" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -9816,7 +9816,7 @@
 "Op" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/airless,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "Os" = (
 /obj/structure/table/reinforced/steel,
