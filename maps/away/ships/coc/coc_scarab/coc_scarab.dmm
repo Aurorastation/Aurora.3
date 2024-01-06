@@ -3016,6 +3016,10 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
+"pD" = (
+/obj/machinery/alarm/south,
+/turf/template_noop,
+/area/space)
 "pG" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner_wide/lime/full{
@@ -4580,6 +4584,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/coc_scarab/washroom)
 "ya" = (
@@ -8109,10 +8114,6 @@
 /area/shuttle/coc_scarab)
 "PP" = (
 /obj/structure/table/rack,
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
-	},
 /obj/random/soap,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/freezer,
@@ -9671,10 +9672,6 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_scarab)
-"WZ" = (
-/obj/machinery/alarm/south,
-/turf/template_noop,
-/area/space)
 "Xe" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -43370,7 +43367,7 @@ cB
 cB
 cB
 cB
-WZ
+pD
 cB
 cB
 cB
