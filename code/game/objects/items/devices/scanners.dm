@@ -166,15 +166,16 @@ BREATH ANALYZER
 			pulse_result = "<span class='danger'>0</span>"
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "<span class='scan_green'>[pulse_result] BPM</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result] BPM</span>"
 		else if(H.pulse() < PULSE_NORM)
 			pulse_result = "<span class='scan_notice'>[pulse_result] BPM</span>"
 		else if(H.pulse() > PULSE_NORM)
 			pulse_result = "<span class='scan_warning'>[pulse_result] BPM</span>"
+		else
+			pulse_result = "<span class='scan_green'>[pulse_result] BPM</span>"
 	else
-		pulse_result = "<span class='scan_danger'>0 BPM</span>"
+		pulse_result = "<span class='scan_danger'>0</span>"
 	dat += "Pulse rate: [pulse_result]"
 
 	// Body temperature. Rounds to one digit after decimal.
