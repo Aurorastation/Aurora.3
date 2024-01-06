@@ -130,8 +130,8 @@
 /obj/random/civgun
 	name = "random civilian handgun"
 	desc = "This is a random civilian gun."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
-	icon_state = "random"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "pistol"
 	has_postspawn = TRUE
 	spawnlist = list(
 		/obj/item/gun/projectile/leyon,
@@ -178,8 +178,8 @@
 /obj/random/civgun/rifle
 	name = "random civilian longarm"
 	desc = "This is a random civilian long gun."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
-	icon_state = "random"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "rifle"
 	has_postspawn = TRUE
 	spawnlist = list(
 		/obj/item/gun/projectile/automatic/mini_uzi,

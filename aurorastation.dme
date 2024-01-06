@@ -3561,6 +3561,7 @@
 #include "maps\away\away_site\goon_base\goon_base.dm"
 #include "maps\away\away_site\goon_base\goon_base_areas.dm"
 #include "maps\away\away_site\goon_base\goon_base_ghostroles.dm"
+#include "maps\away\away_site\goon_base\goon_base_items.dm"
 #include "maps\away\away_site\hivebot_hub\hivebot_hub.dm"
 #include "maps\away\away_site\idris_wreck\idris_wreck.dm"
 #include "maps\away\away_site\konyang\point_verdant\point_verdant.dm"

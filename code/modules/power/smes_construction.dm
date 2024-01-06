@@ -99,6 +99,10 @@
 	output_level = 1300000
 	charge = 5.55e+007
 
+/obj/machinery/power/smes/buildable/third_party_shuttle/empty/Initialize()
+	. = ..()
+	charge = 0
+
 /obj/machinery/power/smes/buildable/autosolars/Initialize() //for third parties that have their solars autostart, It's slightly upgraded for them
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
