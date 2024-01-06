@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(zcopy)
 
 // for admin proc-call
 /datum/controller/subsystem/zcopy/proc/update_all()
-	disable()
+	can_fire = FALSE
 	LOG_DEBUG("SSzcopy: update_all() invoked.")
 
 	var/turf/T 	// putting the declaration up here totally speeds it up, right?
@@ -52,11 +52,11 @@ SUBSYSTEM_DEF(zcopy)
 
 	LOG_DEBUG("SSzcopy: [num_upd + num_amupd] turf updates queued ([num_upd] direct, [num_amupd] indirect), [num_del] orphans destroyed.")
 
-	enable()
+	can_fire = TRUE
 
 // for admin proc-call
 /datum/controller/subsystem/zcopy/proc/hard_reset()
-	disable()
+	can_fire = FALSE
 	LOG_DEBUG("SSzcopy: hard_reset() invoked.")
 	var/num_deleted = 0
 	var/num_turfs = 0
@@ -77,7 +77,7 @@ SUBSYSTEM_DEF(zcopy)
 
 	LOG_DEBUG("SSzcopy: deleted [num_deleted] overlays, and queued [num_turfs] turfs for update.")
 
-	enable()
+	can_fire = TRUE
 
 /datum/controller/subsystem/zcopy/stat_entry(msg)
 	msg = "Mx: [json_encode(zlev_maximums)] | \
@@ -98,6 +98,8 @@ SUBSYSTEM_DEF(zcopy)
 	// Flush the queue.
 	fire(FALSE, TRUE)
 
+	return SS_INIT_SUCCESS
+
 // If you add a new Zlevel or change Z-connections, call this.
 /datum/controller/subsystem/zcopy/proc/calculate_zstack_limits()
 	zlev_maximums = new(world.maxz)
@@ -115,10 +117,10 @@ SUBSYSTEM_DEF(zcopy)
 	log_subsystem("zcopy", "Z-Level maximums: [json_encode(zlev_maximums)]")
 
 /datum/controller/subsystem/zcopy/StartLoadingMap()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/zcopy/StopLoadingMap()
-	wake()
+	can_fire = TRUE
 
 /datum/controller/subsystem/zcopy/fire(resumed, no_mc_tick)
 	if (!resumed)

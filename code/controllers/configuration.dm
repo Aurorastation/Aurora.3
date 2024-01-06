@@ -393,7 +393,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/list/api_rate_limit_whitelist = list()
 
 	// Master Controller settings.
-	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
 	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
 
 	//UDP GELF Logging
@@ -961,9 +960,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if("api_rate_limit_whitelist")
 					GLOB.config.api_rate_limit_whitelist = text2list(value, ";")
-
-				if("mc_ticklimit_init")
-					GLOB.config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")

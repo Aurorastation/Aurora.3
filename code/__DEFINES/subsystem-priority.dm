@@ -1,10 +1,11 @@
+#define INIT_ORDER_PROFILER 101
 #define SS_INIT_PERSISTENT_CONFIG 26
 #define SS_INIT_MISC_FIRST  25
 #define SS_INIT_SEEDS       24	// Plant controller setup.
 #define SS_INIT_MAPLOAD     22	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
 #define SS_INIT_JOBS        21
 #define SS_INIT_MAPFINALIZE 20	// Asteroid generation.
-#define SS_INIT_PARALLAX    19	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_PARALLAX    19	// Parallax image cache generation. Must run before ghosts are able to join
 #define SS_INIT_ATOMS       17	// World initialization. Will trigger lighting updates. Observers can join after this loads.
 #define SS_INIT_ASSETS      16	// Assets subsystem setup.
 #define SS_INIT_POWER       15	// Initial powernet build.
@@ -39,7 +40,7 @@
 
 // SS_TICKER
 #define SS_PRIORITY_OVERLAY   100	// Applies overlays. May cause overlay pop-in if it gets behind.
-//#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
+//#define FIRE_PRIORITY_DEFAULT  50	// This is defined somewhere else.
 #define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
 #define SS_PRIORITY_PROFILE    15
 #define SS_PRIORITY_OVERMAP    12   // Handles overmap processing. Keeps things smooth during highpop, ideally.
@@ -50,7 +51,7 @@
 
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.
-//#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
+//#define FIRE_PRIORITY_DEFAULT   50	// This is defined somewhere else.
 #define SS_PRIORITY_MOB         40	// Mob Life().
 #define SS_PRIORITY_ASSET		40  // Asset loading subsystem - not to be confused with SSassets.
 #define SS_PRIORITY_AIR         40	// ZAS processing.
@@ -78,7 +79,7 @@
 
 // SS_BACKGROUND
 #define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
-//#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
+//#define FIRE_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
 #define SS_PRIORITY_EVAC          30   // Processes the evac controller.
 #define SS_PRIORITY_EXPLOSIVES    20	// TODO: MOVE TO SS_TICKER

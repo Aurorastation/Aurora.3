@@ -27,8 +27,16 @@
 
 //print a warning message to world.log
 /proc/warning(msg)
+	#if defined(UNIT_TEST)
+
+	LOG_GITHUB_WARNING(msg)
+
+	#else
+
 	world.log <<  "## WARNING: [msg][log_end]"
 	log_world("WARNING: [msg]")
+
+	#endif
 
 //print a testing-mode debug message to world.log and world
 #ifdef TESTING

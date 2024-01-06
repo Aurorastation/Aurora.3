@@ -103,8 +103,8 @@
 		return
 	if(!(src in my_user.clients))
 		my_user.clients.Add(src)
-	if(!(src in ntnet_global.chat_clients))
-		ntnet_global.chat_clients.Add(src)
+	if(!(src in GLOB.ntnet_global.chat_clients))
+		GLOB.ntnet_global.chat_clients.Add(src)
 	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/chat_client/proc/deactivate_chat_client()
@@ -112,8 +112,8 @@
 		return
 	if(src in my_user.clients)
 		my_user.clients.Remove(src)
-	if(src in ntnet_global.chat_clients)
-		ntnet_global.chat_clients.Remove(src)
+	if(src in GLOB.ntnet_global.chat_clients)
+		GLOB.ntnet_global.chat_clients.Remove(src)
 	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/chat_client/proc/handle_ntnet_user_deletion(var/datum/ntnet_user)
@@ -161,7 +161,7 @@
 	var/list/data = list()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION) && (service_state > PROGRAM_STATE_KILLED))
 		data["channels"] = list()
-		for(var/c in ntnet_global.chat_channels)
+		for(var/c in GLOB.ntnet_global.chat_channels)
 			var/datum/ntnet_conversation/channel = c
 			if(istype(channel) && (channel.can_see(src)))
 				var/ref = text_ref(channel)
@@ -184,7 +184,7 @@
 				data["channels"] += list(our_channel)
 
 		data["users"] = list()
-		for(var/u in ntnet_global.chat_users)
+		for(var/u in GLOB.ntnet_global.chat_users)
 			var/datum/ntnet_user/ntnet_user = u
 			if(ntnet_user != my_user)
 				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
@@ -298,21 +298,21 @@
 		. = TRUE
 
 	if(action == "new_channel")
-		ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
+		GLOB.ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
 	if(action == "delete")
 		var/datum/ntnet_conversation/conv = locate(params["delete"])
 		if(istype(conv) && conv.can_manage(src))
-			ntnet_global.chat_channels.Remove(conv)
+			GLOB.ntnet_global.chat_channels.Remove(conv)
 			qdel(conv)
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
 	if(action == "direct")
 		var/datum/ntnet_user/tUser = locate(params["direct"])
-		ntnet_global.begin_direct(src, tUser)
+		GLOB.ntnet_global.begin_direct(src, tUser)
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 

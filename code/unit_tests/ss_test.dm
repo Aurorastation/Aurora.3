@@ -4,7 +4,7 @@
 
 /*
  * Wondering if you should change this to run the tests? NO!
- * Because the preproc checks for this in other areas too, set it in code\__defines\manual_unit_testing.dm instead!
+ * Because the preproc checks for this in other areas too, set it in code\__DEFINES\manual_unit_testing.dm instead!
  */
 #ifdef UNIT_TEST
 
@@ -15,7 +15,7 @@
 SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
-	flags = SS_NO_FIRE
+	flags = SS_NO_FIRE | SS_NO_INIT
 
 	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
 
@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(unit_tests_config)
 	///How many times can the pod retries before the unit test is considered failed
 	var/retries = 0
 
-/datum/controller/subsystem/unit_tests_config/New()
+/datum/controller/subsystem/unit_tests_config/PreInit()
 	. = ..()
 
 	UT = new
@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(unit_tests_config)
 /*
 	The Unit Tests subsystem
 */
-/datum/controller/subsystem/unit_tests
+SUBSYSTEM_DEF(unit_tests)
 	name = "Unit Tests"
 	init_order = -1e6	// last.
 	var/list/queue = list()
@@ -145,7 +145,8 @@ SUBSYSTEM_DEF(unit_tests_config)
 				break
 
 	SSunit_tests_config.UT.notice("[queue.len] unit tests loaded.", __FILE__, __LINE__)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)

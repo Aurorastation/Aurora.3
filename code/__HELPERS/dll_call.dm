@@ -1,5 +1,6 @@
 
-/** A function to wrap calls to DLLs for debugging purposes.
+/**
+ *  A function to wrap calls to DLLs for debugging purposes.
  */
 /proc/dll_call(dll, func, ...)
 

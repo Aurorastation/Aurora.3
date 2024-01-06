@@ -73,7 +73,8 @@ SUBSYSTEM_DEF(icon_cache)
 	build_dust_cache()
 	build_space_cache()
 	setup_collar_mappings()
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_cache/proc/setup_collar_mappings()
 	collar_states = list()

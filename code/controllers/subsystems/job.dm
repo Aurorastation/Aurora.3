@@ -22,7 +22,6 @@ SUBSYSTEM_DEF(jobs)
 	var/list/deferred_preference_sanitizations = list()
 
 /datum/controller/subsystem/jobs/Initialize()
-	..()
 
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
@@ -31,6 +30,8 @@ SUBSYSTEM_DEF(jobs)
 	ProcessSanitizationQueue()
 
 	SSticker.setup_player_ready_list()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations

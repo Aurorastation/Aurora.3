@@ -24,7 +24,8 @@ SUBSYSTEM_DEF(holomap)
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/holomap/proc/generate_all_minimaps()
 	minimaps.len = world.maxz

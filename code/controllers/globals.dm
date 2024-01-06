@@ -61,3 +61,5 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 	// No, really, it's really bad.
 	makeDatumRefLists()
 
+	return SS_INIT_SUCCESS
+

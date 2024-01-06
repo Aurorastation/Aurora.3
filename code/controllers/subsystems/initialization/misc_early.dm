@@ -47,4 +47,4 @@ SUBSYSTEM_DEF(misc_early)
 
 	click_catchers = create_click_catcher()
 
-	..()
+	return SS_INIT_SUCCESS

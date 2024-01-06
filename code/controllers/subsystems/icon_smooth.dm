@@ -82,7 +82,7 @@ SUBSYSTEM_DEF(icon_smooth)
 
 	if (GLOB.config.fastboot)
 		LOG_DEBUG("icon_smoothing: Skipping prebake, fastboot enabled.")
-		return ..()
+		return SS_INIT_SUCCESS
 
 	var/list/queue = smooth_queue
 	smooth_queue = list()
@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(icon_smooth)
 
 		CHECK_TICK
 
-	. = ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_smooth/proc/add_to_queue(atom/thing)
 	SHOULD_NOT_SLEEP(TRUE)

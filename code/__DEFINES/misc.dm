@@ -1,9 +1,5 @@
 #define DEBUG
 
-// Flags
-#define ALL (~0) //For convenience.
-#define NONE 0
-
 // Turf-only flags.
 #define TURF_FLAG_NOJAUNT 		1
 #define TURF_FLAG_BACKGROUND 	2 // Used by shuttle movement to determine if it should be ignored by turf translation.
@@ -269,22 +265,6 @@
 
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
-
-/// for general usage of tick_usage
-#define TICK_USAGE world.tick_usage
-/// to be used where the result isn't checked
-#define TICK_USAGE_REAL world.tick_usage
-
-// Stoplag.
-#define TICK_CHECK (TICK_USAGE > CURRENT_TICKLIMIT)
-/// runs stoplag if tick_usage is above the limit
-#define CHECK_TICK ( TICK_CHECK ? stoplag() : 0 )
-
-/// Returns true if tick usage is above 95, for high priority usage
-#define TICK_CHECK_HIGH_PRIORITY ( TICK_USAGE > 95 )
-/// runs stoplag if tick_usage is above 95, for high priority usage
-#define CHECK_TICK_HIGH_PRIORITY ( TICK_CHECK_HIGH_PRIORITY ? stoplag() : 0 )
-
 
 // Performance bullshit.
 

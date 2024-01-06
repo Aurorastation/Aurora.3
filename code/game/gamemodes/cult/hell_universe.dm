@@ -36,7 +36,7 @@ In short:
 
 // Apply changes when entering state
 /datum/universal_state/hell/OnEnter()
-	SSgarbage.disable()	// Yeah, fuck it. No point hard-deleting stuff now.
+	SSgarbage.can_fire = FALSE	// Yeah, fuck it. No point hard-deleting stuff now.
 
 	GLOB.escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
