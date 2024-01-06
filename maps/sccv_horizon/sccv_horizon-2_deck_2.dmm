@@ -5746,9 +5746,11 @@
 /area/hallway/primary/central_two)
 "cEk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/disposalpipe/junction{
-	dir = 8
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -6431,9 +6433,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/hologram/holopad,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "cVb" = (
@@ -10753,6 +10752,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "fdj" = (
@@ -13115,6 +13118,9 @@
 /area/rnd/hallway)
 "gfj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "gfB" = (
@@ -16839,6 +16845,9 @@
 /obj/machinery/vending/dinnerware{
 	density = 0;
 	pixel_y = 24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -21905,9 +21914,10 @@
 "kgH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "kgK" = (
@@ -25837,7 +25847,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = -24;
 	pixel_y = 23
 	},
@@ -28341,11 +28351,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/spline/plain/corner,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "njF" = (
@@ -31390,6 +31397,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "oKE" = (
@@ -31693,10 +31704,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "oSG" = (
@@ -39224,6 +39232,17 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"sBP" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/kitchen)
 "sCe" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -39662,6 +39681,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 14;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
@@ -42448,9 +42471,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "uej" = (
@@ -44946,7 +44966,9 @@
 /area/horizon/security/head_of_security)
 "vkw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "vlO" = (
@@ -73407,7 +73429,7 @@ dvw
 jUc
 qDU
 wDk
-tIB
+cEk
 udZ
 cDx
 nhR
@@ -73609,7 +73631,7 @@ mKD
 uPW
 vxK
 rGj
-tIB
+sBP
 kgH
 nmD
 dJV
@@ -74014,7 +74036,7 @@ mgg
 lQh
 muz
 vkw
-cEk
+oZN
 nZX
 dJV
 hYo
