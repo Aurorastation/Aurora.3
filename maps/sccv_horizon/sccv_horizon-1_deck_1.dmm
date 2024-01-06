@@ -5992,11 +5992,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
-"ema" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "emH" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light{
@@ -8120,17 +8115,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"fEH" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "fFb" = (
 /obj/structure/shuttle_part/scc/mining{
 	icon_state = "thrustermount";
@@ -9466,14 +9450,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
-"gwj" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/hoist_kit,
-/obj/item/ladder_mobile{
-	pixel_y = 12
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "gwA" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -10865,6 +10841,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"huO" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "hvO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13193,6 +13174,11 @@
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
+"jjx" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "jjZ" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
@@ -22234,7 +22220,10 @@
 /area/engineering/atmos/propulsion)
 "pwR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
+/obj/item/hoist_kit,
+/obj/item/ladder_mobile{
+	pixel_y = 12
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "pxH" = (
@@ -23881,6 +23870,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
+"qzW" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "qAj" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "14,17"
@@ -28860,11 +28854,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"ucq" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "ucs" = (
 /obj/structure/closet/crate,
 /obj/machinery/mineral/stacking_unit_console{
@@ -34485,6 +34474,50 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
+"xNd" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -6
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -6
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -6
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -6
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -6
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -6
+	},
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/obj/random/glowstick{
+	pixel_x = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "xNw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -34522,6 +34555,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/hangar/intrepid)
+"xNT" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "xOb" = (
 /obj/machinery/camera/network/first_deck{
@@ -53797,7 +53841,7 @@ lCX
 wuD
 ybD
 rGK
-ucq
+jjx
 iRC
 iRC
 iRC
@@ -53999,7 +54043,7 @@ eEm
 ifD
 wuD
 xCT
-fEH
+xNT
 evm
 iRC
 iRC
@@ -54405,7 +54449,7 @@ rLm
 mKo
 aHY
 vBN
-ema
+huO
 iRC
 iRC
 pIR
@@ -56232,7 +56276,7 @@ jgk
 qPF
 rPN
 mrC
-aUk
+qzW
 iRC
 iRC
 hAl
@@ -56841,8 +56885,8 @@ mMQ
 gTx
 rPN
 sol
-gwj
-dnl
+pwR
+xNd
 iRC
 iRC
 iRC
@@ -57044,7 +57088,7 @@ aKo
 wif
 hdi
 rlc
-pwR
+dnl
 evm
 iRC
 iRC
