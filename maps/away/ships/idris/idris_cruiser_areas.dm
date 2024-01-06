@@ -60,8 +60,14 @@
 	icon_state = "fitness_pool"
 
 /area/ship/idris_cruiser/locker_rooms
-	name = "Pool Locker Rooms"
+	name = "Generic Locker Room"
 	icon_state = "fitness_changingroom"
+
+/area/ship/idris_cruiser/locker_rooms/room_1
+	name = "Changing Room A"
+
+/area/ship/idris_cruiser/locker_rooms/room_2
+	name = "Changing Room B"
 
 /area/ship/idris_cruiser/spa
 	name = "Spa Lobby"
@@ -117,6 +123,27 @@
 
 /area/ship/idris_cruiser/suite/suite_4
 	name = "Suite 4"
+
+//Restrooms
+/area/ship/idris_cruiser/restroom
+	name = "Generic Restroom"
+	icon_state = "restrooms"
+	sound_env = BATHROOM
+
+/area/ship/idris_cruiser/restroom/suite_1
+	name = "Suite 1 Restroom"
+
+/area/ship/idris_cruiser/restroom/suite_2
+	name = "Suite 2 Restroom"
+
+/area/ship/idris_cruiser/restroom/suite_3
+	name = "Suite 3 Restroom"
+
+/area/ship/idris_cruiser/restroom/suite_4
+	name = "Suite 4 Restroom"
+
+/area/ship/idris_cruiser/restroom/public
+	name = "Public Restroom"
 
 //Corridors
 
