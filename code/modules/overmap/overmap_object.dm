@@ -69,19 +69,25 @@
 	else if(generic_object == TRUE)
 		return desc
 
+/// Returns the direction the overmap object is moving in, rather than just the way it's facing
+/obj/effect/overmap/proc/get_heading()
+	return dir
+
 /obj/effect/overmap/proc/handle_wraparound()
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
 	var/high_edge = current_map.overmap_size - 1
 
-	if((dir & WEST) && x == low_edge)
+	var/heading = get_heading()
+
+	if((heading & WEST) && x == low_edge)
 		nx = high_edge
-	else if((dir & EAST) && x == high_edge)
+	else if((heading & EAST) && x == high_edge)
 		nx = low_edge
-	if((dir & SOUTH)  && y == low_edge)
+	if((heading & SOUTH)  && y == low_edge)
 		ny = high_edge
-	else if((dir & NORTH) && y == high_edge)
+	else if((heading & NORTH) && y == high_edge)
 		ny = low_edge
 	if((x == nx) && (y == ny))
 		return //we're not flying off anywhere

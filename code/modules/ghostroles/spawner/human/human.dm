@@ -156,14 +156,14 @@
 		for(var/culture in culture_restriction)
 			var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
 			if(CL.type in M.species.possible_cultures)
-				M.culture = CL
+				M.set_culture(CL)
 				break
 		for(var/origin in M.culture.possible_origins)
 			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			if(length(origin_restriction))
 				if(!(OI.type in origin_restriction))
 					continue
-			M.origin = OI
+			M.set_origin(OI)
 			M.accent = pick(OI.possible_accents)
 			break
 

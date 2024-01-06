@@ -5,6 +5,9 @@
 	icon_state = "portal"
 	density = TRUE
 	unacidable = TRUE //Can't destroy energy portals.
+	mouse_opacity = MOUSE_OPACITY_ICON
+	anchored = TRUE
+
 	var/does_teleport = TRUE // Some portals might just be visual
 	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
 	var/failchance = 5
@@ -12,7 +15,6 @@
 	var/obj/target
 	var/creator
 	var/precision = 1
-	anchored = TRUE
 
 /obj/effect/portal/Initialize(mapload, turf/set_target, set_creator, lifespan = 300, precise = 1)
 	. = ..()
@@ -280,6 +282,10 @@
 			color = COLOR_STAGE_FIVE
 	light_color = color
 	update_light()
+
+/// Mainly for admin events.
+/obj/effect/portal/permanent
+	has_lifespan = FALSE
 
 #undef COLOR_STAGE_FIVE
 #undef COLOR_STAGE_FOUR

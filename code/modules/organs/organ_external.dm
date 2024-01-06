@@ -54,7 +54,7 @@
 	///The amount of `pain` at which a limb becomes unusable
 	var/pain_disability_threshold
 
-	///Organ behaviour flags, see `ORGAN_CAN_*` and `ORGAN_HAS_*` in `code\__defines\damage_organs.dm`
+	///Organ behaviour flags, see `ORGAN_CAN_*` and `ORGAN_HAS_*` in `code\__DEFINES\damage_organs.dm`
 	var/limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 	var/max_size = 0

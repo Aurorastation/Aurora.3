@@ -28,7 +28,7 @@
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1
 
-	SSnightlight.suspend()
+	SSnightlight.can_fire = FALSE
 
 	if (lstate == "dark")
 		log_and_message_admins("enabled night-mode [wl_only ? "in public areas" : "globally"].", lusr.resolve())

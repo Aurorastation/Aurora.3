@@ -84,6 +84,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Sensors", capitalize_first_letters(name))
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
 /obj/machinery/computer/ship/sensors/ui_data(mob/user)

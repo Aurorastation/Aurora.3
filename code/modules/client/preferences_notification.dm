@@ -188,12 +188,12 @@
 				notification_count++
 			if("admin")
 				SSdiscord.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
-				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
+				SSdiscord.post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immediately ack the notification
 				autoack=1
 			if("ccia")
 				SSdiscord.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
-				post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
+				SSdiscord.post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immeidately ack the notification
 				autoack=1
 		if(autoack)
