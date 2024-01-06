@@ -1038,6 +1038,11 @@ default behaviour is:
 	if(src.in_throw_mode)
 		toggle_throw_mode()
 
+/mob/living/verb/throw_intent_toggle()
+	set hidden = 1
+	set name = "throw_intent_toggle"
+	toggle_throw_mode()
+
 /**
  * User by a macro in skin.dmf to toggle the running
  */

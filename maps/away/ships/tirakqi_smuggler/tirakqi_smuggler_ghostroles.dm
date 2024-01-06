@@ -1,78 +1,56 @@
 /datum/ghostspawner/human/tirakqi_crew
 	short_name = "tirakqi_crew"
-	name = "Ti'Rakqi Qu'fup"
+	name = "Ti'Rakqi Lu'fup"
 	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets too close to the goods. Try to show some initiative!"
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_crew")
-	max_count = 3
+	max_count = 2
 
 	outfit = /datum/outfit/admin/tirakqi_crew
 	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Ti'Rakqi Qu'fup"
-	special_role = "Ti'Rakqi Qu'fup"
+	assigned_role = "Ti'Rakqi Lu'fup"
+	special_role = "Ti'Rakqi Lu'fup"
 	respawn_flag = null
 
 	uses_species_whitelist = FALSE
 
 /datum/outfit/admin/tirakqi_crew
-	name = "Ti'Rakqi Qu'fup"
+	name = "Ti'Rakqi Lu'fup"
 
 	uniform = list(
-		/obj/item/clothing/under/service_overalls,
-		/obj/item/clothing/under/color/brown,
-		/obj/item/clothing/under/syndicate/tracksuit,
-		/obj/item/clothing/under/pants/jeans,
-		/obj/item/clothing/under/pants/camo,
-		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/mustang,
-		/obj/item/clothing/under/rank/miner,
-		/obj/item/clothing/under/suit_jacket/tan,
-		/obj/item/clothing/under/tactical,
-		/obj/item/clothing/under/waiter
+		/obj/item/clothing/under/skrell/nralakk/ox/service,
+		/obj/item/clothing/under/skrell/nralakk/ox/engineer,
+		/obj/item/clothing/under/skrell/wetsuit/tirakqi/teal,
+		/obj/item/clothing/under/skrell/wetsuit/tirakqi/blue,
+		/obj/item/clothing/under/skrell/wetsuit/tirakqi/pink,
+		/obj/item/clothing/under/skrell/wetsuit/tirakqi/purple
 		)
 
 	suit = list(
-		/obj/item/clothing/suit/pirate,
-		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/accessory/poncho,
-		/obj/item/clothing/accessory/overalls/random,
-		/obj/item/clothing/suit/ianshirt,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
-		/obj/item/clothing/suit/storage/hooded/wintercoat,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/red,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/miner,
-		/obj/item/clothing/suit/storage/leathercoat,
-		/obj/item/clothing/suit/storage/toggle/flannel,
-		/obj/item/clothing/suit/storage/toggle/flannel/gray,
-		/obj/item/clothing/suit/storage/toggle/flannel/red,
-		/obj/item/clothing/suit/storage/toggle/leather_vest,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/biker,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
-		/obj/item/clothing/suit/storage/toggle/trench,
-		/obj/item/clothing/suit/storage/toggle/trench/grey,
-		/obj/item/clothing/suit/storage/toggle/trench/colorable/random
+		/obj/item/clothing/suit/storage/toggle/highvis,
+		/obj/item/clothing/suit/storage/toggle/skrell/ox/service,
+		/obj/item/clothing/suit/storage/toggle/skrell/ox/engineer
 	)
 
 	shoes = list(
 		/obj/item/clothing/shoes/jackboots,
-		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/combat,
-		/obj/item/clothing/shoes/cowboy,
-		/obj/item/clothing/shoes/jackboots,
-		/obj/item/clothing/shoes/winter,
-		/obj/item/clothing/shoes/sneakers/hitops/black,
-		/obj/item/clothing/shoes/sneakers/black,
-		/obj/item/clothing/shoes/sneakers/brown
+		/obj/item/clothing/shoes/workboots/brown,
+		/obj/item/clothing/shoes/combat
+	)
+
+	head = list(
+		/obj/item/clothing/head/skrell/skrell_bandana/tirakqi/teal,
+		/obj/item/clothing/head/skrell/skrell_bandana/tirakqi/blue,
+		/obj/item/clothing/head/skrell/skrell_bandana/tirakqi/pink,
+		/obj/item/clothing/head/skrell/skrell_bandana/tirakqi/purple,
+		/obj/item/clothing/ears/skrell/workcap/tirakqi/cyan,
+		/obj/item/clothing/ears/skrell/workcap/tirakqi/pink,
+		/obj/item/clothing/ears/skrell/workcap/tirakqi/purple
 	)
 
 	back = /obj/item/storage/backpack/satchel
@@ -106,8 +84,8 @@
 
 /datum/ghostspawner/human/tirakqi_captain
 	short_name = "tirakqi_captain"
-	name = "Ti'Rakqi Qu'oot"
-	desc = "Lead the Qu'fup under your command. Smuggle, cheat, lie, and profit. You've got a crew and a ship to maintain."
+	name = "Ti'Rakqi Qu'qrot"
+	desc = "Lead the Lu'fup and Qu'oot under your command. Smuggle, cheat, lie, and profit. You've got a crew and a ship to maintain."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_captain")
@@ -117,31 +95,25 @@
 	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Ti'Rakqi Qu'oot"
-	special_role = "Ti'Rakqi Qu'oot"
+	assigned_role = "Ti'Rakqi Qu'qrot"
+	special_role = "Ti'Rakqi Qu'qrot"
 	respawn_flag = null
 
 	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/tirakqi_crew/captain
-	name = "Ti'Rakqi Qu'fup"
+	name = "Ti'Rakqi Qu'qrot"
 
-	uniform = list(
-		/obj/item/clothing/under/service_overalls,
-		/obj/item/clothing/under/captainformal,
-		/obj/item/clothing/under/pants/jeans,
-		/obj/item/clothing/under/pants/camo,
-		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/mustang,
-		/obj/item/clothing/under/suit_jacket/tan,
-		/obj/item/clothing/under/tactical
-		)
+	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/star
+
+	head = /obj/item/clothing/head/skrell/skrell_bandana/tirakqi/captain
+	suit = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 
 
 /datum/ghostspawner/human/tirakqi_medic
 	short_name = "tirakqi_medic"
 	name = "Ti'Rakqi Medic"
-	desc = "You're a trained doctor serving with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
+	desc = "You're a trained doctor serving as a Qu'oot with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_medic")
@@ -160,7 +132,11 @@
 /datum/outfit/admin/tirakqi_crew/medic
 	name = "Ti'Rakqi Medic"
 
-	uniform = /obj/item/clothing/under/rank/medical/surgeon
+	uniform = list(
+		/obj/item/clothing/under/skrell/wetsuit/tirakqi/teal,
+		/obj/item/clothing/under/skrell/wetsuit/tirakqi/blue
+		)
+
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	glasses = /obj/item/clothing/glasses/hud/health
 
@@ -168,7 +144,7 @@
 /datum/ghostspawner/human/tirakqi_engineer
 	short_name = "tirakqi_engineer"
 	name = "Ti'Rakqi Engineer"
-	desc = "You're a trained engineer serving with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."
+	desc = "You're a trained engineer serving as a Qu'oot with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_engineer")
@@ -187,7 +163,7 @@
 /datum/outfit/admin/tirakqi_crew/engineer
 	name = "Ti'Rakqi Engineer"
 
-	uniform = /obj/item/clothing/under/service_overalls
-	suit = /obj/item/clothing/accessory/storage/overalls
+	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/engineer
+	suit = /obj/item/clothing/suit/storage/toggle/highvis_alt
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/yellow

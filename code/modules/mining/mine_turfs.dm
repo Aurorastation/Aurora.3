@@ -179,6 +179,7 @@ var/list/mineral_can_smooth_with = list(
 	)
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	color = null
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)

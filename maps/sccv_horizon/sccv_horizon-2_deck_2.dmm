@@ -1997,6 +1997,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/closet/secure_closet/freezer/kois,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/sign/biohazard{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15

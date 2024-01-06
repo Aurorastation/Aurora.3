@@ -26,11 +26,11 @@
 	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
 	if(length(culture_restriction))
-		H.culture = GET_SINGLETON(pick(culture_restriction))
+		H.set_culture(GET_SINGLETON(pick(culture_restriction)))
 	if(length(origin_restriction))
 		for(var/O in origin_restriction)
 			if(O in culture_restriction)
-				H.origin = GET_SINGLETON(O)
+				H.set_origin(GET_SINGLETON(O))
 				break
 		if(!H.origin)
 			crash_with("Invalid origin restrictions [english_list(origin_restriction)] for culture restrictions [english_list(culture_restriction)]!")

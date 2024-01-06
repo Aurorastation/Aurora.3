@@ -10832,6 +10832,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "hxg" = (
