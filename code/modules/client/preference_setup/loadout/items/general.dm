@@ -192,6 +192,7 @@
 	banners["banner, Tsukuyomi"] = /obj/item/flag/tsukuyomi
 	banners["banner, Svarog"] = /obj/item/flag/svarog
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
+	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -275,6 +276,7 @@
 	flags["flag, Tsukuyomi"] = /obj/item/flag/tsukuyomi/l
 	flags["flag, Svarog"] = /obj/item/flag/svarog/l
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
+	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
