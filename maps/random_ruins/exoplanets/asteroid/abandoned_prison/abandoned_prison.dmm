@@ -88,12 +88,6 @@
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
-"bn" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/structure/track,
-/turf/simulated/floor/airless,
-/area/abandoned_prison/exterior)
 "bw" = (
 /obj/structure/bed/roller,
 /obj/effect/decal/cleanable/dirt,
@@ -5108,7 +5102,7 @@ oK
 oK
 oK
 rv
-bn
+rv
 XG
 QH
 QH
