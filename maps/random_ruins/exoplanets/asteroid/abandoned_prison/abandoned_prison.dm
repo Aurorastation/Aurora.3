@@ -54,5 +54,5 @@
 	icon_state = "medbay"
 
 /area/abandoned_prison/exterior
-    name = "Exterior"
-    icon_state = "space"
+	name = "Exterior"
+	icon_state = "space"
