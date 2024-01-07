@@ -1269,7 +1269,7 @@
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
 	desc_info = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
-	icon = 'icons/obj/teaware.dmi'
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "can"
 	item_state = "can"
 	contained_sprite = TRUE

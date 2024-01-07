@@ -223,7 +223,6 @@
 /obj/item/tray/tea
 	name = "tea tray"
 	desc = "A tray for serving tea."
-	icon = 'icons/obj/teaware.dmi'
 	icon_state = "teatray"
 	force = 3
 	throwforce = 3
@@ -231,3 +230,4 @@
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
 	max_carry = 6
+	contained_sprite = TRUE

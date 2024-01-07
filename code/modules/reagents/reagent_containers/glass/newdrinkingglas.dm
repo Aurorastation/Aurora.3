@@ -135,10 +135,16 @@
 	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \
 			This sort of teacup is popular on Konyang, owing to the Japanese origins of some of its population. \
 			This one is unglazed and the plain brownish-gray of the clay most often used on Konyang."
-	icon = 'icons/obj/teaware.dmi'
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "yunomi"
 	item_state = "yunomi"
 	contained_sprite = TRUE
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/update_icon()
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance(icon, "yunomi-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/grey
 	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \

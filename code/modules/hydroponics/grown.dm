@@ -373,7 +373,7 @@ var/list/fruit_icon_cache = list()
 	desc = "A type of green tea originating from Japan on Earth, sencha is unique in that it is steamed instead of pan-roasted like most teas. \
 			It has a fresh flavor profile as a result, with flavors like seaweed, grass, or spinach greens predominant. On Konyang, it is most popular in Aoyama."
 	plantname = "sencha"
-	icon = 'icons/obj/teaware.dmi'
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "sencha"
 
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea/afterattack(atom/target, mob/user, proximity, params)

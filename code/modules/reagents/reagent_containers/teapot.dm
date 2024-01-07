@@ -11,7 +11,7 @@
 	name = "gaiwan"
 	desc = "A lidded ceramic bowl of Chinese origin. Used to infuse a large amount of tea into a small amount of water. \
 			To pour, the lid is pinched down into the bowl with a small gap left open for the tea. Traditionally used across the Alliance."
-	icon = 'icons/obj/teaware.dmi'
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "gaiwan"
 	item_state = "gaiwan"
 	contained_sprite = TRUE
@@ -66,7 +66,7 @@
 /obj/item/teapot_lid
 	name = "gaiwan lid"
 	desc = "A lid for a gaiwan."
-	icon = 'icons/obj/teaware.dmi'
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "gaiwan-lid"
 
 /obj/item/teapot_lid/kyusu
