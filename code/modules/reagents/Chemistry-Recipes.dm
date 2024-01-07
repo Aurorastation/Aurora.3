@@ -755,7 +755,7 @@
 	name = "Trocanolol"
 	id = "trocanolol"
 	result = /singleton/reagent/trocanolol
-	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/lexorin = 1, /singleton/reagent/hydrazine = 1)
+	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/lithium = 1, /singleton/reagent/hydrazine = 1)
 	result_amount = 3
 
 //Mental Medication
