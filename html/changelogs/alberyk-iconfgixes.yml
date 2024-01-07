@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the dpra brooch having no icon."
+  - bugfix: "Fixed the dominian service pistol and the 9mm pistol icons breaking."
+  - bugfix: "The dominian sniper rifle should no longer spawn in the tajara weapons trader."
