@@ -29,6 +29,9 @@
 	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
 	var/cached_ref
 
+	/// A weak reference to another datum
+	var/datum/weakref/weak_reference
+
 #ifdef REFERENCE_TRACKING
 	var/running_find_references
 	var/last_find_references = 0
@@ -48,23 +51,18 @@
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
-	weakref = null
-	GLOB.destroyed_event.raise_event(src)
-	var/ui_key = SOFTREF(src)
-	if(LAZYISIN(SSnanoui.open_uis, ui_key))
-		SSnanoui.close_uis(src)
 	tag = null
-	var/list/timers = active_timers
-	active_timers = null
-	if (timers)
-		for (var/thing in timers)
-			var/datum/timedevent/timer = thing
-			if (timer.spent)
-				continue
-			qdel(timer)
+	weakref = null
 
-	// Handle components & signals
-	signal_enabled = FALSE
+	if(active_timers)
+		var/list/timers = active_timers
+		active_timers = null
+		if (timers)
+			for (var/thing in timers)
+				var/datum/timedevent/timer = thing
+				if (timer.spent)
+					continue
+				qdel(timer)
 
 	#ifdef REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING_DEBUG
@@ -72,6 +70,17 @@
 	#endif
 	#endif
 
+	GLOB.destroyed_event.raise_event(src)
+
+	var/ui_key = SOFTREF(src)
+	if(LAZYISIN(SSnanoui.open_uis, ui_key))
+		SSnanoui.close_uis(src)
+
+
+	// Handle components & signals
+	signal_enabled = FALSE
+
+	//BEGIN: ECS SHIT
 	var/list/dc = datum_components
 	if(dc)
 		var/all_components = dc[/datum/component]
@@ -99,6 +108,7 @@
 
 	for(var/target in signal_procs)
 		UnregisterSignal(target, signal_procs[target])
+	//END: ECS SHIT
 
 	return QDEL_HINT_QUEUE
 

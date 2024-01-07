@@ -94,7 +94,8 @@
 
 	for(var/hardpoint in hardpoints)
 		var/obj/item/S = remove_system(hardpoint, force = 1)
-		qdel(S)
+		if(S)
+			QDEL_NULL(S)
 
 	hardpoints = null
 

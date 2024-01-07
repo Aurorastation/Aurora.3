@@ -15,11 +15,16 @@
 
 
 #ifdef REFERENCE_TRACKING
-/** If REFERENCE_TRACKING is enabled, qdel will call this object's find_references() verb.
- *
- * Functionally identical to [QDEL_HINT_QUEUE] if [GC_FAILURE_HARD_LOOKUP] is not enabled in _compiler_options.dm.
-*/
-#warn TG0001 qdel REFERENCE_TRACKING enabled
+
+	//Only print the error if we're not a linter
+	#if !defined(SPACEMAN_DMM) && !defined(OPENDREAM)
+		/* If REFERENCE_TRACKING is enabled, qdel will call this object's find_references() verb.
+
+		Functionally identical to [QDEL_HINT_QUEUE] if [GC_FAILURE_HARD_LOOKUP] is not enabled in _compiler_options.dm.
+		*/
+		#warn TG0001 qdel REFERENCE_TRACKING enabled
+	#endif
+
 #define QDEL_HINT_FINDREFERENCE 5
 /// Behavior as [QDEL_HINT_FINDREFERENCE], but only if the GC fails and a hard delete is forced.
 #define QDEL_HINT_IFFAIL_FINDREFERENCE 6

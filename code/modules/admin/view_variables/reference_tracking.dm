@@ -26,7 +26,8 @@
 
 	var/starting_time = world.time
 
-	log_subsystem_garbage("Refcount for [type]: [refcount(src)]")
+	// When we drop support for 514 and start supporting only 515, revive this
+	//log_subsystem_garbage("Refcount for [type]: [refcount(src)]")
 
 	//Time to search the whole game for our ref
 	DoSearchVar(GLOB, "GLOB", search_time = starting_time) //globals
