@@ -16,8 +16,8 @@
 
 #ifdef REFERENCE_TRACKING
 
-	//Only print the error if we're not a linter
-	#if !defined(SPACEMAN_DMM) && !defined(OPENDREAM)
+	//A warning on compile is treated as an error in the CI, therefore unlike TG we must avoid the warn if it's running in the CI
+	#if defined(TESTING) && !defined(CIBUILDING) && !defined(OPENDREAM) && !defined(SPACEMAN_DMM)
 		/* If REFERENCE_TRACKING is enabled, qdel will call this object's find_references() verb.
 
 		Functionally identical to [QDEL_HINT_QUEUE] if [GC_FAILURE_HARD_LOOKUP] is not enabled in _compiler_options.dm.
