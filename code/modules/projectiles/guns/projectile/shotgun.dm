@@ -274,6 +274,6 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 
 /obj/item/gun/projectile/shotgun/foldable/cameragun/examine(mob/user, distance, ...)
-  . = ..()
-  if(distance <= 1)
-    to_chat(user, SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button."))
+	. = ..()
+	if(distance <= 1)
+		to_chat(user, SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button."))
