@@ -18,7 +18,7 @@
 	return FALSE
 
 /obj/machinery/seed_storage
-	name = "Seed storage"
+	name = "seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = SEED_NOUN_SEEDS
@@ -34,12 +34,12 @@
 	var/list/scanner = list() // What properties we can view
 
 /obj/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
-	name = "Random seed storage"
+	name = "random seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	starting_seeds = list(/obj/item/seeds/random = 50)
 
 /obj/machinery/seed_storage/garden
-	name = "Garden seed storage"
+	name = "garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
 		/obj/item/seeds/aghrasshseed = 3,
@@ -72,6 +72,7 @@
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/guamiseed = 2,
 		/obj/item/seeds/gukheseed = 3,
+		/obj/item/seeds/jaekseol = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mossseed = 2,
@@ -98,6 +99,7 @@
 		/obj/item/seeds/richcoffeeseed = 3,
 		/obj/item/seeds/sarezhiseed = 3,
 		/obj/item/seeds/seaweed = 3,
+		/obj/item/seeds/ = 3,
 		/obj/item/seeds/serkiflowerseed = 1,
 		/obj/item/seeds/shandseed = 2,
 		/obj/item/seeds/soyaseed = 3,
@@ -107,6 +109,7 @@
 		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/teaseed = 3,
+		/obj/item/seeds/tieguanyin = 3,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,

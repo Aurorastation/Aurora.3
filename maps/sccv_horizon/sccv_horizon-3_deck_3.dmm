@@ -30014,6 +30014,20 @@
 	dir = 5
 	},
 /obj/structure/table/stone/marble,
+/obj/item/storage/box/tea{
+	pixel_x = -9;
+	pixel_y = 8
+	},
+/obj/item/storage/box/tea/jaekseol{
+	pixel_y = 8
+	},
+/obj/item/storage/box/tea/tieguanyin{
+	pixel_x = 10;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/beaker/teapot/lidded{
+	pixel_y = -8
+	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "vfv" = (
