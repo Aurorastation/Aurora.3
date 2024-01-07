@@ -106,7 +106,7 @@
 		pilot.forceMove(get_turf(src))
 	pilots = null
 
-	QDEL_NULL_LIST(hud_elements)
+	QDEL_LIST(hud_elements)
 
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)

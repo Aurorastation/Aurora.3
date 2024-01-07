@@ -1,15 +1,15 @@
 /datum
+	/**
+	  * Tick count time when this object was destroyed.
+	  *
+	  * If this is non zero then the object has been garbage collected and is awaiting either
+	  * a hard del by the GC subsystme, or to be autocollected (if it has no references)
+	  */
+	var/gc_destroyed
+
 	var/tmp/list/active_timers
 	var/tmp/datum/weakref/weakref
 	var/tmp/isprocessing = 0
-
-	/**
-	 * Tick count time when this object was destroyed.
-	 *
-	 * If this is non zero then the object has been garbage collected and is awaiting either
-	 * a hard del by the GC subsystme, or to be autocollected (if it has no references)
-	 */
-	var/tmp/gcDestroyed
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
@@ -37,6 +37,10 @@
 	var/list/found_refs
 	#endif
 #endif
+
+	// If we have called dump_harddel_info already. Used to avoid duped calls (since we call it immediately in some cases on failure to process)
+	// Create and destroy is weird and I wanna cover my bases
+	var/harddel_deets_dumped = FALSE
 
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.
@@ -125,3 +129,17 @@
 		return FALSE
 	vars[var_name] = var_value
 	return TRUE
+
+
+/// Return text from this proc to provide extra context to hard deletes that happen to it
+/// Optional, you should use this for cases where replication is difficult and extra context is required
+/// Can be called more then once per object, use harddel_deets_dumped to avoid duplicate calls (I am so sorry)
+/datum/proc/dump_harddel_info()
+	return
+
+///images are pretty generic, this should help a bit with tracking harddels related to them
+/image/dump_harddel_info()
+	if(harddel_deets_dumped)
+		return
+	harddel_deets_dumped = TRUE
+	return "Image icon: [icon] - icon_state: [icon_state] [loc ? "loc: [loc] ([loc.x],[loc.y],[loc.z])" : ""]"

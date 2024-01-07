@@ -212,31 +212,44 @@
 	//Clear it, just in case
 	cached_contents.Cut()
 
+	var/list/queues_we_care_about = list()
+	// All of em, I want hard deletes too, since we rely on the debug info from them
+	for(var/i in 1 to GC_QUEUE_HARDDELETE)
+		queues_we_care_about += i
+
 	//Now that we've qdel'd everything, let's sleep until the gc has processed all the shit we care about
-	var/time_needed = SSgarbage.collection_timeout
+	// + 2 seconds to ensure that everything gets in the queue.
+	var/time_needed = 2 SECONDS
+	for(var/index in queues_we_care_about)
+		time_needed += SSgarbage.collection_timeout[index]
+
 	var/start_time = world.time
+	var/real_start_time = REALTIMEOFDAY
 	var/garbage_queue_processed = FALSE
 
 	sleep(time_needed)
 	while(!garbage_queue_processed)
-		var/list/queue_to_check = SSgarbage.queue
-		//How the hell did you manage to empty this? Good job!
-		if(!length(queue_to_check))
-			garbage_queue_processed = TRUE
-			break
+		var/oldest_packet_creation = INFINITY
+		for(var/index in queues_we_care_about)
+			var/list/queue_to_check = SSgarbage.queues[index]
+			if(!length(queue_to_check))
+				continue
 
-		//Pull out the time we deld at
-		var/qdeld_at = SSgarbage.queue[queue_to_check[1]]
+			var/list/oldest_packet = queue_to_check[1]
+			//Pull out the time we inserted at
+			var/qdeld_at = oldest_packet[GC_QUEUE_ITEM_GCD_DESTROYED]
+
+			oldest_packet_creation = min(qdeld_at, oldest_packet_creation)
+
 		//If we've found a packet that got del'd later then we finished, then all our shit has been processed
-		if(qdeld_at > start_time)
+		//That said, if there are any pending hard deletes you may NOT sleep, we gotta handle that shit
+		if(oldest_packet_creation > start_time && !length(SSgarbage.queues[GC_QUEUE_HARDDELETE]))
 			garbage_queue_processed = TRUE
 			break
 
-		#if !defined(REFERENCE_TRACKING)
-		if(world.time > start_time + time_needed + 30 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
-			result = TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
+		if(REALTIMEOFDAY > real_start_time + time_needed + 50 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
+			TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
 			break
-		#endif
 
 		//Immediately fire the gc right after
 		SSgarbage.next_fire = 1
@@ -244,7 +257,7 @@
 		sleep(20 SECONDS)
 
 	//Alright, time to see if anything messed up
-	var/list/cache_for_sonic_speed = SSgarbage.didntgc
+	var/list/cache_for_sonic_speed = SSgarbage.items
 	for(var/path in typesof(/atom/movable, /turf) - ignore)
 		var/times = cache_for_sonic_speed[path]
 		if(times)

@@ -112,7 +112,7 @@
 		for(var/datum/computer_file/program/P in hard_drive.stored_files)
 			P.event_unregistered()
 
-		QDEL_NULL_LIST(hard_drive.stored_files)
+		QDEL_LIST(hard_drive.stored_files)
 
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
@@ -130,8 +130,8 @@
 			service.service_deactivate()
 			service.service_state = PROGRAM_STATE_KILLED
 
-	QDEL_NULL_LIST(idle_threads)
-	QDEL_NULL_LIST(enabled_services)
+	QDEL_LIST(idle_threads)
+	QDEL_LIST(enabled_services)
 
 	if(looping_sound)
 		soundloop.stop(src)
