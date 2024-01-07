@@ -3,6 +3,7 @@
 	description = "A small ship commonly fielded by the Stellar Corporate Conglomerate, the Serendipity-class, Hephaestus-designed and produced. It is supposed to be a small platform, entirely self-sufficient general-purpose scouting and surveying ship, the Serendipity is equipped with both a bluespace and a warp drive and two different engines."
 	suffixes = list("ships/scc/scc_scout_ship.dmm")
 	sectors = list(ALL_CORPORATE_SECTORS)
+	sectors_blacklist = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "scc_scout_ship"
