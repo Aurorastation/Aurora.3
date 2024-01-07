@@ -40,7 +40,7 @@
 		return
 
 	if(!src.client.holder)
-		if(!config.dsay_allowed)
+		if(!GLOB.config.dsay_allowed)
 			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
 			return
 
@@ -148,14 +148,14 @@
 /mob/proc/parse_language(var/message)
 	var/prefix = copytext(message,1,2)
 	if(length(message) >= 1 && prefix == "!")
-		return all_languages[LANGUAGE_NOISE]
+		return GLOB.all_languages[LANGUAGE_NOISE]
 
 	if(length(message) >= 2 && is_language_prefix(prefix))
 		var/language_prefix = lowertext(copytext(message, 2, 4))
-		var/datum/language/L = language_keys[language_prefix]
+		var/datum/language/L = GLOB.language_keys[language_prefix]
 		if(!L || !can_speak(L))
 			language_prefix = lowertext(copytext(message, 2, 3))
-			L = language_keys[language_prefix]
+			L = GLOB.language_keys[language_prefix]
 		if(can_speak(L))
 			return L
 

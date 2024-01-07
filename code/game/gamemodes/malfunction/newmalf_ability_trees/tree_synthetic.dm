@@ -59,7 +59,7 @@
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
-		for(var/mob/living/silicon/robot/R in silicon_mob_list)
+		for(var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))	// No drones.
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
@@ -176,7 +176,7 @@
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
-		for(var/mob/living/silicon/robot/R in silicon_mob_list)
+		for(var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))	// No drones.
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
@@ -368,8 +368,8 @@
 		user.synthetic_takeover = 0
 		return
 	//trip the NTNet alarm
-	ntnet_global.intrusion_detection_alarm = 1
-	ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
+	GLOB.ntnet_global.intrusion_detection_alarm = 1
+	GLOB.ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
 	//lower the dos capacity of the relay
 	for(var/obj/machinery/ntnet_relay/T in SSmachinery.processing)
 		T.dos_capacity = 200
@@ -387,7 +387,7 @@
 	for(var/B in get_linked_cyborgs(src))
 		var/mob/living/silicon/robot/target = B
 		target.malf_AI_module = TRUE
-		target.id_card.access = get_all_station_access() + access_equipment // Give full station access
+		target.id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
 	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
 	sleep(300) //Allows the AI to reset its borgs into combat units
 	to_chat(user, "Bypassing crisis module safeties.")

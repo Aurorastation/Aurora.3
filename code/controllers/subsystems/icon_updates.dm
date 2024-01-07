@@ -23,7 +23,8 @@ SUBSYSTEM_DEF(icon_update)
 
 /datum/controller/subsystem/icon_update/Initialize()
 	fire(FALSE, TRUE)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_update/fire(resumed = FALSE, no_mc_tick = FALSE)
 	var/list/icon_update_queue_cache = icon_update_queue
@@ -33,7 +34,7 @@ SUBSYSTEM_DEF(icon_update)
 		var/list/argv = icon_update_queue_cache[A]
 		icon_update_queue_cache.len--
 
-		if(A.initialized)
+		if(A.flags_1 & INITIALIZED_1)
 			A.icon_update_queued = FALSE
 
 			//Do not target qdeleted atoms

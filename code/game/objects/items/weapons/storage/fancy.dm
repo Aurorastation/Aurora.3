@@ -464,7 +464,7 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
-	req_access = list(access_virology)
+	req_access = list(ACCESS_VIROLOGY)
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
@@ -490,7 +490,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(access_forensics_lockers)
+	req_access = list(ACCESS_FORENSICS_LOCKERS)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"

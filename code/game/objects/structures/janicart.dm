@@ -74,10 +74,10 @@
 
 /obj/structure/janitorialcart/New()
 	..()
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/structure/janitorialcart/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
 	QDEL_NULL(mymop)
 	QDEL_NULL(myspray)

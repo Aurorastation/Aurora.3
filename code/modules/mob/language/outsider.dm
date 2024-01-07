@@ -141,7 +141,7 @@
 		to_chat(speaker, msg)
 		return
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
 			if(!within_jamming_range(player))
 				to_chat(player, msg)
@@ -154,9 +154,9 @@
 		return FALSE
 	if(within_jamming_range(other))
 		return FALSE
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
 		return TRUE
-	if(M.internal_organs_by_name["blackkois"] && (all_languages[LANGUAGE_LIIDRA] in M.languages))
+	if(M.internal_organs_by_name["blackkois"] && (GLOB.all_languages[LANGUAGE_LIIDRA] in M.languages))
 		return TRUE
 	if(isvaurca(M))
 		var/interceptchance = 1 //tiny chance for normal bugs to hear a message

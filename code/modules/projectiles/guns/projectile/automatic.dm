@@ -315,17 +315,21 @@
 /datum/firemode/z8
 	var/use_launcher = 0
 
-/obj/item/gun/projectile/automatic/rifle/dom
-	name = "dominian assault rifle"
-	desc = "The standard issue rifle of the Empire of Dominia’s Imperial Army. With its sleek lines and ruggedized faux wood furniture, the MPR-24/5 \
-	is as elegant as it is deadly, proving itself in service during Dominia's numerous colonial conflicts."
-	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. \
-	The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s."
-	icon = 'icons/obj/guns/dom_rifle.dmi'
+/obj/item/gun/projectile/automatic/rifle/dominia
+	name = "dominian rifle"
+	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army. Loads from 30 round 5.56 magazines."
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard-issue rifle of the Imperial Army for decades thanks to its durable construction and ease \
+	of use. The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: \
+	one that they hope will keep it competitive well into the 2470s."
+	icon = 'icons/obj/guns/dominia_rifle.dmi'
 	icon_state = "acr"
 	item_state = "acr"
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+	magazine_type = /obj/item/ammo_magazine/a556
+	allowed_magazines = list(/obj/item/ammo_magazine/a556)
 
-/obj/item/gun/projectile/automatic/rifle/dom/update_icon()
+/obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
 
@@ -603,7 +607,7 @@
 	desc = "A submachine gun featuring a novel top loading configuration, used by the Empire of Dominia's armed forces."
 	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. \
 	Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon."
-	icon = 'icons/obj/guns/dom_smg.dmi'
+	icon = 'icons/obj/guns/dominia_smg.dmi'
 	icon_state = "owen"
 	item_state = "owen"
 	max_shells = 20
@@ -761,6 +765,49 @@
 	is_wieldable = TRUE
 	max_shells = 8
 
+/obj/item/gun/projectile/automatic/rifle/dominia_carbine
+	name = "dominian carbine"
+	desc = "A carbine variant of the MPR-24/5 with a shorter barrel and folding stock. Loads from 20 round 7.62 magazines."
+	desc_extended = "The carbine variant of the MPR-24/5 is commonly seen in the hands of vehicle crews, airborne troops, and other units that do not require a \
+	full-length rifle. Paramilitary units, such as the Imperial Fisanduhian Gendarmerie, are armed with these rather than full-length rifles."
+	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon_state = "dom_carbine"
+	item_state = "dom_carbine"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_LARGE
+	ammo_type = "/obj/item/ammo_casing/a762"
+	handle_casings = EJECT_CASINGS
+	caliber = "a762"
+	magazine_type = /obj/item/ammo_magazine/c762/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/dominia)
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/dominia_carbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "dom_carbine" : "dom_carbine-empty"
+
+/obj/item/gun/projectile/automatic/rifle/dominia_lmg
+	name = "dominian light machine gun"
+	desc = "A machine gun based on the MPR-24/5 platform."
+	desc_extended = "Originally developed as a platoon-level weapon but later converted to squad-level use, the MPR-24/5 PMG (Platoon Machine Gun) is \
+	the most commonly-issued machine gun in the Imperial Army. The PMG is reliable and capable yet fairly heavy, and most non-geneboosted soldiers \
+	issued it receive a special load-bearing harness to make using it easier."
+	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon_state = "dom_lmg"
+	item_state = "dom_lmg"
+	caliber = "a556"
+	magazine_type = /obj/item/ammo_magazine/a556/dlmg
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/dlmg)
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+	)
+
+/obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
+
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
@@ -839,3 +886,4 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/konyang/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
+

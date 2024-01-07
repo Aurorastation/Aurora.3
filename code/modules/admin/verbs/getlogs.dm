@@ -27,7 +27,7 @@
 		to_chat(src, "<span class='warning'>Only Admins may use this command.</span>")
 		return
 
-	var/client/target = input(src,"Choose somebody to grant access to the server's runtime logs (permissions expire at the end of each round):","Grant Permissions",null) as null|anything in clients
+	var/client/target = input(src,"Choose somebody to grant access to the server's runtime logs (permissions expire at the end of each round):","Grant Permissions",null) as null|anything in GLOB.clients
 	if(!istype(target,/client))
 		to_chat(src, "<span class='warning'>Error: giveruntimelog(): Client not found.</span>")
 		return
@@ -85,7 +85,7 @@
 	set category = "Admin"
 
 	var/text_signal_log = ""
-	for(var/log in signal_log)
+	for(var/log in GLOB.signal_log)
 		text_signal_log += "[log]<br>"
 
 	var/datum/browser/signal_win = new(usr, "signallog", "Signal Log", 550, 500)

@@ -35,16 +35,14 @@ SUBSYSTEM_DEF(misc_early)
 	if (SSdiscord)
 		SSdiscord.alert_server_visibility()
 
-	global_initialize_webhooks()
-
 	// Setup ore.
 	for(var/oretype in subtypesof(/ore))
 		var/ore/OD = new oretype()
-		ore_data[OD.name] = OD
+		GLOB.ore_data[OD.name] = OD
 
 	// Setup cargo spawn lists.
 	setup_cargo_spawn_lists()
 
 	click_catchers = create_click_catcher()
 
-	..()
+	return SS_INIT_SUCCESS

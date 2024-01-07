@@ -5,7 +5,7 @@
 	icon_screen = "computer_generic"
 	icon_keyboard = "green_key"
 	light_color = LIGHT_COLOR_GREEN
-	req_access = list(access_tcomsat)
+	req_access = list(ACCESS_TCOMSAT)
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer

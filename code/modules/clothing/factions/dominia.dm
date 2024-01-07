@@ -811,3 +811,51 @@
 	icon_state = "officercoat"
 	item_state = "officercoat"
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/army
+	name = "imperial army uniform"
+	desc = "The standard-issue combat fatigues of an Imperial Army regular. This one features forest camouflage."
+	desc_extended = "While the Empire's nobility is known for its vibrant fashion, the common soldiers of the Imperial Army wear drab fatigues intended to conceal them \
+	from view. The iconic “Morozian green,” camouflage of the Imperial Army's most common uniform has become a common symbol of the Empire's colonialist policies abroad."
+	icon = 'icons/clothing/under/uniforms/dominia_army.dmi'
+	icon_state = "dom_uniform"
+	item_state = "dom_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/army/nco
+	name = "imperial army NCO uniform"
+	desc = "An Imperial Army non-commissioned officer's fatigues. This one features forest camouflage."
+	icon_state = "dom_uniform1"
+	item_state = "dom_uniform1"
+
+/obj/item/clothing/accessory/dominia/nco_badge
+	name = "imperial army NCO badge"
+	desc = "A sleeve patch worn by non-commissioned officers of the Imperial Army."
+	desc_extended = "Non-commissioned officers form the backbone of the Imperial Army's troops. Typically recruited from Novi Jadran's countryside, they are well-trained \
+	and well-motivated soldiers focused on ensuring their troops' survival and their mission's success."
+	icon = 'icons/clothing/accessories/dominia_nco_badge.dmi'
+	icon_state = "dom_nco"
+	item_state = "dom_nco"
+
+/obj/item/storage/backpack/dominia
+	name = "imperial army rucksack"
+	desc = "A rugged Imperial Army backpack intended for use during the Empire's frontier wars."
+	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
+	icon_state = "dom_backpack"
+	item_state = "dom_backpack"
+
+/obj/item/storage/backpack/dominia/nco
+	name = "imperial army NCO rucksack"
+	desc = "A non-commissioned officer's backpack. The radio set built into it allows for individual squads to stay in cohesion."
+	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
+	icon_state = "dom_backpack_nco"
+	item_state = "dom_backpack_nco"
+
+/obj/item/clothing/head/dominian_army
+	name = "imperial army field cap"
+	desc = "A green cap worn by enlisted members of the Imperial Army."
+	desc_extended = "The green of an enlisted soldier's cap both help it blend in and marks its wearer as a commoner. After all, no great house employs green in its \
+	standard."
+	icon = 'icons/clothing/head/dominia_army_hat.dmi'
+	icon_state = "dom_hat"
+	item_state = "dom_hat"

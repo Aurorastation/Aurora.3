@@ -67,23 +67,23 @@
 		LOG_DEBUG("API: Throttling bypassed - Command [name] set to no_throttle")
 		return FALSE
 
-	if (config.api_rate_limit_whitelist[addr])
+	if (GLOB.config.api_rate_limit_whitelist[addr])
 		LOG_DEBUG("API: Throttling bypassed - IP [addr] is whitelisted.")
 		return FALSE
 
 	var/last_time = world_api_rate_limit[addr]
 	world_api_rate_limit[addr] = REALTIMEOFDAY
 
-	if (last_time != null && abs(last_time - REALTIMEOFDAY) < config.api_rate_limit)
+	if (last_time != null && abs(last_time - REALTIMEOFDAY) < GLOB.config.api_rate_limit)
 		return TRUE
 
 	return FALSE
 
 /datum/topic_command/proc/_is_authorized_via_token(addr, auth_key)
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return FALSE
 
-	var/DBQuery/authquery = dbcon.NewQuery({"SELECT api_f.command
+	var/DBQuery/authquery = GLOB.dbcon.NewQuery({"SELECT api_f.command
 	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND	api_t.deleted_at IS NULL

@@ -1,6 +1,7 @@
 /obj/item/device/holowarrant
 	name = "warrant projector"
 	desc = "The practical paperwork replacement for the officer on the go."
+	desc_info = "Use this item in-hand to select the active warrant. Click on the person you want to show it to to display the warrant."
 	icon = 'icons/obj/holowarrant.dmi'
 	icon_state = "holowarrant"
 	item_state = "holowarrant"
@@ -9,69 +10,100 @@
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	var/list/storedwarrant = list() //All the warrants currently stored
-	var/activename = null
-	var/activecharges = null
-	var/activeauth = null //Currently active warrant
-	var/activetype = null //Is this a search or arrest warrant?
 
-//look at it
+	var/datum/record/warrant/selected_warrant
+
+/obj/item/device/holowarrant/Initialize(mapload, ...)
+	. = ..()
+	RegisterSignal(SSrecords, COMSIG_RECORD_CREATED, PROC_REF(handle_warrant_created))
+
+/obj/item/device/holowarrant/Destroy()
+	unload_warrant()
+	return ..()
+
 /obj/item/device/holowarrant/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(activename)
-		to_chat(user, "It's a holographic warrant for '[activename]'.")
-	if(is_adjacent)
-		show_content(user)
-	else
-		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
+	if(selected_warrant)
+		to_chat(user, "It's a holographic warrant for '[selected_warrant.name]'.")
 
-//hit yourself with it
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
-	sync(user)
-	if(activename)
-		activename = null
-		activecharges = null
-		activeauth = null
-		activetype = null
-	if(!storedwarrant.len)
+	if(!LAZYLEN(SSrecords.warrants))
 		to_chat(user, SPAN_NOTICE("There are no warrants available at this time."))
 		return
-	var/temp
-	temp = tgui_input_list(usr, "Which warrant would you like to load?", storedwarrant)
-	for(var/datum/record/warrant/W in SSrecords.warrants)
-		if(W.name == temp)
-			activename = W.name
-			activecharges = W.notes
-			activeauth = W.authorization
-			activetype = W.wtype
+
+	var/list/warrant_list = list()
+	for(var/datum/record/warrant/warrant in SSrecords.warrants)
+		warrant_list["[warrant.id] - [warrant.name] - [capitalize_first_letters(warrant.wtype)]"] = warrant
+
+	if(selected_warrant)
+		warrant_list += "Unload Warrant"
+
+	var/chosen_warrant = tgui_input_list(usr, "Which warrant do you want to load?", "Warrant Projector", warrant_list)
+	if(!chosen_warrant)
+		return
+	else if(chosen_warrant == "Unload Warrant")
+		unload_warrant()
+	else
+		load_warrant(warrant_list[chosen_warrant])
+
+	play_message(SPAN_NOTICE("\The [src] pings, \"Warrant [selected_warrant ? "" : "un"]loaded.\""))
+
+/obj/item/device/holowarrant/proc/load_warrant(var/datum/record/warrant/warrant)
+	selected_warrant = warrant
+	RegisterSignal(selected_warrant, COMSIG_QDELETING, PROC_REF(handle_warrant_delete))
+	RegisterSignal(selected_warrant, COMSIG_RECORD_MODIFIED, PROC_REF(handle_warrant_modify))
 	update_icon()
 
-//hit other people with it
-/obj/item/device/holowarrant/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(activename)
-		user.visible_message(SPAN_NOTICE("[user] holds up a warrant projector and shows the contents to [M]."), \
-				SPAN_NOTICE("You show the warrant to [M]."))
-		examinate(M, src)
-	else
+/obj/item/device/holowarrant/proc/unload_warrant()
+	if(selected_warrant)
+		UnregisterSignal(selected_warrant, COMSIG_QDELETING)
+		UnregisterSignal(selected_warrant, COMSIG_RECORD_MODIFIED)
+		selected_warrant = null
+		update_icon()
+
+/obj/item/device/holowarrant/proc/play_message(var/message)
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 40)
+	audible_message(message)
+
+/// Called when a warrant is created
+/obj/item/device/holowarrant/proc/handle_warrant_created(datum/source, datum/record/record)
+	SIGNAL_HANDLER
+
+	if(istype(record, /datum/record/warrant))
+		play_message(SPAN_NOTICE("\The [src] pings, \"New warrant on database.\""))
+
+/// Called right before the warrant is deleted
+/obj/item/device/holowarrant/proc/handle_warrant_delete(datum/source)
+	SIGNAL_HANDLER
+
+	unload_warrant()
+
+	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant deleted.\""))
+
+/// Called right after the warrant is modified
+/obj/item/device/holowarrant/proc/handle_warrant_modify(datum/source)
+	SIGNAL_HANDLER
+
+	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant modified.\""))
+
+/obj/item/device/holowarrant/attack(mob/living/victim, mob/living/user)
+	if(!selected_warrant)
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
+		return
+
+	user.visible_message("<b>[user]</b> holds \the [src] up to \the [victim].", SPAN_NOTICE("You hold up \the [src] to \the [victim]."))
+	show_content(victim)
 
 /obj/item/device/holowarrant/update_icon()
-	if(activename)
+	if(selected_warrant)
 		icon_state = "holowarrant_filled"
 	else
 		icon_state = "holowarrant"
 
-//sync with database
-/obj/item/device/holowarrant/proc/sync(var/mob/user)
-	storedwarrant = list()
-	for(var/datum/record/warrant/W in SSrecords.warrants)
-		storedwarrant += W.name
-	to_chat(user, SPAN_NOTICE("The device hums faintly as it syncs with the station database."))
-
-/obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
-	if(activetype == "arrest")
+/obj/item/device/holowarrant/proc/show_content(mob/user)
+	if(selected_warrant.wtype == "arrest")
 		var/output = {"
-		<HTML><HEAD><TITLE>Arrest Warrant: [activename]</TITLE></HEAD>
+		<HTML><HEAD><TITLE>Arrest Warrant: [selected_warrant.name]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
 		<center><large><b>Stellar Corporate Conglomerate
@@ -93,21 +125,21 @@
 		</i></small>
 		<br>
 		<br><b>Suspect's name: </b>
-		<br>[activename]
+		<br>[selected_warrant.name]
 		<br>
 		<br><b>Reason(s): </b>
-		<br>[activecharges]
+		<br>[selected_warrant.notes]
 		<br>
-		<br>__<u>[activeauth]</u>__
+		<br>__<u>[selected_warrant.authorization]</u>__
 		<br><small>Person authorizing arrest</small></br>
 		</font></font>
 		</BODY></HTML>
 		"}
 
-		show_browser(user, output, "window=Warrant for the arrest of [activename]")
-	if(activetype == "search")
+		show_browser(user, output, "window=Warrant for the arrest of [selected_warrant.name]")
+	if(selected_warrant.wtype == "search")
 		var/output= {"
-		<HTML><HEAD><TITLE>Search Warrant: [activename]</TITLE></HEAD>
+		<HTML><HEAD><TITLE>Search Warrant: [selected_warrant.name]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
 		<center><large><b>Stellar Corporate Conglomerate
@@ -129,14 +161,14 @@
 		In the event of the Suspect/Department staff attempting	to resist/impede this search or flee, they must be taken into custody immediately! </br>
 		All confiscated items must be filed and taken to Evidence!</small></i></br>
 		<br><b>Suspect's/location name: </b>
-		<br>[activename]
+		<br>[selected_warrant.name]
 		<br>
 		<br><b>For the following reasons: </b>
-		<br>[activecharges]
+		<br>[selected_warrant.notes]
 		<br>
-		<br>__<u>[activeauth]</u>__
+		<br>__<u>[selected_warrant.authorization]</u>__
 		<br><small>Person authorizing search</small></br>
 		</font></font>
 		</BODY></HTML>
 		"}
-		show_browser(user, output, "window=Search warrant for [activename]")
+		show_browser(user, output, "window=Search warrant for [selected_warrant.name]")

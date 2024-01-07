@@ -463,7 +463,7 @@
 		FuelToRemove = 1
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			if(prob(25) && isliving(loc))
 				if(loc.flash_act())
 					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))

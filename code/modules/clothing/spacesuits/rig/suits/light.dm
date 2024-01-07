@@ -49,7 +49,7 @@
 	icon = 'icons/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 	airtight = 0
 	seal_delay = 5 //not being vaccum-proof has an upside I guess
@@ -127,7 +127,7 @@
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
 	boot_type = /obj/item/clothing/shoes/magboots/rig/light/ninja
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	initial_modules = list(
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
@@ -193,7 +193,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 	initial_modules = list(
 		/obj/item/rig_module/stealth_field,

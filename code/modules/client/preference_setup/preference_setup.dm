@@ -145,7 +145,7 @@
 /datum/category_group/player_setup_category/proc/load_character(var/savefile/S)
 	// Load all data, then sanitize it.
 	// Need due to, for example, the 01_basic module relying on species having been loaded to sanitize correctly but that isn't loaded until module 03_body.
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for(var/datum/category_item/player_setup_item/PI in items)
 			PI.load_character(S)
 	else
@@ -153,37 +153,41 @@
 		handle_sql_loading(SQL_CHARACTER)
 
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.load_special(S)
-		PI.sanitize_character(config.sql_saves)
+		PI.load_character_special(S)
+		PI.sanitize_character(GLOB.config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
 	// Sanitize all data, then save it
 	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
 
-	if (!config.sql_saves || !establish_db_connection(dbcon))
-		for (var/datum/category_item/player_setup_item/PI in items)
+	var/db_available = GLOB.config.sql_saves && establish_db_connection(GLOB.dbcon)
+
+	for (var/datum/category_item/player_setup_item/PI in items)
+		PI.save_character_special(S)
+		if(!db_available)
 			PI.save_character(S)
-	else if (modified)
+
+	if (db_available && modified)
 		// No save here, because this is only called from the menu and needs to save /everything/.
 		handle_sql_saving(SQL_CHARACTER)
 		modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.load_preferences(S)
 	else
 		handle_sql_loading(SQL_PREFERENCES)
 
 	for (var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_preferences(config.sql_saves)
+		PI.sanitize_preferences(GLOB.config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_preferences(var/savefile/S)
 	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences()
 
-	if (!config.sql_saves || !establish_db_connection(dbcon))
+	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_preferences(S)
 	else
@@ -238,15 +242,21 @@
 	return
 
 /*
-* Called no matter if sql safes are enabled or disabled
+* Called no matter if sql saves are enabled or disabled (After load_character)
 */
-/datum/category_item/player_setup_item/proc/load_special(var/savefile/S)
+/datum/category_item/player_setup_item/proc/load_character_special(var/savefile/S)
 	return
 
 /*
-* Called when the item is asked to save per character settings
+* Called when the item is asked to save per character settings - Only called when sql saves are disabled or unavailable
 */
 /datum/category_item/player_setup_item/proc/save_character(var/savefile/S)
+	return
+
+/*
+* Called no matter if sql saves are enabled or disabled (Before save_character / handle_sql_saving)
+*/
+/datum/category_item/player_setup_item/proc/save_character_special(var/savefile/S)
 	return
 
 /*

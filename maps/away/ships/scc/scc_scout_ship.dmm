@@ -3608,6 +3608,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship/medbay)
+"wI" = (
+/obj/random/dirt_75,
+/obj/item/cargo_package/offship/to_horizon{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/scc_scout_ship/engineering_cargo)
 "wM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4184,13 +4197,13 @@
 /turf/simulated/floor/marble,
 /area/ship/scc_scout_ship/mess)
 "Bk" = (
-/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "Bm" = (
@@ -4527,6 +4540,19 @@
 	},
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
+"DX" = (
+/obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/scc_scout_ship/engineering_cargo)
 "Ed" = (
 /obj/structure/lattice,
 /obj/effect/landmark/entry_point/fore{
@@ -5214,7 +5240,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "Js" = (
-/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -5224,6 +5249,14 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship/to_horizon{
+	pixel_y = -2;
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "JB" = (
@@ -44410,8 +44443,8 @@ Wx
 Oz
 pP
 wm
-cW
-cW
+wI
+DX
 WR
 bZ
 bZ

@@ -162,3 +162,9 @@
 /datum/design/item/tool/inductive_charger/engineering
 	name = "Inductive Charger (Engineering)"
 	build_path = /obj/item/inductive_charger/handheld/engineering
+
+/datum/design/item/tool/recharger_backpack
+	desc = "A man-portable recharger backpack developed by Hephaestus Industries. Often used by military organisations of the Spur for extended field use of energy weapons."
+	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 3, TECH_COMBAT = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
+	build_path = /obj/item/recharger_backpack

@@ -24,7 +24,7 @@
 		SSicon_smooth.add_to_queue(src)
 
 	if (current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if (istype(E) && istype(E.theme))
 			E.theme.on_turf_generation(src, E.planetary_area)
 
@@ -88,7 +88,7 @@
 			else
 				lighting_clear_overlay()
 
-		if (config.starlight)
+		if (GLOB.config.starlight)
 			for (var/turf/space/S in RANGE_TURFS(1, src))
 				S.update_starlight()
 
@@ -103,7 +103,7 @@
 		old_fire.RemoveFire()
 
 	if(tell_universe)
-		universe.OnTurfChange(W)
+		GLOB.universe.OnTurfChange(W)
 
 	SSair.mark_for_update(src) //handle the addition of the new turf.
 

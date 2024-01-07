@@ -89,7 +89,7 @@
 	if(!picked_species)
 		picked_species = possible_species[1]
 
-	var/datum/species/S = all_species[picked_species]
+	var/datum/species/S = GLOB.all_species[picked_species]
 	var/assigned_gender = pick(S.default_genders)
 
 	//Get the name / age from them first
@@ -97,7 +97,7 @@
 	var/age = tgui_input_number(user, "Enter your character's age.", "Age", 25, 1000, 0)
 
 	//Spawn in the mob
-	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
+	var/mob/living/carbon/human/M = new spawn_mob(GLOB.newplayer_start)
 
 	M.change_gender(assigned_gender)
 
@@ -156,14 +156,14 @@
 		for(var/culture in culture_restriction)
 			var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
 			if(CL.type in M.species.possible_cultures)
-				M.culture = CL
+				M.set_culture(CL)
 				break
 		for(var/origin in M.culture.possible_origins)
 			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			if(length(origin_restriction))
 				if(!(OI.type in origin_restriction))
 					continue
-			M.origin = OI
+			M.set_origin(OI)
 			M.accent = pick(OI.possible_accents)
 			break
 

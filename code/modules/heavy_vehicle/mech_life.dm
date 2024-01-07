@@ -157,7 +157,7 @@
 			stuff_to_throw += thing
 	for(var/obj/item/thing in stuff_to_throw)
 		thing.forceMove(T)
-		thing.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(3,6),40)
+		thing.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(3,6),40)
 	explosion(T, -1, 0, 2)
 	qdel(src)
 	return
