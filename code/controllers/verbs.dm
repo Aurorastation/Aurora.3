@@ -17,7 +17,7 @@
 		return
 	var/list/available_controllers = list()
 	for(var/datum/controller/subsystem/SS in Master.subsystems)
-		if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
+		if (MC_RUNNING() && SS.flags & SS_NO_DISPLAY)
 			continue
 		available_controllers[SS.name] = SS
 	available_controllers["Evacuation Controller"] = evacuation_controller

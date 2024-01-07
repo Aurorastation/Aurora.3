@@ -208,14 +208,14 @@
 	if (!target || !player)
 		return
 
-	if (establish_db_connection(GLOB.dbcon))
+	if (establish_db_connection(GLOB.dbcon) && target.character_id)
 		var/status = FALSE
 		var/sql_status = FALSE
 		if (target.internal_organs_by_name[BP_IPCTAG])
 			status = TRUE
 
-		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
+		var/list/query_details = list("char_id" = target.character_id)
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT tag_status FROM ss13_characters_ipc_tags WHERE char_id = :char_id:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
@@ -224,7 +224,7 @@
 				return
 
 			query_details["status"] = status
-			var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
+			var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_characters_ipc_tags SET tag_status = :status: WHERE char_id = :char_id:")
 			update_query.Execute(query_details)
 
 /datum/species/machine/get_light_color(mob/living/carbon/human/H)

@@ -85,9 +85,10 @@ var/list/preferences_datums = list()
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
 	var/autohiss_setting = AUTOHISS_OFF
-	var/list/gear						// Custom/fluff item loadout.
-	var/list/gear_list = list()			//Custom/fluff item loadouts.
+	var/list/gear						// The gear in the currently selected loadout item preset
+	var/list/gear_list = list()			// The gear list holds all the different loadout item prests
 	var/gear_slot = 1					//The current gear save slot
+	var/gear_modified = FALSE
 
 	// IPC Stuff
 	var/machine_tag_status = TRUE
@@ -456,10 +457,9 @@ var/list/preferences_datums = list()
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
-	character.origin = GET_SINGLETON(text2path(origin))
-	character.culture = GET_SINGLETON(text2path(culture))
-	character.origin.on_apply(character)
-	character.culture.on_apply(character)
+	character.set_culture(GET_SINGLETON(text2path(culture)))
+	character.set_origin(GET_SINGLETON(text2path(origin)))
+
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
@@ -605,6 +605,8 @@ var/list/preferences_datums = list()
 	can_edit_name = 1
 
 	gear = list()
+	gear_list = list() //Dont copy the loadout
+	gear_modified = FALSE
 
 	//Reset the records when making a new char
 	med_record = ""
@@ -613,8 +615,6 @@ var/list/preferences_datums = list()
 	gen_record = ""
 	exploit_record = ""
 	ccia_record = ""
-
-	gear_list = list() //Dont copy the loadout
 
 	// Do we need to reinitialize a whole bunch more vars?
 	if (re_initialize)

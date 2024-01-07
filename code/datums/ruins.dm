@@ -29,7 +29,6 @@
 	/// Template flags for this ruin
 	template_flags = TEMPLATE_FLAG_NO_RUINS
 
-	// !! Currently only implemented for away sites
 	var/list/force_ruins // Listed ruins are always spawned unless disallowed by flags.
 	var/list/allow_ruins // Listed ruins are added to the set of available spawns.
 	var/list/ban_ruins   // Listed ruins are removed from the set of available spawns. Beats allowed.

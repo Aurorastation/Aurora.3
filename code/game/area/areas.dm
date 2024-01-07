@@ -12,7 +12,7 @@ var/global/list/area_blurb_stated_to = list()
 /area
 	var/global/global_uid = 0
 	var/uid
-	///Bitflag (Any of `AREA_FLAG_*`). See `code\__defines\misc.dm`.
+	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
 	var/area_flags
 	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/fire = null

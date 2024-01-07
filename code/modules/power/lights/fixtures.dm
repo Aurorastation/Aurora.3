@@ -321,9 +321,9 @@
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/process()
+/obj/machinery/light/process(seconds_per_tick)
 	if (cell && has_power())
-		cell.give(0.2)
+		cell.give(0.2 * seconds_per_tick)
 		if(cell.fully_charged())
 			return PROCESS_KILL
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))

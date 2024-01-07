@@ -7,7 +7,7 @@
 	ship_cost = 1
 	id = "kasf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kasf_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/kasf_corvette
@@ -136,7 +136,7 @@
 	sizeclass = "Stalwart-class Transport Craft"
 	shiptype = "All-environment troop transport"
 
-/obj/machinery/computer/shuttle_control/explore/kasf_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "KASF Shuttle"
 

@@ -195,7 +195,7 @@
  *
  * Does NOT make it the default language
  *
- * * language - The language to add, can either be a `/datum/language` or a string, see the LANGUAGE_* defines in `code\__defines\species_languages.dm` for the strings
+ * * language - The language to add, can either be a `/datum/language` or a string, see the LANGUAGE_* defines in `code\__DEFINES\species_languages.dm` for the strings
  */
 /mob/proc/add_language(language)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -218,7 +218,7 @@
 /**
  * Set default language for a `/mob/living`, return `TRUE` if set successfully, `FALSE` otherwise
  *
- * * language - The language to set as default, can either be a `/datum/language`, a string as per `LANGUAGE_*` defines in `code\__defines\species_languages.dm`,
+ * * language - The language to set as default, can either be a `/datum/language`, a string as per `LANGUAGE_*` defines in `code\__DEFINES\species_languages.dm`,
  * or `null` to remove the default language
  */
 /mob/living/proc/set_default_language(language)

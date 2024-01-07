@@ -25,10 +25,10 @@ SUBSYSTEM_DEF(fail2topic)
 		log_subsystem_fail2topic("Subsystem disabled due to it not supporting UNIX.")
 
 	if (!enabled)
-		suspended = TRUE
+		can_fire = FALSE
 		flags |= SS_NO_FIRE
 
-	. = ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/fail2topic/fire()
 	while (rate_limiting.len)

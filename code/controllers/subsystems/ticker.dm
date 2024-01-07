@@ -11,7 +11,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
-	flags = SS_NO_TICK_CHECK
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_order = SS_INIT_LOBBY
 
@@ -73,6 +72,8 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
@@ -423,7 +424,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		pregame_timeleft = LOBBY_TIME
 		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
 	else
-		var/mc_init_time = round(Master.initialization_time_taken, 1)
+		var/mc_init_time = round(Master.init_timeofday, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
 		total_players = length(GLOB.player_list)
 		LAZYINITLIST(ready_player_jobs)

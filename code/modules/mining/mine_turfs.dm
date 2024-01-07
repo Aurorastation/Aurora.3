@@ -2,7 +2,7 @@
 /turf/unsimulated/mineral
 	name = "impassable rock"
 	icon = 'icons/turf/smooth/rock_dense.dmi'
-	icon_state = "wall"
+	icon_state = "preview_wall_unsimulated"
 	blocks_air = TRUE
 	density = TRUE
 	gender = PLURAL
@@ -22,16 +22,15 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "rock"
+	icon = 'icons/turf/smooth/rock_dense.dmi'
+	icon_state = "preview_wall"
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
-	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 	initial_gas = null
 	opacity = TRUE
@@ -83,8 +82,6 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = mineral_can_smooth_with
-		pixel_x = -4
-		pixel_y = -4
 
 	rock_health = rand(10,20)
 
@@ -129,6 +126,7 @@ var/list/mineral_can_smooth_with = list(
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
+	SSicon_smooth.add_to_queue_neighbors(src)
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
@@ -167,18 +165,16 @@ var/list/mineral_can_smooth_with = list(
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid
 	name = "rock"
-	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "rock"
 	desc = "It's a greyish rock. Exciting."
 	opacity = TRUE
-	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	layer = 2.01
 	var/list/asteroid_can_smooth_with = list(
 		/turf/unsimulated/mineral,
 		/turf/unsimulated/mineral/asteroid
 	)
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	color = "#705d40"
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
@@ -202,8 +198,6 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
-		pixel_x = -4
-		pixel_y = -4
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -230,7 +224,6 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	if(!mineral)
 		name = "\improper Rock"
-		icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
 	new /obj/effect/mineral(src, mineral)
@@ -625,7 +618,6 @@ var/list/mineral_can_smooth_with = list(
 	icon_state = ""
 	desc = "An exposed developer texture. Someone wasn't paying attention."
 	smoothing_flags = SMOOTH_FALSE
-	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
 	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
@@ -914,4 +906,5 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
+	SSicon_smooth.add_to_queue_neighbors(src)
 	. = ..()

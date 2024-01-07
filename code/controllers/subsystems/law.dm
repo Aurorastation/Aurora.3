@@ -13,6 +13,8 @@ SUBSYSTEM_DEF(law)
 	else
 		load_from_code()
 
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/law/proc/load_from_code()
 	for (var/L in subtypesof(/datum/law/low_severity))
 		low_severity += new L
