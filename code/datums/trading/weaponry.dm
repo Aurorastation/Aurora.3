@@ -130,7 +130,8 @@
 		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/adhomian     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/dpra         = TRADER_ALL,
-		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/shotgun/pump/rifle/dominia   = TRADER_BLACKLIST
 	)
 
 
