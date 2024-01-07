@@ -24,7 +24,7 @@
 	colors = "#5acfc0"
 	designer = "Idris Incorporated - Celestial Cruises"
 	volume = "82 meters length, 60 meters beam/width, 28 meters vertical height"
-	drive = "Warp Capable, Hybrid Phoron Bluespace Drive"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
 	propulsion = "Superheated Composite Gas Thrust"
 	weapons = "None"
 	sizeclass = "Argentum-class Cruise Yacht"
