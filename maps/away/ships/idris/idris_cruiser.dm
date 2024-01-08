@@ -74,11 +74,6 @@
 	sizeclass = "Cruise liner tender"
 	shiptype = "Short-distance passenger transport between ships or between ship and planet"
 
-/obj/effect/overmap/visitable/ship/landable/idris_cruiser_shuttle/get_skybox_representation()
-	skybox_image.pixel_x = rand(0,64)
-	skybox_image.pixel_y = rand(128,256)
-	return skybox_image
-
 /obj/effect/overmap/visitable/ship/landable/idris_cruiser_shuttle/New()
 	designation = "Idris Runabout"
 	..()
