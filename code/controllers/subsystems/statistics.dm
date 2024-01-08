@@ -259,14 +259,14 @@ GENERAL_PROTECT_DATUM(/datum/controller/subsystem/statistics)
 	if(!query.Execute(list(
 		"name"=H.real_name,
 		"ckey"=H.ckey,
-		"char_id"=H.character_id,
+		"char_id"=H.character_id ? H.character_id : null, //make sure we set the char id to null and not 0 so we dont violate the constraint
 		"job"=H?.mind?.assigned_role,
 		"special"=H?.mind?.special_role,
 		"pod"=podname,
 		"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
 		"laname"=H?.lastattacker?.real_name,
 		"lackey"=H?.lastattacker?.ckey,
-		"lachar_id"=H?.lastattacker?.character_id,
+		"lachar_id"=H?.lastattacker?.character_id ? H?.lastattacker?.character_id : null, //make sure we set the char id to null and not 0 so we dont violate the constraint
 		"gender"=H.gender,
 		"bruteloss"=H.getBruteLoss(),
 		"fireloss"=H.getFireLoss(),
