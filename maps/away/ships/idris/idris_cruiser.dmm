@@ -5203,12 +5203,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
-"uj" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/idris_cruiser/corridor/port_lobby)
 "uk" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
@@ -7083,7 +7077,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/plaque,
+/obj/effect/floor_decal/plaque{
+	name = "Ship Commemorative Plaque";
+	desc = "A plaque commemorating the details of the ship, including shipyard, date of construction and commissioning, and technical specifications. The Idris logo is watermarked behind the text."
+	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
 "BO" = (
@@ -8578,6 +8575,13 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/lounge)
+"Id" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/idris_cruiser/corridor/port_lobby)
 "If" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/machinery/light/floor{
@@ -12156,9 +12160,8 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "VN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/corridor/port_lobby)
@@ -35336,7 +35339,7 @@ WC
 uw
 yT
 EA
-uj
+VN
 nw
 zI
 Uo
@@ -35538,7 +35541,7 @@ Nt
 tB
 yT
 uz
-VN
+Id
 kK
 Yt
 wS
