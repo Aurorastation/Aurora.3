@@ -49,7 +49,7 @@
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
-	for(var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
+	for(var/datum/modular_computer_app_presets/prs in GLOB.ntnet_global.available_software_presets)
 		if(prs.type == preset_type)
 			return prs.return_install_programs(src)
 
@@ -247,7 +247,7 @@
 /obj/item/modular_computer/proc/add_log(var/text)
 	if(!get_ntnet_status())
 		return FALSE
-	return ntnet_global.add_log(text, network_card)
+	return GLOB.ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
 	SStgui.close_uis(active_program)

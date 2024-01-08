@@ -56,7 +56,7 @@
 			return
 
 	//Since away sites are procedurally spawned by the map loader, if we don't suspend SSair, they'll get vented.
-	SSair.suspend()
+	SSair.can_fire = FALSE
 	log_and_message_admins("is attempting to place a map template [log_name].")
 	to_chat(usr, "Attempting to place map template [log_name].")
 	var/new_z_centre = template.load_new_z(FALSE) // Don't skip changeturf
@@ -66,7 +66,7 @@
 	else
 		log_and_message_admins("has failed to place a map template [log_name].")
 		to_chat(usr, "Failed to place map template [log_name].")
-	SSair.wake()
+	SSair.can_fire = TRUE
 
 /datum/admins/proc/map_template_upload()
 	set category = "Fun"

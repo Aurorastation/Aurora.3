@@ -10,7 +10,8 @@ SUBSYSTEM_DEF(materials)
 
 /datum/controller/subsystem/materials/Initialize()
 	create_material_lists()
-	. = ..()
+
+	return SS_INIT_SUCCESS
 
 /**
  * Initialize the lists of materials, if they are not initialized already

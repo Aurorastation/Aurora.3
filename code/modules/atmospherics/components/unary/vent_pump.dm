@@ -188,7 +188,7 @@
 		return 0
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_pump/process()
+/obj/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
 	..()
 
 	if (broadcast_status_next_process)
@@ -222,7 +222,7 @@
 
 			//limit flow rate from turfs
 			transfer_moles = min(transfer_moles, environment.total_moles*air_contents.volume/environment.volume)	//group_multiplier gets divided out here
-			power_draw = pump_gas(src, environment, air_contents, transfer_moles, power_rating)
+			power_draw = pump_gas(src, environment, air_contents, transfer_moles * seconds_per_tick, power_rating)
 
 	else
 		//If we're in an area that is fucking ideal, and we don't have to do anything, chances are we won't next tick either so why redo these calculations?
@@ -233,7 +233,7 @@
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
-		use_power_oneoff(power_draw)
+		use_power_oneoff(power_draw * seconds_per_tick)
 		if(network)
 			network.update = 1
 

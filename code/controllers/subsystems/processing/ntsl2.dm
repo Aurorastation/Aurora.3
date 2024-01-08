@@ -13,7 +13,8 @@ PROCESSING_SUBSYSTEM_DEF(ntsl2)
 
 /datum/controller/subsystem/processing/ntsl2/Initialize(timeofday)
 	attempt_connect()
-	..()
+
+	return SS_INIT_SUCCESS
 
 /*
  * Builds request object meant to do certain action. Returns FALSE (0) when there was an issue.

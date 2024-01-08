@@ -2,11 +2,14 @@ SUBSYSTEM_DEF(nightlight)
 	name = "Night Lighting"
 	wait = 5 MINUTES
 	init_order = SS_INIT_NIGHT
-	flags = SS_BACKGROUND | SS_NO_TICK_CHECK | SS_NO_FIRE
+	flags = SS_BACKGROUND | SS_NO_FIRE
 	priority = SS_PRIORITY_NIGHT
 
 	var/isactive = FALSE
 	var/disable_type = NL_NOT_DISABLED
+
+/datum/controller/subsystem/nightlight/Initialize(start_timeofday)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/nightlight/stat_entry(msg)
 	msg = "A:[isactive] T:[worldtime2hours()] D:[disable_type]"
@@ -19,14 +22,14 @@ SUBSYSTEM_DEF(nightlight)
 /datum/controller/subsystem/nightlight/proc/temp_disable(time = -1)
 	if (disable_type != NL_PERMANENT_DISABLE)
 		disable_type = NL_TEMPORARY_DISABLE
-		suspend()
+		can_fire = FALSE
 		deactivate(FALSE)
 		if (time > 0)
 			addtimer(CALLBACK(src, PROC_REF(end_temp_disable)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/controller/subsystem/nightlight/proc/end_temp_disable()
 	if (disable_type == NL_TEMPORARY_DISABLE)
-		wake()
+		can_fire = TRUE
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 
@@ -61,10 +64,10 @@ SUBSYSTEM_DEF(nightlight)
 /datum/controller/subsystem/nightlight/proc/is_active()
 	return isactive
 
-/datum/controller/subsystem/nightlight/enable()
-	..()
-	disable_type = NL_NOT_DISABLED
+// /datum/controller/subsystem/nightlight/enable()
+// 	..()
+// 	disable_type = NL_NOT_DISABLED
 
-/datum/controller/subsystem/nightlight/disable()
-	..()
-	disable_type = NL_PERMANENT_DISABLE
+// /datum/controller/subsystem/nightlight/disable()
+// 	..()
+// 	disable_type = NL_PERMANENT_DISABLE

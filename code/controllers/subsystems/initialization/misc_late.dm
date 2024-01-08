@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(misc_late)
 	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
-	..(timeofday)
+	return SS_INIT_SUCCESS
 
 /proc/sorted_add_area(area/A)
 	GLOB.all_areas += A

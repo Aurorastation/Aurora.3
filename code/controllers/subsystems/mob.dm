@@ -57,6 +57,8 @@ SUBSYSTEM_DEF(mobs)
 
 	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/mobs/stat_entry(msg)
 	msg = "P:[GLOB.mob_list.len]"
 	return ..()

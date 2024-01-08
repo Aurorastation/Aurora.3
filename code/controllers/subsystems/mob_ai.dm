@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(mob_ai)
 	return
 
 /datum/controller/subsystem/mob_ai/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/mob_ai/ExplosionEnd()
-	wake()
+	can_fire = TRUE
