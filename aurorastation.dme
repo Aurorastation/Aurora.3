@@ -3768,6 +3768,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\pra_mining_camp.dm"
 #include "maps\random_ruins\exoplanets\adhomai\psis_outpost.dm"
 #include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
+#include "maps\random_ruins\exoplanets\asteroid\abandoned_prison\abandoned_prison.dm"
 #include "maps\random_ruins\exoplanets\asteroid\coalition_base\coalition_base.dm"
 #include "maps\random_ruins\exoplanets\asteroid\mystery_ship\mystery_ship_areas.dm"
 #include "maps\random_ruins\exoplanets\asteroid\old_outpost\old_outpost.dm"
