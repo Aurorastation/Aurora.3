@@ -1644,6 +1644,9 @@
 /area/ship/idris_cruiser/lounge)
 "hf" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "hj" = (
@@ -1810,6 +1813,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/small/west,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/public)
 "hZ" = (
@@ -2033,8 +2037,12 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "je" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2416,6 +2424,9 @@
 	name = "EVA Storage";
 	req_access = list(220)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "kN" = (
@@ -4573,6 +4584,12 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "rV" = (
@@ -5062,6 +5079,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "tL" = (
@@ -5180,6 +5203,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
+"uj" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/idris_cruiser/corridor/port_lobby)
 "uk" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
@@ -5793,16 +5822,12 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/lobby)
 "wS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "wT" = (
@@ -6930,6 +6955,12 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "Bi" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "Bl" = (
@@ -11175,6 +11206,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "Rt" = (
@@ -12119,6 +12156,10 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
 "VN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "VO" = (
@@ -12866,6 +12907,8 @@
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "YB" = (
@@ -35293,7 +35336,7 @@ WC
 uw
 yT
 EA
-VN
+uj
 nw
 zI
 Uo
