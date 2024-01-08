@@ -22927,10 +22927,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
-"pYa" = (
-/obj/structure/sign/flag/scc,
-/turf/simulated/wall,
-/area/hangar/intrepid/interstitial)
 "pYu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24710,6 +24706,10 @@
 	},
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -32430,9 +32430,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "wIJ" = (
-/obj/effect/floor_decal/corner/dark_green/full{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -32441,6 +32438,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
@@ -33734,6 +33735,10 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/low/east,
+/obj/structure/sign/flag/scc{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "xtK" = (
@@ -55024,7 +55029,7 @@ uUZ
 rCq
 gOP
 qnt
-pYa
+dVM
 wIJ
 fXS
 lnt
@@ -55032,7 +55037,7 @@ uoF
 xFB
 uSG
 uqn
-pYa
+dVM
 rkQ
 oqE
 rLm
@@ -55633,7 +55638,7 @@ jvl
 wLL
 vhY
 lVN
-pYa
+dVM
 xtH
 fuL
 ifd

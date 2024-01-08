@@ -91,7 +91,7 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -907,6 +907,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/sign/flag/scc/unmovable{
+	stand_icon = "banner";
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge)
@@ -4330,7 +4334,8 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/idris{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = "banner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5009,7 +5014,7 @@
 	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
@@ -13094,10 +13099,6 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"jnZ" = (
-/obj/structure/sign/flag/scc/unmovable,
-/turf/simulated/wall/r_wall,
-/area/horizon/hallway/deck_three/primary/central)
 "jok" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
@@ -13179,7 +13180,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
 	access_by_level = null
 	},
 /obj/machinery/door/airlock/glass_command{
@@ -17146,6 +17147,10 @@
 	dir = 5
 	},
 /obj/machinery/photocopier,
+/obj/structure/sign/flag/scc/unmovable{
+	stand_icon = "banner";
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "mcf" = (
@@ -24582,10 +24587,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
-"rqN" = (
-/obj/structure/sign/flag/scc/unmovable,
-/turf/simulated/wall/r_wall,
-/area/bridge/controlroom)
 "rqU" = (
 /obj/structure/platform/cutout{
 	dir = 8
@@ -30722,6 +30723,10 @@
 	pixel_x = 10
 	},
 /obj/machinery/papershredder,
+/obj/structure/sign/flag/scc/unmovable{
+	stand_icon = "banner";
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "vDv" = (
@@ -53946,7 +53951,7 @@ vIv
 cJU
 sGJ
 tYp
-rqN
+asO
 mcd
 olJ
 jmA
@@ -54754,7 +54759,7 @@ wAf
 gKI
 iwW
 jDJ
-rqN
+asO
 vCY
 qaE
 aGi
@@ -55343,7 +55348,7 @@ dla
 wTy
 wdy
 eSk
-jnZ
+wdy
 aFm
 tHx
 agT

@@ -535,7 +535,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/scc{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
@@ -12315,7 +12316,8 @@
 	dir = 5
 	},
 /obj/structure/sign/flag/scc{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
@@ -21198,7 +21200,8 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/scc{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
