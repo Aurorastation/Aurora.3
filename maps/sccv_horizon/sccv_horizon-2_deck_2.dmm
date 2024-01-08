@@ -4795,8 +4795,6 @@
 /turf/simulated/floor/bluegrid/server,
 /area/server)
 "caB" = (
-/obj/structure/table/standard,
-/obj/item/storage/bag/circuits/basic,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -10219,6 +10217,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
+/obj/item/storage/box/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "eQv" = (
@@ -20524,7 +20523,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/item/storage/box/fancy/crayons/chalkbox,
+/obj/item/storage/bag/circuits/basic,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "jzv" = (
@@ -22520,8 +22519,6 @@
 /turf/simulated/open,
 /area/horizon/stairwell/central)
 "kyV" = (
-/obj/structure/table/standard,
-/obj/item/device/hand_labeler,
 /obj/machinery/requests_console/north{
 	department = "Atmospherics";
 	departmentType = 4;
@@ -22530,6 +22527,20 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/crate{
+	layer = 2.79
+	},
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stack/cable_coil,
+/obj/item/circuitboard/unary_atmos/cooler,
+/obj/item/circuitboard/unary_atmos/heater,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "kyX" = (
@@ -43876,6 +43887,7 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "uHq" = (
