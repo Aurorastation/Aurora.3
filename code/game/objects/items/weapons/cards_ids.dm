@@ -162,6 +162,8 @@ var/const/NO_EMAG_ACT = -50
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	id_card.age = 0
 	id_card.registered_name	= real_name
 	id_card.sex = capitalize(gender)

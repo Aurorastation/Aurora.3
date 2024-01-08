@@ -191,6 +191,12 @@
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
+/obj/item/gun/projectile/revolver/lemat/Destroy()
+	QDEL_LIST(secondary_loaded)
+	QDEL_LIST(tertiary_loaded)
+
+	. = ..()
+
 /obj/item/gun/projectile/revolver/lemat/unique_action(mob/living/user)
 	to_chat(user, "<span class='notice'>You change the firing mode on \the [src].</span>")
 	if(!flipped_firing)

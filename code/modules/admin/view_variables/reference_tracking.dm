@@ -4,7 +4,7 @@
 	running_find_references = type
 	if(usr?.client)
 		if(usr.client.running_find_references)
-			log_subsystem_garbage("CANCELLED search for references to a [usr.client.running_find_references].")
+			log_subsystem_garbage_harddel("CANCELLED search for references to a [usr.client.running_find_references].")
 			usr.client.running_find_references = null
 			running_find_references = null
 			//restart the garbage collector
@@ -22,16 +22,15 @@
 	if(usr?.client)
 		usr.client.running_find_references = type
 
-	log_subsystem_garbage("Beginning search for references to a [type].")
+	log_subsystem_garbage_harddel("Beginning search for references to a [type].")
 
 	var/starting_time = world.time
 
-	// When we drop support for 514 and start supporting only 515, revive this
-	//log_subsystem_garbage("Refcount for [type]: [refcount(src)]")
+	log_subsystem_garbage_harddel("Refcount for [type]: [refcount(src)]")
 
 	//Time to search the whole game for our ref
 	DoSearchVar(GLOB, "GLOB", search_time = starting_time) //globals
-	log_subsystem_garbage("Finished searching globals")
+	log_subsystem_garbage_harddel("Finished searching globals")
 
 	//Yes we do actually need to do this. The searcher refuses to read weird lists
 	//And global.vars is a really weird list
@@ -40,24 +39,24 @@
 		global_vars[key] = global.vars[key]
 
 	DoSearchVar(global_vars, "Native Global", search_time = starting_time)
-	log_subsystem_garbage("Finished searching native globals")
+	log_subsystem_garbage_harddel("Finished searching native globals")
 
 	for(var/datum/thing in world) //atoms (don't beleive its lies)
 		DoSearchVar(thing, "World -> [thing.type]", search_time = starting_time)
-	log_subsystem_garbage("Finished searching atoms")
+	log_subsystem_garbage_harddel("Finished searching atoms")
 
 	for(var/datum/thing) //datums
 		DoSearchVar(thing, "Datums -> [thing.type]", search_time = starting_time)
-	log_subsystem_garbage("Finished searching datums")
+	log_subsystem_garbage_harddel("Finished searching datums")
 
 	//Warning, attempting to search clients like this will cause crashes if done on live. Watch yourself
 #ifndef REFERENCE_DOING_IT_LIVE
 	for(var/client/thing) //clients
 		DoSearchVar(thing, "Clients -> [thing.type]", search_time = starting_time)
-	log_subsystem_garbage("Finished searching clients")
+	log_subsystem_garbage_harddel("Finished searching clients")
 #endif
 
-	log_subsystem_garbage("Completed search for references to a [type].")
+	log_subsystem_garbage_harddel("Completed search for references to a [type].")
 
 	if(usr?.client)
 		usr.client.running_find_references = null
@@ -77,7 +76,7 @@
 		return
 
 	if(!recursive_limit)
-		log_subsystem_garbage("Recursion limit reached. [container_name]")
+		log_subsystem_garbage_harddel("Recursion limit reached. [container_name]")
 		return
 
 	//Check each time you go down a layer. This makes it a bit slow, but it won't effect the rest of the game at all
@@ -108,7 +107,7 @@
 					found_refs[varname] = TRUE
 					continue //End early, don't want these logging
 				#endif
-				log_subsystem_garbage("Found [type] [text_ref(src)] in [datum_container.type]'s [container_print] [varname] var. [container_name]")
+				log_subsystem_garbage_harddel("Found [type] [text_ref(src)] in [datum_container.type]'s [container_print] [varname] var. [container_name]")
 				continue
 
 			if(islist(variable))
@@ -128,7 +127,7 @@
 					found_refs[potential_cache] = TRUE
 					continue //End early, don't want these logging
 				#endif
-				log_subsystem_garbage("Found [type] [text_ref(src)] in list [container_name].")
+				log_subsystem_garbage_harddel("Found [type] [text_ref(src)] in list [container_name].")
 				continue
 
 			var/assoc_val = null
@@ -141,7 +140,7 @@
 					found_refs[potential_cache] = TRUE
 					continue //End early, don't want these logging
 				#endif
-				log_subsystem_garbage("Found [type] [text_ref(src)] in list [container_name]\[[element_in_list]\]")
+				log_subsystem_garbage_harddel("Found [type] [text_ref(src)] in list [container_name]\[[element_in_list]\]")
 				continue
 			//We need to run both of these checks, since our object could be hiding in either of them
 			//Check normal sublists
@@ -168,4 +167,4 @@
 	return text_ref(src)
 
 /datum/callback/ref_search_details()
-	return "[text_ref(src)] (obj: [object] proc: [delegate] args: [json_encode(arguments)]" // Used to include user: [user?.resolve() || "null"]) but dreamchecker no happy with non static ref
+	return "[text_ref(src)] (obj: [object] proc: [delegate] args: [json_encode(arguments)]" // Used to include `user: [user?.resolve() || "null"])` but dreamchecker no happy with non static ref

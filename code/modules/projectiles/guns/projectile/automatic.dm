@@ -371,6 +371,11 @@
 	. = ..()
 	launcher = new(src)
 
+/obj/item/gun/projectile/automatic/rifle/z8/Destroy()
+	QDEL_NULL(launcher)
+
+	. = ..()
+
 /obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/grenade)))
 		launcher.load(I, user)
