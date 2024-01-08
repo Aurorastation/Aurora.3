@@ -4,7 +4,7 @@
 	groups = list("create and destroy")
 	var/result = null
 
-// var/datum/running_create_and_destroy = FALSE
+GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/start_test()
 	//We'll spawn everything here
 	var/turf/spawn_at = locate()
@@ -177,7 +177,7 @@
 	var/original_baseturf = islist(spawn_at.baseturf) ? spawn_at.baseturf:Copy() : spawn_at.baseturf
 	var/original_baseturf_count = length(original_baseturf)
 
-	// /datum/running_create_and_destroy = TRUE
+	GLOB.running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
 
 		TEST_DEBUG("[name]: now creating and destroying: [type_path]")
@@ -188,7 +188,7 @@
 			spawn_at.ChangeTurf(original_turf_type)
 			if(original_baseturf_count != length(spawn_at.baseturf))
 				TEST_FAIL("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturf)]; [english_list(original_baseturf)] to [islist(spawn_at.baseturf) ? english_list(spawn_at.baseturf) : spawn_at.baseturf]")
-			// 	//Warn if it changes again
+				//Warn if it changes again
 				original_baseturf = islist(spawn_at.baseturf) ? spawn_at.baseturf:Copy() : spawn_at.baseturf
 				original_baseturf_count = length(original_baseturf)
 		else
@@ -207,8 +207,13 @@
 			for(var/atom/to_kill in to_del)
 				qdel(to_kill)
 
+	GLOB.running_create_and_destroy = FALSE
+
 	//Hell code, we're bound to have ended the round somehow so let's stop if from ending while we work
 	SSticker.delay_end = TRUE
+
+	// Drastically lower the amount of time it takes to GC, since we don't have clients that can hold it up.
+	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = 10 SECONDS
 	//Clear it, just in case
 	cached_contents.Cut()
 
@@ -258,10 +263,17 @@
 
 	//Alright, time to see if anything messed up
 	var/list/cache_for_sonic_speed = SSgarbage.items
-	for(var/path in typesof(/atom/movable, /turf) - ignore)
-		var/times = cache_for_sonic_speed[path]
-		if(times)
-			result = TEST_FAIL("[path] hard deleted [times] times.")
+	for(var/path in cache_for_sonic_speed)
+		var/datum/qdel_item/item = cache_for_sonic_speed[path]
+		if(item.failures)
+			result = TEST_FAIL("[item.name] hard deleted [item.failures] times out of a total del count of [item.qdels]")
+		if(item.no_respect_force)
+			result = TEST_FAIL("[item.name] failed to respect force deletion [item.no_respect_force] times out of a total del count of [item.qdels]")
+		if(item.no_hint)
+			result = TEST_FAIL("[item.name] failed to return a qdel hint [item.no_hint] times out of a total del count of [item.qdels]")
+		if(LAZYLEN(item.extra_details))
+			var/details = item.extra_details.Join("\n")
+			result = TEST_FAIL("[item.name] failed with extra info: \n[details]")
 
 	cache_for_sonic_speed = SSatoms.BadInitializeCalls
 	for(var/path in cache_for_sonic_speed)
@@ -275,6 +287,6 @@
 
 	SSticker.delay_end = FALSE
 	//This shouldn't be needed, but let's be polite
-	SSgarbage.collection_timeout = initial(SSgarbage.collection_timeout)
+	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = GC_CHECK_QUEUE
 
 	return result ? result : TEST_PASS("All paths are created and destroyed successfully, without hard deletions or other unwanted behaviors")

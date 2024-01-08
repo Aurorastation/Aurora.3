@@ -24,10 +24,6 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
-	/// A cached version of our \ref
-	/// The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
-	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
-	var/cached_ref
 
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
@@ -50,6 +46,7 @@
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
+	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
 
 	tag = null
 	weakref = null
@@ -71,6 +68,8 @@
 	#endif
 
 	GLOB.destroyed_event.raise_event(src)
+	if (!isturf(src))
+		cleanup_events(src)
 
 	var/ui_key = SOFTREF(src)
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
