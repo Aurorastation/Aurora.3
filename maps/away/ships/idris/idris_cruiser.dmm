@@ -4374,9 +4374,6 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, great room"
 	},
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
 "ro" = (
@@ -11006,7 +11003,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/idris,
-/area/ship/idris_cruiser/custodial)
+/area/ship/idris_cruiser/great_room)
 "QF" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12307,9 +12304,10 @@
 /turf/simulated/floor,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "Wr" = (
-/obj/machinery/maneuvering_engine,
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/reinforced/airless,
-/area/ship/idris_cruiser/engineering)
+/area/space)
 "Wt" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -12753,11 +12751,11 @@
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/restroom/suite_3)
 "XT" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/idris,
-/area/ship/idris_cruiser/kitchen)
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/structure/bed/handrail,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "XU" = (
 /obj/machinery/atm{
 	dir = 1;
@@ -27873,7 +27871,6 @@ iR
 Ft
 nQ
 MX
-MX
 xd
 MX
 MX
@@ -27881,6 +27878,7 @@ xd
 MX
 MX
 xd
+MX
 MX
 MX
 MX
@@ -28275,8 +28273,8 @@ eF
 PC
 Ft
 Ft
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -28881,8 +28879,8 @@ gK
 qW
 Pm
 ky
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -29487,8 +29485,8 @@ zS
 oH
 Fe
 ky
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -30497,8 +30495,8 @@ wH
 gy
 NZ
 NZ
-gH
-Dz
+XT
+MX
 MX
 MX
 MX
@@ -30692,7 +30690,7 @@ lR
 Zk
 jQ
 mz
-kr
+zv
 qq
 KS
 zx
@@ -31103,8 +31101,8 @@ Ik
 VR
 pP
 qq
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -31460,7 +31458,7 @@ MX
 MC
 GK
 Hd
-Wr
+Fi
 Bx
 Mw
 Bx
@@ -31709,8 +31707,8 @@ Ik
 Pc
 Ou
 qq
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -32115,14 +32113,14 @@ Yi
 NZ
 FQ
 FQ
-ku
+XM
 rm
 ku
-Mg
 Sk
 Mg
 Mg
-QE
+Sk
+EZ
 EZ
 YB
 EZ
@@ -35347,14 +35345,14 @@ jq
 nw
 FQ
 ku
-ku
-XM
-FQ
-ku
 XM
 ku
 FQ
-XT
+XM
+ku
+ku
+QE
+Cq
 Cq
 ia
 ES
@@ -35749,8 +35747,8 @@ FJ
 Rt
 vt
 jh
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -35904,7 +35902,7 @@ MX
 MC
 GK
 Hd
-Wr
+Fi
 Bx
 Bx
 Bx
@@ -36355,8 +36353,8 @@ sT
 lw
 CT
 jh
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -36961,8 +36959,8 @@ Bl
 IL
 nw
 nw
-gH
-Dz
+XT
+MX
 MX
 MX
 MX
@@ -37971,8 +37969,8 @@ Aj
 Vh
 AE
 Rg
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -38577,8 +38575,8 @@ Ti
 oI
 iV
 Rg
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -39183,8 +39181,8 @@ Oi
 ur
 ul
 ul
-nQ
-Dz
+Wr
+MX
 MX
 MX
 MX
@@ -39589,7 +39587,6 @@ ay
 ul
 nQ
 MX
-MX
 xd
 MX
 MX
@@ -39597,6 +39594,7 @@ xd
 MX
 MX
 xd
+MX
 MX
 MX
 MX
