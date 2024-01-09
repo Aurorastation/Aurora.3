@@ -78,10 +78,6 @@
 "bZ" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/item/towel_flat,
-/obj/random/plushie{
-	spawn_nothing_percentage = 95;
-	name = "random plushie (5% chance)"
-	},
 /turf/simulated/floor/exoplanet/grass,
 /area/space)
 "cj" = (
@@ -144,6 +140,10 @@
 "dp" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/item/storage/box/fancy/food/pralinebox{
+	pixel_y = 2;
+	pixel_x = -2
+	},
 /turf/simulated/floor/wood,
 /area/space)
 "dz" = (
@@ -167,8 +167,8 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/freelancer,
-/obj/structure/table/rack,
 /obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "eb" = (
@@ -235,6 +235,9 @@
 /obj/item/storage/pill_bottle/nerospectan{
 	pixel_y = 4
 	},
+/obj/item/storage/pill_bottle/cocaine{
+	pixel_y = 4
+	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -252,17 +255,23 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/item/device/paicard,
+/obj/item/device/paicard{
+	pixel_y = 3
+	},
 /obj/item/mirror,
-/obj/item/toy/comic/witchfinder,
-/obj/item/toy/comic/inspector,
+/obj/item/toy/comic/witchfinder{
+	pixel_y = -1
+	},
+/obj/item/toy/comic/inspector{
+	pixel_y = -2
+	},
 /obj/item/storage/box/knitting,
 /obj/item/storage/box/fancy/chips/variety,
 /obj/item/toy/xmas_cracker,
 /obj/item/storage/chewables/tobacco/federation,
 /obj/item/storage/chewables/tobacco/dyn,
 /obj/item/storage/chewables/tobacco/fine,
-/obj/item/storage/box/fancy/cigpaper/fine,
+/obj/item/storage/box/fancy/gum,
 /turf/simulated/floor/wood,
 /area/space)
 "ff" = (
@@ -543,14 +552,15 @@
 "ke" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/palebush,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/grass,
 /area/space)
 "kf" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining/himeo,
-/obj/structure/table/rack,
 /obj/item/clothing/head/helmet/space/void/mining/himeo,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "kk" = (
@@ -650,21 +660,23 @@
 	color = "#4B381D";
 	pixel_y = -9
 	},
+/obj/item/clothing/accessory/silversun/random,
 /obj/item/clothing/suit/storage/toggle/cardigan{
 	color = "#DDDDDD";
-	pixel_y = -8
-	},
-/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red{
-	pixel_y = -3
+	pixel_y = -6
 	},
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white{
 	pixel_y = -4
 	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red{
+	pixel_y = -3
+	},
 /obj/item/clothing/suit/storage/toggle/konyang/akira{
 	pixel_y = -4
 	},
+/obj/item/clothing/accessory/silversun/random,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer{
-	pixel_y = -4
+	pixel_y = -2
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
@@ -828,13 +840,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"nQ" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/mob/living/simple_animal/corgi,
-/turf/simulated/floor/tiled,
-/area/space)
 "og" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -920,6 +925,15 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/beige/full,
+/obj/random/civgun/rifle,
+/obj/random/civgun,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/sec/lethal,
 /turf/simulated/floor/tiled,
 /area/space)
 "pN" = (
@@ -1079,6 +1093,7 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/wood/bamboo,
 /area/space)
 "tS" = (
@@ -1267,16 +1282,15 @@
 	dir = 5
 	},
 /obj/item/material/ashtray/bronze{
-	pixel_x = -5;
-	pixel_y = 4
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /obj/item/storage/box/fancy/cigpaper/fine{
 	pixel_x = 6;
-	pixel_y = -2
+	pixel_y = 2
 	},
 /obj/item/storage/chewables/rollable/vedamor{
-	pixel_x = -1;
-	pixel_y = -3
+	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
 /area/space)
@@ -1373,6 +1387,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"yw" = (
+/obj/item/clothing/shoes/slippers/worn{
+	pixel_x = 8;
+	pixel_y = 12
+	},
+/turf/simulated/floor/wood/bamboo,
 /area/space)
 "yA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1509,6 +1530,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"CP" = (
+/obj/structure/table/steel,
+/obj/item/clothing/suit/ianshirt{
+	pixel_x = -16;
+	pixel_y = 3
+	},
+/obj/item/towel/random{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/item/towel/random{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -23;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "CQ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -1630,6 +1671,7 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/grass,
 /area/space)
 "EZ" = (
@@ -1880,7 +1922,7 @@
 	pixel_y = -4
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_x = 8;
+	pixel_x = 9;
 	pixel_y = 9
 	},
 /turf/simulated/floor/carpet/purple,
@@ -1972,7 +2014,7 @@
 	},
 /obj/item/flame/lighter/zippo/sol{
 	pixel_x = 6;
-	pixel_y = 14
+	pixel_y = 15
 	},
 /turf/simulated/floor/wood,
 /area/space)
@@ -2023,7 +2065,6 @@
 /obj/item/clothing/under/dress/dress_fire,
 /obj/item/clothing/under/suit_jacket/burgundy,
 /obj/item/clothing/under/suit_jacket/charcoal,
-/obj/item/clothing/suit/ianshirt,
 /obj/item/clothing/under/suit_jacket/checkered,
 /obj/item/clothing/under/antillean/goldflair{
 	color = "#764F83"
@@ -2267,7 +2308,8 @@
 	},
 /obj/item/clothing/ears/earring/dangle{
 	color = "#FFF000";
-	pixel_x = -2
+	pixel_x = -5;
+	pixel_y = 2
 	},
 /obj/item/clothing/ears/earring/crescent{
 	color = "#FFF000";
@@ -2280,19 +2322,16 @@
 	color = "#CC0000";
 	pixel_x = -3
 	},
+/obj/structure/table/wood,
 /obj/item/mirror{
 	pixel_x = 8;
 	pixel_y = 6
 	},
-/obj/structure/table/wood,
 /turf/simulated/floor/marble/dark,
 /area/space)
 "Qt" = (
 /obj/structure/lattice/catwalk/indoor/tatami,
-/obj/item/clothing/shoes/slippers/worn{
-	pixel_x = 6;
-	pixel_y = 9
-	},
+/obj/random/pottedplant,
 /turf/simulated/floor/wood/bamboo,
 /area/space)
 "Qw" = (
@@ -2324,9 +2363,9 @@
 "Rl" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/shoes/magboots,
-/obj/structure/table/rack,
 /obj/item/clothing/suit/space,
 /obj/item/clothing/head/helmet/space,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "RA" = (
@@ -2377,7 +2416,7 @@
 	},
 /obj/item/clothing/under/pants/tailoredjeans{
 	color = "#2C3A7F";
-	pixel_y = 4
+	pixel_y = 3
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
@@ -2574,7 +2613,7 @@
 	},
 /obj/item/gamehelm/pink{
 	icon_state = "closed_pink";
-	pixel_x = 4
+	pixel_x = -2
 	},
 /obj/item/clothing/ears/earmuffs/earphones/headphones{
 	pixel_x = 3;
@@ -2703,8 +2742,8 @@
 "WA" = (
 /obj/structure/table/steel,
 /obj/structure/bedsheetbin{
-	pixel_x = -2;
-	pixel_y = 7
+	pixel_x = -3;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -2860,9 +2899,6 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "Zk" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -33832,7 +33868,7 @@ Mr
 Mr
 CQ
 Uh
-cs
+jw
 fA
 eL
 fA
@@ -34367,7 +34403,7 @@ lx
 ih
 fA
 kQ
-Xp
+yw
 CQ
 LK
 wM
@@ -35136,7 +35172,7 @@ FB
 JZ
 Uh
 gy
-nQ
+iY
 qz
 KM
 iY
@@ -36173,7 +36209,7 @@ aU
 It
 oT
 cs
-om
+CP
 fA
 eY
 Xa
