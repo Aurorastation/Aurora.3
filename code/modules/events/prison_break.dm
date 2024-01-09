@@ -43,6 +43,8 @@
 
 
 /datum/event/prison_break/start()
+	..()
+
 	for(var/area/A in GLOB.the_station_areas)
 		if(is_type_in_list(A,areaType) && !is_type_in_list(A,areaNotType))
 			areas += A
@@ -69,5 +71,7 @@
 
 
 /datum/event/prison_break/end(var/faked)
+	..()
+
 	for(var/area/A in shuffle(areas))
 		A.prison_break()

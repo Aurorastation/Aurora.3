@@ -51,6 +51,8 @@
 	choose_mobs()
 
 /datum/event/infestation/start()
+	..()
+
 	spawn_mobs()
 
 /datum/event/infestation/proc/choose_area()
