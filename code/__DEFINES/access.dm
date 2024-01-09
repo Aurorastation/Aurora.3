@@ -605,9 +605,9 @@
 	id = ACCESS_SOL_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_TCFL_PEACEKEEPER_SHIP 204
+#define ACCESS_TCAF_SHIPS 204
 /datum/access/tcfl_peacekeeper_ship
-	id = ACCESS_TCFL_PEACEKEEPER_SHIP
+	id = ACCESS_TCAF_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_EE_SPY_SHIP 205
