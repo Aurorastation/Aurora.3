@@ -130,7 +130,8 @@
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))

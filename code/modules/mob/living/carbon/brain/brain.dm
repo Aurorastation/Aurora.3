@@ -21,7 +21,8 @@
 			death(1)	//Brains can die again. AND THEY SHOULD AHA HA HA HA HA HA
 		ghostize()		//Ghostize checks for key so nothing else is necessary.
 	container = null
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/brain/IsAdvancedToolUser() // to be able to use weapons when piloting a hardsuit
 	return TRUE

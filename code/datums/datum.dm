@@ -8,7 +8,6 @@
 	var/gc_destroyed
 
 	var/tmp/list/active_timers
-	var/tmp/datum/weakref/weakref
 	var/tmp/isprocessing = 0
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
@@ -49,7 +48,7 @@
 	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
 
 	tag = null
-	weakref = null
+	weak_reference = null //ensure prompt GCing of weakref.
 
 	if(active_timers)
 		var/list/timers = active_timers

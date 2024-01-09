@@ -288,6 +288,27 @@
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/leviathan_safeguard/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+	if(linked)
+		ASSERT(isnull(linked.levi_safeguard)) //There should only ever be one
+		linked.levi_safeguard = src
+	for(var/obj/machinery/leviathan_button/LB in range(3, src))
+		if(istype(LB))
+			button = LB
+
+/obj/machinery/leviathan_safeguard/Destroy()
+	if(linked)
+		linked.levi_safeguard = null
+
+	QDEL_NULL(key)
+	button = null
+
+	. = ..()
+
 /obj/machinery/leviathan_safeguard/ex_act(severity)
 	return
 
@@ -295,22 +316,6 @@
 	. = ..()
 
 	return
-
-/obj/machinery/leviathan_safeguard/Destroy()
-	QDEL_NULL(key)
-	button = null
-	return ..()
-
-/obj/machinery/leviathan_safeguard/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
-		if (istype(my_sector, /obj/effect/overmap/visitable))
-			attempt_hook_up(my_sector)
-	if(linked)
-		linked.levi_safeguard = src
-	for(var/obj/machinery/leviathan_button/LB in range(3, src))
-		if(istype(LB))
-			button = LB
 
 /obj/machinery/leviathan_safeguard/proc/open()
 	opened = TRUE

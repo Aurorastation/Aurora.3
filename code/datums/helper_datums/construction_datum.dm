@@ -2,7 +2,6 @@
 	var/list/steps
 	var/atom/holder
 	var/result
-	var/list/steps_desc
 	var/current_desc = null
 
 /datum/construction/New(atom)
@@ -14,6 +13,8 @@
 
 /datum/construction/Destroy(force)
 	holder = null
+
+	steps = null
 
 	. = ..()
 
