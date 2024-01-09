@@ -10,6 +10,8 @@
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 1, "xmg" = 1, "npi" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier
 	var/skybox_icon = "ceti"
 
+	var/list/lore_radio_stations = list() //what radio stations can be heard by the lore radio item here
+
 	var/list/sector_lobby_art = null //if this is set, it will override the map lobby icons
 	var/sector_lobby_transitions = null //if this is set, it will override the map lobby transition
 	var/sector_welcome_message = null ///if this is set, it will override welcome audio message
