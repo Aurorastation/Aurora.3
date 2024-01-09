@@ -51,7 +51,13 @@
 /area/space)
 "bj" = (
 /obj/structure/bed/stool/chair/folding,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"bD" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/bamboo,
 /area/space)
 "bS" = (
 /obj/structure/cable{
@@ -84,6 +90,13 @@
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
+/area/space)
+"cl" = (
+/obj/random/pottedplant,
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
 /area/space)
 "cs" = (
 /turf/simulated/floor/tiled,
@@ -126,7 +139,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "dp" = (
 /obj/structure/table/wood,
@@ -165,7 +178,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"eh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
 /area/space)
 "ei" = (
 /obj/machinery/computer/ship/sensors/terminal{
@@ -191,6 +210,35 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass,
+/area/space)
+"eD" = (
+/obj/structure/closet/cabinet,
+/obj/item/storage/pill_bottle/cocaine{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/storage/pill_bottle/corophenidate{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/item/storage/pill_bottle/contemplus{
+	pixel_y = -2
+	},
+/obj/item/storage/pill_bottle/spotlight{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/sparkle{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/nerospectan{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood/bamboo,
 /area/space)
 "eL" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -221,11 +269,14 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/storage/box/produce,
 /obj/structure/closet/secure_closet/freezer/fridge,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/marble,
 /area/space)
 "fw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/mob/living/simple_animal/cat/kitten{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/space)
@@ -329,10 +380,37 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/space_ship,
 /area/space)
+"ih" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/dominian_wine{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 1;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
 "ik" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/rainbow{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/turf/simulated/floor/marble,
 /area/space)
 "iq" = (
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -480,7 +558,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "kx" = (
-/obj/structure/closet/cabinet,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood/bamboo,
 /area/space)
 "kH" = (
@@ -525,12 +603,70 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/space)
+"lx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
 "lP" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/dressshirt/alt/vneck,
+/obj/item/clothing/accessory/sweater/argyle/crewneck{
+	color = "#44AA44"
+	},
+/obj/item/clothing/accessory/sweater/v_neck{
+	color = "#BB3333"
+	},
+/obj/item/clothing/accessory/dressshirt,
+/obj/item/clothing/accessory/dressshirt/alt{
+	color = "#DEDEDE"
+	},
+/obj/item/clothing/accessory/dressshirt/asymmetric{
+	color = "#DEDEDE"
+	},
+/obj/item/clothing/accessory/dressshirt/alt/rolled{
+	color = "#3131B1"
+	},
+/obj/item/clothing/accessory/dressshirt/alt/rolled{
+	color = "#DEDEDE"
+	},
+/obj/item/clothing/accessory/sweater/argyle{
+	color = "#333333";
+	pixel_y = -8
+	},
+/obj/item/clothing/accessory/sweater{
+	color = "#2C3A7F";
+	pixel_y = -7
+	},
+/obj/item/clothing/accessory/sweater/visegradi{
+	color = "#2B4D37";
+	pixel_y = -7
+	},
+/obj/item/clothing/accessory/sweater/argyle{
+	color = "#4B381D";
+	pixel_y = -9
+	},
+/obj/item/clothing/suit/storage/toggle/cardigan{
+	color = "#DDDDDD";
+	pixel_y = -8
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red{
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white{
+	pixel_y = -4
+	},
+/obj/item/clothing/suit/storage/toggle/konyang/akira{
+	pixel_y = -4
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer{
+	pixel_y = -4
+	},
+/turf/simulated/floor/marble/dark,
 /area/space)
 "lV" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -594,7 +730,7 @@
 /area/space)
 "my" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/marble,
 /area/space)
 "mB" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -619,6 +755,24 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"mW" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine{
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/food/drinks/bottle/pwine{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/drinks/bottle/algae_wine{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood/bamboo,
 /area/space)
 "na" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -672,6 +826,13 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/turf/simulated/floor/tiled,
+/area/space)
+"nQ" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/mob/living/simple_animal/corgi,
 /turf/simulated/floor/tiled,
 /area/space)
 "og" = (
@@ -745,7 +906,7 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "ps" = (
-/obj/structure/closet,
+/obj/machinery/washing_machine,
 /turf/simulated/floor/tiled,
 /area/space)
 "pE" = (
@@ -898,7 +1059,7 @@
 	name = "sink";
 	pixel_y = 26
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "to" = (
 /obj/structure/lattice/catwalk,
@@ -996,6 +1157,34 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"uI" = (
+/obj/structure/table/wood,
+/obj/item/flame/lighter/zippo/black/cross{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar/oracle{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar/havana{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar/oracle,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
 "uZ" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
@@ -1081,13 +1270,13 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/storage/box/fancy/cigpaper{
-	pixel_x = -2;
-	pixel_y = -7
-	},
 /obj/item/storage/box/fancy/cigpaper/fine{
 	pixel_x = 6;
 	pixel_y = -2
+	},
+/obj/item/storage/chewables/rollable/vedamor{
+	pixel_x = -1;
+	pixel_y = -3
 	},
 /turf/simulated/floor/wood,
 /area/space)
@@ -1098,13 +1287,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "wU" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "wZ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1139,7 +1328,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/bamboo,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "xP" = (
 /obj/effect/floor_decal/corner/purple/full,
@@ -1188,7 +1377,7 @@
 "yA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/marble,
 /area/space)
 "yO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1217,10 +1406,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
 /area/space)
+"Ab" = (
+/turf/simulated/floor/marble,
+/area/space)
 "Az" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/marble,
 /area/space)
 "AF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1352,8 +1544,33 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/random/pottedplant,
-/turf/simulated/floor/tiled,
+/obj/structure/closet,
+/obj/item/clothing/shoes/sneakers/hitops/rainbow,
+/obj/item/clothing/shoes/sneakers/blue,
+/obj/item/clothing/shoes/sneakers/hitops/black,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup{
+	pixel_y = -8
+	},
+/obj/item/clothing/shoes/cowboy/fancy{
+	pixel_y = -3
+	},
+/obj/item/clothing/shoes/cowboy/lizard,
+/obj/item/clothing/shoes/sneakers/black,
+/obj/item/clothing/shoes/heels{
+	color = "#CC0000";
+	pixel_y = -5
+	},
+/obj/item/clothing/shoes/heels{
+	color = "#333333";
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/laceup{
+	pixel_y = -5
+	},
+/obj/item/clothing/shoes/laceup/lizardskin,
+/obj/item/clothing/shoes/laceup/brown,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "Dx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1578,11 +1795,11 @@
 	pixel_y = 10;
 	pixel_x = -5
 	},
-/obj/item/flame/lighter/zippo/gold{
-	pixel_y = 1;
-	pixel_x = 1
+/obj/item/flame/lighter/zippo/royal{
+	pixel_x = 1;
+	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "Hx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1654,10 +1871,6 @@
 	pixel_x = -4;
 	pixel_y = -3
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/rainbow{
-	pixel_x = 8;
-	pixel_y = 6
-	},
 /obj/item/clothing/mask/smokable/cigarette/cigar/oracle{
 	pixel_x = -5;
 	pixel_y = 8
@@ -1665,6 +1878,10 @@
 /obj/item/material/ashtray/bronze{
 	pixel_x = 7;
 	pixel_y = -4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 8;
+	pixel_y = 9
 	},
 /turf/simulated/floor/carpet/purple,
 /area/space)
@@ -1720,6 +1937,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"JZ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Km" = (
 /obj/structure/sink/kitchen{
 	name = "sink";
@@ -1747,20 +1970,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/item/storage/box/fancy/cigarettes/cigar{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/storage/chewables/rollable/nico{
-	pixel_x = -10;
-	pixel_y = 6
-	},
-/obj/item/storage/chewables/rollable/vedamor{
-	pixel_x = -12
-	},
 /obj/item/flame/lighter/zippo/sol{
-	pixel_x = 1;
-	pixel_y = 2
+	pixel_x = 6;
+	pixel_y = 14
 	},
 /turf/simulated/floor/wood,
 /area/space)
@@ -1803,12 +2015,29 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/item/clothing/under/dress/red_swept_dress,
+/obj/item/clothing/under/cheongsam/purple,
+/obj/item/clothing/under/suit_jacket/navy,
+/obj/item/clothing/under/suit_jacket/white,
+/obj/item/clothing/under/dress/blacktango,
+/obj/item/clothing/under/dress/dress_fire,
+/obj/item/clothing/under/suit_jacket/burgundy,
+/obj/item/clothing/under/suit_jacket/charcoal,
+/obj/item/clothing/suit/ianshirt,
+/obj/item/clothing/under/suit_jacket/checkered,
+/obj/item/clothing/under/antillean/goldflair{
+	color = "#764F83"
+	},
+/obj/item/clothing/under/suit_jacket,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "LE" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
+/area/space)
+"LK" = (
+/turf/simulated/floor/marble/dark,
 /area/space)
 "LU" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -1873,7 +2102,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "NO" = (
 /obj/machinery/computer/ship/helm/terminal{
@@ -1912,13 +2141,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"Oj" = (
-/obj/effect/floor_decal/corner/grey/full{
-	dir = 8
-	},
-/obj/random/pottedplant,
-/turf/simulated/floor/tiled,
-/area/space)
 "Oo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1954,6 +2176,29 @@
 "OJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
+/area/space)
+"OL" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/whitewine{
+	pixel_x = 5;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/food/drinks/bottle/wine{
+	pixel_y = 14;
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/food/drinks/bottle/valokki_wine{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood/bamboo,
 /area/space)
 "OR" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -1997,17 +2242,57 @@
 /area/space)
 "PO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "Qr" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/item/clothing/accessory/tie/colourable/clip{
+	color = "#333333";
+	pixel_x = -5
+	},
+/obj/item/clothing/accessory/tie/black{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tie/ribbon/bow{
+	color = "#CC0000"
+	},
+/obj/item/clothing/accessory/tie/ribbon/bow_tie{
+	color = "#2222DD"
+	},
+/obj/item/clothing/accessory/tie/ribbon/neck{
+	color = "#CC0000";
+	pixel_x = -5
+	},
+/obj/item/clothing/ears/earring/dangle{
+	color = "#FFF000";
+	pixel_x = -2
+	},
+/obj/item/clothing/ears/earring/crescent{
+	color = "#FFF000";
+	pixel_x = -2
+	},
+/obj/item/clothing/accessory/tie/red_clip{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tie/ribbon/neck{
+	color = "#CC0000";
+	pixel_x = -3
+	},
+/obj/item/mirror{
+	pixel_x = 8;
+	pixel_y = 6
+	},
 /obj/structure/table/wood,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "Qt" = (
 /obj/structure/lattice/catwalk/indoor/tatami,
+/obj/item/clothing/shoes/slippers/worn{
+	pixel_x = 6;
+	pixel_y = 9
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/space)
 "Qw" = (
@@ -2045,9 +2330,56 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "RA" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/skirt/long{
+	color = "#c1a61d"
+	},
+/obj/item/clothing/under/skirt/jumper{
+	color = "#BB3333"
+	},
+/obj/item/clothing/under/pants/designer{
+	pixel_y = 4
+	},
+/obj/item/clothing/under/pants/black,
+/obj/item/clothing/under/pants/jeans{
+	pixel_y = 4
+	},
+/obj/item/clothing/under/pants/white,
+/obj/item/clothing/under/skirt/high{
+	color = "#4B381D"
+	},
+/obj/item/clothing/under/skirt{
+	color = "#3131B1"
+	},
+/obj/item/clothing/under/skirt/tube{
+	color = "#333333"
+	},
+/obj/item/clothing/under/skirt/plaid{
+	color = "#44AA44"
+	},
+/obj/item/clothing/under/pants/ripped{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/clothing/under/skirt/straightlong{
+	color = "#DDDDDD"
+	},
+/obj/item/clothing/under/skirt/skater{
+	color = "#2C3A7F"
+	},
+/obj/item/clothing/under/skirt/pencil{
+	color = "#333333"
+	},
+/obj/item/clothing/under/pants/striped,
+/obj/item/clothing/under/pants/tailoredjeans{
+	color = "#4B381D"
+	},
+/obj/item/clothing/under/pants/tailoredjeans{
+	color = "#2C3A7F";
+	pixel_y = 4
+	},
+/turf/simulated/floor/marble/dark,
 /area/space)
 "RC" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -2071,7 +2403,7 @@
 	pixel_x = 4;
 	pixel_y = -1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/marble/dark,
 /area/space)
 "RZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -2170,7 +2502,7 @@
 	pixel_x = 5;
 	pixel_y = 2
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/marble,
 /area/space)
 "TQ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2285,6 +2617,49 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"VO" = (
+/obj/structure/closet,
+/obj/item/storage/box/fancy/cigpaper/fine{
+	pixel_y = -6;
+	pixel_x = -4
+	},
+/obj/item/storage/box/fancy/cigpaper{
+	pixel_x = -4;
+	pixel_y = -3
+	},
+/obj/item/storage/box/fancy/cigpaper/fine{
+	pixel_y = 0;
+	pixel_x = -4
+	},
+/obj/item/storage/box/fancy/cigpaper{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/storage/chewables/rollable/nico{
+	pixel_x = 3;
+	pixel_y = -7
+	},
+/obj/item/storage/chewables/rollable/vedamor{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/obj/item/storage/chewables/rollable/nico{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/storage/chewables/rollable/oracle{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/storage/chewables/rollable/fine{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
 "VS" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2319,6 +2694,18 @@
 "We" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/space)
+"Wu" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"WA" = (
+/obj/structure/table/steel,
+/obj/structure/bedsheetbin{
+	pixel_x = -2;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "WC" = (
@@ -2390,6 +2777,35 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
+/area/space)
+"XX" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/goldschlager{
+	pixel_x = -2;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha{
+	pixel_x = 8;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/bottle/whitewine{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/storage/box/fancy/cigpaper/fine{
+	pixel_x = -17;
+	pixel_y = -1
+	},
+/obj/item/storage/box/fancy/cigpaper/fine{
+	pixel_x = -16;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/drinks/bottle/rose_wine{
+	pixel_x = 14;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/bamboo,
 /area/space)
 "Yd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -33176,7 +33592,7 @@ RI
 Iv
 fA
 fA
-fA
+mL
 fA
 fA
 fA
@@ -33432,9 +33848,9 @@ Ys
 Ys
 RI
 fA
-cs
-cs
-cs
+mW
+bD
+OL
 fA
 iR
 kx
@@ -33689,9 +34105,9 @@ NO
 mL
 RI
 mL
-cs
-cs
-cs
+eD
+Xp
+XX
 fA
 Dg
 Xp
@@ -33946,17 +34362,17 @@ Ys
 Ys
 RI
 fA
-cs
-cs
-cs
+uI
+lx
+ih
 fA
 kQ
 Xp
 CQ
-cs
+LK
 wM
-qz
-cs
+eh
+LK
 CQ
 Xp
 Xp
@@ -34203,9 +34619,9 @@ Ys
 RI
 RI
 fA
-cs
-cs
-cs
+VO
+PO
+cl
 fA
 WT
 Qt
@@ -34716,11 +35132,11 @@ mL
 fA
 fA
 fA
-Oj
-iY
+FB
+JZ
 Uh
 gy
-iY
+nQ
 qz
 KM
 iY
@@ -34997,7 +35413,7 @@ vZ
 cs
 fA
 tc
-cs
+LK
 my
 my
 ff
@@ -35234,7 +35650,7 @@ Uh
 BA
 Uh
 fA
-fA
+rX
 fA
 fA
 He
@@ -35253,7 +35669,7 @@ pa
 sf
 eo
 CQ
-cs
+LK
 bj
 ik
 my
@@ -35491,7 +35907,7 @@ He
 fA
 He
 fA
-cs
+fA
 fA
 Hr
 GB
@@ -35500,7 +35916,7 @@ fA
 fA
 ps
 cs
-om
+WA
 fA
 UM
 XM
@@ -35746,9 +36162,9 @@ xO
 PO
 wU
 fA
-cs
-cs
-cs
+LK
+Ab
+LK
 fA
 jp
 GB
@@ -36003,9 +36419,9 @@ ES
 jc
 eC
 fA
-cs
-cs
-cs
+Ab
+LK
+Ab
 fA
 aa
 BF
@@ -36260,9 +36676,9 @@ iD
 iD
 ke
 fA
-cs
-cs
-cs
+LK
+Ab
+Wu
 fA
 qO
 fA
