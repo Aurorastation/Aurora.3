@@ -1004,6 +1004,7 @@
 #include "code\game\objects\items\ipc_overloaders.dm"
 #include "code\game\objects\items\items_icon.dm"
 #include "code\game\objects\items\knitting.dm"
+#include "code\game\objects\items\lore_radio.dm"
 #include "code\game\objects\items\paintkit.dm"
 #include "code\game\objects\items\recharger_backpack.dm"
 #include "code\game\objects\items\shooting_range.dm"
