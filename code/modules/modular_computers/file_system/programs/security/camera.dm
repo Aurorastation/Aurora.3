@@ -36,6 +36,7 @@
 	size = 12
 	available_on_ntnet = TRUE
 	requires_ntnet = TRUE
+	required_access_download = ACCESS_HEADS
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "CameraMonitoring"
@@ -221,4 +222,22 @@
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))
+	return networks
+
+/datum/computer_file/program/camera_monitor/news
+	filename = "idcammon"
+	filedesc = "Journalism Camera Monitoring"
+	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
+	size = 6
+	nanomodule_path = /datum/nano_module/camera_monitor/news
+	required_access_download = null
+	usage_flags = PROGRAM_ALL
+
+/datum/nano_module/camera_monitor/news
+	name = "Journalism Camera Monitoring Program"
+
+/datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
+	networks = list()
+	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access = 1")))
+	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access = 1")))
 	return networks
