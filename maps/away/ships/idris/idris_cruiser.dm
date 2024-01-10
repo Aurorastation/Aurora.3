@@ -6,6 +6,7 @@
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
+	place_near_main = 4
 	id = "idris_cruiser"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/idris_cruiser_shuttle)
 	unit_test_groups = list(3)
