@@ -750,22 +750,10 @@
 /turf/simulated/floor/wood,
 /area/hallway/engineering)
 "arK" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/brown/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/open,
 /area/operations/office)
 "arV" = (
 /obj/structure/cable{
@@ -1539,10 +1527,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "aGz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced{
-	layer = 2
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "aHj" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -5353,9 +5344,6 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -10302,16 +10290,16 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "eUj" = (
@@ -12546,10 +12534,15 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/bar)
 "fRi" = (
-/obj/effect/floor_decal/corner/brown/full{
-	dir = 1
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "fSg" = (
 /obj/effect/floor_decal/spline/plain/corner,
@@ -13365,9 +13358,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "giP" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/railing/mapped{
+	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/operations/office)
 "gjl" = (
@@ -16229,9 +16223,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "hyL" = (
@@ -16990,17 +16981,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "hQE" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_control/multi/lift/operations{
-	pixel_x = 8;
-	pixel_y = 2
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/open,
 /area/operations/office)
 "hQI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -17784,16 +17768,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_hard)
 "iku" = (
-/obj/structure/stairs_lower{
-	dir = 2;
-	pixel_y = -23
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/stairs_lower/stairs_upper{
-	pixel_y = 32;
-	dir = 4
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67)
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/firedoor/multi_tile,
+/turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ikB" = (
 /obj/machinery/light,
@@ -18527,6 +18514,7 @@
 	dir = 5
 	},
 /obj/random/pottedplant,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iDt" = (
@@ -22743,7 +22731,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "kFa" = (
@@ -23095,7 +23082,10 @@
 	name = "Operations";
 	sortType = "Cargo"
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/operations/office)
 "kOW" = (
 /obj/structure/bed/stool/chair/padded/black{
@@ -23976,7 +23966,10 @@
 /area/engineering/engine_airlock)
 "llp" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/operations/office)
 "llB" = (
 /obj/machinery/light/small{
@@ -27091,6 +27084,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	dir = 8;
+	pixel_x = 26;
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "mKD" = (
@@ -29550,17 +29548,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "nOS" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/brown{
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/sign/drop{
-	desc = "A warning sign which reads 'DANGER: FALLING HAZARD'.";
-	name = "\improper DANGER: FALLING HAZARD sign";
-	pixel_x = 32;
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/railing/mapped,
+/turf/simulated/open,
 /area/operations/office)
 "nPu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29685,11 +29677,18 @@
 /area/rnd/hallway)
 "nTB" = (
 /obj/effect/floor_decal/corner/brown{
-	dir = 6
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "nTF" = (
@@ -29954,9 +29953,6 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -37151,13 +37147,24 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ryq" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
+	dir = 2;
+	name = "Warehouse Elevator";
+	req_one_access = list(26,29,31,48,67)
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ryu" = (
 /obj/structure/cable{
@@ -37487,14 +37494,16 @@
 /area/horizon/kitchen)
 "rHw" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/operations/office)
 "rHW" = (
 /obj/effect/floor_decal/corner/brown,
-/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "rId" = (
@@ -40098,9 +40107,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "taf" = (
@@ -40850,13 +40856,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "tqN" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
+/obj/structure/sign/drop{
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
+	name = "\improper DANGER: FALLING HAZARD sign"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/wall,
 /area/operations/office)
 "tre" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -42415,8 +42419,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "uci" = (
@@ -51910,9 +51916,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "yhR" = (
@@ -51924,8 +51927,18 @@
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "yig" = (
-/obj/structure/stairs/east,
-/obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "yiz" = (
@@ -62720,7 +62733,7 @@ xnf
 xnf
 xnf
 iDj
-gdQ
+nTB
 rCR
 rCR
 rCR
@@ -63727,8 +63740,8 @@ rkq
 lhP
 kRZ
 rHW
-hQE
-nTB
+oDl
+oDl
 yhL
 rtF
 rew
@@ -63929,9 +63942,9 @@ hKh
 ecx
 kRZ
 kEY
-lSK
-rSG
-ryq
+arK
+giP
+kRZ
 mUW
 kmc
 kmc
@@ -64131,9 +64144,9 @@ hGE
 ciP
 kRZ
 kEY
-rSG
-rSG
-ryq
+hQE
+nOS
+kRZ
 mGc
 rVg
 sTu
@@ -64534,7 +64547,7 @@ tiD
 eDW
 ewb
 mKA
-nOS
+llp
 llp
 rHw
 kOE
@@ -64737,10 +64750,10 @@ rVg
 kXS
 rVg
 fRi
-oDl
+ryq
 tqN
-oDl
-arK
+kRZ
+rtF
 rVg
 pNw
 dum
@@ -64938,10 +64951,10 @@ cAb
 cAb
 sUj
 rVg
-giP
+lSK
 rSG
-aGz
 iku
+kRZ
 ubZ
 rVg
 gVs
