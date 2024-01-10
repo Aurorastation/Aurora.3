@@ -4,6 +4,8 @@
 	var/deposit_success = 0
 
 /datum/event/money_lotto/start()
+	..()
+
 	winner_sum = pick(1, 50, 100, 500, 1000, 2000, 5000)
 	if(SSeconomy.all_money_accounts.len)
 		var/datum/money_account/D = SSeconomy.get_account(pick(SSeconomy.all_money_accounts))

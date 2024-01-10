@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(explosives)
 	priority = SS_PRIORITY_EXPLOSIVES
 	runlevels = RUNLEVELS_PLAYING
 
-	suspended = TRUE	// Start disabled, explosions will wake us if need be.
+	can_fire = FALSE	// Start disabled, explosions will wake us if need be.
 
 	var/list/work_queue = list()
 	var/ticks_without_work = 0
@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(explosives)
 		ticks_without_work++
 		if (ticks_without_work > 5)
 			// All explosions handled, we can sleep now.
-			suspend()
+			can_fire = FALSE
 
 			mc_notified = FALSE
 			Master.ExplosionEnd()
@@ -417,8 +417,8 @@ SUBSYSTEM_DEF(explosives)
 	work_queue += data
 
 	// Wake it up from sleeping if necessary.
-	if (suspended)
-		wake()
+	if (!can_fire)
+		can_fire = TRUE
 
 /datum/controller/subsystem/explosives/stat_entry(msg)
 	msg ="P:[work_queue.len]"

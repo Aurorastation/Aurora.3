@@ -332,6 +332,10 @@
 	spent_icon = "lcasing-spent"
 	max_stack = 6
 
+/obj/item/ammo_casing/vintage/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/govt
 	projectile_type = /obj/item/projectile/bullet/rifle/govt
 	desc = "A .45-70 Government bullet casing."

@@ -61,12 +61,12 @@
 	if((dos_overload > dos_capacity) && !dos_failure)
 		dos_failure = TRUE
 		update_icon()
-		ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
+		GLOB.ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
 	// If the DoS buffer reaches 0 again, restart.
 	if((dos_overload == 0) && dos_failure)
 		dos_failure = FALSE
 		update_icon()
-		ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
 
 /obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
@@ -92,11 +92,11 @@
 		dos_overload = FALSE
 		dos_failure = FALSE
 		update_icon()
-		ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
 		. = TRUE
 	if(action=="toggle")
 		enabled = !enabled
-		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
+		GLOB.ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
 		. = TRUE
 
@@ -110,15 +110,15 @@
 
 	update_icon()
 
-	if(ntnet_global)
-		ntnet_global.relays.Add(src)
-		NTNet = ntnet_global
-		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.relays.Add(src)
+		NTNet = GLOB.ntnet_global
+		GLOB.ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
 
 /obj/machinery/ntnet_relay/Destroy()
-	if(ntnet_global)
-		ntnet_global.relays.Remove(src)
-		ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.relays.Remove(src)
+		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
 /obj/machinery/ntnet_relay/attackby(obj/item/W, mob/user)

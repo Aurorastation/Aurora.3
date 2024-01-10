@@ -48,7 +48,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/floatingisland
 
-/singleton/recipe/pralinebox //Don't put this recipe in the wiki i want it to be hidden here in the code.
+/singleton/recipe/pralinebox
 	appliance = SAUCEPAN
 	fruit = list("cherries" = 1)
 	items = list(

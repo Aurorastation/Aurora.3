@@ -5,9 +5,11 @@
 	ic_name = "a biohazard"
 
 /datum/event/blob/announce()
-	level_seven_announcement()
+	level_seven_announcement(affecting_z)
 
 /datum/event/blob/start()
+	..()
+
 	var/turf/T = pick_subarea_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(!T)
 		log_and_message_admins("Blob failed to find a viable turf.")

@@ -20,7 +20,6 @@ SUBSYSTEM_DEF(distress)
 	feedback_set("responseteam_count", 0)
 
 /datum/controller/subsystem/distress/Initialize(start_timeofday)
-	. = ..()
 	var/list/all_teams = subtypesof(/datum/responseteam)
 	for(var/team in all_teams)
 		CHECK_TICK
@@ -28,6 +27,8 @@ SUBSYSTEM_DEF(distress)
 		if(SSatlas.current_sector.name in ert.possible_space_sector)
 			available_teams += ert
 		all_ert_teams += ert
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/distress/stat_entry(msg)
 	msg = "CC:[can_call_ert]"

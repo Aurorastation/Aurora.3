@@ -160,7 +160,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 		admin_notice(SPAN_DANGER("Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
-	..(timeofday)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -440,7 +440,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		active_edges -= E
 
 /datum/controller/subsystem/air/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/air/ExplosionEnd()
-	wake()
+	can_fire = TRUE

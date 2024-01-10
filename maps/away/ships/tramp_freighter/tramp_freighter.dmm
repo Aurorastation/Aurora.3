@@ -788,6 +788,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
+"jZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 1;
+	pixel_y = -20;
+	id_tag = "freighter_hangar"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/hangar)
 "kc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -2978,17 +2998,15 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "Md" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "freighter_airlock_port";
 	name_unlabel = "freighter_airlock_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 20
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
@@ -4024,11 +4042,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "YZ" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = 20
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
@@ -4043,6 +4056,10 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
@@ -35784,7 +35801,7 @@ fH
 fH
 fH
 fH
-nG
+jZ
 GB
 GB
 bR

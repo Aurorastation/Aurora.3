@@ -147,6 +147,27 @@
 /singleton/reagent/drink/shake_dirtberry
 	value = 0.13
 
+/singleton/reagent/drink/shake_blueberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_chocolate
+	value = 0.13
+
+/singleton/reagent/drink/shake_blue_raspberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_raspberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_berry
+	value = 0.13
+
+/singleton/reagent/drink/shake_ylpha
+	value = 0.13
+
+/singleton/reagent/drink/shake_choco_mint
+	value = 0.13
+
 /singleton/reagent/drink/NTellahotchocolate
 	value = 0.13
 

@@ -36,7 +36,7 @@
 
 /obj/machinery/ship_weapon/LateInitialize()
 	SSshuttle.weapons_to_initialize += src
-	if(SSshuttle.init_state == SS_INITSTATE_DONE)
+	if(SSshuttle.initialized)
 		SSshuttle.initialize_ship_weapons()
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)

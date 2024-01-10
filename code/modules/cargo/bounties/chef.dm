@@ -328,7 +328,7 @@
 	)
 /datum/bounty/item/chef/roulades
 	name = "Roulades"
-	description = "%BOSSNAME is retiring after many beloved years in the company and we need some tasty treats for the retirement party we're throwing them."
+	description = "%PERSONNAME is retiring after many beloved years in the company and we need some tasty treats for the retirement party we're throwing them."
 	reward_low = 2600
 	reward_high = 3500
 	required_count = 2
