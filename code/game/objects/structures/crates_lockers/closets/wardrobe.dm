@@ -168,13 +168,16 @@
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/head/hardhat/green(src)
-	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/atmos(src)
+	new /obj/item/clothing/head/beret/atmos(src)
 	new /obj/item/clothing/head/beret/corporate/heph(src)
 	new /obj/item/clothing/head/beret/corporate/zavod(src)
 	new /obj/item/clothing/head/bandana/atmos(src)
 	new /obj/item/clothing/suit/storage/hazardvest/green(src)
 	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis_alt(src)
 	return
 
 
@@ -202,7 +205,7 @@
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
-	new /obj/item/clothing/suit/storage/toggle/highvis(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis_alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/green(src)
 	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 

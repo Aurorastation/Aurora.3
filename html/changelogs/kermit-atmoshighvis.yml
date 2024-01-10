@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - tweak: "The Atmospheric Technician clothing locker now has high visibility jackets, same as the Engineer clothing locker. Also swaps out the Engineer berets with Atmospheric berets."
