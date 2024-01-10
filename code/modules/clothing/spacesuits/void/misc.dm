@@ -324,11 +324,14 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
 	light_overlay = "helmet_light_dragon"
 	brightness_on = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr")
+	icon_species_in_hand = TRUE
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/zenghu
@@ -351,21 +354,12 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr")
+	icon_species_in_hand = TRUE
 	refittable = FALSE
-
-/obj/item/clothing/head/helmet/space/void/zenghu/skrell
-	name = "skrell dragon biohazard suit helmet"
-	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection. This one appears to be fitted for a Skrell wearer."
-	species_restricted = list(BODYTYPE_SKRELL)
-	icon_state = "dragonhelm_skrell"
-	item_state = "dragonhelm_skrell"
-
-/obj/item/clothing/suit/space/void/zenghu/skrell
-	name = "skrell dragon biohazard control suit"
-	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection. This one appears to be fitted for a Skrell wearer."
-	species_restricted = list(BODYTYPE_SKRELL)
 
 //Hephaestus Industries espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/hephaestus
@@ -386,11 +380,14 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_UNATHI)
 	light_overlay = "helmet_light_caiman"
 	brightness_on = 6
 	light_color = "#ffce01"
 	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
+	icon_supported_species_tags = list("una")
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/hephaestus
@@ -413,23 +410,12 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
+	icon_supported_species_tags = list("una")
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
 	refittable = FALSE
-
-/obj/item/clothing/head/helmet/space/void/hephaestus/unathi
-	name = "unathi caiman drop suit helmet"
-	desc = "A massively heavy helmet, part of a larger terraforming suit assembly. This one looks to have been refitted for an Unathi wearer."
-	species_restricted = list(BODYTYPE_UNATHI)
-	icon_state = "caimanhelm_unathi"
-	item_state = "caimanhelm_unathi"
-
-/obj/item/clothing/suit/space/void/hephaestus/unathi
-	name = "caiman drop suit"
-	desc = "A superheavy Hephaestus-designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds. This one looks to have been refitted for an Unathi wearer."
-	species_restricted = list(BODYTYPE_UNATHI)
-	icon_state = "caiman_unathi"
-	item_state = "caiman_unathi"
 
 //Zavodskoi Interstellar espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zavodskoi
@@ -980,3 +966,50 @@
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = "ipc"
 
+
+/obj/item/clothing/suit/space/void/tcaf
+	name = "tau ceti armed forces voidsuit"
+	desc = "A Zavodskoi-manufactured combat voidsuit designed for the Tau Ceti Armed Forces, the Type-37 \"Aegis\" is now the primary armored voidsuit in use by the Republic of Biesel."
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
+	icon_state = "tcaf_suit"
+	item_state = "tcaf_suit"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	slowdown = 1
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
+
+/obj/item/clothing/head/helmet/space/void/tcaf
+	name = "tau ceti armed forces voidsuit helmet"
+	desc = "A Zavodskoi-designed armored voidsuit helmet, painted in the colors of the Republic of Biesel. Commonly seen in use by personnel of the Tau Ceti Armed Forces."
+	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
+	icon_state = "tcaf_helmet"
+	item_state = "tcaf_helmet"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+	icon_auto_adapt = TRUE
+	icon_species_in_hand = TRUE
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
+	brightness_on = 6
+	siemens_coefficient = 0.35

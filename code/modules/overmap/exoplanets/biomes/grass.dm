@@ -25,7 +25,8 @@
 			/obj/structure/flora/ausbushes/grassybush = 1,
 			/obj/structure/flora/ausbushes/palebush = 1,
 			/obj/structure/flora/ausbushes = 1,
-			/obj/structure/flora/ausbushes/fernybush = 1
+			/obj/structure/flora/ausbushes/fernybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 2,
@@ -47,7 +48,8 @@
 		),
 		SMALL_FLORA = list(
 			/obj/structure/flora/ausbushes/reedbush = 1,
-			/obj/structure/flora/ausbushes/stalkybush = 1
+			/obj/structure/flora/ausbushes/stalkybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 2,
@@ -80,7 +82,9 @@
 			/obj/structure/flora/ausbushes/grassybush = 1,
 			/obj/structure/flora/ausbushes/palebush = 1,
 			/obj/structure/flora/ausbushes = 1,
-			/obj/structure/flora/ausbushes/fernybush = 1
+			/obj/structure/flora/ausbushes/fernybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 2,
@@ -98,7 +102,8 @@
 	exclusive_generators = list(LARGE_FLORA)
 	spawn_types = list(
 		LARGE_FLORA = list(
-			/obj/structure/flora/tree/grove = 1
+			/obj/structure/flora/tree/grove = 1,
+			/obj/effect/landmark/exoplanet_spawn/large_plant = 1
 		),
 		SMALL_FLORA = list(
 			/obj/structure/flora/ausbushes/ywflowers = 1,
@@ -107,7 +112,8 @@
 			/obj/structure/flora/ausbushes/grassybush = 1,
 			/obj/structure/flora/ausbushes/palebush = 1,
 			/obj/structure/flora/ausbushes = 1,
-			/obj/structure/flora/ausbushes/fernybush = 1
+			/obj/structure/flora/ausbushes/fernybush = 1,
+			/obj/effect/landmark/exoplanet_spawn/plant = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 2,

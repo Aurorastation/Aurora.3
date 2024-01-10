@@ -82,7 +82,7 @@
 
 /obj/machinery/power/apc/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
@@ -101,7 +101,7 @@
 
 /obj/machinery/power/apc/critical/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/low
 	cell_type = /obj/item/cell
@@ -120,7 +120,7 @@
 
 /obj/machinery/power/apc/low/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
@@ -139,7 +139,7 @@
 
 /obj/machinery/power/apc/high/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
@@ -160,7 +160,7 @@
 
 /obj/machinery/power/apc/isolation/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
@@ -180,7 +180,7 @@
 
 /obj/machinery/power/apc/vault/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
@@ -201,7 +201,7 @@
 
 /obj/machinery/power/apc/intrepid/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
@@ -222,7 +222,7 @@
 
 /obj/machinery/power/apc/canary/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
@@ -243,7 +243,7 @@
 
 /obj/machinery/power/apc/mining_shuttle/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
@@ -269,7 +269,7 @@
 
 /obj/machinery/power/apc/canary/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 
 /obj/machinery/power/apc/super
@@ -289,7 +289,7 @@
 
 /obj/machinery/power/apc/super/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/super/critical
 	is_critical = TRUE
@@ -308,7 +308,7 @@
 
 /obj/machinery/power/apc/super/critical/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
@@ -327,7 +327,7 @@
 
 /obj/machinery/power/apc/hyper/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc/empty
 	start_charge = 0
@@ -346,7 +346,7 @@
 
 /obj/machinery/power/apc/empty/south
 	dir = SOUTH
-	pixel_y = 0
+	pixel_y = -4
 
 /obj/machinery/power/apc
 	name = "area power controller"
@@ -480,7 +480,7 @@
 
 /obj/machinery/power/apc/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 12 : -(12)))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(0)) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(8)) : 0)
 
 /obj/machinery/power/apc/Destroy()
 	update()
@@ -843,7 +843,7 @@
 		else if(hacker)
 			to_chat(user, SPAN_WARNING("Access denied."))
 		else
-			if(allowed(usr) && !isWireCut(APC_WIRE_IDSCAN))
+			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
 				locked = !locked
 				to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
 				update_icon()
@@ -1109,7 +1109,7 @@
 			user.visible_message(SPAN_WARNING("[user.name] slashes at the [name]!"), SPAN_NOTICE("You slash at the [name]!"))
 			playsound(loc, 'sound/weapons/slash.ogg', 100, 1)
 
-			var/allcut = wires.IsAllCut()
+			var/allcut = wires.is_all_cut()
 
 			if(beenhit >= pick(3, 4) && !wiresexposed)
 				wiresexposed = TRUE
@@ -1117,7 +1117,7 @@
 				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
 
 			else if(wiresexposed && !allcut)
-				wires.CutAll()
+				wires.cut_all()
 				update_icon()
 				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
 			else
@@ -1146,7 +1146,7 @@
 		return
 
 	if(wiresexposed && !isAI(user))
-		wires.Interact(user)
+		wires.interact(user)
 
 	return ui_interact(user)
 
@@ -1197,7 +1197,7 @@
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
-	return wires.IsIndexCut(wireIndex)
+	return wires.is_cut(wireIndex)
 
 /obj/machinery/power/apc/proc/can_use(mob/user, var/loud = 0) //used by attack_hand() and Topic()
 	if(inoperable())

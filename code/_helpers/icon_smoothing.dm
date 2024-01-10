@@ -101,12 +101,6 @@
 /turf/simulated/wall/shuttle
 	smooth_underlays = TRUE
 
-/turf/simulated/wall
-	smooth_underlays = TRUE
-
-/turf/unsimulated/wall
-	smooth_underlays = TRUE
-
 /atom/proc/calculate_adjacencies()
 	if (!loc)
 		return 0

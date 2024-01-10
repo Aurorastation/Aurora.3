@@ -447,7 +447,7 @@
 
 	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."))
 
-	if(!do_after(H, 3 SECONDS, TRUE))
+	if(!do_after(H, 1 SECONDS, affecting))
 		return
 
 	if(affecting.buckled_to)

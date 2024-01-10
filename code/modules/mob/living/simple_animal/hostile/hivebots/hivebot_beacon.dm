@@ -33,7 +33,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	speed = -10
-	see_in_dark = 8
 	destroy_surroundings = 0
 	var/bot_type
 	var/bot_amt = 160 //Number of total bots that are spawned before the beacon disappears completely.
