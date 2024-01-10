@@ -3,7 +3,7 @@
 	desc = "A device capable of detecting mines and traps in a range."
 
 	///The types that are detected by this device
-	var/list/detectable_types = list(/obj/item/landmine, /obj/item/storage/box/traps)
+	var/list/detectable_types = list(/obj/item/landmine, /obj/item/trap)
 
 	///The range in which the detection happens
 	var/detection_range = 4
