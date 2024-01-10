@@ -6,7 +6,6 @@
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
-	place_near_main = 4
 	id = "idris_cruiser"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/idris_cruiser_shuttle)
 	unit_test_groups = list(3)
@@ -36,6 +35,7 @@
 	vessel_mass = 5000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
+	place_near_main = 4
 	invisible_until_ghostrole_spawn = TRUE
 	initial_restricted_waypoints = list(
 		"Idris Runabout" = list("nav_idris_cruiser_stbd_aft")
