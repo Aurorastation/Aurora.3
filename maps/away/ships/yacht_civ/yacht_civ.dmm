@@ -607,9 +607,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "kv" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/space)
@@ -1026,11 +1024,13 @@
 /turf/simulated/floor/plating,
 /area/space)
 "qm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/space)
 "qq" = (
@@ -1399,12 +1399,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "xf" = (
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/space)
 "xD" = (
@@ -2162,8 +2161,10 @@
 /obj/item/clothing/under/suit_jacket/white,
 /obj/item/clothing/under/dress/blacktango,
 /obj/item/clothing/under/dress/dress_fire,
+/obj/item/clothing/under/konyang/blue,
+/obj/item/clothing/under/konyang/male,
+/obj/item/clothing/accessory/konyang,
 /obj/item/clothing/under/suit_jacket/burgundy,
-/obj/item/clothing/under/suit_jacket/charcoal,
 /obj/item/clothing/under/suit_jacket/checkered,
 /obj/item/clothing/under/antillean/goldflair{
 	color = "#764F83"
@@ -2438,6 +2439,8 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
+/obj/item/clothing/head/pin/flower/silversun,
+/obj/item/clothing/head/pin/flower,
 /turf/simulated/floor/marble/dark,
 /area/space)
 "Qt" = (
@@ -33799,7 +33802,7 @@ fA
 KR
 cs
 xf
-Fo
+eL
 fA
 Fe
 hR
@@ -34056,7 +34059,7 @@ CQ
 Uh
 jw
 kv
-eL
+Hb
 fA
 Ys
 Ys
