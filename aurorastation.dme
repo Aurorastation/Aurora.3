@@ -3717,6 +3717,7 @@
 #include "maps\away\ships\wildlands_militia\militia_ship_ghostroles.dm"
 #include "maps\away\ships\yacht\yacht.dm"
 #include "maps\away\ships\yacht\yacht_areas.dm"
+#include "maps\away\ships\yacht_civ\yacht_civ.dm"
 #include "maps\away_sites_testing\away_sites_testing.dm"
 #include "maps\event\code\event.dm"
 #include "maps\event\generic_dock\code\generic_dock.dm"
