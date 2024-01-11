@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(assets)
 			newtransporttype = /datum/asset_transport/webroot
 
 	if (newtransporttype == transport.type)
-		return
+		return SS_INIT_SUCCESS
 
 	var/datum/asset_transport/newtransport = new newtransporttype ()
 	if (newtransport.validate_config())
@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(assets)
 
 	transport.Initialize(cache)
 
-	. = ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/assets/Recover()
 	cache = SSassets.cache

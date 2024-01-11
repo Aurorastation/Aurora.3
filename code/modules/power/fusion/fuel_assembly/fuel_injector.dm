@@ -45,7 +45,7 @@
 		if(injecting)
 			to_chat(user, SPAN_WARNING("Shut \the [src] off before playing with the fuel rod!"))
 			return
-		if(!user.unEquip(W, src))
+		if(!user.unEquip(W, 0, src))
 			return
 		if(cur_assembly)
 			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [W]."))

@@ -87,7 +87,8 @@ SUBSYSTEM_DEF(chemistry)
 	log_subsystem_chemistry("Found [pre_secret_len] reactions.")
 	log_subsystem_chemistry("Loaded [load_secret_chemicals()] secret reactions.")
 	initialize_specific_heats() // must be after reactions
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)

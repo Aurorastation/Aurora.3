@@ -3,7 +3,6 @@
 /obj/item/clothing/under/rank/bartender
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 
@@ -21,7 +20,6 @@
 /obj/item/clothing/under/rank/chaplain
 	name = "chaplain's jumpsuit"
 	desc = "It's a black jumpsuit, often worn by religious folk."
-	has_sensor = SUIT_HAS_SENSORS
 	icon_state = "chaplain"
 	item_state = "bl_suit"
 	worn_state = "chapblack"
@@ -29,7 +27,6 @@
 /obj/item/clothing/under/rank/chef
 	name = "chef's uniform"
 	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_chef"
@@ -48,7 +45,6 @@
 /obj/item/clothing/under/rank/hydroponics
 	name = "botanist's jumpsuit"
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
-	has_sensor = SUIT_HAS_SENSORS
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_gardener"
 	item_state = "nt_gardener"
@@ -68,7 +64,6 @@
 /obj/item/clothing/under/rank/liaison
 	name = "corporate liaison uniform"
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison"
@@ -102,7 +97,6 @@
 /obj/item/clothing/under/rank/janitor
 	name = "janitor's jumpsuit"
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_janitor"
@@ -150,7 +144,6 @@
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
 	desc = "It's very... sensible."
-	has_sensor = SUIT_HAS_SENSORS
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_librarian"
@@ -169,7 +162,6 @@
 /obj/item/clothing/under/rank/miner
 	name = "miner's jumpsuit"
 	desc = "It's a snappy miner's jumpsuit, complete with overalls and caked-on dirt."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_miner"
@@ -186,7 +178,6 @@
 /obj/item/clothing/under/rank/operations_manager
 	name = "operations manager's jumpsuit"
 	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "operations_manager"
@@ -195,7 +186,7 @@
 /obj/item/clothing/under/rank/hangar_technician
 	name = "hangar technician's jumpsuit"
 	desc = "The future of hangar tech apparel: long, stuffy slacks. We never said it was a bright future."
-	has_sensor = SUIT_HAS_SENSORS
+
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_tech"
@@ -212,7 +203,6 @@
 /obj/item/clothing/under/rank/bridge_crew
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
@@ -248,7 +238,6 @@
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "executive_officer"
@@ -257,7 +246,6 @@
 /obj/item/clothing/under/rank/machinist
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_machinist"

@@ -153,7 +153,7 @@
 		handle_sql_loading(SQL_CHARACTER)
 
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.load_special(S)
+		PI.load_character_special(S)
 		PI.sanitize_character(GLOB.config.sql_saves)
 
 /datum/category_group/player_setup_category/proc/save_character(var/savefile/S)
@@ -161,10 +161,14 @@
 	for (var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_character()
 
-	if (!GLOB.config.sql_saves || !establish_db_connection(GLOB.dbcon))
-		for (var/datum/category_item/player_setup_item/PI in items)
+	var/db_available = GLOB.config.sql_saves && establish_db_connection(GLOB.dbcon)
+
+	for (var/datum/category_item/player_setup_item/PI in items)
+		PI.save_character_special(S)
+		if(!db_available)
 			PI.save_character(S)
-	else if (modified)
+
+	if (db_available && modified)
 		// No save here, because this is only called from the menu and needs to save /everything/.
 		handle_sql_saving(SQL_CHARACTER)
 		modified = 0
@@ -238,15 +242,21 @@
 	return
 
 /*
-* Called no matter if sql safes are enabled or disabled
+* Called no matter if sql saves are enabled or disabled (After load_character)
 */
-/datum/category_item/player_setup_item/proc/load_special(var/savefile/S)
+/datum/category_item/player_setup_item/proc/load_character_special(var/savefile/S)
 	return
 
 /*
-* Called when the item is asked to save per character settings
+* Called when the item is asked to save per character settings - Only called when sql saves are disabled or unavailable
 */
 /datum/category_item/player_setup_item/proc/save_character(var/savefile/S)
+	return
+
+/*
+* Called no matter if sql saves are enabled or disabled (Before save_character / handle_sql_saving)
+*/
+/datum/category_item/player_setup_item/proc/save_character_special(var/savefile/S)
 	return
 
 /*

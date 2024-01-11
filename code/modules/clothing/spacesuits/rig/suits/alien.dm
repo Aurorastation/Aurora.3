@@ -56,7 +56,8 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
-		/obj/item/rig_module/chem_dispenser/combat
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/recharger
 	)
 
 /obj/item/rig/unathi/fancy/ninja
@@ -105,7 +106,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/vision/nvg
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/recharger
 		)
 
 /obj/item/rig/vaurca
@@ -142,7 +144,8 @@
 		/obj/item/rig_module/chem_dispenser/vaurca,
 		/obj/item/rig_module/boring,
 		/obj/item/rig_module/lattice,
-		/obj/item/rig_module/maneuvering_jets
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/recharger
 
 		)
 

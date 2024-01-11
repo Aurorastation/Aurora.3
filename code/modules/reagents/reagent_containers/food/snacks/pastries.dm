@@ -9,8 +9,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "muffin"
 	filling_color = "#E0CF9B"
-	center_of_mass = list("x"=17, "y"=4)
-	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 3, "muffin" = 3))
 	bitesize = 2
 
@@ -20,7 +19,6 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "berrymuffin"
 	filling_color = "#E0CF9B"
-	center_of_mass = list("x"=17, "y"=4)
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "berries" = 2))

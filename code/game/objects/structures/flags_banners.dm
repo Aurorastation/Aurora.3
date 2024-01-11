@@ -3066,3 +3066,48 @@
 
 /obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+//Traditionalist Coalition
+
+/obj/item/flag/traditionalist
+	name = "\improper Traditionalist Coalition flag"
+	desc = "The blue-and-green battle standard of the defeated Traditionalist Coalition. Flying this flag is an act of treason under Izweski law."
+	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. \
+	Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
+	flag_path = "traditionalist"
+	flag_structure = /obj/structure/sign/flag/traditionalist
+
+/obj/structure/sign/flag/traditionalist
+	name = "\improper Traditionalist Coalition flag"
+	desc = "The blue-and-green battle standard of the defeated Traditionalist Coalition. Flying this flag is a high crime under Izweski law."
+	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. \
+	Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
+	flag_path = "traditionalist"
+	icon_state = "traditionalist"
+	flag_item = /obj/item/flag/traditionalist
+
+/obj/structure/sign/flag/traditionalist/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/traditionalist/l
+	name = "large Traditionalist Coalition flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/traditionalist/large
+
+/obj/structure/sign/flag/traditionalist/large
+	icon_state = "traditionalist_l"
+	flag_path = "traditionalist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/traditionalist/l
+
+/obj/structure/sign/flag/scarab/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/scarab/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/scarab/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/scarab/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)

@@ -309,7 +309,7 @@
 			if (dset[3] == C.computer_id)
 				new_info &= ~BAD_CID
 
-		var/list/bdata = world.IsBanned(dset[1], dset[2], dset[3], 1, real_bans_only = TRUE)
+		var/list/bdata = world.IsBanned(dset[1], dset[2], dset[3], 1, real_bans_only = TRUE, log_connection = FALSE)
 		if (bdata && bdata.len && !isnull(bdata["id"]))
 			ding_bannu = bdata["id"]
 			break

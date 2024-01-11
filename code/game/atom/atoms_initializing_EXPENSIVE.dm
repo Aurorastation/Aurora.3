@@ -8,7 +8,7 @@
 			BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
 		return TRUE
 
-	// This is handled and battle tested by dreamchecker. Limit to UNIT_TESTS just in case that ever fails.
+	// This is handled and battle tested by dreamchecker. Limit to UNIT_TEST just in case that ever fails.
 	#ifdef UNIT_TEST
 	var/start_tick = world.time
 	#endif
@@ -62,8 +62,8 @@
  */
 /atom/New(loc, ...)
 	// For the DMM Suite.
-	if(use_preloader && (type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
-		_preloader.load(src)
+	if(GLOB.use_preloader && (src.type == GLOB._preloader_path))//in case the instanciated atom is creating other atoms in New()
+		GLOB._preloader.load(src)
 
 	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
 

@@ -590,11 +590,6 @@ var/list/localhost_addresses = list(
 	if (!account_join_date)
 		account_join_date = "Error"
 
-	//Logging player access
-	var/DBQuery/query_accesslog = GLOB.dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`datetime`,`serverip`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`,`game_id`) VALUES(Now(), :serverip:, :ckey:, :ip:, :computerid:, :byond_version:, :byond_build:, :game_id:);")
-	query_accesslog.Execute(list("serverip"="[world.internet_address]:[world.port]","ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"byond_version"=byond_version,"byond_build"=byond_build,"game_id"=game_id))
-
-
 #undef UPLOAD_LIMIT
 #undef MIN_CLIENT_VERSION
 

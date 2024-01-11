@@ -227,6 +227,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/hyronalin = 60)
 
+/obj/item/reagent_containers/glass/bottle/trioxin
+	name = "trioxin bottle"
+	desc = "A small bottle. Contains a swirling, green liquid."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/singleton/reagent/toxin/trioxin = 60)
+
 //syrups
 
 /obj/item/reagent_containers/glass/bottle/syrup

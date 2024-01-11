@@ -421,10 +421,7 @@ macro "macro"
 		command = "Resist"
   elem
     name = "R"
-    command = "throw_intent"
-  elem
-    name = "R+UP"
-    command = "throw_intent_up"
+    command = "throw_intent_toggle"
 
 
 macro "hotkeymode"
@@ -679,10 +676,7 @@ macro "hotkeymode"
 		command = "Resist"
   elem
     name = "R"
-    command = "throw_intent"
-  elem
-    name = "R+UP"
-    command = "throw_intent_up"
+    command = "throw_intent_toggle"
 
 
 macro "borgmacro"

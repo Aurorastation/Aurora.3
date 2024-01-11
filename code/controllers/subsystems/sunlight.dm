@@ -35,7 +35,8 @@ SUBSYSTEM_DEF(sunlight)
 		CHECK_TICK
 
 	LOG_DEBUG("sunlight: [light_points.len] sun emitters.")
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/sunlight/proc/set_overall_light(...)
 	. = 0

@@ -24,6 +24,9 @@
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	skybox_image.blend_mode = BLEND_OVERLAY
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_atmosphere()
+	atmosphere = null
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
 	desc = "A phoron rich asteroid."

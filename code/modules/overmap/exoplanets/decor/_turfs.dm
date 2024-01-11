@@ -209,7 +209,7 @@
 	name = "concrete"
 	desc = "Stone-like artificial material."
 	icon = 'icons/turf/flooring/concrete.dmi'
-	icon_state = "concrete"
+	icon_state = "concrete0"
 
 //Special world edge turf,
 /turf/unsimulated/planet_edge

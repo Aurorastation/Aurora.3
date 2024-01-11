@@ -13,8 +13,8 @@ var/global/ntnrc_uid = 0
 	ntnrc_uid++
 	if(name)
 		title = name
-	if(ntnet_global)
-		ntnet_global.chat_channels.Add(src)
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.chat_channels.Add(src)
 	if(no_operator)
 		operator = "NanoTrasen Information Technology Division" // assign a fake operator
 	..()
@@ -35,7 +35,7 @@ var/global/ntnrc_uid = 0
 
 	var/ntnet_log = message.format_ntnet_log(src)
 	if(ntnet_log)
-		ntnet_global.add_log(ntnet_log, message.client.computer.network_card, TRUE)
+		GLOB.ntnet_global.add_log(ntnet_log, message.client.computer.network_card, TRUE)
 
 	var/chat_log = message.format_chat_log(src)
 	if(chat_log)

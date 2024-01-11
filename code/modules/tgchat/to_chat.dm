@@ -74,7 +74,7 @@
 	trailing_newline = TRUE,
 	confidential = FALSE
 )
-	if(isnull(Master) || !SSchat?.init_state != SS_INITSTATE_DONE)
+	if(isnull(Master) || !SSchat?.initialized)
 		to_chat_immediate(target, html, type, text, avoid_highlighting)
 		return
 

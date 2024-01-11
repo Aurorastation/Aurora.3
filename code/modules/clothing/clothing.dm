@@ -1057,7 +1057,7 @@
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
 
 	///SUIT_NO_SENSORS = No sensors, SUIT_HAS_SENSORS = Sensors, SUIT_LOCKED_SENSORS = Locked sensors
-	var/has_sensor = SUIT_NO_SENSORS
+	var/has_sensor = SUIT_HAS_SENSORS
 
 	///SUIT_SENSOR_OFF = Off, SUIT_SENSOR_BINARY = Report living/dead, SUIT_SENSOR_VITAL = Report detailed damages, SUIT_SENSOR_TRACKING = Report location
 	var/sensor_mode = SUIT_SENSOR_OFF
