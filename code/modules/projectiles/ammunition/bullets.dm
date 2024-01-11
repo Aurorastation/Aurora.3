@@ -282,6 +282,10 @@
 	desc = "A 5.56mm blank casing."
 	projectile_type = /obj/item/projectile/bullet/blank
 
+/obj/item/ammo_casing/a556/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/a65
 	desc = "A 6.5mm bullet casing."
 	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
