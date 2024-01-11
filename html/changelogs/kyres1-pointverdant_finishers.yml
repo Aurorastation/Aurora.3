@@ -1,0 +1,16 @@
+author: kyres1, Nauticall
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Added a variety of billboards for Konyang, sprited by Nauticall and implemented on Point Verdant."
+  - rscadd: "Added a few new tile types for urban decor."
+  - rscadd: "Polished the remainder of Point Verdant's map, adding content where areas were empty."
+  - rscadd: "Added the basic biomes to Konyang's spawn rotation, with a few new ruins that spawn in the Abandoned biome/theme type."
+  - bugfix: "Fixed the landing zones for the ocean and jungle landing sites that the Horizon shuttles use."
