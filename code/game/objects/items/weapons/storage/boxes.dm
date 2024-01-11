@@ -491,11 +491,11 @@
 
 /obj/item/storage/box/grenades/napalm
 	name = "box of napalm grenades"
-	desc = "A box containing 3 napalm grenades."
+	desc = "A box containing 5 napalm grenades."
 	icon_state = "secbox"
 	item_state = "secbox"
 	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/napalm = 3)
+	starts_with = list(/obj/item/grenade/napalm = 5)
 
 /obj/item/storage/box/cardox
 	name = "box of cardox grenades"
