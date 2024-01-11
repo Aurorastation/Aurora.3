@@ -1130,6 +1130,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"sF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "tc" = (
 /obj/structure/sink/kitchen{
 	name = "sink";
@@ -35595,7 +35606,7 @@ gy
 ua
 MD
 vp
-jh
+sF
 jh
 CX
 jh
@@ -36627,7 +36638,7 @@ Mr
 Mr
 CQ
 Uh
-cs
+jw
 cX
 Uh
 cs
