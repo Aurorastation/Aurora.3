@@ -8,7 +8,7 @@
 		return
 
 	switch(network)
-		if(NETWORK_THUNDER)
+		if(NETWORK_THUNDER, NETWORK_NEWS)
 			return FALSE
 		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
 			return ACCESS_ENGINE
@@ -222,4 +222,22 @@
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))
+	return networks
+
+/datum/computer_file/program/camera_monitor/news
+	filename = "idcammon"
+	filedesc = "Journalism Camera Monitoring"
+	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
+	size = 6
+	nanomodule_path = /datum/nano_module/camera_monitor/news
+	required_access_download = null
+	usage_flags = PROGRAM_ALL
+
+/datum/nano_module/camera_monitor/news
+	name = "Journalism Camera Monitoring Program"
+
+/datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
+	networks = list()
+	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access" = 1)))
+	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access" = 1)))
 	return networks
