@@ -295,7 +295,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "bR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -644,7 +644,7 @@
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/coc_scarab/dock3,
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -2325,7 +2325,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "lu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2427,10 +2427,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab)
 "mh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/ship/coc_scarab/equipment)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/ship/coc_scarab/thrust1)
 "ml" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
@@ -2849,7 +2848,7 @@
 	name = "aft, solars"
 	},
 /turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/area/space)
 "pa" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -3672,7 +3671,10 @@
 	name = "airlock_scarab_stbd";
 	master_tag = "airlock_scarab_stbd"
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/equipment)
 "te" = (
@@ -3689,7 +3691,7 @@
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/coc_scarab/dock1,
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "ti" = (
 /obj/structure/cable/yellow{
@@ -4320,10 +4322,6 @@
 	dir = 8;
 	pixel_y = 28
 	},
-/obj/structure/sign/directions/prop{
-	dir = 8;
-	pixel_y = 28
-	},
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
@@ -4630,7 +4628,7 @@
 	name = "aft, starboard thruster"
 	},
 /turf/simulated/floor/airless,
-/area/ship/coc_scarab/thrust2)
+/area/ship/coc_scarab/thrust1)
 "yo" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
@@ -4677,14 +4675,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "yQ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
 /area/space)
 "yR" = (
 /obj/machinery/door/firedoor/noid{
@@ -4726,6 +4723,10 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engistorage)
 "zd" = (
@@ -5972,11 +5973,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
 "Fm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/equipment)
 "Fn" = (
@@ -5992,7 +5992,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "Fq" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -6387,9 +6387,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
-"Hj" = (
-/turf/space/dynamic,
-/area/space)
 "Hp" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/engine)
@@ -6457,7 +6454,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "HF" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -7129,7 +7126,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/coc_scarab/solars)
+/area/space)
 "Lo" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -8046,7 +8043,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab)
 "Pv" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -8054,6 +8050,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engistorage)
 "Pw" = (
@@ -8153,10 +8150,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/coc_scarab/washroom)
 "PR" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engistorage)
 "PS" = (
@@ -8362,7 +8359,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/space)
 "QL" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -8942,11 +8939,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
 "Tn" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engistorage)
 "Tu" = (
@@ -9432,10 +9429,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
 "Vv" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/equipment)
 "Vx" = (
@@ -34908,7 +34905,7 @@ cB
 lb
 sd
 VK
-VK
+oG
 cB
 cB
 cB
@@ -35149,7 +35146,7 @@ cB
 cB
 cB
 cB
-VK
+wE
 px
 cn
 lb
@@ -37489,7 +37486,7 @@ lb
 IR
 IR
 IR
-Kk
+Ua
 HD
 IR
 IR
@@ -38226,16 +38223,16 @@ cB
 cB
 cB
 Kk
-yu
 jO
 jO
 jO
 jO
-Hj
+jO
+IR
 lb
 lb
-qg
-yQ
+pW
+Wl
 gs
 vZ
 vZ
@@ -38482,7 +38479,7 @@ cB
 cB
 cB
 cB
-yu
+jO
 jO
 gH
 eF
@@ -38491,8 +38488,8 @@ jO
 jO
 IR
 lb
-qg
-yQ
+pW
+Wl
 cM
 gs
 vZ
@@ -38739,7 +38736,7 @@ cB
 cB
 cB
 cB
-Ge
+mh
 QJ
 Pw
 Mf
@@ -38748,7 +38745,7 @@ jG
 jO
 jO
 gi
-qg
+pW
 Fn
 cM
 aZ
@@ -39253,7 +39250,7 @@ cB
 cB
 cB
 cB
-Ge
+mh
 Mo
 jM
 FF
@@ -39510,7 +39507,7 @@ cB
 cB
 cB
 cB
-Ge
+mh
 Qo
 jO
 jO
@@ -39767,7 +39764,7 @@ cB
 cB
 cB
 cB
-yu
+jO
 jO
 jO
 jO
@@ -40027,7 +40024,7 @@ IR
 lb
 lb
 lb
-Il
+jO
 jO
 jO
 jO
@@ -40535,18 +40532,18 @@ cB
 cB
 cB
 IR
+yQ
+sh
+UN
+cR
+Qe
+sh
+UN
+cR
+Qe
+sh
+UN
 IR
-Qe
-sh
-UN
-cR
-Qe
-sh
-UN
-cR
-Qe
-sh
-UN
 lU
 oE
 GW
@@ -40790,10 +40787,9 @@ cB
 cB
 cB
 cB
-cB
 IR
 IR
-Qe
+yQ
 YF
 UN
 cR
@@ -40804,6 +40800,7 @@ cR
 Qe
 YF
 UN
+IR
 lU
 oE
 cM
@@ -40821,7 +40818,7 @@ ny
 tY
 Nb
 Fm
-mh
+Nb
 Vv
 Kl
 ny
@@ -41047,10 +41044,9 @@ cB
 cB
 cB
 cB
-cB
-lb
 IR
-Qe
+lb
+yQ
 YF
 UN
 cR
@@ -41061,6 +41057,7 @@ cR
 Qe
 YF
 UN
+IR
 lU
 oE
 cM
@@ -41304,20 +41301,20 @@ cB
 cB
 cB
 cB
-cB
 lb
+lb
+yQ
+YF
+UN
+cR
+Qe
+YF
+UN
+cR
+Qe
+YF
+UN
 IR
-Qe
-YF
-UN
-cR
-Qe
-YF
-UN
-cR
-Qe
-YF
-UN
 lU
 oE
 cM
@@ -41561,7 +41558,6 @@ cB
 cB
 cB
 cB
-cB
 lb
 oY
 bg
@@ -41574,6 +41570,7 @@ bg
 bg
 bg
 rt
+bg
 Lg
 dn
 oE
@@ -41818,20 +41815,20 @@ cB
 cB
 cB
 cB
-cB
 lb
+lb
+yQ
+ya
+UN
+cR
+Qe
+ya
+UN
+cR
+Qe
+ya
+UN
 IR
-Qe
-ya
-UN
-cR
-Qe
-ya
-UN
-cR
-Qe
-ya
-UN
 VN
 oE
 dR
@@ -42075,10 +42072,9 @@ cB
 cB
 cB
 cB
-cB
-lb
 IR
-Qe
+lb
+yQ
 ya
 UN
 cR
@@ -42089,6 +42085,7 @@ cR
 Qe
 ya
 UN
+IR
 VN
 tF
 mZ
@@ -42332,10 +42329,9 @@ cB
 cB
 cB
 cB
-cB
 XA
 IR
-Qe
+yQ
 ya
 UN
 cR
@@ -42346,6 +42342,7 @@ cR
 Qe
 ya
 UN
+IR
 VN
 fU
 Hp
@@ -42591,18 +42588,18 @@ cB
 cB
 cB
 IR
+yQ
+hm
+UN
+cR
+Qe
+hm
+UN
+cR
+Qe
+hm
+UN
 IR
-Qe
-hm
-UN
-cR
-Qe
-hm
-UN
-cR
-Qe
-hm
-UN
 ED
 rB
 uO
@@ -47011,7 +47008,7 @@ wc
 lb
 Kk
 px
-VK
+oG
 cB
 cB
 cB
@@ -47760,8 +47757,8 @@ wn
 zm
 fz
 IR
-Kk
-cn
+Ua
+gK
 cB
 eX
 Rc
@@ -47999,7 +47996,7 @@ cB
 cB
 cB
 cB
-lM
+wE
 lM
 GK
 cB
@@ -48017,8 +48014,8 @@ Rn
 NG
 tq
 IR
-Kk
-cn
+Ua
+gK
 cB
 Gy
 wY
@@ -48274,8 +48271,8 @@ qu
 Bo
 Mc
 IR
-Kk
-cn
+Ua
+gK
 cB
 cB
 wY
@@ -48531,8 +48528,8 @@ cB
 cB
 cB
 cB
-Kk
-cn
+Ua
+gK
 cB
 cB
 wY
@@ -48789,7 +48786,7 @@ cB
 cB
 cB
 bO
-cn
+gK
 cB
 cB
 eX
