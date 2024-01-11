@@ -115,7 +115,7 @@
 	icon_state = "globe1"
 	massvolume = "0.31/0.42"
 	surfacegravity = "0.18"
-	charted = " Charted 2305, Sol Alliance Department of Colonization."
+	charted = "Charted 2305, Sol Alliance Department of Colonization."
 	features_budget = 1
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
