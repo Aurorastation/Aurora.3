@@ -238,6 +238,6 @@
 
 /datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
 	networks = list()
-	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access = 1")))
-	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access = 1")))
+	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access" = 1)))
+	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access" = 1)))
 	return networks
