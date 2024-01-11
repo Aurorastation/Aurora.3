@@ -255,8 +255,10 @@
 			speaker_encryption_key = speaker_socket.encryption_key
 
 	for(var/mob/player in GLOB.player_list)
-		if(istype(player, /mob/abstract/observer) || player == speaker)
+		if(player == speaker)
 			to_chat(player, msg)
+		else if(isobserver(player))
+			player.show_message("[ghost_follow_link(speaker, player)] [msg]", 1)
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
 				var/mob/living/carbon/human/listener_human = player
