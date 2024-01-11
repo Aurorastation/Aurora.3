@@ -878,7 +878,7 @@
 	id = "idriscruiser_bridge_blast"
 	},
 /obj/effect/landmark/entry_point/fore{
-	name = "starboard docking arm"
+	name = "fore, starboard docking arm"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -1773,6 +1773,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/pool)
+"hO" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/ship/idris_cruiser/corridor/dockingarm/port)
 "hP" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 1;
@@ -2017,7 +2023,7 @@
 	id = "idriscruiser_bridge_blast"
 	},
 /obj/effect/landmark/entry_point/fore{
-	name = "port docking arm"
+	name = "fore, port docking arm"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -3377,6 +3383,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
+"nO" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, great room"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/great_room)
 "nQ" = (
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/reinforced/airless,
@@ -3797,12 +3815,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_sensor";
-	pixel_x = -25;
-	pixel_y = 10
-	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Idris Runabout";
 	master_tag = "airlock_idris_cruiser_shuttle";
@@ -3814,6 +3826,13 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
 	pixel_x = -22
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = -22;
+	pixel_y = 10;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -6216,6 +6235,9 @@
 	dir = 4;
 	name = "aft, engine compartment"
 	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
 /turf/simulated/wall/shuttle/idris,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "yi" = (
@@ -7761,6 +7783,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/hydroponics)
+"Ea" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "Ec" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor,
@@ -8170,6 +8198,18 @@
 "FK" = (
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
+"FM" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard docking arm"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/corridor/starboard_lobby)
 "FP" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light{
@@ -11056,6 +11096,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
+"Qs" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/idris_cruiser_shuttle/engineering)
 "Qu" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -12756,6 +12805,18 @@
 /obj/machinery/vending/dinnerware/bar,
 /turf/simulated/floor/lino,
 /area/ship/idris_cruiser/bar)
+"Xy" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Safety Blast Doors";
+	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port docking arm"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/corridor/dockingarm/port)
 "XA" = (
 /obj/machinery/washing_machine,
 /obj/machinery/light,
@@ -13282,6 +13343,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/crew_fore)
+"ZJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, pool"
+	},
+/turf/simulated/wall/shuttle/idris,
+/area/ship/idris_cruiser/pool)
 "ZK" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark/full,
@@ -23959,13 +24026,13 @@ MX
 MX
 MX
 MX
-xd
 MX
 MX
-xd
 MX
 MX
-xd
+MX
+MX
+MX
 MX
 MX
 MX
@@ -24365,13 +24432,13 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
-MX
-MX
-MX
 Dz
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -24971,13 +25038,13 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
-MX
-MX
-MX
 Dz
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -25577,13 +25644,13 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
-MX
-MX
-MX
 Dz
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -25982,13 +26049,13 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
-MX
-MX
-MX
 vN
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -26105,6 +26172,7 @@ MX
 MX
 MX
 MX
+KI
 MX
 MX
 MX
@@ -26131,6 +26199,7 @@ MX
 MX
 MX
 MX
+Dz
 MX
 MX
 MX
@@ -26151,9 +26220,7 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
+Dz
 MX
 MX
 MX
@@ -26318,7 +26385,7 @@ MX
 MX
 MX
 MX
-KI
+MX
 MX
 MX
 MX
@@ -26593,7 +26660,7 @@ MX
 MX
 MX
 MX
-Dz
+MX
 MX
 MX
 MX
@@ -26738,6 +26805,7 @@ MX
 MX
 MX
 MX
+Dz
 MX
 MX
 MX
@@ -26758,8 +26826,7 @@ MX
 MX
 MX
 MX
-MX
-MX
+Dz
 MX
 MX
 MX
@@ -27199,7 +27266,7 @@ MX
 MX
 MX
 MX
-Dz
+MX
 MX
 MX
 MX
@@ -27344,6 +27411,7 @@ MX
 MX
 MX
 MX
+Dz
 MX
 MX
 MX
@@ -27364,8 +27432,7 @@ MX
 MX
 MX
 MX
-MX
-MX
+Dz
 MX
 MX
 MX
@@ -27548,24 +27615,24 @@ MX
 MX
 MX
 MX
-xd
-MX
-MX
-xd
-MX
-MX
-xd
 MX
 MX
 MX
 MX
-xd
 MX
 MX
-xd
 MX
 MX
-xd
+MX
+MX
+MX
+MX
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -27750,20 +27817,24 @@ MX
 MX
 Fx
 Bz
-TO
+Qs
 TO
 TO
 yh
 Fx
 gR
-Ft
+Ea
 Ft
 tG
 Kz
 Ft
-Ft
+Ea
 XF
 MX
+xd
+MX
+MX
+xd
 MX
 MX
 MX
@@ -27802,10 +27873,6 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
-Dz
 MX
 MX
 MX
@@ -28201,13 +28268,13 @@ MX
 MX
 MX
 MX
-xd
 MX
 MX
-xd
 MX
 MX
-xd
+MX
+MX
+MX
 MX
 MX
 MX
@@ -30988,7 +31055,7 @@ zw
 Os
 zT
 ym
-qq
+FM
 TF
 Ik
 VR
@@ -31791,7 +31858,7 @@ bX
 UP
 UP
 nI
-Up
+ZJ
 Up
 nI
 UP
@@ -35444,7 +35511,7 @@ XM
 ku
 FQ
 XM
-ku
+nO
 ku
 KX
 Cq
@@ -38664,7 +38731,7 @@ MX
 MX
 MX
 ym
-Rg
+Xy
 SO
 Ti
 oI
@@ -39870,24 +39937,24 @@ MX
 MX
 MX
 MX
+xd
 MX
 MX
-MX
-MX
+xd
 MX
 li
-ul
+hO
 ul
 LY
 Cv
 ul
-ul
+hO
 WO
 MX
+xd
 MX
 MX
-MX
-MX
+xd
 MX
 MX
 MX
@@ -40072,24 +40139,24 @@ MX
 MX
 MX
 MX
-xd
-MX
-MX
-xd
-MX
-MX
-xd
 MX
 MX
 MX
 MX
-xd
 MX
 MX
-xd
 MX
 MX
-xd
+MX
+MX
+MX
+MX
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -40272,6 +40339,7 @@ MX
 MX
 MX
 MX
+Dz
 MX
 MX
 MX
@@ -40292,8 +40360,7 @@ MX
 MX
 MX
 MX
-MX
-MX
+Dz
 MX
 MX
 MX
@@ -40878,6 +40945,7 @@ MX
 MX
 MX
 MX
+Dz
 MX
 MX
 MX
@@ -40898,8 +40966,7 @@ MX
 MX
 MX
 MX
-MX
-MX
+Dz
 MX
 MX
 MX
@@ -41056,14 +41123,14 @@ MX
 MX
 MX
 MX
-MX
-MX
-MX
-MX
-MX
-MX
-MX
 Tt
+MX
+MX
+MX
+MX
+MX
+MX
+MX
 MX
 MX
 MX
@@ -41484,6 +41551,7 @@ MX
 MX
 MX
 MX
+Dz
 MX
 MX
 MX
@@ -41504,8 +41572,7 @@ MX
 MX
 MX
 MX
-MX
-MX
+Dz
 MX
 MX
 MX
@@ -41736,7 +41803,7 @@ MX
 MX
 MX
 MX
-MX
+mh
 MX
 MX
 MX
@@ -42755,7 +42822,7 @@ MX
 MX
 MX
 MX
-mh
+MX
 MX
 MX
 MX
