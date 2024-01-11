@@ -50,6 +50,15 @@
 	name = "Point Verdant - Arcade"
 	area_blurb = "The deafening avalanche of arcade machines begging for your attention fill the air, all promising fantastic gaming experiences for fun and prizes."
 
+/area/point_verdant/interior/minimart
+	name = "Point Verdant - Convenience Store"
+
+/area/point_verdant/interior/cafe
+	name = "Point Verdant - Cafe"
+
+/area/point_verdant/interior/streetvendor
+	name = "Point Verdant - Decrepit Street Vendor"
+
 /area/point_verdant/interior/police
 	name = "Point Verdant - Police Department"
 	icon_state = "security"
@@ -78,6 +87,18 @@
 
 /area/point_verdant/interior/offices
 	name = "Point Verdant - Corporate Offices"
+
+/area/point_verdant/interior/offices/basement
+	name = "Point Verdant - Corporate Subterranean Compound"
+
+/area/point_verdant/interior/offices/headquarters
+	name = "Conglomerate Local Command Headquarters"
+
+/area/point_verdant/interior/offices/kaf
+	name = "KAF Military Base"
+
+/area/point_verdant/interior/offices/einstein
+	name = "Einstein Engines System Advisory"
 
 /area/point_verdant/interior/maint_janitorial
 	name = "Point Verdant - Maint/Janitorial"
