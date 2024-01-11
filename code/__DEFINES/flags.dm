@@ -43,6 +43,8 @@ var/list/mimic_defines = list(
 #define ATOM_FLAG_POUR_CONTAINER FLAG(5)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
 #define ATOM_FLAG_HTML_USE_INITIAL_ICON FLAG(6)
+/// If a dense atom like a platform does not allow movement through it like a window pane BUT allows pickup.
+#define ATOM_FLAG_ALWAYS_ALLOW_PICKUP FLAG(7)
 
 // Movable flags.
 
