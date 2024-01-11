@@ -5,10 +5,12 @@
 	no_fake = 1
 
 /datum/event/ccia_general_notice/start()
-	if (!establish_db_connection(dbcon))
+	..()
+
+	if (!establish_db_connection(GLOB.dbcon))
 		LOG_DEBUG("CCIA Autoamtic General Notice - Could not establish database connection")
 		return
-	var/DBQuery/query = dbcon.NewQuery("SELECT SQL_NO_CACHE title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL AND automatic = 1 ORDER BY RAND() LIMIT 1;")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT SQL_NO_CACHE title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL AND automatic = 1 ORDER BY RAND() LIMIT 1;")
 	query.Execute()
 	if (query.NextRow())
 		reporttitle = query.item[1]
@@ -18,4 +20,4 @@
 
 /datum/event/ccia_general_notice/announce()
 	if(announce)
-		command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1);
+		command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1)

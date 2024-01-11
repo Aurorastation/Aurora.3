@@ -43,6 +43,8 @@
 	var/failed_connections = 0
 	var/last_fail
 
+GENERAL_PROTECT_DATUM(/DBConnection)
+
 /DBConnection/New(server, port = 3306, database, username, password_handler, cursor_handler = Default_Cursor, dbi_handler)
 	con_user = username
 	con_password = password_handler
@@ -59,7 +61,7 @@
 	_db_con = _dm_db_new_con()
 
 /DBConnection/proc/Connect(dbi_handler = con_dbi, user_handler = con_user, password_handler = con_password, cursor_handler)
-	if (!config.sql_enabled)
+	if (!GLOB.config.sql_enabled)
 		return 0
 	if (!src)
 		return 0
@@ -76,7 +78,7 @@
 	Connect()
 
 /DBConnection/proc/IsConnected()
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		return 0
 	var/success = _dm_db_is_connected(_db_con)
 	return success
@@ -180,7 +182,7 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	_db_query = _dm_db_new_query()
 	return ..()
 
-/DBQuery/proc/Connect(DBConnection/connection_handler)
+/DBQuery/proc/Connect(var/DBConnection/connection_handler)
 	db_connection = connection_handler
 
 /DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_query = sql, cursor_handler = default_cursor)

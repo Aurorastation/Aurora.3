@@ -6,12 +6,12 @@ SUBSYSTEM_DEF(materials)
 	var/list/materials
 	var/list/materials_by_name
 
-	var/list/autolathe_recipes
 	var/list/autolathe_categories
 
 /datum/controller/subsystem/materials/Initialize()
 	create_material_lists()
-	. = ..()
+
+	return SS_INIT_SUCCESS
 
 /**
  * Initialize the lists of materials, if they are not initialized already

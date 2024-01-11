@@ -47,3 +47,15 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/elyra
 	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_VALLEY_HALE, SECTOR_AEMAQ)
+
+/datum/responseteam/coalition
+	name = "Coalition Rangers"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/coalition
+	possible_space_sector = list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_LIBERTYS_CRADLE, SECTOR_BADLANDS)
+
+/datum/responseteam/konyang
+	name = "Konyang Aerospace Force"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/konyang
+	possible_space_sector = list(SECTOR_HANEUNIM)

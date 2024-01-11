@@ -34,7 +34,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/ssmd_navy_crewman/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssmd_navy_officer
 	short_name = "ssmd_navy_officer"
@@ -71,7 +71,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/ssmd_navy_officer/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssmd_navy_crewman/senior
 	short_name = "ssmd_navy_senior_crewman"
@@ -121,7 +121,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/ssmd_marine_pilot/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
@@ -157,10 +157,10 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /datum/outfit/admin/ssmd_ipc/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/ssmd_ship
 	name = "\improper SSMD patrol ship identification card"
-	access = list(access_sol_ships, access_external_airlocks)
+	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

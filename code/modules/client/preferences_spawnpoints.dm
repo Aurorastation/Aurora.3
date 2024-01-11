@@ -25,7 +25,7 @@
 /datum/spawnpoint/arrivals/New()
 	..()
 	msg = "is inbound from the [current_map.dock_name]"
-	turfs = latejoin
+	turfs = GLOB.latejoin
 
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"
@@ -35,8 +35,8 @@
 
 /datum/spawnpoint/cryo/New()
 	..()
-	turfs = latejoin_cryo
-	command_turfs = latejoin_cryo_command
+	turfs = GLOB.latejoin_cryo
+	command_turfs = GLOB.latejoin_cryo_command
 
 /datum/spawnpoint/cryo/after_join(mob/victim)
 	if(!istype(victim))
@@ -56,7 +56,7 @@
 
 /datum/spawnpoint/cyborg/New()
 	..()
-	turfs = latejoin_cyborg
+	turfs = GLOB.latejoin_cyborg
 
 /datum/spawnpoint/living_quarters_lift
 	display_name = "Living Quarters Lift"
@@ -65,7 +65,7 @@
 
 /datum/spawnpoint/living_quarters_lift/New()
 	..()
-	turfs = latejoin_living_quarters_lift
+	turfs = GLOB.latejoin_living_quarters_lift
 
 /datum/spawnpoint/living_quarters_lift/after_join(mob/victim)
 	if(!istype(victim))

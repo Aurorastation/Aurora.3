@@ -818,7 +818,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/isWireCut(var/wireIndex)
 	// You can find the wires in the datum folder.
-	return QDELETED(wires) ? FALSE : wires.IsIndexCut(wireIndex)
+	return QDELETED(wires) ? FALSE : wires.is_cut(wireIndex)
 
 /obj/machinery/door/airlock/proc/canAIControl()
 	return ((src.ai_control_disabled!=1) && (!src.isAllPowerLoss()));
@@ -832,7 +832,7 @@ About the new airlock wires panel:
 	return (src.main_power_lost_until==0 || src.backup_power_lost_until==0)
 
 /obj/machinery/door/airlock/requiresID()
-	return !(src.isWireCut(AIRLOCK_WIRE_IDSCAN) || ai_disabled_id_scanner)
+	return !(src.isWireCut(WIRE_IDSCAN) || ai_disabled_id_scanner)
 
 /obj/machinery/door/airlock/proc/isAllPowerLoss()
 	if(stat & (NOPOWER|BROKEN))
@@ -842,10 +842,10 @@ About the new airlock wires panel:
 	return FALSE
 
 /obj/machinery/door/airlock/proc/mainPowerCablesCut()
-	return src.isWireCut(AIRLOCK_WIRE_MAIN_POWER1) || src.isWireCut(AIRLOCK_WIRE_MAIN_POWER2)
+	return src.isWireCut(WIRE_POWER1) || src.isWireCut(WIRE_POWER2)
 
 /obj/machinery/door/airlock/proc/backupPowerCablesCut()
-	return src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER1) || src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER2)
+	return src.isWireCut(WIRE_BACKUP1) || src.isWireCut(WIRE_BACKUP2)
 
 /obj/machinery/door/airlock/proc/loseMainPower()
 	main_power_lost_until = mainPowerCablesCut() ? -1 : world.time + SecondsToTicks(60)
@@ -893,7 +893,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/electrify(var/duration, var/feedback = 0)
 	var/message = ""
-	if(isWireCut(AIRLOCK_WIRE_ELECTRIFY) && arePowerSystemsOn())
+	if(isWireCut(WIRE_SHOCK) && arePowerSystemsOn())
 		message = text("The electrification wire is cut - Door permanently electrified.")
 		electrified_until = -1
 	else if(duration && !arePowerSystemsOn())
@@ -919,14 +919,14 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/set_idscan(var/activate, var/feedback = 0)
 	var/message = ""
-	if(src.isWireCut(AIRLOCK_WIRE_IDSCAN))
-		message = "The IdScan wire is cut - IdScan feature permanently disabled."
+	if(src.isWireCut(WIRE_IDSCAN))
+		message = "The IDScan wire is cut - IdScan feature permanently disabled."
 	else if(activate && src.ai_disabled_id_scanner)
 		src.ai_disabled_id_scanner = FALSE
-		message = "IdScan feature has been enabled."
+		message = "IDScan feature has been enabled."
 	else if(!activate && !src.ai_disabled_id_scanner)
 		src.ai_disabled_id_scanner = TRUE
-		message = "IdScan feature has been disabled."
+		message = "IDScan feature has been disabled."
 
 	if(feedback && message)
 		to_chat(usr, message)
@@ -934,7 +934,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/set_safeties(var/activate, var/feedback = 0)
 	var/message = ""
 	// Safeties!  We don't need no stinking safeties!
-	if (src.isWireCut(AIRLOCK_WIRE_SAFETY))
+	if (src.isWireCut(WIRE_SAFETY))
 		message = text("The safety wire is cut - Cannot enable safeties.")
 	else if (!activate && src.safe)
 		safe = FALSE
@@ -1209,7 +1209,7 @@ About the new airlock wires panel:
 				set_safeties(!activate, 1)
 		if("timing")
 			// Door speed control
-			if(src.isWireCut(AIRLOCK_WIRE_SPEED))
+			if(src.isWireCut(WIRE_TIMING))
 				to_chat(usr, text("The timing wire is cut - Cannot alter timing."))
 			else if (activate && src.normalspeed)
 				normalspeed = FALSE
@@ -1217,7 +1217,7 @@ About the new airlock wires panel:
 				normalspeed = TRUE
 		if("lights")
 			// Bolt lights
-			if(src.isWireCut(AIRLOCK_WIRE_LIGHT))
+			if(src.isWireCut(WIRE_BOLTLIGHT))
 				to_chat(usr, "The bolt lights wire is cut - The door bolt lights are permanently disabled.")
 			else if (!activate && src.lights)
 				lights = FALSE
@@ -1232,7 +1232,7 @@ About the new airlock wires panel:
 	if(isrobot(user) && !Adjacent(user))
 		to_chat(user, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
 		return
-	if(isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
+	if(isWireCut(WIRE_BOLTLIGHT)) // cut wire is noop
 		to_chat(user, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 	else if(isAdmin || issilicon(user)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
 		if(!arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
@@ -1259,7 +1259,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/bolts_override(var/mob/user, var/activate, var/isAdmin, var/antag)
 	if(isAdmin || (issilicon(user) && antag)) // admin and silicon antag can override
-		if(!isAdmin && src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop, except for admins
+		if(!isAdmin && src.isWireCut(WIRE_BOLTLIGHT)) // cut wire is noop, except for admins
 			to_chat(user, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 		else if(!isAdmin && !arePowerSystemsOn()) // door must be powered - display friendly message if not (admins can magically skip this)
 			to_chat(user, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
@@ -1337,7 +1337,7 @@ About the new airlock wires panel:
 		if (istype(mover, /obj/item))
 			var/obj/item/i = mover
 			if (i.matter && (DEFAULT_WALL_MATERIAL in i.matter) && i.matter[DEFAULT_WALL_MATERIAL] > 0)
-				spark(src, 5, alldirs)
+				spark(src, 5, GLOB.alldirs)
 	return ..()
 
 /obj/machinery/door/airlock/attack_hand(mob/user as mob)
@@ -1390,7 +1390,7 @@ About the new airlock wires panel:
 				return
 	if(src.p_open)
 		user.set_machine(src)
-		wires.Interact(user)
+		wires.interact(user)
 	else
 		..(user)
 	return
@@ -1529,7 +1529,7 @@ About the new airlock wires panel:
 			if(isrobot(usr) && !Adjacent(usr))
 				to_chat(usr, SPAN_WARNING("Your frame does not allow long distance wireless bolt control, you will need be adjacent the door."))
 				return
-			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
+			if(src.isWireCut(WIRE_BOLTLIGHT)) // cut wire is noop
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 			else if(isAdmin || issilicon(usr)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
 				if(!src.arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
@@ -1555,7 +1555,7 @@ About the new airlock wires panel:
 						to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
 		if("bolts_override")
 			if(isAdmin || (issilicon(usr) && antag)) // admin and silicon antag can override
-				if(!isAdmin && src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop, except for admins
+				if(!isAdmin && src.isWireCut(WIRE_BOLTLIGHT)) // cut wire is noop, except for admins
 					to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 				else if(!isAdmin && !src.arePowerSystemsOn()) // door must be powered - display friendly message if not (admins can magically skip this)
 					to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
@@ -1595,7 +1595,7 @@ About the new airlock wires panel:
 				set_safeties(!activate, 1)
 		if("timing")
 			// Door speed control
-			if(src.isWireCut(AIRLOCK_WIRE_SPEED))
+			if(src.isWireCut(WIRE_TIMING))
 				to_chat(usr, text("The timing wire is cut - Cannot alter timing."))
 			else if (activate && src.normalspeed)
 				normalspeed = FALSE
@@ -1603,7 +1603,7 @@ About the new airlock wires panel:
 				normalspeed = TRUE
 		if("lights")
 			// Bolt lights
-			if(src.isWireCut(AIRLOCK_WIRE_LIGHT))
+			if(src.isWireCut(WIRE_BOLTLIGHT))
 				to_chat(usr, "The bolt lights wire is cut - The door bolt lights are permanently disabled.")
 			else if (!activate && src.lights)
 				lights = FALSE
@@ -1837,7 +1837,7 @@ About the new airlock wires panel:
 		if ((O.client && !( O.blinded )))
 			O.show_message("[src.name]'s control panel bursts open, sparks spewing out!")
 
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
 	update_icon()
 	return
@@ -1860,7 +1860,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/can_open(var/forced=0)
 	if(!forced)
-		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
+		if(!arePowerSystemsOn() || isWireCut(WIRE_OPEN))
 			return 0
 	if (bracer)
 		do_animate("brace")
@@ -1875,7 +1875,7 @@ About the new airlock wires panel:
 		return 0
 	if(!forced)
 		//despite the name, this wire is for general door control.
-		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
+		if(!arePowerSystemsOn() || isWireCut(WIRE_OPEN))
 			return	0
 	return ..()
 
@@ -1929,7 +1929,7 @@ About the new airlock wires panel:
 	var/turf/T = loc
 	if(istype(T))
 		var/list/valid_turfs = list()
-		for(var/dir_to_test in cardinal)
+		for(var/dir_to_test in GLOB.cardinal)
 			var/turf/new_turf = get_step(T, dir_to_test)
 			if(!new_turf.contains_dense_objects())
 				valid_turfs |= new_turf
@@ -1997,7 +1997,7 @@ About the new airlock wires panel:
 	if(!src.locked)
 		return
 	if (!forced)
-		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) return
+		if(operating || !src.arePowerSystemsOn() || isWireCut(WIRE_BOLTS)) return
 	src.locked = FALSE
 	playsound(src, bolts_rising, 30, 0, -6)
 	update_icon()

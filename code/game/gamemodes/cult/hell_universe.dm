@@ -36,9 +36,9 @@ In short:
 
 // Apply changes when entering state
 /datum/universal_state/hell/OnEnter()
-	SSgarbage.disable()	// Yeah, fuck it. No point hard-deleting stuff now.
+	SSgarbage.can_fire = FALSE	// Yeah, fuck it. No point hard-deleting stuff now.
 
-	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
+	GLOB.escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
 	//Separated into separate procs for profiling
 	AreaSet()
@@ -51,7 +51,7 @@ In short:
 	SScult.rune_boost += 9001	//basically removing the rune cap
 
 /datum/universal_state/hell/proc/AreaSet()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
@@ -96,7 +96,7 @@ In short:
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/KillMobs()
-	for(var/mob/living/simple_animal/M in mob_list)
+	for(var/mob/living/simple_animal/M in GLOB.mob_list)
 		if(M && !M.client)
 			M.set_stat(DEAD)
 		CHECK_TICK

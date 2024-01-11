@@ -101,7 +101,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 			printer_recipe_list_upgraded += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = TRUE, "category" = category))
 
 
-	..()
+	return SS_INIT_SUCCESS
 
 #undef IC_SPAWN_DEFAULT
 #undef IC_SPAWN_RESEARCH

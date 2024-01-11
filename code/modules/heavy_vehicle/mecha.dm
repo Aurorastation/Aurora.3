@@ -229,7 +229,7 @@
 	update_icon()
 
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 	. = INITIALIZE_HINT_LATELOAD
 

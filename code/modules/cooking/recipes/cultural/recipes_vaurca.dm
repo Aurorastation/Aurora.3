@@ -66,3 +66,11 @@
 	reagents = list(/singleton/reagent/mental/vkrexi = 1) //NOTE: This means the RAEGENT of vkrexi taffy, not the solid item! you might have to grind the item to get it.
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/vkrexiwrap/veggie
+
+/singleton/recipe/phoron_river_loaf
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/friedkois,
+		/obj/item/reagent_containers/food/snacks/phoroncandy
+	)
+	result = /obj/item/reagent_containers/food/snacks/phoron_river_loaf

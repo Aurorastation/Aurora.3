@@ -149,7 +149,7 @@ var/bomb_set
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
 	if (extended)
 		if (panel_open)
-			wires.Interact(user)
+			wires.interact(user)
 		else
 			ui_interact(user)
 	else if (deployable)
@@ -273,7 +273,7 @@ var/bomb_set
 					to_chat(usr, "<span class='warning'>The safety is still on.</span>")
 					SSnanoui.update_uis(src)
 					return
-				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_TIMING))
+				if (wires.is_cut(WIRE_TIMING))
 					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
 					SSnanoui.update_uis(src)
 					return
@@ -290,7 +290,7 @@ var/bomb_set
 					set_security_level(SEC_LEVEL_DELTA)
 					alerted = 1
 			if (href_list["safety"])
-				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
+				if (wires.is_cut(WIRE_SAFETY))
 					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
 					SSnanoui.update_uis(src)
 					return

@@ -35,6 +35,11 @@
 	var/list/actors = list() //things that appear in engravings on xenoarch finds.
 	var/list/species = list() //list of names to use for simple animals
 
+	var/flora_diversity = 0
+	var/has_trees = FALSE
+	var/list/small_flora_types = list()
+	var/list/big_flora_types = list()
+
 	var/repopulating = 0
 	var/repopulate_types = list() // animals which have died that may come back
 
@@ -114,6 +119,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
 	generate_habitability()
 	generate_atmosphere()
+	generate_flora()
 	generate_map()
 	generate_features()
 	generate_landing(2)
@@ -160,8 +166,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					death_event.register(S, src, PROC_REF(remove_animal))
-					destroyed_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -182,8 +188,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
 	animals -= M
-	death_event.unregister(M, src)
-	destroyed_event.unregister(M, src)
+	GLOB.death_event.unregister(M, src)
+	GLOB.destroyed_event.unregister(M, src)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
@@ -433,3 +439,15 @@
 			colors += gas_data.tile_overlay_color[g]
 	if(colors.len)
 		return MixColors(colors)
+
+/obj/effect/landmark/exoplanet_spawn/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/exoplanet_spawn/LateInitialize(mapload)
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
+	if (istype(E))
+		do_spawn(E)
+
+/obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
+	return

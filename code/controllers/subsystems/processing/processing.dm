@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(processing)
 	STOP_PROCESSING(src, D)
 
 /datum/controller/subsystem/processing/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/processing/ExplosionEnd()
-	wake()
+	can_fire = TRUE

@@ -16,8 +16,8 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(access_lawyer, access_maint_tunnels)
-	minimal_access = list(access_lawyer)
+	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_LAWYER)
 	alt_titles = list(
 		"Workplace Liaison",
 		"Corporate Representative",
@@ -36,7 +36,7 @@
 
 /datum/job/representative/on_despawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)
-	LAZYADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -124,8 +124,8 @@
 		SPECIES_SKRELL_AXIORI = 170
 	)
 
-	access = list(access_consular, access_maint_tunnels)
-	minimal_access = list(access_consular)
+	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
@@ -158,11 +158,11 @@
 
 /datum/job/consular/pre_spawn(mob/abstract/new_player/player)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[player.client.prefs.citizenship]
-	LAZYADD(blacklisted_citizenship, citizenship.name)
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
 
 /datum/job/consular/after_spawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
-	LAZYADD(blacklisted_citizenship, citizenship.name)
+	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
 
 /datum/job/consular/on_despawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]

@@ -54,7 +54,7 @@
 		H.wear_suit.color = pick("#4f3911", "#292826")
 
 /datum/outfit/admin/heph_security/get_id_access()
-	return list(access_hephaestus, access_external_airlocks)
+	return list(ACCESS_HEPHAESTUS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"

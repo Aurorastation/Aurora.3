@@ -33,6 +33,9 @@
 	var/recharge_multiplier = 1
 	var/charge_tick = 0
 
+	/// External power source for the gun. Checked by get_external_power_supply()
+	var/obj/item/recharger
+
 	//vars passed to turrets
 	var/can_turret = 0						//1 allows you to attach the gun on a turret
 	var/secondary_projectile_type = null	//if null, turret defaults to projectile_type
@@ -82,6 +85,8 @@
 	update_maptext()
 
 /obj/item/gun/energy/Destroy()
+	if(recharger)
+		disconnect()
 	QDEL_NULL(power_supply)
 	return ..()
 
@@ -119,6 +124,8 @@
 	if(isrobot(src.loc.loc)) // for things inside a robot's module
 		var/mob/living/silicon/robot/R = src.loc.loc
 		return R.cell
+	if(recharger)
+		return recharger.get_cell()
 	if(istype(src.loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = src.loc
 		if(module.holder && module.holder.wearer)
@@ -131,6 +138,94 @@
 		return loc.get_cell()
 
 	return null
+
+/**
+* Connects the energy gun to an external power supply
+*
+* * powersource - the power supply in question. Can either be /obj/item/rig_module/recharger or /obj/item/recharger_backpack.
+*/
+/obj/item/gun/energy/proc/connect(obj/item/powersource)
+	SHOULD_NOT_SLEEP(TRUE)
+	if(recharger)
+		to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [recharger]!"))
+		return
+
+	if(istype(powersource, /obj/item/rig_module/recharger))
+		var/obj/item/rig_module/recharger/rigcharge = powersource
+
+		if(!rigcharge.holder || !rigcharge.holder.wearer)
+			to_chat(usr, SPAN_WARNING("\The [rigcharge] must be installed in a rig and active!"))
+			return
+
+		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [powersource]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		rigcharge.connected = src
+		recharger = rigcharge.holder
+		self_recharge = TRUE
+		use_external_power = TRUE
+
+	if(istype(powersource, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/back_charge = powersource
+
+		if(!ismob(loc))
+			to_chat(usr, SPAN_WARNING("\The [back_charge] must be worn on the back before a weapon can be connected!"))
+			return
+
+		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [powersource]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		back_charge.connect(src)
+		recharger = back_charge
+		self_recharge = TRUE
+		use_external_power = TRUE
+
+
+///Disconnects the energy gun from its external power source if one exists.
+/obj/item/gun/energy/proc/disconnect()
+	SHOULD_NOT_SLEEP(TRUE)
+	if(!recharger)
+		to_chat(usr, SPAN_WARNING("\The [src] lacks an external power source to disconnect!"))
+		return
+
+	if(istype(recharger, /obj/item/rig))
+		var/obj/item/rig/rig = recharger
+		var/obj/item/rig_module/recharger/rigcharger = locate() in rig.installed_modules
+		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [recharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		if(rigcharger.active)
+			rigcharger.deactivate()
+
+		rigcharger.connected = null
+
+	else if(istype(recharger, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/backcharger = recharger
+		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [recharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		backcharger.connected = null
+
+	recharger = null
+	self_recharge = initial(self_recharge)
+	use_external_power = initial(use_external_power)
+
+/obj/item/gun/energy/MouseDrop(atom/over)
+	. = ..()
+
+
+	if(istype(over, /obj/item/rig))
+		var/obj/item/rig/rig = over
+		var/obj/item/rig_module/recharger/rigcharge = locate() in rig.installed_modules
+		if(rigcharge)
+			connect(rigcharge)
+
+	else if(istype(over, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/backcharge = over
+		connect(backcharge)
+
+
+/obj/item/gun/energy/dropped(mob/living/user)
+	. = ..()
+
+	if(recharger)
+		disconnect()
 
 /obj/item/gun/energy/examine(mob/user, distance, is_adjacent)
 	. = ..()

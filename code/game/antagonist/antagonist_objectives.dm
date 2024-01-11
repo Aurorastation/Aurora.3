@@ -1,12 +1,12 @@
 /datum/antagonist/proc/create_global_objectives()
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		return 0
 	if(global_objectives && global_objectives.len)
 		return 0
 	return 1
 
 /datum/antagonist/proc/create_objectives(var/datum/mind/player)
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		return 0
 	if(create_global_objectives() || global_objectives.len)
 		player.objectives |= global_objectives
@@ -17,7 +17,7 @@
 
 /datum/antagonist/proc/check_victory()
 	var/result = 1
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		return 1
 	if(global_objectives && global_objectives.len)
 		for(var/datum/objective/O in global_objectives)

@@ -136,7 +136,7 @@
 
 /obj/machinery/computer/telescience/proc/sparks()
 	if(telepad)
-		spark(telepad, 5, alldirs)
+		spark(telepad, 5, GLOB.alldirs)
 	else
 		return
 
@@ -192,7 +192,7 @@
 			// use a lot of power
 			use_power_oneoff(power * 10)
 
-			spark(telepad, 5, alldirs)
+			spark(telepad, 5, GLOB.alldirs)
 
 			temp_msg = "Bluespace portal creation successful.<BR>"
 			if(teles_left < 10)
@@ -200,7 +200,7 @@
 			else
 				temp_msg += "Data printed below."
 
-			spark(telepad, 5, alldirs)
+			spark(telepad, 5, GLOB.alldirs)
 
 			var/turf/source = target
 			var/turf/dest = get_turf(telepad)

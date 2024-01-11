@@ -30,6 +30,8 @@ SUBSYSTEM_DEF(battle_monsters)
 	GenerateDatum(BATTLE_MONSTERS_GEN_TRAP)
 	GenerateDatum(BATTLE_MONSTERS_GEN_SPELL)
 
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/battle_monsters/proc/CreateCard(var/identifier,var/turf/cardloc)
 	var/list/splitstring = dd_text2List(identifier,",")
 	var/obj/item/battle_monsters/card/new_card

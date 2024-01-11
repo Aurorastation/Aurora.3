@@ -7,7 +7,6 @@
 	ship_cost = 1
 	id = "goon"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/goon_ship)
-
 	unit_test_groups = list(2)
 
 /singleton/submap_archetype/goon
@@ -16,7 +15,12 @@
 
 /obj/effect/overmap/visitable/sector/goon
 	name = "asteroid lair"
-	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer.  Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. Extreme caution is advised."
+	desc = "\
+		Scans reveal that there is a unregistered structure within this asteroid, \
+		as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. \
+		Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. \
+		Extreme caution is advised.\
+		"
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_goon_1",
@@ -31,39 +35,15 @@
 	base_turf = /turf/space
 	base_area = /area/space
 
-/obj/item/paper/goon_base
-	name = "/obj/item/paper/goon_base/ parent object"
-	desc = DESC_PARENT
-
-/obj/item/paper/goon_base/note
-	name = "dirty note"
-	info = "hey, boss <br>\
-			<br>\
-		<br>\
-		i had a bit of an acidnet when i was workig the smes <br>\
-		it fuckcng blew up <br>\
-		it wasnt my fault this time. i dident fuck up like u always say i do. it just blew op on its own <br>\
-		<br>\
-		only reason im teling you throgh this note insted of in person <br>\
-		(i fuckimg hate writing) is becaus i knew youd kill me <br>\
-		you threw jake, the olnly real enginer we ever had in this crew out of the airlock cause he short circiuted the booze vendor by accidnet <br>\
-		<br>\
-		so honestely if you guys are stuck here now and have to cannibelaize that dork we snatched last job to not starve then seriusly its ur fault not mine <br>\
-		i got a contact to pick me up, im far gon. u wont find me. dont try to find me if you dont end up starveng here <br>\
-		<br>\
-		<br>\
-		~love, daryl <br>\
-		"
-
-/obj/item/paper/goon_base/notice
-	name = "important notice"
-	info = "REMEMBER TO PUT THE BOOKSHELVES BACK IN PLACE WHEN YOU LEAVE! DON'T WANT ANY POTENTIAL TRESPASSING ASSHOLES STEALING OUR SHIT WHEN WE AREN'T HERE."
-
 //ship stuff
 /obj/effect/overmap/visitable/ship/landable/goon_ship
 	name = "Wanted Vessel"
 	class = "ICV"
-	desc = "A Leapfrog model multi-purpose vessel. An old, rudimentary Hephaestus manufactured vessel that sees use by all sorts of people. This one has a bounty placed on it by the Coalition of Colonies for piracy and kidnapping."
+	desc = "\
+		A Leapfrog model multi-purpose vessel. \
+		An old, rudimentary Hephaestus manufactured vessel that sees use by all sorts of factions and organization. \
+		This one has a bounty placed on it by the Coalition of Colonies for piracy and kidnapping.\
+		"
 	shuttle = "Wanted Vessel"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -89,8 +69,8 @@
 /datum/shuttle/autodock/overmap/goon_ship
 	name = "Wanted Vessel"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/goon_ship/bridge, /area/shuttle/goon_ship/storage, /area/shuttle/goon_ship/med,
-						/area/shuttle/goon_ship/starboard, /area/shuttle/goon_ship/port, /area/shuttle/goon_ship/living)
+	shuttle_area = list(/area/shuttle/goon_shuttle/bridge, /area/shuttle/goon_shuttle/storage, /area/shuttle/goon_shuttle/med,
+						/area/shuttle/goon_shuttle/starboard, /area/shuttle/goon_shuttle/port, /area/shuttle/goon_shuttle/living)
 	dock_target = "goon_ship"
 	current_location = "nav_hangar_goon_ship"
 	landmark_transition = "nav_transit_goon_ship"

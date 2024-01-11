@@ -34,7 +34,7 @@
 			M.change_skin_color(192, 192, 192)
 
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(cardinal)
+	M.dir = pick(GLOB.cardinal)
 
 /obj/item/photo/soldier
 	name = "family photo"

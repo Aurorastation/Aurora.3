@@ -34,7 +34,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/imperial_fleet_voidsman/get_id_access()
-	return list(access_imperial_fleet_voidsman_ship, access_external_airlocks)
+	return list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/imperial_fleet_voidsman/officer
 	short_name = "imperial_fleet_voidsman_officer"
@@ -102,4 +102,4 @@
 
 /obj/item/card/id/imperial_fleet
 	name = "imperial fleet id"
-	access = list(access_imperial_fleet_voidsman_ship, access_external_airlocks)
+	access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

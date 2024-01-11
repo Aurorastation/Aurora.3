@@ -104,7 +104,7 @@
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
-	var/list/req_access = list(access_robotics)
+	var/list/req_access = list(ACCESS_ROBOTICS)
 	var/key_type
 	var/scrambled_codes = FALSE // When true, doesn't show up on robotics console.
 
@@ -169,7 +169,7 @@
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
 		else
 			camera.replace_networks(list(NETWORK_MERCENARY))
-		if(wires.IsIndexCut(BORG_WIRE_CAMERA))
+		if(wires.is_cut(WIRE_CAMERA))
 			camera.status = FALSE
 
 	init()
@@ -206,14 +206,14 @@
 
 /mob/living/silicon/robot/proc/update_access()
 	if(emagged || malf_AI_module || crisis)
-		id_card.access = get_all_station_access() + access_equipment // Give full station access
+		id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
 		return
 
 	id_card = new id_card_type()
 
 	if(module)
 		if(module.all_access)
-			id_card.access = get_all_station_access() + access_equipment // Give full station access
+			id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
 			return
 
 		for(var/job_type in module.specialized_access_types)
@@ -337,7 +337,7 @@
 		selecting_module = FALSE
 		return
 	var/list/modules = list()
-	modules.Add(robot_module_types)
+	modules.Add(GLOB.robot_module_types)
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
@@ -352,7 +352,7 @@
 
 	var/module_type = robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
-	spark(get_turf(src), 5, alldirs)
+	spark(get_turf(src), 5, GLOB.alldirs)
 
 	new module_type(src, src) // i have no choice but to do this, due to how funky initialize is
 
@@ -659,7 +659,7 @@
 						to_chat(user, SPAN_NOTICE("You close \the [src]'s maintenance hatch."))
 						opened = FALSE
 						handle_panel_overlay()
-				else if(wires_exposed && wires.IsAllCut())
+				else if(wires_exposed && wires.is_all_cut())
 					//Cell is out, wires are exposed, remove MMI, produce damaged chassis, baleet original mob.
 					if(!mmi)
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
@@ -742,7 +742,7 @@
 				handle_panel_overlay()
 		else if(W.iswirecutter() || W.ismultitool())
 			if(wires_exposed)
-				wires.Interact(user)
+				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 				return
@@ -825,7 +825,7 @@
 
 //Robots take half damage from basic attacks.
 /mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
-	return ..(user,Floor(damage/2),attack_message)
+	return ..(user,FLOOR(damage/2),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
 	// Check if the borg doesn't require any access at all
@@ -1125,7 +1125,7 @@
 
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
-	spark(get_turf(src), 5, alldirs)
+	spark(get_turf(src), 5, GLOB.alldirs)
 	remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 
@@ -1232,9 +1232,9 @@
 			clear_supplied_laws()
 			clear_inherent_laws()
 			laws = new /datum/ai_laws/syndicate_override
-			id_card.access = get_all_station_access() + access_equipment // Give full station access
+			id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
 			var/time = time2text(world.realtime, "hh:mm:ss")
-			lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+			GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 			set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")
 			. = TRUE
 			spawn()

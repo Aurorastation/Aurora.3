@@ -67,7 +67,7 @@
 
 /mob/living/silicon/robot/handle_regular_status_updates()
 	if(camera && !scrambled_codes)
-		if(stat == DEAD || wires.IsIndexCut(BORG_WIRE_CAMERA))
+		if(stat == DEAD || wires.is_cut(WIRE_CAMERA))
 			camera.set_status(0)
 		else
 			camera.set_status(1)
@@ -81,7 +81,7 @@
 	if(resting)
 		Weaken(5)
 
-	if(health < config.health_threshold_dead && stat != DEAD) //die only once
+	if(health < GLOB.config.health_threshold_dead && stat != DEAD) //die only once
 		death()
 
 	if(stat != DEAD)
@@ -200,7 +200,7 @@
 					healths.icon_state = "health3"
 				else if(health >= 0)
 					healths.icon_state = "health4"
-				else if(health >= config.health_threshold_dead)
+				else if(health >= GLOB.config.health_threshold_dead)
 					healths.icon_state = "health5"
 				else
 					healths.icon_state = "health6"

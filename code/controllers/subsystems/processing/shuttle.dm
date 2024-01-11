@@ -38,7 +38,8 @@ SUBSYSTEM_DEF(shuttle)
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
 	block_queue = FALSE
 	clear_init_queue()
-	. = ..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/shuttle/fire(resumed = FALSE)
 	if (!resumed)
@@ -101,7 +102,7 @@ SUBSYSTEM_DEF(shuttle)
 			try_add_landmark_tag(shuttle_landmark_tag, O)
 			landmarks_still_needed -= shuttle_landmark_tag
 		else if(istype(shuttle_landmark, /obj/effect/shuttle_landmark/automatic)) //These find their sector automatically
-			O = map_sectors["[shuttle_landmark.z]"]
+			O = GLOB.map_sectors["[shuttle_landmark.z]"]
 			if(O)
 				O.add_landmark(shuttle_landmark, shuttle_landmark.shuttle_restricted)
 			else

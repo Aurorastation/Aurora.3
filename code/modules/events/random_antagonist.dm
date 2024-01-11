@@ -6,11 +6,13 @@
 	return
 
 /datum/event/random_antag/start()
+	..()
+
 	var/list/valid_types = list()
-	for(var/antag_type  in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type  in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if(antag.flags & ANTAG_RANDSPAWN)
 			valid_types |= antag
-	if(valid_types.len && master_mode != "extended")
+	if(valid_types.len && GLOB.master_mode != "extended")
 		var/datum/antagonist/antag = pick(valid_types)
 		antag.attempt_random_spawn()

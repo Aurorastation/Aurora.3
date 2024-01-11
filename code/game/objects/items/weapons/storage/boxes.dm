@@ -1263,3 +1263,36 @@
 		/obj/item/landmine/claymore = 5,
 		/obj/item/device/assembly/signaler = 6
 		)
+
+/obj/item/storage/box/tea
+	name = "sencha cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
+	desc_info = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
+				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "can"
+	item_state = "can"
+	contained_sprite = TRUE
+	max_storage_space = 1
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
+	)
+
+/obj/item/storage/box/tea/tieguanyin
+	name = "tieguanyin cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
+	icon_state = "can_tie"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
+	)
+
+/obj/item/storage/box/tea/jaekseol
+	name = "jaekseol cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
+	icon_state = "can_jaek"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
+	)
