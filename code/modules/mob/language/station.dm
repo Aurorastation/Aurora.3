@@ -258,7 +258,7 @@
 		if(player == speaker)
 			to_chat(player, msg)
 		else if(isobserver(player))
-			player.show_message("[ghost_follow_link(speaker, player)] [msg]", 1)
+			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
 				var/mob/living/carbon/human/listener_human = player
