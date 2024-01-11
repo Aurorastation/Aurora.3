@@ -843,6 +843,6 @@
 		var/image/I = image(res.icon, "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]-leaves")
 		I.color = get_trait(TRAIT_LEAVES_COLOUR)
 		I.appearance_flags = RESET_COLOR
-		res.overlays += I
+		res.add_overlay(I)
 
 	return res
