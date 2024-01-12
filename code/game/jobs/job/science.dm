@@ -146,6 +146,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist
 
+	headset = /obj/item/device/radio/headset/headset_xenoarch
+	bowman = /obj/item/device/radio/headset/headset_xenoarch/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
+
 /datum/job/xenobiologist
 	title = "Xenobiologist"
 	flag = XENOBIOLOGIST
