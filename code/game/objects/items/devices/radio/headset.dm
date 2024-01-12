@@ -478,23 +478,23 @@
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
 /obj/item/device/radio/headset/headset_xenoarch
-	name = "science radio headset"
+	name = "xenoarchaeology radio headset"
 	desc = "A sciency headset for Xenoarchaeologists."
 	icon_state = "sci_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
 
 /obj/item/device/radio/headset/headset_xenoarch/alt
-	name = "science bowman headset"
+	name = "xenoarchaeology bowman headset"
 	icon_state = "sci_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/xenoarch
-	name = "soundproof science headset"
+	name = "soundproof xenoarchaeology headset"
 	icon_state = "earset_sci"
 	item_state = "earset_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
 
 /obj/item/device/radio/headset/wrist/xenoarch
-	name = "wristbound science radio"
+	name = "wristbound xenoarchaeology radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
