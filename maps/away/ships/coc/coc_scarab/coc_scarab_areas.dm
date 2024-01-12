@@ -95,6 +95,10 @@
 	name = "Scarab Salvage Vessel - Port Thruster"
 	icon_state = "blue2"
 
+/area/ship/coc_scarab/exterior
+	name = "Scarab Salvage Vessel - Exterior"
+	requires_power = FALSE
+
 /area/shuttle/scarab_harvester
 	name = "Scarab Gas Harvester"
 	requires_power = TRUE
