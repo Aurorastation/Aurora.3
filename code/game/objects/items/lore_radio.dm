@@ -9,11 +9,17 @@
 	var/current_station = null
 	var/broadcast = FALSE
 	var/list/broadcasts_in_line = list()
+	var/starts_on = FALSE //so you can map it and have it broadcast without anyone turning it on
 
 /obj/item/lore_radio/Initialize()
 	. = ..()
-	if(receiving)
-		START_PROCESSING(SSprocessing, src)
+	if(starts_on)
+		toggle_receiving()
+
+/obj/item/lore_radio/examine(var/mob/user)
+	. = ..()
+	if(receiving && current_station)
+		to_chat(user, "\The [src] is broadcasing \the [current_station] radio station.")
 
 /obj/item/lore_radio/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -28,7 +34,6 @@
 		if(picked_station)
 			turn_off_broadcast()
 			current_station = picked_station
-
 	else
 		visible_message("<b>\The [src]</b> only emits white noise...")
 
@@ -43,7 +48,7 @@
 		broadcast = FALSE
 		STOP_PROCESSING(SSprocessing, src)
 		if(M)
-			to_chat(M, "You turn off \the [src]")		
+			to_chat(M, "You turn off \the [src]")
 
 /obj/item/lore_radio/process()
 	if(prob(25))
@@ -63,3 +68,6 @@
 	broadcast = FALSE
 	for (var/T in broadcasts_in_line)
 		deltimer(T)
+
+/obj/item/lore_radio/AltClick(var/mob/user)
+	toggle_receiving(user)
