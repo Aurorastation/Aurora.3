@@ -2275,10 +2275,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab)
-"lb" = (
-/obj/structure/grille,
-/turf/space/dynamic,
-/area/space)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/cable/green{
@@ -3985,14 +3981,6 @@
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
-"uz" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
 "uI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/machinery/meter,
@@ -6754,10 +6742,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
-"IR" = (
-/obj/structure/lattice,
-/turf/space/dynamic,
-/area/space)
 "IU" = (
 /turf/simulated/floor/reinforced/airless,
 /area/ship/coc_scarab/engine)
@@ -44466,7 +44450,7 @@ vZ
 vZ
 vZ
 vZ
-uz
+vZ
 vZ
 pl
 Jw
@@ -48602,10 +48586,10 @@ oi
 oi
 kE
 lX
-IR
-lb
-lb
-IR
+Jw
+XA
+XA
+Jw
 kV
 cB
 cB
@@ -48840,7 +48824,7 @@ cB
 cB
 cB
 cB
-bO
+Kk
 cn
 cB
 cB
@@ -49089,24 +49073,24 @@ cB
 cB
 cB
 cB
-ni
-cB
-cB
-ni
-cB
-cB
-ni
 cB
 cB
 cB
 cB
-ni
 cB
 cB
-ni
 cB
 cB
-ni
+bO
+cn
+cB
+cB
+cB
+cB
+cB
+cB
+cB
+cB
 cB
 cB
 cB
@@ -49346,24 +49330,24 @@ cB
 cB
 cB
 cB
+ni
+cB
+cB
+ni
+cB
+cB
+ni
 cB
 cB
 cB
 cB
+ni
 cB
 cB
+ni
 cB
 cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+ni
 cB
 cB
 cB
