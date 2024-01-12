@@ -23,12 +23,11 @@
 	icon_state = "lammergeier"//td
 	moving_state = "lammergeier_moving"//td
 	colors = list("#df1032", "#d4296b")
-	scanimage = "dominian_science_vessel.png"//td
 	designer = "Zhurong Naval Arsenal, Empire of Dominia"
 	volume = "36 meters length, 67 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Single wingtip-mounted extruding medium-caliber ballistic armament, aft obscured flight craft bay"
-	sizeclass = "Lammergeier-class Corvette"//td
+	sizeclass = "Explorer-class Science Vessel"
 	shiptype = "Survey and scientific research"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -51,11 +50,11 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/dominian_science_vessel/New()
-	designation = "[pick("Lammergeier", "Eagle", "Hawk", "Owl", "Vulture", "Sparrowhawk", "Falcon", "Peregrine", "Condor", "Harrier", "Kestrel", "Osprey", "Yastr", "Merlin", "Kite", "Seriema", "Caracaras")]"//td
+	designation = "[pick("Vanguard", "Voyager", "Explorer", "Owl", "Ocular")]"//td
 	..()
 
 /obj/effect/overmap/visitable/ship/dominian_science_vessel/get_skybox_representation()
-	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "dominian_science_vessel")//td
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "dominian_corvette")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
