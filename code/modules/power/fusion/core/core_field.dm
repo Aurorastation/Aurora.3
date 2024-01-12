@@ -133,8 +133,8 @@
 	switch (plasma_temperature)
 		if (-INFINITY to 1000)
 			light_color = COLOR_RED
-			use_range = light_min_range
-			use_power = light_min_power
+			//use_range = light_min_range
+			//use_power = light_min_power
 			alpha = 30
 		if (1000 to 6000)
 			light_color = COLOR_ORANGE
@@ -153,8 +153,8 @@
 			alpha = 200
 		if (100000 to INFINITY)
 			light_color = COLOR_VIOLET
-			use_range = light_max_range
-			use_power = light_max_power
+			//use_range = light_max_range
+			//use_power = light_max_power
 			alpha = 230
 
 	if (last_range != use_range || last_power != use_power || color != light_color)
