@@ -408,3 +408,7 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/lore_radio
+	display_name = "analog radio"
+	path = /obj/item/lore_radio
