@@ -2676,14 +2676,6 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
-"wb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/airless,
-/area/point_verdant/outdoors)
 "we" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -44056,7 +44048,7 @@ DC
 fR
 fR
 fR
-wb
+Cj
 DC
 DC
 tP
