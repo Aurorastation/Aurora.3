@@ -496,9 +496,9 @@
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "cR" = (
-/obj/structure/lattice,
-/turf/space/dynamic,
-/area/ship/coc_scarab/solars)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/ship/coc_scarab/thrust1)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -2307,6 +2307,7 @@
 	dir = 8;
 	pixel_x = -32
 	},
+/mob/living/heavy_vehicle/premade/light/salvage,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "ln" = (
@@ -2426,10 +2427,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab)
-"mh" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/thrust1)
 "ml" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
@@ -2838,17 +2835,8 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "oY" = (
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/tracker,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, solars"
-	},
-/turf/simulated/floor/airless,
-/area/space)
+/turf/space,
+/area/ship/coc_scarab/solars)
 "pa" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -4675,13 +4663,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scarab_harvester)
 "yQ" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/airless,
+/turf/space,
 /area/space)
 "yR" = (
 /obj/machinery/door/firedoor/noid{
@@ -6387,6 +6369,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
+"Hj" = (
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/tracker,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, solars"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Hp" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/engine)
@@ -7224,16 +7218,14 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_y = 17;
-	density = 0;
-	pixel_x = 6
-	},
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/corner/paleblue{
 	dir = 8
+	},
+/obj/machinery/vending/medical{
+	req_access = null;
+	pixel_y = 32;
+	density = 0;
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/coc_scarab/medical)
@@ -7882,6 +7874,9 @@
 /obj/item/storage/bag/ore,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "Oy" = (
@@ -8974,9 +8969,6 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/engistorage)
 "Tx" = (
@@ -9326,7 +9318,6 @@
 "UW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/light/salvage,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab)
 "UY" = (
@@ -9553,13 +9544,12 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/vending/medical{
-	pixel_x = -32;
-	req_access = null;
-	density = 0
-	},
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 4
+	},
+/obj/structure/sign/greencross{
+	pixel_x = -32;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/coc_scarab/medical)
@@ -38736,7 +38726,7 @@ cB
 cB
 cB
 cB
-mh
+cR
 QJ
 Pw
 Mf
@@ -39250,7 +39240,7 @@ cB
 cB
 cB
 cB
-mh
+cR
 Mo
 jM
 FF
@@ -39507,7 +39497,7 @@ cB
 cB
 cB
 cB
-mh
+cR
 Qo
 jO
 jO
@@ -40533,13 +40523,13 @@ cB
 cB
 IR
 yQ
-sh
-UN
-cR
-Qe
-sh
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 sh
 UN
@@ -40790,13 +40780,13 @@ cB
 IR
 IR
 yQ
-YF
-UN
-cR
-Qe
-YF
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 YF
 UN
@@ -41047,13 +41037,13 @@ cB
 IR
 lb
 yQ
-YF
-UN
-cR
-Qe
-YF
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 YF
 UN
@@ -41304,13 +41294,13 @@ cB
 lb
 lb
 yQ
-YF
-UN
-cR
-Qe
-YF
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 YF
 UN
@@ -41559,15 +41549,15 @@ cB
 cB
 cB
 lb
+Hj
 oY
-bg
-rt
-bg
-bg
-bg
-rt
-bg
-bg
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 bg
 rt
 bg
@@ -41818,13 +41808,13 @@ cB
 lb
 lb
 yQ
-ya
-UN
-cR
-Qe
-ya
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 ya
 UN
@@ -42075,13 +42065,13 @@ cB
 IR
 lb
 yQ
-ya
-UN
-cR
-Qe
-ya
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 ya
 UN
@@ -42332,13 +42322,13 @@ cB
 XA
 IR
 yQ
-ya
-UN
-cR
-Qe
-ya
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 ya
 UN
@@ -42589,13 +42579,13 @@ cB
 cB
 IR
 yQ
-hm
-UN
-cR
-Qe
-hm
-UN
-cR
+oY
+oY
+oY
+oY
+oY
+oY
+oY
 Qe
 hm
 UN
