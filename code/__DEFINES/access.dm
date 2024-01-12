@@ -605,9 +605,9 @@
 	id = ACCESS_SOL_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_TCFL_PEACEKEEPER_SHIP 204
+#define ACCESS_TCAF_SHIPS 204
 /datum/access/tcfl_peacekeeper_ship
-	id = ACCESS_TCFL_PEACEKEEPER_SHIP
+	id = ACCESS_TCAF_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_EE_SPY_SHIP 205
@@ -688,7 +688,7 @@
 #define ACCESS_IDRIS 220
 /datum/access/idris
 	id = ACCESS_IDRIS
-	desc = "Idris Vault Ship"
+	desc = "Idris Ship Crew Member"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_COALITION 221
@@ -719,4 +719,71 @@
 #define ACCESS_HOUSE_VOLVALAAD_SHIP 226
 /datum/access/house_volvalaad_ship
 	id = ACCESS_HOUSE_VOLVALAAD_SHIP
+  access_type = ACCESS_TYPE_CENTCOM
+
+//guest rooms - for any ship/event that requires hotel-esque rooms
+
+#define ACCESS_GUEST_ROOMS 230 //use with req_one_access
+/datum/access/guest_rooms
+	id = ACCESS_GUEST_ROOMS
+	desc = "Guest Rooms - All"
 	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_1 231
+/datum/access/guest_room_1
+	id = ACCESS_GUEST_ROOM_1
+	desc = "Guest Room 1"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_2 232
+/datum/access/guest_room_2
+	id = ACCESS_GUEST_ROOM_2
+	desc = "Guest Room 2"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_3 233
+/datum/access/guest_room_3
+	id = ACCESS_GUEST_ROOM_3
+	desc = "Guest Room 3"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_4 234
+/datum/access/guest_room_4
+	id = ACCESS_GUEST_ROOM_4
+	desc = "Guest Room 4"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_5 235
+/datum/access/guest_room_5
+	id = ACCESS_GUEST_ROOM_5
+	desc = "Guest Room 5"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_6 236
+/datum/access/guest_room_6
+	id = ACCESS_GUEST_ROOM_6
+	desc = "Guest Room 6"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_7 237
+/datum/access/guest_room_7
+	id = ACCESS_GUEST_ROOM_7
+	desc = "Guest Room 7"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_8 238
+/datum/access/guest_room_8
+	id = ACCESS_GUEST_ROOM_8
+	desc = "Guest Room 8"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_9 239
+/datum/access/guest_room_9
+	id = ACCESS_GUEST_ROOM_9
+	desc = "Guest Room 9"
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_GUEST_ROOM_10 240
+/datum/access/guest_room_10
+	id = ACCESS_GUEST_ROOM_10
+	desc = "Guest Room 10"
