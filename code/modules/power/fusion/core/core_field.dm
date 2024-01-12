@@ -126,34 +126,36 @@
 
 /obj/effect/fusion_em_field/proc/update_light_colors()
 	var/use_range
-	var/use_power
+	var/use_power = 0
 	var/temp_mod = ((plasma_temperature-5000)/20000)
-		use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
-		use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
-			switch (plasma_temperature)
-				if (-INFINITY to 1000)
-					light_color = COLOR_RED
-					alpha = 30
-				if (1000 to 6000)
-					light_color = COLOR_ORANGE
-					alpha = 50
-				if (6000 to 20000)
-					light_color = COLOR_YELLOW
-					alpha = 80
-				if (20000 to 50000)
-					light_color = COLOR_GREEN
-					alpha = 120
-				if (50000 to 70000)
-					light_color = COLOR_CYAN
-					alpha = 160
-				if (70000 to 100000)
-					light_color = COLOR_BLUE
-					alpha = 200
-				if (100000 to INFINITY)
-					light_color = COLOR_VIOLET
-					use_range = light_max_range
-					use_power = light_max_power
-					alpha = 230
+	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
+	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
+	switch (plasma_temperature)
+		if (-INFINITY to 1000)
+			light_color = COLOR_RED
+			use_range = light_min_range
+			use_power = light_min_power
+			alpha = 30
+		if (1000 to 6000)
+			light_color = COLOR_ORANGE
+			alpha = 50
+		if (6000 to 20000)
+			light_color = COLOR_YELLOW
+			alpha = 80
+		if (20000 to 50000)
+			light_color = COLOR_GREEN
+			alpha = 120
+		if (50000 to 70000)
+			light_color = COLOR_CYAN
+			alpha = 160
+		if (70000 to 100000)
+			light_color = COLOR_BLUE
+			alpha = 200
+		if (100000 to INFINITY)
+			light_color = COLOR_VIOLET
+			use_range = light_max_range
+			use_power = light_max_power
+			alpha = 230
 
 	if (last_range != use_range || last_power != use_power || color != light_color)
 		set_light(use_range / 6, use_power ? 6 : 0, light_color)
