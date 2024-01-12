@@ -349,3 +349,22 @@ Paper Data
 	BT.id = metadata[1]
 	BT.distance = metadata[2]
 	BT.search_interval = metadata[3] SECONDS
+
+
+// Accessory Slot Settings
+var/datum/gear_tweak/accessory_slot/gear_tweak_accessory_slot = new()
+
+/datum/gear_tweak/accessory_slot
+	var/static/list/accessory_slots = list(GEAR_TWEAK_ACCESSORY_SLOT_UNDER, GEAR_TWEAK_ACCESSORY_SLOT_SUIT, GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE)
+
+/datum/gear_tweak/accessory_slot/get_contents(var/metadata)
+	return "Spawn Slot: [metadata]"
+
+/datum/gear_tweak/accessory_slot/get_default()
+	return GEAR_TWEAK_ACCESSORY_SLOT_UNDER
+
+/datum/gear_tweak/accessory_slot/get_metadata(var/user, var/metadata)
+	return tgui_input_list(user, "Choose a type.", "Character Preference", accessory_slots, metadata)
+
+/datum/gear_tweak/accessory_slot/tweak_item(var/obj/item/clothing/accessory/buddytag/BT, var/list/metadata, var/mob/living/carbon/human/H)
+	return

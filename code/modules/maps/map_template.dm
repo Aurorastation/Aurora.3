@@ -53,14 +53,14 @@
 	var/shuttle_state = pre_init_shuttles()
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
-	SSicon_smooth.disable()
+	SSicon_smooth.can_fire = FALSE
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
 		if (M)
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
-			SSicon_smooth.enable()
+			SSicon_smooth.can_fire = TRUE
 			return FALSE
 
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
@@ -81,7 +81,7 @@
 		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
-	SSicon_smooth.enable()
+	SSicon_smooth.can_fire = TRUE
 	loaded++
 
 	return locate(world.maxx/2, world.maxy/2, world.maxz)
@@ -106,27 +106,32 @@
 	var/list/obj/structure/cable/cables = list()
 	var/list/obj/machinery/power/apc/apcs = list()
 
-	for(var/atom/A in atoms)
+	for(var/atom/A as anything in atoms)
+		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
+			atoms -= A
+			continue
 		if(istype(A, /turf))
 			turfs += A
+			continue
 		if(istype(A, /obj/structure/cable))
 			cables += A
+			continue
+		if(istype(A,/obj/effect/landmark/map_load_mark))
+			LAZYADD(subtemplates_to_spawn, A)
+			continue
+
+		//Not mutually exclusive anymore section, no continue here, keep checking
+
 		if(istype(A, /obj/machinery/atmospherics))
 			atmos_machines += A
 		if(istype(A, /obj/machinery))
 			machines += A
-		if(istype(A,/obj/effect/landmark/map_load_mark))
-			LAZYADD(subtemplates_to_spawn, A)
 		if(istype(A, /obj/machinery/power/apc))
 			apcs += A
-		if(isnull(A))
-			atoms -= A
-		if(A.flags_1 & INITIALIZED_1)
-			atoms -= A
 
 	var/notsuspended
-	if(!SSmachinery.suspended)
-		SSmachinery.suspend()
+	if(!SSmachinery.can_fire)
+		SSmachinery.can_fire = FALSE
 		notsuspended = TRUE
 
 	SSatoms.InitializeAtoms(atoms) // The atoms should have been getting queued there. This flushes the queue.
@@ -134,7 +139,7 @@
 	SSmachinery.setup_powernets_for_cables(cables)
 	SSmachinery.setup_atmos_machinery(atmos_machines)
 	if(notsuspended)
-		SSmachinery.wake()
+		SSmachinery.can_fire = TRUE
 
 	for (var/i in apcs)
 		var/obj/machinery/power/apc/apc = i
@@ -167,20 +172,20 @@
 	var/shuttle_state = pre_init_shuttles()
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
-	SSicon_smooth.disable()
+	SSicon_smooth.can_fire = FALSE
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
 		if (M)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
-			SSicon_smooth.enable()
+			SSicon_smooth.can_fire = TRUE
 			return FALSE
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
 
-	SSicon_smooth.enable()
+	SSicon_smooth.can_fire = TRUE
 	message_admins("[name] loaded at [T.x], [T.y], [T.z]")
 	log_game("[name] loaded at [T.x], [T.y], [T.z]")
 	return TRUE

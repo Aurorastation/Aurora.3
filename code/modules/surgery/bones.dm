@@ -19,7 +19,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && !BP_IS_ROBOTIC(affected) && affected.open >= ORGAN_OPEN_RETRACTED && affected.open < ORGAN_ENCASED_RETRACTED && affected.stage == BONE_PRE_OP
+	return affected && !BP_IS_ROBOTIC(affected) && affected.open >= ORGAN_OPEN_RETRACTED && affected.open < ORGAN_ENCASED_RETRACTED && affected.stage == BONE_PRE_OP && HAS_FLAG(affected.status, ORGAN_BROKEN)
 
 /singleton/surgery_step/glue_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

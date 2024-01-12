@@ -321,8 +321,8 @@
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
-	G.culture = GET_SINGLETON(/singleton/origin_item/culture/golem)
-	G.origin = GET_SINGLETON(/singleton/origin_item/origin/golem)
+	G.set_culture(GET_SINGLETON(/singleton/origin_item/culture/golem))
+	G.set_origin(GET_SINGLETON(/singleton/origin_item/origin/golem))
 	G.accent = G.origin.possible_accents[1]
 	G.citizenship = G.origin.possible_citizenships[1]
 	G.religion = G.origin.possible_religions[1]

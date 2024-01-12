@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(finalize)
 	// Generate contact report.
 	generate_contact_report()
 
-	..()
+	return SS_INIT_SUCCESS
 
 /proc/resort_all_areas()
 	GLOB.all_areas = list()

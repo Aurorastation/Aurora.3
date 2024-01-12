@@ -1,9 +1,22 @@
 /datum/ghostspawner/human/goon
 	short_name = "goon"
 	name = "Pirate Gang Member"
-	desc = "You are part of a wanted pirate gang stranded in their own base due to their vessel being broken down. Now that a unknown ship has landed outside your asteroid base, they might prove to be your ticket to being free once more, or they may be the end of the line for your whole crew. Whatever the case, they'd best buckle up; they're on your turf now. (OOC Note: This is an antagonist role.)"
-	welcome_message = "You awake to the sound of an alarm signifying that a ship has landed nearby! Given that one of your ex-crew members blew up the SMES of your ship some time ago, these trespassers might actually be a blessing in disguise since they may have the tools and expertise to get it back running again. But be careful, odds are they know about your bounty in the Coalition of Colonies. Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. (OOC Note: This is an antagonist role which places typical antagonist expectations on you. You're expected to try to generate an interesting encounter with whoever has docked on the away site. Remember to follow basic escalation rules, and have fun!)"
 	tags = list("External")
+	desc = "\
+		You are part of a pirate gang residing in your own base, having just scored a hit and captured a hostage, \
+		trying to wait out a bounty that was placed on your ship and its crew. \
+		Just now a unknown ship has landed outside your asteroid base, they'd best buckle up, they're on your turf now. \
+		(OOC Note: This is an antagonist role.)\
+		"
+	welcome_message = "\
+		You awake to the sound of an alarm signifying that a ship has landed nearby! \
+		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
+		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
+		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
+		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
+		Remember to follow basic escalation rules, and have fun!)\
+		"
 
 	spawnpoints = list("goon")
 	max_count = 4
@@ -67,9 +80,22 @@
 /datum/ghostspawner/human/goon/boss
 	short_name = "goon_boss"
 	name = "Pirate Gang Boss"
-	desc = "You are the head honcho of a wanted pirate gang stranded in their own base due to their vessel being broken down. Now that a unknown ship has landed outside your asteroid base, they might prove to be your ticket to being free once more, or they may be the end of the line for your whole crew. Whatever the case, they'd best buckle up; they're on your turf now. (OOC Note: This is an antagonist role.)"
 	tags = list("External")
-	welcome_message = "You awake to the sound of an alarm signifying that a ship has landed nearby! Given that one of your ex-crew members blew up the SMES of your ship some time ago, these trespassers might actually be a blessing in disguise since they may have the tools and expertise to get it back running again. But be careful, odds are they know about your bounty in the Coalition of Colonies. Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down.  (OOC Note: This is an antagonist role which places typical antagonist expectations on you. You're expected to try to generate an interesting encounter with whoever has docked on the away site. Remember to follow basic escalation rules, and have fun!)"
+	desc = "\
+		You are the head honcho of a pirate gang residing in your own base, having just scored a hit and captured a hostage, \
+		trying to wait out a bounty that was placed on your ship and its crew. \
+		Just now a unknown ship has landed outside your asteroid base, they'd best buckle up, they're on your turf now. \
+		(OOC Note: This is an antagonist role.)\
+		"
+	welcome_message = "\
+		You awake to the sound of an alarm signifying that a ship has landed nearby! \
+		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
+		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
+		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
+		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
+		Remember to follow basic escalation rules, and have fun!)\
+		"
 
 	spawnpoints = list("goon_boss")
 	max_count = 1
@@ -99,9 +125,16 @@
 /datum/ghostspawner/human/goon/prisoner
 	short_name = "goon_prisoner"
 	name = "Pirate Gang Captive"
-	desc = "Life hasn't been kind to you lately, and now you find yourself a prisoner to a savage pirate gang. Maybe today will finally be the day where your luck turns?"
 	tags = list("External")
-	welcome_message = "Despite the unfortunate luck that has gotten you in this situation, there's one positive thing: the pirates neglected to search you when they first brought you in. It is up to you if you decide it's worth the risk to attempt an escape with what you got, or lie low and hope someone sweeps in and saves you."
+	desc = "\
+		Life hasn't been kind to you lately, and now you find yourself a prisoner to a savage pirate gang. \
+		Maybe today will finally be the day where your luck turns?\
+		"
+	welcome_message = "\
+		Despite the unfortunate luck that has gotten you in this situation, \
+		there's one positive thing: the pirates neglected to fully search you when they first brought you in. \
+		It is up to you if you decide it's worth the risk to attempt an escape with what you got, or lie low and hope someone sweeps in and saves you.\
+		"
 
 	spawnpoints = list("goon_prisoner")
 	max_count = 1

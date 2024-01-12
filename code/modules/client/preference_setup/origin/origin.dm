@@ -94,7 +94,7 @@
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/origin/content(var/mob/user)
-	if(SSrecords.init_state != SS_INITSTATE_DONE)
+	if(!SSrecords.initialized)
 		return "<center><large>Records controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 	var/list/dat = list()
 	var/singleton/origin_item/culture/CL = GET_SINGLETON(text2path(pref.culture))

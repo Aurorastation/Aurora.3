@@ -23,7 +23,8 @@ SUBSYSTEM_DEF(icon_update)
 
 /datum/controller/subsystem/icon_update/Initialize()
 	fire(FALSE, TRUE)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_update/fire(resumed = FALSE, no_mc_tick = FALSE)
 	var/list/icon_update_queue_cache = icon_update_queue
