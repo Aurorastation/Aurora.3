@@ -5717,10 +5717,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/armory)
 "El" = (
-/obj/machinery/smartfridge/foodheater,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "Em" = (
@@ -7288,7 +7288,7 @@
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "LX" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "LY" = (
@@ -7697,10 +7697,10 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Of" = (
-/obj/machinery/appliance/cooker/oven,
 /obj/structure/sign/flag/scarab/large/north{
 	pixel_y = 32
 	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "Og" = (
