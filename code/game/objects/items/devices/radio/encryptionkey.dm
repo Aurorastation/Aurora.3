@@ -185,7 +185,7 @@
 /obj/item/device/encryptionkey/headset_cargo
 	name = "operations radio encryption key"
 	icon_state = "cargo_cypherkey"
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_operations_manager
 	name = "operations managaer radio encryption key"
