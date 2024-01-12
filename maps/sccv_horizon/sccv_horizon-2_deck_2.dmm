@@ -15087,6 +15087,10 @@
 	id = "Bar_Private_Lounge";
 	pixel_y = 24
 	},
+/obj/item/lore_radio{
+	pixel_x = 9;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)
 "gUA" = (
