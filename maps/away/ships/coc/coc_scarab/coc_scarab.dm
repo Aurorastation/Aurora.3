@@ -7,8 +7,7 @@
 	ship_cost = 1
 	id = "coc_scarab"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scarab_gas_harvester, /datum/shuttle/autodock/overmap/scarab_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-	
+
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/coc_scarab
