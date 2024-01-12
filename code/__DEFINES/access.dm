@@ -719,7 +719,7 @@
 #define ACCESS_HOUSE_VOLVALAAD_SHIP 226
 /datum/access/house_volvalaad_ship
 	id = ACCESS_HOUSE_VOLVALAAD_SHIP
-  access_type = ACCESS_TYPE_CENTCOM
+	access_type = ACCESS_TYPE_CENTCOM
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
