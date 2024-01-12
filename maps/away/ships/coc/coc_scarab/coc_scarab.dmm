@@ -9180,12 +9180,21 @@
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/condiment/flour,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/snacks/meat/biogenerated,
+/obj/item/reagent_containers/food/snacks/meat/biogenerated,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "TU" = (
