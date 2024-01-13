@@ -79,9 +79,9 @@
 					data["selected_z"] = 0
 			var/obj/effect/entry_point = selected_entrypoint
 			if(istype(entry_point) && entry_point.z)
-				data["destination_map_image"] = SSholomap.minimaps_scan_base64[entry_point.z]
-				data["destination_x"] = entry_point.x
-				data["destination_y"] = entry_point.y
+				data["entry_point_map_image"] = SSholomap.minimaps_scan_base64[entry_point.z]
+				data["entry_point_x"] = entry_point.x
+				data["entry_point_y"] = entry_point.y
 		data["entry_points"] = copy_entrypoints(selected_z)
 		if(cannon)
 			data["cannon"] = get_gun_data(cannon);

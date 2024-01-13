@@ -25,9 +25,9 @@ export type GunneryData = {
   mobile_platform: BooleanLike;
   platform_directions: string[];
   platform_direction: string;
-  destination_map_image: any; // base64 icon
-  destination_x: number;
-  destination_y: number;
+  entry_point_map_image: any; // base64 icon
+  entry_point_x: number;
+  entry_point_y: number;
 };
 
 type Targeting = {
@@ -63,8 +63,8 @@ export const GunneryWindow = (props, context) => {
   } else {
     const map_size = 255;
     const zoom_mod = 2.0;
-    const center_point_x = data.destination_x;
-    const center_point_y = data.destination_y;
+    const center_point_x = data.entry_point_x;
+    const center_point_y = data.entry_point_y;
     return (
       <Section>
         <Section collapsing title="Lock-On Information">
@@ -117,9 +117,9 @@ export const GunneryWindow = (props, context) => {
         </Section>
         <Section collapsing title="Scan?">
           {MinimapView({
-            map_image: data.destination_map_image,
-            x: data.destination_x,
-            y: data.destination_y,
+            map_image: data.entry_point_map_image,
+            x: data.entry_point_x,
+            y: data.entry_point_y,
           })}
         </Section>
         <Section collapsing title="Weaponry Control">
