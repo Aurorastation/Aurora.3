@@ -79,6 +79,9 @@
 	name = "Dominian Science Vessel Chapel"
 	icon_state = "chapel"
 
+/area/ship/dominian_science_vessel/isolation
+	name = "Dominian Science Vessel Isolation"
+
 /area/shuttle/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
 	icon_state = "shuttle2"
