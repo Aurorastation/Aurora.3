@@ -15,6 +15,8 @@
 	spawner = SSghostroles.get_spawner(spawner_name)
 
 /datum/event/rescue_pod/start()
+	..()
+
 	if(istype(spawner))
 		spawner.enable()
 
@@ -27,5 +29,7 @@
 		..()
 
 /datum/event/rescue_pod/burglar/start()
+	..()
+
 	if(istype(spawner))
 		spawner.enable()

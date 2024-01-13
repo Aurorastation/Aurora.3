@@ -266,8 +266,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/greenglow/radioactive{
-	pixel_x = 12;
-	pixel_y = -5
+	pixel_x = 8;
+	pixel_y = -6
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
@@ -928,7 +928,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/hallway_north)
 "eH" = (
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow{
 	pixel_x = -10;
 	pixel_y = 9
 	},
@@ -1794,7 +1794,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow{
 	pixel_x = -4;
 	pixel_y = 9
 	},
@@ -2586,7 +2586,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
@@ -3587,7 +3587,7 @@
 	pixel_y = -7;
 	pixel_x = 2
 	},
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3720,7 +3720,7 @@
 "rW" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/effect/decal/cleanable/acid_remnants,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3991,7 +3991,7 @@
 	pixel_x = 2
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow{
 	pixel_x = -10;
 	pixel_y = 9
 	},
@@ -4867,7 +4867,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
 /area/goonbase/maint_south)
@@ -6116,7 +6116,7 @@
 	pixel_x = 6
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow{
 	pixel_x = -10;
 	pixel_y = 9
 	},
@@ -6698,7 +6698,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow{
 	pixel_x = -13;
 	pixel_y = 9
 	},
@@ -7454,7 +7454,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow{
 	pixel_x = -4;
 	pixel_y = 9
 	},
@@ -8565,7 +8565,7 @@
 	pixel_x = 2
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/maint_south)
 "Rg" = (
@@ -10258,7 +10258,7 @@
 	pixel_x = -9
 	},
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/exoplanet/barren,
 /area/goonbase/maint_south)
 "Zs" = (
