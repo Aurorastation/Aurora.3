@@ -1,0 +1,8 @@
+
+author: Tag114
+
+
+delete-after: True
+
+changes:
+  - bugfix: "The PMCG chemist uniform now uses the correct set of sprites instead of the same sprites as the EPMC chemist uniform."
