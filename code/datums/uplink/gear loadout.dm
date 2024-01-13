@@ -191,3 +191,14 @@
 	desc = "A crate containing gear for a single individual."
 	path = /obj/structure/closet/crate/secure/gear_loadout/imperial_army/single
 	telecrystal_cost = 15
+
+/datum/uplink_item/item/gear_loadout/tcaf
+	name = "Tau Ceti Armed Forces Assets (Group)"
+	desc = "A crate containing gear for a group."
+	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf
+
+/datum/uplink_item/item/gear_loadout/tcaf_single
+	name = "Tau Ceti Armed Forces Assets (Single)"
+	desc = "A crate containing gear for a single individual."
+	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf/single
+	telecrystal_cost = 10

@@ -15,6 +15,13 @@
 	anchored = TRUE
 	wall_mounted = TRUE
 
+/obj/structure/closet/walllocker/secure
+	name = "secure wall locker"
+	icon_door = "walllocker_secure"
+	icon_door_override = TRUE
+	locked = TRUE
+	secure = TRUE
+
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
 	desc = "A wall mounted locker with emergency supplies."
