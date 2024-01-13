@@ -527,7 +527,7 @@
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/reinforced,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "bqZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -551,6 +551,10 @@
 	name = "port, bridge"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	name = "Bridge Lockdown";
+	id = "bridgelock"
+	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/bridge)
 "bvh" = (
@@ -588,7 +592,7 @@
 /turf/simulated/floor/bluegrid{
 	name = "processing strata"
 	},
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "bDg" = (
 /obj/structure/cable/pink{
 	icon_state = "4-8"
@@ -664,6 +668,10 @@
 	name = "starboard, bridge"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	name = "Bridge Lockdown";
+	id = "bridgelock"
+	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/bridge)
 "bTi" = (
@@ -770,6 +778,16 @@
 /obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/officer)
+"cuJ" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	name = "Bridge Lockdown";
+	id = "bridgelock"
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_science_vessel/bridge)
 "cwi" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/standard,
@@ -1148,7 +1166,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "dzw" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -1832,6 +1850,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
+"fsO" = (
+/turf/simulated/wall/r_wall,
+/area/ship/dominian_science_vessel/isolation)
 "fuL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2058,7 +2079,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "goU" = (
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/coffee,
@@ -2393,7 +2414,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "hFf" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
@@ -3323,7 +3344,7 @@
 "kAk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/reinforced,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "kAl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -3740,6 +3761,11 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	name = "Bridge Lockdown";
+	id = "bridgelock";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/bridge)
 "mtZ" = (
@@ -3782,7 +3808,7 @@
 "mBb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "mBN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3959,7 +3985,7 @@
 /turf/simulated/floor/bluegrid{
 	name = "processing strata"
 	},
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "mZE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -3996,6 +4022,12 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "bridgelock";
+	pixel_y = 32;
+	pixel_x = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
@@ -4054,7 +4086,7 @@
 	id = "containment"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "nsN" = (
 /obj/machinery/door/airlock/generic{
 	name = "Hangar"
@@ -4726,7 +4758,7 @@
 	id = "isospace"
 	},
 /turf/simulated/floor/plating,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "pAh" = (
 /obj/machinery/shipsensors/strong,
 /obj/effect/floor_decal/industrial/warning{
@@ -5289,6 +5321,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
+"rRI" = (
+/turf/simulated/wall/shuttle,
+/area/ship/dominian_science_vessel/isolation)
 "rWF" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -5557,6 +5592,11 @@
 	name = "fore, bridge"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	name = "Bridge Lockdown";
+	id = "bridgelock";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/bridge)
 "sTK" = (
@@ -6500,7 +6540,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "wvN" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
@@ -7204,7 +7244,7 @@
 "ybS" = (
 /obj/structure/anomaly_container,
 /turf/simulated/floor/reinforced,
-/area/ship/dominian_science_vessel/research)
+/area/ship/dominian_science_vessel/isolation)
 "ylM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -31203,7 +31243,7 @@ doM
 pyW
 pyW
 pyW
-xCN
+rRI
 xRX
 xRX
 xRX
@@ -31460,7 +31500,7 @@ sZn
 bzK
 mBb
 gns
-xCN
+rRI
 xRX
 xRX
 xRX
@@ -31717,7 +31757,7 @@ sZn
 mZz
 kAk
 hBa
-xCN
+rRI
 xRX
 xRX
 xRX
@@ -31974,7 +32014,7 @@ sZn
 bpG
 ybS
 dxv
-xCN
+rRI
 xCN
 xRX
 xRX
@@ -32231,7 +32271,7 @@ sZn
 nqe
 nqe
 wuA
-nVP
+fsO
 xCN
 aRn
 xRX
@@ -38164,11 +38204,11 @@ tjB
 nKh
 wzs
 jVD
-mqx
-mqx
+cuJ
+cuJ
 bTa
-mqx
-mqx
+cuJ
+cuJ
 vMS
 cTq
 xRX
@@ -40477,11 +40517,11 @@ eYC
 riv
 vCe
 jVD
-mqx
-mqx
+cuJ
+cuJ
 brM
-mqx
-mqx
+cuJ
+cuJ
 xRX
 xRX
 xRX
