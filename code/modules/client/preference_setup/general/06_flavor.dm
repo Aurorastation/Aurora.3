@@ -211,7 +211,7 @@
 	return ..()
 
 /datum/category_item/player_setup_item/general/flavor/proc/SetFlavorText(mob/user)
-	var/HTML = "<body>"
+	var/HTML = "<meta charset=\"utf-8\"><body>"
 	HTML += "<tt><center>"
 	HTML += "<b>Set Flavour Text</b> <hr />"
 	HTML += "<br></center>"
