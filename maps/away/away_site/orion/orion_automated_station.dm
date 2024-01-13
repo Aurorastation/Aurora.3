@@ -9,7 +9,7 @@
 	id = "orion_automated_station" // arbitrary tag to make things work, this should be lowercase and unique
 	spawn_cost = 1
 	spawn_weight = 1
-	suffixes = list("away_site/orion_automated_station/orion_automated_station.dmm")
+	suffixes = list("away_site/orion/orion_automated_station.dmm")
 
 	sectors = list(ALL_CORPORATE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)

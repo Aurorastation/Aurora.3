@@ -3583,7 +3583,7 @@
 #include "maps\away\away_site\konyang\point_verdant\point_verdant_landmarks.dm"
 #include "maps\away\away_site\magshield\magshield.dm"
 #include "maps\away\away_site\magshield\magshield_areas.dm"
-#include "maps\away\away_site\orion_automated_station\orion_automated_station.dm"
+#include "maps\away\away_site\orion\orion_automated_station.dm"
 #include "maps\away\away_site\overgrown_mining_station\overgrown_mining_station.dm"
 #include "maps\away\away_site\racers\racers.dm"
 #include "maps\away\away_site\romanovich\grand_romanovich.dm"
