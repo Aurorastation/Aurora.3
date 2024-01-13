@@ -89,7 +89,7 @@
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
 
 /datum/outfit/admin/kataphract/get_id_access()
-	return list(access_kataphract, access_external_airlocks)
+	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/kataphract/klax
 
@@ -132,7 +132,7 @@
 
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
-	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
+	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/outfit/admin/kataphract/specialist
 	name = "Kataphract Specialist"
@@ -140,4 +140,4 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()
-	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
+	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)

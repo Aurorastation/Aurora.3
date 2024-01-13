@@ -8,7 +8,7 @@
 	idle_power_usage = 50 //50W because the forcefield is disabled
 	active_power_usage = 2000 //2kW because of the forcefield
 	power_channel = EQUIP
-	req_access = list(access_keycard_auth) //Access required to unlock the cover
+	req_access = list(ACCESS_KEYCARD_AUTH) //Access required to unlock the cover
 	//Style variables
 	var/case = 1 //What case to use - c value
 	var/cover = 1 //What cover to use - g value

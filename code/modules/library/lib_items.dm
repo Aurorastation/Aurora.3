@@ -104,7 +104,7 @@
 	addtimer(CALLBACK(src, PROC_REF(populate_shelves)), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
@@ -114,7 +114,7 @@
 		query_str = "SELECT author, title, content FROM ss13_library WHERE category = :cat: ORDER BY RAND() LIMIT :amount:"
 		query_data["cat"] = spawn_category
 
-	var/DBQuery/query_books = dbcon.NewQuery(query_str)
+	var/DBQuery/query_books = GLOB.dbcon.NewQuery(query_str)
 	query_books.Execute(query_data)
 
 	while (query_books.NextRow())

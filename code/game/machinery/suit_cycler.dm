@@ -34,7 +34,7 @@
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"
 
-	req_access = list(access_captain, access_heads)
+	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
 
 	var/active = FALSE		// PLEASE HOLD.
 	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
@@ -191,7 +191,7 @@
 	//Hacking init.
 	if(I.ismultitool() || I.iswirecutter())
 		if(panel_open)
-			wires.Interact(user)
+			wires.interact(user)
 		return
 
 	//Other interface stuff.
@@ -267,7 +267,7 @@
 	add_fingerprint(user)
 
 	if(panel_open)
-		wires.Interact(user)
+		wires.interact(user)
 		return
 
 	if(..() || stat & (BROKEN|NOPOWER))

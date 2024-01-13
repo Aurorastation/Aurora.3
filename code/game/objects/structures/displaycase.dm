@@ -6,7 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	unacidable = TRUE
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	var/health = 30
 	var/obj/held_obj
 	var/open = FALSE

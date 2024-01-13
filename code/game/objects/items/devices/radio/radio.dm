@@ -3,24 +3,24 @@
 var/global/list/default_internal_channels = list(
 	num2text(PUB_FREQ) = list(),
 	num2text(ENT_FREQ) = list(),
-	num2text(AI_FREQ)  = list(access_equipment),
-	num2text(ERT_FREQ) = list(access_cent_specops),
-	num2text(COMM_FREQ)= list(access_heads),
-	num2text(ENG_FREQ) = list(access_engine_equip, access_atmospherics),
-	num2text(MED_FREQ) = list(access_medical_equip),
-	num2text(MED_I_FREQ)=list(access_medical_equip),
-	num2text(SEC_FREQ) = list(access_security),
-	num2text(SEC_I_FREQ)=list(access_security),
-	num2text(PEN_FREQ) = list(access_armory),
-	num2text(SCI_FREQ) = list(access_tox,access_robotics,access_xenobiology,access_xenobotany),
-	num2text(SUP_FREQ) = list(access_cargo),
-	num2text(SRV_FREQ) = list(access_janitor, access_hydroponics)
+	num2text(AI_FREQ)  = list(ACCESS_EQUIPMENT),
+	num2text(ERT_FREQ) = list(ACCESS_CENT_SPECOPS),
+	num2text(COMM_FREQ)= list(ACCESS_HEADS),
+	num2text(ENG_FREQ) = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS),
+	num2text(MED_FREQ) = list(ACCESS_MEDICAL_EQUIP),
+	num2text(MED_I_FREQ)=list(ACCESS_MEDICAL_EQUIP),
+	num2text(SEC_FREQ) = list(ACCESS_SECURITY),
+	num2text(SEC_I_FREQ)=list(ACCESS_SECURITY),
+	num2text(PEN_FREQ) = list(ACCESS_ARMORY),
+	num2text(SCI_FREQ) = list(ACCESS_TOX,ACCESS_ROBOTICS,ACCESS_XENOBIOLOGY,ACCESS_XENOBOTANY),
+	num2text(SUP_FREQ) = list(ACCESS_CARGO),
+	num2text(SRV_FREQ) = list(ACCESS_JANITOR, ACCESS_HYDROPONICS)
 )
 
 var/global/list/default_medbay_channels = list(
 	num2text(PUB_FREQ) = list(),
-	num2text(MED_FREQ) = list(access_medical_equip),
-	num2text(MED_I_FREQ) = list(access_medical_equip)
+	num2text(MED_FREQ) = list(ACCESS_MEDICAL_EQUIP),
+	num2text(MED_I_FREQ) = list(ACCESS_MEDICAL_EQUIP)
 )
 
 var/global/list/default_expedition_channels = list(
@@ -197,7 +197,7 @@ var/global/list/default_interrogation_channels = list(
 		return 0
 
 	if(b_stat)
-		wires.Interact(user)
+		wires.interact(user)
 
 	return ui_interact(user)
 
@@ -210,8 +210,8 @@ var/global/list/default_interrogation_channels = list(
 	data["default_freq"] = format_frequency(default_frequency)
 	data["rawfreq"] = num2text(frequency)
 
-	data["mic_cut"] = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))
-	data["spk_cut"] = (wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
+	data["mic_cut"] = (wires.is_cut(WIRE_TRANSMIT) || wires.is_cut(WIRE_SIGNAL))
+	data["spk_cut"] = (wires.is_cut(WIRE_RECEIVE) || wires.is_cut(WIRE_SIGNAL))
 
 	var/list/chanlist = list_channels(user)
 	if(islist(chanlist) && chanlist.len)
@@ -286,7 +286,7 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/proc/text_wires()
 	if (b_stat)
-		return wires.GetInteractWindow()
+		return wires.get_status()
 	return
 
 
@@ -413,7 +413,7 @@ var/global/list/default_interrogation_channels = list(
 		return FALSE
 	if(!M || !message)
 		return FALSE
-	if(wires.IsIndexCut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
+	if(wires.is_cut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
 		return FALSE
 
 	if (iscarbon(M))
@@ -740,7 +740,7 @@ var/global/list/default_interrogation_channels = list(
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
 		frequency = assign_away_freq(V.name)
 		channels += list(

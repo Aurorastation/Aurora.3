@@ -263,7 +263,7 @@
 				M.visible_message("<span class='danger'>\The [M] gets fried!</span>")
 				M.color = "#4d4d4d" //get fried
 				M.death()
-				spark(M, 3, alldirs)
+				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
 				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
@@ -305,7 +305,7 @@
 			if(M.mob_size <= 4 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
-				spark(M, 3, alldirs)
+				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
 				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
@@ -407,7 +407,7 @@
 	//Harmlessly passes through cultists and constructs
 	if (target_mob == ignore)
 		return 0
-	if (iscult(target_mob))
+	if (iscultist(target_mob))
 		return 0
 
 	return ..()

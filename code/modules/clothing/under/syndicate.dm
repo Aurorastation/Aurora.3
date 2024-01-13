@@ -4,7 +4,7 @@
 	icon_state = "syndicate"
 	item_state = "bl_suit"
 	worn_state = "syndicate"
-	has_sensor = 0
+	has_sensor = SUIT_NO_SENSORS
 	armor = list(
 		melee = ARMOR_MELEE_MINOR
 		)
@@ -20,7 +20,6 @@
 	item_state = "bl_suit"
 	worn_state = "tactifool"
 	siemens_coefficient = 1
-	has_sensor = SUIT_HAS_SENSORS
 	armor = null
 
 /obj/item/clothing/under/syndicate/tracksuit
@@ -45,6 +44,8 @@
 	illegality, generally to other criminal elements. The Hammertail Smiths are just that, an organization of engineers, scientists, machinists, and industrial workers \
 	whose ingenuity, and occasionally deranged inspiration, is fueled and funded by eager clients, from pirate fleets and other Unathi criminal organizations to \
 	individual actors, may they be in the Hegemony, or on the other side of the spur."
+	icon = 'icons/obj/item/clothing/under/hammertail.dmi'
 	icon_state = "hammertail"
 	item_state = "hammertail"
 	worn_state = "hammertail"
+	contained_sprite = TRUE

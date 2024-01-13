@@ -1716,6 +1716,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2175,7 +2178,12 @@
 	},
 /area/tajaran_smuggler/dorms)
 "luH" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/machinery/power/smes/buildable/main_engine,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -2516,6 +2524,12 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/atmos)
+"neJ" = (
+/obj/machinery/power/breakerbox,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler/power)
 "nny" = (
 /obj/structure/largecrate/animal/adhomai/rafama,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3488,6 +3502,11 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -36655,8 +36674,8 @@ xRX
 kJl
 fji
 kJl
-izs
-izs
+neJ
+erW
 vgW
 bYG
 izs

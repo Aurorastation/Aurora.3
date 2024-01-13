@@ -15,7 +15,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 187
+  TO_WORLD_COUNT: 181
 
   #These variables are filled from dependencies.sh inside the steps, DO NOT SET THEM HERE
   BYOND_MAJOR: ""
@@ -317,7 +317,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:
@@ -440,7 +440,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:
@@ -565,7 +565,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:
@@ -689,7 +689,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:

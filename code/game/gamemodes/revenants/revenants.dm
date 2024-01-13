@@ -20,7 +20,7 @@
 	if(world.time - round_start_time < first_spawn_delay)
 		return
 	var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
-	var/datum/antagonist/A = all_antag_types[MODE_REVENANT]
+	var/datum/antagonist/A = GLOB.all_antag_types[MODE_REVENANT]
 	A.update_current_antag_max()
 	var/previous_count = R.max_count
 	R.max_count = min(R.max_count + 1, A.cur_max)

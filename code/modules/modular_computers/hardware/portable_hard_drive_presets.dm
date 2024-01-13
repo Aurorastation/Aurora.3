@@ -25,7 +25,7 @@
 	if(_program == null)
 		qdel(src) //Delete itself if no program is set
 		return
-	var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(_program)
+	var/datum/computer_file/program/PRG = GLOB.ntnet_global.find_ntnet_file_by_name(_program)
 	if(!PRG)
 		qdel(src) //Delete itself it no matching program is found
 		return

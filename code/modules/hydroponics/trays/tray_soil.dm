@@ -40,9 +40,6 @@
 	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb
 	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/setlight
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/CanPass()
-	return 1
-
 // Holder for vine plants.
 // Icons for plants are generated as overlays, so setting it to invisible wouldn't work.
 // Hence using a blank icon.
@@ -52,14 +49,16 @@
 	icon = 'icons/obj/seeds.dmi'
 	icon_state = "blank"
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/New(var/newloc,var/datum/seed/newseed)
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/Initialize(var/newloc,var/datum/seed/newseed,var/start_mature)
 	..()
 	seed = newseed
 	dead = 0
-	age = 1
+	age = start_mature ? seed.get_trait(TRAIT_MATURATION) : 1
 	health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
 	pixel_y = rand(-5,5)
+	waterlevel = 100
+	nutrilevel = 100
 	check_health()
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/remove_dead()

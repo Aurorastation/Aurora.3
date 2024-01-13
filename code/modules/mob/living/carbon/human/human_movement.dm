@@ -75,7 +75,7 @@
 		if(!changeling)
 			tally += T.movement_cost
 
-	tally += config.human_delay
+	tally += GLOB.config.human_delay
 
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3

@@ -344,8 +344,8 @@
 /area/engineering)
 "aQ" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Gravity Generator";
-	dir = 4
+	dir = 4;
+	name = "Gravity Generator"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -377,8 +377,8 @@
 /area/engineering/gravity_gen)
 "aT" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Gravity Generator";
-	dir = 4
+	dir = 4;
+	name = "Gravity Generator"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -977,8 +977,8 @@
 /area/bridge)
 "cs" = (
 /obj/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	dir = 1
+	dir = 1;
+	name = "Bridge"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -1413,8 +1413,8 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4
+	dir = 4;
+	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "runtime_airlock_1_1";
@@ -1529,6 +1529,7 @@
 /area/engineering)
 "kP" = (
 /obj/machinery/firealarm/west,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "mn" = (
@@ -1563,6 +1564,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"oo" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/plating,
+/area/construction)
 "pv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1595,7 +1602,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1608,6 +1614,10 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"qH" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/plating,
+/area/construction)
 "sf" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
@@ -1764,6 +1774,7 @@
 /area/construction)
 "BP" = (
 /obj/machinery/firealarm/east,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "Ct" = (
@@ -1859,9 +1870,9 @@
 /area/shuttle/runtime)
 "JE" = (
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = 27;
-	pixel_y = 11;
-	dir = 1
+	pixel_y = 11
 	},
 /obj/machinery/door/airlock/external/red,
 /obj/effect/map_effect/marker/airlock{
@@ -2087,9 +2098,9 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
+	dir = 8;
 	pixel_x = -11;
-	pixel_y = -27;
-	dir = 8
+	pixel_y = -27
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "runtime_airlock_1_1";
@@ -2119,6 +2130,10 @@
 /obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"ZU" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 
 (1,1,1) = {"
 fX
@@ -5950,8 +5965,8 @@ bJ
 bJ
 cM
 cU
-de
-de
+qH
+oo
 de
 de
 de
@@ -10833,9 +10848,9 @@ bB
 bB
 dn
 da
-da
+ZU
 cZ
-da
+ZU
 da
 cZ
 da

@@ -132,7 +132,7 @@
 	anchored = TRUE
 	grav_pulling = TRUE
 	exploded = TRUE
-	for(var/mob/living/mob in living_mob_list)
+	for(var/mob/living/mob in GLOB.living_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(istype(mob, /mob/living/carbon/human))
@@ -182,7 +182,7 @@
 		if((damage > emergency_point) && !public_alert)
 			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
 			public_alert = 1
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				var/turf/T = get_turf(M)
 				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
 					sound_to(M, 'sound/effects/nuclearsiren.ogg')

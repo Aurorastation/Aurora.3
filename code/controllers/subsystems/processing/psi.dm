@@ -3,7 +3,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 PROCESSING_SUBSYSTEM_DEF(psi)
 	name = "Psionics"
 	priority = SS_PRIORITY_PSYCHICS
-	flags = SS_BACKGROUND
+	flags = SS_BACKGROUND | SS_NO_INIT
 
 	var/checking_nlom = FALSE
 	var/last_nlom_awareness_check = 0

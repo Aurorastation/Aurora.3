@@ -61,12 +61,12 @@
 			doors_closing = 0
 			open_doors()
 			control_panel_interior.audible_message("\The [current_floor.ext_panel] buzzes loudly.")
-			playsound(control_panel_interior.loc, "sound/machines/buzz-two.ogg", 50, 1)
+			playsound(control_panel_interior.loc, 'sound/machines/buzz-two.ogg', 50, 1)
 			return 0
 
 	doors_closing = 0 // The doors weren't open, so they are done closing
 
-	var/area/turbolift/origin = locate(current_floor.area_ref) in all_areas
+	var/area/turbolift/origin = locate(current_floor.area_ref) in GLOB.all_areas
 
 	if(target_floor == current_floor)
 		playsound(control_panel_interior.loc, origin.arrival_sound, 50, 1)
@@ -86,7 +86,7 @@
 	else
 		next_floor = floors[current_floor_index - 1]
 
-	var/area/turbolift/destination = locate(next_floor.area_ref) in all_areas
+	var/area/turbolift/destination = locate(next_floor.area_ref) in GLOB.all_areas
 
 	if(!istype(origin) || !istype(destination) || (origin == destination))
 		return 0

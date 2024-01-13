@@ -1,6 +1,6 @@
 var/list/mob_icon_icon_states = list()
 
-/obj/item/proc/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/proc/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot, var/main_call = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/image)

@@ -87,6 +87,20 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofurkey
 
+/singleton/recipe/roast_chicken
+	appliance = OVEN
+	fruit = list("potato" = 2)
+	reagents = list(/singleton/reagent/blackpepper = 1, /singleton/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/stuffing
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/sliceable/roast_chicken
+
 /singleton/recipe/meatbun
 	appliance = SAUCEPAN | POT
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/water = 5)
@@ -149,6 +163,14 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/crab_legs
 
+/singleton/recipe/hash_browns
+	appliance = GRILL | SKILLET
+	reagents = list(/singleton/reagent/blackpepper = 1, /singleton/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawsticks
+	)
+	result = /obj/item/reagent_containers/food/snacks/hash_browns
+
 // Konyang
 
 /singleton/recipe/mossbowl
@@ -207,7 +229,45 @@
 	items = list(/obj/item/reagent_containers/food/snacks/fish)
 	result = /obj/item/reagent_containers/food/snacks/soup/brudet
 
-// Europan food
+/singleton/recipe/imperial_pot
+	appliance = POT
+	fruit = list("potato" = 2, "lemon" = 2, "garlic" = 1, "onion" = 1)
+	reagents = list(/singleton/reagent/water = 15, /singleton/reagent/nutriment/rice = 30)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish/mollusc,
+		/obj/item/reagent_containers/food/snacks/fish/mollusc
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/imperial_pot
+
+/singleton/recipe/jadrica
+	appliance = OVEN
+	fruit = list("carrot" = 2, "garlic" = 1)
+	reagents = list(/singleton/reagent/enzyme = 5, /singleton/reagent/alcohol/wine = 5, /singleton/reagent/spacespice = 1, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/bacon,
+		/obj/item/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/reagent_containers/food/snacks/jadrica
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/imperial_scallops
+	appliance = SAUCEPAN | POT
+	fruit = list("lemon" = 1, "garlic" = 1)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 2, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/mollusc,
+		/obj/item/reagent_containers/food/snacks/fish/mollusc,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/reagent_containers/food/snacks/imperial_scallops
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+
+// New Hai Phong
+
 /singleton/recipe/chetroinuoc
 	appliance = SAUCEPAN | POT
 	reagents = list(/singleton/reagent/nutriment/vanilla = 5, /singleton/reagent/nutriment/rice = 10)
@@ -215,6 +275,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/chetroinuoc
 
+// Europan Food
 
 /singleton/recipe/deepdive
 	fruit = list ("seaweed" = 1)
@@ -235,3 +296,44 @@
 	items = list(/obj/item/reagent_containers/food/snacks/whitechocolate)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/bluemoon
+
+//Eridani
+
+/singleton/recipe/puffpuffs
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/flour = 10, /singleton/reagent/water = 5, /singleton/reagent/spacespice = 2, /singleton/reagent/sodiumchloride = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/bowl/puffpuffs
+
+/singleton/recipe/fufu
+	appliance = SAUCEPAN | POT
+	fruit = list("banana" = 2)
+	reagents = list(/singleton/reagent/water = 5)
+	result = /obj/item/reagent_containers/food/snacks/bowl/fufus
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+//Silversun
+
+/singleton/recipe/clams_casino
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/mollusc,
+		/obj/item/reagent_containers/food/snacks/fish/mollusc,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/reagent_containers/food/snacks/clams_casino
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+
+/singleton/recipe/lady_lulaine
+	appliance = MIX
+	fruit = list ("blueberries" = 1 , "berries" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/muffin,
+		/obj/item/reagent_containers/food/snacks/muffin
+	)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/drink/ice = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/lady_lulaine
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace

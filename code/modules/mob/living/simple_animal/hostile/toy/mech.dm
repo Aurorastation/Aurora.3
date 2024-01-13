@@ -60,7 +60,7 @@
 			if(1)
 				rival.forceMove(loc)
 				visible_message("<b>[src]</b> lifts \the [rival] over its head and slams them down into the ground behind them!")
-				rival.throw_at(get_step(src, reverse_dir[dir]), 1, 3, src, TRUE)
+				rival.throw_at(get_step(src, GLOB.reverse_dir[dir]), 1, 3, src, TRUE)
 				playsound(loc, 'sound/effects/bang.ogg', 50, 1)
 				rival.apply_damage(2, DAMAGE_BRUTE)
 			if(2)

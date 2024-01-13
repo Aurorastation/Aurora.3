@@ -156,7 +156,7 @@
 /obj/item/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 
 
-	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[target.h_style]
+	var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[target.h_style]
 	var/hairchatname = hair_style.chatname
 	for(var/obj/item/protection in list(target.head, target.wear_mask))
 		if(protection && (protection.body_parts_covered & HEAD))

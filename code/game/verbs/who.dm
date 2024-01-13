@@ -9,7 +9,7 @@
 	var/total_num = 0
 
 	if(holder && (R_ADMIN & holder.rights || R_MOD & holder.rights))
-		for(var/client/C in sortKey(clients))
+		for(var/client/C in sortKey(GLOB.clients))
 			msg += "\t[C.key]"
 			if(C.holder && C.holder.fakekey)
 				msg += " <i>(as [C.holder.fakekey])</i>"
@@ -46,7 +46,7 @@
 			msg += "<br>"
 			total_num++
 	else
-		for(var/client/C in sortKey(clients))
+		for(var/client/C in sortKey(GLOB.clients))
 			if(C.holder && C.holder.fakekey)
 				msg += C.holder.fakekey
 			else
@@ -74,7 +74,7 @@
 	var/num_cciaa_online = 0
 	var/num_devs_online = 0
 	if(holder)
-		for(var/s in staff)
+		for(var/s in GLOB.staff)
 			var/client/C = s
 			if(R_ADMIN & C.holder.rights)	//Used to determine who shows up in admin rows
 
@@ -142,7 +142,7 @@
 				num_devs_online++
 
 	else
-		for(var/s in staff)
+		for(var/s in GLOB.staff)
 			var/client/C = s
 			if(R_ADMIN & C.holder.rights)
 				if(!C.holder.fakekey)
@@ -170,14 +170,14 @@
 					cciaamsg += "\t[C.key] is a [C.holder.rank]<br>"
 				num_cciaa_online++
 
-	if(discord_bot && discord_bot.active)
+	if(SSdiscord && SSdiscord.active)
 		to_chat(src, "<span class='info'>Adminhelps are also sent to Discord. If no admins are available in game try anyway and an admin on Discord may see it and respond.</span>")
 	msg = "<b>Current Admins ([num_admins_online]):</b><br>" + msg
 
-	if(config.show_mods)
+	if(GLOB.config.show_mods)
 		msg += "<br><b>Current Moderators ([num_mods_online]):</b><br>" + modmsg
 
-	if (config.show_auxiliary_roles)
+	if (GLOB.config.show_auxiliary_roles)
 		if (num_cciaa_online)
 			msg += "<br><b>Current CCIA Agents ([num_cciaa_online]):</b><br>" + cciaamsg
 		if(num_devs_online)

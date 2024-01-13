@@ -18,7 +18,7 @@
 	var/obj/access_scanner
 	var/list/req_access = list()
 	var/list/req_one_access = list()
-	var/master_access = access_robotics
+	var/master_access = ACCESS_ROBOTICS
 
 	var/last_emote = 0 // timer for emotes
 
@@ -30,7 +30,7 @@
 	. = ..()
 	update_icon()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()

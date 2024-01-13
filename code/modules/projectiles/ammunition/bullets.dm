@@ -332,6 +332,10 @@
 	spent_icon = "lcasing-spent"
 	max_stack = 6
 
+/obj/item/ammo_casing/vintage/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/govt
 	projectile_type = /obj/item/projectile/bullet/rifle/govt
 	desc = "A .45-70 Government bullet casing."
@@ -465,3 +469,9 @@
 	caliber = ".599 Kumar Super"
 	projectile_type = /obj/item/projectile/bullet
 	max_stack = 5
+
+/obj/item/ammo_casing/c6mm
+	desc = "A 6mm bullet casing."
+	caliber = "6mm"
+	projectile_type = /obj/item/projectile/bullet/pistol/assassin
+	max_stack = 15

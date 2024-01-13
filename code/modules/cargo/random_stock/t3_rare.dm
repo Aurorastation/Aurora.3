@@ -150,4 +150,18 @@ STOCK_ITEM_RARE(megacorp_goods, 0.25)
 	var/obj/item/adv_item = pick(/obj/item/storage/backpack/service, /obj/item/device/advanced_healthanalyzer)
 	new adv_item(L)
 
+STOCK_ITEM_RARE(pistols, 1)
+	var/list/pistols = list(
+		/obj/item/gun/projectile/colt = 1,
+		/obj/item/gun/projectile/silenced = 1,
+		/obj/item/gun/projectile/pirate = 3,
+		/obj/item/gun/projectile/pistol = 1,
+		/obj/item/gun/projectile/revolver = 0.5,
+		/obj/item/gun/projectile/sec = 1,
+		/obj/item/gun/projectile/tanto = 1
+	)
+
+	var/type = pickweight(pistols)
+	new type(L)
+
 STOCK_ITEM_RARE(nothing, 0)

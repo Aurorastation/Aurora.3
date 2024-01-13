@@ -6,5 +6,7 @@
 	spawner = SSghostroles.get_spawner("visitor")
 
 /datum/event/visitor/start()
+	..()
+
 	if(istype(spawner))
 		spawner.enable()

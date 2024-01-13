@@ -1,7 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ae" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(218);
+	name = "Telecommunications"
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "an" = (
@@ -42,9 +45,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "bY" = (
@@ -60,9 +60,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "dc" = (
@@ -72,7 +69,10 @@
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "de" = (
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(218);
+	name = "Armory"
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "dt" = (
@@ -114,10 +114,15 @@
 /area/konyang_telecomms_outpost)
 "fk" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = list(218);
+	name = "Rifle Cabinet"
 	},
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
+/obj/item/ammo_magazine/a556/carbine/konyang47,
 /obj/item/ammo_magazine/a556/carbine/konyang47,
 /obj/item/ammo_magazine/a556/carbine/konyang47,
 /turf/simulated/floor/tiled,
@@ -152,7 +157,10 @@
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "hq" = (
-/obj/machinery/door/airlock/multi_tile,
+/obj/machinery/door/airlock/multi_tile/glass{
+	req_access = list(218);
+	name = "Monitoring Station"
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "if" = (
@@ -160,20 +168,19 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/turf/simulated/floor/tiled,
+/area/konyang_telecomms_outpost)
+"iJ" = (
 /obj/machinery/light{
-	icon_state = "tube_empty"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "iM" = (
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
 /obj/effect/decal/fake_object{
-	icon_state = "comm_server";
+	icon_state = "processor";
 	icon = 'icons/obj/machinery/telecomms.dmi';
-	name = "telecommunications server"
+	name = "input processor"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -192,9 +199,10 @@
 /area/konyang_telecomms_outpost)
 "kl" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/sake{
-	pixel_x = -20;
-	pixel_y = -3
+/obj/item/clothing/head/hachimaki,
+/obj/item/clothing/head/hachimaki{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
@@ -203,7 +211,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "kS" = (
-/obj/structure/closet/cabinet,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "lh" = (
@@ -213,6 +221,12 @@
 	name = "Garage"
 	},
 /turf/simulated/floor/asphalt,
+/area/konyang_telecomms_outpost)
+"ln" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "lK" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -239,6 +253,19 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/asphalt,
 /area/konyang_telecomms_outpost)
+"mX" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_telecomm_front";
+	name = "Main Gate"
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_telecomm_front";
+	name = "Main Gate"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
 "nR" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 8
@@ -254,13 +281,22 @@
 "ok" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
-	id = "konyang_telecom";
-	name = "Main Gate";
-	pixel_y = 22;
-	req_access = null
+	id = "konyang_telecomm_front";
+	name = "Outer Shutters";
+	pixel_y = 28;
+	req_access = list(218);
+	pixel_x = -6
 	},
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "konyang_telecomm_back";
+	name = "Inner Shutters";
+	pixel_y = 28;
+	req_access = list(218);
+	pixel_x = 6
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
@@ -291,7 +327,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "qg" = (
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/konyang_telecomms_outpost)
 "qu" = (
 /obj/structure/mirror{
@@ -313,8 +349,8 @@
 	dir = 1;
 	id = "konyang_garage";
 	name = "Garage";
-	pixel_y = 22;
-	req_access = null
+	pixel_y = 28;
+	req_access = list(218)
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
@@ -341,9 +377,6 @@
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	name = "telecommunications server"
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "sB" = (
@@ -351,6 +384,9 @@
 	icon_state = "processor";
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	name = "input processor"
+	},
+/obj/machinery/light{
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
@@ -364,7 +400,9 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_telecomms_outpost)
 "tz" = (
-/obj/structure/sign/flag/konyang/large/south,
+/obj/structure/sign/flag/konyang/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "uh" = (
@@ -389,9 +427,6 @@
 /area/konyang_telecomms_outpost)
 "wz" = (
 /obj/machinery/photocopier,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "wG" = (
@@ -445,7 +480,7 @@
 "ze" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "konyang_telecom";
+	id = "konyang_telecomm_front";
 	name = "Main Gate"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -493,19 +528,10 @@
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "zX" = (
-/obj/structure/window/reinforced{
-	dir = 4;
-	maxhealth = 140
+/obj/structure/sink/kitchen{
+	pixel_y = 22
 	},
-/obj/effect/decal/fake_object{
-	icon_state = "comm_server";
-	icon = 'icons/obj/machinery/telecomms.dmi';
-	name = "telecommunications server"
-	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/bluegrid/cooled,
+/turf/simulated/floor/lino/diamond,
 /area/konyang_telecomms_outpost)
 "Ai" = (
 /obj/structure/flora/rock/konyang/small,
@@ -519,9 +545,6 @@
 /obj/structure/table/steel,
 /obj/machinery/photocopier/faxmachine{
 	department = "Konyang Telecomms Relay"
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
@@ -543,10 +566,19 @@
 /area/konyang_telecomms_outpost)
 "Dw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = list(218);
+	name = "Equipment Cabinet"
 	},
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/machinery/light{
+	icon_state = "tube_empty";
+	dir = 4
+	},
+/obj/item/storage/box/flares,
+/obj/item/storage/box/flares,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "DG" = (
@@ -567,9 +599,6 @@
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	name = "broadcast relay"
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "Ef" = (
@@ -578,6 +607,10 @@
 /obj/item/clothing/head/welding,
 /obj/item/storage/toolbox/electrical,
 /obj/item/clothing/gloves/yellow,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "Eh" = (
@@ -592,9 +625,6 @@
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	name = "broadcast reciever"
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "Ex" = (
@@ -602,7 +632,9 @@
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "EB" = (
-/obj/structure/sign/flag/konyang/large/south,
+/obj/structure/sign/flag/konyang/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_telecomms_outpost)
 "EU" = (
@@ -625,9 +657,6 @@
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	name = "telecommunications server"
 	},
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "Hi" = (
@@ -646,6 +675,9 @@
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10;
 	pixel_y = 1
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
@@ -693,7 +725,10 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_telecomms_outpost)
 "Nr" = (
-/obj/machinery/door/airlock/command,
+/obj/machinery/door/airlock/command{
+	req_access = list(218);
+	name = "Gate Checkpoint"
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "Nv" = (
@@ -825,12 +860,18 @@
 /area/konyang_telecomms_outpost)
 "TE" = (
 /obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = 6
+	},
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "TS" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -9;
 	pixel_y = 1
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
@@ -839,10 +880,13 @@
 /area/konyang_telecomms_outpost)
 "Uw" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = list(218);
+	name = "Sidearms Cabinet"
 	},
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled,
@@ -850,7 +894,8 @@
 "UK" = (
 /obj/structure/table/steel,
 /obj/machinery/door/window{
-	dir = 8
+	dir = 8;
+	req_access = list(218)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
@@ -859,8 +904,10 @@
 /area/konyang_telecomms_outpost)
 "UW" = (
 /obj/structure/table/rack,
-/obj/item/storage/firstaid/large/combat,
-/obj/item/storage/firstaid/large/combat,
+/obj/item/storage/firstaid/large/combat{
+	pixel_y = 6
+	},
+/obj/item/storage/firstaid/large/adv,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled,
@@ -883,10 +930,11 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
 "VY" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "Wd" = (
@@ -896,12 +944,16 @@
 "WZ" = (
 /obj/structure/table/wood,
 /obj/item/toy/comic/inspector,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 16;
+	pixel_x = -14
+	},
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "Xc" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
-	id = "konyang_telecom";
+	id = "konyang_telecomm_back";
 	name = "Main Gate"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -916,20 +968,32 @@
 /area/konyang_telecomms_outpost)
 "XU" = (
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "konyang_telecom";
-	name = "Main Gate";
-	req_access = null;
-	pixel_x = -25
+	dir = 8;
+	id = "konyang_telecomm_front";
+	name = "Outer Shutters";
+	req_access = list(218);
+	pixel_x = -23;
+	pixel_y = 16
 	},
-/obj/machinery/light{
-	dir = 8
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_telecomms_outpost)
+"Yd" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "konyang_telecomm_back";
+	name = "Inner Shutters";
+	req_access = list(218);
+	pixel_x = -23
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_telecomms_outpost)
 "Yh" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 14;
+	pixel_x = 8
+	},
 /turf/simulated/floor/wood,
 /area/konyang_telecomms_outpost)
 "YL" = (
@@ -947,16 +1011,25 @@
 /area/konyang_telecomms_outpost)
 "YY" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = list(218);
+	name = "Equipment Cabinet"
 	},
+/obj/machinery/light{
+	icon_state = "tube_empty";
+	dir = 8
+	},
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/storage/webbing,
+/obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
 /obj/item/clothing/suit/armor/carrier/military,
 /obj/item/clothing/suit/armor/carrier/military,
 /obj/item/clothing/head/helmet/konyang,
 /obj/item/clothing/head/helmet/konyang,
-/obj/item/clothing/accessory/flagpatch/konyang,
-/obj/item/clothing/accessory/flagpatch/konyang,
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 "Zj" = (
@@ -966,9 +1039,8 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_telecomms_outpost)
 "ZM" = (
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/konyang_telecomms_outpost)
 
@@ -1297,7 +1369,7 @@ Ub
 de
 Bn
 Bn
-ZM
+Bn
 qg
 Oj
 Oj
@@ -1593,12 +1665,12 @@ Oj
 Oj
 Oj
 qg
-eD
-eD
-eD
-eD
-eD
-eD
+qg
+qg
+qg
+qg
+qg
+qg
 fp
 Oj
 "}
@@ -1640,7 +1712,7 @@ Et
 Nh
 Et
 Nh
-eD
+qg
 fp
 Oj
 "}
@@ -1675,14 +1747,14 @@ Oj
 eD
 TS
 Ay
-Ex
+ZM
 qg
 ec
 dt
 dt
 dt
 ec
-eD
+qg
 fp
 Oj
 "}
@@ -1719,12 +1791,12 @@ cT
 PY
 Ex
 qg
-sB
+iM
 dt
 QR
 dt
 sB
-eD
+qg
 fp
 Oj
 "}
@@ -1735,7 +1807,7 @@ Ub
 Ub
 ze
 XU
-Ub
+Yd
 Xc
 Ub
 Oj
@@ -1765,8 +1837,8 @@ rE
 gA
 fn
 gA
-zX
-eD
+rE
+qg
 fp
 Oj
 "}
@@ -1808,7 +1880,7 @@ zP
 zP
 zP
 zP
-eD
+qg
 fp
 Oj
 "}
@@ -1850,7 +1922,7 @@ vu
 vu
 vu
 vu
-eD
+qg
 fp
 Oj
 "}
@@ -1859,7 +1931,7 @@ Ub
 Ub
 Ub
 Ub
-ze
+mX
 Ub
 Ub
 Xc
@@ -1887,12 +1959,12 @@ PB
 zh
 if
 qg
-iM
+GY
 Ba
 Ak
 Ba
 GY
-eD
+qg
 fp
 Oj
 "}
@@ -1929,12 +2001,12 @@ bU
 PY
 Ex
 qg
-sB
+iM
 dt
 QR
 dt
 sB
-eD
+qg
 fp
 Oj
 "}
@@ -1969,14 +2041,14 @@ Oj
 eD
 IA
 wz
-Ex
+ZM
 qg
 ec
 dt
 dt
 dt
 ec
-eD
+qg
 fp
 Oj
 "}
@@ -1986,7 +2058,7 @@ wM
 Oj
 Oj
 eD
-Bn
+ln
 Bn
 eD
 Oj
@@ -2018,7 +2090,7 @@ DK
 Nh
 DK
 Nh
-eD
+qg
 fp
 Oj
 "}
@@ -2029,7 +2101,7 @@ Oj
 Oj
 eD
 VY
-Bn
+iJ
 Nr
 Oj
 wM
@@ -2060,7 +2132,7 @@ qg
 qg
 qg
 qg
-eD
+qg
 fp
 Oj
 "}
@@ -2160,7 +2232,7 @@ wM
 Oj
 Oj
 uh
-Hp
+zX
 Hp
 Hp
 Hp

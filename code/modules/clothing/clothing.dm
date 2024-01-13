@@ -60,18 +60,18 @@
 /obj/item/clothing/proc/build_and_apply_species_adaption()
 	if(!contained_sprite)
 		return
-	if(type in contained_clothing_species_adaption_cache)
-		var/list/adaption_cache = contained_clothing_species_adaption_cache[type]
+	if(type in GLOB.contained_clothing_species_adaption_cache)
+		var/list/adaption_cache = GLOB.contained_clothing_species_adaption_cache[type]
 		if(length(adaption_cache))
 			icon_auto_adapt = TRUE
 			icon_supported_species_tags = adaption_cache
 		return
 	var/list/new_adaption_cache = list()
 	var/list/all_icon_states = icon_states(icon)
-	for(var/short_name in all_species_short_names)
+	for(var/short_name in GLOB.all_species_short_names)
 		if((short_name + "_" + item_state + species_sprite_adaption_type) in all_icon_states)
 			new_adaption_cache += short_name
-	contained_clothing_species_adaption_cache[type] = length(new_adaption_cache) ? new_adaption_cache : null
+	GLOB.contained_clothing_species_adaption_cache[type] = length(new_adaption_cache) ? new_adaption_cache : null
 	if(length(new_adaption_cache))
 		icon_auto_adapt = TRUE
 		icon_supported_species_tags = new_adaption_cache
@@ -1057,7 +1057,7 @@
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
 
 	///SUIT_NO_SENSORS = No sensors, SUIT_HAS_SENSORS = Sensors, SUIT_LOCKED_SENSORS = Locked sensors
-	var/has_sensor = SUIT_NO_SENSORS
+	var/has_sensor = SUIT_HAS_SENSORS
 
 	///SUIT_SENSOR_OFF = Off, SUIT_SENSOR_BINARY = Report living/dead, SUIT_SENSOR_VITAL = Report detailed damages, SUIT_SENSOR_TRACKING = Report location
 	var/sensor_mode = SUIT_SENSOR_OFF

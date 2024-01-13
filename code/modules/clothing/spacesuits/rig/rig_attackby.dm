@@ -46,7 +46,7 @@
 		if(W.iswirecutter() || W.ismultitool())
 
 			if(open)
-				wires.Interact(user)
+				wires.interact(user)
 			else
 				to_chat(user, "You can't reach the wiring.")
 

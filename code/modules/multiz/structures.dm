@@ -228,25 +228,28 @@
 
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
-	if(!staircase && (target_dir != dir && target_dir != reverse_dir[dir]))
+	if(!staircase && (target_dir != dir && target_dir != GLOB.reverse_dir[dir]))
 		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 
-/obj/structure/stairs/CollidedWith(atom/movable/A)
+/obj/structure/stairs/CollidedWith(atom/movable/moving_atom)
 	// This is hackish but whatever.
-	var/turf/target = get_step(GetAbove(A), dir)
+	var/turf/target = get_step(GetAbove(moving_atom), dir)
 	if(!target)
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(A, src) && A.dir == dir)
-		A.forceMove(target)
-		if(isliving(A))
-			var/mob/living/L = A
-			if(L.pulling)
-				L.pulling.forceMove(target)
-			if(ishuman(A))
+	if(target.Enter(moving_atom, src) && moving_atom.dir == dir)
+		moving_atom.forceMove(target)
+		if(isliving(moving_atom))
+			var/mob/living/living_mob = moving_atom
+			if(living_mob.pulling)
+				living_mob.pulling.forceMove(target)
+			for(var/obj/item/grab/grab in living_mob)
+				if(grab.affecting)
+					grab.affecting.forceMove(target)
+			if(ishuman(living_mob))
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
@@ -387,7 +390,7 @@
 		return TRUE
 	if(mover.throwing)
 		return TRUE
-	if(get_dir(mover, target) == reverse_dir[dir])
+	if(get_dir(mover, target) == GLOB.reverse_dir[dir])
 		return FALSE
 	if(height && (mover.dir == dir))
 		return FALSE
@@ -396,7 +399,7 @@
 /obj/structure/platform/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
 		return TRUE
-	if(get_dir(O, target) == reverse_dir[dir])
+	if(get_dir(O, target) == GLOB.reverse_dir[dir])
 		return FALSE
 	return TRUE
 
@@ -406,7 +409,7 @@
 		/// If the user is on the same turf as the platform, we're trying to go past it, so we need to use reverse_dir.
 		/// Otherwise, use our own turf.
 		var/same_turf = get_turf(user) == get_turf(src)
-		var/turf/next_turf = get_step(src, same_turf ? reverse_dir[dir] : 0)
+		var/turf/next_turf = get_step(src, same_turf ? GLOB.reverse_dir[dir] : 0)
 		if(istype(next_turf) && !next_turf.density && can_climb(user))
 			var/climb_text = same_turf ? "over" : "down"
 			LAZYADD(climbers, user)

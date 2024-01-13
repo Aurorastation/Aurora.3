@@ -10,7 +10,6 @@
 	color = LIGHT_COLOR_BLUE
 	usage_flags = PROGRAM_ALL_REGULAR
 	tgui_id = "NTOSArcade"
-	var/picked_enemy_name
 	var/player_mana
 	var/player_health
 	var/enemy_mana
@@ -28,14 +27,14 @@
 // When the program is first created, we generate a new enemy name and name ourselves accordingly.
 /datum/computer_file/program/game/arcade/New()
 	..()
-	picked_enemy_name = random_enemy_name()
-	filedesc = "[pick("Defeat", "Destroy", "Decimate", "Decapitate")] [picked_enemy_name]"
+	enemy_name = random_enemy_name()
+	filedesc = "[pick("Defeat", "Destroy", "Decimate", "Decapitate")] [enemy_name]"
 	new_game()
 
 // Important in order to ensure that copied versions will have the same enemy name.
 /datum/computer_file/program/game/arcade/clone()
 	var/datum/computer_file/program/game/arcade/G = ..()
-	G.picked_enemy_name = picked_enemy_name
+	G.enemy_name = enemy_name
 	return G
 
 /datum/computer_file/program/game/arcade/ui_data(mob/user)

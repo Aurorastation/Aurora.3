@@ -9,7 +9,7 @@
 		return
 
 	var/mob/selected = null
-	for(var/mob/living/M in player_list)
+	for(var/mob/living/M in GLOB.player_list)
 		//Dead people only thanks!
 		if((M.stat != 2) || (!M.client))
 			continue
@@ -32,7 +32,7 @@
 	anchored = 1
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "pod_0"
-	req_access = list(access_medical_equip) //since we have no genetics for now
+	req_access = list(ACCESS_MEDICAL_EQUIP) //since we have no genetics for now
 	var/mob/living/occupant
 	var/heal_level = 20 //The clone is released once its health reaches this level.
 	var/heal_rate = 1
@@ -87,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/abstract/observer/G in player_list)
+		for(var/mob/abstract/observer/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break

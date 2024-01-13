@@ -17,6 +17,6 @@
 
 	my_client = client
 	set_sight(sight|SEE_TURFS)
-	player_list |= src
+	GLOB.player_list |= src
 
 	client.playtitlemusic()

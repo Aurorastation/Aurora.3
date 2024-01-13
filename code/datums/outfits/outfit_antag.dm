@@ -381,7 +381,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -483,7 +483,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -543,7 +543,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 
@@ -677,7 +677,7 @@
 
 	var/obj/item/storage/wallet/W = H.wear_id
 	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
-	passport.name = "[H.real_name]'s Passport"
+	imprint_idcard(H, passport)
 	if(W)
 		W.handle_item_insertion(passport)
 

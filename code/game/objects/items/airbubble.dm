@@ -246,7 +246,8 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
+		var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
+		playsound(loc, sound_to_play, 100, 1)
 		shake_animation()
 		last_shake = world.time
 
@@ -275,7 +276,8 @@
 	breakout = FALSE
 	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>") // holy shit this is hilarious
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
-	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
+	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
+	playsound(loc, sound_to_play, 100, 1)
 	break_open()
 	shake_animation()
 	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
@@ -513,11 +515,11 @@
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
 				visible_message("<span class='warning'>You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?</span>")
-				playsound(loc, "sound/effects/wind/wind_2_1.ogg", 100, 1)
+				playsound(loc, 'sound/effects/wind/wind_2_1.ogg', 100, 1)
 				return
 			inside_air = get_turf_air()
 			visible_message("<span class='warning'>You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?</span>")
-			playsound(loc, "sound/effects/wind/wind_2_2.ogg", 100, 1)
+			playsound(loc, 'sound/effects/wind/wind_2_2.ogg', 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)
 			var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
