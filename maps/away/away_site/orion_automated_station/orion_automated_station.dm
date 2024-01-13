@@ -57,7 +57,7 @@
 
 /obj/effect/overmap/visitable/sector/orion_automated_station/New()
 	if(prob(10))
-		designation = "[pick("Orion Express Automated Station Zeta", "Orion Express Automated Station Kilo", "Orion Express Automated Station Uniform", "Orion Express Automated Station Whiskey")]"
+		designation = "Orion Express Automated Station [pick("Zeta", "Kilo", "Uniform", "Whiskey", "Alpha", "Gamma", "Romeo", "Tango")]"
 	else
 		designation = "Orion Express Automated Station #[rand(100, 999)]"
 	..()
