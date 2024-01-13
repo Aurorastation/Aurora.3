@@ -13,6 +13,7 @@
 
 	sectors = list(ALL_CORPORATE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // REMOVE
 
 /singleton/submap_archetype/orion_automated_station // arbitrary duplicates of the above name/desc
 	map = "Orion Express Automated Station"
@@ -55,7 +56,10 @@
 	)
 
 /obj/effect/overmap/visitable/sector/orion_automated_station/New()
-	designation = "[pick("Orion Express Automated Station #6282", "Orion Express Automated Station #1112", "Orion Express Automated Station #0091", "Orion Express Automated Station #9123", "Orion Express Automated Station #0157", "Orion Express Automated Station Zeta", "Orion Express Automated Station Kilo", "Orion Express Automated Station Uniform", "Orion Express Automated Station Whiskey")]"
+	if(prob(10))
+		designation = "[pick("Orion Express Automated Station Zeta", "Orion Express Automated Station Kilo", "Orion Express Automated Station Uniform", "Orion Express Automated Station Whiskey")]"
+	else
+		designation = "Orion Express Automated Station #[rand(100, 999)]"
 	..()
 
 // -------------------------------- landmarks docks
