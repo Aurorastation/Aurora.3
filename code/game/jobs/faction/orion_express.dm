@@ -49,7 +49,8 @@
 		"Corporate Reporter" = /datum/outfit/job/journalist/orion,
 		"Chaplain" = /datum/outfit/job/chaplain/orion,
 		"Corporate Liaison" = /datum/outfit/job/representative/orion,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/orion
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/orion,
+		"Operations Personnel" = /datum/outfit/job/hangar_tech/orion
 	)
 
 /datum/outfit/job/hangar_tech/orion

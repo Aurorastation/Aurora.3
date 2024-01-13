@@ -58,6 +58,13 @@ var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
 
+//Event jobs
+var/const/EVENTSEC			=(1<<16)
+var/const/EVENTMED			=(1<<17)
+var/const/EVENTENG			=(1<<18)
+var/const/EVENTSCI			=(1<<19)
+var/const/EVENTOPS			=(1<<20)
+
 // Positions Lists
 var/list/command_positions = list(
 	"Captain",
@@ -80,7 +87,8 @@ var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Engineer",
 	"Atmospheric Technician",
-	"Engineering Apprentice"
+	"Engineering Apprentice",
+	"Engineering Personnel"
 )
 
 var/list/medical_positions = list(
@@ -90,7 +98,8 @@ var/list/medical_positions = list(
 	"Psychiatrist",
 	"Pharmacist",
 	"First Responder",
-	"Medical Intern"
+	"Medical Intern",
+	"Medical Personnel"
 )
 
 var/list/science_positions = list(
@@ -99,14 +108,16 @@ var/list/science_positions = list(
 	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
-	"Lab Assistant"
+	"Lab Assistant",
+	"Science Personnel"
 )
 
 var/list/cargo_positions = list(
 	"Operations Manager",
 	"Hangar Technician",
 	"Shaft Miner",
-	"Machinist"
+	"Machinist",
+	"Operations Personnel"
 )
 
 var/list/service_positions = list(
@@ -132,7 +143,8 @@ var/list/security_positions = list(
 	"Warden",
 	"Investigator",
 	"Security Officer",
-	"Security Cadet"
+	"Security Cadet",
+	"Security Personnel"
 )
 
 var/list/nonhuman_positions = list(
