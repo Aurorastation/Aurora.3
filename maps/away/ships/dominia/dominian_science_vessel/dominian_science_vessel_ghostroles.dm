@@ -57,6 +57,9 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
+/datum/outfit/admin/house_volvalaad_officer/get_id_access()
+	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+
 
 /datum/ghostspawner/human/house_volvalaad_armsman
 	short_name = "house_volvalaad_armsman"
@@ -72,7 +75,6 @@
 	assigned_role = "House Volvalaad Armsman"
 	special_role = "House Volvalaad Armsman"
 
-
 /datum/outfit/admin/house_volvalaad_armsman
 	name = "House Volvalaad Armsman"
 	head = /obj/item/clothing/head/dominia/fleet/armsman
@@ -82,6 +84,9 @@
 	id = /obj/item/card/id/house_volvalaad
 
 	l_ear = /obj/item/device/radio/headset/ship
+
+/datum/outfit/admin/house_volvalaad_armsman/get_id_access()
+	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/house_volvalaad_scientist
 	short_name = "house_volvalaad_scientist"
@@ -97,7 +102,6 @@
 	assigned_role = "House Volvalaad Scientist"
 	special_role = "House Volvalaad Scientist"
 
-
 /datum/outfit/admin/house_volvalaad_scientist
 	name = "House Volvalaad Scientist"
 	uniform = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
@@ -107,6 +111,9 @@
 	id = /obj/item/card/id/house_volvalaad
 
 	l_ear = /obj/item/device/radio/headset/ship
+
+/datum/outfit/admin/house_volvalaad_scientist/get_id_access()
+	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 

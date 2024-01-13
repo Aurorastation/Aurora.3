@@ -202,7 +202,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/structure/cable/pink,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "aBG" = (
@@ -520,7 +519,6 @@
 /area/ship/dominian_science_vessel/engineering)
 "bvi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/machinery/firealarm/west,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -1307,9 +1305,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/cable/pink{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "elj" = (
@@ -1404,7 +1399,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/dominian_science_shuttle)
 "ezV" = (
-/obj/structure/cable/pink,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -1452,6 +1446,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods/full,
+/obj/item/stack/material/glass/reinforced/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "eIb" = (
@@ -2586,13 +2584,13 @@
 /area/ship/dominian_science_vessel/engineering)
 "iVk" = (
 /obj/machinery/firealarm/west,
-/obj/machinery/power/smes/buildable,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/engineering)
 "iVM" = (
@@ -3702,6 +3700,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "njl" = (
@@ -3881,9 +3882,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/cable/pink{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -4341,10 +4339,10 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
 "puW" = (
-/obj/machinery/power/smes/buildable,
 /obj/structure/cable/pink{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "pxp" = (
@@ -4760,6 +4758,10 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_science_vessel/chapel)
+"rlS" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/ship/dominian_science_vessel/armory)
 "rpY" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
@@ -5888,7 +5890,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/binary/pump/high_power,
-/obj/structure/cable/pink,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "vUO" = (
@@ -5950,9 +5951,6 @@
 	},
 /obj/machinery/meter,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/structure/cable/pink{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
@@ -6062,6 +6060,8 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "wCJ" = (
@@ -6411,7 +6411,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/pipedispenser,
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/atmospherics)
 "xvv" = (
@@ -35297,7 +35297,7 @@ vwC
 akl
 akl
 akl
-akl
+rlS
 xRX
 xRX
 xRX

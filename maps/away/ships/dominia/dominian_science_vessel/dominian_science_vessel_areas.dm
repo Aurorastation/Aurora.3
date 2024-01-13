@@ -82,3 +82,4 @@
 /area/shuttle/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE
