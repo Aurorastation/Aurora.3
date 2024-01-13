@@ -12,6 +12,7 @@
 	suffixes = list("away_site/orion_automated_station/orion_automated_station.dmm")
 
 	sectors = list(ALL_CORPORATE_SECTORS)
+	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
 
 /singleton/submap_archetype/orion_automated_station // arbitrary duplicates of the above name/desc
 	map = "Orion Express Automated Station"
