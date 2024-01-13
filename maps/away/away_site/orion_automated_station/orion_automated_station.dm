@@ -11,8 +11,7 @@
 	spawn_weight = 1
 	suffixes = list("away_site/orion_automated_station/orion_automated_station.dmm")
 
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(ALL_CORPORATE_SECTORS)
 
 /singleton/submap_archetype/orion_automated_station // arbitrary duplicates of the above name/desc
 	map = "Orion Express Automated Station"
