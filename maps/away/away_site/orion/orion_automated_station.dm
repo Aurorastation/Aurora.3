@@ -33,7 +33,7 @@
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "ox_auto_station"
-	colors = list("#a1a8e2", "#818be0")
+	color = "#a1a8e2"
 	designer = "Orion Express"
 	volume = "26 meters length, 58 meters beam/width, 20 meters vertical height"
 	weapons = "Not apparent"
