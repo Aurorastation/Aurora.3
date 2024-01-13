@@ -792,7 +792,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/airless,
-/area/orion_automated_station/exterior)
+/area/orion_automated_station/engineering)
 "oD" = (
 /obj/structure/closet/crate,
 /obj/random/highvalue/cash,
@@ -33949,7 +33949,7 @@ HS
 UP
 GZ
 GZ
-DF
+oi
 DF
 jU
 DF
@@ -35754,7 +35754,7 @@ XI
 KS
 HC
 dd
-oi
+vY
 DF
 vE
 Zi

@@ -13,7 +13,6 @@
 
 	sectors = list(ALL_CORPORATE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // REMOVE
 
 /singleton/submap_archetype/orion_automated_station // arbitrary duplicates of the above name/desc
 	map = "Orion Express Automated Station"
@@ -34,11 +33,11 @@
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "ox_auto_station"
-	color = "#bbb186"
-	designer = "Unknown"
+	colors = list("#a1a8e2", "#818be0")
+	designer = "Orion Express"
 	volume = "26 meters length, 58 meters beam/width, 20 meters vertical height"
 	weapons = "Not apparent"
-	sizeclass = "Industrial Station"
+	sizeclass = "Drummer-type Automated Station"
 
 	initial_generic_waypoints = list(
 		"nav_ox_auto_station_dock_west",
