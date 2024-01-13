@@ -219,3 +219,15 @@
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
 	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass
+
+/obj/item/tray/tea
+	name = "tea tray"
+	desc = "A tray for serving tea."
+	icon_state = "teatray"
+	force = 3
+	throwforce = 3
+	atom_flags = 0
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 6
+	contained_sprite = TRUE

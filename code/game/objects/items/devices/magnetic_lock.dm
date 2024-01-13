@@ -43,7 +43,7 @@
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = null
-	req_one_access = list(ACCESS_LEGION, ACCESS_TCFL_PEACEKEEPER_SHIP)
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()

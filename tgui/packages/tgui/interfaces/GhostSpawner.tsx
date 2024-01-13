@@ -1,6 +1,7 @@
+import { paginate } from 'common/collections';
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Table, Tabs } from '../components';
+import { Box, Button, Input, Section, Table, Tabs, Tooltip } from '../components';
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 
@@ -24,6 +25,55 @@ type Spawner = {
   tags: string[];
   spawnpoints: string[];
   manifest: string[];
+};
+
+const ManifestTable = function (act, spawner: Spawner) {
+  return (
+    <Table>
+      {paginate(spawner.manifest, 2).map((page) => {
+        const spawned_mob_name_1 = page[0];
+        const spawned_mob_name_2 = page[1];
+
+        const ManifestCell = function (
+          act,
+          spawner: Spawner,
+          spawned_mob_name: string
+        ) {
+          if (spawned_mob_name) {
+            return (
+              <TableCell>
+                {' - ' + spawned_mob_name + ' '}
+                {spawner.can_jump_to ? (
+                  <Tooltip content="Follow mob">
+                    <Button
+                      content="F"
+                      onClick={() =>
+                        act('follow_manifest_entry', {
+                          spawner_id: spawner.short_name,
+                          spawned_mob_name: spawned_mob_name,
+                        })
+                      }
+                    />
+                  </Tooltip>
+                ) : (
+                  ''
+                )}
+              </TableCell>
+            );
+          } else {
+            return '';
+          }
+        };
+
+        return (
+          <TableRow pb={1} key={page} overflow="hidden">
+            {ManifestCell(act, spawner, spawned_mob_name_1)}
+            {ManifestCell(act, spawner, spawned_mob_name_2)}
+          </TableRow>
+        );
+      })}
+    </Table>
+  );
 };
 
 export const GhostSpawner = (props, context) => {
@@ -99,20 +149,7 @@ export const GhostSpawner = (props, context) => {
                               <Box fontSize="1.2rem" textAlign="center">
                                 Manifest
                               </Box>
-                              <Table>
-                                {spawner.manifest.map((spawned_mob_name) => {
-                                  return (
-                                    <TableRow
-                                      pb={1}
-                                      key={spawned_mob_name}
-                                      overflow="hidden">
-                                      <TableCell>
-                                        {' - ' + spawned_mob_name}
-                                      </TableCell>
-                                    </TableRow>
-                                  );
-                                })}
-                              </Table>
+                              {ManifestTable(act, spawner)}
                             </Box>
                           ) : null}
                         </Box>
@@ -139,7 +176,7 @@ export const GhostSpawner = (props, context) => {
                           <Button
                             content="J"
                             onClick={() =>
-                              act('jump_to', { jump_to: spawner.short_name })
+                              act('jump_to', { spawner_id: spawner.short_name })
                             }
                           />
                         ) : (

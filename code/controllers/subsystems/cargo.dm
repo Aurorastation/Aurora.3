@@ -86,7 +86,8 @@ SUBSYSTEM_DEF(cargo)
 	var/datum/cargospawner/spawner = new
 	spawner.start()
 	qdel(spawner)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /*
 	Loading Data

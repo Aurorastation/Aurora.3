@@ -368,8 +368,8 @@
 		user.synthetic_takeover = 0
 		return
 	//trip the NTNet alarm
-	ntnet_global.intrusion_detection_alarm = 1
-	ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
+	GLOB.ntnet_global.intrusion_detection_alarm = 1
+	GLOB.ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
 	//lower the dos capacity of the relay
 	for(var/obj/machinery/ntnet_relay/T in SSmachinery.processing)
 		T.dos_capacity = 200

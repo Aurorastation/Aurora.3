@@ -16,12 +16,14 @@
 			to_chat(A, "<br>")
 
 	if(prob(30))	//most of the time, we don't want an announcement, so as to allow AIs to fake blackouts.
-		command_announcement.Announce(alert)
+		command_announcement.Announce(alert, zlevels = affecting_z)
 		return
 	return 1
 
 
 /datum/event/communications_blackout/start()
+	..()
+
 	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.z in affecting_z)
 			T.emp_act(EMP_HEAVY)

@@ -48,7 +48,7 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/psionics/load_special(savefile/S)
+/datum/category_item/player_setup_item/general/psionics/load_character_special(savefile/S)
 	if(!pref.psionics)
 		pref.psionics = "{}"
 

@@ -91,7 +91,7 @@
 	if(length(current_map.lobby_screens))
 		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
 			icon_state = current_map.lobby_screens[lobby_index]
-			if(Master.initializing)
+			if(!MC_RUNNING())
 				spawn(current_map.lobby_transitions)
 					Update()
 			else
@@ -119,7 +119,7 @@
 		lobby_index = 1
 	animate(src, alpha = 0, time = 1 SECOND)
 	animate(alpha = 255, icon_state = current_map.lobby_screens[lobby_index], time = 1 SECOND)
-	if(Master.initializing)
+	if(!MC_RUNNING())
 		spawn(current_map.lobby_transitions)
 			Update()
 	else

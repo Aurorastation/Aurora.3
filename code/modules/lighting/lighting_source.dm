@@ -94,7 +94,7 @@
 		needs_update = level;                          \
 	}                                                  \
 	if (_should_update) {                              \
-		if (world.tick_usage > CURRENT_TICKLIMIT || SSlighting.force_queued) {	\
+		if (world.tick_usage > Master.current_ticklimit || SSlighting.force_queued) {	\
 			SSlighting.light_queue += src;              \
 		}                                               \
 		else {                                          \

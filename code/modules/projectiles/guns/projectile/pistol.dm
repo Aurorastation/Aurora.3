@@ -344,6 +344,8 @@
 	..()
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
+	else
+		icon_state = "pistol"
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"

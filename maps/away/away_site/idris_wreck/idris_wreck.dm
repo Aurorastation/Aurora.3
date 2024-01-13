@@ -61,7 +61,7 @@
 	corpseid = TRUE
 	corpseidjob = "Security Officer (Idris)"
 	corpseidicon = "idrissec_card"
-	corpseidaccess = "Idris Vault Ship"
+	corpseidaccess = "Idris Ship Crew Member"
 	corpsepocket1 = /obj/item/storage/wallet/random
 	species = SPECIES_HUMAN
 

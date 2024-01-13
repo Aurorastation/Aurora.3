@@ -22,7 +22,8 @@ SUBSYSTEM_DEF(virtualreality)
 		robots[network] = list()
 	for(var/network in boundnetworks)
 		bounded[network] = list()
-	..()
+
+	return SS_INIT_SUCCESS
 
 
 /datum/controller/subsystem/virtualreality/proc/add_mech(var/mob/living/heavy_vehicle/mech, var/network)

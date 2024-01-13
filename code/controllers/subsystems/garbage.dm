@@ -312,14 +312,15 @@ SUBSYSTEM_DEF(garbage)
 			testing("CANCELLED search for references to a [usr.client.running_find_references].")
 			usr.client.running_find_references = null
 			running_find_references = null
-			SSgarbage.enable()
+			SSgarbage.can_fire = TRUE
+			SSgarbage.update_nextfire(reset_time = TRUE)
 			return
 
 		if(!skip_alert && alert(usr, "Running this will lock everything up for 5+ minutes. Would you like to begin the search?", "Find References", "Yes", "No") != "Yes")
 			running_find_references = null
 			return
 
-	SSgarbage.disable() // Keeps the GC from failing to collect objects being searched for here
+	SSgarbage.can_fire = FALSE // Keeps the GC from failing to collect objects being searched for here
 
 	if(usr?.client)
 		usr.client.running_find_references = type
@@ -356,7 +357,8 @@ SUBSYSTEM_DEF(garbage)
 		usr.client.running_find_references = null
 	running_find_references = null
 
-	SSgarbage.enable() //restart the garbage collector
+	SSgarbage.can_fire = TRUE //restart the garbage collector
+	SSgarbage.update_nextfire(reset_time = TRUE) //restart the garbage collector
 
 /datum/proc/search_var(potential_container, container_name, recursive_limit = 64, search_time = world.time)
 	//If we are performing a search without a check tick, we should avoid sleeping
