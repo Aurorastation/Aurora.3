@@ -6,6 +6,8 @@
 	return
 
 /datum/event/random_antag/start()
+	..()
+
 	var/list/valid_types = list()
 	for(var/antag_type  in GLOB.all_antag_types)
 		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]

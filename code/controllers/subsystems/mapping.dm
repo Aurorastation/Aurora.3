@@ -18,7 +18,8 @@ SUBSYSTEM_DEF(mapping)
 
 	current_map.build_away_sites()
 	current_map.build_exoplanets()
-	. = ..(timeofday)
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/mapping/Recover()
 	flags |= SS_NO_INIT

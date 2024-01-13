@@ -43,7 +43,7 @@
 	c.authed = TRUE // We declare client as authed now
 	c.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans
-	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
+	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, real_bans_only = TRUE, log_connection = TRUE)
 	if(ban_data)
 		to_chat_immediate(c, "You are banned for this server.")
 		to_chat_immediate(c, "Reason: [ban_data["reason"]]")

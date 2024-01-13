@@ -4,22 +4,26 @@
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 /singleton/recipe/muffin
 	appliance = OVEN
-	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5)
+	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/muffin
+	result_quantity = 6
 
 /singleton/recipe/berrymuffin
 	appliance = OVEN
-	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5)
+	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough
 	)
-	fruit = list("berries" = 1)
+	fruit = list("berries" = 2)
 	result = /obj/item/reagent_containers/food/snacks/berrymuffin
+	result_quantity = 6
 
 ////////////////////////////////////////////PANCAKES////////////////////////////////////////////
 

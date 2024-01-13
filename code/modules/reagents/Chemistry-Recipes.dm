@@ -2007,6 +2007,27 @@
 	required_reagents = list(/singleton/reagent/nutriment/teagrounds = 1, /singleton/reagent/water = 5)
 	result_amount = 5
 
+/datum/chemical_reaction/drink/sencha
+	name = "Sencha"
+	id = "sencha"
+	result = /singleton/reagent/drink/tea/sencha
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/tieguanyin
+	name = "Tieguanyin"
+	id = "tieguanyin"
+	result = /singleton/reagent/drink/tea/tieguanyin
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/jaekseol
+	name = "jaekseol"
+	id = "jaekseol"
+	result = /singleton/reagent/drink/tea/jaekseol
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/drink/cocatea
 	name = "Mate de Coca"
 	id = "cocatea"
@@ -3046,6 +3067,55 @@
 	id = "shake_dirtberry"
 	result = /singleton/reagent/drink/shake_dirtberry
 	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_dirtberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/blueberry_shake
+	name = "Blueberry Milkshake"
+	id = "shake_blueberry"
+	result = /singleton/reagent/drink/shake_blueberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_blueberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/chocolate_shake
+	name = "Chocolate Milkshake"
+	id = "shake_chocolate"
+	result = /singleton/reagent/drink/shake_chocolate
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_chocolate = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/blue_raspberry_shake
+	name = "Blue Raspberry Milkshake"
+	id = "shake_blue_raspberry"
+	result = /singleton/reagent/drink/shake_blue_raspberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_blueraspberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/raspberry_shake
+	name = "Raspberry Milkshake"
+	id = "shake_raspberry"
+	result = /singleton/reagent/drink/shake_raspberry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_raspberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/ylpha_shake
+	name = "Ylpha Berry Milkshake"
+	id = "shake_ylpha"
+	result = /singleton/reagent/drink/shake_ylpha
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_ylphaberry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/berry_shake
+	name = "Berry Milkshake"
+	id = "shake_berry"
+	result = /singleton/reagent/drink/shake_berry
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/syrup_berry = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/choco_mint_shake
+	name = "Choco-Mint Milkshake"
+	id = "shake_choco_mint"
+	result = /singleton/reagent/drink/shake_choco_mint
+	required_reagents = list(/singleton/reagent/drink/milkshake = 5, /singleton/reagent/drink/mintsyrup = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/NTellahotchocolate

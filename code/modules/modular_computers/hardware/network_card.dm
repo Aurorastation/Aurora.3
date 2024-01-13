@@ -81,7 +81,7 @@ var/global/ntnet_card_uid = 1
 		return 0
 	if(!check_functionality())
 		return 0
-	if(!ntnet_global || !ntnet_global.check_function(specific_action))
+	if(!GLOB.ntnet_global || !GLOB.ntnet_global.check_function(specific_action))
 		return 0
 
 	if(parent_computer)

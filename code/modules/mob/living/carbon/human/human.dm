@@ -24,7 +24,7 @@
 
 	if(!species)
 		if(new_species)
-			set_species(new_species,1)
+			set_species(new_species, 1)
 		else
 			set_species()
 
@@ -1481,10 +1481,21 @@
 	if(typing_indicator)
 		adjust_typing_indicator_offsets(typing_indicator)
 
-	fill_out_culture_data()
-
 	if(change_hair)
-		species.set_default_hair(src)
+		h_style = random_hair_style(gender, species.type)
+
+	if(prob(10))
+		f_style = random_facial_hair_style(gender, species.type)
+
+	if(length(species.character_color_presets) && !default_colour)
+		var/preset_name = pick(species.character_color_presets)
+		var/preset_colour = species.character_color_presets[preset_name]
+		r_skin = GetRedPart(preset_colour)
+		g_skin = GetGreenPart(preset_colour)
+		b_skin = GetBluePart(preset_colour)
+		change_skin_tone(35 - rand(30, 220))
+
+	fill_random_culture_data()
 
 	species.set_default_tail(src)
 
@@ -1505,11 +1516,22 @@
 
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
-	culture = GET_SINGLETON(species.possible_cultures[1])
-	origin = GET_SINGLETON(culture.possible_origins[1])
+	set_culture(GET_SINGLETON(species.possible_cultures[1]))
+	set_origin(GET_SINGLETON(culture.possible_origins[1]))
 	accent = pick(origin.possible_accents)
 	citizenship = origin.possible_citizenships[1]
 	religion = origin.possible_religions[1]
+
+/mob/living/carbon/human/proc/fill_random_culture_data()
+	var/new_culture_type = pick(species.possible_cultures)
+	var/culture_singleton = GET_SINGLETON(new_culture_type)
+	set_culture(culture_singleton)
+	var/new_origin = pick(culture.possible_origins)
+	var/origin_singleton = GET_SINGLETON(new_origin)
+	set_origin(origin_singleton)
+	accent = pick(origin.possible_accents)
+	citizenship = pick(origin.possible_citizenships)
+	religion = pick(origin.possible_religions)
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"

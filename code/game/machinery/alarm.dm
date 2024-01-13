@@ -360,7 +360,7 @@ pixel_x = 10;
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-/obj/machinery/alarm/process()
+/obj/machinery/alarm/process(seconds_per_tick)
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -391,7 +391,7 @@ pixel_x = 10;
 		return
 
 	//Handle temperature adjustment here.
-	handle_heating_cooling(environment)
+	handle_heating_cooling(environment, seconds_per_tick)
 
 	var/old_level = danger_level
 	var/old_pressurelevel = pressure_dangerlevel
@@ -423,7 +423,7 @@ pixel_x = 10;
 
 	return
 
-/obj/machinery/alarm/proc/handle_heating_cooling(var/datum/gas_mixture/environment)
+/obj/machinery/alarm/proc/handle_heating_cooling(datum/gas_mixture/environment, seconds_per_tick)
 	var/danger_level = null
 	ALARM_GET_DANGER_LEVEL(danger_level, target_temperature, TLV["temperature"])
 
@@ -448,23 +448,23 @@ pixel_x = 10;
 		//Unnecessary checks removed, duplication of effort
 
 		var/datum/gas_mixture/gas
-		gas = environment.remove(0.25*environment.total_moles)
+		gas = environment.remove(seconds_per_tick * 0.25*environment.total_moles)
 		if(gas)
 
 			if (gas.temperature <= target_temperature)	//gas heating
-				var/energy_used = min( gas.get_thermal_energy_change(target_temperature) , active_power_usage)
+				var/energy_used = min( gas.get_thermal_energy_change(target_temperature) , active_power_usage * seconds_per_tick)
 
 				gas.add_thermal_energy(energy_used)
 				//use_power(energy_used, ENVIRON) //handle by update_use_power instead
 			else	//gas cooling
-				var/heat_transfer = min(abs(gas.get_thermal_energy_change(target_temperature)), active_power_usage)
+				var/heat_transfer = min(abs(gas.get_thermal_energy_change(target_temperature)), active_power_usage * seconds_per_tick)
 
 				//Assume the heat is being pumped into the hull which is fixed at 20 C
 				//none of this is really proper thermodynamics but whatever
 
 				var/cop = gas.temperature/T20C	//coefficient of performance -> power used = heat_transfer/cop
 
-				heat_transfer = min(heat_transfer, cop * active_power_usage)	//this ensures that we don't use more than active_power_usage amount of power
+				heat_transfer = min(heat_transfer, cop * active_power_usage * seconds_per_tick)	//this ensures that we don't use more than active_power_usage amount of power
 
 				heat_transfer = -gas.add_thermal_energy(-heat_transfer)	//get the actual heat transfer
 

@@ -48,10 +48,10 @@ SUBSYSTEM_DEF(lighting)
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
-	wake()
+	can_fire = TRUE
 	if (!force_override)
 		force_queued = FALSE
 
@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(lighting)
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
 #endif
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)

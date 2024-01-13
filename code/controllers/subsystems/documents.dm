@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(docs)
 		log_config("SSdocs: invalid load option specified in config")
 		log_subsystem_documents("invalid load option specified in config")
 
-	..()
+	return SS_INIT_SUCCESS
 
 /*
 	Fetching Data

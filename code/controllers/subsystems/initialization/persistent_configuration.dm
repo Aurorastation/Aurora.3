@@ -19,6 +19,8 @@ SUBSYSTEM_DEF(persistent_configuration)
 
 	load_from_file("data/persistent_config.json")
 
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/persistent_configuration/proc/load_from_file(filename)
 	var/file = file2text(filename)
 

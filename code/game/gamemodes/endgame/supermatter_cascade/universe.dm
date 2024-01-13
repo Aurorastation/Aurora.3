@@ -36,7 +36,7 @@ var/global/universe_has_ended = 0
 
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
-	SSgarbage.disable()
+	SSgarbage.can_fire = FALSE
 
 	to_world("<span class='danger' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>")
 

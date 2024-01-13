@@ -328,6 +328,6 @@
 
 /obj/item/trash/wooden_platter
 	name = "wooden platter"
-	icon_state = "woodentray"
+	icon_state = "wooden_platter"
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'

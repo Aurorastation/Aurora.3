@@ -457,10 +457,9 @@ var/list/preferences_datums = list()
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
-	character.origin = GET_SINGLETON(text2path(origin))
-	character.culture = GET_SINGLETON(text2path(culture))
-	character.origin.on_apply(character)
-	character.culture.on_apply(character)
+	character.set_culture(GET_SINGLETON(text2path(culture)))
+	character.set_origin(GET_SINGLETON(text2path(origin)))
+
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)

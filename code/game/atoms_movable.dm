@@ -379,7 +379,7 @@
 	update_grid_location(old_loc, src)
 
 /atom/movable/proc/update_grid_location(atom/old_loc)
-	if(!HAS_SPATIAL_GRID_CONTENTS(src) || SSspatial_grid.init_state < SS_INITSTATE_DONE)
+	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
 
 	var/turf/old_turf = get_turf(old_loc)
@@ -429,10 +429,10 @@
 			LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE, src)
 
 		var/turf/our_turf = get_turf(src)
-		if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+		if(our_turf && SSspatial_grid.initialized)
 			SSspatial_grid.enter_cell(src, our_turf)
 
-		else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)//SSspatial_grid isnt init'd yet, add ourselves to the queue
+		else if(our_turf && !SSspatial_grid.initialized)//SSspatial_grid isnt init'd yet, add ourselves to the queue
 			SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 	ADD_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
 
@@ -450,9 +450,9 @@
 		return
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+	if(our_turf && SSspatial_grid.initialized)
 		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+	else if(our_turf && !SSspatial_grid.initialized)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
@@ -481,9 +481,9 @@
 /atom/movable/proc/enable_client_mobs_in_contents(client/new_client)
 	var/turf/our_turf = get_turf(src)
 
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+	if(our_turf && SSspatial_grid.initialized)
 		SSspatial_grid.enter_cell(src, our_turf, RECURSIVE_CONTENTS_CLIENT_MOBS)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+	else if(our_turf && !SSspatial_grid.initialized)
 		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_CLIENT_MOBS)
 
 	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
@@ -494,9 +494,9 @@
 
 	var/turf/our_turf = get_turf(src)
 
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+	if(our_turf && SSspatial_grid.initialized)
 		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_CLIENT_MOBS)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+	else if(our_turf && !SSspatial_grid.initialized)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_CLIENT_MOBS)
 
 	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
@@ -508,17 +508,17 @@
 		LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+	if(our_turf && SSspatial_grid.initialized)
 		SSspatial_grid.enter_cell(src, our_turf)
 
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)//SSspatial_grid isnt init'd yet, add ourselves to the queue
+	else if(our_turf && !SSspatial_grid.initialized)//SSspatial_grid isnt init'd yet, add ourselves to the queue
 		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
 
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+	if(our_turf && SSspatial_grid.initialized)
 		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+	else if(our_turf && !SSspatial_grid.initialized)
 		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
