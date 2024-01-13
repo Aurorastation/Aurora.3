@@ -131,7 +131,7 @@
 #define to_world(message)                                   to_chat(world, message)
 #define sound_to(target, sound)                             to_target(target, sound)
 #define to_save(handle, value)                              to_target(handle, value) //semantics postport: what did they mean by this
-#define show_browser(target, browser_content, browser_name) to_target(target, browse(browser_content, browser_name))
+#define show_browser(target, content, title) to_target(target, browse(findtext_char(content, "<html><head>")?replacetext_char(content, "<html><head>", "<html><head><meta charset='utf-8'>"):findtext_char(content, "<head>")?replacetext_char(content, "<head>", "<head><meta charset='utd-8'>"):"<head><meta charset='utf-8'>[content]", title))
 #define send_rsc(target, content, title)                    to_target(target, browse_rsc(content, title))
 #define send_output(target, msg, control)                   to_target(target, output(msg, control))
 #define send_link(target, url)                              to_target(target, link(url))
