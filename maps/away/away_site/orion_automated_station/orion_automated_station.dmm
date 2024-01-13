@@ -711,6 +711,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/east)
+"mY" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/east,
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "na" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -1234,6 +1239,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/west)
+"ys" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/north{
+	name = "north, west docks"
+	},
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "yv" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
@@ -1244,6 +1256,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/center)
+"ze" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/north{
+	name = "north, center"
+	},
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "zq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1666,6 +1685,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/orion_automated_station/west)
+"Fx" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/west,
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "FT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/cargo_package{
@@ -1876,6 +1900,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/orion_automated_station/atmos)
+"IT" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/south{
+	name = "south, east docks"
+	},
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "IX" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
@@ -1895,6 +1926,11 @@
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled/full,
 /area/orion_automated_station/east)
+"Jv" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/landmark/entry_point/east,
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "JE" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -2223,6 +2259,13 @@
 	dir = 8
 	},
 /obj/structure/lattice,
+/turf/template_noop,
+/area/orion_automated_station/exterior)
+"Ov" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/south{
+	name = "south, center"
+	},
 /turf/template_noop,
 /area/orion_automated_station/exterior)
 "OD" = (
@@ -2720,6 +2763,13 @@
 /obj/item/cargo_package,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/packages)
+"Wh" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/north{
+	name = "north, east docks"
+	},
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "WE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -2816,6 +2866,13 @@
 "XI" = (
 /turf/simulated/wall,
 /area/orion_automated_station/center)
+"XM" = (
+/obj/structure/lattice,
+/obj/effect/landmark/entry_point/south{
+	name = "south, west docks"
+	},
+/turf/template_noop,
+/area/orion_automated_station/exterior)
 "XU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -30800,14 +30857,14 @@ DF
 DF
 DF
 DF
-DF
+mY
 DF
 ga
 xq
 Wd
 ga
 vY
-vY
+Jv
 Yn
 Yn
 vY
@@ -32850,7 +32907,7 @@ Zi
 Zi
 Zi
 Zi
-DF
+XM
 jU
 jU
 DF
@@ -32868,7 +32925,7 @@ bq
 YJ
 jU
 DF
-DF
+ys
 jU
 vY
 Zi
@@ -35419,7 +35476,7 @@ Zi
 Zi
 Zi
 Zi
-DF
+Ov
 mq
 mq
 XI
@@ -35441,7 +35498,7 @@ XI
 mq
 mq
 vY
-DF
+ze
 Zi
 Zi
 Zi
@@ -37217,7 +37274,7 @@ Zi
 Zi
 Zi
 Zi
-DF
+Ov
 jU
 NW
 NW
@@ -37240,7 +37297,7 @@ cr
 ax
 ax
 jU
-DF
+ze
 Zi
 Zi
 Zi
@@ -41079,7 +41136,7 @@ Zi
 Zi
 Zi
 yv
-DF
+IT
 jU
 NY
 oX
@@ -41087,7 +41144,7 @@ ik
 La
 lq
 rM
-DF
+Wh
 Zi
 yv
 Zi
@@ -44164,13 +44221,13 @@ Zi
 Zi
 Zi
 Zi
-DF
+Fx
 DF
 Nh
 Lg
 fU
 DE
-DF
+Fx
 Zi
 Zi
 Zi
