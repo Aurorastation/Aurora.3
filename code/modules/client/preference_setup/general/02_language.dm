@@ -114,10 +114,12 @@
 		return TOPIC_REFRESH
 	else if(href_list["add_language"])
 		var/datum/species/S = GLOB.all_species[pref.species]
+		var/singleton/origin_item/culture/culture = GET_SINGLETON(text2path(pref.culture))
+		var/singleton/origin_item/origin/origin = GET_SINGLETON(text2path(pref.origin))
 		if(pref.alternate_languages.len >= S.num_alternate_languages)
 			alert(user, "You have already selected the maximum number of alternate languages for this species!")
 		else
-			var/list/available_languages = S.secondary_langs.Copy()
+			var/list/available_languages = S.secondary_langs.Copy() + culture.secondary_langs.Copy() + origin.secondary_langs.Copy()
 			for(var/L in GLOB.all_languages)
 				var/datum/language/lang = GLOB.all_languages[L]
 				if(!(lang.flags & RESTRICTED) && (!GLOB.config.usealienwhitelist || is_alien_whitelisted(user, L) || !(lang.flags & WHITELISTED)))

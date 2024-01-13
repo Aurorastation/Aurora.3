@@ -3,6 +3,7 @@
 	var/desc = DESC_PARENT
 	var/important_information //Big red text. Should only be used if not following it would incur a bwoink.
 	var/list/origin_traits = list()
+	var/list/secondary_langs = list() //additional languages characters from this origin can select
 	/// Format for the following list: "Characters from this origin: [list entry], [list entry]."
 	/// One list item per trait.
 	var/list/origin_traits_descriptions = list()
