@@ -2968,7 +2968,7 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = dddd;
+	id_tag = "guild_shuttle_dock";
 	pixel_y = -24;
 	dir = 1
 	},
