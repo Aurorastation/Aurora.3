@@ -3729,6 +3729,7 @@
 #include "maps\away\ships\yacht\yacht_areas.dm"
 #include "maps\away\ships\yacht_civ\yacht_civ_.dm"
 #include "maps\away\ships\yacht_civ\yacht_civ_areas.dm"
+#include "maps\away\ships\yacht_civ\yacht_civ_ghostroles.dm"
 #include "maps\away\ships\yacht_civ\yacht_civ_items.dm"
 #include "maps\away\ships\yacht_civ\yacht_civ_landmarks.dm"
 #include "maps\away_sites_testing\away_sites_testing.dm"
