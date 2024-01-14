@@ -329,6 +329,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "cc" = (
@@ -520,6 +521,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/thrust2)
 "cW" = (
@@ -907,6 +909,8 @@
 	name = "Equipment Storage Blast Shutters";
 	pixel_y = 28
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "fc" = (
@@ -1019,6 +1023,7 @@
 	name = "Thrusters to Canister";
 	target_pressure = 15000
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/thrust2)
 "fC" = (
@@ -1268,6 +1273,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/thrust1)
 "gI" = (
@@ -2163,6 +2169,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/hydroponics)
 "kv" = (
@@ -2172,6 +2179,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/engistorage)
 "kw" = (
@@ -2303,6 +2311,8 @@
 	dir = 8;
 	pixel_x = -32
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "ln" = (
@@ -4157,6 +4167,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "vy" = (
@@ -5669,6 +5680,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "DO" = (
@@ -7233,6 +7245,15 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/storage/box/lights/mixed,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "LE" = (
@@ -7675,6 +7696,7 @@
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hydroponics)
 "Ob" = (
@@ -7694,6 +7716,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Of" = (
@@ -7930,6 +7953,18 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/structure/table/reinforced/steel,
+/obj/item/paper/fluff/scarabengine{
+	pixel_x = -5
+	},
+/obj/item/clothing/head/bandana/engineering{
+	pixel_x = 12;
+	pixel_y = -1
+	},
+/obj/item/tank/oxygen/red{
+	pixel_y = 7;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "OP" = (
@@ -8032,6 +8067,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Ps" = (
@@ -8757,10 +8794,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_storage_unit/standard_unit{
-	pixel_y = 20;
-	density = 0
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Sm" = (
@@ -8852,7 +8886,6 @@
 /area/ship/coc_scarab/equipment)
 "SR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -8863,17 +8896,8 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/item/clothing/head/bandana/engineering{
-	pixel_x = 12;
-	pixel_y = -1
-	},
-/obj/item/paper/fluff/scarabengine{
-	pixel_x = -5
-	},
-/obj/item/tank/oxygen/red{
-	pixel_y = 10;
-	pixel_x = 9
-	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "SV" = (
@@ -9281,6 +9305,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Um" = (
@@ -10147,6 +10172,7 @@
 	density = 0;
 	pixel_y = 20
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hydroponics)
 "YV" = (
@@ -40589,7 +40615,7 @@ DI
 rK
 nV
 iU
-Eq
+rK
 RL
 CD
 Eq
