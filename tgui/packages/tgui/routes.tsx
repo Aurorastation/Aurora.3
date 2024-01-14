@@ -7,7 +7,7 @@
 import { Icon, Section, Stack } from './components';
 
 import { Store } from 'common/redux';
-import { Window } from './layouts';
+import { NtosWindow, Window } from './layouts';
 import { selectBackend } from './backend';
 import { selectDebug } from './debug/selectors';
 
@@ -16,8 +16,8 @@ const requireInterface = require.context('./interfaces');
 const routingError =
   (type: 'notFound' | 'missingExport', name: string) => () => {
     return (
-      <Window>
-        <Window.Content scrollable>
+      <NtosWindow>
+        <NtosWindow.Content scrollable>
           {type === 'notFound' && (
             <div>
               Interface <b>{name}</b> was not found.
@@ -28,17 +28,17 @@ const routingError =
               Interface <b>{name}</b> is missing an export.
             </div>
           )}
-        </Window.Content>
-      </Window>
+        </NtosWindow.Content>
+      </NtosWindow>
     );
   };
 
 // Displays an empty Window with scrollable content
 const SuspendedWindow = () => {
   return (
-    <Window>
-      <Window.Content scrollable />
-    </Window>
+    <NtosWindow>
+      <NtosWindow.Content scrollable />
+    </NtosWindow>
   );
 };
 
