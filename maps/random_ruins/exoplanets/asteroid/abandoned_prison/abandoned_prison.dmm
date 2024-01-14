@@ -1,0 +1,5676 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ae" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"ag" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/pickaxe,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"av" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"aH" = (
+/obj/effect/decal/fake_object{
+	icon_state = "broadcaster";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "broadcast relay"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southright{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"aM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/obj/structure/sign/poster{
+	pixel_y = 33
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"aP" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"aT" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"bi" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"bw" = (
+/obj/structure/bed/roller,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/medical,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"by" = (
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/structure/blocker,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"bz" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"bK" = (
+/obj/effect/decal/fake_object{
+	icon_state = "comm_server";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "telecommunications server"
+	},
+/turf/simulated/floor/bluegrid/airless,
+/area/abandoned_prison/exterior)
+"bP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"bQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"bR" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"bW" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/kitchen)
+"bZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"cb" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/disposal/small{
+	dir = 8;
+	pixel_x = 10
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"co" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/item/ammo_magazine/mc9mm/empty,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"cq" = (
+/obj/structure/track,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"cv" = (
+/obj/structure/table/steel,
+/obj/structure/closet/walllocker/medical{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/storage/firstaid/o2,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"cL" = (
+/obj/machinery/door/airlock/glass,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"dr" = (
+/obj/structure/cargo_receptacle,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"dE" = (
+/obj/structure/bed/stool/chair/plastic,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/kitchen)
+"dH" = (
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/structure/table/rack,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southright{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"dI" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"dJ" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 7
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"dK" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"dL" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"dV" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_y = 11;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_y = 15;
+	pixel_x = 7
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"dZ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"ew" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/wardenoffice)
+"eE" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"eH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"eM" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"eN" = (
+/turf/template_noop,
+/area/space)
+"fa" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"fn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"fF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"fN" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"fP" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"fT" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = 28;
+	id = "pprocessing_n"
+	},
+/obj/machinery/conveyor_switch/oneway{
+	id = "pmining_2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"gg" = (
+/obj/structure/closet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange/full,
+/obj/item/clothing/under/color/orange/cell2,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"gk" = (
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"go" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/bathroom)
+"gy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"gE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"gH" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 5
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"gV" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/random/tech_supply,
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"gW" = (
+/obj/structure/table/steel,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"hd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"hk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"ho" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/miningcart,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/glass,
+/obj/item/ore/glass,
+/obj/item/ore/glass,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"hy" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"hz" = (
+/turf/simulated/wall/r_wall,
+/area/space)
+"hH" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"hR" = (
+/obj/structure/table/rack,
+/obj/machinery/cell_charger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"hS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/alarm/north,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"hX" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/eva_prep)
+"hY" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"ix" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"iG" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"iH" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"iR" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"iT" = (
+/obj/effect/landmark/clear,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"jk" = (
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"jn" = (
+/turf/simulated/wall,
+/area/abandoned_prison/exterior)
+"js" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"jv" = (
+/obj/structure/bed/stool/chair/padded/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"jH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"jO" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"jZ" = (
+/obj/structure/table/standard,
+/obj/item/trash/snack_bowl,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/kitchen)
+"kc" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/smes/buildable{
+	input_attempt = 1;
+	charge = 2000000;
+	input_level = 200000;
+	output_level = 200000;
+	output_attempt = 1
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"ki" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm/south,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"ks" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6;
+	icon_state = "spline_fancy"
+	},
+/obj/structure/table/wood,
+/obj/item/toy/desk/officetoy,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"kt" = (
+/obj/random/junk,
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"kz" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"kC" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"kI" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"kL" = (
+/turf/simulated/mineral,
+/area/space)
+"kV" = (
+/obj/structure/closet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange/full,
+/obj/item/clothing/under/color/orange/cell4,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"lb" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "pmining_2";
+	layer = 2.9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"lc" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"lh" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"li" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"ln" = (
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"lr" = (
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"lv" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/random/tech_supply,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"lA" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/random/tech_supply{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"lJ" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "pmining_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"lN" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"lO" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"lQ" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8;
+	layer = 3.5
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"lT" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "mining_1";
+	layer = 2.9
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "pmining_1";
+	layer = 2.9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"lX" = (
+/obj/machinery/light/colored/decayed,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"lZ" = (
+/obj/machinery/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"mc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"mf" = (
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"mg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/cells)
+"mo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"mC" = (
+/obj/machinery/floodlight/randomcharge,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"mF" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"mW" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"ni" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"nr" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"ny" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"nz" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"nB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/junk,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"nR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/obj/machinery/access_button{
+	pixel_y = 8;
+	pixel_x = -28
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"og" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"ou" = (
+/obj/structure/closet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange/full,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"oK" = (
+/obj/structure/track,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"oZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/table/rack,
+/obj/item/stack/rods/full{
+	max_amount = 50
+	},
+/obj/item/stack/flag/purple,
+/obj/item/stack/flag/green,
+/obj/item/stack/flag/red,
+/obj/item/stack/flag/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southright,
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 80
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"pa" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 12
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"pj" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"pp" = (
+/obj/structure/closet/crate/miningcart,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"pv" = (
+/obj/machinery/door/airlock/glass,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"px" = (
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"pz" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"pD" = (
+/obj/structure/table/steel,
+/obj/item/stack/material/graphite{
+	amount = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/flame/lighter/random{
+	pixel_y = 3;
+	pixel_x = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"pG" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"pS" = (
+/obj/structure/closet,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"pT" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/random/junk,
+/obj/structure/sign/poster{
+	pixel_y = 33
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"pV" = (
+/obj/structure/inflatable/door,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"pX" = (
+/obj/structure/inflatable/wall,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"qc" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"qi" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/east,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"qB" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/abandoned_prison/exterior)
+"qK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/miningcart,
+/obj/item/ore/diamond,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"qS" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/obj/structure/railing/mapped{
+	pixel_y = -10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"qX" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"rb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/closet/cabinet,
+/obj/item/melee/baton,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/gun/energy/taser,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/clothing/suit/armor/vest,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"rg" = (
+/mob/living/simple_animal/hostile/giant_spider/nurse,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"rr" = (
+/obj/effect/landmark/clear,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"rv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/track,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"rC" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"rG" = (
+/obj/structure/sign/flag/coalition,
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/kitchen)
+"rJ" = (
+/obj/structure/bed/chair,
+/obj/effect/spider/stickyweb,
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/effects.dmi';
+	icon_state = "cocoon1"
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"rT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"rY" = (
+/obj/effect/decal/fake_object{
+	icon_state = "hub";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "comm hub"
+	},
+/turf/simulated/floor/bluegrid/airless,
+/area/abandoned_prison/exterior)
+"sa" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"sd" = (
+/obj/machinery/power/portgen/basic,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"sg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 2;
+	pixel_x = -7
+	},
+/obj/item/paper{
+	pixel_y = -1;
+	pixel_x = 7
+	},
+/obj/item/pen/fountain/silver{
+	pixel_y = 11;
+	pixel_x = 7
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"si" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"so" = (
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush/red,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/sink{
+	dir = 1;
+	pixel_y = 15
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"sp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"st" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/track,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"sx" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"sU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm/north,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"sY" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/greenglow,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"sZ" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"ta" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/hydroponics)
+"tb" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"td" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
+"te" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/projectile/automatic/rifle/shorty,
+/obj/structure/sign/poster{
+	pixel_y = 33
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"tl" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"tr" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"tx" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"tL" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "pstacking_n";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"tN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"tU" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"tW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"tY" = (
+/obj/structure/toilet,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"tZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"um" = (
+/obj/machinery/atmospherics/unary/vent_pump,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"ur" = (
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"us" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/wardenbathroom)
+"uD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"uH" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"uJ" = (
+/obj/structure/table/rack,
+/obj/item/cell/high{
+	charge = 100;
+	maxcharge = 15000
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"uK" = (
+/obj/machinery/suit_cycler/security/prepared,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"uM" = (
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"uO" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"uV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/item/ammo_casing/c9mm{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"uY" = (
+/obj/structure/track,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"vk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/north,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"vF" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"vG" = (
+/obj/machinery/light/colored/decayed,
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/exterior)
+"vK" = (
+/obj/machinery/door/airlock/glass_service,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"vY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"ws" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/medbay)
+"wv" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/floodlight/randomcharge{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"wN" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = 28;
+	id = "pstacking_n"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"wO" = (
+/obj/machinery/atmospherics/unary/vent_pump,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"wT" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"xk" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_x = -19
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -6;
+	pixel_x = 13
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"xr" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"xx" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"xB" = (
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	pixel_x = -26;
+	pixel_y = -1;
+	req_access = null
+	},
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"xG" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"xK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"xM" = (
+/obj/structure/bed/chair,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/random,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"xP" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"xR" = (
+/obj/machinery/floodlight/randomcharge{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"xY" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"yg" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"yh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/power/apc/east,
+/obj/structure/cable/green,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"yy" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"yH" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"yK" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"zc" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/sign/poster{
+	pixel_y = 33
+	},
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"zp" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/dynamite,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"zq" = (
+/obj/structure/largecrate,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"zz" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"zL" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = -28;
+	id = "pstacking_s"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"zP" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"zU" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"Ac" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Ad" = (
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Ae" = (
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/unary/vent_pump,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Ai" = (
+/obj/machinery/mineral/processing_unit{
+	dir = 4;
+	id = "pprocessing_s"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Aj" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/vending/hydroseeds,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"Aq" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/cooled,
+/area/abandoned_prison/exterior)
+"Ay" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Az" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/item/trash/plate,
+/obj/item/trash/plate{
+	pixel_y = 3
+	},
+/obj/item/trash/plate{
+	pixel_y = 6
+	},
+/obj/item/trash/plate{
+	pixel_y = 9
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"AL" = (
+/obj/structure/toilet,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 8
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"AT" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"AV" = (
+/obj/machinery/suit_storage_unit,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Be" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Bg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Bv" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"Bx" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/kitchen)
+"BI" = (
+/turf/simulated/wall/r_wall{
+	can_open = 1;
+	color = "#dedede"
+	},
+/area/abandoned_prison/cells)
+"Ca" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Cn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/largecrate,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Cw" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"CI" = (
+/obj/structure/largecrate,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"CK" = (
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"CQ" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/wardenoffice)
+"CY" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/light/colored/decayed,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"CZ" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_x = -19
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"Dj" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/kitchen)
+"DF" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/item/wrench{
+	pixel_x = 4;
+	pixel_y = -11
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Ea" = (
+/obj/structure/table/standard,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"Es" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"Ey" = (
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10;
+	icon_state = "spline_fancy"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"EB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"ED" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"EU" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/screwdriver,
+/obj/random/tech_supply,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Fb" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/hydroponics)
+"Fj" = (
+/obj/effect/decal/fake_object{
+	icon_state = "broadcast receiver";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "broadcast reciever"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"FG" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"FU" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Gq" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"Gs" = (
+/obj/structure/railing/mapped,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Gu" = (
+/obj/structure/sign/flag/coalition,
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/eva_prep)
+"Gx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"Gy" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"GC" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"GO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/sign/poster{
+	pixel_y = 33
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"GU" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "pmining_1";
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/mining,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"GX" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Hc" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"Hh" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/structure/track,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Hl" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"Ho" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southleft{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Ht" = (
+/obj/item/stack/material/plasteel,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/cells)
+"Hz" = (
+/obj/machinery/atmospherics/unary/vent_pump,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"HA" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"HL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"HP" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"HT" = (
+/obj/effect/landmark/clear,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"HX" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"HY" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/vending/hydronutrients,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"Id" = (
+/obj/structure/railing/mapped{
+	dir = 8;
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Io" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"Ip" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"Iy" = (
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/machinery/vending/tool,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"IE" = (
+/obj/structure/table/standard,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"Jb" = (
+/obj/structure/toilet,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 8
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Jc" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"Jd" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Jj" = (
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
+/obj/machinery/power/apc/north,
+/obj/structure/bed/chair,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Jm" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/abandoned_prison/exterior)
+"Jt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Jv" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"JC" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"Kd" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Km" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Kr" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"Kv" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "pmining_2";
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/mining,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"KB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"KM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"KW" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"KY" = (
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"La" = (
+/obj/effect/landmark/clear,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/template_noop,
+/area/space)
+"Ll" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"Lv" = (
+/obj/random/junk,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"Lz" = (
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/fluidtracks.dmi';
+	icon_state = "human1";
+	color = "#615C5B"
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/effects/fluidtracks.dmi';
+	icon_state = "human2";
+	color = "#615C5B";
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"LF" = (
+/obj/structure/sign/securearea,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"LK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"LL" = (
+/obj/effect/decal/fake_object{
+	icon_state = "processor";
+	icon = 'icons/obj/machinery/telecomms.dmi';
+	name = "input processor"
+	},
+/turf/simulated/floor/bluegrid/airless,
+/area/abandoned_prison/exterior)
+"LR" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"Mj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/item/gun/projectile/pistol,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"Mz" = (
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"ME" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/bookcase/libraryspawn/nonfiction,
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"MM" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/kitchen)
+"MW" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"MZ" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"Ne" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/plasteel{
+	amount = 4
+	},
+/obj/item/stack/material/glass{
+	amount = 17
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/random/tech_supply{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/random/tech_supply{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"Nf" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/door/window/southright,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Nk" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/door/window/southleft,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"No" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/kitchen)
+"Np" = (
+/obj/random/tech_supply,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"NY" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/kitchen)
+"NZ" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "pstacking_s";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Ob" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/iv_drip,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/abandoned_prison/medbay)
+"Or" = (
+/obj/machinery/mineral/unloading_machine{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Os" = (
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"OG" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"OO" = (
+/obj/machinery/door/airlock/glass_service,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"OW" = (
+/obj/structure/railing/mapped,
+/turf/simulated/mineral,
+/area/space)
+"Pg" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/item/flame/lighter/random,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Pj" = (
+/obj/machinery/door/airlock/glass_security,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/wardenoffice)
+"Pn" = (
+/obj/structure/closet/crate,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"PM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"PQ" = (
+/obj/random/soap,
+/obj/machinery/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"PT" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"PZ" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Qo" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/abandoned_prison/exterior)
+"Qp" = (
+/obj/structure/sink{
+	dir = 1;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothbrush,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"Qs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"Qu" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"QB" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/cells)
+"QG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"QH" = (
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"QP" = (
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Rh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/abandoned_prison/wardenoffice)
+"Rz" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 8;
+	target_pressure = 250
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"RA" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"RC" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/exterior)
+"RH" = (
+/turf/simulated/wall,
+/area/space)
+"RM" = (
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"RO" = (
+/obj/machinery/suit_storage_unit,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"RU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/clothing/under/color/orange/cell3,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Sf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Sg" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Ss" = (
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Su" = (
+/obj/machinery/mineral/processing_unit{
+	dir = 4;
+	id = "pprocessing_n"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"SA" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"SV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Ta" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"Tn" = (
+/obj/machinery/door/airlock/glass,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Tr" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Uq" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Ur" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"UA" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"UK" = (
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"UR" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"UY" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"UZ" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_prison/wardenoffice)
+"Va" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/hydroponics)
+"Vl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Vo" = (
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Vt" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 6
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"VQ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Wc" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Wi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Ww" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/wardenbathroom)
+"Wy" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"WL" = (
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"Xh" = (
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Xm" = (
+/obj/structure/bed/stool/chair/plastic,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/kitchen)
+"Xr" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/space)
+"Xz" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"XC" = (
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"XE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/item/clothing/accessory/badge/old,
+/obj/effect/decal/remains/human,
+/obj/effect/decal/cleanable/blood,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/cells)
+"XG" = (
+/obj/structure/track,
+/obj/structure/track,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"XQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = 20
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"XR" = (
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/engineering)
+"XY" = (
+/obj/machinery/door/airlock/glass{
+	welded = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+"Yu" = (
+/obj/structure/sign/securearea,
+/turf/simulated/wall/r_wall,
+/area/abandoned_prison/exterior)
+"YI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"YO" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/random/glowstick,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"YU" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/abandoned_prison/bathroom)
+"YZ" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/southleft,
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 80
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Zf" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/abandoned_prison/eva_prep)
+"Zg" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/abandoned_prison/exterior)
+"Zp" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = -28;
+	id = "pprocessing_s"
+	},
+/obj/machinery/conveyor_switch/oneway{
+	id = "pmining_1"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"Zy" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/abandoned_prison/exterior)
+"ZB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"ZC" = (
+/obj/random/tech_supply{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/engineering)
+"ZG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"ZL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_prison_base";
+	master_tag = "airlock_prison_base"
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_prison/eva_prep)
+"ZZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/west,
+/obj/structure/bed/chair,
+/obj/item/flame/lighter/zippo/sol,
+/turf/simulated/floor/tiled/dark/full,
+/area/abandoned_prison/cells)
+
+(1,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+kL
+kL
+kL
+kL
+ws
+ws
+ws
+ws
+ws
+kL
+kL
+kL
+kL
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+"}
+(2,1,1) = {"
+eN
+eN
+eN
+kL
+kL
+kL
+kL
+kL
+kL
+ws
+xB
+cv
+gW
+ws
+kL
+kL
+kL
+kL
+kL
+kL
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+"}
+(3,1,1) = {"
+eN
+eN
+eN
+kL
+kL
+kL
+kL
+kL
+kL
+ws
+hS
+ni
+Ob
+ws
+kL
+kL
+kL
+kL
+kL
+kL
+kL
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+"}
+(4,1,1) = {"
+eN
+eN
+eN
+kL
+kL
+QB
+QB
+QB
+QB
+ws
+gy
+fn
+bw
+ws
+kL
+kL
+kL
+kL
+kL
+kL
+kL
+kL
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+sx
+sx
+eN
+eN
+"}
+(5,1,1) = {"
+eN
+eN
+kL
+kL
+kL
+QB
+tY
+QP
+pS
+QB
+mg
+CQ
+CQ
+CQ
+CQ
+us
+us
+us
+us
+us
+us
+kL
+kL
+kL
+kL
+eN
+eN
+sx
+sx
+sx
+sx
+sx
+eN
+"}
+(6,1,1) = {"
+eN
+eN
+kL
+kL
+kL
+QB
+rJ
+Ae
+rg
+XY
+by
+CQ
+xM
+UZ
+uK
+us
+Qp
+yK
+Ww
+LR
+us
+kL
+kL
+kL
+kL
+eN
+eN
+sx
+OG
+YO
+Pg
+RH
+eN
+"}
+(7,1,1) = {"
+eN
+kL
+kL
+kL
+kL
+QB
+QB
+QB
+QB
+QB
+te
+ew
+sg
+gE
+bZ
+cL
+vY
+qy
+zP
+MW
+us
+Fb
+Fb
+Fb
+Fb
+Fb
+Fb
+La
+px
+sY
+hy
+RH
+eN
+"}
+(8,1,1) = {"
+eN
+kL
+kL
+kL
+kL
+QB
+Jb
+Wi
+gg
+QB
+XE
+ew
+PM
+UA
+kt
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Fb
+Va
+tl
+xk
+HY
+Fb
+iT
+sx
+sx
+sx
+sx
+eN
+"}
+(9,1,1) = {"
+kL
+kL
+kL
+sx
+IE
+QB
+uM
+wO
+jH
+pv
+uV
+CQ
+rb
+Jc
+Ey
+Dj
+MZ
+qc
+CZ
+Az
+fP
+Fb
+zc
+hd
+eH
+Aj
+Fb
+GC
+Xz
+jn
+jn
+jn
+eN
+"}
+(10,1,1) = {"
+kL
+sx
+sx
+sx
+sx
+QB
+QB
+QB
+QB
+QB
+UY
+Pj
+xY
+xK
+lN
+Dj
+pT
+wT
+Hc
+Ip
+hY
+OO
+aT
+KM
+EB
+Es
+ta
+UR
+qX
+iR
+gV
+jn
+eN
+"}
+(11,1,1) = {"
+kL
+Ea
+sx
+sx
+pX
+QB
+tY
+ZZ
+ou
+Ht
+nB
+CQ
+Io
+jv
+ki
+Dj
+jk
+dJ
+dV
+No
+iH
+Fb
+Hl
+qi
+Cw
+Ur
+Fb
+fT
+tr
+tr
+Zp
+jn
+eN
+"}
+(12,1,1) = {"
+kL
+zp
+sx
+pV
+pV
+BI
+Lz
+Hz
+rT
+Ay
+eM
+CQ
+ME
+Rh
+ks
+rG
+ix
+Gq
+nz
+dI
+Ll
+go
+go
+go
+go
+Fb
+Fb
+ae
+Or
+Or
+xx
+jn
+eN
+"}
+(13,1,1) = {"
+kL
+kL
+sx
+sx
+pX
+QB
+QB
+QB
+QB
+QB
+GO
+CQ
+CQ
+ew
+ew
+Dj
+MM
+dE
+bW
+NY
+JC
+go
+PQ
+Ta
+go
+kL
+OW
+ae
+Kv
+GU
+uH
+Gy
+eN
+"}
+(14,1,1) = {"
+eN
+kL
+kL
+kL
+kL
+QB
+AL
+Wi
+kV
+QB
+fa
+tZ
+vF
+Mj
+og
+vK
+dK
+Xm
+jZ
+Bx
+ny
+go
+lZ
+YU
+go
+kL
+OW
+ae
+lb
+lT
+HX
+xG
+eN
+"}
+(15,1,1) = {"
+eN
+kL
+kL
+kL
+kL
+QB
+Jj
+um
+si
+Tn
+Gx
+iG
+mc
+zU
+co
+Dj
+mW
+lc
+cb
+Bv
+aP
+zz
+Qs
+CY
+go
+kL
+OW
+ae
+Su
+Ai
+HX
+GX
+eN
+"}
+(16,1,1) = {"
+eN
+eN
+eN
+kL
+kL
+QB
+QB
+QB
+QB
+QB
+XR
+XR
+FG
+XR
+fN
+hX
+hX
+hX
+hX
+hX
+hX
+go
+so
+lr
+go
+kL
+OW
+ae
+lb
+lJ
+Qu
+GX
+eN
+"}
+(17,1,1) = {"
+eN
+eN
+eN
+eN
+kL
+kL
+kL
+XR
+Iy
+tN
+Kr
+kz
+yy
+XR
+Bg
+mF
+RO
+AV
+AV
+av
+hX
+go
+go
+go
+go
+kL
+OW
+ae
+Kv
+GU
+HA
+pj
+eN
+"}
+(18,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+kL
+XR
+kc
+Lv
+sp
+li
+KB
+XR
+sU
+tW
+tW
+hk
+RU
+Jd
+hX
+kL
+kL
+kL
+kL
+kL
+RH
+wN
+tL
+NZ
+zL
+jn
+eN
+"}
+(19,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+kL
+XR
+vk
+UK
+Ne
+Rz
+ZB
+XR
+aM
+fF
+Zf
+YZ
+mF
+Ho
+Gu
+kL
+kL
+kL
+kL
+kL
+sx
+tU
+ho
+qK
+kC
+nr
+eN
+"}
+(20,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+XR
+ZC
+tN
+CK
+ZB
+lA
+XR
+SV
+Jt
+HL
+oZ
+yh
+dH
+hX
+kL
+kL
+kL
+kL
+sx
+sx
+qS
+st
+st
+Wy
+xR
+eN
+"}
+(21,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+XR
+sd
+pD
+HP
+lQ
+AT
+XR
+eE
+bQ
+bi
+hX
+hX
+hX
+hX
+kL
+kL
+kL
+sx
+sx
+sx
+Zy
+sx
+Ad
+Xr
+eN
+eN
+"}
+(22,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+XR
+XR
+XR
+XR
+XR
+XR
+XR
+Nk
+dZ
+mo
+nR
+ZL
+ZG
+WL
+QG
+QG
+nr
+sx
+sx
+sx
+KW
+sx
+Ad
+Xr
+eN
+eN
+"}
+(23,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+kL
+kL
+hX
+Nf
+Sf
+bP
+RM
+XQ
+xr
+sZ
+YI
+YI
+uD
+VQ
+VQ
+VQ
+Ca
+pz
+Vo
+ED
+PT
+eN
+"}
+(24,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+kL
+hX
+hX
+hX
+hX
+hX
+hX
+hX
+hX
+sx
+sx
+sx
+KW
+xP
+sx
+hz
+tb
+uY
+bz
+hz
+eN
+"}
+(25,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+sx
+sx
+sx
+sx
+KW
+xP
+sx
+SA
+Kd
+Mz
+hy
+td
+eN
+"}
+(26,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+sx
+sx
+KW
+xP
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(27,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+Zy
+xP
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(28,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+KW
+xP
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(29,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+Zy
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(30,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+sx
+sx
+sx
+sx
+eN
+eN
+eN
+eN
+eN
+eN
+KW
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(31,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+sx
+sx
+sx
+sx
+sx
+sx
+sx
+sx
+eN
+eN
+eN
+eN
+eN
+Zy
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(32,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+sx
+sx
+RC
+RC
+RC
+RC
+RC
+sx
+sx
+eN
+eN
+eN
+eN
+KW
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(33,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+dL
+xP
+HT
+rr
+RC
+bK
+Qo
+LL
+RC
+sx
+sx
+eN
+eN
+eN
+eN
+KW
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(34,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+xP
+sx
+tb
+Fj
+RC
+rY
+qB
+rY
+RC
+sx
+sx
+eN
+eN
+eN
+sx
+KW
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(35,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+xP
+xP
+sx
+tb
+aH
+RC
+bK
+Jm
+LL
+RC
+sx
+sx
+sx
+sx
+sx
+sx
+KW
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(36,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+xP
+xP
+sx
+tb
+Zy
+RC
+RC
+Aq
+RC
+RC
+sx
+sx
+sx
+sx
+sx
+sx
+KW
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(37,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+bR
+QG
+QG
+QG
+pG
+pG
+pG
+QG
+QG
+pG
+pG
+pG
+pG
+pG
+pG
+Ac
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(38,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+Yu
+wv
+hH
+hH
+hH
+hH
+hH
+hH
+hH
+hH
+hH
+hH
+Yu
+pp
+Vl
+sx
+sx
+sx
+sx
+XC
+eN
+eN
+eN
+"}
+(39,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+xP
+tb
+hH
+hH
+KY
+KY
+Be
+cq
+cq
+cq
+oK
+oK
+oK
+rv
+rv
+XG
+QH
+QH
+QH
+QH
+QH
+mf
+eN
+eN
+eN
+"}
+(40,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+yH
+Jv
+sa
+rC
+Hh
+Tr
+rC
+rC
+sa
+js
+gk
+hH
+sx
+sx
+KW
+sx
+sx
+eN
+eN
+eN
+eN
+eN
+"}
+(41,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+Vt
+RA
+RA
+RA
+RA
+RA
+RA
+Wc
+Zg
+KY
+hH
+sx
+sx
+Zy
+sx
+sx
+eN
+eN
+eN
+eN
+eN
+"}
+(42,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+KY
+hH
+sx
+sx
+Zy
+sx
+sx
+eN
+eN
+eN
+eN
+eN
+"}
+(43,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+KY
+hH
+sx
+sx
+KW
+sx
+sx
+eN
+eN
+eN
+eN
+eN
+"}
+(44,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+mC
+hH
+QG
+pG
+QG
+QG
+Ac
+sx
+sx
+eN
+eN
+eN
+"}
+(45,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+Pn
+hH
+RC
+RC
+jO
+RC
+Vl
+sx
+sx
+eN
+eN
+eN
+"}
+(46,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+uJ
+hH
+Os
+uO
+zq
+RC
+Vl
+sx
+sx
+eN
+eN
+eN
+"}
+(47,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+ur
+hH
+Os
+lv
+lX
+RC
+Vl
+sx
+xP
+sx
+eN
+eN
+"}
+(48,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+Zg
+hR
+hH
+Os
+Ss
+dr
+RC
+Km
+nr
+sx
+sx
+eN
+eN
+"}
+(49,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+KY
+Id
+hH
+RC
+RC
+RC
+RC
+RC
+PZ
+sx
+sx
+eN
+eN
+"}
+(50,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+KY
+Zg
+hH
+EU
+CI
+KY
+Cn
+RC
+PZ
+sx
+sx
+eN
+eN
+"}
+(51,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+KY
+Zg
+hH
+pa
+KY
+KY
+Uq
+RC
+Vl
+sx
+sx
+eN
+eN
+"}
+(52,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+kI
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+KY
+Zg
+hH
+ag
+KY
+KY
+Xh
+vG
+PZ
+sx
+sx
+eN
+eN
+"}
+(53,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+lO
+KY
+KY
+KY
+KY
+KY
+KY
+yg
+KY
+Zg
+hH
+KY
+KY
+KY
+Np
+RC
+PZ
+sx
+sx
+eN
+eN
+"}
+(54,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+hH
+FU
+gH
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+LK
+KY
+Zg
+hH
+KY
+lh
+DF
+ln
+RC
+PZ
+sx
+sx
+eN
+eN
+"}
+(55,1,1) = {"
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+eN
+sx
+tb
+LF
+tx
+KY
+KY
+KY
+KY
+KY
+KY
+KY
+KY
+KY
+Gs
+Yu
+RC
+RC
+RC
+RC
+RC
+PZ
+sx
+sx
+eN
+eN
+"}
