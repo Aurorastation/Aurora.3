@@ -191,8 +191,12 @@
 "dW" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/freelancer,
-/obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/item/clothing/suit/space{
+	pixel_y = 3
+	},
+/obj/item/clothing/head/helmet/space{
+	pixel_y = 3
+	},
 /obj/structure/table/rack,
 /obj/item/tank/emergency_oxygen/engi{
 	pixel_x = 6;
@@ -625,18 +629,6 @@
 /obj/structure/flora/ausbushes/palebush,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/grass,
-/area/space)
-"kf" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/clothing/shoes/magboots,
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/tank/emergency_oxygen/engi{
-	pixel_x = 6;
-	pixel_y = -6
-	},
-/turf/simulated/floor/tiled,
 /area/space)
 "kk" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
@@ -2723,18 +2715,6 @@
 "Rj" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
-/area/space)
-"Rl" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space,
-/obj/item/clothing/head/helmet/space,
-/obj/structure/table/rack,
-/obj/item/tank/emergency_oxygen/engi{
-	pixel_x = 6;
-	pixel_y = -6
-	},
-/turf/simulated/floor/tiled,
 /area/space)
 "RA" = (
 /obj/effect/floor_decal/corner/blue/full,
@@ -36654,7 +36634,7 @@ fA
 FU
 cs
 vJ
-Rl
+dW
 dW
 fA
 fA
@@ -37168,8 +37148,8 @@ fA
 KR
 cs
 un
-kf
-Rl
+dW
+dW
 fA
 sB
 EJ
