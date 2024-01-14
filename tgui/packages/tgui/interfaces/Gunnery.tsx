@@ -61,10 +61,6 @@ export const GunneryWindow = (props, context) => {
       </Section>
     );
   } else {
-    const map_size = 255;
-    const zoom_mod = 2.0;
-    const center_point_x = data.entry_point_x;
-    const center_point_y = data.entry_point_y;
     return (
       <Section>
         <Section collapsing title="Lock-On Information">
@@ -115,7 +111,7 @@ export const GunneryWindow = (props, context) => {
             ''
           )}
         </Section>
-        <Section collapsing title="Scan?">
+        <Section collapsing title="Scan">
           {MinimapView({
             map_image: data.entry_point_map_image,
             x: data.entry_point_x,
