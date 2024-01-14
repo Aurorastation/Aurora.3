@@ -209,6 +209,8 @@ SUBSYSTEM_DEF(atlas)
 	else
 		current_sector = selected_sector
 
+	current_sector.setup_current_sector()
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)

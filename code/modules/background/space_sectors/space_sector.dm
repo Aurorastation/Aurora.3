@@ -1,3 +1,7 @@
+#define RADIO_BROADCASTS "broadcasts"
+#define RADIO_NEXT_BROADCAST "next_broadcast"
+#define RADIO_BROADCAST_INDEX "broadcast_index"
+
 /datum/space_sector
 	var/name
 	var/description
@@ -10,6 +14,8 @@
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 1, "xmg" = 1, "npi" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier
 	var/skybox_icon = "ceti"
 
+	/// An associated list of lore radio stations formatted like so: list("station name" = "path_to_broadcast.txt")
+	/// This gets converted into a formatted list after initialization like so: list(RADIO_BROADCASTS = list("stuff"), RADIO_NEXT_BROADCAST = world.time, RADIO_BROADCAST_INDEX = the entry in the list that will be broadcasted)
 	var/list/lore_radio_stations = null //what radio stations can be heard by the lore radio item here
 
 	var/list/sector_lobby_art = null //if this is set, it will override the map lobby icons
@@ -110,6 +116,60 @@
 		/obj/effect/meteor/supermatter=1\
 		)
 
+/// When SSAtlas chooses us as the current sector, this function is called, which will set us up to start processing
+/datum/space_sector/proc/setup_current_sector()
+	SHOULD_CALL_PARENT(TRUE)
+
+	// For now, i've put processing to only happen if the sector has a radio station
+	// but if, in the future, you add more stuff for the processor to handle, feel free to move it out of the if block
+	if(length(lore_radio_stations))
+		for(var/station in lore_radio_stations)
+			var/list/station_broadcasts = file2list(lore_radio_stations[station])
+
+			var/text_broadcast_index = 1
+			for(var/broadcast in station_broadcasts)
+				// Italics Regex
+				var/regex/italics_regex = regex("/(.*?)/")
+				broadcast = replacetext(broadcast, italics_regex, "<i>$1</i>")
+
+				// Random Note Regex
+				var/randomnote = pick("\u2669", "\u266A", "\u266B")
+				broadcast = replacetext(broadcast, "\[RANDOMNOTE\]", randomnote)
+
+				station_broadcasts[text_broadcast_index] = broadcast
+				text_broadcast_index++
+
+			var/broadcast_length = length(station_broadcasts)
+			lore_radio_stations[station] = list(
+				RADIO_BROADCASTS = station_broadcasts,
+				RADIO_NEXT_BROADCAST = 0, // start ASAP
+				RADIO_BROADCAST_INDEX = rand(1, broadcast_length) // start randomly in the broadcast so it isn't in the same sequence every time
+			)
+
+		START_PROCESSING(SSprocessing, src)
+
+/datum/space_sector/Destroy(force)
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/datum/space_sector/process(seconds_per_tick)
+	for(var/station in lore_radio_stations)
+		var/list/broadcast_info = lore_radio_stations[station]
+		if(world.time < broadcast_info[RADIO_NEXT_BROADCAST])
+			continue
+
+		var/broadcast_index = broadcast_info[RADIO_BROADCAST_INDEX]
+		var/broadcast_message = broadcast_info[RADIO_BROADCASTS][broadcast_index]
+
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LORE_RADIO_BROADCAST, station, broadcast_message)
+
+		if(broadcast_index == length(broadcast_info[RADIO_BROADCASTS]))
+			broadcast_info[RADIO_BROADCAST_INDEX] = 1
+			broadcast_info[RADIO_NEXT_BROADCAST] = world.time + 30 SECONDS // give it a bit of a breather if we've exhausted all the messages
+		else
+			broadcast_info[RADIO_BROADCAST_INDEX]++
+			broadcast_info[RADIO_NEXT_BROADCAST] = world.time + (rand(6, 10) SECONDS) // otherwise, throw in a randomish delay (considering we're on SSprocessing, it'll uusssuaaalllyyy be about 2 seconds at minimum)
+
 /datum/space_sector/proc/get_chat_description()
 	return "<hr><div align='center'><hr1><B>Current Sector: [name]!</B></hr1><br><i>[description]</i><hr></div>"
 
@@ -130,3 +190,7 @@
 
 /datum/space_sector/proc/lore_radio_message(/obj/item/R, chosen_station) //used for the lore radio in lore_radio.dm.
 	return
+
+#undef RADIO_BROADCASTS
+#undef RADIO_NEXT_BROADCAST
+#undef RADIO_BROADCAST_INDEX
