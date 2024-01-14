@@ -1,5 +1,4 @@
-import { useBackend, useLocalState } from 'tgui/backend';
-import { NoticeBox, Section } from 'tgui/components';
+import { NoticeBox } from 'tgui/components';
 
 type MinimapViewProps = {
   map_image: any; // base64 icon
