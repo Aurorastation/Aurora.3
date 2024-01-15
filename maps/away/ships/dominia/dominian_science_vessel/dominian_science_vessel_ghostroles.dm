@@ -85,6 +85,7 @@
 	head = /obj/item/clothing/head/dominia/fleet/armsman
 	uniform = /obj/item/clothing/under/dominia/fleet/armsman
 	accessory = /obj/item/clothing/accessory/poncho/dominia_cape/mantle
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id/house_volvalaad
 
