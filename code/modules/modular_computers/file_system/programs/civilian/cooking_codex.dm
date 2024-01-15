@@ -17,27 +17,6 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/list/recipes_data = list()
-	var/list/available_recipes = GET_SINGLETON_SUBTYPE_MAP(/singleton/recipe)
-	for (var/recipe_path in available_recipes)
-		var/singleton/recipe/recipe = GET_SINGLETON(recipe_path)
-		var/list/recipe_data = list()
-
-		// result
-		var/obj/item/recipe_result = recipe.result
-		recipe_data["result"] = initial(recipe_result.name)
-
-		// ingredients
-		if(recipe.items)
-			var/list/ingredients = list()
-			for(var/ingredient_path in recipe.items)
-				var/obj/item/ingredient = ingredient_path
-				ingredients += list(initial(ingredient.name))
-			recipe_data["ingredients"] = ingredients
-
-		// fin
-		recipes_data += list(recipe_data)
-
-	data["recipes"] = recipes_data
+	data["recipes"] = SScodex.cooking_codex_data
 
 	return data
