@@ -1,43 +1,52 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "c" = (
 /turf/simulated/mineral,
 /area/exoplanet/barren/asteroid)
 "d" = (
 /obj/random/junk,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "e" = (
 /mob/living/simple_animal/hostile/carp/asteroid,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "f" = (
 /obj/random/coin,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "g" = (
 /obj/random/loot,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "h" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "i" = (
 /obj/random/powercell,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "j" = (
 /obj/item/device/flashlight/lantern{
 	on = 1
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "k" = (
 /obj/item/clothing/head/helmet/space/void/mining,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "l" = (
 /turf/simulated/mineral/random/high_chance,
@@ -45,27 +54,33 @@
 "m" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/remains,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "n" = (
 /obj/item/pickaxe/gold,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "o" = (
 /obj/random/medical,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "p" = (
 /obj/random/plushie,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "q" = (
 /obj/effect/decal/remains/rat,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 "r" = (
 /obj/random/spacecash,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/exoplanet/barren/asteroid)
 
 (1,1,1) = {"
