@@ -2520,6 +2520,7 @@
 #include "code\modules\mob\living\silicon\pai\pai.dm"
 #include "code\modules\mob\living\silicon\pai\personality.dm"
 #include "code\modules\mob\living\silicon\pai\say.dm"
+#include "code\modules\mob\living\silicon\pai\logout.dm"
 #include "code\modules\mob\living\silicon\robot\analyzer.dm"
 #include "code\modules\mob\living\silicon\robot\combat_robot.dm"
 #include "code\modules\mob\living\silicon\robot\component.dm"
