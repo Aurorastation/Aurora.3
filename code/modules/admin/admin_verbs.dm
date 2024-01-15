@@ -218,6 +218,7 @@ var/list/admin_verbs_debug = list(
 	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
@@ -388,6 +389,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/client/proc/cmd_display_init_log,
 	/client/proc/getruntimelog,
@@ -476,6 +478,7 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_dev_bst,
 	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
@@ -759,12 +762,12 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Kill Air"
 	set desc = "Toggle Air Processing"
 	if(!SSair.can_fire)
-		SSair.enable()
+		SSair.can_fire = TRUE
 		to_chat(usr, "<b>Enabled air processing.</b>")
 	else
 		if(alert("Confirm disabling air processing?",,"Yes","No") == "No")
 			return
-		SSair.disable()
+		SSair.can_fire = FALSE
 		to_chat(usr, "<b>Disabled air processing.</b>")
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))

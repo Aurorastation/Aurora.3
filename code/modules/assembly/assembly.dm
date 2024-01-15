@@ -22,7 +22,7 @@
 	/**
 	 * Wires that the assembly has installed
 	 *
-	 * Refer to `code\__defines\wires.dm` in the dedicated section for the supported wires, which _must_ be bitflags
+	 * Refer to `code\__DEFINES\wires.dm` in the dedicated section for the supported wires, which _must_ be bitflags
 	 *
 	 * At the time of writing this, it supports:
 	 * * WIRE_RECEIVE_ASSEMBLY
@@ -32,6 +32,15 @@
 	 * * WIRE_RADIO_PULSE
 	 */
 	var/wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY
+
+/obj/item/device/assembly/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+
+	holder = null
+	cut_overlays()
+	attached_overlays = null
+
+	. = ..()
 
 /obj/item/device/assembly/proc/holder_movement()
 	return

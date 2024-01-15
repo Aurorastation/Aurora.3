@@ -88,7 +88,6 @@
 	desc = "A slice of home."
 	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
 	icon_state = "breadslice"
-	trash = /obj/item/trash/plate
 	filling_color = "#D27332"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=4)

@@ -211,3 +211,12 @@
 	icon_state = "vkrexiwrap_veggie"
 	reagents_to_add = list(/singleton/reagent/nutriment = 9, /singleton/reagent/capsaicin = 4, /singleton/reagent/mental/vkrexi = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("assorted vegetables" = 8, "peppers" = 5, "bittersweet sauce" = 8))
+
+/obj/item/reagent_containers/food/snacks/phoron_river_loaf
+	name = "phoron river loaf"
+	desc = "A new creation. It is a small baked loaf made of reshaped fried K'ois molded into two mounds, with one river of phoron rock candy running between them, and another one through the center of the loaf. It is carefully baked to give it a mixture of both fluffiness and crunch."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "phoron_river_loaf"
+	filling_color = "#E6E600"
+	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 35)
+	bitesize = 10

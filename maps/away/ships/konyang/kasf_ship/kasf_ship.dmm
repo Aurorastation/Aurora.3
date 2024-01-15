@@ -242,6 +242,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/portthrust)
 "bJ" = (
@@ -596,6 +597,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "dP" = (
@@ -731,9 +733,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/cic)
 "eF" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 10
 	},
@@ -742,6 +741,9 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardthrust)
@@ -912,9 +914,6 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "fG" = (
-/obj/machinery/computer/ship/targeting{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 6
 	},
@@ -922,6 +921,9 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
 "fK" = (
@@ -934,6 +936,7 @@
 	frequency = 2502
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "fL" = (
@@ -1056,13 +1059,13 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
 "gl" = (
-/obj/machinery/computer/ship/engines,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
+/obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "gt" = (
@@ -1204,14 +1207,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
 "hf" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
 /obj/structure/sign/flag/coalition{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -1651,14 +1658,18 @@
 /turf/template_noop,
 /area/space)
 "kr" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
 /obj/structure/sign/flag/coalition{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -1704,16 +1715,17 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "kP" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = -24
+	},
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -1874,6 +1886,13 @@
 	pixel_y = 10;
 	pixel_x = -6
 	},
+/obj/item/device/gps{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
 "lS" = (
@@ -1926,10 +1945,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/computer/ship/sensors{
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1961,8 +1977,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -2109,6 +2125,9 @@
 	name = "CO2 Tank Shutters";
 	req_one_access = list(218)
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/portthrust)
 "mZ" = (
@@ -2250,14 +2269,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
 "nG" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -2272,6 +2294,9 @@
 	id = "kasf_co2_blast_starboard";
 	name = "CO2 Tank Shutters";
 	req_one_access = list(218)
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardthrust)
@@ -2628,6 +2653,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "qk" = (
@@ -2640,6 +2668,7 @@
 	frequency = 2501
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "ql" = (
@@ -3195,9 +3224,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/airlock_sensor/airlock_interior{
 	dir = 1;
 	pixel_y = -18;
@@ -3210,6 +3236,12 @@
 	name = "airlock_kasf_shuttle";
 	req_one_access = list(218);
 	shuttle_tag = "KASF Shuttle"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -3425,6 +3457,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "uy" = (
@@ -3582,15 +3617,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
 "vq" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 4
-	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
+	},
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -3703,7 +3741,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "vY" = (
@@ -3871,7 +3909,6 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/engie)
 "xs" = (
-/obj/machinery/computer/ship/engines,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 9
 	},
@@ -3879,6 +3916,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardthrust)
 "xF" = (
@@ -4044,15 +4082,13 @@
 	pixel_x = 5
 	},
 /obj/structure/sign/flag/konyang{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = "banner"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/cic)
 "ym" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4;
 	start_pressure = 1000
@@ -4280,6 +4316,9 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/starboardthrust)
 "zn" = (
@@ -4307,15 +4346,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
 "zv" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
 /obj/structure/sign/flag/konyang{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "zx" = (
@@ -4626,6 +4667,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/portthrust)
 "Bi" = (
@@ -4900,15 +4944,18 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/medbay)
 "CN" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 8
-	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -5045,15 +5092,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/cic)
 "DG" = (
-/obj/machinery/computer/ship/targeting{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = -24
+	},
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -5266,6 +5313,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "Ey" = (
@@ -5316,6 +5366,7 @@
 	frequency = 2502
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "EV" = (
@@ -5671,13 +5722,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
 "GA" = (
-/obj/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/machinery/computer/ship/helm/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
 "GD" = (
@@ -5739,9 +5790,6 @@
 /turf/simulated/floor,
 /area/ship/kasf_corvette/atmos)
 "GY" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 6
 	},
@@ -5752,6 +5800,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
 "GZ" = (
@@ -5884,6 +5935,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/starboardthrust)
 "HJ" = (
@@ -5944,6 +5996,7 @@
 	frequency = 2501
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "Ie" = (
@@ -6018,6 +6071,9 @@
 	frequency = 2502
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -6181,9 +6237,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/recharge_station{
 	name = "Synthetic Recharging Station"
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
@@ -6574,6 +6627,7 @@
 	frequency = 2501
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "Lq" = (
@@ -6730,15 +6784,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/portthrust)
 "Mb" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
 /obj/structure/sign/flag/konyang{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = "banner"
 	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "Mg" = (
@@ -6856,6 +6912,12 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor,
 /area/shuttle/kasf_shuttle)
 "MY" = (
@@ -7408,6 +7470,9 @@
 	req_access = null;
 	pixel_x = 4
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
 "Qi" = (
@@ -7619,6 +7684,12 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/overmap/visitable/ship/landable/kasf_shuttle,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
 "Rl" = (
@@ -7730,14 +7801,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/closet/walllocker{
-	name = "tritium locker";
-	pixel_y = -30
-	},
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/sign/radiation{
 	pixel_x = 32
+	},
+/obj/structure/closet/crate/rad{
+	name = "tritium crate"
 	},
 /turf/simulated/floor/greengrid,
 /area/ship/kasf_corvette/engie)
@@ -7784,6 +7854,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -7972,13 +8045,13 @@
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)
 "To" = (
-/obj/machinery/computer/ship/engines,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
 "Tq" = (
@@ -8310,6 +8383,8 @@
 	req_one_access = list(218)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/shuttle/kasf_shuttle)
 "VP" = (
@@ -8343,12 +8418,12 @@
 	pixel_y = 28;
 	pixel_x = -4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
 "VZ" = (
-/obj/machinery/computer/ship/targeting{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 10
 	},
@@ -8356,6 +8431,9 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardwep)
 "Wa" = (
@@ -8478,10 +8556,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(218)
 	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/computer/shuttle_control/explore/kasf_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8701,6 +8776,7 @@
 	frequency = 2502
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/kasf_corvette/mainhall)
 "XW" = (
@@ -8806,6 +8882,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)

@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(news)
 
 		INVOKE_ASYNC(src, PROC_REF(load_from_forums))
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/news/proc/load_from_forums()
 	if (!GLOB.config.forum_api_path || !global.forum_api_key)
@@ -79,7 +79,7 @@ SUBSYSTEM_DEF(news)
 			var/datum/computer_file/data/news_article/news = new()
 			news.filename = "[channel.channel_name] vol. [total_vol_count - count_pulled + news_count]"
 			news.stored_data = post["content"]
-			ntnet_global.available_news.Add(news)
+			GLOB.ntnet_global.available_news.Add(news)
 
 			if (news_count > archive_limit)
 				news.archived = 1

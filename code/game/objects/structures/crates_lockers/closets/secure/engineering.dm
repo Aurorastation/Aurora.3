@@ -109,6 +109,7 @@
 	new /obj/item/crowbar/rescue_axe(src)
 	new /obj/item/device/flashlight/heavy(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
+	new /obj/item/device/debugger(src)
 
 	// Painters
 	new /obj/item/device/paint_sprayer(src)

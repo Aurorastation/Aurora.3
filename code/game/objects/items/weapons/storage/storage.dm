@@ -90,7 +90,7 @@
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
 	QDEL_NULL(storage_end)
-	QDEL_NULL_LIST(storage_screens)
+	QDEL_LIST(storage_screens)
 	QDEL_NULL(closer)
 	return ..()
 
@@ -208,7 +208,7 @@
 	user.s_active = null
 	if(!length(can_see_contents()))
 		storage_start.vis_contents = list()
-		QDEL_NULL_LIST(storage_screens)
+		QDEL_LIST(storage_screens)
 		storage_screens = list()
 
 /obj/item/storage/proc/close_all()
@@ -309,7 +309,7 @@
 	var/endpoint = 1
 
 	storage_start.vis_contents = list()
-	QDEL_NULL_LIST(storage_screens)
+	QDEL_LIST(storage_screens)
 	storage_screens = list()
 
 	for(var/obj/item/O in contents)

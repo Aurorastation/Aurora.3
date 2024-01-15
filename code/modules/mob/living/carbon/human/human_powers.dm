@@ -801,7 +801,7 @@
 	A.ex_act(2)
 
 	sleep(1)
-	if (A && !(A.gcDestroyed) && A.type == oldtype)
+	if (A && !(A.gc_destroyed) && A.type == oldtype)
 		src.visible_message("<span class='danger'>[src.name] plows into \the [aname]!</span>")
 		return 0
 
@@ -1391,7 +1391,7 @@
 			discord_msg += " [cciaa_afk] AFK."
 
 	SSdiscord.send_to_cciaa(discord_msg)
-	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
+	SSdiscord.post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
 
 /mob/living/carbon/human/proc/hiveban() //Removes Hivenet completely from a Vaurca
 	set name = "Hivenet Ban"

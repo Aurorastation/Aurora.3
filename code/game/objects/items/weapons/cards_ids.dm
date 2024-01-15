@@ -126,7 +126,8 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/Destroy()
 	QDEL_NULL(chat_user)
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/card/id/examine(mob/user, distance)
 	. = ..()
@@ -162,6 +163,8 @@ var/const/NO_EMAG_ACT = -50
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	id_card.age = 0
 	id_card.registered_name	= real_name
 	id_card.sex = capitalize(gender)
@@ -376,6 +379,9 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/syndicate/raider
 	name = "passport"
 	assignment = "Visitor"
+
+/obj/item/card/id/syndicate/raider/update_name()
+	name = "[registered_name]'s Passport"
 
 /obj/item/card/id/highlander
 	name = "highlander identification card"

@@ -255,3 +255,25 @@
 		toggle_folded(user)
 		return FALSE
 	return ..()
+
+/obj/item/gun/projectile/shotgun/foldable/cameragun
+	name = "camera"
+	desc = "A polaroid camera"
+	icon = 'icons/obj/guns/cameragun.dmi'
+	icon_state = "cameragun"
+	item_state = "cameragun"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
+	fire_delay = ROF_PISTOL
+	load_method = MAGAZINE
+	max_shells = 12
+	caliber = "9mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+
+/obj/item/gun/projectile/shotgun/foldable/cameragun/examine(mob/user, distance, ...)
+	. = ..()
+	if(distance <= 1)
+		to_chat(user, SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button."))

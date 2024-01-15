@@ -8,5 +8,7 @@
 /obj/item/grenade/napalm/prime()
 	. = ..()
 
-	for(var/turf/turf in view(5, src))
+	for(var/turf/turf in view(5, get_turf(src)))
 		new /obj/effect/decal/cleanable/liquid_fuel/napalm(turf, 100, TRUE)
+
+	qdel(src)

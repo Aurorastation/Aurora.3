@@ -30,8 +30,9 @@ SUBSYSTEM_DEF(skybox)
 		background_color = SSatlas.current_sector.starlight_color
 
 /datum/controller/subsystem/skybox/Initialize()
-	. = ..()
 	build_space_appearances()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/skybox/Recover()
 	skybox_cache = SSskybox.skybox_cache

@@ -2,7 +2,7 @@
 	name = "Incidents"
 	sort_order = 7
 
-/datum/category_item/player_setup_item/other/incidents/load_special(var/savefile/S)
+/datum/category_item/player_setup_item/other/incidents/load_character_special(var/savefile/S)
 	pref.incidents = list()
 	pref.ccia_actions = list()
 

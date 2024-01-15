@@ -117,8 +117,6 @@ SUBSYSTEM_DEF(spatial_grid)
 	var/number_of_oranges_ears = NUMBER_OF_PREGENERATED_ORANGES_EARS
 
 /datum/controller/subsystem/spatial_grid/Initialize(start_timeofday)
-	. = ..()
-
 	cells_on_x_axis = SPATIAL_GRID_CELLS_PER_SIDE(world.maxx)
 	cells_on_y_axis = SPATIAL_GRID_CELLS_PER_SIDE(world.maxy)
 
@@ -133,7 +131,7 @@ SUBSYSTEM_DEF(spatial_grid)
 			if(movable_turf)
 				enter_cell(movable, movable_turf)
 
-			UnregisterSignal(movable, COMSIG_PARENT_PREQDELETED)
+			UnregisterSignal(movable, COMSIG_PREQDELETED)
 			waiting_to_add_by_type[channel_type] -= movable
 
 	pregenerate_more_oranges_ears(NUMBER_OF_PREGENERATED_ORANGES_EARS)
@@ -141,9 +139,11 @@ SUBSYSTEM_DEF(spatial_grid)
 	RegisterSignal(SSdcs, COMSIG_GLOB_NEW_Z, PROC_REF(propogate_spatial_grid_to_new_z))
 	RegisterSignal(SSdcs, COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, PROC_REF(after_world_bounds_expanded))
 
+	return SS_INIT_SUCCESS
+
 ///add a movable to the pre init queue for whichever type is specified so that when the subsystem initializes they get added to the grid
 /datum/controller/subsystem/spatial_grid/proc/enter_pre_init_queue(atom/movable/waiting_movable, type)
-	RegisterSignal(waiting_movable, COMSIG_PARENT_PREQDELETED, PROC_REF(queued_item_deleted), override = TRUE)
+	RegisterSignal(waiting_movable, COMSIG_PREQDELETED, PROC_REF(queued_item_deleted), override = TRUE)
 	//override because something can enter the queue for two different types but that is done through unrelated procs that shouldnt know about eachother
 	waiting_to_add_by_type[type] += waiting_movable
 
@@ -158,11 +158,11 @@ SUBSYSTEM_DEF(spatial_grid)
 				waiting_movable_is_in_other_queues = TRUE
 
 		if(!waiting_movable_is_in_other_queues)
-			UnregisterSignal(movable_to_remove, COMSIG_PARENT_PREQDELETED)
+			UnregisterSignal(movable_to_remove, COMSIG_PREQDELETED)
 
 		return
 
-	UnregisterSignal(movable_to_remove, COMSIG_PARENT_PREQDELETED)
+	UnregisterSignal(movable_to_remove, COMSIG_PREQDELETED)
 	for(var/type in waiting_to_add_by_type)
 		waiting_to_add_by_type[type] -= movable_to_remove
 
@@ -404,7 +404,7 @@ SUBSYSTEM_DEF(spatial_grid)
  * * exclusive_type - either null or a valid contents channel. if you just want to remove a single type from the grid cell then use this
  */
 /datum/controller/subsystem/spatial_grid/proc/exit_cell(atom/movable/old_target, turf/target_turf, exclusive_type)
-	if(init_state != SS_INITSTATE_DONE)
+	if(!initialized)
 		return
 
 	if(!target_turf || !old_target?.important_recursive_contents)
@@ -448,7 +448,7 @@ SUBSYSTEM_DEF(spatial_grid)
 
 ///find the cell this movable is associated with and removes it from all lists
 /datum/controller/subsystem/spatial_grid/proc/force_remove_from_cell(atom/movable/to_remove, datum/spatial_grid_cell/input_cell)
-	if(init_state != SS_INITSTATE_DONE)
+	if(!initialized)
 		remove_from_pre_init_queue(to_remove)//the spatial grid doesnt exist yet, so just take it out of the queue
 		return
 
@@ -473,7 +473,7 @@ SUBSYSTEM_DEF(spatial_grid)
 			if(remove_from_cells)
 				queue_list -= to_remove
 
-	if(init_state != SS_INITSTATE_DONE)
+	if(!initialized)
 		return queues_containing_movable
 
 	var/list/containing_cells = list()

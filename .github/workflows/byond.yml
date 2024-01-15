@@ -317,7 +317,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:
@@ -440,7 +440,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:
@@ -565,7 +565,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:
@@ -689,7 +689,7 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.11
         ports:
           - 3306
         env:

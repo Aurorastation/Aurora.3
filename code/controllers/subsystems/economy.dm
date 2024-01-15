@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(economy)
 	for(var/account in GLOB.department_funds)
 		create_department_account(account)
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/economy/Recover()
 	src.station_account = SSeconomy.station_account

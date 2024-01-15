@@ -21,6 +21,9 @@ var/datum/antagonist/mercenary/mercs
 
 	faction = "syndicate"
 
+	idris_account_min = 1200
+	idris_account_max = 2000
+
 /datum/antagonist/mercenary/New()
 	..()
 	mercs = src

@@ -1054,6 +1054,7 @@
 		/obj/item/reagent_containers/glass/rag = 8,
 		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
+		/obj/item/tray/tea = 2,
 		/obj/item/tray/plate = 10,
 		/obj/item/reagent_containers/bowl = 10,
 		/obj/item/reagent_containers/bowl/plate = 10,
@@ -1136,7 +1137,7 @@
 		/obj/item/device/t_scanner = 5,
 		/obj/item/screwdriver = 5,
 		/obj/item/tape_roll = 3,
-		/obj/item/hammer = 3
+		/obj/item/hammer = 5
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,

@@ -54,7 +54,7 @@
 	///The amount of `pain` at which a limb becomes unusable
 	var/pain_disability_threshold
 
-	///Organ behaviour flags, see `ORGAN_CAN_*` and `ORGAN_HAS_*` in `code\__defines\damage_organs.dm`
+	///Organ behaviour flags, see `ORGAN_CAN_*` and `ORGAN_HAS_*` in `code\__DEFINES\damage_organs.dm`
 	var/limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 	var/max_size = 0
@@ -197,10 +197,10 @@
 	cached_markings = null
 	mob_icon = null
 
-	QDEL_NULL_LIST(children)
-	QDEL_NULL_LIST(internal_organs)
-	QDEL_NULL_LIST(wounds)
-	QDEL_NULL_LIST(implants)
+	QDEL_LIST(children)
+	QDEL_LIST(internal_organs)
+	QDEL_LIST(wounds)
+	QDEL_LIST(implants)
 
 	infect_target_internal = null
 	infect_target_external = null

@@ -50,6 +50,37 @@
 
 	var/can_attach = TRUE // Whether they can attach to a host
 
+/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
+	if(prob(flower_chance))
+		flower_color = get_random_colour(1)
+	. = ..(mapload)
+	//species = GLOB.all_species[]
+	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
+	reagents = ingested
+	set_species(SPECIES_DIONA)
+	setup_dionastats()
+	eat_types |= TYPE_ORGANIC
+	nutrition = 0 //We dont start with biomass
+	update_verbs()
+
+/mob/living/carbon/alien/diona/Destroy()
+	cleanupTransfer()
+	QDEL_NULL(ingested)
+	QDEL_NULL(vessel)
+
+	QDEL_NULL(DS)
+	gestalt = null
+	master_nymph = null
+
+	hat = null
+
+	flower_color = null
+	flower_image = null
+	cut_overlays()
+
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested
 
@@ -91,20 +122,6 @@
 		return
 	else
 		..()
-
-/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
-	if(prob(flower_chance))
-		flower_color = get_random_colour(1)
-	. = ..(mapload)
-	//species = GLOB.all_species[]
-	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
-	reagents = ingested
-	set_species(SPECIES_DIONA)
-	setup_dionastats()
-	eat_types |= TYPE_ORGANIC
-	nutrition = 0 //We dont start with biomass
-	update_verbs()
-
 
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
@@ -320,14 +337,6 @@
 		update_icon()
 
 	return TRUE
-
-/mob/living/carbon/alien/diona/Destroy()
-	walk_to(src, 0)
-	cleanupTransfer()
-	QDEL_NULL(ingested)
-	QDEL_NULL(vessel)
-	QDEL_NULL(DS)
-	. = ..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)

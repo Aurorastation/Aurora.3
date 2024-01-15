@@ -155,12 +155,15 @@ Class Procs:
 /obj/machinery/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery -= src
+
+	//Clear the component parts
+	//If the components are inside the machine, delete them, otherwise we assume they were dropped to the ground during deconstruction,
+	//and were not removed from the component_parts list by deconstruction code
 	if(component_parts)
 		for(var/atom/A in component_parts)
-			if(A.loc == src) // If the components are inside the machine, delete them.
+			if(A.loc == src)
 				qdel(A)
-			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
-				component_parts -= A
+	component_parts = null
 
 	return ..()
 
@@ -182,7 +185,7 @@ Class Procs:
 // 		if(. == PROCESS_KILL)
 // 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/process()
+/obj/machinery/process(seconds_per_tick)
 	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)
@@ -451,16 +454,20 @@ Class Procs:
 	M.set_dir(src.dir)
 	M.state = 3
 	M.icon_state = "blueprint_1"
+
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
+		component_parts -= I
+
 	qdel(src)
-	return 1
+
+	return TRUE
 
 /obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
-		return 0
+		return FALSE
 
-	printing = 1
+	printing = TRUE
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
@@ -471,10 +478,10 @@ Class Procs:
 
 	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
-	return 1
+	return TRUE
 
 /obj/machinery/proc/print_move_paper(obj/paper, mob/user)
-	if(user)
+	if(user && ishuman(user) && user.Adjacent(src))
 		user.put_in_hands(paper)
 	else
 		paper.forceMove(loc)

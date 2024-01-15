@@ -175,7 +175,7 @@
 	msg = sanitize(msg)
 	sender = sanitize(sender, encode=0)
 
-	post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[SSdiscord.discord_escape(sender)]** from **[SSdiscord.discord_escape(key_name(src))]**: ```[SSdiscord.discord_escape(html_decode(msg))]```"))
+	SSdiscord.post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[SSdiscord.discord_escape(sender)]** from **[SSdiscord.discord_escape(key_name(src))]**: ```[SSdiscord.discord_escape(html_decode(msg))]```"))
 	SSdiscord.send_to_admins("PlayerPM to [SSdiscord.discord_escape(sender)] from [SSdiscord.discord_escape(key_name(src))]: [SSdiscord.discord_escape(html_decode(msg))]")
 
 	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message linkify'>[msg]</span></span></span>")

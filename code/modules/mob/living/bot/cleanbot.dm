@@ -62,7 +62,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	patrol_path = null
 	target = null
 	ignorelist = null
+	next_dest_loc = null
+
 	QDEL_NULL(listener)
+	SSradio.remove_object(listener, beacon_freq)
+
 	GLOB.janitorial_supplies -= src
 	return ..()
 
@@ -353,6 +357,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /obj/cleanbot_listener/Destroy()
 	cleanbot = null
+	SSradio.remove_object_all(src)
 	return ..()
 
 /* Assembly */

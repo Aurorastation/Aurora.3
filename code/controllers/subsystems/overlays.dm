@@ -20,7 +20,8 @@ SUBSYSTEM_DEF(overlays)
 /datum/controller/subsystem/overlays/Initialize()
 	initialized = TRUE
 	Flush()
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/overlays/Recover()
 	overlay_icon_state_caches = SSoverlays.overlay_icon_state_caches
