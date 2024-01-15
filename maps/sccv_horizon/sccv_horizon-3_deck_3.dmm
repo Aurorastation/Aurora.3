@@ -2635,7 +2635,7 @@
 	},
 /obj/machinery/camera/motion{
 	network = list("Command","Security","Tcomsat");
-	c_tag = "Telecommunications - Central Compartment Port";
+	c_tag = "Telecommunications - Central Compartment Starboard";
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -7917,7 +7917,7 @@
 	},
 /obj/machinery/camera/motion{
 	network = list("Command","Security","Tcomsat");
-	c_tag = "Telecommunications - Central Compartment Starboard"
+	c_tag = "Telecommunications - Central Compartment Port"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
