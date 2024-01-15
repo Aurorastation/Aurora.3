@@ -37,8 +37,16 @@
 
 	var/flora_diversity = 0
 	var/has_trees = FALSE
-	var/list/small_flora_types = list()
-	var/list/big_flora_types = list()
+
+	/// For generating seeds to put in big_flora_seeds.
+	var/list/small_flora_types
+	/// For generating seeds to put in small_flora_seeds.
+	var/list/big_flora_types
+
+	/// This is a list of seed OBJECTS. Not types.
+	var/list/small_flora_seeds = list()
+	/// This is a list of seed OBJECTS. Not types.
+	var/list/big_flora_seeds = list()
 
 	var/repopulating = 0
 	var/repopulate_types = list() // animals which have died that may come back
