@@ -7500,9 +7500,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "dwy" = (
-/obj/item/device/binoculars{
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -9720,6 +9717,9 @@
 /obj/item/device/suit_cooling_unit,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/item/device/binoculars{
+	pixel_y = 3
 	},
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
