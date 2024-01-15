@@ -16,7 +16,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/horizon/crew_quarters/fitness/changing)
 "aaF" = (
@@ -1216,6 +1216,24 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
+"aSU" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	external_pressure_bound = 140;
+	external_pressure_bound_default = 140;
+	icon_state = "map_vent_out";
+	pressure_checks = 0;
+	pressure_checks_default = 0;
+	use_power = 1
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "aTd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -1560,15 +1578,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "bbm" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -4607,23 +4623,14 @@
 /turf/simulated/wall,
 /area/maintenance/substation/civilian_east)
 "dHD" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "dHJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7714,15 +7721,15 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "fHm" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
-/obj/machinery/light/small/emergency{
-	dir = 8;
-	pixel_x = 16
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "fHn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -8110,22 +8117,6 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
-"fTh" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Telecommunications - Central Compartment Starboard";
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "fTH" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -10737,12 +10728,6 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
-"hAA" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "hAW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -10821,10 +10806,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "hCP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "hCT" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -13624,7 +13609,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
 "jFu" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
@@ -13669,24 +13657,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"jIq" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	external_pressure_bound = 140;
-	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
-	pressure_checks = 0;
-	pressure_checks_default = 0;
-	use_power = 1
-	},
-/obj/machinery/firealarm/west,
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "jIF" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -15161,12 +15131,6 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
-"kIR" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "kIZ" = (
 /obj/structure/platform/ledge{
 	dir = 8
@@ -17883,16 +17847,6 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/firing_range)
-"mvC" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Telecommunications - Central Compartment Port"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "mwo" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -23736,6 +23690,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
+"qHT" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "qIf" = (
 /obj/structure/platform{
 	dir = 1
@@ -23958,6 +23917,16 @@
 /obj/machinery/newscaster/west,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular_two)
+"qOq" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8;
+	pixel_x = 16
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "qOO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -24110,20 +24079,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
-"qUq" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "qUt" = (
 /turf/simulated/wall/r_wall,
 /area/tcommsat/chamber)
@@ -24469,6 +24424,12 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
+"rkR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering_ladder)
 "rle" = (
 /obj/structure/railing/mapped,
 /obj/structure/platform/ledge{
@@ -24809,12 +24770,20 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "rvn" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -25133,16 +25102,11 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "rGK" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/walllocker/firecloset{
-	pixel_y = 32
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "rHb" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -25709,15 +25673,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
-"sau" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "saF" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/cable/green{
@@ -26904,6 +26859,17 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge)
+"sLN" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/power/apc/super/north,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "sMd" = (
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
@@ -28333,6 +28299,20 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"tOI" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "tPj" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -30105,6 +30085,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular_two)
+"vdT" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "vdY" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk{
@@ -31522,16 +31512,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
-"wbz" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/junk,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "wbR" = (
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -32346,10 +32326,15 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wHl" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Telecommunications - Central Compartment Port"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "wIr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -32750,16 +32735,15 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "wUx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/junk,
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/machinery/power/apc/super/north,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "wUC" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -34006,6 +33990,22 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
+"xSf" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Telecommunications - Central Compartment Starboard";
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "xSg" = (
 /obj/machinery/telecomms/bus/preset_two,
 /turf/simulated/floor/bluegrid,
@@ -49977,9 +49977,9 @@ wGH
 wGH
 abZ
 bSA
-jIq
-qUq
-fTh
+aSU
+tOI
+xSf
 qUt
 sCe
 hIp
@@ -50178,7 +50178,7 @@ wGH
 wGH
 wGH
 abZ
-wUx
+sLN
 wug
 xSg
 fer
@@ -51390,7 +51390,7 @@ wGH
 wGH
 abZ
 abZ
-jFu
+fHm
 wlV
 qmy
 sed
@@ -52400,14 +52400,14 @@ wGH
 wGH
 wGH
 abZ
-bbm
+jFu
 pdq
 izr
 aVJ
 qUt
 wIu
 jFn
-hCP
+rkR
 qSY
 wxR
 pAw
@@ -52602,7 +52602,7 @@ wGH
 wGH
 wGH
 abZ
-mvC
+wHl
 fmB
 fHi
 qkD
@@ -52610,7 +52610,7 @@ mYf
 vtf
 kIk
 aZl
-rvn
+vdT
 xBf
 bpD
 tGl
@@ -52804,13 +52804,13 @@ wGH
 wGH
 wGH
 abZ
-rGK
+bbm
 vvm
 sdc
 tav
 pcj
-hAA
-dHD
+hCP
+rvn
 qLy
 qLy
 qLy
@@ -53011,8 +53011,8 @@ eBt
 iLf
 dgI
 mzs
-wHl
-dHD
+qHT
+rvn
 qLy
 pWR
 pWR
@@ -53208,13 +53208,13 @@ feY
 feY
 hBq
 abZ
-sau
+dHD
 ekB
 jzx
 qdg
 qUt
-wbz
-dHD
+wUx
+rvn
 qLy
 aiX
 xbM
@@ -53415,8 +53415,8 @@ qUt
 qUt
 qUt
 qUt
-kIR
-dHD
+rGK
+rvn
 qLy
 kTG
 kTG
@@ -53618,7 +53618,7 @@ eoQ
 eoQ
 eoQ
 vtf
-dHD
+rvn
 qLy
 isK
 hCT
@@ -53820,7 +53820,7 @@ tNk
 raP
 eoQ
 nZp
-dHD
+rvn
 qLy
 mCX
 bpD
@@ -54023,7 +54023,7 @@ ceV
 ltG
 fHn
 kUj
-fHm
+qOq
 rgZ
 bpD
 bpD
