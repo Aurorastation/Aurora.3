@@ -7,8 +7,8 @@
 /area/ship/dominian_science_vessel/armory)
 "aaJ" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/shuttle,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "ada" = (
@@ -572,12 +572,12 @@
 /area/ship/dominian_science_vessel/atmospherics)
 "bxu" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/shuttle,
 /obj/effect/landmark/entry_point/port{
 	dir = 4;
 	name = "port, medical"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "bzK" = (
@@ -1679,9 +1679,6 @@
 /area/ship/dominian_science_vessel/infirmary)
 "eQC" = (
 /obj/structure/extinguisher_cabinet/south,
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/hangar)
 "eRr" = (
@@ -2060,7 +2057,9 @@
 	dir = 1;
 	layer = 2.71
 	},
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(226)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -2478,12 +2477,12 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	dir = 4;
 	id_tag = "cockpitdoor";
 	name = "Cockpit"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "hJt" = (
@@ -3012,6 +3011,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/alarm/west{
+	req_access = list(226);
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/engineering)
 "jxr" = (
@@ -3058,10 +3061,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "jGb" = (
-/obj/machinery/alarm/east{
-	req_access = list(226);
-	req_one_access = null
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -4301,7 +4300,7 @@
 	name = "airlock_dominian_science_shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/shuttle/dominian_science_shuttle)
 "oiZ" = (
@@ -4594,10 +4593,10 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/dominian_science_shuttle)
 "oYG" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Cockpit"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "pat" = (
@@ -4933,11 +4932,11 @@
 	name = "airlock_dominian_science_shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/airlock_sensor/airlock_exterior{
 	dir = 8;
 	pixel_x = 21
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/shuttle/dominian_science_shuttle)
 "qry" = (
@@ -5184,6 +5183,10 @@
 /area/ship/dominian_science_vessel/chapel)
 "rpY" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/machinery/alarm/east{
+	req_access = list(226);
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "rrA" = (
@@ -38697,7 +38700,7 @@ dqJ
 cpy
 lri
 haa
-jZe
+eQC
 tjB
 jLI
 tyS
@@ -38954,7 +38957,7 @@ aMY
 aMY
 kaR
 haa
-eQC
+hIB
 tjB
 uuN
 tyS

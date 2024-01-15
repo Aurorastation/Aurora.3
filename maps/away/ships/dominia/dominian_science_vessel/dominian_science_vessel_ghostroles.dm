@@ -59,6 +59,8 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
+
 /datum/outfit/admin/house_volvalaad_officer/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
@@ -88,6 +90,8 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
+
 /datum/outfit/admin/house_volvalaad_armsman/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
@@ -115,6 +119,8 @@
 	id = /obj/item/card/id/house_volvalaad
 
 	l_ear = /obj/item/device/radio/headset/ship
+
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/house_volvalaad_scientist/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
