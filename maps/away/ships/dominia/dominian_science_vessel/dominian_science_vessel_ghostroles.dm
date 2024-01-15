@@ -8,7 +8,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
 	spawnpoints = list("house_volvalaad_voidsman")
-	max_count = 1
+	max_count = 2
 
 	outfit = /datum/outfit/admin/house_volvalaad_voidsman
 	possible_species = list(SPECIES_HUMAN)
@@ -76,7 +76,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
 	spawnpoints = list("house_volvalaad_armsman")
-	max_count = 2
+	max_count = 1
 
 	outfit = /datum/outfit/admin/house_volvalaad_armsman
 

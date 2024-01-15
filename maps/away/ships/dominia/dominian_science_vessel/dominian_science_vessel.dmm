@@ -2383,6 +2383,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/isolation)
+"hEL" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4;
+	opacity = 0
+	},
+/obj/item/bedsheet/blue,
+/obj/effect/ghostspawpoint{
+	name = "igs - house_volvalaad_voidsman";
+	identifier = "house_volvalaad_voidsman"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_science_vessel/quarters)
 "hFf" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
@@ -40456,7 +40470,7 @@ jZe
 rrA
 jeW
 tfg
-wTR
+hEL
 wTR
 tLp
 eYC
