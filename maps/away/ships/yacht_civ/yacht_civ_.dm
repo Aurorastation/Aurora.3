@@ -55,7 +55,16 @@
 	// )
 
 /obj/effect/overmap/visitable/ship/yacht_civ/New()
-	designation = pick("Makemake")
+	var/planetary_body = pick(
+		"Jupiter", "Saturn", "Uranus", "Neptune", "Venus", "Mars", "Ganymede", "Titan",
+		"Mercury", "Callisto", "Io", "Europa", "Triton", "Pluto", "Eris", "Haumea",
+		"Titania", "Rhea", "Oberon", "Iapetus", "Makemake", "Charon", "Umbriel", "Ariel",
+		"Dione", "Quaoar", "Tethys", "Sedna", "Ceres", "Orcus", "Salacia", "Vesta",
+		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne"
+	)
+	var/prefix = pick("", "", pick("Amazing ", "Wondrous ", "Adventurous ", "", ""))
+	var/postfix = pick("", "", pick(", the Adventurer", " among Stars", ", Explorer", " of the Spur"))
+	designation = "[prefix][planetary_body][postfix]"
 	..()
 
 // shuttle
