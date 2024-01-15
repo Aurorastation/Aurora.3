@@ -105,8 +105,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
 /obj/item/storage/bag/inflatable{
-	pixel_y = 10;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 10
 	},
 /obj/item/device/gps/science{
 	pixel_x = 3
@@ -26258,8 +26258,8 @@
 	pixel_y = 6
 	},
 /obj/item/stack/rods/full{
-	pixel_y = 2;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)

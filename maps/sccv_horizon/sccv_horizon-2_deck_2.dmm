@@ -1225,9 +1225,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_research{
 	dir = 1;
+	id_tag = "xeno_entrance_ext";
 	name = "Xenobiology";
-	req_access = list(55);
-	id_tag = "xeno_entrance_ext"
+	req_access = list(55)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -1877,6 +1877,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
+"aPf" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
 "aPN" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/zta)
@@ -1966,16 +1969,6 @@
 /turf/simulated/wall,
 /area/operations/lobby)
 "aSd" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	layer = 3.3;
-	master_tag = "centcom_shuttle_dock_airlock";
-	name = "interior access button";
-	pixel_x = -25;
-	pixel_y = -25;
-	req_access = list(13)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -1983,6 +1976,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "aSg" = (
@@ -2022,6 +2018,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
+"aSB" = (
+/obj/machinery/door/airlock/external{
+	id_tag = "pigeon_out"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "aSO" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -2840,22 +2842,21 @@
 /turf/simulated/floor/reinforced/cooled,
 /area/turret_protected/ai)
 "blJ" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "centcom_shuttle_dock_airlock";
-	name = "exterior access button";
-	pixel_x = 25;
-	req_one_access = list(13,65)
+	pixel_x = 28
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/shuttle_landmark/horizon/dock/deck_2/starboard_2{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
+	master_tag = "airlock_horizon_deck_2_starboard_1";
+	name = "airlock_horizon_deck_2_starboard_1"
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
@@ -4398,6 +4399,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
+"bRM" = (
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "bSi" = (
 /obj/machinery/power/apc/low/east,
 /obj/structure/cable/green{
@@ -4646,6 +4650,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -5045,6 +5052,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"chF" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/template_noop,
+/area/shuttle/pigeon)
 "chP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -5219,12 +5230,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/button/remote/airlock{
+	dir = 4;
 	id = "xeno_entrance_int";
 	name = "Xenobiology Internal Access Bolts";
+	pixel_x = 21;
 	req_access = list(55);
-	specialfunctions = 4;
-	dir = 4;
-	pixel_x = 21
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -5693,6 +5704,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"cCf" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/pigeon)
 "cDx" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5788,15 +5802,15 @@
 /obj/machinery/power/apc/low/north,
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp{
-	pixel_y = 12;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 12
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
 /obj/machinery/reagentgrinder{
-	pixel_y = 7;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 7
 	},
 /obj/item/stack/material/phoron{
 	pixel_y = 8
@@ -6832,12 +6846,12 @@
 /area/rnd/telesci)
 "dfP" = (
 /obj/machinery/button/remote/airlock{
+	dir = 8;
 	id = "xeno_entrance_int";
 	name = "Xenobiology Internal Access Bolts";
+	pixel_x = -21;
 	req_access = list(55);
-	specialfunctions = 4;
-	dir = 8;
-	pixel_x = -21
+	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -7900,13 +7914,13 @@
 "dHO" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+	dir = 8;
+	layer = 2.5
 	},
 /obj/machinery/door/airlock/glass_research{
-	req_access = list(55);
+	dir = 8;
 	name = "Cell";
-	dir = 8
+	req_access = list(55)
 	},
 /obj/machinery/door/blast/regular/open{
 	fail_secure = 1;
@@ -8194,6 +8208,22 @@
 "dNz" = (
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
+"dNE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
+	master_tag = "airlock_horizon_deck_2_starboard_1";
+	name = "airlock_horizon_deck_2_starboard_1"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint2)
 "dNF" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -8404,6 +8434,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -8689,9 +8722,6 @@
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
-	},
-/obj/structure/sign/vacuum{
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -13128,6 +13158,12 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"geB" = (
+/obj/machinery/computer/shuttle_control/explore/autopilot/pigeon{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "gfj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -13417,6 +13453,9 @@
 	name = "Security Checkpoint Internal Shutter"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "gkM" = (
@@ -14035,6 +14074,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
+"gwA" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/pigeon)
+"gwF" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "gwP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -14126,8 +14180,8 @@
 /area/hallway/primary/central_one)
 "gzU" = (
 /obj/machinery/computer/operating{
-	name = "Xenobiology Operating Computer";
-	dir = 8
+	dir = 8;
+	name = "Xenobiology Operating Computer"
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -15703,6 +15757,9 @@
 	dir = 6
 	},
 /obj/item/device/radio/intercom/east,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "hmX" = (
@@ -15742,6 +15799,16 @@
 /obj/machinery/newscaster/west,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"hnh" = (
+/obj/structure/fuel_port/phoron/scc{
+	pixel_x = -5;
+	pixel_y = 23
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "hnD" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/office)
@@ -15822,28 +15889,29 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "hoZ" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_airlock";
-	pixel_x = 30;
-	req_one_access = list(13);
-	tag_airpump = "centcom_shuttle_dock_pump";
-	tag_chamber_sensor = "centcom_shuttle_dock_sensor";
-	tag_exterior_door = "centcom_shuttle_dock_outer";
-	tag_interior_door = "centcom_shuttle_dock_inner"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_sensor";
-	pixel_x = -25
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_pump"
-	},
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
+	master_tag = "airlock_horizon_deck_2_starboard_1";
+	name = "airlock_horizon_deck_2_starboard_1"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
@@ -16205,6 +16273,15 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
+"hxK" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/checkpoint2)
 "hyg" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/structure/cable{
@@ -17789,8 +17866,8 @@
 	pixel_y = -23
 	},
 /obj/structure/stairs_lower/stairs_upper{
-	pixel_y = 32;
-	dir = 4
+	dir = 4;
+	pixel_y = 32
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
@@ -18739,6 +18816,17 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/gen_treatment)
+"iIk" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
+	master_tag = "airlock_horizon_deck_2_starboard_1";
+	name = "airlock_horizon_deck_2_starboard_1"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint2)
 "iIn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19375,6 +19463,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
+"iWU" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "iXI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -20065,6 +20157,19 @@
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"jnP" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
+	master_tag = "airlock_horizon_deck_2_starboard_1";
+	name = "airlock_horizon_deck_2_starboard_1"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint2)
 "jnQ" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 1
@@ -20909,6 +21014,15 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
+"jGu" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "jHd" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
@@ -21223,6 +21337,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
+"jOw" = (
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 32
+	},
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "jOK" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -22548,9 +22675,9 @@
 	dir = 8;
 	id = "xeno_entrance_ext";
 	name = "Xenobiology External Access Bolts";
+	pixel_x = -21;
 	req_access = list(55);
-	specialfunctions = 4;
-	pixel_x = -21
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -25008,6 +25135,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "lMD" = (
@@ -27341,6 +27471,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
+"mON" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "mOS" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -28431,6 +28567,12 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
+"nkR" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/pigeon)
 "nkT" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /turf/simulated/floor/tiled,
@@ -28684,6 +28826,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
+"nqR" = (
+/obj/item/device/radio/intercom/hailing/west,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "nrr" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -28851,6 +28997,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
+"nwN" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/pigeon)
 "nxk" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -28917,6 +29070,10 @@
 	},
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
+"nyP" = (
+/obj/machinery/bluespace_beacon,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "nzc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -29990,10 +30147,10 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	fail_secure = 1;
 	id = "xenobio";
-	name = "Cell Containment Blast Door";
-	dir = 2
+	name = "Cell Containment Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -30089,8 +30246,8 @@
 "ocU" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 1;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 1
 	},
 /obj/item/pen{
 	pixel_x = 6;
@@ -30412,6 +30569,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "ojY" = (
@@ -30562,6 +30722,11 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"ooM" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "opb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -31328,6 +31493,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "oGy" = (
@@ -31407,6 +31575,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
+"oJU" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, compartment"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/pigeon)
 "oKf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -33137,6 +33312,10 @@
 /obj/machinery/power/apc/north,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
+"pFs" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "pFx" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 1
@@ -33328,6 +33507,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/bar)
+"pIP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/pigeon)
 "pJt" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
@@ -33576,6 +33762,9 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
@@ -33838,8 +34027,8 @@
 	dir = 5
 	},
 /obj/machinery/smartfridge/secure/extract{
-	pixel_y = 32;
-	density = 0
+	density = 0;
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -34594,16 +34783,17 @@
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "qqK" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_shuttle_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
+	master_tag = "airlock_horizon_deck_2_starboard_1";
+	name = "airlock_horizon_deck_2_starboard_1"
+	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "qra" = (
@@ -36578,6 +36768,10 @@
 	},
 /turf/simulated/open,
 /area/operations/office)
+"rjy" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "rjK" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
@@ -36844,6 +37038,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"rqj" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/pigeon)
 "rqq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -37474,6 +37677,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"rHi" = (
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/security/checkpoint2)
 "rHj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain,
@@ -38667,19 +38877,19 @@
 "sjV" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 4
+	dir = 4;
+	layer = 2.5
 	},
 /obj/machinery/door/airlock/glass_research{
-	req_access = list(55);
+	dir = 4;
 	name = "Cell";
-	dir = 4
+	req_access = list(55)
 	},
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	fail_secure = 1;
 	id = "xenobio";
-	name = "Cell Containment Blast Door";
-	dir = 2
+	name = "Cell Containment Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -39692,8 +39902,8 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/spray/cleaner{
-	pixel_y = 14;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
@@ -39887,8 +40097,8 @@
 "sVf" = (
 /obj/structure/table/standard,
 /obj/item/folder/yellow{
-	pixel_y = 3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /obj/item/device/hand_labeler{
 	pixel_y = -5
@@ -39994,6 +40204,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -40831,6 +41044,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
+"tpd" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/pigeon)
 "tpy" = (
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -41315,9 +41537,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_research{
 	dir = 4;
+	id_tag = "xeno_entrance_int";
 	name = "Xenobiology";
-	req_access = list(55);
-	id_tag = "xeno_entrance_int"
+	req_access = list(55)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -42237,6 +42459,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "tXR" = (
@@ -42671,24 +42896,24 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/item/storage/box/lights/colored/blue{
-	pixel_y = 10;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 10
 	},
 /obj/item/storage/box/lights/colored/cyan{
-	pixel_y = 10;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 10
 	},
 /obj/item/storage/box/lights/colored/green{
-	pixel_y = 6;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /obj/item/storage/box/lights/colored/magenta{
 	pixel_x = -6;
 	pixel_y = 6
 	},
 /obj/item/storage/box/lights/colored/red{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/item/storage/box/lights/colored/yellow{
 	pixel_x = -6;
@@ -43045,9 +43270,17 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uot" = (
-/obj/effect/shuttle_landmark/ccia/dock,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
+/obj/machinery/door/airlock/external{
+	id_tag = "pigeon_out"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "uoz" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Research Substation"
@@ -44546,6 +44779,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"uXK" = (
+/obj/effect/overmap/visitable/ship/landable/pigeon,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "uXV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -44713,6 +44950,9 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "vcv" = (
@@ -44832,6 +45072,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "vff" = (
@@ -48101,6 +48344,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics/garden)
+"wBt" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	id_tag = "pigeon";
+	pixel_y = 32;
+	tag_door = "pigeon_out"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/hyper/east,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "wCm" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -48361,6 +48619,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
+"wIa" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "wId" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
@@ -48382,6 +48644,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
@@ -48681,6 +48946,12 @@
 "wMP" = (
 /turf/simulated/wall,
 /area/horizon/custodial/auxiliary)
+"wNl" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "wNI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -48967,6 +49238,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
+"wVA" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/shuttle/pigeon)
 "wVT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/toilet{
@@ -49873,6 +50148,12 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/rust)
+"xog" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/pigeon)
 "xoj" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -49905,6 +50186,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
+"xpp" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/pigeon)
 "xpv" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -50595,6 +50885,10 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
+"xGR" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "xGT" = (
 /obj/machinery/light/spot{
 	dir = 4
@@ -51308,6 +51602,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "xWA" = (
@@ -51462,12 +51759,12 @@
 	pixel_y = 1
 	},
 /obj/item/device/slime_scanner{
-	pixel_y = 4;
-	pixel_x = -11
+	pixel_x = -11;
+	pixel_y = 4
 	},
 /obj/item/device/slime_scanner{
-	pixel_y = 4;
-	pixel_x = -11
+	pixel_x = -11;
+	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -51704,6 +52001,12 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"ydv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/pigeon)
 "ydI" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -65974,14 +66277,14 @@ udR
 xer
 qgN
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+chF
+cCf
+wVA
+cCf
+oJU
+cCf
+wVA
+cCf
 qgN
 qgN
 qgN
@@ -66173,18 +66476,18 @@ bCv
 sXT
 aQb
 udR
-xer
+mxf
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+cCf
+cCf
+cCf
+wIa
+rqj
+xog
+rqj
+ooM
+cCf
+cCf
 qgN
 qgN
 qgN
@@ -66375,19 +66678,19 @@ hUe
 oGp
 ebR
 wFj
-mxf
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+mON
+aPf
+cCf
+hnh
+wNl
+bRM
+bRM
+bRM
+bRM
+bRM
+nqR
+wVA
+wVA
 qgN
 qgN
 qgN
@@ -66574,22 +66877,22 @@ jNk
 rCH
 pkH
 pkH
-pkH
-aQb
-wFj
-udR
-wFj
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+rHi
+hxK
+dNE
+iIk
+jnP
+aSB
+ydv
+bRM
+nyP
+tpd
+tpd
+tpd
+bRM
+pFs
+geB
+pIP
 qgN
 qgN
 qgN
@@ -66782,16 +67085,16 @@ qqK
 hoZ
 blJ
 uot
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+jGu
+bRM
+bRM
+gwA
+gwA
+gwA
+rjy
+uXK
+iWU
+wVA
 qgN
 qgN
 qgN
@@ -66983,17 +67286,17 @@ jWV
 wFj
 udR
 wFj
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+cCf
+wBt
+gwF
+bRM
+bRM
+bRM
+bRM
+bRM
+xGR
+wVA
+wVA
 qgN
 qgN
 qgN
@@ -67185,16 +67488,16 @@ spn
 lNQ
 xVu
 fDv
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+cCf
+cCf
+cCf
+jOw
+xpp
+nkR
+xpp
+ooM
+cCf
+cCf
 qgN
 qgN
 qgN
@@ -67388,14 +67691,14 @@ lCF
 xVu
 qgN
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+chF
+cCf
+wVA
+cCf
+nwN
+cCf
+wVA
+cCf
 qgN
 qgN
 qgN

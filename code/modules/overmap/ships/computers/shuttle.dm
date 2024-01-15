@@ -72,3 +72,8 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+
+/// "autopilot" subtype with a different TGUI
+/obj/machinery/computer/shuttle_control/explore/autopilot
+	name = "autopilot shuttle control console"
+	ui_template = "ShuttleControlConsoleMultiExploreAutopilot"

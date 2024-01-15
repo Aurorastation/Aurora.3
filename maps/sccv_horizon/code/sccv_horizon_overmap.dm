@@ -164,3 +164,28 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/effect/overmap/visitable/ship/landable/pigeon
+	name = "Pigeon"
+	class = "SCCV"
+	designation = "Pigeon"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#cfd4ff", "#78adf8")
+	desc = "A small, autopilot-controlled ferry for transport between a mothership and other nearby locations. Incapable of long distance independant flight."
+	shuttle = "Pigeon"
+	designer = "Orion Express."
+	volume = "yes"
+	weapons = "None."
+	sizeclass = "Autobus-class Automated Ferry."
+	shiptype = "Autonomous short-range passenger transport."
+	max_speed = 0
+	burn_delay = 100 SECONDS
+	vessel_mass = 3000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/autopilot/pigeon
+	name = "\improper Pigeon autopilot control console"
+	desc = "A console to control the ferry's autopilot systems."
+	shuttle_tag = "Pigeon"
+	circuit = null

@@ -197,3 +197,19 @@
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/operations
+
+//Ferry
+/datum/shuttle/autodock/overmap/pigeon
+	name = "Pigeon"
+	move_time = 20
+	shuttle_area = /area/shuttle/pigeon
+	dock_target = "airlock_shuttle_pigeon"
+	current_location = "airlock_horizon_deck_2_starboard_1"
+	landmark_transition = "nav_pigeon_transit"
+	range = 3
+	fuel_consumption = 2
+	logging_home_tag = "airlock_horizon_deck_2_starboard_1"
+
+/obj/effect/shuttle_landmark/pigeon/transit
+	name = "In transit"
+	landmark_tag = "nav_pigeon_transit"

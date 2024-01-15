@@ -320,6 +320,10 @@
 /area/shuttle/canary
 	name = "Canary"
 	requires_power = TRUE
+
+/area/shuttle/pigeon
+	name = "Pigeon"
+	requires_power = TRUE
 //
 // SCCV Horizon Areas
 //

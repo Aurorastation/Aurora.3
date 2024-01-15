@@ -91,8 +91,8 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
-	access_by_level = null
+	access_by_level = null;
+	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72))
 	},
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
@@ -1224,10 +1224,10 @@
 /area/horizon/exterior)
 "aTZ" = (
 /obj/machinery/door/airlock/command{
+	dir = 4;
 	id_tag = "rep_office_a";
 	name = "Representative Office Alpha";
-	req_access = list(38);
-	dir = 4
+	req_access = list(38)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3450,16 +3450,16 @@
 /obj/item/storage/box/fancy/donut,
 /obj/machinery/alarm/north{
 	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 0
 	},
 /obj/item/storage/box/drinkingglasses{
-	pixel_y = 15;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 15
 	},
 /obj/item/storage/box/drinkingglasses{
-	pixel_y = 15;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
@@ -3593,8 +3593,8 @@
 	dir = 1
 	},
 /obj/machinery/disposal/small/south{
-	pixel_y = -19;
-	dir = 1
+	dir = 1;
+	pixel_y = -19
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -4517,9 +4517,9 @@
 	dir = 8
 	},
 /obj/machinery/alarm/north{
-	pixel_y = 0;
 	dir = 8;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
@@ -5009,8 +5009,8 @@
 	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
-	access_by_level = null
+	access_by_level = null;
+	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72))
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -7414,14 +7414,14 @@
 	dir = 8
 	},
 /obj/item/storage/secure/safe{
-	pixel_y = 33;
-	pixel_x = 31
+	pixel_x = 31;
+	pixel_y = 33
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	pixel_x = 26;
-	name = "Command Foyer Doors";
 	id = "command_foyer";
+	name = "Command Foyer Doors";
+	pixel_x = 26;
 	pixel_y = -3
 	},
 /turf/simulated/floor/carpet,
@@ -11393,8 +11393,8 @@
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4;
-	pixel_y = 3;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 3
 	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 13;
@@ -11561,15 +11561,15 @@
 "ilv" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
+	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
+	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -11636,10 +11636,10 @@
 /area/horizon/security/interrogation/monitoring)
 "ipH" = (
 /obj/machinery/door/airlock/command{
+	dir = 4;
 	id_tag = "rep_office_b";
 	name = "Representative Office Bravo";
-	req_access = list(38);
-	dir = 4
+	req_access = list(38)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -12181,8 +12181,8 @@
 	pixel_x = 5
 	},
 /obj/item/pen/green{
-	pixel_y = -3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -12965,9 +12965,9 @@
 	dir = 7
 	},
 /obj/machinery/alarm/north{
-	pixel_y = 0;
 	dir = 8;
-	pixel_x = -43
+	pixel_x = -43;
+	pixel_y = 0
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative_two)
@@ -13110,8 +13110,8 @@
 	},
 /obj/item/storage/box/fancy/donut,
 /obj/machinery/chemical_dispenser/coffee/full{
-	pixel_y = 10;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 10
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
@@ -13179,8 +13179,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/door_helper/level_access/command_foyer{
-	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
-	access_by_level = null
+	access_by_level = null;
+	req_one_access_by_level = list("green","yellow" = list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72))
 	},
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
@@ -13370,28 +13370,28 @@
 	pixel_y = 4
 	},
 /obj/item/clothing/head/beret/scc{
-	pixel_y = 15;
-	pixel_x = -11
+	pixel_x = -11;
+	pixel_y = 15
 	},
 /obj/item/clothing/head/beret/scc{
-	pixel_y = 15;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 15
 	},
 /obj/item/clothing/head/beret/scc{
-	pixel_y = 15;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 15
 	},
 /obj/item/clothing/accessory/armband/scc{
-	pixel_y = -8;
-	pixel_x = -12
+	pixel_x = -12;
+	pixel_y = -8
 	},
 /obj/item/clothing/accessory/armband/scc{
-	pixel_y = -8;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = -8
 	},
 /obj/item/clothing/accessory/armband/scc{
-	pixel_y = -10;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = -10
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -14003,8 +14003,8 @@
 	},
 /obj/machinery/requests_console/south{
 	department = "Conference Room";
-	name = "Conference Room Requests Console";
 	dir = 1;
+	name = "Conference Room Requests Console";
 	pixel_y = 37
 	},
 /turf/simulated/floor/wood,
@@ -14074,12 +14074,12 @@
 	pixel_x = -6
 	},
 /obj/item/pen/green{
-	pixel_y = -3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /obj/item/folder/blue{
-	pixel_y = 7;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 7
 	},
 /obj/item/pen/blue{
 	pixel_x = 8;
@@ -14093,9 +14093,9 @@
 	pixel_y = 15
 	},
 /obj/machinery/newscaster/security_unit/north{
-	pixel_y = 4;
 	dir = 8;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 5;
@@ -15739,12 +15739,12 @@
 	pixel_y = -4
 	},
 /obj/item/folder/blue{
-	pixel_y = 7;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /obj/item/folder/blue{
-	pixel_y = 7;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /obj/item/pen/red{
 	pixel_x = 7;
@@ -16258,10 +16258,10 @@
 /area/bridge/controlroom)
 "lve" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Emergency Exit";
-	req_access = list(20);
+	id_tag = "cap_escape";
 	locked = 1;
-	id_tag = "cap_escape"
+	name = "Emergency Exit";
+	req_access = list(20)
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -16314,9 +16314,9 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north{
-	pixel_y = 0;
 	dir = 8;
-	pixel_x = -43
+	pixel_x = -43;
+	pixel_y = 0
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
@@ -17046,12 +17046,12 @@
 	layer = 2.7
 	},
 /obj/item/folder/blue{
-	pixel_y = 7;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /obj/item/folder/blue{
-	pixel_y = 7;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /obj/item/pen/red{
 	pixel_x = 7;
@@ -18498,8 +18498,8 @@
 /obj/machinery/computer/security/telescreen{
 	name = "Access Monitor";
 	network = list("XO_Office");
-	pixel_y = 24;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 24
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -18761,8 +18761,8 @@
 /obj/structure/table/standard,
 /obj/item/deck/cards,
 /obj/item/storage/box/fancy/cigarettes{
-	pixel_y = 10;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -18890,8 +18890,8 @@
 "nkf" = (
 /obj/machinery/alarm/north{
 	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -19651,9 +19651,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -19681,12 +19681,12 @@
 	pixel_y = 13
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 13;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 13
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 13;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 13
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative_two)
@@ -20333,8 +20333,8 @@
 	},
 /obj/machinery/alarm/north{
 	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/cciaroom/lounge)
@@ -20502,9 +20502,9 @@
 "olw" = (
 /obj/machinery/door/airlock/command{
 	dir = 1;
+	id_tag = "capoffice";
 	name = "Captain's Office";
-	req_access = list(20);
-	id_tag = "capoffice"
+	req_access = list(20)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -20667,12 +20667,12 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/cups{
-	pixel_y = 15;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 15
 	},
 /obj/item/storage/box/cups{
-	pixel_y = 4;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 4
 	},
 /turf/simulated/floor/wood,
 /area/bridge/upperdeck)
@@ -20709,9 +20709,9 @@
 	dir = 8;
 	id = "consular_office_a";
 	name = "consular door bolts";
-	specialfunctions = 4;
+	pixel_x = -52;
 	pixel_y = -2;
-	pixel_x = -52
+	specialfunctions = 4
 	},
 /obj/machinery/light_switch{
 	dir = 8;
@@ -20721,19 +20721,19 @@
 /obj/machinery/button/switch/windowtint{
 	dir = 8;
 	id = "consularA";
-	pixel_y = 14;
-	pixel_x = -59
+	pixel_x = -59;
+	pixel_y = 14
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 8;
 	id = "consular_office_a";
 	name = "consular door control";
-	pixel_y = 3;
-	pixel_x = -59
+	pixel_x = -59;
+	pixel_y = 3
 	},
 /obj/item/storage/secure/safe{
-	pixel_y = 42;
-	pixel_x = -59
+	pixel_x = -59;
+	pixel_y = 42
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -21509,8 +21509,8 @@
 	department = "Bridge";
 	departmentType = 5;
 	name = "Bridge Requests Console";
-	pixel_y = 35;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 35
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -22092,13 +22092,13 @@
 	department = "Captain's Desk";
 	departmentType = 5;
 	name = "Captain RC";
-	pixel_y = 35;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 35
 	},
 /obj/item/modular_computer/console/preset/command/captain{
+	density = 0;
 	dir = 4;
-	pixel_x = -18;
-	density = 0
+	pixel_x = -18
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
@@ -23572,8 +23572,8 @@
 "qGg" = (
 /obj/machinery/door/airlock/mining{
 	dir = 1;
-	req_one_access = list(26,29,31,48,67);
-	name = "Operations Bay"
+	name = "Operations Bay";
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -23597,9 +23597,9 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north{
-	pixel_y = -7;
+	dir = 2;
 	pixel_x = -1;
-	dir = 2
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -24342,9 +24342,9 @@
 	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
-	pixel_y = -18;
+	id = "ccia_shutters";
 	name = "External Shutters";
-	id = "ccia_shutters"
+	pixel_y = -18
 	},
 /turf/simulated/floor/wood,
 /area/bridge/cciaroom)
@@ -24507,10 +24507,10 @@
 	announcementConsole = 1;
 	department = "Representative's Office Alpha";
 	departmentType = 5;
-	name = "Representative's Office requests console";
-	pixel_y = 5;
 	dir = 8;
-	pixel_x = -49
+	name = "Representative's Office requests console";
+	pixel_x = -49;
+	pixel_y = 5
 	},
 /obj/machinery/photocopier,
 /turf/simulated/floor/carpet,
@@ -26344,8 +26344,8 @@
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8;
-	pixel_y = 4;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -30396,11 +30396,11 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/button/remote/airlock{
-	name = "Emergency Escape Bolts";
-	specialfunctions = 4;
 	id = "cap_escape";
+	name = "Emergency Escape Bolts";
+	pixel_x = 6;
 	pixel_y = -23;
-	pixel_x = 6
+	specialfunctions = 4
 	},
 /obj/machinery/light,
 /turf/simulated/floor/wood,
@@ -30420,11 +30420,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
@@ -30732,8 +30732,8 @@
 	},
 /obj/machinery/alarm/north{
 	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 0
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
@@ -30958,9 +30958,9 @@
 	pixel_x = -20
 	},
 /obj/effect/map_effect/marker/airlock{
+	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
-	name = "airlock_horizon_deck_3_aft_1";
-	frequency = 1001
+	name = "airlock_horizon_deck_3_aft_1"
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -31432,8 +31432,8 @@
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
 	id = "cap";
-	pixel_y = 28;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 28
 	},
 /obj/machinery/light_switch{
 	dir = 1;
@@ -31489,17 +31489,17 @@
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	pixel_x = -38;
-	specialfunctions = 4;
-	name = "Office Bolts";
 	id = "capoffice";
-	pixel_y = 31
+	name = "Office Bolts";
+	pixel_x = -38;
+	pixel_y = 31;
+	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	pixel_x = -25;
-	name = "Office Door";
 	id = "capoffice";
+	name = "Office Door";
+	pixel_x = -25;
 	pixel_y = 31
 	},
 /turf/simulated/floor/carpet,
@@ -31675,11 +31675,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 8;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
-	opacity = 0;
-	dir = 8
+	opacity = 0
 	},
 /obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
@@ -32067,10 +32067,10 @@
 	pixel_y = 32
 	},
 /obj/machinery/power/apc/north{
-	is_critical = 1;
-	pixel_y = 0;
 	dir = 4;
-	pixel_x = 15
+	is_critical = 1;
+	pixel_x = 15;
+	pixel_y = 0
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -32428,9 +32428,9 @@
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	pixel_y = 28;
+	id = "captainshutters";
 	name = "Exterior Shutters";
-	id = "captainshutters"
+	pixel_y = 28
 	},
 /obj/structure/displaycase/captain_revolver,
 /turf/simulated/floor/wood,
@@ -33029,8 +33029,8 @@
 	},
 /obj/machinery/alarm/north{
 	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 0
 	},
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -33232,8 +33232,8 @@
 	pixel_x = -6
 	},
 /obj/item/pen/green{
-	pixel_y = -3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /obj/item/pen/red{
 	pixel_x = 5
@@ -33922,10 +33922,10 @@
 	announcementConsole = 1;
 	department = "Representative's Office Bravo";
 	departmentType = 5;
-	name = "Representative's Office requests console";
-	pixel_y = 5;
 	dir = 8;
-	pixel_x = -48
+	name = "Representative's Office requests console";
+	pixel_x = -48;
+	pixel_y = 5
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative_two)
@@ -33977,17 +33977,17 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	pixel_x = -5;
-	name = "Office Door";
 	id = "hra_room";
+	name = "Office Door";
+	pixel_x = -5;
 	pixel_y = 39;
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 10;
+	id = "hra_room_bd";
 	pixel_x = -5;
-	pixel_y = 28;
-	id = "hra_room_bd"
+	pixel_y = 28
 	},
 /obj/machinery/button/switch/windowtint{
 	dir = 1;
@@ -33997,8 +33997,8 @@
 	},
 /obj/machinery/light_switch{
 	dir = 1;
-	pixel_y = 26;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 26
 	},
 /turf/simulated/floor/wood,
 /area/bridge/cciaroom)
@@ -48101,13 +48101,13 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -48301,16 +48301,16 @@ wGH
 vkb
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -48500,20 +48500,20 @@ hQq
 slT
 ygP
 wGH
-vkb
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+vBY
+otI
+opC
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -48702,20 +48702,20 @@ fiW
 vtd
 ygP
 wGH
-vBY
-otI
-opC
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+vkb
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -48907,17 +48907,17 @@ wGH
 wGH
 wGH
 vkb
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -49109,17 +49109,17 @@ wGH
 bEW
 leE
 kMe
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -49311,16 +49311,16 @@ wGH
 vkb
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF
@@ -49515,13 +49515,13 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
 dSF
 dSF
 dSF

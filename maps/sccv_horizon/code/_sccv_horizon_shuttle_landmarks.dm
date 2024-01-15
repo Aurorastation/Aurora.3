@@ -22,6 +22,7 @@
 	"nav_horizon_dock_deck_3_port_2",\
 	"nav_horizon_dock_deck_3_port_4",\
 	"nav_horizon_dock_deck_3_port_5",\
+	"nav_horizon_dock_deck_2_starboard_2",\
 )
 
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1
@@ -64,6 +65,12 @@
 	landmark_tag = "nav_horizon_dock_deck_3_port_5"
 	docking_controller = "airlock_horizon_dock_deck_3_port_5"
 	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/horizon/dock/deck_2/starboard_2
+	name = "Second Deck Starboard Dock 2"
+	landmark_tag = "nav_horizon_dock_deck_2_starboard_2"
+	docking_controller = "airlock_horizon_dock_deck_2_starboard_2"
 	base_area = /area/space
 
 // ================================ exterior
