@@ -64,7 +64,7 @@ export const CookingCodex = (props, context) => {
               .sort((a, b) => a.result.localeCompare(b.result))
               .map((recipe) => (
                 <Table.Row header className="candystripe">
-                  <Table.Cell textAlign="right" pl="5px">
+                  <Table.Cell textAlign="right" verticalAlign="middle" pl="5px">
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>
                   <Table.Cell>
@@ -79,10 +79,10 @@ export const CookingCodex = (props, context) => {
                       }}
                     />
                   </Table.Cell>
-                  <Table.Cell>
+                  <Table.Cell verticalAlign="middle">
                     {recipe.ingredients.toLocaleLowerCase()}
                   </Table.Cell>
-                  <Table.Cell pr="5px">
+                  <Table.Cell verticalAlign="middle" pr="5px">
                     {recipe.appliances.toLocaleLowerCase()}
                   </Table.Cell>
                 </Table.Row>
