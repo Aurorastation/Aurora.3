@@ -2633,8 +2633,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Telecommunications - Central Compartment Starboard";
+/obj/machinery/camera/motion{
+	network = list("Command","Security","Tcomsat");
+	c_tag = "Telecommunications - Central Compartment Port";
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -7916,7 +7917,7 @@
 	},
 /obj/machinery/camera/motion{
 	network = list("Command","Security","Tcomsat");
-	c_tag = "Telecommunications - Central Compartment"
+	c_tag = "Telecommunications - Central Compartment Starboard"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
