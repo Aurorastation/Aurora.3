@@ -7915,7 +7915,8 @@
 	dir = 1
 	},
 /obj/machinery/camera/motion{
-	network = list("Command","Security","Tcomsat")
+	network = list("Command","Security","Tcomsat");
+	c_tag = "Telecommunications - Central Compartment"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -16456,7 +16457,8 @@
 /obj/machinery/alarm/tcom/north,
 /obj/machinery/camera/motion{
 	network = list("Command","Security","Tcomsat");
-	dir = 8
+	dir = 8;
+	c_tag = "Telecommunications - Entrance"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
@@ -22729,7 +22731,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/motion{
-	network = list("Command","Security","Tcomsat")
+	network = list("Command","Security","Tcomsat");
+	c_tag = "Telecommunications - Control Room"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
