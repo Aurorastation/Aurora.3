@@ -66,6 +66,14 @@
 	if(owned_field)
 		owned_field.ChangeFieldStrength(value)
 
+/obj/machinery/power/fusion_core/attack_hand(mob/user)
+	. = ..()
+	if(ishuman(user))
+		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"))
+		if(owned_field)
+			Shutdown()
+	return TRUE
+
 /obj/machinery/power/fusion_core/attackby(obj/item/W, mob/user)
 
 	if(owned_field)
