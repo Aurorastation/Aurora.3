@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 513
-#error Your version of BYOND is too old to compile the code. At least BYOND 513 is required.
+#if DM_VERSION < 515 && !defined(OPENDREAM)
+#error Your version of BYOND is too old to compile the code. At least BYOND 515 is required.
 #endif
 
 

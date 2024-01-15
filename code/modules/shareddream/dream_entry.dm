@@ -11,7 +11,8 @@ var/list/dream_entries = list()
 	srom_pulled_by = null
 	srom_pulling = null
 	bg = null //Just to be sure.
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
 	// If they're an Unconsious person with the abillity to do Skrellepathy.

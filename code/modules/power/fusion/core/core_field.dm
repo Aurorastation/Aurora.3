@@ -574,7 +574,7 @@
 /obj/effect/fusion_em_field/Destroy()
 	set_light(0)
 	RadiateAll()
-	QDEL_NULL_LIST(particle_catchers)
+	QDEL_LIST(particle_catchers)
 	QDEL_NULL(radio)
 	if(owned_core)
 		owned_core.owned_field = null

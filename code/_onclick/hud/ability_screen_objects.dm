@@ -19,7 +19,6 @@
 		update_abilities(0, owner)
 
 /obj/screen/movable/ability_master/Destroy()
-	. = ..()
 	//Get rid of the ability objects.
 	remove_all_abilities()
 	ability_objects.Cut()
@@ -30,6 +29,8 @@
 		if(my_mob.client && my_mob.client.screen)
 			my_mob.client.screen -= src
 		my_mob = null
+
+	. = ..()
 
 /obj/screen/movable/ability_master/MouseDrop()
 	if(showing)

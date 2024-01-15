@@ -68,6 +68,8 @@
 	return current_species ? current_species.sanitize_name(name) : sanitizeName(name)
 
 /proc/random_name(gender, species = SPECIES_HUMAN)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/datum/species/current_species
 	if(species)
 		current_species = GLOB.all_species[species]

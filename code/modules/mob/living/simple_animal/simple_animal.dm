@@ -187,6 +187,14 @@
 	if(dead_on_map)
 		death()
 
+/mob/living/simple_animal/Destroy()
+	cut_overlay(blood_overlay)
+	movement_target = null
+	QDEL_NULL(udder)
+
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
 	if(.)
