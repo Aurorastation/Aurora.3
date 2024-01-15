@@ -33713,6 +33713,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"pTm" = (
+/obj/machinery/camera/network/reactor{
+	c_tag = "Engineering - INDRA Reactor Office";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "pTn" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -74334,7 +74341,7 @@ qgN
 qgN
 qgN
 nlQ
-peL
+pTm
 peL
 peL
 cIc
