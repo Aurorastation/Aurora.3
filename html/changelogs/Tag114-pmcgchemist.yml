@@ -5,4 +5,4 @@ author: Tag114
 delete-after: True
 
 changes:
-  - bugfix: "The PMCG chemist uniform now uses the correct set of sprites instead of the same sprites as the EPMC chemist uniform."
+  - bugfix: "The PMCG chemist uniform now uses the set of sprites intended for it instead of the same sprites as the EPMC chemist uniform."
