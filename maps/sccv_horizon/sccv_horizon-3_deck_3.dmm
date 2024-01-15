@@ -1558,12 +1558,11 @@
 /area/bridge/aibunker)
 "bbm" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/camera/network/telecom{
-	dir = 4;
-	c_tag = "Telecommunications - Central Compartment"
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Telecommunications - Central Compartment"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -2842,18 +2841,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
-"cfO" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "cfP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4608,21 +4595,16 @@
 /turf/simulated/wall,
 /area/maintenance/substation/civilian_east)
 "dHD" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
+/obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/floor_decal/spline/plain{
-	dir = 4
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	external_pressure_bound = 140;
-	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
-	pressure_checks = 0;
-	pressure_checks_default = 0;
-	use_power = 1
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "dHJ" = (
@@ -7716,13 +7698,20 @@
 /area/tcommsat/chamber)
 "fHm" = (
 /obj/effect/floor_decal/spline/plain{
-	dir = 1
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/machinery/power/apc/super/north,
-/obj/structure/cable/green{
-	icon_state = "0-4"
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	external_pressure_bound = 140;
+	external_pressure_bound_default = 140;
+	icon_state = "map_vent_out";
+	pressure_checks = 0;
+	pressure_checks_default = 0;
+	use_power = 1
+	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "fHn" = (
@@ -8306,11 +8295,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
-	},
-/obj/machinery/camera/motion{
-	c_tag = "Telecommunications - Control Room";
-	dir = 8;
-	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
@@ -10807,16 +10791,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
 "hCP" = (
+/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
-	dir = 8
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -16415,8 +16395,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecommunications - Foyer"
+/obj/machinery/camera/network/command{
+	c_tag = "Telecommunications - Entrance";
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
@@ -16565,7 +16546,7 @@
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Conference Room";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -18402,8 +18383,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Executive Officer's Office";
-	dir = 4
+	c_tag = "Bridge - Executive Officer's Office"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
@@ -19402,7 +19382,7 @@
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Human Resources Lounge";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/bridge/cciaroom/lounge)
@@ -22689,8 +22669,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/camera/network/telecom{
-	dir = 4;
+/obj/machinery/camera/network/command{
 	c_tag = "Telecommunications - Control Room"
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -23439,7 +23418,7 @@
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Human Resources Meeting Room";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
@@ -24760,12 +24739,13 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "rvn" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/power/apc/super/north,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -25086,13 +25066,11 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "rGK" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/walllocker/firecloset{
-	pixel_y = 32
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -32274,15 +32252,16 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wHl" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/floor_decal/spline/plain{
-	dir = 1
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/light{
-	dir = 1
+	dir = 8;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -32686,10 +32665,13 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "wUx" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -33836,6 +33818,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
+"xMy" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "xNi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -49912,9 +49905,9 @@ wGH
 wGH
 abZ
 bSA
-dHD
-hCP
-cfO
+fHm
+wHl
+wUx
 qUt
 sCe
 hIp
@@ -50113,7 +50106,7 @@ wGH
 wGH
 wGH
 abZ
-fHm
+rvn
 wug
 xSg
 fer
@@ -51325,7 +51318,7 @@ wGH
 wGH
 abZ
 abZ
-rvn
+hCP
 wlV
 qmy
 sed
@@ -52335,7 +52328,7 @@ wGH
 wGH
 wGH
 abZ
-wHl
+dHD
 pdq
 izr
 aVJ
@@ -52739,7 +52732,7 @@ wGH
 wGH
 wGH
 abZ
-rGK
+xMy
 vvm
 sdc
 tav
@@ -53143,7 +53136,7 @@ feY
 feY
 hBq
 abZ
-wUx
+rGK
 ekB
 jzx
 qdg

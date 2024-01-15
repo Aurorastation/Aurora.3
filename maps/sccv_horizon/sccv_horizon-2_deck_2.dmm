@@ -33713,13 +33713,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
-"pTm" = (
-/obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - INDRA Reactor Office";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/rust_office)
 "pTn" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -38106,6 +38099,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
+"rVw" = (
+/obj/machinery/camera/network/reactor{
+	c_tag = "Engineering - INDRA Reactor Office"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "rVE" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
@@ -74341,7 +74340,7 @@ qgN
 qgN
 qgN
 nlQ
-pTm
+rVw
 peL
 peL
 cIc
