@@ -85,7 +85,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	dir = 2
+	dir = 1;
+	pixel_y = 5
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -284,8 +285,8 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2;
+	pixel_x = 22;
+	dir = 4;
 	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
@@ -615,7 +616,8 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	pixel_y = -24
+	pixel_y = -19;
+	dir = 1
 	},
 /obj/machinery/light{
 	icon_state = "tube_empty"
@@ -657,6 +659,7 @@
 /area/ship/dominian_science_vessel/armory)
 "bUF" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
 "bYr" = (
@@ -1066,8 +1069,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 28
+	pixel_x = -20;
+	pixel_y = 28;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/port_hall)
@@ -1256,6 +1260,7 @@
 /area/ship/dominian_science_vessel/starboard_hall)
 "dMj" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "dMl" = (
@@ -1530,6 +1535,7 @@
 /obj/machinery/door/airlock/vault{
 	name = "Ammunition Storage"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "eGa" = (
@@ -1625,9 +1631,9 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
-	department = "SCC Scout Ship Captain's Quarters";
 	req_access = list(226);
-	req_one_access = null
+	req_one_access = null;
+	department = "House Volvalaad Science Vessel Captain's Quarters"
 	},
 /turf/simulated/floor/wood,
 /area/ship/dominian_science_vessel/officer)
@@ -2297,6 +2303,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "huE" = (
@@ -2491,7 +2498,7 @@
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
-	pixel_x = -20;
+	pixel_x = -19;
 	dir = 4;
 	pixel_y = 6
 	},
@@ -2605,8 +2612,8 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	dir = 2;
-	pixel_y = -28
+	dir = 1;
+	pixel_y = -19
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
@@ -2805,6 +2812,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "iTJ" = (
@@ -2888,7 +2896,6 @@
 	master_tag = "starboardext"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 8;
 	pixel_y = 26
 	},
 /turf/simulated/floor/plating,
@@ -2931,6 +2938,7 @@
 /area/ship/dominian_science_vessel/port_propulsion)
 "jkM" = (
 /obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/aft_dock)
 "jnx" = (
@@ -2971,8 +2979,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = -28;
-	dir = 2;
-	pixel_y = -24
+	dir = 1;
+	pixel_y = -20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -3030,6 +3038,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "jGb" = (
@@ -3139,6 +3148,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
 "kfu" = (
@@ -3194,7 +3204,7 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 2;
-	pixel_y = 28;
+	pixel_y = 20;
 	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
@@ -3241,7 +3251,8 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = -28;
-	dir = 2
+	dir = 1;
+	pixel_y = 5
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -3354,7 +3365,8 @@
 	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = 25
+	pixel_x = 20;
+	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -3476,7 +3488,9 @@
 "lpV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/bed,
-/obj/item/bedsheet/captain,
+/obj/item/bedsheet/captain{
+	desc = "A blue and gold bedsheet befitting of a captain, it was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
+	},
 /obj/effect/ghostspawpoint{
 	name = "igs - house_volvalaad_officer";
 	identifier = "house_volvalaad_officer"
@@ -3516,6 +3530,7 @@
 /area/shuttle/dominian_science_shuttle)
 "lul" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/aft_dock)
 "lvo" = (
@@ -3676,7 +3691,7 @@
 	name = "airlock_dominian_science_dock_port"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/light{
@@ -3969,7 +3984,8 @@
 	dir = 1;
 	id = "bridgelock";
 	pixel_y = 32;
-	pixel_x = 16
+	pixel_x = 16;
+	name = "Bridge Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
@@ -4046,9 +4062,6 @@
 	req_access = list(226)
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia,
-/obj/item/gun/projectile/automatic/rifle/dominia,
-/obj/item/ammo_magazine/a556,
-/obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
 /obj/effect/floor_decal/corner/red{
@@ -4374,6 +4387,7 @@
 /area/shuttle/dominian_science_shuttle)
 "oBu" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/hangar)
 "oBB" = (
@@ -4448,9 +4462,8 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = 28;
-	dir = 4
+	pixel_x = -24;
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/port_hall)
@@ -4503,6 +4516,7 @@
 /area/ship/dominian_science_vessel/center_hall)
 "oNY" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/center_hall)
 "oVO" = (
@@ -5082,6 +5096,7 @@
 /area/ship/dominian_science_vessel/aft_dock)
 "rfO" = (
 /obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "rij" = (
@@ -5686,7 +5701,8 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	dir = 2
+	dir = 1;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
@@ -5715,6 +5731,7 @@
 /area/ship/dominian_science_vessel/eva)
 "tsC" = (
 /obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "ttW" = (
@@ -5982,8 +5999,9 @@
 	icon_state = "tube_empty"
 	},
 /obj/machinery/airlock_sensor/airlock_interior{
-	pixel_y = -25;
-	pixel_x = 4
+	pixel_y = -20;
+	pixel_x = 4;
+	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -6009,8 +6027,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = 28
+	pixel_x = 20;
+	pixel_y = 28;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
@@ -6326,6 +6345,7 @@
 /area/ship/dominian_science_vessel/starboard_hall)
 "vGK" = (
 /obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
 "vMS" = (
@@ -6442,6 +6462,7 @@
 /area/shuttle/dominian_science_shuttle)
 "wpQ" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
 "wrJ" = (
@@ -6578,8 +6599,8 @@
 	name = "airlock_dominian_science_dock_aft"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_x = 26
+	dir = 8;
+	pixel_x = 19
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
@@ -6607,6 +6628,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "wIV" = (
@@ -6654,6 +6676,7 @@
 "wOl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/starboard_hall)
 "wPk" = (
@@ -6666,7 +6689,8 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = -28;
-	dir = 2
+	dir = 1;
+	pixel_y = 12
 	},
 /obj/effect/shuttle_landmark/dominian_science_vessel/dock/aft,
 /turf/simulated/floor/plating,
@@ -6872,6 +6896,7 @@
 /area/ship/dominian_science_vessel/quarters)
 "xmC" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/starboard_hall)
 "xoc" = (
@@ -6903,6 +6928,7 @@
 	req_one_access = null
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "xsR" = (
@@ -43510,7 +43536,7 @@ mIn
 jDu
 ujP
 qzZ
-nwc
+qAQ
 qAQ
 aXp
 xRX
