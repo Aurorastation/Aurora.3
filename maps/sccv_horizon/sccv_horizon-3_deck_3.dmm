@@ -7915,7 +7915,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/motion{
-	network = list("Command","Security","Telecommunications")
+	network = list("Command","Security","Tcomsat")
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -16455,7 +16455,7 @@
 	},
 /obj/machinery/alarm/tcom/north,
 /obj/machinery/camera/motion{
-	network = list("Command","Security","Telecommunications");
+	network = list("Command","Security","Tcomsat");
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -22729,7 +22729,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/motion{
-	network = list("Command","Security","Telecommunications")
+	network = list("Command","Security","Tcomsat")
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
