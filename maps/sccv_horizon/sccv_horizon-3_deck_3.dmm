@@ -23475,10 +23475,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Human Resources Meeting Room";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/cciaroom)
 "qyo" = (
