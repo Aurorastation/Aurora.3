@@ -7914,8 +7914,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Telecommunications - Central Compartment Port"
+/obj/machinery/camera/motion{
+	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -16453,11 +16453,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Telecommunications - Entrance";
+/obj/machinery/alarm/tcom/north,
+/obj/machinery/camera/motion{
+	network = list("Command","Security","Telecommunications");
 	dir = 8
 	},
-/obj/machinery/alarm/tcom/north,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "lzn" = (
@@ -22728,8 +22728,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Telecommunications - Control Room"
+/obj/machinery/camera/motion{
+	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
