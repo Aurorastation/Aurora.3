@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Box, Input, LabeledList, NoticeBox, Section, Table } from '../components';
+import { Box, Input, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -43,7 +43,7 @@ export const CookingCodex = (props, context) => {
           <Table collapsing pl="20px" pr="20px">
             <Table.Row header className="candystripe">
               <Table.Cell textAlign="right">Result</Table.Cell>
-              <Table.Cell></Table.Cell>
+              <Table.Cell />
               <Table.Cell>Ingredients</Table.Cell>
               <Table.Cell>Appliances</Table.Cell>
             </Table.Row>
@@ -63,7 +63,7 @@ export const CookingCodex = (props, context) => {
               })
               .sort((a, b) => a.result.localeCompare(b.result))
               .map((recipe) => (
-                <Table.Row header className="candystripe">
+                <Table.Row header className="candystripe" key={recipe.result}>
                   <Table.Cell textAlign="right" verticalAlign="middle" pl="5px">
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>
