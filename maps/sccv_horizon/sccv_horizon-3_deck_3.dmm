@@ -30601,9 +30601,6 @@
 	pixel_x = 5
 	},
 /obj/structure/table/standard,
-/obj/machinery/camera/network/telecom{
-	dir = 8
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "vvv" = (
