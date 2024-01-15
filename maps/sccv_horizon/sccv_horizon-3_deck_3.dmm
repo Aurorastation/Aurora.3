@@ -2842,6 +2842,18 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
+"cfO" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/chamber)
 "cfP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4596,13 +4608,21 @@
 /turf/simulated/wall,
 /area/maintenance/substation/civilian_east)
 "dHD" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
-	dir = 1
+	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	external_pressure_bound = 140;
+	external_pressure_bound_default = 140;
+	icon_state = "map_vent_out";
+	pressure_checks = 0;
+	pressure_checks_default = 0;
+	use_power = 1
+	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "dHJ" = (
@@ -7696,15 +7716,12 @@
 /area/tcommsat/chamber)
 "fHm" = (
 /obj/effect/floor_decal/spline/plain{
-	dir = 8
+	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/power/apc/super/north,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -10796,15 +10813,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	external_pressure_bound = 140;
-	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
-	pressure_checks = 0;
-	pressure_checks_default = 0;
-	use_power = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
 	},
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
 "hCT" = (
@@ -24747,10 +24760,7 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "rvn" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
@@ -25178,15 +25188,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/maintenance/bridge)
-"rKH" = (
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/chamber)
 "rLv" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -26728,6 +26729,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Hallway Approach";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -32269,14 +32274,15 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wHl" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
 /obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -32680,13 +32686,11 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "wUx" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/machinery/power/apc/super/north,
-/obj/structure/cable/green{
-	icon_state = "0-4"
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
@@ -49908,9 +49912,9 @@ wGH
 wGH
 abZ
 bSA
+dHD
 hCP
-fHm
-wHl
+cfO
 qUt
 sCe
 hIp
@@ -50109,7 +50113,7 @@ wGH
 wGH
 wGH
 abZ
-wUx
+fHm
 wug
 xSg
 fer
@@ -51321,7 +51325,7 @@ wGH
 wGH
 abZ
 abZ
-dHD
+rvn
 wlV
 qmy
 sed
@@ -52331,7 +52335,7 @@ wGH
 wGH
 wGH
 abZ
-rvn
+wHl
 pdq
 izr
 aVJ
@@ -53139,7 +53143,7 @@ feY
 feY
 hBq
 abZ
-rKH
+wUx
 ekB
 jzx
 qdg
