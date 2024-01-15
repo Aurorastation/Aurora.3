@@ -27480,7 +27480,6 @@
 /obj/structure/table/rack,
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/warning,
-/obj/random/junk,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
