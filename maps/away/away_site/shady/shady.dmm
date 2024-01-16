@@ -647,7 +647,7 @@
 /turf/simulated/floor/plating,
 /area/hideout)
 "hV" = (
-/mob/living/simple_animal/hostile/spider_queen{
+/mob/living/simple_animal/hostile/giant_spider/spider_queen{
 	health = 450;
 	maxHealth = 450
 	},

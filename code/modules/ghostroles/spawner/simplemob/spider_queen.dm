@@ -12,4 +12,4 @@
 
 	respawn_flag = null
 
-	spawn_mob = /mob/living/simple_animal/hostile/spider_queen
+	spawn_mob = /mob/living/simple_animal/hostile/giant_spider/spider_queen

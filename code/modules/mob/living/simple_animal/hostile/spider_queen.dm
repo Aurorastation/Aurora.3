@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/spider_queen
+/mob/living/simple_animal/hostile/giant_spider/spider_queen
 	name = "colossal greimorian"
 	desc = "A monstrous six-legged Greimorian."
 	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
@@ -54,18 +54,18 @@
 
 	var/hovering = FALSE
 
-/mob/living/simple_animal/hostile/spider_queen/Initialize()
+/mob/living/simple_animal/hostile/giant_spider/spider_queen/Initialize()
 	. = ..()
 	add_spell(new /spell/targeted/ceiling_climb, "const_spell_ready")
 
-/mob/living/simple_animal/hostile/spider_queen/update_icon()
+/mob/living/simple_animal/hostile/giant_spider/spider_queen/update_icon()
 	..()
 
 	if(hovering)
 		icon_state = "spider_queen_shadow"
 	else
 		icon_state = initial(icon_state)
-/mob/living/simple_animal/hostile/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/giant_spider/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return
 	..()
@@ -86,8 +86,8 @@
 
 /spell/targeted/ceiling_climb/cast(mob/target,var/mob/living/user as mob)
 	..()
-	if(istype(user, /mob/living/simple_animal/hostile/spider_queen))
-		var/mob/living/simple_animal/hostile/spider_queen/M = user
+	if(istype(user, /mob/living/simple_animal/hostile/giant_spider/spider_queen))
+		var/mob/living/simple_animal/hostile/giant_spider/spider_queen/M = user
 		if(M.hovering)
 			return FALSE
 		M.hovering = TRUE
@@ -101,7 +101,7 @@
 	else
 		return FALSE
 
-/spell/targeted/ceiling_climb/proc/do_landing(var/mob/living/simple_animal/hostile/spider_queen/S)
+/spell/targeted/ceiling_climb/proc/do_landing(var/mob/living/simple_animal/hostile/giant_spider/spider_queen/S)
 	S.hovering = FALSE
 	S.mouse_opacity = TRUE
 	S.speed = initial(S.speed)
