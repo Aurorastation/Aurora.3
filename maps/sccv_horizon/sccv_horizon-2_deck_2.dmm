@@ -2019,10 +2019,11 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "aSB" = (
-/obj/machinery/door/airlock/external{
-	id_tag = "pigeon_out"
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
 "aSO" = (
@@ -15901,15 +15902,15 @@
 	master_tag = "airlock_horizon_deck_2_starboard_1";
 	name = "airlock_horizon_deck_2_starboard_1"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_x = 20;
-	pixel_y = 6
-	},
 /obj/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -29002,8 +29003,8 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
 	},
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "nxk" = (
@@ -31581,8 +31582,8 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, compartment"
 	},
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "oKf" = (
@@ -33514,8 +33515,8 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "pJt" = (
@@ -43274,16 +43275,17 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uot" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
-/obj/machinery/door/airlock/external{
-	id_tag = "pigeon_out"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "door_locked"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
 "uoz" = (
@@ -48350,11 +48352,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics/garden)
 "wBt" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	id_tag = "pigeon";
-	pixel_y = 32;
-	tag_door = "pigeon_out"
-	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -49244,8 +49241,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "wVA" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "wVT" = (
@@ -67290,7 +67287,7 @@ jWV
 jWV
 jWV
 wFj
-udR
+wFj
 wFj
 cCf
 wBt
