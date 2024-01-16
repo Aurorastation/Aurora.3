@@ -4,6 +4,8 @@
 	ic_name = "combat drones"
 
 /datum/event/rogue_drone/start()
+	..()
+
 	//spawn them at the same place as carp
 	var/list/possible_spawns = list()
 	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
@@ -26,9 +28,11 @@
 		our_sound = possible_sounds[message_index]
 	else
 		our_sound = possible_sounds[1]
-	command_announcement.Announce(message, "Rogue Drone Alert", new_sound = our_sound)
+	command_announcement.Announce(message, "Rogue Drone Alert", new_sound = our_sound, zlevels = affecting_z)
 
 /datum/event/rogue_drone/end(var/faked)
+	..()
+
 	var/num_recovered = 0
 	for(var/drone in drones_list)
 		var/mob/living/simple_animal/hostile/icarus_drone/malf/D = drone

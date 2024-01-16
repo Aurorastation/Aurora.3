@@ -197,10 +197,10 @@
 	cached_markings = null
 	mob_icon = null
 
-	QDEL_NULL_LIST(children)
-	QDEL_NULL_LIST(internal_organs)
-	QDEL_NULL_LIST(wounds)
-	QDEL_NULL_LIST(implants)
+	QDEL_LIST(children)
+	QDEL_LIST(internal_organs)
+	QDEL_LIST(wounds)
+	QDEL_LIST(implants)
 
 	infect_target_internal = null
 	infect_target_external = null

@@ -222,6 +222,29 @@
 	active_power_usage = 400
 	var/waiting_for_user_input=0 // Fix for #274 (Mash create block injector without answering dialog to make unlimited injectors) - N3X
 
+/obj/machinery/computer/scan_consolenew/Initialize()
+	..()
+	for(var/i=0;i<3;i++)
+		buffers[i+1]=new /datum/dna2/record
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/scan_consolenew/LateInitialize()
+	. = ..()
+	for(dir in list(NORTH,EAST,SOUTH,WEST))
+		connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+		if(!isnull(connected))
+			break
+
+	src.injector_ready = 1
+
+/obj/machinery/computer/scan_consolenew/Destroy()
+	connected = null
+	disk = null
+
+	QDEL_LIST_ASSOC(buffers)
+
+	. = ..()
+
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
 	if (istype(I, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
@@ -234,31 +257,14 @@
 		return ..()
 
 /obj/machinery/computer/scan_consolenew/ex_act(severity)
-
 	switch(severity)
 		if(1.0)
 			//SN src = null
 			qdel(src)
-			return
 		if(2.0)
 			if (prob(50))
 				//SN src = null
 				qdel(src)
-				return
-	return
-
-/obj/machinery/computer/scan_consolenew/New()
-	..()
-	for(var/i=0;i<3;i++)
-		buffers[i+1]=new /datum/dna2/record
-	spawn(5)
-		for(dir in list(NORTH,EAST,SOUTH,WEST))
-			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-			if(!isnull(connected))
-				break
-		spawn(250)
-			src.injector_ready = 1
-		return
 	return
 
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)

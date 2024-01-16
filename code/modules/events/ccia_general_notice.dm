@@ -5,6 +5,8 @@
 	no_fake = 1
 
 /datum/event/ccia_general_notice/start()
+	..()
+
 	if (!establish_db_connection(GLOB.dbcon))
 		LOG_DEBUG("CCIA Autoamtic General Notice - Could not establish database connection")
 		return
@@ -18,4 +20,4 @@
 
 /datum/event/ccia_general_notice/announce()
 	if(announce)
-		command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1);
+		command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1)

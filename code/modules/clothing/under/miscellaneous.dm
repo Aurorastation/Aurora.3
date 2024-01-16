@@ -716,3 +716,11 @@
 	icon_state = "pachrom"
 	item_state = "pachrom"
 	armor = null
+
+/obj/item/clothing/under/rank/konyang/burger
+	name = "\improper UP! Burger uniform"
+	desc = "An astoundingly bright orange uniform, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
+	icon_state = "upburger"
+	item_state = "upburger"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS

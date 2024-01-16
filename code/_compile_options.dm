@@ -30,10 +30,18 @@
 	Manual runs area, uncomment the appropriate defines depending on what you want to do
 */
 
-//#define TESTING // Creates debug feedback messages and enables many optional testing procs/checks
+// !!! For manual use only, remember to recomment before PRing !!!
+// #define TESTING // Creates debug feedback messages and enables many optional testing procs/checks
+// #define UNIT_TEST
+// #define MANUAL_UNIT_TEST
+
+#if defined(MANUAL_UNIT_TEST) && !defined(SPACEMAN_DMM) && !defined(OPENDREAM)
+	#warn Manual unit test is defined, remember to recomment it before PRing!
+#endif // MANUAL_UNIT_TEST
+
 #ifdef TESTING
 	///Used to find the sources of harddels, quite laggy, don't be surpised if it freezes your client for a good while
-	//#define REFERENCE_TRACKING
+	// #define REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING
 
 		//Run a lookup on things hard deleting by default.
@@ -77,7 +85,8 @@
 	//Test at full capacity, the extra cost doesn't matter
 	#define TIMER_DEBUG
 
-	#define ZASDBG
+	//If you really are lost with atmos issues
+	// #define ZASDBG
 
 	#define SQL_PREF_DEBUG
 #endif //UNIT_TEST

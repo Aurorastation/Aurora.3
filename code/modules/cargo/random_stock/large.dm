@@ -138,7 +138,8 @@ STOCK_ITEM_LARGE(dog, 0.2)
 	var/dog = pick( \
 		/obj/structure/largecrate/animal/dog, \
 		/obj/structure/largecrate/animal/dog/amaskan, \
-		/obj/structure/largecrate/animal/dog/pug \
+		/obj/structure/largecrate/animal/dog/pug, \
+		/obj/structure/largecrate/animal/dog/bullterrier \
 	)
 	new dog(L)
 

@@ -38,10 +38,14 @@
 	M.disable_cloaking_device()
 	M.update_icon()
 
-/obj/item/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
+/obj/item/grenade/flashbang/clusterbang //Created by Polymorph, fixed by Sieve
 	name = "clusterbang"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "clusterbang"
+
+/obj/item/grenade/flashbang/clusterbang/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
@@ -103,3 +107,7 @@
 	var/dettime = rand(15,60)
 	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()
+
+/obj/item/grenade/flashbang/cluster/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL

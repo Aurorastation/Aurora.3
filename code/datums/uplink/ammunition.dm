@@ -31,6 +31,11 @@
 	path = /obj/item/ammo_magazine/submachinemag
 	desc = "Contains twenty rounds of .45 bullets, for use with the vintage submachine gun."
 
+/datum/uplink_item/item/ammo/submachinegunmag/assassin
+	name = "Submachine Gun Magazine (6mm)"
+	path = /obj/item/ammo_magazine/submachinemag/assassin
+	desc = "Contains thirty rounds of 6mm caseless ammo. Used by the integrally suppressed machine pistol."
+
 /datum/uplink_item/item/ammo/a357
 	name = ".357 Speedloader"
 	path = /obj/item/ammo_magazine/a357

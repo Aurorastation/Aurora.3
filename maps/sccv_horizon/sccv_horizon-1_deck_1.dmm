@@ -1853,7 +1853,7 @@
 	dir = 1;
 	name = "Fuel Access";
 	req_access = null;
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/alarm/west,
@@ -11775,7 +11775,7 @@
 /obj/machinery/door/window/brigdoor/northright{
 	name = "Fuel Access";
 	req_access = null;
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar Fuel Bay";
@@ -33608,7 +33608,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Fuel Bay";
-	req_one_access = list(26,29,31,48,67,24,47)
+	req_one_access = list(26,29,31,48,67,24,47,73)
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,

@@ -292,6 +292,10 @@
 	default_type = MATERIAL_PLASTEEL
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/plasteel/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()
 	amount = max_amount

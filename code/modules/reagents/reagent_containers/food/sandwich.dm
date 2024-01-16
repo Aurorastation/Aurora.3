@@ -66,7 +66,7 @@
 	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
 
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()
-	QDEL_NULL_LIST(ingredients)
+	QDEL_LIST(ingredients)
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/csandwich/examine(mob/user)
