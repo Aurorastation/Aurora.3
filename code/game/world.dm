@@ -82,7 +82,7 @@ GLOBAL_PROTECT(config)
 	loop_checks = FALSE
 #endif
 
-#define RECOMMENDED_VERSION 510
+#define RECOMMENDED_VERSION 515
 /world/New()
 	//logs
 	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
@@ -509,14 +509,14 @@ var/list/world_api_rate_limit = list()
 		else
 			CRASH("Unsupported platform: [system_type]")
 
-	var/init_result = LIBCALL(library, "init")("block")
+	var/init_result = call_ext(library, "init")("block")
 	if (init_result != "0")
 		CRASH("Error initializing byond-tracy: [init_result]")
 
 /world/proc/init_debugger()
 	var/dll = GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (dll)
-		LIBCALL(dll, "auxtools_init")()
+		call_ext(dll, "auxtools_init")()
 		enable_debugging()
 
 #undef FAILED_DB_CONNECTION_CUTOFF

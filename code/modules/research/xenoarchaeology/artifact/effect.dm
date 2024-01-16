@@ -45,6 +45,11 @@
 			chargelevelmax = rand(20, 60)
 			effectrange = rand(15, 20)
 
+/datum/artifact_effect/Destroy(force)
+	holder = null
+
+	. = ..()
+
 /datum/artifact_effect/proc/ToggleActivate(var/reveal_toggle = 1)
 	//so that other stuff happens first
 	spawn(0)

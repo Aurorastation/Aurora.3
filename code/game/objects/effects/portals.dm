@@ -242,7 +242,6 @@
 	for(var/thing in contents)
 		var/obj/O = thing
 		O.forceMove(get_turf(src))
-		O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
 	var/area/A = get_area(src)
 	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
 	return ..()

@@ -15,6 +15,19 @@
 	var/obj/item/device/assembly/a_right = null
 	var/obj/special_assembly = null
 
+/obj/item/device/assembly_holder/Initialize(mapload, ...)
+	. = ..()
+	become_hearing_sensitive()
+
+/obj/item/device/assembly_holder/Destroy()
+	lose_hearing_sensitivity()
+
+	QDEL_NULL(a_left)
+	QDEL_NULL(a_right)
+	QDEL_NULL(special_assembly)
+
+	. = ..()
+
 /obj/item/device/assembly_holder/proc/detached()
 	if(a_left)
 		a_left.holder_movement()
@@ -173,17 +186,6 @@
 	if(master)
 		master.receive_signal()
 	return TRUE
-
-/obj/item/device/assembly_holder/Initialize(mapload, ...)
-	. = ..()
-	become_hearing_sensitive()
-
-/obj/item/device/assembly_holder/Destroy()
-	if(a_left)
-		a_left.holder = null
-	if(a_right)
-		a_right.holder = null
-	return ..()
 
 /obj/item/device/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)
 	if(a_right)

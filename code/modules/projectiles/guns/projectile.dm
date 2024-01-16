@@ -51,7 +51,7 @@
 /obj/item/gun/projectile/Destroy()
 	chambered = null
 	QDEL_NULL(ammo_magazine)
-	QDEL_NULL_LIST(loaded)
+	QDEL_LIST(loaded)
 	. = ..()
 
 /obj/item/gun/projectile/update_icon()
