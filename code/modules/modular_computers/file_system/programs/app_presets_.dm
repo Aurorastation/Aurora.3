@@ -31,8 +31,7 @@
 	new /datum/computer_file/program/chat_client(comp),\
 	new /datum/computer_file/program/civilian/cargoorder(comp),\
 	new /datum/computer_file/program/map(comp),\
-	new /datum/computer_file/program/cooking_codex(comp),\
-) // TODO: REMOVE THIS ^
+)
 
 #define COMPUTER_APP_PRESET_HORIZON_ENGINEERING list(\
 	new /datum/computer_file/program/power_monitor(comp),\

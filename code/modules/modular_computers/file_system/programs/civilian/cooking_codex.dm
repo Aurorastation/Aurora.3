@@ -1,11 +1,12 @@
 /datum/computer_file/program/cooking_codex
 	filename = "cookcodex"
 	filedesc = "Cooking Codex"
-	program_icon_state = "supply"
+	program_icon_state = "generic"
 	program_key_icon_state = "teal_key"
 	extended_desc = "Useful program to view cooking recipes."
-	size = 14
+	size = 2
 	required_access_download = null
+	requires_ntnet = FALSE
 	available_on_ntnet = TRUE
 	tgui_id = "CookingCodex"
 
