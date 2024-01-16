@@ -75,3 +75,21 @@
 	name = "\improper 2x2 Orion Express logo"
 	icon = 'icons/turf/decals/big/ox_2x2.dmi'
 	icon_state = "0,0"
+
+/// Galatea Preview
+/obj/effect/floor_decal/big/galatea_full
+	name = "full 2x2 Galatea logo"
+	icon = 'icons/turf/decals/big/galatea_2x2_preview.dmi'
+	icon_state = "galatea_preview"
+
+	decal_path = "/obj/effect/floor_decal/galatea"
+	decals = list(
+		"0,0", "1,0",
+		"0,1", "1,1",
+	)
+
+/// Galatea
+/obj/effect/floor_decal/galatea
+	name = "\improper 2x2 Galatea logo"
+	icon = 'icons/turf/decals/big/galatea_2x2.dmi'
+	icon_state = "0,0"
