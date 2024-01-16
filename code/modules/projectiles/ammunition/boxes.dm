@@ -415,7 +415,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a556/dlmg
-	name = "MPR-24/5 light machine gun magazine"
+	name = "MPR-24/5 light machine gun magazine (5.56mm)"
 	max_ammo = 50
 	icon = 'icons/obj/guns/dominia_lmg.dmi'
 	icon_state = "dom_lmg_mag"
