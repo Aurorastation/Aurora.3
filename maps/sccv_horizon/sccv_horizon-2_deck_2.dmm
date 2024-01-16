@@ -5055,7 +5055,7 @@
 /area/engineering/engine_room)
 "chF" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/shuttle/pigeon)
 "chP" = (
 /obj/machinery/door/firedoor,
