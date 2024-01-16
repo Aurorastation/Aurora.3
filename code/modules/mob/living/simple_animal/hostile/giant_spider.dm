@@ -305,7 +305,7 @@
 		stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/verb/web()
-	set category = "Alien"
+	set category = "Abilities"
 	set name = "Spin Web"
 	set desc = "Create a web that slows down movement."
 
@@ -316,8 +316,8 @@
 		new /obj/effect/spider/stickyweb(src.loc)
 
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()
-	set category = "Alien"
+/mob/living/simple_animal/hostile/giant_spider/spider_queen/verb/cocoon()
+	set category = "Abilities"
 	set name = "Cocoon and Feed"
 	set desc = "Cocooned an incapacitated mob so you can feed upon it."
 
@@ -356,8 +356,8 @@
 						C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/verb/eggs()
-	set category = "Alien"
+/mob/living/simple_animal/hostile/giant_spider/spider_queen/verb/eggs()
+	set category = "Abilities"
 	set name = "Lay Eggs"
 	set desc = "Lay a clutch of eggs to make new spiderlings. Requires you to have fed."
 
