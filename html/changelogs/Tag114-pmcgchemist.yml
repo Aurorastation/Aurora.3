@@ -1,0 +1,8 @@
+
+author: Tag114
+
+
+delete-after: True
+
+changes:
+  - bugfix: "The PMCG pharmacist uniform now uses the sprites intended for it instead of the same sprites as the EPMC pharmacist uniform."
