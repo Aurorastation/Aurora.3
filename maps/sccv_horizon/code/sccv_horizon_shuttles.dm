@@ -204,11 +204,11 @@
 	move_time = 20
 	shuttle_area = /area/shuttle/pigeon
 	dock_target = "airlock_shuttle_pigeon"
-	current_location = "airlock_horizon_dock_deck_2_starboard_2"
+	current_location = "nav_horizon_dock_deck_2_starboard_2"
 	landmark_transition = "nav_pigeon_transit"
 	range = 3
 	fuel_consumption = 2
-	logging_home_tag = "airlock_horizon_dock_deck_2_starboard_2"
+	logging_home_tag = "nav_horizon_dock_deck_2_starboard_2"
 
 /obj/effect/shuttle_landmark/pigeon/transit
 	name = "In transit"

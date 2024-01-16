@@ -72,6 +72,7 @@
 	landmark_tag = "nav_horizon_dock_deck_2_starboard_2"
 	docking_controller = "airlock_horizon_dock_deck_2_starboard_2"
 	base_area = /area/space
+	base_turf = /turf/space
 
 // ================================ exterior
 
