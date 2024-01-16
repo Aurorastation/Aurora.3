@@ -2022,6 +2022,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "pigeon_out"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
 "aSO" = (
@@ -28998,10 +28999,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
 "nwN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
 	},
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "nxk" = (
@@ -31576,10 +31578,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "oJU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, compartment"
 	},
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "oKf" = (
@@ -33508,10 +33511,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/bar)
 "pIP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "pJt" = (
@@ -43279,6 +43283,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
 "uoz" = (
@@ -49239,7 +49244,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "wVA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/pigeon)
 "wVT" = (
