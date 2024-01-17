@@ -7,7 +7,6 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "shady"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
