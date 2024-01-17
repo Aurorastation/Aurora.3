@@ -305,9 +305,9 @@
 		stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/verb/web()
-	set category = "Abilities"
 	set name = "Spin Web"
 	set desc = "Create a web that slows down movement."
+	set category = "Object"
 
 	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 	if(!W)
@@ -317,9 +317,9 @@
 
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/cocoon()
-	set category = "Abilities"
 	set name = "Cocoon and Feed"
 	set desc = "Cocooned an incapacitated mob so you can feed upon it."
+	set category = "Object"
 
 	for(var/mob/living/P in range(1,src))
 		cocoon_target = P
@@ -357,9 +357,9 @@
 
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/eggs()
-	set category = "Abilities"
 	set name = "Lay Eggs"
 	set desc = "Lay a clutch of eggs to make new spiderlings. Requires you to have fed."
+	set category = "Object"
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
