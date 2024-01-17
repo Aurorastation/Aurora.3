@@ -86,7 +86,6 @@
 /obj/effect/shuttle_landmark/tramp_freighter/dock
 	name = "Tramp Freighter - Port Airlock"
 	landmark_tag = "nav_tramp_freighter_dock"
-	docking_controller = "freighter_hangar"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
@@ -131,7 +130,7 @@
 /obj/effect/shuttle_landmark/freighter_shuttle/hangar
 	name = "Freight Shuttle Hangar"
 	landmark_tag = "nav_hangar_tramp"
-	docking_controller = "freighter_shuttle_dock"
+	docking_controller = "freighter_hangar"
 	base_area = /area/tramp_freighter/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

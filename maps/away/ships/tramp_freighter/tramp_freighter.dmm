@@ -801,10 +801,11 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 1;
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "freighter_hangar";
 	pixel_y = -20;
-	id_tag = "freighter_hangar"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -2252,13 +2253,6 @@
 /area/tramp_freighter/mess)
 "Cb" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freight_shuttle";
-	name = "airlock_freight_shuttle";
-	req_one_access = null;
-	shuttle_tag = "Freight Shuttle";
-	cycle_to_external_air = 1
-	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/light{
 	dir = 4
@@ -2267,6 +2261,13 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freight_shuttle";
+	name = "airlock_freight_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Freight Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
