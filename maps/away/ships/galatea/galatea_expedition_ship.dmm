@@ -517,6 +517,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"gq" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	frequency = 1442;
+	id_tag = "scavver_teg_out";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "gt" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -798,6 +806,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"jS" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "jW" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -883,6 +898,13 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/turf/simulated/floor/plating,
+/area/space)
+"kE" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/space)
 "kQ" = (
@@ -974,6 +996,12 @@
 	color = "#90C1DB"
 	},
 /area/space)
+"lZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "mi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/botany/extractor,
@@ -1039,6 +1067,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/turf/simulated/floor/plating,
+/area/space)
+"mQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/space)
 "mV" = (
@@ -1383,6 +1415,13 @@
 	color = "#BBBBBB"
 	},
 /area/space)
+"ru" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "rw" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -1509,6 +1548,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"sS" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -1648,6 +1693,9 @@
 /area/space)
 "uE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "uI" = (
@@ -1679,6 +1727,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
+/area/space)
+"vg" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "vl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1716,10 +1770,7 @@
 /turf/template_noop,
 /area/space)
 "vF" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating,
 /area/space)
 "vJ" = (
@@ -1834,10 +1885,9 @@
 /turf/template_noop,
 /area/space)
 "xj" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/space)
 "xm" = (
@@ -2046,6 +2096,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"yV" = (
+/obj/machinery/air_sensor{
+	frequency = 1442;
+	id_tag = "scav_sensor";
+	output = 31
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "yW" = (
 /obj/machinery/door/airlock/external{
@@ -2322,13 +2380,10 @@
 	},
 /area/space)
 "BQ" = (
-/obj/machinery/atmospherics/valve/digital{
+/obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	name = "Thermal Relief Valve"
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
+	name = "Cooling Array to Generators";
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -2343,6 +2398,12 @@
 	dir = 8
 	},
 /turf/template_noop,
+/area/space)
+"Cf" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/green{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "Cm" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -2376,6 +2437,16 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"CO" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "CV" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2450,9 +2521,16 @@
 /turf/simulated/floor/plating,
 /area/space)
 "DC" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/space)
 "DK" = (
@@ -2499,10 +2577,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Es" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/space)
 "Ew" = (
@@ -2529,6 +2606,15 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"EH" = (
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "EK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -2850,6 +2936,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"HK" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 2;
+	name = "Intake to Cold Loop";
+	target_pressure = 15000
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "HV" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -2873,14 +2967,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "Ig" = (
-/obj/machinery/atmospherics/valve/digital{
-	dir = 4;
-	name = "Thermal Relief Valve"
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
 /area/space)
 "Ij" = (
@@ -2934,6 +3021,18 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/space)
+"II" = (
+/obj/machinery/power/generator{
+	anchored = 1;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/yellow,
+/turf/simulated/floor/plating,
+/area/space)
 "IJ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
@@ -2949,6 +3048,12 @@
 /area/space)
 "IP" = (
 /turf/simulated/floor/marble,
+/area/space)
+"IS" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "IT" = (
 /obj/machinery/door/airlock/freezer,
@@ -3121,6 +3226,12 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"LH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "LJ" = (
 /obj/effect/floor_decal/spline/plain/corner/black,
@@ -3385,7 +3496,6 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "OT" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/green,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
@@ -3399,6 +3509,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Pa" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "Pn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -3430,11 +3546,8 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "PH" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -3623,13 +3736,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Sl" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1442;
+	icon_state = "map_injector";
+	id = "scavver_teg_in";
+	dir = 4
 	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Sn" = (
 /obj/structure/closet/crate/freezer{
@@ -3752,6 +3865,13 @@
 /obj/item/mop,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"TE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "TY" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3777,6 +3897,10 @@
 	frequency = 1442;
 	icon_state = "map_injector";
 	id = "scavver_teg_fuel_in"
+	},
+/obj/machinery/sparker{
+	id = "scav_igni";
+	pixel_x = -15
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -3854,6 +3978,12 @@
 	color = "#DDDDDD"
 	},
 /area/space)
+"Vt" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/green{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Vu" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -3899,6 +4029,11 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
+/area/space)
+"Wb" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#7C3022"
+	},
 /area/space)
 "Wh" = (
 /obj/random/pottedplant,
@@ -3970,6 +4105,13 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/marble,
 /area/space)
+"Xf" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/turf/simulated/floor/plating,
+/area/space)
 "Xg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4025,6 +4167,12 @@
 /area/space)
 "Xw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/plating,
+/area/space)
+"Xz" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "XF" = (
@@ -4090,6 +4238,12 @@
 "Yt" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Yu" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -13124,7 +13278,7 @@ cV
 kU
 hc
 Wk
-PH
+QE
 ZA
 eN
 Wk
@@ -13381,12 +13535,12 @@ sK
 XH
 cZ
 Wk
-Sl
+sk
 mX
 RS
 Wk
 Wk
-Ig
+pK
 Wk
 Wk
 Wk
@@ -14664,14 +14818,14 @@ eQ
 eQ
 eQ
 Or
-Or
+yV
 wZ
-jx
+vg
 MC
-DC
-uE
-uE
-uE
+Rh
+tH
+tH
+tH
 VS
 vA
 Se
@@ -14918,14 +15072,14 @@ eQ
 eQ
 eQ
 MC
-Cz
+yW
 Uw
-Or
-Or
+Sl
+gq
 wZ
-QE
-ZA
-eN
+sS
+MC
+PH
 eQ
 eQ
 eQ
@@ -15172,16 +15326,16 @@ Wk
 Wk
 Wk
 eQ
-MC
-MC
-MC
-wZ
+kE
+kE
+kE
+Wb
+GV
+ru
 GV
 wZ
-wZ
-wZ
-sk
-mX
+jx
+MC
 BQ
 MM
 eQ
@@ -15429,16 +15583,16 @@ Wk
 Wk
 Wk
 eQ
-MC
-MC
-MC
-MC
-JV
-MC
-MC
-MC
-gP
-jM
+Xz
+Vt
+Vt
+HK
+uE
+jS
+uE
+Cf
+Vt
+CO
 vF
 eQ
 eQ
@@ -15688,15 +15842,15 @@ Wk
 eQ
 eQ
 eQ
-MC
+Jp
 xj
 IJ
-MC
-MC
-MC
-MC
-MC
-pK
+lZ
+JV
+RS
+sk
+II
+RS
 Cz
 Wx
 yW
@@ -15948,12 +16102,12 @@ eQ
 mq
 xv
 iK
-MC
-MC
-MC
-MC
-MC
-MC
+lZ
+Yu
+Pa
+Xf
+EH
+ka
 eQ
 eQ
 eQ
@@ -16202,15 +16356,15 @@ Wk
 Wk
 HE
 eQ
-MC
+Jp
 Es
 MC
-MC
-MC
-MC
-MC
-MC
-MC
+LH
+Ig
+Ig
+TE
+Ig
+IS
 eQ
 Iv
 Td
@@ -16464,10 +16618,10 @@ MC
 MC
 MC
 MC
-eQ
 MC
-qm
-UF
+MC
+MC
+MC
 eQ
 uA
 uP
@@ -16721,10 +16875,10 @@ MC
 MC
 MC
 MC
-eQ
 MC
-Fp
-Bt
+MC
+qm
+UF
 eQ
 eQ
 eQ
@@ -16978,10 +17132,10 @@ MC
 MC
 MC
 MC
-eQ
-eQ
-GB
-eQ
+MC
+MC
+Fp
+Bt
 eQ
 bE
 gc
@@ -17231,14 +17385,14 @@ Wk
 JR
 db
 eQ
+fZ
 eQ
 eQ
 eQ
 eQ
 eQ
-MC
-bY
-MC
+GB
+eQ
 eQ
 kQ
 xC
@@ -17494,7 +17648,7 @@ MC
 MC
 MC
 MC
-SU
+bY
 MC
 eQ
 zi
@@ -17751,7 +17905,7 @@ MC
 MC
 MC
 MC
-SU
+bY
 MC
 eQ
 eQ
@@ -18007,8 +18161,8 @@ MC
 MC
 MC
 MC
-MC
-mk
+mQ
+DC
 VU
 VU
 Xn
@@ -19029,12 +19183,12 @@ Wk
 Wk
 JR
 KT
-eQ
-eQ
-fZ
-eQ
-eQ
-eQ
+MC
+MC
+MC
+MC
+MC
+MC
 eQ
 eQ
 eQ
@@ -19286,12 +19440,12 @@ Wk
 Bd
 JR
 KT
-MC
-MC
-MC
-um
-wf
-wf
+eQ
+eQ
+fZ
+eQ
+eQ
+eQ
 eQ
 ph
 XO
@@ -19547,10 +19701,10 @@ MC
 MC
 MC
 um
-um
+wf
 wf
 eQ
-cF
+pj
 cS
 pP
 ju
@@ -19803,11 +19957,11 @@ eQ
 MC
 MC
 MC
+um
+um
 wf
-wf
-wf
-CV
-cS
+eQ
+cF
 cS
 eQ
 eQ
@@ -20063,8 +20217,8 @@ MC
 wf
 wf
 wf
-eQ
-cF
+CV
+cS
 cS
 cS
 cS
@@ -20321,7 +20475,7 @@ wf
 wf
 wf
 eQ
-pj
+cF
 cS
 cS
 cS
