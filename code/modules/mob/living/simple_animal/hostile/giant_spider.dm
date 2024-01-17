@@ -86,6 +86,10 @@
 	var/playable = TRUE
 	fed = 3
 
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
+	..()
+	adjustBruteLoss(-2)
+
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
 	name = "greimorian hunter"
@@ -335,13 +339,13 @@
 	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 	if(!W)
 		src.visible_message("\The [src] begins to secrete a sticky substance.")
-		if(!do_after(src, 30)) return
+		if(!do_after(src, 10)) return
 		new /obj/effect/spider/stickyweb(src.loc)
 
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()
 	set name = "Cocoon and Feed"
-	set desc = "Cocooned an incapacitated mob so you can feed upon it. This will give you one food point."
+	set desc = "Cocoon an incapacitated mob so you can feed upon it. This will give you one food point."
 	set category = "Greimorian"
 
 	for(var/mob/living/P in range(1,src))
@@ -349,7 +353,7 @@
 		if(P.stat && !istype(P,/mob/living/simple_animal/hostile/giant_spider))
 			if(get_dist(src, cocoon_target) <= 1)
 				src.visible_message("\The [src] begins to secrete a sticky substance around \the [cocoon_target].")
-				if(!do_after(src, 100)) return
+				if(!do_after(src, 80)) return
 				if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
 					var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
 					var/large_cocoon = 0
@@ -387,7 +391,7 @@
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a cluster of eggs.")
-		if(!do_after(src, 100)) return
+		if(!do_after(src, 50)) return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /obj/effect/spider/eggcluster(src.loc)
@@ -402,7 +406,7 @@
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a servant.")
-		if(!do_after(src, 150)) return
+		if(!do_after(src, 120)) return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /mob/living/simple_animal/hostile/giant_spider/nurse/servant(get_turf(src))

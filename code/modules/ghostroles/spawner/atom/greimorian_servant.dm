@@ -1,7 +1,7 @@
 /datum/ghostspawner/servant
 	short_name = "servant"
 	name = "Greimorian Servant"
-	desc = "Infest crew, reproduce, repeat."
+	desc = "Hunt crew, reproduce, repeat."
 	tags = list("Antagonist")
 
 	observers_only = TRUE
