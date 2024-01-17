@@ -87,7 +87,7 @@
 
 /datum/outfit/admin/izweski/klax
 
-	uniform = /obj/item/clothing/under/izweski
+	uniform = /obj/item/clothing/under/unathi/izweski
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -106,9 +106,6 @@
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-
-	if(H?.shoes)
-		H.shoes.color = uniform_colour
 
 	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
