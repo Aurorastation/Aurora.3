@@ -70,19 +70,21 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
-	desc = "A hideous Greimorian with vestigial wings and an awful stench about it. This one is brown with shimmering, bulbous red eyes."
-	icon_state = "greimorian_worker"
-	icon_living = "greimorian_worker"
-	icon_dead = "greimorian_worker_dead"
-	blood_amount = 50
-	maxHealth = 40
-	health = 40
-	melee_damage_lower = 5
-	melee_damage_upper = 10
-	armor_penetration = 20
+	desc = "A greimorian with a startling intelligence to its bulbous yellow eyes. Its needle-like mandibles look like they could easily punch through armor - or flesh."
+	icon_state = "greimorian_servant"
+	icon_living = "greimorian_servant"
+	icon_dead = "greimorian_servant_dead"
+	blood_amount = 150
+	maxHealth = 200
+	health = 200
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	armor_penetration = 30
 	poison_per_bite = 10
+	speed = -3
 	poison_type = /singleton/reagent/toxin
 	var/playable = TRUE
+	fed = 3
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
@@ -339,7 +341,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()
 	set name = "Cocoon and Feed"
-	set desc = "Cocooned an incapacitated mob so you can feed upon it."
+	set desc = "Cocooned an incapacitated mob so you can feed upon it. This will give you one food point."
 	set category = "Greimorian"
 
 	for(var/mob/living/P in range(1,src))
@@ -379,7 +381,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/eggs()
 	set name = "Lay Eggs"
-	set desc = "Lay a clutch of eggs to make new spiderlings. Requires you to have fed."
+	set desc = "Lay a clutch of eggs to make new spiderlings. This will cost one food point."
 	set category = "Greimorian"
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
@@ -393,7 +395,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/servant()
 	set name = "Lay Servant"
-	set desc = "Lay a greimorian servant, which can be player-controlled."
+	set desc = "Lay a greimorian servant, which can be player-controlled. This will cost one food point."
 	set category = "Greimorian"
 
 

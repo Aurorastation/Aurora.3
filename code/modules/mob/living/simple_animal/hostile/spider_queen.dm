@@ -31,6 +31,7 @@
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	faction = "spiders"
+	fed = 3
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
@@ -40,7 +41,7 @@
 
 	pass_flags = PASSTABLE|PASSRAILING
 	move_to_delay = 6
-	speed = 1
+	speed = -1
 	mob_size = 15
 	environment_smash = 2
 
