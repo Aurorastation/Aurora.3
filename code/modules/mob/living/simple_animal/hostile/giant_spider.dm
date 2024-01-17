@@ -68,6 +68,22 @@
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
 
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant
+	name = "greimorian servant"
+	desc = "A hideous Greimorian with vestigial wings and an awful stench about it. This one is brown with shimmering, bulbous red eyes."
+	icon_state = "greimorian_worker"
+	icon_living = "greimorian_worker"
+	icon_dead = "greimorian_worker_dead"
+	blood_amount = 50
+	maxHealth = 40
+	health = 40
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+	armor_penetration = 20
+	poison_per_bite = 10
+	poison_type = /singleton/reagent/toxin
+	var/playable = TRUE
+
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
 	name = "greimorian hunter"
@@ -131,6 +147,11 @@
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
+	. = ..()
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
+	if(playable && !ckey && !client)
+		SSghostroles.add_spawn_atom("servant", src)
 	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
@@ -307,7 +328,7 @@
 /mob/living/simple_animal/hostile/giant_spider/verb/web()
 	set name = "Spin Web"
 	set desc = "Create a web that slows down movement."
-	set category = "Object"
+	set category = "Greimorian"
 
 	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 	if(!W)
@@ -316,17 +337,17 @@
 		new /obj/effect/spider/stickyweb(src.loc)
 
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/cocoon()
+/mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()
 	set name = "Cocoon and Feed"
 	set desc = "Cocooned an incapacitated mob so you can feed upon it."
-	set category = "Object"
+	set category = "Greimorian"
 
 	for(var/mob/living/P in range(1,src))
 		cocoon_target = P
 		if(P.stat && !istype(P,/mob/living/simple_animal/hostile/giant_spider))
 			if(get_dist(src, cocoon_target) <= 1)
 				src.visible_message("\The [src] begins to secrete a sticky substance around \the [cocoon_target].")
-				if(!do_after(src, 30)) return
+				if(!do_after(src, 10)) return
 				if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
 					var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
 					var/large_cocoon = 0
@@ -356,18 +377,34 @@
 						C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/eggs()
+/mob/living/simple_animal/hostile/giant_spider/nurse/verb/eggs()
 	set name = "Lay Eggs"
 	set desc = "Lay a clutch of eggs to make new spiderlings. Requires you to have fed."
-	set category = "Object"
+	set category = "Greimorian"
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a cluster of eggs.")
-		if(!do_after(src, 30)) return
+		if(!do_after(src, 150)) return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /obj/effect/spider/eggcluster(src.loc)
+			fed--
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/verb/servant()
+	set name = "Lay Servant"
+	set desc = "Lay a greimorian servant, which can be player-controlled."
+	set category = "Greimorian"
+
+
+	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
+	if(!E && fed > 0)
+		src.visible_message("\The [src] begins to lay a servant.")
+		if(!do_after(src, 10)) return
+		E = locate() in get_turf(src)
+		if(!E)
+			new /mob/living/simple_animal/hostile/giant_spider/nurse/servant(get_turf(src))
+			playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 			fed--
 
 #undef SPINNING_WEB

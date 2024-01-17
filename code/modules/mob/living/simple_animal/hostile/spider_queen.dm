@@ -56,6 +56,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Initialize()
 	. = ..()
+
 	add_spell(new /spell/targeted/ceiling_climb, "const_spell_ready")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/update_icon()
