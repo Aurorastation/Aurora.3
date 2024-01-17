@@ -40,6 +40,12 @@ var/list/admin_departments
 		alldepartments |= department
 	destination = current_map.boss_name
 
+/obj/machinery/photocopier/faxmachine/Destroy()
+	allfaxes -= src
+	QDEL_NULL(identification)
+
+	. = ..()
+
 /obj/machinery/photocopier/faxmachine/ui_data(mob/user)
 	var/list/data = list()
 	data["destination"] = destination

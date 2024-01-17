@@ -62,12 +62,13 @@
 	skybox_icon = "haneunim"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim, /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung, /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu)
 	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/konyang)
-//	cargo_price_coef = TBD
+	cargo_price_coef = list("nt" = 1.1, "hpi" = 0.7, "zhu" = 0.4, "een" = 1.0, "get" = 1.1, "arz" = 1.8, "blm" = 0.9, "iac" = 1.2, "zsc" = 1.8, "vfc" = 0.9, "bis" = 0.4, "xmg" = 0.7, "npi" = 0.8)
+
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
 	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
 	sector_lobby_transitions = 0
-	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'//placeholder
+	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"

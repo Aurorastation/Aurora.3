@@ -87,7 +87,7 @@
 			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
 
 /obj/effect/shuttle_landmark/proc/clear_landing_indicators()
-	QDEL_NULL_LIST(landing_indicators) // lazyclear but we delete the effects as well
+	QDEL_LIST(landing_indicators) // lazyclear but we delete the effects as well
 
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE

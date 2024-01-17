@@ -332,6 +332,7 @@
 /obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
@@ -370,6 +371,11 @@
 /obj/item/gun/projectile/automatic/rifle/z8/Initialize()
 	. = ..()
 	launcher = new(src)
+
+/obj/item/gun/projectile/automatic/rifle/z8/Destroy()
+	QDEL_NULL(launcher)
+
+	. = ..()
 
 /obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/grenade)))
@@ -629,6 +635,8 @@
 	caliber = "6mm"
 	suppressed = TRUE
 	can_unsuppress = FALSE
+	suppressor_x_offset = null
+	suppressor_y_offset = null
 	handle_casings = DELETE_CASINGS
 	max_shells = 30
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
@@ -827,6 +835,7 @@
 /obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
+	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"

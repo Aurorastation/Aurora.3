@@ -39,7 +39,7 @@ var/list/mimic_defines = list(
 #define ATOM_FLAG_NO_REACT FLAG(3)
 /// Is an open container for chemistry purposes
 #define ATOM_FLAG_OPEN_CONTAINER FLAG(4)
-/// Reagent container that can pour its contents with a lid on. only used for syrup bottles for now
+/// Reagent container that can pour its contents with a lid on.
 #define ATOM_FLAG_POUR_CONTAINER FLAG(5)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
 #define ATOM_FLAG_HTML_USE_INITIAL_ICON FLAG(6)

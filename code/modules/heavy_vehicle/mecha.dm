@@ -94,7 +94,8 @@
 
 	for(var/hardpoint in hardpoints)
 		var/obj/item/S = remove_system(hardpoint, force = 1)
-		qdel(S)
+		if(S)
+			QDEL_NULL(S)
 
 	hardpoints = null
 
@@ -106,7 +107,7 @@
 		pilot.forceMove(get_turf(src))
 	pilots = null
 
-	QDEL_NULL_LIST(hud_elements)
+	QDEL_LIST(hud_elements)
 
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
