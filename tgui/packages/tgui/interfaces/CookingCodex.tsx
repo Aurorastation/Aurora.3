@@ -31,7 +31,7 @@ export const CookingCodex = (props, context) => {
             <Input
               autoFocus
               autoSelect
-              placeholder="Search by name"
+              placeholder="Search"
               width="40vw"
               maxLength={512}
               onInput={(e, value) => {
@@ -45,20 +45,20 @@ export const CookingCodex = (props, context) => {
               <Table.Cell textAlign="right">Result</Table.Cell>
               <Table.Cell />
               <Table.Cell>Ingredients</Table.Cell>
-              <Table.Cell>Appliances</Table.Cell>
+              <Table.Cell>Appliances {searchTerm}</Table.Cell>
             </Table.Row>
             {data?.recipes
               .filter((recipe) => {
                 return (
                   recipe.result
-                    ?.toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1 ||
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase()) ||
                   recipe.ingredients
-                    ?.toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1 ||
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase()) ||
                   recipe.appliances
-                    ?.toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
                 );
               })
               .sort((a, b) => a.result.localeCompare(b.result))

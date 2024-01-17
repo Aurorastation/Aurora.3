@@ -17,7 +17,9 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
+	return data
 
+/datum/computer_file/program/cooking_codex/ui_static_data(mob/user)
+	var/list/data = list()
 	data["recipes"] = SScodex.cooking_codex_data
-
 	return data
