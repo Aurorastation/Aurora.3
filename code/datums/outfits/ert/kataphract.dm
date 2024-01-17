@@ -31,6 +31,7 @@
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
+		H.w_uniform.accent_color = H.w_uniform.color
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
