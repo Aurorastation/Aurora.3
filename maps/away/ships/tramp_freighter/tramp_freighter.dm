@@ -86,6 +86,7 @@
 /obj/effect/shuttle_landmark/tramp_freighter/dock
 	name = "Tramp Freighter - Port Airlock"
 	landmark_tag = "nav_tramp_freighter_dock"
+	docking_controller = "freighter_hangar"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
@@ -124,7 +125,7 @@
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tramp"
-	dock_target = "freighter_hangar"
+	dock_target = "airlock_freight_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/freighter_shuttle/hangar

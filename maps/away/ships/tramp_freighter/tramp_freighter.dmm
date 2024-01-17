@@ -3775,10 +3775,6 @@
 /area/tramp_freighter/mess)
 "VN" = (
 /obj/machinery/door/airlock/external,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = 32;
-	pixel_y = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
