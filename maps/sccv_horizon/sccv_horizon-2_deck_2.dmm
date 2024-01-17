@@ -1877,9 +1877,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
-"aPf" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
 "aPN" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/zta)
@@ -2022,7 +2019,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	icon_state = "door_locked"
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "pigeon_out"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
@@ -2858,7 +2857,7 @@
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_horizon_dock_deck_2_starboard_2";
 	master_tag = "airlock_horizon_deck_2_starboard_1";
-	name = "airlock_horizon_deck_2_starboard_1"
+	name = "nav_horizon_dock_deck_2_starboard_2"
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
@@ -27473,12 +27472,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
-"mON" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "mOS" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -43279,12 +43272,21 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	icon_state = "door_locked"
-	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "pigeon";
+	name = "port docking controller";
+	pixel_x = 32;
+	tag_door = "pigeon_out"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "pigeon_out"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
@@ -66681,8 +66683,8 @@ hUe
 oGp
 ebR
 wFj
-mON
-aPf
+udR
+wFj
 cCf
 hnh
 wNl
