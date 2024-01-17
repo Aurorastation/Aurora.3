@@ -347,7 +347,7 @@
 		if(P.stat && !istype(P,/mob/living/simple_animal/hostile/giant_spider))
 			if(get_dist(src, cocoon_target) <= 1)
 				src.visible_message("\The [src] begins to secrete a sticky substance around \the [cocoon_target].")
-				if(!do_after(src, 10)) return
+				if(!do_after(src, 100)) return
 				if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
 					var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
 					var/large_cocoon = 0
@@ -385,13 +385,13 @@
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a cluster of eggs.")
-		if(!do_after(src, 150)) return
+		if(!do_after(src, 100)) return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /obj/effect/spider/eggcluster(src.loc)
 			fed--
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/verb/servant()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/verb/servant()
 	set name = "Lay Servant"
 	set desc = "Lay a greimorian servant, which can be player-controlled."
 	set category = "Greimorian"
@@ -400,7 +400,7 @@
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a servant.")
-		if(!do_after(src, 10)) return
+		if(!do_after(src, 150)) return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /mob/living/simple_animal/hostile/giant_spider/nurse/servant(get_turf(src))
