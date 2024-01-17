@@ -41,6 +41,5 @@ changes:
   - bugfix: "pAI now have the ghost tab removed, and proper verbs added upon spawning, without having to relog."
   - bugfix: "pAI can now access PDA and Computers they are inserted into."
   - bugfix: "Programs that would softlock the pAI computer interface are removed from the Programs list."
-  - bugfix: "The page for programs without IDs is now an NtosWindow, providing the usual close button, preventing further softlocks."
   - bugfix: "pAI UI windows that were open when closing the client are now possible to re-open."
   - bugfix: "Adds error message when trying to download incompatible software."
