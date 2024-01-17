@@ -2021,7 +2021,7 @@
 	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "pigeon_out"
+	id_tag = "airlock_shuttle_pigeon_out"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
@@ -43277,16 +43277,16 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "pigeon";
+	id_tag = "airlock_shuttle_pigeon";
 	name = "port docking controller";
 	pixel_x = 32;
-	tag_door = "pigeon_out"
+	tag_door = "airlock_shuttle_pigeon_out"
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "pigeon_out"
+	id_tag = "airlock_shuttle_pigeon_out"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/pigeon)
