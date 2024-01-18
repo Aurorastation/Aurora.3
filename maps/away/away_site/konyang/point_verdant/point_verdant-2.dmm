@@ -14929,7 +14929,8 @@
 	id = "konyang_corporate_entrance";
 	name = "Entrance Shutters";
 	req_access = list(225);
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
