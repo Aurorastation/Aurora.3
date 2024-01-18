@@ -15,7 +15,7 @@
 SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
 	init_order = SS_INIT_PERSISTENT_CONFIG
-	flags = SS_NO_FIRE | SS_NO_INIT
+	flags = SS_NO_FIRE
 
 	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
 
@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(unit_tests_config)
 	///How many times can the pod retries before the unit test is considered failed
 	var/retries = 0
 
-/datum/controller/subsystem/unit_tests_config/PreInit()
+/datum/controller/subsystem/unit_tests_config/Initialize()
 	UT = new
 
 	//Acquire our identifier, or enter Hopper mode if failing to do so
@@ -80,6 +80,8 @@ SUBSYSTEM_DEF(unit_tests_config)
 
 	refresh_retries(FALSE)
 	refresh_fail_fast()
+
+	return SS_INIT_SUCCESS
 
 
 /**

@@ -201,6 +201,9 @@ SUBSYSTEM_DEF(spatial_grid)
 					cell_row += new_cell_inserted
 					continue
 
+				if(!length(cell_row))
+					continue
+
 				//now we know the cell index we're at contains an already existing cell that needs its x and y values updated
 				var/datum/spatial_grid_cell/old_cell_that_needs_updating = cell_row[grid_cell_for_expanded_x_axis]
 				old_cell_that_needs_updating.cell_x = grid_cell_for_expanded_x_axis

@@ -41,3 +41,5 @@ changes:
   - backend: "Updated spatial gridmap to TG version."
   - backend: "Some file and file contents reorderings."
   - backend: "Altered handling of /atom/movable destruction."
+  - backend: "Updated how SSunittest_config initializes."
+  - bugfix: "Resolved an harddel with carbon/brain mobs."
