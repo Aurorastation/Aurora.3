@@ -1158,10 +1158,10 @@
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/storage)
 "mM" = (
-/obj/machinery/computer/shuttle_control/explore/sadar_shuttle{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/machinery/computer/shuttle_control/explore/terminal/yacht_civ_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2027,6 +2027,11 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Civilian Yacht Shuttle";
+	master_tag = "airlock_yacht_civ_shuttle";
+	name = "airlock_yacht_civ_shuttle"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
 "vW" = (
@@ -2039,7 +2044,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green{
+	pixel_y = 5
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/yacht_civ/hangar)
 "vZ" = (
@@ -2926,6 +2933,14 @@
 /area/ship/yacht_civ/hallway_aft)
 "Gi" = (
 /obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/obj/item/hullbeacon/red{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -4548,6 +4563,11 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Civilian Yacht Shuttle";
+	master_tag = "airlock_yacht_civ_shuttle";
+	name = "airlock_yacht_civ_shuttle"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
 "VO" = (
@@ -4949,7 +4969,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/hullbeacon/red,
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/airless,
 /area/ship/yacht_civ/hallway_fore)
 "YU" = (
