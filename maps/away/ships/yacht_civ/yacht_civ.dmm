@@ -759,6 +759,10 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "yacht_civ_crew";
+	name = "igs - yacht_civ_crew"
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/yacht_civ/quarters)
 "iY" = (
@@ -4054,6 +4058,10 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "yacht_civ_crew";
+	name = "igs - yacht_civ_crew"
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/yacht_civ/quarters)
 "QM" = (
@@ -4774,6 +4782,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "yacht_civ_crew";
+	name = "igs - yacht_civ_crew"
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/ship/yacht_civ/quarters)
