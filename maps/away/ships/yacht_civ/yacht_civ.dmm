@@ -15,6 +15,11 @@
 	dir = 8;
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "aD" = (
@@ -69,6 +74,10 @@
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_mid";
+	name = "airlock_yacht_civ_mid"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
@@ -245,6 +254,11 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "dH" = (
@@ -396,10 +410,11 @@
 /obj/item/storage/chewables/tobacco/federation,
 /obj/item/storage/chewables/tobacco/dyn,
 /obj/item/storage/chewables/tobacco/fine,
-/obj/item/storage/box/fancy/gum,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/drinks/flask/barflask,
+/obj/item/storage/box/fancy/gum,
 /turf/simulated/floor/wood,
 /area/ship/yacht_civ/lounge)
 "eZ" = (
@@ -547,6 +562,16 @@
 	pixel_y = 32;
 	dir = 2
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "gN" = (
@@ -579,6 +604,13 @@
 /obj/machinery/access_button{
 	pixel_x = 28;
 	dir = 2
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_hangar";
+	name = "airlock_yacht_civ_hangar"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -752,6 +784,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
+"ji" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/aft_port,
+/turf/template_noop,
+/area/space)
 "jp" = (
 /obj/structure/mirror{
 	pixel_y = 31
@@ -839,6 +875,11 @@
 /area/ship/yacht_civ/hallway_mid)
 "kk" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "kv" = (
@@ -855,6 +896,11 @@
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -916,6 +962,12 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
+"li" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/port_far{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "lj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/tool,
@@ -1168,6 +1220,16 @@
 	pixel_x = -28;
 	dir = 2
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
 "ns" = (
@@ -1316,6 +1378,10 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_hangar";
+	name = "airlock_yacht_civ_hangar"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -1531,8 +1597,20 @@
 /area/ship/yacht_civ/engineering)
 "rC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
+"rD" = (
+/obj/effect/shuttle_landmark/yacht_civ/shuttle_transit{
+	dir = 1
+	},
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit,
+/area/space)
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship,
@@ -1567,6 +1645,10 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/machinery/shipsensors/weak{
+	pixel_y = 4;
+	pixel_x = -1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/yacht_civ_shuttle)
@@ -1631,6 +1713,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "sY" = (
@@ -1683,6 +1770,11 @@
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -1740,6 +1832,16 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "un" = (
@@ -1769,6 +1871,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
+"uw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
+/turf/simulated/floor/plating,
+/area/ship/yacht_civ/hallway_aft)
 "ux" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -1777,6 +1888,11 @@
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -1801,10 +1917,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
-"uE" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/aft_port,
-/turf/template_noop,
-/area/space)
 "uI" = (
 /obj/item/flame/lighter/zippo/black/cross{
 	pixel_x = 6;
@@ -1844,6 +1956,13 @@
 /obj/machinery/access_button{
 	pixel_x = 28;
 	dir = 2
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_mid";
+	name = "airlock_yacht_civ_mid"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
@@ -1924,6 +2043,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
 "vW" = (
@@ -1936,6 +2058,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/yacht_civ/hangar)
 "vZ" = (
@@ -2274,6 +2397,13 @@
 	pixel_y = 28;
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_mid";
+	name = "airlock_yacht_civ_mid"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
 "BA" = (
@@ -2326,6 +2456,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
+"Ca" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/starboard_far{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "Cg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2349,6 +2485,14 @@
 /obj/effect/shuttle_landmark/yacht_civ/dock/starboard{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "CC" = (
@@ -2366,12 +2510,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
-"CE" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/port_far{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
 "CF" = (
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/quarters)
@@ -2393,6 +2531,10 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_mid";
+	name = "airlock_yacht_civ_mid"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/lounge)
@@ -2661,6 +2803,16 @@
 	pixel_y = 28;
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "EP" = (
@@ -2746,12 +2898,11 @@
 /area/ship/yacht_civ/bridge)
 "FL" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/shipsensors/weak{
-	pixel_y = 4;
-	pixel_x = -1
-	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/machinery/iff_beacon{
+	pixel_y = 4
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/yacht_civ_shuttle)
@@ -2773,9 +2924,6 @@
 /area/ship/yacht_civ/hallway_aft)
 "Gi" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/iff_beacon{
-	pixel_y = 4
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -2809,12 +2957,6 @@
 "GB" = (
 /turf/simulated/floor/tiled/freezer,
 /area/ship/yacht_civ/hallway_mid)
-"GO" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/starboard_far{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "GP" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable{
@@ -2845,6 +2987,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
+"GW" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/fore_port{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "GZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -2889,6 +3037,13 @@
 	pixel_x = 28;
 	pixel_y = -20;
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_yacht_civ_hangar";
+	name = "airlock_yacht_civ_hangar"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -2946,12 +3101,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/yacht_civ/hallway_mid)
-"Hv" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/fore_starboard{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "Hx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2971,7 +3120,9 @@
 /obj/effect/shuttle_landmark/yacht_civ/shuttle_hangar{
 	dir = 1
 	},
-/turf/template_noop,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "HG" = (
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3000,12 +3151,23 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/yacht_civ/hallway_fore)
 "It" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -3038,12 +3200,6 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/ship/yacht_civ/lounge)
-"Iz" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/fore_port{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "IH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light,
@@ -3071,6 +3227,14 @@
 	pixel_x = 12;
 	pixel_y = -28;
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -3101,6 +3265,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
+"Jk" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/aft_starboard,
+/turf/template_noop,
+/area/space)
 "Jo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -3109,6 +3277,11 @@
 	dir = 8;
 	pixel_y = 6;
 	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -3168,6 +3341,16 @@
 	pixel_x = 28;
 	pixel_y = 12;
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -3350,6 +3533,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "LY" = (
@@ -3357,6 +3545,11 @@
 	dir = 4
 	},
 /obj/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "Mb" = (
@@ -3405,6 +3598,16 @@
 /obj/effect/shuttle_landmark/yacht_civ/dock/port{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "MB" = (
@@ -3440,10 +3643,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
-"MR" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/aft_starboard,
-/turf/template_noop,
-/area/space)
 "MX" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -3549,6 +3748,12 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
+"Oy" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/fore_starboard{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "OB" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3609,6 +3814,16 @@
 /area/ship/yacht_civ/hallway_aft)
 "OY" = (
 /obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
 "OZ" = (
@@ -3623,6 +3838,16 @@
 	pixel_x = 20;
 	pixel_y = -28;
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -3659,16 +3884,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
-"PG" = (
-/obj/effect/shuttle_landmark/yacht_civ/shuttle_transit{
-	dir = 1
-	},
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit,
-/area/space)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -3684,6 +3907,16 @@
 	dir = 1
 	},
 /obj/effect/shuttle_landmark/yacht_civ/dock/aft,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "Qa" = (
@@ -3800,6 +4033,16 @@
 	},
 /obj/effect/shuttle_landmark/yacht_civ/dock/fore{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -3993,6 +4236,11 @@
 	pixel_y = 6;
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_aft";
+	master_tag = "airlock_yacht_civ_dock_aft";
+	landmark_tag = "nav_yacht_civ_dock_aft"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "SU" = (
@@ -4073,6 +4321,11 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "TG" = (
@@ -4220,6 +4473,11 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "UP" = (
@@ -4250,6 +4508,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
 "VA" = (
@@ -4262,6 +4525,9 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
 "VO" = (
@@ -4334,6 +4600,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_starboard";
+	master_tag = "airlock_yacht_civ_dock_starboard";
+	landmark_tag = "nav_yacht_civ_dock_starboard"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
@@ -4429,6 +4703,14 @@
 	pixel_y = -28;
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
 "WP" = (
@@ -4479,6 +4761,16 @@
 	pixel_x = 28;
 	pixel_y = 12;
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_fore";
+	master_tag = "airlock_yacht_civ_dock_fore";
+	landmark_tag = "nav_yacht_civ_dock_fore"
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
@@ -4626,6 +4918,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/yacht_civ/hallway_fore)
 "YU" = (
@@ -8038,7 +8331,7 @@ Jd
 Jd
 Jd
 Jd
-PG
+rD
 Jd
 Jd
 Jd
@@ -28450,7 +28743,7 @@ Xj
 Xj
 Xj
 Xj
-GO
+Ca
 Xj
 Xj
 Xj
@@ -31242,7 +31535,7 @@ Xj
 Xj
 Xj
 Xj
-MR
+Jk
 Xj
 Xj
 Xj
@@ -32845,7 +33138,7 @@ Xj
 Xj
 Xj
 Xj
-Hv
+Oy
 Xj
 Xj
 Xj
@@ -39488,7 +39781,7 @@ ZW
 vl
 ev
 UO
-rC
+uw
 uU
 iq
 Hg
@@ -41325,7 +41618,7 @@ Xj
 Xj
 Xj
 Xj
-Iz
+GW
 Xj
 Xj
 Xj
@@ -42291,7 +42584,7 @@ Xj
 Xj
 Xj
 Xj
-uE
+ji
 Xj
 Xj
 Xj
@@ -46692,7 +46985,7 @@ Xj
 Xj
 Xj
 Xj
-CE
+li
 Xj
 Xj
 Xj
