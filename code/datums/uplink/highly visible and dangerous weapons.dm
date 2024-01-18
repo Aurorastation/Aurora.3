@@ -240,6 +240,11 @@
 	telecrystal_cost = 12
 	path = /obj/item/gun/projectile/automatic/rifle/shorty
 
+/datum/uplink_item/item/visible_weapons/dragunov
+	name = "Adhomian Marksman Rifle"
+	telecrystal_cost = 12
+	path = /obj/item/gun/projectile/dragunov
+
 /datum/uplink_item/item/visible_weapons/assault_rifle
 	name = "Assault Rifle"
 	telecrystal_cost = 12
