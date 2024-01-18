@@ -786,6 +786,10 @@
 	name = "hazard stripes"
 	icon_state = "warningcorner_dust"
 
+//
+// industrial hatching stripes
+//
+
 /obj/effect/floor_decal/industrial/hatch
 	name = "hatched marking"
 	icon_state = "delivery"
@@ -797,6 +801,32 @@
 	color = "#808080"
 
 /obj/effect/floor_decal/industrial/hatch/red
+	color = "#990C0C"
+
+/obj/effect/floor_decal/industrial/hatch_small
+	name = "hatched marking small"
+	icon_state = "delivery_small"
+
+/obj/effect/floor_decal/industrial/hatch_small/yellow
+	color = "#CFCF55"
+
+/obj/effect/floor_decal/industrial/hatch_small/grey
+	color = "#808080"
+
+/obj/effect/floor_decal/industrial/hatch_small/red
+	color = "#990C0C"
+
+/obj/effect/floor_decal/industrial/hatch_tiny
+	name = "hatched marking tiny"
+	icon_state = "delivery_tiny"
+
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow
+	color = "#CFCF55"
+
+/obj/effect/floor_decal/industrial/hatch_tiny/grey
+	color = "#808080"
+
+/obj/effect/floor_decal/industrial/hatch_tiny/red
 	color = "#990C0C"
 
 //
