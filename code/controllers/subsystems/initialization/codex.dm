@@ -7,7 +7,6 @@ SUBSYSTEM_DEF(codex)
 	/// List of cooking recipes, their result and ingredients.
 	var/list/cooking_codex_data = list()
 
-	///
 	var/list/chemistry_codex_data = list()
 	var/list/chemistry_codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
 	var/list/chemistry_codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
@@ -16,7 +15,7 @@ SUBSYSTEM_DEF(codex)
 	generate_cooking_codex()
 	generate_chemistry_codex()
 
-	LOG_DEBUG("SScodex: [cooking_codex_data.len] cooking recipes; [0] chemistry recipes.")
+	LOG_DEBUG("SScodex: [cooking_codex_data.len] cooking recipes; [chemistry_codex_data.len] chemistry recipes.")
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/codex/proc/generate_cooking_codex()
