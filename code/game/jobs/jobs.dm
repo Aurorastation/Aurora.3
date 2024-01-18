@@ -1,4 +1,4 @@
-var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and SERVICE
+var/const/NUM_JOB_DEPTS     = 4 //ENGSEC, MEDSCI, SERVICE and EVENTDEPT
 
 // ENGSEC
 var/const/ENGSEC			=(1<<0)
@@ -58,12 +58,16 @@ var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
 
-//Event jobs
-var/const/EVENTSEC			=(1<<16)
-var/const/EVENTMED			=(1<<17)
-var/const/EVENTENG			=(1<<18)
-var/const/EVENTSCI			=(1<<19)
-var/const/EVENTOPS			=(1<<20)
+//EVENTDEPT
+//This is needed because there are just not enough bitflags available across the other departments
+var/const/EVENTDEPT			=(1<<3)
+
+var/const/EVENTSEC			=(1<<0)
+var/const/EVENTENG			=(1<<1)
+var/const/EVENTMED			=(1<<2)
+var/const/EVENTSCI			=(1<<3)
+var/const/EVENTOPS			=(1<<4)
+
 
 // Positions Lists
 var/list/command_positions = list(

@@ -3,7 +3,7 @@
 	title = "Security Personnel"
 	flag = EVENTSEC
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
-	department_flag = ENGSEC
+	department_flag = EVENTDEPT
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -28,7 +28,7 @@
 	title = "Medical Personnel"
 	flag = EVENTMED
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
-	department_flag = MEDSCI
+	department_flag = EVENTDEPT
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -52,7 +52,7 @@
 	title = "Engineering Personnel"
 	flag = EVENTENG
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
-	department_flag = ENGSEC
+	department_flag = EVENTDEPT
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -76,7 +76,7 @@
 	title = "Science Personnel"
 	flag = EVENTSCI
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
-	department_flag = MEDSCI
+	department_flag = EVENTDEPT
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -101,7 +101,7 @@
 	title = "Operations Personnel"
 	flag = EVENTOPS
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
-	department_flag = SERVICE
+	department_flag = EVENTDEPT
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
