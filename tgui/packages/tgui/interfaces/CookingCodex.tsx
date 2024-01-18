@@ -45,7 +45,7 @@ export const CookingCodex = (props, context) => {
               <Table.Cell textAlign="right">Result</Table.Cell>
               <Table.Cell />
               <Table.Cell>Ingredients</Table.Cell>
-              <Table.Cell>Appliances {searchTerm}</Table.Cell>
+              <Table.Cell>Appliances</Table.Cell>
             </Table.Row>
             {data?.recipes
               .filter((recipe) => {
