@@ -68,12 +68,13 @@ export const ShuttleControlConsoleMultiExploreAutopilot = (props, context) => {
             </LabeledList>
           </Box>
         </Section>
-		<Section title="This shuttle is controlled by autopilot.">
-        <NoticeBox warning>
-         Please select a destination from the list and press &#34;Launch Shuttle&#34;. 
-		 Ensure all personnel aboard are properly seated before launching.
-        </NoticeBox>
-		</Section>
+        <Section title="This shuttle is controlled by autopilot.">
+          <NoticeBox warning>
+            Please select a destination from the list and press &#34;Launch
+            Shuttle&#34;. Ensure all personnel aboard are properly seated before
+            launching.
+          </NoticeBox>
+        </Section>
         <Section title="Destination Control">
           <Box pb={1}>
             <LabeledList>
