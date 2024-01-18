@@ -1317,10 +1317,6 @@
 "ov" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/propulsion)
-"oy" = (
-/obj/machinery/computer/security/engineering,
-/turf/simulated/floor/tiled/full,
-/area/ship/yacht_civ/hallway_mid)
 "oz" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
@@ -1587,7 +1583,7 @@
 	pixel_y = -5;
 	pixel_x = 8
 	},
-/turf/simulated/floor/beach/water/pool,
+/turf/simulated/floor/tiled/freezer,
 /area/ship/yacht_civ/hallway_mid)
 "rB" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -2068,10 +2064,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
-"wi" = (
-/obj/machinery/computer/atmos_alert,
-/turf/simulated/floor/tiled/full,
-/area/ship/yacht_civ/hallway_mid)
 "wl" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -37796,8 +37788,8 @@ EL
 KZ
 yu
 Uh
-wi
-oy
+Uh
+Uh
 KZ
 CT
 eM
