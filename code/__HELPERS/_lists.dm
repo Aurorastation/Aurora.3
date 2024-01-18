@@ -113,7 +113,12 @@
  * Returns TRUE if the list had nulls, FALSE otherwise
 **/
 /proc/list_clear_nulls(list/list_to_clear)
+//Sorry, OpenDream doesn't have this proc yet for lists
+#if !defined(OPENDREAM)
 	return (list_to_clear.RemoveAll(null) > 0)
+#else
+	return FALSE
+#endif
 
 
 /// Passed into BINARY_INSERT to compare keys
