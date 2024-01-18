@@ -38,5 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added the marksman rifle to the uplink, since it's magazine was there, but not the rifle itself."
   - tweak: "Tweaked the name of the 'marksman rifle' made in adhomai to the 'adhomian marksman rifle', also tweaked the name of the '7.62 Sniper Magazine' to the '7.62 Marksman Magazine' since it was the mag for the adhomian marksman rifle."
