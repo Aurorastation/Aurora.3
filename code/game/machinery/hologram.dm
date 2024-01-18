@@ -370,7 +370,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
 		set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS)
-	if(!isInSight(H, src))
+	if(!is_in_sight(H, src))
 		qdel(H)
 		return
 	H.assume_form(M, long_range)
@@ -387,7 +387,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(connected_pad)
 			H.x = src.x - (connected_pad.x - M.x)
 			H.y = src.y - (connected_pad.y - M.y)
-		if(get_dist(H, src) > world.view || !isInSight(H, src))
+		if(get_dist(H, src) > world.view || !is_in_sight(H, src))
 			clear_holo(M)
 			return
 		H.assume_form(M, long_range)
@@ -457,7 +457,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			clear_holo(user)
 			return 0
 
-		if(get_dist(user.eyeobj, src) > holo_range || !isInSight(H, src))
+		if(get_dist(user.eyeobj, src) > holo_range || !is_in_sight(H, src))
 			user.holo = null
 			clear_holo(user)
 	return TRUE
