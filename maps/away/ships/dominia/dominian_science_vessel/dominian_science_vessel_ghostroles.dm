@@ -50,6 +50,7 @@
 
 	assigned_role = "House Volvalaad Captain"
 	special_role = "House Volvalaad Captain"
+	respawn_flag = null
 
 
 /datum/outfit/admin/house_volvalaad_officer
@@ -82,6 +83,7 @@
 
 	assigned_role = "House Volvalaad Armsman"
 	special_role = "House Volvalaad Armsman"
+	respawn_flag = null
 
 /datum/outfit/admin/house_volvalaad_armsman
 	name = "House Volvalaad Armsman"
@@ -114,6 +116,7 @@
 
 	assigned_role = "House Volvalaad Scientist"
 	special_role = "House Volvalaad Scientist"
+	respawn_flag = null
 
 /datum/outfit/admin/house_volvalaad_scientist
 	name = "House Volvalaad Scientist"
