@@ -127,4 +127,4 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()
 	..()
-	adjustBruteLoss(-5)
+	adjustBruteLoss(-3)

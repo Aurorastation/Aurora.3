@@ -81,10 +81,15 @@
 	melee_damage_upper = 20
 	armor_penetration = 30
 	poison_per_bite = 10
-	speed = -3
+	speed = -2
 	poison_type = /singleton/reagent/toxin
 	var/playable = TRUE
 	fed = 3
+	minbodytemp = 0
+	maxbodytemp = 350
+	min_oxy = 0
+	max_co2 = 0
+	max_tox = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
 	..()
@@ -338,7 +343,7 @@
 
 	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 	if(!W)
-		src.visible_message("\The [src] begins to secrete a sticky substance.")
+		to_chat(usr, SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
 		if(!do_after(src, 10)) return
 		new /obj/effect/spider/stickyweb(src.loc)
 
@@ -356,29 +361,29 @@
 				if(!do_after(src, 80)) return
 				if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
 					var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
-					var/large_cocoon = 0
+					var/large_cocoon = FALSE
 					C.pixel_x = cocoon_target.pixel_x
 					C.pixel_y = cocoon_target.pixel_y
 					for(var/mob/living/M in C.loc)
 						if(istype(M, /mob/living/simple_animal/hostile/giant_spider))
 							continue
-						large_cocoon = 1
+						large_cocoon = TRUE
 						fed++
 						src.visible_message("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.")
-						M.loc = C
+						M.forceMove(C)
 						C.pixel_x = M.pixel_x
 						C.pixel_y = M.pixel_y
 						break
 					for(var/obj/item/I in C.loc)
-						I.loc = C
+						I.forceMove(C)
 					for(var/obj/structure/S in C.loc)
 						if(!S.anchored)
-							S.loc = C
-						large_cocoon = 1
+							S.forceMove(C)
+						large_cocoon = TRUE
 					for(var/obj/machinery/M in C.loc)
 						if(!M.anchored)
-							M.loc = C
-						large_cocoon = 1
+							M.forceMove(C)
+						large_cocoon = TRUE
 					if(large_cocoon)
 						C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 
