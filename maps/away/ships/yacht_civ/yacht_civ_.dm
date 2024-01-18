@@ -3,10 +3,11 @@
 	description = "???"
 	suffixes = list("ships/yacht_civ/yacht_civ.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "yacht_civ"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scc_scout_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/yacht_civ_shuttle)
 	unit_test_groups = list(3)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
@@ -20,8 +21,8 @@
 	name = "Civilian Yacht"
 	class = "ICV"
 	desc = "???"
-	icon_state = "corvette"
-	moving_state = "corvette_moving"
+	icon_state = "canary"
+	moving_state = "canary_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
 	designer = "Einstein Engines"
 	volume = "63 meters length, 24 meters beam/width, 20 meters vertical height"
@@ -29,30 +30,28 @@
 	propulsion = "Superheated Composite Gas Thrust"
 	weapons = "None"
 	sizeclass = "Diamond-class Yacht"
-	shiptype = "??? yacht"
+	shiptype = "Leisure yacht"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 5000
+	vessel_mass = 3000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	invisible_until_ghostrole_spawn = TRUE
-	// initial_restricted_waypoints = list(
-	// 	"SCC Scout Shuttle" = list("nav_scc_scout_shuttle_dock")
-	// )
-	// initial_generic_waypoints = list(
-	// 	"nav_scc_scout_dock_starboard",
-	// 	"nav_scc_scout_dock_port",
-	// 	"nav_scc_scout_dock_aft",
-	// 	"nav_scc_scout_catwalk_aft",
-	// 	"nav_scc_scout_catwalk_fore_starboard",
-	// 	"nav_scc_scout_catwalk_fore_port",
-	// 	"nav_scc_scout_space_fore_starboard",
-	// 	"nav_scc_scout_space_fore_port",
-	// 	"nav_scc_scout_space_aft_starboard",
-	// 	"nav_scc_scout_space_aft_port",
-	// 	"nav_scc_scout_space_port_far",
-	// 	"nav_scc_scout_space_starboard_far",
-	// )
+	initial_restricted_waypoints = list(
+		"Civilian Yacht Shuttle" = list("nav_yacht_civ_shuttle_dock")
+	)
+	initial_generic_waypoints = list(
+		"nav_yacht_civ_dock_starboard",
+		"nav_yacht_civ_dock_port",
+		"nav_yacht_civ_dock_aft",
+		"nav_yacht_civ_dock_fore",
+		"nav_yacht_civ_space_fore_starboard",
+		"nav_yacht_civ_space_fore_port",
+		"nav_yacht_civ_space_aft_starboard",
+		"nav_yacht_civ_space_aft_port",
+		"nav_yacht_civ_space_port_far",
+		"nav_yacht_civ_space_starboard_far",
+	)
 
 /obj/effect/overmap/visitable/ship/yacht_civ/New()
 	var/planetary_body = pick(
@@ -62,47 +61,61 @@
 		"Dione", "Quaoar", "Tethys", "Sedna", "Ceres", "Orcus", "Salacia", "Vesta",
 		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne"
 	)
-	var/prefix = pick("", "", pick("Amazing ", "Wondrous ", "Adventurous ", "", ""))
-	var/postfix = pick("", "", pick(", the Adventurer", " among Stars", ", Explorer", " of the Spur"))
+	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine "))
+	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol"))
 	designation = "[prefix][planetary_body][postfix]"
 	..()
 
 // shuttle
 
-/obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle
+/obj/effect/overmap/visitable/ship/landable/yacht_civ_shuttle
 	name = "Civilian Yacht Shuttle"
 	class = "ICV"
 	desc = "???"
 	shuttle = "Civilian Yacht Shuttle"
-	icon_state = "intrepid"
-	moving_state = "intrepid_moving"
+	icon_state = "pod"
+	moving_state = "pod_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 3000
+	vessel_mass = 1000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 	designer = "Einstein Engines"
 	volume = "10 meters length, 7 meters beam/width, 6 meters vertical height"
 	sizeclass = "Glass-class Shuttle"
-	shiptype = "???"
+	shiptype = "Short-range transport"
 
-/obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle/New()
-	designation = pick("Iapetus")
+/obj/effect/overmap/visitable/ship/landable/yacht_civ_shuttle/New()
+	var/planetary_body = pick(
+		"Jupiter", "Saturn", "Uranus", "Neptune", "Venus", "Mars", "Ganymede", "Titan",
+		"Mercury", "Callisto", "Io", "Europa", "Triton", "Pluto", "Eris", "Haumea",
+		"Titania", "Rhea", "Oberon", "Iapetus", "Makemake", "Charon", "Umbriel", "Ariel",
+		"Dione", "Quaoar", "Tethys", "Sedna", "Ceres", "Orcus", "Salacia", "Vesta",
+		"Pallas", "Enceladus", "Mimas", "Nereid", "Europa", "Hyperion", "Juno", "Mnemosyne"
+	)
+	var/prefix  = pick("", "", "", pick("Wondrous ", "Little ", "Tiny ", "Dreamy ", "Fine "))
+	var/postfix = pick("", "", "", pick(", the Adventurer", " among Stars", ", Explorer", " of Sol", " from Sol"))
+	designation = "[prefix][planetary_body][postfix]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/scc_scout_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/yacht_civ_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Civilian Yacht Shuttle"
 
-/datum/shuttle/autodock/overmap/scc_scout_shuttle
+/datum/shuttle/autodock/overmap/yacht_civ_shuttle
 	name = "Civilian Yacht Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/yacht_civ_shuttle/cockpit, /area/shuttle/yacht_civ_shuttle/eva, /area/shuttle/yacht_civ_shuttle/cargo, /area/shuttle/yacht_civ_shuttle/medbay, /area/shuttle/yacht_civ_shuttle/propulsion_starboard, /area/shuttle/yacht_civ_shuttle/propulsion_port)
-	dock_target = "airlock_scc_scout_shuttle"
-	current_location = "nav_scc_scout_shuttle_dock"
-	landmark_transition = "nav_scc_scout_shuttle_transit"
+	shuttle_area = list(/area/shuttle/yacht_civ_shuttle)
+	dock_target = "airlock_yacht_civ_shuttle"
+	current_location = "nav_yacht_civ_shuttle_dock"
+	landmark_transition = "nav_yacht_civ_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_scc_scout_shuttle_dock"
+	logging_home_tag = "nav_yacht_civ_shuttle_dock"
 	defer_initialisation = TRUE
+
+
+// items
+
+// /obj/item/clothing/accessory/badge/passport/coc

@@ -302,12 +302,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
-"dY" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/fore_starboard{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "eb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -480,12 +474,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/yacht_civ/lounge)
-"fy" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/port_far{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
 "fA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/yacht_civ/storage)
@@ -535,12 +523,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_mid)
 "ga" = (
-/obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/item/storage/secure/safe/yacht_civ{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/ship/yacht_civ/storage)
+/obj/effect/shuttle_landmark/yacht_civ/space/aft_starboard,
+/turf/template_noop,
+/area/space)
 "gg" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
@@ -1350,15 +1335,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
-"oE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "airlock_yacht_civ_dock_port";
-	master_tag = "airlock_yacht_civ_dock_port";
-	landmark_tag = "nav_yacht_civ_dock_port"
-	},
-/turf/simulated/floor/plating,
-/area/ship/yacht_civ/hallway_aft)
 "oS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -2081,12 +2057,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/lounge)
-"wg" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/fore_port{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "wi" = (
 /obj/machinery/computer/atmos_alert,
 /turf/simulated/floor/tiled/full,
@@ -2155,6 +2125,13 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_aft)
+"xh" = (
+/obj/effect/shuttle_landmark/yacht_civ/shuttle_transit{
+	dir = 1
+	},
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit,
+/area/space)
 "xD" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/violet{
 	dir = 4
@@ -2397,6 +2374,11 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Civilian Yacht Shuttle";
+	master_tag = "airlock_yacht_civ_shuttle";
+	name = "airlock_yacht_civ_shuttle"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht_civ_shuttle)
 "By" = (
@@ -2595,6 +2577,15 @@
 "CZ" = (
 /turf/simulated/floor/wood/bamboo,
 /area/ship/yacht_civ/quarters)
+"Da" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "airlock_yacht_civ_dock_port";
+	master_tag = "airlock_yacht_civ_dock_port";
+	landmark_tag = "nav_yacht_civ_dock_port"
+	},
+/turf/simulated/floor/plating,
+/area/ship/yacht_civ/hallway_aft)
 "De" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable{
@@ -2674,6 +2665,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
+"DE" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/starboard_far{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "DN" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -3280,12 +3277,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
-"Jq" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/starboard_far{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "JE" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
@@ -3451,13 +3442,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/yacht_civ_shuttle)
-"Le" = (
-/obj/effect/shuttle_landmark/yacht_civ/shuttle_transit{
-	dir = 1
-	},
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit,
-/area/space)
 "Ln" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3756,6 +3740,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
+"Of" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/fore_starboard{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "Oh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4153,6 +4143,10 @@
 "RI" = (
 /turf/simulated/floor/reinforced/airless,
 /area/ship/yacht_civ/hangar)
+"RN" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/aft_port,
+/turf/template_noop,
+/area/space)
 "RT" = (
 /obj/item/reagent_containers/glass/beaker/pitcher/coffee{
 	pixel_x = 6;
@@ -4767,16 +4761,18 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
-"WZ" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/aft_port,
-/turf/template_noop,
-/area/space)
 "Xa" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/ship/yacht_civ/lounge)
+"Xc" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/fore_port{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "Xj" = (
 /turf/template_noop,
 /area/space)
@@ -4803,10 +4799,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/hallway_fore)
-"Xy" = (
-/obj/effect/shuttle_landmark/yacht_civ/space/aft_starboard,
-/turf/template_noop,
-/area/space)
 "XI" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4883,6 +4875,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/hallway_fore)
+"Yb" = (
+/obj/effect/shuttle_landmark/yacht_civ/space/port_far{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "Yd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -8364,7 +8362,7 @@ Jd
 Jd
 Jd
 Jd
-Le
+xh
 Jd
 Jd
 Jd
@@ -28776,7 +28774,7 @@ Xj
 Xj
 Xj
 Xj
-Jq
+DE
 Xj
 Xj
 Xj
@@ -31568,7 +31566,7 @@ Xj
 Xj
 Xj
 Xj
-Xy
+ga
 Xj
 Xj
 Xj
@@ -33171,7 +33169,7 @@ Xj
 Xj
 Xj
 Xj
-dY
+Of
 Xj
 Xj
 Xj
@@ -35954,7 +35952,7 @@ hS
 WC
 st
 ov
-ga
+Mr
 Mr
 Mr
 CQ
@@ -39814,7 +39812,7 @@ ZW
 vl
 ev
 UO
-oE
+Da
 uU
 iq
 Hg
@@ -41651,7 +41649,7 @@ Xj
 Xj
 Xj
 Xj
-wg
+Xc
 Xj
 Xj
 Xj
@@ -42617,7 +42615,7 @@ Xj
 Xj
 Xj
 Xj
-WZ
+RN
 Xj
 Xj
 Xj
@@ -47018,7 +47016,7 @@ Xj
 Xj
 Xj
 Xj
-fy
+Yb
 Xj
 Xj
 Xj
