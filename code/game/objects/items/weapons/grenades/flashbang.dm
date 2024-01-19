@@ -7,8 +7,8 @@
 /obj/item/grenade/flashbang/prime()
 	..()
 	/// Holding a flashbang when it goes off is bad news.
-	if(isliving(loc))
-		var/mob/living/victim = loc
+	if(ishuman(loc))
+		var/mob/living/carbon/human/victim = loc
 		var/obj/item/organ/external/exploded_hand
 		if(victim.hand == src)
 			exploded_hand = victim.organs_by_name[BP_R_HAND]
