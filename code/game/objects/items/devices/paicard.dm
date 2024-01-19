@@ -130,7 +130,7 @@
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
-	if (pai.id_card.registered_name)
+	if (pai.id_card && pai.id_card.registered_name)
 		return SPAN_NOTICE("Identity of owner: [pai.id_card.registered_name] registered.")
 	else
 		return SPAN_WARNING("No ID card registered! Please scan your ID to share access.")

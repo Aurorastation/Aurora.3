@@ -2522,6 +2522,7 @@
 #include "code\modules\mob\living\silicon\pai\emote.dm"
 #include "code\modules\mob\living\silicon\pai\examine.dm"
 #include "code\modules\mob\living\silicon\pai\life.dm"
+#include "code\modules\mob\living\silicon\pai\logout.dm"
 #include "code\modules\mob\living\silicon\pai\pai.dm"
 #include "code\modules\mob\living\silicon\pai\personality.dm"
 #include "code\modules\mob\living\silicon\pai\say.dm"
