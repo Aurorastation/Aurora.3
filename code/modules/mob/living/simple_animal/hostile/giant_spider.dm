@@ -82,9 +82,10 @@
 	armor_penetration = 30
 	poison_per_bite = 10
 	speed = -2
-	poison_type = /singleton/reagent/toxin
+	poison_type = /singleton/reagent/soporific
+	poison_per_bite = 3
 	var/playable = TRUE
-	fed = 3
+	fed = 1
 	minbodytemp = 0
 	maxbodytemp = 350
 	min_oxy = 0
@@ -158,9 +159,15 @@
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
+	add_language(LANGUAGE_GREIMORIAN)
+	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
 	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
+	add_verb(src, /mob/living/proc/ventcrawl)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("servant", src)
 	. = ..()
