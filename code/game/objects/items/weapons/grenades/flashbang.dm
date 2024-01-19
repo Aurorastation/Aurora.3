@@ -6,11 +6,30 @@
 
 /obj/item/grenade/flashbang/prime()
 	..()
+	/// Holding a flashbang when it goes off is bad news.
+	if(isliving(loc))
+		var/mob/living/victim = loc
+		var/obj/item/organ/external/exploded_hand
+		if(victim.hand == src)
+			exploded_hand = victim.organs_by_name[BP_R_HAND]
+		else if(victim.l_hand == src)
+			exploded_hand = victim.organs_by_name[BP_L_HAND]
+		/// The flashbang was held in their hand, and we have one.
+		if(exploded_hand)
+			to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+			victim.apply_damage(30, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
+			victim.apply_damage(20, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
+		else
+			/// No hand, so it's in a bag or pocket.
+			to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
+			victim.apply_damage(20, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+			victim.apply_damage(30, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in get_hearers_in_view(7, src))
 		bang(T, L)
 
-	// Damage blobs
+	/// Damage blobs.
 	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
 		B.health -= damage
@@ -21,7 +40,7 @@
 	qdel(src)
 
 /obj/item/grenade/flashbang/proc/bang(turf/T, mob/living/M)
-	to_chat(M, SPAN_DANGER("BANG!"))
+	to_chat(M, SPAN_HIGHDANGER("BANG!"))
 	playsound(T, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
 
 	if(M.flash_act(ignore_inherent = TRUE))
@@ -29,7 +48,7 @@
 
 	// 1 - 9x/70 gives us 100% at zero, 87% at 1 turf, all the way to 10% at 7
 	var/bang_intensity = 1 - (9 * get_dist(T, M) / 70)
-	M.noise_act(intensity = EAR_PROTECTION_MAJOR, damage_pwr = 10 * bang_intensity, deafen_pwr = 15 * (1 - bang_intensity))
+	M.noise_act(intensity = EAR_PROTECTION_MODERATE, damage_pwr = 10 * bang_intensity, deafen_pwr = 15 * (1 - bang_intensity))
 
 	if(M.get_hearing_sensitivity()) // we only stun if they've got sensitive ears
 		// checking for protection is handled by noise_act
@@ -38,7 +57,7 @@
 	M.disable_cloaking_device()
 	M.update_icon()
 
-/obj/item/grenade/flashbang/clusterbang //Created by Polymorph, fixed by Sieve
+/obj/item/grenade/flashbang/clusterbang
 	name = "clusterbang"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "clusterbang"
