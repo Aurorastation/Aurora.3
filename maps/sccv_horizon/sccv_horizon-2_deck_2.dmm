@@ -38132,6 +38132,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
+"rVw" = (
+/obj/machinery/camera/network/reactor{
+	c_tag = "Engineering - INDRA Reactor Office"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/rust_office)
 "rVE" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
@@ -74398,7 +74404,7 @@ qgN
 qgN
 qgN
 nlQ
-peL
+rVw
 peL
 peL
 cIc
