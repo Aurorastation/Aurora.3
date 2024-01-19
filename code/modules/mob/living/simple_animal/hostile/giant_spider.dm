@@ -391,16 +391,19 @@
 				C.pixel_x = P.pixel_x
 				C.pixel_y = P.pixel_y
 				break
-			for(var/obj/item/I in C.loc)
-				I.forceMove(C)
-			for(var/obj/structure/S in C.loc)
-				if(!S.anchored)
-					S.forceMove(C)
-				large_cocoon = TRUE
-			for(var/obj/machinery/M in C.loc)
-				if(!M.anchored)
-					M.forceMove(C)
-				large_cocoon = TRUE
+				if(istype(P, /obj/item))
+					var/obj/item/I = P
+					I.forceMove(C)
+				if(istype(P, /obj/structure))
+					var/obj/structure/S = P
+					if(!S.anchored)
+						S.forceMove(C)
+						large_cocoon = 1
+				if (istype(P, /obj/machinery))
+					var/obj/machinery/M = P
+					if(!M.anchored)
+						M.forceMove(C)
+						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 
