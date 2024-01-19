@@ -13,7 +13,7 @@
 /obj/item/organ/external
 	name = "external"
 	min_broken_damage = 30
-	max_damage = 0
+	max_damage = 30
 	dir = SOUTH
 	organ_tag = "limb"
 
@@ -1572,7 +1572,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(pain + amount, species.total_health * 2))
+	pain = max(0, min(max_damage, pain + amount))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	if(amount > 5 && owner)
