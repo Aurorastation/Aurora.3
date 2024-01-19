@@ -625,6 +625,7 @@
 /obj/structure/bed/stool/chair/padded/teal{
 	dir = 8
 	},
+/obj/item/device/radio/intercom/locked/east,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "cS" = (
@@ -1693,6 +1694,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
+"hj" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/item/device/radio/intercom/locked/north,
+/turf/simulated/floor/carpet/green,
+/area/ship/idris_cruiser/corridor/starboard_lobby)
 "hn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood,
@@ -1910,9 +1918,6 @@
 /obj/structure/table/reinforced/wood,
 /obj/machinery/alarm/north,
 /obj/item/device/hand_labeler,
-/obj/machinery/requests_console/west{
-	name = "Idris Lobby Requests Console"
-	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "im" = (
@@ -2517,7 +2522,9 @@
 /area/ship/idris_cruiser/corridor/port_lobby)
 "kN" = (
 /obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "kP" = (
@@ -3384,6 +3391,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
+/obj/item/device/radio/intercom/locked/north,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
 "ny" = (
@@ -5742,6 +5750,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant,
+/obj/item/device/radio/intercom/locked/west,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_fore)
 "vJ" = (
@@ -9211,6 +9220,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/item/device/radio/intercom/locked/north,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/suites_b)
 "Jr" = (
@@ -9501,6 +9511,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/item/device/radio/intercom/locked/north,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/suites_a)
 "Kc" = (
@@ -11088,14 +11099,13 @@
 	},
 /obj/item/material/hatchet,
 /obj/item/material/minihoe,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/wirecutters/clippers,
 /obj/item/wirecutters/clippers,
 /obj/structure/closet/walllocker{
 	pixel_y = -30;
 	name = "gardening supplies locker"
 	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/hydroponics)
 "Pw" = (
@@ -12804,9 +12814,6 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "WA" = (
-/obj/machinery/requests_console/north{
-	name = "Idris Bridge Requests Console"
-	},
 /obj/structure/table/reinforced/steel,
 /obj/item/clipboard{
 	pixel_x = -4
@@ -24770,7 +24777,7 @@ MX
 MX
 MX
 MX
-Dz
+MX
 MX
 MX
 MX
@@ -25376,7 +25383,7 @@ MX
 MX
 MX
 MX
-Dz
+MX
 MX
 MX
 MX
@@ -25982,7 +25989,7 @@ MX
 MX
 MX
 MX
-Dz
+MX
 MX
 MX
 MX
@@ -32405,7 +32412,7 @@ NZ
 ji
 Hd
 Qi
-Ik
+hj
 dY
 IO
 NZ
