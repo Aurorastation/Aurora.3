@@ -344,7 +344,7 @@
 	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 	if(!W)
 		to_chat(usr, SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
-		if(!do_after(src, 10)) return
+		if(!do_after(src, 20)) return
 		new /obj/effect/spider/stickyweb(src.loc)
 
 
