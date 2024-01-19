@@ -158,10 +158,10 @@
 	pepperspray.set_up(target_turf, 3, 5)
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
+	. = ..()
 	get_light_and_color(parent)
 	add_language(LANGUAGE_GREIMORIAN)
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
-	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	add_verb(src, /mob/living/proc/ventcrawl)
@@ -171,6 +171,10 @@
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("servant", src)
 	. = ..()
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("servant", src)
 
 /mob/living/simple_animal/hostile/giant_spider/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
@@ -351,8 +355,9 @@
 	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 	if(!W)
 		to_chat(usr, SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
-		if(!do_after(src, 20)) return
-		new /obj/effect/spider/stickyweb(src.loc)
+		if(!do_after(src, 20))
+			return
+		new /obj/effect/spider/stickyweb(get_turf(src))
 
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()
@@ -369,8 +374,9 @@
 	var/mob/P = tgui_input_list(usr, "Choose a mob to cocoon.", "Cocoon", available_mobs)
 	if(get_dist(src, P) <= 1)
 		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].")
-		if(!do_after(src, 80)) return
-		if(P && istype(P.loc, /turf) && get_dist(src,P) <= 1)
+		if(!do_after(src, 80))
+			return
+		if(P && isturf(P) && get_dist(src,P) <= 1)
 			var/obj/effect/spider/cocoon/C = new(P.loc)
 			var/large_cocoon = FALSE
 			C.pixel_x = P.pixel_x
@@ -407,7 +413,8 @@
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a cluster of eggs.")
-		if(!do_after(src, 50)) return
+		if(!do_after(src, 50))
+			return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /obj/effect/spider/eggcluster(src.loc)
@@ -422,7 +429,8 @@
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
 		src.visible_message("\The [src] begins to lay a servant.")
-		if(!do_after(src, 120)) return
+		if(!do_after(src, 120))
+			return
 		E = locate() in get_turf(src)
 		if(!E)
 			new /mob/living/simple_animal/hostile/giant_spider/nurse/servant(get_turf(src))
