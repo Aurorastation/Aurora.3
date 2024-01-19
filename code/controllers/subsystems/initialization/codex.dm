@@ -56,7 +56,7 @@ SUBSYSTEM_DEF(codex)
 			for(var/reagent_path in recipe.reagents)
 				var/count = recipe.reagents[reagent_path]
 				var/singleton/reagent/reagent = GET_SINGLETON(reagent_path)
-				recipe_data["ingredients"] += "[count]x [reagent.name]"
+				recipe_data["ingredients"] += "[count]u [reagent.name]"
 
 		// coating
 		if(recipe.coating)
