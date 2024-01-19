@@ -353,39 +353,43 @@
 	set desc = "Cocoon an incapacitated mob so you can feed upon it. This will give you one food point."
 	set category = "Greimorian"
 
-	for(var/mob/living/P in range(1,src))
-		cocoon_target = P
-		if(P.stat && !istype(P,/mob/living/simple_animal/hostile/giant_spider))
-			if(get_dist(src, cocoon_target) <= 1)
-				src.visible_message("\The [src] begins to secrete a sticky substance around \the [cocoon_target].")
-				if(!do_after(src, 80)) return
-				if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
-					var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
-					var/large_cocoon = FALSE
-					C.pixel_x = cocoon_target.pixel_x
-					C.pixel_y = cocoon_target.pixel_y
-					for(var/mob/living/M in C.loc)
-						if(istype(M, /mob/living/simple_animal/hostile/giant_spider))
-							continue
-						large_cocoon = TRUE
-						fed++
-						src.visible_message("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.")
-						M.forceMove(C)
-						C.pixel_x = M.pixel_x
-						C.pixel_y = M.pixel_y
-						break
-					for(var/obj/item/I in C.loc)
-						I.forceMove(C)
-					for(var/obj/structure/S in C.loc)
-						if(!S.anchored)
-							S.forceMove(C)
-						large_cocoon = TRUE
-					for(var/obj/machinery/M in C.loc)
-						if(!M.anchored)
-							M.forceMove(C)
-						large_cocoon = TRUE
-					if(large_cocoon)
-						C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
+
+	var/list/available_mobs = list()
+
+	for(var/mob/living/A in range(1, src))
+		if(A.stat && !istype(A,/mob/living/simple_animal/hostile/giant_spider) && !A.isSynthetic())
+			available_mobs += A
+	var/mob/P = tgui_input_list(usr, "Choose a mob to cocoon.", "Cocoon", available_mobs)
+	if(get_dist(src, P) <= 1)
+		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].")
+		if(!do_after(src, 80)) return
+		if(P && istype(P.loc, /turf) && get_dist(src,P) <= 1)
+			var/obj/effect/spider/cocoon/C = new(P.loc)
+			var/large_cocoon = FALSE
+			C.pixel_x = P.pixel_x
+			C.pixel_y = P.pixel_y
+			for(P in C.loc)
+				if(istype(P, /mob/living/simple_animal/hostile/giant_spider))
+					continue
+				large_cocoon = TRUE
+				fed++
+				src.visible_message("\The [src] sticks a proboscis into \the [P] and sucks a viscous substance out.")
+				P.forceMove(C)
+				C.pixel_x = P.pixel_x
+				C.pixel_y = P.pixel_y
+				break
+			for(var/obj/item/I in C.loc)
+				I.forceMove(C)
+			for(var/obj/structure/S in C.loc)
+				if(!S.anchored)
+					S.forceMove(C)
+				large_cocoon = TRUE
+			for(var/obj/machinery/M in C.loc)
+				if(!M.anchored)
+					M.forceMove(C)
+				large_cocoon = TRUE
+			if(large_cocoon)
+				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/eggs()
