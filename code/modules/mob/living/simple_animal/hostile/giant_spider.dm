@@ -164,13 +164,13 @@
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
+	. = ..()
 	add_verb(src, /mob/living/proc/ventcrawl)
 	var/number = rand(1000,9999)
 	name = initial(name) + " ([number])"
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("servant", src)
-	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Destroy()
 	. = ..()
