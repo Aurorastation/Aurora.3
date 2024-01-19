@@ -245,6 +245,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
+"hs" = (
+/obj/machinery/computer/shuttle_control/explore/einstein_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/einstein_shuttle/helm)
 "hC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -6874,7 +6878,7 @@ AN
 fw
 Ux
 UR
-UR
+hs
 bm
 NW
 NW
