@@ -181,7 +181,7 @@
 		. = TRUE
 	if(action == "PC_toggleservice")
 		if(params["service_to_toggle"] == "pai_access_lock" && istype(usr, /mob/living/silicon/pai))
-			usr.show_message(SPAN_WARNING("Access denied."))
+			to_chat(usr, SPAN_WARNING("Access denied."))
 		else
 			toggle_service(params["service_to_toggle"], usr)
 			. = TRUE

@@ -56,6 +56,6 @@ var/global/datum/ui_state/default/default_state = new
 			if(PDA.pAI_lock == FALSE)
 				return UI_INTERACTIVE
 			else
-				src.show_message(SPAN_WARNING("Access denied."))
+				to_chat(SPAN_WARNING(src, "Access denied."))
 
 	return min(..(), UI_UPDATE)
