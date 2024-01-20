@@ -4961,7 +4961,7 @@
 	layer = 9.1
 	},
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "nE" = (
@@ -7160,7 +7160,7 @@
 /area/point_verdant/interior/shallow)
 "tn" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
 "to" = (
@@ -11508,7 +11508,7 @@
 /area/point_verdant/water)
 "Ez" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "EA" = (

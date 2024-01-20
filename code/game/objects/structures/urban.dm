@@ -415,7 +415,9 @@
 	density = TRUE
 	layer = 4.6
 
-/obj/structure/sign/billboard/advert/Initialize(mapload)
+/obj/structure/sign/billboard/advert/random
+
+/obj/structure/sign/billboard/advert/random/Initialize(mapload)
 	. = ..()
 	cut_overlays()
 	icon_state = "sign[rand(1, 14)]"

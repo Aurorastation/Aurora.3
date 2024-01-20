@@ -4808,7 +4808,7 @@
 /area/point_verdant/outdoors)
 "Lz" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "LE" = (

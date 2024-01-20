@@ -2953,7 +2953,7 @@
 /area/point_verdant/interior)
 "iX" = (
 /obj/structure/sign/billboard,
-/obj/structure/sign/billboard/advert,
+/obj/structure/sign/billboard/advert/random,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "iY" = (
