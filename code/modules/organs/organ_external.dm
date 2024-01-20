@@ -1572,7 +1572,21 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(max_damage, pain + amount))
+    // The pain left to add until we reach max_damage.
+	var/pain_used = min(max_damage - pain, amount)
+	pain += pain_used
+	if(pain_used < amount)
+		var/pain_to_dispense = round(amount - pain_used)
+		var/obj/item/organ/external/E
+		if(parent && (parent.pain + amount <= parent.max_damage))
+			E = parent
+		if(!E && length(children))
+			for(var/obj/item/organ/external/victim in children)
+				if(victim.pain + amount <= victim.max_damage)
+					E = victim
+					break
+		if(E)
+			E.add_pain(pain_to_dispense)
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	if(amount > 5 && owner)

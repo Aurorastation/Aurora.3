@@ -446,11 +446,6 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
-		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25) || (damage > 50))
-				force_say()
-				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
-					emote("scream")
 		return ..()
 
 	if(!organ)
