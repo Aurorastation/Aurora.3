@@ -6,38 +6,28 @@
 
 /obj/item/grenade/flashbang/prime()
 	..()
-	/// Holding a flashbang when it goes off is bad news.
-	if(ishuman(loc))
-		var/mob/living/carbon/human/victim = loc
-		var/obj/item/organ/external/exploded_hand
-		if(victim.hand == src)
-			exploded_hand = victim.organs_by_name[BP_R_HAND]
-		else if(victim.l_hand == src)
-			exploded_hand = victim.organs_by_name[BP_L_HAND]
-		/// The flashbang was held in their hand, and we have one.
-		if(exploded_hand)
-			to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
-			victim.apply_damage(30, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
-			victim.apply_damage(20, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
-		else
-			/// No hand, so it's in a bag or pocket.
-			to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
-			victim.apply_damage(20, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
-			victim.apply_damage(30, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
-
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in get_hearers_in_view(7, src))
 		bang(T, L)
 
-	/// Damage blobs.
+	// Damage blobs.
 	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
 		B.health -= damage
 		B.update_icon()
 
 	single_spark(T)
-	new/obj/effect/effect/smoke/illumination(T, brightness=15)
+	new /obj/effect/effect/smoke/illumination(T, brightness=15)
 	qdel(src)
+
+/obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+	. = ..()
+	if(exploded_hand)
+		victim.apply_damage(30, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
+		victim.apply_damage(20, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
+	else
+		victim.apply_damage(20, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+		victim.apply_damage(30, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
 
 /obj/item/grenade/flashbang/proc/bang(turf/T, mob/living/M)
 	to_chat(M, SPAN_HIGHDANGER("BANG!"))
