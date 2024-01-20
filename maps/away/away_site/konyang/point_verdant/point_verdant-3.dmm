@@ -215,6 +215,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices)
 "bz" = (
@@ -374,6 +377,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices)
@@ -1054,6 +1060,14 @@
 "hC" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/minimart)
+"hD" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "hE" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8;
@@ -1443,6 +1457,18 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/sidewalk/dark/detail,
+/area/point_verdant/interior/offices)
+"kY" = (
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
+/turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices)
 "la" = (
 /turf/simulated/floor/carpet/lightblue,
@@ -1891,6 +1917,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
+"pe" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "pl" = (
 /obj/effect/shuttle_landmark/point_verdant/spaceport_intrepid{
 	dir = 1
@@ -2370,6 +2403,9 @@
 "th" = (
 /obj/machinery/door/urban/glass_sliding,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices)
 "tk" = (
@@ -4089,6 +4125,9 @@
 "FV" = (
 /obj/structure/window/urban/full,
 /obj/structure/window_frame/urban/full,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "Ge" = (
@@ -5737,6 +5776,13 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 2
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_office_lockdown";
+	name = "Building Lockdown";
+	pixel_y = -21;
+	dir = 6;
+	pixel_x = 17
+	},
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/offices)
 "Tq" = (
@@ -6066,6 +6112,16 @@
 /obj/effect/decal/exterior_stairs/left,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"We" = (
+/obj/machinery/door/urban/glass_sliding/double,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
+/turf/simulated/floor/sidewalk/dark,
+/area/point_verdant/interior/offices)
 "Wf" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/rope_post{
@@ -16737,17 +16793,17 @@ bf
 bf
 bf
 bf
-jm
-jm
+hD
+hD
 bf
-jm
-jm
+hD
+hD
 bf
-jm
-jm
+hD
+hD
 bf
-jm
-jm
+hD
+hD
 bf
 IJ
 Xr
@@ -17246,7 +17302,7 @@ DD
 DD
 sh
 hw
-mp
+We
 nX
 nX
 nX
@@ -17503,7 +17559,7 @@ DD
 DD
 sh
 hw
-Mf
+kY
 lx
 lx
 lx
@@ -19559,7 +19615,7 @@ hw
 hw
 hw
 hw
-jm
+pe
 bM
 Zq
 qR
@@ -19816,7 +19872,7 @@ lW
 lW
 TE
 hw
-jm
+pe
 Vi
 Zq
 qR
@@ -20344,8 +20400,8 @@ Dn
 HS
 HS
 bf
-jm
-jm
+hD
+hD
 bf
 wy
 HW
@@ -20587,7 +20643,7 @@ DD
 DD
 Ue
 hw
-jm
+pe
 WK
 Zq
 qR
@@ -20844,7 +20900,7 @@ DD
 DD
 Ue
 hw
-jm
+pe
 WK
 Zq
 Ag
@@ -20857,7 +20913,7 @@ jP
 AT
 HS
 HS
-jm
+pe
 hw
 hw
 hw
@@ -21101,7 +21157,7 @@ DD
 DD
 Ue
 hw
-jm
+pe
 WK
 Wl
 wx
@@ -21114,7 +21170,7 @@ jP
 nc
 HS
 HS
-jm
+pe
 hw
 hw
 mK
@@ -21358,7 +21414,7 @@ DD
 DD
 sh
 hw
-jm
+pe
 WK
 Oi
 WZ
@@ -21371,7 +21427,7 @@ jP
 jP
 HS
 HS
-jm
+pe
 hw
 hw
 UV
@@ -21615,7 +21671,7 @@ DD
 DD
 Oz
 hw
-jm
+pe
 UG
 aq
 aq
@@ -21873,18 +21929,18 @@ kv
 sY
 MX
 bf
-jm
-jm
-jm
-jm
-jm
+hD
+hD
+hD
+hD
+hD
 bf
 bf
-jm
-jm
+hD
+hD
 bf
-jm
-jm
+hD
+hD
 bf
 hw
 um

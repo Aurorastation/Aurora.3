@@ -2459,6 +2459,14 @@
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/robotics)
+"gQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/offices)
 "gR" = (
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -6937,7 +6945,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_meeting";
-	name = "Pharmacy Shutters";
+	name = "Meeting Shutters";
 	dir = 10;
 	pixel_x = 35
 	},
@@ -15943,6 +15951,12 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_meeting";
+	name = "Meeting Shutters";
+	dir = 4;
+	pixel_x = 20
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "Qf" = (
@@ -17284,6 +17298,13 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
+"TT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown"
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/offices)
 "TU" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/towel,
@@ -17722,6 +17743,15 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Vm" = (
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_corp_garage";
+	name = "Store Shutters";
+	pixel_y = 25;
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant/outdoors)
 "Vo" = (
 /obj/structure/dressing_divider,
 /turf/simulated/floor/carpet/magenta,
@@ -17734,6 +17764,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Vr" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_office_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/offices)
 "Vs" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
@@ -27816,7 +27854,7 @@ ci
 ci
 ci
 ci
-bh
+Vm
 BT
 iF
 LN
@@ -31642,7 +31680,7 @@ MA
 wL
 Al
 Fs
-hX
+TT
 Qt
 rB
 rB
@@ -31899,7 +31937,7 @@ MA
 wL
 BP
 Fs
-hX
+TT
 YF
 rB
 GI
@@ -32156,7 +32194,7 @@ MA
 wL
 Oq
 Fs
-hX
+TT
 Zi
 rB
 xv
@@ -32670,7 +32708,7 @@ YW
 FL
 Al
 Fs
-hX
+TT
 Zo
 vk
 Qt
@@ -32927,7 +32965,7 @@ Oq
 Al
 Oq
 Fs
-hX
+TT
 PJ
 gZ
 ik
@@ -33184,7 +33222,7 @@ Oq
 Oq
 Oq
 Fs
-hX
+TT
 Am
 zj
 Rk
@@ -33698,7 +33736,7 @@ xu
 xu
 xu
 rw
-hX
+TT
 hF
 zU
 Ah
@@ -33955,7 +33993,7 @@ xu
 xu
 Al
 Fs
-hX
+TT
 ei
 mm
 GI
@@ -34212,7 +34250,7 @@ xu
 xu
 Al
 Fs
-hX
+TT
 Wh
 Xj
 rB
@@ -34469,7 +34507,7 @@ xu
 Oq
 BP
 Fs
-hX
+TT
 Im
 hM
 IR
@@ -34727,16 +34765,16 @@ Oq
 Oq
 Fs
 ci
-hX
-hX
-hX
+Vr
+Vr
+Vr
 ci
-xp
-xp
+gQ
+gQ
 ci
-hX
-hX
-hX
+Vr
+Vr
+Vr
 ci
 oP
 oP
