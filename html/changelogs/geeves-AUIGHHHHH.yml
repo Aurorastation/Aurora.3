@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "You no longer hit pipes, vents, scrubbers, or cables if you're clicking on harm intent."

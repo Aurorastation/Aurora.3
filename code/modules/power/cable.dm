@@ -124,6 +124,8 @@ By design, d1 is the smallest direction and d2 is the highest
 //   - Multitool : get the power currently passing through the cable
 //
 /obj/structure/cable/attackby(obj/item/W, mob/user)
+	if(user.a_intent == I_HURT)
+		return
 
 	var/turf/T = src.loc
 	if(!T.can_have_cabling())

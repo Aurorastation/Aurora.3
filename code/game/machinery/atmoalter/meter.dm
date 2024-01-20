@@ -93,16 +93,18 @@
 	return ..()
 
 /obj/machinery/meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+	if(W.iswrench())
+		to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+		if(W.use_tool(src, user, 40, volume = 50))
+			user.visible_message( \
+				 SPAN_NOTICE("\The [user] unfastens \the [src].")), \
+				 SPAN_NOTICE("You have unfastened \the [src].")), \
+				"You hear a ratcheting noise.")
+			new /obj/item/pipe_meter(src.loc)
+			qdel(src)
+		return
+	if(user.a_intent != I_HURT)
 		return ..()
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, 40, volume = 50))
-		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
-			"You hear ratchet.")
-		new /obj/item/pipe_meter(src.loc)
-		qdel(src)
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
