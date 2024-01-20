@@ -76,8 +76,8 @@
 	playsound(loc, activation_sound, 75, 1, -3)
 
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
-	/// Randomize the timing a bit. You wouldn't be aware of when exactly a grenade is going to pop.
-	/// Nor do we want people to instantly know when to throw a perfectly timed grenade.
+	// Randomize the timing a bit. You wouldn't be aware of when exactly a grenade is going to pop.
+	// Nor do we want people to instantly know when to throw a perfectly timed grenade.
 	animate(src, det_time + rand(-5, 5), -1, LINEAR_EASING, color = COLOR_RED)
 
 /obj/item/grenade/proc/prime()
