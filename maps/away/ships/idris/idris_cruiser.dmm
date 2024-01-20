@@ -12240,8 +12240,12 @@
 	req_access = list(220);
 	name = "phoron crate"
 	},
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
+/obj/item/stack/material/phoron{
+	amount = 10
+	},
+/obj/item/stack/material/phoron{
+	amount = 10
+	},
 /obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor,
 /area/ship/idris_cruiser/engineering)
@@ -12666,6 +12670,10 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
 	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/machinery/recharger{
+	pixel_x = 4;
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
