@@ -1,11 +1,14 @@
 /obj/item/clothing/under/unathi
 	name = "sinta tunic"
-	desc = "A tunic common on both Moghes and Ouerea. It's simple and easily-manufactured design makes it \
+	desc = "A tunic common on both Moghes and Ouerea. Its simple and easily-manufactured design makes it \
 	universally favorable."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "tunic"
 	item_state = "tunic"
 	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"

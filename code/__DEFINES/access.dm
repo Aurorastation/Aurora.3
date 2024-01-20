@@ -716,7 +716,10 @@
 	id = ACCESS_KONYANG_CORPORATE
 	access_type = ACCESS_TYPE_CENTCOM
 
-//free: 226 - 229
+#define ACCESS_HOUSE_VOLVALAAD_SHIP 226
+/datum/access/house_volvalaad_ship
+	id = ACCESS_HOUSE_VOLVALAAD_SHIP
+	access_type = ACCESS_TYPE_CENTCOM
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
@@ -784,4 +787,3 @@
 /datum/access/guest_room_10
 	id = ACCESS_GUEST_ROOM_10
 	desc = "Guest Room 10"
-	access_type = ACCESS_TYPE_CENTCOM
