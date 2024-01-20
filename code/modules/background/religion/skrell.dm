@@ -35,3 +35,8 @@
 	entity, whether that be artificial or biological. This belief system enforces the Ya'Qu, or 'the right to live', a saying that is similar to the human 'live in the moment'. As \
 	such, the Skrell following the Kir'gul belief system often are explorers, artists, or other such creators, and reject authority in favor of individuality."
 	book_name = "book of Ya'Qu"
+
+/datum/religion/skrell/univalvism
+	name = RELIGION_UNIVALVISM
+	description = "Placeholder for the PRQ's Univalvism."
+	book_name = "communes of trust"
