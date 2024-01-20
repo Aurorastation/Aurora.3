@@ -5818,6 +5818,10 @@
 	pixel_x = 4;
 	pixel_y = -6
 	},
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_x = 1;
+	pixel_y = -6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/scc_scout_ship/eva)
 "Nw" = (
