@@ -59,6 +59,8 @@
 	has_hardpoints = list(HARDPOINT_BACK)
 	power_use = 500
 
+	cell_type = /obj/item/cell/mecha/nuclear
+
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)

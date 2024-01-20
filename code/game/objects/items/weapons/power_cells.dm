@@ -82,13 +82,6 @@
 	maxcharge = 10000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 
-/obj/item/cell/mecha
-	name = "exosuit-grade power cell"
-	origin_tech = list(TECH_POWER = 3)
-	icon_state = "hcell"
-	maxcharge = 15000
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
-
 /obj/item/cell/high/empty/Initialize()
 	. = ..()
 	charge = 0
@@ -163,12 +156,12 @@
 
 /obj/item/cell/slime/process()
 	if(next_recharge < world.time)
-		charge = min(charge + (maxcharge / 10), maxcharge)
+		give(charge + (maxcharge / 10))
 		next_recharge = world.time + 1 MINUTE
 
 /obj/item/cell/nuclear
-	name = "miniaturized nuclear power core"
-	desc = "A small self-charging thorium core that can store an immense amount of charge."
+	name = "miniaturized nuclear power cell"
+	desc = "A small self-charging cell with a thorium core that can store an immense amount of charge."
 	origin_tech = list(TECH_POWER = 8, TECH_ILLEGAL = 4)
 	icon_state = "icell"
 	maxcharge = 50000
@@ -185,7 +178,7 @@
 
 /obj/item/cell/nuclear/process()
 	if(next_recharge < world.time)
-		charge = min(charge + (maxcharge / 10), maxcharge)
+		give(charge + (maxcharge / 10))
 		next_recharge = world.time + 30 SECONDS
 
 /obj/item/cell/device/emergency_light
@@ -211,3 +204,48 @@
 	. = ..()
 	charge = 0
 	update_icon()
+
+/obj/item/cell/mecha
+	name = "power core"
+	origin_tech = list(TECH_POWER = 2)
+	icon_state = "core"
+	w_class = ITEMSIZE_LARGE
+	maxcharge = 20000
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
+
+	/// When the cell will next recharge (once every minute)
+	var/next_recharge
+
+	/// Percentage of maxcharge to recharge every minute, leave null for no self-recharge
+	var/self_charge_percentage
+
+/obj/item/cell/mecha/Initialize()
+	. = ..()
+	if(self_charge_percentage)
+		START_PROCESSING(SSprocessing, src)
+
+/obj/item/cell/mecha/Destroy()
+	if(self_charge_percentage)
+		STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/mecha/process()
+	if(self_charge_percentage && next_recharge < world.time)
+		give((maxcharge / 100) *self_charge_percentage)
+		next_recharge = world.time + 1 MINUTE
+
+/obj/item/cell/mecha/nuclear
+	name = "nuclear power core"
+	origin_tech = list(TECH_POWER = 3, TECH_MATERIAL = 3)
+	icon_state = "nuclear_core"
+	maxcharge = 30000
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_URANIUM = 10000)
+	self_charge_percentage = 5
+
+/obj/item/cell/mecha/phoron
+	name = "phoron power core"
+	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 5)
+	icon_state = "phoron_core"
+	maxcharge = 50000
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_PHORON = 5000)
+	self_charge_percentage = 10
