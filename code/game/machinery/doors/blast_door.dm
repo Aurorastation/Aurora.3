@@ -48,9 +48,8 @@
 	else
 		layer = open_layer
 
-/obj/machinery/door/airlock/Destroy()
-	qdel(wifi_receiver)
-	wifi_receiver = null
+/obj/machinery/door/blast/Destroy()
+	QDEL_NULL(wifi_receiver)
 	return ..()
 
 // Proc: Bumped()

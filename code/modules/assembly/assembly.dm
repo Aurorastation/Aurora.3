@@ -33,6 +33,15 @@
 	 */
 	var/wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY
 
+/obj/item/device/assembly/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+
+	holder = null
+	cut_overlays()
+	attached_overlays = null
+
+	. = ..()
+
 /obj/item/device/assembly/proc/holder_movement()
 	return
 

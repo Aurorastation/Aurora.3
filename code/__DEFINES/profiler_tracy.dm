@@ -39,7 +39,7 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 		if("tracy") lib = "tracy.dll"
 		if("tracy_disk") lib = "tracy-disk.dll"
 
-	var/init = LIBCALL(lib, "init")()
+	var/init = call_ext(lib, "init")()
 	if("0" != init) CRASH("[lib] init error: [init]")
 
 	byond_tracy_running = 1
@@ -56,7 +56,7 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 		if("tracy") lib = "tracy.dll"
 		if("tracy_disk") lib = "tracy-disk.dll"
 
-	LIBCALL(lib, "destroy")()
+	call_ext(lib, "destroy")()
 
 	byond_tracy_running = 0
 	byond_tracy_running_v = null

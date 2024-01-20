@@ -9,7 +9,8 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	var/datum/radial_menu/parent
 
 /obj/screen/radial/Destroy()
-	qdel(parent)
+	QDEL_NULL(parent)
+
 	return ..()
 
 /obj/screen/radial/slice

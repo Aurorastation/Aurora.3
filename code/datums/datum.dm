@@ -1,15 +1,14 @@
 /datum
-	var/tmp/list/active_timers
-	var/tmp/datum/weakref/weakref
-	var/tmp/isprocessing = 0
-
 	/**
 	 * Tick count time when this object was destroyed.
 	 *
 	 * If this is non zero then the object has been garbage collected and is awaiting either
 	 * a hard del by the GC subsystme, or to be autocollected (if it has no references)
 	 */
-	var/tmp/gcDestroyed
+	var/gc_destroyed
+
+	var/tmp/list/active_timers
+	var/tmp/isprocessing = 0
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
@@ -24,10 +23,9 @@
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
-	/// A cached version of our \ref
-	/// The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
-	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
-	var/cached_ref
+
+	/// A weak reference to another datum
+	var/datum/weakref/weak_reference
 
 #ifdef REFERENCE_TRACKING
 	var/running_find_references
@@ -38,29 +36,29 @@
 	#endif
 #endif
 
+	// If we have called dump_harddel_info already. Used to avoid duped calls (since we call it immediately in some cases on failure to process)
+	// Create and destroy is weird and I wanna cover my bases
+	var/harddel_deets_dumped = FALSE
+
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
+	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
 
-	weakref = null
-	GLOB.destroyed_event.raise_event(src)
-	var/ui_key = SOFTREF(src)
-	if(LAZYISIN(SSnanoui.open_uis, ui_key))
-		SSnanoui.close_uis(src)
 	tag = null
-	var/list/timers = active_timers
-	active_timers = null
-	if (timers)
-		for (var/thing in timers)
-			var/datum/timedevent/timer = thing
-			if (timer.spent)
-				continue
-			qdel(timer)
+	weak_reference = null //ensure prompt GCing of weakref.
 
-	// Handle components & signals
-	signal_enabled = FALSE
+	if(active_timers)
+		var/list/timers = active_timers
+		active_timers = null
+		if (timers)
+			for (var/thing in timers)
+				var/datum/timedevent/timer = thing
+				if (timer.spent)
+					continue
+				qdel(timer)
 
 	#ifdef REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING_DEBUG
@@ -68,6 +66,19 @@
 	#endif
 	#endif
 
+	GLOB.destroyed_event.raise_event(src)
+	if (!isturf(src))
+		cleanup_events(src)
+
+	var/ui_key = SOFTREF(src)
+	if(LAZYISIN(SSnanoui.open_uis, ui_key))
+		SSnanoui.close_uis(src)
+
+
+	// Handle components & signals
+	signal_enabled = FALSE
+
+	//BEGIN: ECS SHIT
 	var/list/dc = datum_components
 	if(dc)
 		var/all_components = dc[/datum/component]
@@ -95,6 +106,7 @@
 
 	for(var/target in signal_procs)
 		UnregisterSignal(target, signal_procs[target])
+	//END: ECS SHIT
 
 	return QDEL_HINT_QUEUE
 
@@ -125,3 +137,17 @@
 		return FALSE
 	vars[var_name] = var_value
 	return TRUE
+
+
+/// Return text from this proc to provide extra context to hard deletes that happen to it
+/// Optional, you should use this for cases where replication is difficult and extra context is required
+/// Can be called more then once per object, use harddel_deets_dumped to avoid duplicate calls (I am so sorry)
+/datum/proc/dump_harddel_info()
+	return
+
+///images are pretty generic, this should help a bit with tracking harddels related to them
+/image/dump_harddel_info()
+	if(harddel_deets_dumped)
+		return
+	harddel_deets_dumped = TRUE
+	return "Image icon: [icon] - icon_state: [icon_state] [loc ? "loc: [loc] ([loc.x],[loc.y],[loc.z])" : ""]"

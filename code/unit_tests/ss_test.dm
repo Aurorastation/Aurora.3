@@ -32,11 +32,7 @@ SUBSYSTEM_DEF(unit_tests_config)
 	var/retries = 0
 
 /datum/controller/subsystem/unit_tests_config/PreInit()
-	. = ..()
-
 	UT = new
-
-	world.fps = 10
 
 	//Acquire our identifier, or enter Hopper mode if failing to do so
 	try

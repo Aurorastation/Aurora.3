@@ -411,6 +411,8 @@
 			if(newtag)
 				RCon_tag = newtag
 				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+				if(RCon_tag != "NO_TAG")
+					SSmachinery.build_rcon_lists()
 			return
 		// Charged above 1% and safeties are enabled.
 		if((charge > (capacity/100)) && safeties_enabled)

@@ -155,12 +155,15 @@ Class Procs:
 /obj/machinery/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery -= src
+
+	//Clear the component parts
+	//If the components are inside the machine, delete them, otherwise we assume they were dropped to the ground during deconstruction,
+	//and were not removed from the component_parts list by deconstruction code
 	if(component_parts)
 		for(var/atom/A in component_parts)
-			if(A.loc == src) // If the components are inside the machine, delete them.
+			if(A.loc == src)
 				qdel(A)
-			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
-				component_parts -= A
+	component_parts = null
 
 	return ..()
 
@@ -451,9 +454,13 @@ Class Procs:
 	M.set_dir(src.dir)
 	M.state = 3
 	M.icon_state = "blueprint_1"
+
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
+		component_parts -= I
+
 	qdel(src)
+
 	return TRUE
 
 /obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)

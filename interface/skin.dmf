@@ -410,15 +410,6 @@ macro "macro"
 	elem
 		name = "."
 		command = "Move-Down"
-	elem
-		name = "Space"
-		command = "run_intent"
-	elem
-		name = "Space+UP"
-		command = "run_intent_up"
-	elem
-		name = "SHIFT+R"
-		command = "Resist"
   elem
     name = "R"
     command = "throw_intent_toggle"
@@ -665,15 +656,6 @@ macro "hotkeymode"
 	elem
 		name = "."
 		command = "Move-Down"
-	elem
-		name = "Space"
-		command = "run_intent"
-	elem
-		name = "Space+UP"
-		command = "run_intent_up"
-	elem
-		name = "SHIFT+R"
-		command = "Resist"
   elem
     name = "R"
     command = "throw_intent_toggle"

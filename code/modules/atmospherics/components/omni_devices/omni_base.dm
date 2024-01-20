@@ -218,7 +218,8 @@
 			qdel(P.network)
 			P.node = null
 
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)

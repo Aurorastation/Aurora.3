@@ -300,6 +300,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/engineering)
+"dA" = (
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport/port)
 "dB" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -491,6 +506,18 @@
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
+"gd" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport)
 "gm" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -537,6 +564,25 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/water_barge/hangar)
+"gK" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport)
 "gR" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -718,6 +764,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
+"je" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 1;
+	pixel_y = -20;
+	id_tag = "water_barge_hangar";
+	frequency = 1380
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/hangar)
 "jj" = (
 /obj/machinery/light{
 	dir = 4
@@ -855,22 +910,32 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "kR" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1313;
-	id_tag = "barge_shuttle_exterior_sensor";
-	pixel_x = -68;
-	pixel_y = -10
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "barge_shuttle_pump_out_external";
-	frequency = 1313;
-	layer = 2.8
+	dir = 8
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = -64;
+	pixel_y = -5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "kV" = (
@@ -1469,8 +1534,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
 "sK" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/turf/simulated/floor/plating,
 /area/water_barge/dockingport/port)
 "sV" = (
 /obj/machinery/light,
@@ -1619,6 +1688,13 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/water_barge/engineering)
 "uu" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/shuttle_landmark/water_barge/dock{
 	dir = 1
 	},
@@ -1807,6 +1883,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/office)
+"wJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport/port)
 "wK" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -1954,22 +2043,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_x = 5;
-	pixel_y = -22;
-	id_tag = "barge_shuttle_interior_sensor";
-	frequency = 1313;
-	dir = 1
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1313;
-	master_tag = "barge_shuttle";
-	name = "interior access button";
-	pixel_x = -7;
-	pixel_y = -23;
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
 "yr" = (
@@ -2071,6 +2144,21 @@
 "zF" = (
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/office)
+"zM" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport/port)
 "zY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -2375,6 +2463,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
+"Eu" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport)
 "Ew" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2474,8 +2577,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/breakroom)
 "FW" = (
-/obj/effect/shuttle_landmark/water_barge/starboarddock{
-	dir = 1
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/dockingport)
@@ -2634,6 +2741,18 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/dockingport/port)
+"IH" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport/port)
 "II" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
@@ -2779,18 +2898,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/cryo)
 "JM" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1313;
-	id_tag = "barge_shuttle_chamber_sensor";
-	dir = 4;
-	pixel_x = -25
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "barge_shuttle_pump_out_internal";
-	frequency = 1313;
-	layer = 2.8;
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "JQ" = (
@@ -2803,6 +2924,21 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/water_barge/engineering)
+"Kd" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport/port)
 "Ke" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
@@ -2928,6 +3064,21 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/water_barge/hangar)
+"KW" = (
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport)
 "Lb" = (
 /obj/machinery/suit_cycler/engineering{
 	req_access = null
@@ -3021,6 +3172,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
+"LW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport)
 "LX" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
@@ -3102,24 +3266,17 @@
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
 "Mz" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	id_tag = "barge_shuttle";
-	master_tag = "barge_shuttle";
-	tag_interior_door = "barge_shuttle_in";
-	tag_exterior_door = "barge_shuttle_out";
-	tag_interior_sensor = "barge_shuttle_interior_sensor";
-	tag_exterior_sensor = "barge_shuttle_exterior_sensor";
-	tag_chamber_sensor = "barge_shuttle_chamber_sensor";
-	tag_airpump = "barge_shuttle_pump_in";
-	frequency = 1313;
-	pixel_x = 25
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	id_tag = "barge_shuttle_pump_out_internal";
-	frequency = 1313;
-	layer = 2.8;
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "MO" = (
@@ -3571,6 +3728,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = -20
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
 "Rp" = (
@@ -3697,6 +3865,25 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/dockingport)
+"SF" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock";
+	master_tag = "airlock_barge_portdock";
+	name = "airlock_barge_portdock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport/port)
 "SG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
@@ -3878,13 +4065,21 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1313;
-	icon_state = "door_locked";
-	id_tag = "barge_shuttle_in";
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "UE" = (
@@ -3936,26 +4131,26 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1313;
-	icon_state = "door_locked";
-	id_tag = "barge_shuttle_out";
-	dir = 1
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1313;
-	master_tag = "barge_shuttle";
-	name = "exterior access button";
-	pixel_x = -30;
-	pixel_y = -9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft"
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "UZ" = (
@@ -3977,6 +4172,13 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
 "Vh" = (
@@ -4066,6 +4268,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
+"Wm" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
+/area/water_barge/dockingport)
 "Wq" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -4206,8 +4416,19 @@
 /turf/simulated/floor/plating,
 /area/water_barge)
 "XB" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "water_barge_dock_s";
+	master_tag = "airlock_barge_stbddock";
+	name = "airlock_barge_stbddock"
+	},
+/turf/simulated/floor/plating,
 /area/water_barge/dockingport)
 "XI" = (
 /obj/structure/table/standard,
@@ -4346,9 +4567,18 @@
 /area/water_barge/engineering)
 "YP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	frequency = 1313;
-	id_tag = "barge_shuttle_pump_in"
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
@@ -4425,13 +4655,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/office)
 "ZK" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1313;
-	id_tag = "barge_shuttle_pump_in"
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_waterbarge_shuttle";
+	name = "airlock_waterbarge_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Water Barge Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/water_barge)
@@ -11970,7 +12206,7 @@ PG
 PG
 PG
 PG
-XB
+PG
 NL
 NL
 NL
@@ -12129,10 +12365,10 @@ NL
 PG
 bf
 DT
-yI
-yI
-yI
-yI
+gK
+XB
+Wm
+KW
 NL
 NL
 NL
@@ -12291,9 +12527,9 @@ NL
 PG
 Va
 Nl
-yI
-yI
-yI
+LW
+Eu
+gd
 FW
 NL
 NL
@@ -17461,7 +17697,7 @@ Xd
 wK
 kR
 pk
-pk
+je
 Zl
 Ut
 Zc
@@ -21528,7 +21764,7 @@ nF
 CS
 CS
 CS
-sK
+CS
 NL
 NL
 NL
@@ -21687,10 +21923,10 @@ NL
 CS
 Hq
 vl
-An
-An
-An
-An
+SF
+zM
+sK
+dA
 NL
 NL
 NL
@@ -21849,9 +22085,9 @@ NL
 CS
 lL
 lL
-An
-An
-An
+wJ
+Kd
+IH
 uu
 NL
 NL
