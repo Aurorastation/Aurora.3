@@ -174,7 +174,7 @@
 	desc = "A small, autopilot-controlled ferry for transport between a mothership and other nearby locations. Incapable of long distance independant flight."
 	shuttle = "Pigeon"
 	designer = "Orion Express."
-	volume = "yes"
+	volume = "11 metres length, 8 metres beam/width, 6 meters vertical height."
 	weapons = "None."
 	sizeclass = "Autobus-class Automated Ferry."
 	shiptype = "Autonomous short-range passenger transport."
