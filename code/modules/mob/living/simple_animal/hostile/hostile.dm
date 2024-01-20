@@ -201,7 +201,7 @@
 		return 0
 
 /mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
-	if(isliving(hit_mob) && istype(limb) && !BP_IS_ROBOTIC(limb))
+	if(isliving(hit_mob) && istype(limb))
 		limb.add_autopsy_data("Mauling by [src.name]")
 		return
 	else return
