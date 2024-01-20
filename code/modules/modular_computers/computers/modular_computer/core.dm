@@ -112,7 +112,7 @@
 		for(var/datum/computer_file/program/P in hard_drive.stored_files)
 			P.event_unregistered()
 
-		QDEL_NULL_LIST(hard_drive.stored_files)
+		QDEL_LIST(hard_drive.stored_files)
 
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
@@ -130,8 +130,8 @@
 			service.service_deactivate()
 			service.service_state = PROGRAM_STATE_KILLED
 
-	QDEL_NULL_LIST(idle_threads)
-	QDEL_NULL_LIST(enabled_services)
+	QDEL_LIST(idle_threads)
+	QDEL_LIST(enabled_services)
 
 	if(looping_sound)
 		soundloop.stop(src)
@@ -237,6 +237,17 @@
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
+/**
+ * Same as `kill_program()` but does not try to reopen the window, also makes the linter happy as it does not sleep
+ */
+/obj/item/modular_computer/proc/kill_program_shutdown(forced = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(active_program && active_program.kill_program(forced))
+		active_program = null
+	else
+		return FALSE
+
 // Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)
 /obj/item/modular_computer/proc/get_ntnet_status(var/specific_action = 0)
 	if(network_card)
@@ -251,7 +262,7 @@
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
 	SStgui.close_uis(active_program)
-	kill_program(TRUE)
+	kill_program_shutdown(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(TRUE)
 		idle_threads.Remove(P)

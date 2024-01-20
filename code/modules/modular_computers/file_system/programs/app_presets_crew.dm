@@ -160,7 +160,6 @@
 		new /datum/computer_file/program/away_manifest(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
-		new /datum/computer_file/program/penal_mechs(comp),
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/alarm_monitor/all(comp),
 		new /datum/computer_file/program/records/employment(comp),

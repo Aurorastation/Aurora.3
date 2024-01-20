@@ -544,9 +544,6 @@
 /proc/is_list_containing_type(var/list/L, type)
 	return count_by_type(L, type) == L.len
 
-/proc/subtypesof(prototype)
-	return (typesof(prototype) - prototype)
-
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)

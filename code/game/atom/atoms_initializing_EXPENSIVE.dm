@@ -4,7 +4,7 @@
 
 	if(QDELING(A))
 		// Check init_start_time to not worry about atoms created before the atoms SS that are cleaned up before this
-		if (A.gcDestroyed > init_start_time)
+		if (A.gc_destroyed > init_start_time)
 			BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
 		return TRUE
 

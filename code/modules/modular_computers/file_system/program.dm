@@ -54,6 +54,7 @@
 		computer.enabled_services -= src
 		computer = null
 	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /datum/computer_file/program/ui_host()
 	if(computer)

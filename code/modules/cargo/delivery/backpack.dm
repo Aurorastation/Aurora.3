@@ -14,7 +14,7 @@
 	var/list/contained_packages
 
 /obj/item/cargo_backpack/Destroy()
-	QDEL_NULL_LIST(contained_packages)
+	QDEL_LIST(contained_packages)
 	return ..()
 
 /obj/item/cargo_backpack/examine(mob/user, distance)

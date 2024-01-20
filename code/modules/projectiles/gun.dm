@@ -936,13 +936,13 @@
 			balloon_alert(user, "\the [I.name] doesn't fit")
 			return ..()
 
-		if(user.l_hand != bayonet && user.r_hand != bayonet)
-			balloon_alert(user, "not in hand")
-			return
-
 		if(bayonet)
 			balloon_alert(user, "\the [src] already has a bayonet")
 			return TRUE
+
+		if(user.l_hand != I && user.r_hand != I)
+			balloon_alert(user, "not in hand")
+			return
 
 		user.drop_from_inventory(I,src)
 		bayonet = I
@@ -958,15 +958,19 @@
 		if(!can_ammo_display)
 			balloon_alert(user, "\the [I.name] doesn't fit")
 			return TRUE
-		if(user.l_hand != ammo_display && user.r_hand != ammo_display)
-			balloon_alert(user, "not in hand")
-			return
+
 		if(ammo_display)
 			balloon_alert(user, "\the [src] already has an ammo display")
 			return TRUE
+
+		if(user.l_hand != I && user.r_hand != I)
+			balloon_alert(user, "not in hand")
+			return
+
 		if(displays_maptext)
 			balloon_alert(user, "\the [src] is already displaying its ammo count")
 			return TRUE
+
 		user.drop_from_inventory(I, src)
 		ammo_display = I
 		displays_maptext = TRUE
