@@ -72,14 +72,17 @@
 
 /obj/effect/shuttle_landmark/golden_deep/dock
 	name = "Golden Deep Mercantile Vessel, Main Docking Port"
+	docking_controller = "airlock_gd_dock"
 	landmark_tag = "gd_dock"
 
 /obj/effect/shuttle_landmark/golden_deep/dock2
 	name = "Golden Deep Mercantile Vessel, Auxiliary Docking Port"
+	docking_controller = "airlock_gd_dock2"
 	landmark_tag = "gd_dock2"
 
 /obj/effect/shuttle_landmark/golden_deep/dock3
 	name = "Golden Deep Mercantile Vessel, Docking Port"
+	docking_controller = "airlock_gd_dock3"
 	landmark_tag = "gd_dock3"
 
 //Shuttle
@@ -109,7 +112,7 @@
 	shuttle_area = list(/area/shuttle/golden_deep)
 	current_location = "gd_nav_hangar"
 	landmark_transition = "gd_nav_transit"
-	dock_target = "golden_shuttle"
+	dock_target = "airlock_golden_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "gd_nav_hangar"
@@ -118,6 +121,7 @@
 /obj/effect/shuttle_landmark/golden_deep_shuttle/hangar
 	name = "Golden Deep Mercantile Vessel - Hangar"
 	landmark_tag = "gd_nav_hangar"
+	docking_controller = "golden_deep_hangar"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/golden_deep/hangar
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
