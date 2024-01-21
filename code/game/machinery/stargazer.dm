@@ -40,7 +40,7 @@
 /obj/machinery/stargazer/Topic(href, href_list, datum/ui_state/state)
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return TRUE
-	if(!isInSight(usr, src))
+	if(!is_in_sight(usr, src))
 		return TRUE
 	if(usr.incapacitated(INCAPACITATION_KNOCKOUT))
 		return TRUE

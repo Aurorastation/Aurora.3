@@ -155,9 +155,7 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	var/los = null
-	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
-	return los
+	return is_in_sight(src, target_mob)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -271,7 +269,7 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
-	return get_targets_in_LOS(dist, src)
+	return get_hearers_in_LOS(dist, src)
 
 /mob/living/simple_animal/hostile/death()
 	..()
