@@ -1,4 +1,17 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"ab" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
 "ac" = (
 /obj/machinery/door/airlock{
 	dir = 1
@@ -6,22 +19,30 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ad" = (
-/obj/effect/ghostspawpoint/repeat{
-	identifier = "spiderqueen";
-	name = "igs - spiderqueen"
+/obj/machinery/door/airlock{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/barren,
-/area/mine)
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
 "ae" = (
-/obj/effect/shuttle_landmark/automatic/ghostrole_activation,
-/turf/template_noop,
-/area/space)
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"af" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
 "ag" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ai" = (
 /obj/effect/decal/cleanable/dirt,
@@ -74,18 +95,23 @@
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"aC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "aJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/extinguisher,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "aR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/telecomms/broadcaster,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "aS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -95,7 +121,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "aV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -126,6 +152,7 @@
 /obj/item/clothing/suit/jacket/puffer/vest,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/biker,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
@@ -135,7 +162,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "bz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -179,7 +206,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -187,7 +214,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "cm" = (
 /obj/structure/mirror{
@@ -237,7 +264,7 @@
 "cM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "df" = (
 /obj/structure/closet/cabinet,
@@ -272,7 +299,7 @@
 "dq" = (
 /obj/machinery/vending/hydroseeds,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "dr" = (
 /turf/simulated/floor/plating,
@@ -292,7 +319,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "dI" = (
 /obj/machinery/iv_drip,
@@ -303,7 +330,7 @@
 "dM" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ed" = (
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -316,14 +343,14 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ef" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "en" = (
 /obj/structure/table/steel{
@@ -343,7 +370,7 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/random/civgun,
+/obj/random/projectile,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "eC" = (
@@ -373,23 +400,23 @@
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/giant_spider/emp,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "eQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "eS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper/shady/researchpaper,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "eW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "fb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -401,7 +428,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -412,7 +439,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "fw" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -431,7 +458,7 @@
 	dir = 4
 	},
 /obj/item/trash/meatsnack,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "fV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -450,7 +477,7 @@
 	dir = 9
 	},
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "gd" = (
 /obj/effect/floor_decal/corner/lime{
@@ -465,7 +492,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "gr" = (
 /obj/structure/bed,
@@ -480,7 +507,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "gy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -490,7 +517,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/diamond,
 /area/hideout)
 "gD" = (
 /obj/machinery/portable_atmospherics/canister/empty/phoron{
@@ -517,19 +544,19 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "gW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "hb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "hg" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -557,14 +584,14 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "hA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/diamond,
 /area/hideout)
 "hB" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -583,7 +610,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "hI" = (
 /obj/effect/floor_decal/spline/fancy/corner{
@@ -593,7 +620,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "hN" = (
 /obj/structure/bed/roller,
@@ -611,20 +638,21 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "hR" = (
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/highvalue/no_weapon,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "hV" = (
-/obj/structure/table/standard,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/tiled,
-/area/hideout)
+/mob/living/simple_animal/hostile/spider_queen{
+	health = 450;
+	maxHealth = 450
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/mine)
 "hW" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
@@ -663,7 +691,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ja" = (
 /obj/effect/decal/cleanable/dirt,
@@ -674,7 +702,7 @@
 /turf/simulated/floor/plating,
 /area/hideout)
 "jh" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "jm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -737,7 +765,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/bananapeel,
 /obj/effect/floor_decal/spline/plain/corner/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "jT" = (
 /obj/machinery/light/small{
@@ -751,13 +779,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "kn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/gloves/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "kp" = (
 /obj/item/stack/material/steel,
@@ -775,7 +803,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "kH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -810,7 +838,7 @@
 "kX" = (
 /obj/effect/floor_decal/spline/fancy/corner,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "lf" = (
 /obj/effect/decal/cleanable/dirt,
@@ -874,7 +902,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "mj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -888,7 +916,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "mq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -900,7 +928,7 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/random/civgun/rifle,
+/obj/item/gun/projectile/shotgun/pump/combat,
 /turf/simulated/floor/plating,
 /area/hideout)
 "mr" = (
@@ -909,7 +937,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/gibs/core,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "mt" = (
 /obj/effect/decal/cleanable/dirt,
@@ -923,14 +951,14 @@
 /obj/effect/decal/cleanable/ash{
 	pixel_y = 15
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "my" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "mA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -940,7 +968,7 @@
 /obj/item/stack/material/glass,
 /obj/item/arrow/rod,
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "mD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -953,7 +981,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "nd" = (
 /obj/machinery/iv_drip,
@@ -971,7 +999,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "nn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -979,7 +1007,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "nB" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -1021,14 +1049,14 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "oH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "oN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1042,7 +1070,7 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/computer_hardware/battery_module/super,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "pa" = (
 /obj/structure/closet/crate/loot,
@@ -1054,7 +1082,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "pn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1070,7 +1098,7 @@
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/giant_spider/emp,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "py" = (
 /obj/item/folder/yellow,
@@ -1085,7 +1113,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "pD" = (
 /obj/structure/bed/stool/chair/sofa,
@@ -1109,13 +1137,13 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "pS" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "pY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1127,7 +1155,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/glasses/eyepatch/hud/material,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "qm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1136,8 +1164,8 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/random/civgun/rifle,
-/turf/simulated/floor/tiled,
+/obj/item/gun/projectile/automatic,
+/turf/simulated/floor/plating,
 /area/hideout)
 "qr" = (
 /obj/machinery/light/small{
@@ -1163,12 +1191,12 @@
 "qN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/pipedispenser,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "qP" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "qW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1176,7 +1204,7 @@
 	dir = 8;
 	pixel_x = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "ra" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1213,7 +1241,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "rv" = (
 /obj/structure/bed/stool/chair/sofa,
@@ -1231,12 +1259,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/head/welding,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "rS" = (
 /obj/structure/table/rack,
 /obj/item/clothing/glasses/meson,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "rT" = (
 /obj/structure/table/steel{
@@ -1249,7 +1277,7 @@
 /obj/effect/floor_decal/spline/fancy/corner,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/coffee,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "sn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1272,7 +1300,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "sx" = (
 /obj/structure/table/standard,
@@ -1280,7 +1308,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/gin{
 	pixel_y = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/diamond,
 /area/hideout)
 "sJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1322,33 +1350,33 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/bar/padded,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "tv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ty" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "tH" = (
 /obj/effect/decal/cleanable/blood/no_dry,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "tI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "tJ" = (
 /obj/structure/table/standard,
@@ -1379,11 +1407,11 @@
 /obj/item/storage/toolbox/electrical,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ua" = (
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "uc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1398,12 +1426,12 @@
 	dir = 9
 	},
 /obj/effect/gibspawner/human,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "uo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/liquidfood,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "up" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1413,7 +1441,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "uu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1431,13 +1459,13 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "uN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "uS" = (
 /obj/structure/table/standard,
@@ -1481,7 +1509,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/blood/no_dry,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "vA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1507,7 +1535,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "wd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1515,7 +1543,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "wg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1528,12 +1556,26 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"wu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
+/obj/structure/table/steel,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/gun/projectile/pistol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/turf/simulated/floor/plating,
 /area/hideout)
 "wI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "wP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1558,12 +1600,12 @@
 /obj/structure/table/steel,
 /obj/item/gripper/research,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "xd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "xf" = (
 /obj/machinery/portable_atmospherics/canister/empty/phoron{
@@ -1596,13 +1638,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "xE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/head/hardhat/dblue,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "xF" = (
 /obj/effect/spider/stickyweb,
@@ -1625,7 +1667,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "xY" = (
 /obj/effect/floor_decal/spline/fancy,
@@ -1637,7 +1679,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "xZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1645,7 +1687,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/gibs/core,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "yc" = (
 /obj/effect/floor_decal/asteroid,
@@ -1668,7 +1710,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "yO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1676,12 +1718,12 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "yQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/can/adhomian_can,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "zg" = (
 /obj/structure/sink{
@@ -1689,7 +1731,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "zn" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -1767,7 +1809,7 @@
 "AM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/autolathe,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "AQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1782,7 +1824,7 @@
 	dir = 8
 	},
 /obj/item/trash/liquidfood,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Bd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1804,13 +1846,13 @@
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Bv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/corner/black,
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "BC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1846,7 +1888,7 @@
 	pixel_y = 7;
 	pixel_x = -15
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "BD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1877,7 +1919,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Cl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1885,7 +1927,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Cu" = (
 /turf/unsimulated/mineral/asteroid,
@@ -1919,7 +1961,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Di" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -1930,7 +1972,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Dv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1938,7 +1980,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "DC" = (
 /turf/template_noop,
@@ -1954,7 +1996,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "DQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1964,13 +2006,13 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Eg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/glasses/welding/superior,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Es" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1998,7 +2040,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "EH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2013,7 +2055,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "EM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2021,7 +2063,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "EO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2038,7 +2080,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "EY" = (
 /obj/structure/table/reinforced,
@@ -2051,7 +2093,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Fi" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2074,14 +2116,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /obj/item/device/camera,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Gi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Gm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2091,12 +2133,12 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Gu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "Gv" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -2136,7 +2178,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "GQ" = (
 /obj/structure/table/standard,
@@ -2149,7 +2191,7 @@
 /obj/structure/table/steel,
 /obj/item/laser_components/capacitor/bluespace,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "Hj" = (
 /obj/effect/floor_decal/spline/fancy,
@@ -2158,7 +2200,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Hk" = (
 /turf/simulated/mineral,
@@ -2189,7 +2231,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "HT" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2202,7 +2244,7 @@
 "HV" = (
 /obj/structure/closet/toolcloset,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Ia" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2224,19 +2266,19 @@
 "Ij" = (
 /obj/machinery/vending/hydronutrients,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Ip" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Iu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/minihoe,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "IC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -2255,7 +2297,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "IQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2265,12 +2307,18 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"IW" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hideout)
 "Jb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Jp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2301,7 +2349,7 @@
 "JG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/firstaid/trauma,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "JP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2312,10 +2360,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "JQ" = (
-/obj/effect/shuttle_landmark/automatic/ghostrole_activation,
+/obj/effect/shuttle_landmark/automatic{
+	name = "Hangar Navpoint"
+	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine)
 "JT" = (
@@ -2340,7 +2390,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Ku" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2364,7 +2414,7 @@
 	layer = 5;
 	name = "adjusted reinforced window"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/diamond,
 /area/hideout)
 "KC" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -2375,7 +2425,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "KE" = (
 /obj/structure/table/steel,
@@ -2404,13 +2454,11 @@
 "KU" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "La" = (
-/obj/machinery/door/airlock{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Lc" = (
 /turf/simulated/floor/exoplanet/barren,
@@ -2429,7 +2477,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Ll" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -2446,7 +2494,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "LI" = (
 /turf/simulated/wall/shuttle/raider,
@@ -2457,7 +2505,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "LW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2476,7 +2524,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Mc" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -2497,7 +2545,7 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Mv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2505,7 +2553,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/giant_spider/hunter,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "MC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -2522,7 +2570,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "MR" = (
 /obj/structure/table/wood,
@@ -2544,7 +2592,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Ni" = (
 /obj/item/stack/cable_coil,
@@ -2580,6 +2628,17 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
+"Nu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
+/obj/structure/table/steel,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/material/twohanded/zweihander,
+/turf/simulated/floor/plating,
+/area/hideout)
 "Nx" = (
 /turf/unsimulated/mineral/asteroid,
 /area/space)
@@ -2599,7 +2658,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "NQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2607,7 +2666,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "NU" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2617,7 +2676,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "NX" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -2650,7 +2709,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "OV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2658,18 +2717,18 @@
 	dir = 8
 	},
 /obj/item/trash/gum,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "OW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Pk" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Pp" = (
 /obj/structure/table/wood,
@@ -2682,6 +2741,13 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine)
+"Py" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
 "PK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper/shady/printedmessage,
@@ -2702,12 +2768,12 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "PU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/corner/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "PY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2732,14 +2798,14 @@
 "QD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/bar/padded,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "QE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/blood/no_dry,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "QF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2766,14 +2832,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/gaming,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Rw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "RA" = (
 /obj/effect/overmap/visitable/sector/shady,
@@ -2791,7 +2857,7 @@
 /obj/machinery/door/airlock{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "RN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2812,7 +2878,7 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "RO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2822,7 +2888,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Sg" = (
 /obj/structure/window/reinforced{
@@ -2854,7 +2920,7 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "St" = (
 /obj/structure/table/reinforced,
@@ -2872,13 +2938,13 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "SG" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "SN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2893,7 +2959,10 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/random/civgun,
+/obj/item/gun/projectile/automatic/improvised,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
 /turf/simulated/floor/plating,
 /area/hideout)
 "SU" = (
@@ -2936,7 +3005,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "TC" = (
 /obj/effect/floor_decal/spline/fancy/corner{
@@ -2944,7 +3013,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/cookiesnack,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "TX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2952,14 +3021,14 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Up" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Uu" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -2985,7 +3054,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Vd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2993,7 +3062,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Vg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3005,13 +3074,13 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Vy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /obj/item/stack/cable_coil,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "VA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3028,14 +3097,14 @@
 	},
 /obj/item/gun/projectile/pistol,
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "VM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "VO" = (
 /obj/structure/bed/stool/chair/folding{
@@ -3052,14 +3121,14 @@
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/item/gun/projectile/recoilless_rifle,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hideout)
 "VV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Wf" = (
 /obj/machinery/body_scanconsole{
@@ -3108,12 +3177,12 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "WL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "WO" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -3134,7 +3203,7 @@
 "Xu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/gibspawner/human,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "XF" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -3147,7 +3216,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "XY" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -3168,7 +3237,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Yp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3176,7 +3245,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Yz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3220,7 +3289,7 @@
 /area/hideout)
 "YQ" = (
 /obj/item/broken_device,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "YY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3230,7 +3299,7 @@
 "Ze" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Zf" = (
 /obj/machinery/door/airlock/hatch{
@@ -3241,7 +3310,7 @@
 "Zq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Zs" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3249,14 +3318,14 @@
 /obj/item/reagent_containers/food/drinks/bottle{
 	pixel_y = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Zx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Zz" = (
 /obj/machinery/vending/boozeomat/merchant,
@@ -3268,7 +3337,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "ZY" = (
 /obj/structure/bed,
@@ -14043,7 +14112,7 @@ DC
 DC
 DC
 DC
-ae
+DC
 DC
 DC
 DC
@@ -29883,12 +29952,12 @@ Hk
 Nx
 Nx
 lf
-gI
-gI
+La
+La
 QD
 cj
-gI
-gI
+La
+La
 lf
 lf
 Nx
@@ -30135,7 +30204,7 @@ Nx
 Nx
 lf
 lf
-gI
+La
 cM
 Rj
 eQ
@@ -30391,8 +30460,8 @@ wI
 jh
 QD
 QD
-gI
-gI
+La
+La
 jh
 lR
 lf
@@ -30639,14 +30708,14 @@ lf
 lf
 lm
 tv
-gI
+La
 rZ
 bu
 bu
 bu
 dH
-gI
-gI
+La
+La
 VA
 lf
 lf
@@ -30898,7 +30967,7 @@ aV
 bk
 fY
 ee
-gI
+La
 YK
 ca
 lf
@@ -31400,7 +31469,7 @@ tJ
 cu
 hX
 cu
-hV
+cJ
 tt
 xz
 YK
@@ -32135,9 +32204,9 @@ lf
 jN
 Wh
 WT
-gI
-gI
-gI
+La
+La
+La
 CC
 EO
 OI
@@ -32387,9 +32456,9 @@ lf
 Sg
 iR
 pL
-gI
-gI
-gI
+La
+La
+La
 kM
 iR
 uc
@@ -32638,17 +32707,17 @@ Nx
 lf
 hB
 Gi
-gI
-gI
-gI
-gI
-gI
-gI
-gI
+La
+La
+La
+La
+La
+La
+La
 Kg
 lf
 dq
-gI
+La
 Iu
 eW
 lf
@@ -32891,18 +32960,18 @@ lf
 dm
 BC
 mx
-gI
-gI
+La
+La
 oY
 qW
 hR
-gI
+La
 Kg
 lf
 dM
-gI
-gI
-gI
+La
+La
+La
 RI
 Zx
 Zx
@@ -32914,7 +32983,7 @@ hA
 Ky
 GP
 hI
-gI
+La
 bz
 lf
 lf
@@ -33142,24 +33211,24 @@ Nx
 lf
 Yk
 Gi
-gI
+La
 jh
-gI
-gI
+La
+OI
 aR
 Gu
-gI
+La
 Op
 lf
 Ij
-gI
-gI
+La
+La
 OW
 UI
 lf
 lf
 Jp
-gI
+La
 TC
 ty
 ty
@@ -33394,13 +33463,13 @@ Nx
 lf
 dz
 SG
-gI
+La
 eS
-gI
+La
 GW
 PO
 wW
-gI
+La
 Kg
 lf
 UI
@@ -33412,11 +33481,11 @@ UI
 lf
 lf
 GO
-gI
-gI
+La
+La
 jh
 yQ
-gI
+La
 GO
 lf
 lf
@@ -33647,12 +33716,12 @@ lf
 Kg
 pB
 Gg
-gI
-gI
-gI
-gI
-gI
-gI
+La
+La
+La
+La
+La
+La
 Kg
 lf
 UI
@@ -33899,11 +33968,11 @@ UI
 Av
 kB
 dr
-gI
-gI
+La
+La
 jh
-gI
-gI
+La
+La
 Kg
 lf
 lf
@@ -33918,7 +33987,7 @@ UI
 lf
 lf
 lf
-ag
+aa
 lf
 lf
 lf
@@ -34152,10 +34221,10 @@ dr
 ie
 dr
 fe
-gI
-gI
-gI
-gI
+La
+La
+La
+La
 Kg
 lf
 lf
@@ -34170,7 +34239,7 @@ lf
 GO
 GO
 hw
-gI
+La
 Vd
 GO
 GO
@@ -34406,7 +34475,7 @@ dr
 Kg
 Kg
 Kg
-gI
+La
 Kg
 Kg
 lf
@@ -34658,7 +34727,7 @@ UI
 lf
 lf
 Kg
-gI
+La
 Kg
 lf
 lf
@@ -34673,9 +34742,9 @@ pY
 GO
 IP
 OS
-gI
+La
 jh
-gI
+La
 EJ
 ci
 GO
@@ -34910,7 +34979,7 @@ lf
 lf
 lf
 eI
-gI
+La
 WO
 lf
 UI
@@ -34924,11 +34993,11 @@ GO
 GO
 NL
 OS
-gI
-gI
-gI
-gI
-gI
+La
+La
+La
+La
+La
 uz
 ci
 GO
@@ -35162,7 +35231,7 @@ lf
 lf
 lf
 lf
-La
+Nn
 lf
 lf
 lf
@@ -35429,9 +35498,9 @@ OS
 qm
 GO
 xd
-gI
-gI
-gI
+La
+La
+La
 tI
 Ni
 SP
@@ -35657,7 +35726,7 @@ Pp
 YN
 HB
 zs
-jv
+IW
 Up
 Up
 po
@@ -35675,9 +35744,9 @@ iV
 Up
 MO
 Up
-ac
+ab
 wI
-gI
+La
 VT
 Bd
 VM
@@ -35687,22 +35756,22 @@ rS
 tI
 GO
 AA
-gI
+La
 mr
 Dv
-jv
+ac
 iV
 gw
 Lv
 Up
 DL
-gI
+La
 ua
 Ze
-gI
+La
 hb
-gI
-gI
+La
+La
 HP
 Up
 yv
@@ -35909,7 +35978,7 @@ At
 hh
 HB
 zs
-jv
+IW
 Rw
 Rw
 Rw
@@ -35927,9 +35996,9 @@ Mv
 xZ
 Rw
 Rw
-ac
-gI
-gI
+ad
+La
+La
 RN
 GO
 aJ
@@ -35938,23 +36007,23 @@ rL
 kn
 Yp
 GO
-SP
-gI
+wu
+La
 jP
 Rw
-jv
+ae
 Rw
 Rw
 BU
 Rw
 CW
-gI
+La
 hb
 hb
 jh
 wI
 Xu
-gI
+La
 Bv
 Rw
 mA
@@ -36186,11 +36255,11 @@ So
 GO
 xd
 YQ
-gI
-gI
+La
+La
 UT
 ao
-SP
+Nu
 PU
 SE
 jY
@@ -36422,7 +36491,7 @@ lf
 lf
 lf
 lf
-ag
+af
 lf
 lf
 lf
@@ -36437,9 +36506,9 @@ my
 jo
 BO
 tX
-hA
+Py
 EV
-hA
+Py
 Wy
 pn
 YB
@@ -36689,10 +36758,10 @@ hg
 my
 kF
 wI
-gI
-gI
-gI
-gI
+La
+La
+La
+La
 PU
 SE
 GO
@@ -36926,7 +36995,7 @@ Kg
 zn
 Kg
 Kg
-gI
+La
 Kg
 JV
 lf
@@ -36941,9 +37010,9 @@ GO
 GO
 my
 CW
-gI
-gI
-gI
+La
+La
+La
 PU
 pR
 pY
@@ -37174,10 +37243,10 @@ Nx
 lf
 Kg
 Jb
-gI
-gI
+La
+La
 Zq
-gI
+La
 wI
 Vy
 JV
@@ -37427,8 +37496,8 @@ lf
 Kg
 Kg
 AM
-gI
-gI
+La
+La
 jh
 Zq
 Vy
@@ -37446,7 +37515,7 @@ lf
 As
 GO
 IQ
-gI
+La
 wd
 GO
 GO
@@ -37681,8 +37750,8 @@ Kg
 Kg
 up
 xX
-gI
-gI
+La
+La
 Vy
 JV
 JV
@@ -38186,7 +38255,7 @@ CD
 Kg
 tI
 HV
-gI
+La
 go
 JV
 Kx
@@ -38194,7 +38263,7 @@ lf
 Nx
 lf
 aA
-Gu
+aC
 RI
 RO
 ng
@@ -38437,8 +38506,8 @@ Kg
 Kg
 aS
 gW
-gI
-gI
+La
+La
 Vy
 JV
 JV
@@ -38689,7 +38758,7 @@ Kg
 qN
 jh
 uo
-gI
+La
 jh
 Vy
 JV
@@ -38702,7 +38771,7 @@ lf
 UI
 UI
 UI
-La
+Nn
 UI
 UI
 UI
@@ -38938,11 +39007,11 @@ Cu
 lf
 Kg
 Jb
-gI
-gI
+La
+La
 WL
 ua
-gI
+La
 Vy
 JV
 lf
@@ -39444,7 +39513,7 @@ lf
 lf
 lf
 lf
-ag
+wP
 lf
 lf
 lf
@@ -46496,7 +46565,7 @@ Lc
 Lc
 Lc
 Lc
-ad
+Lc
 Lc
 Lc
 Lc
@@ -50023,7 +50092,7 @@ Wr
 Wr
 Wr
 Cu
-Lc
+hV
 Cu
 Cu
 Wr
@@ -55120,7 +55189,7 @@ DC
 DC
 DC
 DC
-ae
+DC
 DC
 DC
 DC
