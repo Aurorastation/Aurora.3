@@ -114,8 +114,3 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_yacht_civ_shuttle_dock"
 	defer_initialisation = TRUE
-
-
-// items
-
-// /obj/item/clothing/accessory/badge/passport/coc
