@@ -164,3 +164,32 @@
 	icon_keyboard = null
 	circuit = null
 
+// --- raskolnikov
+
+/obj/effect/overmap/visitable/ship/landable/raskolnikov
+	name = "Raskolnikov"
+	class = "ICV"
+	designation = "Raskolnikov"
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
+	shuttle = "Raskolnikov"
+	icon_state = "intrepid"
+	moving_state = "intrepid_moving"
+	colors = list("#cfd4ff", "#78adf8")
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_SMALL
+	designer = "Hephaestus Industries"
+	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
+	sizeclass = "Pathfinder Exploration Shuttle"
+	shiptype = "Field expeditions and private research uses"
+
+/obj/effect/overmap/visitable/ship/landable/raskolnikov/proc/force_move_to_open_space()
+	// to src.landmark
+	var/datum/shuttle/autodock/overmap/shuttle2 = SSshuttle.shuttles[shuttle]
+	shuttle2.attempt_move(landmark)
+
+/obj/machinery/computer/shuttle_control/explore/terminal/raskolnikov
+	name = "\improper Raskolnikov control console"
+	shuttle_tag = "Raskolnikov"

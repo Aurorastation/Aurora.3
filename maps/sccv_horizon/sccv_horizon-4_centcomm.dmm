@@ -21423,8 +21423,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bcb" = (
-/obj/structure/shuttle/engine/propulsion/burst/right,
-/turf/simulated/floor/plating,
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/floor/airless,
 /area/shuttle/mercenary)
 "bcc" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -27664,7 +27664,7 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/obj/effect/shuttle_landmark/merc_ship/base{
+/obj/effect/shuttle_landmark/raskolnikov/base{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -29690,6 +29690,9 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/structure/fuel_port/phoron{
+	pixel_y = 32
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "btX" = (
@@ -29946,14 +29949,23 @@
 /area/shuttle/mercenary)
 "buA" = (
 /obj/machinery/light/small/emergency,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "buB" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "buC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
@@ -30494,8 +30506,8 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "bwy" = (
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/airless,
 /area/shuttle/mercenary)
 "bwC" = (
 /obj/structure/table/rack,
@@ -30739,12 +30751,12 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "bxn" = (
-/obj/structure/shuttle/engine/propulsion/burst/left,
-/turf/simulated/floor/plating,
+/obj/effect/overmap/visitable/ship/landable/raskolnikov,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bxv" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/mercenary)
 "bxx" = (
 /obj/machinery/door/blast/odin/open{
@@ -35015,13 +35027,6 @@
 /obj/structure/sign/christmas/snowman,
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
-"bMT" = (
-/obj/effect/shuttle_landmark/merc_ship/interim{
-	dir = 4
-	},
-/obj/effect/step_trigger/thrower/shuttle/east,
-/turf/space/transit/north,
-/area/template_noop)
 "bMU" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -35390,6 +35395,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
+"cQJ" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/raskolnikov,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/mercenary)
+"cSu" = (
+/obj/machinery/iff_beacon,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/mercenary)
 "cTG" = (
 /turf/simulated/floor/holofloor/grass{
 	dir = 9;
@@ -35630,6 +35646,10 @@
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
+"dFL" = (
+/obj/machinery/computer/ship/sensors/terminal,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/mercenary)
 "dGw" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -36731,6 +36751,10 @@
 	},
 /turf/space/transit/north,
 /area/template_noop)
+"hzc" = (
+/obj/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/mercenary)
 "hzT" = (
 /obj/structure/table/stone/marble,
 /obj/structure/window/reinforced/holowindow{
@@ -37674,6 +37698,12 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"kMm" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/mercenary)
 "kNq" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -38430,6 +38460,13 @@
 	name = "dirt"
 	},
 /area/horizon/holodeck/source_adhomai)
+"mXb" = (
+/obj/machinery/shipsensors,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/mercenary)
 "mZu" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -40096,6 +40133,13 @@
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
+"tJO" = (
+/obj/effect/step_trigger/thrower/shuttle/east,
+/obj/effect/shuttle_landmark/raskolnikov/interim{
+	dir = 4
+	},
+/turf/space/transit/north,
+/area/template_noop)
 "tMc" = (
 /obj/structure/shuttle_part/ccia{
 	icon_state = "7,0";
@@ -40167,6 +40211,10 @@
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"uoB" = (
+/obj/machinery/computer/ship/helm/terminal,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/mercenary)
 "uoQ" = (
 /obj/structure/flora/bush,
 /turf/simulated/floor/exoplanet/snow,
@@ -51946,8 +51994,8 @@ aac
 aac
 aac
 aac
-aac
-aac
+bLI
+bLI
 bLI
 aac
 aac
@@ -52204,8 +52252,8 @@ bLI
 bLI
 bLI
 bLI
-bLI
-bLI
+aac
+aac
 aac
 aac
 aac
@@ -55042,7 +55090,7 @@ aac
 aab
 bLJ
 bLJ
-bMT
+tJO
 bLJ
 aab
 aab
@@ -84224,7 +84272,7 @@ btV
 buz
 axk
 axk
-bxn
+axk
 aaa
 aaa
 aaa
@@ -84479,9 +84527,9 @@ bsI
 axk
 btW
 buA
-axk
+bqv
 bwy
-bxv
+kMm
 aaa
 aaa
 aaa
@@ -84737,7 +84785,7 @@ btz
 btX
 buB
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -84974,8 +85022,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+mXb
+cSu
 axk
 bjF
 bkq
@@ -84994,7 +85042,7 @@ axk
 btY
 buC
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -85251,7 +85299,7 @@ axk
 abc
 axk
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -85493,9 +85541,9 @@ bis
 axk
 bjH
 bhC
+cQJ
 bhC
-bhC
-bhC
+dFL
 bhC
 axk
 boP
@@ -85508,7 +85556,7 @@ axk
 btZ
 buE
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -85750,7 +85798,7 @@ bhC
 biY
 bjI
 bhC
-bhC
+bxn
 bhC
 bhC
 bhC
@@ -85765,7 +85813,7 @@ btC
 bua
 buF
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -86006,9 +86054,9 @@ bhD
 bit
 axk
 bjJ
+hzc
 bhC
-bhC
-bhC
+uoB
 bhC
 bhC
 axk
@@ -86022,7 +86070,7 @@ axk
 bub
 buG
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -86279,7 +86327,7 @@ axk
 buc
 axk
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -86536,7 +86584,7 @@ btE
 bud
 buI
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -86793,7 +86841,7 @@ btF
 bue
 buJ
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -87050,7 +87098,7 @@ btG
 buf
 buK
 axk
-bwy
+bcb
 bxv
 aaa
 aaa
@@ -87308,7 +87356,7 @@ bug
 buL
 axk
 axk
-bcb
+axk
 aaa
 aaa
 aaa

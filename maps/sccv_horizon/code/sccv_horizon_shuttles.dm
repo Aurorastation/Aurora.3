@@ -70,36 +70,61 @@
 	landmark_tag = "nav_skipjack_interim"
 	base_turf = /turf/space/transit/north
 
+//-// Mercenary Shuttle (OLD) //-//
+
+// /datum/shuttle/autodock/multi/antag/merc_ship
+// 	name = "ICV Raskolnikov"
+// 	current_location = "nav_merc_start"
+// 	landmark_transition = "nav_merc_interim"
+// 	dock_target = "merc_shuttle"
+// 	warmup_time = 10
+// 	move_time = 75
+// 	shuttle_area = /area/shuttle/mercenary
+// 	destination_tags = list(
+// 		"nav_merc_start",
+// 		"nav_horizon_dock_deck_3_starboard_1",
+// 		NAV_HORIZON_EXTERIOR_ALL_DECKS,
+// 		NAV_HORIZON_EXTERIOR_ALL_SNEAKY,
+// 		)
+
+// 	landmark_transition = "nav_merc_interim"
+// 	announcer = "SCCV Horizon Sensor Array"
+// 	arrival_message = "Attention, the radar systems have detected a spacecraft approaching the ship's perimeter."
+// 	departure_message = "Attention, the radar systems have detected a spacecraft leaving the ship's perimeter. "
+
+// /obj/effect/shuttle_landmark/merc_ship/base
+// 	name = "Mercenary Base"
+// 	landmark_tag = "nav_merc_start"
+// 	docking_controller = "merc_base"
+// 	base_turf = /turf/space/dynamic
+// 	base_area = /area/space
+
+// /obj/effect/shuttle_landmark/merc_ship/interim
+// 	name = "In Transit"
+// 	landmark_tag = "nav_merc_interim"
+// 	base_turf = /turf/space/transit/north
+
 //-// Mercenary Shuttle //-//
 
-/datum/shuttle/autodock/multi/antag/merc_ship
-	name = "ICV Raskolnikov"
+/datum/shuttle/autodock/overmap/raskolnikov
+	name = "Raskolnikov"
+	move_time = 1
+	shuttle_area = list(/area/shuttle/mercenary)
+	dock_target = "merc_shuttle"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
-	dock_target = "merc_shuttle"
-	warmup_time = 10
-	move_time = 75
-	shuttle_area = /area/shuttle/mercenary
-	destination_tags = list(
-		"nav_merc_start",
-		"nav_horizon_dock_deck_3_starboard_1",
-		NAV_HORIZON_EXTERIOR_ALL_DECKS,
-		NAV_HORIZON_EXTERIOR_ALL_SNEAKY,
-		)
+	range = 2
+	fuel_consumption = 4
+	logging_home_tag = "nav_merc_start"
 
-	landmark_transition = "nav_merc_interim"
-	announcer = "SCCV Horizon Sensor Array"
-	arrival_message = "Attention, the radar systems have detected a spacecraft approaching the ship's perimeter."
-	departure_message = "Attention, the radar systems have detected a spacecraft leaving the ship's perimeter. "
-
-/obj/effect/shuttle_landmark/merc_ship/base
+/obj/effect/shuttle_landmark/raskolnikov/base
 	name = "Mercenary Base"
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_base"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/merc_ship/interim
+/obj/effect/shuttle_landmark/raskolnikov/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
 	base_turf = /turf/space/transit/north
