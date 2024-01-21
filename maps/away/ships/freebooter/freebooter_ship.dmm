@@ -5217,9 +5217,6 @@
 	dir = 4;
 	target_pressure = 250
 	},
-/obj/effect/floor_decal/industrial/hatch{
-	color = "#557EA3"
-	},
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -8011,8 +8008,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/machinery/alarm/north{
-	pixel_y = -32;
+/obj/machinery/alarm/south{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
