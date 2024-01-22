@@ -169,7 +169,10 @@
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYREMOVE(blacklisted_citizenship, citizenship.name)
 	var/datum/job/J = SSjobs.GetJob("Diplomatic Aide")
-	LAZYDISTINCTADD(J.blacklisted_citizenship, H.citizenship)
+	if(citizenship.linked_citizenship)
+		LAZYDISTINCTADD(J.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYDISTINCTADD(J.blacklisted_citizenship, H.citizenship)
 	if(J.total_positions > 0)
 		J.total_positions--
 
@@ -232,3 +235,6 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+
+/datum/job/consular_assistant/after_spawn(mob/living/carbon/human/H)
+	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)

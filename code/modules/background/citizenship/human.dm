@@ -169,7 +169,9 @@
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
-c
+/datum/outfit/job/consular_assistant/sol
+	name = "Sol Consular Officer"
+
 	accessory = /obj/item/clothing/accessory/sol_pin
 
 /datum/citizenship/sol_alliance/eridani
