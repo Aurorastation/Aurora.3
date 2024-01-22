@@ -78,8 +78,7 @@
 
 /datum/outfit/job/consular_assistant/pra
 	glasses = null
-	uniform = /obj/item/clothing/under/tajaran/consular
-	head = /obj/item/clothing/head/tajaran/consular
+	uniform = /obj/item/clothing/under/tajaran/smart
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_card = 1,
 		/obj/item/storage/box/hadii_manifesto = 1,
@@ -167,8 +166,7 @@
 
 /datum/outfit/job/consular_assistant/dpra
 	glasses = null
-	uniform = /obj/item/clothing/under/tajaran/consular/dpra
-	head = /obj/item/clothing/head/tajaran/consular/dpra
+	uniform = /obj/item/clothing/under/tajaran/smart
 	backpack_contents = list(
 		/obj/item/storage/box/dpra_manifesto = 1,
 		/obj/item/storage/field_ration/dpra = 1
@@ -258,8 +256,7 @@
 
 /datum/outfit/job/consular_assistant/nka
 	glasses = null
-	uniform = /obj/item/clothing/under/tajaran/consular/nka
-	head = /obj/item/clothing/head/tajaran/consular/nka
+	uniform = /obj/item/clothing/under/tajaran/fancy
 	backpack_contents = list(
 		/obj/item/folder/blue/nka = 1,
 		/obj/item/storage/box/nka_manifesto = 1,
