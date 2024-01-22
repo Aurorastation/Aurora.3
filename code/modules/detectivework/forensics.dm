@@ -3,12 +3,12 @@
 	w_class = ITEMSIZE_TINY
 
 /**
- * The maximum amount of unknown points in a fingerprint string (represented as asterisks)
+ * The maximum percentage of unknown points in a fingerprint string (represented as asterisks)
  * before the fingerprint is considered incomplete enough (and thus not recognisable)
  *
  * A fingerprint is 32 characters long and every unknown point of it is "*"
  */
-#define MAX_UNKNOWN_POINTS_IN_FINGERPRINT 31
+#define MAX_UNKNOWN_POINTS_FOR_KNOWN_FINGERPRINT_PERCENTAGE 98
 
 /**
  * Returns `TRUE` if the fingerprint is complete (above `FINGERPRINT_COMPLETE`), `FALSE` otherwise
@@ -16,12 +16,13 @@
  * * print - The fingerprint (a string)
  */
 /proc/is_complete_print(var/print)
-	if(stringpercent(print) <= MAX_UNKNOWN_POINTS_IN_FINGERPRINT)
+	var/unknown_points_percentage = stringpercent(print)
+	if(unknown_points_percentage <= MAX_UNKNOWN_POINTS_FOR_KNOWN_FINGERPRINT_PERCENTAGE)
 		return TRUE
 	else
 		return FALSE
 
-#undef MAX_UNKNOWN_POINTS_IN_FINGERPRINT
+#undef MAX_UNKNOWN_POINTS_FOR_KNOWN_FINGERPRINT_PERCENTAGE
 
 /atom/var/list/suit_fibers
 
