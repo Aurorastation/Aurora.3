@@ -6912,10 +6912,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"fhB" = (
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor,
-/area/horizon/maintenance/deck_three/aft/starboard)
 "fid" = (
 /obj/structure/disposalpipe/down,
 /obj/structure/lattice/catwalk,
@@ -17895,7 +17891,8 @@
 /obj/item/melee/baton/loaded,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Supplies Room"
+	c_tag = "Bridge - Supplies Room";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/supply)
@@ -24802,6 +24799,9 @@
 	target_pressure = 200
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "rvn" = (
@@ -48990,7 +48990,7 @@ niZ
 vKM
 oXs
 rvi
-fhB
+jZN
 cGI
 nfx
 fhs
