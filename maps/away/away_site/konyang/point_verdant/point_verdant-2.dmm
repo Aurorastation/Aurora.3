@@ -3867,9 +3867,9 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 1
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "konyang_corporate"
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/shallow)
@@ -6421,6 +6421,10 @@
 /area/point_verdant/outdoors)
 "th" = (
 /obj/machinery/door/urban,
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "ti" = (
@@ -7411,10 +7415,6 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "konyang_corporate"
-	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "vZ" = (
@@ -7868,6 +7868,10 @@
 	},
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - konyang_bar";
+	identifier = "konyang_bar"
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
@@ -10733,9 +10737,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Fi" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/decal/curb{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_corporate_entrance"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
@@ -10852,6 +10859,19 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"FG" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_corporate_entrance";
+	name = "Entrance Shutters";
+	req_access = list(225);
+	pixel_x = 20;
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/offices)
 "FH" = (
 /obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_y = 7;
@@ -14904,6 +14924,16 @@
 /obj/structure/flora/tree/konyang/fall,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/interior/shallow)
+"Re" = (
+/obj/machinery/button/remote/blast_door{
+	id = "konyang_corporate_entrance";
+	name = "Entrance Shutters";
+	req_access = list(225);
+	pixel_y = 24;
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/point_verdant/outdoors)
 "Rf" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -15401,9 +15431,9 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "konyang_corporate"
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/shallow)
@@ -15414,9 +15444,12 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "SV" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/decal/curb{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_corporate_entrance"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
@@ -15525,7 +15558,10 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "Tk" = (
-/obj/machinery/door/blast/shutters,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "konyang_corporate_entrance"
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
 "Tm" = (
@@ -15708,7 +15744,7 @@
 /obj/structure/table/wood,
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_corporate";
-	name = "Building Shutters";
+	name = "Building Lockdown";
 	req_access = list(225)
 	},
 /turf/simulated/floor/wood,
@@ -16936,9 +16972,9 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 4
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "konyang_corporate"
+/obj/machinery/door/blast/shutters/open{
+	id = "konyang_corporate";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/shallow)
@@ -26067,7 +26103,7 @@ ci
 ci
 ci
 ci
-bh
+Re
 BT
 iF
 LN
@@ -26836,7 +26872,7 @@ ci
 id
 iG
 sH
-hC
+FG
 Fi
 cC
 Jo
