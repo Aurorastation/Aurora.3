@@ -2,11 +2,26 @@
 	icon = 'icons/obj/forensics.dmi'
 	w_class = ITEMSIZE_TINY
 
-//This is the output of the stringpercent(print) proc, and means about 80% of
-//the print must be there for it to be complete.  (Prints are 32 digits)
-var/const/FINGERPRINT_COMPLETE = 6
+/**
+ * The maximum amount of unknown points in a fingerprint string (represented as asterisks)
+ * before the fingerprint is considered incomplete enough (and thus not recognisable)
+ *
+ * A fingerprint is 32 characters long and every unknown point of it is "*"
+ */
+#define MAX_UNKNOWN_POINTS_IN_FINGERPRINT 31
+
+/**
+ * Returns `TRUE` if the fingerprint is complete (above `FINGERPRINT_COMPLETE`), `FALSE` otherwise
+ *
+ * * print - The fingerprint (a string)
+ */
 /proc/is_complete_print(var/print)
-	return stringpercent(print) <= FINGERPRINT_COMPLETE
+	if(stringpercent(print) <= MAX_UNKNOWN_POINTS_IN_FINGERPRINT)
+		return TRUE
+	else
+		return FALSE
+
+#undef MAX_UNKNOWN_POINTS_IN_FINGERPRINT
 
 /atom/var/list/suit_fibers
 

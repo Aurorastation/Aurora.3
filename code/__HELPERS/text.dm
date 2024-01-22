@@ -409,14 +409,25 @@
 				return 0
 	return newtext
 
-//This proc returns the number of chars of the string that is the character
-//This is used for detective work to determine fingerprint completion.
-/proc/stringpercent(text,character = "*")
+/**
+ * This proc returns the number of chars of the string that is the character
+ *
+ * This is used for detective work to determine fingerprint completion
+ *
+ * Returns the percentage of which one character makes up of the string (eg string "1234" with character "2" would be 25%)
+ *
+ * * text - The string to calculate the percent of
+ * * character - The character you want to know for which it makes the percentage in the string
+ *
+ */
+/proc/stringpercent(text, character = "*")
 	if(!text || !character)
 		return 0
 	var/count = 0
-	for(var/i = 1, i <= length(text), i++)
-		var/a = copytext(text,i,i+1)
+	var/lentext = length(text)
+	var/a = ""
+	for(var/i = 1, i <= lentext, i += length(a))
+		a = text[i]
 		if(a == character)
 			count++
 	return count
