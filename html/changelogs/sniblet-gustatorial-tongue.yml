@@ -1,0 +1,6 @@
+author: Sniblet
+
+delete-after: True
+
+changes:
+  - tweak: "Using the gustatorial center (tongue) now causes the user to 'sample' something instead of licking it."
