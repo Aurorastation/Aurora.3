@@ -49,7 +49,9 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
 /obj/item/clothing/head/helmet/space/void/merc/unathi/Initialize()
+	. = ..()
 	refit_for_species(BODYTYPE_UNATHI)
 
 /obj/item/clothing/suit/space/void/merc/unathi/Initialize()
+	. = ..()
 	refit_for_species(BODYTYPE_UNATHI)
