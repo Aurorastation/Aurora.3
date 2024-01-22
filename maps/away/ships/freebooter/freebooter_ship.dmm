@@ -134,19 +134,22 @@
 /area/ship/freebooter_ship/pod3)
 "ajO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	layer = 2.71;
+	dir = 9
 	},
-/turf/simulated/floor/reinforced,
-/area/ship/freebooter_ship/gunnery)
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "akg" = (
-/obj/structure/sign/poster{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
@@ -166,13 +169,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/engineering)
-"anz" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "junker_gun"
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/gunnery)
 "aok" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -292,6 +288,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
+"ayL" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship)
 "aAs" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -331,20 +334,24 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
+"aDe" = (
+/obj/machinery/cryopod,
+/obj/structure/cryofeed/pipes{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/freebooter_ship/cryo)
 "aDv" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, main gun"
@@ -389,6 +396,23 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
+"aEE" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 5
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "aFI" = (
 /obj/item/stack/tile/floor_dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -552,8 +576,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "aOU" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "aQQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -715,17 +749,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "bcf" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/gunneryentrance)
 "bci" = (
 /obj/machinery/appliance/cooker/grill,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -940,6 +965,7 @@
 	master_tag = "freebooter_port_2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "btH" = (
@@ -958,15 +984,25 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/device/multitool,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "btW" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freebooter_shuttle)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/freebooter_ship/foyer)
 "buA" = (
 /obj/structure/flora/pottedplant{
 	dead = 1;
@@ -1067,6 +1103,7 @@
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "bzr" = (
@@ -1179,6 +1216,9 @@
 	layer = 2.45;
 	name = "lattice"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "bJc" = (
@@ -1190,6 +1230,7 @@
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "bJj" = (
@@ -1274,22 +1315,12 @@
 	icon_state = "dmg4"
 	},
 /area/ship/freebooter_ship/ammo)
-"bUy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/forehallway)
 "bWt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /obj/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
@@ -1602,6 +1633,10 @@
 /area/ship/freebooter_ship/foyer)
 "dbA" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "freebooter_co2_shutters"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "dbV" = (
@@ -1622,10 +1657,6 @@
 "dgS" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 4
-	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
@@ -1691,12 +1722,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "dqF" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/freebooter_shuttle)
+/turf/simulated/wall,
+/area/ship/freebooter_ship/medical)
 "drK" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -1844,11 +1871,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod1)
 "dOw" = (
@@ -1989,13 +2011,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
 "edN" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
+/area/shuttle/freebooter_shuttle)
 "efd" = (
 /obj/structure/inflatable/wall,
 /obj/effect/landmark/entry_point/port{
@@ -2182,9 +2203,8 @@
 	dir = 8
 	},
 /obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/walllocker/medical{
-	name = "i hope we dont have to open this (Surgical Closet)";
+	name = "I hope we don't have to open this (Surgical Closet)";
 	pixel_y = 32
 	},
 /obj/item/surgery/circular_saw,
@@ -2195,24 +2215,10 @@
 /obj/item/wrench,
 /obj/item/tape_roll,
 /obj/item/stack/cable_coil,
+/obj/item/reagent_containers/inhaler/soporific,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/medical)
-"ezi" = (
-/obj/machinery/door/airlock/external{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock{
-	name = "freebooter_port_2";
-	master_tag = "freebooter_port_2"
-	},
-/obj/machinery/access_button{
-	pixel_x = -8;
-	pixel_y = 28;
-	dir = 8
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/freebooter_ship/foyer)
 "ezT" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -2411,17 +2417,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod7)
-"fjs" = (
-/obj/machinery/cryopod,
-/obj/structure/cryofeed/pipes{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/freebooter_ship/cryo)
 "fjD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -2474,7 +2469,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/firealarm/south,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -2484,6 +2478,10 @@
 	icon_state = "lattice";
 	layer = 2.45;
 	name = "lattice"
+	},
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
@@ -2530,6 +2528,9 @@
 	name = "Propellant Management";
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
 "fBb" = (
@@ -2549,8 +2550,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
+/obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/space)
+/area/ship/freebooter_ship/exterior)
 "fJo" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -2575,6 +2577,9 @@
 	dir = 4
 	},
 /obj/effect/overmap/visitable/ship/landable/freebooter_shuttle,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "fNZ" = (
@@ -2868,6 +2873,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
+"guH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/forehallway)
 "gwg" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
@@ -2901,16 +2921,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	name = "freebooter_port_2";
+	master_tag = "freebooter_port_2"
+	},
 /obj/machinery/access_button{
 	pixel_x = -8;
 	pixel_y = 28;
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
-	name = "freebooter_port_1";
-	master_tag = "freebooter_port_1"
-	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "gzr" = (
@@ -3696,15 +3717,11 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 9
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/effect/floor_decal/industrial/warning{
 	layer = 2.71
 	},
 /turf/simulated/floor/airless,
@@ -3744,9 +3761,10 @@
 /area/ship/freebooter_ship/gunnery)
 "iOV" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "junker_gun"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/gunnery)
 "iQg" = (
@@ -3771,6 +3789,12 @@
 /obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
+"iRt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/freebooter_ship/gunnery)
 "iTc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
@@ -3891,6 +3915,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
+"jlF" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/forehallwayport)
 "jnK" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
@@ -3905,8 +3932,11 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "jrC" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/medical)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/freebooter_ship/gunnery)
 "jvN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -3915,6 +3945,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
 "jzk" = (
@@ -4245,21 +4276,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "kqx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/ship/freebooter_ship/foyer)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/medical)
 "krH" = (
 /obj/item/paper/crumpled/bloody,
 /obj/effect/decal/cleanable/dirt,
@@ -4465,10 +4483,6 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "kEe" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -4479,24 +4493,11 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
-"kFh" = (
-/obj/machinery/door/airlock/external{
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = 8;
-	pixel_y = 28;
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
-	name = "freebooter_port_1";
-	master_tag = "freebooter_port_1"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/freebooter_ship/foyer)
 "kHb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4537,17 +4538,14 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
@@ -4577,10 +4575,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "kPY" = (
@@ -4780,7 +4778,7 @@
 "llB" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
-	dir = 4
+	dir = 5
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
@@ -4969,6 +4967,10 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	layer = 2.71;
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	layer = 2.71
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
@@ -5160,7 +5162,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/firealarm/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
@@ -5169,6 +5170,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Port Propulsion Blast Shutters";
+	id = "freebooter_co2_shutters";
+	pixel_x = null;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
@@ -5240,6 +5247,7 @@
 	shuttle_tag = "Freebooter Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "moJ" = (
@@ -5773,7 +5781,6 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
@@ -5878,6 +5885,19 @@
 "nRY" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
+"nSY" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "nVi" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/fire{
@@ -5896,6 +5916,10 @@
 	},
 /obj/item/storage/firstaid/trauma{
 	pixel_x = -4
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = -3;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/medical)
@@ -5989,10 +6013,6 @@
 /obj/machinery/computer/ship/helm{
 	dir = 8
 	},
-/obj/machinery/light{
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "obe" = (
@@ -6002,6 +6022,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
+"obM" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor,
+/area/shuttle/freebooter_shuttle)
 "odb" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6014,6 +6039,7 @@
 	master_tag = "freebooter_port_2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "odX" = (
@@ -6052,6 +6078,7 @@
 	name = "graphite locker";
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
 "ofV" = (
@@ -6434,6 +6461,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
+"oQl" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "junker_gun"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/gunnery)
 "oRN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/machinery/meter,
@@ -6865,12 +6900,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
-"pJZ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/ship/freebooter_ship/gunnery)
 "pMN" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -7458,9 +7487,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
 "qMB" = (
@@ -7607,6 +7634,10 @@
 	layer = 2.71;
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "rjL" = (
@@ -7694,7 +7725,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "rsh" = (
@@ -7733,6 +7763,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
+"rtO" = (
+/turf/simulated/wall,
+/area/ship/freebooter_ship/gunneryentrance)
 "ruo" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -7803,8 +7836,8 @@
 	layer = 2.45;
 	name = "lattice"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
@@ -7828,6 +7861,7 @@
 	pixel_y = 9;
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "rEb" = (
@@ -7896,18 +7930,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "rHI" = (
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
 	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft,
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
-	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "rJT" = (
@@ -7966,15 +7993,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "rQJ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "rRa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -8002,6 +8028,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "rYv" = (
@@ -8046,9 +8073,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod2)
-"sek" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/gunneryentrance)
 "sjD" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -8358,16 +8382,14 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
-	dir = 9
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
@@ -8415,6 +8437,7 @@
 	pixel_x = -40;
 	pixel_y = -3
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "sWG" = (
@@ -8471,6 +8494,23 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
+"tcX" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "freebooter_port_2";
+	master_tag = "freebooter_port_2"
+	},
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/freebooter_ship/foyer)
 "tcY" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
@@ -8600,6 +8640,7 @@
 /area/ship/freebooter_ship/pod3)
 "tuB" = (
 /obj/machinery/computer/shuttle_control/explore/freebooter_shuttle,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "tuT" = (
@@ -8798,22 +8839,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/dorms)
-"tVP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock{
-	name = "freebooter_port_1";
-	master_tag = "freebooter_port_1"
-	},
-/turf/simulated/floor,
-/area/ship/freebooter_ship/foyer)
 "tXx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
@@ -8983,11 +9008,6 @@
 	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
 "ulo" = (
@@ -9071,10 +9091,12 @@
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "uFc" = (
-/obj/structure/railing/mapped{
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
 	dir = 1
 	},
-/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "uGz" = (
@@ -9091,16 +9113,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
-	name = "freebooter_port_2";
-	master_tag = "freebooter_port_2"
-	},
 /obj/machinery/access_button{
 	pixel_x = 8;
 	pixel_y = 28;
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock{
+	name = "freebooter_port_1";
+	master_tag = "freebooter_port_1"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "uJN" = (
@@ -9607,10 +9630,6 @@
 /area/ship/freebooter_ship/thruster2)
 "vDD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock{
-	name = "freebooter_port_2";
-	master_tag = "freebooter_port_2"
-	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 2;
 	pixel_y = 28;
@@ -9618,6 +9637,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "freebooter_port_1";
+	master_tag = "freebooter_port_1"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
@@ -9815,8 +9838,17 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/bridge)
 "vZW" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/medical)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/pod1)
 "wcN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair{
@@ -9825,13 +9857,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
 "wdp" = (
-/obj/structure/railing/mapped{
+/obj/machinery/shipsensors/weak,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "wdL" = (
@@ -9894,20 +9925,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/head)
 "wmT" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/machinery/atmospherics/unary/heater,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
 "wnf" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 1
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/freebooter_shuttle)
+/turf/space/dynamic,
+/area/space)
 "wnq" = (
 /obj/structure/table/steel,
 /obj/item/gun/projectile/automatic/improvised,
@@ -9966,8 +9990,7 @@
 	layer = 2.71;
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -10021,8 +10044,12 @@
 /turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "wGc" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/forehallwayport)
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "wHo" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/ship_engine.dmi';
@@ -10237,9 +10264,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod3)
-"wZp" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/gunneryentrance)
 "wZX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/rifle/used,
@@ -10296,6 +10320,23 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
+"xcD" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock{
+	name = "freebooter_port_1";
+	master_tag = "freebooter_port_1"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/freebooter_ship/foyer)
 "xcR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10330,6 +10371,22 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/freebooter_ship/foyer)
+"xfP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock{
+	name = "freebooter_port_2";
+	master_tag = "freebooter_port_2"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
@@ -10600,6 +10657,10 @@
 "xUb" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "freebooter_co2_shutters"
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "xWB" = (
@@ -10671,10 +10732,9 @@
 	layer = 2.71
 	},
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "ygA" = (
@@ -37816,7 +37876,7 @@ xRX
 xRX
 xRX
 uCl
-fGM
+wnf
 uCl
 fZq
 xRX
@@ -38330,7 +38390,7 @@ xRX
 rtf
 vUu
 uyM
-fGM
+wnf
 aHs
 xRX
 xRX
@@ -38563,17 +38623,17 @@ xRX
 xRX
 xRX
 xRX
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
 eIb
 wUi
 ldw
 wUi
 eIb
-aOU
-aOU
+fGM
+fGM
 esB
 gwg
 esB
@@ -38581,32 +38641,32 @@ wHo
 esB
 gwg
 esB
-aOU
-aOU
+fGM
+fGM
 cLC
 cLC
 kwe
 tKj
 tKj
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 qiz
 qiz
 mWz
 qiz
 qiz
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 eUq
 eUq
 pRf
 eUq
 eUq
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 xRX
 xRX
 xRX
@@ -38819,8 +38879,8 @@ xRX
 xRX
 xRX
 xRX
-aOU
-aOU
+fGM
+fGM
 xRX
 xRX
 eIb
@@ -38863,7 +38923,7 @@ fTG
 eUq
 eUq
 xRX
-aOU
+fGM
 xqI
 xqI
 xqI
@@ -38875,9 +38935,9 @@ imE
 imE
 imE
 imE
+oQl
+oQl
 iOV
-iOV
-anz
 xRX
 xRX
 xRX
@@ -39134,7 +39194,7 @@ rjL
 tQn
 sxw
 www
-anz
+iOV
 xRX
 xRX
 xRX
@@ -39335,8 +39395,8 @@ gFA
 ewW
 ewW
 ewW
-aOU
-aOU
+fGM
+fGM
 wUi
 syV
 bhd
@@ -39344,7 +39404,7 @@ xBh
 bhd
 tvh
 wUi
-aOU
+fGM
 gwg
 pUP
 kmP
@@ -39352,7 +39412,7 @@ qDn
 kev
 jcX
 gwg
-aOU
+fGM
 cLC
 wZf
 ttI
@@ -39360,7 +39420,7 @@ krH
 lKT
 vmX
 cLC
-aOU
+fGM
 qiz
 pYB
 bPT
@@ -39368,7 +39428,7 @@ jzk
 fRD
 buM
 qiz
-aOU
+fGM
 eUq
 aTX
 iUK
@@ -39376,8 +39436,8 @@ iUK
 iUK
 fTT
 eUq
-aOU
-aOU
+fGM
+fGM
 xqI
 ahD
 kfJ
@@ -39391,7 +39451,7 @@ fNl
 tQn
 sxw
 sxw
-anz
+iOV
 xRX
 xRX
 xRX
@@ -39593,7 +39653,7 @@ xUb
 qWF
 ewW
 xRX
-aOU
+fGM
 wUi
 syV
 bhd
@@ -39642,13 +39702,13 @@ npb
 oxR
 tfK
 sxk
-ajO
+jrC
 soh
 soh
 aDv
+oQl
+oQl
 iOV
-iOV
-anz
 xRX
 xRX
 xRX
@@ -39850,7 +39910,7 @@ xUb
 jnK
 ewW
 xRX
-aOU
+fGM
 wUi
 syV
 grD
@@ -39900,8 +39960,8 @@ jhd
 tfK
 nwH
 wLI
-pJZ
-pJZ
+iRt
+iRt
 fnE
 xRX
 xRX
@@ -40107,7 +40167,7 @@ dbA
 wxS
 ewW
 xRX
-aOU
+fGM
 eIb
 oPu
 bhd
@@ -40149,7 +40209,7 @@ cEH
 eUq
 xRX
 xRX
-aOU
+fGM
 xqI
 xqI
 tfK
@@ -40364,7 +40424,7 @@ ewW
 ewW
 ewW
 xRX
-aOU
+fGM
 wUi
 cLL
 bhd
@@ -40401,18 +40461,18 @@ eUq
 lnp
 heP
 iUK
-qpm
+vZW
 avE
 eUq
 xRX
 xRX
-aOU
+fGM
 xRX
-sek
+bcf
 rEb
 xTu
 cbE
-wZp
+rtO
 klp
 llD
 euj
@@ -40621,7 +40681,7 @@ acn
 ewW
 xRX
 xRX
-aOU
+fGM
 wUi
 glJ
 ihN
@@ -40663,10 +40723,10 @@ hIE
 eUq
 xRX
 xRX
-aOU
+fGM
 xRX
-sek
-sek
+bcf
+bcf
 jgM
 vVy
 aMQ
@@ -40878,7 +40938,7 @@ pHN
 ewW
 xRX
 xRX
-aOU
+fGM
 wUi
 wNA
 bhd
@@ -40920,13 +40980,13 @@ iUK
 eUq
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
-sek
-sek
+bcf
+bcf
 tmo
-wZp
+rtO
 mwo
 mwo
 mwo
@@ -41135,7 +41195,7 @@ lJH
 jhL
 jhL
 xRX
-aOU
+fGM
 wUi
 peJ
 bhd
@@ -41177,18 +41237,18 @@ mtT
 eUq
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
 uLO
 ebn
 atj
-jrC
+dqF
 exg
 iGK
 aBD
-vZW
+kqx
 xRX
 xRX
 xRX
@@ -41392,7 +41452,7 @@ pCG
 iZM
 jhL
 jhL
-aOU
+fGM
 eIb
 eIb
 pPk
@@ -41434,7 +41494,7 @@ eUq
 eUq
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
@@ -41445,7 +41505,7 @@ jLL
 aab
 qDe
 nVi
-vZW
+kqx
 saW
 xRX
 xRX
@@ -41649,61 +41709,61 @@ mhq
 tcY
 rfn
 jhL
-aOU
-aOU
+fGM
+fGM
 eIb
 eIb
 qEc
 eIb
 eIb
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 gwg
 wzO
 dXK
 wzO
 gwg
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 cLC
 cLC
 mbX
 cLC
 cLC
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 qiz
 qiz
 dFi
 qiz
 qiz
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 eUq
 eUq
 wRc
 eUq
 eUq
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 pvm
 kou
 dWF
-jrC
+dqF
 gLO
 npJ
 kAt
 lpe
-vZW
+kqx
 xRX
 xRX
 xRX
@@ -41907,18 +41967,10 @@ jbh
 tYn
 jhL
 xRX
-aOU
+fGM
 xRX
 wyp
-kqx
-wyp
-xRX
-xRX
-xRX
-xRX
-xRX
-wyp
-kqx
+btW
 wyp
 xRX
 xRX
@@ -41926,7 +41978,7 @@ xRX
 xRX
 xRX
 wyp
-kqx
+btW
 wyp
 xRX
 xRX
@@ -41934,7 +41986,7 @@ xRX
 xRX
 xRX
 wyp
-kqx
+btW
 wyp
 xRX
 xRX
@@ -41942,25 +41994,33 @@ xRX
 xRX
 xRX
 wyp
-kqx
+btW
 wyp
 xRX
 xRX
 xRX
 xRX
-aOU
+xRX
+wyp
+btW
+wyp
+xRX
+xRX
+xRX
+xRX
+fGM
 xRX
 xRX
 xRX
 pvm
 vfD
 kOP
-jrC
-jrC
+dqF
+dqF
 tra
-vZW
-jrC
-vZW
+kqx
+dqF
+kqx
 ydf
 ewy
 ewy
@@ -42164,7 +42224,7 @@ rRa
 nKC
 jhL
 xRX
-aOU
+fGM
 xRX
 wyp
 mGn
@@ -42205,12 +42265,12 @@ xRX
 xRX
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
 uLO
-bUy
+qIf
 kbX
 kzS
 kvJ
@@ -43452,14 +43512,14 @@ wyp
 kXG
 vGw
 wyp
-gyl
+xcD
 bzm
 wyp
 vGw
 vGw
 vGw
 wyp
-ezi
+gyl
 odb
 wyp
 wyp
@@ -43495,7 +43555,7 @@ vGw
 wyp
 wyp
 uLO
-qIf
+guH
 fZr
 wUa
 oKE
@@ -43706,7 +43766,7 @@ pkY
 bJj
 jhL
 xRX
-aOU
+fGM
 xRX
 wyp
 bhA
@@ -43747,7 +43807,7 @@ xRX
 xRX
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
@@ -43963,17 +44023,17 @@ doW
 nEK
 jhL
 xRX
-aOU
+fGM
 xRX
 wyp
-tVP
+vDD
 xvT
 wyp
 xRX
 xRX
 xRX
 wyp
-vDD
+xfP
 bsf
 wyp
 xRX
@@ -43982,7 +44042,7 @@ xRX
 xRX
 xRX
 wyp
-kqx
+btW
 wyp
 xRX
 xRX
@@ -43990,7 +44050,7 @@ xRX
 xRX
 xRX
 wyp
-kqx
+btW
 wyp
 xRX
 xRX
@@ -43998,13 +44058,13 @@ xRX
 xRX
 xRX
 wyp
-kqx
+btW
 wyp
 xRX
 xRX
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
@@ -44219,52 +44279,52 @@ ngJ
 gwl
 xZh
 jhL
-aOU
-aOU
-aOU
-wyp
-kFh
-bJc
-wyp
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 wyp
 uJz
+bJc
+wyp
+fGM
+fGM
+fGM
+wyp
+tcX
 bst
 wyp
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
 uwT
 uwT
 jjA
 uwT
 uwT
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 eiL
 eiL
 gSo
 eiL
 eiL
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 tRo
 tRo
 sVs
 tRo
 tRo
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 gzr
 iHV
 kOP
@@ -44476,8 +44536,8 @@ oGU
 kMx
 jhL
 jhL
-aOU
 fGM
+aOU
 sUX
 ppp
 ppp
@@ -44489,10 +44549,10 @@ ayy
 wtm
 rhN
 ciM
-rhN
+wGc
 rmm
-fGM
-fGM
+wnf
+wnf
 uwT
 uwT
 lgM
@@ -44518,7 +44578,7 @@ tRo
 tRo
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
@@ -44732,10 +44792,10 @@ aEa
 lJH
 jhL
 jhL
-fGM
-aOU
-iGW
 wnf
+fGM
+iGW
+aSb
 aSb
 sBA
 aSb
@@ -44749,7 +44809,7 @@ iQg
 clU
 nKq
 rmm
-fGM
+wnf
 htS
 lfg
 jFY
@@ -44775,7 +44835,7 @@ cMo
 tRo
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 xRX
@@ -44784,7 +44844,7 @@ ebn
 cDf
 quS
 cQs
-fjs
+aDe
 aSJ
 oxG
 xRX
@@ -44988,9 +45048,9 @@ xKt
 adF
 eqi
 uZl
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 rrT
 ntt
 sUq
@@ -45006,7 +45066,7 @@ elW
 sWG
 qVW
 vOL
-aOU
+fGM
 uwT
 dkz
 hHq
@@ -45032,7 +45092,7 @@ bxM
 tRo
 xRX
 xRX
-aOU
+fGM
 xRX
 xRX
 uLO
@@ -45245,10 +45305,10 @@ mOF
 qED
 uPa
 uZl
+wnf
+wnf
 fGM
-fGM
-aOU
-bcf
+rrT
 aSb
 aEB
 aEB
@@ -45263,7 +45323,7 @@ eqD
 aSb
 qeJ
 vOL
-fGM
+wnf
 uwT
 oZH
 pZI
@@ -45289,10 +45349,10 @@ ieZ
 tRo
 xRX
 xRX
-aOU
+fGM
 xRX
-wGc
-wGc
+jlF
+jlF
 nZj
 ess
 lzb
@@ -45503,16 +45563,16 @@ bpj
 fdV
 uZl
 uZl
+wnf
 fGM
-aOU
 rJT
 rsE
-rsE
+ayL
 rQJ
-aEB
+obM
 tuB
 fNL
-btW
+bkh
 rAU
 mkb
 syX
@@ -45520,7 +45580,7 @@ afL
 sVT
 oSp
 vOL
-fGM
+wnf
 uwT
 bDX
 mCb
@@ -45546,9 +45606,9 @@ uNJ
 tRo
 xRX
 xRX
-aOU
+fGM
 xRX
-wGc
+jlF
 xMA
 uWU
 oVL
@@ -45760,8 +45820,8 @@ ieM
 mwO
 uoZ
 uZl
+wnf
 fGM
-aOU
 iUd
 vdX
 atI
@@ -45777,7 +45837,7 @@ tcV
 rXx
 cJt
 vOL
-fGM
+wnf
 uwT
 fYr
 lGK
@@ -45803,9 +45863,9 @@ lvR
 tRo
 xRX
 xRX
-aOU
+fGM
 xRX
-wGc
+jlF
 oyG
 cnH
 ess
@@ -46017,8 +46077,8 @@ mCl
 kuj
 rFB
 uZl
+wnf
 fGM
-aOU
 lkK
 hZH
 kti
@@ -46034,7 +46094,7 @@ kTf
 bzW
 hhA
 vOL
-fGM
+wnf
 uwT
 cgU
 hhQ
@@ -46274,9 +46334,9 @@ uiV
 vDk
 rFB
 uZl
+wnf
 fGM
-aOU
-bcf
+rrT
 aSb
 aSb
 aSb
@@ -46291,7 +46351,7 @@ tDp
 aSb
 hhA
 vOL
-fGM
+wnf
 uwT
 cgU
 onn
@@ -46531,9 +46591,9 @@ aEt
 ldf
 uZl
 uZl
-aOU
-aOU
-bcf
+fGM
+fGM
+rrT
 sBA
 ruo
 sum
@@ -46548,7 +46608,7 @@ elW
 sWG
 cei
 vOL
-aOU
+fGM
 uwT
 vMG
 hil
@@ -46556,7 +46616,7 @@ uOr
 hil
 irq
 uwT
-aOU
+fGM
 eiL
 upC
 buI
@@ -46564,7 +46624,7 @@ hdb
 pZo
 fVv
 eiL
-aOU
+fGM
 tRo
 pDZ
 bxM
@@ -46572,8 +46632,8 @@ bxM
 bxM
 pZO
 tRo
-aOU
-aOU
+fGM
+fGM
 wjn
 qqX
 vwi
@@ -46787,11 +46847,11 @@ uZl
 osl
 stV
 uZl
+wnf
+wnf
 fGM
-fGM
-aOU
 aCG
-dqF
+aSb
 aSb
 sBA
 aSb
@@ -46800,12 +46860,12 @@ vCg
 iTc
 lKV
 kEe
-rhN
-rhN
-rhN
+ajO
+wGc
+wGc
 mYn
 tOu
-fGM
+wnf
 htS
 hXO
 uwA
@@ -47043,11 +47103,11 @@ xRX
 xRX
 xRX
 xRX
-aOU
-aOU
 fGM
-aOU
 fGM
+wnf
+fGM
+aEE
 kOK
 rfz
 rfz
@@ -47057,12 +47117,12 @@ rfz
 rfz
 rfz
 lCe
-vTv
+nSY
 vTv
 vTv
 tOu
-fGM
-fGM
+wnf
+wnf
 uwT
 uwT
 nti
@@ -47087,7 +47147,7 @@ rEV
 tRo
 tRo
 xRX
-aOU
+fGM
 wjn
 wjn
 wjn
@@ -47301,50 +47361,50 @@ xRX
 xRX
 xRX
 xRX
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 ibm
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 fro
-aOU
-aOU
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
+fGM
+fGM
 uwT
 uwT
 qju
 uwT
 uwT
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 eiL
 eiL
 sal
 eiL
 eiL
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 tRo
 tRo
 raF
 tRo
 tRo
-aOU
-aOU
-aOU
+fGM
+fGM
+fGM
 xRX
 xRX
 xRX
