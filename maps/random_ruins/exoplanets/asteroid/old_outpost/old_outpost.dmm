@@ -613,7 +613,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "nb" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -813,7 +813,7 @@
 	frequency = 1380;
 	id_tag = "mining_outpost_pump"
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/plating,
 /area/old_outpost/refinery)
 "pp" = (
 /obj/structure/cable/blue{
@@ -1447,6 +1447,15 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
+/area/old_outpost/refinery)
+"zt" = (
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/old_outpost/refinery)
 "zU" = (
 /obj/structure/sign/securearea{
@@ -2282,7 +2291,9 @@
 	},
 /area/old_outpost)
 "MI" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/old_outpost/refinery)
 "Nc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2368,7 +2379,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/plating,
 /area/old_outpost/refinery)
 "OB" = (
 /obj/machinery/access_button{
@@ -2757,6 +2768,15 @@
 	icon_state = "asteroidplating"
 	},
 /area/old_outpost)
+"Uh" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/old_outpost/refinery)
 "Uq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -5161,7 +5181,7 @@ vV
 Nn
 KU
 NC
-VU
+MI
 sZ
 kg
 sZ
@@ -5199,7 +5219,7 @@ Du
 TE
 OK
 NC
-Vo
+Uh
 sZ
 Vo
 sZ
@@ -5237,7 +5257,7 @@ tA
 ir
 ei
 NC
-Vo
+Uh
 sZ
 Vo
 sZ
@@ -5275,7 +5295,7 @@ ZM
 rC
 ZC
 NC
-kz
+zt
 Qj
 Vo
 sZ
