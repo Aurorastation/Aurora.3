@@ -132,8 +132,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "ajO" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/medical)
+/turf/simulated/wall,
+/area/ship/freebooter_ship/gunneryentrance)
 "akg" = (
 /obj/structure/sign/poster{
 	pixel_y = 32
@@ -407,7 +407,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "aHt" = (
 /obj/machinery/vending/dinnerware{
@@ -545,8 +545,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "aOU" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/forehallwayport)
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "junker_gun"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/gunnery)
 "aQQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2133,7 +2137,7 @@
 /area/ship/freebooter_ship/gunnery)
 "ewy" = (
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "ewW" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -2427,7 +2431,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, landing pad 2"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "frC" = (
 /obj/effect/decal/cleanable/blood,
@@ -2484,8 +2488,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/medical)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/gunneryentrance)
 "fJo" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -3355,7 +3359,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, landing pad 1"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "icO" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -3434,6 +3438,17 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/ship/freebooter_ship/pod6)
+"ife" = (
+/obj/machinery/cryopod,
+/obj/structure/cryofeed/pipes{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/freebooter_ship/cryo)
 "igB" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -3670,6 +3685,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "iOV" = (
@@ -3835,12 +3853,8 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "jrC" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "junker_gun"
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/gunnery)
+/turf/simulated/wall,
+/area/ship/freebooter_ship/medical)
 "jvN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -4184,7 +4198,7 @@
 /area/ship/freebooter_ship/pod7)
 "kqx" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "krH" = (
 /obj/item/paper/crumpled/bloody,
@@ -4734,7 +4748,7 @@
 "loq" = (
 /obj/structure/grille/broken,
 /obj/structure/blocker/steel,
-/turf/simulated/floor/airless,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "lpe" = (
 /obj/effect/floor_decal/industrial/outline/medical,
@@ -5663,13 +5677,13 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "nxF" = (
@@ -6638,7 +6652,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion";
+	name = "Port Propulsion";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -7577,7 +7591,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "rtt" = (
 /obj/effect/floor_decal/corner{
@@ -7842,6 +7856,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
+"rSw" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/medical)
 "rXk" = (
 /turf/simulated/wall/r_wall,
 /area/ship/freebooter_ship/thruster2)
@@ -8041,12 +8058,6 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "sxw" = (
@@ -8512,7 +8523,7 @@
 "tAn" = (
 /obj/structure/grille,
 /obj/structure/barricade/wooden,
-/turf/simulated/floor/airless,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "tDp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8569,7 +8580,7 @@
 /area/ship/freebooter_ship/engineering)
 "tMA" = (
 /obj/structure/grille,
-/turf/simulated/floor/airless,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "tOu" = (
 /obj/structure/railing/mapped,
@@ -8877,14 +8888,14 @@
 	dir = 4
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "uCl" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "uDc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -9017,17 +9028,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
-"uPM" = (
-/obj/machinery/cryopod,
-/obj/structure/cryofeed/pipes{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/freebooter_ship/cryo)
 "uQV" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/item/stack/rods,
@@ -9657,7 +9657,7 @@
 /area/ship/freebooter_ship/bridge)
 "vZW" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/gunneryentrance)
+/area/ship/freebooter_ship/forehallwayport)
 "wcN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair{
@@ -9859,11 +9859,11 @@
 "wCo" = (
 /obj/structure/grille/broken,
 /obj/structure/blocker,
-/turf/simulated/floor/airless,
+/turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "wGc" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/gunneryentrance)
+/turf/space/dynamic,
+/area/space)
 "wHo" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/ship_engine.dmi';
@@ -9977,7 +9977,7 @@
 "wRm" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion";
+	name = "Starboard Propulsion";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -38706,7 +38706,7 @@ imE
 imE
 iOV
 iOV
-jrC
+aOU
 xRX
 xRX
 xRX
@@ -38963,7 +38963,7 @@ rjL
 tQn
 sxw
 www
-jrC
+aOU
 xRX
 xRX
 xRX
@@ -39220,7 +39220,7 @@ fNl
 tQn
 sxw
 sxw
-jrC
+aOU
 xRX
 xRX
 xRX
@@ -39477,7 +39477,7 @@ soh
 aDv
 iOV
 iOV
-jrC
+aOU
 xRX
 xRX
 xRX
@@ -40237,11 +40237,11 @@ xRX
 xRX
 kqx
 xRX
-vZW
+fGM
 rEb
 xTu
 cbE
-wGc
+ajO
 klp
 llD
 euj
@@ -40494,8 +40494,8 @@ xRX
 xRX
 kqx
 xRX
-vZW
-vZW
+fGM
+fGM
 jgM
 vVy
 aMQ
@@ -40752,10 +40752,10 @@ xRX
 kqx
 xRX
 xRX
-vZW
-vZW
+fGM
+fGM
 tmo
-wGc
+ajO
 mwo
 mwo
 mwo
@@ -41013,11 +41013,11 @@ xRX
 uLO
 ebn
 atj
-fGM
+jrC
 exg
 iGK
 aBD
-ajO
+rSw
 xRX
 xRX
 xRX
@@ -41274,7 +41274,7 @@ jLL
 aab
 qDe
 nVi
-ajO
+rSw
 saW
 xRX
 xRX
@@ -41527,12 +41527,12 @@ kqx
 pvm
 kou
 dWF
-fGM
+jrC
 gLO
 npJ
 kAt
 lpe
-ajO
+rSw
 xRX
 xRX
 xRX
@@ -41784,12 +41784,12 @@ xRX
 pvm
 vfD
 kOP
-fGM
-fGM
+jrC
+jrC
 tra
-ajO
-fGM
-ajO
+rSw
+jrC
+rSw
 ydf
 ewy
 ewy
@@ -43534,9 +43534,9 @@ bBW
 pkY
 bJj
 jhL
-xRX
+wGc
 kqx
-xRX
+wGc
 wyp
 bhA
 xQS
@@ -43791,9 +43791,9 @@ rpZ
 doW
 nEK
 jhL
-xRX
+wGc
 kqx
-xRX
+wGc
 wyp
 vDD
 xvT
@@ -44306,7 +44306,7 @@ kMx
 jhL
 jhL
 kqx
-xRX
+wGc
 sUX
 ppp
 ppp
@@ -44320,8 +44320,8 @@ rhN
 ciM
 rhN
 rmm
-xRX
-xRX
+wGc
+wGc
 uwT
 uwT
 lgM
@@ -44561,7 +44561,7 @@ aEa
 lJH
 jhL
 jhL
-xRX
+wGc
 kqx
 iGW
 wnf
@@ -44578,7 +44578,7 @@ iQg
 clU
 nKq
 rmm
-xRX
+wGc
 htS
 lfg
 jFY
@@ -44613,7 +44613,7 @@ ebn
 cDf
 quS
 cQs
-uPM
+ife
 aSJ
 oxG
 xRX
@@ -45074,8 +45074,8 @@ mOF
 qED
 uPa
 uZl
-xRX
-xRX
+wGc
+wGc
 kqx
 bcf
 aSb
@@ -45092,7 +45092,7 @@ eqD
 aSb
 qeJ
 vOL
-xRX
+wGc
 uwT
 oZH
 pZI
@@ -45120,8 +45120,8 @@ xRX
 xRX
 kqx
 xRX
-aOU
-aOU
+vZW
+vZW
 nZj
 ess
 lzb
@@ -45332,7 +45332,7 @@ bpj
 fdV
 uZl
 uZl
-xRX
+wGc
 kqx
 rJT
 rsE
@@ -45349,7 +45349,7 @@ afL
 sVT
 oSp
 vOL
-xRX
+wGc
 uwT
 bDX
 mCb
@@ -45377,7 +45377,7 @@ xRX
 xRX
 kqx
 xRX
-aOU
+vZW
 xMA
 uWU
 oVL
@@ -45589,7 +45589,7 @@ ieM
 mwO
 uoZ
 uZl
-xRX
+wGc
 kqx
 iUd
 vdX
@@ -45606,7 +45606,7 @@ tcV
 rXx
 cJt
 vOL
-xRX
+wGc
 uwT
 fYr
 lGK
@@ -45634,7 +45634,7 @@ xRX
 xRX
 kqx
 xRX
-aOU
+vZW
 oyG
 cnH
 ess
@@ -45846,7 +45846,7 @@ mCl
 kuj
 rFB
 uZl
-xRX
+wGc
 kqx
 lkK
 hZH
@@ -45863,7 +45863,7 @@ kTf
 bzW
 hhA
 vOL
-xRX
+wGc
 uwT
 cgU
 hhQ
@@ -46103,7 +46103,7 @@ uiV
 vDk
 rFB
 uZl
-xRX
+wGc
 kqx
 bcf
 aSb
@@ -46120,7 +46120,7 @@ tDp
 aSb
 hhA
 vOL
-xRX
+wGc
 uwT
 cgU
 onn
@@ -46616,8 +46616,8 @@ uZl
 osl
 stV
 uZl
-xRX
-xRX
+wGc
+wGc
 kqx
 aCG
 dqF
@@ -46634,7 +46634,7 @@ rhN
 rhN
 mYn
 tOu
-xRX
+wGc
 htS
 hXO
 uwA
@@ -46874,9 +46874,9 @@ xRX
 xRX
 kqx
 kqx
-xRX
+wGc
 kqx
-xRX
+wGc
 kOK
 rfz
 rfz
@@ -46890,8 +46890,8 @@ vTv
 vTv
 vTv
 tOu
-xRX
-xRX
+wGc
+wGc
 uwT
 uwT
 nti
