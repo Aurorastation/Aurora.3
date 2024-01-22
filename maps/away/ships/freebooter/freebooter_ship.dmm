@@ -132,8 +132,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "ajO" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/gunneryentrance)
+/turf/space/dynamic,
+/area/space)
 "akg" = (
 /obj/structure/sign/poster{
 	pixel_y = 32
@@ -273,19 +273,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "ayy" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/forehallwayport)
 "aAs" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -545,12 +534,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "aOU" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "junker_gun"
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/gunnery)
+/turf/simulated/wall,
+/area/ship/freebooter_ship/medical)
 "aQQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2488,8 +2473,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/gunneryentrance)
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/ship/freebooter_ship/exterior)
 "fJo" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -3438,17 +3424,6 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/ship/freebooter_ship/pod6)
-"ife" = (
-/obj/machinery/cryopod,
-/obj/structure/cryofeed/pipes{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/freebooter_ship/cryo)
 "igB" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -3853,8 +3828,19 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "jrC" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/medical)
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "jvN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -4197,9 +4183,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "kqx" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/ship/freebooter_ship/exterior)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/gunneryentrance)
 "krH" = (
 /obj/item/paper/crumpled/bloody,
 /obj/effect/decal/cleanable/dirt,
@@ -4593,6 +4578,13 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
+"kWi" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "junker_gun"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/gunnery)
 "kXq" = (
 /obj/structure/barricade/wooden{
 	dir = 4
@@ -7856,9 +7848,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
-"rSw" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/medical)
 "rXk" = (
 /turf/simulated/wall/r_wall,
 /area/ship/freebooter_ship/thruster2)
@@ -9657,7 +9646,7 @@
 /area/ship/freebooter_ship/bridge)
 "vZW" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/forehallwayport)
+/area/ship/freebooter_ship/medical)
 "wcN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair{
@@ -9717,6 +9706,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
+"wgh" = (
+/obj/machinery/cryopod,
+/obj/structure/cryofeed/pipes{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/freebooter_ship/cryo)
 "wji" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -9862,8 +9862,8 @@
 /turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "wGc" = (
-/turf/space/dynamic,
-/area/space)
+/turf/simulated/wall,
+/area/ship/freebooter_ship/gunneryentrance)
 "wHo" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/ship_engine.dmi';
@@ -38392,17 +38392,17 @@ xRX
 xRX
 xRX
 xRX
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
 eIb
 wUi
 ldw
 wUi
 eIb
-kqx
-kqx
+fGM
+fGM
 esB
 gwg
 esB
@@ -38410,32 +38410,32 @@ wHo
 esB
 gwg
 esB
-kqx
-kqx
+fGM
+fGM
 cLC
 cLC
 kwe
 tKj
 tKj
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 qiz
 qiz
 mWz
 qiz
 qiz
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 eUq
 eUq
 pRf
 eUq
 eUq
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 xRX
 xRX
 xRX
@@ -38648,8 +38648,8 @@ xRX
 xRX
 xRX
 xRX
-kqx
-kqx
+fGM
+fGM
 xRX
 xRX
 eIb
@@ -38692,7 +38692,7 @@ fTG
 eUq
 eUq
 xRX
-kqx
+fGM
 xqI
 xqI
 xqI
@@ -38706,7 +38706,7 @@ imE
 imE
 iOV
 iOV
-aOU
+kWi
 xRX
 xRX
 xRX
@@ -38963,7 +38963,7 @@ rjL
 tQn
 sxw
 www
-aOU
+kWi
 xRX
 xRX
 xRX
@@ -39164,8 +39164,8 @@ gFA
 ewW
 ewW
 ewW
-kqx
-kqx
+fGM
+fGM
 wUi
 syV
 bhd
@@ -39173,7 +39173,7 @@ xBh
 bhd
 tvh
 wUi
-kqx
+fGM
 gwg
 pUP
 kmP
@@ -39181,7 +39181,7 @@ qDn
 kev
 jcX
 gwg
-kqx
+fGM
 cLC
 wZf
 ttI
@@ -39189,7 +39189,7 @@ krH
 lKT
 vmX
 cLC
-kqx
+fGM
 qiz
 pYB
 bPT
@@ -39197,7 +39197,7 @@ jzk
 fRD
 buM
 qiz
-kqx
+fGM
 eUq
 aTX
 iUK
@@ -39205,8 +39205,8 @@ iUK
 iUK
 fTT
 eUq
-kqx
-kqx
+fGM
+fGM
 xqI
 ahD
 kfJ
@@ -39220,7 +39220,7 @@ fNl
 tQn
 sxw
 sxw
-aOU
+kWi
 xRX
 xRX
 xRX
@@ -39422,7 +39422,7 @@ xUb
 qWF
 ewW
 xRX
-kqx
+fGM
 wUi
 syV
 bhd
@@ -39477,7 +39477,7 @@ soh
 aDv
 iOV
 iOV
-aOU
+kWi
 xRX
 xRX
 xRX
@@ -39679,7 +39679,7 @@ xUb
 jnK
 ewW
 xRX
-kqx
+fGM
 wUi
 syV
 grD
@@ -39936,7 +39936,7 @@ dbA
 wxS
 ewW
 xRX
-kqx
+fGM
 eIb
 oPu
 bhd
@@ -39978,7 +39978,7 @@ cEH
 eUq
 xRX
 xRX
-kqx
+fGM
 xqI
 xqI
 tfK
@@ -40193,7 +40193,7 @@ ewW
 ewW
 ewW
 xRX
-kqx
+fGM
 wUi
 cLL
 bhd
@@ -40235,13 +40235,13 @@ avE
 eUq
 xRX
 xRX
-kqx
-xRX
 fGM
+xRX
+kqx
 rEb
 xTu
 cbE
-ajO
+wGc
 klp
 llD
 euj
@@ -40450,7 +40450,7 @@ acn
 ewW
 xRX
 xRX
-kqx
+fGM
 wUi
 glJ
 ihN
@@ -40492,10 +40492,10 @@ hIE
 eUq
 xRX
 xRX
-kqx
+fGM
 xRX
-fGM
-fGM
+kqx
+kqx
 jgM
 vVy
 aMQ
@@ -40707,7 +40707,7 @@ pHN
 ewW
 xRX
 xRX
-kqx
+fGM
 wUi
 wNA
 bhd
@@ -40749,13 +40749,13 @@ iUK
 eUq
 xRX
 xRX
+fGM
+xRX
+xRX
 kqx
-xRX
-xRX
-fGM
-fGM
+kqx
 tmo
-ajO
+wGc
 mwo
 mwo
 mwo
@@ -40964,7 +40964,7 @@ lJH
 jhL
 jhL
 xRX
-kqx
+fGM
 wUi
 peJ
 bhd
@@ -41006,18 +41006,18 @@ mtT
 eUq
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
 uLO
 ebn
 atj
-jrC
+aOU
 exg
 iGK
 aBD
-rSw
+vZW
 xRX
 xRX
 xRX
@@ -41221,7 +41221,7 @@ pCG
 iZM
 jhL
 jhL
-kqx
+fGM
 eIb
 eIb
 pPk
@@ -41263,7 +41263,7 @@ eUq
 eUq
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
@@ -41274,7 +41274,7 @@ jLL
 aab
 qDe
 nVi
-rSw
+vZW
 saW
 xRX
 xRX
@@ -41478,61 +41478,61 @@ mhq
 tcY
 rfn
 jhL
-kqx
-kqx
+fGM
+fGM
 eIb
 eIb
 qEc
 eIb
 eIb
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 gwg
 wzO
 dXK
 wzO
 gwg
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 cLC
 cLC
 mbX
 cLC
 cLC
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 qiz
 qiz
 dFi
 qiz
 qiz
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 eUq
 eUq
 wRc
 eUq
 eUq
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 pvm
 kou
 dWF
-jrC
+aOU
 gLO
 npJ
 kAt
 lpe
-rSw
+vZW
 xRX
 xRX
 xRX
@@ -41736,7 +41736,7 @@ jbh
 tYn
 jhL
 xRX
-kqx
+fGM
 xRX
 wyp
 mGn
@@ -41777,19 +41777,19 @@ xRX
 xRX
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
 pvm
 vfD
 kOP
-jrC
-jrC
+aOU
+aOU
 tra
-rSw
-jrC
-rSw
+vZW
+aOU
+vZW
 ydf
 ewy
 ewy
@@ -41993,7 +41993,7 @@ rRa
 nKC
 jhL
 xRX
-kqx
+fGM
 xRX
 wyp
 mGn
@@ -42034,7 +42034,7 @@ xRX
 xRX
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
@@ -43534,9 +43534,9 @@ bBW
 pkY
 bJj
 jhL
-wGc
-kqx
-wGc
+ajO
+fGM
+ajO
 wyp
 bhA
 xQS
@@ -43576,7 +43576,7 @@ xRX
 xRX
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
@@ -43791,9 +43791,9 @@ rpZ
 doW
 nEK
 jhL
-wGc
-kqx
-wGc
+ajO
+fGM
+ajO
 wyp
 vDD
 xvT
@@ -43833,7 +43833,7 @@ xRX
 xRX
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
@@ -44048,52 +44048,52 @@ ngJ
 gwl
 xZh
 jhL
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 wyp
 uJz
 bJc
 wyp
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 wyp
 uJz
 bst
 wyp
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
 uwT
 uwT
 jjA
 uwT
 uwT
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 eiL
 eiL
 gSo
 eiL
 eiL
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 tRo
 tRo
 sVs
 tRo
 tRo
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 gzr
 iHV
 kOP
@@ -44305,23 +44305,23 @@ oGU
 kMx
 jhL
 jhL
-kqx
-wGc
+fGM
+ajO
 sUX
 ppp
 ppp
 ppp
 ppp
-ayy
+jrC
 kQs
-ayy
+jrC
 wtm
 rhN
 ciM
 rhN
 rmm
-wGc
-wGc
+ajO
+ajO
 uwT
 uwT
 lgM
@@ -44347,7 +44347,7 @@ tRo
 tRo
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
@@ -44561,8 +44561,8 @@ aEa
 lJH
 jhL
 jhL
-wGc
-kqx
+ajO
+fGM
 iGW
 wnf
 aSb
@@ -44578,7 +44578,7 @@ iQg
 clU
 nKq
 rmm
-wGc
+ajO
 htS
 lfg
 jFY
@@ -44604,7 +44604,7 @@ cMo
 tRo
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 xRX
@@ -44613,7 +44613,7 @@ ebn
 cDf
 quS
 cQs
-ife
+wgh
 aSJ
 oxG
 xRX
@@ -44817,9 +44817,9 @@ xKt
 adF
 eqi
 uZl
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 rrT
 ntt
 sUq
@@ -44835,7 +44835,7 @@ elW
 sWG
 qVW
 vOL
-kqx
+fGM
 uwT
 dkz
 hHq
@@ -44861,7 +44861,7 @@ bxM
 tRo
 xRX
 xRX
-kqx
+fGM
 xRX
 xRX
 uLO
@@ -45074,9 +45074,9 @@ mOF
 qED
 uPa
 uZl
-wGc
-wGc
-kqx
+ajO
+ajO
+fGM
 bcf
 aSb
 aEB
@@ -45092,7 +45092,7 @@ eqD
 aSb
 qeJ
 vOL
-wGc
+ajO
 uwT
 oZH
 pZI
@@ -45118,10 +45118,10 @@ ieZ
 tRo
 xRX
 xRX
-kqx
+fGM
 xRX
-vZW
-vZW
+ayy
+ayy
 nZj
 ess
 lzb
@@ -45332,8 +45332,8 @@ bpj
 fdV
 uZl
 uZl
-wGc
-kqx
+ajO
+fGM
 rJT
 rsE
 rsE
@@ -45349,7 +45349,7 @@ afL
 sVT
 oSp
 vOL
-wGc
+ajO
 uwT
 bDX
 mCb
@@ -45375,9 +45375,9 @@ uNJ
 tRo
 xRX
 xRX
-kqx
+fGM
 xRX
-vZW
+ayy
 xMA
 uWU
 oVL
@@ -45589,8 +45589,8 @@ ieM
 mwO
 uoZ
 uZl
-wGc
-kqx
+ajO
+fGM
 iUd
 vdX
 atI
@@ -45606,7 +45606,7 @@ tcV
 rXx
 cJt
 vOL
-wGc
+ajO
 uwT
 fYr
 lGK
@@ -45632,9 +45632,9 @@ lvR
 tRo
 xRX
 xRX
-kqx
+fGM
 xRX
-vZW
+ayy
 oyG
 cnH
 ess
@@ -45846,8 +45846,8 @@ mCl
 kuj
 rFB
 uZl
-wGc
-kqx
+ajO
+fGM
 lkK
 hZH
 kti
@@ -45863,7 +45863,7 @@ kTf
 bzW
 hhA
 vOL
-wGc
+ajO
 uwT
 cgU
 hhQ
@@ -46103,8 +46103,8 @@ uiV
 vDk
 rFB
 uZl
-wGc
-kqx
+ajO
+fGM
 bcf
 aSb
 aSb
@@ -46120,7 +46120,7 @@ tDp
 aSb
 hhA
 vOL
-wGc
+ajO
 uwT
 cgU
 onn
@@ -46360,8 +46360,8 @@ aEt
 ldf
 uZl
 uZl
-kqx
-kqx
+fGM
+fGM
 bcf
 sBA
 ruo
@@ -46377,7 +46377,7 @@ elW
 sWG
 cei
 vOL
-kqx
+fGM
 uwT
 vMG
 hil
@@ -46385,7 +46385,7 @@ uOr
 hil
 irq
 uwT
-kqx
+fGM
 eiL
 upC
 buI
@@ -46393,7 +46393,7 @@ hdb
 pZo
 fVv
 eiL
-kqx
+fGM
 tRo
 pDZ
 bxM
@@ -46401,8 +46401,8 @@ bxM
 bxM
 pZO
 tRo
-kqx
-kqx
+fGM
+fGM
 wjn
 qqX
 vwi
@@ -46616,9 +46616,9 @@ uZl
 osl
 stV
 uZl
-wGc
-wGc
-kqx
+ajO
+ajO
+fGM
 aCG
 dqF
 aSb
@@ -46634,7 +46634,7 @@ rhN
 rhN
 mYn
 tOu
-wGc
+ajO
 htS
 hXO
 uwA
@@ -46872,11 +46872,11 @@ xRX
 xRX
 xRX
 xRX
-kqx
-kqx
-wGc
-kqx
-wGc
+fGM
+fGM
+ajO
+fGM
+ajO
 kOK
 rfz
 rfz
@@ -46890,8 +46890,8 @@ vTv
 vTv
 vTv
 tOu
-wGc
-wGc
+ajO
+ajO
 uwT
 uwT
 nti
@@ -46916,7 +46916,7 @@ rEV
 tRo
 tRo
 xRX
-kqx
+fGM
 wjn
 wjn
 wjn
@@ -47130,50 +47130,50 @@ xRX
 xRX
 xRX
 xRX
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 ibm
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
+fGM
 fro
-kqx
-kqx
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
+fGM
+fGM
 uwT
 uwT
 qju
 uwT
 uwT
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 eiL
 eiL
 sal
 eiL
 eiL
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 tRo
 tRo
 raF
 tRo
 tRo
-kqx
-kqx
-kqx
+fGM
+fGM
+fGM
 xRX
 xRX
 xRX
