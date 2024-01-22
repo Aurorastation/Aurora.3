@@ -132,8 +132,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "ajO" = (
+/obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/space)
+/area/ship/freebooter_ship/exterior)
 "akg" = (
 /obj/structure/sign/poster{
 	pixel_y = 32
@@ -273,8 +274,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "ayy" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/forehallwayport)
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "aAs" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -534,8 +546,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "aOU" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/medical)
+/turf/space/dynamic,
+/area/space)
 "aQQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2473,9 +2485,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/ship/freebooter_ship/exterior)
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "junker_gun"
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/gunnery)
 "fJo" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -3828,19 +3843,8 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "jrC" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/gunneryentrance)
 "jvN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -4018,6 +4022,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
+"jZO" = (
+/obj/machinery/cryopod,
+/obj/structure/cryofeed/pipes{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/freebooter_ship/cryo)
 "jZY" = (
 /obj/structure/railing/mapped,
 /obj/machinery/iff_beacon/name_change,
@@ -4184,7 +4199,7 @@
 /area/ship/freebooter_ship/pod7)
 "kqx" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/gunneryentrance)
+/area/ship/freebooter_ship/forehallwayport)
 "krH" = (
 /obj/item/paper/crumpled/bloody,
 /obj/effect/decal/cleanable/dirt,
@@ -4578,13 +4593,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
-"kWi" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "junker_gun"
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/gunnery)
 "kXq" = (
 /obj/structure/barricade/wooden{
 	dir = 4
@@ -5545,6 +5553,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
+"now" = (
+/turf/simulated/wall,
+/area/ship/freebooter_ship/gunneryentrance)
 "npb" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -5998,6 +6009,17 @@
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
+	},
+/obj/machinery/button/distress{
+	pixel_x = 6;
+	pixel_y = 29
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_y = 29;
+	pixel_x = -6;
+	id = "junker_bridge";
+	name = "bridge blast door-control";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
@@ -9645,7 +9667,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/bridge)
 "vZW" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/wall,
 /area/ship/freebooter_ship/medical)
 "wcN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9706,17 +9728,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
-"wgh" = (
-/obj/machinery/cryopod,
-/obj/structure/cryofeed/pipes{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/east{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/freebooter_ship/cryo)
 "wji" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -9862,8 +9873,8 @@
 /turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "wGc" = (
-/turf/simulated/wall,
-/area/ship/freebooter_ship/gunneryentrance)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/freebooter_ship/medical)
 "wHo" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/ship_engine.dmi';
@@ -10538,12 +10549,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod7)
 "ylw" = (
-/obj/structure/railing/mapped,
 /obj/structure/table/steel,
-/obj/machinery/button/distress{
-	pixel_x = 6;
-	pixel_y = -4
-	},
 /obj/item/paper/crumpled{
 	pixel_x = -4;
 	pixel_y = 5
@@ -10552,12 +10558,7 @@
 	pixel_x = 7;
 	pixel_y = 6
 	},
-/obj/machinery/button/remote/blast_door{
-	pixel_y = -2;
-	pixel_x = -5;
-	id = "junker_bridge";
-	name = "bridge blast door-control"
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 
@@ -38392,17 +38393,17 @@ xRX
 xRX
 xRX
 xRX
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
 eIb
 wUi
 ldw
 wUi
 eIb
-fGM
-fGM
+ajO
+ajO
 esB
 gwg
 esB
@@ -38410,32 +38411,32 @@ wHo
 esB
 gwg
 esB
-fGM
-fGM
+ajO
+ajO
 cLC
 cLC
 kwe
 tKj
 tKj
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 qiz
 qiz
 mWz
 qiz
 qiz
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 eUq
 eUq
 pRf
 eUq
 eUq
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 xRX
 xRX
 xRX
@@ -38648,8 +38649,8 @@ xRX
 xRX
 xRX
 xRX
-fGM
-fGM
+ajO
+ajO
 xRX
 xRX
 eIb
@@ -38692,7 +38693,7 @@ fTG
 eUq
 eUq
 xRX
-fGM
+ajO
 xqI
 xqI
 xqI
@@ -38706,7 +38707,7 @@ imE
 imE
 iOV
 iOV
-kWi
+fGM
 xRX
 xRX
 xRX
@@ -38963,7 +38964,7 @@ rjL
 tQn
 sxw
 www
-kWi
+fGM
 xRX
 xRX
 xRX
@@ -39164,8 +39165,8 @@ gFA
 ewW
 ewW
 ewW
-fGM
-fGM
+ajO
+ajO
 wUi
 syV
 bhd
@@ -39173,7 +39174,7 @@ xBh
 bhd
 tvh
 wUi
-fGM
+ajO
 gwg
 pUP
 kmP
@@ -39181,7 +39182,7 @@ qDn
 kev
 jcX
 gwg
-fGM
+ajO
 cLC
 wZf
 ttI
@@ -39189,7 +39190,7 @@ krH
 lKT
 vmX
 cLC
-fGM
+ajO
 qiz
 pYB
 bPT
@@ -39197,7 +39198,7 @@ jzk
 fRD
 buM
 qiz
-fGM
+ajO
 eUq
 aTX
 iUK
@@ -39205,8 +39206,8 @@ iUK
 iUK
 fTT
 eUq
-fGM
-fGM
+ajO
+ajO
 xqI
 ahD
 kfJ
@@ -39220,7 +39221,7 @@ fNl
 tQn
 sxw
 sxw
-kWi
+fGM
 xRX
 xRX
 xRX
@@ -39422,7 +39423,7 @@ xUb
 qWF
 ewW
 xRX
-fGM
+ajO
 wUi
 syV
 bhd
@@ -39477,7 +39478,7 @@ soh
 aDv
 iOV
 iOV
-kWi
+fGM
 xRX
 xRX
 xRX
@@ -39679,7 +39680,7 @@ xUb
 jnK
 ewW
 xRX
-fGM
+ajO
 wUi
 syV
 grD
@@ -39936,7 +39937,7 @@ dbA
 wxS
 ewW
 xRX
-fGM
+ajO
 eIb
 oPu
 bhd
@@ -39978,7 +39979,7 @@ cEH
 eUq
 xRX
 xRX
-fGM
+ajO
 xqI
 xqI
 tfK
@@ -40193,7 +40194,7 @@ ewW
 ewW
 ewW
 xRX
-fGM
+ajO
 wUi
 cLL
 bhd
@@ -40235,13 +40236,13 @@ avE
 eUq
 xRX
 xRX
-fGM
+ajO
 xRX
-kqx
+jrC
 rEb
 xTu
 cbE
-wGc
+now
 klp
 llD
 euj
@@ -40450,7 +40451,7 @@ acn
 ewW
 xRX
 xRX
-fGM
+ajO
 wUi
 glJ
 ihN
@@ -40492,10 +40493,10 @@ hIE
 eUq
 xRX
 xRX
-fGM
+ajO
 xRX
-kqx
-kqx
+jrC
+jrC
 jgM
 vVy
 aMQ
@@ -40707,7 +40708,7 @@ pHN
 ewW
 xRX
 xRX
-fGM
+ajO
 wUi
 wNA
 bhd
@@ -40749,13 +40750,13 @@ iUK
 eUq
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
-kqx
-kqx
+jrC
+jrC
 tmo
-wGc
+now
 mwo
 mwo
 mwo
@@ -40964,7 +40965,7 @@ lJH
 jhL
 jhL
 xRX
-fGM
+ajO
 wUi
 peJ
 bhd
@@ -41006,18 +41007,18 @@ mtT
 eUq
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
 uLO
 ebn
 atj
-aOU
+vZW
 exg
 iGK
 aBD
-vZW
+wGc
 xRX
 xRX
 xRX
@@ -41221,7 +41222,7 @@ pCG
 iZM
 jhL
 jhL
-fGM
+ajO
 eIb
 eIb
 pPk
@@ -41263,7 +41264,7 @@ eUq
 eUq
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
@@ -41274,7 +41275,7 @@ jLL
 aab
 qDe
 nVi
-vZW
+wGc
 saW
 xRX
 xRX
@@ -41478,61 +41479,61 @@ mhq
 tcY
 rfn
 jhL
-fGM
-fGM
+ajO
+ajO
 eIb
 eIb
 qEc
 eIb
 eIb
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 gwg
 wzO
 dXK
 wzO
 gwg
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 cLC
 cLC
 mbX
 cLC
 cLC
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 qiz
 qiz
 dFi
 qiz
 qiz
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 eUq
 eUq
 wRc
 eUq
 eUq
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
 pvm
 kou
 dWF
-aOU
+vZW
 gLO
 npJ
 kAt
 lpe
-vZW
+wGc
 xRX
 xRX
 xRX
@@ -41736,7 +41737,7 @@ jbh
 tYn
 jhL
 xRX
-fGM
+ajO
 xRX
 wyp
 mGn
@@ -41777,19 +41778,19 @@ xRX
 xRX
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
 pvm
 vfD
 kOP
-aOU
-aOU
+vZW
+vZW
 tra
+wGc
 vZW
-aOU
-vZW
+wGc
 ydf
 ewy
 ewy
@@ -41993,7 +41994,7 @@ rRa
 nKC
 jhL
 xRX
-fGM
+ajO
 xRX
 wyp
 mGn
@@ -42034,7 +42035,7 @@ xRX
 xRX
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
@@ -43534,9 +43535,9 @@ bBW
 pkY
 bJj
 jhL
+aOU
 ajO
-fGM
-ajO
+aOU
 wyp
 bhA
 xQS
@@ -43576,7 +43577,7 @@ xRX
 xRX
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
@@ -43791,9 +43792,9 @@ rpZ
 doW
 nEK
 jhL
+aOU
 ajO
-fGM
-ajO
+aOU
 wyp
 vDD
 xvT
@@ -43833,7 +43834,7 @@ xRX
 xRX
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
@@ -44048,52 +44049,52 @@ ngJ
 gwl
 xZh
 jhL
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 wyp
 uJz
 bJc
 wyp
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 wyp
 uJz
 bst
 wyp
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
 uwT
 uwT
 jjA
 uwT
 uwT
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 eiL
 eiL
 gSo
 eiL
 eiL
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 tRo
 tRo
 sVs
 tRo
 tRo
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
 gzr
 iHV
 kOP
@@ -44305,23 +44306,23 @@ oGU
 kMx
 jhL
 jhL
-fGM
 ajO
+aOU
 sUX
 ppp
 ppp
 ppp
 ppp
-jrC
+ayy
 kQs
-jrC
+ayy
 wtm
 rhN
 ciM
 rhN
 rmm
-ajO
-ajO
+aOU
+aOU
 uwT
 uwT
 lgM
@@ -44347,7 +44348,7 @@ tRo
 tRo
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
@@ -44561,8 +44562,8 @@ aEa
 lJH
 jhL
 jhL
+aOU
 ajO
-fGM
 iGW
 wnf
 aSb
@@ -44578,7 +44579,7 @@ iQg
 clU
 nKq
 rmm
-ajO
+aOU
 htS
 lfg
 jFY
@@ -44604,7 +44605,7 @@ cMo
 tRo
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 xRX
@@ -44613,7 +44614,7 @@ ebn
 cDf
 quS
 cQs
-wgh
+jZO
 aSJ
 oxG
 xRX
@@ -44817,9 +44818,9 @@ xKt
 adF
 eqi
 uZl
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 rrT
 ntt
 sUq
@@ -44835,7 +44836,7 @@ elW
 sWG
 qVW
 vOL
-fGM
+ajO
 uwT
 dkz
 hHq
@@ -44861,7 +44862,7 @@ bxM
 tRo
 xRX
 xRX
-fGM
+ajO
 xRX
 xRX
 uLO
@@ -45074,9 +45075,9 @@ mOF
 qED
 uPa
 uZl
+aOU
+aOU
 ajO
-ajO
-fGM
 bcf
 aSb
 aEB
@@ -45092,7 +45093,7 @@ eqD
 aSb
 qeJ
 vOL
-ajO
+aOU
 uwT
 oZH
 pZI
@@ -45118,10 +45119,10 @@ ieZ
 tRo
 xRX
 xRX
-fGM
+ajO
 xRX
-ayy
-ayy
+kqx
+kqx
 nZj
 ess
 lzb
@@ -45332,8 +45333,8 @@ bpj
 fdV
 uZl
 uZl
+aOU
 ajO
-fGM
 rJT
 rsE
 rsE
@@ -45349,7 +45350,7 @@ afL
 sVT
 oSp
 vOL
-ajO
+aOU
 uwT
 bDX
 mCb
@@ -45375,9 +45376,9 @@ uNJ
 tRo
 xRX
 xRX
-fGM
+ajO
 xRX
-ayy
+kqx
 xMA
 uWU
 oVL
@@ -45589,8 +45590,8 @@ ieM
 mwO
 uoZ
 uZl
+aOU
 ajO
-fGM
 iUd
 vdX
 atI
@@ -45606,7 +45607,7 @@ tcV
 rXx
 cJt
 vOL
-ajO
+aOU
 uwT
 fYr
 lGK
@@ -45632,9 +45633,9 @@ lvR
 tRo
 xRX
 xRX
-fGM
+ajO
 xRX
-ayy
+kqx
 oyG
 cnH
 ess
@@ -45846,8 +45847,8 @@ mCl
 kuj
 rFB
 uZl
+aOU
 ajO
-fGM
 lkK
 hZH
 kti
@@ -45863,7 +45864,7 @@ kTf
 bzW
 hhA
 vOL
-ajO
+aOU
 uwT
 cgU
 hhQ
@@ -46103,8 +46104,8 @@ uiV
 vDk
 rFB
 uZl
+aOU
 ajO
-fGM
 bcf
 aSb
 aSb
@@ -46120,7 +46121,7 @@ tDp
 aSb
 hhA
 vOL
-ajO
+aOU
 uwT
 cgU
 onn
@@ -46360,8 +46361,8 @@ aEt
 ldf
 uZl
 uZl
-fGM
-fGM
+ajO
+ajO
 bcf
 sBA
 ruo
@@ -46377,7 +46378,7 @@ elW
 sWG
 cei
 vOL
-fGM
+ajO
 uwT
 vMG
 hil
@@ -46385,7 +46386,7 @@ uOr
 hil
 irq
 uwT
-fGM
+ajO
 eiL
 upC
 buI
@@ -46393,7 +46394,7 @@ hdb
 pZo
 fVv
 eiL
-fGM
+ajO
 tRo
 pDZ
 bxM
@@ -46401,8 +46402,8 @@ bxM
 bxM
 pZO
 tRo
-fGM
-fGM
+ajO
+ajO
 wjn
 qqX
 vwi
@@ -46616,9 +46617,9 @@ uZl
 osl
 stV
 uZl
+aOU
+aOU
 ajO
-ajO
-fGM
 aCG
 dqF
 aSb
@@ -46634,7 +46635,7 @@ rhN
 rhN
 mYn
 tOu
-ajO
+aOU
 htS
 hXO
 uwA
@@ -46872,11 +46873,11 @@ xRX
 xRX
 xRX
 xRX
-fGM
-fGM
 ajO
-fGM
 ajO
+aOU
+ajO
+aOU
 kOK
 rfz
 rfz
@@ -46890,8 +46891,8 @@ vTv
 vTv
 vTv
 tOu
-ajO
-ajO
+aOU
+aOU
 uwT
 uwT
 nti
@@ -46916,7 +46917,7 @@ rEV
 tRo
 tRo
 xRX
-fGM
+ajO
 wjn
 wjn
 wjn
@@ -47130,50 +47131,50 @@ xRX
 xRX
 xRX
 xRX
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
 ibm
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
+ajO
 fro
-fGM
-fGM
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
+ajO
+ajO
 uwT
 uwT
 qju
 uwT
 uwT
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 eiL
 eiL
 sal
 eiL
 eiL
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 tRo
 tRo
 raF
 tRo
 tRo
-fGM
-fGM
-fGM
+ajO
+ajO
+ajO
 xRX
 xRX
 xRX
