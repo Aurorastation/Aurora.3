@@ -341,10 +341,10 @@
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
-	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
 	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
 	new /obj/item/gun/projectile/automatic/tommygun/dom(src)
@@ -372,8 +372,8 @@
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
-	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/ammo_magazine/c762(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
 	new /obj/item/voidsuit_modkit/dominianvoid(src)
@@ -811,8 +811,8 @@
 	for(i=0, i<6, i++) //6 outfits
 		new /obj/item/clothing/under/syndicate/hammertail(src)
 	for(i=0, i<4, i++) //4 voidsuits w/helmets
-		new /obj/item/clothing/head/helmet/space/void/merc(src)
-		new /obj/item/clothing/suit/space/void/merc(src)
+		new /obj/item/clothing/head/helmet/space/void/merc/unathi(src)
+		new /obj/item/clothing/suit/space/void/merc/unathi(src)
 	for(i=0, i<4, i++) //4 e-swords
 		new /obj/item/melee/energy/sword(src)
 	for(i=0, i<4, i++) //4 heavy pistols w/spare magazines
@@ -827,8 +827,8 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/single/fill()
 	new /obj/item/clothing/under/syndicate/hammertail(src) //1 outfit
-	new /obj/item/clothing/head/helmet/space/void/merc(src) //1 voidsuit w/helmet
-	new /obj/item/clothing/suit/space/void/merc(src)
+	new /obj/item/clothing/head/helmet/space/void/merc/unathi(src) //1 voidsuit w/helmet
+	new /obj/item/clothing/suit/space/void/merc/unathi(src)
 	new /obj/item/melee/energy/sword(src) //1 e-sword
 	new /obj/item/gun/projectile/revolver(src) //1 .357 pistol w/spare speedloader
 	new /obj/item/ammo_magazine/a357(src)
