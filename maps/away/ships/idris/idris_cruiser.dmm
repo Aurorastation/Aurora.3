@@ -9585,6 +9585,11 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 4
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/idris_cruiser_shuttle/main)
 "Kn" = (
