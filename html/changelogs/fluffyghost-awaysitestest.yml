@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added an away sites UT."
+  - rscadd: "Added a ruins UT."
   - backend: "UTs now have a priority config to decide when they run."
   - bugfix: "Fixed various bugs that popped out during tests."
   - maptweak: "Reworked some ruins maps to not have active edges at roundstart."
