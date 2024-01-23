@@ -113,6 +113,11 @@
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		theme = new T
 
+	#if defined(UNIT_TEST)
+	///If we have shown one warning for the exoplanets_ruins config preventing us from loading ruins
+	var/shown_warning_for_exoplanets_ruins_config = FALSE
+	#endif //UNIT_TEST
+
 	if(ruin_type_whitelist)
 		for(var/T in ruin_type_whitelist)
 
@@ -120,6 +125,11 @@
 			//yes we could skip the list traversing but it would be more shitcode to do that, since it's not that expensive, fuck it
 			#if defined(UNIT_TEST)
 			if((SSunit_tests_config.config["exoplanets_ruins"] == FALSE))
+				if(!shown_warning_for_exoplanets_ruins_config)
+					LOG_GITHUB_WARNING("Not spawning ruins in 'ruin_type_whitelist' for [src.name] because 'exoplanets_ruins' is FALSE in the UT config")
+					shown_warning_for_exoplanets_ruins_config = TRUE
+
+				LOG_GITHUB_DEBUG("Ruin [T] in 'ruin_type_whitelist' for [src.name] not spawned because 'exoplanets_ruins' is FALSE in the UT config")
 				continue
 			#endif //UNIT_TEST
 
@@ -132,6 +142,11 @@
 			//If it's set to TRUE, we want the normal behavior, otherwise check if the subtype is present in the list
 			#if defined(UNIT_TEST)
 			if((SSunit_tests_config.config["exoplanets_ruins"] == FALSE) || ((SSunit_tests_config.config["exoplanets_ruins"] != TRUE) && !(T in SSunit_tests_config.config["exoplanets_ruins"])))
+				if(!shown_warning_for_exoplanets_ruins_config && (SSunit_tests_config.config["exoplanets_ruins"] == FALSE))
+					LOG_GITHUB_WARNING("Not spawning ruins for [src.name] because 'exoplanets_ruins' is FALSE in the UT config")
+					shown_warning_for_exoplanets_ruins_config = TRUE
+
+				LOG_GITHUB_DEBUG("Ruin [T] for [src.name] not spawned because either 'exoplanets_ruins' is FALSE or it does not contain it in the UT config")
 				continue
 			#endif //UNIT_TEST
 
