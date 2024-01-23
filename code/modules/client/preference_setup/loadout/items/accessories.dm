@@ -622,6 +622,7 @@
 	flagpatch_national["flagpatch, free council"] = /obj/item/clothing/accessory/flagpatch/freecouncil
 	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
+	flagpatch_national["flagpatch, port antillia"] = /obj/item/clothing/accessory/flagpatch/portantillia
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
 
 /datum/gear/accessory/aodai

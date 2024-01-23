@@ -32,8 +32,17 @@
 	return ..()
 
 /obj/item/mop/afterattack(atom/A, mob/user, proximity)
-	if(!proximity) return
-	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
+	if(!proximity)
+		return
+
+	var/has_overlay = FALSE
+	if(istype(A, /obj/effect/overlay))
+		var/obj/effect/overlay/O = A
+		if(O.no_clean)
+			return
+		has_overlay = TRUE
+
+	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || has_overlay || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("Your mop is dry!"))

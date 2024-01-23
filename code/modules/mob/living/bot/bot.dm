@@ -43,7 +43,6 @@
 	if(pAI)
 		if(isturf(loc))
 			drop_from_inventory(pAI, get_turf(src))
-			pAI.throw_at_random(FALSE, 3, 1)
 		else
 			drop_from_inventory(pAI, loc)
 		pAI = null

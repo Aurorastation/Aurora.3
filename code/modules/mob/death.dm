@@ -97,7 +97,8 @@
 
 	//This might seems like an useless computation to the programmer of the future, why would we do this?
 	//Easy! That's because otherwise, the hostile AI will keep us referenced, leading to an harddel
-	for(var/mob/living/simple_animal/hostile/hostile_in_sight in get_targets_in_LOS(world.view))
+	//(Make this shit a weakref whenever convenient)
+	for(var/mob/living/simple_animal/hostile/hostile_in_sight in get_hearers_in_LOS(world.view))
 		hostile_in_sight.targets.Remove(src)
 
 		if(hostile_in_sight.target_mob == src)

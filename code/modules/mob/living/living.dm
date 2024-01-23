@@ -1043,29 +1043,6 @@ default behaviour is:
 	set name = "throw_intent_toggle"
 	toggle_throw_mode()
 
-/**
- * User by a macro in skin.dmf to toggle the running
- */
-/mob/living/verb/run_intent_keyDown()
-	set hidden = 1
-	set name = "run_intent"
-
-	if(usr?.m_intent != M_WALK)
-		return
-
-	if(hud_used?.move_intent)
-		hud_used.move_intent.Click()
-
-/mob/living/verb/run_intent_keyUp()
-	set hidden = 1
-	set name = "run_intent_up"
-
-	if(usr?.m_intent != M_RUN)
-		return
-
-	if(hud_used?.move_intent)
-		hud_used.move_intent.Click()
-
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount
 	hallucination += amount

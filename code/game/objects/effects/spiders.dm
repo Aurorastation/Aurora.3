@@ -67,7 +67,7 @@
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || height == 0)
 		return TRUE
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || istype(mover,/mob/living/simple_animal/hostile/spider_queen))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
 	else if(istype(mover, /mob/living))
 		if(prob(50))
@@ -147,7 +147,7 @@
 	var/travelling_in_vent = 0
 	var/list/possible_offspring
 
-/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = list(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/nurse, /mob/living/simple_animal/hostile/giant_spider/emp, /mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider/bombardier))
 	. = ..(mapload)
 
 	pixel_x = rand(6,-6)

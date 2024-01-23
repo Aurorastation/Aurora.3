@@ -3,6 +3,10 @@
 	screen_on = FALSE
 	icon_state = "laptop-closed"
 
+/obj/item/modular_computer/laptop/preset/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/modular_computer/laptop/preset/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit(src)

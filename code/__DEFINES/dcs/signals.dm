@@ -12,22 +12,6 @@
 
 //////////////////////////////////////////////////////////////////
 
-// /datum signals
-/// when a component is added to a datum: (/datum/component)
-#define COMSIG_COMPONENT_ADDED "component_added"
-/// before a component is removed from a datum because of RemoveComponent: (/datum/component)
-#define COMSIG_COMPONENT_REMOVING "component_removing"
-/// before a datum's Destroy() is called: (force), returning a nonzero value will cancel the qdel operation
-#define COMSIG_PARENT_PREQDELETED "parent_preqdeleted"
-/// just before a datum's Destroy() is called: (force), at this point none of the other components chose to interrupt qdel and Destroy will be called
-#define COMSIG_QDELETING "parent_qdeleting"
-/// from datum ui_act (usr, action)
-#define COMSIG_UI_ACT "COMSIG_UI_ACT"
-/// fires on the target datum when an element is attached to it (/datum/element)
-#define COMSIG_ELEMENT_ATTACH "element_attach"
-/// fires on the target datum when an element is attached to it  (/datum/element)
-#define COMSIG_ELEMENT_DETACH_ON_HOST_DESTROY "ELEMENT_DETACH_ON_HOST_DESTROY"
-
 
 // /atom signals
 
@@ -44,13 +28,6 @@
 	#define HEARING_SPEAKER 	2
 	#define HEARING_LANGUAGE 	3
 	#define HEARING_RAW_MESSAGE 4
-
-//spatial grid signals
-
-///Called from base of /datum/controller/subsystem/spatial_grid/proc/enter_cell: (/atom/movable)
-#define SPATIAL_GRID_CELL_ENTERED(contents_type) "spatial_grid_cell_entered_[contents_type]"
-///Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)
-#define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
 #define COMSIG_MOB_EXAMINATE "mob_examinate"

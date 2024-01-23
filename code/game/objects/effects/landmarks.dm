@@ -92,7 +92,8 @@
 
 /obj/effect/landmark/Destroy()
 	GLOB.landmarks_list -= src
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/effect/landmark/start
 	name = "start"

@@ -173,7 +173,7 @@
 		icon_state = "tranqsniper"
 
 /obj/item/gun/projectile/dragunov
-	name = "marksman rifle"
+	name = "adhomian marksman rifle"
 	desc = "A semi-automatic marksman rifle."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
