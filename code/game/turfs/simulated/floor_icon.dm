@@ -62,20 +62,21 @@
 						else
 							add_overlay(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[direction]", "[flooring.icon_base]_edges", direction,(flooring.flags & TURF_HAS_EDGES)))
 
+		if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
+			if(flooring.has_damage_state)
+				add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, material floors damage. like diamond_broken0.
+			else // EVERYTHING BELOW, SEE DAMAGE.DMI
+				add_overlay(get_damage_overlay("[broken_overlay ? "[broken_overlay]_" : ""]broken[broken]", BLEND_MULTIPLY, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, broken overlay. carpet_broken0.
+		if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
+			if(flooring.has_burn_state)
+				add_overlay(get_damage_overlay("[flooring.icon_base]_burned[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null))
+			else
+				add_overlay(get_damage_overlay("[burned_overlay ? "[burned_overlay]_" : ""]burned[burnt]"))
+
 	if(decals && decals.len)
 		for(var/image/I in decals)
 			add_overlay(I)
 
-	if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
-		if(flooring.has_damage_state)
-			add_overlay(get_damage_overlay("[flooring.icon_base]_broken[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, material floors damage. like diamond_broken0.
-		else // EVERYTHING BELOW, SEE DAMAGE.DMI
-			add_overlay(get_damage_overlay("[broken_overlay ? "[broken_overlay]_" : ""]broken[broken]", BLEND_MULTIPLY, flooring_color = flooring.damage_uses_color ? flooring.color : null)) //example, broken overlay. carpet_broken0.
-	if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
-		if(flooring.has_burn_state)
-			add_overlay(get_damage_overlay("[flooring.icon_base]_burned[broken]", flooring_icon = flooring.icon, flooring_color = flooring.damage_uses_color ? flooring.color : null))
-		else
-			add_overlay(get_damage_overlay("[burned_overlay ? "[burned_overlay]_" : ""]burned[burnt]"))
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))

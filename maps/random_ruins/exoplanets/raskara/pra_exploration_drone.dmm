@@ -24,19 +24,53 @@
 	dir = 4
 	},
 /area/exoplanet)
+"LB" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit";
+	dir = 4
+	},
+/turf/template_noop,
+/area/exoplanet)
+"PU" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit";
+	dir = 1
+	},
+/turf/template_noop,
+/area/exoplanet)
 
 (1,1,1) = {"
 aX
-ab
+aX
+LB
+aX
 aX
 "}
 (2,1,1) = {"
+aX
+aX
+ab
+aX
+aX
+"}
+(3,1,1) = {"
+PU
 pD
 GU
 br
+PU
 "}
-(3,1,1) = {"
+(4,1,1) = {"
+aX
 aX
 HX
+aX
+aX
+"}
+(5,1,1) = {"
+aX
+aX
+LB
+aX
 aX
 "}

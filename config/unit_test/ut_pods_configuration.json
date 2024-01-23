@@ -14,6 +14,11 @@
 		"map_template_unit_test_groups":["*"]
 	},
 
+	"ruins":{
+		"unit_test_groups":["ruins", "map"],
+		"map_template_unit_test_groups":[false]
+	},
+
 	"awaysites-1":{
 		"unit_test_groups":["map"],
 		"map_template_unit_test_groups":[1]
