@@ -19,10 +19,11 @@
 	//Generate a planet WITH VACUUM ATMOS to use as a baseline
 	var/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/test_exoplanet = new()
 	test_exoplanet.generate_atmosphere()
+	TEST_ASSERT(length(test_exoplanet.map_z), "The test exoplanet somehow doesn't have any level!")
 
 	//Set the exoplanet like it exists on the zlevel, so that exoplanet turfs can copy the atmosphere from and not cause
 	//active edges with the vacuum of space, since the exoplanet is without atmos as per above
-	for(var/zlevel in test_exoplanet.map_z to 1024) //I pray to the lord we won't ever have 1024 ruins
+	for(var/zlevel in test_exoplanet.map_z[length(test_exoplanet.map_z)] to 1024) //I pray to the lord we won't ever have 1024 ruins
 		GLOB.map_sectors["[zlevel]"] = test_exoplanet
 
 	for(var/ruin in subtypesof(/datum/map_template/ruin/exoplanet))
