@@ -54,6 +54,7 @@
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
 	var/list/antag_datums = list()
+	var/datum/antagonist/antag_role = null //tracks the current antag datum(different from antag_datums)
 
 	var/rev_cooldown = 0
 
