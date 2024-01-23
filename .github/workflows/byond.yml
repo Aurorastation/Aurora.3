@@ -827,7 +827,7 @@ jobs:
 
     strategy:
       matrix:
-        map: [away_sites_testing]
+        map: [runtime]
         pod: [ruins]
       fail-fast: false
 
