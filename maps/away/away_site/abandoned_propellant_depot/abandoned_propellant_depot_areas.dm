@@ -67,12 +67,7 @@
 	name = "Abandoned Propellant Depot Mess"
 	icon_state = "courtroom"
 
-
-// --- other
-
-/area/abandoned_propellant_depot/bridge
-	name = "Abandoned Propellant Depot Bridge"
-	icon_state = "bridge"
+// --- engineering
 
 /area/abandoned_propellant_depot/engineering
 	name = "Abandoned Propellant Depot Engineering"
@@ -82,10 +77,6 @@
 	name = "Abandoned Propellant Depot Reactor"
 	icon_state = "engine"
 
-/area/abandoned_propellant_depot/maint_storage
-	name = "Abandoned Propellant Depot Maint Storage"
-	icon_state = "storage"
-
 /area/abandoned_propellant_depot/atmos_air
 	name = "Abandoned Propellant Depot Atmos/Air"
 	icon_state = "atmos"
@@ -94,8 +85,39 @@
 	name = "Abandoned Propellant Depot Atmos/Propellant"
 	icon_state = "atmos"
 
+/area/abandoned_propellant_depot/propellant_tanks
+	name = "Abandoned Propellant Depot Exterior Propellant Tanks"
+	icon_state = "exterior"
 
-// --- maint
+/area/abandoned_propellant_depot/atmos_air_aux_fill
+	name = "Abandoned Propellant Depot Atmos/Air Aux Fill"
+	icon_state = "atmos"
+
+// --- other
+
+/area/abandoned_propellant_depot/maint
+	name = "Abandoned Propellant Depot Maintenance"
+	icon_state = "maintenance"
+
+/area/abandoned_propellant_depot/bridge
+	name = "Abandoned Propellant Depot Bridge"
+	icon_state = "bridge"
+
+/area/abandoned_propellant_depot/maint_storage
+	name = "Abandoned Propellant Depot Maint Storage"
+	icon_state = "storage"
+
+/area/abandoned_propellant_depot/security
+	name = "Abandoned Propellant Depot Security"
+	icon_state = "security"
+
+/area/abandoned_propellant_depot/eva
+	name = "Abandoned Propellant Depot EVA Storage"
+	icon_state = "eva"
+
+/area/abandoned_propellant_depot/exterior_catwalks
+	name = "Abandoned Propellant Depot Exterior/Catwalks"
+	icon_state = "exterior"
 
 // -------------------------
 
