@@ -771,18 +771,6 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
-"jY" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
-	req_access = list(209)
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/raskara_okon/entry)
 "kd" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
@@ -2255,11 +2243,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
 	},
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
@@ -4641,7 +4624,7 @@ Ay
 Mu
 Av
 Co
-jY
+Xv
 Oc
 Oc
 Oc

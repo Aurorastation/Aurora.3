@@ -8,10 +8,23 @@
 	groups = list("ruins")
 	priority = 100 //Have to load the ruins first if you want to check them later
 
+/datum/unit_test/ruins_test/start_test()
+	return UNIT_TEST_SKIPPED
+
 /datum/unit_test/ruins_test/exoplanet_ruins
 	name = "Exoplanet Ruins"
 
 /datum/unit_test/ruins_test/exoplanet_ruins/start_test()
+
+	//Generate a planet WITH VACUUM ATMOS to use as a baseline
+	var/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/test_exoplanet = new()
+	test_exoplanet.generate_atmosphere()
+
+	//Set the exoplanet like it exists on the zlevel, so that exoplanet turfs can copy the atmosphere from and not cause
+	//active edges with the vacuum of space, since the exoplanet is without atmos as per above
+	for(var/zlevel in test_exoplanet.map_z to 1024) //I pray to the lord we won't ever have 1024 ruins
+		GLOB.map_sectors["[zlevel]"] = test_exoplanet
+
 	for(var/ruin in subtypesof(/datum/map_template/ruin/exoplanet))
 		var/datum/map_template/ruin/exoplanet/tested_ruin = new ruin()
 		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)
