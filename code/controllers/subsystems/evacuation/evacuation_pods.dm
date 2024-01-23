@@ -36,12 +36,18 @@
 	state = EVAC_IN_TRANSIT
 
 	switch(evacuation_type)
-		if("evacuation")
+		if(TRANSFER_EMERGENCY)
 			// Abandon Ship
 			for(var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods) // Launch the pods!
 				if(!pod.arming_controller || pod.arming_controller.armed)
 					pod.move_time = (evac_transit_delay/10)
 					pod.launch(src)
+			for(var/mob/living/carbon/human/person in world)
+				if(player_is_antag(person.mind) && istype(person.lastarea, /area/shuttle/escape_pod))
+					if(person.handcuffed)
+						sound_to(person, person.mind.antag_role.fail_sound)
+					else
+						sound_to(person, person.mind.antag_role.escape_sound)
 
 			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 		if(TRANSFER_JUMP)
