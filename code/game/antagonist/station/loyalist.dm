@@ -14,6 +14,9 @@ var/datum/antagonist/loyalists/loyalists
 	loss_feedback_tag = "You were thwarted by the Revolutionaries."
 	antaghud_indicator = "fellowship"
 
+	escape_sound = 'sound/music/evacuation/antag/head_loy.ogg'
+	fail_sound = 'sound/music/evacuation/antag/head_loy_fail.ogg'
+
 	hard_cap = 3
 	hard_cap_round = 4
 	initial_spawn_req = 1

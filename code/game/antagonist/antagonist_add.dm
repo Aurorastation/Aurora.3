@@ -17,6 +17,7 @@
 			equip(player.current)
 
 	player.current.faction = faction
+	player.antag_role = src
 
 	return 1
 
