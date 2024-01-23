@@ -118,10 +118,10 @@
 
 			//If the exoplanet_ruins setting in the UT is FALSE, do not generate ruins
 			//yes we could skip the list traversing but it would be more shitcode to do that, since it's not that expensive, fuck it
-			#if defined(UNIT_TESTS)
+			#if defined(UNIT_TEST)
 			if((SSunit_tests_config.config["exoplanets_ruins"] == FALSE))
 				continue
-			#endif //UNIT_TESTS
+			#endif //UNIT_TEST
 
 			var/datum/map_template/ruin/exoplanet/ruin = T
 			possible_features += new ruin
@@ -130,10 +130,10 @@
 
 			//If the exoplanet_ruins setting in the UT is FALSE or the type is not listed, do not generate ruins
 			//If it's set to TRUE, we want the normal behavior, otherwise check if the subtype is present in the list
-			#if defined(UNIT_TESTS)
+			#if defined(UNIT_TEST)
 			if((SSunit_tests_config.config["exoplanets_ruins"] == FALSE) || ((SSunit_tests_config.config["exoplanets_ruins"] != TRUE) && !(T in SSunit_tests_config.config["exoplanets_ruins"])))
 				continue
-			#endif //UNIT_TESTS
+			#endif //UNIT_TEST
 
 			var/datum/map_template/ruin/exoplanet/ruin = T
 			if((initial(ruin.template_flags) & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
