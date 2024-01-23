@@ -19,6 +19,7 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	volume = 60
 	fragile = 0
+	atom_flags = ATOM_FLAG_POUR_CONTAINER
 	var/lid_type = /obj/item/teapot_lid
 	var/obj/item/teapot_lid/lid
 
@@ -46,11 +47,14 @@
 
 /obj/item/reagent_containers/glass/beaker/teapot/lidded/attack_self(mob/user)
 	if(lid)
-		if(user.put_in_hands(lid))
-			lid = null
-			to_chat(user, SPAN_NOTICE("You slide off \the [src]'s lid."))
-			update_icon()
-			return TRUE
+		if(user.get_inactive_hand())
+			if(user.put_in_hands(lid))
+				lid = null
+				to_chat(user, SPAN_NOTICE("You slide off \the [src]'s lid."))
+				update_icon()
+				return TRUE
+		else
+			to_chat(user, SPAN_WARNING("Your other hand is busy holding something!"))
 
 /obj/item/reagent_containers/glass/beaker/teapot/lidded/is_open_container()
 	return lid ? FALSE : TRUE

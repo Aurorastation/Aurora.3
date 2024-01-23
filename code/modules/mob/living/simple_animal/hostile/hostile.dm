@@ -52,7 +52,7 @@
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_NULL_ASSOC(target_type_validator_map)
+	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)

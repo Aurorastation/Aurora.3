@@ -111,6 +111,7 @@
 	destination_tags = list(
 		"nav_operations_lift_first_deck",
 		"nav_operations_lift_second_deck",
+		"nav_operations_lift_third_deck",
 		)
 
 /obj/effect/shuttle_landmark/lift/operations_first_deck
@@ -123,6 +124,12 @@
 	name = "Operations Lift - Second Deck"
 	landmark_tag = "nav_operations_lift_second_deck"
 	base_area = /area/operations/office
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/operations_third_deck
+	name = "Operations Lift - Third Deck"
+	landmark_tag = "nav_operations_lift_third_deck"
+	base_area = /area/operations/office_aux
 	base_turf = /turf/simulated/open
 
 /obj/machinery/computer/shuttle_control/multi/lift/operations

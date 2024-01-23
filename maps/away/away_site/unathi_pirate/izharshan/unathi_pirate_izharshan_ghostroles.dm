@@ -35,6 +35,7 @@
 
 /obj/item/clothing/under/unathi/izharshan
 	color = "#f3840e"
+	accent_color = "#f3840e"
 
 /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
 	color = "#eed8c1"

@@ -50,8 +50,6 @@
 		coinvalues["[cointype]"] = get_value(cointype)
 
 /obj/machinery/computer/slot_machine/Destroy()
-	if(balance)
-		give_payout(balance)
 	return ..()
 
 /obj/machinery/computer/slot_machine/process(delta_time)

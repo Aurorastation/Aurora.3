@@ -101,6 +101,7 @@ SUBSYSTEM_DEF(pai)
 
 			if(pai.mind)
 				update_antag_icons(pai.mind)
+				pai.mind.current.client.init_verbs()
 
 			pai_candidates -= candidate
 			usr << browse(null, "window=findPai")

@@ -215,7 +215,7 @@
 		+ "</body></html>", "window=pdaphoto;size=192x192")
 		onclose(M, "pdaphoto")
 
-var/obj/machinery/blackbox_recorder/blackbox
+GLOBAL_DATUM(blackbox, /obj/machinery/blackbox_recorder)
 
 /obj/machinery/blackbox_recorder
 	icon = 'icons/obj/stationobjs.dmi'
@@ -231,16 +231,20 @@ var/obj/machinery/blackbox_recorder/blackbox
 	//Only one can exist in the world!
 /obj/machinery/blackbox_recorder/Initialize()
 	. = ..()
-	if(blackbox)
-		if(istype(blackbox,/obj/machinery/blackbox_recorder))
+	if(GLOB.blackbox)
+		if(istype(GLOB.blackbox,/obj/machinery/blackbox_recorder))
 			qdel(src)
 	else
-		blackbox = src
+		GLOB.blackbox = src
 
 /obj/machinery/blackbox_recorder/Destroy()
 	feedback_set_details("blackbox_destroyed","true")
 	feedback_set("blackbox_destroyed",1)
-	return ..()
+
+	if(GLOB.blackbox == src)
+		GLOB.blackbox = null
+
+	. = ..()
 
 
 #undef MESSAGE_SERVER_SPAM_REJECT

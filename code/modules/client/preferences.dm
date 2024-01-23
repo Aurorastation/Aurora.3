@@ -211,7 +211,7 @@ var/list/preferences_datums = list()
 
 /datum/preferences/Destroy()
 	. = ..()
-	QDEL_NULL_LIST(char_render_holders)
+	QDEL_LIST(char_render_holders)
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)

@@ -14,7 +14,7 @@
 	clicksound = /singleton/sound_category/keyboard_sound
 	clickvol = 30
 
-	var/print_loc
+	var/atom/print_loc
 
 	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
 	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
@@ -62,8 +62,12 @@
 	populate_lathe_recipes()
 
 /obj/machinery/autolathe/Destroy()
+	print_loc = null
+	QDEL_NULL(currently_printing)
 	QDEL_NULL(wires)
-	print_queue.Cut()
+
+	QDEL_LIST(print_queue)
+
 	return ..()
 
 /obj/machinery/autolathe/proc/populate_lathe_recipes()

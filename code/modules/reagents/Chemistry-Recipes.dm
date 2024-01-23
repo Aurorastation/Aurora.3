@@ -2011,22 +2011,22 @@
 	name = "Sencha"
 	id = "sencha"
 	result = /singleton/reagent/drink/tea/sencha
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 9)
+	result_amount = 10
 
 /datum/chemical_reaction/drink/tieguanyin
 	name = "Tieguanyin"
 	id = "tieguanyin"
 	result = /singleton/reagent/drink/tea/tieguanyin
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 9)
+	result_amount = 10
 
 /datum/chemical_reaction/drink/jaekseol
 	name = "jaekseol"
 	id = "jaekseol"
 	result = /singleton/reagent/drink/tea/jaekseol
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 9)
+	result_amount = 10
 
 /datum/chemical_reaction/drink/cocatea
 	name = "Mate de Coca"

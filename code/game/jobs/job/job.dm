@@ -145,6 +145,8 @@
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
 		. = minimal_access.Copy()
 	else

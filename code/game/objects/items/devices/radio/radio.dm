@@ -565,7 +565,8 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/device/radio/borg/Destroy()
 	myborg = null
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/device/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)

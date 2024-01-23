@@ -394,27 +394,25 @@ var/const/enterloopsanity = 100
 /turf/proc/clean(atom/source, mob/user)
 	if(source.reagents.has_reagent(/singleton/reagent/water, 1) || source.reagents.has_reagent(/singleton/reagent/spacecleaner, 1))
 		clean_blood()
-		if(istype(src, /turf/simulated))
-			var/turf/simulated/T = src
-			T.dirt = 0
-			if(istype(src, /turf/simulated/floor))
-				var/turf/simulated/floor/F = src
-				if(F.flooring)
-					F.color = F.flooring.color
-				else
-					F.color = null
-			else
-				T.color = null
+
 		for(var/obj/effect/O in src)
-			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			if(istype(O, /obj/effect/decal/cleanable))
 				qdel(O)
-			if(istype(O,/obj/effect/rune))
+
+			if(istype(O, /obj/effect/overlay))
+				var/obj/effect/overlay/OV = O
+				if(OV.no_clean)
+					continue
+				else
+					qdel(OV)
+
+			if(istype(O, /obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
 	else
-		if( !(last_clean && world.time < last_clean + 100) )
+		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.

@@ -86,6 +86,7 @@
 /datum/outfit/admin/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
+		H.w_uniform.accent_color = H.w_uniform.color
 
 /datum/outfit/admin/izweski/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)

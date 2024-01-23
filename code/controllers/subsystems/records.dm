@@ -210,7 +210,7 @@ SUBSYSTEM_DEF(records)
 /datum/controller/subsystem/records/ui_static_data(mob/user)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
-	data["allow_follow"] = isobserver(usr)
+	data["allow_follow"] = isobserver(user)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
