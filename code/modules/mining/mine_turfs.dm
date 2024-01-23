@@ -609,6 +609,9 @@ var/list/mineral_can_smooth_with = list(
 	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
+/turf/simulated/mineral/crystal
+	color = "#6fb1b5"
+
 /**********************Asteroid**************************/
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
