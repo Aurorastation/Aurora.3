@@ -11,6 +11,8 @@ var/datum/antagonist/revolutionary/revs
 	loss_text = "The Loyalists threw a wrench into your plans -- permanently."
 	victory_feedback_tag = "You eliminated the Loyalists in one fell swoop."
 	loss_feedback_tag = "No matter your efforts, you failed to thwart them."
+	escape_sound = 'sound/music/evacuation/antag/head_rev.ogg'
+	fail_sound = 'sound/music/evacuation/antag/head_rev_fail.ogg'
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
 
