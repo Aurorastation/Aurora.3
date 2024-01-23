@@ -2614,11 +2614,6 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/engineering)
-"jW" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint_storage)
 "jX" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/random/dirt_75,
@@ -8134,6 +8129,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"Gj" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint_storage)
 "Gm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
@@ -10951,6 +10952,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
+"Rl" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint_storage)
 "Rn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -10976,12 +10982,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/hallways_east)
-"Rv" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint_storage)
 "Rx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -34349,10 +34349,10 @@ Zi
 Zi
 Wb
 qJ
-Rv
-Rv
-jW
-jW
+Gj
+Gj
+Rl
+Rl
 PO
 GH
 ja
