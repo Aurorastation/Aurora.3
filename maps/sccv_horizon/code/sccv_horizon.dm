@@ -168,7 +168,7 @@
 			if("Sunday")
 				last_visit = "Неделю назад"
 		welcome_text += "Последний визит в порт: <br><b>[last_visit]</b><br><br>"
-		welcome_text += "Дней до ближайшего порта:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
+		welcome_text += "До ближайшего порта:<br /><b>[SSatlas.current_sector.get_port_travel_time()]</b><br /><br>"
 		welcome_text += "Сканирование системы выявило следующие точки интереса:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
