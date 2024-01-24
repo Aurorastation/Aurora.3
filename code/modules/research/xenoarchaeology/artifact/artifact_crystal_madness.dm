@@ -14,11 +14,11 @@
 // 	..()
 // 	icon_state = "crystal[rand(1, 3)]"
 
-// 	desc = pick(\
-// 	"It shines faintly as it catches the light.",\
-// 	"It appears to have a faint inner glow.",\
-// 	"It seems to draw you inward as you look it at.",\
-// 	"Something twinkles faintly as you look at it.",\
+// 	desc = pick(
+// 	"It shines faintly as it catches the light.",
+// 	"It appears to have a faint inner glow.",
+// 	"It seems to draw you inward as you look it at.",
+// 	"Something twinkles faintly as you look at it.",
 // 	"It's mesmerizing to behold.")
 
 // /obj/structure/crystal/Destroy()
