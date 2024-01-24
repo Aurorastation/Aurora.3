@@ -191,12 +191,12 @@
 			if(!vampire_can_affect_target(L, 0, affect_ipc = TRUE))
 				continue
 
-			L.Weaken(8)
-			L.stuttering = 20
-			L.confused = 10
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-			L.flash_act(FLASH_PROTECTION_MAJOR)
-			victims += L
+			if(L.flash_act(ignore_inherent = TRUE))
+				L.Weaken(8)
+				L.stuttering = 20
+				L.confused = 10
+				victims += L
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
 			victims += L
@@ -765,7 +765,7 @@
 	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process."))
 	to_chat(T, SPAN_WARNING("You feel an irresistible desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
 
-	if(!do_mob(src, T, 50))
+	if(!do_mob(src, T, 20 SECONDS))
 		visible_message(SPAN_DANGER("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), SPAN_DANGER("You are interrupted!"))
 		return
 
