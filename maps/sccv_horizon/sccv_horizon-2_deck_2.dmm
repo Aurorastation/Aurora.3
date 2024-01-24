@@ -30696,7 +30696,8 @@
 	id = "engie_ringer";
 	pixel_x = -10;
 	pixel_y = 0;
-	req_access = list(11)
+	req_one_access = list(11,24);
+	req_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
