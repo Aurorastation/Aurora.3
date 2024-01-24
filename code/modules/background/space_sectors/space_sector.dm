@@ -112,7 +112,7 @@
 	return "<hr><div align='center'><hr1><B>Текущий сектор: [name]!</B></hr1><br><i>[description]</i><hr></div>"
 
 /datum/space_sector/proc/get_port_travel_time()
-	return "[rand(1, 3)] дней"
+	return "[rand(1, 3)] д."
 
 /datum/space_sector/proc/generate_system_name()
 	return "[pick("Миранда", "BNM", "Хавьер", "GJ", "HD", "TC", "Мелисса", "TC")][prob(10) ? " Эридана" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
