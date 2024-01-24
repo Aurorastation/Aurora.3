@@ -72,7 +72,7 @@
 		to_chat(src, SPAN_DANGER("\The [T]'s blood burns like venom in your throat! Your stomach churns with sickness, and you fall to the ground, retching in disgust!"))
 		to_chat(T, SPAN_DANGER("[src] sinks [src.get_pronoun("his")] fans into your neck, and you feel your blood draining - before [src.get_pronoun("he")] collapses, gagging and choking!"))
 		src.adjustToxLoss(rand(10,20))
-		src.weaken(10)
+		src.Weaken(10)
 		vampire.frenzy += rand(10,30)
 		src.vomit()
 		return
