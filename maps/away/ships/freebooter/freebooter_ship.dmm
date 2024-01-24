@@ -1254,9 +1254,7 @@
 	layer = 2.31;
 	name = "lattice"
 	},
-/turf/simulated/floor{
-	icon_state = "dmg4"
-	},
+/turf/simulated/floor,
 /area/ship/freebooter_ship/ammo)
 "bWt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
@@ -1534,6 +1532,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
+"cPy" = (
+/obj/machinery/ship_weapon/blaster{
+	pixel_y = -195;
+	pixel_x = -24;
+	weapon_id = "Freebooter Ship Blaster"
+	},
+/turf/simulated/wall,
+/area/ship/freebooter_ship/gunnery)
 "cQs" = (
 /obj/structure/cryofeed/pipes{
 	dir = 4
@@ -3281,9 +3287,7 @@
 	name = "igs - freebooter crew"
 	},
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor{
-	icon_state = "dmg2"
-	},
+/turf/simulated/floor,
 /area/ship/freebooter_ship/pod1)
 "hLa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4195,9 +4199,7 @@
 /obj/item/stack/tile/floor_dark{
 	layer = 2.81
 	},
-/turf/simulated/floor{
-	icon_state = "dmg2"
-	},
+/turf/simulated/floor,
 /area/ship/freebooter_ship/ammo)
 "kfX" = (
 /obj/structure/bed/stool/chair/office/wheelchair{
@@ -8828,7 +8830,6 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
 "tSZ" = (
@@ -9871,7 +9872,7 @@
 /area/ship/freebooter_ship/exterior)
 "wcN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/stool/chair{
+/obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -40982,7 +40983,7 @@ tmo
 dlZ
 mwo
 mwo
-mwo
+cPy
 imE
 imE
 xRX
