@@ -123,9 +123,6 @@ macro "borghotkeymode"
 		name = "CTRL+Q"
 		command = "unequip-module"
 	elem
-		name = "R"
-		command = ".southwest"
-	elem
 		name = "CTRL+R"
 		command = ".southwest"
 	elem "s_key"
@@ -218,6 +215,19 @@ macro "borghotkeymode"
 	elem
 		name = "NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+
 
 macro "macro"
 	elem
@@ -388,6 +398,22 @@ macro "macro"
 	elem
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+  elem
+    name = "R"
+    command = "throw_intent_toggle"
+
 
 macro "hotkeymode"
 	elem
@@ -526,9 +552,6 @@ macro "hotkeymode"
 		name = "CTRL+Q"
 		command = ".northwest"
 	elem
-		name = "R"
-		command = ".southwest"
-	elem
 		name = "CTRL+R"
 		command = ".southwest"
 	elem "s_key"
@@ -622,11 +645,21 @@ macro "hotkeymode"
 		name = "NUMPAD3"
 		command = "body-l-leg"
 	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
 		name = ","
 		command = "move-upwards"
 	elem
 		name = "."
-		command = "move-down"
+		command = "Move-Down"
+  elem
+    name = "R"
+    command = "throw_intent_toggle"
+
 
 macro "borgmacro"
 	elem
@@ -791,6 +824,18 @@ macro "borgmacro"
 	elem
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
 
 
 menu "menu"

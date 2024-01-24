@@ -2,6 +2,7 @@ SUBSYSTEM_DEF(statpanels)
 	name = "Stat Panels"
 	wait = 4
 	init_order = SS_INIT_MISC_FIRST
+	flags = SS_NO_INIT
 	priority = SS_PRIORITY_STATPANELS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_stage = INITSTAGE_EARLY
@@ -31,7 +32,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [current_map.name]",
 			"Round ID: [game_id ? game_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [game_year]-[current_month]-[current_day]",
+			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
@@ -40,7 +41,7 @@ SUBSYSTEM_DEF(statpanels)
 		if(eta_status)
 			global_data += eta_status
 
-		src.currentrun = clients.Copy()
+		src.currentrun = GLOB.clients.Copy()
 		mc_data = null
 
 	var/list/currentrun = src.currentrun
@@ -65,6 +66,12 @@ SUBSYSTEM_DEF(statpanels)
 
 			if(target.stat_tab == "MC" && ((num_fires % mc_wait == 0)))
 				set_MC_tab(target)
+
+			if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
+				target.stat_panel.send_message("remove_sdql2")
+
+			else if(length(GLOB.sdql2_queries) && (target.stat_tab == "SDQL2" || !("SDQL2" in target.panel_tabs)) && num_fires % default_wait == 0)
+				set_SDQL2_tab(target)
 
 		if(target.mob)
 			var/mob/target_mob = target.mob
@@ -196,14 +203,15 @@ SUBSYSTEM_DEF(statpanels)
 		list("CPU:", world.cpu),
 		list("Instances:", "[num2text(world.contents.len, 10)]"),
 		list("World Time:", "[world.time]"),
-		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%)"),
+		list("Globals:", GLOB.stat_entry(), text_ref(GLOB)),
+		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%)"),
 		list("Master Controller:", Master.stat_entry(), text_ref(Master)),
 		list("Failsafe Controller:", Failsafe.stat_entry(), text_ref(Failsafe)),
 		list("","")
 	)
 	for(var/datum/controller/subsystem/sub_system in Master.subsystems)
 		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]][sub_system.name]", sub_system.stat_entry(), text_ref(sub_system))
-	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [cameranet.cameras.len] | Chunks: [cameranet.chunks.len]", text_ref(cameranet))
+	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [GLOB.cameranet.cameras.len] | Chunks: [GLOB.cameranet.chunks.len]", text_ref(GLOB.cameranet))
 
 ///immediately update the active statpanel tab of the target client
 /datum/controller/subsystem/statpanels/proc/immediate_send_stat_data(client/target)
@@ -232,6 +240,22 @@ SUBSYSTEM_DEF(statpanels)
 	if(target.stat_tab == "MC")
 		set_MC_tab(target)
 		return TRUE
+
+	if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
+		target.stat_panel.send_message("remove_sdql2")
+
+	else if(length(GLOB.sdql2_queries) && target.stat_tab == "SDQL2")
+		set_SDQL2_tab(target)
+
+/datum/controller/subsystem/statpanels/proc/set_SDQL2_tab(client/target)
+	var/list/sdql2A = list()
+	sdql2A[++sdql2A.len] = list("", "Access Global SDQL2 List", ref(GLOB.sdql2_vv_statobj))
+	var/list/sdql2B = list()
+	for(var/datum/sdql2_query/query as anything in GLOB.sdql2_queries)
+		sdql2B = query.generate_stat()
+
+	sdql2A += sdql2B
+	target.stat_panel.send_message("update_sdql2", sdql2A)
 
 /// Stat panel window declaration
 /client/var/datum/tgui_window/stat_panel

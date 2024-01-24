@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/ee_crewman/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ee_research_officer
 	short_name = "ee_research_officer"
@@ -69,10 +69,10 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/ee_research_officer/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/ee_ship
 	name = "ee research ship id"
-	access = list(access_ee_spy_ship, access_external_airlocks)
+	access = list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

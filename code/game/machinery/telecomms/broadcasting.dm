@@ -23,7 +23,7 @@
 			)
 
 	if(current_map.use_overmap && istype(source))
-		sector = map_sectors["[source.z]"]
+		sector = GLOB.map_sectors["[source.z]"]
 
 /datum/signal/subspace/proc/copy()
 	var/datum/signal/subspace/copy = new
@@ -109,11 +109,11 @@
 		origin_level = T.z
 		levels = list(T.z)
 		if(current_map.use_overmap)
-			sector = map_sectors["[T.z]"]
+			sector = GLOB.map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
 		levels = current_map.station_levels
 		origin_level = levels[1]
-		sector = map_sectors["[levels[1]]"]
+		sector = GLOB.map_sectors["[levels[1]]"]
 
 	var/mob/M = speaker.resolve()
 
@@ -183,7 +183,7 @@
 			receive -= R
 
 	// Add observers who have ghost radio enabled
-	for (var/mob/abstract/observer/M in player_list)
+	for (var/mob/abstract/observer/M in GLOB.player_list)
 		if(M.client && (M.client.prefs?.toggles & CHAT_GHOSTRADIO))
 			receive |= M
 

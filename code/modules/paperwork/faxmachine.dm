@@ -9,7 +9,7 @@ var/list/admin_departments
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads)
+	req_one_access = list(ACCESS_LAWYER, ACCESS_HEADS)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200
@@ -39,6 +39,12 @@ var/list/admin_departments
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 	destination = current_map.boss_name
+
+/obj/machinery/photocopier/faxmachine/Destroy()
+	allfaxes -= src
+	QDEL_NULL(identification)
+
+	. = ..()
 
 /obj/machinery/photocopier/faxmachine/ui_data(mob/user)
 	var/list/data = list()
@@ -231,7 +237,7 @@ var/list/admin_departments
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/paper))
-			copy(src, incoming, 1, 0, 0, toner = src.toner)
+			copy(src, incoming, TRUE, FALSE, FALSE, toner = toner)
 		else if (istype(incoming, /obj/item/photo))
 			photocopy(src, incoming, toner = src.toner)
 		else if (istype(incoming, /obj/item/paper_bundle))
@@ -265,11 +271,11 @@ var/list/admin_departments
 
 	var/obj/item/rcvdcopy
 	if (istype(copy_item, /obj/item/paper))
-		rcvdcopy = copy(src, copy_item, 0, toner = src.toner)
+		rcvdcopy = copy(src, copy_item, FALSE, toner = toner)
 	else if (istype(copy_item, /obj/item/photo))
-		rcvdcopy = photocopy(src, copy_item, toner = src.toner)
+		rcvdcopy = photocopy(src, copy_item, toner = toner)
 	else if (istype(copy_item, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(src, copy_item, 0, toner = src.toner)
+		rcvdcopy = bundlecopy(src, copy_item, FALSE, toner = toner)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
@@ -293,7 +299,7 @@ var/list/admin_departments
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		var/flags = C.holder.rights & (R_ADMIN|R_CCIAA)
 		if(flags)

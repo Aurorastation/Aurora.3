@@ -324,7 +324,7 @@
 
 /singleton/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(cardinal))
+		step(M, pick(GLOB.cardinal))
 	if(prob(5) && ishuman(M))
 		M.emote(pick("twitch", "drool", "moan"))
 

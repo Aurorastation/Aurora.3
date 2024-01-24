@@ -27,7 +27,7 @@
 	if(do_after(L, 3 SECONDS))
 		var/list/level_humans = list()
 		var/found_apex = FALSE
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H == L)
 				continue
 			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked())

@@ -181,7 +181,10 @@
 		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack)
 
 /datum/outfit/admin/scc_scout_ship_crew/get_id_access()
-	return list(access_external_airlocks, access_maint_tunnels, access_security, access_medical, access_engine, access_engine_equip, access_research, access_cargo)
+	return list(
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
+		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
+	)
 
 /datum/outfit/admin/scc_scout_ship_crew/captain
 	name = "SCC Scout Ship Captain"
@@ -200,7 +203,11 @@
 	)
 
 /datum/outfit/admin/scc_scout_ship_crew/captain/get_id_access()
-	return list(access_external_airlocks, access_maint_tunnels, access_security, access_medical, access_engine, access_engine_equip, access_research, access_cargo, access_heads, access_captain)
+	return list(
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
+		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
+		ACCESS_HEADS, ACCESS_CAPTAIN,
+	)
 
 /datum/outfit/admin/scc_scout_ship_crew/orion
 	name = "SCC Scout Ship Orion Crew"

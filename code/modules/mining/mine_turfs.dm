@@ -2,7 +2,7 @@
 /turf/unsimulated/mineral
 	name = "impassable rock"
 	icon = 'icons/turf/smooth/rock_dense.dmi'
-	icon_state = "wall"
+	icon_state = "preview_wall_unsimulated"
 	blocks_air = TRUE
 	density = TRUE
 	gender = PLURAL
@@ -22,16 +22,16 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "rock"
+	icon = 'icons/turf/smooth/rock_dense.dmi'
+	icon_state = "preview_wall"
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
-	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	layer = ON_TURF_LAYER
+	color = "#6e632f"
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 	initial_gas = null
 	opacity = TRUE
@@ -64,16 +64,15 @@ var/list/mineral_can_smooth_with = list(
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	initialized = TRUE
-
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -84,8 +83,6 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = mineral_can_smooth_with
-		pixel_x = -4
-		pixel_y = -4
 
 	rock_health = rand(10,20)
 
@@ -130,6 +127,7 @@ var/list/mineral_can_smooth_with = list(
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
+	SSicon_smooth.add_to_queue_neighbors(src)
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
@@ -168,32 +166,29 @@ var/list/mineral_can_smooth_with = list(
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid
 	name = "rock"
-	icon = 'icons/turf/map_placeholders.dmi'
-	icon_state = "rock"
 	desc = "It's a greyish rock. Exciting."
 	opacity = TRUE
-	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	layer = 2.01
 	var/list/asteroid_can_smooth_with = list(
 		/turf/unsimulated/mineral,
 		/turf/unsimulated/mineral/asteroid
 	)
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	color = "#705d40"
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
 
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	initialized = TRUE
-
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -204,8 +199,6 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
-		pixel_x = -4
-		pixel_y = -4
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -232,7 +225,6 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	if(!mineral)
 		name = "\improper Rock"
-		icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
 	new /obj/effect/mineral(src, mineral)
@@ -489,10 +481,10 @@ var/list/mineral_can_smooth_with = list(
 				R.amount = rand(5, 25)
 
 /turf/simulated/mineral/proc/change_mineral(mineral_name, force = FALSE)
-	if(mineral_name && (mineral_name in ore_data))
+	if(mineral_name && (mineral_name in GLOB.ore_data))
 		if(mineral && !force)
 			return FALSE
-		mineral = ore_data[mineral_name]
+		mineral = GLOB.ore_data[mineral_name]
 		UpdateMineral()
 
 /turf/simulated/mineral/random
@@ -523,8 +515,8 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
-		if(mineral_name && (mineral_name in ore_data))
-			mineral = ore_data[mineral_name]
+		if(mineral_name && (mineral_name in GLOB.ore_data))
+			mineral = GLOB.ore_data[mineral_name]
 			UpdateMineral()
 		MineralSpread()
 	. = ..()
@@ -627,7 +619,6 @@ var/list/mineral_can_smooth_with = list(
 	icon_state = ""
 	desc = "An exposed developer texture. Someone wasn't paying attention."
 	smoothing_flags = SMOOTH_FALSE
-	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
 	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
@@ -652,9 +643,9 @@ var/list/asteroid_floor_smooth = list(
 
 // Copypaste parent for performance.
 /turf/unsimulated/floor/asteroid/Initialize(mapload)
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-	initialized = TRUE
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	if(icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.
 		icon = base_icon
@@ -663,7 +654,7 @@ var/list/asteroid_floor_smooth = list(
 	base_name = name
 
 	if(isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -916,4 +907,5 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
+	SSicon_smooth.add_to_queue_neighbors(src)
 	. = ..()

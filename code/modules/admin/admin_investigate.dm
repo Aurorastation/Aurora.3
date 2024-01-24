@@ -39,9 +39,9 @@
 			src << browse(F,"window=investigate[subject];size=800x300")
 
 		if("hrefs")				//persistant logs and stuff
-			if(config && config.logsettings["log_hrefs"])
-				if(config.logfiles["world_href_log"])
-					src << browse(config.logfiles["world_href_log"], "window=investigate[subject];size=800x300")
+			if(GLOB.config && GLOB.config.logsettings["log_hrefs"])
+				if(GLOB.config.logfiles["world_href_log"])
+					src << browse(GLOB.config.logfiles["world_href_log"], "window=investigate[subject];size=800x300")
 				else
 					to_chat(src, "<span class='warning'>Error: admin_investigate: No href logfile found.</span>")
 					return

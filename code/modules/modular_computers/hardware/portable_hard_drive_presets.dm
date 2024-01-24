@@ -2,6 +2,10 @@
 	. = ..()
 	add_programs()
 
+/obj/item/computer_hardware/hard_drive/portable/super/preset/all/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
 	for(var/F in typesof(/datum/computer_file/program))
 		var/datum/computer_file/program/prog = new F("Compless")
@@ -25,7 +29,7 @@
 	if(_program == null)
 		qdel(src) //Delete itself if no program is set
 		return
-	var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(_program)
+	var/datum/computer_file/program/PRG = GLOB.ntnet_global.find_ntnet_file_by_name(_program)
 	if(!PRG)
 		qdel(src) //Delete itself it no matching program is found
 		return

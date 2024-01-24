@@ -54,7 +54,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/protolathe_category = "All"
 	var/imprinter_category = "All"
 
-	req_access = list(access_tox)	//Data and setting manipulation requires scientist access.
+	req_access = list(ACCESS_TOX)	//Data and setting manipulation requires scientist access.
 
 /obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	var/return_name = ID
@@ -314,14 +314,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 
 	else if(href_list["protolathe_category"])
-		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Protolathe Categories", designs_protolathe_categories+"All")
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Protolathe Categories", GLOB.designs_protolathe_categories+"All")
 		if(!choice)
 			return
 		protolathe_category = choice
 		updateUsrDialog()
 
 	else if(href_list["imprinter_category"])
-		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Printer Categories", designs_imprinter_categories+"All")
+		var/choice = tgui_input_list(usr, "Which category do you wish to display?", "Printer Categories", GLOB.designs_imprinter_categories+"All")
 		if(!choice)
 			return
 		imprinter_category = choice
@@ -867,7 +867,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
 	id = 1
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
 
 /obj/machinery/computer/rdconsole/core

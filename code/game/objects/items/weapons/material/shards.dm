@@ -20,6 +20,10 @@
 	drop_sound = 'sound/effects/glass_step.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
+/obj/item/material/shard/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)
 	if(!istype(material))

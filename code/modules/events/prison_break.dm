@@ -43,7 +43,9 @@
 
 
 /datum/event/prison_break/start()
-	for(var/area/A in the_station_areas)
+	..()
+
+	for(var/area/A in GLOB.the_station_areas)
 		if(is_type_in_list(A,areaType) && !is_type_in_list(A,areaNotType))
 			areas += A
 
@@ -52,7 +54,7 @@
 		var/rc_message = "An unknown malicious program has been detected in the [english_list(areaName)] lighting and airlock control systems at [worldtime2text()]. Systems will be fully compromised within approximately three minutes. Direct intervention is required immediately.<br>"
 		for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 			MS.send_rc_message("Engineering", my_department, rc_message, "", "", 2)
-		for(var/mob/living/silicon/ai/A in player_list)
+		for(var/mob/living/silicon/ai/A in GLOB.player_list)
 			to_chat(A, "<span class='danger'>Malicious program detected in the [english_list(areaName)] lighting and airlock control systems by [my_department].</span>")
 
 	else
@@ -69,5 +71,7 @@
 
 
 /datum/event/prison_break/end(var/faked)
+	..()
+
 	for(var/area/A in shuffle(areas))
 		A.prison_break()

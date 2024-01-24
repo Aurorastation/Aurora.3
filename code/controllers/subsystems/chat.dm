@@ -7,7 +7,7 @@ var/regex/is_http_protocol = regex("^https?://")
 
 SUBSYSTEM_DEF(chat)
 	name = "Chat"
-	flags = SS_TICKER
+	flags = SS_TICKER | SS_NO_INIT
 	wait = 1
 	priority = SS_PRIORITY_CHAT
 	init_order = SS_INIT_CHAT

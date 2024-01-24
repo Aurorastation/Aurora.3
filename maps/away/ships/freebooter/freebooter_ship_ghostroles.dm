@@ -60,7 +60,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/freebooter_crew/get_id_access()
-	return list(access_external_airlocks)
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/freebooter_crew/captain
 	short_name = "freebooter_crew_captain"
@@ -90,4 +90,4 @@
 
 /obj/item/card/id/freebooter_crew_ship
 	name = "independent ship id"
-	access = list(access_external_airlocks)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS)

@@ -18,13 +18,29 @@
 	var/list/attached_overlays = null
 	var/obj/item/device/assembly_holder/holder = null
 	var/cooldown = 0 //To prevent spam
+
+	/**
+	 * Wires that the assembly has installed
+	 *
+	 * Refer to `code\__DEFINES\wires.dm` in the dedicated section for the supported wires, which _must_ be bitflags
+	 *
+	 * At the time of writing this, it supports:
+	 * * WIRE_RECEIVE_ASSEMBLY
+	 * * WIRE_PULSE_ASSEMBLY
+	 * * WIRE_PULSE_SPECIAL
+	 * * WIRE_RADIO_RECEIVE
+	 * * WIRE_RADIO_PULSE
+	 */
 	var/wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY
 
-	var/const/WIRE_RECEIVE_ASSEMBLY = 1			//Allows Pulsed(0) to call Activate()
-	var/const/WIRE_PULSE_ASSEMBLY = 2				//Allows Pulse(0) to act on the holder
-	var/const/WIRE_PULSE_SPECIAL = 4		//Allows Pulse(0) to act on the holders special assembly
-	var/const/WIRE_RADIO_RECEIVE = 8		//Allows Pulsed(1) to call Activate()
-	var/const/WIRE_RADIO_PULSE = 16		//Allows Pulse(1) to send a radio message
+/obj/item/device/assembly/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+
+	holder = null
+	cut_overlays()
+	attached_overlays = null
+
+	. = ..()
 
 /obj/item/device/assembly/proc/holder_movement()
 	return

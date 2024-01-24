@@ -61,7 +61,7 @@
 				if(toner <= 0)
 					break
 
-				var/c_type = copy_type(src, copy_item, toner)
+				var/c_type = copy_type(src, copy_item, toner, user = ishuman(usr) ? usr : null)
 
 				if(!c_type) // if there's something that can't be copied
 					break
@@ -134,9 +134,9 @@
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	return
 
-/proc/copy_type(var/obj/machinery/target, var/c_item, var/toner, var/do_print = TRUE) // helper proc to reduce ctrl+c ctrl+v
+/proc/copy_type(var/obj/machinery/target, var/c_item, var/toner, var/do_print = TRUE, var/mob/user) // helper proc to reduce ctrl+c ctrl+v
 	if (istype(c_item, /obj/item/paper))
-		var/obj/item/paper/C = copy(target, c_item, do_print, do_print, 1 SECOND, toner)
+		var/obj/item/paper/C = copy(target, c_item, do_print, do_print, 1 SECOND, toner, user)
 		sleep(20)
 		return C
 	else if (istype(c_item, /obj/item/photo))
@@ -169,7 +169,7 @@
 					toner = 0
 	return
 
-/proc/copy(var/obj/machinery/target, var/obj/item/paper/copy, var/print = TRUE, var/use_sound = TRUE, var/delay = 10, var/toner) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
+/proc/copy(var/obj/machinery/target, var/obj/item/paper/copy, var/print = TRUE, var/use_sound = TRUE, var/delay = 10, var/toner, mob/user) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
 	var/obj/item/paper/c = new copy.type(target)
 	var/info
 	var/pname
@@ -220,7 +220,7 @@
 			var/obj/machinery/photocopier/T = target
 			flick(T.print_animation, target)
 			--T.toner
-		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay, , user = usr)
+		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay, user = user)
 	return c
 
 /proc/photocopy(var/obj/machinery/target, var/obj/item/photo/photocopy, var/toner)

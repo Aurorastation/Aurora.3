@@ -35,7 +35,7 @@
 
 
 /datum/outfit/admin/elyran_navy_crewman/get_id_access()
-	return list(access_elyran_naval_infantry_ship, access_external_airlocks)
+	return list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 
 // senior crewman
@@ -118,4 +118,4 @@
 //items
 /obj/item/card/id/elyran_corvette
 	name = "elyran corvette id"
-	access = list(access_elyran_naval_infantry_ship, access_external_airlocks)
+	access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

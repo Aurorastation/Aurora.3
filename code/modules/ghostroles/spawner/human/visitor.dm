@@ -27,5 +27,5 @@
 
 /datum/ghostspawner/human/visitor/select_spawnlocation(var/use = TRUE)
 	if(current_map.force_spawnpoint)
-		return pick(force_spawnpoints["Anyone"])
-	return pick(latejoin)
+		return pick(GLOB.force_spawnpoints["Anyone"])
+	return pick(GLOB.latejoin)

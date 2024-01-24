@@ -62,7 +62,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/orion_express_courier/get_id_access()
-	return list(access_orion_express_ship, access_external_airlocks)
+	return list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/orion_express_courier/captain
 	short_name = "orion_express_captain"
@@ -95,4 +95,4 @@
 
 /obj/item/card/id/orion_ship
 	name = "orion express ship id"
-	access = list(access_orion_express_ship, access_external_airlocks)
+	access = list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

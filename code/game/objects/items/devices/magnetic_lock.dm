@@ -12,7 +12,7 @@
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
 	w_class = ITEMSIZE_NORMAL
-	req_access = list(access_cent_specops)
+	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
 	var/department = "CENTCOM"
@@ -32,18 +32,18 @@
 /obj/item/device/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
-	req_access = list(access_security)
+	req_access = list(ACCESS_SECURITY)
 
 /obj/item/device/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
 	req_access = null
-	req_one_access = list(access_engine_equip, access_atmospherics)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = null
-	req_one_access = list(access_legion, access_tcfl_peacekeeper_ship)
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
@@ -293,7 +293,7 @@
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in alldirs) && !(direction in cardinal))
+		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinal))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
@@ -437,13 +437,13 @@
 		return
 
 	if (prob(50))
-		spark(target ? target : src, 5, alldirs)
+		spark(target ? target : src, 5, GLOB.alldirs)
 
 /obj/item/device/magnetic_lock/keypad
 	name = "magnetic door lock"
 	desc = "A large, passcode locked device used for completely locking down airlocks."
 
-	req_access = list(access_none)
+	req_access = list(ACCESS_NONE)
 
 	var/passcode = "open"
 	var/configurable = TRUE

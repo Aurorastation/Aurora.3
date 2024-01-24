@@ -70,20 +70,20 @@
 
 	to_chat(user, SPAN_NOTICE("You paint the target at [target]."))
 
-	var/datum/language/language = all_languages[drop_message_language]
+	var/datum/language/language = GLOB.all_languages[drop_message_language]
 
-	if(!istype(global_announcer.announcer))
-		global_announcer.announcer = new()
-	global_announcer.announcer.PrepareBroadcast(announcer_name, language, announcer_name)
+	if(!istype(GLOB.global_announcer.announcer))
+		GLOB.global_announcer.announcer = new()
+	GLOB.global_announcer.announcer.PrepareBroadcast(announcer_name, language, announcer_name)
 
 	var/turf/current_turf = get_turf(src)
-	var/datum/signal/subspace/vocal/signal = new(src, emagged ? PUB_FREQ : announcer_frequency, WEAKREF(global_announcer.announcer), language, emagged ? drop_message_emagged : drop_message, "says")
+	var/datum/signal/subspace/vocal/signal = new(src, emagged ? PUB_FREQ : announcer_frequency, WEAKREF(GLOB.global_announcer.announcer), language, emagged ? drop_message_emagged : drop_message, "says")
 	signal.data["compression"] = 0
 	signal.transmission_method = TRANSMISSION_SUBSPACE
 	signal.levels = GetConnectedZlevels(current_turf.z)
 	signal.broadcast()
 
-	global_announcer.announcer.ResetAfterBroadcast()
+	GLOB.global_announcer.announcer.ResetAfterBroadcast()
 
 	has_dropped++
 	if(does_explosion)

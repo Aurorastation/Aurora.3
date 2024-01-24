@@ -8,7 +8,7 @@
 	..()
 	parts_to_spawn = get_parts_to_spawn()
 	spawn_parts()
-	return INITIALIZE_HINT_LATEQDEL
+	return INITIALIZE_HINT_QDEL
 
 /obj/effect/map_effect/mecha_part_spawner/proc/get_parts_to_spawn()
 	return list()

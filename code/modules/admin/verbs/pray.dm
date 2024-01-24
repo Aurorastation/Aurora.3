@@ -15,7 +15,7 @@
 	var/image/cross = image('icons/obj/library.dmi',"bible")
 	msg = "<span class='notice'>[icon2html(cross, src)] <b><font color=purple>PRAY: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminmoreinfo=\ref[src]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src, src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;adminspawncookie=\ref[src]'>SC</a>):</b> [msg]</span>"
 
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(C.holder.rights & (R_ADMIN|R_MOD|R_FUN))
 			if(C.prefs.toggles & CHAT_PRAYER)
@@ -32,7 +32,7 @@
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
 
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, msg_admin)
@@ -53,11 +53,11 @@
 			discord_msg += " [cciaa_afk] AFK."
 
 	SSdiscord.send_to_cciaa(discord_msg)
-	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[Sender]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
+	SSdiscord.post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[Sender]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
 
 /proc/Syndicate_announce(var/msg, var/mob/Sender)
 	msg = "<span class='notice'><b><font color=crimson>ILLEGAL:</font>[key_name(Sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[Sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[Sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[Sender]'>SM</A>) ([admin_jump_link(Sender)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[Sender]'>BSA</A>) (<A HREF='?_src_=holder;SyndicateReply=\ref[Sender]'>RPLY</A>):</b> [msg]</span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, msg)

@@ -63,7 +63,7 @@ var/list/asset_datums = list()
 
 /// Returns whether or not the asset should attempt to read from cache
 /datum/asset/proc/should_refresh()
-	return !cross_round_cachable || !config.cache_assets
+	return !cross_round_cachable || !GLOB.config.cache_assets
 
 //If you don't need anything complicated.
 /datum/asset/simple
@@ -149,7 +149,7 @@ var/list/asset_datums = list()
 		return
 
 	// If it's cached, may as well load it now, while the loading is cheap
-	if(config.cache_assets && cross_round_cachable)
+	if(GLOB.config.cache_assets && cross_round_cachable)
 		load_immediately = TRUE
 
 	create_spritesheets()
@@ -195,7 +195,7 @@ var/list/asset_datums = list()
 	SSassets.transport.register_asset(res_name, fcopy_rsc(fname))
 	fdel(fname)
 
-	if (config.cache_assets && cross_round_cachable)
+	if (GLOB.config.cache_assets && cross_round_cachable)
 		write_to_cache()
 	fully_generated = TRUE
 	// If we were ever in there, remove ourselves

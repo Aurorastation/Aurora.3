@@ -80,10 +80,16 @@
 	else if(sound_token)
 		QDEL_NULL(sound_token)
 
+/obj/machinery/computer/ship/sensors/proc/display_message(var/message)
+	if(OPERABLE(src))
+		playsound(src, 'sound/machines/triplebeep.ogg', 50)
+		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"))
+
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Sensors", capitalize_first_letters(name))
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
 /obj/machinery/computer/ship/sensors/ui_data(mob/user)
@@ -500,7 +506,7 @@
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
-			spark(src, 3, alldirs)
+			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()
 		if(deep_scan_toggled)

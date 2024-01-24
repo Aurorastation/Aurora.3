@@ -88,7 +88,7 @@
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
 /obj/structure/cult/pylon/proc/reconsider_interval()
 	var/mindist = INFINITY
-	for(var/mob/living/L in player_list)
+	for(var/mob/living/L in GLOB.player_list)
 		if(L.z != z)
 			continue
 		if(L.stat == DEAD)
@@ -151,7 +151,7 @@
 //If user is a cultist, speaks message to them with a prefix
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
-	if(iscultist(user) || (all_languages[LANGUAGE_CULT] in user.languages))
+	if(iscultist(user) || (GLOB.all_languages[LANGUAGE_CULT] in user.languages))
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
@@ -267,7 +267,7 @@
 			return
 		else
 			stuffcache = mobs_in_view(9, src)
-			if((target in stuffcache) && isInSight(src, target))
+			if((target in stuffcache) && is_in_sight(src, target))
 				fire_at(target)
 				return
 			else
@@ -286,7 +286,7 @@
 			continue
 		if(iscultist(L))		 //Pylon wont shoot at cultists or constructs
 			continue
-		if(!isInSight(src, L))
+		if(!is_in_sight(src, L))
 			continue
 		if(ismech(L))
 			var/mob/living/heavy_vehicle/mech = L

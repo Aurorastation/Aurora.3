@@ -13,7 +13,7 @@
 /mob/living/carbon/brain/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 /mob/living/carbon/brain/Destroy()
 	if(key)				//If there is a mob connected to this thing. Have to check key twice to avoid false death reporting.
@@ -21,7 +21,7 @@
 			death(1)	//Brains can die again. AND THEY SHOULD AHA HA HA HA HA HA
 		ghostize()		//Ghostize checks for key so nothing else is necessary.
 	container = null
-	return ..()
+	. = ..()
 
 /mob/living/carbon/brain/IsAdvancedToolUser() // to be able to use weapons when piloting a hardsuit
 	return TRUE

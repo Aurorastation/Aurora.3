@@ -22,6 +22,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/corp/zeng
 	r_pocket = /obj/item/storage/wallet/random
 
+/datum/outfit/admin/konyang_zh/get_id_access()
+	return list(ACCESS_KONYANG_CORPORATE)
+
 /datum/ghostspawner/human/konyang_ee
 	short_name = "konyang_ee"
 	name = "Einstein Engines Employee"
@@ -42,6 +45,9 @@
 	id = /obj/item/card/id/einstein
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
+
+/datum/outfit/admin/konyang_ee/get_id_access()
+	return list(ACCESS_KONYANG_CORPORATE)
 
 //Police
 /datum/ghostspawner/human/konyang_cop
@@ -70,7 +76,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /datum/outfit/admin/konyang_cop/get_id_access()
-	return list(access_konyang_police)
+	return list(ACCESS_KONYANG_POLICE)
 
 /datum/ghostspawner/human/konyang_cop/senior
 	short_name = "konyang_senior_cop"
@@ -158,9 +164,10 @@
 	suit = /obj/item/clothing/suit/storage/toggle/konyang/akira
 	back = /obj/item/storage/backpack/satchel
 	l_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
 
 /datum/outfit/admin/konyang_vendor/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_clinic
 	short_name = "konyang_clinic"
@@ -184,7 +191,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /datum/outfit/admin/konyang_clinic/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_pharm
 	short_name = "konyang_pharm"
@@ -205,9 +212,10 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	back = /obj/item/storage/backpack/satchel/pharm
 	l_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
 
 /datum/outfit/admin/konyang_pharm/get_id_access()
-	return list(access_konyang_vendors)
+	return list(ACCESS_KONYANG_VENDORS)
 
 /datum/ghostspawner/human/konyang_bar
 	short_name = "konyang_bar"
@@ -228,6 +236,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
+	id = /obj/item/card/id
 
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
@@ -255,7 +264,7 @@
 
 /datum/ghostspawner/human/konyang_gwok
 	short_name = "konyang_gwok"
-	name = "Gwok Group Employee"
+	name = "UP! Burger Employee"
 	desc = "Sell fast food and other Gwok-brand merchandise! Explain why the soft-serve machine is broken again."
 	max_count = 1
 	tags = list("External")
@@ -263,12 +272,17 @@
 	outfit = /datum/outfit/admin/konyang_gwok
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Gwok Group Employee"
-	special_role = "Gwok Group Employee"
+	assigned_role = "UP! Burger Employee"
+	special_role = "UP! Burger Employee"
 
 /datum/outfit/admin/konyang_gwok
-	name = "Gwok Group Employee"
-	uniform = /obj/item/clothing/under/pants/jeans
+	name = "UP! Burger Employee"
+	uniform = /obj/item/clothing/under/rank/konyang/burger
 	suit = /obj/item/clothing/accessory/apron/chef
+	head = /obj/item/clothing/head/konyang/burger
+	id = /obj/item/card/id
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
+
+/datum/outfit/admin/konyang_gwok/get_id_access()
+	return list(ACCESS_KONYANG_VENDORS)

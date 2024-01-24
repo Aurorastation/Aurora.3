@@ -82,7 +82,7 @@ SUBSYSTEM_DEF(xenoarch)
 		var/turf/simulated/mineral/artifact_turf = pop(artifacts_spawnturf_temp)
 		artifact_turf.artifact_find = new()
 
-	..()
+	return SS_INIT_SUCCESS
 
 
 #undef XENOARCH_SPAWN_CHANCE

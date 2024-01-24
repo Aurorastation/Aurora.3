@@ -130,7 +130,9 @@ Quick adjacency (to turf):
 					var/obj/structure/window/W = target_atom
 					if(!W.is_fulltile())	//exception for breaking full tile windows on top of single pane windows
 						return FALSE
-				return TRUE
+				if(O.atom_flags & ATOM_FLAG_ALWAYS_ALLOW_PICKUP)
+					return TRUE
+				return FALSE
 		else if(!border_only) // dense, not on border, cannot pass over
 			return FALSE
 	return TRUE

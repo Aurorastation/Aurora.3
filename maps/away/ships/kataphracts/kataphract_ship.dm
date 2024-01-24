@@ -100,7 +100,7 @@
 /obj/machinery/computer/shuttle_control/explore/kataphract_transport
 	name = "shuttle control console"
 	shuttle_tag = "Kataphract Transport"
-	req_access = list(access_kataphract)
+	req_access = list(ACCESS_KATAPHRACT)
 
 /datum/shuttle/autodock/overmap/kataphract_transport
 	name = "Kataphract Transport"

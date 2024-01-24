@@ -281,7 +281,7 @@
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
-		direction = pick(cardinal)
+		direction = pick(GLOB.cardinal)
 
 	var/do_strafe = !isnull(user.facing_dir) && (legs.turn_delay <= legs.move_delay)
 	if(!do_strafe && dir != direction)
@@ -386,7 +386,7 @@
 
 				var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", parts)
 
-				if(remove_system(to_remove, user))
+				if(remove_system_interact(to_remove, user))
 					return
 				to_chat(user, "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>")
 				return

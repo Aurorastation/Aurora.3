@@ -219,7 +219,7 @@
 			closed_turfs |= T
 			valid_turfs |= T
 
-			for(var/dir in alldirs)
+			for(var/dir in GLOB.alldirs)
 				var/turf/neighbor = get_step(T,dir)
 				if(!neighbor || (neighbor in closed_turfs) || (neighbor in open_turfs))
 					continue
@@ -824,12 +824,13 @@
 
 /datum/seed/proc/get_icon(growth_stage)
 	var/image/res = image('icons/obj/hydroponics_growing.dmi', "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]")
-	if(get_growth_type())
-		res.icon_state = "[get_growth_type()]-[growth_stage]"
+	var/growth_type = get_growth_type()
+	if(growth_type)
+		res.icon_state = "[growth_type]-[growth_stage]"
 	else
 		res.icon_state = "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]"
 
-	if(get_growth_type())
+	if(growth_type == GROWTH_VINES)
 		res.icon = 'icons/obj/hydroponics_vines.dmi'
 
 	res.color = get_trait(TRAIT_PLANT_COLOUR)
@@ -843,6 +844,6 @@
 		var/image/I = image(res.icon, "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]-leaves")
 		I.color = get_trait(TRAIT_LEAVES_COLOUR)
 		I.appearance_flags = RESET_COLOR
-		res.overlays += I
+		res.add_overlay(I)
 
 	return res

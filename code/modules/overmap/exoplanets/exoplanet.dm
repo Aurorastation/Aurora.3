@@ -37,8 +37,16 @@
 
 	var/flora_diversity = 0
 	var/has_trees = FALSE
-	var/list/small_flora_types = list()
-	var/list/big_flora_types = list()
+
+	/// For generating seeds to put in big_flora_seeds.
+	var/list/small_flora_types
+	/// For generating seeds to put in small_flora_seeds.
+	var/list/big_flora_types
+
+	/// This is a list of seed OBJECTS. Not types.
+	var/list/small_flora_seeds = list()
+	/// This is a list of seed OBJECTS. Not types.
+	var/list/big_flora_seeds = list()
 
 	var/repopulating = 0
 	var/repopulate_types = list() // animals which have died that may come back
@@ -166,8 +174,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					death_event.register(S, src, PROC_REF(remove_animal))
-					destroyed_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
+					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -188,8 +196,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
 	animals -= M
-	death_event.unregister(M, src)
-	destroyed_event.unregister(M, src)
+	GLOB.death_event.unregister(M, src)
+	GLOB.destroyed_event.unregister(M, src)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
@@ -445,7 +453,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/exoplanet_spawn/LateInitialize(mapload)
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if (istype(E))
 		do_spawn(E)
 

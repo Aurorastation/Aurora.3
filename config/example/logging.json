@@ -24,6 +24,7 @@
   "log_telecomms":0,
   "log_speech_indicators":0,
   "log_tools":0,
+  "log_loadout":1,
   "log_manifest":1,
   "log_subsystems":1,
   "log_subsystems_chemistry":1,
@@ -44,5 +45,6 @@
   "log_gelf_enabled":0,
   "log_gelf_addr":"127.0.0.1:12345",
   "log_subsystems_zas":0,
-  "log_subsystems_zas_debug":0
+  "log_subsystems_zas_debug":0,
+  "log_subsystems_http":1
 }

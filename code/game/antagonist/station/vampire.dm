@@ -67,6 +67,9 @@ var/datum/antagonist/vampire/vamp = null
 
 /datum/antagonist/vampire/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	var/datum/vampire/vampire = player.antag_datums[MODE_VAMPIRE]
+	if(!vampire)
+		return
+
 	if(player.current.client)
 		player.current.client.screen -= vampire.blood_hud
 		player.current.client.screen -= vampire.frenzy_hud

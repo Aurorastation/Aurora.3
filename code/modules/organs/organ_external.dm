@@ -54,7 +54,7 @@
 	///The amount of `pain` at which a limb becomes unusable
 	var/pain_disability_threshold
 
-	///Organ behaviour flags, see `ORGAN_CAN_*` and `ORGAN_HAS_*` in `code\__defines\damage_organs.dm`
+	///Organ behaviour flags, see `ORGAN_CAN_*` and `ORGAN_HAS_*` in `code\__DEFINES\damage_organs.dm`
 	var/limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 	var/max_size = 0
@@ -197,10 +197,10 @@
 	cached_markings = null
 	mob_icon = null
 
-	QDEL_NULL_LIST(children)
-	QDEL_NULL_LIST(internal_organs)
-	QDEL_NULL_LIST(wounds)
-	QDEL_NULL_LIST(implants)
+	QDEL_LIST(children)
+	QDEL_LIST(internal_organs)
+	QDEL_LIST(wounds)
+	QDEL_LIST(implants)
 
 	infect_target_internal = null
 	infect_target_external = null
@@ -435,7 +435,7 @@
 
 	//If there are still hurties to dispense
 	if (spillover)
-		owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
+		owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
 
 	// sync the organ's damage with its wounds
 	update_damages()
@@ -497,9 +497,9 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
+		if((limb_flags & ORGAN_CAN_AMPUTATE) && GLOB.config.limbs_can_break)
 
-			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
+			if((brute_dam + burn_dam) >= (max_damage * GLOB.config.organ_health_multiplier))
 
 				var/edge_eligible = FALSE
 				var/blunt_eligible = FALSE
@@ -608,7 +608,7 @@ This function completely restores a damaged organ to perfect condition.
 				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 			if(LASER)
 				fluid_loss_severity = FLUIDLOSS_CONC_BURN
-		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
+		var/fluid_loss = (damage/(owner.maxHealth - GLOB.config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
 		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
@@ -897,7 +897,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		//we only update wounds once in [wound_update_accuracy] ticks so have to emulate realtime
 		heal_amt = heal_amt * wound_update_accuracy
 		//configurable regen speed woo, no-regen hardcore or instaheal hugbox, choose your destiny
-		heal_amt = heal_amt * config.organ_regeneration_multiplier
+		heal_amt = heal_amt * GLOB.config.organ_regeneration_multiplier
 		// amount of healing is spread over all the wounds
 		heal_amt = heal_amt / (wounds.len + 1)
 		// making it look prettier on scanners
@@ -1070,7 +1070,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(!clean)
 				//Throw limb around.
 				if(src && isturf(loc))
-					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 4)
+					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(GLOB.alldirs)), rand(1,3), 4)
 				dir = 2
 		if(DROPLIMB_BURN)
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
@@ -1085,12 +1085,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(victim.species.blood_color)
 				gore.basecolor = victim.species.blood_color
 			gore.update_icon()
-			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 4)
+			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
 				if(istype(loc,/turf))
-					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 4)
+					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 
 			var/turf/Tloc = get_turf(src)
 			for(var/obj/item/I in src)
@@ -1098,7 +1098,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					qdel(I)
 					continue
 				I.forceMove(Tloc)
-				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 4)
+				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 
 			qdel(src)
 
@@ -1209,7 +1209,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/mend_fracture()
 	if(status & ORGAN_ROBOT)
 		return 0	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if(brute_dam > min_broken_damage * config.organ_health_multiplier)
+	if(brute_dam > min_broken_damage * GLOB.config.organ_health_multiplier)
 		return 0	//will just immediately fracture again
 
 	status &= ~ORGAN_BROKEN
@@ -1221,7 +1221,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(company)
 		model = company
-		var/datum/robolimb/R = all_robolimbs[company]
+		var/datum/robolimb/R = GLOB.all_robolimbs[company]
 
 		if(R)
 			if(!force_skintone)
@@ -1304,7 +1304,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam) || (surge_damage > (MAXIMUM_SURGE_DAMAGE * 0.25)))
 		return TRUE
 	if(robotize_type)
-		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
 		if(R.malfunctioning_check(owner))
 			return TRUE
 	else
@@ -1367,7 +1367,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		organ.forceMove(src)
 
 	// Remove parent references
-	parent.children -= src
+	parent?.children -= src
 	parent = null
 
 	release_restraints(victim)

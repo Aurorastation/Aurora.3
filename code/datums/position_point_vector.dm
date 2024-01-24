@@ -124,10 +124,10 @@
 	return new /datum/position(src)
 
 /datum/point/proc/return_px()
-	return Modulus(x, world.icon_size) - 16 - 1
+	return MODULUS(x, world.icon_size) - 16 - 1
 
 /datum/point/proc/return_py()
-	return Modulus(y, world.icon_size) - 16 - 1
+	return MODULUS(y, world.icon_size) - 16 - 1
 
 
 /datum/point/vector

@@ -124,7 +124,7 @@
  *
  * Default behaviour is to send the [COMSIG_ATOM_PRE_EMP_ACT] and [COMSIG_ATOM_EMP_ACT] signal
  *
- * * severity - The severity of the EMP pulse (how strong it is), defines in `code\__defines\empulse.dm`
+ * * severity - The severity of the EMP pulse (how strong it is), defines in `code\__DEFINES\empulse.dm`
  *
  * Returns the protection value
  */
@@ -157,10 +157,10 @@
 /**
  * Checks if user can use this object. Set use_flags to customize what checks are done
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
- * See `code\__defines\misc.dm` for the list of flags and return codes
+ * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
- * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__DEFINES\misc.dm` for the list of flags
  * * show_messages - A boolean, to indicate if a feedback message should be shown, about the reason why someone can't use the atom
  */
 /atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
@@ -206,10 +206,10 @@
 /**
  * Checks if a mob can use an atom, message the user if not with an appropriate reason
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
- * See `code\__defines\misc.dm` for the list of flags and return codes
+ * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
- * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__DEFINES\misc.dm` for the list of flags
  */
 /atom/proc/use_check_and_message(mob/user, use_flags = 0)
 	. = use_check(user, use_flags, TRUE)
@@ -376,7 +376,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
-		dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
@@ -604,12 +604,12 @@
 	R.reagents.splash(src, 1)
 
 /atom/proc/get_global_map_pos()
-	if(!islist(global_map) || isemptylist(global_map)) return
+	if(!islist(GLOB.global_map) || isemptylist(GLOB.global_map)) return
 	var/cur_x = null
 	var/cur_y = null
 	var/list/y_arr = null
-	for(cur_x=1,cur_x<=global_map.len,cur_x++)
-		y_arr = global_map[cur_x]
+	for(cur_x=1,cur_x<=GLOB.global_map.len,cur_x++)
+		y_arr = GLOB.global_map[cur_x]
 		cur_y = y_arr.Find(src.z)
 		if(cur_y)
 			break
@@ -682,7 +682,7 @@
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
@@ -729,7 +729,7 @@
 	if(SSticker.current_state == GAME_STATE_PLAYING)
 		do_late_fire()
 		return
-	LAZYADD(SSatoms.late_misc_firers, src)
+	LAZYADD(SSmisc_late.late_misc_firers, src)
 
 /atom/proc/do_late_fire()
 	return

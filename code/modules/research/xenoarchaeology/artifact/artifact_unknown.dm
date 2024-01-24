@@ -52,6 +52,12 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
+/obj/machinery/artifact/Destroy()
+	QDEL_NULL(my_effect)
+	QDEL_NULL(secondary_effect)
+
+	. = ..()
+
 /obj/machinery/artifact/process()
 
 	var/turf/L = loc

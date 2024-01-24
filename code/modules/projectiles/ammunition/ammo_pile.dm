@@ -145,7 +145,7 @@
 		S.remove_from_storage(bullet, src)
 	bullet.forceMove(src)
 	ammo += bullet
-	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(alldirs))
+	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(GLOB.alldirs))
 	ammo_picture.pixel_x = rand(-6, 6)
 	ammo_picture.pixel_y = rand(-6, 6)
 	ammo_overlay[bullet] = ammo_picture

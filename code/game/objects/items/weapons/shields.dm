@@ -40,7 +40,7 @@
 	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
@@ -175,7 +175,7 @@
 	user.update_inv_r_hand()
 
 /obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
