@@ -1145,8 +1145,9 @@
 	dir = 1;
 	name = "Fuel Input"
 	},
-/obj/structure/cable/yellow{
-	dir = 1;
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1197,7 +1198,6 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -2036,14 +2036,14 @@
 "ejm" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/yellow{
-	dir = 8
-	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
 	name = "HIGH VOLTAGE";
 	pixel_y = 32
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
@@ -2260,6 +2260,9 @@
 /area/ship/freebooter_ship/pod3)
 "eND" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/ammo)
 "eST" = (
@@ -3290,7 +3293,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
@@ -7200,15 +7202,16 @@
 "qnz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable/yellow{
-	dir = 2;
-	icon_state = "1-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
@@ -8202,13 +8205,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/power/apc/high/east,
-/obj/structure/cable/yellow{
-	dir = 1
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "svN" = (
@@ -9094,12 +9098,13 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "Canister to Thrusters"
 	},
-/obj/structure/cable/yellow{
-	dir = 1;
-	icon_state = "1-2"
-	},
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
@@ -9666,14 +9671,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
-"vGR" = (
-/obj/machinery/ship_weapon/blaster{
-	pixel_y = -195;
-	pixel_x = -24;
-	weapon_id = "Freebooter Ship Blaster"
-	},
-/turf/simulated/wall,
-/area/ship/freebooter_ship/gunnery)
 "vHQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/curtain/open/bed{
@@ -10367,7 +10364,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
@@ -40984,7 +40980,7 @@ tmo
 dlZ
 mwo
 mwo
-vGR
+mwo
 imE
 imE
 xRX
