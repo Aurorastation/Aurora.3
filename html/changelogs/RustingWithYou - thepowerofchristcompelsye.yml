@@ -41,3 +41,4 @@ changes:
   - tweak: "Holy water and nullrods will now burn vampires."
   - tweak: "Vampires are no longer able to drink chaplain blood."
   - tweak: "Chaplains can now deconvert vampire thralls."
+  - tweak: "Bluespace neutralisers and inhibitors now block veilwalk."
