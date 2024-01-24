@@ -414,6 +414,13 @@
 	if(isAdminLevel(src.z))
 		return
 
+	for(var/obj/machinery/anti_bluespace/AB in range(8, src))
+		if(AB.stat & (NOPOWER | BROKEN))
+			continue
+		else
+			AB.use_power_oneoff(AB.active_power_usage)
+			return
+
 	if(ismob(pulledby))
 		var/mob/M = pulledby
 		if(M.pulling == src)
@@ -493,6 +500,14 @@
 			return
 
 	get_user_appearance()
+
+	for(var/obj/machinery/anti_bluespace/AB in range(8, owner))
+		if(AB.stat & (NOPOWER | BROKEN))
+			continue
+		else
+			AB.use_power_oneoff(AB.active_power_usage)
+			deactivate()
+			return
 
 	if(owner_vampire.blood_usable >= 5)
 		owner_vampire.use_blood(5)
