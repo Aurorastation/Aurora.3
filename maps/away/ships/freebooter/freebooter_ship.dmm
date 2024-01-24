@@ -7478,9 +7478,7 @@
 	frequency = 1336
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark{
-	frequency = 1336
-	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
 "qHK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
