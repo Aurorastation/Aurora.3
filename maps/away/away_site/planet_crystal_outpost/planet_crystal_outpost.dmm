@@ -168,6 +168,12 @@
 /obj/machinery/computer/operating/terminal,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"dZ" = (
+/obj/machinery/shieldgen,
+/turf/simulated/floor/exoplanet/basalt{
+	color = "#a9d8e0"
+	},
+/area/space)
 "ec" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -1718,7 +1724,7 @@
 /turf/simulated/floor/wood,
 /area/space)
 "SQ" = (
-/obj/structure/urban/pylon,
+/obj/structure/crystal_madness,
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
@@ -31025,7 +31031,7 @@ yl
 yl
 yl
 yl
-lv
+MP
 dK
 dK
 dK
@@ -31283,7 +31289,7 @@ yl
 yl
 yl
 lv
-dD
+dZ
 dK
 dK
 dK
@@ -33090,7 +33096,7 @@ yl
 lv
 lv
 lv
-dK
+dZ
 lv
 yl
 yl
