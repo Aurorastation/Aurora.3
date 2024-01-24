@@ -455,14 +455,10 @@
 	},
 /area/shuttle/freebooter_shuttle)
 "aKs" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "aKD" = (
 /obj/machinery/door/blast/shutters/open{
@@ -480,11 +476,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster2)
 "aMa" = (
 /obj/effect/floor_decal/corner/lime{
@@ -1257,7 +1249,6 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/ammo)
 "bWt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1381,6 +1372,7 @@
 	layer = 2.31;
 	name = "lattice"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/forehallwayport)
 "cok" = (
@@ -1401,7 +1393,6 @@
 	icon_state = "1-8"
 	},
 /obj/effect/overmap/visitable/ship/freebooter_ship,
-/obj/effect/shuttle_landmark/freebooter_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "cCu" = (
@@ -1618,7 +1609,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "dhX" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3319,7 +3309,6 @@
 /area/ship/freebooter_ship/thruster1)
 "hPM" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
@@ -3457,7 +3446,6 @@
 /area/ship/freebooter_ship/exterior)
 "icO" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thruster"
 	},
@@ -3930,8 +3918,7 @@
 /area/ship/freebooter_ship/thruster1)
 "joM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster2)
 "jrC" = (
 /obj/structure/railing/mapped{
@@ -4728,6 +4715,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "lfg" = (
@@ -5156,10 +5146,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "mbg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
@@ -5765,10 +5755,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "ntt" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/shuttle/freebooter_shuttle)
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/forehallwayport)
 "nty" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -5978,11 +5974,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb,
-/obj/machinery/firealarm/west,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster2)
 "nXA" = (
 /obj/effect/floor_decal/corner/lime{
@@ -6362,6 +6354,9 @@
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallwayport)
@@ -7169,6 +7164,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "qiz" = (
@@ -7324,9 +7322,8 @@
 /area/ship/freebooter_ship/foyer)
 "qwx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "qxl" = (
 /obj/effect/floor_decal/spline/plain{
@@ -7526,7 +7523,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
 "qMB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
 	},
@@ -8425,7 +8421,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
 "sUq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/computer/ship/engines,
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor,
@@ -8523,6 +8518,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "tcV" = (
@@ -8982,8 +8978,7 @@
 /area/ship/freebooter_ship/pod3)
 "ugG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "uhG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9551,7 +9546,6 @@
 /area/ship/freebooter_ship/pod4)
 "vkx" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster1)
 "vmX" = (
@@ -9629,7 +9623,6 @@
 	dir = 1;
 	name = "Thrust Control"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
 "vAb" = (
@@ -9682,7 +9675,6 @@
 /area/ship/freebooter_ship/foyer)
 "vFo" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "vGw" = (
@@ -9700,11 +9692,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "vIj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/ship/freebooter_ship/thruster2)
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/forehallwayport)
 "vMG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -10052,7 +10052,7 @@
 	frequency = 1336;
 	output = 31
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/freebooter_ship/thruster1)
 "wyp" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -10537,7 +10537,9 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "xIQ" = (
@@ -10603,9 +10605,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "xPX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -45061,7 +45061,7 @@ vZW
 vZW
 vZW
 bcf
-ntt
+aSb
 sUq
 qMB
 vxO
@@ -45877,7 +45877,7 @@ xRX
 rrT
 oyG
 cnH
-ess
+ntt
 lzb
 csG
 wIJ
@@ -46332,7 +46332,7 @@ xRX
 xRX
 xRX
 vFo
-vIj
+joM
 qgY
 rXk
 lqh
@@ -46391,7 +46391,7 @@ wLV
 aMB
 qqX
 tyf
-ess
+vIj
 oEs
 jcW
 tli
