@@ -501,7 +501,7 @@
 
 	get_user_appearance()
 
-	for(var/obj/machinery/anti_bluespace/AB in range(8, owner))
+	for(var/obj/machinery/anti_bluespace/AB in range(8, owner_mob))
 		if(AB.stat & (NOPOWER | BROKEN))
 			continue
 		else
