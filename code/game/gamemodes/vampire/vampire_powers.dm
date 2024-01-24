@@ -419,6 +419,7 @@
 			continue
 		else
 			AB.use_power_oneoff(AB.active_power_usage)
+			to_chat(src, SPAN_WARNING("An unknown force prevents you from stepping into the Veil!"))
 			return
 
 	if(ismob(pulledby))
@@ -499,15 +500,16 @@
 			deactivate()
 			return
 
-	get_user_appearance()
-
-	for(var/obj/machinery/anti_bluespace/AB in range(8, owner_mob))
+	for(var/obj/machinery/anti_bluespace/AB in range(8, src))
 		if(AB.stat & (NOPOWER | BROKEN))
 			continue
 		else
 			AB.use_power_oneoff(AB.active_power_usage)
+			to_chat(owner_mob, SPAN_DANGER("You are ejected from the Veil by an unknown force!"))
 			deactivate()
 			return
+
+	get_user_appearance()
 
 	if(owner_vampire.blood_usable >= 5)
 		owner_vampire.use_blood(5)
