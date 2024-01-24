@@ -99,6 +99,7 @@
 /area/shuttle/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE
 
 //ship stuff
 

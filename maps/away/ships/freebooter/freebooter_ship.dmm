@@ -4742,6 +4742,9 @@
 	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
 "lgM" = (
@@ -6077,11 +6080,6 @@
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/power/portgen/basic,
-/obj/item/stack/material/graphite/full,
-/obj/structure/closet/walllocker{
-	name = "graphite locker";
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
@@ -8909,9 +8907,10 @@
 	dir = 8
 	},
 /obj/structure/closet/walllocker{
-	name = "tritium locker";
+	name = "graphite locker";
 	pixel_y = 32
 	},
+/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
 "uaE" = (
@@ -9667,6 +9666,14 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
+"vGR" = (
+/obj/machinery/ship_weapon/blaster{
+	pixel_y = -195;
+	pixel_x = -24;
+	weapon_id = "Freebooter Ship Blaster"
+	},
+/turf/simulated/wall,
+/area/ship/freebooter_ship/gunnery)
 "vHQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/curtain/open/bed{
@@ -9742,14 +9749,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/forehallway)
-"vPP" = (
-/obj/machinery/ship_weapon/blaster{
-	pixel_y = -195;
-	pixel_x = -24;
-	weapon_id = "Freebooter Ship Blaster"
-	},
-/turf/simulated/wall,
-/area/ship/freebooter_ship/gunnery)
 "vRc" = (
 /obj/item/ammo_casing/rifle/used{
 	pixel_y = 4
@@ -40985,7 +40984,7 @@ tmo
 dlZ
 mwo
 mwo
-vPP
+vGR
 imE
 imE
 xRX
