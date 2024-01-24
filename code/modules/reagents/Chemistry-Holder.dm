@@ -118,7 +118,7 @@
 /datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/new_thermal_energy = 0)
 	if(amount <= 0 || !REAGENTS_FREE_SPACE(src))
 		return FALSE
-	log_subsystem_chemistry("Transferring to [my_atom]: [rtype], [amount]u, [english_list(data)] data, \
+	log_subsystem_chemistry("Transferring to [my_atom]: [rtype], [amount]u, \
 							safety [safety], temp [temperature], new_thermal_energy [new_thermal_energy]")
 	new_thermal_energy /= amount // Re-multiplied later
 	amount = min(amount, REAGENTS_FREE_SPACE(src))
