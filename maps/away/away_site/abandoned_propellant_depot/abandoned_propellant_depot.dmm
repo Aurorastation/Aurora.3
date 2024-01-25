@@ -502,6 +502,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
+"bL" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_east,
+/turf/template_noop,
+/area/space)
 "bO" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -2089,10 +2093,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
-"hu" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_east,
-/turf/template_noop,
-/area/space)
 "hv" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2532,6 +2532,10 @@
 	},
 /turf/template_noop,
 /area/space)
+"iW" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_west,
+/turf/template_noop,
+/area/space)
 "iX" = (
 /obj/item/clothing/glasses/sunglasses{
 	pixel_x = 6;
@@ -2736,10 +2740,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
-"jK" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_west,
-/turf/template_noop,
-/area/space)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
@@ -6122,6 +6122,10 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
+"wG" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_east,
+/turf/template_noop,
+/area/space)
 "wH" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -11791,6 +11795,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/atmos_propellant)
+"RX" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_west,
+/turf/template_noop,
+/area/space)
 "RZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -12870,10 +12878,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
-"VV" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_east,
-/turf/template_noop,
-/area/space)
 "VX" = (
 /obj/random/junk{
 	pixel_x = 11
@@ -13111,10 +13115,6 @@
 /obj/item/clothing/under/rank/sol/dress/subofficer,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/chiefs_quarters)
-"WN" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_west,
-/turf/template_noop,
-/area/space)
 "WO" = (
 /obj/structure/table/steel,
 /obj/item/trash/snacktray{
@@ -33934,7 +33934,7 @@ Zi
 Zi
 Zi
 Zi
-WN
+iW
 Zi
 Zi
 Zi
@@ -35136,7 +35136,7 @@ Zi
 Zi
 Zi
 Zi
-jK
+RX
 Zi
 Zi
 Zi
@@ -54411,7 +54411,7 @@ Zi
 Zi
 Zi
 Zi
-VV
+bL
 Zi
 Zi
 Zi
@@ -57323,7 +57323,7 @@ Zi
 Zi
 Zi
 Zi
-hu
+wG
 Zi
 Zi
 Zi
