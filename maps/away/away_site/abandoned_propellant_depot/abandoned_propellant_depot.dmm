@@ -502,10 +502,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
-"bL" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_east,
-/turf/template_noop,
-/area/space)
 "bO" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -2532,10 +2528,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"iW" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_west,
-/turf/template_noop,
-/area/space)
 "iX" = (
 /obj/item/clothing/glasses/sunglasses{
 	pixel_x = 6;
@@ -3421,6 +3413,10 @@
 "mB" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_propellant_depot/docks_south_east)
+"mD" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_west,
+/turf/template_noop,
+/area/space)
 "mF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair{
@@ -6122,10 +6118,6 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
-"wG" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_east,
-/turf/template_noop,
-/area/space)
 "wH" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -6237,6 +6229,10 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/gym)
+"xc" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_west,
+/turf/template_noop,
+/area/space)
 "xf" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable{
@@ -6445,6 +6441,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/mess)
+"xM" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_east,
+/turf/template_noop,
+/area/space)
 "xN" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_propellant_depot/medbay)
@@ -10429,6 +10429,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
+"MT" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_east,
+/turf/template_noop,
+/area/space)
 "MV" = (
 /obj/structure/closet/cabinet,
 /obj/random/gloves,
@@ -11795,10 +11799,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/atmos_propellant)
-"RX" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_west,
-/turf/template_noop,
-/area/space)
 "RZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -33934,7 +33934,7 @@ Zi
 Zi
 Zi
 Zi
-iW
+mD
 Zi
 Zi
 Zi
@@ -35136,7 +35136,7 @@ Zi
 Zi
 Zi
 Zi
-RX
+xc
 Zi
 Zi
 Zi
@@ -54411,7 +54411,7 @@ Zi
 Zi
 Zi
 Zi
-bL
+MT
 Zi
 Zi
 Zi
@@ -57323,7 +57323,7 @@ Zi
 Zi
 Zi
 Zi
-wG
+xM
 Zi
 Zi
 Zi
