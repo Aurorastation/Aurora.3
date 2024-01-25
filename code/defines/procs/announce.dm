@@ -2,7 +2,7 @@
 /var/datum/announcement/priority/command/command_announcement
 
 /datum/announcement
-	var/title = "Внимание"
+	var/title = "Attention"
 	var/announcer = ""
 	var/log = 0
 	var/sound
@@ -19,17 +19,17 @@
 
 /datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
-	title = "Приоритетное оповещение"
+	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
 /datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
-	title = "[current_map.boss_name]"
+	title = "[current_map.boss_name] Update"
 	announcement_type = "[current_map.boss_name] Update"
 
 /datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
-	title = "Система Безопасности"
+	title = "Security Announcement"
 	announcement_type = "Security Announcement"
 
 /datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0, var/zlevels = current_map.contact_levels)
@@ -101,10 +101,10 @@
 	return I.assignment ? "[I.registered_name], [I.assignment]" : I.registered_name
 
 /proc/level_seven_announcement(var/list/affecting_z = current_map.station_levels)
-	command_announcement.Announce("Внимание экипажу: Биологическая угроза седьмого уровня. Всему персоналу принять участие в нейтрализации угрозы.", "Биологическая угроза", new_sound = 'sound/AI/level_7_biohazard.ogg', zlevels = affecting_z)
+	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/level_7_biohazard.ogg', zlevels = affecting_z)
 
 /proc/ion_storm_announcement(var/list/affecting_z = current_map.station_levels)
-	command_announcement.Announce("Внимание экипажу: Судно прошло через ионный шторм. Опасайтесь сборов в позитронном оборудовании.", "Anomaly Alert", zlevels = affecting_z)
+	command_announcement.Announce("It has come to our attention that the ship has passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert", zlevels = affecting_z)
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)
 	if(SSticker.current_state == GAME_STATE_PLAYING)

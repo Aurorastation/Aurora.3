@@ -109,13 +109,13 @@
 		)
 
 /datum/space_sector/proc/get_chat_description()
-	return "<hr><div align='center'><hr1><B>Текущий сектор: [name]!</B></hr1><br><i>[description]</i><hr></div>"
+	return "<hr><div align='center'><hr1><B>Current Sector: [name]!</B></hr1><br><i>[description]</i><hr></div>"
 
 /datum/space_sector/proc/get_port_travel_time()
-	return "[rand(1, 3)] д."
+	return "[rand(1, 3)] days"
 
 /datum/space_sector/proc/generate_system_name()
-	return "[pick("Миранда", "BNM", "Хавьер", "GJ", "HD", "TC", "Мелисса", "TC")][prob(10) ? " Эридана" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
+	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
 
 /// Returns a flat list of all possible away sites that can spawn in this sector.
 /datum/space_sector/proc/possible_sites_in_sector()

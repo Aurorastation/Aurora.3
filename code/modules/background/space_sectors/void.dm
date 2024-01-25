@@ -1,10 +1,7 @@
 //Light's Edge sectors
 /datum/space_sector/lights_edge//Uses the Weeping Stars attributes since it's neighboring and this is not exactly the void just yet
 	name = SECTOR_LIGHTS_EDGE
-	description = "Необычное место, почти не заселённое даже в наше время, Конец света был самым удалённым регионом в рамках Юго-Восточной экспансии Альянса. \
-	Это место почти не пытались колонизировать до межзвёздной войны, и большая часть попыток в любом случае оказывалась неудачей, система Ассунзион, впрочем, \
-	является исключением, став одной из самых успешных колоний в регионе. Система названа так из за своего соседа: Моря Лемур, неизученного участка космоса, \
-	полностью лишённого звёзд. И Конец Света и Море Лемур являются домом для множестве неизвестных науке феноменов, из за чего, концентрация учёных в этом регионе зашкаливает."
+	description = "An unusual region which is sparsely populated even in the 25th century, Light’s Edge was the furthest extent of the Alliance’s hegemonic era exploration efforts in the southeastern Spur. Few attempts were made to colonize it prior to the Interstellar War and even fewer of these attempts were successful, with Assunzione being the most successful of all hegemonic era colonies in the region. Light’s Edge derives its name from its position next to Lemurian Sea, a vast and mostly uncharted region which is entirely devoid of stars. Both Light’s Edge and the Lemurian Sea are home to a variety of unusual stellar phenomena which have attracted widespread scientific interest."
 	skybox_icon = "weeping_stars"
 	starlight_color = "#615bff"
 	starlight_power = 1//slightly darker though for spooky factor
@@ -12,9 +9,7 @@
 
 /datum/space_sector/lemurian_sea//The actual proposed area of void as written. Should be as dark as possible, due to no starlight
 	name = SECTOR_LEMURIAN_SEA
-	description = "Море Лемур - интересный астрологический феномен: большой участок космоса, полностью лишённый звёзд. Море было открыто совсем недавно, и \
-	лишь недавно оно было признано отдельным от Конца Света объектом. В целом, путешественникам не рекомендуется здесь летать: очень многие сообщают о \
-	чувстве тревоги во время путешествия в море, а количество пропавших без вести кораблей бьёт любые рекорды."
+	description = "The Lemurian Sea is an astrological curiosity which is entirely free of stars. This region is a relatively new discovery and classification, having only been officially broken off of Light’s Edge by most astrographical institutions following the rediscovery of Assunzione and limited exploration beyond its position on the border of what would become the Lemurian Sea. Most astrological charts advise avoiding the region as travelers are known to report a feeling of general uneasiness while passing through it and many vessels are known to have disappeared within the Sea. "
 	skybox_icon = "void"//its just black
 	possible_exoplanets = null//nothing should be here
 	starlight_color = "#000000"

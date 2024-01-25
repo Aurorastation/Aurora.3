@@ -1,8 +1,8 @@
 /datum/space_sector/badlands
 	name = SECTOR_BADLANDS
-	description = "Дикий Космос стал домом для самой опасной флоры и фауны Пояса Орина, что способно привлечь только три типа людей - ксенобиологов, \
-	исследователей оружия, а также наёмников, которые ищут ловят самых опасных существ. Конечно, есть ещё и те, кто просто хотят начать жизнь с чистого листа, \
-	но местные таких не любят."
+	description = "The Badlands are home to some of the Orion Spur's most savage flora and fauna, a phenomenon that attracts only the wildest and wisest of the system's inhabitants - xenobiologists, \
+	weapon scientists, there's even a market for mercenaries, in the hunting of the particularly large and lethal creatures. Of course, there are also those looking to make a life for themselves, \
+	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
 	sector_welcome_message = 'sound/AI/welcome_badlands.ogg'
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
@@ -12,9 +12,9 @@
 
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE
-	description = "Долина Гейля укрыта в небольшом участке космоса между Республикой Элира и старыми границами Альянса, это регион с большим количеством \
-	старых, умирающих звёзд и плотнейших туманностей. Из за большого количества патрульных кораблей вокруг всей долины, она считается одним из наиболее \
-	безопасных мест на всём Фронтире. После 2462 года, Республика Элира заняла большую часть долины и теперь соседствует с Бизелем."
+	description = "Nestled in the narrow Frontier space between the Republic of Elyra and the former borders of the Solarian Alliance is Valley Hale, a large region filled with a large \
+	amount of old, dying stars and impassable nebulae. Due to close proximity to patrols on either end of this space, it isn't frequented much by criminal elements and is one of the \
+	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
 	skybox_icon = "valley_hale"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
 	starlight_color = "#e68831"
@@ -23,10 +23,10 @@
 
 /datum/space_sector/new_ankara
 	name = SECTOR_NEW_ANKARA
-	description = "Ново-Анкара - родная система Республики Элира. Столица находится на планете Персеполис. Планета по-началу предсатвляла из себя засулшивый мир, \
-	обладающий простой экосистемой. Десятилетия колонизации позволили от этого избавиться, сильно приблизив планету по условиям к Земным(Спасибо деньгам АСС), что \
-	обеспечило лёгкую жизнь населению, особенно после получения независимости. Сфера услуг занимает на планете первое место, с ней соперничает сильная индустриализация, направленная на \
-	переработку доставляемого на орбиту Персеполиса форона. Это не считая огромных его залежей на поверхности самой планеты."
+	description = "New Ankara is the home system of the Republic of Elyra. Its capital is Persepolis. The planet was originally an arid planet with a modest atmosphere and stubborn \
+	native ecosystems already present. Original Alliance-funded terraforming efforts transformed the planet into an Earthlike planet within a decade, allowing the population to flourish \
+	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
+	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."
 	skybox_icon = "valley_hale"
 	starlight_color = "#e68831"
 	starlight_power = 2
@@ -34,11 +34,11 @@
 
 /datum/space_sector/aemag
 	name = SECTOR_AEMAQ
-	description = "Находящаяся на территории Республики Элирия, система Аль-Ваквак известна своей планетой Аймак -- одним из крупнейших поставщиков \"химии\" в Поясе Ориона. \
-	Аймак широко известен своими фиолетовыми морями, которые покрывают его поверхность, а также парящими городами, которые над этими морями парят, самым известным является столица Аймака, \
-	город Румайдир. В морях, благодаря содержащимся там химическим элементам, обитает самая разнообразная фауна, самой примечательной из которых являются левиафаны -- огроменнейшие существа, которых могут достигать до двух километров в длину. Хотя \
-	планета и известна своими исследователями океана, индустриальная сфера, конечно же, занимает куда более сильную позицию на рынке, и многие иммигранты в Республике мечтают работать на \
-	здешних заводах чтобы прокормить себя и свою семью, чего не сделаешь, ныряя рыбкой в океан."
+	description = "Located in the Serene Republic of Elyra, the al-Wakwak System is most well-known as the home of Aemaq -- one of the largest chemical production centres of the Orion \
+	Spur. Aemaq is known for its strikingly purple chemical seas that cover the entirety of its surface and its floating cities that hover above the sea, such as its capital of \
+	Rumaidair. The chemical seas are home to a variety of fauna, some of which are known as leviathans -- truly massive creatures able to grow up to two kilometers long! Though the \
+	planet well-known for its research into the seas the chemical industry remains the primary employer on Aemaq, and many hopeful immigrants to the Republic find themselves working \
+	in the massive chemical plants of Aemaq to make ends meet."
 	skybox_icon = "valley_hale"
 	starlight_color = "#e68831"
 	starlight_power = 2
@@ -46,9 +46,9 @@
 
 /datum/space_sector/srandmarr
 	name = SECTOR_SRANDMARR
-	description = "С'ранд'марр - звёздная система планеты Адомай, родины Таяран, четвёртой планеты в систеем. Адомай и живущие на нём особи - ледяной мир, страдающий от почти нескончаемого снегопада \
-	и экстремально низких температур. Находится в состоянии холодной войны между тремя фракциями: Народная Республика Адомай, Демократическая \
-	Народная Республика Адомай и Королевство Адомай."
+	description = "S'rand'marr is the star system home to Adhomai, the homeworld of the Tajara species. Adhomai is the fourth planet from S'rendarr. It is a cold and icy world, suffering from \
+	almost perpetual snowfall and extremely low temperatures. It is currently divided between three factions involved in a cold war: the People's Republic of Adhomai, the Democratic People's \
+	Republic of Adhomai, and the New Kingdom of Adhomai."
 	skybox_icon = "srandmarr"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
@@ -63,34 +63,35 @@
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/srandmarr/get_port_travel_time()
-	return "[rand(6, 12)] часов"
+	return "[rand(6, 12)] hours"
 
 /datum/space_sector/srandmarr/generate_system_name()
-	return "С'ранд'марр и ближайшие точки интереса"
+	return "S'rand'marr, and nearby points of interest"
 
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
-	description = "Хро'замал - вторая планета системы Нррахрахул. Нррахрахул 2, как его раньше называли, был переименован после основания первой гражданской \
-	колонии на поверхности планеты в 2459. По размерам планета не далеко ушла от Земли. Большая часть поверхности покрыта густыми джунглями за исключением суб-тропического климата на полюсах; \
-	Таяране могут выживать на поверхности этой планеты без костюм, но летом для охлаждения использутся продвинутые системы климат-контроля."
+	description = "Hro'zamal is the second planet in the Nrrahrahul system. Formerly named Nrrahrahul Two, it was given the name Hro'zamal after the establishment of a permanent civilian \
+	colony on the planet's surface in 2459. The planet is roughly the size of Earth. Most of the planet is dominated by lush jungles except for the poles that possess a subtropical climate; \
+	Tajara can survive in these regions without the use of suits. The use of acclimatization systems is necessary during the \
+	warmer seasons."
 	starlight_color = COLOR_WHITE
 	starlight_power = 5
 	starlight_range = 1
 
 /datum/space_sector/gakal
 	name = SECTOR_GAKAL
-	description = "Гакал'заал - шестая планета в системе Гакал со столицей в городе Зикала. Планета пока что находится под контролем Демократической Республики Адомай. \
-	Поверхность в основном покрыта холмами, горами и лесами. Климат, в целом, прохладный, но значительно более тёплый, чем на \
-	Адомае. Гакал'заал стал домом для многомиллиардной популяции Таяран, и даже небольшому населению Унати на экваторе."
+	description = "Gakal'zaal is the sixth planet in the Gakal star system with its capital city being Zikala. Currently under the control of the Democratic People's Republic of Adhomai. \
+	The majority of the surface is covered by hills, steppes, and forests. Temperatures are generally low, but the average climate is considered to be more moderate and warm than \
+	Adhomai. Gakal'zaal is home to a large Tajara population, with an Unathi minority living at the equator."
 	starlight_color = COLOR_WHITE
 	starlight_power = 5
 	starlight_range = 1
 
 /datum/space_sector/uueoaesa
 	name = SECTOR_UUEOAESA
-	description = "Родина Унати, Уоэуэ-Эса - система с четырьмя каменистыми планетами и одним газовым гигантом. Могес стал домом для расы Унати и является третьей планетой по удаленности от своей звезды. \
-	Планета похожа по своему составу и плотности на Землю за одникм ключевым отличием: суша значительно преобладает над солёными океанами, а разнообразие флоры и фауны оставляет желать лучшего. \
-	На данный момент, Могес переживает сильнейшую экологическую катастрофу, вызванную глобальной ядерной войной в 2430-ых годах."
+	description = "The home of the Unathi race, Uueoa-Esa is a solar system with 4 rocky planets and 1 gas giant. Moghes is the homeworld of the Unathi species and third from its mother star. \
+	It is similar in density and composition to Earth and held host to varied and complex environments and local fauna and flora. It's surface area of salt water is much lower than most other habitable planets. \
+	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430's."
 	starlight_color = COLOR_WHITE
 	starlight_power = 5
 	starlight_range = 1
