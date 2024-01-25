@@ -586,6 +586,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_east)
+"bT" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 17;
+	pixel_y = -5
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "bX" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -2190,6 +2208,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
+"ht" = (
+/obj/structure/bed/padded,
+/obj/item/towel_flat{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
 "hv" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2331,14 +2357,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
-"hZ" = (
-/obj/structure/bed/padded,
-/obj/item/towel_flat{
-	pixel_x = -2;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/abandoned_propellant_depot/crew_quarters)
 "ic" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 1
@@ -3421,12 +3439,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
-"lW" = (
-/obj/structure/bed/padded,
-/obj/random/dirt_75,
-/obj/item/bedsheet/random,
-/turf/simulated/floor/tiled,
-/area/abandoned_propellant_depot/crew_quarters)
 "lX" = (
 /obj/structure/table/glass{
 	table_reinf = "glass"
@@ -5462,6 +5474,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/overmap/visitable/sector/abandoned_propellant_depot,
 /turf/simulated/floor/airless,
 /area/abandoned_propellant_depot/bridge)
 "tA" = (
@@ -6635,24 +6648,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
-"xr" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 17;
-	pixel_y = -5
-	},
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint)
 "xs" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/tiled,
@@ -7750,6 +7745,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"BC" = (
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/full,
+/area/abandoned_propellant_depot/crew_quarters)
 "BE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -8495,14 +8498,6 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_south)
-"Ed" = (
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/full,
-/area/abandoned_propellant_depot/crew_quarters)
 "Ee" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -9449,14 +9444,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
-"HG" = (
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint)
 "HI" = (
 /obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/wood,
@@ -10244,19 +10231,6 @@
 "Kl" = (
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/hallways_west)
-"Kq" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/random/dirt_75,
-/obj/item/stack/cable_coil/random{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/simulated/floor/plating,
-/area/abandoned_propellant_depot/maint)
 "Ks" = (
 /obj/structure/closet/cabinet,
 /obj/random/gloves,
@@ -10642,6 +10616,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
+"Lz" = (
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "LC" = (
 /obj/structure/closet,
 /obj/random/dirt_75,
@@ -11148,6 +11130,12 @@
 	pixel_y = -5
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
+"Nt" = (
+/obj/structure/bed/padded,
+/obj/random/dirt_75,
+/obj/item/bedsheet/random,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
 "Nv" = (
@@ -12471,8 +12459,6 @@
 "Sf" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_propellant_depot/bridge)
 "Si" = (
@@ -12497,6 +12483,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
+"Sn" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/random{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "Sp" = (
 /obj/machinery/shower{
 	pixel_y = 15
@@ -46214,7 +46213,7 @@ IG
 zM
 Ul
 gf
-HG
+Lz
 Uu
 Ul
 qr
@@ -49295,7 +49294,7 @@ xE
 uS
 ak
 fG
-hZ
+ht
 uS
 ar
 Ki
@@ -50332,7 +50331,7 @@ In
 Ki
 tE
 cw
-xr
+bT
 Ki
 Ul
 qr
@@ -51607,7 +51606,7 @@ DK
 uS
 KJ
 KJ
-Ed
+BC
 BI
 uS
 uS
@@ -53927,7 +53926,7 @@ dH
 dH
 dH
 gZ
-Kq
+Sn
 gZ
 PI
 Je
@@ -54167,7 +54166,7 @@ fw
 fw
 fw
 uS
-lW
+Nt
 gs
 Qb
 Lv
