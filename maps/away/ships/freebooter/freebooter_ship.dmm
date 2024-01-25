@@ -1644,10 +1644,6 @@
 /turf/simulated/wall,
 /area/ship/freebooter_ship/gunneryentrance)
 "doC" = (
-/mob/living/bot/farmbot{
-	req_one_access = null;
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1655,6 +1651,15 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/robot_parts/r_arm{
+	pixel_y = 10;
+	pixel_x = 10
+	},
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = -9;
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
@@ -7197,6 +7202,7 @@
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/device/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "qkA" = (
