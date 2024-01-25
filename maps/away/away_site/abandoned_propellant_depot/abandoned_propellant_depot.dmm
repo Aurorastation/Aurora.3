@@ -152,6 +152,10 @@
 "aD" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
+/obj/item/trash/plate{
+	pixel_x = -2;
+	pixel_y = -5
+	},
 /turf/simulated/floor/wood,
 /area/abandoned_propellant_depot/mess)
 "aE" = (
@@ -1301,6 +1305,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/storage/bag/trash{
+	pixel_x = 5;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/hallways_east)
 "eO" = (
@@ -1656,6 +1664,12 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/docks_south_west)
+"gm" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "gn" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 1
@@ -4271,6 +4285,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/eva)
+"rk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "rl" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -6157,6 +6177,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"yj" = (
+/obj/random/dirt_75,
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "yk" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
@@ -7009,7 +7034,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/docks_north_east)
 "BT" = (
@@ -7306,6 +7331,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"Dc" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "Dd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -10642,6 +10672,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_propellant_depot/atmos_air)
+"Qg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/abandoned_propellant_depot/maint)
 "Qk" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
@@ -10803,6 +10839,10 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
+	},
+/obj/item/trash/plate{
+	pixel_x = 3;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
@@ -11666,7 +11706,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_west)
 "Uc" = (
@@ -11773,7 +11813,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
 "Ut" = (
@@ -12413,7 +12453,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/docks_south_east)
 "WX" = (
@@ -12782,6 +12822,14 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
+"YF" = (
+/obj/random/dirt_75,
+/obj/item/trash/cigbutt{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/abandoned_propellant_depot/crew_quarters)
 "YG" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -12997,6 +13045,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/eva)
+"Zt" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/random,
+/obj/item/trash/popcorn{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_propellant_depot/crew_quarters)
 "Zv" = (
 /obj/structure/table/steel,
 /obj/machinery/alarm/east,
@@ -27915,6 +27972,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -27935,8 +27993,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -28686,6 +28743,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -28706,8 +28764,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -29202,24 +29259,24 @@ Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
-Zi
+kI
 Zi
 Wl
 Zi
 Zi
+kI
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -39486,7 +39543,7 @@ Ul
 KX
 Ki
 XD
-Wn
+gm
 cb
 Wn
 Ul
@@ -39800,10 +39857,10 @@ Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -40001,7 +40058,7 @@ En
 En
 En
 Ul
-Wn
+rk
 KX
 Ul
 Ue
@@ -40290,6 +40347,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -40310,9 +40368,8 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
-Zi
+sg
+sg
 Zi
 Zi
 Zi
@@ -41061,6 +41118,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -41081,9 +41139,8 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
-Zi
+sg
+sg
 Zi
 Zi
 Zi
@@ -41577,24 +41634,24 @@ Wl
 Zi
 Zi
 Wl
+kI
+Zi
+Zi
+kI
+Zi
+Zi
+kI
 Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -41854,7 +41911,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -42274,10 +42331,10 @@ Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -42793,7 +42850,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -43139,7 +43196,7 @@ Zi
 Wl
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -43564,7 +43621,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -43910,7 +43967,7 @@ mr
 Wl
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -44335,7 +44392,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -44681,7 +44738,7 @@ fN
 nY
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -45197,10 +45254,10 @@ Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -45620,7 +45677,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Wl
 Wl
@@ -45650,7 +45707,7 @@ WL
 VK
 AC
 yo
-Ki
+yj
 Ki
 gf
 Ul
@@ -45709,7 +45766,7 @@ eO
 Dq
 eG
 tb
-Zi
+sg
 Zi
 Zi
 Zi
@@ -46391,7 +46448,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -46421,7 +46478,7 @@ Kw
 qb
 xQ
 yo
-Wn
+Qg
 Wn
 Wn
 Ki
@@ -46480,7 +46537,7 @@ FG
 Kb
 sD
 tb
-Zi
+sg
 Zi
 Zi
 Zi
@@ -47162,7 +47219,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -47251,7 +47308,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -47671,10 +47728,10 @@ Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -48220,7 +48277,7 @@ gt
 uS
 Rk
 KJ
-Qb
+Zt
 uS
 JT
 Qx
@@ -48487,7 +48544,7 @@ Ki
 vz
 Ki
 Wn
-Ki
+Dc
 Ul
 qr
 sf
@@ -48536,7 +48593,7 @@ Zi
 Zi
 Zi
 Zi
-Zi
+sg
 Zi
 Zi
 Zi
@@ -48773,24 +48830,24 @@ Zi
 Zi
 Zi
 Zi
+kI
+Zi
+Zi
+kI
+Zi
+Zi
+kI
 Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -49285,6 +49342,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -49305,9 +49363,8 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
-Zi
+sg
+sg
 Zi
 Zi
 Zi
@@ -50056,6 +50113,7 @@ Zi
 Zi
 Zi
 Zi
+sg
 Zi
 Zi
 Zi
@@ -50076,9 +50134,8 @@ Zi
 Zi
 Zi
 Zi
-Zi
-Zi
-Zi
+sg
+sg
 Zi
 Zi
 Zi
@@ -50594,10 +50651,10 @@ Zi
 Zi
 Zi
 Zi
+kI
 Zi
 Zi
-Zi
-Zi
+kI
 Zi
 Zi
 Zi
@@ -51826,7 +51883,7 @@ MO
 PP
 wD
 wj
-Ki
+yj
 KX
 Ki
 Ul
@@ -52323,7 +52380,7 @@ mr
 ps
 KJ
 KJ
-KJ
+YF
 KJ
 wh
 CO
