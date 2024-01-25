@@ -3026,6 +3026,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"kO" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_west,
+/turf/template_noop,
+/area/space)
 "kP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3413,10 +3417,6 @@
 "mB" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_propellant_depot/docks_south_east)
-"mD" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_west,
-/turf/template_noop,
-/area/space)
 "mF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair{
@@ -4036,6 +4036,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/greengrid,
 /area/abandoned_propellant_depot/reactor)
+"ph" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_east,
+/turf/template_noop,
+/area/space)
 "pi" = (
 /obj/item/towel/random{
 	pixel_x = -10;
@@ -5169,6 +5173,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
+"tt" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_east,
+/turf/template_noop,
+/area/space)
 "tu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6229,10 +6237,6 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/gym)
-"xc" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_west,
-/turf/template_noop,
-/area/space)
 "xf" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable{
@@ -6441,10 +6445,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/mess)
-"xM" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/south_east,
-/turf/template_noop,
-/area/space)
 "xN" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_propellant_depot/medbay)
@@ -10429,10 +10429,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
-"MT" = (
-/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_east,
-/turf/template_noop,
-/area/space)
 "MV" = (
 /obj/structure/closet/cabinet,
 /obj/random/gloves,
@@ -10576,6 +10572,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/eva)
+"Nz" = (
+/obj/effect/shuttle_landmark/abandoned_propellant_depot/space/north_west,
+/turf/template_noop,
+/area/space)
 "NC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/airless,
@@ -11325,9 +11325,12 @@
 /area/abandoned_propellant_depot/hallways_north)
 "Qr" = (
 /obj/structure/bed/padded,
-/obj/item/bedsheet/random,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
+	},
+/obj/item/towel/random{
+	pixel_x = -3;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
@@ -33934,7 +33937,7 @@ Zi
 Zi
 Zi
 Zi
-mD
+kO
 Zi
 Zi
 Zi
@@ -35136,7 +35139,7 @@ Zi
 Zi
 Zi
 Zi
-xc
+Nz
 Zi
 Zi
 Zi
@@ -54411,7 +54414,7 @@ Zi
 Zi
 Zi
 Zi
-MT
+tt
 Zi
 Zi
 Zi
@@ -57323,7 +57326,7 @@ Zi
 Zi
 Zi
 Zi
-xM
+ph
 Zi
 Zi
 Zi
