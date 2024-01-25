@@ -1657,14 +1657,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/robot_parts/r_arm{
-	pixel_y = 10;
-	pixel_x = 10
-	},
-/obj/item/device/assembly/prox_sensor{
-	pixel_x = -9;
-	pixel_y = -7
+/mob/living/bot/farmbot{
+	req_one_access = list()
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
@@ -2147,15 +2141,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
-"esB" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freebooter_shuttle)
 "etF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/west,
@@ -2755,13 +2740,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "ggq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "ggz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3354,6 +3340,20 @@
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
+"hQh" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	layer = 2.71;
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/ship/freebooter_ship/exterior)
 "hQA" = (
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -3376,10 +3376,11 @@
 /area/ship/freebooter_ship/pod7)
 "hRt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
 "hUF" = (
 /obj/structure/cable{
@@ -4781,12 +4782,13 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "llB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#E14644"
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
 	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "llD" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
@@ -7061,19 +7063,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
 "pZx" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 4
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#E14644"
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
+/area/shuttle/freebooter_shuttle)
 "pZI" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/bed/stool/chair/office/light{
@@ -45036,7 +45032,7 @@ vxO
 mbg
 bWt
 xHX
-esB
+llB
 amu
 amu
 elW
@@ -46577,11 +46573,11 @@ sum
 uDc
 bEH
 qnz
-hRt
 ggq
+hRt
 aSb
 kVa
-llB
+pZx
 lKV
 cei
 vOL
@@ -47095,7 +47091,7 @@ rfz
 rfz
 lCe
 rfz
-pZx
+hQh
 vTv
 tOu
 xRX
