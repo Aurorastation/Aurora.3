@@ -2547,7 +2547,7 @@
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 4;
-	id = "scarab_washroom";
+	id = "freebooter_brig";
 	name = "Phoron Storage Bolt Control";
 	pixel_x = 24;
 	pixel_y = 4;
@@ -3250,6 +3250,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/ship/freebooter_ship/bridge)
+"hBa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/ship/freebooter_ship/pod8)
 "hFX" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -3377,6 +3386,13 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
+"hTr" = (
+/obj/effect/floor_decal/corner{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/pod8)
 "hUF" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3429,7 +3445,8 @@
 "hZY" = (
 /obj/machinery/door/airlock/vault{
 	dir = 4;
-	name = "Phoron Storage Compartment"
+	name = "Phoron Storage Compartment";
+	id = "freebooter_brig"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
@@ -4082,6 +4099,33 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/engineering)
+"jRh" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/obj/structure/closet/crate/miningcart,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/reagent_containers/food/snacks/tastybread,
+/obj/item/reagent_containers/food/snacks/tastybread,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/potato,
+/obj/item/reagent_containers/food/snacks/grown/banana,
+/obj/item/reagent_containers/food/snacks/grown/banana,
+/obj/item/reagent_containers/food/snacks/grown/mushroom,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/pod8)
 "jSy" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
@@ -4835,13 +4879,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/freebooter_ship/pod1)
-"lnG" = (
-/obj/effect/floor_decal/corner{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/pod8)
 "loq" = (
 /obj/structure/grille/broken,
 /obj/structure/blocker/steel,
@@ -5447,15 +5484,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
-"mFp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/ship/freebooter_ship/pod8)
 "mGn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5677,33 +5705,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
-"niZ" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner{
-	dir = 10
-	},
-/obj/structure/closet/crate/miningcart,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/reagent_containers/food/snacks/tastybread,
-/obj/item/reagent_containers/food/snacks/tastybread,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/potato,
-/obj/item/reagent_containers/food/snacks/grown/banana,
-/obj/item/reagent_containers/food/snacks/grown/banana,
-/obj/item/reagent_containers/food/snacks/grown/mushroom,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/pod8)
 "nmL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -46114,7 +46115,7 @@ xRX
 uwT
 cgU
 hhQ
-mFp
+hBa
 hZY
 cgU
 uwT
@@ -46369,7 +46370,7 @@ hhA
 vOL
 xRX
 uwT
-niZ
+jRh
 onn
 uZC
 iok
@@ -46629,7 +46630,7 @@ uwT
 vMG
 hil
 uOr
-lnG
+hTr
 irq
 uwT
 vZW
